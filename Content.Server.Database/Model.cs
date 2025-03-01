@@ -102,6 +102,14 @@ namespace Content.Server.Database
                 .HasForeignKey(e => e.ProfileLoadoutGroupId)
                 .IsRequired();
 
+            // ADT SAI Custom start
+            modelBuilder.Entity<ExtraLoadoutData>()
+                .HasOne(x => x.RoleLoadout)
+                .WithMany(l => l.ExtraData)
+                .HasForeignKey(x => x.ProfileRoleLoadoutId)
+                .IsRequired();
+            // ADT SAI Custom end
+
             modelBuilder.Entity<Job>()
                 .HasIndex(j => j.ProfileId);
 
@@ -506,9 +514,17 @@ namespace Content.Server.Database
         public string RoleName { get; set; } = string.Empty;
 
         /// <summary>
+        /// Custom name of the role loadout if it supports it.
+        /// </summary>
+        [MaxLength(256)]
+        public string? EntityName { get; set; }
+
+        /// <summary>
         /// Store the saved loadout groups. These may get validated and removed when loaded at runtime.
         /// </summary>
         public List<ProfileLoadoutGroup> Groups { get; set; } = new();
+
+        public List<ExtraLoadoutData> ExtraData { get; set; } = new();
     }
 
     /// <summary>
@@ -558,6 +574,16 @@ namespace Content.Server.Database
          */
     }
 
+    // ADT SAI Custom start
+    public class ExtraLoadoutData
+    {
+        public int Id { get; set; }
+        public ProfileRoleLoadout RoleLoadout { get; set; } = null!;
+        public int ProfileRoleLoadoutId { get; set; }
+        public string Key { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+    }
+    // ADT SAI Custom end
     #endregion
 
     #region Languages (ADT)

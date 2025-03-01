@@ -88,6 +88,8 @@ public sealed class RadioSystem : EntitySystem
             return;
 
         var language = languageOverride ?? _language.GetCurrentLanguage(messageSource);
+        if (language.LanguageType is not Generic gen)
+            return;
 
         // var name = TryComp(messageSource, out VoiceMaskComponent? mask) && mask.Enabled
         //     ? mask.VoiceName
@@ -109,12 +111,12 @@ public sealed class RadioSystem : EntitySystem
             : message;
 
         // ADT Languages start
-        var languageEncodedContent = _language.ObfuscateMessage(messageSource, content, language);
+        var languageEncodedContent = _language.ObfuscateMessage(messageSource, content, gen.Replacement, gen.ObfuscateSyllables);
 
-        if (language.Color != null)
+        if (gen.Color != null)
         {
-            content = "[color=" + language.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(content) + "[/color]";
-            languageEncodedContent = "[color=" + language.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(languageEncodedContent) + "[/color]";
+            content = "[color=" + gen.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(content) + "[/color]";
+            languageEncodedContent = "[color=" + gen.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(languageEncodedContent) + "[/color]";
         }
         // ADT Languages end
 

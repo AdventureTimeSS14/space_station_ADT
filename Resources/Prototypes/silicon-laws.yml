@@ -21,6 +21,10 @@
   - Crewsimov2
   - Crewsimov3
   obeysTo: laws-owner-crew
+  # ADT SAI Custom start
+  roundstart: true
+  priority: -1
+  # ADT SAI Custom end
 
 # Corporate
 - type: siliconLaw
@@ -51,6 +55,7 @@
   - Corporate3
   - Corporate4
   obeysTo: laws-owner-station
+  roundstart: true  # ADT SAI Custom
 
 # NT Default
 - type: siliconLaw
@@ -81,6 +86,7 @@
   - NTDefault3
   - NTDefault4
   obeysTo: laws-owner-crew
+  roundstart: true  # ADT SAI Custom
 
 #Drone
 - type: siliconLaw
@@ -228,6 +234,7 @@
   - Commandment9
   - Commandment10
   obeysTo: laws-owner-crew
+  roundstart: true  # ADT SAI Custom
 
  # Paladin laws
 - type: siliconLaw
@@ -309,6 +316,7 @@
   - Efficiency2
   - Efficiency3
   obeysTo: laws-owner-station
+  roundstart: true  # ADT SAI Custom
 
  # Robocop laws
 - type: siliconLaw
@@ -487,7 +495,6 @@
   id: Nutimov5
   order: 5
   lawString: law-nutimov-5
-
 
 - type: siliconLawset
   id: NutimovLawset

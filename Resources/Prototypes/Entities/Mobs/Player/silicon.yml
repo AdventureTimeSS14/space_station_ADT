@@ -70,6 +70,10 @@
     canShuttle: false
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
+    # ADT Start
+    sound:
+      path: /Audio/ADT/Announcements/intercept.ogg
+    # ADT End
   - type: HolographicAvatar
     layerData:
     - sprite: Mobs/Silicon/station_ai.rsi
@@ -97,6 +101,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+  - type: ShowJobIcons
 
 # Ai
 - type: entity
@@ -314,11 +319,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
-    - state: base
-    - state: ai
+    # ADT SAI Custom start
+    - state: empty
+      map: ["enum.StationAiVisualState.Key"]
       shader: unshaded
+    - state: base
+  - type: StationAiCore
+  - type: Appearance
+    # # ADT SAI Custom end
 
 - type: entity
   id: PlayerStationAiEmpty
@@ -350,12 +360,14 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
-    - state: base
-    - state: ai_empty
-      map: ["unshaded"]
+    # ADT SAI Custom start
+    - state: empty
+      map: ["enum.StationAiVisualState.Key"]
       shader: unshaded
+    - state: base
+    # ADT SAI Custom end
   - type: Appearance
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
@@ -363,12 +375,12 @@
     messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: GenericVisualizer
-    visuals:
-      enum.StationAiVisualState.Key:
-        unshaded:
-          Empty: { state: ai_empty }
-          Occupied: { state: ai }
+  # - type: GenericVisualizer # ADT SAI Custom commented
+  #   visuals:
+  #     enum.StationAiVisualState.Key:
+  #       unshaded:
+  #         Empty: { state: "0" }
+  #         #Occupied: { state: ai }
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -397,18 +409,20 @@
     containerId: station_ai_mind_slot
     job: StationAi
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
-    - state: base
-    - state: ai
+    # ADT SAI Custom start
+    - state: empty
+      map: ["enum.StationAiVisualState.Key"]
       shader: unshaded
+    - state: base
+    # ADT SAI Custom end
 
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
   parent: PositronicBrain
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
@@ -483,8 +497,7 @@
   id: StationAiHolo
   name: AI eye
   description: The AI's viewer.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: NoFTL
   - type: WarpPoint
@@ -505,8 +518,7 @@
   id: StationAiHoloLocal
   name: AI hologram
   description: A holographic representation of an AI.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Transform
     anchored: true
@@ -531,7 +543,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - MMIFilled
+      - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:

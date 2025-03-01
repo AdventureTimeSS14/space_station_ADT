@@ -1,5 +1,5 @@
-chat-manager-send-collective-mind-chat-wrap-message = {$channel}: {$message}
-chat-manager-send-collective-mind-chat-wrap-message-rank = {$channel}: [bold]{$rank}[/bold]: {$message}
-chat-manager-send-collective-mind-chat-wrap-message-name = {$channel}: {$source}: {$message}
-chat-manager-send-collective-mind-chat-wrap-message-rank-name = {$channel}: {$source} [bold]{$rank}[/bold]: {$message}
-chat-manager-send-collective-mind-chat-wrap-message-admin = {$channel}: {$source} [bold]{$rank}[/bold]: {$message}
+chat-manager-send-collective-mind-chat-wrap-message = [tfont="{ $fontType }" size={ $fontSize } defaultFont={ $defaultFont } defaultSize={ $defaultSize } ]{$channel}: {$message}[/tfont]
+chat-manager-send-collective-mind-chat-wrap-message-rank = [tfont="{ $fontType }" size={ $fontSize } defaultFont={ $defaultFont } defaultSize={ $defaultSize } ]{$channel}: {$rank}: {$message}[/tfont]
+chat-manager-send-collective-mind-chat-wrap-message-name = [tfont="{ $fontType }" size={ $fontSize } defaultFont={ $defaultFont } defaultSize={ $defaultSize } ]{$channel}: {$source}: {$message}[/tfont]
+chat-manager-send-collective-mind-chat-wrap-message-rank-name = [tfont="{ $fontType }" size={ $fontSize } defaultFont={ $defaultFont } defaultSize={ $defaultSize } ]{$channel}: {$source} {$rank}: {$message}[/tfont]
+chat-manager-send-collective-mind-chat-wrap-message-admin = [tfont="{ $fontType }" size={ $fontSize } defaultFont={ $defaultFont } defaultSize={ $defaultSize } ]{$channel}: {$source} {$rank}: {$message}[/tfont]

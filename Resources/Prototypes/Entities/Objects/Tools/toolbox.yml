@@ -14,6 +14,11 @@
     maxItemSize: Normal
     grid:
     - 0,0,6,3
+    # ADT Start
+    storageInsertSound:
+      path: /Audio/ADT/Entities/toolbox_rustle.ogg
+    storageOpenSound: /Audio/ADT/Entities/toolbox_open.ogg
+    # ADT End
   - type: Item
     size: Ginormous
   - type: MeleeWeapon

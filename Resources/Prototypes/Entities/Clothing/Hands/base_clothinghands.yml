@@ -7,6 +7,10 @@
     state: icon
   - type: Clothing
     slots: [gloves]
+    # ADT Start
+    equipSound:
+      path: /Audio/ADT/Entities/glove_equip.ogg
+    # ADT End
   - type: Food
     requiresSpecialDigestion: true
   - type: Item

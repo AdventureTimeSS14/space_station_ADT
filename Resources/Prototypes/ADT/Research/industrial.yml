@@ -37,6 +37,7 @@
   recipeUnlocks:
     - ADTModsuitPlateMining
     - ADTModsuitPlateEngineering
+    - ADTModsuitPlateCosmohonk
     - ADTModsuitPlateAtmospheric
   technologyPrerequisites:
     - ADTModsuitBase
@@ -59,6 +60,7 @@
     - ADTModsuitModStorage
     - ADTModsuitModMagboot
     - ADTModsuitModJetpack
+    - ADTModsuitModNightVision
     - ADTModsuitModDrill
   technologyPrerequisites:
     - ADTIndustrialMODsuit

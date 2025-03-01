@@ -47,6 +47,8 @@ public abstract partial class SharedVirtualItemSystem : EntitySystem    // ADT G
 
         SubscribeLocalEvent<VirtualItemComponent, BeforeRangedInteractEvent>(OnBeforeRangedInteract);
         SubscribeLocalEvent<VirtualItemComponent, GettingInteractedWithAttemptEvent>(OnGettingInteractedWithAttemptEvent);
+
+        SubscribeLocalEvent<VirtualItemComponent, GetUsedEntityEvent>(OnGetUsedEntity);
     }
 
     /// <summary>
@@ -80,6 +82,23 @@ public abstract partial class SharedVirtualItemSystem : EntitySystem    // ADT G
     {
         // No interactions with a virtual item, please.
         args.Cancelled = true;
+    }
+
+    private void OnGetUsedEntity(Entity<VirtualItemComponent> ent, ref GetUsedEntityEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // if the user is holding the real item the virtual item points to,
+        // we allow them to use it in the interaction
+        foreach (var hand in _handsSystem.EnumerateHands(args.User))
+        {
+            if (hand.HeldEntity == ent.Comp.BlockingEntity)
+            {
+                args.Used = ent.Comp.BlockingEntity;
+                return;
+            }
+        }
     }
 
     #region Hands
