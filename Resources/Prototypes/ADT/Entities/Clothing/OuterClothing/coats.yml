@@ -254,3 +254,21 @@
     state: icon-open
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLabPathologist_alt] # ADT-fix-senior-and-patholog-labcoat
+  id: ADTClothingOuterCoatLabPathologistOpened_alt
+  name: pathologist's lab coat
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabPathologist_alt
+  name: pathologist's lab coat
+  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist_alt.rsi
+    state: icon-open
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist_alt.rsi
+
