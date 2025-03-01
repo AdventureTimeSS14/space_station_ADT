@@ -213,6 +213,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
     }
 
+    // ADT SAI Custom start
     public void ApplyLoadoutExtras(EntityUid uid, RoleLoadout loadout)
     {
         if (loadout.ExtraData.Count <= 0)
@@ -221,4 +222,5 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         var ev = new ApplyLoadoutExtrasEvent(uid, loadout.ExtraData);
         RaiseLocalEvent(uid, ref ev);
     }
+    // ADT SAI Custom end
 }

@@ -1219,6 +1219,7 @@ namespace Content.Client.Lobby.UI
             UpdateJobPriorities();
         }
 
+        // ADT SAI Custom start
         private void OpenLoadoutOverride(JobPrototype? jobProto, RoleLoadout roleLoadout, string windowName)
         {
             _loadoutWindow?.Dispose();
@@ -1258,6 +1259,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateJobPriorities();
         }
+        // ADT SAI Custom end
 
         private void OnFlavorTextChange(string content)
         {
