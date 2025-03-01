@@ -75,7 +75,6 @@
   - BlueShoes
   - MedicalWinterBoots
 
-
 - type: loadoutGroup
   id: ADTMedicalBelt
   name: loadout-group-medical-belt-adt
