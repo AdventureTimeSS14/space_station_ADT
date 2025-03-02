@@ -768,7 +768,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 if (!item.Condition(listener, source, EntityManager))
                     condition = false;
             }
-            if (!condition)
+            if (!condition && !ignoreLanguage)
                 continue;
 
             var entRange = MessageRangeCheck(session, data, range);
