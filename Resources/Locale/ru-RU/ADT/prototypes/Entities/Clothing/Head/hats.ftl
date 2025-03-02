@@ -20,7 +20,7 @@ ent-ADTClothingHeadHatsBeretSupply = берет отдела снабжения
 ent-ADTClothingHeadHatsBeretAtmos = берет атмосферного техника
     .desc = Голубой берет с вышитой эмблемой инжерного отдела. Пахнет фрезоном.
 
-ent-ADTClothingHeadHatBeretСE = берет старшего инженера
+ent-ADTClothingHeadHatBeretCEngineer = берет старшего инженера
     .desc = Белый берет с эмблемой инженерного отдела. Не даст радиации и плохим шуткам проникнуть в вашу голову.
 
 ent-ADTClothingHeadHatsBeretHOP = берет главы персонала
