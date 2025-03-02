@@ -28,7 +28,10 @@ public sealed partial class ChatSystem
                 continue;
 
             if (ghostHearing.HasComponent(playerEntity))
+            {
                 recipients.Add(player, new ICChatRecipientData(-1, true));
+                continue;
+            }
 
             var entClearRange = clearRange;
             var entMuffledRange = muffledRange;
