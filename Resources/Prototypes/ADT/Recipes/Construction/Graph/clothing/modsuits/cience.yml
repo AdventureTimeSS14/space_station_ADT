@@ -1,16 +1,16 @@
 ﻿- type: constructionGraph
-  id: ADTModsuitScience
+  id: ADTModsuitcience
   start: start
   graph:
     - node: start
       edges:
-        - to: adtmodsuitscience
+        - to: adtmodsuitcience
           steps:
             - tag: ADTModsuitPlateCience
               name: science MOD plate
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
-                state: science
+                state: cience
               doAfter: 2
             - tag: ADTModsuitAssembledPart
               name: MOD core
@@ -18,5 +18,5 @@
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: modcore8
               doAfter: 2
-    - node: adtmodsuitscience
+    - node: adtmodsuitcience
       entity: ADTClothingModsuitBackScience

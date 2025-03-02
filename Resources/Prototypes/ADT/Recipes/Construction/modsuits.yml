@@ -78,10 +78,10 @@
 
 - type: construction
   name: science MOD
-  id: ADTModsuitScience
-  graph: ADTModsuitScience
+  id: ADTModsuitcience
+  graph: ADTModsuitcience
   startNode: start
-  targetNode: adtmodsuitscience
+  targetNode: adtmodsuitcience
   category: construction-category-clothing
   description: Modular Outerwear Device, AKA MODsuit.
   icon: { sprite: ADT/Clothing/Back/Modsuit/cience.rsi, state: icon }
