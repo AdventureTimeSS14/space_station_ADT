@@ -614,3 +614,5 @@ FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
 WeaponSubMachineGunVector: null
 WeaponSubMachineGunVectorRubber: null
 MagazineBoxCaselessRifleBig: null
+
+PlayerStationAiPilgrim: PlayerStationAi
