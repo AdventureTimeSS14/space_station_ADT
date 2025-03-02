@@ -20,10 +20,6 @@
             - material: FloorCarpetBlack
               amount: 2
               doAfter: 1
-              name: black carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-black
         - to: CurtainsBlue
           completed:
             - !type:SnapToGrid { }
@@ -31,10 +27,6 @@
             - material: FloorCarpetBlue
               amount: 2
               doAfter: 1
-              name: blue carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-blue
         - to: CurtainsCyan
           completed:
             - !type:SnapToGrid { }
@@ -42,10 +34,6 @@
             - material: FloorCarpetCyan
               amount: 2
               doAfter: 1
-              name: cyan carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-cyan
         - to: CurtainsGreen
           completed:
             - !type:SnapToGrid { }
@@ -53,10 +41,6 @@
             - material: FloorCarpetGreen
               amount: 2
               doAfter: 1
-              name: green carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-green
         - to: CurtainsOrange
           completed:
             - !type:SnapToGrid { }
@@ -64,10 +48,6 @@
             - material: FloorCarpetOrange
               amount: 2
               doAfter: 1
-              name: orange carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-orange
         - to: CurtainsPink
           completed:
             - !type:SnapToGrid { }
@@ -75,10 +55,6 @@
             - material: FloorCarpetPink
               amount: 2
               doAfter: 1
-              name: pink carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-pink
         - to: CurtainsPurple
           completed:
             - !type:SnapToGrid { }
@@ -86,10 +62,6 @@
             - material: FloorCarpetPurple
               amount: 2
               doAfter: 1
-              name: purple carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-purple
         - to: CurtainsRed
           completed:
             - !type:SnapToGrid { }
@@ -97,10 +69,6 @@
             - material: FloorCarpetRed
               amount: 2
               doAfter: 1
-              name: red carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-red
         - to: CurtainsWhite
           completed:
             - !type:SnapToGrid { }
@@ -108,10 +76,6 @@
             - material: FloorCarpetWhite
               amount: 2
               doAfter: 1
-              name: white carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-white
 
     - node: Curtains
       entity: HospitalCurtains
