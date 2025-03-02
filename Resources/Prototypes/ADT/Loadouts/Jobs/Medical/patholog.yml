@@ -37,7 +37,7 @@
     outerClothing: ADTClothingOuterApronPathologist
 
 - type: loadout
-  id: PathologWindbreakerAlt
+  id: ADTPathologWindbreakerAlt
   equipment:
     outerClothing: ADTClothingOuterCoatLabPathologist_alt
 
