@@ -16,6 +16,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Corvax.CCCVars;
 using Robust.Client.Audio.Effects;
 using Robust.Shared.Audio.Effects;
+using Content.Shared.ADT.Language;
 
 namespace Content.Client.ADT.SpeechBarks;
 
@@ -84,6 +85,9 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
             return;
 
         if (ev.Message == null)
+            return;
+
+        if (HasComp<DeafTraitComponent>(_player.LocalEntity))
             return;
 
         if (ev.Source != null)

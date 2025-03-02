@@ -60,6 +60,10 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # ADT-Tweak-Start
+  - AcousticGuitarInstrument
+  - HarmonicaInstrument
+  # ADT-Tweak-End
 
 - type: loadoutGroup
   id: Glasses

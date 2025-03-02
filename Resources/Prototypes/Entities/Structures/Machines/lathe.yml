@@ -547,8 +547,16 @@
     - Scarves
     - Carpets
     - Bedsheets
+    # ADT tweak start
+    - ADTBackpacks
+    - ADTSatchels
+    - ADTDuffel
+    # ADT tweak end
   - type: EmagLatheRecipes
     emagStaticPacks:
+    # ADT tweak start
+    - ADTSyndicateDuffel
+    # ADT tweak end
     - ClothingCentComm
     - ClothingSyndie
   - type: MaterialStorage

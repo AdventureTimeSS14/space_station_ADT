@@ -1,0 +1,41 @@
+- type: latheRecipePack
+  id: ADTDuffel
+  recipes:
+  - ADTClothingBackpackDuffel
+  - ADTClothingBackpackDuffelSecurity
+  - ADTClothingBackpackDuffelScience
+  - ADTClothingBackpackDuffelMedical
+  - ADTClothingBackpackDuffelCargo
+  - ADTClothingBackpackDuffelEngineering
+  - ADTClothingBackpackDuffelClown
+  - ADTClothingBackpackDuffelMime
+  - ADTClothingBackpackDuffelDurathead
+
+- type: latheRecipePack
+  id: ADTSatchels
+  recipes:
+  - ADTClothingBackpackSatchel
+  - ADTClothingBackpackSatchelSecurity
+  - ADTClothingBackpackSatchelScience
+  - ADTClothingBackpackSatchelCargo
+  - ADTClothingBackpackSatchelMedical
+  - ADTClothingBackpackSatchelEngineering
+  - ADTClothingBackpackSatchelClown
+  - ADTClothingBackpackSatchelMime
+
+- type: latheRecipePack
+  id: ADTBackpacks
+  recipes:
+  - ADTClothingBackpack
+  - ADTClothingBackpackSecurity
+  - ADTClothingBackpackScience
+  - ADTClothingBackpackCargo
+  - ADTClothingBackpackMedical
+  - ADTClothingBackpackEngineering
+  - ADTClothingBackpackClown
+  - ADTClothingBackpackMime
+
+- type: latheRecipePack
+  id: ADTSyndicateDuffel
+  recipes:
+  - ADTClothingBackpackDuffelSyndicate

@@ -27,6 +27,13 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     /// </summary>
     public string? EntityName;
 
+    // ADT SAI Custom start
+    /// <summary>
+    /// Extra data for this loadout.
+    /// </summary>
+    public Dictionary<string, string> ExtraData = new();
+    // ADT SAI Custom end
+
     /*
      * Loadout-specific data used for validation.
      */
@@ -46,6 +53,12 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         {
             weh.SelectedLoadouts.Add(selected.Key, new List<Loadout>(selected.Value));
         }
+        // ADT SAI Custom start
+        foreach (var extra in ExtraData)
+        {
+            weh.ExtraData.Add(extra.Key, extra.Value);
+        }
+        // ADT SAI Custom end
 
         weh.EntityName = EntityName;
 
@@ -187,6 +200,27 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         {
             SelectedLoadouts.Remove(value);
         }
+
+        // ADT SAI Custom start
+        // Extras validation (we don't want assists to have SAI data, right?)
+        if (!protoManager.TryIndex(Role, out var role) || role.AllowedExtras == null)
+        {
+            ExtraData.Clear();
+            return;
+        }
+
+        List<string> toRemove = new();
+        foreach (var extra in ExtraData)
+        {
+            if (role.AllowedExtras.Contains(extra.Key))
+                continue;
+            toRemove.Add(extra.Key);
+        }
+        foreach (var key in toRemove)
+        {
+            ExtraData.Remove(key);
+        }
+        // ADT SAI Custom end
     }
 
     private void Apply(LoadoutPrototype loadoutProto)
@@ -206,7 +240,10 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             return;
 
         if (force)
+        {
             SelectedLoadouts.Clear();
+            ExtraData.Clear();  // ADT SAI Custom
+        }
 
         var collection = IoCManager.Instance!;
         var roleProto = protoManager.Index(Role);
@@ -368,6 +405,11 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 return false;
             }
         }
+
+        // ADT SAI Custom start
+        if (!ExtraData.SequenceEqual(other.ExtraData))
+            return false;
+        // ADT SAI Custom end
 
         return true;
     }

@@ -60,4 +60,11 @@ public sealed class ADTCCVars
     */
     public static readonly CVarDef<bool> OfferModeIndicatorsPointShow =
         CVarDef.Create("hud.offer_mode_indicators_point_show", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /*
+    * Language
+    */
+    public static readonly CVarDef<bool> EnableLanguageFonts =
+        CVarDef.Create("lang.enable_fonts", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
 }
