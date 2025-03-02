@@ -484,6 +484,9 @@
       BorgTalk: Speak
       Dwarf: Speak
       CintaTaj: Speak
+      SiliconCollectiveMind: Speak
+  - type: CollectiveMindRank
+    rankName: collective-mind-sai-rank
   # End-ADT-Tweak
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
