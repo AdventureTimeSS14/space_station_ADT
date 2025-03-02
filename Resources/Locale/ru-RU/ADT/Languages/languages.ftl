@@ -122,38 +122,20 @@ language-Clownish-description = Клоунский язык! Хонк!
 language-Scratches-name = Скретчи
 language-Scratches-description = Язык резоми, состоящий из различных хрипов, тресков и писков, которые нетренированным ухом часто воспринимается, как какофония.
 
-language-GalacticCommon = Общ.
-language-Bubblish = Пузырчатый
-language-RootSpeak = Песнь корней
-language-CodeSpeak = Кодовый
-language-Nekomimetic = Неко
-language-Draconic = Синта'унати
-language-Canilunzt = Канилунц
-language-SikTaj = Сик'тайр
-language-Nian = Ткачий
-language-Fire = Огненный
-language-SolCommon = Солнечный
-language-Cat = Кошачий
-language-Dog = Собачий
-language-Mothroach = Молиный
-language-Xeno = Ксено
-language-RobotTalk = Троичный
-language-Monkey = Обезьяний
-language-Bee = Пчелиный
-language-Mouse = Мышиный
-language-Drask = Орлуум
-# These ones are half-assed because these creatures are almost never played as.
-language-Chicken = Animal chicken
-language-Duck = Animal duck
-language-Cow = Animal cow
-language-Sheep = Animal sheep
-language-Kangaroo = Animal kangaroo
-language-Pig = Animal pig
-language-Moffic = Паучий
-language-BorgTalk = Двоичный
-language-Urs = Рыкрур
-language-Arkane = Каукиттен
-language-Shadekin = Миар
-language-Dev = Разраб
-language-Dwarf = Шахт
-language-CintaTaj = Синта’тайр
+language-SignLanguage-name = Язык жестов
+language-SignLanguage-description = Язык, что позволяет глухим представителям всевозможных рас контактировать между собой.
+
+language-DionaCollectiveMind-name = Колл. разум дион
+language-DionaCollectiveMind-description = Коллективный разум, с которым с рождения связаны все дионы.
+
+language-CarpCollectiveMind-name = Колл. разум карпов
+language-CarpCollectiveMind-description = Коллективный разум карпов, космических хищников и отпрысков дракона.
+
+language-XenoCollectiveMind-name = Колл. разум ксено
+language-XenoCollectiveMind-description = Коллективный разум ксеноморфов.
+
+language-SiliconCollectiveMind-name = Сеть киборгов NT
+language-SiliconCollectiveMind-description = Канал связи, предназначенный для передачи данных между позитрониками.
+
+language-ChangelingCollectiveMind-name = Разум улья
+language-ChangelingCollectiveMind-description = Коллективный разум генокрадов, рождённых в одном улье.

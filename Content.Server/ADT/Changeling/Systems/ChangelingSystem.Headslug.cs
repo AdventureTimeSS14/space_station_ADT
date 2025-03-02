@@ -113,10 +113,10 @@ public sealed partial class ChangelingSystem
         var ling = EnsureComp<ChangelingComponent>(monke);
 
         EntityUid? lesserFormActionEntity = null;
-        _action.AddAction(monke, ref lesserFormActionEntity, "ActionLingLesserForm");
+        if (_action.AddAction(monke, ref lesserFormActionEntity, "ActionLingLesserForm"))
+            ling.BoughtActions.Add("ActionLingLesserForm", lesserFormActionEntity.Value);
         _action.SetToggled(lesserFormActionEntity, true);
 
-        ling.BoughtActions.Add(lesserFormActionEntity);
         ling.LesserFormActive = true;
         ling.LastResortUsed = true;
 

@@ -1,0 +1,11 @@
+- type: loadout
+  id: AcousticGuitarInstrument
+  storage:
+    back:
+    - AcousticGuitarInstrument
+
+- type: loadout
+  id: HarmonicaInstrument
+  storage:
+    back:
+    - HarmonicaInstrument

@@ -29,8 +29,9 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 16
+        Piercing: 14 #ADT tweak
+        # Blunt: 3 ADT tweak
+        # Heat: 16 ADT tweak
 
 - type: entity
   id: BulletLightRifleUranium

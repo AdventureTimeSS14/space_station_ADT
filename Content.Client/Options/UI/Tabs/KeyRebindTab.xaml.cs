@@ -215,7 +215,6 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.FocusLocalChat);
             AddButton(ContentKeyFunctions.FocusEmote);
             AddButton(ContentKeyFunctions.FocusWhisperChat);
-            AddButton(ContentKeyFunctions.FocusCollectiveMind); // ADT-CollectiveMind-Tweak
             AddButton(ContentKeyFunctions.FocusRadio);
             AddButton(ContentKeyFunctions.FocusLOOC);
             AddButton(ContentKeyFunctions.FocusOOC);

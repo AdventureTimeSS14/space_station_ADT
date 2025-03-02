@@ -48,6 +48,12 @@
   id: JobStationAi
   nameDataset: NamesAI
   canCustomizeName: true
+  # ADT SAI Custom start
+  allowedExtras:
+  - ai-screen
+  - ai-lawset
+  - ai-name
+  # ADT SAI Custom end
 
 # Civilian
 - type: roleLoadout
