@@ -42,10 +42,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 8 minutes
-      volume: 1.32
+      # 6 minutes
+      volume: 0.99
       moles:
-        - 0.541564070 # oxygen
+        - 0.4061730525 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -56,11 +56,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 8 minutes
-      volume: 1.32
+      # 6 minutes
+      volume: 0.99
       moles:
         - 0 # oxygen
-        - 0.541564070 # nitrogen
+        - 0.4061730525 # nitrogen
       temperature: 293.15
 
 
@@ -72,10 +72,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 18 minutes
-      volume: 3
+      # 13.5 minutes
+      volume: 2.25
       moles:
-        - 1.230827430 # oxygen
+        - 0.9231205725 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -86,11 +86,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 18 minutes
-      volume: 3
+      # 13.5 minutes
+      volume: 2.25
       moles:
         - 0 # oxygen
-        - 1.230827430 # nitrogen
+        - 0.9231205725 # nitrogen
       temperature: 293.15
 
 
@@ -102,10 +102,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 30 minutes
-      volume: 5
+      # 22.5 minutes
+      volume: 3.75
       moles:
-        - 2.051379050 # oxygen
+        - 1.5385342875 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -116,11 +116,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 30 minutes
-      volume: 5
+      # 22.5 minutes
+      volume: 3.75
       moles:
         - 0 # oxygen
-        - 2.051379050 # nitrogen
+        - 1.5385342875 # nitrogen
       temperature: 293.15
 
 - type: entity
@@ -153,12 +153,12 @@
   - type: GasTank
     outputPressure: 101.3
     air:
-      # 6 minutes due to output pressure
-      volume: 5
+      # 9 minutes due to output pressure
+      volume: 7.5
       moles:
-        - 0.451303391 # 22% oxygen
-        - 1.600075659 # 78% nitrogen
-        # 2.051379050       total
+        - 0.6769550865 # 22% oxygen
+        - 2.4001134885 # 78% nitrogen
+        # 3.077068575       total
       temperature: 293.15
 
 - type: entity
