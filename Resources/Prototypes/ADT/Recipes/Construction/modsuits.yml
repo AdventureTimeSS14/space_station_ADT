@@ -79,7 +79,7 @@
 - type: construction
   name: science MOD
   id: ADTModsuitСience
-  graph: ADTModsuitcience
+  graph: ADTModsuitСience
   startNode: start
   targetNode: adtmodsuitcience
   category: construction-category-clothing
