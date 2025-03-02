@@ -361,7 +361,7 @@
     - back
   - type: ClothingSpeedModifier
   - type: Construction
-    graph: ADTModsuitCience
+    graph: ADTModsuitcience
     node: adtmodsuitcience
   - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
     slots:
