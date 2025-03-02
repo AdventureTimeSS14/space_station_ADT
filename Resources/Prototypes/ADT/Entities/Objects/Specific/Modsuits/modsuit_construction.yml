@@ -139,10 +139,10 @@
 - type: entity
   parent: BaseModsuitCorePartItem
   id: ADTModsuitPlateCience
-  name: cience MOD plate
+  name: science MOD plate
   components:
   - type: Sprite
-    state: cience
+    state: science
   - type: Tag
     tags:
     - ADTModsuitPlateCience

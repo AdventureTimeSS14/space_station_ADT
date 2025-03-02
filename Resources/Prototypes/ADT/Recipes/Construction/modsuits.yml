@@ -84,5 +84,5 @@
   targetNode: adtmodsuitscience
   category: construction-category-clothing
   description: Modular Outerwear Device, AKA MODsuit.
-  icon: { sprite: ADT/Clothing/Back/Modsuit/cience.rsi, state: icon }
+  icon: { sprite: ADT/Clothing/Back/Modsuit/science.rsi, state: icon }
   objectType: Item

@@ -10,7 +10,7 @@
               name: science MOD plate
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
-                state: cience
+                state: science
               doAfter: 2
             - tag: ADTModsuitAssembledPart
               name: MOD core
