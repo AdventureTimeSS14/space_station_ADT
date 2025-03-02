@@ -42,8 +42,10 @@ public abstract partial class SharedStationAiSystem
     public void SetLoadoutExtraVisuals(EntityUid ent, Dictionary<string, string> data)
     {
         var screen = "Default";
-        if (data.TryGetValue(ExtraLoadoutScreenId, out screen))
-            _appearance.SetData(ent, StationAiCustomVisualState.Key, screen);
+        if (data.TryGetValue(ExtraLoadoutScreenId, out var customScreen))
+            screen = customScreen;
+
+        _appearance.SetData(ent, StationAiCustomVisualState.Key, screen);
 
         if (!data.TryGetValue(ExtraLoadoutNameId, out var name) || name == string.Empty)
             return;
