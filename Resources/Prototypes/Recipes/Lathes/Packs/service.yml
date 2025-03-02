@@ -3,6 +3,8 @@
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
+  - Mousetrap
+  - TrashBag
   - Bucket
   - DrinkMug
   - DrinkMugMetal

@@ -5,6 +5,7 @@
   recipes:
   - AppraisalTool
   - Pickaxe
+  - Flare
 
 - type: latheRecipePack
   id: CargoBoardsStatic
