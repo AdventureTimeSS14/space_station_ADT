@@ -78,7 +78,7 @@
 
 - type: construction
   name: science MOD
-  id: ADTModsuitcience
+  id: ADTModsuitСience
   graph: ADTModsuitcience
   startNode: start
   targetNode: adtmodsuitcience
