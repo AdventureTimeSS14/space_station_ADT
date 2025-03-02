@@ -75,7 +75,7 @@
       # 18 minutes
       volume: 3
       moles:
-        - 1.23082743 # oxygen
+        - 1.230827430 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -90,7 +90,7 @@
       volume: 3
       moles:
         - 0 # oxygen
-        - 1.23082743 # nitrogen
+        - 1.230827430 # nitrogen
       temperature: 293.15
 
 
