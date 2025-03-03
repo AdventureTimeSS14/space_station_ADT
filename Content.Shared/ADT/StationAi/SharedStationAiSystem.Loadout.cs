@@ -6,6 +6,7 @@ using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Verbs;
+using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -22,16 +23,30 @@ public abstract partial class SharedStationAiSystem
     private void InitializeLoadout()
     {
         SubscribeLocalEvent<StationAiBrainComponent, ApplyLoadoutExtrasEvent>(ApplyExtras);
+        SubscribeLocalEvent<StationAiBrainComponent, EntGotInsertedIntoContainerMessage>(OnBrainInsert);
         SubscribeLocalEvent<StationAiCoreComponent, ApplyLoadoutExtrasEvent>(ApplyCoreExtras);
     }
 
     private void ApplyExtras(Entity<StationAiBrainComponent> ent, ref ApplyLoadoutExtrasEvent args)
     {
+        if (!ent.Comp.AllowCustomization)
+            return;
         SetLoadoutExtraLawset(ent, args.Data);
-        if (!TryGetCore(ent.Owner, out var core))
+
+        if (args.Data.TryGetValue(ExtraLoadoutScreenId, out var screen))
+            ent.Comp.AiScreenProto = screen;
+
+        if (args.Data.TryGetValue(ExtraLoadoutNameId, out var name))
+            _metadata.SetEntityName(ent, name);
+
+    }
+
+    private void OnBrainInsert(Entity<StationAiBrainComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID != StationAiHolderComponent.Container)
             return;
 
-        RaiseLocalEvent(core, ref args);
+        _appearance.SetData(args.Container.Owner, StationAiCustomVisualState.Key, ent.Comp.AiScreenProto);
     }
 
     private void ApplyCoreExtras(Entity<StationAiCoreComponent> ent, ref ApplyLoadoutExtrasEvent args)
@@ -42,8 +57,10 @@ public abstract partial class SharedStationAiSystem
     public void SetLoadoutExtraVisuals(EntityUid ent, Dictionary<string, string> data)
     {
         var screen = "Default";
-        if (data.TryGetValue(ExtraLoadoutScreenId, out screen))
-            _appearance.SetData(ent, StationAiCustomVisualState.Key, screen);
+        if (data.TryGetValue(ExtraLoadoutScreenId, out var customScreen))
+            screen = customScreen;
+
+        _appearance.SetData(ent, StationAiCustomVisualState.Key, screen);
 
         if (!data.TryGetValue(ExtraLoadoutNameId, out var name) || name == string.Empty)
             return;
