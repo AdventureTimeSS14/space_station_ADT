@@ -258,6 +258,16 @@
     - /Audio/ADT/Voice/Slime/s_female_sigh.ogg
 
 - type: soundCollection
+  id: SlimePop
+  files:
+    - /Audio/ADT/Voice/Slime/s_pop.ogg
+
+- type: soundCollection
+  id: SlimeBubbles
+  files:
+    - /Audio/ADT/Voice/Slime/s_bubble.ogg
+
+- type: soundCollection
   id: MaleSlimeCry
   files:
     - /Audio/ADT/Voice/Slime/s_cry_male_1.ogg

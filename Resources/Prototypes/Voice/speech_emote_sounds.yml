@@ -171,6 +171,10 @@
     Hew:
       collection: Hew
     # ADT-Tweak Start
+    Bubbles:
+      collection: SlimeBubbles
+    Pop:
+      collection: SlimePop
     Sigh:
       collection: MaleSlimeSigh
     Crying:
@@ -215,6 +219,10 @@
     Hew:
       collection: Hew
     # ADT-Tweak Start
+    Bubbles:
+      collection: SlimeBubbles
+    Pop:
+      collection: SlimePop
     Sigh:
       collection: FemaleSlimeSigh
     Crying:
