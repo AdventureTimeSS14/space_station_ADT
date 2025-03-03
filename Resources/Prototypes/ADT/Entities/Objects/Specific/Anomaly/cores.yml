@@ -23,3 +23,29 @@
     energy: 2.0
     color: "#FFFE42"
     castShadows: false
+
+- type: entity
+  parent: BaseAnomalyCore
+  id: ADTAnomalyCoreStatic
+  suffix: Static
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/Cores/static_core.rsi
+  - type: PointLight
+    radius: 1.0
+    energy: 1.5
+    color: "#ffffff"
+    castShadows: false
+
+- type: entity
+  parent: BaseAnomalyInertCore
+  id: ADTAnomalyCoreStaticInert
+  suffix: Static, Inert
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/Cores/static_core.rsi
+  - type: PointLight
+    radius: 1.0
+    energy: 1.5
+    color: "#ffffff"
+    castShadows: false
