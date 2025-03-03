@@ -56,11 +56,11 @@
   name: chat-emote-name-hiss
   category: Vocal
   whitelist:
+    requireAll: true
     components:
     - Vocal
     tags:
     - ADTCatEmotes
-    - ADTVoxEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -338,8 +338,11 @@
   icon: Interface/Emotes/sigh.png
   category: Vocal
   whitelist:
+    requireAll: true
     components:
     - Vocal
+    tags:
+    - ADTVoxEmotes
   blacklist:
     components:
     - BorgChassis
@@ -354,8 +357,11 @@
   icon: Interface/Emotes/sigh.png
   category: Vocal
   whitelist:
+    requireAll: true
     components:
     - Vocal
+    tags:
+    - ADTVoxEmotes
   blacklist:
     components:
     - BorgChassis
@@ -364,3 +370,17 @@
     - voxchitter
     - щебечет
 
+- type: emote
+  id: VoxHiss
+  name: chat-emote-name-hiss
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTVoxEmotes
+  icon: ADT/Interface/Emotes/Vocal/hiss.png
+  chatMessages: [шипит]
+  chatTriggers:
+    - hiss

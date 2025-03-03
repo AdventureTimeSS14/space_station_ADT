@@ -152,14 +152,6 @@
   sounds:
     Squish:
       collection: Squishes
-    Scream:
-      collection: MaleSlimeScreams
-    Laugh:
-      collection: MaleSlimeLaugh
-    Sneeze:
-      collection: MaleSlimeSneezes
-    Cough:
-      collection: MaleSlimeCoughs
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -174,20 +166,30 @@
       collection: Snores
     Honk:
       collection: BikeHorn
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    # ADT-Tweak Start
     Sigh:
       collection: MaleSlimeSigh
     Crying:
       collection: MaleSlimeCry
     Whistle:
       collection: SlimeWhistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
+    Scream:
+      collection: MaleSlimeScreams
+    Laugh:
+      collection: MaleSlimeLaugh
+    Sneeze:
+      collection: MaleSlimeSneezes
+    Cough:
+      collection: MaleSlimeCoughs
     Gasp:
       collection: MaleSlimeGasp
     DefaultDeathgasp:
       collection: MaleSlimeDeathGasp
+    # ADT-Tweak End
   params:
     variation: 0.125
 
@@ -196,14 +198,6 @@
   sounds:
     Squish:
       collection: Squishes
-    Scream:
-      collection: FemaleSlimeScreams
-    Laugh:
-      collection: FemaleSlimeLaugh
-    Sneeze:
-      collection: FemaleSlimeSneezes
-    Cough:
-      collection: FemaleSlimeCoughs
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -212,26 +206,36 @@
       collection: MonkeyScreeches
     RobotBeep:
       collection: RobotBeeps
-    Yawn:
-      collection: FemaleSlimeYawn
     Snore:
       collection: Snores
     Honk:
       collection: CluwneHorn
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    # ADT-Tweak Start
     Sigh:
       collection: FemaleSlimeSigh
     Crying:
       collection: FemaleSlimeCry
     Whistle:
       collection: SlimeWhistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
+    Scream:
+      collection: FemaleSlimeScreams
+    Laugh:
+      collection: FemaleSlimeLaugh
+    Sneeze:
+      collection: FemaleSlimeSneezes
+    Cough:
+      collection: FemaleSlimeCoughs
+    Yawn:
+      collection: FemaleSlimeYawn
     Gasp:
       collection: FeMaleSlimeGasp
     DefaultDeathgasp:
       collection: FemaleSlimeDeathGasp
+     # ADT-Tweak End
   params:
     variation: 0.125
 
@@ -263,7 +267,7 @@
       collection: VoxCoo
       params:
         volume: -7
-    Hiss:
+    VoxHiss:
       collection: VoxHiss
       params:
         volume: -5
