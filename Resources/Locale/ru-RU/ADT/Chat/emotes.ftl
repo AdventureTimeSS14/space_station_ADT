@@ -16,5 +16,10 @@ chat-emote-name-heck = захекать
 chat-emote-name-whine = поскулить
 chat-emote-name-bark = залаять
 chat-emote-name-spit = плюнуть
+chat-emote-name-coo = ворковать
+
 
 chat-emote-msg-spit = плюёт
+
+chat-emote-msg-coo = воркует
+

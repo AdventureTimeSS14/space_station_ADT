@@ -56,11 +56,11 @@
   name: chat-emote-name-hiss
   category: Vocal
   whitelist:
-    requireAll: true
     components:
     - Vocal
     tags:
     - ADTCatEmotes
+    - ADTVoxEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -329,3 +329,38 @@
     - харкнуло
     - харкает
     - делает харчок
+
+  #Vox
+
+- type: emote
+  id: Coo
+  name: chat-emote-name-coo
+  icon: Interface/Emotes/sigh.png
+  category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-coo"]
+  chatTriggers:
+    - coo
+    - воркует
+
+- type: emote
+  id: VoxChitter
+  name: chat-emote-name-chitter
+  icon: Interface/Emotes/sigh.png
+  category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-chitter"]
+  chatTriggers:
+    - voxchitter
+    - щебечет
+

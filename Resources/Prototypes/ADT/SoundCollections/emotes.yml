@@ -226,7 +226,7 @@
   - /Audio/ADT/Voice/Human/spit_1.ogg
   - /Audio/ADT/Voice/Human/spit_2.ogg
 
-# SlimesNew
+# Slimes
 - type: soundCollection
   id: SlimeWhistles
   files:
@@ -272,3 +272,26 @@
     - /Audio/ADT/Voice/Slime/s_cry_female_2.ogg
     - /Audio/ADT/Voice/Slime/s_cry_female_3.ogg
     - /Audio/ADT/Voice/Slime/s_cry_female_4.ogg
+
+# Vox
+- type: soundCollection
+  id: VoxHiss
+  files:
+    - /Audio/ADT/Voice/Vox/voxhiss.ogg
+
+- type: soundCollection
+  id: VoxChitter
+  files:
+    - /Audio/ADT/Voice/Vox/voxchitter1.ogg
+    - /Audio/ADT/Voice/Vox/voxchitter2.ogg
+
+- type: soundCollection
+  id: VoxCoo
+  files:
+    - /Audio/ADT/Voice/Vox/voxcoo1.ogg
+    - /Audio/ADT/Voice/Vox/voxcoo2.ogg
+
+- type: soundCollection
+  id: VoxCry
+  files:
+    - /Audio/ADT/Voice/Vox/voxcry.ogg
