@@ -175,7 +175,7 @@
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Modsuit/cience.rsi
+    sprite: ADT/Clothing/Head/Modsuit/science.rsi
     layers:
     - state: icon
     - state: icon-unshaded
