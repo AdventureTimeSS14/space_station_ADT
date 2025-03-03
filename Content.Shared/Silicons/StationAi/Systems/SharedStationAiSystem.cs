@@ -495,14 +495,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
         }
 
-        var brain = container.ContainedEntities[0];
-        if (_mind.TryGetMind(brain, out _, out var mind) && mind.Session != null)
-        {
-            // SetProfileData(entity, brain);
-            return;
-        }
-
-        //_appearance.SetData(entity.Owner, StationAiVisualState.Key, StationAiState.Occupied);
+        _appearance.SetData(entity.Owner, StationAiVisualState.Key, StationAiState.Occupied);
     }
 
 
