@@ -1,0 +1,55 @@
+- type: entity
+  id: ADTCartridgePistol9mmParabellum
+  name: cartridge (9 mm Parabellum)
+  description: 9 mm Parabellum cartridge
+  suffix: World War I, Germany
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletPistol9mmParabellum
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgePistol9mmParabellum
+
+- type: entity
+  id: ADTCartridgePistol10mmGerman
+  name: cartridge (10 mm German)
+  description: 10 mm German cartridge
+  suffix: World War I, Germany
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletPistol10mmGerman
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgePistol10mmGerman
+
+- type: entity
+  id: ADTCartridgePistol7mmBrowning
+  name: cartridge (7 mm Browning)
+  description: 7 mm Browning cartridge
+  suffix: World War I, France
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletPistol7mmBrowning
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgePistol7mmBrowning
+
+- type: entity
+  id: ADTCartridgePistol8mmFrench
+  name: cartridge (8 mm French)
+  description: 8 mm French cartridge
+  suffix: World War I, France
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletPistol8mmFrench
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgePistol8mmFrench
