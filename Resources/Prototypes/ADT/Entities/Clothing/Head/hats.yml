@@ -221,9 +221,9 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ADTClothingHeadHatBeretСE
-  name: blueshield officer's beret
-  description: A corporate blue beret with a blueshield officer's rank emblem.
+  id: ADTClothingHeadHatBeretCEngineer
+  name: central engineer's beret
+  description: A beret for different tasks.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/beret_ce.rsi

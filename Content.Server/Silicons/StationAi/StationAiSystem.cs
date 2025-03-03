@@ -158,7 +158,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (profile == null)
             return;
 
-        if (!profile.Loadouts.TryGetValue("StationAi", out var loadout))
+        if (!profile.Loadouts.TryGetValue("JobStationAi", out var loadout))
             return;
 
         SetLoadoutExtraLawset(brain, loadout.ExtraData);

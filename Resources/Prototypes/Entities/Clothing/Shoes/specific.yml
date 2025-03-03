@@ -324,8 +324,6 @@
       shoes:
       - state: equipped-FEET
         offset: "0, -0.02"
-      - state: equipped-FEET-reptilian # Corvax reptilian
-        offset: "0, -0.02"
   - type: Item
     size: Small
     sprite: Clothing/Shoes/Specific/large_clown.rsi

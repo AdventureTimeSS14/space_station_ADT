@@ -78,11 +78,11 @@
     spriteLayer: light
     clothingVisuals:
       head:
-      - state: equipped-head-light
+      - state: equipped-HELMET
   - type: Clothing
     clothingVisuals:
       head:
-      - state: equipped-head
+      - state: equipped-HELMET
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

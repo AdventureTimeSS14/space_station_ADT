@@ -125,9 +125,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/cience.rsi
+    sprite: ADT/Clothing/Hands/Gloves/Modsuit/science.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/cience.rsi
+    sprite: ADT/Clothing/Hands/Gloves/Modsuit/science.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
