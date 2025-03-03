@@ -28,10 +28,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 46.5 minutes ADT tweak
-      volume: 7.5 # ADT tweak
+      # 46.5 minutes 30->46.5 ADT tweak 
+      volume: 7.5 # 5->7.5 ADT tweak 
       moles:
-        - 3.077068575 # oxygen ADT tweak
+        - 3.077068575 # 2.051379050->3.077068575 oxygen ADT tweak 
       temperature: 293.15
 
 - type: entity
@@ -42,10 +42,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 6 minutes ADT tweak
-      volume: 0.99 # ADT tweak
+      # 6 minutes 4->6 ADT tweak
+      volume: 0.99 # 0.66->0.99 ADT tweak
       moles:
-        - 0.4061730525 # oxygen ADT tweak 
+        - 0.4061730525 # oxygen 0.270782035->0.4061730525 ADT tweak 
       temperature: 293.15
 
 - type: entity
@@ -56,11 +56,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 6 minutes ADT tweak
-      volume: 0.99 # ADT tweak
+      # 6 minutes 4->6 ADT tweak
+      volume: 0.99 # 0.66->0.99 ADT tweak
       moles:
         - 0 # oxygen
-        - 0.4061730525 # nitrogen ADT tweak
+        - 0.4061730525 # nitrogen 0.270782035->0.4061730525 ADT tweak
       temperature: 293.15
 
 
@@ -72,10 +72,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 13.5 minutes ADT tweak
-      volume: 2.25 # ADT tweak
+      # 13.5 minutes 9->13.5 ADT tweak
+      volume: 2.25 # 1.5->2.25 ADT tweak
       moles:
-        - 0.9231205725 # oxygen ADT tweak
+        - 0.9231205725 # oxygen 0.615413715->0.9231205725 ADT tweak
       temperature: 293.15
 
 - type: entity
@@ -86,11 +86,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 13.5 minutes ADT tweak
-      volume: 2.25 # ADT tweak
+      # 13.5 minutes 9->13.5 ADT tweak
+      volume: 2.25 # 1.5->2.25 ADT tweak
       moles:
         - 0 # oxygen
-        - 0.9231205725 # nitrogen ADT tweak
+        - 0.9231205725 # nitrogen 0.615413715->0.9231205725 ADT tweak
       temperature: 293.15
 
 
@@ -102,10 +102,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 22.5 minutes ADT tweak
-      volume: 3.75 # ADT tweak
+      # 22.5 minutes 15->22.5 ADT tweak
+      volume: 3.75 # 2.5->3.75 ADT tweak
       moles:
-        - 1.5385342875 # oxygen ADT tweak
+        - 1.5385342875 # oxygen 1.025689525->1.5385342875 ADT tweak
       temperature: 293.15
 
 - type: entity
@@ -116,11 +116,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 22.5 minutes ADT tweak
-      volume: 3.75 # ADT tweak
+      # 22.5 minutes 15->22.5 ADT tweak
+      volume: 3.75 # 2.5->3.75 ADT tweak
       moles:
         - 0 # oxygen
-        - 1.5385342875 # nitrogen ADT tweak
+        - 1.5385342875 # nitrogen 1.025689525->1.5385342875 ADT tweak
       temperature: 293.15
 
 - type: entity
@@ -131,18 +131,18 @@
   - type: GasTank
     outputPressure: 22.4
     air:
-      # 6 minutes ADT tweak
-      volume: 0.99 # ADT tweak
+      # 6 minutes 4->6 ADT tweak
+      volume: 0.99 # 0.66->0.99 ADT tweak
       moles:
-        - 0.4061730525 # 95% oxygen # ADT tweak
+        - 0.4061730525 # 95% oxygen 270782035->0.4061730525 ADT tweak
         - 0 # nitrogen
         - 0 # CO2
         - 0 # plasma
         - 0 # tritium
         - 0 # water vapor
         - 0 # ammonia
-        - 0.021377529 # 5% N2O # ADT tweak
-        # 0.4275505815       total ADT tweak
+        - 0.021377529 # 5% N2O 0.014251686->0.021377529 ADT tweak
+        # 0.4275505815       total 0.285033721->0.4275505815 ADT tweak
       temperature: 293.15
 
 - type: entity
@@ -153,12 +153,12 @@
   - type: GasTank
     outputPressure: 101.3
     air:
-      # 9 minutes due to output pressure ADT tweak
-      volume: 7.5 # ADT tweak
+      # 9 minutes due to output pressure 6->9 ADT tweak
+      volume: 7.5 # 5->7.5 ADT tweak
       moles:
-        - 0.6769550865 # 22% oxygen ADT tweak
-        - 2.4001134885 # 78% nitrogen ADT tweak
-        # 3.077068575       total ADT tweak
+        - 0.6769550865 # 22% oxygen 0.451303391->0.6769550865 ADT tweak
+        - 2.4001134885 # 78% nitrogen 1.600075659->2.4001134885 ADT tweak
+        # 3.077068575       total 2.051379050->3.077068575 ADT tweak
       temperature: 293.15
 
 - type: entity
@@ -169,11 +169,11 @@
   components:
   - type: GasTank
     air:
-      # 46.5 minutes ADT tweak
-      volume: 7.5 # ADT tweak
+      # 46.5 minutes 31->46.5 ADT tweak
+      volume: 7.5 # 5->7.5 ADT tweak
       moles:
         - 0           # oxygen not included
-        - 3.077068575 # nitrogen ADT tweak
+        - 3.077068575 # nitrogen 2.051379050->3.077068575 ADT tweak
       temperature: 293.15
 
 - type: entity
@@ -190,18 +190,18 @@
     #    30.3975   optimal output pressure
     outputPressure: 30.4
     air:
-      # only 33 minutes due to pressure ADT tweak
-      volume: 7.5 # ADT tweak
+      # only 33 minutes due to pressure 22->33 ADT tweak
+      volume: 7.5 # 5->7.5 ADT tweak
       moles:
-        - 2.1539480025 # 70% oxygen ADT tweak
+        - 2.1539480025 # 70% oxygen 1.435965335->2.1539480025 ADT tweak
         - 0 # nitrogen
         - 0 # CO2
         - 0 # plasma
         - 0 # tritium
         - 0 # water vapor
         - 0 # ammonia
-        - 0.9231205725 # 30% N2O ADT tweak
-        # 3.077068575       total ADT tweak
+        - 0.9231205725 # 30% N2O 0.615413715->0.9231205725 ADT tweak
+        # 3.077068575       total 2.051379050->3.077068575 ADT tweak
       temperature: 293.15
 
 - type: entity
@@ -213,11 +213,11 @@
   - type: GasTank
     outputPressure: 101.3
     air:
-      # 9 minutes of agony ADT tweak
-      volume: 7.5 # ADT tweak
+      # 9 minutes of agony 6->9 ADT tweak
+      volume: 7.5 # 5->7.5 ADT tweak
       moles:
         - 0           # oxygen
         - 0           # nitrogen
         - 0           # CO2
-        - 3.077068575 # plasma ADT tweak
+        - 3.077068575 # plasma 2.051379050->3.077068575 ADT tweak
       temperature: 293.15
