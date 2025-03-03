@@ -226,3 +226,12 @@
   - /Audio/ADT/Voice/Human/spit_1.ogg
   - /Audio/ADT/Voice/Human/spit_2.ogg
 
+# SlimesNew
+- type: soundCollection
+  id: SlimeWhistles
+  files:
+    - /Audio/ADT/Voice/Slime/s_whistle_1.ogg
+    - /Audio/ADT/Voice/Slime/s_whistle_2.ogg
+    - /Audio/ADT/Voice/Slime/s_whistle_3.ogg
+    - /Audio/ADT/Voice/Slime/s_whistle_4.ogg
+    - /Audio/ADT/Voice/Slime/slimewhistle.ogg

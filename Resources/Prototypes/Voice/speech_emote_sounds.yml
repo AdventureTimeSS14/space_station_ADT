@@ -179,7 +179,7 @@
     Crying:
       collection: MaleCry
     Whistle:
-      collection: Whistles
+      collection: SlimeWhistles
     Weh:
       collection: Weh
     Hew:
@@ -187,7 +187,7 @@
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
-      collection: MaleDeathGasp
+      collection: MaleSlimeDeathGasp
   params:
     variation: 0.125
 
@@ -223,7 +223,7 @@
     Crying:
       collection: FemaleCry
     Whistle:
-      collection: Whistles
+      collection: SlimeWhistles
     Weh:
       collection: Weh
     Hew:
@@ -231,7 +231,7 @@
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
-      collection: FemaleDeathGasp
+      collection: FemaleSlimeDeathGasp
   params:
     variation: 0.125
 
