@@ -62,6 +62,7 @@
   maxLimit: 1
   loadouts:
   - PathologWindbreaker
+  - ADTPathologWindbreakerAlt
   - PathologWintercoat
   - PathologApron
 
