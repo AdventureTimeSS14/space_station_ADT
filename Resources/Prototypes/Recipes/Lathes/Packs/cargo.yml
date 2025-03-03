@@ -5,7 +5,7 @@
   recipes:
   - AppraisalTool
   - Pickaxe
-  - Flare
+  - Flare  # ADT Tweak
 
 - type: latheRecipePack
   id: CargoBoardsStatic

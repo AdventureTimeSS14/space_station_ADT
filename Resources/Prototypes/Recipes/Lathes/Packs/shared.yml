@@ -18,7 +18,7 @@
 - type: latheRecipePack
   id: LightsStatic
   recipes:
-  - LightReplacer
+  - LightReplacer  # ADT Tweak
   - LightTube
   - LedLightTube
   - SodiumLightTube
