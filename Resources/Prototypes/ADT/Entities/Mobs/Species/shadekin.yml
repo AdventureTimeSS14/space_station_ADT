@@ -130,12 +130,18 @@
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "socks" ] #Sirena
+    - map: [ "shoes" ]
+
     - map: ["jumpsuit"]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+
+
     # ADT tweak start
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: [ "gloves" ]
-    - map: [ "shoes" ]
+
+
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
@@ -147,11 +153,11 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -203,6 +209,11 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: shoes
+      back:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: back
       gloves:
         sizeMaps:
           32:
@@ -233,6 +244,7 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: socks
+
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -244,6 +256,11 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: shoes
+      back:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: back
       gloves:
         sizeMaps:
           32:
@@ -274,6 +291,7 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: socks
+
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -317,6 +335,7 @@
     - map: [ "underweart" ] #Sirena
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "socks" ] #Sirena
     - map: ["jumpsuit"]
     # ADT tweak start
@@ -329,13 +348,13 @@
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
+
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
@@ -352,6 +371,11 @@
           32:
             sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
             state: shoes
+      back:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Shadekin/displacement.rsi
+            state: back
       gloves:
         sizeMaps:
           32:
