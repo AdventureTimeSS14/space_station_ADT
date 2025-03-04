@@ -333,7 +333,7 @@
 - type: emote
   id: VoxCoo
   name: chat-emote-name-coo
-  icon: Interface/Emotes/coo.png
+  icon: ADT/Interface/Emotes/Vocal/coo.png
   category: Vocal
   whitelist:
     requireAll: true
@@ -352,7 +352,7 @@
 - type: emote
   id: VoxChitter
   name: chat-emote-name-chitter
-  icon: Interface/Emotes/voxchitter.png
+  icon: ADT/Interface/Emotes/Vocal/voxchitter.png
   category: Vocal
   whitelist:
     requireAll: true

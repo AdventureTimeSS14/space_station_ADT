@@ -152,6 +152,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Scream:
+      collection: MaleSlimeScreams #ADT-Tweak
+    Laugh:
+      collection: MaleSlimeLaugh #ADT-Tweak
+    Sneeze:
+      collection: MaleSlimeSneezes #ADT-Tweak
+    Cough:
+      collection: MaleSlimeCoughs #ADT-Tweak
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -161,38 +169,30 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: MaleSlimeYawn
+      collection: MaleSlimeYawn #ADT-Tweak
     Snore:
       collection: Snores
     Honk:
       collection: BikeHorn
+    Sigh:
+      collection: MaleSlimeSigh #ADT-Tweak
+    Crying:
+      collection: MaleSlimeCry #ADT-Tweak
+    Whistle:
+      collection: SlimeWhistles #ADT-Tweak
     Weh:
       collection: Weh
     Hew:
       collection: Hew
+    Gasp:
+      collection: MaleSlimeGasp #ADT-Tweak
+    DefaultDeathgasp:
+      collection: MaleSlimeDeathGasp #ADT-Tweak
     # ADT-Tweak Start
     Bubbles:
       collection: SlimeBubbles
     Pop:
       collection: SlimePop
-    Sigh:
-      collection: MaleSlimeSigh
-    Crying:
-      collection: MaleSlimeCry
-    Whistle:
-      collection: SlimeWhistles
-    Scream:
-      collection: MaleSlimeScreams
-    Laugh:
-      collection: MaleSlimeLaugh
-    Sneeze:
-      collection: MaleSlimeSneezes
-    Cough:
-      collection: MaleSlimeCoughs
-    Gasp:
-      collection: MaleSlimeGasp
-    DefaultDeathgasp:
-      collection: MaleSlimeDeathGasp
     # ADT-Tweak End
   params:
     variation: 0.125
@@ -202,6 +202,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Scream:
+      collection: FemaleSlimeScreams #ADT-Tweak
+    Laugh:
+      collection: FemaleSlimeLaugh #ADT-Tweak
+    Sneeze:
+      collection: FemaleSlimeSneezes #ADT-Tweak
+    Cough:
+      collection: FemaleSlimeCoughs #ADT-Tweak
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -210,40 +218,32 @@
       collection: MonkeyScreeches
     RobotBeep:
       collection: RobotBeeps
+    Yawn:
+      collection: FemaleSlimeYawn #ADT-Tweak
     Snore:
       collection: Snores
     Honk:
       collection: CluwneHorn
+    Sigh:
+      collection: FemaleSlimeSigh #ADT-Tweak
+    Crying:
+      collection: FemaleSlimeCry #ADT-Tweak
+    Whistle:
+      collection: SlimeWhistles #ADT-Tweak
     Weh:
       collection: Weh
     Hew:
       collection: Hew
-    # ADT-Tweak Start
+    Gasp:
+      collection: FemaleSlimeGasp #ADT-Tweak
+    DefaultDeathgasp:
+      collection: FemaleSlimeDeathGasp #ADT-Tweak
+    #ADT-Tweak Start
     Bubbles:
       collection: SlimeBubbles
     Pop:
       collection: SlimePop
-    Sigh:
-      collection: FemaleSlimeSigh
-    Crying:
-      collection: FemaleSlimeCry
-    Whistle:
-      collection: SlimeWhistles
-    Scream:
-      collection: FemaleSlimeScreams
-    Laugh:
-      collection: FemaleSlimeLaugh
-    Sneeze:
-      collection: FemaleSlimeSneezes
-    Cough:
-      collection: FemaleSlimeCoughs
-    Yawn:
-      collection: FemaleSlimeYawn
-    Gasp:
-      collection: FemaleSlimeGasp
-    DefaultDeathgasp:
-      collection: FemaleSlimeDeathGasp
-     # ADT-Tweak End
+    #ADT-Tweak End
   params:
     variation: 0.125
 
@@ -260,13 +260,13 @@
       collection: Weh
     Hew:
       collection: Hew
-    # ADT-Tweak Start
     Gasp:
-      collection: VoxGasp
+      collection: VoxGasp #ADT-Tweak
       params:
         volume: 10
     Crying:
-      collection: VoxCry
+      collection: VoxCry #ADT-Tweak
+    # ADT-Tweak Start
     VoxChitter:
       collection: VoxChitter
       params:
