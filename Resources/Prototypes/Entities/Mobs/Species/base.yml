@@ -243,6 +243,7 @@
   abstract: true
   components:
   - type: OfferItem # ADT-Tweak
+  - type: RadiationPopup # ADT-Tweak
   - type: Barotrauma
     damage:
       types:
