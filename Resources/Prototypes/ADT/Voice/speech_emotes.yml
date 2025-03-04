@@ -56,11 +56,9 @@
   name: chat-emote-name-hiss
   category: Vocal
   whitelist:
-    requireAll: true
-    components:
-    - Vocal
     tags:
     - ADTCatEmotes
+    - ADTVoxEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -370,20 +368,6 @@
     - voxchitter
     - щебечет
 
-- type: emote
-  id: VoxHiss
-  name: chat-emote-name-hiss
-  category: Vocal
-  whitelist:
-    requireAll: true
-    components:
-    - Vocal
-    tags:
-    - ADTVoxEmotes
-  icon: ADT/Interface/Emotes/Vocal/hiss.png
-  chatMessages: [шипит]
-  chatTriggers:
-    - hiss
 
 # Slime
 
@@ -392,8 +376,11 @@
   name: chat-emote-name-pop
   category: Vocal
   whitelist:
+    requireAll: true
     components:
     - Vocal
+    tags:
+    - ADTSlimeEmotes
   icon: ADT/Interface/Emotes/Vocal/pop.png
   chatMessages: [chat-emote-msg-pop]
   chatTriggers:
@@ -405,8 +392,11 @@
   name: chat-emote-name-bubbles
   category: Vocal
   whitelist:
+    requireAll: true
     components:
     - Vocal
+    tags:
+    - ADTSlimeEmotes
   icon: ADT/Interface/Emotes/Vocal/bubbles.png
   chatMessages: [chat-emote-msg-bubbles]
   chatTriggers:

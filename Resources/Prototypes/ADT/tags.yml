@@ -452,6 +452,9 @@
   id: ADTVoxEmotes
 
 - type: Tag
+  id: ADTSlimeEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag

@@ -275,7 +275,7 @@
       collection: VoxCoo
       params:
         volume: -7
-    VoxHiss:
+    Hiss:
       collection: VoxHiss
       params:
         volume: -5
