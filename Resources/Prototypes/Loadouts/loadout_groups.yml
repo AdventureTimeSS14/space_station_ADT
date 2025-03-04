@@ -157,6 +157,8 @@
   - CaptainOuterClothing
   - CaptainWintercoat
 
+
+
 - type: loadoutGroup
   id: HoPHead
   name: loadout-group-hop-head
@@ -676,6 +678,12 @@
   loadouts:
   - BrownShoes
   - CargoWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -715,6 +723,12 @@
   loadouts:
   - BlackShoes
   - CargoWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -737,6 +751,12 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 # Engineering
 
@@ -778,6 +798,12 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -825,6 +851,12 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -864,6 +896,12 @@
   loadouts:
   - WhiteShoes
   - EngineeringWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: SurvivalExtended
@@ -928,6 +966,12 @@
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: ScientistHead
@@ -976,6 +1020,12 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1119,6 +1169,12 @@
   - JackSecBoots # Corvax
   - JackBoots
   - SecurityWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1241,6 +1297,12 @@
   - BrownShoes
   - MedicalWinterBoots
   - ADTCMOHighBoots # ADT tweak
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1279,6 +1341,12 @@
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1359,6 +1427,12 @@
   loadouts:
   - BlueShoes
   - MedicalWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 - type: loadoutGroup
   id: SurvivalMedical
