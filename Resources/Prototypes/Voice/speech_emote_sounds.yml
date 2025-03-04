@@ -240,7 +240,7 @@
     Yawn:
       collection: FemaleSlimeYawn
     Gasp:
-      collection: FeMaleSlimeGasp
+      collection: FemaleSlimeGasp
     DefaultDeathgasp:
       collection: FemaleSlimeDeathGasp
      # ADT-Tweak End
