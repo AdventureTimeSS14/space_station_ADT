@@ -307,7 +307,7 @@
   description: Made by scientists for scientists.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Back/Modsuit/cience.rsi
+    sprite: ADT/Clothing/Back/Modsuit/science.rsi
     state: icon
   - type: ModSuit
     clothingPrototypes:
@@ -361,8 +361,8 @@
     - back
   - type: ClothingSpeedModifier
   - type: Construction
-    graph: ADTModsuitCience
-    node: adtmodsuitcience
+    graph: ADTModsuitScience
+    node: adtmodsuitscience
   - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
     slots:
       modsuit-mod1:

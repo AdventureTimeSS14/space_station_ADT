@@ -3,6 +3,8 @@
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
+  - Mousetrap  # ADT Tweak
+  - TrashBag  # ADT Tweak
   - Bucket
   - DrinkMug
   - DrinkMugMetal
