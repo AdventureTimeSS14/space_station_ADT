@@ -271,7 +271,7 @@
       collection: VoxChitter
       params:
         volume: -5
-    Coo:
+    VoxCoo:
       collection: VoxCoo
       params:
         volume: -7

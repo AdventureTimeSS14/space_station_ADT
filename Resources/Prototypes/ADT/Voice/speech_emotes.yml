@@ -331,9 +331,9 @@
   #Vox
 
 - type: emote
-  id: Coo
+  id: VoxCoo
   name: chat-emote-name-coo
-  icon: Interface/Emotes/sigh.png
+  icon: Interface/Emotes/coo.png
   category: Vocal
   whitelist:
     requireAll: true
@@ -352,7 +352,7 @@
 - type: emote
   id: VoxChitter
   name: chat-emote-name-chitter
-  icon: Interface/Emotes/sigh.png
+  icon: Interface/Emotes/voxchitter.png
   category: Vocal
   whitelist:
     requireAll: true
