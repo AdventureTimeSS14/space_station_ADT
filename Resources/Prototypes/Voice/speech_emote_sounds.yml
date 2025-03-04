@@ -260,13 +260,13 @@
       collection: Weh
     Hew:
       collection: Hew
+    # ADT-Tweak Start
     Gasp:
-      collection: VoxGasp #ADT-Tweak
+      collection: VoxGasp
       params:
         volume: 10
     Crying:
-      collection: VoxCry #ADT-Tweak
-    # ADT-Tweak Start
+      collection: VoxCry
     VoxChitter:
       collection: VoxChitter
       params:
