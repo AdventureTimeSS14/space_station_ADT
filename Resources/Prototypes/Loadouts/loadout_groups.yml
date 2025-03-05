@@ -678,12 +678,14 @@
   loadouts:
   - BrownShoes
   - CargoWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -723,12 +725,14 @@
   loadouts:
   - BlackShoes
   - CargoWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -751,12 +755,14 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 # Engineering
 
@@ -798,12 +804,14 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -851,12 +859,14 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -896,12 +906,14 @@
   loadouts:
   - WhiteShoes
   - EngineeringWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SurvivalExtended
@@ -966,12 +978,14 @@
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1020,12 +1034,14 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1169,12 +1185,14 @@
   - JackSecBoots # Corvax
   - JackBoots
   - SecurityWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1297,12 +1315,14 @@
   - BrownShoes
   - MedicalWinterBoots
   - ADTCMOHighBoots # ADT tweak
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1341,12 +1361,14 @@
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1427,12 +1449,14 @@
   loadouts:
   - BlueShoes
   - MedicalWinterBoots
+  # ADT tweak start
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SurvivalMedical

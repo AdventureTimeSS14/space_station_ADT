@@ -1,0 +1,30 @@
+# ADTFootWraps
+- type: loadout
+  id: ADTFootWrapsW
+  equipment:
+    shoes: ADTClothingFootWrapsWhite
+
+- type: loadout
+  id: ADTFootWrapsHighW
+  equipment:
+    shoes: ADTClothingFootWrapsHighWhite
+
+- type: loadout
+  id: ADTFootWrapsBr
+  equipment:
+    shoes: ADTClothingFootWrapsBrown
+
+- type: loadout
+  id: ADTFootWrapsHighBr
+  equipment:
+    shoes: ADTClothingFootWrapsHighBrown
+
+- type: loadout
+  id: ADTFootWrapsBl
+  equipment:
+    shoes: ADTClothingFootWrapsBlack
+
+- type: loadout
+  id: ADTFootWrapsHighBl
+  equipment:
+    shoes: ADTClothingFootWrapsHighBlack
