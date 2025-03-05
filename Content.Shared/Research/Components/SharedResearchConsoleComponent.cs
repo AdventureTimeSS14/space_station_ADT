@@ -1,3 +1,5 @@
+using Content.Shared.Research.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Research.Components
@@ -29,9 +31,11 @@ namespace Content.Shared.Research.Components
     public sealed class ResearchConsoleBoundInterfaceState : BoundUserInterfaceState
     {
         public int Points;
-        public ResearchConsoleBoundInterfaceState(int points)
+        public List<string> AllowedPrototypes;
+        public ResearchConsoleBoundInterfaceState(int points, List<string> list)
         {
             Points = points;
+            AllowedPrototypes = list;
         }
     }
 }

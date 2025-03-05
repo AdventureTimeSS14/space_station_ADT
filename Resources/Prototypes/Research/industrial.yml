@@ -14,6 +14,9 @@
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
+  position: 3,0
+  requiredTech:
+  - SpaceScanning
 
 - type: technology
   id: SpaceScanning
@@ -28,6 +31,9 @@
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
   - BorgModuleGPS
+  position: 2,0
+  requiredTech:
+  - PowerGeneration
 
 - type: technology
   id: AdvancedPowercells
@@ -42,6 +48,9 @@
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
+  position: 2,-1
+  requiredTech:
+  - SpaceScanning
 
 - type: technology
   id: MechanicalCompression
@@ -54,6 +63,9 @@
   cost: 10000
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
+  position: 1,2
+  requiredTech:
+  - IndustrialEngineering
 
 - type: technology
   id: IndustrialEngineering
@@ -69,6 +81,9 @@
   - ProtolatheHyperConvectionMachineCircuitboard
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
+  position: 2,1
+  requiredTech:
+  - SpaceScanning
 
 - type: technology
   id: PowerGeneration
@@ -86,6 +101,7 @@
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
+  position: 0,0
 
 - type: technology
   id: AtmosphericTech
@@ -99,6 +115,9 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  position: 1,-2
+  requiredTech:
+  - AdvancedPowercells
 
 - type: technology
   id: RipleyAPLU
@@ -135,6 +154,9 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  position: 3,2
+  requiredTech:
+  - IndustrialEngineering
 
 - type: technology
   id: AdvancedAtmospherics
@@ -150,6 +172,9 @@
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
   technologyPrerequisites:
+  - AtmosphericTech
+  position: 1,-3
+  requiredTech:
   - AtmosphericTech
 
 - type: technology
@@ -168,6 +193,11 @@
     - BorgModuleAdvancedTool
     - Fulton
     - FultonBeacon
+    - BorgModuleRCD
+    - ADTBorgModuleRPD # ADT-RPD
+  position: 3,-2
+  requiredTech:
+  - AdvancedPowercells
 
 - type: technology
   id: MassExcavation
@@ -182,7 +212,12 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-
+    - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
+  position: 4,-1
+  requiredTech:
+  - SalvageEquipment
+  - ADTCutter
+  
 # Tier 3
 
 - type: technology
@@ -198,6 +233,10 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  position: 1,-4
+  requiredTech:
+  - Advanted Energy
+  - AdvancedAtmospherics
 
 #ADT TWEAK
 # - type: technology

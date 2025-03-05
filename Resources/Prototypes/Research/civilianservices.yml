@@ -15,6 +15,9 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  position: 2,-1
+  requiredTech:
+  - AdvancedEntertainment
 
 - type: technology
   id: CritterMechs
@@ -54,6 +57,9 @@
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
   - HolopadMachineCircuitboard
+  position: 4,-1
+  requiredTech:
+  - AdvancedEntertainment
 
 - type: technology
   id: AdvancedEntertainment
@@ -70,6 +76,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+  position: 3,0
 
 - type: technology
   id: RoboticCleanliness
@@ -96,6 +103,9 @@
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  position: 2,-2
+  requiredTech:
+  - Hydroponics
 
 # Tier 2
 
@@ -115,6 +125,9 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  position: 5,0
+  requiredTech:
+  - AdvancedEntertainment
 
 - type: technology
   id: BiochemicalStasis
@@ -130,6 +143,9 @@
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
+  position: 3,1
+  requiredTech:
+  - AdvancedEntertainment
 
 - type: technology
   id: MechanizedTreatment
@@ -156,6 +172,9 @@
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
+  position: 1,0
+  requiredTech:
+  - AdvancedEntertainment
 
 - type: technology
   id: HONKMech
@@ -189,6 +208,9 @@
   recipeUnlocks:
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
+  position: 0,0
+  requiredTech:
+  - AdvancedCleaning
 
 - type: technology
   id: BluespaceCargoTransport
@@ -201,6 +223,10 @@
   cost: 15000
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
+  position: 3,4
+  requiredTech:
+  - BasicTranslation
+  - ADTCloning
 
 # Tier 3
 
@@ -215,6 +241,9 @@
   cost: 10000
   recipeUnlocks:
   - ClothingShoesBootsSpeed
+  position: 3,5
+  requiredTech:
+  - BluespaceCargoTransport
 
 - type: technology
   id: BluespaceChemistry
@@ -228,3 +257,6 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  position: 1,3
+  requiredTech:
+  - ADTCloning

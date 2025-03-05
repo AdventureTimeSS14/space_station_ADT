@@ -1,0 +1,25 @@
+<Control xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Margin="5"
+    HorizontalExpand="False">
+    <BoxContainer Orientation="Vertical">
+        <Button Name="Buy"
+            Text="{Loc 'analysis-console-print-button'}"
+            ToolTip="{Loc 'analysis-console-print-tooltip-info'}"
+            VerticalExpand="False"
+            HorizontalExpand="False"
+            SetSize="80 80"
+            StyleClasses="ButtonSquare">
+            <PanelContainer Name="Main" Margin="5" SetSize="64 64" Access="Public">
+                <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
+                    <TextureRect
+                        Name="ResearchDisplay"
+                        TextureScale="2 2"
+                        SetSize="64 64"
+                        Stretch="KeepAspectCentered">
+                    </TextureRect>
+                </BoxContainer>
+            </PanelContainer>
+        </Button>
+    </BoxContainer>
+</Control>

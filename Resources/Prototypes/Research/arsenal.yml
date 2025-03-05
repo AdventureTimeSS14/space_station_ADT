@@ -12,8 +12,8 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
-  - ADTWeaponCutter #ADT plasmacutter
   # These are roundstart but not replenishable for salvage
+  position: 0,0
 
 - type: technology
   id: DraconicMunitions
@@ -39,6 +39,9 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  position: 1,-1
+  requiredTech:
+  - SalvageWeapons
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -54,6 +57,9 @@
   # Start ADT tweak
   - ADTBorgModuleHarm #ADT secborg
   - ADTMechGunImmolatorLaser
+  position: 2,-1
+  requiredTech:
+  - DraconicMunitions
   # End ADT tweak
 
 - type: technology
@@ -72,6 +78,9 @@
   - WeaponDisabler
   - ADTBorgModuleDisabler #ADT secborg
   - ADTBorgModuleDetention #ADT secborg
+  position: 1,1
+  requiredTech:
+  - SalvageWeapons
 
 - type: technology
   id: UraniumMunitions
@@ -96,6 +105,9 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
+  position: 1,-2
+  requiredTech:
+  - DraconicMunitions
 
 - type: technology
   id: AdvancedRiotControl
@@ -114,6 +126,9 @@
   # Start ADT tweak - часть технологий подходящих по стилю переношу сюда
   - ClothingBackpackElectropack
   - ADTMechGunPeacemakerDisabler
+  position: 2,1
+  requiredTech:
+  - NonlethalAmmunition
   # End ADT tweak
 
 - type: technology
@@ -133,6 +148,9 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  position: 1,-3
+  requiredTech:
+  - UraniumMunitions
 
 # - type: technology #ADT_Tweak - электрорюкзак перенесен в технологию контроля беспорядков
 #   id: SpecialMeans
@@ -160,6 +178,9 @@
   recipeUnlocks:
   - WeaponLaserCannon
   - ADTMechGunSolarisLaserCannon #ADT_Tweak
+  position: 3,-1
+  requiredTech:
+  - WeaponizedLaserManipulation
 
 - type: technology
   id: WaveParticleHarnessing
@@ -173,6 +194,9 @@
   recipeUnlocks:
   - WeaponXrayCannon
   - ADTMechGunTeslaCannon #ADT_Tweak
+  position: 5,-2
+  requiredTech:
+  - ConcentratedLaserWeaponry
 
 - type: technology
   id: BasicShuttleArmament
@@ -195,6 +219,9 @@
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
   - SalvageWeapons
+  position: 2,-3
+  requiredTech:
+  - ExplosiveTechnology
 
 # Tier 3
 
@@ -210,6 +237,10 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
+  position: 6,-1
+  requiredTech:
+  - ExperimentalBatteryAmmo
+  - WaveParticleHarnessing
 
 - type: technology
   id: ExperimentalBatteryAmmo
@@ -222,6 +253,9 @@
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
+  position: 5,0
+  requiredTech:
+  - ConcentratedLaserWeaponry
 
 - type: technology
   id: AdvancedShuttleWeapon
@@ -237,4 +271,7 @@
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
+  - BasicShuttleArmament
+  position: 2,-4
+  requiredTech:
   - BasicShuttleArmament
