@@ -25,6 +25,11 @@
     containers:
       storagebase: !type:Container
         ents: []
+  # ADT-Tweak-SlimeEmotes-START
+  - type: Tag
+    tags:
+      - ADTSlimeEmotes
+  # ADT-Tweak-SlimeEmotes-END
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
