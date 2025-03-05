@@ -81,6 +81,8 @@
     ClothingUniformJumpskirtCasualPurple: 2
     ClothingUniformJumpsuitCasualRed: 2
     ClothingUniformJumpskirtCasualRed: 2
+    ClothingUniformJumpsuitCasualGreen: 2
+    ClothingUniformJumpskirtCasualGreen: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
 # ADT начало носков
     ADTClothingUnderwearSocksShort: 2
@@ -183,4 +185,6 @@
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1
-# DO NOT ADD MORE, USE UNIFORM DYING
+    ToyFigurinePassenger: 1
+    ToyFigurineGreytider: 1
+  # DO NOT ADD MORE, USE UNIFORM DYING

@@ -5,7 +5,6 @@ using Content.Shared.Changeling;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Popups;
 using Content.Shared.Store;
-using Content.Server.Traitor.Uplink;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
@@ -13,7 +12,7 @@ using Content.Shared.IdentityManagement;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Flash;
 using Content.Shared.Polymorph;
-using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Actions;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Alert;
@@ -29,7 +28,6 @@ using Content.Shared.Mind;
 using Robust.Shared.Player;
 using System.Linq;
 using Content.Shared.Preferences;
-using Content.Server.Humanoid;
 using Robust.Shared.Utility;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Store.Components;
@@ -43,13 +41,14 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Cuffs;
 using Robust.Shared.Timing;
 using Content.Server.ADT.Hallucinations;
-using Content.Shared.Gibbing.Systems;
 using Content.Shared.Mobs;
 using Content.Server.Stealth;
 using Content.Server.ADT.Store;
 using Robust.Server.Containers;
-using Content.Server.Ghost;
 using Content.Shared.ADT.Stealth.Components;
+using Content.Shared.ADT.CollectiveMind;
+using Content.Server.ADT.Language;
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -59,25 +58,20 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly FlashSystem _flashSystem = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -92,7 +86,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
     #endregion
+
+    public static DamageSpecifier AbsorbGeneticDmg = new DamageSpecifier()
+    {
+        DamageDict = new()
+        {
+            {"Cellular", 200}
+        }
+    };
+    public static float DissonantShriekEmpConsumption = 50000f;
 
     public override void Initialize()
     {
@@ -140,13 +144,12 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, ChangelingComponent component, ComponentStartup args)
     {
-        //RemComp<ActivatableUIComponent>(uid);     // TODO: Исправить проблему с волосами слаймов
-        //RemComp<UserInterfaceComponent>(uid);
-        //RemComp<SlimeHairComponent>(uid);
-        StealDNA(uid, component);
-
         RemComp<HungerComponent>(uid);
         RemComp<ThirstComponent>(uid);
+        if (component.GainedActions)
+            return;
+
+        StealDNA(uid, component);
         _store.TryAddStore(uid,
                             new HashSet<ProtoId<CurrencyPrototype>> { "EvolutionPoints" },
                             new HashSet<ProtoId<StoreCategoryPrototype>> { "ChangelingAbilities" },
@@ -156,31 +159,25 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ChangelingComponent component, MapInitEvent args)
     {
+        _language.AddSpokenLanguage(uid, "ChangelingCollectiveMind", Shared.ADT.Language.LanguageKnowledge.Speak);
+
         if (component.GainedActions)
             return;
-        _action.AddAction(uid, ref component.ChangelingEvolutionMenuActionEntity, component.ChangelingEvolutionMenuAction);
-        _action.AddAction(uid, ref component.ChangelingRegenActionEntity, component.ChangelingRegenAction);
-        _action.AddAction(uid, ref component.ChangelingAbsorbActionEntity, component.ChangelingAbsorbAction);
-        _action.AddAction(uid, ref component.ChangelingDNAStingActionEntity, component.ChangelingDNAStingAction);
-        _action.AddAction(uid, ref component.ChangelingDNACycleActionEntity, component.ChangelingDNACycleAction);
-        _action.AddAction(uid, ref component.ChangelingStasisDeathActionEntity, component.ChangelingStasisDeathAction);
 
-        component.BasicTransferredActions.Add(component.ChangelingEvolutionMenuActionEntity);
-        component.BasicTransferredActions.Add(component.ChangelingRegenActionEntity);
-        component.BasicTransferredActions.Add(component.ChangelingAbsorbActionEntity);
-        component.BasicTransferredActions.Add(component.ChangelingDNAStingActionEntity);
-        component.BasicTransferredActions.Add(component.ChangelingDNACycleActionEntity);
-        component.BasicTransferredActions.Add(component.ChangelingStasisDeathActionEntity);
+        foreach (var item in component.ActionIds)
+        {
+            EntityUid? actionEnt = null;
+            if (_action.AddAction(uid, ref actionEnt, item))
+                component.BasicTransferredActions.Add(item, actionEnt.Value);
+        }
     }
 
     private void OnShutdown(EntityUid uid, ChangelingComponent component, ComponentShutdown args)
     {
-        _action.RemoveAction(uid, component.ChangelingEvolutionMenuActionEntity);
-        _action.RemoveAction(uid, component.ChangelingRegenActionEntity);
-        _action.RemoveAction(uid, component.ChangelingAbsorbActionEntity);
-        _action.RemoveAction(uid, component.ChangelingDNAStingActionEntity);
-        _action.RemoveAction(uid, component.ChangelingDNACycleActionEntity);
-        _action.RemoveAction(uid, component.ChangelingStasisDeathActionEntity);
+        foreach (var item in component.BasicTransferredActions)
+        {
+            _action.RemoveAction(uid, item.Value);
+        }
     }
 
     private void OnShop(EntityUid uid, ChangelingComponent component, ChangelingEvolutionMenuActionEvent args)
@@ -223,27 +220,22 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         if (args.NewMobState == MobState.Dead)
         {
-            RemoveBladeEntity(uid, component);
-            RemoveShieldEntity(uid, component);
-            RemoveArmaceEntity(uid, component);
-            RemCompDeferred<StealthComponent>(uid);
-            RemCompDeferred<StealthOnMoveComponent>(uid);
-            RemCompDeferred<DigitalCamouflageComponent>(uid);
-            component.ChameleonSkinActive = false;
-            component.DigitalCamouflageActive = false;
+            RemoveActions(uid, component);
             return;
         }
 
         if (args.NewMobState != MobState.Dead && component.StasisDeathActive)
         {
             component.StasisDeathActive = false;
-            _action.SetToggled(component.ChangelingStasisDeathActionEntity, component.StasisDeathActive);
+            if (component.BasicTransferredActions.TryGetValue("ActionStasisDeath", out var stasis))
+                _action.SetToggled(stasis, false);
         }
     }
 
     private void OnActionBought(EntityUid uid, ChangelingComponent component, ref ActionBoughtEvent args)
     {
-        component.BoughtActions.Add(args.ActionEntity);
+        if (TryPrototype(args.ActionEntity, out var proto))
+            component.BoughtActions.Add(proto.ID, args.ActionEntity);
     }
 
     private void OnRefresh(EntityUid uid, ChangelingComponent component, ChangelingRefreshEvent args)
@@ -256,33 +248,15 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         foreach (var item in component.BoughtActions)
         {
-            _action.RemoveAction(item);
-            QueueDel(item);
+            _action.RemoveAction(item.Value);
+            QueueDel(item.Value);
         }
 
-        if (!TryComp<StoreComponent>(uid, out var store))
-            return;
-
-        RemoveBladeEntity(uid, component);
-        RemoveShieldEntity(uid, component);
-        RemoveArmaceEntity(uid, component);
-        RemCompDeferred<StealthComponent>(uid);
-        RemCompDeferred<StealthOnMoveComponent>(uid);
-        RemCompDeferred<DigitalCamouflageComponent>(uid);
-        component.ChameleonSkinActive = false;
-        component.DigitalCamouflageActive = false;
-
-        if (component.LingArmorActive)
-        {
-            _inventorySystem.TryUnequip(uid, "head", true, true, false);
-            _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
-            TryUseAbility(uid, component, 0f, false, component.LingArmorRegenCost);
-            component.LingArmorActive = false;
-        }
+        RemoveActions(uid, component);
 
         component.BoughtActions.Clear();
 
-        _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } }, uid);
+        _store.TrySetCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 + (5 * component.ChangelingsAbsorbed) } }, uid);
         _store.TryRefreshStoreStock(uid);
         component.CanRefresh = false;
 
@@ -334,13 +308,13 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         newLingComponent.StoredDNA = comp.StoredDNA;
 
-        newLingComponent.ArmBladeActive = comp.ArmBladeActive;
         newLingComponent.ChameleonSkinActive = comp.ChameleonSkinActive;
         newLingComponent.LingArmorActive = comp.LingArmorActive;
         newLingComponent.LesserFormActive = comp.LesserFormActive;
 
         newLingComponent.AbsorbedDnaModifier = comp.AbsorbedDnaModifier;
         newLingComponent.DNAStolen = comp.DNAStolen;
+        newLingComponent.ChangelingsAbsorbed = comp.ChangelingsAbsorbed;
         newLingComponent.LastResortUsed = comp.LastResortUsed;
         newLingComponent.CanRefresh = comp.CanRefresh;
 
@@ -373,13 +347,11 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         foreach (var basic in comp.BasicTransferredActions)
         {
-            if (basic.HasValue)
-                _actionContainer.TransferActionWithNewAttached(basic.Value, to, to);
+            _actionContainer.TransferActionWithNewAttached(basic.Value, to, to);
         }
         foreach (var item in comp.BoughtActions)
         {
-            if (item.HasValue)
-                _actionContainer.TransferActionWithNewAttached(item.Value, to, to);
+            _actionContainer.TransferActionWithNewAttached(item.Value, to, to);
         }
 
     }
@@ -448,7 +420,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        if (component.ArmBladeActive || component.LingArmorActive || component.ChameleonSkinActive || component.MusclesActive || component.DigitalCamouflageActive)
+        if (!component.CanTransform)
         {
             var selfMessage = Loc.GetString("changeling-transform-fail-mutation");
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -465,13 +437,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, component, 5f))
             return;
 
-        foreach (var item in component.BoughtActions.Where(x =>
-                                                            x.HasValue &&
-                                                            TryPrototype(x.Value, out var proto) &&
-                                                            proto.ID == "ActionLingLesserForm"))
-        {
-            _action.SetToggled(item, false);
-        }
+        if (component.BoughtActions.TryGetValue("ActionLingLesserForm", out var lf))
+            _action.SetToggled(lf, false);
 
         component.LesserFormActive = false;
 
@@ -646,5 +613,26 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
 
         _polymorph.PolymorphEntityAsHumanoid(uid, comp.OriginalBody.Value);
+    }
+
+    private void RemoveActions(EntityUid uid, ChangelingComponent component)
+    {
+        RemoveBladeEntity(uid, component);
+        RemoveShieldEntity(uid, component);
+        RemoveArmaceEntity(uid, component);
+        RemCompDeferred<StealthComponent>(uid);
+        RemCompDeferred<StealthOnMoveComponent>(uid);
+        RemCompDeferred<DigitalCamouflageComponent>(uid);
+        component.ChameleonSkinActive = false;
+        component.DigitalCamouflageActive = false;
+        component.MusclesActive = false;
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+
+        if (component.LingArmorActive)
+        {
+            _inventorySystem.TryUnequip(uid, "head", true, true, false);
+            _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
+            component.ChemicalsPerSecond += component.LingArmorRegenCost;
+        }
     }
 }

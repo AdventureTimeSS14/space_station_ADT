@@ -1,4 +1,5 @@
 ﻿using Content.Shared.ActionBlocker;
+using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
@@ -43,6 +44,16 @@ public sealed class ChasmSystem : EntitySystem
             if (_timing.CurTime < chasm.NextDeletionTime)
                 continue;
 
+            // ADT Jaunter start
+            var ev = new BeforeChasmFallingEvent(uid);
+            RaiseLocalEvent(uid, ref ev);
+            if (ev.Cancelled)
+            {
+                RemComp<ChasmFallingComponent>(uid);
+                _blocker.UpdateCanMove(uid);
+                continue;
+            }
+            // ADT Jaunter end
             QueueDel(uid);
         }
     }

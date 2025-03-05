@@ -1,5 +1,5 @@
 ent-ADTClothingHeadHelmetHardsuitBlueshield = шлем скафандра офицера синего щита
-    .desc = Плотный и устойчивый шлем Офицера Синего Щита на основе шлемов Отряда Быстрого Реагирования. Призван держать воздух внутри, пули снаружи.
+    .desc = Плотный и устойчивый шлем Офицера Синего Щита на основе шлемов Отряда Быстрого Реагирования. Призван держать воздух внутри, а пули снаружи.
 
 # Drone Space Sec
 ent-ADTSpaceSecPilotHelm = шлем скафандра пилота SPACE SEC
@@ -23,11 +23,14 @@ ent-ADTClothingHeadHelmetHardsuitInquisitory = шлем инквизитора
 ent-ADTClothingHeadHelmetHardsuitCybersunCrysis = шлем суперсолдата Cybersun
     .desc = Шлем суперсолдата Cybersun
 
-ent-ADTClothingHeadHelmetHardsuitSaibaSain = шлем элитного скафандра Сайба-Сайны"
-    .desc = Шлем элитного скафандра Сайба-Сайны"
+ent-ADTClothingHeadHelmetHardsuitSaibaSain = шлем элитного скафандра Сайба-Сайны
+    .desc = Шлем элитного скафандра Сайба-Сайны
 
 ent-ADTClothingHeadHelmetHardsuitPioneerAgent = шлем скафандра агента "Пионер"
     .desc = Хорошо защищенный шлем, созданный на основе шлема командира ОБР для специального агента КиберСан.
 
 ent-ADTClothingHeadHelmetHardsuitCybersunBodyGuard = шлем охраны КиберСан
-    .desc = Вариант кроваво-красного шлема, разработанный мародерами горлакса как исключительно огнеупорный и устойчивый к давлению.
+    .desc = Вариант кроваво-красного шлема, разработанного мародерами Горлекса как исключительно огнеупорный и устойчивый к давлению.
+
+ent-ADTClothingHeadHelmetHardsuitRiotERT = дешевый шлем для борьбы с беспорядками
+    .desc = Самый дешевый защитный шлем ОБР, разработанный специально для экономичных действий и борьбы с массовыми беспорядками.

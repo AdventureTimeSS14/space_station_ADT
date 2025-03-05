@@ -8,7 +8,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Stealth.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
-using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Cuffs.Components;
@@ -46,7 +46,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, BiodegradeDoAfterEvent>(OnBiodegradeDoAfter);
     }
 
-    private void StartAbsorbing(EntityUid uid, ChangelingComponent component, LingAbsorbActionEvent args)   // Начало поглощения
+    private void StartAbsorbing(EntityUid uid, ChangelingComponent component, LingAbsorbActionEvent args)
     {
         if (args.Handled)
             return;
@@ -68,7 +68,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!_mobState.IsIncapacitated(target)) // if target isn't crit or dead dont let absorb
+        if (!_mobState.IsIncapacitated(target))
         {
             var selfMessage = Loc.GetString("changeling-dna-fail-notdead", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -121,6 +121,7 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(selfMessage, uid, uid);
             component.AbsorbStage = 0;
             args.Repeat = false;
+            component.DoAfter = null;
             return;
         }
 
@@ -165,8 +166,7 @@ public sealed partial class ChangelingSystem
             component.DoAfter = null;
 
             // Нанесение 200 генетического урона и замена крови на кислоту
-            var dmg = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Genetic"), component.AbsorbGeneticDmg);
-            _damageableSystem.TryChangeDamage(target, dmg);
+            _damageableSystem.TryChangeDamage(target, AbsorbGeneticDmg);
 
             var solution = new Solution();
             solution.AddReagent("FerrochromicAcid", FixedPoint2.New(150));
@@ -184,6 +184,7 @@ public sealed partial class ChangelingSystem
                 {
                     _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", component.AbsorbedChangelingPointsAmount } }, uid, store);
                     _store.UpdateUserInterface(uid, uid, store);
+                    component.ChangelingsAbsorbed++;
                 }
             }
             else  // Если это не был генокрад, получаем возможность "сброса"
@@ -191,7 +192,7 @@ public sealed partial class ChangelingSystem
                 var selfMessage = Loc.GetString("changeling-dna-success", ("target", Identity.Entity(target, EntityManager)));
                 _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
                 component.CanRefresh = true;
-                component.AbsorbedDnaModifier += 1;
+                component.AbsorbedDnaModifier++;
             }
         }
 
@@ -231,12 +232,9 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        var damage_brute = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), component.RegenerateBruteHealAmount);
-        var damage_burn = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Burn"), component.RegenerateBurnHealAmount);
-        _damageableSystem.TryChangeDamage(uid, damage_brute);
-        _damageableSystem.TryChangeDamage(uid, damage_burn);
-        _bloodstreamSystem.TryModifyBloodLevel(uid, component.RegenerateBloodVolumeHealAmount); // give back blood and remove bleeding
-        _bloodstreamSystem.TryModifyBleedAmount(uid, component.RegenerateBleedReduceAmount);
+        _damageableSystem.TryChangeDamage(uid, args.RegenerateAmount);
+        _bloodstreamSystem.TryModifyBloodLevel(uid, args.RegenerateBloodVolumeHealAmount); // give back blood and remove bleeding
+        _bloodstreamSystem.TryModifyBleedAmount(uid, args.RegenerateBleedReduceAmount);
         _audioSystem.PlayPvs(component.SoundRegenerate, uid);
 
         var othersMessage = Loc.GetString("changeling-regenerate-others-success", ("user", Identity.Entity(uid, EntityManager)));
@@ -277,8 +275,8 @@ public sealed partial class ChangelingSystem
 
         if (!component.ChameleonSkinActive)
         {
-            stealthonmove.PassiveVisibilityRate = component.ChameleonSkinPassiveVisibilityRate;
-            stealthonmove.MovementVisibilityRate = component.ChameleonSkinMovementVisibilityRate;
+            stealthonmove.PassiveVisibilityRate = args.PassiveVisibilityRate;
+            stealthonmove.MovementVisibilityRate = args.MovementVisibilityRate;
             stealth.MinVisibility = -1f;
         }
         else
@@ -352,12 +350,12 @@ public sealed partial class ChangelingSystem
 
             args.Handled = true;
 
-            if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+            if (_mindSystem.TryGetMind(uid, out _, out var mind))
                 mind.PreventGhosting = true;
 
             _mobState.ChangeMobState(uid, MobState.Dead);
 
-            var selfMessage = Loc.GetString("changeling-stasis-death-self-success");  /// всё, я спать откисать, адьос
+            var selfMessage = Loc.GetString("changeling-stasis-death-self-success");
             _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
         }
         else
@@ -373,7 +371,7 @@ public sealed partial class ChangelingSystem
 
             args.Handled = true;
 
-            var selfMessage = Loc.GetString("changeling-stasis-death-self-revive");  /// вейк ап энд cum бэк ту ворк
+            var selfMessage = Loc.GetString("changeling-stasis-death-self-revive");
             _popup.PopupEntity(selfMessage, uid, uid, PopupType.MediumCaution);
 
             _audioSystem.PlayPvs(component.SoundRegenerate, uid);
@@ -389,7 +387,8 @@ public sealed partial class ChangelingSystem
             }
         }
 
-        _action.SetToggled(component.ChangelingStasisDeathActionEntity, component.StasisDeathActive);
+        if (component.BasicTransferredActions.TryGetValue("ActionStasisDeath", out var sd))
+            _action.SetToggled(sd, component.StasisDeathActive);
     }
 
     private void OnMuteSting(EntityUid uid, ChangelingComponent component, MuteStingEvent args)
@@ -407,7 +406,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(45), true);
+        _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(args.Duration), true);
 
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);
@@ -429,7 +428,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _hallucinations.StartHallucinations(target, "ADTHallucinations", TimeSpan.FromSeconds(40), true, "Changeling");
+        _hallucinations.StartHallucinations(target, "ADTHallucinations", TimeSpan.FromSeconds(args.Duration), true, "Changeling");
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);
 
@@ -451,13 +450,10 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        var damage_brute = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), component.RegenerateBruteHealAmount);
-        var damage_burn = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Burn"), component.RegenerateBurnHealAmount);
-        _damageableSystem.TryChangeDamage(uid, damage_brute);
-        _damageableSystem.TryChangeDamage(uid, damage_burn);
-        _bloodstreamSystem.TryModifyBloodLevel(uid, component.RegenerateBloodVolumeHealAmount); // give back blood and remove bleeding
-        _bloodstreamSystem.TryModifyBleedAmount(uid, component.RegenerateBleedReduceAmount);
-        _audioSystem.PlayPvs(component.SoundFleshQuiet, uid);
+        _damageableSystem.TryChangeDamage(uid, args.RegenerateAmount);
+        _bloodstreamSystem.TryModifyBloodLevel(uid, args.RegenerateBloodVolumeHealAmount); // give back blood and remove bleeding
+        _bloodstreamSystem.TryModifyBleedAmount(uid, args.RegenerateBleedReduceAmount);
+        _audioSystem.PlayPvs(component.SoundRegenerate, uid);
 
         var selfMessage = Loc.GetString("changeling-omnizine-self-success");
         _popup.PopupEntity(selfMessage, uid, uid, PopupType.Small);
@@ -475,27 +471,10 @@ public sealed partial class ChangelingSystem
             if (!TryUseAbility(uid, component, args.Cost))
                 return;
 
-            RemoveShieldEntity(uid, component);
-            RemoveBladeEntity(uid, component);
-            RemCompDeferred<StealthComponent>(uid);
-            RemCompDeferred<StealthOnMoveComponent>(uid);
-            component.MusclesActive = false;
-            _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
+            RemoveActions(uid, component);
 
-            if (component.LingArmorActive)
-            {
-                _inventorySystem.TryUnequip(uid, "head", true, true, false);
-                _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
-                component.ChemicalsPerSecond += component.LingArmorRegenCost;
-            }
-
-            foreach (var item in component.BoughtActions.Where(x =>
-                                                                x.HasValue &&
-                                                                TryPrototype(x.Value, out var proto) &&
-                                                                proto.ID == "ActionLingLesserForm"))
-            {
-                _action.SetToggled(item, true);
-            }
+            if (component.BoughtActions.TryGetValue("ActionLingLesserForm", out var lf))
+                _action.SetToggled(lf, true);
 
             component.LesserFormActive = true;
 
@@ -551,8 +530,8 @@ public sealed partial class ChangelingSystem
 
         foreach (var item in component.BoughtActions)
         {
-            _action.RemoveAction(item);
-            QueueDel(item);
+            _action.RemoveAction(item.Value);
+            QueueDel(item.Value);
         }
 
         var slug = Spawn("ADTChangelingHeadslug", Transform(uid).Coordinates);
@@ -586,7 +565,7 @@ public sealed partial class ChangelingSystem
 
         _popup.PopupEntity(Loc.GetString("changeling-biodegrade-start"), uid, uid);
 
-        var doAfter = new DoAfterArgs(EntityManager, uid, component.BiodegradeDuration, new BiodegradeDoAfterEvent(), uid, target: uid)
+        var doAfter = new DoAfterArgs(EntityManager, uid, args.Duration, new BiodegradeDoAfterEvent(), uid, target: uid)
         {
             DistanceThreshold = 2,
             BreakOnMove = true,

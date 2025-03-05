@@ -32,3 +32,14 @@
     sprite:  ADT/Objects/Tools/Lighters/execzippo.rsi
   - type: StaticPrice
     price: 300
+
+- type: entity
+  name: DV Titanium zippo lighter
+  description: Reliable metal zippo lighter with titanium coating, designed for a long service life. It is a product of the Dar-Vaxed and We-Ya Gold collaboration.
+  parent: ADTZippo
+  id: ADTZippoDV
+  components:
+  - type: Sprite
+    sprite:  ADT/Objects/Tools/Lighters/dvzippo.rsi
+  - type: StaticPrice
+    price: 300

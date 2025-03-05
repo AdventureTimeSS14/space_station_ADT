@@ -10,6 +10,7 @@
       - id: DrinkShaker
       - id: ClothingEyesHudBeer
       - id: HandLabeler
+      - id: ADTBarmenKettleCircuit  #ADT-Tweak
         amount: 1
       - id: DrinkBottleBeer
         prob: 0.5
@@ -44,6 +45,8 @@
       - id: SprayBottleWater
       - id: ReagentContainerFlour
         amount: 2
+      - id: FoodBoxCloth
+        amount: 1
       - id: ReagentContainerSugar
       - id: FoodCondimentPacketSalt
         amount: 3
@@ -146,6 +149,7 @@
   id: ClosetJanitorBombFilled
   parent: ClosetJanitorBomb
   suffix: DO NOT MAP, Filled
+  categories: [ DoNotMap ]
   components:
   - type: StorageFill
     contents:

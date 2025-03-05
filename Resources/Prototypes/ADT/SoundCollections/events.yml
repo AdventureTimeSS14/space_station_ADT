@@ -1,0 +1,11 @@
+- type: soundCollection
+  id: ADTPowerOff
+  files:
+    - /Audio/ADT/Announcements/poweroff.ogg
+    - /Audio/ADT/Announcements/poweroff2.ogg
+
+- type: soundCollection
+  id: ADTPowerOn
+  files:
+    - /Audio/ADT/Announcements/poweron1.ogg
+    - /Audio/ADT/Announcements/poweron2.ogg

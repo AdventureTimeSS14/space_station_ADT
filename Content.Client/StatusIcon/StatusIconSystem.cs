@@ -4,9 +4,11 @@ using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Whitelist;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Content.Shared._RMC14.Stealth; // ADT Tweak
 
 namespace Content.Client.StatusIcon;
 
@@ -83,6 +85,12 @@ public sealed class StatusIconSystem : SharedStatusIconSystem
             return false;
 
         if (data.HideOnStealth && TryComp<StealthComponent>(ent, out var stealth) && stealth.Enabled)
+            return false;
+
+        if (data.HideOnStealth && HasComp<EntityActiveInvisibleComponent>(ent)) // ADT Tweak
+            return false;
+
+        if (TryComp<SpriteComponent>(ent, out var sprite) && !sprite.Visible)
             return false;
 
         if (data.ShowTo != null && !_entityWhitelist.IsValid(data.ShowTo, viewer))

@@ -28,6 +28,7 @@
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  - MagazinePistolSubMachineGunIncendiary
   # Start ADT tweak
   - ADTMagazineMagnumIncendiary
   # Start ADT tweak
@@ -53,10 +54,13 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  # Start ADT tweak
   - ADTBorgModuleHarm #ADT secborg
+  - ADTMechGunImmolatorLaser
   position: 2,-1
   requiredTech:
   - DraconicMunitions
+  # End ADT tweak
 
 - type: technology
   id: NonlethalAmmunition
@@ -90,9 +94,10 @@
   recipeUnlocks:
   - MagazineRifleUranium
   - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
   # Start ADT tweak
   - ADTMagazineMagnumUranium
-  # Start ADT tweak
+  # End ADT tweak
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
@@ -118,9 +123,13 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  # Start ADT tweak - часть технологий подходящих по стилю переношу сюда
+  - ClothingBackpackElectropack
+  - ADTMechGunPeacemakerDisabler
   position: 2,1
   requiredTech:
   - NonlethalAmmunition
+  # End ADT tweak
 
 - type: technology
   id: ExplosiveTechnology
@@ -143,20 +152,17 @@
   requiredTech:
   - UraniumMunitions
 
-- type: technology
-  id: SpecialMeans
-  name: research-technology-special-means
-  icon:
-    sprite: Clothing/Back/Backpacks/electropack.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ClothingBackpackElectropack
-  position: 2,2
-  requiredTech:
-  - AdvancedRiotControl
+# - type: technology #ADT_Tweak - электрорюкзак перенесен в технологию контроля беспорядков
+#   id: SpecialMeans
+#   name: research-technology-special-means
+#   icon:
+#     sprite: Clothing/Back/Backpacks/electropack.rsi
+#     state: icon
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - ClothingBackpackElectropack
 
 # Tier 2
 
@@ -171,6 +177,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponLaserCannon
+  - ADTMechGunSolarisLaserCannon #ADT_Tweak
   position: 3,-1
   requiredTech:
   - WeaponizedLaserManipulation
@@ -186,6 +193,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
+  - ADTMechGunTeslaCannon #ADT_Tweak
   position: 5,-2
   requiredTech:
   - ConcentratedLaserWeaponry

@@ -11,7 +11,6 @@
   cost: 5000
   recipeUnlocks:
   - ProximitySensor
-  - ExosuitFabricatorMachineCircuitboard
 
 - type: technology
   id: BasicAnomalousResearch
@@ -75,7 +74,7 @@
   cost: 7500
   recipeUnlocks:
   - ClothingShoesBootsMagSci
-  - ClothingShoesBootsMoon
+  #- ClothingShoesBootsMoon # ADT tweak - убираем луноходы
   position: 1,0
   requiredTech:
   - AlternativeResearch

@@ -5,10 +5,19 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by not_so_big_chungus",
+    "copyright": "Made by discord: not_so_big_chungus",
     "states": [
         {
             "name": "salvage"
+        },
+        {
+            "name": "security"
+        },
+        {
+            "name": "syndicate"
+        },
+        {
+            "name": "default"
         }
     ]
 }

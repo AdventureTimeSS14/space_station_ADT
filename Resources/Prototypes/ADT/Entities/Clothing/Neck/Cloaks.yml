@@ -129,3 +129,43 @@
     - neck
     slot: head
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckInvisibleCloak
+  name: Invisible Cloak
+  description: kto eto chitaet
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/invisible_cloak.rsi
+  - type: ThermalCloak
+    opacity: 0.08
+    cooldown: 7
+    restrictWeapons: true
+    cloakedHideLayers:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Tail
+    - Snout
+    cloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_on.ogg
+      params:
+        variation: 0.09
+    uncloakSound:
+      path: /Audio/ADT/Effects/Cloak/cloak_scout_off.ogg
+      params:
+        variation: 0.09
+  - type: ToggleClothing
+    action: ADTActionToggleCloak
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: HeldSpeedModifier
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+  - type: Item
+    size: Normal

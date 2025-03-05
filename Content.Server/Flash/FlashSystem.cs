@@ -21,7 +21,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
-using Content.Server.ADT.Eye.Blinding;
+using Content.Shared.ADT.Eye.Blinding;
 
 namespace Content.Server.Flash
 {
@@ -117,6 +117,12 @@ namespace Content.Server.Flash
             bool melee = false,
             TimeSpan? stunDuration = null)
         {
+            // ADT Tweak Start
+            if (TryComp<FlashModifierComponent>(target, out var CompUser))
+            {
+                flashDuration *= CompUser.Modifier;
+            }
+            // ADT Tweak End
             var attempt = new FlashAttemptEvent(target, user, used);
             RaiseLocalEvent(target, attempt, true);
 

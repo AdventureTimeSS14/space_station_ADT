@@ -98,6 +98,18 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField]
     public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
+
+    // ADT Barks start
+    /// <summary>
+    ///     Current voice. Used for correct cloning.
+    /// </summary>
+    [DataField("bark")]
+    public BarkData Bark = new();
+    // ADT Barks end
+    //ADT tweak - allow markings to support shaders
+    [DataField("shader")]
+    public string? Shader { get; private set; } = null;
+    //ADT tweak impstation edit
 }
 
 [DataDefinition]

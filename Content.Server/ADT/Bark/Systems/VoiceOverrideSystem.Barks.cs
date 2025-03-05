@@ -16,7 +16,6 @@ public sealed partial class VoiceOverrideSystem
         if (!entity.Comp.Enabled)
             return;
 
-        args.Sound = entity.Comp.BarkSound ?? args.Sound;
-        args.Pitch = entity.Comp.BarkPitch ?? args.Pitch;
+        args.Data = entity.Comp.Bark ?? args.Data;
     }
 }

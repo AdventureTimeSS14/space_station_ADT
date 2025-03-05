@@ -1,13 +1,16 @@
 - type: npcFaction
   id: Dragon
   hostile:
-    - NanoTrasen
-    - Syndicate
-    - Xeno
-    - PetsNT
-    - Zombie
-    - Revolutionary
-    - Ursus # ADT tweak
+  - NanoTrasen
+  - Syndicate
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Heretic # goob edit - heretics
+  - Ursus # ADT tweak
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: NanoTrasen
@@ -18,11 +21,16 @@
   - Zombie
   - Revolutionary
   - DroneAntag # ADT tweak
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Mouse
   hostile:
-    - PetsNT
+  - PetsNT
+  - AllHostile
 
 - type: npcFaction
   id: Passive
@@ -34,6 +42,7 @@
   - SimpleHostile
   - Zombie
   - Xeno
+  - AllHostile
 
 - type: npcFaction
   id: SimpleHostile
@@ -45,6 +54,9 @@
   - Zombie
   - Revolutionary
   - Ursus # ADT tweak
+  - AllHostile
+  - Wizard
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: SimpleNeutral
@@ -57,8 +69,12 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Heretic # goob edit - heretics
   - DroneAntag # ADT tweak
   - Ursus # ADT tweak
+  - Dragon
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Xeno
@@ -69,7 +85,10 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Heretic # goob edit - heretics
   - Ursus # ADT tweak
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Zombie
@@ -82,6 +101,9 @@
   - PetsNT
   - Revolutionary
   - Ursus # ADT tweak
+  - AllHostile
+  - Wizard
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Revolutionary
@@ -91,3 +113,35 @@
   - SimpleHostile
   - Dragon
   - Ursus # ADT tweak
+  - AllHostile
+  - Wizard
+
+- type: npcFaction
+  id: AllHostile
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Ursus # ADT tweak
+  - DroneAntag # ADT tweak
+  - Wizard
+
+- type: npcFaction
+  id: Wizard
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - SimpleHostile
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - AllHostile

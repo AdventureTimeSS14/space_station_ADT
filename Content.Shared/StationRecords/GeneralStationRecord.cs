@@ -1,3 +1,4 @@
+using Content.Shared.Preferences;
 using Robust.Shared.Enums;
 using Robust.Shared.Serialization;
 
@@ -68,4 +69,9 @@ public sealed record GeneralStationRecord
     /// </summary>
     [DataField]
     public string? DNA;
+
+    // ADT Station Records Showcase Start
+    [DataField]
+    public HumanoidCharacterProfile Profile = new();
+    // ADT Station Records Showcase End
 }

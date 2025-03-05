@@ -1,4 +1,5 @@
 ﻿using Content.Shared.DisplacementMap;
+using Content.Shared.Ghost;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -6,11 +7,13 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.Inventory;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(InventorySystem))]
+[Access(typeof(InventorySystem), typeof(SharedGhostSystem))]    // ADT Tweak - add GhostSystem
+[AutoGenerateComponentState(true, true)]                        // ADT Tweak - field deltas
 public sealed partial class InventoryComponent : Component
 {
     [DataField("templateId", customTypeSerializer: typeof(PrototypeIdSerializer<InventoryTemplatePrototype>))]
-    public string TemplateId { get; private set; } = "human";
+    [AutoNetworkedField]
+    public string TemplateId { get; set; } = "human";
 
     [DataField("speciesId")] public string? SpeciesId { get; set; }
 
@@ -18,6 +21,7 @@ public sealed partial class InventoryComponent : Component
     public ContainerSlot[] Containers = Array.Empty<ContainerSlot>();
 
     [DataField]
+    [AutoNetworkedField]    // ADT Tweak
     public Dictionary<string, DisplacementData> Displacements = new();
 
     /// <summary>
@@ -32,3 +36,9 @@ public sealed partial class InventoryComponent : Component
     [DataField]
     public Dictionary<string, DisplacementData> MaleDisplacements = new();
 }
+
+/// <summary>
+/// Raised if the <see cref="InventoryComponent.TemplateId"/> of an inventory changed.
+/// </summary>
+[ByRefEvent]
+public struct InventoryTemplateUpdated;

@@ -43,6 +43,8 @@
     - Shadekin
     - Arachnid
     - Reptilian
+    - Felinid
+    - Resomi
     - SlimePerson
     - Dwarf
     - IPC
@@ -54,6 +56,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
     - type: RandomMetadata
@@ -71,6 +76,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVA ]
 
@@ -96,6 +104,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVARiot ]
 
@@ -134,6 +145,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -144,6 +157,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -173,6 +189,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVA ]
 
@@ -198,6 +217,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVARiot ]
 
@@ -236,6 +258,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -246,6 +270,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -275,6 +302,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVA ]
 
@@ -300,6 +330,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVARiot ]
 
@@ -337,6 +370,8 @@
     - Arachnid
     - Reptilian
     - SlimePerson
+    - Felinid
+    - Resomi
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
@@ -348,6 +383,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -377,6 +415,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTSecurityGearEVA ]
 
@@ -398,6 +439,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [  ADTERTSecurityGearEVARiot ]
 
@@ -433,6 +477,8 @@
     - Moth
     - VulpkaninSpecies
     - Shadekin
+    - Felinid
+    - Resomi
     - Arachnid
     - Reptilian
     - SlimePerson
@@ -446,6 +492,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -475,6 +524,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVA ]
 
@@ -500,6 +552,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 
@@ -532,6 +587,8 @@
     - Shadekin
     - Arachnid
     - Reptilian
+    - Felinid
+    - Resomi
     - SlimePerson
     - Dwarf
     - IPC
@@ -755,3 +812,48 @@
       factions:
       - SpaceSecFaction
       - Passive # Костыль
+
+- type: entity
+  name: Pirate
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonPirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Pirate # Изменено с Syndicate -> Pirate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateGear]
+  - type: GhostRole
+    name: ghost-role-information-pirate-name
+    description: ghost-role-information-pirate-description
+    rules: ghost-role-information-pirate-rules
+  - type: GhostTakeoverAvailable
+
+
+- type: entity
+  name: Pirate Captain
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonCaptainPirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Pirate # Изменено с Syndicate -> Pirate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateCaptainGear]
+
+- type: entity
+  name: Firstmate Pirate
+  parent: MobSkeletonPerson
+  id: ADTMobSkeletonFirstmatePirate
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Pirate # Изменено с Syndicate -> Pirate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTPirateFirstmateGear]

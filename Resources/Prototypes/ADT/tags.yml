@@ -74,6 +74,12 @@
   id: ADTTelescopicBaton
 
 - type: Tag
+  id: ADTBola
+
+- type: Tag
+  id: ADTAloe
+
+- type: Tag
   id: Eyes
 
 - type: Tag
@@ -120,6 +126,48 @@
 
 - type: Tag
   id: ADTSyrelBattleAxe
+
+- type: Tag
+  id: ADTModsuitHelmet
+
+- type: Tag
+  id: ADTModsuitGauntlets
+
+- type: Tag
+  id: ADTModsuitCoreEnergy
+
+- type: Tag
+  id: ADTModsuitChestplate
+
+- type: Tag
+  id: ADTModsuitBoots
+
+- type: Tag
+  id: ADTModsuitPlateMining
+
+- type: Tag
+  id: ADTModsuitAssembledPart
+
+- type: Tag
+  id: ADTModsuitPlateAtmospheric
+
+- type: Tag
+  id: ADTModsuitPlateCosmohonk
+
+- type: Tag
+  id: ADTModsuitPlateEngineering
+
+- type: Tag
+  id: ADTModsuitPlateMedical
+
+- type: Tag
+  id: ADTModsuitPlateSecurity
+
+- type: Tag
+  id: ADTModsuitPlateStandard
+
+- type: Tag
+  id: ADTModsuitPlateCience
 
 - type: Tag
   id: VehicleKey
@@ -401,4 +449,85 @@
   id: ADTCatEmotes
 
 - type: Tag
+  id: ADTVoxEmotes
+
+- type: Tag
+  id: ADTSlimeEmotes
+
+- type: Tag
   id: ADTDogEmotes
+
+- type: Tag
+  id: LavaDungeon
+
+- type: Tag
+  id: PKAUpgrade
+
+- type: Tag
+  id: GunUpgradeDamage
+
+- type: Tag
+  id: GunUpgradeRange
+
+- type: Tag
+  id: GunUpgradeReloadSpeed
+
+- type: Tag
+  id: ADT40mmGrenade
+
+#sponsor_items
+- type: Tag
+  id: ADTWeaponPistolPrazatHawk
+
+- type: Tag
+  id: ADTWeaponPistolMaria
+
+- type: Tag
+  id: ADTWeaponMeleePrasatChainsword
+
+#sponsor_items - End
+
+- type: Tag
+  id: ADTTeaPack
+
+- type: Tag
+  id: ADTFullRiotShitmadeShield
+
+- type: Tag
+  id: ADTRPlasmaShard
+
+- type: Tag
+  id: ADTRUranShard
+
+- type: Tag
+  id: DockMining
+
+- type: Tag
+  id: MiningShop
+
+- type: Tag
+  id: PKA
+
+- type: Tag
+  id: ADTStorageBlacklist
+
+- type: Tag
+  id: LavaDungeonBloodMiner
+
+- type: Tag
+  id: ADTLighter
+
+- type: Tag
+  id: NoPaint
+
+- type: Tag
+  id: ADTIgnoreChokeSpeechBlocking
+
+- type: Tag
+  id: ADTMiningGuestShuttle
+
+- type: Tag
+  id: ADTMiningShuttle
+
+- type: Tag
+  id: DockMiningGuest

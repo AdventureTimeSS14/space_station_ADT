@@ -55,20 +55,24 @@
       285: 0.8
       248: 0.6
       220: 0.4
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit-female
+
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: LanguageSpeaker
-    speaks:
-      - GalacticCommon
-      - SolCommon
-      - Arkane
-    understands:
-      - GalacticCommon
-      - SolCommon
-      - Arkane
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+      Arkane: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.08
@@ -85,3 +89,10 @@
   components:
   - type: HumanoidAppearance
     species: DemonSpecies
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit-female

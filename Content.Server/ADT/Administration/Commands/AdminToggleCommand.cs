@@ -1,12 +1,11 @@
+using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
-using Robust.Shared.Console;
-using Content.Server.Administration;
 using Robust.Server.Player;
+using Robust.Shared.Console;
 using System.Linq;
 
 namespace Content.Server.ADT.Administration.Commands;
-
 
 [AdminCommand(AdminFlags.Permissions)]
 public sealed class AdminToggleCommand : LocalizedCommands
@@ -73,3 +72,12 @@ public sealed class AdminToggleCommand : LocalizedCommands
     }
 }
 
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

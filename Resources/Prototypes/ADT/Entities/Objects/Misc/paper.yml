@@ -3,3 +3,147 @@
   id: TapeRecorderTranscript
   name: record transcript
   # TODO: could have a unique sprite in the future
+
+- type: entity
+  id: ADTBoxFolderBase
+  parent: BoxFolderBase
+  name: folder
+  description: A folder filled with top secret paperwork.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-colormap
+    - state: folder-base
+
+- type: entity
+  id: ADTBoxFolderDV
+  name: DV folder
+  parent: ADTBoxFolderBase
+  suffix: DV
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-dv
+    - state: folder-base
+
+- type: entity
+  id: ADTBoxFolderClipboardDV
+  parent: BoxFolderClipboard
+  name: DV`s clipboard
+  suffix: DV
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/dv-clipboard.rsi
+    layers:
+    - state: clipboard
+    - state: clipboard_paper
+      map: ["clipboard_paper"]
+      visible: false
+    - state: clipboard_pen
+      map: ["clipboard_pen"]
+      visible: false
+    - state: clipboard_over
+  - type: Item
+    sprite: ADT/Objects/Misc/dv-clipboard.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Misc/dv-clipboard.rsi
+
+#Валентинки
+- type: entity
+  name: valentine paper red
+  parent: Paper
+  id: ADTPaperValentineRed
+  description: "A page of the captain's journal. In luxurious lavender."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper-valentine-red
+    - state: paper-valentine-red_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+
+- type: entity
+  name: valentine paper white
+  parent: Paper
+  id: ADTPaperValentineWhite
+  description: "A page of the captain's journal. In luxurious lavender."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper-valentine-white
+    - state: paper-valentine-white_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+
+- type: entity
+  name: valentine red paper box
+  id: ADTBoxValentineRed
+  parent: BoxFolderBase
+  description: "A page of the captain's journal. In luxurious lavender."
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-valentine-red
+  - type: Item
+    sprite: Objects/Misc/bureaucracy.rsi
+    size: Tiny
+    shape: null
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,0,0
+    whitelist:
+      tags:
+        - Document
+  - type: ItemMapper
+    mapLayers:
+      folder-valentine-red-overlay-paper:
+        whitelist:
+          tags:
+          - Document
+  - type: StorageFill
+    contents:
+      - id: ADTPaperValentineWhite
+
+- type: entity
+  name: valentine white paper box
+  id: ADTBoxValentineWhite
+  parent: BoxFolderBase
+  description: "A page of the captain's journal. In luxurious lavender."
+  suffix: Valentine Day
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: folder-valentine-white
+  - type: Item
+    sprite: Objects/Misc/bureaucracy.rsi
+    size: Tiny
+    shape: null
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,0,0
+    whitelist:
+      tags:
+        - Document
+  - type: ItemMapper
+    mapLayers:
+      folder-valentine-white-overlay-paper:
+        whitelist:
+          tags:
+          - Document
+  - type: StorageFill
+    contents:
+      - id: ADTPaperValentineRed

@@ -3,17 +3,19 @@ using Content.Server.Humanoid;
 using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
-using Content.Server.Nutrition;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
+using Content.Shared.Follower;
+using Content.Shared.Follower.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
@@ -23,7 +25,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Server.Forensics; // ADT-Changeling-Tweak
+using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
 using Content.Server.DetailExaminable; // ADT-Changeling-Tweak
@@ -50,6 +52,8 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
+
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -204,6 +208,9 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var targetTransformComp = Transform(uid);
 
+        if (configuration.PolymorphSound != null)
+            _audio.PlayPvs(configuration.PolymorphSound, targetTransformComp.Coordinates);
+
         var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
         MakeSentientCommand.MakeSentient(child, EntityManager);
@@ -284,7 +291,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             _humanoid.SetAppearance(data.HumanoidAppearanceComponent, humanoidAppearance);
 
         if (TryComp<DnaComponent>(child, out var dnaComp))
+        {
             dnaComp.DNA = data.DNA;
+            Dirty(child, dnaComp);
+        }
 
         //Transfers all damage from the original to the new one
         if (TryComp<DamageableComponent>(child, out var damageParent)
@@ -307,6 +317,19 @@ public sealed partial class PolymorphSystem : EntitySystem
         EnsurePausedMap();
         if (PausedMap != null)
             _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
+
+        // Raise an event to inform anything that wants to know about the entity swap
+        var ev = new PolymorphedEvent(uid, child, false);
+        RaiseLocalEvent(uid, ref ev);
+
+        // goob edit
+        if (TryComp<FollowedComponent>(uid, out var followed))
+            foreach (var f in followed.Following)
+            {
+                _follow.StopFollowingEntity(f, uid);
+                _follow.StartFollowingEntity(f, child);
+            }
+        // goob edit end
 
         return child;
     }
@@ -365,6 +388,9 @@ public sealed partial class PolymorphSystem : EntitySystem
         var uidXform = Transform(uid);
         var parentXform = Transform(parent);
 
+        if (component.Configuration.ExitPolymorphSound != null)
+            _audio.PlayPvs(component.Configuration.ExitPolymorphSound, uidXform.Coordinates);
+
         _transform.SetParent(parent, parentXform, uidXform.ParentUid);
         _transform.SetCoordinates(parent, parentXform, uidXform.Coordinates, uidXform.LocalRotation);
 
@@ -410,6 +436,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
 
+        // Raise an event to inform anything that wants to know about the entity swap
+        var ev = new PolymorphedEvent(uid, parent, true);
+        RaiseLocalEvent(uid, ref ev);
+
         _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
                 ("parent", Identity.Entity(uid, EntityManager)),
                 ("child", Identity.Entity(parent, EntityManager))),
@@ -417,7 +447,13 @@ public sealed partial class PolymorphSystem : EntitySystem
         QueueDel(uid);
 
         // goob edit
-        RaiseLocalEvent(parent, new PolymorphRevertEvent());
+        if (TryComp<FollowedComponent>(uid, out var followed))
+            foreach (var f in followed.Following)
+            {
+                _follow.StopFollowingEntity(f, uid);
+                _follow.StartFollowingEntity(f, parent);
+            }
+        // goob edit end
 
         return parent;
     }

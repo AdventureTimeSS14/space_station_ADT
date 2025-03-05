@@ -550,16 +550,11 @@
     sound:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
-    - SolCommon
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
-    - SolCommon
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      RobotTalk: Speak
+      SolCommon: Speak
   - type: Tag
     tags:
   #  - ChangelingBlacklist

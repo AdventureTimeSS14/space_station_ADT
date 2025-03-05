@@ -1,4 +1,3 @@
-using Content.Server.Forensics;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Server.Explosion.EntitySystems;
@@ -8,6 +7,7 @@ using Content.Shared.Emag.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Verbs;
+using Content.Shared.Forensics.Components;
 using Robust.Shared.Utility;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
@@ -66,6 +66,8 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void OnEquip(EntityUid uid, DNALockerComponent component, GotEquippedEvent args)
     {
+        if (!component.Enabled)
+            return;
         if (!component.IsLocked)
         {
             LockEntity(uid, component, args.Equipee);
@@ -84,7 +86,7 @@ public sealed partial class DNALockerSystem : EntitySystem
 
     private void OnGotEmagged(EntityUid uid, DNALockerComponent component, ref GotEmaggedEvent args)
     {
-        if (!component.CanBeEmagged)
+        if (!component.CanBeEmagged || !component.Enabled)
             return;
 
         component.DNA = string.Empty;
@@ -96,13 +98,14 @@ public sealed partial class DNALockerSystem : EntitySystem
             var selfMessage = Loc.GetString("dna-locker-unlock");
             _popup.PopupEntity(selfMessage, uid, userUid);
         });
+        component.Enabled = !component.Enabled;
         args.Repeatable = true;
         args.Handled = true;
     }
 
     private void OnAltVerb(EntityUid uid, DNALockerComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!component.IsLocked)
+        if (!component.IsLocked || !component.Enabled)
             return;
 
         AlternativeVerb verbDNALock = new()

@@ -16,6 +16,11 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
+  # ADT add start
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  # ADT add end
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear

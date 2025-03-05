@@ -54,10 +54,12 @@ namespace Content.Client.VendingMachines
         {
             base.UpdateState(state);
 
+            var system = EntMan.System<VendingMachineSystem>();
+
             if (state is not VendingMachineInterfaceState newState)
                 return;
 
-            _cachedInventory = newState.Inventory;
+            _cachedInventory = system.GetAllInventory(Owner);
 
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }

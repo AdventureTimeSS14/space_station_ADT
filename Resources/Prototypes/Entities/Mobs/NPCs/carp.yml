@@ -76,6 +76,7 @@
       tags:
         - Carp
         - DoorBumpOpener
+        - NoPaint # ADT tweak
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
@@ -85,12 +86,14 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-  # ADT-CollectiveMind-Tweak-Start
-    - type: CollectiveMind
-      channel: CarpCollectiveMind
-      showRank: true
+    - type: CollectiveMindRank
       rankName: collective-mind-carp-rank
-  # ADT-CollectiveMind-Tweak-End
+    # Start ADT Tweak
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+        CarpCollectiveMind: Speak
+    # End ADT Tweak
 
 - type: entity
   parent: BaseMobCarp
@@ -176,6 +179,8 @@
       name: ghost-role-information-sentient-carp-name
       description: ghost-role-information-sentient-carp-description
       rules: ghost-role-information-space-dragon-summoned-carp-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
 #      raffle:
 #        settings: short ADT tweak для быстрого захода на рольку
     - type: GhostTakeoverAvailable
@@ -268,8 +273,14 @@
         types:
           Slash: 10
           Bloodloss: 5
-    - type: CollectiveMind
+    # ADT Start
+    - type: CollectiveMindRank
       rankName: collective-mind-shark-rank
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+        CarpCollectiveMind: Speak
+    # ADT End
 
 - type: entity
   id: MobSharkSalvage

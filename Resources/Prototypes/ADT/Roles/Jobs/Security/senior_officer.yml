@@ -16,6 +16,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 234000 # 65 hrs #ADT-RoleTime
+    # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+  # ADT RESTRICT End
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos

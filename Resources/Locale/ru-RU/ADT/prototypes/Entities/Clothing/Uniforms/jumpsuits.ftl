@@ -110,7 +110,6 @@ ent-ADTClothingUniformJumpsuitTurtleneckRed = красная водолазка
     .desc = Хорошо маскирует следы крови.
     .suffix = { "" }
 
-
 ent-ADTClothingUniformJumpsuitTurtleneckYellow = жёлтая водолазка
     .desc = Наполнена счастьем.
     .suffix = { "" }
@@ -118,7 +117,6 @@ ent-ADTClothingUniformJumpsuitTurtleneckYellow = жёлтая водолазка
 ent-ADTClothingUniformJumpsuitTurtleneckWhite = белая водолазка
     .desc = Тепло и уютно.
     .suffix = { "" }
-
 
 ent-ADTClothingUniformJumpsuitTurtleneckBrown = коричневая водолазка
     .desc = Знаешь ли ты, почему я ношу красное? Оно хорошо скрывает следы крови! И я вижу, что ты одета в коричневое...
@@ -176,6 +174,9 @@ ent-ADTCapJumpsuitWarm = водолазка капитана
 ent-ClothingUniformJumpsuitBlueshieldTurtleneck = водолазка офицера синего щита
     .desc = Белая удобная водолазка Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
 
+ent-ADTClothingUniformJumpsuitBrigmedicTurtleneck = водолазка бригмедика
+    .desc = Комфортная и тёплая водолазка. Специально для боевого медика.
+
 ent-ADTSpaceSecUniformCadet = комбинезон кадета SPACE SEC
     .desc = Стандартная одежда корпорации SPACE SEC.
 ent-ADTSpaceSecUniformPilot = комбинезон пилота SPACE SEC
@@ -221,7 +222,7 @@ ent-ADTClothingUniformAiryBlackSuit = черный воздушный костю
     .desc = Готично, строго, сексуально. Для тех кто любит показывать свой красивый лифчик.
 
 ent-ADTClothingJumpsuitHopAlt = деловой костюм главы персонала
-    .desc = Качетсвенно сделанная униформа для тех глав персонала, что могут себе такую позволить.
+    .desc = Качественно сделанная униформа для тех глав персонала, что могут себе такую позволить.
 ent-ADTClothingJumpsuitSecOffMogesBrown = костюм офицера СБ с Могеса
     .desc = Не совсем формальный, но очень подходящий для трофиков костюм офицера, служившего в филиале Нанотрейзен на планете Могес. Заслужить право носить такой может только ветеран СБ. Стоять, СБ Могеса!
 ent-ADTClothingJumpsuitSecOffMogesBlue = костюм офицера СБ с Могеса
@@ -374,3 +375,43 @@ ent-ADTClothingUniformSwimsuitWinth = купальник ведьмочки
     .desc = Точно не для повседневного ношения, так ведь?..
     .suffix = Хеллоуин
 
+ent-ADTClothingUniformJumpsuitCamisoleQM = укороченный камзол квартирмейстера
+    .desc = Камзол, который одновременно хорош как для работы так и для отдыха.
+
+ent-ADTClothingUniformJumpsuitMGDAgent = деловой костюм компании MG&D
+    .desc = Состоит из очень мягкой ткани. На себе имеет также имеет белую шубу с черным воротником.
+    .suffix = { "MG&D" }
+ent-ADTClothingUniformJumpsuitMGDParticipant = костюм участника голодных игр
+    .desc =  Состоит из белых и черных тканей. Костюм облегается на тело что дает свободу для передвижений.
+    .suffix = { "MG&D" }
+ent-ADTClothingUniformJumpsuitMGDGuard = бронированный костюм компании MG&D
+    .desc = Состоит из прочного бронежилета "Тактика" а также защиты для коленей и локтей, состоящих из кевлара.
+    .suffix = { "MG&D" }
+
+ent-ADTClothingUniformJumpsuitRomanticSuit = красно-белый костюм
+    .desc = Модный романтичный костюм.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitTurtleHeart = водолазка с сердцем
+    .desc = Милая забавная водолазка.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitDarkMan = темный мужской костюм
+    .desc = Стильные темные брюки и пиджак с красной оторочкой.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitBrightMan = светлый мужской костюм
+    .desc = Стильные светлые брюки и красный верх.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitCupidon = одеяние купидона
+    .desc = На 50% мифическое одеяние, на 50% - обернутая вокруг тела простыня.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitRedSweaterHeart = красный свитер с сердечком
+    .desc = Теплый, красный, с любовью.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitWhiteSweaterHeart = белый свитер с сердечком
+    .desc = Теплый, белый, с любовью.
+    .suffix = { "День Святого Валентина" }

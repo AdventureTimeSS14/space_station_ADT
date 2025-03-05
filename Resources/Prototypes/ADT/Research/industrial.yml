@@ -31,7 +31,7 @@
   position: 3,-3
   requiredTech:
   - AdvancedToolsTechnology
-
+  
 - type: technology
   id: ADTCutter
   name: research-technology-plasma-cutter
@@ -63,3 +63,43 @@
   position: 5,1
   requiredTech:
   - ADTCutter
+
+- type: technology
+  id: ADTIndustrialMODsuit
+  name: research-technology-industrial-modsuits
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: engineering
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTModsuitPlateMining
+    - ADTModsuitPlateEngineering
+    - ADTModsuitPlateCosmohonk
+    - ADTModsuitPlateAtmospheric
+  technologyPrerequisites:
+    - ADTModsuitBase
+
+- type: technology
+  id: ADTIndustrialMODsuitMODs
+  name: research-technology-industrial-modsuits-mods
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: welding
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTModsuitModJump
+    - ADTModsuitModIsulation
+    - ADTModsuitModTray
+    - ADTModsuitModWelding
+    - ADTModsuitModStorageLarge
+    - ADTModsuitModStorage
+    - ADTModsuitModMagboot
+    - ADTModsuitModJetpack
+    - ADTModsuitModNightVision
+    - ADTModsuitModDrill
+  technologyPrerequisites:
+    - ADTIndustrialMODsuit

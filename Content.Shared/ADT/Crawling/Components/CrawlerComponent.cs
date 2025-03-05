@@ -10,13 +10,14 @@ public sealed partial class CrawlerComponent : Component
     ///     The time for getting up's doafter
     /// </summary>
     [DataField]
-    public TimeSpan StandUpTime = TimeSpan.FromSeconds(1.5);
+    public TimeSpan StandUpTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     ///     The explosive resistance coefficient, This fraction is multiplied into the total resistance if player downed.
     /// </summary>
     [DataField("downeddamageCoefficient")]
     public float DownedDamageCoefficient = 0.2F;
+
     [DataField]
-    public ProtoId<AlertPrototype> CtawlingAlert = "Crawling";
+    public ProtoId<AlertPrototype> CrawlingAlert = "Crawling";
 }

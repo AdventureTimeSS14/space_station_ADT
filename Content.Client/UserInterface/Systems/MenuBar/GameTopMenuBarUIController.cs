@@ -9,8 +9,8 @@ using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Client.UserInterface.Systems.Sandbox;
-using Content.Client.UserInterface.Systems.Language;    // ADT Languages
 using Robust.Client.UserInterface.Controllers;
+using Content.Client.ADT.UserInterface.Systems.Language;
 
 namespace Content.Client.UserInterface.Systems.MenuBar;
 

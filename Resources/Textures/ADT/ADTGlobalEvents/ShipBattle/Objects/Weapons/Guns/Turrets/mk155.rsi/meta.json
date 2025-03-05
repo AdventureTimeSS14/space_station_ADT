@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made from not_so_big_chungus",
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+    "states": [
+        {
+            "name": "mk155_kmt"
+        },
+        {
+            "name": "mk155_tsf"
+        },
+        {
+            "name": "mk155_broken"
+        }
+    ]
+}

@@ -77,8 +77,8 @@ language-Kangaroo-description = A collection of sounds made by kangaroos.
 language-Pig-name = Animal pig
 language-Pig-description = A collection of sounds made by pigs.
 
-language-Moffic-name = Паучий
-language-Moffic-description = Древний язык, на котором говорят арахниды.
+language-Arachnid-name = Паучий
+language-Arachnid-description = Древний язык, на котором говорят арахниды.
 
 language-Drask-name = Орлуум
 language-Drask-description = Монотонный, вибрирующий язык драсков. Он чем-то напоминает китовую песню.
@@ -93,7 +93,7 @@ language-Arkane-name = Каукиттен
 language-Arkane-description = Протяжный, чем-то напоминающий Солнечный язык, на котором говорят арканы.
 
 language-Shadekin-name = Миар
-language-Shadekin-description = Загадочный язык, на котором говорят сумеречники.
+language-Shadekin-description = Лишь недавно сформировавшийся язык, на котором говорят многие молодые сумеречники.
 
 language-Dwarf-name = Шахт
 language-Dwarf-description = Rock and stone!
@@ -105,40 +105,37 @@ language-CintaTaj-name = Синта’Тайр
 language-CintaTaj-description = Язык, разработанный таярами и унатхами для общения между двумя расами, представляет собой смесь шипений и слов.
 
 language-VoxPidgin-name = Вокс-пиджин
-language-VoxPidgin-description = Язык воксов — это смесь чириканья и визгов, труднопонимаемая для других рас из-за ультразвуковых характеристик. Они используют рунопись или транслитерацию, что делает слова длинными и запутанными. Воксы говорят о себе во множественном числе, подчеркивая коллективный инстинкт Стаи.
+language-VoxPidgin-description = Смесь чириканья и визгов, труднопонимаемая для других рас из-за ультразвуковых характеристик.
 
-language-GalacticCommon = Общ.
-language-Bubblish = Пузырчатый
-language-RootSpeak = Песнь корней
-language-CodeSpeak = Кодовый
-language-Nekomimetic = Неко
-language-Draconic = Синта'унати
-language-Canilunzt = Канилунц
-language-SikTaj = Сик'тайр
-language-Nian = Ткачий
-language-Fire = Огненный
-language-SolCommon = Солнечный
-language-Cat = Кошачий
-language-Dog = Собачий
-language-Mothroach = Молиный
-language-Xeno = Ксено
-language-RobotTalk = Троичный
-language-Monkey = Обезьяний
-language-Bee = Пчелиный
-language-Mouse = Мышиный
-language-Drask = Орлуум
-# These ones are half-assed because these creatures are almost never played as.
-language-Chicken = Animal chicken
-language-Duck = Animal duck
-language-Cow = Animal cow
-language-Sheep = Animal sheep
-language-Kangaroo = Animal kangaroo
-language-Pig = Animal pig
-language-Moffic = Паучий
-language-BorgTalk = Двоичный
-language-Urs = Рыкрур
-language-Arkane = Каукиттен
-language-Shadekin = Миар
-language-Dev = Разраб
-language-Dwarf = Шахт
-language-CintaTaj = Синта’тайр
+language-Mar-name = Мар
+language-Mar-description = Древний и загадочный язык сумеречников, состоящий из всего одного слова.
+
+language-Gutter-name = Гаттер
+language-Gutter-description = Официально не признанный язык, используемый маргинальными группировками в трущобах.
+
+language-NeoRusskiya-name = Нео-русский
+language-NeoRusskiya-description = Язык, на котором говорят жители СССП. Отдаёт коммунизмом и водкой.
+
+language-Clownish-name = Хихич
+language-Clownish-description = Клоунский язык! Хонк!
+
+language-Scratches-name = Скретчи
+language-Scratches-description = Язык резоми, состоящий из различных хрипов, тресков и писков, которые нетренированным ухом часто воспринимается, как какофония.
+
+language-SignLanguage-name = Язык жестов
+language-SignLanguage-description = Язык, что позволяет глухим представителям всевозможных рас контактировать между собой.
+
+language-DionaCollectiveMind-name = Колл. разум дион
+language-DionaCollectiveMind-description = Коллективный разум, с которым с рождения связаны все дионы.
+
+language-CarpCollectiveMind-name = Колл. разум карпов
+language-CarpCollectiveMind-description = Коллективный разум карпов, космических хищников и отпрысков дракона.
+
+language-XenoCollectiveMind-name = Колл. разум ксено
+language-XenoCollectiveMind-description = Коллективный разум ксеноморфов.
+
+language-SiliconCollectiveMind-name = Сеть киборгов NT
+language-SiliconCollectiveMind-description = Канал связи, предназначенный для передачи данных между позитрониками.
+
+language-ChangelingCollectiveMind-name = Разум улья
+language-ChangelingCollectiveMind-description = Коллективный разум генокрадов, рождённых в одном улье.

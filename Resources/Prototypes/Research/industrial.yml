@@ -12,8 +12,6 @@
   recipeUnlocks:
   - MiningDrill
   - MineralScannerEmpty
-  - BorgModuleMining
-  - BorgModuleGrapplingGun
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
   position: 3,0
@@ -49,6 +47,7 @@
   recipeUnlocks:
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
+  - SMESAdvancedMachineCircuitboard
   position: 2,-1
   requiredTech:
   - SpaceScanning
@@ -99,7 +98,6 @@
   - PortableGeneratorPacmanMachineCircuitboard
   - PortableGeneratorSuperPacmanMachineCircuitboard
   - PortableGeneratorJrPacmanMachineCircuitboard
-  - PowerComputerCircuitboard #the actual solar panel itself should be in here
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
@@ -193,6 +191,8 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
+    - Fulton
+    - FultonBeacon
     - BorgModuleRCD
     - ADTBorgModuleRPD # ADT-RPD
   position: 3,-2
@@ -217,6 +217,7 @@
   requiredTech:
   - SalvageEquipment
   - ADTCutter
+  
 # Tier 3
 
 - type: technology
@@ -237,6 +238,7 @@
   - Advanted Energy
   - AdvancedAtmospherics
 
+#ADT TWEAK
 # - type: technology
 #   id: PortableFission
 #   name: research-technology-portable-fission

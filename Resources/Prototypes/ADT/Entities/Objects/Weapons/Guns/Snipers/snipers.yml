@@ -47,10 +47,31 @@
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: MagazineAmmoProvider
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: true
+  # - type: MagazineVisuals
+  #   magState: mag
+  #   steps: 4
+  #   zeroVisible: true
   - type: Appearance
   - type: StaticPrice
     price: 5000
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        locked: true
+        startingAttachable: ADTAttachmentHristovScope
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentHristovScope
+  - type: ItemSizeChange
+  - type: ActivatableUI
+    verbText: rmc-verb-strip-attachables
+    verbOnly: true
+    key:
+      enum.AttachmentUI.StripKey
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui

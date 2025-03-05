@@ -17,6 +17,9 @@
         {
             "name": "black-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "mopbucket_shark_black"
         }
     ]
 }

@@ -65,10 +65,14 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+        requireInputValidation: false
       enum.BorgUiKey.Key:
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
+      enum.BorgSwitchableTypeUiKey.SelectBorgType:
+        type: BorgSelectTypeUserInterface
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -162,24 +166,23 @@
       Unsexed: UnisexSilicon
 # Start ADT Tweak
   - type: LanguageSpeaker
-    speaks:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
-    understands:
-    - GalacticCommon
-    - BorgTalk
-    - RobotTalk
+    languages:
+      GalacticCommon: Speak
+      BorgTalk: Speak
+      SiliconCollectiveMind: Speak
+      RobotTalk: Understand
+  - type: CollectiveMindRank
+    rankName: collective-mind-borg-rank
 # End ADT Tweak
   - type: UnblockableSpeech
   - type: Construction
     graph: Cyborg
+    node: cyborg
     containers:
     - part-container
     - cell_slot
   - type: Lock
     locked: true
-    breakOnEmag: false
     unlockOnClick: false
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
@@ -250,12 +253,6 @@
     - ADTSiliconStealthWhitelist  # ADT tweak
     - ADTSiliconEmotes            # ADT tweak
   - type: Emoting
-  # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
-    channel: Binary
-    showRank: true
-    rankName: collective-mind-borg-rank
-  # ADT-CollectiveMind-Tweak-End
   - type: GuideHelp
     guides:
     - Cyborgs
@@ -297,13 +294,17 @@
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
   - type: SpeechBarks
-    sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
+    data:
+      proto: Synth3
 
 - type: entity
   id: BaseBorgChassisNT
   parent: [BaseBorgChassis, BaseBorgTransponder]
   abstract: true
   components:
+  - type: RandomMetadata
+    nameSegments:
+      - names_borg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -314,7 +315,9 @@
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
-  - type: ShowMindShieldIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
 
 - type: entity
   id: BaseBorgChassisSyndicate
@@ -332,6 +335,7 @@
     access: [["SyndicateAgent"], ["NuclearOperative"]]
   - type: SiliconLawProvider
     laws: SyndicateStatic
+    subverted: true
   - type: IntrinsicRadioTransmitter
     channels:
     - Binary
@@ -343,8 +347,30 @@
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+
+- type: entity
+  id: BaseBorgChassisDerelict
+  parent: BaseBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
+  - type: Access
+    enabled: false
+    groups:
+    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+  - type: AccessReader
+    access: [["Command"], ["Research"]]
+  - type: StartIonStormed
+    ionStormAmount: 3
+  - type: IonStormTarget
+    chance: 1
+  - type: ShowJobIcons

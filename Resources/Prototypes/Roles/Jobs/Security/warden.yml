@@ -7,9 +7,14 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 198000 #55 hrs # ADT-RoleTime
+  # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+  # ADT RESTRICT End
   startingGear: WardenGear
   icon: "JobIconWarden"
-  requireAdminNotify: true
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
