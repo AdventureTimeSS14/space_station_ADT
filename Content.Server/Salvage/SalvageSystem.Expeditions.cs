@@ -139,13 +139,13 @@ public sealed partial class SalvageSystem
     {
         component.Missions.Clear();
 
-        for (var i = 0; i < MissionLimit; i++)
+        for (var i = 0; i < component.Difficulties.Count; i++)  // ADT Salvage tweaked
         {
             var mission = new SalvageMissionParams
             {
                 Index = component.NextIndex,
                 Seed = _random.Next(),
-                Difficulty = "Moderate",
+                Difficulty = component.Difficulties[i], // ADT Salvage tweaked
             };
 
             component.Missions[component.NextIndex++] = mission;
@@ -174,6 +174,7 @@ public sealed partial class SalvageSystem
             _metaData,
             _transform,
             _mapSystem,
+            _weather,
             station,
             coordinatesDisk,
             missionParams,
