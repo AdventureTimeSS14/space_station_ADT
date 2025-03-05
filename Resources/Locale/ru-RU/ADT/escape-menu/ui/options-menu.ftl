@@ -15,3 +15,4 @@ ui-options-show-offer-mode-indicators = Показывать индикатор 
 ui-options-function-toggle-crawling = Переключить ползание
 ui-options-function-open-languages-menu = Открыть меню выбора языка
 ui-options-function-offer-item = Передать что-либо
+ui-options-hud-theme-operative = Оперативник
