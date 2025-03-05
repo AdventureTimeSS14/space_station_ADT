@@ -113,7 +113,7 @@ namespace Content.IntegrationTests.Tests
             "ADT_Packed",
             "ADT_Gemini",
             "ADT_Aspid",
-            "ADT_Cluster_Legacy"
+            "ADT_Cluster_Legacy",
             "ADT_Meta"
             // ADT-End
         };
