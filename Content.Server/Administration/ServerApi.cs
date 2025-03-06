@@ -798,7 +798,7 @@ public sealed partial class ServerApi : IPostInjectInit
         {
             await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
             {
-                InfoBan = Loc.GetString("cmd-banlist-empty", ("user", body.NickName)) // Бан лист пуст
+                InfoBan = $"Баны игрока {body.NickName} не найдены." // Бан лист пуст
             });
 
             return;
@@ -807,8 +807,12 @@ public sealed partial class ServerApi : IPostInjectInit
         var msg = "";
         foreach (var ban in bans)
         {
-            msg += $"{ban.Id}: {ban.Reason} - {ban.BanningAdmin}\n";
-            msg += ban.ToString() + "\n";
+            if (ban.BanningAdmin == null)
+                return;
+
+            var dataAdmin = _playerManager.GetPlayerData(ban.BanningAdmin.Value);
+
+            msg += $"{ban.Id}: {ban.Reason} - {dataAdmin.UserName}\n";
         }
 
         await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
