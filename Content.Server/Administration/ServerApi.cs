@@ -787,6 +787,8 @@ public sealed partial class ServerApi : IPostInjectInit
                 InfoBan = Loc.GetString("cmd-ban-player") // Не удалось найти такого игрока
             });
 
+            _sawmill.Error("ActionGetBanPlayer: Получен null в body");
+
             return;
         }
 
@@ -796,7 +798,7 @@ public sealed partial class ServerApi : IPostInjectInit
         {
             await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
             {
-                InfoBan = Loc.GetString("cmd-banlist-empty", ("user", data.Username)) // Бан лист пуст
+                InfoBan = Loc.GetString("cmd-banlist-empty", ("user", body.NickName)) // Бан лист пуст
             });
 
             return;
@@ -806,6 +808,7 @@ public sealed partial class ServerApi : IPostInjectInit
         foreach (var ban in bans)
         {
             msg += $"{ban.Id}: {ban.Reason} - {ban.BanningAdmin}\n";
+            msg += ban.ToString() + "\n";
         }
 
         await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
