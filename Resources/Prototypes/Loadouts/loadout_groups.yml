@@ -1177,6 +1177,7 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - ArmorVestHidden #ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1242,6 +1243,7 @@
   - DetectiveCoat
   - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
+  - ArmorVestHidden # ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit

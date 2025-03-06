@@ -115,6 +115,13 @@
   equipment:
     outerClothing: ClothingOuterWinterSec
 
+# ADT_Tweak_Start
+- type: loadout
+  id: ArmorVestHidden
+  equipment:
+    outerClothing: ADTClothingOuterArmorVestHidden
+# ADT_Tweak_End
+
 # Shoes
 - type: loadout
   id: CombatBoots
