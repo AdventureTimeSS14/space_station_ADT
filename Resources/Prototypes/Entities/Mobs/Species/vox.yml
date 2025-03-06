@@ -48,6 +48,9 @@
   - type: Tag
     tags:
       - ADTVoxEmotes
+      - CanPilot
+      - DoorBumpOpener
+      - FootstepSound
   # ADT-Tweak End
   - type: DamageVisuals
     damageOverlayGroups:
