@@ -807,9 +807,10 @@ public sealed partial class ServerApi : IPostInjectInit
         {
             msg += $"{ban.Id}: {ban.Reason} - {ban.BanningAdmin}\n";
         }
+
         await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
         {
-            InfoBan = msg
+            InfoBan = msg // Пересылаем всю инфу
         });
 
         // public ServerBanDef(int? id,
@@ -825,7 +826,6 @@ public sealed partial class ServerApi : IPostInjectInit
         //     NetUserId? banningAdmin,
         //     ServerUnbanDef? unban,
         //     ServerBanExemptFlags exemptFlags = default
-
         // return;
 
     }
