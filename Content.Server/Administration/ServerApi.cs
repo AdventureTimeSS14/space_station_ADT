@@ -26,6 +26,7 @@ using Robust.Shared.Utility;
 using Content.Server.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
+using Content.Server.Database;
 
 namespace Content.Server.Administration;
 
@@ -64,6 +65,8 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -76,6 +79,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Get, "/admin/info", InfoHandler);
         RegisterHandler(HttpMethod.Get, "/admin/game_rules", GetGameRules);
         RegisterHandler(HttpMethod.Get, "/admin/presets", GetPresets);
+        RegisterActorHandler(HttpMethod.Get, "/admin/actions/get_banlist", ActionGetBanPlayer); // ADT Tweak: Получение банов по нику
 
         // Post
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/round/start", ActionRoundStart);
@@ -87,7 +91,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat); // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat); // ADT Tweak: Админ чат через дис
     }
 
     public void Initialize()
@@ -769,10 +773,77 @@ public sealed partial class ServerApi : IPostInjectInit
         });
     }
 
+    private async Task ActionGetBanPlayer(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<AdminGetBanPlayerBody>(context);
+        if (body == null)
+            return;
+
+        var data = await _locator.LookupIdByNameOrIdAsync(body.NickName);
+        if (data == null)
+        {
+            await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
+            {
+                InfoBan = Loc.GetString("cmd-ban-player") // Не удалось найти такого игрока
+            });
+
+            return;
+        }
+
+        var bans = await _dbManager.GetServerBansAsync(data.LastAddress, data.UserId, data.LastLegacyHWId, data.LastModernHWIds, false);
+
+        if (bans.Count == 0)
+        {
+            await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
+            {
+                InfoBan = Loc.GetString("cmd-banlist-empty", ("user", data.Username)) // Бан лист пуст
+            });
+
+            return;
+        }
+
+        var msg = "";
+        foreach (var ban in bans)
+        {
+            msg += $"{ban.Id}: {ban.Reason} - {ban.BanningAdmin}\n";
+        }
+        await context.RespondJsonAsync(new AdminSendInfoBanPlayerBody
+        {
+            InfoBan = msg
+        });
+
+        // public ServerBanDef(int? id,
+        //     NetUserId? userId,
+        //     (IPAddress, int)? address,
+        //     TypedHwid? hwId,
+        //     DateTimeOffset banTime,
+        //     DateTimeOffset? expirationTime,
+        //     int? roundId,
+        //     TimeSpan playtimeAtNote,
+        //     string reason,
+        //     NoteSeverity severity,
+        //     NetUserId? banningAdmin,
+        //     ServerUnbanDef? unban,
+        //     ServerBanExemptFlags exemptFlags = default
+
+        // return;
+
+    }
+
     private sealed class AdminChatActionBody
     {
         public required string Message { get; init; }
         public required string NickName { get; init; }
+    }
+
+    private sealed class AdminGetBanPlayerBody
+    {
+        public required string NickName { get; init; }
+    }
+
+    private sealed class AdminSendInfoBanPlayerBody
+    {
+        public required string InfoBan { get; init; }
     }
 
     #endregion
