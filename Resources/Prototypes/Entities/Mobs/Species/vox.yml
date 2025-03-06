@@ -51,6 +51,7 @@
       - CanPilot
       - DoorBumpOpener
       - FootstepSound
+      - AnomalyHost
   # ADT-Tweak End
   - type: DamageVisuals
     damageOverlayGroups:
