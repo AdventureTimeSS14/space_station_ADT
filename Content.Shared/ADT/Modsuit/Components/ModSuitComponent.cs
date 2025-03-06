@@ -1,4 +1,4 @@
-using Content.Shared.Clothing.EntitySystems;
+using Robust.Shared.Timing;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -88,6 +88,10 @@ public sealed partial class ModSuitComponent : Component
 
     [DataField("requiredSlot"), AutoNetworkedField]
     public SlotFlags RequiredFlags = SlotFlags.BACK;
+    public TimeSpan Toggletick;
+
+    [DataField]
+    public List<EntProtoId> StartingModules = [];
 }
 
 [Serializable, NetSerializable]

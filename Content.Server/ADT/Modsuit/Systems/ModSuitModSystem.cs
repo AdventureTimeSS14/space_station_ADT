@@ -8,21 +8,21 @@ namespace Content.Server.ADT.ModSuits;
 
 public sealed class ModSuitModSystem : EntitySystem
 {
-    [Dependency] private readonly ClothingSpeedModifierSystem _clothing = default!;
     [Dependency] private readonly ModSuitSystem _modsuit = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ModSuitModComponent, ItemSlotInsertAttemptEvent>(OnInsert);
-        SubscribeLocalEvent<ModSuitModComponent, ItemSlotEjectedEvent>(OnEject);
+        SubscribeLocalEvent<ModSuitModComponent, ItemSlotEjectedEvent>(OnEjected);
+        SubscribeLocalEvent<ModSuitModComponent, ItemSlotEjectAttemptEvent>(OnEjectAttempt);
     }
 
     private void OnInsert(EntityUid uid, ModSuitModComponent component, ref ItemSlotInsertAttemptEvent args)
     {
         if (args.Cancelled)
             return;
-        if (!TryComp<WiresPanelComponent>(args.SlotEntity, out var panel) || !panel.Open)
+        if (!TryComp<WiresPanelComponent>(args.SlotEntity, out var panel) || !panel.Open && args.User != null)
         {
             args.Cancelled = true;
             return;
@@ -57,13 +57,8 @@ public sealed class ModSuitModSystem : EntitySystem
             break;
         }
     }
-    private void OnEject(EntityUid uid, ModSuitModComponent component, ref ItemSlotEjectedEvent args)
+    private void OnEjected(EntityUid uid, ModSuitModComponent component, ItemSlotEjectedEvent args)
     {
-        if (!TryComp<WiresPanelComponent>(args.SlotEntity, out var panel) || !panel.Open)
-        {
-            args.Cancelled = true;
-            return;
-        }
         if (!TryComp<ModSuitComponent>(args.SlotEntity, out var modsuit) || _modsuit.GetAttachedToggleStatus(args.SlotEntity, modsuit) != ModSuitAttachedStatus.NoneToggled)
         {
             args.Cancelled = true;
@@ -92,6 +87,14 @@ public sealed class ModSuitModSystem : EntitySystem
             if (component.RemoveComponents != null)
                 EntityManager.AddComponents(attached.Key, component.RemoveComponents);
             break;
+        }
+    }
+    private void OnEjectAttempt(EntityUid uid, ModSuitModComponent component, ref ItemSlotEjectAttemptEvent args)
+    {
+        if (!TryComp<WiresPanelComponent>(args.SlotEntity, out var panel) || !panel.Open)
+        {
+            args.Cancelled = true;
+            return;
         }
     }
 }
