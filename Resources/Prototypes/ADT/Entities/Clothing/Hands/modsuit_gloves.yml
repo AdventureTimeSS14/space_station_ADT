@@ -5,9 +5,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/standart.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/standart.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/standart.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/standart.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -24,9 +24,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/atmospheric.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/atmospheric.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/atmospheric.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/atmospheric.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -43,9 +43,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/clown.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/clown.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/clown.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/clown.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -61,9 +61,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/engineering.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/engineering.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/engineering.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/engineering.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -80,9 +80,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/medical.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/medical.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/medical.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/medical.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -95,9 +95,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/mining.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/mining.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -110,9 +110,9 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/security.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/security.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/security.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/security.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -125,10 +125,26 @@
   description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/science.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/cience.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Gloves/Modsuit/science.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/cience.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsModsuitSyndicate
+  name: syndicate MOD gauntlets
+  description: A pair of gauntlets for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg 
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Insulated
