@@ -812,6 +812,7 @@ public sealed partial class ServerApi : IPostInjectInit
         {
             InfoBan = msg // Пересылаем всю инфу
         });
+    }
 
         // public ServerBanDef(int? id,
         //     NetUserId? userId,
@@ -827,8 +828,6 @@ public sealed partial class ServerApi : IPostInjectInit
         //     ServerUnbanDef? unban,
         //     ServerBanExemptFlags exemptFlags = default
         // return;
-
-    }
 
     private sealed class AdminChatActionBody
     {
