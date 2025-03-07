@@ -29,7 +29,7 @@
         Margin="5"
         MinSize="400 400"
         SetSize="400 400">
-        <Label Text="{Loc 'research-console-unlocked-text'}" HorizontalAlignment="Center"/>
+        <Label Text="{Loc 'research-console-unlocks-text'}" HorizontalAlignment="Center"/>
         <customControls:HSeparator StyleClasses="LowDivider" Margin="0 0 0 10"/>
         <PanelContainer VerticalExpand="True">
             <PanelContainer.PanelOverride>
