@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Research;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -31,11 +32,16 @@ namespace Content.Shared.Research.Components
     public sealed class ResearchConsoleBoundInterfaceState : BoundUserInterfaceState
     {
         public int Points;
-        public List<string> AllowedPrototypes;
-        public ResearchConsoleBoundInterfaceState(int points, List<string> list)
+
+        /// <summary>
+        /// Доступные для изучения, изученные, либо неизвестные прототипы.
+        /// ADT Research menu rework field
+        /// </summary>
+        public Dictionary<string, ResearchAvailablity> Researches;
+        public ResearchConsoleBoundInterfaceState(int points, Dictionary<string, ResearchAvailablity> list)    // ADT Research menu rework tweaked
         {
             Points = points;
-            AllowedPrototypes = list;
+            Researches = list;   // ADT Research menu rework field
         }
     }
 }
