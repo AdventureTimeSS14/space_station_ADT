@@ -304,7 +304,6 @@
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ADTClothingOuterArmorVestHidden
   name: armor vest hidden
-  abstract: true
   description: A standard Type I armored vest that provides decent protection against most types of damage.
   components:
   - type: Sprite
@@ -327,9 +326,9 @@
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: Foldable
-    canFoldInsideContainer: false
-    unfoldVerbText: fold-hidden-verb
-    foldVerbText: fold-unhidden-verb
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-unhidden-verb
+    foldVerbText: fold-hidden-verb
     folded: false
   - type: FoldableClothing
     foldedEquippedPrefix: open

@@ -156,8 +156,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
-
-
+  - ArmorVestHidden # ADT Loadout
 
 - type: loadoutGroup
   id: HoPHead
