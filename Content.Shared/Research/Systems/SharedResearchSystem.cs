@@ -73,17 +73,25 @@ public abstract class SharedResearchSystem : EntitySystem
         if (!component.SupportedDisciplines.Contains(tech.Discipline))
             return false;
 
-        if (tech.Tier > disciplineTiers[tech.Discipline])
-            return false;
+        // if (tech.Tier > disciplineTiers[tech.Discipline])    // ADT Commented
+        //     return false;
 
         if (component.UnlockedTechnologies.Contains(tech.ID))
             return false;
 
-        foreach (var prereq in tech.TechnologyPrerequisites)
+        // foreach (var prereq in tech.TechnologyPrerequisites) // ADT Commented
+        // {
+        //     if (!component.UnlockedTechnologies.Contains(prereq))
+        //         return false;
+        // }
+
+        // ADT Research Console Rework start
+        foreach (var prereq in tech.RequiredTech)
         {
             if (!component.UnlockedTechnologies.Contains(prereq))
                 return false;
         }
+        // ADT Research Console Rework end
 
         return true;
     }

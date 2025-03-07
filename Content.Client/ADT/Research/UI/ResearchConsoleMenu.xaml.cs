@@ -239,6 +239,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
             return;
 
         var control = new TechnologyInfoPanel(proto, _sprite, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity), avaibility);
+        control.BuyAction += args => OnTechnologyCardPressed?.Invoke(args.ID);
         InfoContainer.AddChild(control);
     }
 
