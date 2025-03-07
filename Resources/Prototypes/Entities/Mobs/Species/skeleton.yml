@@ -113,6 +113,9 @@
   - type: Tag
     tags:
     - Unimplantable
+    - CanPilot
+    - DoorBumpOpener
+    - FootstepSound
 # ADT-Tweak-end
 
 - type: entity

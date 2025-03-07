@@ -29,6 +29,10 @@
   - type: Tag
     tags:
       - ADTSlimeEmotes
+      - CanPilot
+      - DoorBumpOpener
+      - AnomalyHost
+      - FootstepSound
   # ADT-Tweak-SlimeEmotes-END
   - type: UserInterface
     interfaces:
