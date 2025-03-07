@@ -113,7 +113,6 @@
       sprintModifier: 0.8
     - type: ItemToggle
       onUse: false
-    - type: ToggleClothing
 
 - type: entity
   parent: ADTModsuitModBase
