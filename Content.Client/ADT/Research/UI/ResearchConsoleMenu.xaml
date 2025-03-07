@@ -70,7 +70,7 @@
                     HorizontalExpand="True"
                     SizeFlagsStretchRatio="5"
                     Margin="0"/>
-                </PanelContainer>
+            </PanelContainer>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>
