@@ -60,7 +60,7 @@
     price: 900
   - id: ADTClothingOuterArmorMiner
     price: 1000
-  - id: ClothingOuterHardsuitSalvage
+  - id: ADTClothingModsuitBackMining
     price: 3000
   - id: ADTClothingOuterArmorMinerHeavy
     price: 3600

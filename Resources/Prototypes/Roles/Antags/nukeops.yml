@@ -48,22 +48,25 @@
   id: SyndicateOperativeGearFullNoUplink
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    back: ClothingBackpackDuffelSyndicate
+    back: ADTClothingModsuitBackSyndicate #ADT tweak
     mask: ClothingMaskGasSyndicate
     eyes: ClothingEyesHudSyndicate
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitSyndie
+    # outerClothing: ClothingOuterHardsuitSyndie ADT tweak
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA
-    pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: PlushieCarp
+    pocket1: DeathAcidifierImplanter #ADT tweak
+    pocket2: PinpointerSyndicateNuclear #ADT tweak
     belt: ClothingBeltAssault #ADT nukebuff
-  storage:
-    back:
-    - WeaponPistolViper
-    - PinpointerSyndicateNuclear
-    - DeathAcidifierImplanter
+  # storage: #ADT tweak start
+  #   back:
+  #   - WeaponPistolViper
+  #   - PinpointerSyndicateNuclear
+  #   - DeathAcidifierImplanter
+  inhand:
+  - WeaponPistolViper
+#ADT tweak end
 
 #Nuclear Operative Gear
 - type: startingGear
@@ -71,6 +74,8 @@
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
     pocket2: BaseUplinkRadio40TC
+  inhand: #ADT tweak
+  - BaseUplinkRadio40TC
 
 #Nuclear Operative Commander Gear
 - type: startingGear
