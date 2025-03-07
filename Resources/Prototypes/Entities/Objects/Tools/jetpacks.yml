@@ -47,8 +47,13 @@
       quickEquip: false
       slots:
         - Back
+    - type: GasTank
+      outputPressure: 21.3
+      air:
+        volume: 5
+        temperature: 293.15
     - type: Jetpack
-      moleUsage: 0
+      moleUsage: 0.00085
     - type: Appearance
     - type: StaticPrice
       price: 100
