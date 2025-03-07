@@ -12,6 +12,7 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
+  - ADTWeaponCutter
   # These are roundstart but not replenishable for salvage
   position: 0,0
 

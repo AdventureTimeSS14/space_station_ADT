@@ -193,8 +193,6 @@
     - BorgModuleAdvancedTool
     - Fulton
     - FultonBeacon
-    - BorgModuleRCD
-    - ADTBorgModuleRPD # ADT-RPD
   position: 3,-2
   requiredTech:
   - AdvancedPowercells
@@ -212,12 +210,11 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-    - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
   position: 4,-1
   requiredTech:
   - SalvageEquipment
   - ADTCutter
-  
+
 # Tier 3
 
 - type: technology
