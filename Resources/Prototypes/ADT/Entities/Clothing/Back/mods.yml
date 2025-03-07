@@ -18,6 +18,8 @@
       - ADTModsuitModStorage
       - ADTModsuitModWelding
       - ADTModsuitModLight
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominal.ogg
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container
@@ -204,6 +206,8 @@
     sprite: ADT/Clothing/Back/Modsuit/mining.rsi
     state: icon
   - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitMining
       gloves: ADTClothingHandsModsuitMining
@@ -231,6 +235,8 @@
     sprite: ADT/Clothing/Back/Modsuit/security.rsi
     state: icon
   - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitSecurity
       gloves: ADTClothingHandsModsuitSecurity
@@ -296,6 +302,8 @@
     sprite: ADT/Clothing/Back/Modsuit/science.rsi
     state: icon
   - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitScience
       gloves: ADTClothingHandsModsuitScience
@@ -401,13 +409,15 @@
     sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
     state: icon
   - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalsyndi.ogg
     clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitSyndicate
       gloves: ADTClothingHandsModsuitSyndicate
       outerClothing: ADTClothingOuterModsuitBodySyndicate
       shoes: ADTClothingModsuitShoesSyndicate
     startingModules:
-      - ADTModsuitModStorage
+      - ADTModsuitModStorageSyndie
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
@@ -519,3 +529,33 @@
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
+
+#гсб
+- type: entity
+  parent: ADTClothingModsuitBackSecurity
+  id: ADTClothingModsuitBackSafeguard
+  name: safeguard MOD control unit
+  description: An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/hos.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSafeguard
+      gloves: ADTClothingHandsModsuitSafeguard
+      outerClothing: ADTClothingOuterModsuitBodySafeguard
+      shoes: ADTClothingModsuitShoesSafeguard
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1

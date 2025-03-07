@@ -151,3 +151,19 @@
     sprite: ADT/Clothing/Shoes/Modsuit/syndicate.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesSafeguard
+  name: safeguard MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg

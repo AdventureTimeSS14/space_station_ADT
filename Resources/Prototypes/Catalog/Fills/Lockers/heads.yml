@@ -407,7 +407,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ClothingOuterHardsuitSecurityRed
+    - id: ADTClothingModsuitBackSafeguard #ADT tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
