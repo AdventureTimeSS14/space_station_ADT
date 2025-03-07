@@ -244,8 +244,8 @@
         coefficients:
           Blunt: 0.6
           Slash: 0.6
-          Piercing: 0.6
-          Heat: 0.6
+          Piercing: 0.7
+          Heat: 0.7
           Radiation: 0.6
 
 - type: entity
@@ -401,3 +401,19 @@
     components:
     - type: RadiationBlocker
       resistance: 2
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModStorageSyndie
+  name: MOD syndie storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage_syndi
+  - type: ModSuitMod
+    slot: MODcore
+    components:
+    - type: Storage
+      grid:
+      - 0,0,8,4
+      maxItemSize: Huge
