@@ -115,7 +115,7 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
-  position: 1,-2
+  position: 1,-1
   requiredTech:
   - AdvancedPowercells
 
@@ -125,7 +125,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: ripley
-  discipline: Industrial
+  discipline: Mech # ADT Industrial -> Mech
   tier: 1
   cost: 7500
   recipeUnlocks:
@@ -137,6 +137,7 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
+  position: 0,0
 
 # Tier 2
 
@@ -173,7 +174,7 @@
   - HolofanProjector
   technologyPrerequisites:
   - AtmosphericTech
-  position: 1,-3
+  position: 0,-1
   requiredTech:
   - AtmosphericTech
 
@@ -213,7 +214,6 @@
   position: 4,-1
   requiredTech:
   - SalvageEquipment
-  - ADTCutter
 
 # Tier 3
 

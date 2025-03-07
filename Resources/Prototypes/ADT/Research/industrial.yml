@@ -48,6 +48,9 @@
     - ADTModsuitPlateAtmospheric
   technologyPrerequisites:
     - ADTModsuitBase
+  position: 1,-2
+  requiredTech:
+  - AdvancedPowercells
 
 - type: technology
   id: ADTIndustrialMODsuitMODs
@@ -71,3 +74,21 @@
     - ADTModsuitModDrill
   technologyPrerequisites:
     - ADTIndustrialMODsuit
+  position: 1,-3
+  requiredTech:
+  - ADTIndustrialMODsuit
+
+- type: technology
+  id: AdvSalvageWeapons
+  name: research-technology-salvage-weapons-adv
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTWeaponCutterAdv
+  position: 4,1
+  requiredTech:
+  - SalvageEquipment

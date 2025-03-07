@@ -10,6 +10,9 @@
   recipeUnlocks:
   - GhostRadio
   - OuijaBoard
+  position: 5,0
+  requiredTech:
+  - FauxAstroTiles
 
 - type: technology
   id: ADTCombatPseudoscience

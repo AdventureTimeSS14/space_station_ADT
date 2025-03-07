@@ -25,7 +25,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: hamtr
-  discipline: CivilianServices
+  discipline: Mech # ADT CivilianServices -> Mech
   tier: 1
   cost: 7500
   recipeUnlocks:
@@ -38,6 +38,9 @@
   - HamtrPeripheralsElectronics
   - MechEquipmentGrabberSmall
   - VimHarness
+  position: 0,-1
+  requiredTech:
+  - RipleyAPLU
 
 - type: technology
   id: AudioVisualCommunication
@@ -125,7 +128,7 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
-  position: 5,0
+  position: 4,0
   requiredTech:
   - AdvancedEntertainment
 
@@ -172,7 +175,7 @@
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
-  position: 1,0
+  position: 2,0
   requiredTech:
   - AdvancedEntertainment
 
@@ -182,7 +185,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: honker
-  discipline: CivilianServices
+  discipline: Mech # ADT CivilianServices -> Mech
   tier: 2
   cost: 7500
   recipeUnlocks:
@@ -195,6 +198,9 @@
   - HonkerPeripheralsElectronics
   - HonkerTargetingElectronics
   - MechEquipmentHorn
+  position: 0,1
+  requiredTech:
+  - RipleyAPLU
 
 - type: technology
   id: AdvancedSpray
@@ -208,7 +214,7 @@
   recipeUnlocks:
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
-  position: 0,0
+  position: 1,0
   requiredTech:
   - AdvancedCleaning
 
