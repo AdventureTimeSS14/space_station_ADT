@@ -71,7 +71,7 @@ public sealed class ModSuitSystem : EntitySystem
     {
         var comp = modSuit.Comp;
 
-        if (!args.CanAccess || !args.CanInteract || args.Hands == null || comp.ClothingUids.Count == 0 || comp.Container == null)
+        if (!args.CanInteract || args.Hands == null || comp.ClothingUids.Count == 0 || comp.Container == null)
             return;
 
         var text = comp.VerbText ?? (comp.ActionEntity == null ? null : Name(comp.ActionEntity.Value));
@@ -95,7 +95,7 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (user == wearer)
         {
-            verb.Act = () => ToggleClothing(user, modSuit);
+            verb.Act = () => StartDoAfter(user, modSuit, user);
         }
         else
         {
@@ -471,7 +471,7 @@ public sealed class ModSuitSystem : EntitySystem
                 return;
             if (mind.Session == null)
                 return;
-            _audioSystem.PlayGlobal("/Audio/ADT/Mecha/nominal.ogg", mind.Session);
+            _audioSystem.PlayGlobal(comp.FullyEnabledSound, mind.Session);
         }
     }
 
