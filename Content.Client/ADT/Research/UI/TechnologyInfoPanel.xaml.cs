@@ -1,6 +1,7 @@
 using Content.Client.Lathe;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.ADT.Research;
 using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Xenoarchaeology.Equipment;
@@ -25,7 +26,7 @@ public sealed partial class TechnologyInfoPanel : Control
 
     public TechnologyPrototype Prototype;
     public Action<TechnologyPrototype>? BuyAction;
-    public TechnologyInfoPanel(TechnologyPrototype proto, SpriteSystem sprite, int points, bool hasAccess)
+    public TechnologyInfoPanel(TechnologyPrototype proto, SpriteSystem sprite, bool hasAccess, ResearchAvailablity availablity)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -45,7 +46,7 @@ public sealed partial class TechnologyInfoPanel : Control
         if (!hasAccess)
             ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
 
-        ResearchButton.Disabled = points < proto.Cost || !hasAccess;
+        ResearchButton.Disabled = !hasAccess || availablity == ResearchAvailablity.Unavailable;
         ResearchButton.OnPressed += Bought;
     }
 

@@ -4,7 +4,8 @@
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                       xmlns:adt="clr-namespace:Content.Client.ADT.Research.UI"
                       Title="{Loc 'research-console-menu-title'}"
-                      MinSize="1260 850"
+                      MinSize="1000 650"
+                      MaxSize="1360 950"
                       SetSize="1260 850"> <!-- Corvax-Localization -->
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
@@ -40,34 +41,36 @@
                           VerticalExpand="True"
                           HorizontalExpand="True"
                           SizeFlagsStretchRatio="3"
-                          Margin="0 0 10 10">
-                <PanelContainer Name="ResearchesContainer" VerticalExpand="True" MinSize="0 200">
+                          Margin="0 0 0 10">
+                <PanelContainer Name="ResearchesContainer" VerticalExpand="True" HorizontalExpand="True">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
                     </PanelContainer.PanelOverride>
-                    <adt:DraggablePanel
+                    <controls:ScaledAnimatedTextureRect Name="StaticSprite"
                         HorizontalExpand="True"
-                        SizeFlagsStretchRatio="1"
-                        VerticalExpand="True"
-                        Name="DragContainer"
-                        MouseFilter="Pass"
-                        RectClipContent="True">
-                    </adt:DraggablePanel>
-                    <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 5"/>
+                        VerticalExpand="True">
+                        <adt:DraggablePanel
+                            HorizontalExpand="True"
+                            VerticalExpand="True"
+                            Name="DragContainer"
+                            MouseFilter="Pass"
+                            RectClipContent="True">
+                        </adt:DraggablePanel>
+                    </controls:ScaledAnimatedTextureRect>
+                    <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 -5"/>
                 </PanelContainer>
             </BoxContainer>
-                <PanelContainer VerticalExpand="True" Margin="10">
-                    <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
-                    </PanelContainer.PanelOverride>
+            <PanelContainer VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
                 <BoxContainer Name="InfoContainer"
                     Orientation="Vertical"
                     VerticalExpand="True"
                     HorizontalExpand="True"
                     SizeFlagsStretchRatio="5"
-                    Margin="0 0 10 10"/>
+                    Margin="0"/>
                 </PanelContainer>
-
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>
