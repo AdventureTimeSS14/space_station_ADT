@@ -96,8 +96,10 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         _localState = state;
 
         // Добавляем к верхней панели все дисциплины
-        var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>().ToList();
-        disciplines.OrderBy(x => x.UiName);
+        var disciplines = _prototype.EnumeratePrototypes<TechDisciplinePrototype>()
+                .ToList()
+                .OrderBy(x => x.UiName);
+
         foreach (var proto in disciplines)
         {
             var discipline = new DisciplineButton(proto)
@@ -118,6 +120,9 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
         foreach (var tech in _prototype.EnumeratePrototypes<TechnologyPrototype>().Where(x => x.Discipline == CurrentDiscipline))
         {
+            if (!List.ContainsKey(tech.ID))
+                continue;
+
             var control = new ResearchConsoleItem(tech, _sprite, List[tech.ID]);
             DragContainer.AddChild(control);
 
@@ -194,10 +199,11 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
         if (_draggin)
         {
+            _position += args.Relative;
+
             // Двигаем технологии в соответствии с движением мыши
             foreach (var child in DragContainer.Children)
             {
-                _position += args.Relative;
                 LayoutContainer.SetPosition(child, child.Position + args.Relative);
             }
         }
