@@ -1,6 +1,15 @@
 ent-ADTBulletBibis = страйкбольный шарик
     .desc = Если ты увидел этот шарик в полете - ты пекуш бубиш шимбамбулеш. И выйди уже из матрицы.
     .suffix = { "Страйкбол" }
+ent-ADTCartridgeStrikeballBibisReinforced = страйкбольный укреплённый шарик
+    .desc = { ent-ADTBulletBibis }
+    .suffix = { ent-ADTBulletBibis }
+ent-ADTCartridgeStrikeballBibisSoft = страйкбольный мягкий шарик
+    .desc = { ent-ADTBulletBibis }
+    .suffix = { ent-ADTBulletBibis }
+ent-ShellShotgunBibis = картечь страйкбольных шариков
+    .desc = { ent-ADTBulletBibis }
+    .suffix = { ent-ADTBulletBibis }
 
 ent-ADTBullet40mmGrenadeBaton = травматическая граната
     .desc = { ent-BaseBullet.desc }
