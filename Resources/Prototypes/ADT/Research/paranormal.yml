@@ -28,6 +28,9 @@
   - EctoPistol
   - EctoBatterySmall
   - EctoBattery
+  position: 2,2
+  requiredTech:
+  - NonlethalAmmunition
 
 - type: technology
   id: ADTProtectionPseudoscience
@@ -35,10 +38,13 @@
   icon:
     sprite: ADT/Objects/Weapons/Melee/ecto-shield.rsi
     state: icon
-  discipline: Experimental
+  discipline: CivilianServices
   tier: 2
   cost: 7500
   recipeUnlocks:
   - PsiShield
   - PhantomHud
   - EctoShield
+  position: 6,0
+  requiredTech:
+  - ADTPseudoscience

@@ -92,6 +92,9 @@
   cost: 5000
   recipeUnlocks:
   - BorgModuleAdvancedCleaning
+  position: 2,1
+  requiredTech:
+  - BiochemicalStasis
 
 - type: technology
   id: MeatManipulation
@@ -162,6 +165,9 @@
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
   - BorgModuleDefibrillator
+  position: 4,1
+  requiredTech:
+  - BiochemicalStasis
 
 - type: technology
   id: AdvancedCleaning

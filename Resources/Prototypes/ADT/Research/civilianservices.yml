@@ -11,9 +11,9 @@
   - ADTModsuitPlateMedical
   technologyPrerequisites:
     - ADTModsuitBase
-  position: 2,1
+  position: 1,2
   requiredTech:
-  - BiochemicalStasis
+  - ADTCloning
 
 - type: technology
   id: ADTServiceMODsuitMODs
@@ -30,9 +30,9 @@
     - ADTModsuitModNoslip
   technologyPrerequisites:
     - ADTMedicalMODsuit
-  position: 4,1
+  position: 5,2
   requiredTech:
-  - BiochemicalStasis
+  - BasicTranslation
 
 - type: technology
   id: ADTCloning

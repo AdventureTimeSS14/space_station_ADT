@@ -96,9 +96,9 @@
   - ADTDurandArmorPlates
   - ADTDurandCentralElectronics
   - ADTDurandPeripheralsElectronics
-  position: 3,0
+  position: 4,1
   requiredTech:
-  - ADTGygaxTechnology
+  - ADTMechTechnologyArmor
 
 - type: technology
   id: ADTPhazonTechnology
@@ -106,7 +106,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: phazon
-  discipline: Arsenal
+  discipline: Mech
   tier: 3
   cost: 25000
   recipeUnlocks:
@@ -123,6 +123,7 @@
   position: 4,0
   requiredTech:
   - ADTDurandTechnology
+  - ADTGygaxTechnology
 
 #technologies
 - type: technology

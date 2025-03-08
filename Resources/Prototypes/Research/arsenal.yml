@@ -106,7 +106,7 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
-  position: 1,-2
+  position: 2,-2
   requiredTech:
   - DraconicMunitions
 
@@ -149,7 +149,7 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
-  position: 1,-3
+  position: 2,-3
   requiredTech:
   - UraniumMunitions
 
@@ -220,7 +220,7 @@
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
   - SalvageWeapons
-  position: 2,-3
+  position: 3,-3
   requiredTech:
   - ExplosiveTechnology
 
@@ -273,6 +273,6 @@
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
-  position: 2,-4
+  position: 3,-4
   requiredTech:
   - BasicShuttleArmament

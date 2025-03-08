@@ -70,7 +70,7 @@
   #   - SalvageWeapons
   position: 0,-2
   requiredTech:
-  - SalvageWeapons
+  - DraconicMunitions
 
 - type: technology
   id: ADTArsenalExtendedModules
@@ -91,3 +91,6 @@
     - ADT40mmGrenadeSmokeRecipe
   technologyPrerequisites:
     - ADTArsenalBasicModules
+  position: 0,-3
+  requiredTech:
+  - ADTArsenalBasicModules
