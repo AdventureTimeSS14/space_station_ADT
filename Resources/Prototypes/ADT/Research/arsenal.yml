@@ -39,6 +39,9 @@
     - ADTModsuitPlateSecurity
   technologyPrerequisites:
     - ADTModsuitBase
+  position: 1,0
+  requiredTech:
+  - SalvageWeapons
 
 - type: technology
   id: ADTSecMODsuitMODs
@@ -56,6 +59,9 @@
     - ADTModsuitModStun
   technologyPrerequisites:
     - ADTSecMODsuit
+  position: 2,0
+  requiredTech:
+  - ADTSecMODsuit
 
 - type: technology
   id: KineticModifications
@@ -70,6 +76,9 @@
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
+  position: 0,2
+  requiredTech:
+  - SalvageWeapons
 
 #Технологии модулей
 - type: technology
@@ -87,6 +96,9 @@
     - ADTAttachmentReflexSightRecipe
   # technologyPrerequisites:
   #   - SalvageWeapons
+  position: 0,-2
+  requiredTech:
+  - DraconicMunitions
 
 - type: technology
   id: ADTArsenalExtendedModules
@@ -107,3 +119,6 @@
     - ADT40mmGrenadeSmokeRecipe
   technologyPrerequisites:
     - ADTArsenalBasicModules
+  position: 0,-3
+  requiredTech:
+  - ADTArsenalBasicModules

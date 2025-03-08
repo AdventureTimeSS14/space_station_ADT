@@ -696,3 +696,31 @@
     Telecrystal: 5
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkModulesMod
+  name: uplink-mod-modules-name
+  description: uplink-mod-modules-description
+  icon: { sprite: /Textures/ADT/Objects/Specific/Modsuits/modules.rsi, state: power_kick }
+  productEntity: ADTClothingBackpackDuffelSyndieMod
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: ADTUplinkModsuit
+  name: uplink-mod-name
+  description: uplink-mod-description
+  icon: { sprite: /Textures/ADT/Clothing/Back/Modsuit/syndicate.rsi, state: icon }
+  productEntity: ADTClothingModsuitBackSyndicate
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables

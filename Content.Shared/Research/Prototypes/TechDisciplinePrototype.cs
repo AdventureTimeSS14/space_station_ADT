@@ -45,4 +45,9 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// </summary>
     [DataField("lockoutTier")]
     public int LockoutTier = 4; ///ADT-Tweak
+
+    // ADT Research Console Rework start
+    [DataField("uiName", required: true)]
+    public string UiName = string.Empty;
+    // ADT Research Console Rework end
 }
