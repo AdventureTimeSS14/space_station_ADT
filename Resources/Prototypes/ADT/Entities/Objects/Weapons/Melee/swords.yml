@@ -365,3 +365,53 @@
   - type: Item
     size: Huge
   - type: DisarmMalus
+
+- type: entity
+  name: Bone Machete
+  parent: BaseKnife
+  id: ADTBoneMachete
+  description: A peculiar handmade bone machete. Its handle is wrapped in a cloth band. Hey, is there a jungle here? How grotesque.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_machete.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 12
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 4
+    malus: 0.225
+  - type: ThrowingAngle
+    angle: 225
+  - type: Construction
+    graph: ADTBMachete
+    node: ADTBoneCompMachete
+
+- type: entity
+  name: bone sword
+  parent: BaseSword
+  id: ADTBoneSword
+  description: A handmade single-edged bone sword with a fairly wide blade. Its handle is wrapped in a cloth band. How grotesque.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_sword.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.7
+    damage:
+      types:
+        Slash: 16
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Construction
+    graph: ADTBSword
+    node: ADTBoneCompSword

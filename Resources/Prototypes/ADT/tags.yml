@@ -531,3 +531,6 @@
 
 - type: Tag
   id: DockMiningGuest
+
+- type: Tag
+  id: ADTMinerArmor

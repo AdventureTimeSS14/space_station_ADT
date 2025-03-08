@@ -357,3 +357,4 @@
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
   - type: ThrowingAngle
     angle: 225
+    
