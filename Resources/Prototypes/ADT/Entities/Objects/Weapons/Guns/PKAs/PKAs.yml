@@ -84,7 +84,7 @@
     - Belt
 
 - type: entity
-  name: proto-kinetic railgun #исправил опечаточку, опечатка же?
+  name: proto-kinetic railgun
   id: ADTWeaponProtoKineticRailgun
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
   description: The Railgun trades customization, fire rate, and storage capabilities for the ability to fire a high damage shot that penetrates creatures!
