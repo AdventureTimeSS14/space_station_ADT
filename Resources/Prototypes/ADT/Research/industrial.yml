@@ -91,3 +91,19 @@
   position: 4,1
   requiredTech:
   - SalvageEquipment
+
+- type: technology
+  id: ExperimentalPKA
+  name: research-technology-experimental-pka
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 8500
+  recipeUnlocks:
+    - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
+  position: 5,1
+  requiredTech:
+  - AdvSalvageWeapons
+  # Fuck you new RnD console
