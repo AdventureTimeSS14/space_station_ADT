@@ -15,3 +15,6 @@
   - ADTModsuitPlateStandard
   - ADTModsuitHelmet
   - ADTModsuitPlateCience
+  position: 0,-1
+  requiredTech:
+  - MagnetsTech
