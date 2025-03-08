@@ -73,7 +73,7 @@ public sealed partial class Emotes : ILanguageType
         // Apply language color
         if (Color != null)
         {
-            coloredMessage = "[color=" + Color.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
+            coloredMessage = $"[color={Color.Value.ToHex()}]{coloredMessage}[/color]";
         }
 
         // Getting verbs
@@ -155,7 +155,7 @@ public sealed partial class Emotes : ILanguageType
 
         if (Color != null)
         {
-            coloredMessage = "[color=" + Color.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
+            coloredMessage = $"[color={Color.Value.ToHex()}]{coloredMessage}[/color]";
         }
 
         if (string.IsNullOrEmpty(FormattedMessage.EscapeText(coloredMessage)))

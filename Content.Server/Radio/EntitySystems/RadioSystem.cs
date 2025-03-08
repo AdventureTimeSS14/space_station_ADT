@@ -115,8 +115,8 @@ public sealed class RadioSystem : EntitySystem
 
         if (gen.Color != null)
         {
-            content = "[color=" + gen.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(content) + "[/color]";
-            languageEncodedContent = "[color=" + gen.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(languageEncodedContent) + "[/color]";
+            content = $"[color={gen.Color.Value.ToHex()}]{FormattedMessage.EscapeText(content)}[/color]";
+            languageEncodedContent = $"[color={gen.Color.Value.ToHex()}]{FormattedMessage.EscapeText(languageEncodedContent)}[/color]";
         }
 
         List<string> verbStrings = speech.SpeechVerbStrings;
