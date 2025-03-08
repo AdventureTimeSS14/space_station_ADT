@@ -6,11 +6,25 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 8500
   recipeUnlocks:
     - ADTWeaponCutterAdv
   technologyPrerequisites:
     - SalvageWeapons
+
+- type: technology
+  id: ExperimentalPKA
+  name: research-technology-experimental-pka
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 8500
+  recipeUnlocks:
+    - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
+ # technologyPrerequisites:
+ #  - SalvageWeapons
 
 - type: technology
   id: ADTSecMODsuit
