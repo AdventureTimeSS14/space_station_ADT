@@ -46,7 +46,10 @@ public sealed partial class TechnologyInfoPanel : Control
         if (!hasAccess)
             ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
 
-        ResearchButton.Disabled = !hasAccess || availablity == ResearchAvailablity.Unavailable;
+        if (availablity == ResearchAvailablity.Researched)
+            ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
+            
+        ResearchButton.Disabled = !hasAccess || availablity != ResearchAvailablity.Available;
         ResearchButton.OnPressed += Bought;
     }
 
