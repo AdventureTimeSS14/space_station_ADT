@@ -1,0 +1,12 @@
+- type: techDiscipline
+  id: Mech
+  name: research-discipline-mech
+  uiName: МЕХ
+  color: "#824a9c"
+  icon:
+    sprite: Interface/Misc/research_disciplines.rsi
+    state: mech
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+    3: 0.75

@@ -11,6 +11,9 @@
   - ADTModsuitPlateMedical
   technologyPrerequisites:
     - ADTModsuitBase
+  position: 1,2
+  requiredTech:
+  - ADTCloning
 
 - type: technology
   id: ADTServiceMODsuitMODs
@@ -27,6 +30,9 @@
     - ADTModsuitModNoslip
   technologyPrerequisites:
     - ADTMedicalMODsuit
+  position: 5,2
+  requiredTech:
+  - BasicTranslation
 
 - type: technology
   id: ADTCloning
@@ -41,3 +47,6 @@
   - CloningPodMachineCircuitboard
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
+  position: 2,2
+  requiredTech:
+  - BiochemicalStasis

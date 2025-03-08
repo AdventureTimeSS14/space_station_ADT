@@ -5,12 +5,12 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/standart.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/standart.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/standart.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/standart.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: StaticPrice
@@ -18,6 +18,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavy
+      params:
+        volume: -9
 
 - type: entity
   parent: ADTClothingModsuitShoesBase
@@ -26,12 +28,12 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/atmospheric.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/atmospheric.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/atmospheric.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/atmospheric.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
@@ -42,12 +44,12 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/clown.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/clown.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/clown.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/clown.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
   - type: FootstepModifier
@@ -61,12 +63,12 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/engineering.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/engineering.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/engineering.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/engineering.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
@@ -77,12 +79,12 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/medical.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/medical.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/medical.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/medical.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
@@ -93,12 +95,12 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
@@ -109,12 +111,12 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/mining.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
 
@@ -125,11 +127,43 @@
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/science.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/cience.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Boots/Modsuit/science.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/cience.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesSyndicate
+  name: syndicate MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesSafeguard
+  name: safeguard MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg

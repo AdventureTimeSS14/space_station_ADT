@@ -1,4 +1,4 @@
-using Content.Shared.Clothing.EntitySystems;
+using Robust.Shared.Audio;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -85,9 +85,21 @@ public sealed partial class ModSuitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ReplaceCurrentClothing = true;
+    /// <summary>
+    /// Sound, playing when mod is fully enabled
+    /// </summary>
+    [DataField]
+    public SoundSpecifier FullyEnabledSound = new SoundPathSpecifier("/Audio/ADT/Mecha/nominal.ogg");
 
     [DataField("requiredSlot"), AutoNetworkedField]
     public SlotFlags RequiredFlags = SlotFlags.BACK;
+    public TimeSpan Toggletick;
+    /// <summary>
+    ///     Modules on start
+    /// </summary>
+
+    [DataField]
+    public List<EntProtoId> StartingModules = [];
 }
 
 [Serializable, NetSerializable]
