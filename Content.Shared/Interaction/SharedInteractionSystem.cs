@@ -537,7 +537,7 @@ namespace Content.Shared.Interaction
             if (RangedInteractDoBefore(user, used, target, clickLocation, inRangeUnobstructed, checkDeletion: false))
                 return;
 
-            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));   // ADT Exception Fix
             if (target != null)
             {
                 var rangedMsg = new RangedInteractEvent(user, used, target.Value, clickLocation);
@@ -549,7 +549,7 @@ namespace Content.Shared.Interaction
                     return;
             }
 
-            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));   // ADT Exception Fix
             InteractDoAfter(user, used, target, clickLocation, inRangeUnobstructed, checkDeletion: false);
         }
 
