@@ -1,13 +1,6 @@
-using Content.Server.Power.EntitySystems;
 using Content.Server.Research.Components;
-using Content.Shared.UserInterface;
-using Content.Shared.Access.Components;
-using Content.Shared.Emag.Components;
-using Content.Shared.Emag.Systems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
-using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.ADT.Research;
 
@@ -23,7 +16,7 @@ public sealed partial class ResearchSystem
         ResearchConsoleBoundInterfaceState state;
 
         Dictionary<string, ResearchAvailablity> list = new();
-        foreach (var proto in _proto.EnumeratePrototypes<TechnologyPrototype>().ToList())
+        foreach (var proto in PrototypeManager.EnumeratePrototypes<TechnologyPrototype>().ToList())
         {
             list.Add(proto.ID, ResearchAvailablity.Unavailable);
         }
@@ -35,7 +28,7 @@ public sealed partial class ResearchSystem
                 var toList = list.ToList();
                 for (var i = 0; i < toList.Count; i++)
                 {
-                    var item = _proto.Index<TechnologyPrototype>(toList[i].Key);
+                    var item = PrototypeManager.Index<TechnologyPrototype>(toList[i].Key);
                     if (CompOrNull<TechnologyDatabaseComponent>(serverUid)?.UnlockedTechnologies.Contains(item.ID) ?? false)
                         list[item.ID] = ResearchAvailablity.Researched;
                     else if (item.RequiredTech.Count <= 0)

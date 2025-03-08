@@ -7,14 +7,11 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
-using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Server.Research.Systems;
 
 public sealed partial class ResearchSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
     private void InitializeConsole()

@@ -14,9 +14,11 @@
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
+# ADT Research Console Rework start
   position: 3,0
   requiredTech:
   - SpaceScanning
+  # ADT Research Console Rework end
 
 - type: technology
   id: SpaceScanning
@@ -31,9 +33,11 @@
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
   - BorgModuleGPS
+# ADT Research Console Rework start
   position: 2,0
   requiredTech:
   - PowerGeneration
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedPowercells
@@ -48,9 +52,11 @@
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
+# ADT Research Console Rework start
   position: 2,-1
   requiredTech:
   - SpaceScanning
+  # ADT Research Console Rework end
 
 - type: technology
   id: MechanicalCompression
@@ -63,9 +69,11 @@
   cost: 10000
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
+# ADT Research Console Rework start
   position: 1,2
   requiredTech:
   - IndustrialEngineering
+  # ADT Research Console Rework end
 
 - type: technology
   id: IndustrialEngineering
@@ -81,9 +89,11 @@
   - ProtolatheHyperConvectionMachineCircuitboard
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
+# ADT Research Console Rework start
   position: 2,1
   requiredTech:
   - SpaceScanning
+  # ADT Research Console Rework end
 
 - type: technology
   id: PowerGeneration
@@ -101,7 +111,7 @@
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
-  position: 0,0
+  position: 0,0 # ADT Research Console Rework
 
 - type: technology
   id: AtmosphericTech
@@ -115,9 +125,11 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+# ADT Research Console Rework start
   position: 1,-1
   requiredTech:
   - AdvancedPowercells
+  # ADT Research Console Rework end
 
 - type: technology
   id: RipleyAPLU
@@ -137,7 +149,7 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
-  position: 0,0
+  position: 0,0 # ADT Research Console Rework
 
 # Tier 2
 
@@ -155,9 +167,11 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+# ADT Research Console Rework start
   position: 3,2
   requiredTech:
   - IndustrialEngineering
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedAtmospherics
@@ -174,9 +188,11 @@
   - HolofanProjector
   technologyPrerequisites:
   - AtmosphericTech
+# ADT Research Console Rework start
   position: 0,-1
   requiredTech:
   - AtmosphericTech
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -194,9 +210,11 @@
     - BorgModuleAdvancedTool
     - Fulton
     - FultonBeacon
+  # ADT Research Console Rework start
   position: 3,-2
   requiredTech:
   - AdvancedPowercells
+  # ADT Research Console Rework end
 
 - type: technology
   id: MassExcavation
@@ -211,9 +229,11 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
+  # ADT Research Console Rework start
   position: 4,-1
   requiredTech:
   - SalvageEquipment
+  # ADT Research Console Rework end
 
 # Tier 3
 
@@ -230,10 +250,12 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+# ADT Research Console Rework start
   position: 1,-4
   requiredTech:
   - Advanted Energy
   - AdvancedAtmospherics
+  # ADT Research Console Rework end
 
 #ADT TWEAK
 # - type: technology

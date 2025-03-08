@@ -1,6 +1,4 @@
 using Content.Shared.ADT.Research;
-using Content.Shared.Research.Prototypes;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Research.Components

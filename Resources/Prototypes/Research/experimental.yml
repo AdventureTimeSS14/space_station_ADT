@@ -29,9 +29,11 @@
   - BorgModuleAnomaly
   - APECircuitboard
   - AnomalyVesselCircuitboard
+  # ADT Research Console Rework start
   position: 3,-1
   requiredTech:
   - AlternativeResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: BasicXenoArcheology
@@ -47,9 +49,11 @@
   - BorgModuleArtifact
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
+  # ADT Research Console Rework start
   position: 3,1
   requiredTech:
   - AlternativeResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: AlternativeResearch
@@ -62,7 +66,7 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
-  position: 2,0
+  position: 2,0 # ADT Research Console Rework end
 
 - type: technology
   id: MagnetsTech
@@ -76,9 +80,11 @@
   recipeUnlocks:
   - ClothingShoesBootsMagSci
   #- ClothingShoesBootsMoon # ADT tweak - убираем луноходы
+  # ADT Research Console Rework start
   position: 1,0
   requiredTech:
   - AlternativeResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: AnomalyCoreHarnessing
@@ -91,9 +97,11 @@
   cost: 10000
   recipeUnlocks:
   - WeaponGauntletGorilla
+  # ADT Research Console Rework start
   position: 3,-2
   requiredTech:
   - BasicAnomalousResearch
+  # ADT Research Console Rework end
 
 # Tier 2
 
@@ -108,9 +116,11 @@
   cost: 5000
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
+  # ADT Research Console Rework start
   position: 3,2
   requiredTech:
   - BasicXenoArcheology
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedAnomalyResearch
@@ -127,9 +137,11 @@
   - AnomalyVesselExperimentalCircuitboard
   technologyPrerequisites:
   - BasicAnomalousResearch
+  # ADT Research Console Rework start
   position: 4,-1
   requiredTech:
   - BasicAnomalousResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: DeterrenceTechnologies
@@ -143,9 +155,11 @@
   recipeUnlocks:
   - WeaponParticleDecelerator
   - HoloprojectorField
+  # ADT Research Console Rework start
   position: 0,1
   requiredTech:
   - MagnetsTech
+  # ADT Research Console Rework end
 
 # Tier 3
 
@@ -161,9 +175,11 @@
   recipeUnlocks:
     - WeaponForceGun
     - WeaponTetherGun
+  # ADT Research Console Rework start
   position: 6,0
   requiredTech:
   - QuantumLeaping
+  # ADT Research Console Rework end
 
 - type: technology
   id: QuantumLeaping
@@ -176,8 +192,10 @@
   cost: 10000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
+  # ADT Research Console Rework start
   position: 5,0
   requiredTech:
   - AdvancedAnomalyResearch
   - AbnormalArtifactManipulation
   - AnomalyCoreHarnessing
+  # ADT Research Console Rework end
