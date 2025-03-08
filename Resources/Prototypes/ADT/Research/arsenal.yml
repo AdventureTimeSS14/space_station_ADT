@@ -23,8 +23,8 @@
   cost: 8500
   recipeUnlocks:
     - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
- # technologyPrerequisites:
- #  - SalvageWeapons
+  technologyPrerequisites:
+    - SalvageWeapons
 
 - type: technology
   id: ADTSecMODsuit
