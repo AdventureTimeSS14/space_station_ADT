@@ -24,7 +24,7 @@
   recipeUnlocks:
     - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
   technologyPrerequisites:
-    - SalvageWeapons
+   - AdvSalvageWeapons
 
 - type: technology
   id: ADTSecMODsuit
