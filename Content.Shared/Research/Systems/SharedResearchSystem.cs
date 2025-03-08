@@ -125,33 +125,39 @@ public abstract class SharedResearchSystem : EntitySystem
             allUnlocked.Add(proto);
         }
 
-        var highestTier = techDiscipline.TierPrerequisites.Keys.Max();
-        var tier = 2; //tier 1 is always given
+        // ADT Research Console Rework start
+        var highestTier = (float)component.UnlockedTechnologies
+            .Where(x => PrototypeManager.Index<TechnologyPrototype>(x).Discipline == techDiscipline.ID)
+            .Count() / (float)allTech.Count * 3f + 1f;
 
-        // todo this might break if you have hidden technologies. i'm not sure
+        // var tier = 2; //tier 1 is always given
 
-        while (tier <= highestTier)
-        {
-            // we need to get the tech for the tier 1 below because that's
-            // what the percentage in TierPrerequisites is referring to.
-            var unlockedTierTech = allUnlocked.Where(p => p.Tier == tier - 1).ToList();
-            var allTierTech = allTech.Where(p => p.Discipline == techDiscipline.ID && p.Tier == tier - 1).ToList();
+        // // todo this might break if you have hidden technologies. i'm not sure
 
-            if (allTierTech.Count == 0)
-                break;
+        // while (tier <= highestTier)
+        // {
+        //     // we need to get the tech for the tier 1 below because that's
+        //     // what the percentage in TierPrerequisites is referring to.
+        //     var unlockedTierTech = allUnlocked.Where(p => p.Tier == tier - 1).ToList();
+        //     var allTierTech = allTech.Where(p => p.Discipline == techDiscipline.ID && p.Tier == tier - 1).ToList();
 
-            var percent = (float) unlockedTierTech.Count / allTierTech.Count;
-            if (percent < techDiscipline.TierPrerequisites[tier])
-                break;
+        //     if (allTierTech.Count == 0)
+        //         break;
 
-            if (tier >= techDiscipline.LockoutTier &&
-                component.MainDiscipline != null &&
-                techDiscipline.ID != component.MainDiscipline)
-                break;
-            tier++;
-        }
+        //     var percent = (float) unlockedTierTech.Count / allTierTech.Count;
+        //     if (percent < techDiscipline.TierPrerequisites[tier])
+        //         break;
 
-        return tier - 1;
+        //     if (tier >= techDiscipline.LockoutTier &&
+        //         component.MainDiscipline != null &&
+        //         techDiscipline.ID != component.MainDiscipline)
+        //         break;
+        //     tier++;
+        // }
+
+        // return tier - 1;
+        return (int)Math.Clamp(highestTier, 1, 3);
+        // ADT Research Console Rework ent
     }
 
     public FormattedMessage GetTechnologyDescription(
