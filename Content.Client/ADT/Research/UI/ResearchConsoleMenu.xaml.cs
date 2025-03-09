@@ -229,13 +229,8 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         foreach (var disciplineId in database.SupportedDisciplines)
         {
             var discipline = _prototype.Index<TechDisciplinePrototype>(disciplineId);
-            var tier = _research.GetHighestDisciplineTier(database, discipline);
+            var percentage = _research.GetHighestDisciplineTier(database, discipline);
 
-            // don't show tiers with no available tech
-            if (tier == 0)
-                continue;
-
-            // i'm building the small-ass control here to spare me some mild annoyance in making a new file
             var texture = new TextureRect
             {
                 TextureScale = new Vector2(2, 2),
@@ -243,7 +238,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
             };
             var label = new RichTextLabel();
             texture.Texture = _sprite.Frame0(discipline.Icon);
-            label.SetMessage(Loc.GetString("research-console-tier-info-small", ("tier", tier)));
+            label.SetMessage(Loc.GetString("research-console-tier-percentage", ("perc", percentage)));
 
             var control = new BoxContainer
             {
