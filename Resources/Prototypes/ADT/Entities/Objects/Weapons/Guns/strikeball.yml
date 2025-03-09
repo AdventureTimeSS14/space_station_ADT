@@ -1,17 +1,16 @@
 # Щит (Пусть туту будет)
 
-- type: entity
-  id: RiotShieldBibis
-  parent: BaseShield
-  name: riot shield bibis
-  description: A large tower shield. Good for controlling crowds.
-  suffix: ADT
-  components:
-    - type: Blocking
-      passiveBlockModifier:
-        staminaModifier: 0.5
-      activeBlockModifier:
-        staminaModifier: 0.1
+# НубикКубик не смог реализовать это так быстро :(
+
+# - type: entity
+#   id: RiotShieldBibis
+#   parent: BaseShield
+#   name: riot shield bibis
+#   description: A large tower shield. Good for controlling crowds.
+#   suffix: ADT
+#   components:
+#     - type: StaminaResistance
+#       damageCoefficient: 0
 
 # Автоматы:
 
