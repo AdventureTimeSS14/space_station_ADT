@@ -213,7 +213,7 @@
   # ADT Research Console Rework start
   position: 3,-3
   requiredTech:
-  - Advanted Energy
+  - AdvantedEnergy
   # ADT Research Console Rework end
 
 - type: technology
@@ -253,8 +253,8 @@
 # ADT Research Console Rework start
   position: 1,-4
   requiredTech:
-  - Advanted Energy
-  - AdvancedAtmospherics
+  - ADTCompactTechnologies
+  - ADTIndustrialMODsuitMODs
   # ADT Research Console Rework end
 
 #ADT TWEAK
