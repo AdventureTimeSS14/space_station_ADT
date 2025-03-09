@@ -223,6 +223,10 @@
   whitelist:
     components:
     - Vocal
+    # ADT-Tweak Start
+    tags:
+    - ADTVoxEmotes
+    # ADT-Tweak End
   blacklist:
     components:
     - BorgChassis

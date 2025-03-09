@@ -1612,19 +1612,21 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkHardsuitSyndie
-  name: uplink-hardsuit-syndie-name
-  description: uplink-hardsuit-syndie-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 4
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkWearables
+#ADT tweak start
+# - type: listing
+  # id: UplinkHardsuitSyndie
+  # name: uplink-hardsuit-syndie-name
+  # description: uplink-hardsuit-syndie-desc
+  # icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
+  # productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
+  # discountCategory: veryRareDiscounts
+  # discountDownTo:
+  #   Telecrystal: 4
+  # cost:
+  #   Telecrystal: 8
+  # categories:
+  # - UplinkWearables
+#ADT tweak end
 
 - type: listing
   id: UplinkClothingOuterArmorRaid

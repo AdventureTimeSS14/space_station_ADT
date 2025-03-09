@@ -616,3 +616,9 @@ WeaponSubMachineGunVectorRubber: null
 MagazineBoxCaselessRifleBig: null
 
 PlayerStationAiPilgrim: PlayerStationAi
+
+#ADT 2025-03-07
+
+ClothingOuterHardsuitSecurity: ADTClothingModsuitBackSecurity
+ClothingOuterHardsuitEngineering: ADTClothingModsuitBackEngineering
+ClothingOuterHardsuitSalvage: ADTClothingModsuitBackMining
