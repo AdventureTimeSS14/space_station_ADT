@@ -61,6 +61,8 @@
     capacity: 100
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
+  - type: MagazineVisuals
+    steps: 5
 
 - type: entity
   id: MagazineLightRifleBoxBibis
