@@ -16,13 +16,15 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Mind;
 using Content.Shared.Wires;
-using Robust.Shared.Audio;
+using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Coordinates;
 
 namespace Content.Shared.ADT.ModSuits;
 
 public sealed class ModSuitSystem : EntitySystem
 {
+    [Dependency] private readonly ItemSlotsSystem _itemSlot = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
@@ -69,7 +71,7 @@ public sealed class ModSuitSystem : EntitySystem
     {
         var comp = modSuit.Comp;
 
-        if (!args.CanAccess || !args.CanInteract || args.Hands == null || comp.ClothingUids.Count == 0 || comp.Container == null)
+        if (!args.CanInteract || args.Hands == null || comp.ClothingUids.Count == 0 || comp.Container == null)
             return;
 
         var text = comp.VerbText ?? (comp.ActionEntity == null ? null : Name(comp.ActionEntity.Value));
@@ -93,7 +95,7 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (user == wearer)
         {
-            verb.Act = () => ToggleClothing(user, modSuit);
+            verb.Act = () => StartDoAfter(user, modSuit, user);
         }
         else
         {
@@ -307,6 +309,17 @@ public sealed class ModSuitSystem : EntitySystem
     {
         var attachedUid = GetEntity(args.AttachedClothingUid);
 
+        if (modSuit.Comp.Toggletick + TimeSpan.FromSeconds(1) >= _timing.CurTime) //маленькие костыли в связи с тем, что ивент проходит 2 раза после нажатия лкм и 3 после нажатия пкм.
+            return;
+        if (_timing.IsFirstTimePredicted)
+        {
+            modSuit.Comp.Toggletick = _timing.CurTime;
+
+            ToggleClothing(args.Actor, modSuit, attachedUid);
+            return;
+        }
+        modSuit.Comp.Toggletick = _timing.CurTime;
+
         ToggleClothing(args.Actor, modSuit, attachedUid);
     }
 
@@ -346,6 +359,8 @@ public sealed class ModSuitSystem : EntitySystem
 
         var comp = modSuit.Comp;
 
+        if (comp.ClothingUids == null)
+            return;
         if (!_inventorySystem.InSlotWithFlags(modSuit.Owner, comp.RequiredFlags))
             return;
 
@@ -456,7 +471,7 @@ public sealed class ModSuitSystem : EntitySystem
                 return;
             if (mind.Session == null)
                 return;
-            _audioSystem.PlayGlobal("/Audio/ADT/Mecha/nominal.ogg", mind.Session);
+            _audioSystem.PlayGlobal(comp.FullyEnabledSound, mind.Session);
         }
     }
 
@@ -532,6 +547,15 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (_actionContainer.EnsureAction(modSuit, ref comp.ActionEntity, out var action, comp.Action))
             _actionsSystem.SetEntityIcon(comp.ActionEntity.Value, modSuit, action);
+
+        int moduleNumber = 0;
+        foreach (var module in modSuit.Comp.StartingModules)
+        {
+            var spawned = Spawn(module, modSuit.Owner.ToCoordinates());
+            var slotname = "modsuit-mod" + moduleNumber;
+            _itemSlot.TryInsert(modSuit, slotname, spawned, null, excludeUserAudio: false);
+            moduleNumber += 1;
+        }
     }
 
     public ModSuitAttachedStatus GetAttachedToggleStatus(EntityUid modSuit, ModSuitComponent? component = null)
