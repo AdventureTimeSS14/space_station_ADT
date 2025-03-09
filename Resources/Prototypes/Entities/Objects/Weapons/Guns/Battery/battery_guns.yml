@@ -620,9 +620,14 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+# Start ADT Tweak
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+    proto: ADTCapitanRedLaser # Tweak RedMediumLaser -> ADTCapitanRedLaser
     fireCost: 100
+  - type: Battery # New - ADT TWEAK
+    maxCharge: 500
+    startingCharge: 500
+# End ADT Tweak
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
