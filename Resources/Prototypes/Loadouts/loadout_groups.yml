@@ -156,8 +156,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
-
-
+  - ADTArmorVestHidden # ADT Loadout
 
 - type: loadoutGroup
   id: HoPHead
@@ -1177,6 +1176,7 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - ADTArmorVestHidden #ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1242,6 +1242,7 @@
   - DetectiveCoat
   - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
+  - ADTArmorVestHidden # ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
