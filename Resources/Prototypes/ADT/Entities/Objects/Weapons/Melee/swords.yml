@@ -389,7 +389,6 @@
     damage:
       types:
         Slash: 4
-    malus: 0.225
   - type: ThrowingAngle
     angle: 225
   - type: Construction
