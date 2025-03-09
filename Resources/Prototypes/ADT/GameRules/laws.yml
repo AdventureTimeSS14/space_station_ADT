@@ -1,0 +1,32 @@
+# Создано по той причине, что ивент, на котором основывается моя система хранится в таком же формате.
+
+- type: entity
+  id: NewStationLaw
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-new-law-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 30
+    minimumPlayers: 10
+    weight: 3
+    reoccurrenceDelay: 30
+
+- type: localizedDataset
+  id: NewStationLawData
+  values:
+    prefix: new-laws-event-data-
+    count: 12
+
+- type: localizedDataset
+  id: VVVZZZ
+  values:  
+    prefix: new-laws-kind-
+    count: 7
+
+- type: localizedDataset
+  id: RandomSentienceEventStrength
+  values:
+    prefix: new-laws-event-strength-
+    count: 8
