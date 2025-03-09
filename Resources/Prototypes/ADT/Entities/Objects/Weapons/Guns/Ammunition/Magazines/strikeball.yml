@@ -62,7 +62,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
   - type: MagazineVisuals
-    steps: 5
+    steps: 6
 
 - type: entity
   id: MagazineLightRifleBoxBibis
