@@ -53,9 +53,9 @@
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
 # ADT Research Console Rework start
-  position: 2,-1
+  position: 0,-1
   requiredTech:
-  - SpaceScanning
+  - AdvancedAtmospherics
   # ADT Research Console Rework end
 
 - type: technology
@@ -70,9 +70,9 @@
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
 # ADT Research Console Rework start
-  position: 1,2
+  position: 2,1
   requiredTech:
-  - IndustrialEngineering
+  - SpaceScanning
   # ADT Research Console Rework end
 
 - type: technology
@@ -90,9 +90,9 @@
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
 # ADT Research Console Rework start
-  position: 2,1
+  position: 1,2
   requiredTech:
-  - SpaceScanning
+  - MechanicalCompression
   # ADT Research Console Rework end
 
 - type: technology
@@ -126,9 +126,9 @@
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
 # ADT Research Console Rework start
-  position: 1,-1
+  position: 2,-1
   requiredTech:
-  - AdvancedPowercells
+  - SpaceScanning
   # ADT Research Console Rework end
 
 - type: technology
@@ -189,7 +189,7 @@
   technologyPrerequisites:
   - AtmosphericTech
 # ADT Research Console Rework start
-  position: 0,-1
+  position: 1,-1
   requiredTech:
   - AtmosphericTech
   # ADT Research Console Rework end
@@ -211,9 +211,9 @@
     - Fulton
     - FultonBeacon
   # ADT Research Console Rework start
-  position: 3,-2
+  position: 3,-3
   requiredTech:
-  - AdvancedPowercells
+  - Advanted Energy
   # ADT Research Console Rework end
 
 - type: technology

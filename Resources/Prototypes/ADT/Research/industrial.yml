@@ -9,9 +9,9 @@
   cost: 15000
   recipeUnlocks:
   - ADTIndustrialSMESMachineCircuitboard
-  position: 3,-4
+  position: 3,-2
   requiredTech:
-  - ADTCompactTechnologies
+  - AtmosphericTech
 
 - type: technology
   id: ADTCompactTechnologies
@@ -27,7 +27,7 @@
     - RPDAmmo
     - RCD
     - RCDAmmo
-  position: 3,-3
+  position: 3,-4
   requiredTech:
   - AdvancedToolsTechnology
 
@@ -49,7 +49,7 @@
     - ADTModsuitBase
   position: 1,-2
   requiredTech:
-  - AdvancedPowercells
+  - AtmosphericTech
 
 - type: technology
   id: ADTIndustrialMODsuitMODs
