@@ -216,6 +216,7 @@
     #ADT-tweak-start
     - ADTRCDPack
     - ADTPKAPack
+    - ADTWeaponExperimentalPKAPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack

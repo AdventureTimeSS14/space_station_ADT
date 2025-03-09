@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by brainfood1183 (github)",
+  "copyright": "Taken from Baystation12 https://github.com/Baystation12/Baystation12",
   "size": {
     "x": 32,
     "y": 32
@@ -9,14 +9,6 @@
   "states": [
     {
       "name": "icon"
-    },
-    {
-      "name": "equipped-FEET",
-      "directions": 4
-    },
-    {
-      "name": "equipped-FEET-reptilian",
-      "directions": 4
     },
     {
       "name": "inhand-left",
