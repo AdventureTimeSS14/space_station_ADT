@@ -625,8 +625,8 @@
     proto: ADTCapitanRedLaser # Tweak RedMediumLaser -> ADTCapitanRedLaser
     fireCost: 100
   - type: Battery # New - ADT TWEAK
-    maxCharge: 500
-    startingCharge: 500
+    maxCharge: 1500
+    startingCharge: 1500
 # End ADT Tweak
   - type: BatterySelfRecharger
     autoRecharge: true
