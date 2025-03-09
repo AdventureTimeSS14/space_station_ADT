@@ -5,23 +5,25 @@
     MinWidth="450"
     VerticalExpand="True"
     HorizontalExpand="True">
-    <BoxContainer Orientation="Vertical">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
         <BoxContainer
             Name="InfoContainer"
             Orientation="Vertical"
             VerticalExpand="True"
+            HorizontalExpand="True"
             Margin="5"
             SizeFlagsStretchRatio="3">
-            <BoxContainer Orientation="Horizontal">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" >
+                <TextureRect Name="DisciplineTexture" TextureScale="7 7" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="4"/>
                 <TextureRect Name="TechnologyTexture"
                             TextureScale="2 2"
                             VerticalAlignment="Center"
-                            HorizontalAlignment="Left"/>
-                <TextureRect Name="DisciplineTexture" TextureScale="5 5" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                            HorizontalAlignment="Left"
+                            Margin="4"/>
             </BoxContainer>
             <Label Name="TechnologyNameLabel" StyleClasses="LabelKeyText" HorizontalExpand="True"/>
             <RichTextLabel Name="TechnologyCostLabel" HorizontalExpand="True"/>
-            <Button Name="ResearchButton" Text="{Loc 'research-console-menu-server-research-button'}" HorizontalAlignment="Left"/>
+            <Button Name="ResearchButton" Text="{Loc 'research-console-menu-server-research-button'}" HorizontalAlignment="Left" Margin="0 4"/>
         </BoxContainer>
         <Control SizeFlagsStretchRatio="1"
             HorizontalExpand="True"/>

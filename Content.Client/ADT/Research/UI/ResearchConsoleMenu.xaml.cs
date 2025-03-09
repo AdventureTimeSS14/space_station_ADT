@@ -132,6 +132,11 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
     public ProtoId<TechDisciplinePrototype> CurrentDiscipline = "Industrial";
 
     /// <summary>
+    /// Выбранное исследование
+    /// </summary>
+    public ProtoId<TechnologyPrototype>? CurrentTech;
+
+    /// <summary>
     /// Список всех технологий и их доступности
     /// </summary>
     public Dictionary<string, ResearchAvailablity> List = new();
@@ -212,6 +217,10 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
             // Двигаем технологии по своим местам
             LayoutContainer.SetPosition(control, _position + tech.Position * 150);
             control.SelectAction += SelectTech;
+
+            // Выбираем для "обновления" превью
+            if (tech.ID == CurrentTech)
+                SelectTech(tech, List[tech.ID]);
         }
     }
 
@@ -308,6 +317,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         if (!_player.LocalEntity.HasValue)
             return;
 
+        CurrentTech = proto.ID;
         var control = new TechnologyInfoPanel(proto, _sprite, _accessReader.IsAllowed(_player.LocalEntity.Value, Entity), avaibility);
         control.BuyAction += args => OnTechnologyCardPressed?.Invoke(args.ID);
         InfoContainer.AddChild(control);
