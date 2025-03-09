@@ -67,25 +67,47 @@ public sealed partial class ResearchSystem
         SyncClientWithServer(uid);
     }
 
-    private void UpdateConsoleInterface(EntityUid uid, ResearchConsoleComponent? component = null, ResearchClientComponent? clientComponent = null)
-    {
-        if (!Resolve(uid, ref component, ref clientComponent, false))
-            return;
+    // ADT Commented:
+    // private void UpdateConsoleInterface(EntityUid uid, ResearchConsoleComponent? component = null, ResearchClientComponent? clientComponent = null)
+    // {
+    //     if (!Resolve(uid, ref component, ref clientComponent, false))
+    //         return;
 
-        ResearchConsoleBoundInterfaceState state;
+    //     ResearchConsoleBoundInterfaceState state;
 
-        if (TryGetClientServer(uid, out _, out var serverComponent, clientComponent))
-        {
-            var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
-            state = new ResearchConsoleBoundInterfaceState(points);
-        }
-        else
-        {
-            state = new ResearchConsoleBoundInterfaceState(default);
-        }
+    //     if (TryGetClientServer(uid, out _, out var serverComponent, clientComponent))
+    //     {
+    //         List<TechnologyPrototype> list = new();
 
-        _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key, state);
-    }
+    //         if (clientComponent.Server.HasValue && TryComp<TechnologyDatabaseComponent>(clientComponent.Server.Value, out var db))
+    //         {
+    //             foreach (var item in _proto.EnumeratePrototypes<TechnologyPrototype>().ToList())
+    //             {
+    //                 if (item.RequiredTech.Count <= 0)
+    //                     list.Add(item);
+    //                 else
+    //                 {
+    //                     bool success = true;
+    //                     foreach (var required in item.RequiredTech)
+    //                     {
+    //                         if (!db.UnlockedTechnologies.Contains(required))
+    //                             success = false;
+    //                     }
+    //                     if (success)
+    //                         list.Add(item);
+    //                 }
+    //             }
+    //         }
+    //         var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
+    //         state = new ResearchConsoleBoundInterfaceState(points, list.Select(x => x.ID).ToList());
+    //     }
+    //     else
+    //     {
+    //         state = new ResearchConsoleBoundInterfaceState(default, new());
+    //     }
+
+    //     _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key, state);
+    // }
 
     private void OnPointsChanged(EntityUid uid, ResearchConsoleComponent component, ref ResearchServerPointsChangedEvent args)
     {

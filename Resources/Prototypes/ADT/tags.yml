@@ -35,10 +35,22 @@
   id: ADTSteelSheet
 
 - type: Tag
-  id: ADTCartridgeBibis
+  id: ADTCartridgeBibis # Обычне
 
 - type: Tag
-  id: ADTMagazineRifleBibis
+  id: ADTCartridgeBibisSoft # Мягкие
+
+- type: Tag
+  id: ADTCartridgeBibisReinforced # Твёрдые
+
+- type: Tag
+  id: ADTMagazineRifleBibis # Магазин обычный
+
+- type: Tag
+  id: ADTMagazineRifleBibisSoft # Магазин мягкий
+
+- type: Tag
+  id: ADTMagazineRifleBibisSoftBig # Магазин пулемёта
 
 - type: Tag
   id: ADTBorgUse
@@ -531,3 +543,6 @@
 
 - type: Tag
   id: DockMiningGuest
+
+- type: Tag
+  id: ADTMinerArmor

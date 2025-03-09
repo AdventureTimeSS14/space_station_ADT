@@ -216,6 +216,7 @@
     #ADT-tweak-start
     - ADTRCDPack
     - ADTPKAPack
+    - ADTWeaponExperimentalPKAPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
@@ -326,7 +327,7 @@
     - BorgModulesStatic
     - BorgLimbsStatic
     dynamicPacks:
-    - Robotics
+    # - Robotics  # ADT Commented
     - BorgModules
     - MechParts
     - MechEquipment

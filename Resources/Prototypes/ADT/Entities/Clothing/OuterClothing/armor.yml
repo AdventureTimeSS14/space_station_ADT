@@ -253,6 +253,9 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+    - ADTMinerArmor
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
@@ -334,3 +337,39 @@
     foldedEquippedPrefix: open
     foldedHeldPrefix: open
   - type: Appearance
+
+- type: entity
+  parent: ADTClothingOuterArmorMiner
+  id: ADTClothingOuterArmorMinerReiforced
+  name: Plated Explorer Suit
+  description: This explorer suit is reinforced with goliath hides. The pinnacle of mining ingenuity and Lavaland's own madness in the field of defense.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.40
+        Slash: 0.45
+        Piercing: 0.6
+        Heat: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetMinerReinforced
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: Construction
+    graph: ADTReiforcedMinerArmor
+    node: ADTReiforcedMinerArmor

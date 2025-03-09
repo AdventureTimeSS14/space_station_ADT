@@ -101,10 +101,18 @@
   - type: ModSuitMod
     slot: shoes
     components:
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+      mustEquip: false
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
     - type: ClothingSpeedModifier
       walkModifier: 0.85
       sprintModifier: 0.8
-    - type: Magboots
+    - type: ItemToggle
+      onUse: false
 
 - type: entity
   parent: ADTModsuitModBase
@@ -236,8 +244,8 @@
         coefficients:
           Blunt: 0.6
           Slash: 0.6
-          Piercing: 0.6
-          Heat: 0.6
+          Piercing: 0.7
+          Heat: 0.7
           Radiation: 0.6
 
 - type: entity
@@ -247,7 +255,7 @@
   description: Reverse engineered by Nakamura Engineering from Donk Corporation designs, this system of hidden compartments is entirely within the suit, distributing items and weight evenly to ensure a comfortable experience for the user; whether smuggling, or simply hauling.
   components:
   - type: Sprite
-    state: storage
+    state: storage_large
   - type: ModSuitMod
     slot: MODcore
     components:
@@ -296,3 +304,116 @@
     slot: shoes
     components:
     - type: Jumpboots
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModDnaLock
+  name: MOD jump boot module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: dnalock
+  - type: ModSuitMod
+    slot: MODcore
+    components:
+    - type: DNALocker
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModLight
+  name: MOD light module
+  description: Blind.
+  components:
+  - type: Sprite
+    state: flashlight
+  - type: ModSuitMod
+    slot: head
+    components:
+    - type: ToggleableLightVisuals
+      clothingVisuals:
+        head:
+        - state: equipped-head-light
+          shader: unshaded
+    - type: Appearance
+    - type: HandheldLight
+      addPrefix: true
+      blinkingBehaviourId: blinking
+      radiatingBehaviourId: radiating
+    - type: LightBehaviour
+      behaviours:
+        - !type:FadeBehaviour
+          id: radiating
+          interpolate: Linear
+          maxDuration: 2.0
+          startValue: 3.0
+          endValue: 2.0
+          isLooped: true
+          reverseWhenFinished: true
+        - !type:PulseBehaviour
+          id: blinking
+          interpolate: Nearest
+          maxDuration: 1.0
+          minValue: 0.1
+          maxValue: 2.0
+          isLooped: true
+    - type: Battery
+      maxCharge: 600
+      startingCharge: 600
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 2
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModOrebag
+  name: MOD orebag module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: ore
+  - type: ModSuitMod
+    slot: outerClothing
+    components:
+    - type: MagnetPickup
+      slotFlags: OUTERCLOTHING
+    - type: Storage
+      maxItemSize: Normal
+      grid:
+      - 0,0,9,5
+      quickInsert: true
+      areaInsert: true
+      whitelist:
+        tags:
+          - ArtifactFragment
+          - Ore
+    - type: Dumpable
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModRadiationProtection
+  name: MOD radiation protection module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: radshield
+  - type: ModSuitMod
+    slot: outerClothing
+    components:
+    - type: RadiationBlocker
+      resistance: 2
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModStorageSyndie
+  name: MOD syndie storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage_syndi
+  - type: ModSuitMod
+    slot: MODcore
+    components:
+    - type: Storage
+      grid:
+      - 0,0,8,4
+      maxItemSize: Huge

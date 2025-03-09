@@ -7,6 +7,7 @@
   - PositronicBrain
   - SciFlash
   - CyborgEndoskeleton
+  - ProximitySensor # ADT
 
 - type: latheRecipePack
   id: BorgModulesStatic
@@ -28,10 +29,11 @@
 
 ## Dynamic
 
-- type: latheRecipePack
-  id: Robotics
-  recipes:
-  - ProximitySensor
+# ADT Commented
+# - type: latheRecipePack
+#   id: Robotics
+#   recipes:
+#   - ProximitySensor
 
 - type: latheRecipePack
   id: BorgModules
