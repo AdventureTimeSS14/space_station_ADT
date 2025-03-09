@@ -106,7 +106,7 @@ internal sealed class AdminNameOverlay : Overlay
                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, _antagLabelClassic, uiScale, _antagColorClassic);
                currentOffset += lineoffset;
             }
-            else if (!classic && _filter.Contains(playerInfo.RoleProto.ID))
+            else if (!classic && _filter.Contains(playerInfo.RoleProto))
             {
                var label = Loc.GetString(playerInfo.RoleProto.Name).ToUpper();
                var color = playerInfo.RoleProto.Color;

@@ -1,14 +1,18 @@
-using System.Numerics;
 using Content.Shared.Construction.Components;
+<<<<<<< HEAD
 using Content.Shared.Damage;
 using Content.Shared.Standing;
+=======
+using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
+using Content.Shared.Timing;
+>>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
+using System.Numerics;
 
 namespace Content.Shared.Weapons.Melee;
 
@@ -17,30 +21,40 @@ namespace Content.Shared.Weapons.Melee;
 /// </summary>
 public sealed class MeleeThrowOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+<<<<<<< HEAD
     [Dependency] private readonly StandingStateSystem _standing = default!; // ADT-Changeling-Tweak
     [Dependency] private readonly DamageableSystem _damage = default!; // ADT-Changeling-Tweak
 
+=======
+    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+>>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<MeleeThrowOnHitComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<MeleeThrownComponent, ComponentStartup>(OnThrownStartup);
-        SubscribeLocalEvent<MeleeThrownComponent, ComponentShutdown>(OnThrownShutdown);
-        SubscribeLocalEvent<MeleeThrownComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrowDoHitEvent>(OnThrowHit);
     }
 
-    private void OnMeleeHit(Entity<MeleeThrowOnHitComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<MeleeThrowOnHitComponent> weapon, ref MeleeHitEvent args)
     {
-        var (_, comp) = ent;
+        // TODO: MeleeHitEvent is weird. Why is this even raised if we don't hit something?
         if (!args.IsHit)
             return;
 
-        var mapPos = _transform.GetMapCoordinates(args.User).Position;
-        foreach (var hit in args.HitEntities)
+        if (_delay.IsDelayed(weapon.Owner))
+            return;
+
+        if (args.HitEntities.Count == 0)
+            return;
+
+        var userPos = _transform.GetWorldPosition(args.User);
+        foreach (var target in args.HitEntities)
         {
+<<<<<<< HEAD
             var hitPos = _transform.GetMapCoordinates(hit).Position;
             var angle = args.Direction ?? hitPos - mapPos;
             if (angle == Vector2.Zero)
@@ -69,43 +83,34 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
 
             if (comp.DownOnHit) // ADT tweak
                 _standing.Down(hit);
+=======
+            var targetPos = _transform.GetMapCoordinates(target).Position;
+            var direction = args.Direction ?? targetPos - userPos;
+            ThrowOnHitHelper(weapon, args.User, target, direction);
+>>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
         }
     }
 
-    private void OnThrownStartup(Entity<MeleeThrownComponent> ent, ref ComponentStartup args)
+    private void OnThrowHit(Entity<MeleeThrowOnHitComponent> weapon, ref ThrowDoHitEvent args)
     {
-        var (_, comp) = ent;
-
-        if (!TryComp<PhysicsComponent>(ent, out var body) ||
-            (body.BodyType & (BodyType.Dynamic | BodyType.KinematicController)) == 0x0)
+        if (!weapon.Comp.ActivateOnThrown)
             return;
 
-        comp.PreviousStatus = body.BodyStatus;
-        comp.ThrownEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.Lifetime);
-        comp.MinLifetimeTime = _timing.CurTime + TimeSpan.FromSeconds(comp.MinLifetime);
-        _physics.SetBodyStatus(ent, body, BodyStatus.InAir);
-        _physics.SetLinearVelocity(ent, Vector2.Zero, body: body);
-        _physics.ApplyLinearImpulse(ent, comp.Velocity * body.Mass, body: body);
-        Dirty(ent, ent.Comp);
+        if (!TryComp<PhysicsComponent>(args.Thrown, out var weaponPhysics))
+            return;
+
+        ThrowOnHitHelper(weapon, args.Component.Thrower, args.Target, weaponPhysics.LinearVelocity);
     }
 
-    private void OnThrownShutdown(Entity<MeleeThrownComponent> ent, ref ComponentShutdown args)
+    private void ThrowOnHitHelper(Entity<MeleeThrowOnHitComponent> ent, EntityUid? user, EntityUid target, Vector2 direction)
     {
-        if (TryComp<PhysicsComponent>(ent, out var body))
-            _physics.SetBodyStatus(ent, body, ent.Comp.PreviousStatus);
-        var ev = new MeleeThrowOnHitEndEvent();
-        RaiseLocalEvent(ent, ref ev);
-    }
+        var attemptEvent = new AttemptMeleeThrowOnHitEvent(target, user);
+        RaiseLocalEvent(ent.Owner, ref attemptEvent);
 
-    private void OnStartCollide(Entity<MeleeThrownComponent> ent, ref StartCollideEvent args)
-    {
-        var (_, comp) = ent;
-        if (!args.OtherFixture.Hard || !args.OtherBody.CanCollide || !args.OurFixture.Hard || !args.OurBody.CanCollide)
+        if (attemptEvent.Cancelled)
             return;
 
-        if (_timing.CurTime < comp.MinLifetimeTime)
-            return;
-
+<<<<<<< HEAD
         if (ent.Comp.CollideDamage != null)   // ADT tweak
             _damage.TryChangeDamage(ent.Owner, ent.Comp.CollideDamage);
         if (ent.Comp.ToCollideDamage != null) // ADT tweak
@@ -113,29 +118,17 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
 
         RemCompDeferred(ent, ent.Comp);
     }
+=======
+        var startEvent = new MeleeThrowOnHitStartEvent(ent.Owner, user);
+        RaiseLocalEvent(target, ref startEvent);
+>>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
 
-    public bool CanThrowOnHit(Entity<MeleeThrowOnHitComponent> ent, EntityUid target)
-    {
-        var (uid, comp) = ent;
+        if (ent.Comp.StunTime != null)
+            _stun.TryParalyze(target, ent.Comp.StunTime.Value, false);
 
-        var ev = new AttemptMeleeThrowOnHitEvent(target);
-        RaiseLocalEvent(uid, ref ev);
+        if (direction == Vector2.Zero)
+            return;
 
-        if (ev.Handled)
-            return !ev.Cancelled;
-
-        return comp.Enabled;
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<MeleeThrownComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (_timing.CurTime > comp.ThrownEndTime)
-                RemCompDeferred(uid, comp);
-        }
+        _throwing.TryThrow(target, direction.Normalized() * ent.Comp.Distance, ent.Comp.Speed, user, unanchor: ent.Comp.UnanchorOnHit);
     }
 }
