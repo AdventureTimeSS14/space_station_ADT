@@ -145,8 +145,8 @@ public sealed partial class CollectiveMind : ILanguageType
         // Apply language color
         if (Color != null)
         {
-            messageWrap = "[color=" + Color.Value.ToHex().ToString() + "]" + messageWrap + "[/color]";
-            adminMessageWrap = "[color=" + Color.Value.ToHex().ToString() + "]" + adminMessageWrap + "[/color]";
+            messageWrap = $"[color={Color.Value.ToHex()}]{messageWrap}[/color]";
+            adminMessageWrap = $"[color={Color.Value.ToHex()}]{adminMessageWrap}[/color]";
         }
 
 
@@ -241,8 +241,8 @@ public sealed partial class CollectiveMind : ILanguageType
 
         if (Color != null)
         {
-            messageWrap = "[color=" + Color.Value.ToHex().ToString() + "]" + messageWrap + "[/color]";
-            adminMessageWrap = "[color=" + Color.Value.ToHex().ToString() + "]" + adminMessageWrap + "[/color]";
+            messageWrap = $"[color={Color.Value.ToHex()}]{messageWrap}[/color]";
+            adminMessageWrap = $"[color={Color.Value.ToHex()}]{adminMessageWrap}[/color]";
         }
 
         chatMan.ChatMessageToManyFiltered(clients, ChatChannel.CollectiveMind, message, messageWrap, uid, false, false, Color);
