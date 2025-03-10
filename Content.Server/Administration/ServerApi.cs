@@ -90,8 +90,9 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat);                 // ADT Tweak
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/play_time_addjob", ActionPlayAddTimeJob);  // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat);                          // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/play_time_addjob", ActionPlayAddTimeJob);           // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/play_generaltime_addjob", ActionAddGeneralJobTime); // ADT Tweak
     }
 
     public void Initialize()
@@ -804,6 +805,52 @@ public sealed partial class ServerApi : IPostInjectInit
         _sawmill.Info($"{actor.Name} using playtime_addrole {body.NickName} {body.JobIdPrototype} {body.Time}");
     }
 
+    private async Task ActionAddGeneralJobTime(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<AdminActionPlayTimeJobBody>(context);
+        if (body == null)
+            return;
+
+        NetUserId userId;
+        if (Guid.TryParse(body.NickName, out var guid))
+        {
+            userId = new NetUserId(guid);
+        }
+        else
+        {
+            var dbGuid = await _playerLocator.LookupIdByNameAsync(body.NickName);
+            if (dbGuid == null)
+            {
+                return;
+            }
+            userId = dbGuid.UserId;
+        }
+
+        var jobTimes = GetJobTimeMappings();
+        foreach (var jobTime in jobTimes)
+        {
+            await _playTimeTracking.AddTimeToTrackerById(userId, jobTime.Key, jobTime.Value);
+        }
+
+        await _playTimeTracking.AddTimeToOverallPlaytimeById(userId, TimeSpan.FromMinutes(2800));
+        _sawmill.Info($"{actor.Name} using playtime_GeneralAddrole {body.NickName}");
+    }
+
+    private Dictionary<string, TimeSpan> GetJobTimeMappings()
+    {
+        return new Dictionary<string, TimeSpan>
+        {
+            { "JobMedicalDoctor", TimeSpan.FromMinutes(300) },
+            { "JobMedicalIntern", TimeSpan.FromMinutes(300) },
+            { "JobResearchAssistant", TimeSpan.FromMinutes(200) },
+            { "JobScientist", TimeSpan.FromMinutes(200) },
+            { "JobCargoTechnician", TimeSpan.FromMinutes(600) },
+            { "JobServiceWorker", TimeSpan.FromMinutes(600) },
+            { "JobTechnicalAssistant", TimeSpan.FromMinutes(300) },
+            { "JobStationEngineer", TimeSpan.FromMinutes(300) }
+        };
+    }
+
     private sealed class AdminChatActionBody
     {
         public required string Message { get; init; }
@@ -815,6 +862,11 @@ public sealed partial class ServerApi : IPostInjectInit
         public required string NickName { get; init; }
         public required string JobIdPrototype { get; init; }
         public required string Time { get; init; }
+    }
+
+    private sealed class AdminActionAddGeneralJobTimeBody
+    {
+        public required string NickName { get; init; }
     }
 
     #endregion
