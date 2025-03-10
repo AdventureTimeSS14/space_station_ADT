@@ -1,20 +1,20 @@
 ## Phrases used for where central command got this information.
 
-new-laws-event-data-1 = сканирование сенсорами дальнего действия на наличие врагов
-new-laws-event-data-2 = наши сложные статистические модели вероятности
-new-laws-event-data-3 = наше всемогущество
-new-laws-event-data-4 = коммуникационный трафик с вашей станции
-new-laws-event-data-5 = обнаруженные нами энергетические всплески
-new-laws-event-data-6 = [УДАЛЕНО]
-new-laws-event-data-7 = недавние поставки от врагов корпорации в секторе
-new-laws-event-data-8 = изучение личных переписок капитана
-new-laws-event-data-9 = пролитый латте Адмирала ЦК
-new-laws-event-data-10 = сомнительный трафик в секторе
-new-laws-event-data-11 = карты таро
-new-laws-event-data-12 = отсутствие факсов о ситуации на станции
+station-event-new-law-data-1 = сканирование сенсорами дальнего действия на наличие врагов
+station-event-new-law-data-2 = наши сложные статистические модели вероятности
+station-event-new-law-data-3 = наше всемогущество
+station-event-new-law-data-4 = коммуникационный трафик с вашей станции
+station-event-new-law-data-5 = обнаруженные нами энергетические всплески
+station-event-new-law-data-6 = [УДАЛЕНО]
+station-event-new-law-data-7 = недавние поставки от врагов корпорации в секторе
+station-event-new-law-data-8 = изучение личных переписок капитана
+station-event-new-law-data-9 = пролитый латте Адмирала ЦК
+station-event-new-law-data-10 = сомнительный трафик в секторе
+station-event-new-law-data-11 = карты таро
+station-event-new-law-data-12 = отсутствие факсов о ситуации на станции
 
 ## type of crime????
-# Я не вывез поэтому даже не менял этого кода нету у random_sentience
+# Я не вывез поэтому даже не менял, этого кода нету у random_sentience
 
 new-laws-kind-1 = механизмы
 new-laws-kind-2 = органики
@@ -49,10 +49,10 @@ station-event-new-law-announcement =
 
 station-event-random-sentience-role-description = Вы разумный { $name }, оживший благодаря космической магии.
 # Flavors
-new-laws-kind-1 = приличие
-new-laws-kind-2 = профессиональность
-new-laws-kind-3 = владение любым холодным оружием
-new-laws-kind-4 = отдых
-new-laws-kind-5 = общение
-new-laws-kind-6 = исполнение танцев
-new-laws-kind-7 = воспроизведение музыки
+station-event-new-law-kind-1 = приличие
+station-event-new-law-kind-2 = профессиональность
+station-event-new-law-kind-3 = владение любым холодным оружием
+station-event-new-law-kind-4 = отдых
+station-event-new-law-kind-5 = общение
+station-event-new-law-kind-6 = исполнение танцев
+station-event-new-law-kind-7 = воспроизведение музыки

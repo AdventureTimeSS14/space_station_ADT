@@ -16,17 +16,17 @@
 - type: localizedDataset
   id: NewStationLawData
   values:
-    prefix: new-laws-event-data-
+    prefix: station-event-new-law-data-
     count: 12
 
 - type: localizedDataset
   id: VVVZZZ
   values:  
-    prefix: new-laws-kind-
+    prefix: station-event-new-law-kind-
     count: 7
 
 - type: localizedDataset
   id: RandomSentienceEventStrength
   values:
-    prefix: new-laws-event-strength-
+    prefix: station-event-new-law-strength-
     count: 8
