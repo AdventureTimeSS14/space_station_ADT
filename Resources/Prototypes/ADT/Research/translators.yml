@@ -30,7 +30,7 @@
   - DwarfTranslator
   position: 4,2
   requiredTech:
-  - BiochemicalStasis
+  - ADTMedicalMODsuit
 
 - type: technology
   id: AdvancedTranslation

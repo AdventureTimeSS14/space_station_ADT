@@ -126,9 +126,9 @@ public abstract class SharedResearchSystem : EntitySystem
         }
 
         // ADT Research Console Rework start
-        var highestTier = (float)component.UnlockedTechnologies
+        var percentage = (float)component.UnlockedTechnologies
             .Where(x => PrototypeManager.Index<TechnologyPrototype>(x).Discipline == techDiscipline.ID)
-            .Count() / (float)allTech.Count * 3f + 1f;
+            .Count() / (float)allTech.Count * 100f;
 
         // var tier = 2; //tier 1 is always given
 
@@ -156,7 +156,7 @@ public abstract class SharedResearchSystem : EntitySystem
         // }
 
         // return tier - 1;
-        return (int)Math.Clamp(highestTier, 1, 3);
+        return (int)Math.Clamp(percentage, 0, 100);
         // ADT Research Console Rework ent
     }
 
