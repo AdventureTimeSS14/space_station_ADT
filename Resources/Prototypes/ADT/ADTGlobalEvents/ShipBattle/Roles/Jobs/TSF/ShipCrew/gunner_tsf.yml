@@ -1,0 +1,58 @@
+- type: job
+  id: ADTBattleShipGunnerTSF
+  name: job-name-gunner-tsf
+  description: job-description-gunner-tsf
+  playTimeTracker: JobADTBattleShipGunnerTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+  startingGear: ADTBattleShipGunnerTSFGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipGunnerTSFGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500

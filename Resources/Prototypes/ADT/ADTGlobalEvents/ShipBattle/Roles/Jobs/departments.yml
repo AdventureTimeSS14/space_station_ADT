@@ -1,0 +1,17 @@
+- type: department
+  id: ADTBattleShipTSFShipCrew
+  name: department-tsf-shipcrew
+  description: department-tsf-shipcrew-description
+  color: "#334E6D"
+  weight: -15
+  roles:
+  - ADTBattleShipGunnerTSF
+
+- type: department
+  id: ADTBattleShipKMTShipCrew
+  name: department-kmt-shipcrew
+  description: department-kmt-shipcrew-description
+  color: "#A46106"
+  weight: -20
+  roles:
+  - ADTBattleShipGunnerKMT
