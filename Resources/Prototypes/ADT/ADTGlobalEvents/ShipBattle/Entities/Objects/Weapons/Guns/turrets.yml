@@ -193,7 +193,7 @@
   components:
     - type: NpcFactionMember
       factions:
-        - Syndicate
+        - KMT
 
 - type: entity
   parent: ADTBaseControllableTurretMagazine
@@ -202,7 +202,7 @@
   components:
     - type: NpcFactionMember
       factions:
-        - NanoTrasen
+        - TSF
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
       state: gau32_tsf_icon
