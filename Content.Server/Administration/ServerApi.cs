@@ -775,7 +775,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
     private async Task ActionPlayAddTimeJob(IStatusHandlerContext context, Actor actor)
     {
-        var body = await ReadJson<AdminActionPlayTimeJob>(context);
+        var body = await ReadJson<AdminActionPlayTimeJobBody>(context);
         if (body == null)
             return;
 
@@ -810,7 +810,7 @@ public sealed partial class ServerApi : IPostInjectInit
         public required string NickName { get; init; }
     }
 
-    private sealed class AdminActionPlayTimeJob
+    private sealed class AdminActionPlayTimeJobBody
     {
         public required string NickName { get; init; }
         public required string JobIdPrototype { get; init; }
