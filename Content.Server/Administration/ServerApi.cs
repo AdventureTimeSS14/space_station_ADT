@@ -26,6 +26,7 @@ using Robust.Shared.Utility;
 using Content.Server.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
+using Content.Server.Players.PlayTimeTracking;
 
 namespace Content.Server.Administration;
 
@@ -64,6 +65,8 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -87,7 +90,8 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat); // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat);                 // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/play_time_addjob", ActionPlayAddTimeJob);  // ADT Tweak
     }
 
     public void Initialize()
@@ -769,10 +773,48 @@ public sealed partial class ServerApi : IPostInjectInit
         });
     }
 
+    private async Task ActionPlayAddTimeJob(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<AdminActionPlayTimeJob>(context);
+        if (body == null)
+            return;
+
+        NetUserId userId;
+        if (Guid.TryParse(body.NickName, out var guid))
+        {
+            userId = new NetUserId(guid);
+        }
+        else
+        {
+            var dbGuid = await _playerLocator.LookupIdByNameAsync(body.NickName);
+            if (dbGuid == null)
+            {
+                return;
+            }
+            userId = dbGuid.UserId;
+        }
+
+        if (!int.TryParse(body.Time, out var minutes))
+        {
+            return;
+        }
+
+        await _playTimeTracking.AddTimeToTrackerById(userId, body.JobIdPrototype, TimeSpan.FromMinutes(minutes));
+
+        _sawmill.Info($"{actor.Name} using playtime_addrole {body.NickName} {body.JobIdPrototype} {body.Time}");
+    }
+
     private sealed class AdminChatActionBody
     {
         public required string Message { get; init; }
         public required string NickName { get; init; }
+    }
+
+    private sealed class AdminActionPlayTimeJob
+    {
+        public required string NickName { get; init; }
+        public required string JobIdPrototype { get; init; }
+        public required string Time { get; init; }
     }
 
     #endregion
