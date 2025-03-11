@@ -223,5 +223,5 @@ uplink-attachmentsbundle-description = Комплект из вертикаль�
 uplink-mod-name = кроваво-красный МОД
 uplink-mod-description = Классический МОД синдиката, что идёт в комплекте с базовыми модулями.
 
-uplink-agent-white-paws-combat-name = Белая боевая кошачья лапка
+uplink-agent-white-paws-combat-name = Белые боевые кошачьи лапки
 uplink-agent-white-paws-combat-desc = Я котик. -ВЖУХ, ШИК!
