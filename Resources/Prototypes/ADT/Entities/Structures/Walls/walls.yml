@@ -115,7 +115,7 @@
   parent: BaseWall
   name: asteroid rock
   description: A rocky asteroid.
-  suffix: Неразрушимое
+  suffix: Indestructible
   components:
   - type: Transform
     noRot: true
@@ -144,7 +144,7 @@
   name: andesite
   parent: BaseWall
   description: A rocky asteroid.
-  suffix: Неразрушимое
+  suffix: Indestructible
   components:
     - type: Icon
       sprite: Structures/Walls/rock.rsi
@@ -168,7 +168,7 @@
   name: basalt
   parent: BaseWall
   description: A rocky asteroid.
-  suffix: Неразрушимое
+  suffix: Indestructible
   components:
     - type: Icon
       sprite: Structures/Walls/rock.rsi
@@ -191,7 +191,7 @@
   name: snowdrift
   parent: BaseWall
   description: A rocky asteroid.
-  suffix: Неразрушимое
+  suffix: Indestructible
   components:
     - type: Icon
       sprite: Structures/Walls/rock.rsi
@@ -214,7 +214,7 @@
   name: sandstone
   parent: BaseWall
   description: A rocky asteroid.
-  suffix: Неразрушимое
+  suffix: Indestructible
   components:
     - type: Icon
       sprite: Structures/Walls/rock.rsi
@@ -238,7 +238,7 @@
   parent: BaseWall
   name: rock
   description: A rocky asteroid.
-  suffix: Неразрушимое
+  suffix: Indestructible
   components:
     - type: Transform
       noRot: true
@@ -267,7 +267,7 @@
   parent: BaseWall
   name: ironrock
   description: A rocky asteroid.
-  suffix: Неразрушимое
+  suffix: Indestructible
   components:
   - type: IconSmooth
     key: walls
