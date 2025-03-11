@@ -730,7 +730,7 @@
   name: uplink-agent-white-paws-combat-name
   description: uplink-agent-white-paws-combat-desc
   icon: { sprite: ADT/Clothing/Hands/Gloves/white.rsi, state: icon}
-  productEntity: ADTClothingHandsCatPawsWhite
+  productEntity: ADTClothingHandsCatPawsWhiteCombat
   cost:
     Telecrystal: 3
   categories:
