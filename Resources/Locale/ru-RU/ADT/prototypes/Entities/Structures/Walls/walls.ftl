@@ -11,15 +11,19 @@ ent-ADTYellowbrickWall = кирпичная жёлтая стена
 
 ent-ADTAsteroidRockIndestructible = астероидный камень
     .desc = каменистый астероид.
+    .suffix = Неразрушимый
 
 ent-ADTWallRockAndesiteIndestructible = андезит
     .desc = стена из андезита.
+    .suffix = Неразрушимый
 
 ent-ADTWallRockBasaltIndestructible = базальт
     .desc = стена из базальта.
+    .suffix = Неразрушимый
 
 ent-ADTWallRockSnowIndestructible = сугроб
     .desc = стена из снега.
+    .suffix = Неразрушимый
 
 ent-ADTWallRockSandIndestructible = песчаник
     .desc = стена из песка.
