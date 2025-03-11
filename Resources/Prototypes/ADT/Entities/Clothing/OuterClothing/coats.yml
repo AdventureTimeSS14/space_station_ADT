@@ -275,7 +275,7 @@
 
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic]
+  parent: ClothingOuterStorageBase
   id: ADTClothingOuterBikerJacket
   name: Jacket biker
   description: duuuhhhhh
@@ -299,7 +299,7 @@
         Heat: 0.95
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic]
+  parent: ClothingOuterStorageBase
   id: ADTClothingOuterLeatherJacket
   name: Leather jacket
   description: There no way you actually reading theese
