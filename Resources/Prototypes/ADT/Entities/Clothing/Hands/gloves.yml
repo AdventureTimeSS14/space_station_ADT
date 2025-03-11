@@ -166,5 +166,62 @@
       - state: equipped-HAND
   - type: Fiber
     fiberColor: fibers-grey
+
+# Боевая версия перчаток в аплинке
+- type: entity
+  parent: ADTClothingHandsCatPawsWhite
+  id: ADTClothingHandsCatPawsWhiteCombat
+  name: white cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
+
+- type: entity
+  parent: ADTClothingHandsCatPawsBrown
+  id: ADTClothingHandsCatPawsBrownCombat
+  name: brown cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
+
+- type: entity
+  parent: ADTClothingHandsCatPawsBlack
+  id: ADTClothingHandsCatPawsBlackCombat
+  name: black cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
+
+- type: entity
+  parent: ADTClothingHandsCatPawsBlackWhite
+  id: ADTClothingHandsCatPawsWhiteBlackCombat
+  name: black and white cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
 # ADT End Paws
 #endregion Paws
