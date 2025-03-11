@@ -33,4 +33,4 @@ ent-ADTWallRockIndestructible = камень
 
 
 ent-ADTIronRockIndestructible = камень
-    .desc = каменная стена.
+    .desc = Каменная стена.
