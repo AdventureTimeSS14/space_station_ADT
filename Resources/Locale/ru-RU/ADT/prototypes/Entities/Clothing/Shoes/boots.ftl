@@ -25,4 +25,4 @@ ent-ADTClothingFootMimicry = мимикрические туфли
     .suffix = { "" }
 
 ent-ADTClothingShoesKirzaBoots = кирзовые сапоги
-    .desc = Неубиваемый обувь солдат и офицеров СССП.
+    .desc = Неубиваемая обувь солдат и офицеров СССП.
