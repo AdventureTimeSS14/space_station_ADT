@@ -26,3 +26,7 @@ ent-ADTWallRockSandIndestructible = песчаник
 
 ent-ADTWallRockIndestructible = камень
     .desc = каменная стена.
+
+
+ent-ADTIronRockIndestructible = камень
+    .desc = каменная стена.
