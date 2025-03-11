@@ -118,3 +118,42 @@
   - type: Tag
     tags:
     - HidesHair
+
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetSecCap
+  name: SecCap
+  description: uhhhmmmmmmmmm cheese?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/seccap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/seccap.rsi
+
+
+
+- type: entity
+  parent: [ClothingHeadBase, BaseFoldable]
+  id: ADTClothingHeadHelmetSecUshanka
+  name: Not a SecCap
+  description: they holding me as a hostage here, xd.
+  components:
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/secushanka.rsi
+  - type: Appearance
+  - type: AddAccentClothing
+    accent: RussianAccent
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: up
+    foldedHeldPrefix: up
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/secushanka.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-up
+      map: ["foldedLayer"]
+      visible: false

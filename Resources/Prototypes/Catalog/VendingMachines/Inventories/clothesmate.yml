@@ -180,6 +180,12 @@
     ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
     ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
 # ADT водолазки конец
+# ADT Кожанки
+    ADTClothingOuterCoatLeathOvercoat: 1
+    ADTClothingOuterLeatherJacket: 1
+    ADTClothingOuterBikerJacket: 1
+# ADT Кожанки, все распродали :c
+
 # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
