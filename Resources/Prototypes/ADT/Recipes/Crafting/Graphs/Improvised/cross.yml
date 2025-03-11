@@ -6,9 +6,7 @@
     edges:
     - to: ADTWoodCompCross
       steps:
-      - material: Bones
-        amount: 4
-      - material: Cloth
+      - material: WoodPlank
         amount: 1
         doAfter: 1
   - node: ADTWoodCompCross
