@@ -92,3 +92,136 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-black
+
+#region Paws
+# ADT Paws
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsCatPawsWhite
+  name: white cat paws
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/white.rsi
+    state: icon
+  - type: Item
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/white.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsCatPawsBrown
+  name: brown cat paws
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/brown.rsi
+    state: icon
+  - type: Item
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/brown.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-brown
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsCatPawsBlack
+  name: black cat paws
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/black.rsi
+    state: icon
+  - type: Item
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/black.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsCatPawsBlackWhite
+  name: black and white cat paws
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/black_white.rsi
+    state: icon
+  - type: Item
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/black_white.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-grey
+
+# Боевая версия перчаток в аплинке
+- type: entity
+  parent: ADTClothingHandsCatPawsWhite
+  id: ADTClothingHandsCatPawsWhiteCombat
+  name: white cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
+
+- type: entity
+  parent: ADTClothingHandsCatPawsBrown
+  id: ADTClothingHandsCatPawsBrownCombat
+  name: brown cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
+
+- type: entity
+  parent: ADTClothingHandsCatPawsBlack
+  id: ADTClothingHandsCatPawsBlackCombat
+  name: black cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
+
+- type: entity
+  parent: ADTClothingHandsCatPawsBlackWhite
+  id: ADTClothingHandsCatPawsWhiteBlackCombat
+  name: black and white cat paws combat
+  description: Super soft white cat paws, especially for the most brutal station workers.
+  suffix: Combat
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: AlienClaw
+# ADT End Paws
+#endregion Paws

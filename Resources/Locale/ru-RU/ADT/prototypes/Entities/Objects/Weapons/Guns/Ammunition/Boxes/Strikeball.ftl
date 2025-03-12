@@ -4,12 +4,12 @@ ent-MagazineBoxLightRiflePracticeBibis = коробка укреплённых �
 
 ent-MagazineBoxPistolPracticeBibis = коробка мягких шариков
     .desc = Маде ин чина...
-    .suffix = { ent-MagazineBoxLightRiflePracticeBibis }
+    .suffix = { ent-MagazineBoxLightRiflePracticeBibis.suffix }
 
 ent-MagazineBoxRiflePracticeBibis = коробка шариков
     .desc = Страйкбольные шарики
-    .suffix = { ent-MagazineBoxLightRiflePracticeBibis }
+    .suffix = { ent-MagazineBoxLightRiflePracticeBibis.suffix }
 
 ent-BoxShotgunPracticeBibis = коробка картечи шариков
     .desc = Коробка в коробке, которая в коробке.
-    .suffix = { ent-MagazineBoxLightRiflePracticeBibis }
+    .suffix = { ent-MagazineBoxLightRiflePracticeBibis.suffix }
