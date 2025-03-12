@@ -4,4 +4,4 @@ ent-ADTAnomalyMonkey = { ent-BaseAnomaly }
 
 ent-ADTAnomalyStatic = { ent-BaseAnomaly }
     .suffix = Cтатика
-    .desc = Кажется этот телевизор сломан. Подождите... кто это там?
+    .desc = Кажется, этот телевизор сломан. Подождите... кто это там?
