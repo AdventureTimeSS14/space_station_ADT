@@ -162,9 +162,6 @@
        - id: ClothingHeadHelmetBasic
        - id: ClothingOuterArmorBasic
        - id: ClothingUniformJumpskirtSec
-       - id: ADTClothingHeadHelmetSecCap
-       - id: ADTClothingHeadHelmetSecUshanka
-       - id: ADTClothingShoesKirzaBoots
 
  - type: entity
    id: WardrobeCargoFilled
