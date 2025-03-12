@@ -26,6 +26,11 @@
     ClothingShoesBootsWinterSec: 2
     ClothingHeadHelmetJustice: 1
     ADTClothingKadet: 4 #ADT tweak
+    #ADT Funny hats
+    ADTClothingHeadHelmetSecCap: 2
+    ADTClothingHeadHelmetSecUshanka: 2
+    ADTClothingShoesKirzaBoots: 1
+    #ADT Funny Hats are over!
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ToyFigurineSecurity: 1
