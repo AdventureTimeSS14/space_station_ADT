@@ -1322,6 +1322,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - LogProbeCartridge
+    - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1349,6 +1350,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - MedTekCartridge
+    - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: ClownPDA
@@ -1446,7 +1448,7 @@
     id: SeniorOfficerIDCard
   - type: Appearance
     appearanceDataInit:
-     enum.PdaVisuals.PdaType:
+    enum.PdaVisuals.PdaType:
        !type:String
        pda-seniorofficer
   - type: PdaBorderColor
