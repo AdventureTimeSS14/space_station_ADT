@@ -542,8 +542,6 @@
   - type: StaticPrice
     price: 10
 
-
-
 - type: entity
   parent: ClothingHeadBase
   id: ADTClothingHeadHelmetSecCap
@@ -554,8 +552,6 @@
     sprite: ADT/Clothing/Head/Helmets/seccap.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Helmets/seccap.rsi
-
-
 
 - type: entity
   parent: [ClothingHeadBase, BaseFoldable]
