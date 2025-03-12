@@ -1,8 +1,8 @@
 - type: job
-  id: ADTBattleShipCommanderTSF
-  name: job-name-commander-tsf
-  description: job-description-commander-tsf
-  playTimeTracker: JobADTBattleShipCommanderTSF
+  id: ADTBattleShipChiefGunnerTSF
+  name: job-name-chief-gunnner-tsf
+  description: job-description-chief-gunnner-tsf
+  playTimeTracker: JobADTBattleShipChiefGunnerTSF
   requirements:
     - !type:SexRequirement
       allowedSex:
@@ -11,27 +11,18 @@
       inverted: false
       species:
       - Human
-      - Reptilian
       - Dwarf
     - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 #10 hrs 
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10 hrs 
-    - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs 
-    - !type:OverallPlaytimeRequirement
-      time: 252000 #70 hrs
+      time: 72000 #20 hrs
     - !type:AgeRequirement #ADT-Tweak
-      requiredAge: 30
-  startingGear: ADTBattleShipCommanderTSFGear
-  icon: "JobIconCommanderTSF"
+      requiredAge: 25
+  startingGear: ADTBattleShipChiefGunnerTSFGear
+  icon: "JobIconChiefGunnerTSF"
   joinNotifyCrew: true
   supervisors: job-supervisors-tsf-captain
   canBeAntag: false
-  weight: 19
+  weight: 17
   accessGroups:
   - AllAccess
   special:
@@ -45,7 +36,7 @@
     - type: FriendlyFireToggleable
 
 - type: startingGear
-  id: ADTBattleShipCommanderTSFGear
+  id: ADTBattleShipChiefGunnerTSFGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity

@@ -9,3 +9,6 @@ job-supervisors-kmt-highcommand = Высшему командованию КМТ
 
 job-supervisors-tsf-marine-leutenant = Лейтенанту Космической Пехоты ТСФ
 job-supervisors-kmt-marine-leutenant = Лейтенанту Космической Пехоты КМТ
+
+job-supervisors-kmt-commander = Капитану флота КМТ и командиру вашего судна
+job-supervisors-tsf-commander = Капитану флота КМТ и командиру вашего судна

@@ -21,7 +21,9 @@
       department: Security
       time: 36000 #10 hrs 
     - !type:OverallPlaytimeRequirement
-      time: 252000 #70 hrs 
+      time: 252000 #70 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 30
   startingGear: ADTBattleShipCommanderKMTGear
   icon: "JobIconCommanderKMT"
   joinNotifyCrew: true

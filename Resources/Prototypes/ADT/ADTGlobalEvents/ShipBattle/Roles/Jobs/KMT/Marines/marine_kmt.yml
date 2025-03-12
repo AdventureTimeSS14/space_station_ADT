@@ -24,6 +24,7 @@
   - Service
   - External
   - Cryogenics
+  - Armory
   special:
   - !type:AddComponentSpecial
     components:

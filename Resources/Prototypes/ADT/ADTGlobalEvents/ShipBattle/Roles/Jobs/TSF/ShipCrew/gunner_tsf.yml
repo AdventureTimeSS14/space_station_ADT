@@ -12,6 +12,7 @@
       species:
       - Human
       - Reptilian
+      - Dwarf
   startingGear: ADTBattleShipGunnerTSFGear
   icon: "JobIconGunnerTSF"
   supervisors: job-supervisors-tsf-gunner
@@ -21,7 +22,9 @@
   - Brig
   - Maintenance
   - Service
+  - Engineering
   - External
+  - Atmospherics
   - Cryogenics
   special:
   - !type:AddComponentSpecial

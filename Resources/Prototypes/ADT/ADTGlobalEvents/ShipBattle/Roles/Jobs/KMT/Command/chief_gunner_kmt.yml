@@ -1,8 +1,8 @@
 - type: job
-  id: ADTBattleShipCommanderTSF
-  name: job-name-commander-tsf
-  description: job-description-commander-tsf
-  playTimeTracker: JobADTBattleShipCommanderTSF
+  id: ADTBattleShipChiefGunnerKMT
+  name: job-name-chief-gunnner-kmt
+  description: job-description-chief-gunnner-kmt
+  playTimeTracker: JobADTBattleShipChiefGunnerKMT
   requirements:
     - !type:SexRequirement
       allowedSex:
@@ -11,27 +11,17 @@
       inverted: false
       species:
       - Human
-      - Reptilian
-      - Dwarf
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 #10 hrs 
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10 hrs 
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs 
-    - !type:OverallPlaytimeRequirement
-      time: 252000 #70 hrs
+      time: 72000 #20 hrs
     - !type:AgeRequirement #ADT-Tweak
-      requiredAge: 30
-  startingGear: ADTBattleShipCommanderTSFGear
-  icon: "JobIconCommanderTSF"
+      requiredAge: 25
+  startingGear: ADTBattleShipChiefGunnerKMTGear
+  icon: "JobIconChiefGunnerKMT"
   joinNotifyCrew: true
-  supervisors: job-supervisors-tsf-captain
+  supervisors: job-supervisors-kmt-captain
   canBeAntag: false
-  weight: 19
+  weight: 17
   accessGroups:
   - AllAccess
   special:
@@ -39,13 +29,13 @@
     components:
     - type: NpcFactionMember
       factions:
-      - TSF
+      - KMT
     - type: FriendlyFire
       enabled: true
     - type: FriendlyFireToggleable
 
 - type: startingGear
-  id: ADTBattleShipCommanderTSFGear
+  id: ADTBattleShipChiefGunnerKMTGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity

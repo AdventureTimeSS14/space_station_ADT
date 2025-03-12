@@ -78,10 +78,3 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
-            #shipbattletest
-            ADTBattleShipGunnerTSF: [ 2, 3 ]
-            ADTBattleShipGunnerKMT: [ 2, 3 ]
-            ADTBattleShipCaptainKMT: [ 2, 3 ]
-            ADTBattleShipCommanderKMT: [ 2, 3 ]
-            ADTBattleShipCaptainTSF: [ 2, 3 ]
-            ADTBattleShipCommanderTSF: [ 2, 3 ]

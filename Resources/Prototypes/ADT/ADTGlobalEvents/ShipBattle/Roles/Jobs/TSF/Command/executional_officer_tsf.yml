@@ -1,8 +1,8 @@
 - type: job
-  id: ADTBattleShipCommanderTSF
-  name: job-name-commander-tsf
-  description: job-description-commander-tsf
-  playTimeTracker: JobADTBattleShipCommanderTSF
+  id: ADTBattleShipExecutionalOfficerTSF
+  name: job-name-executional-officer-tsf
+  description: job-description-executional-officer-tsf
+  playTimeTracker: JobADTBattleShipExecutionalOfficerTSF
   requirements:
     - !type:SexRequirement
       allowedSex:
@@ -11,8 +11,6 @@
       inverted: false
       species:
       - Human
-      - Reptilian
-      - Dwarf
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 36000 #10 hrs 
@@ -26,12 +24,12 @@
       time: 252000 #70 hrs
     - !type:AgeRequirement #ADT-Tweak
       requiredAge: 30
-  startingGear: ADTBattleShipCommanderTSFGear
-  icon: "JobIconCommanderTSF"
+  startingGear: ADTBattleShipExecutionalOfficerTSFGear
+  icon: "JobIconExecutionalOfficerTSF"
   joinNotifyCrew: true
   supervisors: job-supervisors-tsf-captain
   canBeAntag: false
-  weight: 19
+  weight: 18
   accessGroups:
   - AllAccess
   special:
@@ -45,7 +43,7 @@
     - type: FriendlyFireToggleable
 
 - type: startingGear
-  id: ADTBattleShipCommanderTSFGear
+  id: ADTBattleShipExecutionalOfficerTSFGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity

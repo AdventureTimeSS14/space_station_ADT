@@ -8,7 +8,13 @@
   - ADTBattleShipGunnerTSF
   - ADTBattleShipCommanderTSF
   - ADTBattleShipCaptainTSF
-
+  - ADTBattleShipExecutionalOfficerTSF
+  - ADTBattleShipChiefGunnerTSF
+  - ADTBattleShipNavigatorTSF
+  - ADTBattleShipPilotTSF
+  - ADTBattleShipMedicTSF
+  - ADTBattleShipEngineerTSF
+  editorHidden: true
 
 - type: department
   id: ADTBattleShipKMTShipCrew
@@ -20,7 +26,13 @@
   - ADTBattleShipGunnerKMT
   - ADTBattleShipCommanderKMT
   - ADTBattleShipCaptainKMT
-
+  - ADTBattleShipExecutionalOfficerKMT
+  - ADTBattleShipChiefGunnerKMT
+  - ADTBattleShipNavigatorKMT
+  - ADTBattleShipPilotKMT
+  - ADTBattleShipMedicKMT
+  - ADTBattleShipEngineerKMT
+  editorHidden: true
 
 - type: department
   id: ADTBattleShipTSFCommand
@@ -32,7 +44,10 @@
   - ADTBattleShipCommanderTSF
   - ADTBattleShipCaptainTSF
   - ADTBattleShipMarineLeutenantTSF
+  - ADTBattleShipExecutionalOfficerTSF
+  - ADTBattleShipChiefGunnerTSF
   primary: false
+  editorHidden: true
 
 - type: department
   id: ADTBattleShipKMTCommand
@@ -44,8 +59,10 @@
   - ADTBattleShipCommanderKMT
   - ADTBattleShipCaptainKMT
   - ADTBattleShipMarineLeutenantKMT
+  - ADTBattleShipExecutionalOfficerKMT
+  - ADTBattleShipChiefGunnerKMT
   primary: false
-
+  editorHidden: true
 
 - type: department
   id: ADTBattleShipTSFMarine
@@ -56,7 +73,7 @@
   roles:
   - ADTBattleShipMarineLeutenantTSF
   - ADTBattleShipMarineTSF
-
+  editorHidden: true
 
 - type: department
   id: ADTBattleShipKMTMarine
@@ -67,3 +84,4 @@
   roles:
   - ADTBattleShipMarineLeutenantKMT
   - ADTBattleShipMarineKMT
+  editorHidden: true

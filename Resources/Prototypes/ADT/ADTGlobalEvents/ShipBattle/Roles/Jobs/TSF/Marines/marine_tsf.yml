@@ -12,6 +12,7 @@
       species:
       - Human
       - Reptilian
+      - Dwarf
     - !type:OverallPlaytimeRequirement
       time: 54000 #15 hrs # ADT-RoleTime
   startingGear: ADTBattleShipMarineTSFGear
@@ -25,6 +26,7 @@
   - Service
   - External
   - Cryogenics
+  - Armory
   special:
   - !type:AddComponentSpecial
     components:

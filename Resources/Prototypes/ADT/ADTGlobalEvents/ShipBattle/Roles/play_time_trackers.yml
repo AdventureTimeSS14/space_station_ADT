@@ -27,3 +27,39 @@
 
 - type: playTimeTracker
   id: JobADTBattleShipMarineLeutenantKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipExecutionalOfficerTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipExecutionalOfficerKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipChiefGunnerTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipChiefGunnerKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipNavigatorTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipNavigatorKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipPilotTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipPilotKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipMedicTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipMedicKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipEngineerTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipEngineerKMT
