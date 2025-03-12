@@ -284,13 +284,11 @@
     sprite: ADT/Clothing/OuterClothing/Coats/biker_jacket.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/biker_jacket.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 1
   - type: TemperatureProtection
     heatingCoefficient: 0.9
   - type: Storage
     grid:
-    - 0,0,2,2
+    - 0,0,2,1
     maxItemSize: Small
   - type: Armor
     modifiers:
@@ -308,13 +306,11 @@
     sprite: ADT/Clothing/OuterClothing/Coats/leather_jacket.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/leather_jacket.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 1
   - type: TemperatureProtection
     heatingCoefficient: 0.9
   - type: Storage
     grid:
-    - 0,0,2,2
+    - 0,0,2,1
     maxItemSize: Small
   - type: Armor
     modifiers:
@@ -334,7 +330,7 @@
     sprite: ADT/Clothing/OuterClothing/Coats/leather_overcoat.rsi
   - type: Storage
     grid:
-    - 0,0,2,2
+    - 0,0,2,1
     maxItemSize: Small
 
 - type: entity
