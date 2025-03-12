@@ -1448,7 +1448,7 @@
     id: SeniorOfficerIDCard
   - type: Appearance
     appearanceDataInit:
-    enum.PdaVisuals.PdaType:
+     enum.PdaVisuals.PdaType:
        !type:String
        pda-seniorofficer
   - type: PdaBorderColor
