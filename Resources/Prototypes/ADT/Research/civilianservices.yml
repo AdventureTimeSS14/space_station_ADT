@@ -50,3 +50,18 @@
   position: 2,2
   requiredTech:
   - BiochemicalStasis
+
+- type: technology
+  id: ADTServicePlus
+  name: research-technology-services-service-plus
+  icon:
+    sprite: ADT/Structures/Machines/advanced_microwave.rsi
+    state: mw
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ADTAdvancedMicrowaveMachineCircuitBoard
+  position: 2,-3
+  requiredTech:
+  - MeatManipulation

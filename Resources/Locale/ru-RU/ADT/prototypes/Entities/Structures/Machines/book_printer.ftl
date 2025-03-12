@@ -1,4 +1,4 @@
-ent-ADTBookPrinter = книжный книг
+ent-ADTBookPrinter = Принтер книг
     .desc = Рассадник пропаганды, унижчтожитель демократии. Позволяет копировать книги, а также заносить их в базу данных.
 ent-ADTBookPrinterFilled = { ent-ADTBookPrinter }
     .desc = { ent-ADTBookPrinter.desc }
