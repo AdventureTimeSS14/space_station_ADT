@@ -8,4 +8,4 @@ ent-WeaponSniperHristovBibis = страйкбольный Христов
 
 ent-MusketBibis = страйкбольный Мушкет
     .desc = Реплика "Мушкет", сделанная для игры в страйкбол.
-    .suffix = { ent-WeaponSniperHristovBibis }
+    .suffix = { ent-WeaponSniperHristovBibis.suffix }
