@@ -1,0 +1,15 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGunnerTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: GunnerTSF
+  jobName: job-name-gunner-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGunnerKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: GunnerKMT
+  jobName: job-name-gunner-kmt

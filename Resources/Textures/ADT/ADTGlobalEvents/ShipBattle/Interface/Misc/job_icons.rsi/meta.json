@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by not_so_big_chungus",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "GunnerTSF"
+        },
+        {
+            "name": "GunnerKMT"
+        }
+    ]
+}

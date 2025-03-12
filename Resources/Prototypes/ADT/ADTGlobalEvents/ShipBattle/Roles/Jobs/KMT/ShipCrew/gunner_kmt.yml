@@ -12,8 +12,8 @@
       species:
       - Human
   startingGear: ADTBattleShipGunnerKMTGear
-  icon: "JobIconSecurityOfficer"
-  supervisors: job-supervisors-hos
+  icon: "JobIconGunnerKMT"
+  supervisors: job-supervisors-kmt-gunner
   canBeAntag: false
   access:
   - Security

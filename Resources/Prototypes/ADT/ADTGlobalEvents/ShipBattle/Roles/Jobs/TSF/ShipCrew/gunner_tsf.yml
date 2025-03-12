@@ -13,8 +13,8 @@
       - Human
       - Reptilian
   startingGear: ADTBattleShipGunnerTSFGear
-  icon: "JobIconSecurityOfficer"
-  supervisors: job-supervisors-hos
+  icon: "JobIconGunnerTSF"
+  supervisors: job-supervisors-tsf-gunner
   canBeAntag: false
   access:
   - Security
