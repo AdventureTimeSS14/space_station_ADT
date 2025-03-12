@@ -9,6 +9,66 @@
     },
     "states": [
         {
+            "name": "CaptainTSF"
+        },
+        {
+            "name": "CaptainKMT"
+        },
+        {
+            "name": "ChiefGunnerTSF"
+        },
+        {
+            "name": "ChiefGunnerKMT"
+        },
+        {
+            "name": "CommanderTSF"
+        },
+        {
+            "name": "CommanderKMT"
+        },
+        {
+            "name": "EngineerTSF"
+        },
+        {
+            "name": "EngineerKMT"
+        },
+        {
+            "name": "ExecutionalOfficerTSF"
+        },
+        {
+            "name": "ExecutionalOfficerKMT"
+        },
+        {
+            "name": "MarineTSF"
+        },
+        {
+            "name": "MarineKMT"
+        },
+        {
+            "name": "MarineLeutenantTSF"
+        },
+        {
+            "name": "MarineLeutenantKMT"
+        },
+        {
+            "name": "MedicTSF"
+        },
+        {
+            "name": "MedicKMT"
+        },
+        {
+            "name": "NavigatorTSF"
+        },
+        {
+            "name": "NavigatorKMT"
+        },
+        {
+            "name": "PilotTSF"
+        },
+        {
+            "name": "PilotTSF"
+        }
+        {
             "name": "GunnerTSF"
         },
         {
