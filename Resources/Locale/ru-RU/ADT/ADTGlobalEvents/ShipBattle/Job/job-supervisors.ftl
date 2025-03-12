@@ -6,3 +6,6 @@ job-supervisors-tsf-captain = Капитану флота ТСФ и высшем
 
 job-supervisors-tsf-highcommand = Высшему командованию ТСФ
 job-supervisors-kmt-highcommand = Высшему командованию КМТ
+
+job-supervisors-tsf-marine-leutenant = Лейтенанту Космической Пехоты ТСФ
+job-supervisors-kmt-marine-leutenant = Лейтенанту Космической Пехоты КМТ

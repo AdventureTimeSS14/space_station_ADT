@@ -45,3 +45,35 @@
     sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
     state: CaptainKMT
   jobName: job-name-captain-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineTSF
+  jobName: job-name-marine-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineKMT
+  jobName: job-name-marine-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineLeutenantTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineLeutenantTSF
+  jobName: job-name-marine-leutenant-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineLeutenantKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineLeutenantKMT
+  jobName: job-name-marine-leutenant-kmt

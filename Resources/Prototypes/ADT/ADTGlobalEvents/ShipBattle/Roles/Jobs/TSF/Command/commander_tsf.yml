@@ -28,6 +28,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-tsf-captain
   canBeAntag: false
+  weight: 19
   accessGroups:
   - AllAccess
   special:

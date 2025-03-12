@@ -27,6 +27,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-kmt-captain
   canBeAntag: false
+  weight: 19
   accessGroups:
   - AllAccess
   special:

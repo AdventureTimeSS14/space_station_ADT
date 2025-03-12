@@ -1,8 +1,8 @@
 - type: job
-  id: ADTBattleShipCaptainKMT
-  name: job-name-captain-kmt
-  description: job-description-captain-kmt
-  playTimeTracker: JobADTBattleShipCaptainKMT
+  id: ADTBattleShipMarineKMT
+  name: job-name-marine-kmt
+  description: job-description-marine-kmt
+  playTimeTracker: JobADTBattleShipMarineKMT
   requirements:
     - !type:SexRequirement
       allowedSex:
@@ -11,25 +11,19 @@
       inverted: false
       species:
       - Human
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 72000 #20 hrs 
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 72000 #20 hrs 
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 72000 #20 hrs 
     - !type:OverallPlaytimeRequirement
-      time: 504000 #140 hrs 
-  startingGear: ADTBattleShipCaptainKMTGear
-  icon: "JobIconCaptainKMT"
-  joinNotifyCrew: true
-  supervisors: job-supervisors-kmt-highcommand
-  weight: 20
+      time: 54000 #15 hrs # ADT-RoleTime
+  startingGear: ADTBattleShipMarineKMTGear
+  icon: "JobIconMarineKMT"
+  supervisors: job-supervisors-kmt-marine-leutenant
   canBeAntag: false
-  accessGroups:
-  - AllAccess
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
   special:
   - !type:AddComponentSpecial
     components:
@@ -41,7 +35,7 @@
     - type: FriendlyFireToggleable
 
 - type: startingGear
-  id: ADTBattleShipCaptainKMTGear
+  id: ADTBattleShipMarineKMTGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity

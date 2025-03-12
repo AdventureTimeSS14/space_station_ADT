@@ -1,8 +1,8 @@
 - type: job
-  id: ADTBattleShipCaptainKMT
-  name: job-name-captain-kmt
-  description: job-description-captain-kmt
-  playTimeTracker: JobADTBattleShipCaptainKMT
+  id: ADTBattleShipMarineLeutenantTSF
+  name: job-name-marine-leutenant-tsf
+  description: job-description-marine-leutenant-tsf
+  playTimeTracker: JobADTBattleShipMarineLeutenantTSF
   requirements:
     - !type:SexRequirement
       allowedSex:
@@ -11,22 +11,15 @@
       inverted: false
       species:
       - Human
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 72000 #20 hrs 
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 72000 #20 hrs 
+      - Reptilian
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 #20 hrs 
-    - !type:OverallPlaytimeRequirement
-      time: 504000 #140 hrs 
-  startingGear: ADTBattleShipCaptainKMTGear
-  icon: "JobIconCaptainKMT"
+      time: 144000 #40 hrs # ADT-RoleTime
+  startingGear: ADTBattleShipMarineLeutenantTSFGear
+  icon: "JobIconMarineLeutenantTSF"
   joinNotifyCrew: true
-  supervisors: job-supervisors-kmt-highcommand
-  weight: 20
+  supervisors: job-supervisors-tsf-captain
+  weight: 10
   canBeAntag: false
   accessGroups:
   - AllAccess
@@ -35,13 +28,13 @@
     components:
     - type: NpcFactionMember
       factions:
-      - KMT
+      - TSF
     - type: FriendlyFire
       enabled: true
     - type: FriendlyFireToggleable
 
 - type: startingGear
-  id: ADTBattleShipCaptainKMTGear
+  id: ADTBattleShipMarineLeutenantTSFGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity

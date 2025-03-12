@@ -15,3 +15,15 @@
 
 - type: playTimeTracker
   id: JobADTBattleShipCaptainKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineLeutenantTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineLeutenantKMT
