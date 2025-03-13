@@ -1,15 +1,12 @@
 
 #кепка Мендозы
 - type: entity
-  parent: ClothingHeadBase
+  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatsMendozaCap
   name: Mendoza`s cap
   description: The purple cap of a certain Alexei Mendoza. At the back is a large cross drawn with a marker. Next to it are fourteen more of the same small crosses. The owner of the cap jokes that this is the number of his escapes from brig.
   suffix: Именное, Armorkillerd
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - WhitelistChameleon
   - type: Sprite
     sprite: ADT/Personalization/mendosa_soft.rsi
   - type: Clothing
@@ -17,7 +14,7 @@
 
 # Kivchik
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckKivchikCloak
   suffix: Kivchik
   name: black cloak of retribution
@@ -29,7 +26,7 @@
     stealGroup: HeadCloak
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: ADTSponsorClothingUniformSkirtBase
   id: ADTClothingUniformKivchikJumpskirt
   suffix: Kivchik
   name: black jumpsuit of retribution
@@ -41,7 +38,7 @@
     sprite: ADT/Personalization/kivchikset_skirt.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatKivchikBerete
   suffix: Kivchik
   name: blue beret of retribution
@@ -57,7 +54,7 @@
     - HamsterWearable
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingSponsorHandsBase
   id: ADTClothingHandsKivchikGloves
   suffix: Kivchik
   name: black gloves of retribution
@@ -71,7 +68,7 @@
     fiberColor: fibers-black
 
 - type: entity
-  parent: ClothingShoesMilitaryBase
+  parent: ADTSponsorClothingShoesBase
   id: ADTClothingShoesKivchikBoots
   suffix: Kivchik
   name: boots of retribution
@@ -84,7 +81,7 @@
   - type: Matchbox
 
 - type: entity
-  parent: ClothingBackpackSatchel
+  parent: ADTSponsorClothingBackpackSatchel
   id: ADTClothingBackpackKivchikSatchel
   suffix: Kivchik
   name: satchel of retribution
@@ -95,7 +92,7 @@
 
 # Conjurer
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterCoatJohanCoat
   name: Johans`s Coat
   description: White coat with blue strips? YOS.
@@ -113,21 +110,18 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatsJohanCap
   name: Johans`s cap
   description: Looks strange but cool
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - WhitelistChameleon
   - type: Sprite
     sprite: ADT/Personalization/johan_cap.rsi
   - type: Clothing
     sprite: ADT/Personalization/johan_cap.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformAJohanPants
   name: Johan`s pants
   description: Just pants, right.
@@ -139,7 +133,7 @@
 
 # Shrodinger
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterCoatSchroCoat
   name: Schrodinger`s Coat
   description: This dark coat is heavier than look
@@ -166,7 +160,7 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatsSatanHoop
   name: hoop with spikes
   description: hoop with spikes
@@ -178,7 +172,7 @@
     sprite: ADT/Personalization/hoop_spikes.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformSatanSuit
   name: black suit with red shirt
   description: black suit with red shirt
@@ -191,7 +185,7 @@
 
 # Pyotr
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterCoatPyotrCoat
   name: Pyotr`s Coat
   description: This dark coat is heavier than look
@@ -217,21 +211,18 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatsPyotrCap
   name: Pyotr`s cap
   description: Standart officer`s cap from Pyotr Shahin`s homeworld
   components:
-  - type: Tag
-    tags: # ignore "WhitelistChameleon" tag
-      - WhitelistChameleon
   - type: Sprite
     sprite: ADT/Personalization/pyotr_cap.rsi
   - type: Clothing
     sprite: ADT/Personalization/pyotr_cap.rsi
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckPyotrCloak
   name: Pyotr's cloak
   description: Dark green with gold thread cloak.
@@ -240,7 +231,7 @@
     sprite: ADT/Personalization/pyotr_cloak.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformPyotrUniform
   name: Pyotr`s uniform
   description: Dark green uniform, own by Pyotr Shahin.
@@ -251,7 +242,7 @@
     sprite: ADT/Personalization/pyotr_uniform.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformPyotrJumpsuit
   name: Pyotr`s jumpsuit
   description: Dark green sweater, good for sitting in a cold bunker.
@@ -262,7 +253,7 @@
     sprite: ADT/Personalization/pyotr_jumpsuit.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformPyotrOfficialSuit
   name: Pyotr`s official suit
   description: Dark green jacket with white shirt, for social events.
@@ -274,7 +265,7 @@
 
 # Altius
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterCoatAidan
   name: Aidan coat
   description: Aidan coat.
@@ -295,7 +286,7 @@
     damageCoefficient: 0.90
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTJumpsuitAidan
   name: Aidan suit
   description: Aidan suit
@@ -308,7 +299,7 @@
 
 # Bolper
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterBolperCoat
   name: Bolper trenchcoat
   description: Plus five percent coolness.
@@ -329,7 +320,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: ClothingShoesBaseButcherable
+  parent: ADTSponsorClothingShoesBase
   id: ADTClothingShoesBolperBoots
   suffix: Bolper
   name: Bolper`s boots
@@ -342,7 +333,7 @@
   - type: Matchbox
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckBolperCloak
   suffix: Bolper
   name: Bolper`s cloak
@@ -352,7 +343,7 @@
     sprite: ADT/Personalization/bolper_cloak.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformBolperJumpsuit
   suffix: Bolper
   name: Bolper`s jumpsuit
@@ -364,7 +355,7 @@
     sprite: ADT/Personalization/bolper_jumpsuit.rsi
 
 - type: entity
-  parent: [Clothing, ClothingSlotBase]
+  parent: [ADTSponsorClothing, ClothingSlotBase]
   id: ADTClothingBackBolperSheath
   suffix: Bolper
   name: Bolper`s katana sheath
@@ -409,7 +400,7 @@
 #    - back
 
 - type: entity
-  parent: ClothingHandsGlovesColorBlack
+  parent: ADTClothingSponsorHandsBase
   id: ADTClothingHandsBolperGloves
   name: Bolper`s gloves
   description: I`ll protect your hand.
@@ -430,7 +421,7 @@
 
 #Pangaari
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformPangaariAmericanSleeveless
   suffix: Pangaari
   name: American sleeveless.
@@ -442,7 +433,7 @@
 
 #tweak
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingUniformPanjaariJacket
   name: Cropped leather jacket
   description: A short leather jacket with studs on the shoulders. It doesn't look like something that will keep you warm, but its appearance speaks of the wearer's excellent sense of style.
@@ -455,7 +446,7 @@
 
 #Rip_Zoro
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckRipZoroMantle
   suffix: Rip_Zoro
   name: Mysterious shoulder mantle
@@ -506,7 +497,7 @@
   - type: Appearance
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformZoroJumpsuit
   suffix: Rip_Zoro
   name: The legendary business suit
@@ -519,7 +510,7 @@
 
 #PushnoY
 - type: entity
-  parent: ClothingHandsButcherable
+  parent: ADTClothingSponsorHandsBase
   id: ADTClothingHandsPushnoYGloves
   suffix: PushnoY
   components:
@@ -529,7 +520,7 @@
     sprite: ADT/Personalization/pushnoY_gloves.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformPushnoYJumpsuit
   suffix: PushnoY
   components:
@@ -540,7 +531,7 @@
 
 #Maki_gg
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterCoatMaki
   name: Maki coat
   description: Maki coat.
@@ -554,7 +545,7 @@
 
 # Moon_so_red
 - type: entity
-  parent: ClothingHeadBase
+  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatMoon_so_redHat
   suffix: Moon_so_red
   components:
@@ -564,7 +555,7 @@
     sprite: ADT/Personalization/moon_so_red_hat.rsi
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: ADTSponsorClothingEyesBase
   id: ADTClothingEyesMoon_so_redGlasses
   suffix: Moon_so_red
   components:
@@ -574,7 +565,7 @@
     sprite: ADT/Personalization/moon_so_red_glasses.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterMoon_so_redCoat
   suffix: Moon_so_red
   components:
@@ -625,7 +616,7 @@
 
 #cherreshnia (она же Ума)
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformJumpsuitUmaSport
   name: dark sporting clothing
   description: dark sporting clothing
@@ -637,7 +628,7 @@
     sprite: ADT/Personalization/uma_sport_clothing.rsi
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ADTSponsorClothingNeckBase
   id: ADTClothingNeckUmaChoker
   name: Uma`s choker
   description: Uma`s choker
@@ -647,7 +638,7 @@
       sprite: ADT/Personalization/uma_choker.rsi
 
 - type: entity
-  parent: ClothingOuterArmorBasic
+  parent: ADTSponsorClothingOuterArmorBase
   id: ADTClothingOuterArmorUma
   name: Uma`s armor vest
   description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
@@ -660,7 +651,7 @@
 #Anagiri
 
 - type: entity
-  parent: ClothingHandsButcherable
+  parent: ADTClothingSponsorHandsBase
   id: ADTClothingHandsAnagiriGloves
   name: Anagiri Gloves
   description: Anagiri Gloves
@@ -673,7 +664,7 @@
 
 #MleM
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterStorageBase
   id: ADTClothingOuterCoatOktyabrina
   name: Oktyabrina coat
   description: Oktyabrina coat.
@@ -686,7 +677,7 @@
 
 #ПразатДерВахед
 - type: entity
-  parent: ClothingHeadBase
+  parent: ADTSponsorClothingHeadBase
   id: ADTClothingHeadHatPrazatBeret
   suffix: Personal, 767sikon
   components:
@@ -698,7 +689,7 @@
     price: 95
 
 - type: entity
-  parent: ClothingOuterStorageFoldableBase
+  parent: ADTSponsorClothingOuterStorageFoldableBase
   id: ADTClothingOuterCoatPrazat
   name: Prazat coat
   description: Prazat coat.
@@ -722,7 +713,7 @@
     - 0,0,4,2
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformJumpsuitPrazat
   name: Prazat clothing
   description: Prazat clothin
@@ -739,3 +730,363 @@
       amount: 3
   - type: StaticPrice
     price: 100
+
+
+
+
+##ADT Sponsor Base for clothing
+
+##Sponsor Gloves
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTClothingSponsorHandsBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [gloves]
+    # ADT Start
+    equipSound:
+      path: /Audio/ADT/Entities/glove_equip.ogg
+    # ADT End
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 5
+##SponsorUniform
+
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorUnsensoredClothingUniformBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [innerclothing]
+    equipSound:
+      path: /Audio/Items/jumpsuit_equip.ogg
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorUnsensoredClothingUniformBase
+  id: ADTSponsorUnsensoredClothingUniformSkirtBase
+  components:
+  - type: Clothing
+    slots: [innerclothing]
+    femaleMask: UniformTop
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorUnsensoredClothingUniformBase
+  id: ADTSponsorClothingUniformBase
+  components:
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+    savableAddress: false
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorClothingUniformBase
+  id: ADTSponsorClothingUniformSkirtBase
+  components:
+  - type: Clothing
+    slots: [innerclothing]
+    femaleMask: UniformTop
+##Sponsor Shoes
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothingShoesBase
+  components:
+  - type: Clothing
+    slots:
+    - FEET
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: ProtectedFromStepTriggers
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/sneakers_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/sneakers_land.ogg
+##Sponsor Neck
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothingNeckBase
+  components:
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+  - type: Sprite
+    state: icon
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 2
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+##Sponsor Head
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothingHeadBase
+  components:
+  - type: Clothing
+    slots:
+    - HEAD
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+      - ClothMade
+
+##Sponsor OuterClothing
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTSponsorClothing
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+  - type: StaticPrice
+    price: 10
+  - type: FlavorProfile #yes not every peice of clothing is edible, but this way every edible piece of clothing should have the flavor without me having to track down what specific clothing can and cannot be eaten.
+    flavors:
+    - fiber
+
+- type: entity
+  abstract: true
+  parent: [ADTSponsorClothing, AllowSuitStorageClothing]
+  id: ADTSponsorClothingOuterBase
+  components:
+  - type: Clothing
+    slots:
+    - outerClothing
+  - type: Sprite
+    state: icon
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorClothingOuterBase
+  id: ADTSponsorClothingOuterStorageBase
+  components:
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: StaticPrice
+    price: 70
+
+##Sponsor Satchel
+
+- type: entity
+  parent: [ADTSponsorClothing, ContentsExplosionResistanceBase]
+  id: ADTSponsorClothingBackpack
+  name: backpack
+  description: You wear this on your back and put items into it.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/backpack.rsi
+    state: icon
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    # ADT Start
+    equipSound:
+      path: /Audio/ADT/Entities/backpack_equip.ogg
+    # ADT End
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+    # ADT Start
+    blacklist:
+      tags:
+      - ADTOreBag
+    # ADT End
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  # to prevent bag open/honk spam
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/backpack_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/backpack_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/backpack_drop.ogg
+  # ADT End
+
+
+- type: entity
+  parent: ADTSponsorClothingBackpack
+  id: ADTSponsorClothingBackpackSatchel
+  name: satchel
+  description: A trendy looking satchel.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/satchel.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,3
+    - 3,0,6,3
+    - 8,0,9,3
+##Sponsor Glasses
+- type: entity
+  abstract: true
+  parent: ADTSponsorClothing
+  id: ADTSponsorClothingEyesBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [eyes]
+  - type: Item
+    size: Small
+    storedRotation: -90
+##SponsorArmor
+- type: entity
+  parent: [ADTSponsorClothingOuterBase, AllowSuitStorageClothing, BaseSecurityContraband, BadgeOnClothing] #ADT-Tweak
+  id: ADTSponsorClothingOuterArmorBase
+  name: armor vest
+  abstract: true
+  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+##Sponsor Foldable
+- type: entity
+  abstract: true
+  parent: [ADTSponsorClothingOuterStorageBase, BaseFoldable]
+  id: ADTSponsorClothingOuterStorageFoldableBase
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-zip-verb
+    foldVerbText: fold-unzip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: false
