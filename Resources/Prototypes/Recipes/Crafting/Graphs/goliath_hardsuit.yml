@@ -16,9 +16,7 @@
         amount: 5
         doAfter: 10
       - material: GoliathHide
-        # ADT tweak start Понизил количество шкур для крафта
-        amount: 6
+        amount: 4 # ADT tweak
         doAfter: 10
-        # ADT tweak end Понизил количество шкур для крафта
   - node: hardsuitGoliath
     entity: ClothingOuterHardsuitGoliath
