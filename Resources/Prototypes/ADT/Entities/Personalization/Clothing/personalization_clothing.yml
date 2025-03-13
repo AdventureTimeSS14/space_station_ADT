@@ -1,3 +1,344 @@
+##ADT Sponsor Base for clothing
+##Sponsor Gloves
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTClothingSponsorHandsBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [gloves]
+    equipSound:
+      path: /Audio/ADT/Entities/glove_equip.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 5
+##SponsorUniform
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorUnsensoredClothingUniformBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [innerclothing]
+    equipSound:
+      path: /Audio/Items/jumpsuit_equip.ogg
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorUnsensoredClothingUniformBase
+  id: ADTSponsorUnsensoredClothingUniformSkirtBase
+  components:
+  - type: Clothing
+    slots: [innerclothing]
+    femaleMask: UniformTop
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorUnsensoredClothingUniformBase
+  id: ADTSponsorClothingUniformBase
+  components:
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+    savableAddress: false
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorClothingUniformBase
+  id: ADTSponsorClothingUniformSkirtBase
+  components:
+  - type: Clothing
+    slots: [innerclothing]
+    femaleMask: UniformTop
+##Sponsor Shoes
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothingShoesBase
+  components:
+  - type: Clothing
+    slots:
+    - FEET
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: ProtectedFromStepTriggers
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/sneakers_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/sneakers_land.ogg
+##Sponsor Neck
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothingNeckBase
+  components:
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+  - type: Sprite
+    state: icon
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 2
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+##Sponsor Head
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothingHeadBase
+  components:
+  - type: Clothing
+    slots:
+    - HEAD
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+      - ClothMade
+##Sponsor OuterClothing
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTSponsorClothing
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+  - type: StaticPrice
+    price: 10
+  - type: FlavorProfile
+    flavors:
+    - fiber
+
+- type: entity
+  abstract: true
+  parent: [ADTSponsorClothing, AllowSuitStorageClothing]
+  id: ADTSponsorClothingOuterBase
+  components:
+  - type: Clothing
+    slots:
+    - outerClothing
+  - type: Sprite
+    state: icon
+
+- type: entity
+  abstract: true
+  parent: ADTSponsorClothingOuterBase
+  id: ADTSponsorClothingOuterStorageBase
+  components:
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: StaticPrice
+    price: 70
+##Sponsor Satchel
+- type: entity
+  parent: [ADTSponsorClothing, ContentsExplosionResistanceBase]
+  id: ADTSponsorClothingBackpack
+  name: backpack
+  description: You wear this on your back and put items into it.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/backpack.rsi
+    state: icon
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    equipSound:
+      path: /Audio/ADT/Entities/backpack_equip.ogg
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+    blacklist:
+      tags:
+      - ADTOreBag
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/backpack_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/backpack_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/backpack_drop.ogg
+      
+- type: entity
+  parent: ADTSponsorClothingBackpack
+  id: ADTSponsorClothingBackpackSatchel
+  name: satchel
+  description: A trendy looking satchel.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/satchel.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,3
+    - 3,0,6,3
+    - 8,0,9,3
+##Sponsor Glasses
+- type: entity
+  abstract: true
+  parent: ADTSponsorClothing
+  id: ADTSponsorClothingEyesBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [eyes]
+  - type: Item
+    size: Small
+    storedRotation: -90
+##SponsorArmor
+- type: entity
+  parent: [ADTSponsorClothingOuterBase, AllowSuitStorageClothing, BaseSecurityContraband, BadgeOnClothing] #ADT-Tweak
+  id: ADTSponsorClothingOuterArmorBase
+  name: armor vest
+  abstract: true
+  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+##Sponsor Foldable
+- type: entity
+  abstract: true
+  parent: [ADTSponsorClothingOuterStorageBase, BaseFoldable]
+  id: ADTSponsorClothingOuterStorageFoldableBase
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-zip-verb
+    foldVerbText: fold-unzip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: false
 
 #кепка Мендозы
 - type: entity
@@ -730,363 +1071,3 @@
       amount: 3
   - type: StaticPrice
     price: 100
-
-
-
-
-##ADT Sponsor Base for clothing
-
-##Sponsor Gloves
-- type: entity
-  abstract: true
-  parent: Clothing
-  id: ADTClothingSponsorHandsBase
-  components:
-  - type: Sprite
-    state: icon
-  - type: Clothing
-    slots: [gloves]
-    # ADT Start
-    equipSound:
-      path: /Audio/ADT/Entities/glove_equip.ogg
-    # ADT End
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: Item
-    size: Small
-    storedRotation: -90
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-  - type: Tag
-    tags:
-    - ClothMade
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 5
-##SponsorUniform
-
-- type: entity
-  abstract: true
-  parent: Clothing
-  id: ADTSponsorUnsensoredClothingUniformBase
-  components:
-  - type: Sprite
-    state: icon
-  - type: Clothing
-    slots: [innerclothing]
-    equipSound:
-      path: /Audio/Items/jumpsuit_equip.ogg
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: MaterialCloth1
-      amount: 3
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-
-- type: entity
-  abstract: true
-  parent: ADTSponsorUnsensoredClothingUniformBase
-  id: ADTSponsorUnsensoredClothingUniformSkirtBase
-  components:
-  - type: Clothing
-    slots: [innerclothing]
-    femaleMask: UniformTop
-
-- type: entity
-  abstract: true
-  parent: ADTSponsorUnsensoredClothingUniformBase
-  id: ADTSponsorClothingUniformBase
-  components:
-  - type: SuitSensor
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    transmitFrequencyId: SuitSensor
-    savableAddress: false
-  - type: WirelessNetworkConnection
-    range: 1200
-  - type: StationLimitedNetwork
-
-- type: entity
-  abstract: true
-  parent: ADTSponsorClothingUniformBase
-  id: ADTSponsorClothingUniformSkirtBase
-  components:
-  - type: Clothing
-    slots: [innerclothing]
-    femaleMask: UniformTop
-##Sponsor Shoes
-- type: entity
-  abstract: true
-  parent: Clothing
-  id: ADTSponsorClothingShoesBase
-  components:
-  - type: Clothing
-    slots:
-    - FEET
-  - type: Sprite
-    state: icon
-  - type: Item
-    size: Normal
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-  - type: Tag
-    tags:
-    - ClothMade
-  - type: ProtectedFromStepTriggers
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/ADT/Entities/sneakers_pickup.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/ADT/Entities/sneakers_land.ogg
-##Sponsor Neck
-- type: entity
-  abstract: true
-  parent: Clothing
-  id: ADTSponsorClothingNeckBase
-  components:
-  - type: Item
-    size: Small
-  - type: Clothing
-    quickEquip: true
-    slots:
-    - neck
-  - type: Sprite
-    state: icon
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: MaterialCloth1
-      amount: 2
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-  - type: Tag
-    tags:
-    - ClothMade
-##Sponsor Head
-- type: entity
-  abstract: true
-  parent: Clothing
-  id: ADTSponsorClothingHeadBase
-  components:
-  - type: Clothing
-    slots:
-    - HEAD
-  - type: Sprite
-    state: icon
-  - type: Item
-    size: Small
-    storedRotation: -90
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-  - type: Tag
-    tags:
-      - ClothMade
-
-##Sponsor OuterClothing
-- type: entity
-  abstract: true
-  parent: BaseItem
-  id: ADTSponsorClothing
-  components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-  - type: StaticPrice
-    price: 10
-  - type: FlavorProfile #yes not every peice of clothing is edible, but this way every edible piece of clothing should have the flavor without me having to track down what specific clothing can and cannot be eaten.
-    flavors:
-    - fiber
-
-- type: entity
-  abstract: true
-  parent: [ADTSponsorClothing, AllowSuitStorageClothing]
-  id: ADTSponsorClothingOuterBase
-  components:
-  - type: Clothing
-    slots:
-    - outerClothing
-  - type: Sprite
-    state: icon
-
-- type: entity
-  abstract: true
-  parent: ADTSponsorClothingOuterBase
-  id: ADTSponsorClothingOuterStorageBase
-  components:
-  - type: Storage
-    grid:
-    - 0,0,2,1
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: StaticPrice
-    price: 70
-
-##Sponsor Satchel
-
-- type: entity
-  parent: [ADTSponsorClothing, ContentsExplosionResistanceBase]
-  id: ADTSponsorClothingBackpack
-  name: backpack
-  description: You wear this on your back and put items into it.
-  components:
-  - type: Sprite
-    sprite: Clothing/Back/Backpacks/backpack.rsi
-    state: icon
-  - type: Item
-    size: Huge
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-    # ADT Start
-    equipSound:
-      path: /Audio/ADT/Entities/backpack_equip.ogg
-    # ADT End
-  - type: Storage
-    grid:
-    - 0,0,6,3
-    maxItemSize: Huge
-    # ADT Start
-    blacklist:
-      tags:
-      - ADTOreBag
-    # ADT End
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  # to prevent bag open/honk spam
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-  # ADT Start
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/ADT/Entities/backpack_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/ADT/Entities/backpack_drop.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/ADT/Entities/backpack_drop.ogg
-  # ADT End
-
-
-- type: entity
-  parent: ADTSponsorClothingBackpack
-  id: ADTSponsorClothingBackpackSatchel
-  name: satchel
-  description: A trendy looking satchel.
-  components:
-  - type: Sprite
-    sprite: Clothing/Back/Satchels/satchel.rsi
-  - type: Storage
-    grid:
-    - 0,0,1,3
-    - 3,0,6,3
-    - 8,0,9,3
-##Sponsor Glasses
-- type: entity
-  abstract: true
-  parent: ADTSponsorClothing
-  id: ADTSponsorClothingEyesBase
-  components:
-  - type: Sprite
-    state: icon
-  - type: Clothing
-    slots: [eyes]
-  - type: Item
-    size: Small
-    storedRotation: -90
-##SponsorArmor
-- type: entity
-  parent: [ADTSponsorClothingOuterBase, AllowSuitStorageClothing, BaseSecurityContraband, BadgeOnClothing] #ADT-Tweak
-  id: ADTSponsorClothingOuterArmorBase
-  name: armor vest
-  abstract: true
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/security.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/security.rsi
-  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
-        Heat: 0.80
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
-##Sponsor Foldable
-- type: entity
-  abstract: true
-  parent: [ADTSponsorClothingOuterStorageBase, BaseFoldable]
-  id: ADTSponsorClothingOuterStorageFoldableBase
-  components:
-  - type: Appearance
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: fold-zip-verb
-    foldVerbText: fold-unzip-verb
-  - type: FoldableClothing
-    foldedEquippedPrefix: open
-    foldedHeldPrefix: open
-  - type: Sprite
-    layers:
-    - state: icon
-      map: [ "unfoldedLayer" ]
-    - state: icon-open
-      map: ["foldedLayer"]
-      visible: false
