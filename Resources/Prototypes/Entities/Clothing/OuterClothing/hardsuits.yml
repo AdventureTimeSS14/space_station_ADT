@@ -312,7 +312,7 @@
   - type: UseDelay
     delay: 1.0
   - type: ToggleClothing
-    action: ActionToggleParamedicSiren
+    action: ActionToggleBrigmediccSiren
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
