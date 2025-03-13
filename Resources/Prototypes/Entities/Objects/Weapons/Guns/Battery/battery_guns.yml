@@ -498,6 +498,7 @@
     tags:
     - Taser
     - Sidearm
+    - ADTBsoWeapon #ADT tweak
 
 - type: entity
   name: disabler
@@ -538,6 +539,7 @@
   - type: Tag
     tags:
       - Taser
+      - ADTBsoWeapon #ADT tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
     layers:

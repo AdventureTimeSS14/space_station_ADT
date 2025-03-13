@@ -546,3 +546,6 @@
 
 - type: Tag
   id: ADTMinerArmor
+
+- type: Tag
+  id: ADTBsoWeapon
