@@ -90,7 +90,9 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
-      amount: 3
+      amount: 1 # ADT tweak 6>>1
+    - id: MaterialBones1 # ADT tweak
+      ammount: 1 # ADT tweak
   - type: Fauna # ADT tweak
   - type: AshStormImmune # ADT tweak
 
