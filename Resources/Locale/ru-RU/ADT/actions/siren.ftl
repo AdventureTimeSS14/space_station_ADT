@@ -1,4 +1,4 @@
-ent-ActionToggleBrigmediccSiren = Переключить мигалку Бригмедика
-    .desc = Включает или выключает мигалку Бригмедика.
-ent-ActionToggleParamedicSiren = Переключить мигалку Парамедика
-    .desc = Включает или выключает мигалку Парамедика.
+ent-ActionToggleBrigmediccSiren = Переключить сирену Бригмедика
+    .desc = Включает или выключает сирену Бригмедика.
+ent-ActionToggleParamedicSiren = Переключить сирену Парамедика
+    .desc = Включает или выключает сирену Парамедика.
