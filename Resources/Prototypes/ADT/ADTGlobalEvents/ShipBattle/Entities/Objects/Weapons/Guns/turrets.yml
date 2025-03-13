@@ -140,6 +140,15 @@
     - type: IntrinsicRadioTransmitter
       channels:
       - Common
+    - type: ContentEye
+      maxZoom: 2.0,2.0
+      targetZoom: 1.25,1.25
+    - type: EyeCursorOffset
+      maxOffset: 10
+      pvsIncrease: 1.0
+      offsetSpeed: 0.3
+    - type: Eye
+      pvsScale: 3
 
 - type: entity
   parent: BaseStructure
@@ -490,6 +499,15 @@
     - type: IntrinsicRadioTransmitter
       channels:
       - Common
+    - type: ContentEye
+      maxZoom: 2.0,2.0
+      targetZoom: 1.25,1.25
+    - type: EyeCursorOffset
+      maxOffset: 10
+      pvsIncrease: 1.0
+      offsetSpeed: 0.3
+    - type: Eye
+      pvsScale: 3
 
 - type: entity
   parent: ADTgau32Broken
