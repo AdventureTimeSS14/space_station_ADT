@@ -499,8 +499,6 @@
     - type: DeviceLinkSink
       ports:
       - Input #можно переписать нахуй прототип турели, но главное что б
-      channels:
-      - Common
     - type: TypingIndicator
       proto: robot
     - type: Speech
