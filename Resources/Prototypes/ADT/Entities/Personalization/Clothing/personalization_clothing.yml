@@ -7,6 +7,14 @@
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+##Sponsor Cloth
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ADTSponsorClothing
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 ##SponsorUniform
 - type: entity
   abstract: true
