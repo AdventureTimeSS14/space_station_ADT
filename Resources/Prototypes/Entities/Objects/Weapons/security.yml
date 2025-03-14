@@ -91,6 +91,10 @@
     guides:
     - Security
     - Antagonists
+  - type: MeleeBlacklist #ADT tweals
+    blacklist:
+      tags:
+      - ADTBatonBlocker
 
 - type: entity
   name: truncheon
