@@ -1,0 +1,61 @@
+- type: job
+  id: ADTBattleShipEngineerKMT
+  name: job-name-engineer-kmt
+  description: job-description-engineer-kmt
+  playTimeTracker: JobADTBattleShipEngineerKMT
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 14400 #4 hrs 
+  startingGear: ADTBattleShipEngineerKMTGear
+  icon: "JobIconEngineerKMT"
+  supervisors: job-supervisors-kmt-gunner
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Engineering
+  - External
+  - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipEngineerKMTGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500

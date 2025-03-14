@@ -1,0 +1,175 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGunnerTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: GunnerTSF
+  jobName: job-name-gunner-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGunnerKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: GunnerKMT
+  jobName: job-name-gunner-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCommanderTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: CommanderTSF
+  jobName: job-name-commander-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCommanderKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: CommanderKMT
+  jobName: job-name-commander-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCaptainTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: CaptainTSF
+  jobName: job-name-captain-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCaptainKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: CaptainKMT
+  jobName: job-name-captain-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineTSF
+  jobName: job-name-marine-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineKMT
+  jobName: job-name-marine-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineLeutenantTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineLeutenantTSF
+  jobName: job-name-marine-leutenant-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMarineLeutenantKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MarineLeutenantKMT
+  jobName: job-name-marine-leutenant-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconExecutionalOfficerTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: ExecutionalOfficerTSF
+  jobName: job-name-executional-officer-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconExecutionalOfficerKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: ExecutionalOfficerKMT
+  jobName: job-name-executional-officer-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconChiefGunnerTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: ChiefGunnerTSF
+  jobName: job-name-chief-gunnner-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconChiefGunnerKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: ChiefGunnerKMT
+  jobName: job-name-chief-gunnner-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNavigatorTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: NavigatorTSF
+  jobName: job-name-navigator-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNavigatorKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: NavigatorKMT
+  jobName: job-name-navigator-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPilotTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: PilotTSF
+  jobName: job-name-pilot-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPilotKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: PilotKMT
+  jobName: job-name-pilot-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MedicTSF
+  jobName: job-name-medic-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: MedicKMT
+  jobName: job-name-medic-kmt
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconEngineerTSF
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: EngineerTSF
+  jobName: job-name-engineer-tsf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconEngineerKMT
+  icon:
+    sprite: /Textures/ADT/ADTGlobalEvents/ShipBattle/Interface/Misc/job_icons.rsi
+    state: EngineerKMT
+  jobName: job-name-engineer-kmt

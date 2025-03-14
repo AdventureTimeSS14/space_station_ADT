@@ -298,6 +298,33 @@
         Caustic: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.25
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/policesiren.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleBrigmediccSiren
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 1.8
+    energy: 2
+    color: red
+    mask: /Textures/Effects/LightMasks/double_cone.png 
+  - type: RotatingLight
+    speed: 360
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
     # ADT tweak end
   - type: ClothingSpeedModifier
     walkModifier: 0.90
