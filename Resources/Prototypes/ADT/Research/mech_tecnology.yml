@@ -261,14 +261,14 @@
     state: mecha_missilerack_six
   discipline: Mech
   tier: 3
-  cost: 9000
+  cost: 15000
   recipeUnlocks:
   - ADTMechGunMHAR21
-#  - ADTMechGunSGL6 Вырезано ради баланса
+  - ADTMechGunSGL6 Вырезано ради баланса
 #  - ADTMechGunSRM8 Вырезано ради баланса
-#  - ADTMechGunBRM6 Вырезано ради баланса
+  - ADTMechGunBRM6 Вырезано ради баланса
   - ADTBoxAmmoSniper
-#  - ADTBoxAmmoGranade Вырезано ради баланса
+  - ADTBoxAmmoGranade Вырезано ради баланса
   position: 3,-2
   requiredTech:
   - ADTMechGunSmallTechnology
