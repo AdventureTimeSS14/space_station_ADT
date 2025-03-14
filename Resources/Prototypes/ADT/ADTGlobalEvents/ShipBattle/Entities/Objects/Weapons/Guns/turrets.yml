@@ -131,7 +131,7 @@
       - Common
     - type: ContentEye
       maxZoom: 2.0,2.0
-      targetZoom: 1.25,1.25
+      targetZoom: 1.0,1.0
     - type: EyeCursorOffset
       maxOffset: 10
       pvsIncrease: 1.0
@@ -510,7 +510,7 @@
       - Common
     - type: ContentEye
       maxZoom: 2.0,2.0
-      targetZoom: 1.25,1.25
+      targetZoom: 1.0,1.0
     - type: EyeCursorOffset
       maxOffset: 10
       pvsIncrease: 1.0
