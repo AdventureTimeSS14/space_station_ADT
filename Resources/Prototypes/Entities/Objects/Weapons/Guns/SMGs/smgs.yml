@@ -75,6 +75,10 @@
     fireRate: 10
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    selectedMode: Burst #ADT tweak start
+    shotsPerBurst: 2
+    availableModes:
+    - Burst #ADT tweak end
   - type: MagazineVisuals
     magState: mag
     steps: 1

@@ -26,3 +26,14 @@
     sprite: ADT/Clothing/Neck/Scarfs/windyscarf.rsi
   - type: Clothing
     sprite: ADT/Clothing/Neck/Scarfs/windyscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNecChefShawl
+  name: ChefShawl
+  description: ooooooOOoooThingy
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Scarfs/chefshawl.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/Scarfs/chefshawl.rsi
