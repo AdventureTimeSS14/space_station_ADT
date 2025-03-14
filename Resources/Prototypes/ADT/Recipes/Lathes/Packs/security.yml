@@ -32,3 +32,19 @@
   id: ADTWeaponExperimentalPKAPack
   recipes:
   - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
+
+- type: latheRecipePack
+  id: ADTMechWeapon
+  recipes:
+  - ADTMechGunUltraAC2
+  - ADTMechGunFNX99Hades
+  - ADTMechGunMHAR21
+  - ADTMechGunSGL6
+  - ADTMechGunBRM6
+  - ADTMechGunSRM8
+  - ADTBoxAmmoAC2Ultra
+  - ADTBoxAmmoScattershot
+  - ADTBoxAmmoHades
+  - ADTBoxAmmoSniper
+  - ADTBoxAmmoGranade
+  - ADTMechGunScattershot

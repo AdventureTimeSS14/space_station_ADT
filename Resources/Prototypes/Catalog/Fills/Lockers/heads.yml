@@ -410,6 +410,7 @@
     - id: ADTClothingModsuitBackSafeguard #ADT tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
+    - id: ADTClothingShoesBootsSec
 
 # No hardsuit locker
 - type: entity
