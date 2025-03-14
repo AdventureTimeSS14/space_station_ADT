@@ -264,11 +264,11 @@
   cost: 15000
   recipeUnlocks:
   - ADTMechGunMHAR21
-  - ADTMechGunSGL6 Вырезано ради баланса
+  - ADTMechGunSGL6
 #  - ADTMechGunSRM8 Вырезано ради баланса
-  - ADTMechGunBRM6 Вырезано ради баланса
+  - ADTMechGunBRM6
   - ADTBoxAmmoSniper
-  - ADTBoxAmmoGranade Вырезано ради баланса
+  - ADTBoxAmmoGranade
   position: 3,-2
   requiredTech:
   - ADTMechGunSmallTechnology
