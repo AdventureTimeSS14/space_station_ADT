@@ -1,0 +1,67 @@
+- type: job
+  id: ADTBattleShipCommanderKMT
+  name: job-name-commander-kmt
+  description: job-description-commander-kmt
+  playTimeTracker: JobADTBattleShipCommanderKMT
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 #10 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 #10 hrs 
+    - !type:OverallPlaytimeRequirement
+      time: 252000 #70 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 30
+  startingGear: ADTBattleShipCommanderKMTGear
+  icon: "JobIconCommanderKMT"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-kmt-captain
+  canBeAntag: false
+  weight: 19
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipCommanderKMTGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
