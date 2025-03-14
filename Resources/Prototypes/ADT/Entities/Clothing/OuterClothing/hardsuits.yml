@@ -390,7 +390,7 @@
         Heat: 0.6
         Radiation: 0.8
         Caustic: 0.75
-        Stun: 0.6
+      staminaModifier: 0.6
   - type: ClothingSpeedModifier
     sprintModifier: 0.75
   - type: ToggleableClothing
@@ -420,7 +420,7 @@
         Heat: 0.6
         Radiation: 0.8
         Caustic: 0.75
-        Stun: 0.6
+      staminaModifier: 0.6
   - type: ClothingSpeedModifier
     sprintModifier: 0.75
   - type: ToggleableClothing
