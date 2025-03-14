@@ -26,9 +26,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_tsf.rsi
 
 - type: entity
   parent: ADTShipBattleClothingUniformBase
@@ -38,9 +38,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_tsf.rsi
 
 - type: entity
   parent: ADTShipBattleClothingUniformBase
@@ -50,9 +50,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_tsf.rsi
 
 - type: entity
   parent: ADTShipBattleClothingUniformBase
@@ -62,9 +62,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_tsf.rsi
 
 #Marines
 - type: entity
@@ -75,9 +75,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_tsf.rsi
 
 - type: entity
   parent: ADTShipBattleClothingUniformBase
@@ -87,9 +87,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_tsf.rsi
 
 #Shipcrew
 - type: entity
@@ -100,9 +100,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_tsf.rsi
 
 - type: entity
   parent: ADTShipBattleClothingUniformBase
@@ -112,9 +112,9 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_tsf.rsi
 
 - type: entity
   parent: ADTShipBattleClothingUniformBase
@@ -124,6 +124,6 @@
   suffix: ShipBattle, TSF
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_tsf.rsi
   - type: Clothing
-    sprite: ADT/ADTGlobalEvent/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_tsf.rsi
