@@ -12,6 +12,9 @@ using Content.Shared.Hands.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Speech.Muting;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Flash.Components;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -171,5 +174,70 @@ public sealed partial class ComboAudioEffect : IComboEffect
     {
         var audio = entMan.System<SharedAudioSystem>();
         audio.PlayPvs(Sound, user);
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ComboMuteEffect : IComboEffect
+{
+    [DataField]
+    public int Time;
+
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var status = entMan.System<StatusEffectsSystem>();
+        status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(Time), false);
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ComboSlowdownEffect : IComboEffect
+{
+    [DataField]
+    public int Time;
+
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var status = entMan.System<StatusEffectsSystem>();
+        status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", TimeSpan.FromSeconds(Time), false);
+    }
+}
+
+/// <summary>
+/// добавочный урон по тем, кто лежит на земле. IgnoreResistances отвечает за то, будут ли резисты учитываться при нанесения урона
+/// </summary>
+
+[Serializable, NetSerializable]
+public sealed partial class ComboMoreStaminaDamageToDownedEffect : IComboEffect
+{
+    [DataField]
+    public float Damage;
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var down = entMan.System<StandingStateSystem>();
+        var stun = entMan.System<StaminaSystem>();
+
+        if (down.IsDown(target))
+        {
+            stun.TakeStaminaDamage(target, Damage);
+        }
+    }
+}
+
+[Serializable]
+public sealed partial class ComboFlashEffect : IComboEffect
+{
+    [DataField]
+    public float Duration;
+    [DataField]
+    public float SlowDown;
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var status = entMan.System<StatusEffectsSystem>();
+        var blind = entMan.System<BlindableSystem>();
+
+        status.TryAddStatusEffect<FlashedComponent>(target, "Flashed", TimeSpan.FromSeconds(Duration), true);
+
+        blind.AdjustEyeDamage(target, 1);
     }
 }
