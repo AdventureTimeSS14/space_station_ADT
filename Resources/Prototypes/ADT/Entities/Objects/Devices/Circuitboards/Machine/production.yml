@@ -62,12 +62,12 @@
 
 #Taken from [2670] Pull Request DeltaV
 - type: entity
-  parent: MicrowaveMachineCircuitboard
   id: ADTAdvancedMicrowaveMachineCircuitBoard
+  parent: MicrowaveMachineCircuitboard
   name: ADTadvancedmicrowavemachineboard
   components:
   - type: MachineBoard
-    prototype: AdvancedMicrowave
+    prototype: ADTAdvancedMicrowave
     stackRequirements:
       Capacitor: 2
       Glass: 4
