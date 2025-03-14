@@ -67,3 +67,15 @@
       - ADTUSSPCombatKnifeBarzai
 
 # USSP USSP USSP USSP USSP USSP END
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesKirzaBoots
+  name: KirzaBoots
+  description: uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/kirzaboots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/kirzaboots.rsi
+

@@ -312,6 +312,7 @@
   parent: BasePlushie
   id: ADTPlushieMigel
   name: Djessie plushie
+  suffix: Personal, eddiemercury
   description: It looks like a soft and cute blondie.
   components:
   - type: Sprite
@@ -323,6 +324,7 @@
   id: ADTPlushieJungar
   name: Djessie plushie
   description: It looks like a soft and cute blondie.
+  suffix: Personal, eddiemercury
   components:
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
@@ -1278,6 +1280,7 @@
   components:
   - type: Sprite
     state: LirBattlstorm
+  - type: TriggerOnActivate
   - type: SpeakOnTrigger
     pack: FigurinesLirBattlstorm
 
@@ -1290,6 +1293,7 @@
   components:
   - type: Sprite
     state: ApatiaVeystu
+  - type: TriggerOnActivate
   - type: SpeakOnTrigger
     pack: FigurinesApatia
 
@@ -1302,6 +1306,7 @@
   components:
   - type: Sprite
     state: PlushCamoobladania
+  - type: TriggerOnActivate
   - type: SpeakOnTrigger
     pack: FigurinesBush
 
@@ -1314,6 +1319,7 @@
   components:
   - type: Sprite
     state: YukerNighhauser
+  - type: TriggerOnActivate
   - type: SpeakOnTrigger
     pack: FigurinesUker
 

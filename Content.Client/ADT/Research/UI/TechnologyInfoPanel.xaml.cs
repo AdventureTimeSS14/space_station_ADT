@@ -39,8 +39,24 @@ public sealed partial class TechnologyInfoPanel : Control
         if (!hasAccess)
             ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
 
-        if (availablity == ResearchAvailablity.Researched)
-            ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
+        Color? color = null;
+        switch (availablity)
+        {
+            case ResearchAvailablity.Researched:
+                {
+                    ResearchButton.Text = Loc.GetString("research-console-menu-server-researched-button");
+                    color = Color.LimeGreen;
+                    break;
+                }
+            case ResearchAvailablity.Unavailable:
+                {
+                    color = Color.Crimson;
+                    break;
+                }
+            case ResearchAvailablity.Available:
+                break;
+        }
+        TechnologyCostLabel.SetMessage(Loc.GetString("research-console-tech-cost-label", ("cost", proto.Cost)), defaultColor: color);
 
         ResearchButton.Disabled = !hasAccess || availablity != ResearchAvailablity.Available;
         ResearchButton.OnPressed += Bought;
