@@ -18,7 +18,7 @@
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Boots/mimicry.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Shoes/Boots/mimicry.rsi 
+    sprite: ADT/Clothing/Shoes/Boots/mimicry.rsi
 
 - type: entity
   parent: ClothingShoesBootsCombat
@@ -47,3 +47,23 @@
     sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
+
+# USSP USSP USSP USSP USSP USSP START
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ADTClothingShoesBootsUSSPArmy
+  name: USSP combat boots
+  description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/army_boots.rsi
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTUSSPCombatKnifeBarzai
+
+# USSP USSP USSP USSP USSP USSP END

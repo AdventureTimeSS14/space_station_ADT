@@ -1,0 +1,13 @@
+- type: job
+  id: ADTJobUSSPArmyPrivate
+  name: job-name-ussp-army-private
+  description: job-description-ussp-army-private
+  playTimeTracker: JobUSSPArmyPrivate
+  setPreference: false
+  startingGear: ADTUSSPArmyPrivateGear
+  icon: "JobIconADTUSSPArmyPrivate"
+  supervisors: job-supervisors-ussp-centcom
+  access:
+  - Maintenance
+  - External
+  canBeAntag: false

@@ -13,3 +13,7 @@ ent-ADTClothingHeadUSSPjuggernautHelmetArmored = бронешлем "ТШ-6"
 ent-ADTClothingHeadHelmetMGDGuard = шлем "ТКШ - Б29"
     .desc = Крепкий шлем, обеспечивающий умеренную защиту головы от разных типов повреждений.
     .suffix = { "MG&D" }
+
+ent-ADTClothingHeadHelmetUSSPSfera = шлем "Сфера-М1"
+    .desc = Общевойсковой шлем СССП. Имеет средние показатели защиты. Главной особенностью является термостойкий материал, в нем буквально можно варить борщ.
+    .suffix = { "СССП" }

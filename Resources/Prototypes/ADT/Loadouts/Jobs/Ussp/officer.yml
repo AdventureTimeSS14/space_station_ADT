@@ -1,0 +1,13 @@
+- type: job
+  id: ADTJobUSSPArmyOfficer
+  name: job-name-ussp-army-officer
+  description: job-description-ussp-army-officer
+  playTimeTracker: JobUSSPArmyOfficer
+  setPreference: false
+  startingGear: ADTUSSPArmyOfficerGear
+  icon: "JobIconADTUSSPArmyOfficer"
+  supervisors: job-supervisors-ussp-centcom
+  access:
+  - Maintenance
+  - External
+  canBeAntag: false
