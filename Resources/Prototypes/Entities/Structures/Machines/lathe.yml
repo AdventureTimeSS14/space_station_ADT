@@ -435,6 +435,7 @@
     - ADTMagazineUraniumPack
     - ADTAttachmentPack
     - ADT40mmGrenadePack
+    - ADTMechWeapon
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist:

@@ -72,3 +72,18 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/brownhigh_footwraps.rsi #спрайты от floppo4ka
+
+- type: entity
+  parent: ClothingShoesBootsMagAdv
+  id: ADTClothingShoesBootsSec
+  name: sec magboots
+  description: State-of-the-art magnetic boots that do not slow down their wearer.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/magboots-sec.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/magboots-sec.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.85
