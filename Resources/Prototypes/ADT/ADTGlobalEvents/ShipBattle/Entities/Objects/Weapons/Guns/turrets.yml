@@ -117,17 +117,6 @@
     - type: DeviceLinkSink
       ports:
       - Input #можно переписать нахуй прототип турели, но главное что б
-    # - type: UserInterface
-    #   interfaces:
-    #     enum.RadarConsoleUiKey.Key:
-    #       type: RadarConsoleBoundUserInterface
-    # - type: RadarConsole
-    #   maxRange: 256
-    #   followEntity: true
-    # - type: IntrinsicUI
-    #   uis:
-    #     enum.RadarConsoleUiKey.Key:
-    #       toggleAction: ActionTurretShowRadar
     - type: ActiveRadio
       channels:
       - Common
@@ -140,6 +129,17 @@
     - type: IntrinsicRadioTransmitter
       channels:
       - Common
+    - type: ContentEye
+      maxZoom: 2.0,2.0
+      targetZoom: 1.0,1.0
+    - type: EyeCursorOffset
+      maxOffset: 10
+      pvsIncrease: 1.0
+      offsetSpeed: 0.3
+    - type: Eye
+      pvsScale: 3
+    - type: NightVision
+      overlay: true
 
 - type: entity
   parent: BaseStructure
@@ -193,7 +193,15 @@
   components:
     - type: NpcFactionMember
       factions:
-        - Syndicate
+        - KMT
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
 
 - type: entity
   parent: ADTBaseControllableTurretMagazine
@@ -202,7 +210,7 @@
   components:
     - type: NpcFactionMember
       factions:
-        - NanoTrasen
+        - TSF
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/gau32.rsi
       state: gau32_tsf_icon
@@ -213,6 +221,14 @@
         - state: gau32_tsf
         - state: mag-19
           map: ["enum.GunVisualLayers.Mag"]
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
 
 #30-мм автопушки
 - type: entity
@@ -311,6 +327,14 @@
       maxIntensity: 10
       intensitySlope: 2
       totalIntensity: 150
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
 
 - type: entity
   parent: ADTds30KMT
@@ -330,6 +354,14 @@
         - state: ds30_tsf
         - state: mag-9
           map: ["enum.GunVisualLayers.Mag"]
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
 
 - type: entity
   parent: ADTgau32Broken
@@ -467,20 +499,6 @@
     - type: DeviceLinkSink
       ports:
       - Input #можно переписать нахуй прототип турели, но главное что б
-    # - type: UserInterface
-    #   interfaces:
-    #     enum.RadarConsoleUiKey.Key:
-    #       type: RadarConsoleBoundUserInterface
-    # - type: RadarConsole
-    #   maxRange: 256
-    #   followEntity: true
-    # - type: IntrinsicUI
-    #   uis:
-    #     enum.RadarConsoleUiKey.Key:
-    #       toggleAction: ActionTurretShowRadar
-    - type: ActiveRadio
-      channels:
-      - Common
     - type: TypingIndicator
       proto: robot
     - type: Speech
@@ -490,6 +508,17 @@
     - type: IntrinsicRadioTransmitter
       channels:
       - Common
+    - type: ContentEye
+      maxZoom: 2.0,2.0
+      targetZoom: 1.0,1.0
+    - type: EyeCursorOffset
+      maxOffset: 10
+      pvsIncrease: 1.0
+      offsetSpeed: 0.3
+    - type: Eye
+      pvsScale: 3
+    - type: NightVision
+      overlay: true
 
 - type: entity
   parent: ADTgau32Broken
@@ -530,6 +559,14 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
       state: d100_kmt_icon
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
 
 - type: entity
   parent: ADTBaseControllableTurret
@@ -547,6 +584,14 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon32x32.rsi
       state: d100_tsf_icon
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
 
 #155 мм
 
@@ -647,6 +692,14 @@
       maxIntensity: 25
       intensitySlope: 2
       totalIntensity: 200
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonKMT
+      - ADTShipBattleRadioGunnerKMT
 
 - type: entity
   parent: ADTMk155KMT
@@ -664,3 +717,11 @@
     - type: Icon
       sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Guns/Turrets/large_shipguns_icon64x64.rsi
       state: mk155_tsf_icon
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
+    - type: ActiveRadio
+      channels:
+      - ADTShipBattleRadioCommonTSF
+      - ADTShipBattleRadioGunnerTSF
