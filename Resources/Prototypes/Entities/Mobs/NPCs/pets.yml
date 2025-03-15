@@ -346,6 +346,9 @@
     attributes:
       proper: true
       gender: male
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Dog
   - type: Tag
     tags:
     - CannotSuicide
@@ -458,6 +461,9 @@
       Dog: Speak
       GalacticCommon: Understand
   # ADT tweak end
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Dog
 
 - type: entity
   name: Morty
