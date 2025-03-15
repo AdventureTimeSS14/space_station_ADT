@@ -16,7 +16,7 @@
         amount: 5
         doAfter: 10
       - material: GoliathHide
-        amount: 12
+        amount: 4 # ADT tweak 12 >> 4
         doAfter: 10
   - node: hardsuitGoliath
     entity: ClothingOuterHardsuitGoliath
