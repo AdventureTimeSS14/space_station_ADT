@@ -2,6 +2,7 @@
   id: ADTJobUSSPArmyOfficer
   name: job-name-ussp-army-officer
   description: job-description-ussp-army-officer
+  playTimeTracker: JobADTGuardOfficer # Заглушка
   setPreference: false
   icon: "JobIconADTUSSPArmyOfficer"
   access:
