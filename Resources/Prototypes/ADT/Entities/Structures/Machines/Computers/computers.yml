@@ -177,7 +177,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: dna
+      state: generic
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: ApcPowerReceiver

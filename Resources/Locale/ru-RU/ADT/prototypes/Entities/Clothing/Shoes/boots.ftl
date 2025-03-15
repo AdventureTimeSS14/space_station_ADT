@@ -23,3 +23,6 @@ ent-ADTClothingShoesBootsSollux = двойная обувь
 ent-ADTClothingFootMimicry = мимикрические туфли
     .desc = Пара туфель что были созданы буквально из кожи человека, выглядит ужасно!
     .suffix = { "" }
+
+ent-ADTClothingShoesKirzaBoots = кирзовые сапоги
+    .desc = Неубиваемая обувь солдат и офицеров СССП.

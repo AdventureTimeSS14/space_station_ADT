@@ -140,3 +140,55 @@
   icon:
     sprite: Objects/Tools/crowbar.rsi
     state: icon
+
+- type: construction
+  name: bone knife
+  id: ADTBoneKnife
+  graph: ADTBKnife
+  startNode: start
+  targetNode: ADTBoneCompKnife
+  category: construction-category-weapons
+  objectType: Item
+  description: A handmade bone knife.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/bone_knife.rsi
+    state: icon
+
+- type: construction
+  name: bone machete
+  id: ADTBoneMachete
+  graph: ADTBMachete
+  startNode: start
+  targetNode: ADTBoneCompMachete
+  category: construction-category-weapons
+  objectType: Item
+  description: A handmade bone machete.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/bone_machete.rsi
+    state: icon
+
+- type: construction
+  name: bone sword
+  id: ADTBoneSword
+  graph: ADTBSword
+  startNode: start
+  targetNode: ADTBoneCompSword
+  category: construction-category-weapons
+  objectType: Item
+  description: A handmade bone sword.
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/bone_sword.rsi
+    state: icon
+
+- type: construction
+  name: wood cross
+  id: ADTWoodCross
+  graph: ADTWCross
+  startNode: start
+  targetNode: ADTWoodCompCross
+  category: construction-category-clothing
+  objectType: Item
+  description: A handmade wood cross.
+  icon:
+    sprite: ADT/Clothing/Neck/Misc/wood_cross.rsi
+    state: icon
