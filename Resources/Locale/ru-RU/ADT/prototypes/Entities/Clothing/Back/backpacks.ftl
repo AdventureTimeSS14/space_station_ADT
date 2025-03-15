@@ -20,3 +20,7 @@ ent-ADTClothingBackpackTimePatrol = рюкзак стража времени
 
 ent-ADTClothingBackpackParamedic = рюкзак парамедика
     .desc = Рюкзак, изготовленный для экстренных вызовов медицинской помощи.
+
+ent-ADTClothingBackpackOR80L = рюкзак "ОР-80Л"
+    .desc = Общевойсковой рюкзак
+    .suffix = { "СССП" }

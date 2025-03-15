@@ -373,3 +373,31 @@
   - type: Construction
     graph: ADTReiforcedMinerArmor
     node: ADTReiforcedMinerArmor
+
+# USSP USSP
+
+#КЗС-1
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterVestUSSPKZS1
+  name: KZS-1 vest
+  description: A synthetic armor vest. This one has added webbing and ballistic plates.
+  suffix: USSP
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      scale: 0.6, 0.6
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.6
+          Heat: 0.7
+    - type: ExplosionResistance
+      damageCoefficient: 0.7
+
+# USSP USSP

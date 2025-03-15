@@ -21,6 +21,11 @@ JobADTSeniorOfficer = офицер-инструктор
 job-name-ADTBlueShieldOfficer = офицер синего щита
 JobADTBlueShieldOfficer = офицер синего щита
 
+job-name-ussp-army-private = Военнослужащий СССП
+job-name-ussp-army-officer = Офицер СССП
+JobADTUSSPArmyPrivate = Военнослужащий СССП
+JobADTUSSPArmyOfficer = Офицер СССП
+
 job-name-ADTSpaceSecCadet = кадет SPACE SEC
 job-name-ADTSpaceSecOfficer = офицер SPACE SEC
 job-name-ADTSpaceSecPilot = пилот SPACE SEC
@@ -40,3 +45,5 @@ pilot-space-sec = пилот SPACE SEC
 commander-space-sec = командир SPACE SEC
 member-space-sec = сотрудник SPACE SEC
 trader-tsf = торговец
+
+

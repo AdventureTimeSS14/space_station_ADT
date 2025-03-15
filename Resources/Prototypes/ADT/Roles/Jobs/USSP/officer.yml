@@ -1,0 +1,11 @@
+- type: job
+  id: ADTJobUSSPArmyOfficer
+  name: job-name-ussp-army-officer
+  description: job-description-ussp-army-officer
+  playTimeTracker: JobADTUSSPArmyOfficer # Заглушка
+  setPreference: false
+  icon: "JobIconADTUSSPArmyOfficer"
+  access:
+  - Maintenance
+  - External
+  canBeAntag: false
