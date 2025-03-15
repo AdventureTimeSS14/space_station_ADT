@@ -90,7 +90,7 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
-      amount: 1 # ADT tweak 6>>1
+      amount: 1 # ADT tweak 3>>1
     # ADT tweak start
     - id: MaterialBones1 
       minAmount: 1 
