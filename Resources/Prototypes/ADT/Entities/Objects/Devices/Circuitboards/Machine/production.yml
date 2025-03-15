@@ -64,12 +64,16 @@
 - type: entity
   id: ADTAdvancedMicrowaveMachineCircuitBoard
   parent: MicrowaveMachineCircuitboard
-  name: ADTadvancedmicrowavemachineboard
+  name: adt-advanced-microwave-machineboard
   components:
   - type: MachineBoard
     prototype: ADTAdvancedMicrowave
     stackRequirements:
-      Capacitor: 2
+      Capacitor: 4
       Glass: 4
       Cable: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 1
+        defaultPrototype: Beaker
 #End of DeltaV

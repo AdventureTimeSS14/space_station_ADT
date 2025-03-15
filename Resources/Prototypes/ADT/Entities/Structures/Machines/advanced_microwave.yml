@@ -21,5 +21,3 @@
     canCreateVacuum: false
     deleteAfterExplosion: false
   - type: FoodRecipeProvider
-    - RecipeBaguetteSword
-    - RecipeThrowingCroissant

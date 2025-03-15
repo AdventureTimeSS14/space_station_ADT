@@ -17,7 +17,7 @@
      Gold: 100
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: MicrowaveMachineCircuitboard
   id: AdvancedMicrowaveMachineCircuitBoard
   result: ADTAdvancedMicrowaveMachineCircuitBoard
   completetime: 2
