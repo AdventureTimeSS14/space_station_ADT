@@ -1,0 +1,59 @@
+- type: entity
+  id: ActionLegSweep
+  name: Leg Sweep
+  description: Sweeps the legs out from under a target to knock them down for a few seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      useDelay: 6
+      icon:
+        sprite: ADT/Interface/Actions/kravmaga.rsi
+        state: legsweep
+      event: !type:PrepareMoveEvent
+        name: подсечку
+        comboEvents:
+        - !type:ComboDamageEffect
+          damage:
+            types:
+              Blunt: 10
+        - !type:ComboFallEffect
+
+- type: entity
+  id: ActionLungBlock
+  name: Lung Punch
+  description: Sweeps the legs out from under a target to knock them down for a few seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: ADT/Interface/Actions/kravmaga.rsi
+        state: lungpunch
+      useDelay: 3
+      event: !type:PrepareMoveEvent
+        name: удар по лёгким
+        comboEvents:
+        - !type:ComboDamageEffect
+          damage:
+            types:
+              Asphyxiation: 15
+
+- type: entity
+  id: ActionNeckChop
+  name: Nech shop
+  description: Sweeps the legs out from under a target to knock them down for a few seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: ADT/Interface/Actions/kravmaga.rsi
+        state: neckchop
+      useDelay: 3
+      event: !type:PrepareMoveEvent
+        name: отбить в горло
+        comboEvents:
+        - !type:ComboDamageEffect
+          damage:
+            types:
+              Blunt: 5
+        - !type:ComboMuteEffect
+            time: 20

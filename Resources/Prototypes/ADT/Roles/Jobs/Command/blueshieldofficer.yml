@@ -128,7 +128,7 @@
               - !type:ComboPopupEffect
                 localeText: combo-cqc-restain-end
               - !type:ComboStunEffect
-                stunTime: 4
+                stunTime: 2
           - actionsNeeds:
               - Disarm
               - Disarm

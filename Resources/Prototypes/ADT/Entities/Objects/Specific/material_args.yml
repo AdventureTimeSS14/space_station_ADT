@@ -37,6 +37,7 @@
               setStageTime: 1.25
         - type: MeleeWeapon
           animation: WeaponArcFist
+          attackRate: 2
           damage:
             types:
               Blunt: 13
@@ -151,10 +152,11 @@
               escapeAttemptTime: 1.25
               setStageTime: 1.25
         - type: MeleeWeapon
+          attackRate: 2
           animation: WeaponArcFist
           damage:
             types:
-              Blunt: 15
+              Blunt: 6
         - type: Combo
           availableMoves:
             - actionsNeeds:
