@@ -91,8 +91,11 @@
       amount: 3
     - id: MaterialGoliathHide1
       amount: 1 # ADT tweak 6>>1
-    - id: MaterialBones1 # ADT tweak
-      amount: 1 # ADT tweak
+    # ADT tweak start
+    - id: MaterialBones1 
+      minAmount: 1 
+      maxAmount: 4
+    # ADT tweak end
   - type: Fauna # ADT tweak
   - type: AshStormImmune # ADT tweak
 
