@@ -73,8 +73,8 @@
   - type: Butcherable
     spawned:
     - id: MaterialBones1 
-      MinAmount: 1 
-      MaxAmount: 3
+      minAmount: 1 
+      maxAmount: 3
   # ADT tweak end
   - type: Fauna # ADT tweak
   - type: AshStormImmune # ADT tweak

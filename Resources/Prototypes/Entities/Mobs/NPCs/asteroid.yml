@@ -93,8 +93,8 @@
       amount: 1 # ADT tweak 3>>1
     # ADT tweak start
     - id: MaterialBones1 
-      MinAmount: 1 
-      MaxAmount: 4
+      minAmount: 1 
+      maxAmount: 4
     # ADT tweak end
   - type: Fauna # ADT tweak
   - type: AshStormImmune # ADT tweak
