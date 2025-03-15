@@ -9,16 +9,16 @@
   categories:
   - ADTUplinkERTWeapon
 
-- type: listing
-  id: ADTBoberM90GrenadeLauncher
-  name: boobr-m90-grenadelauncher-name
-  description: boobr-m90-grenadelauncher-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
-  productEntity: WeaponCaseNTM90GrenadeLauncherAttachment
-  cost:
-    Productunit: 8
-  categories:
-  - ADTUplinkERTAttachments
+# - type: listing
+#   id: ADTBoberM90GrenadeLauncher
+#   name: boobr-m90-grenadelauncher-name
+#   description: boobr-m90-grenadelauncher-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
+#   productEntity: WeaponCaseNTM90GrenadeLauncherAttachment
+#   cost:
+#     Productunit: 8
+#   categories:
+#   - ADTUplinkERTAttachments
 
 - type: listing
   id: ADTBoberM90UnderbarrelShotgun

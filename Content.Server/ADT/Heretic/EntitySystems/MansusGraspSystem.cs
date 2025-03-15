@@ -101,7 +101,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             }
         }
 
-        hereticComp.MansusGraspActive = false;
+        hereticComp.MansusGrasp = EntityUid.Invalid;
         QueueDel(ent);
         args.Handled = true;
     }
@@ -113,7 +113,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (!args.CanReach
         || !args.ClickLocation.IsValid(EntityManager)
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || !heretic.MansusGraspActive // no grasp - not special
+        || heretic.MansusGrasp != EntityUid.Invalid // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
         || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
@@ -197,7 +197,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == Shared.Mobs.MobState.Dead)
                     {
                         var ghoul = EnsureComp<GhoulComponent>(target);
-                        ghoul.BoundHeretic = performer;
+                        ghoul.BoundHeretic = GetNetEntity(performer);
                     }
                     break;
                 }
