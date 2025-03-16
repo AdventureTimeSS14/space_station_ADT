@@ -166,6 +166,8 @@
                 - !type:ComboStunEffect
                   stunTime: 4
                   dropItems: false
+                - !type:ComboSpeechEffect
+                  speech: Прямо позади тебя...
             - actionsNeeds:
                 - Hit
                 - Disarm
@@ -183,6 +185,8 @@
                   damage:
                     types:
                       Blunt: 25
+                - !type:ComboSpeechEffect
+                  speech: Лежать!
             - actionsNeeds:
                 - Disarm
                 - Hit
@@ -195,6 +199,8 @@
                     types:
                       Blunt: 20
                 - !type:ComboDropFromHandsEffect
+                - !type:ComboSpeechEffect
+                  speech: Ку-яя!!
             - actionsNeeds:
                 - Grab
                 - Hit
@@ -208,6 +214,8 @@
                 - !type:ComboStunEffect
                   stunTime: 4
                   dropItems: false
+                - !type:ComboSpeechEffect
+                  speech: Отдохни.
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -219,6 +227,8 @@
                     types:
                       Blunt: 5
                 - !type:ComboDropFromHandsEffect
+                - !type:ComboSpeechEffect
+                  speech: Не так быстро.
 
 - type: entity
   id: ADTBookPTCR

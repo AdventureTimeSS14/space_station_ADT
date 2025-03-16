@@ -85,7 +85,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
-  position: 3,0 # ADT Research Console Rework 
+  position: 3,0 # ADT Research Console Rework
 
 - type: technology
   id: RoboticCleanliness
@@ -99,9 +99,9 @@
   recipeUnlocks:
   - BorgModuleAdvancedCleaning
   # ADT Research Console Rework start
-  position: 2,1
+  position: 2,0
   requiredTech:
-  - BiochemicalStasis
+  - AdvancedEntertainment
   # ADT Research Console Rework end
 
 - type: technology
@@ -162,9 +162,9 @@
   - CryostasisBeaker
   - SyringeCryostasis
   # ADT Research Console Rework start
-  position: 3,1
+  position: 1,2
   requiredTech:
-  - AdvancedEntertainment
+  - ADTCloning
   # ADT Research Console Rework end
 
 - type: technology
@@ -182,7 +182,7 @@
   # ADT Research Console Rework start
   position: 4,1
   requiredTech:
-  - BiochemicalStasis
+  - ADTMedicalMODsuit
   # ADT Research Console Rework end
 
 - type: technology
@@ -198,9 +198,9 @@
   - AdvMopItem
   - MegaSprayBottle
   # ADT Research Console Rework start
-  position: 2,0
+  position: 2,1
   requiredTech:
-  - AdvancedEntertainment
+  - RoboticCleanliness
   # ADT Research Console Rework end
 
 - type: technology

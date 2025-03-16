@@ -1,0 +1,68 @@
+- type: job
+  id: ADTBattleShipCaptainTSF
+  name: job-name-captain-tsf
+  description: job-description-captain-tsf
+  playTimeTracker: JobADTBattleShipCaptainTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 72000 #20 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 72000 #20 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 #20 hrs 
+    - !type:OverallPlaytimeRequirement
+      time: 504000 #140 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 35
+  startingGear: ADTBattleShipCaptainTSFGear
+  icon: "JobIconCaptainTSF"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-tsf-highcommand
+  weight: 20
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipCaptainTSFGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500

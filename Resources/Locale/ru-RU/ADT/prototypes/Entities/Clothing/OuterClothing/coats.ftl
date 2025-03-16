@@ -62,3 +62,17 @@ ent-ADTClothingOuterCoatLabcoatCMOHike = походный халат Главн�
 ent-ADTClothingOuterCoatLabcoatCMOHikeOpened = походный халат Главного врача
     .desc = Частично открытый халат. Не сковывает движения.
     .suffix = {"Раскрытый"}
+
+
+ent-ADTClothingOuterLeatherJacket = кожанная куртка
+    .desc = Причёска «Помпадур» в комплект не входит.
+
+ent-ADTClothingOuterCoatLeathOvercoat = кожанный плащ
+    .desc = Прочный плащ из грубой кожи.
+
+ent-ADTClothingOuterCoatLeathOvercoatOpened = кожанный плащ
+    .desc = Прочный плащ из грубой кожи.
+    .suffix = {"Раскрытый"}
+
+ent-ADTClothingOuterBikerJacket = косуха
+    .desc = Плохой до мозга костей!
