@@ -422,6 +422,17 @@ namespace Content.Server.Database
         }
         #endregion
 
+        #region Discord ADT
+        public async Task<int> GetDiscordIdAsync(Guid userId)
+        {
+            await using var db = await GetDb();
+
+            var discordPlayer = await db.DbContext.DiscordPlayer
+                .SingleAsync(p => p.UserId == userId);
+
+            return discordPlayer.DiscordId;
+        }
+        #endregion
         #region Bans
         /*
          * BAN STUFF
