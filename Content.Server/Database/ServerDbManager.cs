@@ -514,11 +514,13 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.AssignUserIdAsync(name, userId));
         }
 
+        // ADT-Tweak-start: Discord
         public Task<int?> GetDiscordIdAsync(Guid userId)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetDiscordIdAsync(userId));
         }
+        // ADT-Tweak-end
 
         public Task<NetUserId?> GetAssignedUserIdAsync(string name)
         {
