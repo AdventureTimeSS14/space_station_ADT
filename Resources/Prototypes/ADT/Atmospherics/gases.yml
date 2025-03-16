@@ -54,7 +54,7 @@
   gasVisbilityFactor: 500
   color: d97e7e
   reagent: Healium
-  pricePerMole: 12
+  pricePerMole: 24
 
 - type: gas
   id: 14

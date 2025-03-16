@@ -59,7 +59,7 @@
 - type: gasReaction
   id: NitriumProduction
   priority: 5
-  minimumTemperature: 1500
+  minimumTemperature: 300
   minimumRequirements:
   - 0     # oxygen
   - 10    # nitrogen
