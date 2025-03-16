@@ -114,6 +114,8 @@
       - ADTPosterContrabandUmaOnBeach
       - ADTPosterWhatDVLegit
       - ADTPosterUnclePrazLegit
+      - ADTPosterContrabandGoobChuckler
+      - ent-ADTPosterContrabandGoobYakub
       #ADT tweak ^^^
     chance: 1
 
@@ -192,6 +194,13 @@
       - ADTPosterPlasmaMan
       - ADTPosterError
       - ADTPosterNoBad
+      - ADTPosterLegitGoobSlowDownClown
+      - ADTPosterLegitGoobNTRAdvert
+      - ADTPosterLegitGoobLouieVote
+      - ADTPosterLegitGoobLokoAdvertisement
+      - ADTPosterLegitGoobWelderBomb
+      - ADTPosterLegitGoobDurkPlush
+      - ADTPosterLegitGoobBigBrotherAI
       #ADT tweak ^^^
       - PosterLegitOppenhopper
     chance: 1
