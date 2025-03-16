@@ -265,7 +265,7 @@
   recipeUnlocks:
   - ADTMechGunMHAR21
   - ADTMechGunSGL6
-  - ADTMechGunSRM8
+#  - ADTMechGunSRM8 Вырезано ради баланса
   - ADTMechGunBRM6
   - ADTBoxAmmoSniper
   - ADTBoxAmmoGranade

@@ -1,0 +1,60 @@
+- type: job
+  id: ADTBattleShipChiefGunnerTSF
+  name: job-name-chief-gunnner-tsf
+  description: job-description-chief-gunnner-tsf
+  playTimeTracker: JobADTBattleShipChiefGunnerTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Dwarf
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 #20 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 25
+  startingGear: ADTBattleShipChiefGunnerTSFGear
+  icon: "JobIconChiefGunnerTSF"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-tsf-captain
+  canBeAntag: false
+  weight: 17
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipChiefGunnerTSFGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500

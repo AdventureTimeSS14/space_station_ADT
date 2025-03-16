@@ -9,6 +9,10 @@
       Steel: 300
   - type: FitsInDispenser
     solution: drink
+  - type: SolutionContainerManager ##ADT-Tweak start
+    solutions:
+      drink:
+        maxVol: 60 ##ADT-Tweak end
 
 - type: entity
   parent: FlaskBase
@@ -98,6 +102,10 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/vacuumflask.rsi
+  - type: SolutionContainerManager ##ADT-Tweak start
+    solutions:
+      drink:
+        maxVol: 90 ##ADT-Tweak end
 
 - type: entity
   parent: FlaskBase

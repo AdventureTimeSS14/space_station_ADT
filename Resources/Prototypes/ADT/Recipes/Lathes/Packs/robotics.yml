@@ -124,7 +124,7 @@
   - ADTMechGunMHAR21
   - ADTMechGunSGL6
   - ADTMechGunBRM6
-  - ADTMechGunSRM8
+#  - ADTMechGunSRM8 Вырезано ради баланса
   - ADTBoxAmmoAC2Ultra
   - ADTBoxAmmoScattershot
   - ADTBoxAmmoHades
