@@ -10,9 +10,9 @@ ent-ADTMagazineRifleAR12 = магазин для AR-12
     .desc = Штатный магазин для штурмовой винтовки AR-12 на 35 патронов 6.5 мм ТСФ. Несовместим с другими автоматами под тот же патрон.
 
 ent-ADTMagazineRifleBibisSoft = магазин от страйкбольного ПП.
-    .desc = { ent-ADTMagazineRifleBibis }
-    .suffix = { ent-ADTMagazineRifleBibis }
+    .desc = { ent-ADTMagazineRifleBibis.desc }
+    .suffix = { ent-ADTMagazineRifleBibis.suffix }
 
 ent-MagazineLightRifleBoxBibis = магазин для страйбольного L6
     .desc = Ха-Ха-Ха-Ха-Ха! Бегите, Я конченный!
-    .suffix = { ent-ADTMagazineRifleBibis }
+    .suffix = { ent-ADTMagazineRifleBibis.suffix }

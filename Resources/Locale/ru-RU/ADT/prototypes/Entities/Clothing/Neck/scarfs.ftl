@@ -4,3 +4,6 @@ ent-ADTClothingNeckScarfUnrobust = шарф анробаста
 ent-ADTClothingNeckScarfWindy = ветренный шарф
     .desc = Не похоже, чтобы здесь дуло...
     .suffix = { "" }
+
+ent-ADTClothingNecChefShawl = шейный платок повара
+    .desc = Раньше ими вытирали пот, теперь это для имиджа.

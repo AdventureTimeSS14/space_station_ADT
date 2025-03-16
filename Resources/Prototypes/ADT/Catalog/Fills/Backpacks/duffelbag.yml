@@ -122,6 +122,7 @@
       - id: ClothingUniformJumpskirtElegantMaid
       - id: ClothingUnderSocksCoder
       - id: SirenaChokerWithHeart
+      - id: ADTClothingHandsCatPawsBlackCombat # ADT Tweak
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

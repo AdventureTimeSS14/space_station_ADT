@@ -30,6 +30,22 @@
     state: GuardOfficer
   jobName: job-name-guard-officer
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTUSSPArmyOfficer
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: JobIconUSSPArmyOfficer
+  jobName: job-name-ussp-army-officer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTUSSPArmyPrivate
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: JobIconUSSPArmyPrivate
+  jobName: job-name-ussp-army-private
+
 #SPACE SEC
 
 - type: jobIcon
