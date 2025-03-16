@@ -163,3 +163,11 @@
   materials:
     Cloth: 500
     Durathread: 1000
+
+# WinterCoats
+
+# Mime
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ADTClothingOuterWinterLongMime
+  result: ADTClothingOuterWinterLongMime

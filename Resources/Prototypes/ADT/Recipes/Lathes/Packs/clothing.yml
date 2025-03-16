@@ -39,3 +39,8 @@
   id: ADTSyndicateDuffel
   recipes:
   - ADTClothingBackpackDuffelSyndicate
+
+- type: latheRecipePack
+  id: ADTWinterCoats
+  recipes:
+  - ClothingOuterWinterLongMime
