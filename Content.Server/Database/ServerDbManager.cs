@@ -54,7 +54,7 @@ namespace Content.Server.Database
         Task<NetUserId?> GetAssignedUserIdAsync(string name);
         #endregion
         #region Discord ADT
-        Task<int> GetDiscordIdAsync(Guid userId);
+        Task<int?> GetDiscordIdAsync(Guid userId);
         #endregion
 
         #region Bans
@@ -514,7 +514,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.AssignUserIdAsync(name, userId));
         }
 
-        public Task<int> GetDiscordIdAsync(Guid userId)
+        public Task<int?> GetDiscordIdAsync(Guid userId)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetDiscordIdAsync(userId));
