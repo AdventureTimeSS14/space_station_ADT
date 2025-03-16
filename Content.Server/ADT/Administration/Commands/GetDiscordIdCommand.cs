@@ -1,9 +1,7 @@
 using Content.Server.Database;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Serilog;
 using Robust.Shared.Network;
-using Robust.Server.Player;
 
 namespace Content.Server.Administration.Commands
 {
@@ -15,7 +13,6 @@ namespace Content.Server.Administration.Commands
         public string Help => $"Usage: {Command} <user id or name>";
 
         [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public async void Execute(IConsoleShell shell, string argStr, string[] args)
         {
