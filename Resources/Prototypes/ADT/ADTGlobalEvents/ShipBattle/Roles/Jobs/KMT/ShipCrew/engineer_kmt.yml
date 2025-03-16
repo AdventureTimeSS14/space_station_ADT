@@ -17,6 +17,7 @@
   icon: "JobIconEngineerKMT"
   supervisors: job-supervisors-kmt-gunner
   canBeAntag: false
+  overrideConsoleVisibility: false
   access:
   - Security
   - Brig
