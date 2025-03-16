@@ -635,6 +635,30 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DiscordPlayer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_player_id");
+
+                    b.Property<int>("DiscordId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("discord_id");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_discord_player");
+
+                    b.HasIndex("UserId", "DiscordId")
+                        .IsUnique();
+
+                    b.ToTable("discord_player", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
                 {
                     b.Property<int>("Id")
