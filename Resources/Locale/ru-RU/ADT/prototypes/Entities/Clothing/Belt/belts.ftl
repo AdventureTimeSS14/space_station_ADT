@@ -54,3 +54,11 @@ ent-ADTClothingBeltQuiverCupidon = колчан купидона
 
 ent-ADTClothingBeltJudo = пояс корпоративного дзюдо
     .desc = Наниты пояса наделяют вас мастерством черного пояса по корпоративному дзюдо!
+
+ent-ADTClothingRPSUSSP = РПС
+    .desc = РПС, который был создан в СССП
+    .suffix = { "СССП" }
+
+ent-ADTClothingRPSTacticalUSSP = тактический РПС
+    .desc = Тактический РПС, который был создан в СССП
+    .suffix = { "СССП" }

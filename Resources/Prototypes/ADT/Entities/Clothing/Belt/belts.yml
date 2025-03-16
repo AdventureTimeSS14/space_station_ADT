@@ -440,3 +440,40 @@
     - state: icon
     - map: [ "enum.StorageContainerVisualLayers.Fill" ]
       visible: false
+
+# USSP
+
+
+#рпс
+
+- type: entity
+  id: ADTClothingRPSUSSP
+  parent: ClothingBeltMilitaryWebbing
+  name: RPS USSP
+  description: RPS USSP
+  suffix: USSP
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/rps_ussp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/rps_ussp.rsi
+
+#тактический рпс
+
+- type: entity
+  id: ADTClothingRPSTacticalUSSP
+  parent: ClothingBeltMilitaryWebbing
+  name: RPS Tactical USSP
+  description: RPS Tactical USSP
+  suffix: USSP
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/rps_tactical_ussp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/rps_tactical_ussp.rsi
+
+# USSP
