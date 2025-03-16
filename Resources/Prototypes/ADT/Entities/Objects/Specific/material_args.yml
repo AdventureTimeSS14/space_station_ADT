@@ -54,6 +54,7 @@
                     types:
                       Blunt: 10
                 - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
             - actionsNeeds:
                 - Hit
                 - Disarm
@@ -109,6 +110,7 @@
                 - !type:ComboPopupEffect
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
 
 - type: entity
   id: ADTScrollSleepingCarp
@@ -165,6 +167,7 @@
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-backhit-end
+                - !type:ComboStopGrabEffect
                 - !type:ComboStunEffect
                   stunTime: 4
                   dropItems: false
@@ -189,6 +192,7 @@
                       Blunt: 25
                 - !type:ComboSpeechEffect
                   speech: Лежать!
+                - !type:ComboStopGrabEffect
             - actionsNeeds:
                 - Disarm
                 - Hit
@@ -207,6 +211,7 @@
                 - Grab
                 - Hit
               comboEvent:
+                - !type:ComboStopGrabEffect
                 - !type:ComboPopupEffect
                   localeText: combo-stomach-end
                 - !type:ComboDamageEffect
@@ -262,6 +267,7 @@
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
                   dropItems: false
+                - !type:ComboStopGrabEffect
 
 - type: entity #TODO: когда визарды добавят области, добавьте повару свой стиль с привязкой к области
   id: ADTCqcManualWeak
@@ -293,6 +299,7 @@
                       Blunt: 10
                 - !type:ComboFallEffect
                   dropItems: false
+                - !type:ComboStopGrabEffect
             - actionsNeeds:
                 - Hit
                 - Disarm

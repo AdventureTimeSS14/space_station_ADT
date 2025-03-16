@@ -39,6 +39,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -572,6 +573,11 @@ public abstract partial class PullingSystem
 
         _adminLogger.Add(LogType.Grab, LogImpact.Low, $"{ToPrettyString(pullable.Owner)} started to escage from {ToPrettyString(pullable.Owner)}'s grab");
         return _doAfter.TryStartDoAfter(doAfterArgs, out pullable.Comp.EscapeAttemptDoAfter);
+    }
+
+    public void ResetGrabStageTime(Entity<PullerComponent> puller)
+    {
+        puller.Comp.NextStageChange -= TimeSpan.FromSeconds(2);
     }
 
     public virtual void Throw(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, EntityCoordinates coords)

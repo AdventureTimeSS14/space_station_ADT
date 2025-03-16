@@ -12,7 +12,6 @@ namespace Content.Shared.ADT.Combat;
 
 public abstract class SharedComboSystem : EntitySystem
 {
-    [Dependency] private readonly PullingSystem _pullingSystem = default!;
 
     public override void Initialize()
     {
@@ -71,7 +70,7 @@ public abstract class SharedComboSystem : EntitySystem
 
         if (TryDoCombo(args.Puller.Owner, args.Pulling.Owner, comp))
         {
-            args.NewStage = 0;
+            // args.NewStage = comp.GrabStageAfterCombo;
         }
     }
 
@@ -95,18 +94,10 @@ public abstract class SharedComboSystem : EntitySystem
             if (!ContainsSubsequence(comp.CurrestActions, combo.ActionsNeeds))
                 continue;
 
+            comp.CurrestActions.Clear();
             UseEventOnTarget(user, target, combo);
             isComboCompleted = true;
-        }
-
-        if (isComboCompleted)
-        {
-            comp.CurrestActions.Clear();
-        }
-
-        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted)
-        {
-            _pullingSystem.TryStopPull(target, pulled, user);
+            break;
         }
 
         return isComboCompleted;
