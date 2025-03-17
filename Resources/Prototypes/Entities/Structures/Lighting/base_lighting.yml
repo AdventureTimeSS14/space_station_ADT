@@ -32,12 +32,10 @@
       shader: unshaded
     state: base
   - type: PointLight
-    # ADT-Sound-Update-Start
-    color: "#FAFFFF" # 5000K color temp
-    energy: 0.9
-    radius: 7
-    softness: 2.1
-    # ADT-Sound-Update-End
+    color: "#FFE4CE" # 5000K color temp
+    energy: 0.8
+    radius: 10
+    softness: 1
     offset: "0, -0.5"
   - type: Damageable
     damageContainer: Inorganic
