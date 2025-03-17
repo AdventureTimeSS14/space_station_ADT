@@ -38,15 +38,19 @@ public sealed partial class RoleTimeRequirement : JobRequirement
         var roleDiffSpan = Time - roleTime;
         var roleDiff = roleDiffSpan.TotalMinutes;
         var formattedRoleDiff = ContentLocalizationManager.FormatPlaytime(roleDiffSpan);
+        var formattedRoleDiffMinutes = ContentLocalizationManager.FormatPlaytimeMinutes(roleDiffSpan); // ADT change
         var departmentColor = Color.Yellow;
 
-        if (entManager.EntitySysManager.TryGetEntitySystem(out SharedJobSystem? jobSystem))
-        {
-            var jobProto = jobSystem.GetJobPrototype(proto);
+        if (!entManager.EntitySysManager.TryGetEntitySystem(out SharedJobSystem? jobSystem))
+            return false;
 
-            if (jobSystem.TryGetDepartment(jobProto, out var departmentProto))
-                departmentColor = departmentProto.Color;
-        }
+        var jobProto = jobSystem.GetJobPrototype(proto);
+
+        if (jobSystem.TryGetDepartment(jobProto, out var departmentProto))
+            departmentColor = departmentProto.Color;
+
+        if (!protoManager.TryIndex<JobPrototype>(jobProto, out var indexedJob))
+            return false;
 
         if (!Inverted)
         {
@@ -56,7 +60,8 @@ public sealed partial class RoleTimeRequirement : JobRequirement
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
                 "role-timer-role-insufficient",
                 ("time", formattedRoleDiff),
-                ("job", Loc.GetString(proto)),
+                ("timeminutes", formattedRoleDiffMinutes), // ADT change
+                ("job", indexedJob.LocalizedName),
                 ("departmentColor", departmentColor.ToHex())));
             return false;
         }
@@ -66,7 +71,8 @@ public sealed partial class RoleTimeRequirement : JobRequirement
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
                 "role-timer-role-too-high",
                 ("time", formattedRoleDiff),
-                ("job", Loc.GetString(proto)),
+                ("timeminutes", formattedRoleDiffMinutes), // ADT change
+                ("job", indexedJob.LocalizedName),
                 ("departmentColor", departmentColor.ToHex())));
             return false;
         }

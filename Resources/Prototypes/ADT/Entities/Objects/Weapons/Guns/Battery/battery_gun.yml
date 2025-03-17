@@ -90,6 +90,7 @@
       sprite: ADT/Objects/Weapons/Guns/Battery/tsd_gun.rsi
       quickEquip: false
       slots:
+        - suitStorage
         - Belt
     - type: Gun
       fireRate: 1.5
@@ -107,6 +108,7 @@
       maxCharge: 2000
       startingCharge: 2000
     - type: DNAGunLocker
+    - type: RMCMagneticItem
 
 - type: entity
   name: Cutter
@@ -212,3 +214,96 @@
     price: 7500
   - type: Item
     size: Normal
+
+- type: entity
+  name: Miniature Energy Crossbow
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponMiniatureEnergyCrossbow
+  description: The syndicate's energy crossbow, small, silent and deadly.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    resetOnHandSelected: false
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      params:
+        volume: -5
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletMic
+    fireCost: 900
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 300
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: Energy Crossbow
+  parent: ADTWeaponMiniatureEnergyCrossbow
+  id: ADTWeaponEnergyCrossbow
+  description: Energy crossbow, big, powerful and stily.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletEnergyCrossbow
+    fireCost: 900
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: EnergyCrossbowGraph
+    node: crossbow
+  - type: Gun
+    resetOnHandSelected: false
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      params:
+        volume: -5
+    fireRate: 0.5
+  - type: UpgradeableGun
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 225
+
+- type: entity
+  name: vulpizator
+  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  id: ADTWeaponVulpizator
+  description: A self-defense weapon that... turns you into vulpkanin..
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: BasicEntityAmmoProvider
+    proto: ADTProjectilePolyboltVulpkanin

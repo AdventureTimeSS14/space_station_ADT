@@ -1,3 +1,4 @@
+# Данный прототип связан с работой от @temporaldarkness (discord). Код, связанный с этим прототипом, был взят с https://github.com/ss14-ganimed/ENT14-Master.
 - type: entity
   parent: BaseFlatpack
   id: ADTBookPrinterFlatpack

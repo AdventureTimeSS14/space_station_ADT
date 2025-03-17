@@ -8,6 +8,7 @@
     Gold: 300
     Plasma: 800
 
+
 - type: latheRecipe
   id: ADTWeaponCutterAdv
   result: ADTWeaponCutterAdv
@@ -18,6 +19,17 @@
     Gold: 300
     Plasma: 900
     Diamond: 200
+
+- type: latheRecipe
+  id: ADTWeaponExperimentalProtoKineticAcelleratorRecipe
+  result: ADTWeaponExperimentalProtoKineticAcellerator
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 350
+    Gold: 500
+    Plasma: 300
+    Silver: 300
 
 - type: latheRecipe
   id: ADTAttachmentVerticalGripRecipe
@@ -71,18 +83,10 @@
   result: ADTAttachmentM90GrenadeLauncher
   completetime: 10
   materials:
-    Steel: 1500
-    Plastic: 500
+    Steel: 2500
+    Plastic: 1500
     Plasma: 500
 
-- type: latheRecipe
-  id: ADT40mmGrenadeHEATRecipe
-  result: ADT40mmGrenadeHEAT
-  completetime: 5
-  materials:
-    Steel: 300
-    Plastic: 100
-    Plasma: 100
 
 - type: latheRecipe
   id: ADT40mmGrenadeBatonRecipe

@@ -25,7 +25,7 @@
         Radiation: 0.9
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetIlisium
   categories: [ HideSpawnMenu ]
   name: helmet
@@ -51,7 +51,7 @@
 
 # Blueshield
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitBlueshield
   categories: [ HideSpawnMenu ]
   name: blueshield hardsuit helmet
@@ -177,7 +177,7 @@
 
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitInquisitory
   categories: [ HideSpawnMenu ]
   name: inquisitor hardsuit helmet
@@ -203,7 +203,7 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase  #ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -236,7 +236,7 @@
 
 #Шлемы скафандров Киберсана
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitCybersunBodyGuard
   categories: [ HideSpawnMenu ]
   name: cybersun bodyguard helmet
@@ -263,7 +263,7 @@
         Radiation: 0.5
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitCybersunCrysis
   categories: [ HideSpawnMenu ]
   name: cybersun crysis helmet
@@ -291,7 +291,7 @@
         Radiation: 0
 
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ADTClothingHeadHelmetHardsuitSaibaSain
   categories: [ HideSpawnMenu ]
   name: Saiba Sain elite hardsuit helm
@@ -338,3 +338,49 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.8
+
+# USSP USSP
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ADTClothingHeadHelmetHardsuitOBS7USSP
+  name: helmet of the USSP OBS-7 Konrad armor suit
+  description: helmet of the USSP OBS-7 Konrad armor suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/OBS7_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/OBS7_USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ADTClothingHeadHelmetHardsuitOBS5USSP
+  name: helmet of the USSP OBS-5 Konrad Armor Suit
+  description: helmet of the USSP OBS-5 Konrad armor suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/OBS5_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/OBS5_USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+# USSP USSP

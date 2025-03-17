@@ -127,20 +127,17 @@
         visible: false
   - type: Inventory
     templateId: arachnid
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - GalacticCommon
-    - Moffic
-    understands:
-    - GalacticCommon
-    - Moffic
-  #Start ADT tweak
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Arachnid: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.15
     short: true
     shortscale: 0.98
-  #End ADT tweak
+  # ADT tweak end
 
 - type: entity
   parent: BaseSpeciesDummy

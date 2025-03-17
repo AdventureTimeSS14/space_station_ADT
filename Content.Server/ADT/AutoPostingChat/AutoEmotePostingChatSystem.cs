@@ -1,8 +1,11 @@
 using Content.Shared.Mobs;
 using Content.Server.Chat.Systems;
-using Content.Shared.ADT.AutoPostingChat;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
+using Content.Shared.Chat;
+
+namespace Content.Server.ADT.AutoPostingChat;
+
 public sealed class AutoEmotePostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -49,3 +52,13 @@ public sealed class AutoEmotePostingChatSystem : EntitySystem
         }
     }
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

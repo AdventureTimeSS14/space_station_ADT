@@ -118,3 +118,59 @@
   solids:
     ADTEmptyTeaPack: 1
     FoodWatermelonSlice: 1
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaMicWatermelon
+  name: WatermelonTeaMicrowave
+  result: ADTDrinkWatermelonTeaGlass
+  time: 10
+  reagents:
+    ADTWatermelonpackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaMicOrange
+  name: OrangeTeaMicrowave
+  result: ADTDrinkOrangeTeaGlass
+  time: 10
+  reagents:
+    ADTOrangepackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaMicCherry
+  name: CherryTeaMicrowave
+  result: ADTDrinkCherryTeaGlass
+  time: 10
+  reagents:
+    ADTCherrypackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMeatSalami
+  name: salami recipe
+  result: FoodMeatSalami
+  time: 10
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodMeat: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodSoupUzbekPilafRecipe
+  name: uzbek pilaf
+  result: ADTFoodSoupUzbekPilaf
+  time: 10
+  solids:
+    FoodRiceBoiled: 1
+    FoodGarlic: 1
+    FoodMeat: 1
+    FoodCarrot: 1
+    FoodOnionSlice: 2

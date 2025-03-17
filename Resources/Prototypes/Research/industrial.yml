@@ -14,6 +14,11 @@
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
+# ADT Research Console Rework start
+  position: 3,0
+  requiredTech:
+  - SpaceScanning
+  # ADT Research Console Rework end
 
 - type: technology
   id: SpaceScanning
@@ -28,6 +33,11 @@
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
   - BorgModuleGPS
+# ADT Research Console Rework start
+  position: 2,0
+  requiredTech:
+  - PowerGeneration
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedPowercells
@@ -41,6 +51,12 @@
   recipeUnlocks:
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
+  - SMESAdvancedMachineCircuitboard
+# ADT Research Console Rework start
+  position: 0,-1
+  requiredTech:
+  - AdvancedAtmospherics
+  # ADT Research Console Rework end
 
 - type: technology
   id: MechanicalCompression
@@ -53,6 +69,11 @@
   cost: 10000
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
+# ADT Research Console Rework start
+  position: 2,1
+  requiredTech:
+  - SpaceScanning
+  # ADT Research Console Rework end
 
 - type: technology
   id: IndustrialEngineering
@@ -68,6 +89,11 @@
   - ProtolatheHyperConvectionMachineCircuitboard
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
+# ADT Research Console Rework start
+  position: 1,2
+  requiredTech:
+  - MechanicalCompression
+  # ADT Research Console Rework end
 
 - type: technology
   id: PowerGeneration
@@ -82,10 +108,10 @@
   - PortableGeneratorPacmanMachineCircuitboard
   - PortableGeneratorSuperPacmanMachineCircuitboard
   - PortableGeneratorJrPacmanMachineCircuitboard
-  - PowerComputerCircuitboard #the actual solar panel itself should be in here
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
+  position: 0,0 # ADT Research Console Rework
 
 - type: technology
   id: AtmosphericTech
@@ -99,6 +125,11 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+# ADT Research Console Rework start
+  position: 2,-1
+  requiredTech:
+  - SpaceScanning
+  # ADT Research Console Rework end
 
 - type: technology
   id: RipleyAPLU
@@ -106,7 +137,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: ripley
-  discipline: Industrial
+  discipline: Mech # ADT Industrial -> Mech
   tier: 1
   cost: 7500
   recipeUnlocks:
@@ -118,6 +149,7 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
+  position: 0,0 # ADT Research Console Rework
 
 # Tier 2
 
@@ -135,6 +167,11 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+# ADT Research Console Rework start
+  position: 3,2
+  requiredTech:
+  - IndustrialEngineering
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedAtmospherics
@@ -151,6 +188,11 @@
   - HolofanProjector
   technologyPrerequisites:
   - AtmosphericTech
+# ADT Research Console Rework start
+  position: 1,-1
+  requiredTech:
+  - AtmosphericTech
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -166,7 +208,13 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
-    - ADTBorgModuleRPD # ADT-RPD
+    - Fulton
+    - FultonBeacon
+  # ADT Research Console Rework start
+  position: 3,-3
+  requiredTech:
+  - AdvantedEnergy
+  # ADT Research Console Rework end
 
 - type: technology
   id: MassExcavation
@@ -181,7 +229,11 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-    - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
+  # ADT Research Console Rework start
+  position: 4,-1
+  requiredTech:
+  - SalvageEquipment
+  # ADT Research Console Rework end
 
 # Tier 3
 
@@ -198,17 +250,24 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+# ADT Research Console Rework start
+  position: 1,-4
+  requiredTech:
+  - ADTCompactTechnologies
+  - ADTIndustrialMODsuitMODs
+  # ADT Research Console Rework end
 
-- type: technology
-  id: PortableFission
-  name: research-technology-portable-fission
-  icon:
-    sprite: Objects/Power/power_cells.rsi
-    state: microreactor
-  discipline: Industrial
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - PowerCellMicroreactor
-  technologyPrerequisites:
-  - AdvancedPowercells
+#ADT TWEAK
+# - type: technology
+#   id: PortableFission
+#   name: research-technology-portable-fission
+#   icon:
+#     sprite: Objects/Power/power_cells.rsi
+#     state: microreactor
+#   discipline: Industrial
+#   tier: 3
+#   cost: 10000
+#   recipeUnlocks:
+#   - PowerCellMicroreactor
+#   technologyPrerequisites:
+#   - AdvancedPowercells

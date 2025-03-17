@@ -84,6 +84,10 @@ public sealed class SmokeSystem : EntitySystem
     {
         if (_smokeAffectedQuery.HasComponent(args.OtherEntity))
             return;
+        // ADT Tester fix start
+        if (Deleted(args.OtherEntity) || Terminating(args.OtherEntity))
+            return;
+        // ADT Tester fix end
 
         var smokeAffected = AddComp<SmokeAffectedComponent>(args.OtherEntity);
         smokeAffected.SmokeEntity = entity;
@@ -111,6 +115,11 @@ public sealed class SmokeSystem : EntitySystem
 
             if (!_smokeQuery.HasComponent(ent))
                 continue;
+
+            // ADT Tester fix start
+            if (Deleted(ent) || Terminating(ent))
+                continue;
+            // ADT Tester fix end
 
             smokeAffectedComponent ??= EnsureComp<SmokeAffectedComponent>(args.OtherEntity);
             smokeAffectedComponent.SmokeEntity = ent;
@@ -228,7 +237,7 @@ public sealed class SmokeSystem : EntitySystem
             var xform = Transform(uid);
             _physics.SetBodyType(uid, BodyType.Dynamic, fixtures, body, xform);
             _physics.SetCanCollide(uid, true, manager: fixtures, body: body);
-            _broadphase.RegenerateContacts(uid, body, fixtures, xform);
+            _broadphase.RegenerateContacts((uid, body, fixtures, xform));
         }
 
         var timer = EnsureComp<TimedDespawnComponent>(uid);

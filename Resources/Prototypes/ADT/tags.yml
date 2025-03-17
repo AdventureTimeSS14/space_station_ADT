@@ -35,10 +35,22 @@
   id: ADTSteelSheet
 
 - type: Tag
-  id: ADTCartridgeBibis
+  id: ADTCartridgeBibis # Обычне
 
 - type: Tag
-  id: ADTMagazineRifleBibis
+  id: ADTCartridgeBibisSoft # Мягкие
+
+- type: Tag
+  id: ADTCartridgeBibisReinforced # Твёрдые
+
+- type: Tag
+  id: ADTMagazineRifleBibis # Магазин обычный
+
+- type: Tag
+  id: ADTMagazineRifleBibisSoft # Магазин мягкий
+
+- type: Tag
+  id: ADTMagazineRifleBibisSoftBig # Магазин пулемёта
 
 - type: Tag
   id: ADTBorgUse
@@ -72,6 +84,12 @@
 
 - type: Tag
   id: ADTTelescopicBaton
+
+- type: Tag
+  id: ADTBola
+
+- type: Tag
+  id: ADTAloe
 
 - type: Tag
   id: Eyes
@@ -120,6 +138,48 @@
 
 - type: Tag
   id: ADTSyrelBattleAxe
+
+- type: Tag
+  id: ADTModsuitHelmet
+
+- type: Tag
+  id: ADTModsuitGauntlets
+
+- type: Tag
+  id: ADTModsuitCoreEnergy
+
+- type: Tag
+  id: ADTModsuitChestplate
+
+- type: Tag
+  id: ADTModsuitBoots
+
+- type: Tag
+  id: ADTModsuitPlateMining
+
+- type: Tag
+  id: ADTModsuitAssembledPart
+
+- type: Tag
+  id: ADTModsuitPlateAtmospheric
+
+- type: Tag
+  id: ADTModsuitPlateCosmohonk
+
+- type: Tag
+  id: ADTModsuitPlateEngineering
+
+- type: Tag
+  id: ADTModsuitPlateMedical
+
+- type: Tag
+  id: ADTModsuitPlateSecurity
+
+- type: Tag
+  id: ADTModsuitPlateStandard
+
+- type: Tag
+  id: ADTModsuitPlateCience
 
 - type: Tag
   id: VehicleKey
@@ -334,7 +394,7 @@
 
 - type: Tag
   id: ADTBeerCan
-  
+
   # New Year
 
 - type: Tag
@@ -401,7 +461,28 @@
   id: ADTCatEmotes
 
 - type: Tag
+  id: ADTVoxEmotes
+
+- type: Tag
+  id: ADTSlimeEmotes
+
+- type: Tag
   id: ADTDogEmotes
+
+- type: Tag
+  id: LavaDungeon
+
+- type: Tag
+  id: PKAUpgrade
+
+- type: Tag
+  id: GunUpgradeDamage
+
+- type: Tag
+  id: GunUpgradeRange
+
+- type: Tag
+  id: GunUpgradeReloadSpeed
 
 - type: Tag
   id: ADT40mmGrenade
@@ -415,7 +496,7 @@
 
 - type: Tag
   id: ADTWeaponMeleePrasatChainsword
-  
+
 #sponsor_items - End
 
 - type: Tag
@@ -429,3 +510,42 @@
 
 - type: Tag
   id: ADTRUranShard
+
+- type: Tag
+  id: DockMining
+
+- type: Tag
+  id: MiningShop
+
+- type: Tag
+  id: PKA
+
+- type: Tag
+  id: ADTStorageBlacklist
+
+- type: Tag
+  id: LavaDungeonBloodMiner
+
+- type: Tag
+  id: ADTLighter
+
+- type: Tag
+  id: NoPaint
+
+- type: Tag
+  id: ADTIgnoreChokeSpeechBlocking
+
+- type: Tag
+  id: ADTMiningGuestShuttle
+
+- type: Tag
+  id: ADTMiningShuttle
+
+- type: Tag
+  id: DockMiningGuest
+
+- type: Tag
+  id: ADTMinerArmor
+
+- type: Tag
+  id: ADTBsoWeapon

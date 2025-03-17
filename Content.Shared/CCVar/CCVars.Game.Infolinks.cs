@@ -26,7 +26,7 @@ public sealed partial class CCVars
     ///     Link to website to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksWebsite =
-        CVarDef.Create("infolinks.website", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.website", "https://boosty.to/adventuretime", CVar.SERVER | CVar.REPLICATED); // ADT-Tweak
 
     /// <summary>
     ///     Link to wiki to show in the launcher.
@@ -51,4 +51,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<string> InfoLinksAppeal =
         CVarDef.Create("infolinks.appeal", "https://discord.com/channels/901772674865455115/1245787985891561544", CVar.SERVER | CVar.REPLICATED); //ADT-Tweak: Ссылка на обжалование
+
+    /// <summary>
+    ///     Link to Telegram channel to show in the launcher.
+    /// </summary>
+    public static readonly CVarDef<string> InfoLinksTelegram =
+        CVarDef.Create("infolinks.telegram", "", CVar.SERVER | CVar.REPLICATED);
 }

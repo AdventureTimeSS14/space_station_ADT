@@ -8,3 +8,5 @@ fold-zip-verb = Застегнуть
 fold-unzip-verb = Расстегнуть
 fold-pull-off-verb = Снять
 fold-put-on-verb = Надеть
+fold-hidden-verb = Спрятать под одежду
+fold-unhidden-verb = Надеть поверх одежды

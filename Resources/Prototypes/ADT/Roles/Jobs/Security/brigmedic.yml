@@ -10,6 +10,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hrs #ADT-RoleTime
+  # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+  # ADT RESTRICT End
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -30,6 +36,10 @@
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
     pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
 #    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
 #    socks: ClothingUnderwearSocksNormal
 #  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear

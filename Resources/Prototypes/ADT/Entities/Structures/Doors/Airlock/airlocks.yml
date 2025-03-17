@@ -160,6 +160,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/chaplain.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
 
 - type: entity
   parent: AirlockGlass
@@ -168,6 +172,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/kitchen.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
 
 - type: entity
   parent: AirlockScienceGlass
@@ -176,6 +184,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/robotics.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
 
 - type: entity
   parent: AirlockCargoGlass
@@ -184,6 +196,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/salvage.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
 
 - type: entity
   parent: AirlockGlass
@@ -192,6 +208,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/theatre.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
 
 - type: entity
   parent: AirlockGlass
@@ -200,6 +220,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/bar.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
 
 - type: entity
   parent: AirlockCommandGlass

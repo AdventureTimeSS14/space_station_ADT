@@ -6,7 +6,13 @@
   components:
     - type: Pda
       id: IAAIDCard
-      state: pda-lawyer
+    #ADT-Tweak-Start
+    - type: Appearance
+      appearanceDataInit:
+       enum.PdaVisuals.PdaType:
+        !type:String
+        pda-lawyer
+    #ADT-Tweak-End
     - type: PdaBorderColor
       borderColor: "#6f6192"
     - type: Icon
@@ -20,7 +26,13 @@
   components:
     - type: Pda
       id: PilotIDCard
-      state: pda-seniorofficer
+    #ADT-Tweak-Start
+    - type: Appearance
+      appearanceDataInit:
+       enum.PdaVisuals.PdaType:
+        !type:String
+        pda-seniorofficer
+    #ADT-Tweak-End
     - type: PdaBorderColor
       borderColor: "#A32D26"
       accentVColor: "#DFDFDF"

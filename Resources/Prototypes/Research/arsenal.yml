@@ -14,6 +14,7 @@
   - ShuttleGunKineticCircuitboard
   - ADTWeaponCutter #ADT plasmacutter
   # These are roundstart but not replenishable for salvage
+  position: 0,0 # ADT Research Console Rework
 
 - type: technology
   id: DraconicMunitions
@@ -28,6 +29,7 @@
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
+  - MagazinePistolSubMachineGunIncendiary
   # Start ADT tweak
   - ADTMagazineMagnumIncendiary
   # Start ADT tweak
@@ -38,6 +40,11 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  # ADT Research Console Rework start
+  position: 1,-1
+  requiredTech:
+  - SalvageWeapons
+  # ADT Research Console Rework end
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -53,6 +60,9 @@
   # Start ADT tweak
   - ADTBorgModuleHarm #ADT secborg
   - ADTMechGunImmolatorLaser
+  position: 2,-1
+  requiredTech:
+  - DraconicMunitions
   # End ADT tweak
 
 - type: technology
@@ -71,6 +81,11 @@
   - WeaponDisabler
   - ADTBorgModuleDisabler #ADT secborg
   - ADTBorgModuleDetention #ADT secborg
+  # ADT Research Console Rework start
+  position: 1,1
+  requiredTech:
+  - SalvageWeapons
+  # ADT Research Console Rework end
 
 - type: technology
   id: UraniumMunitions
@@ -84,6 +99,7 @@
   recipeUnlocks:
   - MagazineRifleUranium
   - MagazinePistolUranium
+  - MagazinePistolSubMachineGunUranium
   # Start ADT tweak
   - ADTMagazineMagnumUranium
   # End ADT tweak
@@ -94,6 +110,11 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
+  # ADT Research Console Rework start
+  position: 2,-2
+  requiredTech:
+  - DraconicMunitions
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedRiotControl
@@ -112,6 +133,9 @@
   # Start ADT tweak - часть технологий подходящих по стилю переношу сюда
   - ClothingBackpackElectropack
   - ADTMechGunPeacemakerDisabler
+  position: 2,1
+  requiredTech:
+  - NonlethalAmmunition
   # End ADT tweak
 
 - type: technology
@@ -131,6 +155,11 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  # ADT Research Console Rework start
+  position: 2,-3
+  requiredTech:
+  - UraniumMunitions
+  # ADT Research Console Rework end
 
 # - type: technology #ADT_Tweak - электрорюкзак перенесен в технологию контроля беспорядков
 #   id: SpecialMeans
@@ -158,6 +187,11 @@
   recipeUnlocks:
   - WeaponLaserCannon
   - ADTMechGunSolarisLaserCannon #ADT_Tweak
+  # ADT Research Console Rework start
+  position: 3,-1
+  requiredTech:
+  - WeaponizedLaserManipulation
+  # ADT Research Console Rework end
 
 - type: technology
   id: WaveParticleHarnessing
@@ -171,6 +205,11 @@
   recipeUnlocks:
   - WeaponXrayCannon
   - ADTMechGunTeslaCannon #ADT_Tweak
+  # ADT Research Console Rework start
+  position: 5,-2
+  requiredTech:
+  - ConcentratedLaserWeaponry
+  # ADT Research Console Rework end
 
 - type: technology
   id: BasicShuttleArmament
@@ -193,6 +232,11 @@
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
   - SalvageWeapons
+  # ADT Research Console Rework start
+  position: 3,-3
+  requiredTech:
+  - ExplosiveTechnology
+  # ADT Research Console Rework end
 
 # Tier 3
 
@@ -208,6 +252,12 @@
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
+  # ADT Research Console Rework start
+  position: 6,-1
+  requiredTech:
+  - ExperimentalBatteryAmmo
+  - WaveParticleHarnessing
+  # ADT Research Console Rework end
 
 - type: technology
   id: ExperimentalBatteryAmmo
@@ -220,6 +270,11 @@
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
+  # ADT Research Console Rework start
+  position: 5,0
+  requiredTech:
+  - ConcentratedLaserWeaponry
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedShuttleWeapon
@@ -236,3 +291,8 @@
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
+  # ADT Research Console Rework start
+  position: 3,-4
+  requiredTech:
+  - BasicShuttleArmament
+  # ADT Research Console Rework end

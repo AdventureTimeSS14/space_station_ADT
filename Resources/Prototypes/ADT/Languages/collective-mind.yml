@@ -1,0 +1,51 @@
+- type: language
+  id: DionaCollectiveMind
+  priority: 0
+  uiColor: "#3de500"
+  speech: !type:CollectiveMind
+    color: "#3de500"
+    showRank: false
+    showName: false
+    font: Miroslav
+    fontSize: 14
+
+- type: language
+  id: CarpCollectiveMind
+  priority: 0
+  uiColor: "#ba66ff"
+  speech: !type:CollectiveMind
+    color: "#ba66ff"
+    showRank: true
+    showName: false
+
+- type: language
+  id: XenoCollectiveMind
+  priority: 0
+  uiColor: "#ba66ff"
+  speech: !type:CollectiveMind
+    color: "#ba66ff"
+    showRank: true
+    showName: false
+
+- type: language
+  id: SiliconCollectiveMind
+  priority: 0
+  uiColor: "#356bff"
+  speech: !type:CollectiveMind
+    color: "#356bff"
+    showRank: true
+    showName: false
+    font: Pixelizer
+    fontSize: 15
+
+- type: language
+  id: ChangelingCollectiveMind
+  priority: 0
+  uiColor: "#b61e19"
+  showUnderstood: false
+  speech: !type:CollectiveMind
+    color: "#b61e19"
+    showRank: false
+    showName: false
+    font: Specialelite
+    fontSize: 14

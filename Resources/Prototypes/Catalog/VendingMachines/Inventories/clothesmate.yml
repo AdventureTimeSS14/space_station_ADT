@@ -18,6 +18,13 @@
     ClothingBackpack: 5
     ClothingBackpackDuffel: 5
     ClothingBackpackSatchel: 3
+# ADT tweak gloves start
+    ADTClothingHandsCatPawsWhite: 3
+    ADTClothingHandsCatPawsBrown: 3
+    ADTClothingHandsCatPawsBlack: 3
+    ADTClothingHandsCatPawsBlackWhite: 3
+# ADT tweak gloves end
+
 # ADT сумки начало
     ADTClothingBackpackBlackLadySatchel: 2
     ADTClothingBackpackLeatherLadySatchel: 2
@@ -180,9 +187,17 @@
     ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
     ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
 # ADT водолазки конец
+# ADT Кожанки
+    ADTClothingOuterCoatLeathOvercoat: 1
+    ADTClothingOuterLeatherJacket: 1
+    ADTClothingOuterBikerJacket: 1
+# ADT Кожанки, все распродали :c
+
 # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1
-# DO NOT ADD MORE, USE UNIFORM DYING
+    ToyFigurinePassenger: 1
+    ToyFigurineGreytider: 1
+  # DO NOT ADD MORE, USE UNIFORM DYING

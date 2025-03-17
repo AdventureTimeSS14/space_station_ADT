@@ -89,7 +89,7 @@
 - type: polymorph
   id: ADTPolymorphBush
   configuration:
-    entity: FloraTree01
+    entity: FloraTree
     forced: true
     transferName: true
     allowRepeatedMorphs: False
@@ -101,7 +101,7 @@
 - type: polymorph
   id: ADTPolymorphBush2
   configuration:
-    entity: FloraTree01
+    entity: FloraTree
     forced: true
     transferName: true
     allowRepeatedMorphs: False

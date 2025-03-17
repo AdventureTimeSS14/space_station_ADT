@@ -13,6 +13,8 @@
     - alertType: Ensnared
     - category: Buckled
     - alertType: Pulling
+    - alertType: ADTPulling # ADT Grab
+    - alertType: ADTPulled  # ADT Grab
     - alertType: Walking
     - category: Piloting
     - alertType: Corporeal
@@ -27,6 +29,8 @@
     - alertType: Pacified
     - alertType: Crawling #ADT crawling
     - alertType: Chemicals # ADT Changeling
+    - alertType: Offer # ADT-Tweak
+
 - type: entity
   id: AlertSpriteView
   categories: [ HideSpawnMenu ]
@@ -93,6 +97,16 @@
   name: alerts-on-fire-name
   description: alerts-on-fire-desc
 
+# ADT-Tweak start
+- type: alert
+  id: Offer
+  clickEvent: !type:AcceptOfferAlertEvent
+  icons:
+  - sprite: /Textures/ADT/Alerts/offer_item.rsi
+    state: offer_item
+  name: alerts-offer-name
+  description: alerts-offer-desc
+# ADT-Tweak end
 
 - type: alert
   id: Cold
@@ -190,20 +204,22 @@
   id: HumanHealth
   category: Health
   icons:
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/human_alive.rsi #ADT tweak
     state: health0
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/human_alive.rsi #ADT tweak
     state: health1
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/human_alive.rsi #ADT tweak
     state: health2
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/human_alive.rsi #ADT tweak
     state: health3
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/ADT/Interface/Alerts/human_alive.rsi #ADT tweak
     state: health4
+  - sprite: /Textures/ADT/Interface/Alerts/human_alive.rsi #ADT tweak
+    state: health5 #ADT tweak
   name: alerts-health-name
   description: alerts-health-desc
   minSeverity: 0
-  maxSeverity: 4
+  maxSeverity: 5 #ADT tweak
 
 - type: alert
   id: BorgHealth

@@ -125,7 +125,7 @@
     sprintModifier: 0.9
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ADTBlueshieldSuit
   name: blueshield's hardsuit
   description: A rugged and mobile spacesuit for the lives of high-ranking members of Nanotrasen.
@@ -251,6 +251,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitDeathsquad
+  - type: DNALocker
+  - type: Unremoveable
 
 #Скафандры Киберсана
 - type: entity
@@ -361,3 +363,67 @@
     damageCoefficient: 0.1
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitSaibaSain
+
+# USSP USSP USSP USSP USSP USSP USSP USSP USSP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitOBS7USSP
+  name: USSP OBS-7 Konrad armor suit
+  description: OBS-7 "Konrad", stands for, Combined-Arms Armor-Suit Model 7, is a single combined-arms armor suit of the Konrad series, designed to provide high protection and mobility. This armor suit surpasses its predecessor in terms of mobility and protection from laser weapons, although it is significantly inferior in armor protection from small arms and explosions.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS7USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS7USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.8
+        Caustic: 0.75
+    staminaModifier: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitOBS7USSP
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitOBS5USSP
+  name: USSP OBS-5 Konrad armor suit
+  description: OBS-5 "Konrad", also known as the Combined-Arms Armor Suit Model 5, is a morally intimidating model of a single combined-arms armor suit of the Konrad series. This spacesuit was designed with high protection against small arms and explosions in mind.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS5USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/OBS5USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.8
+        Caustic: 0.75
+    staminaModifier: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitOBS5USSP
+
+# USSP USSP USSP USSP USSP USSP USSP USSP

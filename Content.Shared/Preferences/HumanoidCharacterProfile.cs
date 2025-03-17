@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
@@ -31,6 +32,7 @@ namespace Content.Shared.Preferences
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 96;    // ну тип ADT
+        public const int MaxLoadoutNameLength = 32;
         public const int MaxDescLength = 512;
 
         /// <summary>
@@ -111,6 +113,12 @@ namespace Content.Shared.Preferences
         // ADT Barks start
         public BarkData Bark = new();
         // ADT Barks end
+        // ADT Languages start
+        [DataField]
+        private HashSet<ProtoId<LanguagePrototype>> _languages = new();
+
+        public IReadOnlySet<ProtoId<LanguagePrototype>> Languages => _languages;
+        // ADT Languages end
 
         /// <summary>
         /// <see cref="_jobPriorities"/>
@@ -148,9 +156,10 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts,
-            // ADT Barks start
-            BarkData bark)
-            // ADT Barks end
+            // ADT start
+            BarkData bark,
+            HashSet<ProtoId<LanguagePrototype>> languages)
+            // ADT end
         {
             Name = name;
             FlavorText = flavortext;
@@ -166,9 +175,10 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-            // ADT Barks start
+            // ADT start
             Bark = bark;
-            // ADT Barks end
+            _languages = languages;
+            // ADT end
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -201,9 +211,10 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
-                // ADT Barks start
-                other.Bark)
-                // ADT Barks end
+                // ADT start
+                other.Bark,
+                other._languages)
+                // ADT end
         {
         }
 
@@ -223,9 +234,11 @@ namespace Content.Shared.Preferences
         /// <returns>Humanoid character profile with default settings.</returns>
         public static HumanoidCharacterProfile DefaultWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
         {
+            var proto = IoCManager.Resolve<IPrototypeManager>();    // ADT Languages
             return new()
             {
                 Species = species,
+                _languages = proto.Index<SpeciesPrototype>(species).DefaultLanguages.ToHashSet()    // ADT Languages
             };
         }
 
@@ -251,10 +264,12 @@ namespace Content.Shared.Preferences
 
             var sex = Sex.Unsexed;
             var age = 18;
+            HashSet<ProtoId<LanguagePrototype>> languages = new();  // ADT Languages
             if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
             {
                 sex = random.Pick(speciesPrototype.Sexes);
                 age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+                languages = speciesPrototype.DefaultLanguages.ToHashSet();  // ADT Languages
             }
 
             // Corvax-TTS-Start
@@ -287,6 +302,7 @@ namespace Content.Shared.Preferences
                 Species = species,
                 Voice = voiceId, // Corvax-TTS
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
+                _languages = languages,
             };
         }
 
@@ -535,6 +551,7 @@ namespace Content.Shared.Preferences
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
+            if (!_languages.SequenceEqual(other._languages)) return false;  // ADT Languages
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
             // ADT Barks start
@@ -720,6 +737,23 @@ namespace Content.Shared.Preferences
             {
                 _loadouts.Remove(value);
             }
+
+            // ADT start
+            if (_languages.Count <= 0)
+                _languages = new(speciesPrototype.DefaultLanguages);
+            List<ProtoId<LanguagePrototype>> langsInvalid = new();
+            foreach (var language in _languages)
+            {
+                if (!prototypeManager.Index(language).Roundstart && !speciesPrototype.UniqueLanguages.Contains(language))
+                    langsInvalid.Add(language);
+            }
+            foreach (var lang in langsInvalid)
+            {
+                _languages.Remove(lang);
+            }
+
+            GetQuirkPoints();
+            // ADT end
         }
 
         /// <summary>
@@ -849,5 +883,84 @@ namespace Content.Shared.Preferences
         {
             return new HumanoidCharacterProfile(this);
         }
+
+        // ADT start
+        public HumanoidCharacterProfile WithLanguage(ProtoId<LanguagePrototype> language)
+        {
+            var proto = IoCManager.Resolve<IPrototypeManager>();
+            var species = proto.Index(Species);
+            if (!proto.Index(language).Roundstart && !species.UniqueLanguages.Contains(language))
+                return new(this);
+            if (_languages.Contains(language))
+                return new(this);
+            if (_languages.Count >= species.MaxLanguages)
+                return new(this);
+
+            HashSet<ProtoId<LanguagePrototype>> list = new(_languages);
+            list.Add(language);
+
+            return new(this)
+            {
+                _languages = list,
+            };
+        }
+
+        public HumanoidCharacterProfile WithoutLanguage(ProtoId<LanguagePrototype> language)
+        {
+            var proto = IoCManager.Resolve<IPrototypeManager>();
+            var species = proto.Index(Species);
+            if (!proto.Index(language).Roundstart && !species.UniqueLanguages.Contains(language))
+                return new(this);
+            if (!_languages.Contains(language))
+                return new(this);
+            if (_languages.Count <= 1)
+                return new(this);
+
+            HashSet<ProtoId<LanguagePrototype>> list = new(_languages);
+            list.Remove(language);
+
+            return new(this)
+            {
+                _languages = list,
+            };
+        }
+
+        public bool CanToggleQuirk(TraitPrototype proto)
+        {
+            var protoMan = IoCManager.Resolve<IPrototypeManager>();
+            var list = TraitPreferences.Where(x => protoMan.Index(x).Quirk);
+
+            int points = 0;
+            foreach (var item in list)
+            {
+                points -= protoMan.Index(item).Cost;
+            }
+
+            if (list.Contains(proto.ID) && points + proto.Cost < 0)
+                return false;
+            else if (!list.Contains(proto.ID) && points < proto.Cost)
+                return false;
+
+            return true;
+        }
+
+        public int GetQuirkPoints()
+        {
+            var count = 0;
+            var proto = IoCManager.Resolve<IPrototypeManager>();
+            var quirks = TraitPreferences.Where(x => proto.Index(x).Quirk);
+            foreach (var item in quirks)
+            {
+                count += proto.Index(item).Cost;
+            }
+            if (count > 0)
+            {
+                _traitPreferences.Clear();
+                count = 0;
+            }
+
+            return -count;
+        }
+        // ADT end
     }
 }

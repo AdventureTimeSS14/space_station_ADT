@@ -78,6 +78,13 @@
     damage:
       groups:
         Brute: 6
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: Damageable
+    damageModifierSet: ADTXenoDamageSet
+  - type: Fauna
+  # End ADT
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -119,17 +126,14 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
-  - type: LanguageSpeaker # Frontier
-    speaks:
-    - Xeno
-    understands:
-    - Xeno
-  # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
-    channel: XenoCollectiveMind
-    showRank: true
+  # ADT tweak start
+  - type: LanguageSpeaker
+    languages:
+      Xeno: Speak
+      XenoCollectiveMind: Speak
+  - type: CollectiveMindRank
     rankName: collective-mind-burrower-rank
-  # ADT-CollectiveMind-Tweak-End
+  # ADT tweak end
 
 - type: entity
   name: praetorian
@@ -156,7 +160,9 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 8    
+        Brute: 8
+  - type: StaminaDamageOnHit
+    damage: 12
   # ADT End
   - type: Fixtures
     fixtures:
@@ -170,7 +176,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-praetorian-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -197,6 +203,10 @@
     damage:
       groups:
         Brute: 5 # ADT Tweak
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 15
+  # End ADT
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -211,7 +221,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-drone-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -221,15 +231,7 @@
   id: MobXenoQueen
   components:
   # ADT Start: Xeno buff
-  - type: XenoQeen # ADT Tweak: Способность спавнта турелей
-  - type: ActionGrant
-    actions:
-      - ActionSpawnMobXenoBurrower # Призыв обычного
-      - ActionSpawnMobXenoDrone # Призыв Дрона
-      - ActionSpawnMobXenoRunner # Призыв бегуна
-      - ActionSpawnMobXenoSpitter # Призыв Плевальщиков
-      - ActionSpawnMobXenoPraetorian # Призыв Преторианеца
-      - ActionSpawnMobXenoRavager # Призыв Разрушителя
+  - type: XenoQueen # ADT Tweak: Способности королевы
   #ADT End
   - type: Sprite
     drawdepth: Mobs
@@ -250,6 +252,10 @@
     damage:
      groups:
        Brute: 20 # ADT Tweak
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 35
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -265,7 +271,7 @@
     tags:
     - CannotSuicide
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-queen-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -294,6 +300,10 @@
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 45 # 60
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -306,7 +316,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-ravager-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -322,7 +332,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-    # ADT Start: Xeno buff    
+    # ADT Start: Xeno buff
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -334,6 +344,10 @@
     damage:
      groups:
        Brute: 5
+  # Start ADT: Xeno Buff
+  - type: StaminaDamageOnHit
+    damage: 5
+  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -346,7 +360,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-runner-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -365,7 +379,7 @@
     - id: FoodMeatRouny
       amount: 3
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-rouny-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -416,7 +430,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-spitter-rank
   # ADT-CollectiveMind-Tweak-End
 

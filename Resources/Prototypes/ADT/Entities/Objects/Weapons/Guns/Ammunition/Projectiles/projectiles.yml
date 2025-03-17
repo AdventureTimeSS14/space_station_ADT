@@ -158,3 +158,22 @@
     radius: 3.5
     color: orange
     energy: 0.5
+
+# Отдельный проджектайл для лазерного пистолета капитана
+
+- type: hitscan
+  id: ADTCapitanRedLaser
+  damage:
+    types:
+      Heat: 20
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
+# Конец отдельного проджектайтла.. НУ понятно корчое

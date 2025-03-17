@@ -88,6 +88,8 @@ public sealed class RadioSystem : EntitySystem
             return;
 
         var language = languageOverride ?? _language.GetCurrentLanguage(messageSource);
+        if (language.LanguageType is not Generic gen)
+            return;
 
         // var name = TryComp(messageSource, out VoiceMaskComponent? mask) && mask.Enabled
         //     ? mask.VoiceName
@@ -109,30 +111,48 @@ public sealed class RadioSystem : EntitySystem
             : message;
 
         // ADT Languages start
-        var languageEncodedContent = _language.ObfuscateMessage(messageSource, content, language);
+        var languageEncodedContent = _language.ObfuscateMessage(messageSource, content, gen.Replacement, gen.ObfuscateSyllables);
 
-        if (language.Color != null)
+        if (gen.Color != null)
         {
-            content = "[color=" + language.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(content) + "[/color]";
-            languageEncodedContent = "[color=" + language.Color.Value.ToHex().ToString() + "]" + FormattedMessage.EscapeText(languageEncodedContent) + "[/color]";
+            content = $"[color={gen.Color.Value.ToHex()}]{FormattedMessage.EscapeText(content)}[/color]";
+            languageEncodedContent = $"[color={gen.Color.Value.ToHex()}]{FormattedMessage.EscapeText(languageEncodedContent)}[/color]";
         }
+
+        List<string> verbStrings = speech.SpeechVerbStrings;
+        bool verbsReplaced = false;
+        foreach (var str in ILanguageType.SpeechSuffixes)
+        {
+            if (message.EndsWith(Loc.GetString(str)) && gen.SuffixSpeechVerbs.TryGetValue(str, out var strings) && strings.Count > 0)
+            {
+                verbStrings = strings;
+                verbsReplaced = true;
+            }
+        }
+
+        if (!verbsReplaced && gen.SuffixSpeechVerbs.TryGetValue("Default", out var defaultStrings) && defaultStrings.Count > 0)
+            verbStrings = defaultStrings;
         // ADT Languages end
 
-        var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
+        var wrappedMessage = Loc.GetString("chat-radio-message-wrap",   // ADT Languages tweak - remove bold
             ("color", channel.Color),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+            ("fontType", gen.Font ?? speech.FontId),    // ADT Languages tweak speech.FontId -> gen.Font ?? speech.FontId
+            ("fontSize", gen.FontSize ?? speech.FontSize),  // ADT Languages tweak speech.FontSize -> gen.FontSize ?? speech.FontSize
+            ("verb", Loc.GetString(_random.Pick(verbStrings))), // ADT Languages speech.SpeechVerbStrings -> verbStrings
+            ("defaultFont", speech.FontId), // ADT Languages
+            ("defaultSize", speech.FontSize),   // ADT Languages
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),
             ("message", content));
 
         // ADT Languages start
-        var wrappedEncodedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
+        var wrappedEncodedMessage = Loc.GetString("chat-radio-message-wrap",
             ("color", channel.Color),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+            ("fontType", gen.Font ?? speech.FontId),
+            ("fontSize", gen.FontSize ?? speech.FontSize),
+            ("verb", Loc.GetString(_random.Pick(verbStrings))),
+            ("defaultFont", speech.FontId),
+            ("defaultSize", speech.FontSize),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),
             ("message", languageEncodedContent));

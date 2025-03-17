@@ -427,6 +427,17 @@
     - Bartender
 
 - type: listing
+  id: ADTUplinkGameAntagCard
+  name: uplink-agent-game-visit-card-name
+  description: uplink-agent-game-visit-card-desc
+  icon: { sprite: ADT/Objects/Specific/Service/agent_game_visit_card.rsi, state: icon}
+  productEntity: ADTGameAntagCard
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: ADTuplinkExplosivePizzabox
   name: uplink-explosive-pizzabox-name
   description: uplink-explosive-pizzabox-desc
@@ -493,7 +504,7 @@
   icon:
     sprite: Objects/Vehicles/syndicatesegway.rsi
     state: vehicle
-  productEntity: ADTVehicleSyndicateSegway
+  productEntity: ADTCrateFunSyndicateSegway # ADT-Tweak (сегвей был без коробки и ключей)
   cost:
     Telecrystal: 5
   categories:
@@ -573,6 +584,22 @@
   categories:
     - UplinkWearables
 
+# Отключено до починки импланта
+# - type: listing
+#   id: ADTUplinkGFFImplant
+#   name: uplink-GFF-name
+#   description: uplink-GFF-desc
+#   productEntity: ADTGorlaxFriendlyFireImplanter
+#   cost:
+#     Telecrystal: 15
+#   categories:
+#   - UplinkImplants
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     whitelist:
+#       tags:
+#       - NukeOpsUplink
+
 - type: listing
   id: ADTUplinkInvisibleCloak
   name: uplink-invisible-cloak-name
@@ -627,3 +654,73 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+
+- type: listing
+  id: ADTUplinkMiniatureEnergyCrossbow
+  name: uplink-miniature-energy-crossbow-name
+  description: uplink-miniature-energy-crossbow-desc
+  icon: { sprite:  /Textures/ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+  productEntity: ADTWeaponMiniatureEnergyCrossbow
+  cost:
+    Telecrystal: 9
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkSleepingCarp
+  name: uplink-agent-sleepint-carp-name
+  description: uplink-agent-sleepint-carp-desc
+  productEntity: ADTScrollSleepingCarp
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: ADTUplinkcqc
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: ADTCqcManual
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: ADTUplinkModulesMod
+  name: uplink-mod-modules-name
+  description: uplink-mod-modules-description
+  icon: { sprite: /Textures/ADT/Objects/Specific/Modsuits/modules.rsi, state: power_kick }
+  productEntity: ADTClothingBackpackDuffelSyndieMod
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: ADTUplinkModsuit
+  name: uplink-mod-name
+  description: uplink-mod-description
+  icon: { sprite: /Textures/ADT/Clothing/Back/Modsuit/syndicate.rsi, state: icon }
+  productEntity: ADTClothingModsuitBackSyndicate
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables

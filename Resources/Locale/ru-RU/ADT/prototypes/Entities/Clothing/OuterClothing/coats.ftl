@@ -1,13 +1,20 @@
 ent-ADTClothingOuterCoatLabPathologist = лабораторный халат патологоанатома
     .desc = { ent-ClothingOuterCoatLab.desc }
-    
+
 ent-ADTClothingOuterCoatLabPathologistOpened = лабораторный халат патологоанатома
     .desc = { ent-ClothingOuterCoatLab.desc }
     .suffix = {"Раскрытый"}
-    
+
+ent-ADTClothingOuterCoatLabPathologist_alt = чёрный лабораторный халат патологоанатома
+    .desc = { ent-ClothingOuterCoatLab.desc }
+
+ent-ADTClothingOuterCoatLabPathologistOpened_alt = чёрный лабораторный халат патологоанатома
+    .desc = { ent-ClothingOuterCoatLab.desc }
+    .suffix = {"Раскрытый"}
+
 ent-ADTClothingOuterApronPathologist = фартук патологоанатома
     .desc = Фартук для работы с трупами.
-    
+
 ent-ADTClothingKadet = шинель для Кадетов сб
     .desc = шинель, сшитая для новобранцев службы безопасности. Она очень похожа на шинели младших чинов РИА
 
@@ -55,3 +62,17 @@ ent-ADTClothingOuterCoatLabcoatCMOHike = походный халат Главн�
 ent-ADTClothingOuterCoatLabcoatCMOHikeOpened = походный халат Главного врача
     .desc = Частично открытый халат. Не сковывает движения.
     .suffix = {"Раскрытый"}
+
+
+ent-ADTClothingOuterLeatherJacket = кожанная куртка
+    .desc = Причёска «Помпадур» в комплект не входит.
+
+ent-ADTClothingOuterCoatLeathOvercoat = кожанный плащ
+    .desc = Прочный плащ из грубой кожи.
+
+ent-ADTClothingOuterCoatLeathOvercoatOpened = кожанный плащ
+    .desc = Прочный плащ из грубой кожи.
+    .suffix = {"Раскрытый"}
+
+ent-ADTClothingOuterBikerJacket = косуха
+    .desc = Плохой до мозга костей!

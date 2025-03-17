@@ -19,6 +19,7 @@ using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared.ADT.SpeechBarks;
+using Content.Shared.ADT.Language;
 
 namespace Content.Shared.Humanoid;
 
@@ -38,6 +39,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
@@ -141,6 +143,34 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         SetLayerVisibility(uid, humanoid, layer, visible, permanent, ref dirty);
         if (dirty)
             Dirty(uid, humanoid);
+    }
+
+    /// <summary>
+    ///     Clones a humanoid's appearance to a target mob, provided they both have humanoid components.
+    /// </summary>
+    /// <param name="source">Source entity to fetch the original appearance from.</param>
+    /// <param name="target">Target entity to apply the source entity's appearance to.</param>
+    /// <param name="sourceHumanoid">Source entity's humanoid component.</param>
+    /// <param name="targetHumanoid">Target entity's humanoid component.</param>
+    public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
+        HumanoidAppearanceComponent? targetHumanoid = null)
+    {
+        if (!Resolve(source, ref sourceHumanoid) || !Resolve(target, ref targetHumanoid))
+            return;
+
+        targetHumanoid.Species = sourceHumanoid.Species;
+        targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
+        targetHumanoid.EyeColor = sourceHumanoid.EyeColor;
+        targetHumanoid.Age = sourceHumanoid.Age;
+        SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
+        targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
+        targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
+
+        targetHumanoid.Gender = sourceHumanoid.Gender;
+        if (TryComp<GrammarComponent>(target, out var grammar))
+            grammar.Gender = sourceHumanoid.Gender;
+
+        Dirty(target, targetHumanoid);
     }
 
     /// <summary>
@@ -390,7 +420,18 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
-        SetBarkData(uid, profile.Bark, humanoid); // ADT Barks
+        // ADT Start
+        SetBarkData(uid, profile.Bark, humanoid);
+        SetLanguages(uid, profile.Languages.ToList());
+        var species = _proto.Index(humanoid.Species);
+        species.ForceLanguages.ForEach(x =>
+        {
+            var lang = Comp<LanguageSpeakerComponent>(uid);
+            if (!lang.Languages.ContainsKey(x))
+                lang.Languages.Add(x, LanguageKnowledge.Speak);
+        });
+        // ADT End
+
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
@@ -484,7 +525,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     }
     // Corvax-TTS-End
 
-    // ADT Barks start
+    // ADT start
     public void SetBarkData(EntityUid uid, BarkData data, HumanoidAppearanceComponent humanoid)
     {
         if (!TryComp<SpeechBarksComponent>(uid, out var comp))
@@ -494,7 +535,17 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         comp.Data.Sound = _proto.Index(comp.Data.Proto).Sound;
         humanoid.Bark = data;
     }
-    // ADT Barks end
+
+    public void SetLanguages(EntityUid uid, List<ProtoId<LanguagePrototype>> languages)
+    {
+        var languageSpeaker = EnsureComp<LanguageSpeakerComponent>(uid);
+        languageSpeaker.Languages.Clear();
+
+        languages.ForEach(x => languageSpeaker.Languages.Add(x.ToString(), LanguageKnowledge.Speak));
+        _language.SelectDefaultLanguage(uid);
+        _language.UpdateUi(uid);
+    }
+    // ADT end
 
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.

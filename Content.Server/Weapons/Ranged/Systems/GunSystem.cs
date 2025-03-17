@@ -171,10 +171,27 @@ public sealed partial class GunSystem : SharedGunSystem
                         for (var reflectAttempt = 0; reflectAttempt < 3; reflectAttempt++)
                         {
                             var ray = new CollisionRay(from.Position, dir, hitscan.CollisionMask);
-                            var rayCastResults =
-                                Physics.IntersectRay(from.MapId, ray, hitscan.MaxLength, lastUser, false).ToList();
-                            if (!rayCastResults.Any())
+                            // ADT TornadoTech Tweak start
+                            // var rayCastResults =
+                            //     Physics.IntersectRay(from.MapId, ray, hitscan.MaxLength, lastUser, false).ToList();
+                            // if (!rayCastResults.Any())
+                            //     break;
+                            var rayCastResults = new List<RayCastResults>();
+
+                            foreach (var rayCastResult in Physics.IntersectRay(from.MapId, ray, hitscan.MaxLength, lastUser, false))
+                            {
+                                var attemptEvent = new HitScanHitAttemptEvent(user, rayCastResult.HitEntity, gunUid);
+                                RaiseLocalEvent(rayCastResult.HitEntity, attemptEvent);
+
+                                if (attemptEvent.Cancelled)
+                                    continue;
+
+                                rayCastResults.Add(rayCastResult);
+                            }
+
+                            if (rayCastResults.Count == 0)
                                 break;
+                            // ADT TornadoTech Tweak end
 
                             var result = rayCastResults[0];
 
@@ -241,7 +258,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
                         var hitName = ToPrettyString(hitEntity);
                         if (dmg != null)
-                            dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);
+                            dmg = Damageable.TryChangeDamage(hitEntity, dmg * Damageable.UniversalHitscanDamageModifier, origin: user);
 
                         // ADT hitscan bloodloss modifiers start
                         if (hitscan.BloodlossModifier.HasValue)
@@ -281,10 +298,10 @@ public sealed partial class GunSystem : SharedGunSystem
                     // ADT Mech start
                     if (TryComp<MechComponent>(user, out var hmech))
                     {
-                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, hmech.PilotSlot.ContainedEntity);
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, hmech.PilotSlot.ContainedEntity);
                     }
                     else
-                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     // ADT Mech end
                     break;
                 default:
@@ -434,28 +451,28 @@ public sealed partial class GunSystem : SharedGunSystem
     // TODO: Pseudo RNG so the client can predict these.
     #region Hitscan effects
 
-    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle mapDirection, HitscanPrototype hitscan, EntityUid? hitEntity = null)
+    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle angle, HitscanPrototype hitscan, EntityUid? hitEntity = null)
     {
         // Lord
         // Forgive me for the shitcode I am about to do
         // Effects tempt me not
         var sprites = new List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier sprite, float scale)>();
-        var gridUid = fromCoordinates.GetGridUid(EntityManager);
-        var angle = mapDirection;
+        var fromXform = Transform(fromCoordinates.EntityId);
 
         // We'll get the effects relative to the grid / map of the firer
         // Look you could probably optimise this a bit with redundant transforms at this point.
-        var xformQuery = GetEntityQuery<TransformComponent>();
 
-        if (xformQuery.TryGetComponent(gridUid, out var gridXform))
+        var gridUid = fromXform.GridUid;
+        if (gridUid != fromCoordinates.EntityId && TryComp(gridUid, out TransformComponent? gridXform))
         {
-            var (_, gridRot, gridInvMatrix) = TransformSystem.GetWorldPositionRotationInvMatrix(gridXform, xformQuery);
-
-            fromCoordinates = new EntityCoordinates(gridUid.Value,
-                Vector2.Transform(fromCoordinates.ToMapPos(EntityManager, TransformSystem), gridInvMatrix));
-
-            // Use the fallback angle I guess?
+            var (_, gridRot, gridInvMatrix) = TransformSystem.GetWorldPositionRotationInvMatrix(gridXform);
+            var map = _transform.ToMapCoordinates(fromCoordinates);
+            fromCoordinates = new EntityCoordinates(gridUid.Value, Vector2.Transform(map.Position, gridInvMatrix));
             angle -= gridRot;
+        }
+        else
+        {
+            angle -= _transform.GetWorldRotation(fromXform);
         }
 
         if (distance >= 1f)

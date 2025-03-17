@@ -15,6 +15,11 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  # ADT Research Console Rework start
+  position: 2,-1
+  requiredTech:
+  - AdvancedEntertainment
+  # ADT Research Console Rework end
 
 - type: technology
   id: CritterMechs
@@ -22,7 +27,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: hamtr
-  discipline: CivilianServices
+  discipline: Mech # ADT CivilianServices -> Mech
   tier: 1
   cost: 7500
   recipeUnlocks:
@@ -35,6 +40,11 @@
   - HamtrPeripheralsElectronics
   - MechEquipmentGrabberSmall
   - VimHarness
+  # ADT Research Console Rework start
+  position: 0,-1
+  requiredTech:
+  - RipleyAPLU
+  # ADT Research Console Rework end
 
 - type: technology
   id: AudioVisualCommunication
@@ -53,6 +63,12 @@
   - SurveillanceCameraMonitorCircuitboard
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
+  - HolopadMachineCircuitboard
+  # ADT Research Console Rework start
+  position: 4,-1
+  requiredTech:
+  - AdvancedEntertainment
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedEntertainment
@@ -69,6 +85,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+  position: 3,0 # ADT Research Console Rework
 
 - type: technology
   id: RoboticCleanliness
@@ -81,6 +98,11 @@
   cost: 5000
   recipeUnlocks:
   - BorgModuleAdvancedCleaning
+  # ADT Research Console Rework start
+  position: 2,0
+  requiredTech:
+  - AdvancedEntertainment
+  # ADT Research Console Rework end
 
 - type: technology
   id: MeatManipulation
@@ -95,6 +117,11 @@
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  # ADT Research Console Rework start
+  position: 2,-2
+  requiredTech:
+  - Hydroponics
+  # ADT Research Console Rework end
 
 # Tier 2
 
@@ -113,6 +140,12 @@
   - FauxTileJungleAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
+  - FauxTileAstroAsteroidSand
+  # ADT Research Console Rework start
+  position: 4,0
+  requiredTech:
+  - AdvancedEntertainment
+  # ADT Research Console Rework end
 
 - type: technology
   id: BiochemicalStasis
@@ -128,6 +161,11 @@
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
+  # ADT Research Console Rework start
+  position: 1,2
+  requiredTech:
+  - ADTCloning
+  # ADT Research Console Rework end
 
 - type: technology
   id: MechanizedTreatment
@@ -141,6 +179,11 @@
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
   - BorgModuleDefibrillator
+  # ADT Research Console Rework start
+  position: 4,1
+  requiredTech:
+  - ADTMedicalMODsuit
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedCleaning
@@ -154,6 +197,11 @@
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
+  # ADT Research Console Rework start
+  position: 2,1
+  requiredTech:
+  - RoboticCleanliness
+  # ADT Research Console Rework end
 
 - type: technology
   id: HONKMech
@@ -161,7 +209,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: honker
-  discipline: CivilianServices
+  discipline: Mech # ADT CivilianServices -> Mech
   tier: 2
   cost: 7500
   recipeUnlocks:
@@ -174,6 +222,11 @@
   - HonkerPeripheralsElectronics
   - HonkerTargetingElectronics
   - MechEquipmentHorn
+  # ADT Research Console Rework start
+  position: 0,1
+  requiredTech:
+  - RipleyAPLU
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedSpray
@@ -187,6 +240,11 @@
   recipeUnlocks:
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
+  # ADT Research Console Rework start
+  position: 1,0
+  requiredTech:
+  - AdvancedCleaning
+  # ADT Research Console Rework end
 
 - type: technology
   id: BluespaceCargoTransport
@@ -199,6 +257,12 @@
   cost: 15000
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
+  # ADT Research Console Rework start
+  position: 3,4
+  requiredTech:
+  - BasicTranslation
+  - ADTCloning
+  # ADT Research Console Rework end
 
 # Tier 3
 
@@ -213,6 +277,11 @@
   cost: 10000
   recipeUnlocks:
   - ClothingShoesBootsSpeed
+  # ADT Research Console Rework start
+  position: 3,5
+  requiredTech:
+  - BluespaceCargoTransport
+  # ADT Research Console Rework end
 
 - type: technology
   id: BluespaceChemistry
@@ -226,3 +295,8 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  # ADT Research Console Rework start
+  position: 1,3
+  requiredTech:
+  - ADTCloning
+  # ADT Research Console Rework end

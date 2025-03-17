@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made from not_so_big_chungus",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "spent"
+        },
+        {
+            "name": "he"
+        },
+        {
+            "name": "ap"
+        },
+        {
+            "name": "emp"
+        },
+        {
+            "name": "ap-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "ap-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "he-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "he-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "emp-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "emp-inhand-right",
+            "directions": 4
+        }
+    ]
+}
