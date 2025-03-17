@@ -15,6 +15,9 @@
       - ADTFloorWoodChess
   - type: Stack
     stackType: ADTFloorWoodChessStack
+  - type: Construction
+    graph: ADTTileWoodChess
+    node: ADTTileWoodChess
 
 - type: entity
   name: floor black wood chess
@@ -33,6 +36,9 @@
       - ADTFloorWoodBlackChess
   - type: Stack
     stackType: ADTFloorWoodBlackChessStack
+  - type: Construction
+    graph: ADTTileWoodBlackChess
+    node: ADTTileWoodBlackChess
 
 - type: entity
   name: floor dark wood chess
@@ -51,6 +57,9 @@
       - ADTFloorWoodDarkChess
   - type: Stack
     stackType: ADTFloorWoodDarkChessStack
+  - type: Construction
+    graph: ADTTileWoodDarkChess
+    node: ADTTileWoodDarkChess
 
 - type: entity
   name: floor light wood chess
@@ -69,6 +78,9 @@
       - ADTFloorWoodLightChess
   - type: Stack
     stackType: ADTFloorWoodLightChessStack
+  - type: Construction
+    graph: ADTTileWoodLightChess
+    node: ADTTileWoodLightChess
 
 - type: entity
   name: floor red wood chess
@@ -87,3 +99,321 @@
       - ADTFloorWoodRedChess
   - type: Stack
     stackType: ADTFloorWoodRedChessStack
+  - type: Construction
+    graph: ADTTileWoodRedChess
+    node: ADTTileWoodRedChess
+
+- type: entity
+  name: floor wood
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWood
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWood
+  - type: Stack
+    stackType: ADTFloorWoodStack
+  - type: Construction
+    graph: ADTTileWood
+    node: ADTTileWood
+
+- type: entity
+  name: floor wood black
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodBlack
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_black
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_black
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodBlack
+  - type: Stack
+    stackType: ADTFloorWoodStack
+  - type: Construction
+    graph: ADTTileWoodBlack
+    node: ADTTileWoodBlack
+
+- type: entity
+  name: floor wood dark
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodDark
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_dark
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodDark
+  - type: Stack
+    stackType: ADTFloorWoodDarkStack
+  - type: Construction
+    graph: ADTTileWoodDark
+    node: ADTTileWoodDark
+
+- type: entity
+  name: floor wood light
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodLight
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_light
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_light
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodLight
+  - type: Stack
+    stackType: ADTFloorWoodLigntStack
+  - type: Construction
+    graph: ADTTileWoodLight
+    node: ADTTileWoodLight
+
+- type: entity
+  name: floor wood red
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodRed
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_red
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloor.rsi
+    state: wood_red
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodRed
+  - type: Stack
+    stackType: ADTFloorWoodRedStack
+  - type: Construction
+    graph: ADTTileWoodRed
+    node: ADTTileWoodRed
+
+- type: entity
+  name: floor wood large
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodLarge
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodLarge
+  - type: Stack
+    stackType: ADTFloorWoodLargeStack
+  - type: Construction
+    graph: ADTTileWoodLarge
+    node: ADTTileWoodLarge
+
+- type: entity
+  name: floor wood black large
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodBlackLarge
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_black
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_black
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodBlackLarge
+  - type: Stack
+    stackType: ADTFloorWoodBlackLargeStack
+  - type: Construction
+    graph: ADTTileWoodBlackLarge
+    node: ADTTileWoodBlackLarge
+
+- type: entity
+  name: floor wood dark large
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodDarkLarge
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_dark
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodDarkLarge
+  - type: Stack
+    stackType: ADTFloorWoodDarkLargeStack
+  - type: Construction
+    graph: ADTTileWoodDarkLarge
+    node: ADTTileWoodDarkLarge
+
+- type: entity
+  name: floor wood light large
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodLightLarge
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_light
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_light
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodLightLarge
+  - type: Stack
+    stackType: ADTFloorWoodLightLargeStack
+  - type: Construction
+    graph: ADTTileWoodLightLarge
+    node: ADTTileWoodLightLarge
+
+- type: entity
+  name: floor wood red large
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodRedLarge
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_red
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_large_red
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodRedLarge
+  - type: Stack
+    stackType: ADTFloorWoodRedLargeStack
+  - type: Construction
+    graph: ADTTileWoodRedLarge
+    node: ADTTileWoodRedLarge
+
+- type: entity
+  name: floor wood parquet
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodParquet
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodParquet
+  - type: Stack
+    stackType: ADTFloorWoodParquetStack
+  - type: Construction
+    graph: ADTTileWoodParquet
+    node: ADTTileWoodParquet
+
+- type: entity
+  name: floor wood black parquet
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodBlackParquet
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet_black
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet_black
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodBlackParquet
+  - type: Stack
+    stackType: ADTFloorWoodBlackParquetStack
+  - type: Construction
+    graph: ADTTileWoodBlackParquet
+    node: ADTTileWoodBlackParquet
+
+- type: entity
+  name: floor wood dark parquet
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodDarkParquet
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet_dark
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorlarge.rsi
+    state: wood_parquet_dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodDarkParquet
+  - type: Stack
+    stackType: ADTFloorWoodDarkParquetStack
+  - type: Construction
+    graph: ADTTileWoodDarkParquet
+    node: ADTTileWoodDarkParquet
+
+- type: entity
+  name: floor wood light parquet
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodLightParquet
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet_light
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet_light
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodLightParquet
+  - type: Stack
+    stackType: ADTFloorWoodLightParquetStack
+  - type: Construction
+    graph: ADTTileWoodLightParquet
+    node: ADTTileWoodLightParquet
+
+- type: entity
+  name: floor wood red parquet
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodRedParquet
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet_red
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorparquet.rsi
+    state: wood_parquet_red
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodRedParquet
+  - type: Stack
+    stackType: ADTFloorWoodRedParquetStack
+  - type: Construction
+    graph: ADTTileWoodRedParquet
+    node: ADTTileWoodRedParquet

@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wood"
+        },
+        {
+            "name": "wood_black"
+        },
+        {
+            "name": "wood_dark"
+        },
+        {
+            "name": "wood_light"
+        },
+        {
+            "name": "wood_red"
+        }
+    ]
+}

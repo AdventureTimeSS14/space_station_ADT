@@ -1,0 +1,219 @@
+- type: construction
+  name: wood floor
+  id: ADTTileWood
+  graph: ADTTileWood
+  startNode: start
+  targetNode: ADTTileWood
+  category: construction-category-tiles
+  description: "Four pieces of wooden station flooring."
+  icon: { sprite: ADT/Objects/Misc/woodfloor.rsi, state: wood }
+  objectType: Item
+
+- type: construction
+  name: black wood floor
+  id: ADTTileWoodBlack
+  graph: ADTTileWoodBlack
+  startNode: start
+  targetNode: ADTTileWoodBlack
+  category: construction-category-tiles
+  description: "Four pieces of black wooden station flooring."
+  icon: { sprite: ADT/Objects/Misc/woodfloor.rsi, state: wood_black }
+  objectType: Item
+
+- type: construction
+  name: dark wood floor
+  id: ADTTileWoodDark
+  graph: ADTTileWoodDark
+  startNode: start
+  targetNode: ADTTileWoodDark
+  category: construction-category-tiles
+  description: "Four pieces of dark wooden station flooring."
+  icon: { sprite: ADT/Objects/Misc/woodfloor.rsi, state: wood_dark }
+  objectType: Item
+
+- type: construction
+  name: light wood floor
+  id: ADTTileWoodLight
+  graph: ADTTileWoodLight
+  startNode: start
+  targetNode: ADTTileWoodLight
+  category: construction-category-tiles
+  description: "Four pieces of light wooden station flooring."
+  icon: { sprite: ADT/Objects/Misc/woodfloor.rsi, state: wood_light }
+  objectType: Item
+
+- type: construction
+  name: red wood floor
+  id: ADTTileWoodRed
+  graph: ADTTileWoodRed
+  startNode: start
+  targetNode: ADTTileWoodRed
+  category: construction-category-tiles
+  description: "Four pieces of wooden station flooring."
+  icon: { sprite: ADT/Objects/Misc/woodfloor.rsi, state: wood_red }
+  objectType: Item
+
+- type: construction
+  name: floor wood chess
+  id: ADTTileWoodChess
+  graph: ADTTileWoodChess
+  startNode: start
+  targetNode: ADTTileWoodChess
+  category: construction-category-tiles
+  description: "Wood chess floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorchess.rsi, state: wood_chess }
+  objectType: Item
+
+- type: construction
+  name: floor black wood chess
+  id: ADTTileWoodBlackChess
+  graph: ADTTileWoodBlackChess
+  startNode: start
+  targetNode: ADTTileWoodBlackChess
+  category: construction-category-tiles
+  description: "Black wood chess floour."
+  icon: { sprite: ADT/Objects/Misc/woodfloorchess.rsi, state: wood_chess_black }
+  objectType: Item
+
+- type: construction
+  name: floor dark wood chess
+  id: ADTTileWoodDarkChess
+  graph: ADTTileWoodDarkChess
+  startNode: start
+  targetNode: ADTTileWoodDarkChess
+  category: construction-category-tiles
+  description: "Dark wood chess floour."
+  icon: { sprite: ADT/Objects/Misc/woodfloorchess.rsi, state: wood_chess_dark }
+  objectType: Item
+
+- type: construction
+  name: floor light wood chess
+  id: ADTTileWoodLightChess
+  graph: ADTTileWoodLightChess
+  startNode: start
+  targetNode: ADTTileWoodLightChess
+  category: construction-category-tiles
+  description: "Light wood chess floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorchess.rsi, state: wood_chess_light }
+  objectType: Item
+
+- type: construction
+  name: floor red wood chess
+  id: ADTTileWoodRedChess
+  graph: ADTTileWoodRedChess
+  startNode: start
+  targetNode: ADTTileWoodRedChess
+  category: construction-category-tiles
+  description: "Red wood chess floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorchess.rsi, state: wood_chess_red }
+  objectType: Item
+
+- type: construction
+  name: wood large floor
+  id: ADTTileWoodLarge
+  graph: ADTTileWoodLarge
+  startNode: start
+  targetNode: ADTTileWoodLarge
+  category: construction-category-tiles
+  description: "Wood large floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorlarge.rsi, state: wood_large }
+  objectType: Item
+
+- type: construction
+  name: black wood large floor
+  id: ADTTileWoodBlackLarge
+  graph: ADTTileWoodBlackLarge
+  startNode: start
+  targetNode: ADTTileWoodBlackLarge
+  category: construction-category-tiles
+  description: "Black wood large floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorlarge.rsi, state: wood_large_black }
+  objectType: Item
+
+- type: construction
+  name: dark wood large floor
+  id: ADTTileWoodDarkLarge
+  graph: ADTTileWoodDarkLarge
+  startNode: start
+  targetNode: ADTTileWoodDarkLarge
+  category: construction-category-tiles
+  description: "Dark wood large floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorlarge.rsi, state: wood_large_dark }
+  objectType: Item
+
+- type: construction
+  name: light wood large floor
+  id: ADTTileWoodLightLarge
+  graph: ADTTileWoodLightLarge
+  startNode: start
+  targetNode: ADTTileWoodLightLarge
+  category: construction-category-tiles
+  description: "Light wood large floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorlarge.rsi, state: wood_large_light }
+  objectType: Item
+
+- type: construction
+  name: red wood large floor
+  id: ADTTileWoodRedLarge
+  graph: ADTTileWoodRedLarge
+  startNode: start
+  targetNode: ADTTileWoodRedLarge
+  category: construction-category-tiles
+  description: "Red wood large floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorlarge.rsi, state: wood_large_red }
+  objectType: Item
+
+- type: construction
+  name: wood parquet floor
+  id: ADTTileWoodParquet
+  graph: ADTTileWoodParquet
+  startNode: start
+  targetNode: ADTTileWoodParquet
+  category: construction-category-tiles
+  description: "Wood parquet floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorparquet.rsi, state: wood_parquet }
+  objectType: Item
+
+- type: construction
+  name: black wood parquet floor
+  id: ADTTileWoodBlackParquet
+  graph: ADTTileWoodBlackParquet
+  startNode: start
+  targetNode: ADTTileWoodBlackParquet
+  category: construction-category-tiles
+  description: "Black wood parquet floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorparquet.rsi, state: wood_parquet_black }
+  objectType: Item
+
+- type: construction
+  name: dark wood parquet floor
+  id: ADTTileWoodDarkParquet
+  graph: ADTTileWoodDarkParquet
+  startNode: start
+  targetNode: ADTTileWoodDarkParquet
+  category: construction-category-tiles
+  description: "Dark wood parquet floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorparquet.rsi, state: wood_parquet_dark }
+  objectType: Item
+
+- type: construction
+  name: light wood parquet floor
+  id: ADTTileWoodLightParquet
+  graph: ADTTileWoodLightParquet
+  startNode: start
+  targetNode: ADTTileWoodLightParquet
+  category: construction-category-tiles
+  description: "Light wood parquet floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorparquet.rsi, state: wood_parquet_light }
+  objectType: Item
+
+- type: construction
+  name: red wood parquet floor
+  id: ADTTileWoodRedParquet
+  graph: ADTTileWoodRedParquet
+  startNode: start
+  targetNode: ADTTileWoodRedParquet
+  category: construction-category-tiles
+  description: "Red wood parquet floor."
+  icon: { sprite: ADT/Objects/Misc/woodfloorparquet.rsi, state: wood_parquet_red }
+  objectType: Item

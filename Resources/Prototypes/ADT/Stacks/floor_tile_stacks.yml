@@ -18,12 +18,102 @@
 
 - type: stack
   id: ADTFloorWoodLightChessStack
-  name: wood chess tile
+  name: light wood chess tile
   spawn: ADTFloorTileItemWoodLightChess
   maxCount: 30
 
 - type: stack
   id: ADTFloorWoodRedChessStack
-  name: wood chess tile
+  name: red wood chess tile
   spawn: ADTFloorTileItemWoodRedChess
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodStack
+  name: wood tile
+  spawn: ADTFloorTileItemWood
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodBlackStack
+  name: black wood tile
+  spawn: ADTFloorTileItemWoodBlack
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodDarkStack
+  name: dark wood tile
+  spawn: ADTFloorTileItemWoodDark
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodLigntStack
+  name: lignt wood tile
+  spawn: ADTFloorTileItemWoodLignt
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodRedStack
+  name: red wood tile
+  spawn: ADTFloorTileItemWoodRed
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodLargeStack
+  name: wood large tile
+  spawn: ADTFloorTileItemWoodLarge
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodBlackLargeStack
+  name: black wood large tile
+  spawn: ADTFloorTileItemWoodBlackLarge
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodDarkLargeStack
+  name: dark wood large tile
+  spawn: ADTFloorTileItemWoodDarkLarge
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodLightLargeStack
+  name: light wood large tile
+  spawn: ADTFloorTileItemWoodLightLarge
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodRedLargeStack
+  name: red wood large tile
+  spawn: ADTFloorTileItemWoodRedLarge
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodParquetStack
+  name: wood parquet tile
+  spawn: ADTFloorTileItemWoodParquet
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodBlackParquetStack
+  name: wood tile
+  spawn: ADTFloorTileItemWoodBlackParquet
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodDarkParquetStack
+  name: wood tile
+  spawn: ADTFloorTileItemWoodDarkParquet
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodLightParquetStack
+  name: wood tile
+  spawn: ADTFloorTileItemWoodLightParquet
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodRedParquetStack
+  name: wood tile
+  spawn: ADTFloorTileItemWoodRedParquet
   maxCount: 30
