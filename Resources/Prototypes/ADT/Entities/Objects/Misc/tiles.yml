@@ -1,0 +1,89 @@
+- type: entity
+  name: floor wood chess
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodChess
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodChess
+  - type: Stack
+    stackType: ADTFloorWoodChessStack
+
+- type: entity
+  name: floor black wood chess
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodBlackChess
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_black
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_black
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodBlackChess
+  - type: Stack
+    stackType: ADTFloorWoodBlackChessStack
+
+- type: entity
+  name: floor dark wood chess
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodDarkChess
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_dark
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodDarkChess
+  - type: Stack
+    stackType: ADTFloorWoodDarkChessStack
+
+- type: entity
+  name: floor light wood chess
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodLightChess
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_light
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_light
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodLightChess
+  - type: Stack
+    stackType: ADTFloorWoodLightChessStack
+
+- type: entity
+  name: floor red wood chess
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemWoodRedChess
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_red
+  - type: Item
+    sprite: ADT/Objects/Misc/woodfloorchess.rsi
+    state: wood_chess_red
+  - type: FloorTile
+    outputs:
+      - Plating
+      - ADTFloorWoodRedChess
+  - type: Stack
+    stackType: ADTFloorWoodRedChessStack

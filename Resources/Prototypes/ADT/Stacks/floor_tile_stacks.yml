@@ -1,0 +1,29 @@
+- type: stack
+  id: ADTFloorWoodChessStack
+  name: wood chess tile
+  spawn: ADTFloorTileItemWoodChess
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodBlackChessStack
+  name: black wood chess tile
+  spawn: ADTFloorTileItemWoodBlackChess
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodDarkChessStack
+  name: dark wood chess tile
+  spawn: ADTFloorTileItemWoodDarkChess
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodLightChessStack
+  name: wood chess tile
+  spawn: ADTFloorTileItemWoodLightChess
+  maxCount: 30
+
+- type: stack
+  id: ADTFloorWoodRedChessStack
+  name: wood chess tile
+  spawn: ADTFloorTileItemWoodRedChess
+  maxCount: 30
