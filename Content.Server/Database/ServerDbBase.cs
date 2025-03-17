@@ -432,6 +432,16 @@ namespace Content.Server.Database
 
             return discordPlayer?.DiscordId;
         }
+
+        public async Task<Guid?> GetUserIdByDiscordIdAsync(int discordId)
+        {
+            await using var db = await GetDb();
+
+            var discordPlayer = await db.DbContext.DiscordPlayer
+                .FirstOrDefaultAsync(p => p.DiscordId == discordId);
+
+            return discordPlayer?.UserId;
+        }
         #endregion
         #region Bans
         /*

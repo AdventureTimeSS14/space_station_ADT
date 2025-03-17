@@ -55,6 +55,7 @@ namespace Content.Server.Database
         #endregion
         #region Discord ADT
         Task<int?> GetDiscordIdAsync(Guid userId);
+        Task<Guid?> GetUserIdByDiscordIdAsync(int discordId);
         #endregion
 
         #region Bans
@@ -519,6 +520,12 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetDiscordIdAsync(userId));
+        }
+
+        public Task<Guid?> GetUserIdByDiscordIdAsync(int discordId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetUserIdByDiscordIdAsync(discordId));
         }
         // ADT-Tweak-end
 
