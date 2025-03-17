@@ -5,7 +5,6 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
-      useDelay: 6
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: legsweep
@@ -17,6 +16,7 @@
             types:
               Blunt: 10
         - !type:ComboFallEffect
+      useDelay: 6
 
 - type: entity
   id: ActionLungBlock
@@ -28,7 +28,6 @@
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: lungpunch
-      useDelay: 3
       event: !type:PrepareMoveEvent
         name: удар по лёгким
         comboEvents:
@@ -36,6 +35,10 @@
           damage:
             types:
               Asphyxiation: 15
+        - !type:ComboAudioEffect
+          sound:
+            collection: ADTCqcunch
+      useDelay: 3
 
 - type: entity
   id: ActionNeckChop
@@ -47,7 +50,6 @@
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: neckchop
-      useDelay: 3
       event: !type:PrepareMoveEvent
         name: отбить в горло
         comboEvents:
@@ -57,3 +59,7 @@
               Blunt: 5
         - !type:ComboMuteEffect
             time: 20
+        - !type:ComboAudioEffect
+            sound:
+              collection: ADTCqcunch
+      useDelay: 3

@@ -13,7 +13,7 @@ public abstract class SharedPrepareActionSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedComboSystem _combo = default!;
-
+    [Dependency] private readonly SharedActionsSystem _action = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -51,6 +51,10 @@ public abstract class SharedPrepareActionSystem : EntitySystem
     {
         comp.PreparedMove = args.ComboEvents;
         _popupSystem.PopupCursor(Loc.GetString("move-ready", ("action", args.Name)), args.Performer);
+        foreach (var action in comp.CombatMoveEntities)
+        {
+            _action.StartUseDelay(action);
+        }
     }
     private void OnShutdown(Entity<PrepareActionComponent> ent, ref ComponentShutdown args)
     {
