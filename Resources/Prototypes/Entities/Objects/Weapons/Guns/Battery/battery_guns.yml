@@ -160,10 +160,6 @@
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
         pitch: 2
-    soundGunshotModified:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-      params:
-        pitch: 2
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -209,7 +205,7 @@
 
 - type: entity
   name: practice laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery]
   id: WeaponLaserCarbinePractice
   description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
@@ -241,7 +237,7 @@
 
 - type: entity
   name: laser rifle
-  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK
+  parent: [WeaponLaserCarbinePractice, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
