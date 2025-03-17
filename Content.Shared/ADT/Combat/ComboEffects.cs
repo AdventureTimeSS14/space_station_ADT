@@ -277,6 +277,52 @@ public sealed partial class ComboStopGrabEffect : IComboEffect
         pull.TryStopPull(target, pulled, user);
     }
 }
+[Serializable]
+public sealed partial class ComboStopTargetGrabEffect : IComboEffect
+{
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var pull = entMan.System<PullingSystem>();
+        if (!entMan.TryGetComponent<PullerComponent>(target, out var puller) || !entMan.TryGetComponent<PullableComponent>(user, out var pulled))
+            return;
+        for (int i = (int)puller.Stage; i > 0; i--)
+        {
+            pull.TryLowerGrabStageOrStopPulling((target, puller), (user, pulled));
+        }
+        pull.TryStopPull(user, pulled, target);
+    }
+}
+[Serializable]
+public sealed partial class ComboTrowTargetEffect : IComboEffect
+{
+    [DataField]
+    public float ThrownSpeed = 7f;
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var pull = entMan.System<PullingSystem>();
+        var transform = entMan.System<SharedTransformSystem>();
+        var mapPos = transform.GetMapCoordinates(user).Position;
+        var hitPos = transform.GetMapCoordinates(target).Position;
+        var dir = hitPos - mapPos;
+        pull.Throw(target, user, dir, ThrownSpeed);
+    }
+}
+[Serializable]
+public sealed partial class ComboTrowOnUserEffect : IComboEffect
+{
+    [DataField]
+    public float ThrownSpeed = 7f;
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var pull = entMan.System<PullingSystem>();
+        var transform = entMan.System<SharedTransformSystem>();
+        var mapPos = transform.GetMapCoordinates(user).Position;
+        var hitPos = transform.GetMapCoordinates(target).Position;
+        var dir = mapPos - hitPos;
+        pull.Throw(target, user, dir, ThrownSpeed);
+    }
+}
+
 
 [Serializable]
 public sealed partial class ComboEffectToDowned : IComboEffect
@@ -292,6 +338,21 @@ public sealed partial class ComboEffectToDowned : IComboEffect
             {
                 comboEvent.DoEffect(user, target, entMan);
             }
+        }
+    }
+}
+[Serializable]
+public sealed partial class ComboEffectToUserPuller : IComboEffect
+{
+    [DataField]
+    public List<IComboEffect> ComboEvents = new List<IComboEffect>{};
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        if (!entMan.TryGetComponent<PullerComponent>(target, out var puller) || puller.Pulling == null || puller.Pulling != user)
+            return;
+        foreach (var comboEvent in ComboEvents)
+        {
+            comboEvent.DoEffect(user, target, entMan);
         }
     }
 }

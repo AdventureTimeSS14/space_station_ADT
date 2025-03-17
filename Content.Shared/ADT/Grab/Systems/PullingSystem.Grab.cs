@@ -57,6 +57,7 @@ public abstract partial class PullingSystem
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly ThrownItemSystem _thrown = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
 
     private void InitializeGrab()
     {
@@ -366,6 +367,16 @@ public abstract partial class PullingSystem
     private void OnThrownLand(EntityUid uid, GrabThrownComponent comp, LandEvent args)
     {
         RemComp(uid, comp);
+    }
+    public void Throw(
+        EntityUid uid,
+        EntityUid thrower,
+        Vector2 vector,
+        float grabThrownSpeed)
+    {
+        EnsureComp<GrabThrownComponent>(uid);
+
+        _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 
     private void OnGrabStageTimeModify(EntityUid uid, ModifyGrabStageTimeComponent comp, ref ModifyGrabStageTimeEvent args)

@@ -55,9 +55,11 @@
                       Blunt: 10
                 - !type:ComboFallEffect
                 - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
             - actionsNeeds:
                 - Hit
-                - Disarm
                 - Hit
               comboEvent:
                 - !type:ComboMoreDamageToDownedEffect
@@ -73,6 +75,10 @@
                 - !type:ComboStunEffect
                   stunTime: 2
                   dropItems: false
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
+                - !type:ComboTrowTargetEffect
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -103,6 +109,9 @@
                 - !type:ComboFallEffect
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 60
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
             - actionsNeeds:
                 - Grab
                 - Disarm
@@ -111,6 +120,9 @@
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
                 - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
 
 - type: entity
   id: ADTScrollSleepingCarp
@@ -173,6 +185,9 @@
                   dropItems: false
                 - !type:ComboSpeechEffect
                   speech: Прямо позади тебя...
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
             - actionsNeeds:
                 - Hit
                 - Disarm
@@ -193,6 +208,9 @@
                 - !type:ComboSpeechEffect
                   speech: Лежать!
                 - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
             - actionsNeeds:
                 - Disarm
                 - Hit
@@ -207,6 +225,9 @@
                 - !type:ComboDropFromHandsEffect
                 - !type:ComboSpeechEffect
                   speech: Ку-яя!!
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
             - actionsNeeds:
                 - Grab
                 - Hit
@@ -223,6 +244,9 @@
                   dropItems: false
                 - !type:ComboSpeechEffect
                   speech: Отдохни.
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -268,7 +292,9 @@
                 - !type:ComboFallEffect
                   dropItems: false
                 - !type:ComboStopGrabEffect
-
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: ADTCqcunch
 - type: entity #TODO: когда визарды добавят области, добавьте повару свой стиль с привязкой к области
   id: ADTCqcManualWeak
   name: cqc manual for the smallest

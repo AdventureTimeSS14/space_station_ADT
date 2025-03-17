@@ -424,7 +424,21 @@
               - !type:ComboFlashEffect
                 duration: 5
                 slowDown: 3
-
+          - actionsNeeds:
+              - Disarm
+              - Hit
+            comboEvent:
+              - !type:ComboEffectToUserPuller
+                comboEvents:
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 10
+                - !type:ComboTrowOnUserEffect
+                - !type:ComboStopTargetGrabEffect
+                - !type:ComboStunEffect
+                  stunTime: 1
+                  dropItems: false
 #День Святого Валентина
 
 - type: entity
