@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using System.Data.Common;
 using System.IO;
 using System.Net;
 using System.Text.Json;
@@ -51,6 +52,10 @@ namespace Content.Server.Database
         // Username assignment (for guest accounts, so they persist GUID)
         Task AssignUserIdAsync(string name, NetUserId userId);
         Task<NetUserId?> GetAssignedUserIdAsync(string name);
+        #endregion
+        #region Discord ADT
+        Task<int?> GetDiscordIdAsync(Guid userId);
+        Task<Guid?> GetUserIdByDiscordIdAsync(int discordId);
         #endregion
 
         #region Bans
@@ -509,6 +514,20 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AssignUserIdAsync(name, userId));
         }
+
+        // ADT-Tweak-start: Discord
+        public Task<int?> GetDiscordIdAsync(Guid userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDiscordIdAsync(userId));
+        }
+
+        public Task<Guid?> GetUserIdByDiscordIdAsync(int discordId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetUserIdByDiscordIdAsync(discordId));
+        }
+        // ADT-Tweak-end
 
         public Task<NetUserId?> GetAssignedUserIdAsync(string name)
         {
