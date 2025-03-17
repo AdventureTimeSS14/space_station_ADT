@@ -1078,6 +1078,7 @@ namespace Content.Server.Database
         BabyJail = 4,
         /// Results from rejected connections with external API checking tools
         IPChecks = 5,
+        DiscordAuth = 6, // ADT-Tweak-add
     }
 
     public class ServerBanHit
