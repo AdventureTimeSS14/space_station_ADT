@@ -63,7 +63,7 @@
         settings: short
       requirements:
       - !type:OverallPlaytimeRequirement
-        time: 540000 # 150h | ADT-tweak
+        time: 270000 # 75h # adt tweak
       mindRoles:
       - MindRoleGhostRoleFamiliar
     - type: Loadout
@@ -539,7 +539,7 @@
         settings: short
       requirements:
       - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h | ADT-tweak
+        time: 180000 # 50h # ADT-tweak
     - type: RandomMetadata
       nameSegments:
       - ADTNamesFirstMilitaryRXBZZ # ADT Tweak

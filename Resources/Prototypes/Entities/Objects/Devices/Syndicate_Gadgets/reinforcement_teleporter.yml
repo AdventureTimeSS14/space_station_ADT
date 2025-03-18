@@ -30,7 +30,7 @@
         department: Security
         time: 18000 # 5h
       - !type:OverallPlaytimeRequirement
-        time: 90000 # 25h
+        time: 54000 # adt tweak 2h > 15h
     # ADT-Tweak-end
     description: ghost-role-information-syndicate-reinforcement-spy-description
     rules: ghost-role-information-syndicate-reinforcement-rules
@@ -79,11 +79,11 @@
     rules: ghost-role-information-nukeop-reinforcement-rules
 # ADT-Tweak-start
     requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 54000 # 15h
       - !type:DepartmentTimeRequirement
         department: Security
-        time: 18000 # 5h
-      - !type:OverallPlaytimeRequirement
-        time: 90000 # 25h overall
+        time: 18000 # adt tweak 2h > 5h
 # ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist

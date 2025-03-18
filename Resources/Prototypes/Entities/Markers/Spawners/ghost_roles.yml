@@ -91,14 +91,6 @@
   parent: MarkerBase
   components:
   - type: GhostRole
-    # ADT-Tweak-start
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10h
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
-    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -150,17 +142,9 @@
   - type: GhostRole
     name: roles-antag-nuclear-operative-commander-name
     description: roles-antag-nuclear-operative-commander-objective
-    # ADT-Tweak-start
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 108000 # 30h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 54000 # 15h
-    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist # ADT-Tweak-start
+    - MindRoleGhostRoleTeamAntagonist
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -170,17 +154,6 @@
   - type: GhostRole
     name: roles-antag-nuclear-operative-agent-name
     description: roles-antag-nuclear-operative-agent-objective
-    # ADT-Tweak-start
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
-    - !type:RoleTimeRequirement
-      role: JobChemist
-      time: 36000 # 10h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10h
-    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -193,14 +166,6 @@
   - type: GhostRole
     name: roles-antag-nuclear-operative-name
     description: roles-antag-nuclear-operative-objective
-    # ADT-Tweak-start
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # 5h
-    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -219,7 +184,7 @@
     # ADT-Tweak-start
     requirements:
     - !type:OverallPlaytimeRequirement
-      time: 90000 # 25h
+      time: 54000 # 15h
     # ADT-Tweak-end
   - type: Sprite
     layers:
@@ -239,10 +204,13 @@
     # ADT-Tweak-start
     requirements:
     - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 18000 # 5h
+    - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10h
     - !type:OverallPlaytimeRequirement
-      time: 126000 # 35h
+      time: 90000 # adt tweak 2h > 25h
     # ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
