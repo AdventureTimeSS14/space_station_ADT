@@ -132,6 +132,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # ADT-tweak-start
+    - ADTServiceStaticPack
     - ADTRecorderStaticPack
     - ADTMicsStaticPack
     # ADT-tweak-end
