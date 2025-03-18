@@ -17,6 +17,7 @@
   icon: "JobIconGunnerTSF"
   supervisors: job-supervisors-tsf-gunner
   canBeAntag: false
+  overrideConsoleVisibility: false
   access:
   - Security
   - Brig
