@@ -423,21 +423,21 @@ namespace Content.Server.Database
         #endregion
 
         #region Discord ADT
-        public async Task<int?> GetDiscordIdAsync(Guid userId)
+        public async Task<string?> GetDiscordIdAsync(Guid userId)
         {
             await using var db = await GetDb();
 
-            var discordPlayer = await db.DbContext.DiscordPlayer
+            var discordPlayer = await db.DbContext.DiscordUser
                 .FirstOrDefaultAsync(p => p.UserId == userId);
 
             return discordPlayer?.DiscordId;
         }
 
-        public async Task<Guid?> GetUserIdByDiscordIdAsync(int discordId)
+        public async Task<Guid?> GetUserIdByDiscordIdAsync(string discordId)
         {
             await using var db = await GetDb();
 
-            var discordPlayer = await db.DbContext.DiscordPlayer
+            var discordPlayer = await db.DbContext.DiscordUser
                 .FirstOrDefaultAsync(p => p.DiscordId == discordId);
 
             return discordPlayer?.UserId;
