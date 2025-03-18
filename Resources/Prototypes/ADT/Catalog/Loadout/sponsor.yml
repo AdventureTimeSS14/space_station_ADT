@@ -28,10 +28,3 @@
     - BaseUplinkRadio40TC
 
 
-# Flowers
-- type: loadout
-  id: ADTFlowerWreath
-  sponsorOnly: true
-  storage:
-    back:
-    - ClothingHeadHatFlowerWreath

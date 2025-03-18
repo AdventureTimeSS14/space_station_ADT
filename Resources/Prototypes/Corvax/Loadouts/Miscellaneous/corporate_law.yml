@@ -2,3 +2,11 @@
   id: SpaceLaw
   equipment:
     pocket2: BookSpaceLaw
+
+# Flowers
+- type: loadout
+  id: ADTFlowerWreath
+  sponsorOnly: true
+  storage:
+    back:
+    - BaseUplinkRadio40TC
