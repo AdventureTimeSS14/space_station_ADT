@@ -74,7 +74,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, AtmosDeviceUpdateEvent>(OnSupermatterUpdated);
 
         SubscribeLocalEvent<SupermatterComponent, StartCollideEvent>(OnCollideEvent);
-        SubscribeLocalEvent<SupermatterComponent, EmbeddedEvent>(OnEmbedded);
         SubscribeLocalEvent<SupermatterComponent, InteractHandEvent>(OnHandInteract);
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
@@ -94,7 +93,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
         // Set the yell timer
-        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(EECCVars.SupermatterYellTimer));
+        sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ADTCCVars.SupermatterYellTimer));
 
         // Set the sound
         _ambient.SetAmbience(uid, true);
@@ -123,7 +122,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         HandleSoundLoop(uid, sm);
         HandleAccent(uid, sm);
 
-        if (sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
+        if (sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
         {
             SupermatterZap(uid, sm);
             GenerateAnomalies(uid, sm);
@@ -133,11 +132,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
         TryCollision(uid, sm, args.OtherEntity, args.OtherBody);
-    }
-
-    private void OnEmbedded(EntityUid uid, SupermatterComponent sm, ref EmbeddedEvent args)
-    {
-        TryCollision(uid, sm, args.Embedded, checkStatic: false);
     }
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
@@ -353,7 +347,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (sm.Damage >= sm.DamageWarningThreshold)
             return SupermatterStatusType.Warning;
 
-        if (mix.Temperature > Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold) * 0.8)
+        if (mix.Temperature > Atmospherics.T0C + _config.GetCVar(ADTCCVars.SupermatterHeatPenaltyThreshold) * 0.8)
             return SupermatterStatusType.Caution;
 
         if (sm.Power > 5)

@@ -138,8 +138,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         #endregion
 
         // Load values and set base labels
-        _radiationBase = _config.GetCVar(EECCVars.SupermatterRadsBase);
-        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
+        _radiationBase = _config.GetCVar(ADTCCVars.SupermatterRadsBase);
+        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(ADTCCVars.SupermatterHeatPenaltyThreshold);
         _wasteBase = 1f;
 
         RadiationBaseInfoLabel.Text = Loc.GetString("supermatter-console-window-label-radiation-bar", ("radiation", _radiationBase.ToString("0.00")));

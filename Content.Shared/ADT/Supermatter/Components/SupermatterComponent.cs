@@ -27,6 +27,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public GasMixture? GasStorage;
 
+    /// <summary>
+    ///     The portion of the gasmix we're on
+    /// </summary>
+    [DataField]
+    public float GasEfficiency = 0.15f;
+
     [DataField]
     public Color LightColorNormal = Color.FromHex("#ffe000");
 
@@ -139,12 +145,6 @@ public sealed partial class SupermatterComponent : Component
     public float HeatModifier;
 
     /// <summary>
-    /// The percentage of the gas on the supermatter's tile that is absorbed each atmos tick.
-    /// </summary>
-    [DataField]
-    public float GasEfficiency = 0.05f;
-
-    /// <summary>
     /// Uses <see cref="PowerlossDynamicScaling"/> and <see cref="GasStorage"/> to lessen the effects of our powerloss functions
     /// </summary>
     [DataField]
@@ -174,12 +174,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float PsyCoefficient;
-
-    /// <summary>
-    /// The chance for supermatter lightning to strike random coordinates instead of an entity
-    /// </summary>
-    [DataField]
-    public float ZapHitCoordinatesChance = 0.75f;
 
     /// <summary>
     /// The lifetime of a supermatter-spawned anomaly.

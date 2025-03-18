@@ -112,7 +112,7 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
         PowerInfoLabel.Text = Loc.GetString("supermatter-console-window-label-gas-power-bar", ("power", powerMix.ToString("+0.00;-0.00")));
         PowerInfoLabel.FontColorOverride = GetDetailColor(powerMix);
 
-        var heatResistance = (gasData.HeatResistance - 1) * (Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold));
+        var heatResistance = (gasData.HeatResistance - 1) * (Atmospherics.T0C + _config.GetCVar(ADTCCVars.SupermatterHeatPenaltyThreshold));
         HeatInfoLabel.Text = Loc.GetString("supermatter-console-window-label-gas-heat-bar", ("heat", heatResistance.ToString("+0.00;-0.00")));
         HeatInfoLabel.FontColorOverride = GetDetailColor(heatResistance);
 
