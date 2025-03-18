@@ -118,6 +118,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.95
+    staminaModifier: 0.85  # ADT-Tweak
 
 #Bombsuit Helmet
 - type: entity
