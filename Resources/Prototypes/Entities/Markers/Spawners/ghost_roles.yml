@@ -154,7 +154,7 @@
     requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 36000 #10 hrs
+      time: 36000 #10h
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10h
@@ -163,7 +163,7 @@
     # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist# ADT-Tweak-start
+    - MindRoleGhostRoleTeamAntagonist # ADT-Tweak-start
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
