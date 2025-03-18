@@ -49,6 +49,7 @@ public sealed partial class SharedDNAGunLockerSystem : EntitySystem
             Act = () => AltPrivateWeaponPersonal(uid, component, args.User),
             Text = Loc.GetString("gun-personalize-verb"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
+            Priority = -20,
         };
         args.Verbs.Add(verbPersonalize);
     }

@@ -5,6 +5,7 @@ using System.Text.Json;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
@@ -14,9 +15,11 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    partial class PostgresServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250316202151_DiscordPlayer")]
+    partial class DiscordPlayer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -673,18 +676,17 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
+            modelBuilder.Entity("Content.Server.Database.DiscordPlayer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("discord_user_id");
+                        .HasColumnName("discord_player_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("DiscordId")
-                        .IsRequired()
-                        .HasColumnType("text")
+                    b.Property<int>("DiscordId")
+                        .HasColumnType("integer")
                         .HasColumnName("discord_id");
 
                     b.Property<Guid>("UserId")
@@ -692,12 +694,12 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("user_id");
 
                     b.HasKey("Id")
-                        .HasName("PK_discord_user");
+                        .HasName("PK_discord_player");
 
                     b.HasIndex("UserId", "DiscordId")
                         .IsUnique();
 
-                    b.ToTable("discord_user", (string)null);
+                    b.ToTable("discord_player", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
