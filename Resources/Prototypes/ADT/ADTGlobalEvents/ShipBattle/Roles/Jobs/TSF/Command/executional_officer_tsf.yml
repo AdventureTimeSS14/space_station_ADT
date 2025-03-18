@@ -30,6 +30,7 @@
   supervisors: job-supervisors-tsf-captain
   canBeAntag: false
   weight: 18
+  overrideConsoleVisibility: false
   accessGroups:
   - AllAccess
   special:
