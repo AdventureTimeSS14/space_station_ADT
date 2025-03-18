@@ -20,6 +20,7 @@
   icon: "JobIconMarineLeutenantKMT"
   joinNotifyCrew: true
   weight: 10
+  overrideConsoleVisibility: false
   supervisors: job-supervisors-kmt-captain
   canBeAntag: false
   accessGroups:
