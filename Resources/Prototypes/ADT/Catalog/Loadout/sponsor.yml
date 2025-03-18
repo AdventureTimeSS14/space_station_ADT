@@ -1,0 +1,28 @@
+#Tier4:
+- type: sponsorLoadout
+  id: PremiumSponsorLoadoutTier4
+  equipment: PremiumSponsorLoadoutTier4
+
+- type: startingGear
+  id: PremiumSponsorLoadoutTier4
+  equipment:
+    neck: ClothingNeckScarfStripedSyndieRed
+  storage:
+    back:
+    - BaseUplinkRadio40TC
+
+#Super Developer:
+- type: sponsorLoadout
+  id: SuperDeveloperSponsorLoadoutTier5
+  equipment: SuperDeveloperSponsorLoadoutTier5
+
+- type: startingGear
+  id: SuperDeveloperSponsorLoadoutTier5
+  equipment:
+    neck: SirenaChokerWithHeart
+    pocket1: ClothingHeadHatCatEars
+    pocket2: ClothingUnderSocksCoder
+    jumpsuit: ClothingUniformJumpskirtElegantMaid
+  storage:
+    back:
+    - BaseUplinkRadio40TC

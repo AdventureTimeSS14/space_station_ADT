@@ -102,4 +102,25 @@ public sealed class SponsorsManager
 
         return null;
     }
+
+    public bool TryGetSpawnEquipment(NetUserId userId, [NotNullWhen(true)] out string? spawnEquipment)
+    {
+        spawnEquipment = null;
+
+        // Attempt to retrieve sponsor information
+        if (!TryGetInfo(userId, out var sponsorData))
+        {
+            return false;
+        }
+
+        // Determine spawn equipment based on sponsor tier
+        spawnEquipment = sponsorData.Tier switch
+        {
+            3 => "SuperDeveloperSponsorLoadoutTier5",
+            4 => "PremiumSponsorLoadoutTier4",
+            _ => null
+        };
+
+        return spawnEquipment != null;
+    }
 }

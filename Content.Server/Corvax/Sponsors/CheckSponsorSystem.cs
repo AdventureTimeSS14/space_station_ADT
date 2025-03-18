@@ -5,6 +5,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using System.Diagnostics.CodeAnalysis;
 
 public sealed class CheckSponsorSystem : EntitySystem
 {
