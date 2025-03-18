@@ -46,7 +46,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
 		public DbSet<BookPrinterEntry> BookPrinterEntry { get; set; } = null!; // ADT-BookPrinter
-        public DbSet<DiscordPlayer> DiscordPlayer { get; set; } = null!; // ADT-Discord
+        public DbSet<DiscordUser> DiscordUser { get; set; } = null!; // ADT-Discord
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -68,7 +68,7 @@ namespace Content.Server.Database
             // ADT-BookPrinter-End
 
             // ADT-Discord-Start
-            modelBuilder.Entity<DiscordPlayer>()
+            modelBuilder.Entity<DiscordUser>()
                 .HasIndex(p => new { p.UserId, p.DiscordId })
                 .IsUnique();
             // ADT-Discord-End
@@ -742,12 +742,12 @@ namespace Content.Server.Database
     }
     // ADT-BookPrinter-End
     // ADT-Discord-Start
-    public class DiscordPlayer
+    public class DiscordUser
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public Guid UserId { get; set; }
-        public int DiscordId { get; set; }
+        public string DiscordId { get; set; } = default!;
     }
     // ADT-Discord-End
     public class Round

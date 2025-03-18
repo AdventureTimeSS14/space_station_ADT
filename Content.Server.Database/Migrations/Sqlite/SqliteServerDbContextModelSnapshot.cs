@@ -635,15 +635,16 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DiscordPlayer", b =>
+            modelBuilder.Entity("Content.Server.Database.DiscordUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
-                        .HasColumnName("discord_player_id");
+                        .HasColumnName("discord_user_id");
 
-                    b.Property<int>("DiscordId")
-                        .HasColumnType("INTEGER")
+                    b.Property<string>("DiscordId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
                         .HasColumnName("discord_id");
 
                     b.Property<Guid>("UserId")
@@ -651,12 +652,12 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("user_id");
 
                     b.HasKey("Id")
-                        .HasName("PK_discord_player");
+                        .HasName("PK_discord_user");
 
                     b.HasIndex("UserId", "DiscordId")
                         .IsUnique();
 
-                    b.ToTable("discord_player", (string)null);
+                    b.ToTable("discord_user", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ExtraLoadoutData", b =>
