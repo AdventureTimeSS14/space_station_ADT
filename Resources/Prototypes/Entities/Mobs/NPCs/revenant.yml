@@ -44,9 +44,6 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10h | ADT-tweak
   - type: GhostTakeoverAvailable
   - type: Revenant
     malfunctionWhitelist:

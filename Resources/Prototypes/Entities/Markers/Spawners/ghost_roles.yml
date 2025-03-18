@@ -97,7 +97,7 @@
       department: Security
       time: 36000 # 10h
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50h
+      time: 54000 # 15h
     # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
@@ -130,7 +130,7 @@
       department: Security
       time: 36000 # 10h
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50h
+      time: 54000 # 15h
     # ADT-Tweak-end
     rules: ghost-role-information-loneop-rules
     mindRoles:
@@ -152,14 +152,11 @@
     description: roles-antag-nuclear-operative-commander-objective
     # ADT-Tweak-start
     requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10h
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10h
-    - !type:OverallPlaytimeRequirement
-      time: 180000 # 50h
+      time: 54000 # 15h
     # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
@@ -175,14 +172,14 @@
     description: roles-antag-nuclear-operative-agent-objective
     # ADT-Tweak-start
     requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+    - !type:RoleTimeRequirement
+      role: JobChemist
+      time: 36000 # 10h
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10h
-    - !type:OverallPlaytimeRequirement
-      time: 180000 # 50h
     # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
@@ -198,11 +195,11 @@
     description: roles-antag-nuclear-operative-objective
     # ADT-Tweak-start
     requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10h
-    - !type:OverallPlaytimeRequirement
-      time: 180000 # 50h
+      time: 18000 # 5h
     # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
@@ -241,9 +238,6 @@
     rules: ghost-role-information-space-ninja-rules
     # ADT-Tweak-start
     requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10h
