@@ -269,6 +269,7 @@
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
+    - SupermatterComputerCircuitboard # ADT-tweak
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards

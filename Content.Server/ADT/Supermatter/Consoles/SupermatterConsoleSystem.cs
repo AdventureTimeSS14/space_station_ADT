@@ -171,7 +171,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         if (sm.GasStorage != null)
             gases = sm.GasStorage;
 
-        var tempThreshold = Atmospherics.T0C + _config.GetCVar(EinsteinCCVars.SupermatterHeatPenaltyThreshold);
+        var tempThreshold = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
+        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
 
         return new SupermatterFocusData(
             GetNetEntity(focusSupermatter.Value),
@@ -184,7 +185,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             tempThreshold * sm.DynamicHeatResistance,
             sm.HeatModifier,
             sm.GasHeatModifier,
-            sm.GasEfficiency * 100);
+            gasEfficiency * 100);
     }
 
     private static float GetIntegrity(SupermatterComponent sm)

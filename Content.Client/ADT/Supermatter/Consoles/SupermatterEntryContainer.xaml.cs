@@ -34,8 +34,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     private readonly Color _colorTurquoise = Color.FromHex("#00fff7");
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/_EinsteinEngines/Interface/Supermatter/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/_EE/Interface/Supermatter/arrow_down.png";
 
     // Supermatter base values
     private readonly float _radiationBase;
@@ -138,8 +138,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         #endregion
 
         // Load values and set base labels
-        _radiationBase = _config.GetCVar(EinsteinCCVars.SupermatterRadsBase);
-        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(EinsteinCCVars.SupermatterHeatPenaltyThreshold);
+        _radiationBase = _config.GetCVar(EECCVars.SupermatterRadsBase);
+        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
         _wasteBase = 1f;
 
         RadiationBaseInfoLabel.Text = Loc.GetString("supermatter-console-window-label-radiation-bar", ("radiation", _radiationBase.ToString("0.00")));

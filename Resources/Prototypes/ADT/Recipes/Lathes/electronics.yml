@@ -15,3 +15,8 @@
      Steel: 100
      Glass: 900
      Gold: 100
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SupermatterComputerCircuitboard
+  result: SupermatterComputerCircuitboard

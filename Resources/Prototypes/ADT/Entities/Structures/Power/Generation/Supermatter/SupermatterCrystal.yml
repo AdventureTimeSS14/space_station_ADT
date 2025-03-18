@@ -1,165 +1,117 @@
 - type: entity
-  id: Supermatter
-  name: supermatter crystal
-  description: A strangely translucent and iridescent crystal.
+  abstract: true
+  id: BaseSupermatter
   placement:
     mode: SnapgridCenter
   components:
-    - type: Supermatter
-    - type: RadiationSource
-    - type: AmbientSound
-      range: 5
-      volume: 0
-      sound:
-        path: /Audio/ADT/Supermatter/calm.ogg
-    - type: Physics
-    - type: Speech
-      speechSounds: Pai
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.25,-0.25,0.25,0.25"
-          mask:
-            - Impassable
-            - MidImpassable
-            - HighImpassable
-            - LowImpassable
-            - InteractImpassable
-            - Opaque
-          layer:
-            - MidImpassable
-            - HighImpassable
-            - BulletImpassable
-            - InteractImpassable
-    - type: Transform
-      anchored: true
-      noRot: true
-    - type: CollisionWake
-      enabled: false
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Sprite
-      drawdepth: WallMountedItems
-      sprite: ADT\Structures\Power\Supermatter\Basic.rsi
-      state: supermatter
-    - type: Icon
-      sprite: ADT\Structures\Power\Supermatter\Basic.rsi
-      state: supermatter
-    - type: PointLight
-      enabled: true
-      radius: 10
-      energy: 5
-      color: "#ffe000"
-    - type: Explosive
-      explosionType: Supermatter
-      maxIntensity: 25000
-      intensitySlope: 5
-      totalIntensity: 25000
-    - type: GuideHelp
-      guides: [ Supermatter, Power ]
-    - type: WarpPoint
-      follow: true
-      location: supermatter
-    - type: SinguloFood
-      energy: 10000
-
-## Cascad Supermatter
-- type: entity
-  id: SupermatterCascade
-  parent: BaseAnomaly
-  name:
-  description:
-  suffix: Flesh
-  components:
-  - type: Anomaly
-    minPulseLength: 180
-    maxPulseLength: 300
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: ADT\Structures\Power\Supermatter\Cascade.rsi
-    state: cascade
+    sprite: _EinsteinEngines/Structures/Power/Generation/Supermatter/supermatter.rsi
+    state: supermatter
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
   - type: Icon
-    sprite: ADT\Structures\Power\Supermatter\Cascade.rsi
-    state: cascade
-  - type: RadiationSource
-    intensity: 10
+    sprite: _EinsteinEngines/Structures/Power/Generation/Supermatter/supermatter.rsi
+    state: supermatter
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.4"
+        mask:
+          - Impassable
+          - MidImpassable
+          - HighImpassable
+          - LowImpassable
+          - InteractImpassable
+          - Opaque
+        layer:
+          - MidImpassable
+          - HighImpassable
+          - BulletImpassable
+          - InteractImpassable
+  - type: Transform
+    anchored: true
+    noRot: true
   - type: PointLight
     enabled: true
     radius: 10
-    energy: 5
+    energy: 2
     color: "#ffe000"
-  - type: TileSpawnAnomaly
-    entries:
-    - settings:
-        spawnOnPulse: true
-        spawnOnStabilityChanged: true
-        minAmount: 3
-        maxAmount: 7
-        maxRange: 4
-      floor: FloorFlesh
-    - settings:
-        spawnOnSuperCritical: true
-        minAmount: 10
-        maxAmount: 30
-        maxRange: 10
-      floor: FloorFlesh
-  - type: EntitySpawnAnomaly
-    entries:
-    - settings:
-        spawnOnPulse: true
-        minAmount: 1
-        maxAmount: 4
-        minRange: 1.5
-        maxRange: 2.5
-      spawns:
-      - FleshBlocker
-    - settings:
-        spawnOnPulse: true
-        maxAmount: 3
-        minRange: 3
-        maxRange: 4.5
-      spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
-    - settings:
-        spawnOnSuperCritical: true
-        minAmount: 10
-        maxAmount: 15
-        minRange: 5
-        maxRange: 15
-      spawns:
-      - FleshBlocker
-    - settings:
-        spawnOnSuperCritical: true
-        minAmount: 5
-        maxAmount: 10
-        maxRange: 8
-      spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
-    - settings:
-        spawnOnSuperCritical: true
-        minAmount: 5
-        maxAmount: 8
-        maxRange: 10
-      spawns:
-      - SupermatterKudzu
-    - settings:
-        spawnOnShutdown: true
-        maxAmount: 2
-        maxRange: 1
-      spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
-      - FleshKudzu
+  - type: AmbientSound
+    range: 20
+    volume: -5
+    sound:
+      path: /Audio/_EinsteinEngines/Supermatter/calm.ogg
+  - type: Speech
+    speechSounds: SupermatterSilent
+    speechVerb: Supermatter
+    soundCooldownTime: 0
+    suffixSpeechVerbs:
+      chat-speech-verb-suffix-exclamation-strong: Supermatter
+      chat-speech-verb-suffix-exclamation: Supermatter
+      chat-speech-verb-suffix-question: Supermatter
+      chat-speech-verb-suffix-stutter: Supermatter
+      chat-speech-verb-suffix-mumble: Supermatter
+  - type: GuideHelp
+    guides: [ Supermatter, Power ]
+  - type: WarpPoint
+    follow: true
+    location: supermatter
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+
+- type: entity
+  parent: BaseSupermatter
+  id: Supermatter
+  name: supermatter crystal
+  description: A strangely translucent and iridescent crystal.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Structures/Power/Generation/Supermatter/supermatter.rsi
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+    layers:
+      - state: supermatter
+        map: ["enum.SupermatterVisuals.Crystal"]
+      - state: supermatter-psy
+        map: ["enum.SupermatterVisuals.Psy"]
+        color: "#ffffff00"
+  - type: SupermatterVisuals
+    crystal:
+      Normal: { state: supermatter }
+      Glow: { state: supermatter-glow }
+      GlowEmergency: { state: supermatter-glow-emergency }
+      GlowDelam: { state: supermatter-glow-delam }
+  - type: Explosive
+    explosionType: Supermatter
+    totalIntensity: 120000
+    intensitySlope: 5
+    maxIntensity: 100
+  - type: GravityWell
+    baseRadialAcceleration: 1
+    maxRange: 0.5
+    gravPulsePeriod: 15
+  - type: SinguloFood
+    energy: 10000
+  - type: Appearance
+  - type: Supermatter
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
+  - type: RadiationSource
+  - type: DeviceLinkSource
+    ports:
+    - SupermatterInactive
+    - SupermatterNormal
+    - SupermatterCaution
+    - SupermatterWarning
+    - SupermatterDanger
+    - SupermatterEmergency
+    - SupermatterDelaminating
 
 ## Trash
 - type: entity

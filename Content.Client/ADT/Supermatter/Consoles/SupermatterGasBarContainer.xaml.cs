@@ -28,8 +28,8 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
     private readonly Color _colorGreen = StyleNano.GoodGreenFore;
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/_EinsteinEngines/Interface/Supermatter/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/_EE/Interface/Supermatter/arrow_down.png";
 
     public SupermatterGasBarContainer(Gas gas)
     {
@@ -112,7 +112,7 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
         PowerInfoLabel.Text = Loc.GetString("supermatter-console-window-label-gas-power-bar", ("power", powerMix.ToString("+0.00;-0.00")));
         PowerInfoLabel.FontColorOverride = GetDetailColor(powerMix);
 
-        var heatResistance = (gasData.HeatResistance - 1) * (Atmospherics.T0C + _config.GetCVar(EinsteinCCVars.SupermatterHeatPenaltyThreshold));
+        var heatResistance = (gasData.HeatResistance - 1) * (Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold));
         HeatInfoLabel.Text = Loc.GetString("supermatter-console-window-label-gas-heat-bar", ("heat", heatResistance.ToString("+0.00;-0.00")));
         HeatInfoLabel.FontColorOverride = GetDetailColor(heatResistance);
 

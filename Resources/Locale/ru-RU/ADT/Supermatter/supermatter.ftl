@@ -16,6 +16,9 @@ ent-SupermatterCascade = Сверхматерия?
 ent-SupermatterKudzu = Сверхматерия?
     .desc = Это такой конец...
 
+ent-SupermatterComputerCircuitboard = Плата консоли мониторинга кристалла Сверхматерии
+    .desc = Используется для отслеживания работы кристалла Сверхматерии. 
+
 
 supermatter-announcer = Автоматический Двигатель Сверхматерии
 
