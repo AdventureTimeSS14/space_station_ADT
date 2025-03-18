@@ -125,6 +125,11 @@
       makeSentient: true
       name: ghost-role-information-holoparasite-name
       description: ghost-role-information-holoparasite-description
+      # ADT-Tweak-start
+      requirements:
+        - !type:OverallPlaytimeRequirement
+          time: 36000 # 10h
+      # ADT-Tweak-end
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default

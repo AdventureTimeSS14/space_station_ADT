@@ -18,6 +18,11 @@
   - type: GhostRole
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
+    # ADT-Tweak-start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5h
+    # ADT-Tweak-end
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
@@ -86,6 +91,14 @@
   parent: MarkerBase
   components:
   - type: GhostRole
+    # ADT-Tweak-start
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50h
+    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -108,11 +121,17 @@
   - type: GhostRole
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
-# ADT-Tweak-start
+    # ADT-Tweak-start
     requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50h
+    # ADT-Tweak-end
     rules: ghost-role-information-loneop-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
@@ -131,9 +150,20 @@
   - type: GhostRole
     name: roles-antag-nuclear-operative-commander-name
     description: roles-antag-nuclear-operative-commander-objective
+    # ADT-Tweak-start
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50h
+    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleTeamAntagonist# ADT-Tweak-start
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -143,6 +173,17 @@
   - type: GhostRole
     name: roles-antag-nuclear-operative-agent-name
     description: roles-antag-nuclear-operative-agent-objective
+    # ADT-Tweak-start
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50h
+    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -155,6 +196,14 @@
   - type: GhostRole
     name: roles-antag-nuclear-operative-name
     description: roles-antag-nuclear-operative-objective
+    # ADT-Tweak-start
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50h
+    # ADT-Tweak-end
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -170,6 +219,11 @@
     rules: ghost-role-information-space-dragon-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    # ADT-Tweak-start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 90000 # 25h
+    # ADT-Tweak-end
   - type: Sprite
     layers:
     - state: green
@@ -185,11 +239,17 @@
     name: ghost-role-information-space-ninja-name
     description: ghost-role-information-space-ninja-description
     rules: ghost-role-information-space-ninja-rules
-# ADT-Tweak-start
+    # ADT-Tweak-start
     requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 126000 # 35h
+    # ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
     raffle:
@@ -209,6 +269,11 @@
   - type: GhostRole
     name: ghost-role-information-derelict-cyborg-name
     description: ghost-role-information-derelict-cyborg-description
+    # ADT-Tweak-start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5h
+    # ADT-Tweak-end
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default

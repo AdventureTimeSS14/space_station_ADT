@@ -603,7 +603,7 @@
       description: ghost-role-information-cmnd-cburn-agent-description
       requirements:
       - !type:OverallPlaytimeRequirement
-        time: 36000 # 10h overall
+        time: 180000 # 50h | ADT-tweak
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
