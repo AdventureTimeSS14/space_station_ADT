@@ -192,3 +192,16 @@
   icon:
     sprite: ADT/Clothing/Neck/Misc/wood_cross.rsi
     state: icon
+
+- type: construction
+  name: golden baseball bat
+  id: goldbat
+  graph: GoldenBat
+  startNode: start
+  targetNode: goldbat
+  category: construction-category-weapons
+  description: An even robust baseball bat!
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/goldbat.rsi
+    state: icon
+  objectType: Item
