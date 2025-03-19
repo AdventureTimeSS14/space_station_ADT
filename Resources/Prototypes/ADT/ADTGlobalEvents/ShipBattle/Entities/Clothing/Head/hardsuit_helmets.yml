@@ -46,6 +46,13 @@
         Heat: 0.9
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: Battery
+    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
+
 
 #Command
 - type: entity
@@ -55,14 +62,14 @@
   description: captain TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captains_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captain_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captains_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captain_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:

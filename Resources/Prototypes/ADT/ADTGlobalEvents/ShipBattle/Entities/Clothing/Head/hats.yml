@@ -1,0 +1,58 @@
+#Base
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: ADTShipBattleClothingHeadBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+#Command
+- type: entity
+  abstract: true
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatCaptainTSF
+  name: captain TSF cap
+  description: captain TSF cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/captain_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/captain_tsf.rsi
+
+- type: entity
+  abstract: true
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatExOfficerTSF
+  name: executional officer TSF cap
+  description: executional officer TSF cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/exofficer_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/exofficer_tsf.rsi
+
+- type: entity
+  abstract: true
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatCommanderTSF
+  name: commander TSF cap
+  description: commander TSF cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/commander_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/commander_tsf.rsi
+
+#Shipcrew
+- type: entity
+  abstract: true
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatGunnerTSF
+  name: gunner TSF cap
+  description: gunner TSF cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/gunner_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/gunner_tsf.rsi
