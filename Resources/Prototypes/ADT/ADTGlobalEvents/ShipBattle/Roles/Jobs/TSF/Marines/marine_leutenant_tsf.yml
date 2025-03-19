@@ -22,6 +22,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-tsf-captain
   weight: 10
+  overrideConsoleVisibility: false
   canBeAntag: false
   accessGroups:
   - AllAccess

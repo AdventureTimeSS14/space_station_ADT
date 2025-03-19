@@ -29,6 +29,15 @@
   - type: Access
     groups:
     - Command
+    #ADT-Tweak-Start
+    - Security
+    - Armory
+    - Service
+    - Engineering
+    - Medical
+    - Cargo
+    - Research
+    #ADT-Tweak-End
 
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
