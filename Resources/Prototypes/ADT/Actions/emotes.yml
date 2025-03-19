@@ -1,0 +1,30 @@
+- type: emote
+  id: Spin
+  name: chat-emote-name-spin
+  chatMessages: ["chat-emote-msg-spin"]
+  icon: ADT/Interface/Emotes/Vocal/spin.png #made by imp
+  chatTriggers:
+  - кружится
+  - крутится
+  - кружится.
+  - крутится.
+  - кружится!
+  - крутится!
+  event: !type:AnimationSpinEmoteEvent
+
+- type: emote
+  id: Jump
+  name: chat-emote-name-jump
+  chatMessages: ["chat-emote-msg-jump"]
+  icon: ADT/Interface/Emotes/Vocal/jump.png #made by imp
+  chatTriggers:
+  - прыгнул
+  - прыгает
+  - прыгнул.
+  - прыгает.
+  - прыгает!
+  - прыг-скок
+  - скачет
+  - скачет.
+  - скачет!
+  event: !type:AnimationJumpEmoteEvent
