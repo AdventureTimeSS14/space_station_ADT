@@ -18,7 +18,7 @@
   chatMessages: ["chat-emote-msg-jump"]
   icon: ADT/Interface/Emotes/Vocal/jump.png #made by imp
   chatTriggers:
-  - прыгнул
+  - прыг
   - прыгает
   - прыгнул.
   - прыгает.
