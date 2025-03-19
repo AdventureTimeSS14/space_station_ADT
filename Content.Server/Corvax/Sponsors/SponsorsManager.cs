@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Net;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -107,16 +106,17 @@ public sealed class SponsorsManager
     {
         spawnEquipment = null;
 
-        // Attempt to retrieve sponsor information
+        // Получаем sponsorData юсера
         if (!TryGetInfo(userId, out var sponsorData))
         {
             return false;
         }
 
-        // Determine spawn equipment based on sponsor tier
+        // Тут можно настраивать, на каком тире, какой ID лодаута выдать при старте
+        // TODO: В будущем можно в YAML Формат перенести
         spawnEquipment = sponsorData.Tier switch
         {
-            3 => "SuperDeveloperSponsorLoadoutTier5",
+            3 => "SuperDeveloperSponsorLoadoutTier5", // Тут пока ни настроено
             4 => "PremiumSponsorLoadoutTier4",
             _ => null
         };

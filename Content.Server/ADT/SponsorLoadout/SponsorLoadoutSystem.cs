@@ -1,8 +1,8 @@
+using Content.Server.Corvax.Sponsors;
 using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
-using Content.Server.Corvax.Sponsors;
 
 namespace Content.Server.ADT.SponsorLoadout;
 

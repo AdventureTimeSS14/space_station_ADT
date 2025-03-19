@@ -1,3 +1,7 @@
+## Пока тестовые вписаннные лодауты. Настройка Тиеров в
+## этом файле Content.Server\Corvax\Sponsors\SponsorsManager.cs
+## метод TryGetSpawnEquipment
+
 #Tier4:
 - type: sponsorLoadout
   id: PremiumSponsorLoadoutTier4
