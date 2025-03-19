@@ -29,9 +29,9 @@
       185: Dead
   - type: SizeAttributeWhitelist
     tall: true
-    tallscale: 0.95
+    tallscale: 1.1
     short: true
-    shortscale: 0.8
+    shortscale: 0.7
   - type: WoundLicking
   - type: Sprite
     netsync: false
