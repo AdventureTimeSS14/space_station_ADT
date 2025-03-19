@@ -74,3 +74,16 @@
   recipes:
   - CassetteTape
   - TapeRecorder
+
+- type: latheRecipePack
+  id: ADTServiceStaticPack
+  recipes:
+  - DrinkFlaskBar
+  - DrinkVacuumFlask
+  - DrinkIceBucket
+  - DrinkShaker
+  - DrinkJigger
+  - Spoon
+  - Fork
+  - BarSpoon
+  - Urn
