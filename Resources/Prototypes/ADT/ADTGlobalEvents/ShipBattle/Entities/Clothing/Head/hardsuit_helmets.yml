@@ -7,7 +7,7 @@
   description:
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/gunner_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
@@ -25,7 +25,7 @@
       - state: equipped-HELMET-light
         shader: unshaded
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/gunner_tsf.rsi
     clothingVisuals:
       head:
       - state: equipped-HELMET
@@ -55,14 +55,14 @@
   description: captain TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/captains_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captains_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/captains_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captains_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -78,14 +78,14 @@
   description: executional officer of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/exofficer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/exofficer_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/exofficer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/exofficer_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -101,14 +101,14 @@
   description: commander of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/commander_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/commander_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/commander_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/commander_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -124,14 +124,14 @@
   description: chief gunner of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/chiefgunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/chiefgunner_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/chiefgunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/chiefgunner_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -151,14 +151,14 @@
   description: marine leutenant of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_leutenant_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_leutenant_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_leutenant_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_leutenant_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -174,14 +174,14 @@
   description: marine of the hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -198,14 +198,14 @@
   description: gunner of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/gunner_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/gunner_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -223,14 +223,14 @@
   description: pilot of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/pilot_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/pilot_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/pilot_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/pilot_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -248,14 +248,14 @@
   description: medic of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/medic_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/medic_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/medic_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/medic_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -271,14 +271,14 @@
   description: engineer of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/engineer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/engineer_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/engineer_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/engineer_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -295,14 +295,14 @@
   description: navigator of the TSF hardsuit helmet
   components:
   - type: Sprite
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/navigator_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/navigator_tsf.rsi
     layers:
     - state: icon
     - state: icon-light
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/navigator_tsf.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/navigator_tsf.rsi
   - type: Armor
     modifiers:
       coefficients:
