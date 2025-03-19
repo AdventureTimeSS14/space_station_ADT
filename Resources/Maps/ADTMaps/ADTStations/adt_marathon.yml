@@ -1,8 +1,6 @@
 meta:
   format: 7
   postmapinit: false
-orphans: []
-nullspace: []
 tilemap:
   0: Space
   3: FloorArcadeRed
