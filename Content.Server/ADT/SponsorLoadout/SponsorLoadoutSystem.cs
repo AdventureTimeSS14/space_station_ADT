@@ -14,7 +14,6 @@ public sealed class SponsorLoadoutSystem : EntitySystem
 
     public override void Initialize()
     {
-        // IoCManager.Instance!.TryResolveType(out _sponsorsManager);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned);
     }
 
