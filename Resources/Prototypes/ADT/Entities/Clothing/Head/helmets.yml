@@ -118,3 +118,31 @@
   - type: Tag
     tags:
     - HidesHair
+
+# USSP USSP
+
+#шлем "Сфера" СССП
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetUSSPSfera
+  name: sfera helmet
+  description: Standard security gear. Protects the head from impacts.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+    scale: 0.6, 0.6
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/ussp_sfera.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# USSP USSP
