@@ -1,15 +1,6 @@
 meta:
   format: 7
-  category: Map
-  engineVersion: 247.0.0
-  forkId: ADT
-  forkVersion: 4ae411588c0ecbdb6487854beb617d37fdd57d0c
-  time: 03/15/2025 13:48:10
-  entityCount: 18293
-maps:
-- 1
-grids:
-- 2
+  postmapinit: false
 orphans: []
 nullspace: []
 tilemap:
