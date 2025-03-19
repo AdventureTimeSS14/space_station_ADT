@@ -27,6 +27,11 @@
       0: Alive
       100: Critical
       185: Dead
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 0.95
+    short: true
+    shortscale: 0.8
   - type: WoundLicking
   - type: Sprite
     netsync: false
