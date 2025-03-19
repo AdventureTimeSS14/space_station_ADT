@@ -43,10 +43,6 @@
   background: /Textures/ADT/LobbyScreens/singulo_run.webp
 
 - type: lobbyBackground
-  id: vulpes
-  background: /Textures/ADT/LobbyScreens/timrika.webp
-
-- type: lobbyBackground
   id: cluwnehonk
   background: /Textures/ADT/LobbyScreens/Lunalita.webp
 
