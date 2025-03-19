@@ -570,6 +570,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - ADTMimeWintercoatLong #ADT Tweak
 
 - type: loadoutGroup
   id: MimeBelt
