@@ -28,7 +28,7 @@ supermatter-console-window-label-power = Внутренняя энергия:
 supermatter-console-window-label-power-bar = {$power} {$prefix}eV
 supermatter-console-window-label-power-decay = Внутренний спад энергии (Δ):
 
-supermatter-console-window-label-radiation = Radiation Emission:
+supermatter-console-window-label-radiation = Радиационное излучение:
 supermatter-console-window-label-radiation-bar = {$radiation} радиации
 supermatter-console-window-label-radiation-base = Базовое радиационное излучение:
 supermatter-console-window-label-radiation-power = Множитель радиационного излучения:
@@ -36,7 +36,7 @@ supermatter-console-window-label-radiation-power = Множитель радиа
 supermatter-console-window-label-moles = Поглощенные моли:
 supermatter-console-window-label-moles-bar = {$moles} Молей
 
-supermatter-console-window-label-temperature = Temperature:
+supermatter-console-window-label-temperature = Температура:
 supermatter-console-window-label-temperature-bar = {$temperature} K
 
 supermatter-console-window-label-temperature-limit = Лимит температуры:

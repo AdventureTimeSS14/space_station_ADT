@@ -58,9 +58,6 @@ public sealed partial class SupermatterSystem
             var proportion = sm.GasStorage.GetMoles(gasId) / moles;
             gasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
         }
-        
-        // Stuff for cascade. If ResonantFrequency >= 1, then supermatter goes insane
-        var resonantFrequency = SupermatterGasData.GetResonantFrequency(gasComposition);
 
         // No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
         var powerRatio = SupermatterGasData.GetPowerMixRatios(gasComposition);
@@ -187,6 +184,12 @@ public sealed partial class SupermatterSystem
         // Log the first powering of the supermatter
         if (sm.Power > 0 && !sm.HasBeenPowered)
             LogFirstPower(uid, sm, mix);
+
+        // Cascade stuff.
+        var SupermatterResonantFrequency = SupermatterGasData.GetResonantFrequency(gasComposition);
+
+        sm.ResonantFrequency = SupermatterResonantFrequency;
+
     }
 
     /// <summary>
@@ -345,6 +348,14 @@ public sealed partial class SupermatterSystem
             return;
         }
 
+        // Damage from Anti-Noblium
+        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+        {
+            var integrity = GetIntegrity(sm);
+            float NobliumDamage = Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, integrity < 35 ? 5f : 10f);
+            sm.Damage += NobliumDamage;
+        }
+
         // Absorbed gas from surrounding area
         var GasEfficiency = sm.GasEfficiency;
     
@@ -448,13 +459,11 @@ public sealed partial class SupermatterSystem
             var loc = sm.PreferredDelamType switch
             {
                 DelamType.Cascade => "supermatter-delam-cascade",
-                DelamType.Singulo => "supermatter-delam-overmass",
-                DelamType.Tesla => "supermatter-delam-tesla",
                 _ => "supermatter-delam-explosion"
             };
 
             sb.AppendLine(Loc.GetString(loc));
-            sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
+            sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer))); // Перевод
 
             message = sb.ToString();
             global = true;
@@ -513,6 +522,13 @@ public sealed partial class SupermatterSystem
 
             SendSupermatterAnnouncement(uid, sm, message, global);
             return;
+
+            var station = _station.GetOwningStation(uid);
+            if (station != null)
+               if (sm.ResonantFrequency >= 1)
+                 _alert.SetLevel((EntityUid) station, sm.AlertCodeCascadeId, true, true, true, false);
+               else
+                 _alert.SetLevel((EntityUid) station, sm.AlertCodeYellowId, true, true, true, false);
         }
 
         // We're safe
@@ -541,10 +557,16 @@ public sealed partial class SupermatterSystem
 
         // Announce damage and any dangerous thresholds
         if (sm.Damage >= sm.DamageWarningThreshold)
-        {
+        {   
+            if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+             message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
+            else
             message = Loc.GetString("supermatter-warning", ("integrity", integrity));
             if (sm.Damage >= sm.DamageEmergencyThreshold)
             {
+                if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+                 message = Loc.GetString("supermatter-warning-emergancy", ("integrity", integrity));
+                else
                 message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
                 global = true;
             }
@@ -555,19 +577,19 @@ public sealed partial class SupermatterSystem
 
             if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold))
             {
-                message = Loc.GetString("supermatter-threshold-power");
+                message = Loc.GetString("supermatter-threshold-power"); // Перевод
                 SendSupermatterAnnouncement(uid, sm, message, global);
 
                 if (sm.PowerlossInhibitor < 0.5)
                 {
-                    message = Loc.GetString("supermatter-threshold-powerloss");
+                    message = Loc.GetString("supermatter-threshold-powerloss"); // Перевод
                     SendSupermatterAnnouncement(uid, sm, message, global);
                 }
             }
 
             if (sm.GasStorage != null && sm.GasStorage.TotalMoles >= _config.GetCVar(ADTCCVars.SupermatterMolePenaltyThreshold))
             {
-                message = Loc.GetString("supermatter-threshold-mole");
+                message = Loc.GetString("supermatter-threshold-mole"); // Перевод
                 SendSupermatterAnnouncement(uid, sm, message, global);
             }
         }
@@ -614,28 +636,17 @@ public sealed partial class SupermatterSystem
     /// </summary>
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(ADTCCVars.SupermatterDoForceDelam))
-            return _config.GetCVar(ADTCCVars.SupermatterForcedDelamType);
+        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+            if (!sm.KudzuSpawned)
+            {
+                var xform = Transform(uid);
+                Spawn(sm.KudzuPrototype, xform.Coordinates);
 
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+                sm.KudzuSpawned = true;
+            }
+            return DelamType.Cascade;
 
-        if (mix is { })
-        {
-            var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-            var moles = absorbedGas.TotalMoles;
-
-            if (_config.GetCVar(ADTCCVars.SupermatterDoSingulooseDelam)
-                && moles >= _config.GetCVar(ADTCCVars.SupermatterMolePenaltyThreshold) * _config.GetCVar(ADTCCVars.SupermatterSingulooseMolesModifier))
-                return DelamType.Singulo;
-        }
-
-        if (_config.GetCVar(ADTCCVars.SupermatterDoTeslooseDelam)
-            && sm.Power >= _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold) * _config.GetCVar(ADTCCVars.SupermatterTesloosePowerModifier))
-            return DelamType.Tesla;
-
-        //TODO: Add resonance cascade when there's crazy conditions or a destabilizing crystal
-
-        return DelamType.Explosion;
+         return DelamType.Explosion;
     }
 
     /// <summary>
@@ -665,8 +676,8 @@ public sealed partial class SupermatterSystem
 
         var mapId = Transform(uid).MapID;
         var mapFilter = Filter.BroadcastMap(mapId);
-        var message = Loc.GetString("supermatter-delam-player");
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        var message = Loc.GetString("supermatter-delam-player"); // Перевод
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message)); // Перевод
 
         // Send the reality distortion message to every player on the map
         _chatManager.ChatMessageToManyFiltered(mapFilter,
@@ -710,16 +721,8 @@ public sealed partial class SupermatterSystem
         switch (sm.PreferredDelamType)
         {
             case DelamType.Cascade:
-                // one day...
-                // Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Singulo:
-                Spawn(sm.SingularitySpawnPrototype, xform.Coordinates);
-                break;
-
-            case DelamType.Tesla:
-                Spawn(sm.TeslaSpawnPrototype, xform.Coordinates);
+                QueueDel(uid);
+                Spawn(sm.SupermatterCascadePrototype, xform.Coordinates);
                 break;
 
             default:

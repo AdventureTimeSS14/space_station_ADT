@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
@@ -43,6 +44,7 @@ namespace Content.Server.ADT.Supermatter.Systems;
 public sealed partial class SupermatterSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly AlertLevelSystem _alert = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -176,7 +178,16 @@ public sealed partial class SupermatterSystem : EntitySystem
             HasComp<GodmodeComponent>(item))
             return;
 
-        // TODO: supermatter scalpel
+        // Ability to cut Sliver Supermatter if the object in your hand is sharp
+        if (!sm.Activated)
+            sm.Activated = true;
+
+        if (sm.SliverRemoved)
+            return;
+
+        if (!HasComp<SharpComponent>(args.Used))
+            return;
+            
         if (HasComp<UnremoveableComponent>(item))
         {
             if (!sm.HasBeenPowered)
@@ -192,8 +203,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             sm.MatterPower += power;
 
-            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);
-            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);// Перевод
+            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);                           // Перевод
             _audio.PlayPvs(sm.DustSound, uid);
 
             // Prevent spam or excess power production
