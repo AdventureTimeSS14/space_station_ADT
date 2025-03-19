@@ -102,7 +102,7 @@ public sealed class SponsorsManager
 
         return null;
     }
-
+    // ADT-Tweak-start: add round start sponsor loadouts
     public bool TryGetSpawnEquipment(NetUserId userId, [NotNullWhen(true)] out string? spawnEquipment)
     {
         spawnEquipment = null;
@@ -123,4 +123,5 @@ public sealed class SponsorsManager
 
         return spawnEquipment != null;
     }
+    // ADT-Tweak-End
 }
