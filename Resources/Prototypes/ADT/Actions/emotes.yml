@@ -28,3 +28,15 @@
   - скачет.
   - скачет!
   event: !type:AnimationJumpEmoteEvent
+
+- type: emote
+  id: Flip
+  name: chat-emote-name-flip
+  category: Hands
+  chatMessages: ["chat-emote-msg-flip"]
+  chatTriggers:
+  - кувыркается
+  - делает кувырок
+  - делаект кувырок.
+  - делает кувырок!
+  event: !type:AnimationFlipEmoteEvent
