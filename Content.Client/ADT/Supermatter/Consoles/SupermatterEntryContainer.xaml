@@ -7,7 +7,7 @@
     <Button Name="FocusButton" StyleClasses="OpenLeft" Access="Public">
         <BoxContainer HorizontalExpand="True" VerticalExpand="True" Orientation="Horizontal">
             <!-- Supermatter sprite -->
-            <TextureRect Name="SupermatterSprite" TexturePath="/Textures/_EE/Interface/Supermatter/supermatter.png" Margin="6 2" />
+            <TextureRect Name="SupermatterSprite" TexturePath="/Textures/ADT/Interface/Supermatter.rsi/supermatter.png" Margin="6 2" />
 
             <!-- Supermatter name -->
             <Label Name="SupermatterNameLabel" HorizontalExpand="True" Margin="5 0" />
@@ -37,7 +37,7 @@
                                 </ProgressBar>
                             </PanelContainer>
                             <Button Name="IntegrityButton" SetWidth="27" StyleClasses="ButtonSquare" Margin="-1 -1 -2 -1">
-                                <TextureRect Name="IntegrityButtonArrow" TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
+                                <TextureRect Name="IntegrityButtonArrow" TexturePath="/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
                             </Button>
                         </BoxContainer>
                     </BoxContainer>
@@ -60,7 +60,7 @@
                                 </ProgressBar>
                             </PanelContainer>
                             <Button Name="PowerButton" SetWidth="27" StyleClasses="ButtonSquare" Margin="-1 -1 -2 -1">
-                                <TextureRect Name="PowerButtonArrow" TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
+                                <TextureRect Name="PowerButtonArrow" TexturePath="/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
                             </Button>
                         </BoxContainer>
                     </BoxContainer>
@@ -83,7 +83,7 @@
                                 </ProgressBar>
                             </PanelContainer>
                             <Button Name="RadiationButton" SetWidth="27" StyleClasses="ButtonSquare" Margin="-1 -1 -2 -1">
-                                <TextureRect Name="RadiationButtonArrow" TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
+                                <TextureRect Name="RadiationButtonArrow" TexturePath="/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
                             </Button>
                         </BoxContainer>
                     </BoxContainer>
@@ -130,7 +130,7 @@
                         <BoxContainer SetWidth="180" SetHeight="24" Orientation="Horizontal">
                             <Label Name="TemperatureLimitBarLabel" HorizontalExpand="True" HorizontalAlignment="Left" Margin="0 0 4 0" />
                             <Button Name="TemperatureLimitButton" SetWidth="27" StyleClasses="ButtonSquare" Margin="-1 -1 -2 -1">
-                                <TextureRect Name="TemperatureLimitButtonArrow" TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
+                                <TextureRect Name="TemperatureLimitButtonArrow" TexturePath="/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
                             </Button>
                         </BoxContainer>
                     </BoxContainer>
@@ -157,7 +157,7 @@
                                 </ProgressBar>
                             </PanelContainer>
                             <Button Name="WasteButton" SetWidth="27" StyleClasses="ButtonSquare" Margin="-1">
-                                <TextureRect Name="WasteButtonArrow" TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
+                                <TextureRect Name="WasteButtonArrow" TexturePath="/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
                             </Button>
                         </BoxContainer>
                     </BoxContainer>

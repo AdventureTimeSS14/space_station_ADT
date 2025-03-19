@@ -14,7 +14,7 @@
                     </ProgressBar>
                 </PanelContainer>
                 <Button Name="GasButton" SetWidth="27" StyleClasses="ButtonSquare" Margin="-1 -1 0 -1">
-                    <TextureRect Name="GasButtonArrow" TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
+                    <TextureRect Name="GasButtonArrow" TexturePath="/Textures/ADT/Interface/Supermatter/arrow_down.png" VerticalAlignment="Center" Margin="-8 -2 0 0" />
                 </Button>
             </BoxContainer>
         </BoxContainer>

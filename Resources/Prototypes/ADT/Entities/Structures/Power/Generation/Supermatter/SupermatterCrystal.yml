@@ -5,13 +5,13 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Structures/Power/Generation/Supermatter/supermatter.rsi
+    sprite: ADT/Structures/Power/Supermatter/Basic.rsi
     state: supermatter
     drawdepth: Mobs
     snapCardinals: true
     offset: -0.015,0.295
   - type: Icon
-    sprite: _EinsteinEngines/Structures/Power/Generation/Supermatter/supermatter.rsi
+    sprite: ADT/Structures/Power/Supermatter/Basic.rsi
     state: supermatter
   - type: Fixtures
     fixtures:
@@ -43,7 +43,7 @@
     range: 20
     volume: -5
     sound:
-      path: /Audio/_EinsteinEngines/Supermatter/calm.ogg
+      path: /Audio/ADT/Supermatter/calm.ogg
   - type: Speech
     speechSounds: SupermatterSilent
     speechVerb: Supermatter
@@ -70,7 +70,7 @@
   description: A strangely translucent and iridescent crystal.
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Structures/Power/Generation/Supermatter/supermatter.rsi
+    sprite: ADT/Structures/Power/Supermatter/Basic.rsi
     drawdepth: Mobs
     snapCardinals: true
     offset: -0.015,0.295

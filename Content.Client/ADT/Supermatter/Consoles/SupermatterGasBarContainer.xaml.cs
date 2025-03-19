@@ -1,5 +1,6 @@
 using Content.Client.Stylesheets;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Prototypes;
@@ -28,8 +29,8 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
     private readonly Color _colorGreen = StyleNano.GoodGreenFore;
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/_EE/Interface/Supermatter/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/ADT/Interface/Supermatter.rsi/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png";
 
     public SupermatterGasBarContainer(Gas gas)
     {
