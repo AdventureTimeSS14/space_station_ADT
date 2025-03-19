@@ -22,7 +22,7 @@
       Gold: 250
 
 - type: entity
-  name: incomplete baseball bat
+  name: incomplete golden baseball bat
   parent: BaseItem
   id: ADTIncompleteGoldBaseBallBat
   description: A few ingot of gold stuck together.
