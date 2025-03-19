@@ -1,0 +1,312 @@
+#Base
+- type: entity
+  parent: [ ClothingHeadEVAHelmetBase, ClothingHeadSuitWithLightBase ]
+  id: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  categories: [ HideSpawnMenu ]
+  name: shipbattle hardsuit helmet
+  description:
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshading
+        shader: unshaded
+      - state: equipped-HELMET-light
+        shader: unshaded
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshading
+        shader: unshaded
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 1
+    unequipDelay: 1
+  - type: PointLight
+    color: "#ffffff"
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+#Command
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitCaptainTSF
+  name: captain TSF hardsuit helmet
+  description: captain TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/captains_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/captains_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitExOfficerTSF
+  name: executional officer of the TSF hardsuit helmet
+  description: executional officer of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/exofficer_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/exofficer_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitCommanderTSF
+  name: commander of the TSF hardsuit helmet
+  description: commander of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/commander_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/commander_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitChiefGunnerTSF
+  name: chief gunner of the TSF hardsuit helmet
+  description: chief gunner of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/chiefgunner_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/chiefgunner_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+#Marines
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantTSF
+  name: marine leutenant of the TSF hardsuit helmet
+  description: marine leutenant of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_leutenant_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_leutenant_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.85
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitMarineTSF
+  name: marine of the hardsuit helmet
+  description: marine of the hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/marine_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#Shipcrew
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitGunnerTSF
+  name: gunner of the TSF hardsuit helmet
+  description: gunner of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/gunner_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitPilotTSF
+  name: pilot of the TSF hardsuit helmet
+  description: pilot of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/pilot_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/pilot_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitMedicTSF
+  name: medic of the TSF hardsuit helmet
+  description: medic of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/medic_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/medic_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitEngineerTSF
+  name: engineer of the TSF hardsuit helmet
+  description: engineer of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/engineer_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/engineer_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+        Radiation: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitNavigatorTSF
+  name: navigator of the TSF hardsuit helmet
+  description: navigator of the TSF hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/navigator_tsf.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Helmets/navigator_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9

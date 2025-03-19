@@ -326,3 +326,29 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitNavigatorTSF
+  name: hardsuit navigator of the TSF
+  description: hardsuit navigator of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/navigator_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/navigator_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.7
+        Radiation: 0.9
+    staminaModifier: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
