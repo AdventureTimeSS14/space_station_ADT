@@ -109,7 +109,7 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
 
         var powerMix = gasData.PowerMixRatio;
         var tempFactor = powerMix > 0.8 ? 50f : 30f;
-        powerMix = 1f * tempFactor / Atmospherics.T0C * powerMix * _config.GetCVar(CCVars.AtmosTickRate);
+        powerMix = 1f * tempFactor / Atmospherics.T0C * powerMix * 15;
         PowerInfoLabel.Text = Loc.GetString("supermatter-console-window-label-gas-power-bar", ("power", powerMix.ToString("+0.00;-0.00")));
         PowerInfoLabel.FontColorOverride = GetDetailColor(powerMix);
 
