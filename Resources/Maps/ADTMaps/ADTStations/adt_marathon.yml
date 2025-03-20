@@ -1,6 +1,18 @@
 meta:
   format: 7
   postmapinit: false
+  # category: Map
+  # engineVersion: 247.0.0
+  # forkId: ""
+  # forkVersion: ""
+  # time: 03/20/2025 00:22:04
+  # entityCount: 22521
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   3: FloorArcadeRed
@@ -7963,38 +7975,6 @@ entities:
     components:
     - type: Transform
       parent: 34
-    # - type: Storage
-    #   storedItems:
-    #     36:
-    #       position: 0,0
-    #       _rotation: South
-    #     37:
-    #       position: 1,0
-    #       _rotation: South
-    #     38:
-    #       position: 2,0
-    #       _rotation: South
-    #     39:
-    #       position: 0,2
-    #       _rotation: South
-    #     40:
-    #       position: 1,2
-    #       _rotation: South
-    #     41:
-    #       position: 2,2
-    #       _rotation: South
-    # - type: ContainerContainer
-    #   containers:
-    #     storagebase: !type:Container
-    #       showEnts: False
-    #       occludes: True
-    #       ents:
-    #       - 36
-    #       - 37
-    #       - 38
-    #       - 39
-    #       - 40
-    #       - 41
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -8002,38 +7982,6 @@ entities:
     components:
     - type: Transform
       parent: 34
-    # - type: Storage
-    #   storedItems:
-    #     43:
-    #       position: 0,0
-    #       _rotation: South
-    #     44:
-    #       position: 1,0
-    #       _rotation: South
-    #     45:
-    #       position: 2,0
-    #       _rotation: South
-    #     46:
-    #       position: 0,2
-    #       _rotation: South
-    #     47:
-    #       position: 1,2
-    #       _rotation: South
-    #     48:
-    #       position: 2,2
-    #       _rotation: South
-    # - type: ContainerContainer
-    #   containers:
-    #     storagebase: !type:Container
-    #       showEnts: False
-    #       occludes: True
-    #       ents:
-    #       - 43
-    #       - 44
-    #       - 45
-    #       - 46
-    #       - 47
-    #       - 48
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -11757,7 +11705,7 @@ entities:
       pos: -20.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34435.676
+      secondsUntilStateChange: -34448.113
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -61180,80 +61128,6 @@ entities:
     - type: Transform
       pos: 5.473156,-7.310885
       parent: 2
-# - proto: DrinkBeerCan
-#   entities:
-#   - uid: 36
-#     components:
-#     - type: Transform
-#       parent: 35
-#     - type: Physics
-#       canCollide: False
-#   - uid: 37
-#     components:
-#     - type: Transform
-#       parent: 35
-#     - type: Physics
-#       canCollide: False
-#   - uid: 38
-#     components:
-#     - type: Transform
-#       parent: 35
-#     - type: Physics
-#       canCollide: False
-#   - uid: 39
-#     components:
-#     - type: Transform
-#       parent: 35
-#     - type: Physics
-#       canCollide: False
-#   - uid: 40
-#     components:
-#     - type: Transform
-#       parent: 35
-#     - type: Physics
-#       canCollide: False
-#   - uid: 41
-#     components:
-#     - type: Transform
-#       parent: 35
-#     - type: Physics
-#       canCollide: False
-#   - uid: 43
-#     components:
-#     - type: Transform
-#       parent: 42
-#     - type: Physics
-#       canCollide: False
-#   - uid: 44
-#     components:
-#     - type: Transform
-#       parent: 42
-#     - type: Physics
-#       canCollide: False
-#   - uid: 45
-#     components:
-#     - type: Transform
-#       parent: 42
-#     - type: Physics
-#       canCollide: False
-#   - uid: 46
-#     components:
-#     - type: Transform
-#       parent: 42
-#     - type: Physics
-#       canCollide: False
-#   - uid: 47
-#     components:
-#     - type: Transform
-#       parent: 42
-#     - type: Physics
-#       canCollide: False
-#   - uid: 48
-#     components:
-#     - type: Transform
-#       parent: 42
-#     - type: Physics
-#       canCollide: False
 - proto: DrinkCoffeeLiqueurBottleFull
   entities:
   - uid: 9568
