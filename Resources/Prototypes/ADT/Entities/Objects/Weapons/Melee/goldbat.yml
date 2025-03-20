@@ -34,4 +34,4 @@
     size: Normal
   - type: Construction
     graph: ADTGoldenBat
-    node: incompleteGoldBat
+    node: ADTincompleteGoldBat
