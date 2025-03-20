@@ -1,12 +1,12 @@
 meta:
   format: 7
   postmapinit: false
-  # category: Map
-  # engineVersion: 247.0.0
-  # forkId: ""
-  # forkVersion: ""
-  # time: 03/20/2025 00:21:27
-  # entityCount: 18293
+  category: Map
+  engineVersion: 247.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/20/2025 00:21:27
+  entityCount: 18293
 maps:
 - 1
 grids:
