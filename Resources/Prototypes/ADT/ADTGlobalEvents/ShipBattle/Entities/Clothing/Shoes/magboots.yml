@@ -1,0 +1,29 @@
+- type: entity
+  parent: ClothingShoesBootsMagBase
+  id: ADTShipBattleClothingShoesBootsMagFleet
+  description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/magboots.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/magboots.rsi
+  - type: ToggleClothing
+    action: ADTShipBattleActionToggleMagbootsFleet
+    mustEquip: false
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  id: ADTShipBattleActionToggleMagbootsFleet
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }
+    iconOn: ADT/Clothing/Shoes/Boots/magboots-ert.rsi/icon-on.png
