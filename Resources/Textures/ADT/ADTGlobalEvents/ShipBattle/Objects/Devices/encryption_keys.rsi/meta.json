@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by DSC@300074782328750080 for Space Station 14, label created by not_so_big_chungus",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        { "name": "crypt_gray" },
+        { "name": "kmt_command_label" },
+        { "name": "kmt_common_label" },
+        { "name": "kmt_gunner_label" },
+        { "name": "kmt_marine_label" },
+        { "name": "kmt_medengi_label" },
+        { "name": "kmt_pilot_label" },
+        { "name": "kmt_super_label" },
+        { "name": "tsf_command_label" },
+        { "name": "tsf_common_label" },
+        { "name": "tsf_gunner_label" },
+        { "name": "tsf_marine_label" },
+        { "name": "tsf_medengi_label" },
+        { "name": "tsf_pilot_label" },
+        { "name": "tsf_super_label" }
+    ]
+}
