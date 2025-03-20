@@ -1,0 +1,13 @@
+- type: entity
+  parent: [ClothingOuterStorageBase,BadgeOnClothingWithContainer]
+  id: ADTClothingOuterClothingBox
+  name: Box vest
+  description: box with cutout for legs
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/boxvest.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/boxvest.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,2
