@@ -76,14 +76,6 @@ namespace Content.Server.Felinid
                 return;
             }
 
-            // Check "CanApplyOnOther" field
-            if (performer != target & !woundLicking.CanApplyOnOther)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("lick-wounds-other-impossible"),
-                    performer, Filter.Entities(performer), true);
-                return;
-            }
-
             if (woundLicking.ReagentWhitelist.Any() &&
                 !woundLicking.ReagentWhitelist.Contains(bloodstream.BloodReagent)
             ) return;
@@ -91,13 +83,7 @@ namespace Content.Server.Felinid
             // Check bloodstream
             if (bloodstream.BleedAmount == 0)
             {
-                if (performer == target)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("lick-wounds-yourself-no-wounds"),
-                        performer, performer);
-                    return;
-                }
-                _popupSystem.PopupEntity(Loc.GetString("lick-wounds-performer-no-wounds", ("target", target)),
+                _popupSystem.PopupEntity(Loc.GetString("lick-wounds-yourself-no-wounds"),
                     performer, performer);
                 return;
             }

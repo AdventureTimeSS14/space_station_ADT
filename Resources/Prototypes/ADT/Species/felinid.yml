@@ -8,7 +8,7 @@
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
   category: Sponsor
-  #sponsorOnly: true # Пока снимаем до решения проблем
+  sponsorOnly: true
 
 
 - type: markingPoints
