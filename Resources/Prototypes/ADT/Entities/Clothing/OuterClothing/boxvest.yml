@@ -1,0 +1,13 @@
+- type: entity
+  parent: [ClothingOuterStorageBase,BadgeOnClothingWithContainer]
+  id: ADTClothingOuterClothingBox
+  name: Box vest
+  description: Mad engineering genius of clowns
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/Boxvest.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/Boxvest.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,2

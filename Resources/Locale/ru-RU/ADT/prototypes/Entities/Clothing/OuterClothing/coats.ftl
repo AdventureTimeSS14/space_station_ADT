@@ -76,3 +76,6 @@ ent-ADTClothingOuterCoatLeathOvercoatOpened = кожанный плащ
 
 ent-ADTClothingOuterBikerJacket = косуха
     .desc = Плохой до мозга костей!
+
+ent-ADTClothingOuterClothingBox = Коробка с подтяжками
+    .desc = Коробка с вырезом для ног.
