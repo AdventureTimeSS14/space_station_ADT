@@ -10,13 +10,13 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 8
+        Blunt: 15
         Structural: 15
   - type: UseDelay
     delay: 1
   - type: Construction
-    graph: GoldenBat
-    node: goldbat
+    graph: ADTGoldenBat
+    node: ADTgoldbat
   - type: PhysicalComposition
     materialComposition:
       Gold: 250
@@ -33,5 +33,5 @@
   - type: Item
     size: Normal
   - type: Construction
-    graph: GoldenBat
+    graph: ADTGoldenBat
     node: incompleteGoldBat

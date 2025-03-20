@@ -195,10 +195,10 @@
 
 - type: construction
   name: golden baseball bat
-  id: goldbat
-  graph: GoldenBat
+  id: ADTgoldbat
+  graph: ADTGoldenBat
   startNode: start
-  targetNode: goldbat
+  targetNode: ADTgoldbat
   category: construction-category-weapons
   description: An even robust baseball bat!
   icon:

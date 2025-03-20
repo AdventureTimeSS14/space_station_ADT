@@ -1,16 +1,16 @@
 - type: constructionGraph
-  id: GoldenBat
+  id: ADTGoldenBat
   start: start
   graph:
     - node: start
       edges:
-        - to: incompleteGoldBat
+        - to: ADTincompleteGoldBat
           steps:
             - material: Gold
               amount: 5
               doAfter: 4
         
-    - node: incompleteGoldBat
+    - node: ADTincompleteGoldBat
       entity: ADTIncompleteGoldBaseBallBat
       edges:
         - to: start
@@ -22,10 +22,10 @@
           steps:
             - tool: Prying
               doAfter: 1
-        - to: goldbat
+        - to: ADTgoldbat
           steps:
             - tool: Welding
               doAfter: 2
 
-    - node: goldbat
+    - node: ADTgoldbat
       entity: ADTGoldBaseBallBat
