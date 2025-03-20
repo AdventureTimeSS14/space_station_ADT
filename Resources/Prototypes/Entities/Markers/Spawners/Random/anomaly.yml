@@ -22,6 +22,7 @@
     - AnomalyFlora
     - AnomalyShadow
     - AnomalyTech
+    - ADTAnomalyMonkey # ADT Tweak
     #- AnomalySanta 
     rareChance: 0.3
     rarePrototypes:

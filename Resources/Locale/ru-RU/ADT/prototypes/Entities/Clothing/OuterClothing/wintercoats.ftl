@@ -3,3 +3,6 @@ ent-ADTClothingOuterWinterBlueshield = куртка офицера синего 
 
 ent-ADTClothingOuterWinterRussianCoat = русский пуховик
     .desc = Используется на экстремально холодных фронтах, сделан из натуральный шерсти. Производство компании "Modeling Agency Dar-Vaxed" и Текстильный комбинат СССП, улица Сталинавская.
+
+ent-ADTClothingOuterWinterLongMime = длинное пальто мима
+    .desc = Для самых стильных и замерзающих молчунов.
