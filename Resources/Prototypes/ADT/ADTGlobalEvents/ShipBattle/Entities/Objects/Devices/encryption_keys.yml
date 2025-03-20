@@ -112,13 +112,13 @@
   components:
   - type: EncryptionKey
     channels:
-    - ADTShipBattleEncryptionKeyCommonTSF
+    - ADTShipBattleRadioCommonTSF
     - ADTShipBattleRadioCommandTSF
     - ADTShipBattleRadioGunnerTSF
     - ADTShipBattleRadioMarineTSF
     - ADTShipBattleRadioMedEngiTSF
     - ADTShipBattleRadioPilotTSF
-    defaultChannel: ADTShipBattleEncryptionKeyCommonTSF
+    defaultChannel: ADTShipBattleRadioCommonTSF
   - type: Sprite
     layers:
     - state: crypt_gray
@@ -222,13 +222,13 @@
   components:
   - type: EncryptionKey
     channels:
-    - ADTShipBattleEncryptionKeyCommonKMT
+    - ADTShipBattleRadioCommonKMT
     - ADTShipBattleRadioCommandKMT
     - ADTShipBattleRadioGunnerKMT
     - ADTShipBattleRadioMarineKMT
     - ADTShipBattleRadioMedEngiKMT
     - ADTShipBattleRadioPilotKMT
-    defaultChannel: ADTShipBattleEncryptionKeyCommonKMT
+    defaultChannel: ADTShipBattleRadioCommonKMT
   - type: Sprite
     layers:
     - state: crypt_gray
