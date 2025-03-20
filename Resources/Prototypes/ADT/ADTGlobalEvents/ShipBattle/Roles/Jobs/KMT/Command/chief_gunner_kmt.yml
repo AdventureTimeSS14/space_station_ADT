@@ -22,6 +22,7 @@
   supervisors: job-supervisors-kmt-captain
   canBeAntag: false
   weight: 17
+  overrideConsoleVisibility: false
   accessGroups:
   - AllAccess
   special:

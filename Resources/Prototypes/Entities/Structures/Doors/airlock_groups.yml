@@ -15,6 +15,16 @@
     science:     Structures/Doors/Airlocks/Standard/science.rsi
     security:    Structures/Doors/Airlocks/Standard/security.rsi
     virology:    Structures/Doors/Airlocks/Standard/virology.rsi
+    #ADT-Tweak-Start
+    bar:         ADT/Structures/Doors/Airlocks/Standard/bar.rsi
+    bathroom:    ADT/Structures/Doors/Airlocks/Standard/bathroom.rsi
+    chaplain:    ADT/Structures/Doors/Airlocks/Standard/chaplain.rsi
+    kitchen:     ADT/Structures/Doors/Airlocks/Standard/kitchen.rsi
+    morgue:      ADT/Structures/Doors/Airlocks/Standard/morgue.rsi
+    robotics:    ADT/Structures/Doors/Airlocks/Standard/robotics.rsi
+    salvage:     ADT/Structures/Doors/Airlocks/Standard/salvage.rsi
+    theatre:     ADT/Structures/Doors/Airlocks/Standard/theatre.rsi
+    #ADT-Tweak-End
 
 - type: AirlockGroup
   id: Glass
@@ -33,6 +43,15 @@
     medical:     Structures/Doors/Airlocks/Glass/medical.rsi
     security:    Structures/Doors/Airlocks/Glass/security.rsi
     virology:    Structures/Doors/Airlocks/Glass/virology.rsi
+    #ADT-Tweak-Start
+    bar:         ADT/Structures/Doors/Airlocks/Glass/bar.rsi
+    bathroom:    ADT/Structures/Doors/Airlocks/Glass/bathroom.rsi
+    chaplain:    ADT/Structures/Doors/Airlocks/Glass/chaplain.rsi
+    kitchen:     ADT/Structures/Doors/Airlocks/Glass/kitchen.rsi
+    robotics:    ADT/Structures/Doors/Airlocks/Glass/robotics.rsi
+    salvage:     ADT/Structures/Doors/Airlocks/Glass/salvage.rsi
+    theatre:     ADT/Structures/Doors/Airlocks/Glass/theatre.rsi
+    #ADT-Tweak-End
 
 - type: AirlockGroup
   id: Windoor
@@ -82,3 +101,13 @@
     science: Science
     security: Security
     virology: Medical
+    #ADT-Tweak-Start
+    bar: Civilian
+    bathroom: Civilian
+    chaplain: Civilian
+    kitchen: Civilian
+    morgue: Medical
+    robotics: Science
+    salvage: Cargo
+    theatre: Civilian
+    #ADT-Tweak-End
