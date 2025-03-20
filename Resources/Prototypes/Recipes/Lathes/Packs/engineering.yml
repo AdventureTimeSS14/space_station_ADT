@@ -49,7 +49,7 @@
   id: EngineeringBoardsStatic
   recipes:
   - SpaceHeaterMachineCircuitBoard
-  - SupermatterComputerCircuitboard # ADT-Tweak
+  - SupermatterComputerCircuitboardRecipe # ADT-Tweak
 
 ## Dynamic
 

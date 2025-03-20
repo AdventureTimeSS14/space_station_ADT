@@ -18,5 +18,5 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: SupermatterComputerCircuitboard
+  id: SupermatterComputerCircuitboardRecipe
   result: SupermatterComputerCircuitboard

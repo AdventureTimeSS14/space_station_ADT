@@ -1,5 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
+using Content.Server.Station.Systems;
+using Content.Server.Kitchen.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
@@ -22,6 +24,7 @@ using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
@@ -67,6 +70,9 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
 
     public override void Initialize()
     {
@@ -168,25 +174,36 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
+        // Ability to cut Sliver Supermatter if the object in your hand is sharp
+        if (!sm.HasBeenPowered)
+              sm.HasBeenPowered = true;
+
+        if (sm.SliverRemoved)
+            return;
+
+        if (HasComp<SharpComponent>(args.Used))
+        {
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 30f, new SupermatterDoAfterEvent(), args.Target)
+            {
+                BreakOnDamage = true,
+                BreakOnHandChange = false,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+                RequireCanInteract = true,
+            };
+            _doAfter.TryStartDoAfter(doAfterArgs);
+            _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), uid, args.User);
+        }
+            
         var target = args.User;
         var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
 
         if (args.Handled ||
-            HasComp<GhostComponent>(target) ||
-            HasComp<SupermatterImmuneComponent>(item) ||
-            HasComp<GodmodeComponent>(item))
-            return;
-
-        // Ability to cut Sliver Supermatter if the object in your hand is sharp
-        if (!sm.Activated)
-            sm.Activated = true;
-
-        if (sm.SliverRemoved)
-            return;
-
-        if (!HasComp<SharpComponent>(args.Used))
-            return;
+        HasComp<GhostComponent>(target) ||
+        HasComp<SupermatterImmuneComponent>(item) ||
+        HasComp<GodmodeComponent>(item))
+        return;
             
         if (HasComp<UnremoveableComponent>(item))
         {
@@ -240,16 +257,19 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
     {
+        string message;
+        var global = false;
+
         if (args.Cancelled)
             return;
 
         // Your criminal actions will not go unnoticed
         sm.Damage += sm.DamageDelaminationPoint / 10;
 
-        var integrity = GetIntegrity(sm).ToString("0.00");
-        SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)));
+        message = Loc.GetString("supermatter-announcement-cc-tamper");
+        SendSupermatterAnnouncement(uid, sm, message, global);
 
-        Spawn(sm.SliverPrototype, Transform(args.User).Coordinates);
+        Spawn(sm.SliverPrototype, _transform.GetMapCoordinates(args.User));
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
 
         sm.DelamTimer /= 2;
@@ -290,11 +310,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (!HasComp<ProjectileComponent>(target))
         {
-            var popup = "supermatter-collide";
-
             if (HasComp<MobStateComponent>(target))
             {
-                popup = "supermatter-collide-mob";
                 EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
                 _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} has consumed {EntityManager.ToPrettyString(target):target}");
             }
@@ -302,7 +319,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             var targetProto = MetaData(target).EntityPrototype;
             if (targetProto != null && targetProto.ID != sm.CollisionResultPrototype)
             {
-                _popup.PopupEntity(Loc.GetString(popup, ("sm", uid), ("target", target)), uid, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString("supermatter-collide-mob", ("sm", uid), ("target", target)), uid, PopupType.LargeCaution); // перевод
                 _audio.PlayPvs(sm.DustSound, uid);
             }
 

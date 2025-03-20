@@ -500,8 +500,8 @@ public sealed partial class SupermatterSystem
 
             var loc = seconds switch
             {
-                > 5 => "supermatter-seconds-before-delam-countdown",
-                <= 5 => "supermatter-seconds-before-delam-imminent",
+                > 5 => "supermatter-seconds-before-delam-countdown", // перевод
+                <= 5 => "supermatter-seconds-before-delam-imminent", // перевод
                 _ => string.Empty
             };
 
