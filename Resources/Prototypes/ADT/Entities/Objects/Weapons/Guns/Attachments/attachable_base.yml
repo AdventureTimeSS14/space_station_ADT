@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: ADTAttachableBase
+  components:
+  - type: Item
+    size: Small
+  - type: Attachable
+
+- type: entity
+  parent: ADTAttachableBase
+  abstract: true
+  id: ADTAttachableToggleableBase
+  components:
+  - type: AttachableToggleable
+  - type: UseDelay
+    delay: 0
+
+- type: entity
+  abstract: true
+  id: ADTBaseAttachableHolder
+  components:
+  - type: AttachableHolder
+  - type: ItemSizeChange
+  - type: ActivatableUI
+    verbText: rmc-verb-strip-attachables
+    verbOnly: true
+    key:
+      enum.AttachmentUI.StripKey
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui

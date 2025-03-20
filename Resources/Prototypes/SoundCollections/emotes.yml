@@ -8,6 +8,11 @@
   id: FemaleLaugh
   files:
     - /Audio/Voice/Human/womanlaugh.ogg
+    # ADT Start
+    - /Audio/ADT/Voice/Human/female_laugh.ogg
+    - /Audio/ADT/Voice/Human/female_giggle1.ogg
+    - /Audio/ADT/Voice/Human/female_giggle2.ogg
+    # ADT End
 
 - type: soundCollection
   id: MaleCough
@@ -31,6 +36,11 @@
     - /Audio/Effects/Emotes/clap4.ogg
 
 - type: soundCollection
+  id: ClapSingle
+  files:
+  - /Audio/Effects/Emotes/clap-single.ogg
+
+- type: soundCollection
   id: Snaps
   files:
     - /Audio/Effects/Emotes/snap1.ogg
@@ -48,11 +58,13 @@
   id: MaleSigh
   files:
     - /Audio/Voice/Human/male_sigh.ogg
+    - /Audio/ADT/Voice/Human/male_sigh.ogg # ADT add
 
 - type: soundCollection
   id: FemaleSigh
   files:
     - /Audio/Voice/Human/female_sigh.ogg
+    - /Audio/ADT/Voice/Human/female_sigh.ogg # ADT add
 
 - type: soundCollection
   id: Salutes
@@ -92,3 +104,8 @@
   id: Weh
   files:
   - /Audio/Items/Toys/weh.ogg
+
+- type: soundCollection
+  id: Hew
+  files:
+  - /Audio/Items/Toys/hew.ogg

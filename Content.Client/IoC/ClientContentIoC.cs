@@ -28,6 +28,7 @@ using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
+using Content.Client.ADT.Export;
 
 namespace Content.Client.IoC
 {
@@ -66,6 +67,7 @@ namespace Content.Client.IoC
             collection.Register<SponsorsManager>(); // Corvax-Sponsors
             collection.Register<JoinQueueManager>(); // Corvax-Queue
             collection.Register<DiscordAuthManager>(); // Corvax-DiscordAuth
+            collection.Register<ExportManager>(); // ADT Export
         }
     }
 }

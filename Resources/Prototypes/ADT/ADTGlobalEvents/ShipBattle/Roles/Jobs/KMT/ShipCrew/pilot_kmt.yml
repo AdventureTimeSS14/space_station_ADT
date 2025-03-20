@@ -1,0 +1,59 @@
+- type: job
+  id: ADTBattleShipPilotKMT
+  name: job-name-pilot-kmt
+  description: job-description-pilot-kmt
+  playTimeTracker: JobADTBattleShipPilotKMT
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hrs 
+  startingGear: ADTBattleShipPilotKMTGear
+  icon: "JobIconPilotKMT"
+  supervisors: job-supervisors-kmt-gunner
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Engineering
+  - External
+  - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipPilotKMTGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500

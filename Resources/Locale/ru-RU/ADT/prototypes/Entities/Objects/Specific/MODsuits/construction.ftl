@@ -1,0 +1,15 @@
+ent-ADTModsuitHelmet = шлем МОДа
+ent-ADTModsuitGauntlets = перчатки МОДа
+ent-ADTModsuitCoreEnergy = ядро питания МОДа
+ent-ADTModsuitChestplate = нагрудник МОДа
+ent-ADTModsuitBoots = ботинки МОДа
+ent-ADTModsuitPlateAtmospheric = покрытие атмосферного МОДа
+ent-ADTModsuitPlateCosmohonk = покрытие МОДа "космохонк"
+ent-ADTModsuitPlateEngineering = покрытие инженерного МОДа
+ent-ADTModsuitPlateMedical = покрытие медицинского МОДа
+ent-ADTModsuitPlateSecurity = покрытие охранного МОДа
+ent-ADTModsuitPlateStandard = стандартное покрытие МОДа
+ent-ADTModsuitPlateCience =  научное покрытие МОДа
+ent-ADTModsuitPlateMining = покрытие шахтёрского МОДа
+ent-ADTModsuitAssembly = ядро МОДа
+ent-ADTModsuitAssembled = собранное ядро МОДа

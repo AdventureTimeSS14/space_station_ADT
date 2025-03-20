@@ -14,6 +14,7 @@
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
+    - id: ADTHandheldShuttleConsoleSalvage # ADT-handheld-shuttle-console
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
@@ -204,7 +205,7 @@
   id: FillChiefEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskBreath
+    - id: ClothingMaskGasAtmos
     - id: ClothingOuterHardsuitEngineeringWhite
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
@@ -264,6 +265,7 @@
     - id: ADTBookSRPmed
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
+    - id: OpporozidoneBeakerSmall
     # ADT tweak End
 
 # Hardsuit table, used for suit storage as well
@@ -364,7 +366,8 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyShotgun
+    - id: ADTWeaponPistolX01 # ADT tweak Мультифаза для гсб
+#    - id: WeaponEnergyShotgun ADT tweak Дробовик для смотрителя
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -376,11 +379,13 @@
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
+    - id: ADTHandheldShuttleConsoleSecurity # ADT-handheld-shuttle-console
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
     - id: WantedListCartridge
+    - id: DrinkHosFlask
     - id: ClothingHeadHatCapHoS # Corvax-SecFashion
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
@@ -402,7 +407,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ClothingOuterHardsuitSecurityRed
+    - id: ADTClothingModsuitBackSafeguard #ADT tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 

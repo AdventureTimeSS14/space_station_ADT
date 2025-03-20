@@ -14,17 +14,33 @@
   categories: [ HideSpawnMenu ]
   parent: [BaseChangelingObjective, BaseLivingObjective]
   id: DnaAbsorbObjective
-  name: Absorb 4 DNAs.
+  name: Steal N DNAs.
   components:
   - type: Objective
     difficulty: 1.5
     unique: true
     icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: absorb_dna
-  - type: AbsorbDnaCondition
+      sprite: ADT/Interface/ling-objectives.rsi
+      state: sting_extract
+  - type: StealDnaCondition
     objectiveText: absorb-dna-name
     descriptionText: absorb-dna-desc
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [BaseChangelingObjective, BaseLivingObjective]
+  id: ChangelingAbsorbObjective
+  name: Steal N DNAs.
+  components:
+  - type: Objective
+    difficulty: 1.5
+    unique: true
+    icon:
+      sprite: ADT/Interface/ling-objectives.rsi
+      state: absorb_dna
+  - type: AbsorbChangelingCondition
+    objectiveText: absorb-changeling-name
+    descriptionText: absorb-changeling-desc
 
 - type: entity
   abstract: true

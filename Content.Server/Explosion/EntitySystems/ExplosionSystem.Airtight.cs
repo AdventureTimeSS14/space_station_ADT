@@ -75,6 +75,8 @@ public sealed partial class ExplosionSystem
         {
             if (!query.Value.TryGetComponent(uid, out var airtight) || !airtight.AirBlocked)
                 continue;
+            if (!airtight.BlockExplosions)  // ADT fan abuse fix 
+                continue;                   // ADT fan abuse fix 
 
             blockedDirections |= airtight.AirBlockedDirection;
             var entityTolerances = GetExplosionTolerance(uid.Value, damageQuery, destructibleQuery);

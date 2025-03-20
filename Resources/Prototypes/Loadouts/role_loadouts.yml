@@ -39,9 +39,21 @@
   - GroupSpeciesBreathTool
 
 # Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
 - type: roleLoadout
   id: JobStationAi
-  nameDataset: names_ai
+  nameDataset: NamesAI
+  canCustomizeName: true
+  # ADT SAI Custom start
+  allowedExtras:
+  - ai-screen
+  - ai-lawset
+  - ai-name
+  # ADT SAI Custom end
 
 # Civilian
 - type: roleLoadout
@@ -113,6 +125,7 @@
   - CommonBackpack
   - ChefOuterClothing
   - Glasses
+  - ADTChefPocket1 #ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -500,7 +513,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -508,6 +521,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - WardenHead
+  - WardenNeckADT # ADT-Loadouts
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
@@ -520,15 +534,15 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
-  - WardenNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
   - Inventory # Corvax-Loadouts
   - SecurityHead
+  - SecurityOfficerNeckADT # ADT-Loadouts
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityOuterClothing
@@ -542,15 +556,13 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
-  - SecurityOfficerNeckADT # ADT-Loadouts
 
 - type: roleLoadout
   id: JobDetective
   groups:
   - Inventory # Corvax-Loadouts
-  - GroupTankHarness
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
@@ -564,13 +576,14 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
   - Inventory # Corvax-Loadouts
+  - SecurityCadetNeckADT # ADT-Loadouts
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
@@ -581,7 +594,6 @@
   - ADTSocks
   # ADT underwear tweak end
   - GroupSpeciesBreathToolSecurity
-  - SecurityCadetNeckADT # ADT-Loadouts
 
 # Medical
 - type: roleLoadout

@@ -1,11 +1,22 @@
 <Control xmlns="https://spacestation14.io">
     <BoxContainer Orientation="Vertical" Margin="5">
-        <Label Name="RecordName" StyleClasses="LabelBig"/>
-        <Label Name="Age"/>
-        <Label Name="Title"/>
-        <Label Name="Job"/>
-        <Label Name="Species"/>
-        <Label Name="Gender"/>
+        <!-- ADT Station Records Showcase Start -->
+        <BoxContainer Name="ShowcaseContainer" Orientation="Horizontal" Margin="5">
+            <SpriteView Name="Showcase"
+                        SetSize="96 96"
+                        OverrideDirection="South"
+                        Margin="5"
+                        Stretch="Fill"/>
+                <BoxContainer Orientation="Vertical" Margin="5">
+                    <RichTextLabel Name="RecordName" StyleClasses="LabelBig"/>
+                    <RichTextLabel Name="Age"/>
+                    <RichTextLabel Name="Title"/>
+                    <RichTextLabel Name="Job"/>
+                    <RichTextLabel Name="Species"/>
+                    <RichTextLabel Name="Gender"/>
+                </BoxContainer>
+        </BoxContainer>
+        <!-- ADT Station Records Showcase End -->
         <Label Name="Fingerprint"/>
         <Label Name="Dna"/>
         <Button Visible="False" Name="DeleteButton" Text="{Loc 'general-station-record-console-delete'}"/>

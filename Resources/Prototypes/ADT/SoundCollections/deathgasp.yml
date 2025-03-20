@@ -1,0 +1,36 @@
+- type: soundCollection
+  id: MaleSlimeDeathGasp
+  files:
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_1.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_2.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_3.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_4.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_5.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_deathgasp_1.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_deathgasp_2.ogg
+- type: soundCollection
+  id: FemaleSlimeDeathGasp
+  files:
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_1.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_2.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_3.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_4.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_5.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_deathgasp_1.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_deathgasp_2.ogg
+
+- type: soundCollection
+  id: UnisexSlimeDeathGasp
+  files:
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_1.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_2.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_3.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_4.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_male_deathgasp_5.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_1.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_2.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_3.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_4.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_female_deathgasp_5.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_deathgasp_1.ogg
+  - /Audio/ADT/Effects/Gasp/Slime/s_deathgasp_2.ogg

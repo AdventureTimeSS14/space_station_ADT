@@ -13,17 +13,3 @@
   - type: HereticAction
     messageLoc: heretic-speech-flesh-surgery
 
-- type: entity
-  id: ActionPolymorphHereticHorror
-  name: action-heretic-flesh-uncoil-name
-  description: action-heretic-flesh-uncoil-desc
-  components:
-  - type: InstantAction
-    useDelay: 60
-    event: !type:EventHereticFleshAscend
-    itemIconStyle: NoItem
-    icon:
-      sprite: ADT/Heretic/abilities_heretic.rsi
-      state: final_hymn
-  - type: HereticAction
-    messageLoc: heretic-speech-flesh-worm

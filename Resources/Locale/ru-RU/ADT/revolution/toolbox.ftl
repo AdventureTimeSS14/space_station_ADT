@@ -8,7 +8,7 @@ revolution-toolbox-category-all-hands-master-description =
 revolution-toolbox-category-subversion-name = Набор юного подрывника
 
 revolution-toolbox-category-subversion-description =
-    Набор, чтобы устроить настоящий хаос на станции! 
+    Набор, чтобы устроить настоящий хаос на станции!
     влючает в себя: 3 кувшина калия, 1 кувшин угля,
     1 кувшин серы, 4 хим. заряда, 3 таймер-триггера,
     3 сигнальных триггера, продвинутый передатчик сигналов
@@ -31,7 +31,21 @@ revolution-toolbox-category-gunsmith-description =
 revolution-toolbox-category-printing-name = Набор печатания
 
 revolution-toolbox-category-printing-description =
-    Вы что-то хотите? Напечатайте! 
+    Вы что-то хотите? Напечатайте!
     включает в себя: плата автолата, плата протолата,
-    плата фабрикатора экзоклстюмов, плата ТехФаба патронов,
+    плата фабрикатора экзокостюмов, плата ТехФаба патронов,
     плата охранного техфаба.
+
+revolution-toolbox-category-cluwnerev-name = Набор Клувеня
+
+revolution-toolbox-category-cluwnerev-description =
+    Вам смешно когда СБ падают на мыле? Этот набор для вас!
+    включает в себя: два пирога, две упаковки космосмазки,
+    галоши, омега мыло и маску клоуна.
+
+revolution-toolbox-category-disarm-name = Набор Разоружения
+
+revolution-toolbox-category-disarm-description =
+    Вас избивают СБ дубинками и вам это надоело? Этот набор для вас!
+    включает в себя: два шприца с эфедрином, две болы,
+    две самодельных дубинки-шокера, и коробку стяжек.

@@ -1,0 +1,52 @@
+- type: constructionGraph
+  id: ADTFan
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: litleFan
+      steps:
+      - material: Plasteel
+        amount: 10
+        doAfter: 5
+    - to: directionalFan
+      steps:
+      - material: Plasteel
+        amount: 10
+        doAfter: 5
+
+  - node: litleFan
+    entity: AtmosDeviceFanTiny
+    edges:
+    - to: start
+      # conditions:
+      # - !type:EntityAnchored
+      #   anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 6
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      - tool: Welding
+        doAfter: 5
+
+  - node: directionalFan
+    entity: AtmosDeviceFanDirectional
+    edges:
+    - to: start
+      # conditions:
+      # - !type:EntityAnchored
+      #   anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 6
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      - tool: Welding
+        doAfter: 5

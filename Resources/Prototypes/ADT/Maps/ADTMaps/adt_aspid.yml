@@ -3,7 +3,7 @@
   mapName: 'Aspid'
   mapPath: /Maps/ADTMaps/ADTStations/adt_aspid.yml
   minPlayers: 20
-  maxPlayers: 80
+  maxPlayers: 40
   stations:
     ADT_Aspid:
       stationProto: StandardNanotrasenStation

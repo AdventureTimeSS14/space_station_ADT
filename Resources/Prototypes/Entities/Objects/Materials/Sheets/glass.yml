@@ -15,6 +15,7 @@
   - type: Tag
     tags:
     - Sheet
+    - NoPaint #ADT tweak
   - type: Material
   - type: Damageable
     damageContainer: Inorganic
@@ -48,7 +49,7 @@
     solutions:
       glass:
         canReact: false
-  # ADT IPC healing start
+  # ADT Start
   - type: Healing
     delay: 1.5
     damageContainers:
@@ -57,7 +58,16 @@
       types:
         Heat: -5
         Cold: -5
-  # ADT IPC healing end
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/glass_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/glass_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/glass_drop.ogg
+  # ADT End
 
 - type: entity
   parent: SheetGlassBase
@@ -327,6 +337,30 @@
   - type: Construction
     graph: Glass
     node: SheetRPGlass
+  - type: Destructible  #ADT-Tweak_start
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTShardGlassReinforcedPlasma:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]  #ADT-Tweak_End
   - type: Extractable
     grindableSolutionName: rpglass
   - type: SolutionContainerManager
@@ -474,6 +508,30 @@
   - type: Construction
     graph: Glass
     node: SheetRUGlass
+  - type: Destructible #ADT-Tweak_start
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTShardGlassReinforcedUran:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ] #ADT-Tweak_end
   - type: Extractable
     grindableSolutionName: ruglass
   - type: SolutionContainerManager

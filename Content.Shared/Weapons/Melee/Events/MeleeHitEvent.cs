@@ -29,6 +29,7 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     ///     This might be required as damage modifier sets cannot add a new damage type to a DamageSpecifier.
     /// </remarks>
     public DamageSpecifier BonusDamage = new();
+    public DamageSpecifier DecreaseDamage = new();
 
     /// <summary>
     ///     A list containing every hit entity. Can be zero.

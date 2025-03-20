@@ -60,7 +60,7 @@
 - type: entity
   name: flashbang
   description: Eeeeeeeeeeeeeeeeeeeeee.
-  parent: [ GrenadeBase, BaseRestrictedContraband ]
+  parent: [ GrenadeBase, BaseSecurityContraband ]
   id: GrenadeFlashBang
   components:
   - type: Sprite
@@ -81,6 +81,9 @@
     guides:
     - Security
     - Antagonists
+  - type: Tag
+    tags:
+    - GrenadeFlashBang
 
 - type: entity
   id: GrenadeFlashEffect
@@ -106,6 +109,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+# ADT-Tweak START - Вместо уничтожения минибомба при повреждении взрывается
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Destructible
@@ -114,22 +118,19 @@
         !type:DamageTrigger
         damage: 10
       behaviors:
-      - !type:TimerStartBehavior
-    - trigger:
-        !type:DamageTrigger
-        damage: 45
-      behaviors:
-      - !type:TriggerBehavior
       - !type:DoActsBehavior
         acts: ["Destruction"]
+      - !type:ExplodeBehavior
+# ADT-Tweak END
   - type: OnUseTimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Minibomb
-    totalIntensity: 200
-    intensitySlope: 30 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
-    maxIntensity: 60
+    # Стандартные значения (200, 30, 60)
+    totalIntensity: 700
+    intensitySlope: 100 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
+    maxIntensity: 200
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:
@@ -162,13 +163,13 @@
 
 
 - type: entity
-  name: supermatter grenade
-  description: Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time.
-  parent: [GrenadeBase, BaseSyndicateContraband]
-  id: SupermatterGrenade
+  parent: [ GrenadeBase, BaseSyndicateContraband ]
+  id: SingularityGrenade
+  name: singularity grenade
+  description: Grenade that simulates the power of a singularity, pulling things in a heap.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/supermattergrenade.rsi
+    sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
   - type: OnUseTimerTrigger
     delay: 3
     beepInterval: 0.46
@@ -181,11 +182,6 @@
       path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
       params:
         volume: -5
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 200
-    intensitySlope: 30
-    maxIntensity: 120
   - type: SoundOnTrigger
     removeOnTrigger: true
     sound:
@@ -203,10 +199,10 @@
         sound:
           path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
       - type: GravityWell
-        maxRange: 8
-        baseRadialAcceleration: 145
-        baseTangentialAcceleration: 5
-        gravPulsePeriod: 0.01
+        maxRange: 10
+        baseRadialAcceleration: 5
+        baseTangentialAcceleration: .5
+        gravPulsePeriod: 0.03
       - type: SingularityDistortion
         intensity: 150
         falloffPower: 1.5
@@ -222,12 +218,12 @@
           path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
           params:
             volume: 5
-      - type: ExplodeOnTrigger
+      - type: DeleteOnTrigger
 
 - type: entity
   name: whitehole grenade
   description: Grenade that repulses everything around for some time.
-  parent: SupermatterGrenade
+  parent: SingularityGrenade
   id: WhiteholeGrenade
   components:
   - type: Sprite
@@ -392,9 +388,9 @@
     entries:
     - label: corvax-hidden-desc-HolyHandGrenade-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-HolyHandGrenade-research
       jobRequired:
         - ResearchAssistant
@@ -404,7 +400,7 @@
 # Corvax-HiddenDesc-End
 
 - type: entity
-  parent: [ GrenadeBase, BaseRestrictedContraband ]
+  parent: [ GrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade
   name: smoke grenade
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.

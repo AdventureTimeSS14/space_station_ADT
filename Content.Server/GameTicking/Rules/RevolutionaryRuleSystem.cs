@@ -147,7 +147,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (mind == null || mind.Session == null || ev.User == null)
             return;
 
-        if (comp.ConvertedCount <= 15)
+        if (!_mind.TryGetMind(ev.User.Value, out var revMindId, out _) || !_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
+            return;
+
+        if (role.Value.Comp2.ConvertedCount <= 15)
         {
             _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), mind.Session);
             return;
@@ -162,12 +165,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 LogImpact.Medium,
                 $"{ToPrettyString(ev.User.Value)} converted {ToPrettyString(ev.Target)} into a Revolutionary");
 
-            if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
-            {
-                // if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role)) //ADT rerev start
-                //     role.Value.Comp2.ConvertedCount++;
-                comp.ConvertedCount++; //ADT rerev end
-            }
+            role.Value.Comp2.ConvertedCount++;
         }
 
         if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))
@@ -321,7 +319,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
-    //ADT rerev start 
+    //ADT rerev start
 
     public void MakeEntRev(EntityUid user, EntityUid target, HeadRevolutionaryComponent comp)
     {
@@ -333,9 +331,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
 
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
-
-        comp.ConvertedCount++;
-
+        // ADT TWEAK START
+        if (_mind.TryGetMind(user, out var revMindId, out _) && _role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
+            role.Value.Comp2.ConvertedCount++;
+        // ADT TWEAK END
         if (mind?.Session != null)
             _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }

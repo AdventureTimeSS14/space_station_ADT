@@ -243,7 +243,8 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         EntityUid receiver,
         MaterialStorageComponent? storage = null,
         MaterialComponent? material = null,
-        PhysicalCompositionComponent? composition = null)
+        PhysicalCompositionComponent? composition = null,
+        bool showPopup = true)  // ADT tweak
     {
         if (!Resolve(receiver, ref storage))
             return false;

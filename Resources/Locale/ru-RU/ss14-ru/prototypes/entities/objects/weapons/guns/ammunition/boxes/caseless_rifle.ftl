@@ -1,10 +1,10 @@
-ent-BaseMagazineBoxCaselessRifle = коробка патронов (.25 безгильзовые)
+ent-BaseMagazineBoxCaselessRifle = коробка патронов (4.7х33 мм безгильзовые)
     .desc = { ent-BaseItem.desc }
-ent-MagazineBoxCaselessRifle10x24 = ящик патронов (.25 безгильзовые)
+ent-MagazineBoxCaselessRifle10x24 = ящик патронов (4.7х33 мм безгильзовые)
     .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
-ent-MagazineBoxCaselessRifleBig = ящик патронов (.25 безгильзовые)
+ent-MagazineBoxCaselessRifleBig = ящик патронов (4.7х33 мм безгильзовые)
     .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
-ent-MagazineBoxCaselessRifle = коробка патронов (.25 безгильзовые)
+ent-MagazineBoxCaselessRifle = коробка патронов (4.7х33 мм безгильзовые)
     .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
-ent-MagazineBoxCaselessRiflePractice = коробка патронов (.25 безгильзовые учебные)
+ent-MagazineBoxCaselessRiflePractice = коробка патронов (4.7х33 мм безгильзовые учебные)
     .desc = { ent-BaseMagazineBoxCaselessRifle.desc }

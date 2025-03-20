@@ -5,7 +5,7 @@
   productAction: ActionArmBlade
   mindAction: false
   cost:
-    EvolutionPoints: 3
+    EvolutionPoints: 2
   categories:
   - ChangelingAbilities
   conditions:

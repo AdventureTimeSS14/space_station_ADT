@@ -20,7 +20,7 @@
       types:
         Blunt: 0
     staminaDamageFolded: 0
-    staminaDamageOpen: 35
+    staminaDamageOpen: 25
     sizeOpened: Normal
     sizeClosed: Small
   - type: StaminaDamageOnHit

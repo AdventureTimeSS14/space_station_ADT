@@ -36,6 +36,11 @@
     quickEquip: false
     slots:
     - Belt
+  # ADT Tweak start
+  - type: Construction
+    graph: ADTHandmadeCrowbarGraph
+    node: HandmadeCrowbar
+  # ADT Tweak end
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
     size: Small #ADT_Tweaks - ломы снова лезут в карман

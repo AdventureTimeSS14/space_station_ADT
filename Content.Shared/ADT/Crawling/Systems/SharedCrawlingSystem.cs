@@ -9,11 +9,14 @@ using Robust.Shared.Player;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Climbing.Components;
-using Content.Shared.Popups;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Map.Components;
+using Content.Shared.ADT.Grab;
 using Content.Shared.Climbing.Systems;
-using Content.Shared.Climbing.Events;
+using Content.Shared.CombatMode;
+using System.Numerics;
+using Content.Shared.Throwing;
+using Robust.Shared.Physics.Components;
+using Content.Shared.Gravity;
+using Content.Shared.Coordinates;
 
 namespace Content.Shared.ADT.Crawling;
 
@@ -26,7 +29,8 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly BonkSystem _bonk = default!;
-
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -63,6 +67,33 @@ public abstract class SharedCrawlingSystem : EntitySystem
         {
             case false:
                 _standing.Down(uid, dropHeldItems: false);
+                if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
+                    combatMode.IsInCombatMode)
+                {
+                    var targetTile = Vector2.Zero;
+
+                    if (TryComp<PhysicsComponent>(uid, out var physics) && !_gravity.IsWeightless(uid))
+                    {
+                        var velocity = physics.LinearVelocity;
+
+                        if (velocity.LengthSquared() > 0)
+                        {
+                            var direction = velocity.Normalized();
+
+                            var currentPosition = uid.ToCoordinates();
+
+                            var targetTileX = currentPosition.X + direction.X * 1;
+                            var targetTileY = currentPosition.Y + direction.Y * 1;
+
+                            int tileX = (int)MathF.Round(targetTileX);
+                            int tileY = (int)MathF.Round(targetTileY);
+
+                            targetTile = new Vector2(tileX, tileY);
+                        }
+                    }
+                    EnsureComp<GrabThrownComponent>(uid);
+                    _throwing.TryThrow(uid, targetTile, 8, animated: false, playSound: false, doSpin: false);
+                }
                 break;
             case true:
                 _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.StandUpTime, new CrawlStandupDoAfterEvent(),
@@ -88,27 +119,27 @@ public abstract class SharedCrawlingSystem : EntitySystem
         }
         _standing.Stand(uid);
     }
+
     private void OnStandUp(EntityUid uid, CrawlerComponent component, StandAttemptEvent args)
     {
         if (args.Cancelled)
             return;
         RemCompDeferred<CrawlingComponent>(uid);
-        _alerts.ClearAlert(uid, component.CtawlingAlert);
+        _alerts.ClearAlert(uid, component.CrawlingAlert);
     }
     private void OnFall(EntityUid uid, CrawlerComponent component, DownAttemptEvent args)
     {
         if (args.Cancelled)
             return;
-        _alerts.ShowAlert(uid, component.CtawlingAlert);
-        if (!HasComp<CrawlingComponent>(uid))
-            AddComp<CrawlingComponent>(uid);
-        //TODO: add hiding under table
+        _alerts.ShowAlert(uid, component.CrawlingAlert);
+
+
+        EnsureComp<CrawlingComponent>(uid);
     }
     private void OnStunned(EntityUid uid, CrawlerComponent component, StunnedEvent args)
     {
-        if (!HasComp<CrawlingComponent>(uid))
-            AddComp<CrawlingComponent>(uid);
-        _alerts.ShowAlert(uid, component.CtawlingAlert);
+        EnsureComp<CrawlingComponent>(uid);
+        _alerts.ShowAlert(uid, component.CrawlingAlert);
     }
     private void OnGetExplosionResistance(EntityUid uid, CrawlerComponent component, ref GetExplosionResistanceEvent args)
     {
@@ -120,7 +151,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
             var ev = new ExplosionDownAttemptEvent(args.ExplosionPrototype);
             RaiseLocalEvent(uid, ref ev);
             if (!ev.Cancelled)
-                _standing.Down(uid, dropHeldItems: false);
+                _standing.Down(uid);
         }
 
     }

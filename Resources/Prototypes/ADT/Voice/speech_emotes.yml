@@ -1,6 +1,7 @@
 - type: emote # эмоция work out
   id: WorkOut
   name: chat-emote-name-workout
+  available: false
   icon: Interface/Emotes/ping.png
   chatMessages: ["качается"]
   chatTriggers:
@@ -14,6 +15,7 @@
   name: chat-emote-name-laugh-apathy
   category: Vocal
   icon: Interface/Emotes/laugh.png
+  available: false
   chatMessages: [выдавливает из себя смех]
   chatTriggers:
     - выдавливает из себя смех
@@ -23,6 +25,7 @@
   name: chat-emote-name-scream-apathy
   category: Vocal
   icon: Interface/Emotes/scream.png
+  available: false
   chatMessages: [наигранно кричит!]
   chatTriggers:
     - наигранно кричит!
@@ -32,6 +35,7 @@
   name: chat-emote-name-sigh-apathy
   category: Vocal
   icon: Interface/Emotes/yawn.png
+  available: false
   chatMessages: [театрально вздыхает]
   chatTriggers:
     - театрально вздыхает
@@ -41,6 +45,7 @@
   name: chat-emote-name-crying-apathy
   category: Vocal
   icon: Interface/Emotes/cry.png
+  available: false
   chatMessages: [фальшиво плачет]
   chatTriggers:
     - фальшиво плачет
@@ -50,7 +55,11 @@
   id: Hiss
   name: chat-emote-name-hiss
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    tags:
+    - ADTCatEmotes
+    - ADTVoxEmotes
+  icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
     - шипит
@@ -61,7 +70,13 @@
   id: Meow
   name: chat-emote-name-meow
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTCatEmotes
+  icon: ADT/Interface/Emotes/Vocal/meow.png
   chatMessages: [мяукает]
   chatTriggers:
     - мяу
@@ -79,7 +94,13 @@
   id: Mew
   name: chat-emote-name-mew
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTCatEmotes
+  icon: ADT/Interface/Emotes/Vocal/mew.png
   chatMessages: [мякает]
   chatTriggers:
     - мя
@@ -97,7 +118,13 @@
   id: Growl
   name: chat-emote-name-growl
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTDogEmotes
+  icon: ADT/Interface/Emotes/Vocal/growl.png
   chatMessages: [рычит]
   chatTriggers:
     - рычит
@@ -115,7 +142,13 @@
   id: Purr
   name: chat-emote-name-purr
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTCatEmotes
+  icon: ADT/Interface/Emotes/Vocal/purr.png
   chatMessages: [мурчит]
   chatTriggers:
     - мур
@@ -127,7 +160,13 @@
   id: Heckaet
   name: chat-emote-name-heck
   category: Vocal
-  icon: Interface/Emotes/sigh.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTDogEmotes
+  icon: ADT/Interface/Emotes/Vocal/bark.png
   chatMessages: [хекает]
   chatTriggers:
     - кхе
@@ -141,7 +180,13 @@
   id: Howl
   name: chat-emote-name-howl
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTDogEmotes
+  icon: ADT/Interface/Emotes/Vocal/bark.png
   chatMessages: [воет]
   chatTriggers:
     - воет
@@ -152,7 +197,13 @@
   id: Whine
   name: chat-emote-name-whine
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTDogEmotes
+  icon: ADT/Interface/Emotes/Vocal/bark.png
   chatMessages: [скулит]
   chatTriggers:
     - скул
@@ -166,7 +217,13 @@
   id: Bark
   name: chat-emote-name-bark
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTDogEmotes
+  icon: ADT/Interface/Emotes/Vocal/bark.png
   chatMessages: [лает]
   chatTriggers:
     - лает
@@ -187,7 +244,13 @@
   id: SynthYes
   name: chat-emote-name-synth-yes
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSiliconEmotes
+  icon: ADT/Interface/Emotes/Vocal/confirm.png
   chatMessages: [утвердительно пищит]
   chatTriggers:
     - утвердительно пищит
@@ -203,7 +266,13 @@
   id: SynthNo
   name: chat-emote-name-synth-no
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSiliconEmotes
+  icon: ADT/Interface/Emotes/Vocal/deny.png
   chatMessages: [отрицательно пищит]
   chatTriggers:
     - отрицательно пищит
@@ -219,7 +288,14 @@
   id: SighBuzz
   name: chat-emote-name-sigh-buzz
   category: Vocal
-  icon: Interface/Emotes/vocal.png
+  available: false
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSiliconEmotes
+  icon: Interface/Emotes/buzztwo.png
   chatMessages: [раздражённо жужжит]
   chatTriggers:
     - раздражённо жужжит
@@ -227,3 +303,101 @@
     - раздраженно жужжит
     - раздраженно жужжит.
     - искрит и раздраженно жужит # ADT-Tweak-BloodCough
+
+- type: emote
+  id: Spit
+  name: chat-emote-name-spit
+  icon: Interface/Emotes/sigh.png
+  category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-spit"]
+  chatTriggers:
+    - spit
+    - spits
+    - плюёт
+    - плюет
+    - плюнул
+    - плюнуло
+    - харкнул
+    - харкнуло
+    - харкает
+    - делает харчок
+
+  #Vox
+
+- type: emote
+  id: VoxCoo
+  name: chat-emote-name-coo
+  icon: ADT/Interface/Emotes/Vocal/coo.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTVoxEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-coo"]
+  chatTriggers:
+    - coo
+    - воркует
+
+- type: emote
+  id: VoxChitter
+  name: chat-emote-name-chitter
+  icon: ADT/Interface/Emotes/Vocal/voxchitter.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTVoxEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-chitter"]
+  chatTriggers:
+    - voxchitter
+    - щебечет
+
+
+# Slime
+
+- type: emote
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSlimeEmotes
+  icon: ADT/Interface/Emotes/Vocal/pop.png
+  chatMessages: [chat-emote-msg-pop]
+  chatTriggers:
+    - чпок
+
+
+- type: emote
+  id: Bubbles
+  name: chat-emote-name-bubbles
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSlimeEmotes
+  icon: ADT/Interface/Emotes/Vocal/bubbles.png
+  chatMessages: [chat-emote-msg-bubbles]
+  chatTriggers:
+    - булькает

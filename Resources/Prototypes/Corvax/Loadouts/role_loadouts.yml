@@ -19,11 +19,12 @@
   groups:
   - Inventory # Corvax-Loadouts
   - SecurityJumpsuit
+  - SecurityOfficerNeckADT # ADT-Loadouts
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityBelt
   - SecurityShoes
-  - Survival
+  - SurvivalSecurity # ADT fix
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

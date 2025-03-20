@@ -12,3 +12,18 @@
   license: "CC-BY-3.0"
   copyright: "https://github.com/tgstation/tgstation/commit/95731342b97167d7883ff091d389f79c36442ee6"
   source: "https://github.com/tgstation/tgstation/blob/ea4870f6d1c0d6b553bb0540d3f4d6efd6f4a3a3/sound/ai/intern/alerts/9.ogg"
+
+- files: ["bully2.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/tgstation/tgstation/commit/93da20c43330005f0e51f3114a5f911821fa28d2"
+  source: "https://github.com/tgstation/tgstation/blob/ea4870f6d1c0d6b553bb0540d3f4d6efd6f4a3a3/config/reboot_themes/bully2.ogg"
+
+- files: ["its_only_game.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/tgstation/tgstation/commit/7bf6e01cf2cc0e1b5a7bc97de04e0c783c01bc4d"
+  source: "https://github.com/tgstation/tgstation/blob/ea4870f6d1c0d6b553bb0540d3f4d6efd6f4a3a3/config/reboot_themes/its_only_game.ogg"
+
+- files: ["yeehaw.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/tgstation/tgstation/commit/deafd45efb64ea6c563b4c974ecaa726e1f87369"
+  source: "https://github.com/tgstation/tgstation/blob/ea4870f6d1c0d6b553bb0540d3f4d6efd6f4a3a3/config/reboot_themes/yeehaw.ogg"

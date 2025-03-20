@@ -15,7 +15,7 @@ public sealed partial class ChangelingActionNotPresentCondition : ListingConditi
 
         foreach (var item in ling.BoughtActions)
         {
-            if (args.EntityManager.TryGetComponent<MetaDataComponent>(item, out var meta) && meta.EntityPrototype?.ID == args.Listing.ProductAction)
+            if (ling.BoughtActions.TryGetValue(args.Listing.ProductAction ?? "", out _) || ling.BasicTransferredActions.TryGetValue(args.Listing.ProductAction ?? "", out _))
                 return false;
         }
         return true;

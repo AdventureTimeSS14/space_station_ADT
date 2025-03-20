@@ -1,0 +1,28 @@
+- type: entity
+  name: Tea Box
+  parent: BaseStorageItem
+  id: ADTTeabox
+  description: Woah. So much tea you have here.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/teapack.rsi
+    state: teabox
+    shape:
+    - 0,0,1,0
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+        - ADTTeaPack
+  - type: StorageFill
+    contents:
+    - id: ADTOrangeTeapack
+    - id: ADTOrangeTeapack
+    - id: ADTEmptyTeaPack
+    - id: ADTEmptyTeaPack
+    - id: ADTCherryTeapack
+    - id: ADTCherryTeapack
+    - id: ADTEmptyTeaPack
+    - id: ADTEmptyTeaPack

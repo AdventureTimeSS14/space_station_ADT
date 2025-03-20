@@ -2,7 +2,7 @@
 - type: entity
   id: ADTLockerBlueshieldFilledHardsuit
   suffix: Filled, Hardsuit
-  parent: ADTLockerBlueshield
+  parent: LockerBlueshield
   components:
   - type: StorageFill
     contents:
@@ -20,11 +20,12 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTCqcManualWeak
 
 - type: entity
   id: ADTLockerBlueshieldFilled
   suffix: Filled
-  parent: ADTLockerBlueshield
+  parent: LockerBlueshield
   components:
   - type: StorageFill
     contents:
@@ -41,3 +42,4 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTCqcManualWeak

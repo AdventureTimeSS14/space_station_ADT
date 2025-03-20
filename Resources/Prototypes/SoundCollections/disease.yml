@@ -2,11 +2,14 @@
   id: MaleSneezes
   files:
     - /Audio/Voice/Human/male_sneeze_1.ogg
-
+    - /Audio/ADT/Voice/Human/sneeze_neutral.ogg # ADT add
+    - /Audio/ADT/Voice/Human/sneeze_male.ogg # ADT add
 - type: soundCollection
   id: FemaleSneezes
   files:
     - /Audio/Voice/Human/female_sneeze_1.ogg
+    - /Audio/ADT/Voice/Human/sneeze_neutral.ogg # ADT add
+    - /Audio/ADT/Voice/Human/sneeze_female.ogg # ADT add
 
 - type: soundCollection
   id: MaleCoughs

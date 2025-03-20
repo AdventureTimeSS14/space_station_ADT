@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Salvage; // ADT
 using Content.Shared.Lathe;
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;
@@ -31,6 +32,8 @@ namespace Content.Client.Lathe.UI
             {
                 SendMessage(new LatheQueueRecipeMessage(recipe, amount));
             };
+
+            _menu.OnClaimMiningPoints += () => SendMessage(new LatheClaimMiningPointsMessage()); // ADT
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

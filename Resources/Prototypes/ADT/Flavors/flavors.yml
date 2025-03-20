@@ -165,7 +165,7 @@
   id: adt_goldenale
   flavorType: Complex
   description: flavor-complex-goldenale
-  
+
 - type: flavor
   id: adt_poppy
   flavorType: Base
@@ -177,6 +177,27 @@
   description: flavor-complex-adtrelaxing
 
 - type: flavor
+  id: ADTSindiPizza
+  flavorType: base
+  description: flavor-base-adtsindipizza
+
+- type: flavor
   id: adt_vanilla
   flavorType: Base
   description: flavor-base-adtvanilla
+
+#на вкус как.. Отсутствие сортировки
+- type: flavor
+  id: ADTmandarin
+  flavorType: Base
+  description: flavor-base-mandarin
+
+- type: flavor
+  id: ADTChocolateDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTChocolateDrinkFlavor
+
+- type: flavor
+  id: ADTCocoaDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTCocoaDrink

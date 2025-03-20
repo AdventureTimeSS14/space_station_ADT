@@ -90,11 +90,6 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/parts.rsi
     state: "l_leg"
-  # Start ADT tweak
-  - type: MovementBodyPart
-    walkSpeed : 2.5
-    sprintSpeed : 4.4
-  # End ADT tweak
 
 - type: entity
   id: RightLegArachnid
@@ -104,11 +99,6 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/parts.rsi
     state: "r_leg"
-  # Start ADT tweak
-  - type: MovementBodyPart
-    walkSpeed : 2.5
-    sprintSpeed : 4.4
-  # End ADT tweak
 
 - type: entity
   id: LeftFootArachnid

@@ -1,0 +1,50 @@
+- type: entity
+  id: CompActionShootAbomination
+  name: action-shoot
+  description: action-shoot-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+      state: icon
+    event: !type:CompProjectileActionEvent
+
+- type: entity
+  id: CompActionHealAbomination
+  name: action-heal
+  description: action-heal-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ling.rsi
+      state: fleshmend
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    event: !type:CompHealActionEvent
+    useDelay: 120
+
+- type: entity
+  id: CompActionJumpAbomination
+  name: action-jump
+  description: action-jump-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 35
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
+    icon:
+      sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: icon
+    event: !type:CompJumpActionEvent

@@ -46,6 +46,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             _sharedStun.TryParalyze(uid, stunTime, true);
             _popupSystem.PopupEntity(Loc.GetString("rev-break-control", ("name", name)), uid);
         }
+
         // who and why have done it THIS way
         // ADT phantom start
         if (HasComp<VesselComponent>(uid))

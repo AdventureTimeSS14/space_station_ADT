@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Создано yamato_no_orochi8 для Времени Приключений МРП сервер",
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "chocogorilla",
+            "directions": 4
+        }
+    ]
+}

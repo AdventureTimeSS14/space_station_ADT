@@ -1,14 +1,14 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Chat;
+using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-using Content.Server.Chat.Systems;
-using Content.Server.Administration.Managers;
-using System.Linq;
-using Content.Shared.Database;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -23,7 +23,6 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "echo_chat";
 
@@ -32,7 +31,7 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
         // Проверяем количество аргументов
         if (args.Length != 3 && !(args.Length == 4 && args[3] == "false"))
         {
-            shell.WriteLine("Error: invalid arguments! Maximum 3.");
+            shell.WriteLine(Loc.GetString("echo_chat-whisper-error-args"));
             return;
         }
 
@@ -56,10 +55,8 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
             _chatSystem.TrySendInGameICMessage(entityUid.Value, message, InGameICChatType.Whisper, ChatTransmitRange.Normal);
         }
 
-        // Проверяем, нужно ли добавлять запись в логи
         if (args.Length == 4 && args[3] == "false")
         {
-            // Не добавляем в логи
             return;
         }
 
@@ -119,3 +116,13 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
         return CompletionResult.Empty;
     }
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

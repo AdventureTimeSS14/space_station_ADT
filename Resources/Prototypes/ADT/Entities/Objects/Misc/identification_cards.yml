@@ -190,3 +190,30 @@
   - type: Access
     groups:
     - Research
+
+
+# USSP USSP
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTUSSPArmyCard
+  name: USSP Army Card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/USSP_idcard.rsi
+      state: private
+    - type: PresetIdCard
+      job: ADTJobUSSPArmyPrivate
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTUSSPArmyOfficerCard
+  name: USSP Army Card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/USSP_idcard.rsi
+      state: private
+    - type: PresetIdCard
+      job: ADTJobUSSPArmyOfficer
+
+# USSP USSP

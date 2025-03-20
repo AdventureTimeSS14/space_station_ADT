@@ -20,6 +20,22 @@
             "directions": 4
         },
         {
+            "name": "ruff",
+            "directions": 4
+        },
+        {
+            "name": "kita",
+            "directions": 4
+        },
+        {
+            "name": "oldchin",
+            "directions": 4
+        },
+        {
+            "name": "old",
+            "directions": 4
+        },
+        {
             "name": "muzzle_ear",
             "directions": 4
         },

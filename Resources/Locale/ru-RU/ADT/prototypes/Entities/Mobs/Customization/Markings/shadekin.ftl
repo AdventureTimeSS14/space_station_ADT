@@ -46,7 +46,6 @@ marking-EarsShadekinAlphaStripy = Стройные Уши, Полосатые
 marking-EarsShadekinAlphaTorch = Стройные Уши, Окрашенные
 marking-EarsShadekinAlphaTraced = Стройные Уши, Обведённые
 
-
 # Хвосты
 marking-TailShadekin = Хвост
 marking-TailShadekinDragon = Хвост, Змеиный

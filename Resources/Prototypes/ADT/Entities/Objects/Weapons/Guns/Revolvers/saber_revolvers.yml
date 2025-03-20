@@ -36,10 +36,10 @@
     netsync: false
   - type: Gun
     fireRate: 1.8
-    projectileSpeed: 30
+    projectileSpeed: 60
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    useKey: false
+    useKey: true
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
@@ -103,3 +103,16 @@
         whitelist:
           tags:
             - ADTLasgunRevolverCell
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: Tag
+    tags:
+    - ADTBsoWeapon
+  - type: RMCMagneticItem
+  - type: DNAGunLocker
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage

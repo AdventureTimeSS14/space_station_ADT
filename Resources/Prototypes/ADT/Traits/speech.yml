@@ -12,6 +12,7 @@
   name: trait-nya-accent-name
   description: trait-nya-accent-desc
   category: SpeechTraits
+  sponsorOnly: true
   cost: 2
   components:
     - type: NyaAccent

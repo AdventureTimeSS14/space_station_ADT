@@ -21,7 +21,14 @@
     back:
     - ClothingHeadHatHairflower
 
-# Plushies
+# Headphones
+- type: loadout
+  id: Headphones
+  storage:
+    back:
+    - ClothingNeckHeadphones
+
+# Toys
 - type: loadout
   id: PlushieLizard
   storage:
@@ -33,6 +40,15 @@
   storage:
     back:
     - PlushieSpaceLizard
+
+- type: loadout
+  id: ThreeCandles
+  dummyEntity: LoadoutDummyCandles
+  storage:
+    back:
+    - CandleRed
+    - CandleBlue
+    - CandleGreenSmall
 
 # Smokeables
 - type: loadout

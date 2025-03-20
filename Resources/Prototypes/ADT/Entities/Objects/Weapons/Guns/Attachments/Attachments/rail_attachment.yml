@@ -1,0 +1,185 @@
+## BASE
+- type: entity
+  abstract: true
+  parent: ADTAttachableBase
+  id: ADTRailAttachmentBase
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+## BASE
+
+- type: entity
+  parent: ADTRailAttachmentBase
+  id: ADTAttachmentMagneticHarness
+  name: magnetic harness
+  description: A magnetically attached harness kit that attaches to the rail mount of a weapon. When dropped, the weapon will sling to any set of Marine armor.
+  components:
+  - type: Sprite
+    state: magnetic
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentMagneticHarness
+  - type: AttachableMagnetic
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - accuracyAddMult: -0.05
+
+- type: entity
+  abstract: true
+  parent: [ ADTRailAttachmentBase, ADTAttachableToggleableBase ]
+  id: ADTAttachmentScopeBase
+  components:
+  - type: AttachableToggleable
+    needHand: true
+    heldOnlyActivate: true
+    userOnly: true
+    doInterrupt: true
+    attachedOnly: true
+    breakOnMove: true
+    breakOnRotate: true
+    wieldedOnly: true
+    useDelay: 0.5
+    showTogglePopup: false
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+      state: sniperscope
+    actionName: action-name-basescope
+    actionDesc: action-description-basescope
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    requireWielding: true
+    attachment: true
+    useInHand: true
+    zoomLevels:
+    - zoom: 1
+      offset: 15
+      allowMovement: false
+      doAfter: 0
+
+- type: entity
+  parent: ADTAttachmentScopeBase
+  id: ADTAttachmentHristovScope
+  name: Hristov x6 scope
+  description: Hristov x6 scope
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
+    state: sniperscope
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentHristovScope
+  - type: AttachableVisuals
+  - type: AttachableToggleable
+    actionName: action-name-hristovscope
+    actionDesc: action-description-hristovscope
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 1.8
+      offset: 0
+      allowMovement: false
+      doAfter: 0
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      walk: -0.23
+      sprint: -0.35
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - fireDelayFlat: 0.1
+    - conditions:
+        activeOnly: true
+      fireDelayFlat: 0.25
+      accuracyAddMult: 0.35
+      # damageFalloffAddMult: -0.4
+    # - conditions:
+    #     wieldedOnly: true
+    #     inactiveOnly: true
+    #   accuracyAddMult: -0.05
+
+- type: entity
+  parent: ADTAttachmentScopeBase
+  id: ADTAttachmentT2Miniscope
+  name: T2 scope
+  description: T2 scope
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
+    state: miniscope
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentT2Miniscope
+  - type: AttachableVisuals
+  - type: AttachableToggleable
+    breakOnMove: false
+    actionName: action-name-t2scope
+    actionDesc: action-description-t2scope
+    wieldedOnly: false
+    breakOnRotate: false
+    icon:
+      sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
+      state: miniscope
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 1.4
+      offset: 0
+      allowMovement: true
+      doAfter: 0
+    requireWielding: false
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      walk: -0.31
+      sprint: -0.448
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.2
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      fireDelayFlat: 0.15
+      accuracyAddMult: 0.35
+      # damageFalloffAddMult: -0.2
+    # - conditions:
+    #     wieldedOnly: true
+    #     inactiveOnly: true
+    #   accuracyAddMult: -0.05 #TODO: Add flare gun modifiers when it's implemented.
+
+- type: entity
+  parent: ADTRailAttachmentBase
+  id: ADTAttachmentReflexSight
+  name: reflex sight
+  description: Areflex sight
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Attachments/rail.rsi
+    state: reflex
+  - type: Tag
+    tags:
+    - ADTAttachmentRail
+    - ADTAttachmentReflexSight
+  - type: AttachableVisuals
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: 0.20
+      scatterFlat: -4
+      burstScatterAddMult: -2
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: 0.4
+      scatterFlat: -8

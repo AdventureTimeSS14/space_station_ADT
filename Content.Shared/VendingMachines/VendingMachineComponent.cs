@@ -202,6 +202,8 @@ namespace Content.Shared.VendingMachines
 
         [ViewVariables]
         public int Credits;
+
+        public int NextItemCount = 1;
         //ADT-Economy-End
     }
 

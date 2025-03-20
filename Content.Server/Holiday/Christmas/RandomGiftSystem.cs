@@ -6,7 +6,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
@@ -26,9 +25,13 @@ public sealed class RandomGiftSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private readonly List<string> _possibleGiftsSafe = new();
     private readonly List<string> _possibleGiftsUnsafe = new();
+    // ADT
+    private readonly List<string> _possibleGiftsUnsafeADT = new();
+    // END
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -60,21 +63,31 @@ public sealed class RandomGiftSystem : EntitySystem
         var coords = Transform(args.User).Coordinates;
         var handsEnt = Spawn(component.SelectedEntity, coords);
         _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(handsEnt)}");
-        EnsureComp<ItemComponent>(handsEnt); // For insane mode.
         if (component.Wrapper is not null)
             Spawn(component.Wrapper, coords);
 
-        args.Handled = true;
         _audio.PlayPvs(component.Sound, args.User);
-        Del(uid);
+
+        // Don't delete the entity in the event bus, so we queue it for deletion.
+        // We need the free hand for the new item, so we send it to nullspace.
+        _transform.DetachEntity(uid, Transform(uid));
+        QueueDel(uid);
+
         _hands.PickupOrDrop(args.User, handsEnt);
 
+        args.Handled = true;
     }
 
     private void OnGiftMapInit(EntityUid uid, RandomGiftComponent component, MapInitEvent args)
     {
-        if (component.InsaneMode)
+        if (component.InsaneMode == "Unsafe")
             component.SelectedEntity = _random.Pick(_possibleGiftsUnsafe);
+        else if (component.InsaneMode == "Safe")
+            component.SelectedEntity = _random.Pick(_possibleGiftsSafe);
+        // ADT
+        else if (component.InsaneMode == "ADTUnsafe")
+            component.SelectedEntity = _random.Pick(_possibleGiftsUnsafeADT);
+        // END
         else
             component.SelectedEntity = _random.Pick(_possibleGiftsSafe);
     }
@@ -89,6 +102,9 @@ public sealed class RandomGiftSystem : EntitySystem
     {
         _possibleGiftsSafe.Clear();
         _possibleGiftsUnsafe.Clear();
+        // ADT
+        _possibleGiftsUnsafeADT.Clear();
+        // END
         var itemCompName = _componentFactory.GetComponentName(typeof(ItemComponent));
         var mapGridCompName = _componentFactory.GetComponentName(typeof(MapGridComponent));
         var physicsCompName = _componentFactory.GetComponentName(typeof(PhysicsComponent));
@@ -97,12 +113,20 @@ public sealed class RandomGiftSystem : EntitySystem
         {
             if (proto.Abstract || proto.HideSpawnMenu || proto.Components.ContainsKey(mapGridCompName) || !proto.Components.ContainsKey(physicsCompName))
                 continue;
-
             _possibleGiftsUnsafe.Add(proto.ID);
 
+            // ADT
+            if (proto.Components.TryGetValue("Physics", out var value))
+            {
+                if (value.Mapping.Count > 0)
+                    if (object.Equals(value.Mapping[0].Value?.ToString(), "Dynamic"))
+                        _possibleGiftsUnsafeADT.Add(proto.ID);
+                    else
+                        continue;
+            }
+            // END
             if (!proto.Components.ContainsKey(itemCompName))
                 continue;
-
             _possibleGiftsSafe.Add(proto.ID);
         }
     }

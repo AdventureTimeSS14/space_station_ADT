@@ -1,8 +1,8 @@
-ent-BulletRifle = пуля (0.20 винтовочная)
+ent-BulletRifle = пуля (6.5 мм ТСФ)
     .desc = { ent-BaseBullet.desc }
-ent-BulletRiflePractice = пуля (0.20 винтовочная учебная)
+ent-BulletRiflePractice = пуля (6.5 мм ТСФ учебная)
     .desc = { ent-BaseBulletPractice.desc }
-ent-BulletRifleIncendiary = пуля (0.20 винтовочная зажигательная)
+ent-BulletRifleIncendiary = пуля (6.5 мм ТСФ зажигательная)
     .desc = { ent-BaseBulletIncendiary.desc }
-ent-BulletRifleUranium = пуля (0.20 винтовочная урановая)
+ent-BulletRifleUranium = пуля (6.5 мм ТСФ урановая)
     .desc = { ent-BaseBulletUranium.desc }

@@ -55,13 +55,13 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
 
         var coords = _transform.GetMapCoordinates(uid);
-        _emp.EmpPulse(coords, component.DissonantShriekEmpRange, component.DissonantShriekEmpConsumption, component.DissonantShriekEmpDuration);
+        _emp.EmpPulse(coords, args.Range, DissonantShriekEmpConsumption, args.Duration);
     }
 
     public void OnResonantShriek(EntityUid uid, ChangelingComponent component, LingResonantShriekEvent args)
@@ -76,7 +76,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -87,7 +87,7 @@ public sealed partial class ChangelingSystem
             if (HasComp<ChangelingComponent>(ent))
                 continue;
 
-            _flashSystem.Flash(ent, uid, null, 6f, 0.8f, false);
+            _flashSystem.Flash(ent, uid, null, 6f * 1000f, 0.8f, false);
 
             if (!_mindSystem.TryGetMind(ent, out var mindId, out var mind))
                 continue;
@@ -109,7 +109,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -135,7 +135,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -155,12 +155,12 @@ public sealed partial class ChangelingSystem
         if (!TryStingTarget(uid, target))
             return;
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFifteen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, TemporaryBlindnessSystem.BlindingStatusEffect, component.BlindStingDuration, true);
+        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(args.Duration), true);
 
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);
@@ -179,14 +179,12 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.ArmBladeActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.BladeEntity.HasValue))
             return;
 
         args.Handled = true;
 
-        component.ArmBladeActive = !component.ArmBladeActive;
-
-        if (component.ArmBladeActive)
+        if (!component.BladeEntity.HasValue)
         {
             if (!SpawnArmBlade(uid, component))
             {
@@ -228,14 +226,12 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.ArmShieldActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.ShieldEntity.HasValue))
             return;
 
         args.Handled = true;
 
-        component.ArmShieldActive = !component.ArmShieldActive;
-
-        if (component.ArmShieldActive)
+        if (!component.ShieldEntity.HasValue)
         {
             if (!SpawnArmShield(uid, component))
             {
@@ -267,14 +263,12 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.ArmBladeActive))
+        if (!TryUseAbility(uid, component, args.Cost, !component.ArmaceEntity.HasValue))
             return;
 
         args.Handled = true;
 
-        component.ArmaceActive = !component.ArmaceActive;
-
-        if (component.ArmaceActive)
+        if (!component.ArmaceEntity.HasValue)
         {
             if (!SpawnArmace(uid, component))
             {
@@ -309,7 +303,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostTwenty, !component.LingArmorActive, component.LingArmorRegenCost))
+        if (!TryUseAbility(uid, component, args.Cost, !component.LingArmorActive, component.LingArmorRegenCost))
             return;
 
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
@@ -356,7 +350,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, component, component.ChemicalsCostFifteen))
+        if (!TryUseAbility(uid, component, args.Cost))
             return;
 
         args.Handled = true;
@@ -389,7 +383,6 @@ public sealed partial class ChangelingSystem
         var shieldHealth = 150 + additionalShieldHealth;
         if (damage.TotalDamage >= shieldHealth)
         {
-            ling.ArmShieldActive = false;
             QueueDel(ling.ShieldEntity);
 
             _audioSystem.PlayPvs(ling.SoundFlesh, uid);
@@ -466,8 +459,8 @@ public sealed partial class ChangelingSystem
         if (!component.BladeEntity.HasValue)
             return;
         QueueDel(component.BladeEntity);
+        component.BladeEntity = null;
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
-        component.ArmBladeActive = false;
 
         var othersMessage = Loc.GetString("changeling-armblade-retract-others", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
@@ -481,8 +474,8 @@ public sealed partial class ChangelingSystem
         if (!component.ShieldEntity.HasValue)
             return;
         QueueDel(component.ShieldEntity);
+        component.ShieldEntity = null;
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
-        component.ArmShieldActive = false;
 
         var othersMessage = Loc.GetString("changeling-armshield-retract-others", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
@@ -496,8 +489,8 @@ public sealed partial class ChangelingSystem
         if (!component.ArmaceEntity.HasValue)
             return;
         QueueDel(component.ArmaceEntity);
+        component.ArmaceEntity = null;
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
-        component.ArmaceActive = false;
 
         var othersMessage = Loc.GetString("changeling-armace-retract-others", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);

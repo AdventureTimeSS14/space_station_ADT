@@ -119,6 +119,13 @@ namespace Content.Shared.Roles
         [DataField("jobEntity", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string? JobEntity = null;
 
+        /// <summary>
+        /// Entity to use as a preview in the lobby/character editor.
+        /// Same restrictions as <see cref="JobEntity"/> apply.
+        /// </summary>
+        [DataField]
+        public EntProtoId? JobPreviewEntity = null;
+
         [DataField]
         public ProtoId<JobIconPrototype> Icon { get; private set; } = "JobIconUnknown";
 
@@ -150,6 +157,12 @@ namespace Content.Shared.Roles
         // ADT station AI tweak start
         [DataField]
         public bool ContainerInsert = false;
+
+        [DataField]
+        public string? LoadoutOverride;
+
+        [DataField]
+        public string? LoadoutButtonText;
         // ADT station AI tweak end
     }
 

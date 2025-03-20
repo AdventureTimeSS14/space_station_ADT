@@ -38,6 +38,7 @@
     whitelist:
       tags:
       - Cigar
+      - ADTMedipen
   - type: StorageFill
     contents:
     - id: Cigar

@@ -1,0 +1,26 @@
+- type: entity
+  name: combat hypospray
+  parent: BaseItem
+  description: A hypospray model designed by NT for use in a combat situation - with increased capacity at the expense of speed.
+  id: ADTCombatHypospray
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/adt_combathypo.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/adt_combathypo.rsi
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 45
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 1.2
+  - type: StaticPrice
+    price: 750

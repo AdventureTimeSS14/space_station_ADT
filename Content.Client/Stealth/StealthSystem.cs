@@ -83,6 +83,15 @@ public sealed partial class StealthSystem : SharedStealthSystem
 
     private void OnShaderRender(EntityUid uid, StealthComponent component, BeforePostShaderRenderEvent args)
     {
+        // ADT start
+        if (!CheckStealthWhitelist(_player.LocalEntity, uid))
+        {
+            SetShader(uid, false);
+            return;
+        }
+
+        // ADT end
+
         // Distortion effect uses screen coordinates. If a player moves, the entities appear to move on screen. this
         // makes the distortion very noticeable.
 

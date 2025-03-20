@@ -15,6 +15,7 @@ public sealed partial class HereticComponent : Component
         "HeartbeatOfMansus",
         "AmberFocus",
         "LivingHeart",
+        "CodexCicatrix",
     };
 
     #endregion
@@ -30,7 +31,7 @@ public sealed partial class HereticComponent : Component
     /// <summary>
     ///     How much targets can a heretic have?
     /// </summary>
-    [DataField, AutoNetworkedField] public int MaxTargets = 5;
+    [DataField, AutoNetworkedField] public int MaxTargets = 6;
 
     // hardcoded paths because i hate it
     // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"
@@ -56,4 +57,6 @@ public sealed partial class HereticComponent : Component
     ///     Requires wearing focus, codex cicatrix, hood or anything else that allows him to do so.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
+
+    [ViewVariables(VVAccess.ReadWrite)] public bool CanShootGuns = true;
 }

@@ -13,7 +13,9 @@ ent-ADTSpaceSecAirlockArmory = шлюз
 ent-ADTSpaceSecAirlockCommand = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Space Sec, Командный
-
+ent-ADTRoboticsAirlockLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Робототехника, Закрытый
 
 ent-ADTSpaceSecAirlockShuttle = стыковочный шлюз
     .desc = Необходим для соединения двух космических кораблей вместе.
@@ -27,7 +29,6 @@ ent-ADTAirlockShuttleSpaceSecWhite = стыковочный шлюз
 ent-ADTSpaceSecAirlockExternal = шлюз
     .desc = Он открывается, он закрывается, он может раздавить вас, а за ним лишь космос. Активируется вручную
     .suffix = Space Sec, Внешний
-
 
 ent-ADTSpaceSecGlassAirlockOfficial = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
@@ -44,3 +45,6 @@ ent-ADTSpaceSecGlassAirlockArmory = стеклянный шлюз
 ent-ADTSpaceSecGlassAirlockCommand = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Space Sec, Командный
+ent-ADTRoboticsAirlockGlassLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Робототехника, Закрытый

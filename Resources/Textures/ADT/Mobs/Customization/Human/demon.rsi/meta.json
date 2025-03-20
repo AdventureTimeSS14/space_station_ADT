@@ -32,6 +32,10 @@
         "directions": 4
      },
      {
+        "name": "milky_horns_secondary",
+        "directions": 4
+     },
+     {
         "name": "milky_ears",
         "directions": 4
      }

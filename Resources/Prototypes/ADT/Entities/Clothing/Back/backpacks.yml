@@ -63,10 +63,41 @@
         - id: GrenadeFlashBang
 
 - type: entity
-  parent: ClothingBackpack
+  parent: ClothingBackpackMedical
   id: ADTClothingBackpackParamedic
   name: paramedical backpack
   description: Backpack to store some paramedical equipment.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Back/paramedic_backpack.rsi
+
+- type: entity
+  parent: ADTClothingBackpackParamedic
+  id: ADTClothingBackpackParamedicFilled
+  name: paramedical backpack
+  suffix: Paramedic,Filled
+  description: Backpack to store some paramedical equipment.
+  components:
+  - type: StorageFill
+    contents:
+      - id: JawsOfLife
+
+# USSP USSP
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackOR80L
+  name: backpack "OR-80L"
+  description: combined arms backpack
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/backpack_OR80L.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,3
+
+# USSP USSP

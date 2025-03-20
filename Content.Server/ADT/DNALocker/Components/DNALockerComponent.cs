@@ -8,6 +8,8 @@ public sealed partial class DNALockerComponent : Component
     [DataField]
     public string DNA = string.Empty;
 
+    [DataField]
+    public bool Enabled = true;
     public bool IsLocked => DNA != string.Empty;
 
     [DataField]

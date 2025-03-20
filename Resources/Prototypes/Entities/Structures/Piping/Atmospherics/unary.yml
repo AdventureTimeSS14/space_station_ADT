@@ -74,6 +74,12 @@
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
     - type: Weldable
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - AirVent
+      - DeviceMonitoringAndControl
 
 - type: entity
   parent: GasUnaryBase
@@ -98,6 +104,11 @@
     - type: Construction
       graph: GasUnary
       node: passivevent
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - PassiveVent
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -147,6 +158,12 @@
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
     - type: Weldable
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentScrubber
+    - type: GuideHelp
+      guides:
+      - AirScrubber
+      - DeviceMonitoringAndControl
 
 - type: entity
   parent: GasUnaryBase
@@ -186,6 +203,11 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
       - enum.LightLayers.Unshaded
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+    - type: GuideHelp
+      guides:
+      - AirInjector
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -232,6 +254,12 @@
     - type: PowerSwitch
     - type: StationAiWhitelist #ADT-Tweak
 
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: Thermoregulator
+    - type: GuideHelp
+      guides:
+      - Thermomachines
+
 - type: entity
   parent: BaseGasThermoMachine
   id: GasThermoMachineFreezer
@@ -245,7 +273,13 @@
       granularLayersRendering: true
       layers:
         - state: freezerOff
-          map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        # ADT-New-Sprite-Update-Start
+        - state: freezerOn
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: freezer-Unshaded
+          shader: unshaded
+          map: ["freezing"]
+        # ADT-New-Sprite-Update-End
         - state: freezerPanelOpen
           map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
         - state: pipe
@@ -255,8 +289,13 @@
       visuals:
         enum.PowerDeviceVisuals.Powered:
           enum.PowerDeviceVisualLayers.Powered:
-            True: { state: freezerOn }
-            False: { state: freezerOff }
+          # ADT-New-Sprite-Update-Start
+            True: { visible: true }
+            False: { visible: false }
+          freezing:
+            True: { visible: true }
+            False: { visible: false }
+          # ADT-New-Sprite-Update-End
     - type: GasThermoMachine
       coefficientOfPerformance: -3.9
     - type: ApcPowerReceiver
@@ -267,6 +306,13 @@
       prefix: device-address-prefix-freezer
     - type: StealTarget
       stealGroup: FreezerHeater
+    # ADT-New-Sprite-Update-Start
+    - type: LitOnPowered
+    - type: PointLight
+      radius: 1.5
+      energy: 1.5
+      color: "#47bfff"
+    # ADT-New-Sprite-Update-End
 
 - type: entity
   parent: GasThermoMachineFreezer
@@ -290,7 +336,13 @@
       granularLayersRendering : true
       layers:
         - state: heaterOff
-          map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        # ADT-New-Sprite-Update-Start
+        - state: heaterOn
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: heater-Unshaded
+          shader: unshaded
+          map: ["heating"]
+        # ADT-New-Sprite-Update-End
         - state: heaterPanelOpen
           map: ["enum.WiresVisualLayers.MaintenancePanel"]
         - state: pipe
@@ -300,8 +352,13 @@
       visuals:
         enum.PowerDeviceVisuals.Powered:
           enum.PowerDeviceVisualLayers.Powered:
-            True: { state: heaterOn }
-            False: { state: heaterOff }
+          # ADT-New-Sprite-Update-Start
+            True: { visible: true }
+            False: { visible: false }
+          heating:
+            True: { visible: true }
+            False: { visible: false }
+          # ADT-New-Sprite-Update-End
     - type: GasThermoMachine
       coefficientOfPerformance: 0.95
     - type: ApcPowerReceiver
@@ -312,6 +369,13 @@
       prefix: device-address-prefix-heater
     - type: StealTarget
       stealGroup: FreezerHeater
+    # ADT-New-Sprite-Update-Start
+    - type: LitOnPowered
+    - type: PointLight
+      radius: 1.5
+      energy: 1.5
+      color: "#ffc747"
+    # ADT-New-Sprite-Update-End
 
 - type: entity
   parent: GasThermoMachineHeater
@@ -330,6 +394,30 @@
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi
+    # ADT-New-Sprite-Update-Start
+    granularLayersRendering : true
+    layers:
+      - state: freezerOff
+      - state: freezerOn
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: freezer-Unshaded
+        shader: unshaded
+        map: ["hellfreezing"]
+      - state: freezerPanelOpen
+        map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      - state: pipe
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+        renderingStrategy: Default
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+        hellfreezing:
+          True: { visible: true }
+          False: { visible: false }
+    # ADT-New-Sprite-Update-End
   - type: GasThermoMachine
     minTemperature: 23.15
     heatCapacity: 40000
@@ -345,6 +433,30 @@
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi
+    # ADT-New-Sprite-Update-Start
+    granularLayersRendering : true
+    layers:
+      - state: heaterOff
+      - state: heaterOn
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: heater-Unshaded
+        shader: unshaded
+        map: ["hellheating"]
+      - state: heaterPanelOpen
+        map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      - state: pipe
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+        renderingStrategy: Default
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+        hellheating:
+          True: { visible: true }
+          False: { visible: false }
+    # ADT-New-Sprite-Update-End
   - type: GasThermoMachine
     maxTemperature: 1193.15
     heatCapacity: 40000
@@ -436,3 +548,8 @@
   - type: ExaminableSolution
     solution: tank
   - type: PowerSwitch
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: Thermoregulator
+  - type: GuideHelp
+    guides:
+    - GasCondensing

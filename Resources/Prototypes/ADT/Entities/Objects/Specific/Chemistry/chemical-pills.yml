@@ -377,3 +377,57 @@
     state: pill11
   - type: StaticPrice
     price: 4
+
+- type: entity
+  name: pill
+  parent: FoodInjectableBase
+  id: ADTPillExperimental
+  description: It's not a suppository.
+  components:
+  - type: SliceableFood
+    count: 2
+  - type: Sprite
+    sprite: ADT/Objects/Misc/pill_ex.rsi
+    state: trava_ent
+    scale: 0.6, 0.6
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTPillExperimental
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: SpaceDrugs
+            Quantity: 15
+          - ReagentId: Nocturine
+            Quantity: 15
+
+- type: entity
+  name: pill
+  parent: FoodInjectableBase
+  id: ADTPillExter
+  description: It's not a suppository.
+  components:
+  - type: SliceableFood
+    count: 2
+  - type: Sprite
+    sprite: ADT/Objects/Misc/pill_ex.rsi
+    state: extezi_ent
+    scale: 0.6, 0.6
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ADTPillExter
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: Stimulants
+            Quantity: 15
+          - ReagentId: SpaceDrugs
+            Quantity: 15

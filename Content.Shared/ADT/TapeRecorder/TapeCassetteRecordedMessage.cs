@@ -37,10 +37,7 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
     public string Message = string.Empty;
 
     [DataField]
-    public string? Bark;
-
-    [DataField]
-    public float BarkPitch;
+    public BarkData? Bark;
 
     [DataField]
     public ProtoId<TTSVoicePrototype>? TTS;
@@ -48,13 +45,12 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
     [DataField]
     public ProtoId<LanguagePrototype>? Language;
 
-    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, string? bark, float barkPitch, ProtoId<TTSVoicePrototype>? tts, ProtoId<LanguagePrototype> language, string message)
+    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, BarkData? bark, ProtoId<TTSVoicePrototype>? tts, ProtoId<LanguagePrototype> language, string message)
     {
         Timestamp = timestamp;
         Name = name;
         Verb = verb;
         Bark = bark;
-        BarkPitch = barkPitch;
         TTS = tts;
         Language = language;
         Message = message;

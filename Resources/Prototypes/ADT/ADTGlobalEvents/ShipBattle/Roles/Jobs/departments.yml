@@ -1,0 +1,87 @@
+- type: department
+  id: ADTBattleShipTSFShipCrew
+  name: department-tsf-shipcrew
+  description: department-tsf-shipcrew-description
+  color: "#334E6D"
+  weight: -25
+  roles:
+  - ADTBattleShipGunnerTSF
+  - ADTBattleShipCommanderTSF
+  - ADTBattleShipCaptainTSF
+  - ADTBattleShipExecutionalOfficerTSF
+  - ADTBattleShipChiefGunnerTSF
+  - ADTBattleShipNavigatorTSF
+  - ADTBattleShipPilotTSF
+  - ADTBattleShipMedicTSF
+  - ADTBattleShipEngineerTSF
+  editorHidden: true
+
+- type: department
+  id: ADTBattleShipKMTShipCrew
+  name: department-kmt-shipcrew
+  description: department-kmt-shipcrew-description
+  color: "#A46106"
+  weight: -30
+  roles:
+  - ADTBattleShipGunnerKMT
+  - ADTBattleShipCommanderKMT
+  - ADTBattleShipCaptainKMT
+  - ADTBattleShipExecutionalOfficerKMT
+  - ADTBattleShipChiefGunnerKMT
+  - ADTBattleShipNavigatorKMT
+  - ADTBattleShipPilotKMT
+  - ADTBattleShipMedicKMT
+  - ADTBattleShipEngineerKMT
+  editorHidden: true
+
+- type: department
+  id: ADTBattleShipTSFCommand
+  name: department-tsf-command
+  description: department-tsf-command-description
+  color: "#334E6D"
+  weight: -15
+  roles:
+  - ADTBattleShipCommanderTSF
+  - ADTBattleShipCaptainTSF
+  - ADTBattleShipMarineLeutenantTSF
+  - ADTBattleShipExecutionalOfficerTSF
+  - ADTBattleShipChiefGunnerTSF
+  primary: false
+  editorHidden: true
+
+- type: department
+  id: ADTBattleShipKMTCommand
+  name: department-kmt-command
+  description: department-kmt-command-description
+  color: "#A46106"
+  weight: -20
+  roles:
+  - ADTBattleShipCommanderKMT
+  - ADTBattleShipCaptainKMT
+  - ADTBattleShipMarineLeutenantKMT
+  - ADTBattleShipExecutionalOfficerKMT
+  - ADTBattleShipChiefGunnerKMT
+  primary: false
+  editorHidden: true
+
+- type: department
+  id: ADTBattleShipTSFMarine
+  name: department-tsf-marine
+  description: department-tsf-marine-description
+  color: "#334E6D"
+  weight: -35
+  roles:
+  - ADTBattleShipMarineLeutenantTSF
+  - ADTBattleShipMarineTSF
+  editorHidden: true
+
+- type: department
+  id: ADTBattleShipKMTMarine
+  name: department-kmt-marine
+  description: department-kmt-marine-description
+  color: "#A46106"
+  weight: -40
+  roles:
+  - ADTBattleShipMarineLeutenantKMT
+  - ADTBattleShipMarineKMT
+  editorHidden: true

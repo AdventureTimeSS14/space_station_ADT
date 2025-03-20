@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseWall
+  id: ADTwallmarble
+  name: marble wall
+  description: wall, but marble... Woah
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Walls/marble_wall.rsi
+    - type: Icon
+      sprite: ADT/Structures/Walls/marble_wall.rsi
+    - type: IconSmooth
+      key: walls
+      base: state
+    - type: Tag
+      tags:
+        - Wall
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 400
+          behaviors:
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                Girder:
+                  min: 1
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]

@@ -181,22 +181,6 @@
 #   - type: Clothing
 #     sprite: ADT/Clothing/Mask/lapkeeset_mask.rsi
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTClothingMaskBorodaDedMoroz
-#   suffix: New Year
-#   name: Boroda ded moroz
-#   description: Boroda ded moroz
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-#     clothingVisuals:
-#       mask:
-#       - state: equipped-MASK
-#   - type: BreathMask
-
 - type: entity
   parent: ClothingMaskBase
   id: ADTChronosMask
@@ -455,3 +439,45 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/payday_wolf.rsi
   - type: BreathMask
+
+- type: entity
+  id: ADTMaskCoif
+  parent: BaseItem
+  name: heat absorbent coif
+  description: A close-fitting cap that covers the top, back, and sides of the head. Can also be adjusted to cover the lower part of the face so it keeps the user warm in harsh conditions.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/coif.rsi
+    state: icon
+  - type: Clothing
+    slots: [mask]
+    sprite: ADT/Clothing/Mask/coif.rsi
+  - type: StaticPrice
+    price: 25
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: Item
+    storedRotation: -90
+    size: Small
+  - type: Mask
+
+# USSP USSP
+
+- type: entity
+  parent: ClothingMaskGasSyndicate
+  id: ADTClothingMaskGasUSSP
+  name: PMG-40 gasmask
+  description: The gas mask of the army of USSP.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/usspgasmask.rsi
+    scale: 0.7, 0.7
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/usspgasmask.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+  - type: ShowJobIcons
+
+# USSP USSP

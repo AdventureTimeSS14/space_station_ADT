@@ -5,6 +5,9 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Content.Server.Administration.Managers;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server.GhostKick;
 
@@ -47,6 +50,8 @@ public sealed class GhostKickManager
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class GhostKickCommand : IConsoleCommand
 {
+    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     public string Command => "ghostkick";
     public string Description => "Kick a client from the server as if their network just dropped.";
     public string Help => "Usage: ghostkick <Player> [Reason]";
@@ -70,7 +75,18 @@ public sealed class GhostKickCommand : IConsoleCommand
             shell.WriteError($"Unable to find player: '{playerName}'.");
             return;
         }
-
+        // ADT-Tweak-start
+        if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions))
+        {
+            shell.WriteError($"You dont have permission to kick '{playerName}'");
+            return;
+        }
+        _adminLogger.Add(
+            LogType.AdminMessage,
+            LogImpact.Low,
+            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command ghostkick on '{playerName}'."
+        );
+        // ADT-Tweak-end
         ghostKick.DoDisconnect(player.Channel, reason);
     }
 }

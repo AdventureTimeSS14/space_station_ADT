@@ -1,4 +1,4 @@
-﻿# To be implemented: see #9072
+# To be implemented: see #9072
 
 - type: entity
   name: staff of healing
@@ -35,5 +35,5 @@
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_door.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltDoor
-    capacity: 10
-    count: 10
+    capacity: 5 #ADT tweak lava
+    count: 5 #ADT tweak lava

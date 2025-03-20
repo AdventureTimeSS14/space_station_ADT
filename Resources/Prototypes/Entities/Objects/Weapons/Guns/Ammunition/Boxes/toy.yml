@@ -12,6 +12,17 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  # ADT End
 
 # Boxes
 - type: entity
@@ -42,8 +53,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
     layers:
-      - state: capbase
+      - state: capbase  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-1
+      - state: mag-1  # ADT TWEAK - Откат кабинетных спрайтов
         map: ["enum.GunVisualLayers.Mag"]
-      - state: cap
+      - state: cap  # ADT TWEAK - Откат кабинетных спрайтов

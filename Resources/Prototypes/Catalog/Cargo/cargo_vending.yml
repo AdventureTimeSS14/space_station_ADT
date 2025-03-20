@@ -18,7 +18,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockChefvend
-  name: ChefVend restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -33,7 +32,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockClothesFilled
-  cost: 3950 #ADT_Tweak
+  cost: 4100 #ADT_Tweak
   category: cargoproduct-category-name-service
   group: market
 
@@ -59,7 +58,6 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockCondimentStation
-  name: condiment station restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -154,7 +152,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSalvageEquipmentFilled
-  cost: 1000
+  cost: 1500
   category: cargoproduct-category-name-engineering
   group: market
 
@@ -174,7 +172,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSeedsFilled
-  cost: 3600
+  cost: 3900 # ADT TWEAK
   category: cargoproduct-category-name-hydroponics
   group: market
 
@@ -184,7 +182,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSmokesFilled
-  cost: 9460 # ADT TWEAK
+  cost: 11000 # ADT TWEAK
   category: cargoproduct-category-name-service
   group: market
 

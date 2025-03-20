@@ -58,5 +58,10 @@ namespace Content.Server.Atmos.Components
         /// <inheritdoc cref="CurrentAirBlockedDirection"/>
         [Access(Other = AccessPermissions.ReadWriteExecute)]
         public AtmosDirection AirBlockedDirection => (AtmosDirection)CurrentAirBlockedDirection;
+
+        // ADT fan abuse fix start
+        [DataField]
+        public bool BlockExplosions { get; set; } = true;
+        // ADT fan abuse fix start
     }
 }

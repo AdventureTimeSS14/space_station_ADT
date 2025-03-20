@@ -5,6 +5,7 @@ using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
+using Content.Shared.ADT.Language;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -14,7 +15,9 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Traits;
+using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Client.State;
@@ -39,11 +42,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly JobRequirementsManager _requirements = default!;
     [Dependency] private readonly MarkingManager _markings = default!;
+    [Dependency] private readonly IDynamicTypeFactory _factory = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
     [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
-    [UISystemDependency] private readonly LoadoutSystem _loadouts = default!;
 
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;
@@ -128,6 +132,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             {
                 _profileEditor.RefreshTraits();
             }
+            // ADT Languages start
+            if (obj.WasModified<LanguagePrototype>())
+            {
+                _profileEditor.RefreshLanguages();
+            }
+            // ADT Languages end
         }
     }
 
@@ -275,11 +285,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             _prototypeManager,
             _resourceCache,
             _requirements,
-            _markings);
+            _markings,
+            _factory);  // ADT SAI Custom
 
         _profileEditor.OnOpenGuidebook += _guide.OpenHelp;
 
-        _characterSetup = new CharacterSetupGui(EntityManager, _prototypeManager, _resourceCache, _preferencesManager, _profileEditor);
+        _characterSetup = new CharacterSetupGui(_profileEditor);
 
         _characterSetup.CloseButton.OnPressed += _ =>
         {
@@ -369,6 +380,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
                 _spawn.EquipStartingGear(uid, loadoutProto);
             }
         }
+
+        _spawn.ApplyLoadoutExtras(uid, roleLoadout);    // ADT SAI Custom
     }
 
     /// <summary>
@@ -455,7 +468,32 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     {
         EntityUid dummyEnt;
 
-        if (humanoid is not null)
+        EntProtoId? previewEntity = null;
+        if (humanoid != null && jobClothes)
+        {
+            job ??= GetPreferredJob(humanoid);
+
+            previewEntity = job.JobPreviewEntity ?? (EntProtoId?)job?.JobEntity;
+        }
+
+        if (previewEntity != null)
+        {
+            // Special type like borg or AI, do not spawn a human just spawn the entity.
+            dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
+
+            // ADT SAI Custom start
+            // Applying loadout extras to dummy
+            if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job?.ID)))
+            {
+                var loadout = humanoid?.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job?.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
+                if (loadout != null)
+                    _spawn.ApplyLoadoutExtras(dummyEnt, loadout);
+            }
+            // ADT SAI Custom end
+
+            return dummyEnt;
+        }
+        else if (humanoid is not null)
         {
             var dummy = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
             dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
@@ -469,7 +507,8 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
 
         if (humanoid != null && jobClothes)
         {
-            job ??= GetPreferredJob(humanoid);
+            DebugTools.Assert(job != null);
+
             GiveDummyJobClothes(dummyEnt, humanoid, job);
 
             if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID)))

@@ -122,6 +122,8 @@
     grid:
     - 0,0,9,1
     whitelist:
+      tags:
+      - Cigarette
   - type: StorageFill
     contents:
     - id: ADTLuckySlothsCigarette

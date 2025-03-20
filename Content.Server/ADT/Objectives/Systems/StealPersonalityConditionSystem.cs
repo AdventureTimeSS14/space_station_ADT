@@ -6,7 +6,7 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
-using Content.Server.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Cuffs.Components;
 
 namespace Content.Server.Objectives.Systems;
@@ -56,7 +56,7 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
@@ -87,14 +87,14 @@ public sealed class StealPersonalityConditionSystem : EntitySystem
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
             return;
         }
 
-        var allHeads = new List<EntityUid>();
+        var allHeads = new HashSet<Entity<MindComponent>>();
         foreach (var mind in allHumans)
         {
             // RequireAdminNotify used as a cheap way to check for command department

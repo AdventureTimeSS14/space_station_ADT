@@ -124,7 +124,7 @@
   - type: Tag
     tags:
     - Trash
-    - ADTMedipen
+    - ADTMedipen # ADT Tweak
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -159,8 +159,11 @@
         - ReagentId: TranexamicAcid
           Quantity: 3
   - type: Tag
-    tags: []
-
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+    
 - type: entity
   name: poison auto-injector
   parent: ChemicalMedipen
@@ -186,7 +189,10 @@
         - ReagentId: Epinephrine
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: brute auto-injector
@@ -218,7 +224,10 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: burn auto-injector
@@ -250,7 +259,10 @@
         - ReagentId: Leporazine
           Quantity: 10
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: rad auto-injector
@@ -282,8 +294,11 @@
         - ReagentId: Bicaridine
           Quantity: 5
   - type: Tag
-    tags: []
-
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
+    
 - type: entity
   name: puncturase auto-injector
   parent: ChemicalMedipen
@@ -314,7 +329,10 @@
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: pyrazine auto-injector
@@ -346,7 +364,10 @@
         - ReagentId: Dermaline
           Quantity: 10
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: airloss auto-injector
@@ -378,7 +399,10 @@
         - ReagentId: DexalinPlus
           Quantity: 20
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: space medipen
@@ -411,7 +435,10 @@
           - ReagentId: Barozine
             Quantity: 20
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: hyperzine injector
@@ -443,13 +470,16 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: hyperzine microinjector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: StimpackMini
-  description: A microinjector of hyperzine that give you about fifteen seconds of the chemical's effects.
+  description: A microinjector of hyperzine that give you about 15 seconds of the chemical's effects.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -470,7 +500,10 @@
   - type: StaticPrice
     price: 100
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: combat medipen
@@ -504,7 +537,10 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END
 
 - type: entity
   name: pen
@@ -516,7 +552,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 15 #ADT Tweak 10>15
   - type: RefillableSolution
     solution: hypospray
 # Corvax-HiddenDesc-Start
@@ -527,7 +563,7 @@
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
-    delay: 0.5
+    delay: 0.25 #ADT Tweak 0.5>0.25
   - type: StaticPrice # A new shitcurity meta
     price: 75
   - type: EmitSoundOnUse
@@ -537,9 +573,9 @@
     entries:
     - label: corvax-hidden-desc-Hypopen-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-Hypopen-research
       jobRequired:
         - ResearchAssistant
@@ -566,3 +602,33 @@
     - id: Hypopen
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: weh auto-injector
+  parent: ChemicalMedipen
+  id: WehMedipen
+  description: A rapid dose of Weh. Contains juice that makes you Weh.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 60
+        reagents:
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 60
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 1
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: Tag
+    tags: []

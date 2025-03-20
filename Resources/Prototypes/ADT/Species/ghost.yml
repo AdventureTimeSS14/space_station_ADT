@@ -1,0 +1,58 @@
+- type: species
+  id: GhostSpecies
+  name: species-name-ghost
+  roundStart: false
+  prototype: MobObserver
+  sprites: GhostSprites
+  defaultSkinTone: "#a3d4eb"
+  markingLimits: GhostMarkingLimits
+  dollPrototype: MobObserver
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: GhostSprites
+  sprites:
+    Special: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
+    LArm: MobHumanoidAnyMarking
+    RArm: MobHumanoidAnyMarking
+    LHand: MobHumanoidAnyMarking
+    RHand: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    LLeg: MobHumanoidAnyMarking
+    RLeg: MobHumanoidAnyMarking
+    LFoot: MobHumanoidAnyMarking
+    RFoot: MobHumanoidAnyMarking
+
+- type: markingPoints
+  id: GhostMarkingLimits
+  points:
+    Special:
+      points: 1
+      required: false
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false

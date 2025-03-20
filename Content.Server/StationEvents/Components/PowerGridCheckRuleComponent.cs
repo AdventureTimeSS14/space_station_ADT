@@ -1,5 +1,6 @@
 using System.Threading;
 using Content.Server.StationEvents.Events;
+using Robust.Shared.Audio;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -17,4 +18,9 @@ public sealed partial class PowerGridCheckRuleComponent : Component
     public int NumberPerSecond = 0;
     public float UpdateRate => 1.0f / NumberPerSecond;
     public float FrameTimeAccumulator = 0.0f;
+
+    // ADT Start
+    [DataField]
+    public SoundSpecifier? EndSound;
+    // ADT End
 }

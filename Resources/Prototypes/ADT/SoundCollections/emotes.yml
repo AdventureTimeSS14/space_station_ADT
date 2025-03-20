@@ -207,3 +207,101 @@
   id: FelinidPurrs
   files:
   - /Audio/ADT/Felinid/cat_purr1.ogg
+
+# Resomi
+- type: soundCollection
+  id: MaleResomiScreams
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+
+- type: soundCollection
+  id: FemaleResomiScreams
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+
+# Other
+- type: soundCollection
+  id: HumanSpits
+  files:
+  - /Audio/ADT/Voice/Human/spit_1.ogg
+  - /Audio/ADT/Voice/Human/spit_2.ogg
+
+# Slimes
+- type: soundCollection
+  id: SlimeWhistles
+  files:
+    - /Audio/ADT/Voice/Slime/s_whistle_1.ogg
+    - /Audio/ADT/Voice/Slime/s_whistle_2.ogg
+    - /Audio/ADT/Voice/Slime/s_whistle_3.ogg
+    - /Audio/ADT/Voice/Slime/s_whistle_4.ogg
+    - /Audio/ADT/Voice/Slime/slimewhistle.ogg
+
+- type: soundCollection
+  id: MaleSlimeLaugh
+  files:
+    - /Audio/ADT/Voice/Slime/s_manlaugh1.ogg
+    - /Audio/ADT/Voice/Slime/s_manlaugh2.ogg
+
+- type: soundCollection
+  id: FemaleSlimeLaugh
+  files:
+    - /Audio/ADT/Voice/Slime/s_womanlaugh.ogg
+
+- type: soundCollection
+  id: MaleSlimeSigh
+  files:
+    - /Audio/ADT/Voice/Slime/s_male_sigh.ogg
+
+- type: soundCollection
+  id: FemaleSlimeSigh
+  files:
+    - /Audio/ADT/Voice/Slime/s_female_sigh.ogg
+
+- type: soundCollection
+  id: SlimePop
+  files:
+    - /Audio/ADT/Voice/Slime/s_pop.ogg
+
+- type: soundCollection
+  id: SlimeBubbles
+  files:
+    - /Audio/ADT/Voice/Slime/s_bubble.ogg
+
+- type: soundCollection
+  id: MaleSlimeCry
+  files:
+    - /Audio/ADT/Voice/Slime/s_cry_male_1.ogg
+    - /Audio/ADT/Voice/Slime/s_cry_male_2.ogg
+    - /Audio/ADT/Voice/Slime/s_cry_male_3.ogg
+    - /Audio/ADT/Voice/Slime/s_cry_male_4.ogg
+
+- type: soundCollection
+  id: FemaleSlimeCry
+  files:
+    - /Audio/ADT/Voice/Slime/s_cry_female_1.ogg
+    - /Audio/ADT/Voice/Slime/s_cry_female_2.ogg
+    - /Audio/ADT/Voice/Slime/s_cry_female_3.ogg
+    - /Audio/ADT/Voice/Slime/s_cry_female_4.ogg
+
+# Vox
+- type: soundCollection
+  id: VoxHiss
+  files:
+    - /Audio/ADT/Voice/Vox/voxhiss.ogg
+
+- type: soundCollection
+  id: VoxChitter
+  files:
+    - /Audio/ADT/Voice/Vox/voxchitter1.ogg
+    - /Audio/ADT/Voice/Vox/voxchitter2.ogg
+
+- type: soundCollection
+  id: VoxCoo
+  files:
+    - /Audio/ADT/Voice/Vox/voxcoo1.ogg
+    - /Audio/ADT/Voice/Vox/voxcoo2.ogg
+
+- type: soundCollection
+  id: VoxCry
+  files:
+    - /Audio/ADT/Voice/Vox/voxcry.ogg

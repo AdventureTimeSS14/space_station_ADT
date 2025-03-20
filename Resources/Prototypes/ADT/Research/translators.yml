@@ -15,21 +15,23 @@
   - DraconicTranslator
   - SolCommonTranslator
   - VoxPidginTranslator
+  - ScratchesTranslator
   - RootSpeakTranslator
   - GalacticCommonTranslatorImplanter
   - MofficTranslator
   - DraskTranslator
   - UrsTranslator # Закомменчено до раундстарт урсов  # И никто не раскомментил, молодцы
   - ArkaneTranslator
-  - ShadekinTranslator
   - NianTranslator
   - FireTranslator
   - SikTajTranslator
   - CintaTajTranslator
   - IPCTranslator
   - DwarfTranslator
+  position: 4,2
+  requiredTech:
+  - ADTMedicalMODsuit
 
-# Frontier - languages mechanic
 - type: technology
   id: AdvancedTranslation
   name: research-technology-advanced-translation
@@ -48,6 +50,7 @@
   - CanilunztTranslatorImplanter
   - SolCommonTranslatorImplanter
   - VoxPidginTranslatorImplanter
+  - ScratchesTranslatorImplanter
   - RootSpeakTranslatorImplanter
   - AnimalTranslator
   - MofficTranslatorImplanter
@@ -58,8 +61,10 @@
   - DraskTranslatorImplanter
   - UrsTranslatorImplanter # Закомменчено до раундстарт урсов   # И никто не раскомментил, молодцы
   - ArkaneTranslatorImplanter
-  - ShadekinTranslatorImplanter
   - CintaTajTranslatorImplanter
   - IPCTranslatorImplanter
   - BorgTranslatorImplanter
   - DwarfTranslatorImplanter
+  position: 5,3
+  requiredTech:
+  - BasicTranslation

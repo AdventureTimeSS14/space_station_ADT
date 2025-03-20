@@ -50,6 +50,12 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    # ADT Tweak Start
+    whitelist:
+      tags:
+      - Cigarette
+      - ADTLighter
+    # ADT Tweak END
   - type: StorageFill
     contents:
     - id: Cigarette
@@ -119,6 +125,11 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    # ADT Tweak Start
+    whitelist:
+      tags:
+      - Cigarette
+    # ADT Tweak END
   - type: StorageFill
     contents:
     - id: CigaretteRandom

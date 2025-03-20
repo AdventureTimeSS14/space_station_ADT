@@ -6,11 +6,13 @@
             Resizable="False">
 
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
+        <Button Access="Public" Name="RoadmapButton" Text="{Loc 'roadmap-name'}" StyleClasses="Caution" />
         <changelog:ChangelogButton Access="Public" Name="ChangelogButton"/>
         <ui:VoteCallMenuButton />
         <Button Access="Public" Name="OptionsButton" Text="{Loc 'ui-escape-options'}" />
         <Button Access="Public" Name="RulesButton" Text="{Loc 'ui-escape-rules'}" />
         <Button Access="Public" Name="GuidebookButton" Text="{Loc 'ui-escape-guidebook'}" />
+        <Button Access="Public" Name="WebSiteButton" Text="{Loc 'ui-escape-website'}" StyleClasses="Caution"/>
         <Button Access="Public" Name="WikiButton" Text="{Loc 'ui-escape-wiki'}" />
         <Button Access="Public" Name="DisconnectButton" Text="{Loc 'ui-escape-disconnect'}" />
         <Button Access="Public" Name="QuitButton" Text="{Loc 'ui-escape-quit'}" />

@@ -144,7 +144,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 13
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -599,7 +599,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 18
+        maxVol: 20
         reagents:
         - ReagentId: Vitamin
           Quantity: 4
@@ -1387,7 +1387,7 @@
         reagents:
           - ReagentId: Nutriment
             Quantity: 4
-          - ReagentId: Frostoil
+          - ReagentId: FrostOil
             Quantity: 10
           - ReagentId: Vitamin
             Quantity: 4
@@ -1428,6 +1428,7 @@
   - type: Tag
     tags:
     - Vegetable
+    - ADTAloe # ADT-Tweak
   - type: FoodSequenceElement
     entries:
       Taco: Aloe
@@ -1782,9 +1783,9 @@
     entries:
     - label: corvax-hidden-desc-Gatfruit-syndicate
       whitelistMind:
-        components:
+        mindRoles:
         - TraitorRole
-        - NukeOperative
+        - NukeopsRole
     - label: corvax-hidden-desc-Gatfruit-botanist
       jobRequired:
       - Botanist

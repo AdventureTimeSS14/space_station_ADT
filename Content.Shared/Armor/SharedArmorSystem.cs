@@ -20,10 +20,24 @@ public abstract class SharedArmorSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<CoefficientQueryEvent>>(OnCoefficientQuery);
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
         SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<StaminaDamageModifyEvent>>(OnStaminaDamageModify);    // ADT Stunmeta fix
+    }
+
+    /// <summary>
+    /// Get the total Damage reduction value of all equipment caught by the relay.
+    /// </summary>
+    /// <param name="ent">The item that's being relayed to</param>
+    /// <param name="args">The event, contains the running count of armor percentage as a coefficient</param>
+    private void OnCoefficientQuery(Entity<ArmorComponent> ent, ref InventoryRelayedEvent<CoefficientQueryEvent> args)
+    {
+        foreach (var armorCoefficient in ent.Comp.Modifiers.Coefficients)
+        {
+            args.Args.DamageModifiers.Coefficients[armorCoefficient.Key] = args.Args.DamageModifiers.Coefficients.TryGetValue(armorCoefficient.Key, out var coefficient) ? coefficient * armorCoefficient.Value : armorCoefficient.Value;
+        }
     }
 
     private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
@@ -62,9 +76,12 @@ public abstract class SharedArmorSystem : EntitySystem
             msg.PushNewline();
 
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
-            msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
+            var coefficient = MathF.Round((1f - coefficientArmor.Value) * 100, 1);  // ADT tweak
+            bool decrease = coefficient >= 0;                            // ADT tweak
+
+            msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value" + (decrease ? String.Empty : "-increase"), // ADT tweak
                 ("type", armorType),
-                ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
+                ("value", Math.Abs(coefficient))    // ADT tweak
             ));
         }
 
@@ -73,15 +90,22 @@ public abstract class SharedArmorSystem : EntitySystem
             msg.PushNewline();
 
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
-            msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
+            var coefficient = flatArmor.Value;      // ADT tweak
+            bool decrease = flatArmor.Value >= 0;   // ADT tweak
+
+            msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value" + (decrease ? String.Empty : "-increase"),   // ADT tweak
                 ("type", armorType),
-                ("value", flatArmor.Value)
+                ("value", Math.Abs(coefficient))    // ADT tweak
             ));
         }
 
         // ADT Stunmeta fix start
-        msg.PushNewline();
-        msg.AddMarkup(Loc.GetString("armor-stamina-protection-value", ("value", MathF.Round((1f - staminaModifier) * 100, 1))));
+        if (staminaModifier != 1)
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Loc.GetString("armor-stamina-protection-value", ("value", MathF.Round((1f - staminaModifier) * 100, 1))));
+        }
+
         // ADT Stunmeta fix end
 
         return msg;
