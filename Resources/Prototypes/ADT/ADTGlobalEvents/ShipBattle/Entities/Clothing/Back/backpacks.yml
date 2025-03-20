@@ -14,9 +14,9 @@
     damageCoefficient: 0.1
   - type: Item
     sprite: Clothing/Back/Backpacks/ertleader.rsi
+    size: Ginormous
   - type: Clothing
     sprite: Clothing/Back/Backpacks/ertleader.rsi
-    size: Ginormous
   - type: GasTank
     outputPressure: 42.6
     air:
