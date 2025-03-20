@@ -7,3 +7,7 @@ ent-ADTRubberStampRemake = печать ПЕРЕДЕЛАТЬ
 ent-ADTRubberStampDV = штамп Dar-Vaxed
     .desc = Штамп для представителей компании Dar-Vaxed.
     .suffix = ДВ, DO NOT MAP
+
+ent-RubberStampPathologist = Печать патологоанатома
+    .suffix = DO NOT MAP
+    .desc = От неё веет печалью и смертью.
