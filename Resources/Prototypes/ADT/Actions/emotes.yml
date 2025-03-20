@@ -36,7 +36,11 @@
   chatMessages: ["chat-emote-msg-flip"]
   chatTriggers:
   - кувыркается
+  - сальто
   - делает кувырок
-  - делаект кувырок.
+  - делает сальто
+  - делает кувырок.
+  - делает сальто.
   - делает кувырок!
+  - делает сальто!
   event: !type:AnimationFlipEmoteEvent
