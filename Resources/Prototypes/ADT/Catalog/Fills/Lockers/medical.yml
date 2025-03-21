@@ -1,7 +1,7 @@
 - type: entity
   id: ADTLockerPathologistFilled
   suffix: Filled
-  parent: LockerPathologist
+  parent: ADTLockerPathologist
   components:
   - type: StorageFill
     contents:
