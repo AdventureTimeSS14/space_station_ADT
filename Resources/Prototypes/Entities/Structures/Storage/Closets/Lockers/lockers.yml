@@ -680,7 +680,7 @@
     stateDoorClosed: tac_armory
 
 - type: entity
-  id: LockerPathologist
+  id: ADTLockerPathologist
   name: Medical locker
   parent: LockerBaseSecure
   components:
