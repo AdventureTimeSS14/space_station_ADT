@@ -96,5 +96,5 @@ ent-LockerTacArmory = тактический экипировочный шкаф
     .desc = { ent-LockerBaseSecure.desc }
 ent-LockerArmory = оружейный шкаф
     .desc = { ent-LockerBaseSecure.desc }
-ent-LockerPathologist = шкаф патологоанатома
+ent-ADTLockerPathologist = шкаф патологоанатома
     .desc = { ent-LockerBaseSecure.desc }
