@@ -7,5 +7,12 @@
     FoodSnackPistachios: 3
     FoodSnackSus: 3
     FoodSnackSemki: 3
+    # ADT-tweak-start
+    ADTFoodSnackChocolateBarTwoPack: 3
+    ADTFoodSnackChocolateBarCoconutPack: 3
+    ADTFoodSnackChocolateBarChocoPack: 3
+    ADTFoodSnackChocolateBarPinkPack: 3
+    ADTFoodSnackChocolateBarNutsPack: 3
+    # ADT-tweak-end
   emaggedInventory:
     FoodSnackSyndi: 3

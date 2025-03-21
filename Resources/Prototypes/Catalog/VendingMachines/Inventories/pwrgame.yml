@@ -3,6 +3,7 @@
   startingInventory:
     DrinkPwrGameCan: 4
     DrinkEnergyDrinkCan: 4
+    ADTDrinkNoStopCan: 4 # ADT-tweak
     DrinkGrapeCan: 2
     DrinkRootBeerCan: 2
     DrinkIcedTeaCan: 2
