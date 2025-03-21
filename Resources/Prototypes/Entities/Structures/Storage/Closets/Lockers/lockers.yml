@@ -678,16 +678,3 @@
     stateBaseClosed: tac
     stateDoorOpen: generic_open4
     stateDoorClosed: tac_armory
-
-- type: entity
-  id: ADTLockerPathologist
-  name: Medical locker
-  parent: LockerBaseSecure
-  components:
-  - type: Appearance
-  - type: AccessReader
-    access: [["Medical"]]
-  - type: EntityStorageVisuals
-    stateBaseClosed: pathologist
-    stateDoorOpen: pathologist_open
-    stateDoorClosed: pathologist_door
