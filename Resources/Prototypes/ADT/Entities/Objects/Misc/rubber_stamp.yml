@@ -62,4 +62,4 @@
     stampState: "paper_stamp-lawyer"
   - type: Sprite
     sprite: ADT/Objects/Misc/stamps.rsi
-    state: ADT-stamp-pathologist
+    state: stamp-pathologist
