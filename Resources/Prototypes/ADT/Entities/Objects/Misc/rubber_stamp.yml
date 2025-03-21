@@ -53,13 +53,13 @@
 - type: entity
   name: pathologist rubber stamp
   parent: RubberStampBase
-  id: RubberStampPathologist
+  id: ADTRubberStampPathologist
   suffix: DO NOT MAP
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-pathologist
+    stampedName: ADT-stamp-component-stamped-name-pathologist
     stampedColor: "#0e141d"
     stampState: "paper_stamp-lawyer"
   - type: Sprite
     sprite: ADT/Objects/Misc/stamps.rsi
-    state: stamp-pathologist
+    state: ADT-stamp-pathologist
