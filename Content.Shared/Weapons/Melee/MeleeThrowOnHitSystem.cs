@@ -1,4 +1,5 @@
 using Content.Shared.Construction.Components;
+using Content.Shared.Damage;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
@@ -68,8 +69,9 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (attemptEvent.Cancelled)
             return;
 
-        var startEvent = new MeleeThrowOnHitStartEvent(ent.Owner, user);
+        var startEvent = new MeleeThrowOnHitStartEvent(ent.Owner, user, target);    // ADT Tweak - target field
         RaiseLocalEvent(target, ref startEvent);
+        RaiseLocalEvent(ent.Owner, ref startEvent); // ADT Tweak start
 
         if (ent.Comp.StunTime != null)
             _stun.TryParalyze(target, ent.Comp.StunTime.Value, false);

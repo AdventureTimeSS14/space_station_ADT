@@ -55,4 +55,4 @@ public record struct AttemptMeleeThrowOnHitEvent(EntityUid Target, EntityUid? Us
 /// Raised a target entity before it is thrown by <see cref="MeleeThrowOnHitComponent"/>.
 /// </summary>
 [ByRefEvent]
-public record struct MeleeThrowOnHitStartEvent(EntityUid Weapon, EntityUid? User);
+public record struct MeleeThrowOnHitStartEvent(EntityUid Weapon, EntityUid? User, EntityUid Target);    // ADT Tweak - target field
