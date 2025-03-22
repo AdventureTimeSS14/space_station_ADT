@@ -21,6 +21,7 @@
   icon: "JobIconMedicTSF"
   supervisors: job-supervisors-tsf-commander
   canBeAntag: false
+  overrideConsoleVisibility: false
   access:
   - Brig
   - Maintenance
