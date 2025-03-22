@@ -10,3 +10,4 @@ public sealed partial class ComboComponent : Component
     public EntityUid TargetEntity;
     public List<CombatAction> CurrestActions { get; private set; } = new List<CombatAction>();
 }
+

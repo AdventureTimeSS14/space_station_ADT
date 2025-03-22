@@ -47,3 +47,16 @@
   - type: StealCondition
     stealGroup: ADTHandheldShuttleConsoleSalvage
     owner: job-name-qm
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseTraitorStealObjective
+  id: ADTKravMagaStealObjective
+  components:
+  - type: Objective
+    difficulty: 4
+  - type: NotJobRequirement
+    job: Warden
+  - type: StealCondition
+    stealGroup: ClothingHandsGlovesKravMaga
+    owner: job-name-warden
