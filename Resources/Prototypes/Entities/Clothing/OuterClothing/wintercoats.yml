@@ -2,6 +2,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterWinterCoat
   name: winter coat
+  categories: [ HideSpawnMenu ] # ADT-tweak
   description: A heavy jacket made from 'synthetic' animal furs.
   components:
   - type: Sprite
@@ -39,7 +40,7 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatToggleable
   name: winter coat with hood
-  categories: [ HideSpawnMenu ]
+  # categories: [ HideSpawnMenu ] # ADT-tweak
   components:
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterDefault
