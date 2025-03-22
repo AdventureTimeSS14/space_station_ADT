@@ -169,10 +169,10 @@ public sealed class DumpableSystem : EntitySystem
             }
         }
         // ADT-Smartfridge-Start
-        else if (TryComp<SmartFridgeComponent>(target, out var fridge))
+        else if (TryComp<SmartFridgeComponent>(args.Args.Target, out var fridge))
         {
             dumped = true;
-            if (_container.TryGetContainer(target!.Value, fridge.Container, out var container))
+            if (_container.TryGetContainer(args.Args.Target!.Value, fridge.Container, out var container))
             {
                 foreach (var entity in dumpQueue)
                 {
