@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "author discord by: tooru339",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "digital0",
+            "directions": 4
+        },
+        {
+            "name": "digital1",
+            "directions": 4
+        },
+        {
+            "name": "digital2",
+            "directions": 4
+        },
+        {
+            "name": "digital3",
+            "directions": 4
+        },
+        {
+            "name": "digital4",
+            "directions": 4
+        },
+        {
+            "name": "digital5",
+            "directions": 4
+        },
+        {
+            "name": "digital6",
+            "directions": 4
+        },
+        {
+            "name": "digital7",
+            "directions": 4
+        }
+    ]
+}
