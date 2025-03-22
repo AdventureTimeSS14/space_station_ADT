@@ -32,7 +32,7 @@
     whitelist:
       tags:
       - ShellShotgun
-    capacity: 7
+    capacity: 4 #ADT tweak 7 -> 4
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
@@ -169,7 +169,7 @@
 
 - type: entity
   name: Enforcer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband, ADTBaseAttachableHolder] # adt tweak
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband, ADTBaseAttachableHolder, ADTBasePumpingGun] # adt tweak
   id: WeaponShotgunEnforcer
   description: A premium semi-automatic shotgun, and the pride of all security forces. Uses .50 shotgun shells.
   components: # intend for Enforcer to have wider choke for semi-auto function
@@ -183,6 +183,7 @@
     capacity: 7 #ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun # Corvax-Guns
+    fireRate: 1
     soundGunshot:
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_metal.ogg
   - type: MeleeWeapon #ADT_Tweak. Для ШТЫКОВОЙ
