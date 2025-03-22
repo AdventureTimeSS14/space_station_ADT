@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseMachinePowered
-  id: DVSmartFridge
+  id: ADTSmartFridge
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
   components:
@@ -90,8 +90,8 @@
     damageCoefficient: 0.6
 
 - type: entity
-  parent: DVSmartFridge
-  id: DVSmartFridgeMedical
+  parent: ADTSmartFridge
+  id: ADTSmartFridgeMedical
   name: Medical SmartFridge
   description: A refrigerated storage unit for keeping lifesaving medications cold and fresh.
   components:

@@ -624,4 +624,4 @@ ClothingOuterHardsuitEngineering: ADTClothingModsuitBackEngineering
 ClothingOuterHardsuitSalvage: ADTClothingModsuitBackMining
 
 #ADT 2025-03-12
-SmartFridge: DVSmartFridgeMedical
+SmartFridge: ADTSmartFridgeMedical
