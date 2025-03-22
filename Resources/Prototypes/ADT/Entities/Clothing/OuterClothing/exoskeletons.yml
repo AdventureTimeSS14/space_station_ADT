@@ -2,7 +2,6 @@
   parent: [ClothingOuterStorageBase, PowerCellSlotSmallItem, BaseToggleClothing]
   id: ADTClothingOuterExoskeletonBase
   name: exosceleton
-  desk: speed!
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Exoskeletons/rnd_exoskeleton.rsi
