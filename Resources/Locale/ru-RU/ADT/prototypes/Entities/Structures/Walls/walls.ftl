@@ -34,3 +34,8 @@ ent-ADTWallRockIndestructible = камень
 
 ent-ADTIronRockIndestructible = камень
     .desc = Каменная стена.
+
+ent-ADTDigitalWall = цифровая стена
+
+ent-ADTDigitalWallIndestructible = цифровая стена
+    .suffix = Неразрушимый
