@@ -77,8 +77,8 @@ public sealed partial class Generic : ILanguageType
         // Apply language color
         if (Color != null)
         {
-            coloredMessage = "[color=" + Color.Value.ToHex().ToString() + "]" + coloredMessage + "[/color]";
-            coloredLanguageMessage = "[color=" + Color.Value.ToHex().ToString() + "]" + coloredLanguageMessage + "[/color]";
+            coloredMessage = $"[color={Color.Value.ToHex()}]{coloredMessage}[/color]";
+            coloredLanguageMessage = $"[color={Color.Value.ToHex()}]{coloredLanguageMessage}[/color]";
         }
 
         // Getting verbs
@@ -144,10 +144,10 @@ public sealed partial class Generic : ILanguageType
 
         if (WhisperColor != null)
         {
-            accentMessage = "[color=" + WhisperColor.Value.ToHex().ToString() + "]" + accentMessage + "[/color]";
-            languageMessage = "[color=" + WhisperColor.Value.ToHex().ToString() + "]" + languageMessage + "[/color]";
-            obfuscatedMessage = "[color=" + WhisperColor.Value.ToHex().ToString() + "]" + obfuscatedMessage + "[/color]";
-            obfuscatedLanguageMessage = "[color=" + WhisperColor.Value.ToHex().ToString() + "]" + obfuscatedLanguageMessage + "[/color]";
+            accentMessage = $"[color={WhisperColor.Value.ToHex()}]{accentMessage}[/color]";
+            languageMessage = $"[color={WhisperColor.Value.ToHex()}]{languageMessage}[/color]";
+            obfuscatedMessage = $"[color={WhisperColor.Value.ToHex()}]{obfuscatedMessage}[/color]";
+            obfuscatedLanguageMessage = $"[color={WhisperColor.Value.ToHex()}]{obfuscatedLanguageMessage}[/color]";
         }
 
         name = FormattedMessage.EscapeText(name);

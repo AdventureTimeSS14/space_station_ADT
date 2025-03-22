@@ -73,6 +73,12 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
+  # ADT tweak start
+  - type: Butcherable
+    spawned:
+    - id: MaterialBones1 
+      maxAmount: 3
+  # ADT tweak end
   - type: Fauna # ADT tweak
   - type: AshStormImmune # ADT tweak
 

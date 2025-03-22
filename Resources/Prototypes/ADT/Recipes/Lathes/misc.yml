@@ -1,4 +1,12 @@
 - type: latheRecipe
+  abstract: true
+  id: BaseToolBox
+  completetime: 8
+  materials:
+    Steel: 1000
+    Plastic: 200
+
+- type: latheRecipe
   id: StorageCanister
   result: StorageCanister
   category: Atmos
@@ -23,3 +31,78 @@
   materials:
     Steel: 250
     Plastic: 250
+
+- type: latheRecipe
+  parent: BaseLightRecipe
+  id: Lantern
+  result: EmptyLantern
+  materials:
+    Steel: 100
+    Glass: 100
+  
+- type: latheRecipe
+  parent: AirTank
+  id: OxygenTank
+  result: OxygenTank
+
+- type: latheRecipe
+  parent: AirTank
+  id: NitrogenTank
+  result: NitrogenTank
+
+- type: latheRecipe
+  id: EmergencyOxygenTank
+  result: EmergencyOxygenTank
+  completetime: 4
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: EmergencyNitrogenTank
+  result: EmergencyNitrogenTank
+  completetime: 4
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: ClothingMaskBreath
+  result: ClothingMaskBreath
+  completetime: 4
+  materials:
+    Plastic: 200
+
+- type: latheRecipe
+  id: ClothingMaskGas
+  result: ClothingMaskGas
+  completetime: 4
+  materials:
+    Plastic: 200
+    Glass: 100
+
+- type: latheRecipe
+  id: ClothingEyesGlasses
+  result: ClothingEyesGlasses
+  completetime: 2
+  materials:
+    Steel: 100
+    Glass: 100
+
+- type: latheRecipe
+  parent: BaseToolBox
+  id: ToolboxEmergency
+  result: ToolboxEmergency
+
+- type: latheRecipe
+  parent: BaseToolBox
+  id: ToolboxElectrical
+  result: ToolboxElectrical
+
+- type: latheRecipe
+  parent: BaseToolBox
+  id: ToolboxMechanical
+  result: ToolboxMechanical
+
+- type: latheRecipe
+  parent: BaseToolBox
+  id: ToolboxArtistic
+  result: ToolboxArtistic

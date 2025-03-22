@@ -156,8 +156,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
-
-
+  - ADTArmorVestHidden # ADT Loadout
 
 - type: loadoutGroup
   id: HoPHead
@@ -399,6 +398,12 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+  # ADT-Loadouts-Start
+  - ADTChaplainWCross
+  - ADTChaplainBCross
+  - ADTChaplainSCross
+  - ADTChaplainGCross
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: JanitorHead
@@ -564,6 +569,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - ADTMimeWintercoatLong #ADT Tweak
 
 - type: loadoutGroup
   id: MimeBelt
@@ -1178,6 +1184,7 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - ADTArmorVestHidden #ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1243,6 +1250,7 @@
   - DetectiveCoat
   - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
+  - ADTArmorVestHidden # ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit

@@ -1,8 +1,8 @@
 using System.Numerics;
-using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared.Damage;
 
 namespace Content.Shared.Weapons.Melee.Components;
 

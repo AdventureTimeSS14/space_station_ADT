@@ -342,7 +342,7 @@
 
 #Captain's Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitBase # ADT-Fix
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ] # ADT-Fix
   id: ClothingHeadHelmetHardsuitCap
   name: captain's hardsuit helmet
   description: Special hardsuit helmet, made for the captain of the station.
@@ -351,6 +351,10 @@
     sprite: Clothing/Head/Hardsuits/capspace.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/capspace.rsi
+  # ADT-Tweak-start
+  - type: PointLight
+    color: "#b88ae5"
+  # ADT-Tweak-end
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
