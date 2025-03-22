@@ -46,3 +46,19 @@
     sprite: ADT/Clothing/OuterClothing/Misc/cupidon_wings.rsi #спрайты от @lunalita
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/cupidon_wings.rsi
+
+#Коробка с подтяжками (для клунь)
+
+- type: entity
+  parent: [ClothingOuterStorageBase,BadgeOnClothingWithContainer]
+  id: ADTClothingOuterClothingBox
+  name: Box vest
+  description: box with cutout for legs
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,2
