@@ -34,7 +34,7 @@
 #  - Resonator
 #  - FireExtinguisherMini
 
-# TODO: bluespace shelter capsule so this isnt a scam
+# TODO: bluespace shelter capsule so this isnt a scam [DONE, left this for Ratty to make everything clear]
 #- type: thiefBackpackSet
 #  id: MiningSurvival
 #  name: mining-voucher-survival-name
@@ -80,3 +80,15 @@
   content:
   - ClothingOuterHardsuitSpatio
   - ClothingMaskGasExplorer
+
+- type: thiefBackpackSet
+  id: MiningSurvival
+  name: mining-voucher-survival-name
+  description: mining-voucher-survival-description
+  sprite:
+    sprite: Clothing/Belt/salvagewebbing.rsi
+    state: icon
+  content:
+  - ClothingBeltSalvageWebbing
+  - ShelterCapsule
+  - Flare
