@@ -61,11 +61,12 @@
     speedModifier: 0.75
   - type: MeleeThrowOnHit
     speed: 15
-    lifetime: 0.20
+    stunTime: 2
+    distance: 2.5
+  - type: MeleeThrowOnHitDamage
     collideDamage:
       types:
         Blunt: 20
     toCollideDamage:
       types:
         Structural: 120
-    downOnHit: false
