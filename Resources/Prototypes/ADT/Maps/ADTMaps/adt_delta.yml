@@ -56,7 +56,6 @@
             Paramedic: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ] # Corvax-Pilot
-            Pilot: [ 1, 1] # Corvax-Pilot
             Magistrat: [ 1, 1 ] #ADT-Roles
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTPathologist: [ 1, 1 ] #ADT-Roles
