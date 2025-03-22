@@ -1,12 +1,7 @@
 using Content.Shared.Construction.Components;
-<<<<<<< HEAD
-using Content.Shared.Damage;
-using Content.Shared.Standing;
-=======
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
->>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics;
@@ -23,15 +18,9 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly StandingStateSystem _standing = default!; // ADT-Changeling-Tweak
-    [Dependency] private readonly DamageableSystem _damage = default!; // ADT-Changeling-Tweak
-
-=======
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
->>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -54,40 +43,9 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         var userPos = _transform.GetWorldPosition(args.User);
         foreach (var target in args.HitEntities)
         {
-<<<<<<< HEAD
-            var hitPos = _transform.GetMapCoordinates(hit).Position;
-            var angle = args.Direction ?? hitPos - mapPos;
-            if (angle == Vector2.Zero)
-                continue;
-
-            if (!CanThrowOnHit(ent, hit))
-                continue;
-
-            if (comp.UnanchorOnHit && HasComp<AnchorableComponent>(hit))
-            {
-                _transform.Unanchor(hit, Transform(hit));
-            }
-
-            RemComp<MeleeThrownComponent>(hit);
-            var ev = new MeleeThrowOnHitStartEvent(args.User, ent);
-            RaiseLocalEvent(hit, ref ev);
-            var thrownComp = new MeleeThrownComponent
-            {
-                Velocity = angle.Normalized() * comp.Speed,
-                Lifetime = comp.Lifetime,
-                MinLifetime = comp.MinLifetime,
-                CollideDamage = comp.CollideDamage,  // ADT tweak
-                ToCollideDamage = comp.ToCollideDamage  // ADT tweak
-            };
-            AddComp(hit, thrownComp);
-
-            if (comp.DownOnHit) // ADT tweak
-                _standing.Down(hit);
-=======
             var targetPos = _transform.GetMapCoordinates(target).Position;
             var direction = args.Direction ?? targetPos - userPos;
             ThrowOnHitHelper(weapon, args.User, target, direction);
->>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
         }
     }
 
@@ -110,18 +68,8 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (attemptEvent.Cancelled)
             return;
 
-<<<<<<< HEAD
-        if (ent.Comp.CollideDamage != null)   // ADT tweak
-            _damage.TryChangeDamage(ent.Owner, ent.Comp.CollideDamage);
-        if (ent.Comp.ToCollideDamage != null) // ADT tweak
-            _damage.TryChangeDamage(args.OtherEntity, ent.Comp.ToCollideDamage);
-
-        RemCompDeferred(ent, ent.Comp);
-    }
-=======
         var startEvent = new MeleeThrowOnHitStartEvent(ent.Owner, user);
         RaiseLocalEvent(target, ref startEvent);
->>>>>>> e8c13fe325c5de84c2ec31ac5c70f254cf9333f3
 
         if (ent.Comp.StunTime != null)
             _stun.TryParalyze(target, ent.Comp.StunTime.Value, false);
