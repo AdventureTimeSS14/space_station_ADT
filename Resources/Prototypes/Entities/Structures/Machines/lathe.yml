@@ -203,6 +203,7 @@
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
+    - ScienceExplosives
     - ScienceClothing
     - PowerCells
     - ScienceWeapons
@@ -437,6 +438,7 @@
     - ADTAttachmentPack
     - ADT40mmGrenadePack
     # ADT-tweak-end
+    - SecurityDisablers
   - type: MaterialStorage
     whitelist:
       tags:
