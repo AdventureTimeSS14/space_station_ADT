@@ -38,6 +38,8 @@
     - type: Clothing
       sprite: ADT/Clothing/Neck/Scarfs/chefshawl.rsi
 
+# Long scarf
+
 - type: entity
   parent: ADTClothingNeckScarfBase
   id: ADTClothingNeckScarfLongPurple
