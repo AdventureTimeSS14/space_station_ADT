@@ -839,6 +839,14 @@
         reagents:
         - ReagentId: Milk
           Quantity: 30
+    # ADT Start
+  - type: SolutionRegeneration
+    solution: udder
+    generated:
+      reagents:
+      - ReagentId: Milk
+        Quantity: 0.5
+    # ADT End
   - type: Udder
     reagentId: Milk
     quantityPerUpdate: 25
