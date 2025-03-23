@@ -845,7 +845,7 @@
     generated:
       reagents:
       - ReagentId: Milk
-        Quantity: 0.5
+        Quantity: 0.25
     # ADT End
   - type: Udder
     reagentId: Milk
@@ -1004,6 +1004,14 @@
           Quantity: 30
       wool:
         maxVol: 250
+    # ADT Start
+  - type: SolutionRegeneration
+    solution: udder
+    generated:
+      reagents:
+      - ReagentId: MilkGoat
+        Quantity: 0.25
+    # ADT End
   - type: Udder
     reagentId: MilkGoat
     quantityPerUpdate: 25
