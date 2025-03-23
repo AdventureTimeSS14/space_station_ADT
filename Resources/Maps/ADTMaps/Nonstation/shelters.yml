@@ -1992,7 +1992,7 @@ entities:
     - type: Transform
       pos: 20.5,5.5
       parent: 1
-- proto: WindowTintedReinforcedDirectional
+- proto: WindowReinforcedDirectional
   entities:
   - uid: 325
     components:
@@ -2098,12 +2098,5 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 16.5,-1.5
-      parent: 1
-- proto: WoodenKegBeer
-  entities:
-  - uid: 343
-    components:
-    - type: Transform
-      pos: 19.5,7.5
       parent: 1
 ...
