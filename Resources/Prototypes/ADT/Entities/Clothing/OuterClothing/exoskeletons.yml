@@ -1,0 +1,52 @@
+- type: entity
+  parent: [ClothingOuterStorageBase, PowerCellSlotSmallItem, BaseToggleClothing]
+  id: ADTClothingOuterExoskeletonBase
+  name: exosceleton
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Exoskeletons/rnd_exoskeleton.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Exoskeletons/rnd_exoskeleton.rsi
+  - type: ToggleClothing
+    action: ADTActionToggleExoskeleton
+  - type: ClothingSpeedModifier
+    walkModifier: 1.3
+    sprintModifier: 1.3
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon-on}
+          False: {state: icon}
+  - type: StaticPrice
+    price: 500
+  - type: PowerCellDraw
+    drawRate: 4
+  - type: ToggleCellDraw
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      cell_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+# у визардов оно в файле с одеждой, потому так
+- type: entity
+  id: ADTActionToggleExoskeleton
+  name: Toggle Speed Boots
+  description: Toggles the speed boots on and off.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    event: !type:ToggleActionEvent

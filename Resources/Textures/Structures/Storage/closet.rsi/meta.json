@@ -689,7 +689,16 @@
       "name": "representative"
     },
     {
-        "name": "representative_door"
+      "name": "representative_door"
+    },
+    {
+      "name": "pathologist"
+    },
+    {
+      "name": "pathologist_open"
+    },
+    {
+      "name": "pathologist_door"
     }
   ]
 }
