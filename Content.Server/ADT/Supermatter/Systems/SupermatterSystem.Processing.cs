@@ -463,7 +463,7 @@ public sealed partial class SupermatterSystem
             };
 
             sb.AppendLine(Loc.GetString(loc));
-            sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer))); // Перевод
+            sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
 
             message = sb.ToString();
             global = true;
@@ -500,8 +500,8 @@ public sealed partial class SupermatterSystem
 
             var loc = seconds switch
             {
-                > 5 => "supermatter-seconds-before-delam-countdown", // перевод
-                <= 5 => "supermatter-seconds-before-delam-imminent", // перевод
+                > 5 => "supermatter-seconds-before-delam-countdown",
+                <= 5 => "supermatter-seconds-before-delam-imminent",
                 _ => string.Empty
             };
 
@@ -556,20 +556,23 @@ public sealed partial class SupermatterSystem
             return;
 
         // Announce damage and any dangerous thresholds
+        bool TypeCascade = _config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1;
+
         if (sm.Damage >= sm.DamageWarningThreshold)
         {   
-            if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
-             message = Loc.GetString("supermatter-warning-cascade", ("integrity", integrity));
-            else
-            message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+            message = TypeCascade
+                ? Loc.GetString("supermatter-warning-cascade", ("integrity", integrity))
+                : Loc.GetString("supermatter-warning", ("integrity", integrity));
+
             if (sm.Damage >= sm.DamageEmergencyThreshold)
             {
-                if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
-                 message = Loc.GetString("supermatter-warning-emergancy", ("integrity", integrity));
-                else
-                message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                message = TypeCascade
+                    ? Loc.GetString("supermatter-emergency-cascade", ("integrity", integrity))
+                    : Loc.GetString("supermatter-emergency", ("integrity", integrity));
+
                 global = true;
             }
+        
 
             SendSupermatterAnnouncement(uid, sm, message, global);
 
@@ -637,6 +640,7 @@ public sealed partial class SupermatterSystem
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
         if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+        {
             if (!sm.KudzuSpawned)
             {
                 var xform = Transform(uid);
@@ -645,8 +649,9 @@ public sealed partial class SupermatterSystem
                 sm.KudzuSpawned = true;
             }
             return DelamType.Cascade;
+        }
 
-         return DelamType.Explosion;
+        return DelamType.Explosion;
     }
 
     /// <summary>

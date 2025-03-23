@@ -25,6 +25,9 @@ supermatter-announcer = Автоматический Двигатель Свер
 supermatter-examine-integrity =
     Его целостность составляет: [color=yellow]{$integrity}%[/color].
 
+supermatter-healing =
+    Целостность гиперструктуры кристалла Сверхматерии возвращается к безопасным, рабочим параметрам. Целостность: {$integrity}%.
+
 supermatter-warning =
     Внимание! Нарушается целостность гиперструктуры кристалла Сверхматерии! Его целостность составляет: {$integrity}%.
 
@@ -44,15 +47,23 @@ supermatter-delam-explosion =
 supermatter-delam-cascade =
     РАс№#%ЕнИЕ КРиСтаЛЛА НЕИ№?%#!!! П@евЫШены Пр#ДЕлы ЧасТоТы гАРмоНик!!! ПоЛ&е неП#редвид#нных си№тУаций не м0же%т быть 3а@дей$сTво%%ван0 и3-зA Неп@редВиДенн0й сИтУ№ацИи!!!
 
-supermatter-delam-explosionwhoopsie =
-    РАССЛОЕНИЕ КРИСТАЛЛА НЕИЗБЕЖНО! Целостность кристалла достигла критического уровня! Задейс-?%#
-    Внимание, станция! Поле непредвиденных ситуаций не может быть задействовано из-за непредвиденной ситуации! Благодарим за выбор NanoTrasen. Мы ценим ваше доверие!
-
 supermatter-delam-cancel =
     Кристаллическая гиперструктура возвращается к безопасным рабочим параметрам. Система защиты от сбоев отключена. Его целостность составляет: {$integrity}%.
 
 supermatter-seconds-before-delam =
     Расчетное время до расслоения: {$seconds} секунд.
+
+supermatter-delam-player =
+    Ты чувствуешь, как реальность на мгновение искажается...
+
+supermatter-seconds-before-delam =
+    Приблизительное время до расслоения: {$seconds} секунд.
+
+supermatter-seconds-before-delam-countdown =
+    {$seconds} секунд до расслоения.
+
+supermatter-seconds-before-delam-imminent =
+    {$seconds}...
 
 supermatter-announcement-cc-tamper =
     Нашей автоматической системой обнаружения несчастных случаев зафиксировано нарушение структурной целостности кристалла сверхматерии в результате воздействия внешней силы.
@@ -77,3 +88,30 @@ objective-condition-do-cascade =
 objective-condition-do-cascade-description =
     Используйте Анти-Ноблиум как хладоген для Сверхматерии. Уничтожьте эту станцию.
     
+supermatter-collide =
+    {CAPITALIZE($target)} врезается в {($sm)}!
+
+supermatter-collide-mob =
+    {CAPITALIZE ($target)} превращается в пыль!
+
+supermatter-collide-insert =
+    {CAPITALIZE ($target)} касается {$sm} с помощью {$item} и он превращается в пыль!
+
+supermatter-collide-insert-user =
+    Ты касаешся {$sm} с помощью {$item} и он превращается в пыль!
+
+supermatter-collide-insert-unremoveable =
+    {CAPITALIZE($target)} касается {$sm} с помощью {$item} и превращается в пыль!
+
+supermatter-collide-insert-unremoveable-user =
+    Ты касаешся {$sm} с помощью {$item} и он превращается в пыль!
+
+
+supermatter-threshold-power =
+    Предупреждение: Гиперструктура достигла опасного уровня энергии.
+
+supermatter-threshold-powerloss =
+    ОПАСНОСТЬ: Идёт реакция инерционного разряда.
+
+supermatter-threshold-mole =
+    Предупреждение! Достигнута критическая масса хладагента.

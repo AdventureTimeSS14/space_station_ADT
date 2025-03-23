@@ -186,7 +186,7 @@
     canArc: true
     lightningPrototype: SupermatterLightning
   - type: Beam
-    sound: Audio/Effects/Lightning/LightningShock.ogg
+    sound: /Audio/Effects/Lightning/lightningshock.ogg
     allowSpriteOverwrite: false
   - type: TimedDespawn
     lifetime: 1
