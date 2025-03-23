@@ -1,0 +1,14 @@
+- type: entity
+  id: ADTLockerPathologistFilled
+  suffix: Filled
+  parent: ADTLockerPathologist
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: BoxFolderBlack
+    - id: Paper
+    - id: BoxBodyBag
+    - id: ClothingMaskSterile
+    - id: ADTRubberStampPathologist
+    - id: BriefcaseBrown

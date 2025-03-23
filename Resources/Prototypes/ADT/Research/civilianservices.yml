@@ -50,3 +50,18 @@
   position: 2,2
   requiredTech:
   - ADTMedicalMODsuit
+
+- type: technology
+  id: ADTExoskeletons
+  name: research-technology-exoskeletons
+  icon:
+    sprite: ADT/Clothing/OuterClothing/Exoskeletons/rnd_exoskeleton.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - ADTClothingOuterExoskeletonBase
+  position: 3,5
+  requiredTech:
+  - BluespaceCargoTransport
