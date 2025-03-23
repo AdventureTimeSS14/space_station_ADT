@@ -129,3 +129,95 @@
           reagents:
           - ReagentId: Fiber
             Quantity: 15
+
+- type: entity
+  parent: ADTClothingNeckScarfBase
+  id: ADTClothingNeckScarfLongRed
+  name: long red scarf
+  description: Stylish red checkered long scarf. An ideal winter accessory for those who are well versed in fashion, as well as for those who simply cannot stand when the cold wind blows around their neck.
+  components:
+    - type: Sprite 
+      sprite: ADT/Clothing/Neck/Scarfs/Red_long_scarf.rsi
+    - type: Clothing 
+      sprite: ADT/Clothing/Neck/Scarfs/Red_long_scarf.rsi
+    - type: Butcherable
+      butcheringType: Knife
+      spawned:
+      - id: MaterialCloth1 
+        amount: 3
+    - type: SolutionContainerManager 
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 15
+
+- type: entity
+  parent: ADTClothingNeckScarfBase
+  id: ADTClothingNeckScarfLongBlue
+  name: long blue scarf
+  description: Stylish blue checkered long scarf. An ideal winter accessory for those who are well versed in fashion, as well as for those who simply cannot stand when the cold wind blows around their neck.
+  components:
+    - type: Sprite 
+      sprite: ADT/Clothing/Neck/Scarfs/Blue_long_scarf.rsi
+    - type: Clothing 
+      sprite: ADT/Clothing/Neck/Scarfs/Blue_long_scarf.rsi
+    - type: Butcherable
+      butcheringType: Knife
+      spawned:
+      - id: MaterialCloth1 
+        amount: 3
+    - type: SolutionContainerManager 
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 15
+
+- type: entity
+  parent: ADTClothingNeckScarfBase
+  id: ADTClothingNeckScarfLongPink
+  name: long pink scarf
+  description: Stylish pink checkered long scarf. An ideal winter accessory for those who are well versed in fashion, as well as for those who simply cannot stand when the cold wind blows around their neck.
+  components:
+    - type: Sprite 
+      sprite: ADT/Clothing/Neck/Scarfs/Pink_long_scarf.rsi
+    - type: Clothing 
+      sprite: ADT/Clothing/Neck/Scarfs/Pink_long_scarf.rsi
+    - type: Butcherable
+      butcheringType: Knife
+      spawned:
+      - id: MaterialCloth1 
+        amount: 3
+    - type: SolutionContainerManager 
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 15
+
+- type: entity
+  parent: ADTClothingNeckScarfBase
+  id: ADTClothingNeckScarfLongBlack
+  name: long black scarf
+  description: Stylish black checkered long scarf. An ideal winter accessory for those who are well versed in fashion, as well as for those who simply cannot stand when the cold wind blows around their neck.
+  components:
+    - type: Sprite 
+      sprite: ADT/Clothing/Neck/Scarfs/Black_long_scarf.rsi
+    - type: Clothing 
+      sprite: ADT/Clothing/Neck/Scarfs/Black_long_scarf.rsi
+    - type: Butcherable
+      butcheringType: Knife
+      spawned:
+      - id: MaterialCloth1 
+        amount: 3
+    - type: SolutionContainerManager 
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 15

@@ -28,6 +28,10 @@
     ADTClothingNeckScarfLongOrange: 6 #ADT-Tweak
     ADTClothingNeckScarfLongGreen: 6 #ADT-Tweak
     ADTClothingNeckScarfLongPurple: 6 #ADT-Tweak
+    ADTClothingNeckScarfLongRed: 6 #ADT-Tweak
+    ADTClothingNeckScarfLongPing: 6 #ADT-Tweak
+    ADTClothingNeckScarfLongBlack: 6 #ADT-Tweak
+    ADTClothingNeckScarfLongBlue: 6 #ADT-Tweak
 
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3
