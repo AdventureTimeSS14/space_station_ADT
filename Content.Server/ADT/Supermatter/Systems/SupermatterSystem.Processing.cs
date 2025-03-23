@@ -522,13 +522,6 @@ public sealed partial class SupermatterSystem
 
             SendSupermatterAnnouncement(uid, sm, message, global);
             return;
-
-            var station = _station.GetOwningStation(uid);
-            if (station != null)
-               if (sm.ResonantFrequency >= 1)
-                 _alert.SetLevel((EntityUid) station, sm.AlertCodeCascadeId, true, true, true, false);
-               else
-                 _alert.SetLevel((EntityUid) station, sm.AlertCodeYellowId, true, true, true, false);
         }
 
         // We're safe
@@ -580,19 +573,19 @@ public sealed partial class SupermatterSystem
 
             if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold))
             {
-                message = Loc.GetString("supermatter-threshold-power"); // Перевод
+                message = Loc.GetString("supermatter-threshold-power");
                 SendSupermatterAnnouncement(uid, sm, message, global);
 
                 if (sm.PowerlossInhibitor < 0.5)
                 {
-                    message = Loc.GetString("supermatter-threshold-powerloss"); // Перевод
+                    message = Loc.GetString("supermatter-threshold-powerloss");
                     SendSupermatterAnnouncement(uid, sm, message, global);
                 }
             }
 
             if (sm.GasStorage != null && sm.GasStorage.TotalMoles >= _config.GetCVar(ADTCCVars.SupermatterMolePenaltyThreshold))
             {
-                message = Loc.GetString("supermatter-threshold-mole"); // Перевод
+                message = Loc.GetString("supermatter-threshold-mole");
                 SendSupermatterAnnouncement(uid, sm, message, global);
             }
         }
@@ -639,16 +632,24 @@ public sealed partial class SupermatterSystem
     /// </summary>
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
-        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
-        {
-            if (!sm.KudzuSpawned)
+      var station = _station.GetOwningStation(uid);
+        if (station != null)
+        {  
+            if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
             {
-                var xform = Transform(uid);
-                Spawn(sm.KudzuPrototype, xform.Coordinates);
+                if (!sm.KudzuSpawned)
+                {
+                    var xform = Transform(uid);
+                    Spawn(sm.KudzuPrototype, xform.Coordinates);
 
-                sm.KudzuSpawned = true;
+                    sm.KudzuSpawned = true;
+                }
+                _alert.SetLevel((EntityUid) station, sm.AlertCodeCascadeId, true, true, true, false);
+                return DelamType.Cascade;
             }
-            return DelamType.Cascade;
+
+            _alert.SetLevel((EntityUid) station, sm.AlertCodeYellowId, true, true, true, false);
+            return DelamType.Explosion;
         }
 
         return DelamType.Explosion;
@@ -681,8 +682,8 @@ public sealed partial class SupermatterSystem
 
         var mapId = Transform(uid).MapID;
         var mapFilter = Filter.BroadcastMap(mapId);
-        var message = Loc.GetString("supermatter-delam-player"); // Перевод
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message)); // Перевод
+        var message = Loc.GetString("supermatter-delam-player");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
 
         // Send the reality distortion message to every player on the map
         _chatManager.ChatMessageToManyFiltered(mapFilter,

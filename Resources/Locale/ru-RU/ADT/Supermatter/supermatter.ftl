@@ -50,9 +50,6 @@ supermatter-delam-cascade =
 supermatter-delam-cancel =
     Кристаллическая гиперструктура возвращается к безопасным рабочим параметрам. Система защиты от сбоев отключена. Его целостность составляет: {$integrity}%.
 
-supermatter-seconds-before-delam =
-    Расчетное время до расслоения: {$seconds} секунд.
-
 supermatter-delam-player =
     Ты чувствуешь, как реальность на мгновение искажается...
 

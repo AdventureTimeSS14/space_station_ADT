@@ -81,12 +81,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
 
-    [DataField]
-    public string AlertCodeYellowId = "yellow";
-
-    [DataField]
-    public string AlertCodeCascadeId = "cascade";
-
     #endregion
 
     #region Sounds
@@ -357,6 +351,12 @@ public sealed partial class SupermatterComponent : Component
     #endregion
 
     #region Announcements
+
+    [DataField]
+    public string AlertCodeYellowId = "yellow";
+
+    [DataField]
+    public string AlertCodeCascadeId = "cascade";
 
     [DataField]
     public bool DelamAnnounced;
