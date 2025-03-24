@@ -601,9 +601,17 @@
     - type: GhostRole
       name: ghost-role-information-cmnd-cburn-agent-name
       description: ghost-role-information-cmnd-cburn-agent-description
+      # ADT-tweak-start
       requirements:
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 18000 # 5h
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10h
       - !type:OverallPlaytimeRequirement
-        time: 36000 # 10h overall
+        time: 90000 # ADT tweak 10h > 25h
+      # ADT-Tweak-end
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
