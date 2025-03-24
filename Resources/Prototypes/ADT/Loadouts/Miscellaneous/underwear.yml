@@ -465,6 +465,30 @@
     socks: ADTClothingUnderwearSocksHeart
 
 - type: loadout
+  id: ADTUnderwearSocksBee
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ClothingUnderSocksBee
+
+- type: loadout
+  id: ADTUnderwearSocksBeeThigh
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksBee
+
+- type: loadout
+  id: ADTUnderwearSocksCoder
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ClothingUnderSocksCoder
+
+- type: loadout
   id: ADTUnderwearStockings
   effects:
   - !type:GroupLoadoutEffect
