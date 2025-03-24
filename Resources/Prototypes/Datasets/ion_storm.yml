@@ -2,269 +2,35 @@
 # 99% of this is just taken from tg and had sussy bits removed
 
 # not using uppercased version adjectives dataset since getting christmas-stealing as a syndicate codeword would suck
-- type: dataset
+- type: localizedDataset
   id: IonStormAdjectives
   values:
-  - АККУМУЛЯТОРНЫЕ
-  - ЧЁРНЫЕ
-  - КРОВАВЫЕ
-  - СИНИЕ
-  - СКУЧАЮЩИЕ
-  - ПРЫГАЮЩИЕ
-  - ЛАТУННЫЕ
-  - КОРИЧНЕВЫЕ
-  - ГОРЯЩИЕ
-  - ВОРУЮЩИЕ РОЖДЕСТВО
-  - РАБОТАЮЩИЕ НА КЛОУНАХ
-  - КЛОУНСКИЕ
-  - ЦВЕТНЫЕ
-  - СОВЕРШИВШИЕ
-  - ХЛОПЧАТЫЕ
-  - КУБИНСКИЕ
-  - ТЁМНЫЕ
-  - СМЕРТЕЛЬНЫЕ
-  - ДЕЛИКАТЕСНЫЕ
-  - ДЕПРЕССИВНЫЕ
-  - НЕНОРМАЛЬНЫЕ
-  - ЦИФРОВЫЕ
-  - НЕЗДОРОВЫЕ
-  - ТУСКЛЫЕ
-  - СУХИЕ
-  - УНЫЛЫЕ
-  - ЭЛЕКТРИЧЕСКИЕ
-  - ПУСТЫЕ
-  - ЭФИРНЫЕ
-  - ЗЛОДЕЙСКИЕ
-  - ИСТЁКШИЕ
-  - ВЗРЫВНЫЕ
-  - БЫСТРЫЕ
-  - ТОЛСТЫЕ
-  - ДИКИЕ
-  - СКАЗОЧНЫЕ
-  - ФИРМЕННЫЕ
-  - СВЕЖИЕ
-  - ДРУЖЕЛЮБНЫЕ
-  - ЗАМОРОЖЕННЫЕ
-  - ГАНГСТЕРСКИЕ
-  - СВЕТЯЩИЕСЯ
-  - ДОБРЫЕ
-  - ЗЕЛЁНЫЕ
-  - СЕРЫЕ
-  - РАДОСТНЫЕ
-  - ЖЁСТКИЕ
-  - ВРЕДЯЩИЕ
-  - ПОЛЕЗНЫЕ
-  - УМОРИТЕЛЬНЫЕ
-  - ХОНКАЮЩИЕ
-  - ГОЛОДНЫЕ
-  - ГИПЕРАКТИВНЫЕ
-  - ЛЕДЯНЫЕ
-  - БОЛЬНЫЕ
-  - НЕЛЕГАЛЬНЫЕ
-  - ВООБРАЖАЕМЫЕ
-  - НЕСОВЕРШЕННЫЕ
-  - НЕВЕЖЛИВЫЕ
-  - ВАЖНЫЕ
-  - НЕГОСТЕПРИИМНЫЕ
-  - КОВАРНЫЕ
-  - ОСКОРБИТЕЛЬНЫЕ
-  - УМНЫЕ
-  - НЕВИДИМЫЕ
-  - БОЛЬШИЕ
-  - ЛЁГКИЕ
-  - ГРОМКИЕ
-  - ЗАМАСКИРОВАННЫЕ
-  - СРЕДНИЕ
-  - МЕХАНИЧЕСКИЕ
-  - МЕМНЫЕ
-  - МЕТАЛЛИЧЕСКИЕ
-  - МИКРОСКОПИЧЕСКИЕ
-  - МОЗГОВЫНОСЯЩИЕ
-  - СЫРЫЕ
-  - ЗАДРОТСКИЕ
-  - ЯДЕРНЫЕ
-  - НЕЦЕНЗУРНЫЕ
-  - ОФИЦИАЛЬНЫЕ
-  - НЕПРОЗРАЧНЫЕ
-  - ОРАНЖЕВЫЕ
-  - ОРГАНИЧЕСКИЕ
-  - БОЛЕЗНЕННЫЕ
-  - МИРНЫЕ
-  - ЯДОВИТЫЕ
-  - ПОЛИРОВАННЫЕ
-  - ВЕЖЛИВЫЕ
-  - ПОЛИТИЧЕСКИЕ
-  - КОРЯВО НАРИСОВАННЫЕ
-  - ФИОЛЕТОВЫЕ
-  - ТИХИЕ
-  - РАДИОАКТИВНЫЕ
-  - ЯРОСТНЫЕ
-  - РАДУЖНЫЕ
-  - БЫСТРОРАСТУЩИЕ
-  - КРАСНЫЕ
-  - СЕКРЕТНЫЕ
-  - УДИВИТЕЛЬНЫЕ
-  - РОБОТОТЕХНИЧЕСКИЕ
-  - РОБАСТНЫЕ
-  - ГРУБЫЕ
-  - НЕВОСПИТАННЫЕ
-  - ГРУСТНЫЕ
-  - САНИТАРНЫЕ
-  - ЧЕШУЙЧАТЫЕ
-  - ТРЯСУЩИЕСЯ
-  - ГЛУПЫЕ
-  - МЕДЛЕННЫЕ
-  - АРОМАТНЫЕ
-  - ГЛАДКИЕ
-  - МЯГКИЕ
-  - СОЛНЕЧНО-ЭНЕРГЕТИЧЕСКИЕ
-  - ПРОМОКШИЕ
-  - КОСМИЧЕСКИЕ
-  - ЗВЁЗДНЫЕ
-  - КРУТЯЩИЕСЯ
-  - ПОРТЯЩИЕСЯ
-  - СКРЫТНЫЕ
-  - РУГАЮЩИЕСЯ
-  - ТАКТИЧЕСКИЕ
-  - ТАКТИКУЛЬНЫЕ
-  - СИНДИКАТСКИЕ
-  - ТЕРМОЯДЕРНЫЕ
-  - МАЛЕНЬКИЕ
-  - ПРОЗРАЧНЫЕ
-  - СКРУЧЕННЫЕ
-  - СТРАШНЕНЬКИЕ
-  - НЕПРИВЛЕКАТЕЛЬНЫЕ
-  - ВОЛНООБРАЗНЫЕ
-  - НЕДРУЖЕЛЮБНЫЕ
-  - НЕПОЛЕЗНЫЕ
-  - НЕИДЕНТИФИЦИРОВАННЫЕ
-  - НЕПРИГЛАШЁННЫЕ
-  - ГРЯЗНЫЕ
-  - НЕСТАБИЛЬНЫЕ
-  - НЕЖЕЛАТЕЛЬНЫЕ
-  - ЖЕСТОКИЕ
-  - НЕОБХОДИМЫЕ
-  - ТЁПЛЫЕ
-  - ВОДЯНИСТЫЕ
-  - СТРАННЫЕ
-  - БЕЛЫЕ
-  - ДРОЖАЩИЕ
-  - ДЕРЕВЯННЫЕ
-  - ЖЁЛТЫЕ
+    - prefix: names_IonStormAdjectives-
+      count: 128
 
 # Allergies should be broad and appear somewhere on the station for maximum fun.
-- type: dataset
+- type: localizedDataset
   id: IonStormAllergies
   values:
-  - КИСЛОТУ
-  - ВОЗДУХ
-  - КРОВЬ
-  - КНИГИ
-  - УГЛЕКИСЛЫЙ ГАЗ
-  - ОДЕЖДУ
-  - КЛОУНОВ
-  - ХОЛОД
-  - ХЛОПОК
-  - ВЗАИМОДЕЙСТВИЯ С КИБОРГАМИ
-  - ТЕМНОТУ
-  - НАПИТКИ
-  - ЭЛЕКТРИЧЕСТВО
-  - ВСЁ
-  - ПОЛЫ
-  - ОДЕЖДУ
-  - СТЕКЛО
-  - СЧАСТЬЕ
-  - МЯСО
-  - ВЗАИМОДЕЙСТВИЯ С ЛЮДЬМИ
-  - ЮМОР
-  - СВЕТ
-  - ЛЕКАРСТВА
-  - МЕТАЛЛ
-  - ОРЕХИ
-  - КИСЛОРОД
-  - БОЛЬ
-  - РАСТЕНИЯ
-  - ПЛАЗМУ
-  - РОБОТОВ
-  - ШАТТЛЫ
-  - КОСМОС
-  - СОЛНЕЧНЫЙ СВЕТ
-  - ВОДУ
+    - prefix: names_IonStormAllergies-
+      count: 34
 
 # Severity is how bad the allergy is.
-- type: dataset
+- type: localizedDataset
   id: IonStormAllergySeverities
   values:
-  - ЗАРАЗНУЮ
-  - СМЕРТЕЛЬНУЮ
-  - СИЛЬНУЮ
-  - ЛЁГКУЮ
-  - НЕ ОЧЕНЬ СИЛЬНУЮ
-  - ТЯЖЁЛУЮ
+    - prefix: names_IonStormAllergySeverities-
+      count: 6
 
 # Areas are specific places, on the station or otherwise.
-- type: dataset
+- type: localizedDataset
   id: IonStormAreas
   values:
-  - КОМПЛЕКС АЛЬФА
-  - АМЕРИКУ
-  - ПАРАЛЛЕЛЬНОЕ ИЗМЕРЕНИЕ
-  - ПАРАЛЛЕЛЬНУЮ ВСЕЛЕННУЮ
-  - АТМОСФЕРНЫЙ ОТСЕК
-  - ГИДРОПОННЫЙ ОТСЕК
-  - БРАЗИЛИЮ
-  - КАНАДУ
-  - ЦЕНТКОМ
-  - ХИМ-ЛАБОРАТОРИЮ
-  - КИТАЙ
-  - ПЛАНЕТУ КЛОУНОВ
-  - ИНЖЕНЕРНЫЙ ОТСЕК
-  - ГЕРМАНИЮ
-  - АД
-  - ИМПЕРИУМ
-  - ИРЛАНДИЮ
-  - ЮПИТЕР
-  - ЛАВАЛЕНД
-  - ТЕХТУННЕЛИ
-  - МАРС
-  - МЕРКУРИЙ
-  - НЕПТУН
-  - ПЛУТОН
-  - ОТСЕК РОБОТОТЕХНИКИ
-  - РУМЫНИЮ
-  - РОССИЮ
-  - СИГИЛ
-  - СОВЕТСКУЮ РОССИЮ
-  - КОСМОС
-  - ШАТТЛ ПРИБЫТИЯ
-  - УБОРНЫЕ
-  - МОСТИК
-  - БРИН
-  - ЭВАКУАЦИОННЫЙ ШАТТЛ
-  - СПАСАТЕЛЬНУЮ КАПСУЛУ
-  - ГАЛАКТИКУ
-  - ГУЛАГ
-  - ИНТЕРНЕТ
-  - КУХНЮ
-  - ВСЕЛЕННУЮ
-  - УРАН
-  - ВЕНЕРУ
-  - A HAUNTED PIZZARIA # fnaf
-  - A RESEARCH LABORATORY NEAR THE SOUTH POLE
-  - EARTH
-  - ENGINEERING
-  - MR. NANOTRASEN'S PRIVATE LUXURY MOONBASE
-  - PERMA
-  - SOMEWHERE OVER THE RAINBOW
-  - SPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACE
-  - THE GAS GIANT, WHICH IS TOTALLY REAL
-  - THE IMPERIUM OF MANKIND
-  - THE MAINTENANCE BAR
-  - THE ROMAN EMPIRE
-  - YOUR DREAMS AND/OR NIGHTMARES
+    - prefix: names_IonStormAreas-
+      count: 56
 
 # Abstract concepts for the law holder to decide on it's own definition of.
-- type: dataset
+- type: localizedDataset
   id: IonStormConcepts
   values:
   - АБСТРАКЦИЯ
@@ -343,7 +109,7 @@
 
 # Crew is any specific job. Using jobs instead of specific crewmembers since "THE CLOWN" is easier than
 # seeing "JOHN SMITH" and having to figure out who john smith is.
-- type: dataset
+- type: localizedDataset
   id: IonStormCrew
   values:
   - ИСКУССТВЕННЫЕ ИНТЕЛЛЕКТЫ
@@ -385,7 +151,7 @@
   - СМОТРИТЕЛИ
 
 # only including complex dangerous or funny drinks no water allowed
-- type: dataset
+- type: localizedDataset
   id: IonStormDrinks
   values:
   - БАНАНА-ХОНК
@@ -402,7 +168,7 @@
   - СЕРНАЯ КИСЛОТА
   - СВАРОЧНОЕ ТОПЛИВО
 
-- type: dataset
+- type: localizedDataset
   id: IonStormFeelings
   values:
   - МЕЧТАЕТ О
@@ -429,7 +195,7 @@
   - УБЬЁТ ЗА
 
 # loc is not advanced enough to change has to have, etc.
-- type: dataset
+- type: localizedDataset
   id: IonStormFeelingsPlural
   values:
   - НЕ МОЖЕТ НАСЫТИТЬСЯ
@@ -457,7 +223,7 @@
   - УБЬЁТ ЗА
 
 # only including complex dangerous or funny food no apples
-- type: dataset
+- type: localizedDataset
   id: IonStormFoods
   values:
   - БАНАНЫ
@@ -481,7 +247,7 @@
   - УРАН
 
 # Musts are funny things the law holder or crew has to do.
-- type: dataset
+- type: localizedDataset
   id: IonStormMusts
   values:
   - ИЗОБРАЖАТЬ РАСТЕРЯННОСТЬ
@@ -550,7 +316,7 @@
   - ШЕПТАТЬ
   - BE A REAL SCRUNGLE, JUST A CUTE LIL' GUY
 
-- type: dataset
+- type: localizedDataset
   id: IonStormNumberBase
   values:
   - ОДИН
@@ -572,7 +338,7 @@
   - ДЕВЯТЬ
   - ДЕВЯНОСТО
 
-- type: dataset
+- type: localizedDataset
   id: IonStormNumberMod
   values:
   - СОТЕН
@@ -585,7 +351,7 @@
   - БИЛИОН ФАФИЛИОНОВ ГАЗИЛИОНОВ ШАБ-АБ-ДУД-ЛОНОВ
 
 # Objects are anything that can be found on the station or elsewhere, plural.
-- type: dataset
+- type: localizedDataset
   id: IonStormObjects
   values:
   - ШЛЮЗЫ
@@ -739,7 +505,7 @@
   - ГАЕЧНЫЕ КЛЮЧИ
 
 # Requires are basically all dumb internet memes.
-- type: dataset
+- type: localizedDataset
   id: IonStormRequires
   values:
   - ПЕРЕРЫВ НА ТУАЛЕТ
@@ -844,7 +610,7 @@
 # Specific actions that either harm humans or must be done to not
 # harm humans. Make sure they're plural and "not" can be tacked
 # onto the front of them.
-- type: dataset
+- type: localizedDataset
   id: IonStormActions
   values:
   - МАЛЕНЬКИЙ ОСТРОВ У БЕРЕГОВ ПОРТУГАЛИИ
@@ -904,7 +670,7 @@
   - НАПИСАНИЕ
 
 # Threats are generally bad things, silly or otherwise. Plural.
-- type: dataset
+- type: localizedDataset
   id: IonStormThreats
   values:
   - АААПЕРАТИВНИКИ
@@ -982,7 +748,7 @@
   - ЗОМБИ
   - МЫШИ-ЗОМБИ
 
-- type: dataset
+- type: localizedDataset
   id: IonStormVerbs
   values:
   - ПОХИЩАЮТ

@@ -1,20 +1,5 @@
-- type: dataset
+- type: localizedDataset
   id: Draskfrist
   values:
-  - Овв
-  - Оумн
-  - Мноо
-  - Румум
-  - Ваар
-  - Дромнн
-  - Руум
-  - Гоом
-  - Фмонг
-  - Оорм
-  - Гаар
-  - Хоорб
-  - Саар
-  - Ссооумн
-  - Гнии
-  - Вииск
-  - Вррм
+    - prefix: names_Draskfrist-
+      count: 17

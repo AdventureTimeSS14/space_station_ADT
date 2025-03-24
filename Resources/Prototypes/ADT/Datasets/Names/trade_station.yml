@@ -1,5 +1,5 @@
-- type: dataset
+- type: localizedDataset
   id: adt_trade_station
   values:
-  - Торговый Аванпост
-  - Торговая Станция
+    - prefix: names_adt_trade_station-
+      count: 2
