@@ -25,7 +25,8 @@ namespace Content.Client.VendingMachines
 
             _menu = this.CreateWindowCenteredLeft<VendingMachineMenu>();
             var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
-            _cachedInventory = vendingMachineSys.GetAllInventory(Owner, component); //ADT-Economy
+            var system = EntMan.System<VendingMachineSystem>(); //ADT-Economy
+            _cachedInventory = system.GetAllInventory(Owner, component); //ADT-Economy
             _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 
             _menu.OnClose += Close; //ADT-Economy
