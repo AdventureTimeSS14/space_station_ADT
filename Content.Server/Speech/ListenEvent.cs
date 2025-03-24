@@ -8,7 +8,7 @@ public sealed class ListenEvent : EntityEventArgs
     public readonly string Message;
     public readonly EntityUid Source;
 
-    public ListenEvent(string message, EntityUid source, LanguagePrototype? language = null)) // ADT-Language
+    public ListenEvent(string message, EntityUid source, LanguagePrototype? language = null) // ADT-Language
     {
         Language = language; // ADT-Language
         Message = message;
