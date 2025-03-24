@@ -110,6 +110,8 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         // Determine if speech should be relayed via the telephone itself or a designated speaker
         var speaker = entity.Comp.Speaker != null ? entity.Comp.Speaker.Value.Owner : entity.Owner;
 
+        var language = message.Language ?? _language.Universal;
+
         var name = Loc.GetString("chat-telephone-name-relay",
             ("originalName", nameEv.VoiceName),
             ("speaker", Name(speaker)));
@@ -128,7 +130,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
             RemComp<TTSComponent>(speaker);
         }
         // Corvax-TTS-End
-        _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false, languageOverride: args.Language); // ADT-Telephone-Language
+        _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false, language: args.Language); // ADT-Telephone-Language
     }
 
     #endregion
