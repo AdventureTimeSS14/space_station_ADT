@@ -20,7 +20,19 @@
   - Fulton
   - Fulton
   - FultonBeacon
-  # TODO: 30 marker beacons
+# TODO: 30 marker beacons
+
+- type: thiefBackpackSet
+  id: MiningSurvival
+  name: mining-voucher-survival-name
+  description: mining-voucher-survival-description
+  sprite:
+    sprite: Clothing/Belt/salvagewebbing.rsi
+    state: icon
+  content:
+  - ClothingBeltSalvageWebbing
+  - ADTShelterCapsule
+  - Flare
 
 # TODO: resonator
 #- type: thiefBackpackSet
@@ -81,14 +93,3 @@
   - ClothingOuterHardsuitSpatio
   - ClothingMaskGasExplorer
 
-- type: thiefBackpackSet
-  id: MiningSurvival
-  name: mining-voucher-survival-name
-  description: mining-voucher-survival-description
-  sprite:
-    sprite: Clothing/Belt/salvagewebbing.rsi
-    state: icon
-  content:
-  - ClothingBeltSalvageWebbing
-  - ADTShelterCapsule
-  - Flare
