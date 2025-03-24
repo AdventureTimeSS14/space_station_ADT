@@ -41,6 +41,10 @@ flavor-base-adtvanilla = ванильно
 flavor-base-mandarin = сочная мандаринка
 
 flavor-complex-ADTChocolateDrinkFlavor = как теплый растопленный шоколад
-flavor-complex-ADTCocoaDrink = как тепло, уют и какао 
+flavor-complex-ADTCocoaDrink = как тепло, уют и какао
 
 flavor-base-adtsindipizza = зловеще сырно
+
+flavor-complex-ADTteqilaoldfashion =  тёрпко и как брутальность
+flavor-complex-ADTjackiewelles = сладко, тёрпко и грустно
+flavor-complex-ADTsilverhand = сладко, тёрпко, как брутальность и рок

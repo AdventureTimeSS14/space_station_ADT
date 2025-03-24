@@ -201,3 +201,19 @@
   id: ADTCocoaDrinkFlavor
   flavorType: Complex
   description: flavor-complex-ADTCocoaDrink
+
+# CHIPPIN' IN!!! Алкогольные Коктейли от QWERTY
+- type: flavor
+  id: ADTteqilaoldfashion
+  flavorType: Base
+  description: flavor-complex-ADTteqilaoldfashion
+
+- type: flavor
+  id: ADTjackiewelles
+  flavorType: Base
+  description: flavor-complex-ADTjackiewelles
+
+- type: flavor
+  id: ADTsilverhand
+  flavorType: Base
+  description: flavor-complex-ADTsilverhand

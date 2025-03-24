@@ -643,7 +643,7 @@
   parent: BaseAlcohol
   desc: teqila-oldfashioned-desc
   physicalDesc: reagent-physical-desc-bubbly
-  flavor: alcohol
+  flavor: ADTteqilaoldfashion
   color: "#f49c18"
   metamorphicSprite:
     sprite: Corvax/Objects/Consumable/Drinks/oldFashioned.rsi
@@ -651,6 +651,14 @@
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
 
 - type: reagent
   id: ADTJackieWelles
@@ -658,7 +666,7 @@
   parent: BaseAlcohol
   desc: jackie-welles-desc
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: jackiewelles
+  flavor: ADTjackiewelles
   color: "#f5e58c"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
@@ -698,7 +706,7 @@
   parent: BaseAlcohol
   desc: Легенда среди киберпанков. Напиток рокер-боя и террориста, который умер как чёрный пёс.
   physicalDesc: reagent-physical-desc-thick-and-grainy
-  flavor: silverhand
+  flavor: ADTsilverhand
   color: "#ad0e0e"
   recognizable: true
   metamorphicSprite:
