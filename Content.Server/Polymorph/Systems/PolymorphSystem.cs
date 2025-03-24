@@ -28,7 +28,7 @@ using Robust.Shared.Utility;
 using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
-using Content.Server.DetailExaminable; // ADT-Changeling-Tweak
+using Content.Shared.DetailExaminable; // ADT-Changeling-Tweak
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -530,7 +530,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         newHumanoidData.EntityPrototype = prototype;
         newHumanoidData.MetaDataComponent = targetMeta;
         newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(targetHumanoidAppearance, notNullableOverride: true);
-        newHumanoidData.DNA = dnaComp.DNA;
+        if (dnaComp.DNA != null)
+            newHumanoidData.DNA = dnaComp.DNA;
 
         var targetTransformComp = Transform(source);
 
@@ -576,8 +577,9 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         newHumanoidData.EntityPrototype = prototype;
         newHumanoidData.MetaDataComponent = targetMeta;
-        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(targetHumanoidAppearance, notNullableOverride: true);;
-        newHumanoidData.DNA = dnaComp.DNA;
+        newHumanoidData.HumanoidAppearanceComponent = _serialization.CreateCopy(targetHumanoidAppearance, notNullableOverride: true);
+        if (dnaComp.DNA != null)
+            newHumanoidData.DNA = dnaComp.DNA;
         newHumanoidData.EntityUid = uid;
 
         return newHumanoidData;
