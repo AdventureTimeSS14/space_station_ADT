@@ -25,6 +25,7 @@ public sealed partial class MechSystem
 
         SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
         SubscribeLocalEvent<MechComponent, CloseMechMenuEvent>(OnMechExit);
+        SubscribeLocalEvent<MechComponent, PopulateMechEquipmentMenuEvent>(OnPopulate);
     }
 
     private void OnMechEntry(EntityUid uid, MechComponent component, MechEntryEvent args)
@@ -64,5 +65,11 @@ public sealed partial class MechSystem
     private void OnMechExit(EntityUid uid, MechComponent component, CloseMechMenuEvent args)
     {
         _ui.GetUIController<MechEquipmentUIController>().CloseMenu();
+    }
+
+    private void OnPopulate(EntityUid uid, MechComponent component, PopulateMechEquipmentMenuEvent args)
+    {
+        var controller = _ui.GetUIController<MechEquipmentUIController>();
+        controller.PopulateMenu(args.Equipment);
     }
 }
