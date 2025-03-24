@@ -127,7 +127,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         else if(TryComp<SpeechBarksComponent>(args.MessageSource, out var barkSpeaker))
         {
             EnsureComp<SpeechBarksComponent>(speaker, out var barkTelephone);
-            barkTelephone.Data = ttsSpeaker.Data;
+            barkTelephone.Data = barkSpeaker.Data;
         }
         else // Remove TTS if the speaker has no TTS
         {
