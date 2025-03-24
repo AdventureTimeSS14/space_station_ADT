@@ -8,7 +8,6 @@
     sprite: ADT/Objects/Fun/figurines.rsi
     state: blueshield
 
-в комментариях до фикса
 - type: entity
   parent: BaseItem
   id: ADTBaseFigurine
