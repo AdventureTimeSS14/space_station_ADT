@@ -47,6 +47,8 @@
     spawned:
     - id: DiamondOre1
       amount: 1
+    - id: MaterialBones1 #ADT tweak
+      maxAmount: 3 #ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed: 3 # ADT tweak 5->3
     baseSprintSpeed: 4 #ADT tweak 7-> 4
@@ -73,12 +75,6 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
-  # ADT tweak start
-  - type: Butcherable
-    spawned:
-    - id: MaterialBones1 
-      maxAmount: 3
-  # ADT tweak end
   - type: Fauna # ADT tweak
   - type: AshStormImmune # ADT tweak
 
