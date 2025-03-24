@@ -6,6 +6,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.ADT.Language;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Chat;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Database;
@@ -123,9 +124,15 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
             EnsureComp<TTSComponent>(speaker, out var ttsTelephone);
             ttsTelephone.VoicePrototypeId = ttsSpeaker.VoicePrototypeId;
         }
+        else if(TryComp<SpeechBarksComponent>(args.MessageSource, out var barkSpeaker))
+        {
+            EnsureComp<SpeechBarksComponent>(speaker, out var barkTelephone);
+            barkTelephone.Data = ttsSpeaker.Data;
+        }
         else // Remove TTS if the speaker has no TTS
         {
             RemComp<TTSComponent>(speaker);
+            RemComp<SpeechBarksComponent>(speaker);
         }
         // Corvax-TTS-End
         _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false, language: args.Language); // ADT-Telephone-Language
