@@ -61,4 +61,3 @@
     speedModifier: 0.75
   - type: MeleeThrowOnHit
     speed: 15
-    downOnHit: false
