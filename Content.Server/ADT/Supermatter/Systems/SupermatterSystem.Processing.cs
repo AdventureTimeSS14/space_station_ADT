@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Text;
 using Content.Server.Chat.Systems;
 using Content.Server.Singularity.Components;
+using Content.Server.RoundEnd;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
@@ -17,6 +18,8 @@ using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
 using Content.Shared.Storage.Components;
+using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -352,7 +355,7 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
         {
             var integrity = GetIntegrity(sm);
-            float NobliumDamage = Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, integrity < 35 ? 5f : 10f);
+            float NobliumDamage = Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, integrity < 35 ? 15f : 25f);
             sm.Damage += NobliumDamage;
         }
 
@@ -645,6 +648,7 @@ public sealed partial class SupermatterSystem
                     sm.KudzuSpawned = true;
                 }
                 _alert.SetLevel((EntityUid) station, sm.AlertCodeCascadeId, true, true, true, false);
+                _roundEnd.EndRound(sm.RestartDelay);
                 return DelamType.Cascade;
             }
 

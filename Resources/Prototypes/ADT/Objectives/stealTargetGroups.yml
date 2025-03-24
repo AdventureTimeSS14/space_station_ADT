@@ -41,6 +41,13 @@
     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
     state: salvage
 
+- type: stealTargetGroup
+  id: SupermatterSliver
+  name: objective-condition-steal-sms-sliver
+  sprite:
+    sprite: ADT/Objects/Misc/supermatter_silver.rsi
+    state: shard
+
 # changeling
 
 - type: stealTargetGroup

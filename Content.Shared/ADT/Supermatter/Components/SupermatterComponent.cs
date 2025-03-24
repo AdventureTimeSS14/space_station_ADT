@@ -277,6 +277,9 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public TimeSpan ZapLast;
 
+    [DataField("restartDelay"), ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan RestartDelay = TimeSpan.FromSeconds(60f);
+
     #endregion
 
     #region Damage

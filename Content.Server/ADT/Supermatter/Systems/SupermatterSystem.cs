@@ -7,6 +7,7 @@ using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
+using Content.Server.RoundEnd;
 using Content.Server.Examine;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Lightning;
@@ -22,6 +23,8 @@ using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
+using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.DoAfter;
@@ -72,6 +75,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
 
 
     public override void Initialize()

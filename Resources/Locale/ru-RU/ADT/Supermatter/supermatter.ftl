@@ -73,20 +73,17 @@ supermatter-tamper-begin =
 supermatter-tamper-end =
     Вы чувствуете, как на ваши ладони ложится энергия тысячи солнц. Возможно, это просто радиация.
 
-objective-condition-steal-sms-sliver =
-    Украсть осколок кристалла Сверхматерии
 
-objective-condition-steal-smsliver-description =
-    Вам нужно срезать кристалл Сверхматерии острым предметом. Берегитесь радиации.
+objective-condition-steal-smsliver-title = Украсть осколок кристалла Сверхматерии
 
-objective-condition-do-cascade =
-    Вызвать резонансный каскад на станции.
+objective-condition-steal-smsliver-description = Вам нужно срезать кристалл Сверхматерии острым предметом. Берегитесь радиации.
 
-objective-condition-do-cascade-description =
-    Используйте Анти-Ноблиум как хладоген для Сверхматерии. Уничтожьте эту станцию.
-    
+ent-ADTDoCascade = Вызвать резонансный каскад на станции.
+    .desc = Используйте Анти-Ноблий как хладоген для Сверхматерии. Уничтожьте эту станцию.
+
+
 supermatter-collide =
-    {CAPITALIZE($target)} врезается в {($sm)}!
+    {CAPITALIZE($target)} врезается в {$sm}!
 
 supermatter-collide-mob =
     {CAPITALIZE ($target)} превращается в пыль!
