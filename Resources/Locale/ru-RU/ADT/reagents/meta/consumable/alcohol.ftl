@@ -66,3 +66,12 @@ sec-unfiltered-desc = робаст, алкоголь и пена. Замешан
 
 glyphid-stout-name = глифидский стаут
 glyphid-stout-desc = напиток, подаренный теми четыремя безумными дворфами
+
+teqila-oldfashioned-name = текила олд фэшен
+teqila-oldfashioned-desc = Как сказал величайший классик: "А вот это база".
+
+jackie-welles-name = джекки уэлз
+jackie-welles-desc = Легенда среди киберпанков. Водка со льдом, сок лайма, рут бир и чуточку любви...
+
+the-silverhand-name = сильверхенд
+the-silverhand-desc = Легенда среди киберпанков. Напиток рокер-боя и террориста, умерший как чёрный пёс.

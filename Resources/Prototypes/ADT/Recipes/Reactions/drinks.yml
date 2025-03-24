@@ -19,7 +19,7 @@
   requiredMixerCategories:
   - Stir
   reactants:
-    CafeLatte: 
+    CafeLatte:
       amount: 3
     Cream:
       amount: 2
@@ -342,3 +342,91 @@
       amount: 25
   products:
     ADTWatermelonTeaReg: 30
+
+- type: reaction
+  id: ADTTeqilaOldFashion
+  reactants:
+    Tequila:
+      amount: 7
+    Campari:
+      amount: 1
+    Water:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    ADTTeqilaOldFashion: 10
+
+- type: reaction
+  id: ADTJackieWelles
+  reactants:
+    Vodka:
+      amount: 1
+    Ice:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    RootBeer:
+      amount: 1
+  products:
+    ADTJackieWelles: 4
+
+- type: reaction
+  id: ADTTheSilverhand
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    ADTTeqilaOldFashion:
+      amount: 1
+    Beer:
+      amount: 1
+    Hotsauce:
+      amount: 1
+  products:
+    ADTTheSilverhand: 3
+
+- type: reaction
+  id: Singulo
+  reactants:
+    Vodka:
+      amount: 5
+    Wine:
+      amount: 5
+    LiquidDarkMatter:
+      amount: 5
+  products:
+     Singulo: 15
+
+- type: reaction
+  id: ADTVaporisedMilk
+  reactants:
+    Milk:
+      amount: 2
+    Sugar:
+      amount: 1
+  products:
+    ADTVaporisedMilk: 3
+
+- type: reaction
+  id: ADTCoffeeBonBon
+  reactants:
+    ADTVaporisedMilk:
+      amount: 1
+    Coffee:
+      amount: 2
+  products:
+    ADTCoffeeBonBon: 3
+
+- type: reaction
+  id: BacchusBlessing
+  reactants:
+    Hooch:
+      amount: 1
+    Absinthe:
+      amount: 1
+    ManlyDorf:
+      amount: 1
+    SyndicateBomb:
+      amount: 1
+  products:
+    BacchusBlessing: 4

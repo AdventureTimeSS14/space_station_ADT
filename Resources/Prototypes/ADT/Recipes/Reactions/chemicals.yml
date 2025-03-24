@@ -7,3 +7,28 @@
       amount: 1
   products:
     ADTCopperNitride: 3
+
+- type: reaction
+  id: LiquidDarkMatter
+  reactants:
+    Uranium:
+      amount: 1
+    Plasma:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    LiquidDarkMatter: 3
+
+- type: reaction
+  id: ADTSingularityExplosion
+  minTemp: 473
+  impact: Low
+  quantized: true
+  reactants:
+    LiquidDarkMatter:
+      amount: 30
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ReactionSingularity
+
