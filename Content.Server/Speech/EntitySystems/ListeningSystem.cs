@@ -33,7 +33,7 @@ public sealed class ListeningSystem : EntitySystem
 
         var attemptEv = new ListenAttemptEvent(source);
         var ev = new ListenEvent(message, source, language); // ADT-Language
-        var obfuscatedEv = obfuscatedMessage == null ? null : new ListenEvent(obfuscatedMessage, source, language; // ADT-Language
+        var obfuscatedEv = obfuscatedMessage == null ? null : new ListenEvent(obfuscatedMessage, source, language); // ADT-Language
         var query = EntityQueryEnumerator<ActiveListenerComponent, TransformComponent>();
 
         while(query.MoveNext(out var listenerUid, out var listener, out var xform))
