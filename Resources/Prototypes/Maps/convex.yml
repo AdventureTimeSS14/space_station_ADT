@@ -27,7 +27,7 @@
             Reporter: [ 2, 2 ]
             Librarian: [ 1, 1 ] #finally added library
             ServiceWorker: [ 3, 3 ]
-            Reporter: [ 1, 2 ]
+            # Reporter: [ 1, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
