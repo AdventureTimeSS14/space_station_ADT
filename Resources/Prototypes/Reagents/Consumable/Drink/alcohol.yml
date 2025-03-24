@@ -739,7 +739,7 @@
         conditions:
         - !type:Temperature
           min: 280
-        amount: -2500
+        amount: 2500
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
