@@ -235,7 +235,7 @@
 # Майка
 
 - type: loadout
-  id: ADTUnderwearBraWhite
+  id: ADTUnderwearTShirt
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTUnderwearSpeciesRestrictions

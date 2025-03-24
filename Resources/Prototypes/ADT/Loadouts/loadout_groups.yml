@@ -505,6 +505,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
@@ -707,6 +708,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraQM
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
@@ -725,6 +727,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraRD
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
@@ -743,11 +746,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraCap
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopHOP
@@ -755,6 +765,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraHOP
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
@@ -791,6 +802,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraCMO
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
@@ -809,6 +821,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraCE
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
@@ -827,6 +840,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraBlueshield
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
