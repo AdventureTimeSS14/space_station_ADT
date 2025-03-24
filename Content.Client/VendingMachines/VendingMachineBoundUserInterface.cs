@@ -23,13 +23,9 @@ namespace Content.Client.VendingMachines
         {
             base.Open();
 
-            var vendingMachineSys = EntMan.System<VendingMachineSystem>();
-
+            _menu = this.CreateWindowCenteredLeft<VendingMachineMenu>();
             var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
             _cachedInventory = vendingMachineSys.GetAllInventory(Owner, component); //ADT-Economy
-
-            _menu = this.CreateWindow<VendingMachineMenu>();
-            _menu.OpenCenteredLeft();
             _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 
             _menu.OnClose += Close; //ADT-Economy
@@ -42,11 +38,22 @@ namespace Content.Client.VendingMachines
 
         public void Refresh()
         {
+            var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
+
             var system = EntMan.System<VendingMachineSystem>();
             var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
             _cachedInventory = system.GetAllInventory(Owner);
 
             _menu?.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak);
+        }
+
+        public void UpdateAmounts()
+        {
+            var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
+
+            var system = EntMan.System<VendingMachineSystem>();
+            _cachedInventory = system.GetAllInventory(Owner);
+            _menu?.UpdateAmounts(_cachedInventory, enabled);
         }
 
         // START-ADT-TWEAK
@@ -87,7 +94,7 @@ namespace Content.Client.VendingMachines
             if (selectedItem == null)
                 return;
 
-            SendMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
+            SendPredictedMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
         }
 
         protected override void Dispose(bool disposing)
