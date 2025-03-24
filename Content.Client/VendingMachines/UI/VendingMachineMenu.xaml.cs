@@ -288,4 +288,4 @@ namespace Content.Client.VendingMachines.UI
         }
     }
 
-public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex, VendingMachineInventoryEntry Entry) : ListData;   // ADT vending eject count tweaked
+public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex, VendingMachineInventoryEntry Entry) : ListData;}   // ADT vending eject count tweaked
