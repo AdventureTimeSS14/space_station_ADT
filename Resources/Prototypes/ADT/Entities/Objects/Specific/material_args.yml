@@ -36,11 +36,11 @@
               escapeAttemptTime: 1.25
               setStageTime: 1.25
         - type: MeleeWeapon
-          animation: WeaponArcFist
           attackRate: 2
+          animation: WeaponArcFist
           damage:
             types:
-              Blunt: 13
+              Blunt: 6
         - type: Combo
           availableMoves:
             - actionsNeeds:
@@ -123,6 +123,23 @@
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
+            - actionsNeeds:
+                - Crawl
+                - Crawl
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 10
+                  - !type:ComboTrowOnUserEffect
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboPopupEffect
+                    localeText: combo-leg-sweep-end
 
 - type: entity
   id: ADTScrollSleepingCarp
@@ -184,7 +201,7 @@
                   stunTime: 4
                   dropItems: false
                 - !type:ComboSpeechEffect
-                  speech: Прямо позади тебя...
+                  speech: speech-carp-backhit
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
@@ -206,7 +223,7 @@
                     types:
                       Blunt: 25
                 - !type:ComboSpeechEffect
-                  speech: Лежать!
+                  speech: speech-carp-elbow
                 - !type:ComboStopGrabEffect
                 - !type:ComboAudioEffect
                   sound:
@@ -224,7 +241,7 @@
                       Blunt: 20
                 - !type:ComboDropFromHandsEffect
                 - !type:ComboSpeechEffect
-                  speech: Ку-яя!!
+                  speech: speech-carp-headkick
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
@@ -243,7 +260,7 @@
                   stunTime: 4
                   dropItems: false
                 - !type:ComboSpeechEffect
-                  speech: Отдохни.
+                  speech: speech-carp-stomach
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
@@ -259,7 +276,24 @@
                       Blunt: 5
                 - !type:ComboDropFromHandsEffect
                 - !type:ComboSpeechEffect
-                  speech: Не так быстро.
+                  speech: speech-carp-wrench
+            - actionsNeeds:
+                - Hit
+                - Crawl
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 10
+                  - !type:ComboTrowOnUserEffect
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboSpeechEffect
+                    speech: speech-carp-throw
 
 - type: entity
   id: ADTBookPTCR

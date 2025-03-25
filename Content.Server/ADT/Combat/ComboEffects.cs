@@ -25,7 +25,7 @@ public sealed partial class ComboSpeechEffect : IComboEffect
     {
         var chat = entMan.System<ChatSystem>();
 
-        chat.TrySendInGameICMessage(user, Speech, InGameICChatType.Speak, true, true, checkRadioPrefix: false);  //Speech that isn't sent to chat or adminlogs
+        chat.TrySendInGameICMessage(user, Loc.GetString(Speech), InGameICChatType.Speak, true, true, checkRadioPrefix: false);  //Speech that isn't sent to chat or adminlogs
     }
 }
 [Serializable]

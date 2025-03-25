@@ -77,12 +77,14 @@
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
+# ADT tweak start
 # - type: stealTargetGroup ADT tweak
 #   id: WeaponEnergyShotgun
 #   name: steal-target-groups-weapon-energy-shot-gun
 #   sprite:
 #     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
 #     state: base
+# ADT tweak end
 
 # Thief Collection
 

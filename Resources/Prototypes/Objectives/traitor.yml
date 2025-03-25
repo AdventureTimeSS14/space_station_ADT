@@ -192,7 +192,7 @@
   - type: StealCondition
     stealGroup: HandTeleporter
 
-## hos # adt warden
+## hos #ADT tweak start
 
 # - type: entity
 #   categories: [ HideSpawnMenu ]
@@ -207,7 +207,7 @@
 #   - type: StealCondition
 #     stealGroup: WeaponEnergyShotgun
 #     owner: job-name-warden # ADT tweak
-
+# ADT tweak end
 ## ce
 
 - type: entity

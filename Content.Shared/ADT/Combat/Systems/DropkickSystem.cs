@@ -7,11 +7,10 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Humanoid;
-using Content.Shared.ADT.Crawling;
 
 namespace Content.Shared.ADT.Combat;
 
-public abstract class SharedComboSystem : EntitySystem
+public abstract class SharedDropkickSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -23,7 +22,6 @@ public abstract class SharedComboSystem : EntitySystem
         SubscribeLocalEvent<ComboComponent, DisarmAttemptEvent>(OnDisarmUsed);
         SubscribeLocalEvent<ComboComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<ComboComponent, GrabStageChangedEvent>(OnGrab);
-        SubscribeLocalEvent<ComboComponent, CrawlingKeybindEvent>(ToggleCrawling);
 
         SubscribeLocalEvent<ComboComponent, ToggleCombatActionEvent>(OnCombatToggled);
     }
@@ -39,7 +37,6 @@ public abstract class SharedComboSystem : EntitySystem
         {
             comp.CurrestActions.RemoveAt(0);
         }
-        comp.Target = args.DisarmerUid;
         TryDoCombo(args.DisarmerUid, args.TargetUid, comp);
     }
 
@@ -55,29 +52,27 @@ public abstract class SharedComboSystem : EntitySystem
         {
             comp.CurrestActions.RemoveAt(0);
         }
-        comp.Target = args.HitEntities[0];
+
         TryDoCombo(uid, args.HitEntities[0], comp);
     }
 
     private void OnGrab(EntityUid uid, ComboComponent comp, ref GrabStageChangedEvent args)
     {
-        if (args.Puller.Owner != uid || args.NewStage <= args.OldStage)
+        if (args.Puller.Owner != uid)
             return;
-
+        if (args.NewStage <= args.OldStage)
+            return;
         comp.CurrestActions.Add(CombatAction.Grab);
 
-        if (comp.CurrestActions.Count >= 5)
+        if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
         {
             comp.CurrestActions.RemoveAt(0);
         }
 
         if (TryDoCombo(args.Puller.Owner, args.Pulling.Owner, comp))
-        {
-            // args.NewStage = comp.GrabStageAfterCombo;
-        }
+            args.NewStage = 0;
     }
-
-    public void UseEventOnTarget(EntityUid user, EntityUid target, CombatMove combo)
+    private void UseEventOnTarget(EntityUid user, EntityUid target, CombatMove combo)
     {
         foreach (var comboEvent in combo.ComboEvent)
         {
@@ -111,39 +106,13 @@ public abstract class SharedComboSystem : EntitySystem
 
         for (int i = 0; i <= mainList.Count - subList.Count; i++)
         {
-            bool match = true;
-            for (int j = 0; j < subList.Count; j++)
+            if (mainList.Skip(i).Take(subList.Count).SequenceEqual(subList))
             {
-                if (!EqualityComparer<T>.Default.Equals(mainList[i + j], subList[j]))
-                {
-                    match = false;
-                    break;
-                }
-            }
-
-            if (match)
                 return true;
+            }
         }
 
         return false;
-    }
-    private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
-    {
-        var userCoords = _transform.GetWorldPosition(uid);
-        var targetCoords = _transform.GetWorldPosition(comp.Target);
-        var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
-
-        if (diff >= 4 || diff <= -4)
-            return;
-
-        comp.CurrestActions.Add(CombatAction.Crawl);
-
-        if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
-        {
-            comp.CurrestActions.RemoveAt(0);
-        }
-
-        TryDoCombo(uid, comp.Target, comp);
     }
     private void OnCombatToggled(EntityUid uid, ComboComponent comp, ToggleCombatActionEvent args)
     {
