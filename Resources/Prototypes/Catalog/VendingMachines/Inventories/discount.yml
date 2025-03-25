@@ -6,7 +6,7 @@
     FoodSnackBoritos: 3
     DrinkEnergyDrinkCan: 4
     FoodSnackPopcorn: 3
-    FoodSnackEnergy: 1
+    FoodSnackEnergy: 1 # ADT-tweak 3 > 1
     ADTFoodSnackChocolateBarEnergyPack: 1 # ADT-tweak
     CigPackMixed: 2
   contrabandInventory:
