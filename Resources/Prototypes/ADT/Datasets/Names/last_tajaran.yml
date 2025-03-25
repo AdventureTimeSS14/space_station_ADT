@@ -1,8 +1,8 @@
 - type: localizedDataset
   id: TajaranLast
   values:
-    - prefix: names_TajaranLast-
-      count: 1754
+    prefix: names_TajaranLast-
+    count: 1754
 
 # Имена, которые не добавлены в .ftl файл
   # - Тасер'н Кайи-Сэндай

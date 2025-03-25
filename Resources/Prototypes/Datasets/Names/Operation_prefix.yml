@@ -1,5 +1,5 @@
 - type: localizedDataset
   id: operationPrefix
   values:
-    - prefix: names_operationPrefix-
-      count: 97
+    prefix: names_operationPrefix-
+    count: 97

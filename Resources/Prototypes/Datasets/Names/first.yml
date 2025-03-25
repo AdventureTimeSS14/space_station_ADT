@@ -1,5 +1,5 @@
 - type: localizedDataset
   id: names_first
   values:
-    - prefix: names_names_first-
-      count: 650
+    prefix: names_names_first-
+    count: 650

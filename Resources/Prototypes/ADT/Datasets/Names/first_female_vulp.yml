@@ -1,5 +1,5 @@
 - type: localizedDataset
   id: firstFemaleVulp
   values:
-    - prefix: names_firstFemaleVulp-
-      count: 49
+    prefix: names_firstFemaleVulp-
+    count: 49
