@@ -135,6 +135,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("ghostbarMap"); ///ADT-ghostber
             _prototypeManager.RegisterIgnore("additionalMap"); ///ADT-additionalMap
             _prototypeManager.RegisterIgnore("sponsorLoadout"); // ADT-Sponsor-Loadout
+            _prototypeManager.RegisterIgnore("sponsorPersonalLoadout"); // ADT-Sponsor-Loadout
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();

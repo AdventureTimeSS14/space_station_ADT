@@ -1,5 +1,4 @@
 using Content.Server.Corvax.Sponsors;
-using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
@@ -22,25 +21,54 @@ public sealed class SponsorLoadoutSystem : EntitySystem
         if (_sponsorsManager == null)
             return;
 
+        // Получаем экипировку (может быть персональной или по Tier)
         if (!_sponsorsManager.TryGetSpawnEquipment(ev.Player.UserId, out var spawnEquipment))
             return;
-        if (!_prototypeManager.TryIndex<SponsorLoadoutPrototype>(spawnEquipment, out var loadout))
-            return;
-        var isWhitelisted = ev.JobId != null &&
-                            loadout.WhitelistJobs != null &&
-                            !loadout.WhitelistJobs.Contains(ev.JobId);
-        var isBlacklisted = ev.JobId != null &&
-                            loadout.BlacklistJobs != null &&
-                            loadout.BlacklistJobs.Contains(ev.JobId);
-        var isSpeciesRestricted = loadout.SpeciesRestrictions != null &&
-                                  loadout.SpeciesRestrictions.Contains(ev.Profile.Species);
 
-        if (isWhitelisted || isBlacklisted || isSpeciesRestricted)
+        // Проверяем, является ли лоадаут персональным или обычным
+        if (_prototypeManager.TryIndex<SponsorPersonalLoadoutPrototype>(spawnEquipment, out var personalLoadout))
+        {
+            EquipLoadout(ev, personalLoadout);
             return;
+        }
 
-        if (!_prototypeManager.TryIndex(loadout.Equipment, out var startingGear))
+        if (_prototypeManager.TryIndex<SponsorLoadoutPrototype>(spawnEquipment, out var loadout))
+        {
+            EquipLoadout(ev, loadout);
             return;
+        }
+    }
 
-        _spawn.EquipStartingGear(ev.Mob, startingGear);
+    // Универсальный метод для экипировки лоадаута
+    private void EquipLoadout<T>(PlayerSpawnCompleteEvent ev, T loadout) where T : IPrototype
+    {
+        if (loadout is SponsorLoadoutPrototype sponsorLoadout)
+        {
+            if (IsRestricted(ev, sponsorLoadout.WhitelistJobs, sponsorLoadout.BlacklistJobs, sponsorLoadout.SpeciesRestrictions))
+                return;
+
+            if (!_prototypeManager.TryIndex(sponsorLoadout.Equipment, out var startingGear))
+                return;
+
+            _spawn.EquipStartingGear(ev.Mob, startingGear);
+        }
+        else if (loadout is SponsorPersonalLoadoutPrototype personalLoadout)
+        {
+            if (IsRestricted(ev, personalLoadout.WhitelistJobs, personalLoadout.BlacklistJobs, personalLoadout.SpeciesRestrictions))
+                return;
+
+            if (!_prototypeManager.TryIndex(personalLoadout.Equipment, out var startingGear))
+                return;
+
+            _spawn.EquipStartingGear(ev.Mob, startingGear);
+        }
+    }
+
+    // Проверка ограничений
+    private bool IsRestricted(PlayerSpawnCompleteEvent ev, List<string>? whitelist, List<string>? blacklist, List<string>? speciesRestrictions)
+    {
+        return (ev.JobId != null && whitelist != null && !whitelist.Contains(ev.JobId)) ||
+            (ev.JobId != null && blacklist != null && blacklist.Contains(ev.JobId)) ||
+            (speciesRestrictions != null && speciesRestrictions.Contains(ev.Profile.Species));
     }
 }

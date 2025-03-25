@@ -1,13 +1,17 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using Content.Server.ADT.SponsorLoadout;
 using Content.Server.Database;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.Sponsors;
+using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Corvax.Sponsors;
@@ -17,6 +21,8 @@ public sealed class SponsorsManager
     [Dependency] private readonly IServerNetManager _netMgr = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private readonly HttpClient _httpClient = new();
 
@@ -112,12 +118,25 @@ public sealed class SponsorsManager
             return false;
         }
 
-        // Тут можно настраивать, на каком тире, какой ID лодаута выдать при старте
-        // TODO: В будущем можно в YAML Формат перенести
+        // Попытка найти персональный набор
+        if (_playerManager.TryGetSessionById(userId, out var session))
+        {
+            var username = session.Name; // Получаем никнейм пользователя
+            var personalGears = _prototypeManager.EnumeratePrototypes<SponsorPersonalLoadoutPrototype>();
+
+            var personalLoadout = personalGears.FirstOrDefault(loadout => loadout.UserName == username);
+            if (personalLoadout != null)
+            {
+                spawnEquipment = personalLoadout.Equipment; // Выдаём персональный лоадаут
+                return true;
+            }
+        }
+
+        // Если персонального лоадаута нет — проверяем Tier
         spawnEquipment = sponsorData.Tier switch
         {
-            3 => "SuperDeveloperSponsorLoadoutTier5", // Тут пока ни настроено
-            4 => "PremiumSponsorLoadoutTier4",
+            5 => "SuperDeveloperSponsorLoadoutTier5",
+            6 => "PremiumSponsorLoadoutTier4",
             _ => null
         };
 
