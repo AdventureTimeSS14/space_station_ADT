@@ -130,7 +130,7 @@
 - type: entity
   name: proto-kinetic shotgun
   id: ADTWeaponProtoKineticShotgun
-  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable, BaseCargoContraband]
   description: The Shotgun fires a short range set of three rounds that does more damage than base PKA if all three shots land. This trades mod capacity and cooldown speed.
   components:
   - type: Sprite
@@ -145,6 +145,10 @@
     whitelist:
       tags:
       - PKAUpgrade
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: GunRequiresWield
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
