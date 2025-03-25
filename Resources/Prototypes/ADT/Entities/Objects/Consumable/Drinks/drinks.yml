@@ -582,7 +582,7 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: TeqilaOldFashion
+        - ReagentId: ADTTeqilaOldFashion
           Quantity: 30
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/oldFashioned.rsi
@@ -597,7 +597,7 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: JackieWelles
+        - ReagentId: ADTJackieWelles
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
@@ -612,25 +612,11 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: TheSilverhand
+        - ReagentId: ADTTheSilverhand
           Quantity: 30
   - type: Icon
-    sprite: Objects/Consumable/Drinks/silverhand.rsi
+    sprite: ADT/Objects/Consumable/Drinks/silverhand.rsi
     state: icon
-
-- type: entity
-  parent: DrinkGlass
-  id: ADTVaporisedMilkGlass
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTVaporisedMilk
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
 
 - type: entity
   parent: DrinkGlass
@@ -644,5 +630,20 @@
         - ReagentId: ADTCoffeeBonBon
           Quantity: 30
   - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
+    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTBacchusBlessingGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTBacchusBlessing
+          Quantity: 30
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/bacchusblessing.rsi
     state: icon

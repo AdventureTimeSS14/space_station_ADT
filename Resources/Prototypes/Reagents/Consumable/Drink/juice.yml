@@ -146,7 +146,7 @@
   physicalDesc: reagent-physical-desc-saucey
   flavor: tomato
   color: "#731008"
-### ADT start
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -155,7 +155,7 @@
           types:
             Heat: -2
         probability: 0.2
-### Aavikko end
+      # End ADT tweak
 
 - type: reagent
   id: JuiceWatermelon

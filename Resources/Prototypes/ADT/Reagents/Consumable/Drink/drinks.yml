@@ -303,33 +303,34 @@
   metamorphicChangeColor: false
 
 - type: reagent
-  id: ADTVaporisedMilk
-  name: vaporised-milk-name
-  parent: BaseAlcohol
-  desc: vaporised-milk-desc
-  suffix: Aavikko
-  physicalDesc: reagent-physical-desc-vaporisedmilk
-  flavor: sweet
-  color: "#f7de99"
-  spritePath: Aavikko/Objects/Consumable/Drinks/beerdark.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3
-
-- type: reagent
   id: ADTCoffeeBonBon
   name: coffee-bon-bon-name
   parent: BaseAlcohol
   desc: coffee-bon-bon-desc
-  suffix: Aavikko
   physicalDesc: reagent-physical-desc-coffeebonbon
-  flavor: sweet, coffee
+  flavor: ADTCoffeeBonBon
   color: "#5f341c"
-  spritePath: Aavikko/Objects/Consumable/Drinks/beerdark.rsi
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
       - !type:SatiateThirst
         factor: 3
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 1.15
+        type: Add
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.03
+        sprintSpeedModifier: 1.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+        max: 310
+        amount: 2500

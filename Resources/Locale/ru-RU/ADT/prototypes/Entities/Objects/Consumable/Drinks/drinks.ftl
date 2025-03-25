@@ -133,3 +133,23 @@ ent-ADTDrinkCherryTeaGlass = { ent-DrinkGlass }
 ent-ADTDrinkWatermelonTeaGlass = { ent-DrinkGlass }
     .suffix = Арбузный чай
     .desc = { ent-DrinkGlass.desc }
+
+ent-ADTTeqilaOldFashionGlass = { ent-DrinkGlass }
+    .suffix = Текила олд фэшен
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTJackieWellesGlass = { ent-DrinkGlass }
+    .suffix = Джекки Уэлз
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTTheSilverhandGlass = { ent-DrinkGlass }
+    .suffix = Сильверхенд
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTCoffeeBonBonGlass = { ent-DrinkGlass }
+    .suffix = Кофе бон-бон
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTBacchusBlessingGlass = { ent-DrinkGlass }
+    .suffix = Благославение бахуса
+    .desc = { ent-DrinkGlass.desc }

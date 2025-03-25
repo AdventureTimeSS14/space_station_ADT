@@ -747,12 +747,12 @@
           probability: 0.1
 
 - type: reagent
-  id: BacchusBlessing
+  id: ADTBacchusBlessing
   name: reagent-name-bacchus-blessing
   parent: BaseAlcohol
   desc: reagent-desc-bacchus-blessing
   physicalDesc: reagent-physical-desc-unidentifiable
-  flavor: bacchusblessing
+  flavor: ADTbacchusblessing
   color: "#331303"
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/bacchusblessing.rsi

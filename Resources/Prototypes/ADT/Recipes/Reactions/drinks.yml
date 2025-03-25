@@ -398,19 +398,19 @@
      Singulo: 15
 
 - type: reaction
-  id: ADTVaporisedMilk
+  id: ADTCondensedMilk
   reactants:
     Milk:
       amount: 2
     Sugar:
       amount: 1
   products:
-    ADTVaporisedMilk: 3
+    ADTCondensedMilk: 3
 
 - type: reaction
   id: ADTCoffeeBonBon
   reactants:
-    ADTVaporisedMilk:
+    ADTCondensedMilk:
       amount: 1
     Coffee:
       amount: 2
