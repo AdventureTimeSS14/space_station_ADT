@@ -1,8 +1,8 @@
 - type: vendingMachineInventory
   id: PwrGameInventory
   startingInventory:
-    DrinkPwrGameCan: 3
-    DrinkEnergyDrinkCan: 3
+    DrinkPwrGameCan: 3 # ADT-tweak 4 > 3
+    DrinkEnergyDrinkCan: 3 # ADT-tweak 4 > 3
     ADTDrinkNoStopCan: 2 # ADT-tweak
     DrinkGrapeCan: 2
     DrinkRootBeerCan: 2
