@@ -40,7 +40,7 @@
   physicalDesc: reagent-physical-desc-cloudy
   flavor: savory
   color: "#673d0c"
-  ms:
+  metabolisms:
     Drink:
       effects:
       - !type:SatiateThirst
@@ -54,7 +54,7 @@
   physicalDesc: reagent-physical-desc-cloudy
   flavor: sweet
   color: "#9f5525"
-  ms:
+  metabolisms:
     Drink:
       effects:
       - !type:SatiateThirst
