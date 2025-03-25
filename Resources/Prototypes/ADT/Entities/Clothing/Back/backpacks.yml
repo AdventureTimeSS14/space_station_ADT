@@ -101,3 +101,16 @@
     - 0,0,7,3
 
 # USSP USSP
+
+# Winrar ; >
+
+- type: entity
+  parent: [ClothingBackpack]
+  id: ADTClothingBackpackWinRAR
+  name: WinRar Backpak
+  description: WinRAR - not a free backpack. After the 40-day trial period, you must either purchase a backpack license or refuse further use.
+  components:
+  - type: Sprite
+    sprite:  ADT/Clothing/Back/winrar.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
