@@ -110,8 +110,8 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
 # ADT-Tweak-start
-  - type: Tag
   - type: OfferItem
+  - type: Tag
     tags:
     - Unimplantable
     - CanPilot
