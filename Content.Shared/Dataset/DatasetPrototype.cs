@@ -2,7 +2,7 @@
 
 namespace Content.Shared.Dataset
 {
-    [Prototype("localizedDataset")]
+    [Prototype("dataset")]
     public sealed partial class DatasetPrototype : IPrototype
     {
         [ViewVariables]
