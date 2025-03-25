@@ -118,6 +118,7 @@
   - ADTTop
   - ADTBottom
   - ADTSocks
+  - GroupSpeciesBreathTool
   # ADT underwear tweak end
 
 - type: roleLoadout
@@ -137,6 +138,7 @@
   - ADTTop
   - ADTBottom
   - ADTSocks
+  - GroupSpeciesBreathTool
   # ADT underwear tweak end
 
 - type: roleLoadout
@@ -157,6 +159,7 @@
   - ADTTop
   - ADTBottom
   - ADTSocks
+  - GroupSpeciesBreathToolSecurity
   # ADT underwear tweak end
 
   # brigmedic
@@ -204,6 +207,7 @@
   - ADTTop
   - ADTBottom
   - ADTSocks
+  - GroupSpeciesBreathToolSecurity
   # ADT underwear tweak end
 
 - type: roleLoadout

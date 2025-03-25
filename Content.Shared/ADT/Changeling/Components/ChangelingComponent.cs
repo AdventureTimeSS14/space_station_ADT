@@ -198,7 +198,7 @@ public sealed partial class ChangelingComponent : Component
     public int DNAStolen = 0;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public int ChangelingsAbsorbed = 0;
+    public int ChangelingsAbsorbed = 5;
 
     public bool CanTransform
     {

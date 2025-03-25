@@ -111,6 +111,7 @@
             state: jumpsuit-female
 # ADT-Tweak-start
   - type: Tag
+  - type: OfferItem
     tags:
     - Unimplantable
     - CanPilot
