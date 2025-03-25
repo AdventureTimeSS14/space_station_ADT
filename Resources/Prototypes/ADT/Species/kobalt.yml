@@ -9,7 +9,7 @@
   dollPrototype: MobKoboltDummy
   skinColoration: Hues #как у reptilian
   maleFirstNames: names-reptilian-male-dataset #как у reptilian
-  femaleFirstNames: names_reptilian_female #как у reptilian
+  femaleFirstNames: names-reptilian-female-dataset #как у reptilian
   naming: FirstDashFirst #как у reptilian
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
