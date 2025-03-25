@@ -1,5 +1,0 @@
-- type: localizedDataset
-  id: firstFemaleUrs
-  values:
-    - prefix: names_first_female-
-      count: 100
