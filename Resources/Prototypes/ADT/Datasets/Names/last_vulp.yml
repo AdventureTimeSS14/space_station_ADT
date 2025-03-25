@@ -1,5 +1,5 @@
 - type: localizedDataset
   id: VulpLast
   values:
-    - prefix: names_VulpLast-
-      count: 142
+    prefix: names_VulpLast-
+    count: 142

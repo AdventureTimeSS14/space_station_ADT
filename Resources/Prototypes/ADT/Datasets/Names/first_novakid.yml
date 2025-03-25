@@ -1,5 +1,5 @@
 - type: localizedDataset
   id: firstNovakid
   values:
-    - prefix: names_firstNovakid-
-      count: 59
+    prefix: names_firstNovakid-
+    count: 59

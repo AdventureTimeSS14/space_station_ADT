@@ -1,5 +1,5 @@
 - type: localizedDataset
   id: NamesLastERTCallsign
   values:
-    - prefix: names_NamesLastERTCallsign-
-      count: 58
+    prefix: names_NamesLastERTCallsign-
+    count: 58
