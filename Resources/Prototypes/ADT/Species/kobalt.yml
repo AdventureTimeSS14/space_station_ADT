@@ -8,7 +8,7 @@
   markingLimits: MobKoboltMarkingLimits
   dollPrototype: MobKoboltDummy
   skinColoration: Hues #как у reptilian
-  maleFirstNames: names_reptilian_male #как у reptilian
+  maleFirstNames: names-reptilian-male-dataset #как у reptilian
   femaleFirstNames: names_reptilian_female #как у reptilian
   naming: FirstDashFirst #как у reptilian
   category: Unusual
