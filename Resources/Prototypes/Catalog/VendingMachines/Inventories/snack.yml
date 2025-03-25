@@ -1,12 +1,12 @@
 - type: vendingMachineInventory
   id: GetmoreChocolateCorpInventory
   startingInventory:
-    FoodSnackRaisins: 2
-    FoodSnackChocolate: 2
-    FoodSnackCnDs: 1
-    FoodSnackPistachios: 1
-    FoodSnackSus: 1
-    FoodSnackSemki: 1
+    FoodSnackRaisins: 2 # ADT-tweak 3 > 2
+    FoodSnackChocolate: 2 # ADT-tweak 3 > 2
+    FoodSnackCnDs: 1 # ADT-tweak 3 > 1
+    FoodSnackPistachios: 1 # ADT-tweak 3 > 1
+    FoodSnackSus: 1 # ADT-tweak 3 > 1
+    FoodSnackSemki: 1 # ADT-tweak 3 > 1
     # ADT-tweak-start
     ADTFoodSnackChocolateBarTwoPack: 1
     ADTFoodSnackChocolateBarCoconutPack: 1
