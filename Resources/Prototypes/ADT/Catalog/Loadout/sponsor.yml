@@ -35,10 +35,10 @@
 - type: sponsorPersonalLoadout
   id: SponsorPersonalLoadoutSchrodinger71
   userName: Schrodinger71
-  equipment: SuperDeveloperSponsorGear
+  equipment: SponsorPersonalLoadoutSchrodinger71
 
 - type: startingGear
-  id: SuperDeveloperSponsorGear
+  id: SponsorPersonalLoadoutSchrodinger71
   equipment:
     neck: SirenaChokerWithHeart
     pocket1: ClothingHeadHatCatEars
