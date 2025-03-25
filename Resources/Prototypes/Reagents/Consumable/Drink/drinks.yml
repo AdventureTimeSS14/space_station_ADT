@@ -662,7 +662,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        min: 280
+          min: 280
         amount: -2500
       # End ADT tweak
 
