@@ -135,8 +135,8 @@ public sealed class SponsorsManager
         // Если персонального лоадаута нет — проверяем Tier
         spawnEquipment = sponsorData.Tier switch
         {
-            3 => "SuperDeveloperSponsorLoadoutTier5",
-            6 => "PremiumSponsorLoadoutTier4",
+            6 => "SuperDeveloperSponsorLoadoutTier5",
+            7 => "PremiumSponsorLoadoutTier4",
             _ => null
         };
 
