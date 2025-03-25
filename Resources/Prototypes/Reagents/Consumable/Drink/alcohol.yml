@@ -853,7 +853,7 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-  metabolism:
+  metabolisms:
     Drink:
       effects:
       - !type:PopupMessage
@@ -1399,29 +1399,6 @@
   color: "#2E6671"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/irishslammer.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 6
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-
-- type: reagent
-  id: IrishCarBomb
-  name: reagent-name-irish-car-bomb
-  parent: BaseAlcohol
-  desc: reagent-desc-irish-car-bomb
-  physicalDesc: reagent-physical-desc-bubbly
-  flavor: irishcarbomb
-  color: "#2E6671"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/irishcarbomb.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-

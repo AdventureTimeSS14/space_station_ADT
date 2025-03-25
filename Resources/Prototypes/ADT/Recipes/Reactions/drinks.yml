@@ -418,7 +418,7 @@
     ADTCoffeeBonBon: 3
 
 - type: reaction
-  id: BacchusBlessing
+  id: ADTBacchusBlessing
   reactants:
     Hooch:
       amount: 1
@@ -429,4 +429,4 @@
     SyndicateBomb:
       amount: 1
   products:
-    BacchusBlessing: 4
+    ADTBacchusBlessing: 4

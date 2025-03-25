@@ -704,7 +704,7 @@
   id: ADTTheSilverhand
   name: the-silverhand-name
   parent: BaseAlcohol
-  desc: Легенда среди киберпанков. Напиток рокер-боя и террориста, который умер как чёрный пёс.
+  desc: the-silverhand-desc
   physicalDesc: reagent-physical-desc-thick-and-grainy
   flavor: ADTsilverhand
   color: "#ad0e0e"

@@ -31,7 +31,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        max: 310
+          max: 310
         amount: 2500
       # End ADT tweak
   metamorphicSprite:
@@ -62,7 +62,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        max: 310
+          max: 310
         amount: 2500
       # End ADT tweak
 
@@ -135,7 +135,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        max: 310
+          max: 310
         amount: 2500
       - !type:GenericStatusEffect
         key: StaminaModifier
@@ -176,7 +176,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        max: 310
+          max: 310
         amount: 2500
       # End ADT tweak
 
@@ -530,7 +530,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        max: 310
+          max: 310
         amount: 2500
       # End ADT tweak
   metamorphicSprite:
@@ -635,7 +635,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        max: 310
+          max: 310
         amount: 2500
       # End ADT tweak
 
