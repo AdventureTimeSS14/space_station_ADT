@@ -20,13 +20,13 @@
   - id: WeaponProtoKineticAccelerator
     price: 550
   - id: ADTWeaponProtoKineticPistol
-    price: 1550
+    price: 1250
   - id: ADTWeaponProtoKineticShotgun
-    price: 1500
+    price: 1750
   - id: ADTWeaponProtoKineticRepeater
     price: 1650
   - id: ADTWeaponProtoKineticRailgun
-    price: 1750
+    price: 1700
 
 - type: miningShopSection
   id: Fulton
@@ -41,23 +41,37 @@
   id: Medicine
   name: Медицина
   entries:
+  - id: SpaceMedipen
+    price: 300
+  - id: EmergencyMedipen
+    price: 150
   - id: MedkitBruteFilled
-    price: 700
+    price: 900
   - id: MedkitBurnFilled
-    price: 600
+    price: 800
 
 - type: miningShopSection
   id: Equipment
   name: Снаряжение
   entries:
+  - id: Flare
+    price: 75
   - id: ClothingBeltSalvageWebbing
     price: 500
   - id: ADTAdvancedOreBag
     price: 500
   - id: ADTWeaponCutter
     price: 500
+  - id: ADTShelterCapsule
+    price: 400
   - id: ADTJaunter
     price: 900
+  - id: Binoculars
+    price: 450
+  - id: PowerCellHigh
+    price: 650
+  - id: SeismicCharge
+    price: 250
   - id: ADTClothingOuterArmorMiner
     price: 1000
   - id: ADTClothingModsuitBackMining
@@ -68,6 +82,10 @@
     price: 4000
   - id: ADTClothingJumpBoots
     price: 2500
+  - id: ADTShelterCapsuleLuxury
+    price: 3000
+  - id: ADTShelterCapsuleBar
+    price: 10000
 
 - type: miningShopSection
   id: Upgrades
@@ -82,3 +100,15 @@
   - id: PKAUpgradeLight
     price: 500
 
+- type: miningShopSection
+  id: Fun
+  name: Безделушки
+  entries: 
+  - id: PlushieLizard
+    price: 220 # CURSE
+  - id: SpaceCash1000
+    price: 2000
+  - id: DrinkWhiskeyBottleFull
+    price: 100
+  - id: DrinkAbsintheBottleFull
+    price: 150
