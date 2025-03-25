@@ -462,6 +462,6 @@ public enum LogType
     /// <summary>
     /// A player grabbed another player
     /// </summary>
-    Grab = 99,
+    Grab = 100,
     /// ADT End
 }
