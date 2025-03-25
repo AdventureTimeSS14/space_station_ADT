@@ -38,6 +38,9 @@
   uniqueLanguages:
   - Mar
   maxLanguages: 4
+  maxAge: 500
+  oldAge: 300
+  youngAge: 200
 
 - type: speciesBaseSprites
   id: MobShadekinSprites

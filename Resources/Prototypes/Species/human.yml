@@ -8,6 +8,7 @@
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
   # ADT start
+  maxAge: 90
   description: "/ServerInfo/ADT/SpeciesDescriptions/Human.xml"
   defaultLanguages:
   - GalacticCommon
