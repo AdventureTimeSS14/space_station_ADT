@@ -12,10 +12,6 @@
   femaleFirstNames: names_shadekin_female_first
   maleLastNames: names_shadekin_male_last
   femaleLastNames: names_shadekin_female_last
-  minAge: 18
-  maxAge: 80
-  youngAge: 30
-  oldAge: 50
   sexes:
     - Male
     - Female

@@ -45,9 +45,6 @@
   - RobotTalk
   - BorgTalk
   maxLanguages: 6
-  maxAge: 55
-  oldAge: 35
-  youngAge: 20
 
 # The lack of a layer means that
 # this person cannot have round-start anything
