@@ -19,7 +19,7 @@
   copyright: "Created by WsWiss"
   source: "https://github.com/WsWiss"
 
-- files: ["bark.png", "growl.png", "whine.png"]
+- files: ["bark.png", "growl.png", "whine.png", "howl.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified from existing emote meow.png (by dootythefrooty) by Blackdutchie"
   source: "https://github.com/Blackdutchie"
