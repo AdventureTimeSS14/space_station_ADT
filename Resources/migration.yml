@@ -110,8 +110,8 @@ GeneratorUraniumMachineCircuitboard: PortableGeneratorSuperPacmanMachineCircuitb
 #No this is not the CMO hardsuit, their prototype IDs were just confusingly similar
 ClothingOuterHardsuitMedic: ClothingOuterHardsuitSyndieMedic
 
-# 2023-12-13
-VendingMachineSmartFridge: SmartFridge
+# 2023-12-13 # ADT: НЕТ ХОЛОДИЛЬНИКУ ЗАМЕНЫ
+# VendingMachineSmartFridge: SmartFridge
 
 # 2023-12-18
 ReagentContainerMilk: DrinkMilkCarton
@@ -622,3 +622,8 @@ PlayerStationAiPilgrim: PlayerStationAi
 ClothingOuterHardsuitSecurity: ADTClothingModsuitBackSecurity
 ClothingOuterHardsuitEngineering: ADTClothingModsuitBackEngineering
 ClothingOuterHardsuitSalvage: ADTClothingModsuitBackMining
+
+
+#ADT 2025-03-12
+SmartFridge: ADTSmartFridgeMedical
+VendingMachineSmartFridge: ADTSmartFridgeMedical
