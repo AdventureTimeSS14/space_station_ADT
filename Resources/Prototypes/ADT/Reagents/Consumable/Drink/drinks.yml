@@ -332,5 +332,5 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-        max: 310
+          max: 310
         amount: 2500
