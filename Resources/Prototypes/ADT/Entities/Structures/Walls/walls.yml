@@ -79,7 +79,6 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
 
-
 - type: entity
   parent: BaseWall
   id: ADTStonebrickWall
@@ -105,6 +104,27 @@
     sprite: ADT/Structures/Walls/yellow_bricks_wall.rsi
   - type: IconSmooth
     base: yellowbricks
+
+- type: entity
+  parent: BaseWall
+  id: ADTDigitalWall
+  name: digital wall
+  description: What do you even know about the matrix?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: IconSmooth
+    base: digital
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 550
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 
 ##Indestructible Rocks
@@ -289,3 +309,16 @@
       - map: [ "enum.EdgeLayer.West" ]
         state: ironrock_west
 
+- type: entity
+  parent: BaseWall
+  id: ADTDigitalWallIndestructible
+  name: digital wall
+  description: What do you even know about the matrix?
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: IconSmooth
+    base: digital
