@@ -94,7 +94,7 @@
         sprintSpeedModifier: 0.7
 
 - type: reagent
-  id: LiquidDarkMatter
+  id: ADTLiquidDarkMatter
   name: reagent-name-liquiddarkmatter
   group: Toxins
   desc: reagent-desc-liquiddarkmatter

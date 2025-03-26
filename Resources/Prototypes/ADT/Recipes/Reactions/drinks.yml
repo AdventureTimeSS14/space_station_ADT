@@ -392,10 +392,11 @@
       amount: 5
     Wine:
       amount: 5
-    LiquidDarkMatter:
+    ADTLiquidDarkMatter:
       amount: 5
   products:
      Singulo: 15
+# here because this recipe have an new reagent from ADT
 
 - type: reaction
   id: ADTCondensedMilk
