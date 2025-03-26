@@ -50,7 +50,9 @@ public sealed class ServerBanPayloadGenerator : BanPayloadGenerator
 
         var player = info.Player is not null
             ? Loc.GetString("discord-ban-submitted-by", ("name", info.Player.Name))
-            : Loc.GetString("discord-ban-submitted-by-system");
+            : info.AdminName is not null
+                ? $"**Наказание выдал(-а):** {info.AdminName}(Discord)"
+                : Loc.GetString("discord-ban-submitted-by-system");
 
         builder.AppendLine(banHeader);
         builder.AppendLine(target);

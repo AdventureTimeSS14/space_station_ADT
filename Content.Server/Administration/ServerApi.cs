@@ -28,6 +28,11 @@ using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
 using Content.Shared.Administration;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Database;
+using Content.Shared.Database;
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
 
 namespace Content.Server.Administration;
 
@@ -68,6 +73,9 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IBanManager _bans = default!;
+    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -91,8 +99,9 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat);                          // ADT Tweak
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/play_time_addjob", ActionPlayAddTimeJob);           // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat);                // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/play_time_addjob", ActionPlayAddTimeJob); // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/server_ban", ActionServerBan);            // ADT Tweak
     }
 
     public void Initialize()
@@ -807,6 +816,58 @@ public sealed partial class ServerApi : IPostInjectInit
         _sawmill.Info($"{actor.Name} using playtime_addrole {body.NickName} {body.JobIdPrototype} {body.Time}");
     }
 
+    private async Task ActionServerBan(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<ActionServerBanBody>(context);
+        if (body == null)
+            return;
+
+        uint minutes;
+        if (!uint.TryParse(body.Time, out minutes))
+        {
+            _sawmill.Warning($"ServerApi BAN: {body.Time} is not a valid amount of minutes!");
+            return;
+        }
+
+        var adminName = actor.Name;
+        var adminUserId = new NetUserId(actor.Guid);
+        var target = body.NickName;
+        var reason = body.Reason;
+        var severity = NoteSeverity.High;
+        var locatedTagret = await _playerLocator.LookupIdByNameAsync(target);
+
+        if (locatedTagret == null)
+        {
+            _sawmill.Warning($"ServerApi BAN: Unable to find a player with that name.");
+            return;
+        }
+
+        var targetUid = locatedTagret.UserId;
+        var targetHWid = locatedTagret.LastHWId;
+
+        // Логи банов для диса
+        var lastServerBan = await _dbManager.GetLastServerBanAsync();
+        var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+
+        _bans.CreateServerBan(targetUid, target, adminUserId, null, targetHWid, minutes, severity, reason);
+
+
+        //Start-ADT-Tweak: логи банов для диса
+        var banInfo = new BanInfo
+        {
+            BanId = newServerBanId.ToString()!,
+            Target = target,
+            AdminName = adminName,
+            Minutes = minutes,
+            Reason = reason,
+            Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
+        };
+
+        await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
+        await RespondOk(context);
+        _sawmill.Info($"{actor.Name} using ban {body.NickName} {body.Reason} {body.Time}");
+    }
+
     private sealed class AdminChatActionBody
     {
         public required string Message { get; init; }
@@ -817,6 +878,13 @@ public sealed partial class ServerApi : IPostInjectInit
     {
         public required string NickName { get; init; }
         public required string JobIdPrototype { get; init; }
+        public required string Time { get; init; }
+    }
+
+    private sealed class ActionServerBanBody
+    {
+        public required string NickName { get; init; }
+        public required string Reason { get; init; }
         public required string Time { get; init; }
     }
 
