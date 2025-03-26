@@ -822,8 +822,7 @@ public sealed partial class ServerApi : IPostInjectInit
         if (body == null)
             return;
 
-        uint minutes;
-        if (!uint.TryParse(body.Time, out minutes))
+        if (!uint.TryParse(body.Time, out uint minutes) || minutes == 0)
         {
             _sawmill.Warning($"ServerApi BAN: {body.Time} is not a valid amount of minutes!");
             return;
@@ -834,25 +833,40 @@ public sealed partial class ServerApi : IPostInjectInit
         var target = body.NickName;
         var reason = body.Reason;
         var severity = NoteSeverity.High;
-        var locatedTagret = await _playerLocator.LookupIdByNameOrIdAsync(target);
 
-        if (locatedTagret == null)
+        var locatedTarget = await _playerLocator.LookupIdByNameOrIdAsync(target);
+        if (locatedTarget == null)
         {
-            _sawmill.Warning($"ServerApi BAN: Unable to find a player with that name.");
+            _sawmill.Warning($"ServerApi BAN: Unable to find a player with name {target}.");
             return;
         }
 
-        var targetUid = locatedTagret.UserId;
-        var targetHWid = locatedTagret.LastHWId;
+        var targetUid = locatedTarget.UserId;
+        var targetHWid = locatedTarget.LastHWId;
 
-        // Логи банов для диса
+        // Проверяем, есть ли _bans и корректно ли он работает
+        if (_bans == null)
+        {
+            _sawmill.Error("ServerApi BAN: _bans (BanManager) is NULL! Cannot process ban.");
+            return;
+        }
+
+        // Логика с ID бана
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
 
-        // var _bans = _entities.System<GameTicker>();
-        _bans.CreateServerBan(targetUid, target, adminUserId, null, targetHWid, minutes, severity, reason);
+        // Создаем бан
+        try
+        {
+            _bans.CreateServerBan(targetUid, target, adminUserId, null, targetHWid, minutes, severity, reason);
+        }
+        catch (Exception ex)
+        {
+            _sawmill.Error($"ServerApi BAN: Exception while banning {target}: {ex}");
+            return;
+        }
 
-        //Логи банов для диса
+        // Логирование для Discord
         var banInfo = new BanInfo
         {
             BanId = newServerBanId.ToString()!,
@@ -865,7 +879,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
         await RespondOk(context);
-        _sawmill.Info($"{actor.Name} using ban {body.NickName} {body.Reason} {body.Time}");
+        _sawmill.Info($"{actor.Name} banned {body.NickName} for {body.Time} minutes. Reason: {body.Reason}");
     }
 
     private sealed class AdminChatActionBody

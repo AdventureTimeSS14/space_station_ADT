@@ -178,13 +178,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         var expiresString = expires == null ? Loc.GetString("server-ban-string-never") : $"{expires}";
 
         var key = _cfg.GetCVar(CCVars.AdminShowPIIOnBan) ? "server-ban-string" : "server-ban-string-no-pii";
-        var locManager = IoCManager.Resolve<ILocalizationManager>();
-        if (locManager == null)
-        {
-            _sawmill.Error("LocalizationManager instance is null!");
-            return;
-        }
-        var logMessage = locManager.GetString(
+
+        var logMessage = Loc.GetString(
             key,
             ("admin", adminName),
             ("severity", severity),
