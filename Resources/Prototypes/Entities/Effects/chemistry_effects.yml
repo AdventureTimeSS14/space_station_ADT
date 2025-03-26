@@ -235,7 +235,6 @@
     duration: 0.5
   - type: TimedDespawn
     lifetime: 0.5
-
       # Start ADT tweak
 - type: entity
   id: ReactionSingularity

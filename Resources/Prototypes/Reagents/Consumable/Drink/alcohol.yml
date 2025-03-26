@@ -22,8 +22,8 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.45
       # Start ADT tweak
+        amount: 0.45
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
@@ -59,6 +59,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   fizziness: 0.6
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -67,6 +68,7 @@
         amount: 0.05
       - !type:SatiateThirst
         factor: 2
+      # End ADT tweak
 
 - type: reagent
   id: Beer
@@ -84,6 +86,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.6
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -92,6 +95,7 @@
         amount: 0.05
       - !type:SatiateThirst
         factor: 2
+      # End ADT tweak
 
 - type: reagent
   id: BlueCuracao
@@ -115,8 +119,10 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.12
+      # Start ADT tweak
       - !type:SatiateThirst
         factor: 1
+      # End ADT tweak
 
 - type: reagent
   id: BlueHawaiian
@@ -299,6 +305,7 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -307,6 +314,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+      # End ADT tweak
 
 - type: reagent
   id: CoffeeLiqueur
@@ -345,6 +353,7 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -353,6 +362,7 @@
         amount: 0.1
       - !type:SatiateThirst
         factor: 2
+      # End ADT tweak
 
 - type: reagent
   id: NTCahors
@@ -368,6 +378,7 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -376,6 +387,7 @@
         amount: 0.05
       - !type:SatiateThirst
         factor: 2
+      # End ADT tweak
 
 - type: reagent
   id: PoisonWine
@@ -448,13 +460,13 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sake
   color: "#DDDDDD"
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.1
-      # Start ADT tweak
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -487,6 +499,7 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -495,6 +508,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+      # End ADT tweak
 
 - type: reagent
   id: Vermouth
@@ -566,6 +580,7 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -574,6 +589,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+      # End ADT tweak
 
 - type: reagent
   id: Wine
@@ -619,7 +635,9 @@
         factor: 3
       - !type:AdjustReagent
         reagent: Ethanol
+      # Start ADT tweak
         amount: 0.1
+      # End ADT tweak
   fizziness: 0.8
 
 # Mixed Alcohol
@@ -638,8 +656,8 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  metabolisms:
       # Start ADT tweak
+  metabolisms:
     Drink:
       effects:
       - !type:HealthChange
@@ -853,6 +871,7 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -864,7 +883,7 @@
         visualType: Medium
         messages: [ "generic-reagent-effect-barefoot" ]
         probability: 0.05
-
+      # End ADT tweak
 
 - type: reagent
   id: BeepskySmash
@@ -912,7 +931,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-
 
 - type: reagent
   id: BloodyMary
@@ -1343,6 +1361,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: hooch
   color: "#664e00"
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -1351,7 +1370,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-      # Start ADT tweak
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -1625,7 +1643,9 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
+      # Start ADT tweak
         amount: 0.4
+      # End ADT tweak
 
 - type: reagent
   id: Neurotoxin
