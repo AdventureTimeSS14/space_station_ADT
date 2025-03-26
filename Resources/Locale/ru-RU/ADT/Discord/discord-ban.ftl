@@ -6,6 +6,7 @@ discord-ban-permanent = **Длительность:** ***Навсегда***
 discord-ban-unban-date = **Дата снятия наказания:** { $expires }
 discord-ban-submitted-by = **Наказание выдал(-а):** { $name }
 discord-ban-submitted-by-system = **Наказание выдал(-а):** ***СИСТЕМА***
+discord-ban-submitted-by-discord = **Наказание выдал(-а):** { $name }(Discord)"
 
 # Ресурсы обычного бана
 discord-ban-server-ban-username = Бан

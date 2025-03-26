@@ -849,10 +849,10 @@ public sealed partial class ServerApi : IPostInjectInit
         var lastServerBan = await _dbManager.GetLastServerBanAsync();
         var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
 
+        // var _bans = _entities.System<GameTicker>();
         _bans.CreateServerBan(targetUid, target, adminUserId, null, targetHWid, minutes, severity, reason);
 
-
-        //Start-ADT-Tweak: логи банов для диса
+        //Логи банов для диса
         var banInfo = new BanInfo
         {
             BanId = newServerBanId.ToString()!,
