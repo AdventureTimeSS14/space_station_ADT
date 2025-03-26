@@ -332,7 +332,16 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
-
+# ADT-Loadouts-Start
+- type: loadoutGroup
+  id: LibrarianBackpack
+  name: loadout-group-librarian-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTLibrarianBWinRAR
+# ADT-Loadouts-End
 - type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit
@@ -398,6 +407,12 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+  # ADT-Loadouts-Start
+  - ADTChaplainWCross
+  - ADTChaplainBCross
+  - ADTChaplainSCross
+  - ADTChaplainGCross
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: JanitorHead
@@ -563,6 +578,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - ADTMimeWintercoatLong #ADT Tweak
 
 - type: loadoutGroup
   id: MimeBelt

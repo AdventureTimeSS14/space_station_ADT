@@ -4,8 +4,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Objects/Tools/crowbar.rsi #заменить спрайт с монтировки на что то сносное
-      state: icon
+      sprite: ADT/Interface/Actions/actions_turret.rsi
+      state: stop_control
     event: !type:ControlReturnActionEvent {}
     useDelay: 1
 

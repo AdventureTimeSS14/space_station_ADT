@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Magistrat and ADTPathologist icon made by JustKeks(github), Blueshield made by Tamioki, GuardOfficer made by schrodinger71",
+    "copyright": "Magistrat and ADTPathologist icon made by JustKeks(github), Blueshield made by Tamioki, GuardOfficer made by schrodinger71, JobIconUSSPArmyPrivate and JobIconUSSPArmyOfficer by discord:not_so_big_chungus",
 
     "size": {
         "x": 8,
@@ -25,6 +25,11 @@
         },
         {
             "name": "Ghoul"
+        },
+            "name": "JobIconUSSPArmyPrivate"
+        },
+        {
+            "name": "JobIconUSSPArmyOfficer"
         }
     ]
 }

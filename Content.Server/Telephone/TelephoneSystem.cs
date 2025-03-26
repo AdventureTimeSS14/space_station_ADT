@@ -5,6 +5,8 @@ using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
+using Content.Shared.ADT.Language;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Chat;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Database;
@@ -90,7 +92,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         if (!_recentChatMessages.Add((args.Source, args.Message, entity)))
             return;
 
-        SendTelephoneMessage(args.Source, args.Message, entity);
+        SendTelephoneMessage(args.Source, args.Message, entity, language: args.Language); // ADT-Telephone-Language
     }
 
     private void OnTelephoneMessageReceived(Entity<TelephoneComponent> entity, ref TelephoneMessageReceivedEvent args)
@@ -119,15 +121,21 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         // If speaker entity has TTS, the telephone will speak with the same voice
         if(TryComp<TTSComponent>(args.MessageSource, out var ttsSpeaker))
         {
-            EntityManager.EnsureComponent<TTSComponent>(entity, out var ttsTelephone);
+            EnsureComp<TTSComponent>(speaker, out var ttsTelephone);
             ttsTelephone.VoicePrototypeId = ttsSpeaker.VoicePrototypeId;
+        }
+        else if(TryComp<SpeechBarksComponent>(args.MessageSource, out var barkSpeaker))
+        {
+            EnsureComp<SpeechBarksComponent>(speaker, out var barkTelephone);
+            barkTelephone.Data = barkSpeaker.Data;
         }
         else // Remove TTS if the speaker has no TTS
         {
-            EntityManager.RemoveComponent<TTSComponent>(entity);
+            RemComp<TTSComponent>(speaker);
+            RemComp<SpeechBarksComponent>(speaker);
         }
         // Corvax-TTS-End
-        _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false);
+        _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false, language: args.Language); // ADT-Telephone-Language
     }
 
     #endregion
@@ -340,7 +348,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         SetTelephoneMicrophoneState(entity, false);
     }
 
-    private void SendTelephoneMessage(EntityUid messageSource, string message, Entity<TelephoneComponent> source, bool escapeMarkup = true)
+    private void SendTelephoneMessage(EntityUid messageSource, string message, Entity<TelephoneComponent> source, bool escapeMarkup = true, LanguagePrototype? language = null) // ADT-Telephone-Language
     {
         // This method assumes that you've already checked that this
         // telephone is able to transmit messages and that it can
@@ -383,7 +391,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         RaiseLocalEvent(source, ref evSentMessage);
         source.Comp.StateStartTime = _timing.CurTime;
 
-        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source);
+        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source, language); // ADT-Telephone-Language
 
         foreach (var receiver in source.Comp.LinkedTelephones)
         {

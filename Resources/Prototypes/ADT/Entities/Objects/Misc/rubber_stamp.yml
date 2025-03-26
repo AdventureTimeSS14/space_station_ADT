@@ -37,3 +37,29 @@
   - type: Sprite
     sprite: ADT/Objects/Misc/stamps.rsi
     state: stamp-dv
+
+- type: entity
+  name: DENIED rubber stamp
+  parent: RubberStampBaseAlt
+  id: ADTRubberStampUSSP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ussp
+    stampedColor: "#cc0000"
+    stampState: "paper_stamp-hos"
+  - type: Sprite
+    state: stamp-deny
+
+- type: entity
+  name: pathologist rubber stamp
+  parent: RubberStampBase
+  id: ADTRubberStampPathologist
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: ADT-stamp-component-stamped-name-pathologist
+    stampedColor: "#0e141d"
+    stampState: "paper_stamp-lawyer"
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stamps.rsi
+    state: stamp-pathologist

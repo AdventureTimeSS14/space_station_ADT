@@ -56,7 +56,7 @@ public abstract class SharedComboSystem : EntitySystem
         TryDoCombo(uid, args.HitEntities[0], comp);
     }
 
-    private void OnGrab(EntityUid uid, ComboComponent comp, GrabStageChangedEvent args)
+    private void OnGrab(EntityUid uid, ComboComponent comp, ref GrabStageChangedEvent args)
     {
         if (args.Puller.Owner != uid)
             return;
@@ -69,7 +69,8 @@ public abstract class SharedComboSystem : EntitySystem
             comp.CurrestActions.RemoveAt(0);
         }
 
-        TryDoCombo(args.Puller.Owner, args.Pulling.Owner, comp);
+        if (TryDoCombo(args.Puller.Owner, args.Pulling.Owner, comp))
+            args.NewStage = 0;
     }
     private void UseEventOnTarget(EntityUid user, EntityUid target, CombatMove combo)
     {
@@ -78,11 +79,11 @@ public abstract class SharedComboSystem : EntitySystem
             comboEvent.DoEffect(user, target, EntityManager);
         }
     }
-    private void TryDoCombo(EntityUid user, EntityUid target, ComboComponent comp)
+    private bool TryDoCombo(EntityUid user, EntityUid target, ComboComponent comp)
     {
         var mainList = comp.CurrestActions;
         if (mainList == null)
-            return;
+            return false;
         var isComboCompleted = false;
         foreach (var combo in comp.AvailableMoves)
         {
@@ -96,6 +97,7 @@ public abstract class SharedComboSystem : EntitySystem
             comp.CurrestActions.Clear();
         if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted)
             _pullingSystem.TryStopPull(target, pulled, user);
+        return true;
     }
     public static bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)
     {

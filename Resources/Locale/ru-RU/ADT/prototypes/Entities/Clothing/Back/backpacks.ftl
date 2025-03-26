@@ -20,3 +20,10 @@ ent-ADTClothingBackpackTimePatrol = рюкзак стража времени
 
 ent-ADTClothingBackpackParamedic = рюкзак парамедика
     .desc = Рюкзак, изготовленный для экстренных вызовов медицинской помощи.
+
+ent-ADTClothingBackpackOR80L = рюкзак "ОР-80Л"
+    .desc = Общевойсковой рюкзак
+    .suffix = { "СССП" }
+
+ent-ADTClothingBackpackWinRAR = рюкзак WinRAR
+    .desc = WinRAR - не бесплатный рюкзак. По окончании 40-дневного испытательного периода вы должны либо купить лицензию на рюкзак, либо отказаться от дальнейшего использования.

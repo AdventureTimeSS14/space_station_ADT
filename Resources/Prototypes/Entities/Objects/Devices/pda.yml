@@ -1322,6 +1322,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - LogProbeCartridge
+    - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1349,6 +1350,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - MedTekCartridge
+    - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: ClownPDA
