@@ -105,3 +105,14 @@
             - ADTLasgunRevolverCell
   - type: AltFireMelee
     attackType: Heavy
+  - type: Tag
+    tags:
+    - ADTBsoWeapon
+  - type: RMCMagneticItem
+  - type: DNAGunLocker
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage

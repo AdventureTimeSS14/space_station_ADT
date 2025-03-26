@@ -179,3 +179,29 @@
   icon:
     sprite: ADT/Objects/Weapons/Melee/bone_sword.rsi
     state: icon
+
+- type: construction
+  name: wood cross
+  id: ADTWoodCross
+  graph: ADTWCross
+  startNode: start
+  targetNode: ADTWoodCompCross
+  category: construction-category-clothing
+  objectType: Item
+  description: A handmade wood cross.
+  icon:
+    sprite: ADT/Clothing/Neck/Misc/wood_cross.rsi
+    state: icon
+
+- type: construction
+  name: golden baseball bat
+  id: ADTgoldbat
+  graph: ADTGoldenBat
+  startNode: start
+  targetNode: ADTgoldbat
+  category: construction-category-weapons
+  description: An even robust baseball bat!
+  icon:
+    sprite: ADT/Objects/Weapons/Melee/goldbat.rsi
+    state: icon
+  objectType: Item
