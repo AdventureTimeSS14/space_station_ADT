@@ -484,6 +484,9 @@
     sprite: ADT/Clothing/Head/Hats/beanies/darkbeanie.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/darkbeanie.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -495,6 +498,9 @@
     sprite: ADT/Clothing/Head/Hats/beanies/bluebeanie.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/bluebeanie.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -506,6 +512,9 @@
     sprite: ADT/Clothing/Head/Hats/beanies/greenbeanie.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/greenbeanie.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -517,6 +526,9 @@
     sprite: ADT/Clothing/Head/Hats/beanies/purplebeanie.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/purplebeanie.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -528,6 +540,9 @@
     sprite: ADT/Clothing/Head/Hats/beanies/redbeanie.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/beanies/redbeanie.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -541,3 +556,121 @@
     sprite: ADT/Clothing/Head/Hats/romantic_hat.rsi
   - type: StaticPrice
     price: 10
+
+# USSP USSP
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretParatrooperUSSP
+  name: paratrooper's beret
+  description: The famous crimson beret of the USSP Space Marines. This beret is worn only by those who deserve to prove themselves in battle, it is the most honorable award for paratroopers along with a gold medal.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/paratrooper_beret_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/paratrooper_beret_USSP.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretOfTheArmedForcesoftheUSSP
+  name: beret of the armed forces of the USSP
+  description: An olive beret with the symbols of the Armed Forces of the USSP. This beret is a very honorable award for military personnel, a sign of professionalism and long service. They are often worn by commanders.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_of_the_armed_forces_of_the_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_of_the_armed_forces_of_the_USSP.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatBeretSpecialForcesUSSP
+  name: beret Special Forces USSP
+  description: A black beret with the symbols of the security forces of the Ministry of Internal Affairs of the USSP, which is awarded to elite troops and special forces, including special forces
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/beret_Special_Forces_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/beret_Special_Forces_USSP.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsAdmiralUSSPCap
+  name: the cap of the Admiral of the USSP fleet
+  description: A terribly clean and well-groomed cap. The obtrusive headdress of admirals in the space Fleet.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/admiral_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/admiral_USSP_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsCaptainUSSPCap
+  name: the cap of the captain of the SSS fleet
+  description: The obtrusive headdress of captains in the space Fleet.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/captain_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/captain_USSP_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatsOfficerUSSPCap
+  name: the cap of an officer of the USSP Space Fleet
+  description: An obligatory part of the uniform of a field and staff officer of the Space Fleet of the USSP. The cap has the emblem of the Space Forces of the USSP.
+  components:
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+      - WhitelistChameleon
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/officer_USSP_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/officer_USSP_cap.rsi
+
+# USSP USSP
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetSecCap
+  name: SecCap
+  description: uhhhmmmmmmmmm cheese?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/seccap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/seccap.rsi
+
+- type: entity
+  parent: [ClothingHeadBase, BaseFoldable]
+  id: ADTClothingHeadHelmetSecUshanka
+  name: Not a SecCap
+  description: they holding me as a hostage here, xd.
+  components:
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/secushanka.rsi
+  - type: Appearance
+  - type: AddAccentClothing
+    accent: RussianAccent
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: up
+    foldedHeldPrefix: up
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/secushanka.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-up
+      map: ["foldedLayer"]
+      visible: false
+  - type: TemperatureProtection
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5

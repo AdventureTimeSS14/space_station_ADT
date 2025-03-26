@@ -76,3 +76,50 @@
     sprite: ADT/Clothing/Neck/Misc/pins.rsi
   - type: Clothing
     sprite: ADT/Clothing/Neck/Misc/pins.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTWoodCross
+  name: wood cross
+  description: A cross carved from wood. A forest suddenly disappeared on an unnamed planet..
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/wood_cross.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/wood_cross.rsi
+  - type: Construction
+    graph: ADTWCross
+    node: ADTWoodCompCross
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTBronzeCross
+  name: bronze cross
+  description: A cross made of bronze. Apply to bruises
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/bronze_cross.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/bronze_cross.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTSilverCross
+  name: silver cross
+  description: A cross made of silver. There is nothing stronger than family. An excellent weapon against various evil spirits... Probably
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/silver_cross.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/silver_cross.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTGoldCross
+  name: gold cross
+  description: A cross made of gold. For the most elite priests of the NT
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/gold_cross.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/gold_cross.rsi
