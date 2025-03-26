@@ -36,7 +36,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         // generate new set of tags
         if (requiredTags.Count == 0)
             for (int i = 0; i < 4; i++)
-                requiredTags.Add(_rand.Pick(_prot.Index<LocalizedDatasetPrototype>(EligibleTagsDataset).Values), 1);
+                requiredTags.Add(_rand.Pick(_prot.Index<DatasetPrototype>(EligibleTagsDataset).Values), 1);
 
         var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
         var missingList = new List<string>();
