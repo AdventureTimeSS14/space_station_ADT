@@ -20,7 +20,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
 
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
+    [ValidatePrototypeId<DatasetPrototype>]
     public const string EligibleTagsDataset = "EligibleTags";
 
     // this is basically a ripoff from hereticritualsystem
