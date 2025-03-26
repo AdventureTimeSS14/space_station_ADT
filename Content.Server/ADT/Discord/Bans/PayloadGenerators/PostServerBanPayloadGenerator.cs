@@ -3,13 +3,13 @@ using Content.Server.Discord;
 
 namespace Content.Server.ADT.Discord.Bans.PayloadGenerators;
 
-public sealed class ServerBanPayloadGenerator : BanPayloadGenerator
+public sealed class PostServerBanPayloadGenerator : BanPayloadGenerator
 {
     public override WebhookPayload Generate(BanInfo info)
     {
         InitializeFooter(info);
 
-        var username = Loc.GetString("discord-ban-server-ban-username");
+        var username = Loc.GetString("discord-ban-server-ban-username-post");
 
         var embed = new WebhookEmbed
         {
@@ -29,7 +29,7 @@ public sealed class ServerBanPayloadGenerator : BanPayloadGenerator
     {
         var builder = new StringBuilder();
 
-        var banHeader = Loc.GetString("discord-ban-server-ban-header", ("banId", info.BanId));
+        var banHeader = Loc.GetString("discord-ban-server-post-ban-header", ("banId", info.BanId));
         var target = Loc.GetString("discord-ban-target", ("target", info.Target));
         var reason = Loc.GetString("discord-ban-reason", ("reason", info.Reason));
 
@@ -48,8 +48,8 @@ public sealed class ServerBanPayloadGenerator : BanPayloadGenerator
             ? Loc.GetString("discord-ban-unban-date", ("expires", info.Expires.ToString()!))
             : null;
 
-        var player = info.Player is not null
-            ? Loc.GetString("discord-ban-submitted-by", ("name", info.Player.Name))
+        var player = info.AdminName is not null
+            ? Loc.GetString("discord-ban-submitted-by", ("name", info.AdminName))
             : Loc.GetString("discord-ban-submitted-by-system");
 
         builder.AppendLine(banHeader);
