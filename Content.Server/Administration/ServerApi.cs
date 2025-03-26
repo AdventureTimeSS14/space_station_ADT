@@ -834,7 +834,7 @@ public sealed partial class ServerApi : IPostInjectInit
         var target = body.NickName;
         var reason = body.Reason;
         var severity = NoteSeverity.High;
-        var locatedTagret = await _playerLocator.LookupIdByNameAsync(target);
+        var locatedTagret = await _playerLocator.LookupIdByNameOrIdAsync(target);
 
         if (locatedTagret == null)
         {
