@@ -824,7 +824,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(async () =>
         {
-            if (!uint.TryParse(body.Time, out uint minutes) || minutes == 0)
+            if (!uint.TryParse(body.Time, out uint minutes) || minutes < 0)
             {
                 _sawmill.Warning($"ServerApi BAN: {body.Time} is not a valid amount of minutes!");
                 return;

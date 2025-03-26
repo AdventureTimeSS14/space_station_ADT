@@ -13,7 +13,7 @@ public sealed class PostServerBanPayloadGenerator : BanPayloadGenerator
 
         var embed = new WebhookEmbed
         {
-            Color = 0xff0000,
+            Color = 0x00008B,
             Description = GenerateBanDescription(info),
             Footer = Footer
         };

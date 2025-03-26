@@ -13,8 +13,8 @@ discord-ban-server-ban-username = Бан
 discord-ban-server-ban-header = ### **Бан | ID { $banId }**
 
 # Бан POST запросом
-discord-ban-server-ban-username-post = Бан (Из Discord)
-discord-ban-server-post-ban-header = ### **Dis-Бан | ID { $banId }**
+discord-ban-server-ban-username-post = Бан (Из Дискорда)
+discord-ban-server-post-ban-header = ### **Discord-Бан | ID { $banId }**
 
 # Ресурсы роль-бана
 discord-ban-role-ban-username = Роль-бан
