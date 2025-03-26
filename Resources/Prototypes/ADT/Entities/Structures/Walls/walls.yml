@@ -126,6 +126,76 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
 
+- type: entity
+  parent: BaseWall
+  id: ADTBurningMagmatiteRock
+  name: burning magmatite rock
+  description: Burning magmatite rock. You know?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/burning_magmatite_rock.rsi
+    layers:
+      - state: burningmagmatiterock
+        shader: unshaded
+  - type: Icon
+    sprite: ADT/Structures/Walls/burning_magmatite_rock.rsi
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+  - type: SoundOnGather 
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+        - Pickaxe 
+
+- type: entity
+  parent: BaseWall
+  id: ADTMagmatiteRock
+  name: magmatite rock
+  description: Magmatite rock. You know?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/magmatite_rock.rsi
+    layers:
+      - state: magmatiterock
+        shader: unshaded
+  - type: Icon
+    sprite: ADT/Structures/Walls/magmatite_rock.rsi
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+  - type: SoundOnGather 
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+        - Pickaxe 
+
 
 ##Indestructible Rocks
 
@@ -322,3 +392,33 @@
     sprite: ADT/Structures/Walls/digital_wall.rsi
   - type: IconSmooth
     base: digital
+
+- type: entity
+  parent: BaseWall
+  id: ADTBurningMagmatiteRockIndestructible
+  name: burning magmatite rock
+  description: Burning magmatite rock. You know?
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/burning_magmatite_rock.rsi
+    layers:
+      - state: burningmagmatiterock
+        shader: unshaded
+  - type: Icon
+    sprite: ADT/Structures/Walls/burning_magmatite_rock.rsi
+
+- type: entity
+  parent: BaseWall
+  id: ADTMagmatiteRockIndestructible
+  name: magmatite rock
+  description: Magmatite rock. You know?
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/magmatite_rock.rsi
+    layers:
+      - state: magmatiterock
+        shader: unshaded
+  - type: Icon
+    sprite: ADT/Structures/Walls/magmatite_rock.rsi
