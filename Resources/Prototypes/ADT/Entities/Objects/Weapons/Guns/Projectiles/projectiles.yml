@@ -332,8 +332,8 @@
   components:
   - type: ProjectileSpread
     proto: ADTBulletKineticShotgunPellet
-    count: 4
-    spread: 10
+    count: 3
+    spread: 20
 
 - type: entity
   id: ADTBulletKineticShotgunPellet
