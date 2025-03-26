@@ -10,8 +10,8 @@
   skinColoration: Hues
   maleFirstNames: names_first_male
   femaleFirstNames: names_first_female
-  maleLastNames: names-last-male-dataset
-  femaleLastNames: names-last-female-dataset
+  maleLastNames: NamesHumanLastMale
+  femaleLastNames: NamesHumanLastFemale
   naming: firstlast
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Arkan.xml"
