@@ -112,6 +112,20 @@ public sealed class SponsorsManager
     {
         spawnEquipment = null;
 
+        // // ТЕСТОВЫЕ ДАННЫЕ - НАЧАЛО (удалить в мастере)
+        // var sponsorData = new SponsorInfo
+        // {
+        //     CharacterName = "TestSponsor",
+        //     Tier = 4,
+        //     OOCColor = "#FF0000",
+        //     HavePriorityJoin = true,
+        //     ExtraSlots = 2,
+        //     AllowedMarkings = new[] { "marking1", "marking2" },
+        //     ExpireDate = DateTime.Now.AddDays(30),
+        //     AllowJob = true
+        // };
+        // // ТЕСТОВЫЕ ДАННЫЕ - КОНЕЦ
+
         // Получаем sponsorData юсера
         if (!TryGetInfo(userId, out var sponsorData))
         {
@@ -133,12 +147,16 @@ public sealed class SponsorsManager
         }
 
         // Если персонального лоадаута нет — проверяем Tier
-        spawnEquipment = sponsorData.Tier switch
+        var tierSettings = _prototypeManager.EnumeratePrototypes<SponsorLoadoutTierSettingPrototype>().FirstOrDefault();
+        if (
+            tierSettings != null &&
+            sponsorData.Tier.HasValue &&
+            tierSettings.Tiers.TryGetValue(sponsorData.Tier.Value, out var equipmentId)
+        )
         {
-            6 => "SuperDeveloperSponsorLoadoutTier5",
-            7 => "PremiumSponsorLoadoutTier4",
-            _ => null
-        };
+            spawnEquipment = equipmentId;
+            return true;
+        }
 
         return spawnEquipment != null;
     }
