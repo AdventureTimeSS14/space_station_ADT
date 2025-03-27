@@ -61,6 +61,9 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 270000 # 75h # adt tweak
       mindRoles:
       - MindRoleGhostRoleFamiliar
     - type: Loadout
@@ -534,6 +537,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h # ADT-tweak
     - type: RandomMetadata
       nameSegments:
       - ADTNamesFirstMilitaryRXBZZ # ADT Tweak
