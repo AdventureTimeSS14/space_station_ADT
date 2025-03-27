@@ -623,6 +623,9 @@ ClothingOuterHardsuitSecurity: ADTClothingModsuitBackSecurity
 ClothingOuterHardsuitEngineering: ADTClothingModsuitBackEngineering
 ClothingOuterHardsuitSalvage: ADTClothingModsuitBackMining
 
+#ADT 2025-03-21
+
+ClothingOuterWinterCoat: ClothingOuterWinterCoatToggleable
 
 #ADT 2025-03-12
 SmartFridge: ADTSmartFridgeMedical
