@@ -1,5 +1,5 @@
 - type: localizedDataset
   id: firstFemaleTajaran
   values:
-    prefix: names_firstFemaleTajaran-
+    prefix: firstFemaleTajaran-
     count: 252
