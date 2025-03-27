@@ -53427,13 +53427,13 @@ entities:
       parent: 6429
     - type: Physics
       canCollide: False
-- proto: ClothingNeckCloakGay
-  entities:
-  - uid: 19663
-    components:
-    - type: Transform
-      pos: -2.4797058,2.8465214
-      parent: 19450
+# - proto: ClothingNeckCloakGay
+#   entities:
+#   - uid: 19663
+#     components:
+#     - type: Transform
+#       pos: -2.4797058,2.8465214
+#       parent: 19450
 - proto: ClothingNeckCloakGoliathCloak
   entities:
   - uid: 18517
@@ -92227,13 +92227,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 11560
-    components:
-    - type: Transform
-      pos: -15.451153,-38.220604
-      parent: 2
+# - proto: LGBTQHandyFlag
+#   entities:
+#   - uid: 11560
+#     components:
+#     - type: Transform
+#       pos: -15.451153,-38.220604
+#       parent: 2
 - proto: LightBulb
   entities:
   - uid: 11562

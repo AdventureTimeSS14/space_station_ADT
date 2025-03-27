@@ -60768,14 +60768,14 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckCloakPan
-  entities:
-  - uid: 13491
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 124.723305,139.68263
-      parent: 1
+# - proto: ClothingNeckCloakPan
+#   entities:
+#   - uid: 13491
+#     components:
+#     - type: Transform
+#       rot: -1.5707963267948966 rad
+#       pos: 124.723305,139.68263
+#       parent: 1
 - proto: ClothingNeckScarfStripedLightBlue
   entities:
   - uid: 384

@@ -41619,13 +41619,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 45.214462,25.500015
       parent: 2
-- proto: ClothingNeckCloakBi
-  entities:
-  - uid: 5915
-    components:
-    - type: Transform
-      pos: -69.38428,-2.445906
-      parent: 2
+# - proto: ClothingNeckCloakBi
+#   entities:
+#   - uid: 5915
+#     components:
+#     - type: Transform
+#       pos: -69.38428,-2.445906
+#       parent: 2
 - proto: ClothingNeckCloakCentcomBlack
   entities:
   - uid: 5916
@@ -41640,13 +41640,13 @@ entities:
     - type: Transform
       pos: 45.3654,5.5083227
       parent: 2
-- proto: ClothingNeckCloakLesbian
-  entities:
-  - uid: 5918
-    components:
-    - type: Transform
-      pos: 35.42535,12.615502
-      parent: 2
+# - proto: ClothingNeckCloakLesbian
+#   entities:
+#   - uid: 5918
+#     components:
+#     - type: Transform
+#       pos: 35.42535,12.615502
+#       parent: 2
 - proto: ClothingNeckCloakMiner
   entities:
   - uid: 5919

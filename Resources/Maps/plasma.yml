@@ -64537,13 +64537,13 @@ entities:
     - type: Transform
       pos: -116.47996,12.489793
       parent: 2
-- proto: ClothingNeckCloakLesbian
-  entities:
-  - uid: 22951
-    components:
-    - type: Transform
-      pos: -24.48211,-68.415665
-      parent: 2
+# - proto: ClothingNeckCloakLesbian
+#   entities:
+#   - uid: 22951
+#     components:
+#     - type: Transform
+#       pos: -24.48211,-68.415665
+#       parent: 2
 # - proto: ClothingNeckGoldAutismPin
 #   entities:
 #   - uid: 2395

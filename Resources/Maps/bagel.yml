@@ -114040,13 +114040,13 @@ entities:
     - type: Transform
       pos: 21.334734,-11.3924055
       parent: 60
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 9548
-    components:
-    - type: Transform
-      pos: -41.49743,-36.512333
-      parent: 60
+# - proto: LGBTQHandyFlag
+#   entities:
+#   - uid: 9548
+#     components:
+#     - type: Transform
+#       pos: -41.49743,-36.512333
+#       parent: 60
 - proto: LightBulb
   entities:
   - uid: 19737

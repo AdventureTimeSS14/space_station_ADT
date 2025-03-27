@@ -46898,14 +46898,14 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckCloakEnby
-  entities:
-  - uid: 6949
-    components:
-    - type: Transform
-      parent: 6948
-    - type: Physics
-      canCollide: False
+# - proto: ClothingNeckCloakEnby
+#   entities:
+#   - uid: 6949
+#     components:
+#     - type: Transform
+#       parent: 6948
+#     - type: Physics
+#       canCollide: False
 - proto: ClothingNeckCloakGoliathCloak
   entities:
   - uid: 6950

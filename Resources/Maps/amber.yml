@@ -64559,41 +64559,41 @@ entities:
     - type: Transform
       pos: 21.531446,-49.442505
       parent: 2
-- proto: ClothingNeckCloakBi
-  entities:
-  - uid: 22995
-    components:
-    - type: Transform
-      pos: -12.49191,15.529358
-      parent: 2
-- proto: ClothingNeckCloakEnby
-  entities:
-  - uid: 16221
-    components:
-    - type: Transform
-      pos: 24.373571,-59.52213
-      parent: 2
-- proto: ClothingNeckCloakGay
-  entities:
-  - uid: 2876
-    components:
-    - type: Transform
-      pos: 45.549652,7.560146
-      parent: 2
-- proto: ClothingNeckCloakIntersex
-  entities:
-  - uid: 12387
-    components:
-    - type: Transform
-      pos: -53.479164,-55.353416
-      parent: 2
-- proto: ClothingNeckCloakLesbian
-  entities:
-  - uid: 4815
-    components:
-    - type: Transform
-      pos: -30.482735,-54.52887
-      parent: 2
+# - proto: ClothingNeckCloakBi
+#   entities:
+#   - uid: 22995
+#     components:
+#     - type: Transform
+#       pos: -12.49191,15.529358
+#       parent: 2
+# - proto: ClothingNeckCloakEnby
+#   entities:
+#   - uid: 16221
+#     components:
+#     - type: Transform
+#       pos: 24.373571,-59.52213
+#       parent: 2
+# - proto: ClothingNeckCloakGay
+#   entities:
+#   - uid: 2876
+#     components:
+#     - type: Transform
+#       pos: 45.549652,7.560146
+#       parent: 2
+# - proto: ClothingNeckCloakIntersex
+#   entities:
+#   - uid: 12387
+#     components:
+#     - type: Transform
+#       pos: -53.479164,-55.353416
+#       parent: 2
+# - proto: ClothingNeckCloakLesbian
+#   entities:
+#   - uid: 4815
+#     components:
+#     - type: Transform
+#       pos: -30.482735,-54.52887
+#       parent: 2
 - proto: ClothingNeckCloakMoth
   entities:
   - uid: 19903
@@ -64601,20 +64601,20 @@ entities:
     - type: Transform
       pos: 44.536793,-50.46367
       parent: 2
-- proto: ClothingNeckCloakPan
-  entities:
-  - uid: 19277
-    components:
-    - type: Transform
-      pos: 50.483807,-55.407658
-      parent: 2
-- proto: ClothingNeckCloakTrans
-  entities:
-  - uid: 7432
-    components:
-    - type: Transform
-      pos: 41.510986,-27.452278
-      parent: 2
+# - proto: ClothingNeckCloakPan
+#   entities:
+#   - uid: 19277
+#     components:
+#     - type: Transform
+#       pos: 50.483807,-55.407658
+#       parent: 2
+# - proto: ClothingNeckCloakTrans
+#   entities:
+#   - uid: 7432
+#     components:
+#     - type: Transform
+#       pos: 41.510986,-27.452278
+#       parent: 2
 - proto: ClothingNeckMantle
   entities:
   - uid: 3505
@@ -110773,13 +110773,13 @@ entities:
     - type: Transform
       pos: 19.770489,-6.2042084
       parent: 2
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 19888
-    components:
-    - type: Transform
-      pos: 38.551476,-60.430798
-      parent: 2
+# - proto: LGBTQHandyFlag
+#   entities:
+#   - uid: 19888
+#     components:
+#     - type: Transform
+#       pos: 38.551476,-60.430798
+#       parent: 2
 - proto: LightBulbCrystalBlue
   entities:
   - uid: 9513

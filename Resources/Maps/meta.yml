@@ -68200,39 +68200,39 @@ entities:
     - type: Transform
       pos: 48.4059,34.733707
       parent: 5350
-- proto: ClothingNeckCloakBi
-  entities:
-  - uid: 28322
-    components:
-    - type: Transform
-      pos: -45.293335,5.678726
-      parent: 5350
-  - uid: 28323
-    components:
-    - type: Transform
-      pos: -39.36795,-12.329826
-      parent: 5350
-- proto: ClothingNeckCloakEnby
-  entities:
-  - uid: 28324
-    components:
-    - type: Transform
-      pos: -10.296133,-53.285557
-      parent: 5350
-- proto: ClothingNeckCloakGay
-  entities:
-  - uid: 16726
-    components:
-    - type: Transform
-      pos: 26.360043,-58.493557
-      parent: 5350
-- proto: ClothingNeckCloakLesbian
-  entities:
-  - uid: 28320
-    components:
-    - type: Transform
-      pos: -26.34226,41.685402
-      parent: 5350
+# - proto: ClothingNeckCloakBi
+#   entities:
+#   - uid: 28322
+#     components:
+#     - type: Transform
+#       pos: -45.293335,5.678726
+#       parent: 5350
+#   - uid: 28323
+#     components:
+#     - type: Transform
+#       pos: -39.36795,-12.329826
+#       parent: 5350
+# - proto: ClothingNeckCloakEnby
+#   entities:
+#   - uid: 28324
+#     components:
+#     - type: Transform
+#       pos: -10.296133,-53.285557
+#       parent: 5350
+# - proto: ClothingNeckCloakGay
+#   entities:
+#   - uid: 16726
+#     components:
+#     - type: Transform
+#       pos: 26.360043,-58.493557
+#       parent: 5350
+# - proto: ClothingNeckCloakLesbian
+#   entities:
+#   - uid: 28320
+#     components:
+#     - type: Transform
+#       pos: -26.34226,41.685402
+#       parent: 5350
 - proto: ClothingNeckCloakTrans
   entities:
   - uid: 24116

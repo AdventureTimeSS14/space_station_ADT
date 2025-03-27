@@ -113766,31 +113766,31 @@ entities:
     - type: Transform
       pos: 3.5,2.5
       parent: 23319
-- proto: LGBTQFlag
-  entities:
-  - uid: 14686
-    components:
-    - type: Transform
-      pos: 346.5,417.5
-      parent: 2
-  - uid: 14687
-    components:
-    - type: Transform
-      pos: 355.5,408.5
-      parent: 2
-  - uid: 14688
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 342.5,418.5
-      parent: 2
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 14689
-    components:
-    - type: Transform
-      pos: 343.5,419.5
-      parent: 2
+# - proto: LGBTQFlag
+#   entities:
+#   - uid: 14686
+#     components:
+#     - type: Transform
+#       pos: 346.5,417.5
+#       parent: 2
+#   - uid: 14687
+#     components:
+#     - type: Transform
+#       pos: 355.5,408.5
+#       parent: 2
+#   - uid: 14688
+#     components:
+#     - type: Transform
+#       rot: 1.5707963267948966 rad
+#       pos: 342.5,418.5
+#       parent: 2
+# - proto: LGBTQHandyFlag
+#   entities:
+#   - uid: 14689
+#     components:
+#     - type: Transform
+#       pos: 343.5,419.5
+#       parent: 2
 - proto: LidSalami
   entities:
   - uid: 22722

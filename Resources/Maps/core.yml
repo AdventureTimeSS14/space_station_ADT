@@ -104167,13 +104167,13 @@ entities:
       parent: 6997
     - type: Physics
       canCollide: False
-- proto: LGBTQHandyFlag
-  entities:
-  - uid: 17207
-    components:
-    - type: Transform
-      pos: 29.482407,-33.45202
-      parent: 2
+# - proto: LGBTQHandyFlag
+#   entities:
+#   - uid: 17207
+#     components:
+#     - type: Transform
+#       pos: 29.482407,-33.45202
+#       parent: 2
 - proto: LiquidNitrogenCanister
   entities:
   - uid: 5722
