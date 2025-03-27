@@ -58,6 +58,7 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   # Start ADT tweak
+  - ADTWeaponIonRifle
   - ADTBorgModuleHarm #ADT secborg
   - ADTMechGunImmolatorLaser
   position: 2,-1

@@ -23,7 +23,7 @@
     - MiningCrusher
     - MiningExtraction
     #- MiningResonator
-    #- MiningSurvival
+    - MiningSurvival
     #- MiningDrone
 
 - type: entity
