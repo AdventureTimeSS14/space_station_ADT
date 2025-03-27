@@ -182,19 +182,21 @@
   - AnomalyCoreHarnessing
   # ADT Research Console Rework end
 
-- type: technology
-  id: QuantumLeaping
-  name: research-technology-quantum-leaping
-  icon:
-    sprite: Objects/Devices/swapper.rsi
-    state: icon
-  discipline: Experimental
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - DeviceQuantumSpinInverter
-  # ADT Research Console Rework start
-  position: 6,0
-  requiredTech:
-  - GravityManipulation
-  # ADT Research Console Rework end
+#ADT_Tweak_Start - временно удалено до решения всех багов предмета
+# - type: technology
+#   id: QuantumLeaping
+#   name: research-technology-quantum-leaping
+#   icon:
+#     sprite: Objects/Devices/swapper.rsi
+#     state: icon
+#   discipline: Experimental
+#   tier: 3
+#   cost: 10000
+#   recipeUnlocks:
+#   - DeviceQuantumSpinInverter
+#   # ADT Research Console Rework start
+#   position: 6,0
+#   requiredTech:
+#   - GravityManipulation
+#   # ADT Research Console Rework end
+#ADT_Tweak_End - временно удалено до решения всех багов предмета
