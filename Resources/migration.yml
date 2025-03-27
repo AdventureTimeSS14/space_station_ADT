@@ -409,12 +409,12 @@ MaterialReclaimer: null
 MaterialReclaimerMachineCircuitboard: null
 
 # 2024-08-11
-FoodTacoBeef: FoodTacoShell
-FoodTacoChicken: FoodTacoShell
-FoodTacoFish: FoodTacoShell
-FoodTacoBeefSupreme: FoodTacoShell
-FoodTacoChickenSupreme: FoodTacoShell
-FoodTacoRat: FoodTacoShell
+# FoodTacoBeef: FoodTacoShell #ADT-Tweak - бургеры старые вернули, тако не вернули
+# FoodTacoChicken: FoodTacoShell
+# FoodTacoFish: FoodTacoShell
+# FoodTacoBeefSupreme: FoodTacoShell
+# FoodTacoChickenSupreme: FoodTacoShell
+# FoodTacoRat: FoodTacoShell
 
 FoodMeatHumanKebab: FoodKebabSkewer
 FoodMeatLizardtailKebab: FoodKebabSkewer
