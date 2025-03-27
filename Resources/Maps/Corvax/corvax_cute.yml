@@ -57268,18 +57268,18 @@ entities:
     - type: Transform
       pos: 6.5,2.5
       parent: 23319
-- proto: ClothingNeckLGBTPin
-  entities:
-  - uid: 7296
-    components:
-    - type: Transform
-      pos: 343.5,417.5
-      parent: 2
-  - uid: 7297
-    components:
-    - type: Transform
-      pos: 344.5,418.5
-      parent: 2
+# - proto: ClothingNeckLGBTPin
+#   entities:
+#   - uid: 7296
+#     components:
+#     - type: Transform
+#       pos: 343.5,417.5
+#       parent: 2
+#   - uid: 7297
+#     components:
+#     - type: Transform
+#       pos: 344.5,418.5
+#       parent: 2
 - proto: ClothingNeckMantle
   entities:
   - uid: 7298

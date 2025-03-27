@@ -63076,13 +63076,13 @@ entities:
     - type: Transform
       pos: -41.75516,14.452198
       parent: 60
-- proto: ClothingNeckAromanticPin
-  entities:
-  - uid: 24089
-    components:
-    - type: Transform
-      pos: 83.621025,-13.51627
-      parent: 60
+# - proto: ClothingNeckAromanticPin
+#   entities:
+#   - uid: 24089
+#     components:
+#     - type: Transform
+#       pos: 83.621025,-13.51627
+#       parent: 60
 - proto: ClothingNeckBling
   entities:
   - uid: 18461
