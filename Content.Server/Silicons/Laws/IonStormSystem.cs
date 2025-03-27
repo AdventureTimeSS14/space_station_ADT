@@ -274,7 +274,7 @@ public sealed class IonStormSystem : EntitySystem
     /// </summary>
     private string Pick(string name)
     {
-        var dataset = _proto.Index<DatasetPrototype>(name);
+        var dataset = _proto.Index<LocalizedDatasetPrototype>(name); //ADT_Fix - DatasetPrototype to LocalizedDatasetPrototype
         return _robustRandom.Pick(dataset.Values);
     }
 }
