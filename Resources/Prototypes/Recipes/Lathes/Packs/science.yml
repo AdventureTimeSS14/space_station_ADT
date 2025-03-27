@@ -28,7 +28,7 @@
   - AnomalyLocatorWide
   - HoloprojectorField
   - SignallerAdvanced
-  - DeviceQuantumSpinInverter
+  # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
 
 - type: latheRecipePack
   id: ScienceClothing
