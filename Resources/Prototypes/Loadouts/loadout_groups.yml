@@ -341,7 +341,16 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
-
+# ADT-Loadouts-Start
+- type: loadoutGroup
+  id: LibrarianBackpack
+  name: loadout-group-librarian-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTLibrarianBWinRAR
+# ADT-Loadouts-End
 - type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit

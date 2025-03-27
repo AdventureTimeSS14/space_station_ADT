@@ -50,6 +50,7 @@ loadout-group-chef-jumpsuit = Chef jumpsuit
 loadout-group-chef-outerclothing = Chef outer clothing
 
 loadout-group-librarian-jumpsuit = Librarian jumpsuit
+loadout-group-librarian-backpack = Librarian, backpack
 
 loadout-group-lawyer-jumpsuit = Lawyer jumpsuit
 loadout-group-lawyer-neck = Lawyer neck
