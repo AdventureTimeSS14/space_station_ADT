@@ -118,8 +118,8 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.12
       # Start ADT tweak
+        amount: 0.12
       - !type:SatiateThirst
         factor: 1
       # End ADT tweak
@@ -305,7 +305,6 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -314,7 +313,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-      # End ADT tweak
 
 - type: reagent
   id: CoffeeLiqueur
@@ -330,6 +328,7 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -338,6 +337,7 @@
         amount: 0.1
       - !type:SatiateThirst
         factor: 2
+      # End ADT tweak
 
 - type: reagent
   id: MelonLiquor
@@ -499,7 +499,6 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -508,7 +507,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-      # End ADT tweak
 
 - type: reagent
   id: Vermouth
@@ -524,6 +522,7 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -532,6 +531,7 @@
         amount: 0.1
       - !type:SatiateThirst
         factor: 2
+      # End ADT tweak
 
 - type: reagent
   id: Vodka
@@ -1993,7 +1993,7 @@
           max: 17
         type: Local
         visualType: Medium
-        messages: [ "generic-reagent-effect-tequilla-sunrise-detective" ]
+        messages: [ "generic-reagent-effect-tequila-sunrise-detective" ]
         probability: 0.1
       - !type:PopupMessage
         conditions:
@@ -2001,7 +2001,7 @@
           min: 17
         type: Local
         visualType: Medium
-        messages: [ "generic-reagent-effect-tequilla-sunrise-name" ]
+        messages: [ "generic-reagent-effect-tequila-sunrise-name" ]
         probability: 0.05
       # End ADT tweak
 

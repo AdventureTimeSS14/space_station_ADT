@@ -686,7 +686,7 @@
         conditions:
         damage:
           types:
-            Radiation: -3
+            Radiation: -0.6
         probability: 0.5
       - !type:PopupMessage
         conditions:

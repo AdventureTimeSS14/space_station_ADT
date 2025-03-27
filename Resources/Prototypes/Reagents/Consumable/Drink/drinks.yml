@@ -573,6 +573,29 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+#ADT Add starts
+    Poison:
+      effects:
+      - !type:HealthChange
+        ignoreResistances: true
+        damage:
+          types:
+            Cold: 1.3
+        conditions:
+        - !type:OrganType
+          type: Novakid
+    Gas:
+      effects:
+      - !type:HealthChange
+        ignoreResistances: true
+        scaleByQuantity: true
+        damage:
+          types:
+            Cold: 1.2 #Данный урон обусловлен тем, что есть такая вещь как регенерация, и челик очень плохо убивается. Возможны правки
+        conditions:
+        - !type:OrganType
+          type: Novakid
+#ADT add ends
 
 - type: reagent
   id: Ice

@@ -139,7 +139,7 @@ ent-ADTTeqilaOldFashionGlass = { ent-DrinkGlass }
     .desc = { ent-DrinkGlass.desc }
 
 ent-ADTJackieWellesGlass = { ent-DrinkGlass }
-    .suffix = Джекки Уэлз
+    .suffix = Джеки Уэллс
     .desc = { ent-DrinkGlass.desc }
 
 ent-ADTTheSilverhandGlass = { ent-DrinkGlass }
