@@ -19,7 +19,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Mech.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -27,6 +27,8 @@ using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Server.Emp;
+using Content.Server.Actions;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -44,7 +46,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-
+    [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private readonly ActionsSystem _action = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -86,6 +89,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
             _stamina.TakeStaminaDamage(target, 80f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
+            _action.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
         }
 
         // upgraded grasp
@@ -99,6 +103,15 @@ public sealed partial class MansusGraspSystem : EntitySystem
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
                 markComp.Path = hereticComp.CurrentPath;
             }
+        }
+
+        if (HasComp<MechComponent>(target))
+        {
+            _emp.DoEmpEffects(target, 100000, 30);
+            _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
+            _action.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+            hereticComp.MansusGrasp = EntityUid.Invalid;
         }
 
         hereticComp.MansusGrasp = EntityUid.Invalid;
