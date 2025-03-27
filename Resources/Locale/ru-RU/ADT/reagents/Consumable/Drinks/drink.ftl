@@ -27,5 +27,5 @@ coffee-bon-bon-desc = СССРский напиток, который попул
 reagent-physical-desc-coffeebonbon = густое и кофейное
 
 reagent-name-bacchus-blessing = благославение бахуса
-reagent-desc-bacchus-blessing = Коктейль не может быть настолько ужасным. Или может...?
+reagent-desc-bacchus-blessing = Коктейль не может быть настолько ужасным... Или может?
 flavor-complex-bacchus-blessing = как кирпичная стена
