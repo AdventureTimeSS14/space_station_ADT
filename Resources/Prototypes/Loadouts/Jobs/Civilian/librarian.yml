@@ -18,3 +18,22 @@
   id: CuratorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCurator
+
+# ADT-Loadouts-Start
+- type: loadoutEffectGroup
+  id: ADTLibrarianBackpackWinRAR100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLibrarian
+      time: 360000 #100 часов
+
+- type: loadout
+  id: ADTLibrarianBWinRAR
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTLibrarianBackpackWinRAR100hour
+  equipment:
+    back: ADTClothingBackpackWinRAR
+ # ADT-Loadouts-End

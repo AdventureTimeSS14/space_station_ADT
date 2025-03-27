@@ -1,38 +1,37 @@
 - type: entity
-  name: baseball bat
-  parent: [BaseItem, BaseMinorContraband]
-  id: ADTBaseBallBat
-  description: A robust baseball bat.
+  name: golden baseball bat
+  parent: BaseBallBat
+  id: ADTGoldBaseBallBat
+  description: An even robust baseball bat!
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/goldbat.rsi
     state: icon
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 10
-        Structural: 5
-    soundHit:
-      collection: MetalThud
-  - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
         Blunt: 15
         Structural: 15
-  - type: Item
-    size: Normal
-  - type: Tool
-    qualities:
-    - Rolling
-    speedModifier: 0.75 # a bit unwieldly but does the job
   - type: UseDelay
     delay: 1
+  - type: Construction
+    graph: ADTGoldenBat
+    node: ADTgoldbat
   - type: PhysicalComposition
     materialComposition:
       Gold: 250
-  - type: Tag
-    tags:
-    - BaseballBat
 
+- type: entity
+  name: incomplete golden baseball bat
+  parent: BaseItem
+  id: ADTIncompleteGoldBaseBallBat
+  description: A few ingot of gold stuck together.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/incomplete_goldbat.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTGoldenBat
+    node: ADTincompleteGoldBat
