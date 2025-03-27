@@ -36,10 +36,11 @@
               escapeAttemptTime: 1.25
               setStageTime: 1.25
         - type: MeleeWeapon
+          attackRate: 2
           animation: WeaponArcFist
           damage:
             types:
-              Blunt: 13
+              Blunt: 6
         - type: Combo
           availableMoves:
             - actionsNeeds:
@@ -53,9 +54,12 @@
                     types:
                       Blunt: 10
                 - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Hit
-                - Disarm
                 - Hit
               comboEvent:
                 - !type:ComboMoreDamageToDownedEffect
@@ -71,6 +75,10 @@
                 - !type:ComboStunEffect
                   stunTime: 2
                   dropItems: false
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+                - !type:ComboTrowTargetEffect
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -101,6 +109,9 @@
                 - !type:ComboFallEffect
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 60
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Grab
                 - Disarm
@@ -108,6 +119,27 @@
                 - !type:ComboPopupEffect
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+            - actionsNeeds:
+                - Crawl
+                - Crawl
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 10
+                  - !type:ComboTrowOnUserEffect
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboPopupEffect
+                    localeText: combo-leg-sweep-end
 
 - type: entity
   id: ADTScrollSleepingCarp
@@ -151,10 +183,11 @@
               escapeAttemptTime: 1.25
               setStageTime: 1.25
         - type: MeleeWeapon
+          attackRate: 2
           animation: WeaponArcFist
           damage:
             types:
-              Blunt: 15
+              Blunt: 6
         - type: Combo
           availableMoves:
             - actionsNeeds:
@@ -163,11 +196,15 @@
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-backhit-end
+                - !type:ComboStopGrabEffect
                 - !type:ComboStunEffect
                   stunTime: 4
                   dropItems: false
                 - !type:ComboSpeechEffect
-                  speech: Прямо позади тебя...
+                  speech: speech-carp-backhit
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Hit
                 - Disarm
@@ -186,7 +223,11 @@
                     types:
                       Blunt: 25
                 - !type:ComboSpeechEffect
-                  speech: Лежать!
+                  speech: speech-carp-elbow
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Disarm
                 - Hit
@@ -200,11 +241,15 @@
                       Blunt: 20
                 - !type:ComboDropFromHandsEffect
                 - !type:ComboSpeechEffect
-                  speech: Ку-яя!!
+                  speech: speech-carp-headkick
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Grab
                 - Hit
               comboEvent:
+                - !type:ComboStopGrabEffect
                 - !type:ComboPopupEffect
                   localeText: combo-stomach-end
                 - !type:ComboDamageEffect
@@ -215,7 +260,10 @@
                   stunTime: 4
                   dropItems: false
                 - !type:ComboSpeechEffect
-                  speech: Отдохни.
+                  speech: speech-carp-stomach
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -228,7 +276,24 @@
                       Blunt: 5
                 - !type:ComboDropFromHandsEffect
                 - !type:ComboSpeechEffect
-                  speech: Не так быстро.
+                  speech: speech-carp-wrench
+            - actionsNeeds:
+                - Hit
+                - Crawl
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 10
+                  - !type:ComboTrowOnUserEffect
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboSpeechEffect
+                    speech: speech-carp-throw
 
 - type: entity
   id: ADTBookPTCR
@@ -260,7 +325,10 @@
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
                   dropItems: false
-
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
 - type: entity #TODO: когда визарды добавят области, добавьте повару свой стиль с привязкой к области
   id: ADTCqcManualWeak
   name: cqc manual for the smallest
@@ -291,6 +359,10 @@
                       Blunt: 10
                 - !type:ComboFallEffect
                   dropItems: false
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Hit
                 - Disarm
@@ -304,6 +376,9 @@
                       Blunt: 15
                 - !type:ComboFallEffect
                   dropItems: false
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -334,6 +409,9 @@
                 - !type:ComboFallEffect
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 60
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Grab
                 - Disarm
@@ -342,3 +420,6 @@
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
                   dropItems: false
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit

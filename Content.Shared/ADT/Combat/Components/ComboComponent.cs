@@ -9,4 +9,5 @@ public sealed partial class ComboComponent : Component
     public List<CombatMove> AvailableMoves { get; private set; } = new List<CombatMove>();
     public EntityUid TargetEntity;
     public List<CombatAction> CurrestActions { get; private set; } = new List<CombatAction>();
+    public EntityUid Target = default;
 }
