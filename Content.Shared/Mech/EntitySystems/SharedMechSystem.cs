@@ -424,10 +424,8 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
             RaiseLocalEvent(pilot, ev);
         }
 
-        if (HasComp<ShowHealthBarsComponent>(pilot))
-        {
-            RemComp<ShowHealthBarsComponent>(pilot);
-        }
+        RemComp<NoRotateOnMoveComponent>(uid);
+        RemComp<ShowHealthBarsComponent>(pilot);
         // ADT Content end
         return true;
     }
