@@ -14828,13 +14828,13 @@ entities:
     - type: Transform
       pos: 47.54386,19.444073
       parent: 2
-- proto: ClothingNeckGoldAutismPin
-  entities:
-  - uid: 2497
-    components:
-    - type: Transform
-      pos: 53.632584,42.0908
-      parent: 2
+# - proto: ClothingNeckGoldAutismPin
+#   entities:
+#   - uid: 2497
+#     components:
+#     - type: Transform
+#       pos: 53.632584,42.0908
+#       parent: 2
 - proto: ClothingShoesBootsMag
   entities:
   - uid: 6997

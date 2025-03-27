@@ -272,7 +272,8 @@ names_IonStormNumberBase-12 = ШЕСТЬДЕСЯТ
 names_IonStormNumberBase-13 = СЕМЬ
 names_IonStormNumberBase-14 = СЕМЬДЕСЯТ
 names_IonStormNumberBase-15 = ВОСЕМЬ
-names_IonStormNumberBase-16 = ВОСЕМЬДЕСЯТ IrmaStormNumberBase-17 = ДЕВЯТЬ
+names_IonStormNumberBase-16 = ВОСЕМЬДЕСЯТ
+names_IonStormNumberBase-17 = ДЕВЯТЬ
 names_IonStormNumberBase-18 = ДЕВЯНОСТО
 
 # IonStormNumberMod
@@ -518,7 +519,7 @@ names_IonStormRequires-48 = МЕЛКОЕ ПРЕСТУПЛЕНИЕ
 names_IonStormRequires-49 = ОБЕЗЬЯН
 names_IonStormRequires-50 = БОЛЬШЕ КЛОУНОВ
 names_IonStormRequires-51 = БОЛЬШЕ КОРГИ
-names_IonStormThrows-52 = БОЛЬШЕ ДАККИ
+names_IonStormRequires-52 = БОЛЬШЕ ДАККИ
 names_IonStormRequires-53 = БОЛЬШЕ ОЧКОВ ОПЫТА
 names_IonStormRequires-54 = БОЛЬШЕ ИНТЕРНЕТ-МЕМОВ
 names_IonStormRequires-55 = БОЛЬШЕ ЗАКОНОВ

@@ -53505,14 +53505,14 @@ entities:
     - type: Transform
       pos: -45.729973,-1.3118753
       parent: 2
-- proto: ClothingNeckGoldAutismPin
-  entities:
-  - uid: 6620
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -31.427681,-11.723288
-      parent: 2
+# - proto: ClothingNeckGoldAutismPin
+#   entities:
+#   - uid: 6620
+#     components:
+#     - type: Transform
+#       rot: 1.5707963267948966 rad
+#       pos: -31.427681,-11.723288
+#       parent: 2
 - proto: ClothingNeckHorrific
   entities:
   - uid: 6621

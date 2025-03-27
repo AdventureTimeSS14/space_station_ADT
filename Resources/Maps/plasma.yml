@@ -64544,20 +64544,20 @@ entities:
     - type: Transform
       pos: -24.48211,-68.415665
       parent: 2
-- proto: ClothingNeckGoldAutismPin
-  entities:
-  - uid: 2395
-    components:
-    - type: Transform
-      pos: -21.527897,-69.71385
-      parent: 2
-  - uid: 9590
-    components:
-    - type: Transform
-      parent: 21062
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+# - proto: ClothingNeckGoldAutismPin
+#   entities:
+#   - uid: 2395
+#     components:
+#     - type: Transform
+#       pos: -21.527897,-69.71385
+#       parent: 2
+#   - uid: 9590
+#     components:
+#     - type: Transform
+#       parent: 21062
+#     - type: Physics
+#       canCollide: False
+#     - type: InsideEntityStorage
 - proto: ClothingNeckGoldmedal
   entities:
   - uid: 4302
@@ -126069,7 +126069,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 9590
+          # - 9590
           - 21064
           - 21063
         paper_label: !type:ContainerSlot
