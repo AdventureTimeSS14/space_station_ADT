@@ -20,6 +20,12 @@
     # - !type:DepartmentTimeRequirement
     #   department: Sponsor
     #   time: 10
+    #ADT tweak start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
+      #ADT tweak end
   startingGear: MagistratGear
   icon: "JobIconMagistrat"
   requireAdminNotify: true
