@@ -302,6 +302,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: PhoneBillable
   # Start-ADT Tweak
   - type: BloodCough
     postingSayDamage: blood-cough
