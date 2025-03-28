@@ -1078,17 +1078,6 @@
     state: voxtailbell2
 
 - type: marking
-  id: ADTVoxTailBack
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [ Vox ]
-  forcedColoring: true
-  followSkinColor: true
-  sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
-    state: voxtailcolorable
-
-- type: marking
   id: ADTVoxTailLantern
   bodyPart: Tail
   markingCategory: Overlay
