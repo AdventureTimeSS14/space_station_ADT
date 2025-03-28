@@ -359,6 +359,8 @@
 
 - type: reaction
   id: ADTJackieWelles
+  requiredMixerCategories:
+  - Shake
   reactants:
     Vodka:
       amount: 1
@@ -374,7 +376,7 @@
 - type: reaction
   id: ADTTheSilverhand
   requiredMixerCategories:
-  - Stir
+  - Shake
   reactants:
     ADTTeqilaOldFashion:
       amount: 1
@@ -387,6 +389,8 @@
 
 - type: reaction
   id: Singulo
+  requiredMixerCategories:
+  - Shake
   reactants:
     Vodka:
       amount: 5
@@ -400,6 +404,9 @@
 
 - type: reaction
   id: ADTCondensedMilk
+  minTemp: 340
+  impact: Low
+  quantized: true
   reactants:
     Milk:
       amount: 2
