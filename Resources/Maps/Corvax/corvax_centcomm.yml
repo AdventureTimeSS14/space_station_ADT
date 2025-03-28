@@ -34792,73 +34792,73 @@ entities:
     - type: Transform
       pos: 17.626833,66.8925
       parent: 1
-- proto: ERTSpawnerCBURN
-  entities:
-  - uid: 4306
-    components:
-    - type: Transform
-      pos: 19.5,95.5
-      parent: 1
-  - uid: 4307
-    components:
-    - type: Transform
-      pos: 17.5,87.5
-      parent: 1
-  - uid: 4308
-    components:
-    - type: Transform
-      pos: 17.5,89.5
-      parent: 1
-  - uid: 4309
-    components:
-    - type: Transform
-      pos: 19.5,89.5
-      parent: 1
-  - uid: 4310
-    components:
-    - type: Transform
-      pos: 19.5,87.5
-      parent: 1
-- proto: ERTSpawnerEngineering
-  entities:
-  - uid: 4311
-    components:
-    - type: Transform
-      pos: 33.5,87.5
-      parent: 1
-- proto: ERTSpawnerJanitor
-  entities:
-  - uid: 4312
-    components:
-    - type: Transform
-      pos: 42.5,87.5
-      parent: 1
-- proto: ERTSpawnerLeader
-  entities:
-  - uid: 4313
-    components:
-    - type: Transform
-      pos: 19.5,95.5
-      parent: 1
-- proto: ERTSpawnerMedical
-  entities:
-  - uid: 4314
-    components:
-    - type: Transform
-      pos: 33.5,89.5
-      parent: 1
-- proto: ERTSpawnerSrcurity
-  entities:
-  - uid: 4315
-    components:
-    - type: Transform
-      pos: 31.5,87.5
-      parent: 1
-  - uid: 4316
-    components:
-    - type: Transform
-      pos: 31.5,89.5
-      parent: 1
+# - proto: ERTSpawnerCBURN
+#   entities:
+#   - uid: 4306
+#     components:
+#     - type: Transform
+#       pos: 19.5,95.5
+#       parent: 1
+#   - uid: 4307
+#     components:
+#     - type: Transform
+#       pos: 17.5,87.5
+#       parent: 1
+#   - uid: 4308
+#     components:
+#     - type: Transform
+#       pos: 17.5,89.5
+#       parent: 1
+#   - uid: 4309
+#     components:
+#     - type: Transform
+#       pos: 19.5,89.5
+#       parent: 1
+#   - uid: 4310
+#     components:
+#     - type: Transform
+#       pos: 19.5,87.5
+#       parent: 1
+# - proto: ERTSpawnerEngineering
+#   entities:
+#   - uid: 4311
+#     components:
+#     - type: Transform
+#       pos: 33.5,87.5
+#       parent: 1
+# - proto: ERTSpawnerJanitor
+#   entities:
+#   - uid: 4312
+#     components:
+#     - type: Transform
+#       pos: 42.5,87.5
+#       parent: 1
+# - proto: ERTSpawnerLeader
+#   entities:
+#   - uid: 4313
+#     components:
+#     - type: Transform
+#       pos: 19.5,95.5
+#       parent: 1
+# - proto: ERTSpawnerMedical
+#   entities:
+#   - uid: 4314
+#     components:
+#     - type: Transform
+#       pos: 33.5,89.5
+#       parent: 1
+# - proto: ERTSpawnerSrcurity
+#   entities:
+#   - uid: 4315
+#     components:
+#     - type: Transform
+#       pos: 31.5,87.5
+#       parent: 1
+#   - uid: 4316
+#     components:
+#     - type: Transform
+#       pos: 31.5,89.5
+#       parent: 1
 - proto: EthanolChemistryBottle
   entities:
   - uid: 4317

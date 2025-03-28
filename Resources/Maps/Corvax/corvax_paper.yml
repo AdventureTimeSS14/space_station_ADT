@@ -54081,18 +54081,18 @@ entities:
     - type: Transform
       pos: 68.5,10.5
       parent: 2
-    - type: Storage
-      storedItems:
-        6949:
-          position: 6,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 6949
+    # - type: Storage
+    #   storedItems:
+    #     6949:
+    #       position: 6,1
+    #       _rotation: South
+    # - type: ContainerContainer
+    #   containers:
+    #     storagebase: !type:Container
+    #       showEnts: False
+    #       occludes: True
+    #       ents:
+    #       - 6949
   - uid: 8130
     components:
     - type: Transform
