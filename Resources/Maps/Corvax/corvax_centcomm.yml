@@ -56454,19 +56454,19 @@ entities:
         - Pressed: Toggle
         442:
         - Pressed: Toggle
-  - uid: 6889
-    components:
-    - type: MetaData
-      desc: Эта кнопка пробуждает уборщика ОБР.
-      name: кнопка пробуждения уборщика ОБР
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 43.5,87.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        4312:
-        - Pressed: Trigger
+  # - uid: 6889
+  #   components:
+  #   - type: MetaData
+  #     desc: Эта кнопка пробуждает уборщика ОБР.
+  #     name: кнопка пробуждения уборщика ОБР
+  #   - type: Transform
+  #     rot: -1.5707963267948966 rad
+  #     pos: 43.5,87.5
+  #     parent: 1
+  #   - type: DeviceLinkSource
+  #     linkedPorts:
+  #       4312:
+  #       - Pressed: Trigger
   - uid: 6890
     components:
     - type: Transform
@@ -56508,8 +56508,8 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        4306:
-        - Pressed: Trigger
+        # 4306:
+        # - Pressed: Trigger
         420:
         - Pressed: Open
         421:
@@ -56529,8 +56529,8 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        4313:
-        - Pressed: Trigger
+        # 4313:
+        # - Pressed: Trigger
         419:
         - Pressed: Open
         421:
@@ -56572,14 +56572,14 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        4309:
-        - Pressed: Trigger
-        4308:
-        - Pressed: Trigger
-        4310:
-        - Pressed: Trigger
-        4307:
-        - Pressed: Trigger
+        # 4309:
+        # - Pressed: Trigger
+        # 4308:
+        # - Pressed: Trigger
+        # 4310:
+        # - Pressed: Trigger
+        # 4307:
+        # - Pressed: Trigger
         478:
         - Pressed: Close
         480:
@@ -56596,14 +56596,14 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        4316:
-        - Pressed: Trigger
-        4315:
-        - Pressed: Trigger
-        4314:
-        - Pressed: Trigger
-        4311:
-        - Pressed: Trigger
+        # 4316:
+        # - Pressed: Trigger
+        # 4315:
+        # - Pressed: Trigger
+        # 4314:
+        # - Pressed: Trigger
+        # 4311:
+        # - Pressed: Trigger
         479:
         - Pressed: Close
         476:
