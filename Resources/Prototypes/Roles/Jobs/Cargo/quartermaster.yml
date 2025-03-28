@@ -15,6 +15,12 @@
       time: 36000 #10 hours
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
+      #ADT tweak start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
+      #ADT tweak end
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
