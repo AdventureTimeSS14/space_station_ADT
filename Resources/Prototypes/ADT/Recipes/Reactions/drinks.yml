@@ -412,8 +412,10 @@
       amount: 2
     Sugar:
       amount: 1
+    Cream:
+      amount: 1
   products:
-    ADTCondensedMilk: 3
+    ADTCondensedMilk: 4
 
 - type: reaction
   id: ADTCoffeeBonBon
