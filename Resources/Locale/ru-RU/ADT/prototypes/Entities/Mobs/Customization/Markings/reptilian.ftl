@@ -12,6 +12,8 @@ marking-ReptilianHornsLong = Длинные рога
 marking-ReptilianHornsStagbeetle = Рога жука-оленя
 marking-ReptilianHornsSuperlong = Очень длинные рога
 marking-ReptilianHornsTwoago = Два рога
+marking-ADTLizardHornsNubby-horns_nubby = Пухлые рога
+marking-ADTLizardHornsNubby = Пухлые рога
 
 # Импланты Cybersun
 
@@ -55,6 +57,8 @@ marking-TailSnake = Хвост, змея
 
 marking-SnoutEasternDW = Нос 1
 marking-SnoutEasternDNW = Нос 2
+marking-ADTFangs = Клыки унатха
+marking-ADTFangs-Fangs = Клыки
 
 # Уши
 
@@ -64,3 +68,8 @@ marking-EarsChemlight = Уши, ХимСвет
 marking-EarsDragonLong = Уши, дракона длинные
 marking-EarsEasternD = Уши 1
 marking-EarsMagus = Уши, магус
+marking-ADTLizardSnoutpiercings-piercings1 = Пирсинг
+marking-ADTLizardSnoutpiercings = Пирсинг
+marking-ADTLizardHornsKoboldEarspiercings = Унатх, уши (Проколотые)
+marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
+marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг

@@ -1,0 +1,9 @@
+marking-ADTSpiderMirror = Зеркало
+marking-ADTSpiderMirror-spidermirror = Зеркало
+marking-ADTSpiderGlowEyes = светящиеся глаза
+marking-ADTSpiderGlowEyes-spidergloweyes = светящиеся глаза
+marking-ADTSpiderEyesMulti = Разноцветные глаза
+marking-ADTSpiderEyesMulti-spidereyesmulti1 = Верхние
+marking-ADTSpiderEyesMulti-spidereyesmulti2 = Средние верхние
+marking-ADTSpiderEyesMulti-spidereyesmulti3 = Средние нижние
+marking-ADTSpiderEyesMulti-spidereyesmulti4 = Нижние
