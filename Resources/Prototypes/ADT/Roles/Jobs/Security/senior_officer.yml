@@ -21,6 +21,7 @@
       inverted: true
       species:
       - Resomi
+      - Vox
   # ADT RESTRICT End
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"

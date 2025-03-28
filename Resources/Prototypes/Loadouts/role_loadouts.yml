@@ -141,7 +141,7 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - LibrarianJumpsuit
-  - CommonBackpack
+  - LibrarianBackpack # ADT tweak
   - Glasses
   # ADT underwear tweak start
   - ADTTop
