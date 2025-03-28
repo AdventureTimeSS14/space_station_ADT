@@ -580,7 +580,6 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
@@ -589,7 +588,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-      # End ADT tweak
 
 - type: reagent
   id: Wine
@@ -606,12 +604,14 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+      # Start ADT tweak
   metabolisms:
     Drink:
       effects:
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
+      # End ADT tweak
 
 - type: reagent
   id: Champagne
