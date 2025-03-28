@@ -1,5 +1,5 @@
 - type: marking
-  id: ArmProstheticLeft
+  id: ADTArmProstheticLeft
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -14,7 +14,7 @@
     state: arm_l_prosthetic
 
 - type: marking
-  id: ArmTwistingLeft
+  id: ADTArmTwistingLeft
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -24,7 +24,7 @@
     state: arm_l_twisting
 
 - type: marking
-  id: ArmProstheticRight
+  id: ADTArmProstheticRight
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -39,7 +39,7 @@
     state: arm_r_prosthetic
 
 - type: marking
-  id: ArmTwistingRight
+  id: ADTArmTwistingRight
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -49,7 +49,7 @@
     state: arm_r_twisting
 
 - type: marking
-  id: ChestBackstabbed
+  id: ADTChestBackstabbed
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -59,7 +59,7 @@
     state: chest_backstabbed
 
 - type: marking
-  id: ChestTwistingLeft
+  id: ADTChestTwistingLeft
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -69,7 +69,7 @@
     state: chest_l_twisting
 
 - type: marking
-  id: ChestTwistingRight
+  id: ADTChestTwistingRight
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -79,7 +79,7 @@
     state: chest_r_twisting
 
 - type: marking
-  id: ChestStar
+  id: ADTChestStar
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -89,7 +89,7 @@
     state: chest_star
 
 - type: marking
-  id: FootProstheticLeft
+  id: ADTFootProstheticLeft
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -104,7 +104,7 @@
     state: foot_l_prosthetic
 
 - type: marking
-  id: FootProstheticRight
+  id: ADTFootProstheticRight
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -119,7 +119,7 @@
     state: foot_r_prosthetic
 
 - type: marking
-  id: HandProstheticLeft
+  id: ADTHandProstheticLeft
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -134,7 +134,7 @@
     state: hand_l_prosthetic
 
 - type: marking
-  id: HandTwistingLeft
+  id: ADTHandTwistingLeft
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -144,7 +144,7 @@
     state: hand_l_twisting
 
 - type: marking
-  id: HandProstheticRight
+  id: ADTHandProstheticRight
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -159,7 +159,7 @@
     state: hand_r_prosthetic
 
 - type: marking
-  id: HandTwistingRight
+  id: ADTHandTwistingRight
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -169,7 +169,7 @@
     state: hand_r_twisting
 
 - type: marking
-  id: SmileScars
+  id: ADTSmileScars
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -179,7 +179,7 @@
     state: head_smile
 
 - type: marking
-  id: HeadTwisting
+  id: ADTHeadTwisting
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -189,7 +189,7 @@
     state: head_twisting
 
 - type: marking
-  id: LegProstheticLeft
+  id: ADTLegProstheticLeft
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -204,7 +204,7 @@
     state: leg_l_prosthetic
 
 - type: marking
-  id: LegTwistingLeft
+  id: ADTLegTwistingLeft
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -214,7 +214,7 @@
     state: leg_l_twisting
 
 - type: marking
-  id: LegProstheticRight
+  id: ADTLegProstheticRight
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -229,7 +229,7 @@
     state: leg_r_prosthetic
 
 - type: marking
-  id: LegTwistingRight
+  id: ADTLegTwistingRight
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
@@ -239,7 +239,7 @@
     state: leg_r_twisting
 
 - type: marking
-  id: TorsoIncision
+  id: ADTTorsoIncision
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]

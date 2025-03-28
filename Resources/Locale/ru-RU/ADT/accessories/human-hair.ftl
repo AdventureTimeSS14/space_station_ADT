@@ -1,3 +1,3 @@
-marking-HumanHairGatheredlow = Собранные (Низкие)
-marking-HumanHairFrenchBraid = Французская коса
-marking-HumanHairLowpigtails = Косички (Низкие)
+marking-ADTHumanHairGatheredlow = Собранные (Низкие)
+marking-ADTHumanHairFrenchBraid = Французская коса
+marking-ADTHumanHairLowpigtails = Косички (Низкие)

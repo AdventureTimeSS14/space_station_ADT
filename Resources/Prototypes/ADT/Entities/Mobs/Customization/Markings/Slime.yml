@@ -27,7 +27,7 @@
 
 #slime-Frontier
 - type: marking
-  id: SlimeNose
+  id: ADTSlimeNose
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
@@ -38,7 +38,7 @@
     state: nose
 
 - type: marking
-  id: SlimeMouth
+  id: ADTSlimeMouth
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
@@ -48,7 +48,7 @@
     state: mouth
 
 - type: marking
-  id: SlimeBrain
+  id: ADTSlimeBrain
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
@@ -58,7 +58,7 @@
     state: brain
 
 - type: marking
-  id: SlimeEyeglow
+  id: ADTSlimeEyeglow
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [SlimePerson]
@@ -73,7 +73,7 @@
   shader: unshaded
 
 - type: marking
-  id: SlimeLungs
+  id: ADTSlimeLungs
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [SlimePerson]
@@ -83,7 +83,7 @@
     state: lungs
 
 - type: marking
-  id: SlimeCore
+  id: ADTSlimeCore
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [SlimePerson]
@@ -93,7 +93,7 @@
     state: core
 
 - type: marking
-  id: SlimeBonehead
+  id: ADTSlimeBonehead
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
@@ -108,7 +108,7 @@
     state: bonehead
 
 - type: marking
-  id: SlimeBonechest
+  id: ADTSlimeBonechest
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [SlimePerson]
@@ -123,7 +123,7 @@
     state: bonechest
 
 - type: marking
-  id: SlimeBonearmleft
+  id: ADTSlimeBonearmleft
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [SlimePerson]
@@ -138,7 +138,7 @@
     state: bonearmleft
 
 - type: marking
-  id: SlimeBonearmright
+  id: ADTSlimeBonearmright
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [SlimePerson]
@@ -153,7 +153,7 @@
     state: bonearmright
 
 - type: marking
-  id: SlimeBonefootleft
+  id: ADTSlimeBonefootleft
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [SlimePerson]
@@ -168,7 +168,7 @@
     state: bonefootleft
 
 - type: marking
-  id: SlimeBonefootright
+  id: ADTSlimeBonefootright
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [SlimePerson]
@@ -183,7 +183,7 @@
     state: bonefootright
 
 - type: marking
-  id: SlimeBonehandleft
+  id: ADTSlimeBonehandleft
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [SlimePerson]
@@ -198,7 +198,7 @@
     state: bonehandleft
 
 - type: marking
-  id: SlimeBonehandright
+  id: ADTSlimeBonehandright
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [SlimePerson]
@@ -213,7 +213,7 @@
     state: bonehandright
 
 - type: marking
-  id: SlimeBonelegleft
+  id: ADTSlimeBonelegleft
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [SlimePerson]
@@ -228,7 +228,7 @@
     state: bonelegleft
 
 - type: marking
-  id: SlimeBonelegright
+  id: ADTSlimeBonelegright
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [SlimePerson]

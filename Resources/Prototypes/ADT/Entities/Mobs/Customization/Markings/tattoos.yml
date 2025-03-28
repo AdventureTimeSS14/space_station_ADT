@@ -1,5 +1,5 @@
 - type: marking
-  id: ChestCutHere
+  id: ADTChestCutHere
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -13,7 +13,7 @@
     state: chest_cuthere
 
 - type: marking
-  id: ArmDollJointsTattooLeft
+  id: ADTArmDollJointsTattooLeft
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -27,7 +27,7 @@
     state: l_arm_doll
 
 - type: marking
-  id: ArmDollJointsTattooRight
+  id: ADTArmDollJointsTattooRight
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -41,7 +41,7 @@
     state: r_arm_doll
 
 - type: marking
-  id: HandDollJointsTattooLeft
+  id: ADTHandDollJointsTattooLeft
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -55,7 +55,7 @@
     state: l_hand_doll
 
 - type: marking
-  id: HandDollJointsTattooRight
+  id: ADTHandDollJointsTattooRight
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -69,7 +69,7 @@
     state: r_hand_doll
 
 - type: marking
-  id: LegDollJointsTattooLeft
+  id: ADTLegDollJointsTattooLeft
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -83,7 +83,7 @@
     state: l_leg_doll
 
 - type: marking
-  id: LegDollJointsTattooRight
+  id: ADTLegDollJointsTattooRight
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -97,7 +97,7 @@
     state: r_leg_doll
 
 - type: marking
-  id: FootDollJointsTattooLeft
+  id: ADTFootDollJointsTattooLeft
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
@@ -111,7 +111,7 @@
     state: l_foot_doll
 
 - type: marking
-  id: FootDollJointsTattooRight
+  id: ADTFootDollJointsTattooRight
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]

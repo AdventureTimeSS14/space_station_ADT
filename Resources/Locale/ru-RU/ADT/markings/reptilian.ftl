@@ -1,11 +1,11 @@
-marking-LizardSnoutpiercings-piercings1 = Пирсинг
-marking-LizardSnoutpiercings = Пирсинг
+marking-ADTLizardSnoutpiercings-piercings1 = Пирсинг
+marking-ADTLizardSnoutpiercings = Пирсинг
 
-marking-LizardHornsNubby-horns_nubby = Пухлые рога
-marking-LizardHornsNubby = Пухлые рога
-marking-LizardHornsKoboldEarspiercings = Унатх, уши (Проколотые)
-marking-LizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
-marking-LizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг
+marking-ADTLizardHornsNubby-horns_nubby = Пухлые рога
+marking-ADTLizardHornsNubby = Пухлые рога
+marking-ADTLizardHornsKoboldEarspiercings = Унатх, уши (Проколотые)
+marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
+marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг
 
-marking-Fangs = Клыки унатха
-marking-Fangs-Fangs = Клыки
+marking-ADTFangs = Клыки унатха
+marking-ADTFangs-Fangs = Клыки

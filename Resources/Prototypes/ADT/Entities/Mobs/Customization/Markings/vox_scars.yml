@@ -1,5 +1,5 @@
 - type: marking
-  id: ScarsVoxRoadrashLeftHead
+  id: ADTScarsVoxRoadrashLeftHead
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
@@ -13,7 +13,7 @@
     state: roadrash_l_head
 
 - type: marking
-  id: ScarsVoxRoadrashRightHead
+  id: ADTScarsVoxRoadrashRightHead
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
@@ -27,7 +27,7 @@
     state: roadrash_r_head
 
 - type: marking
-  id: ScarsVoxBigslashLeftHead
+  id: ADTScarsVoxBigslashLeftHead
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
@@ -41,7 +41,7 @@
     state: bigslash_l_head
 
 - type: marking
-  id: ScarsVoxBigslashRightHead
+  id: ADTScarsVoxBigslashRightHead
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
@@ -55,7 +55,7 @@
     state: bigslash_r_head
 
 - type: marking
-  id: ScarsVoxSlashLeftHead
+  id: ADTScarsVoxSlashLeftHead
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
@@ -69,7 +69,7 @@
     state: slash_l_head
 
 - type: marking
-  id: ScarsVoxSlashRightHead
+  id: ADTScarsVoxSlashRightHead
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
@@ -83,7 +83,7 @@
     state: slash_r_head
 
 - type: marking
-  id: ScarsVoxClawTorso
+  id: ADTScarsVoxClawTorso
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Vox]

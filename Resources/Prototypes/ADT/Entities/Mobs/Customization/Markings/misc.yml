@@ -219,7 +219,7 @@
 
 #marking-Frontier
 - type: marking
-  id: fizz
+  id: ADTfizz
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
@@ -230,7 +230,7 @@
     state: fizz
 
 - type: marking
-  id: bubble
+  id: ADTbubble
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
@@ -241,7 +241,7 @@
     state: bubble
 
 - type: marking
-  id: fishbowl
+  id: ADTfishbowl
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
@@ -254,7 +254,7 @@
     state: fishbowl2
 
 - type: marking
-  id: FadingStars
+  id: ADTFadingStars
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
@@ -270,7 +270,7 @@
   shader: unshaded
 
 - type: marking
-  id: DionaLivingNymph
+  id: ADTDionaLivingNymph
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Diona ]
@@ -279,7 +279,7 @@
     state: dionalivingnymph
 
 - type: marking
-  id: DionaMossChest
+  id: ADTDionaMossChest
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Diona ]
@@ -290,7 +290,7 @@
     state: dionamosschest
 
 - type: marking
-  id: DionaMoonBloom
+  id: ADTDionaMoonBloom
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Diona ]
@@ -302,7 +302,7 @@
   shader: unshaded
 
 - type: marking
-  id: DionaBigFirefly
+  id: ADTDionaBigFirefly
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Diona ]
@@ -314,7 +314,7 @@
   shader: unshaded
 
 - type: marking
-  id: DionaFirefly
+  id: ADTDionaFirefly
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Diona ]
@@ -326,7 +326,7 @@
   shader: unshaded
 
 - type: marking
-  id: DionaPollenDust
+  id: ADTDionaPollenDust
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Diona ]
@@ -337,7 +337,7 @@
     state: dionapollendust
 
 - type: marking
-  id: DwarfBearCheeks
+  id: ADTDwarfBearCheeks
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Dwarf ]
@@ -349,7 +349,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfHeadGlow
+  id: ADTDwarfHeadGlow
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Dwarf ]
@@ -361,7 +361,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationHead
+  id: ADTDwarfConstellationHead
   bodyPart: Head
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -377,7 +377,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationChest
+  id: ADTDwarfConstellationChest
   bodyPart: Chest
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -393,7 +393,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationLArm
+  id: ADTDwarfConstellationLArm
   bodyPart: LArm
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -409,7 +409,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationLHand
+  id: ADTDwarfConstellationLHand
   bodyPart: LHand
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -425,7 +425,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationRArm
+  id: ADTDwarfConstellationRArm
   bodyPart: RArm
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -441,7 +441,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationRHand
+  id: ADTDwarfConstellationRHand
   bodyPart: RHand
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -457,7 +457,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationLLeg
+  id: ADTDwarfConstellationLLeg
   bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -473,7 +473,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationLFoot
+  id: ADTDwarfConstellationLFoot
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -489,7 +489,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationRLeg
+  id: ADTDwarfConstellationRLeg
   bodyPart: RLeg
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -505,7 +505,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfConstellationRFoot
+  id: ADTDwarfConstellationRFoot
   bodyPart: RFoot
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
@@ -521,7 +521,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfChestHair
+  id: ADTDwarfChestHair
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
@@ -530,7 +530,7 @@
     state: dwarfchesthair
 
 - type: marking
-  id: DwarfArmHair
+  id: ADTDwarfArmHair
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Dwarf ]
@@ -539,7 +539,7 @@
     state: dwarfarmhair
 
 - type: marking
-  id: DwarfLegHair
+  id: ADTDwarfLegHair
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Dwarf ]
@@ -548,7 +548,7 @@
     state: dwarfleghair
 
 - type: marking
-  id: DwarfTattooShootingStar
+  id: ADTDwarfTattooShootingStar
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
@@ -563,7 +563,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfMarkBear
+  id: ADTDwarfMarkBear
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
@@ -578,7 +578,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfMarkKangarooLHand
+  id: ADTDwarfMarkKangarooLHand
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Dwarf ]
@@ -593,7 +593,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfMarkKangarooRHand
+  id: ADTDwarfMarkKangarooRHand
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Dwarf ]
@@ -608,7 +608,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfMarkCobra
+  id: ADTDwarfMarkCobra
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
@@ -623,7 +623,7 @@
   shader: unshaded
 
 - type: marking
-  id: DwarfMarkSpider
+  id: ADTDwarfMarkSpider
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
@@ -638,7 +638,7 @@
   shader: unshaded
 
 - type: marking
-  id: SpiderMirror
+  id: ADTSpiderMirror
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Arachnid ]
@@ -650,7 +650,7 @@
   shader: unshaded
 
 - type: marking
-  id: SpiderGlowEyes
+  id: ADTSpiderGlowEyes
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ Arachnid ]
@@ -662,7 +662,7 @@
   shader: unshaded
 
 - type: marking
-  id: SpiderEyesMulti
+  id: ADTSpiderEyesMulti
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ Arachnid ]
@@ -679,7 +679,7 @@
     state: spidereyesmulti4
 
 - type: marking
-  id: MothTrueButterfly
+  id: ADTMothTrueButterfly
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
@@ -694,7 +694,7 @@
     state: mothtruebutterfly3
 
 - type: marking
-  id: MothRhinoBeetle
+  id: ADTMothRhinoBeetle
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
@@ -709,7 +709,7 @@
     state: rhinobeetle3
 
 - type: marking
-  id: MothGlasswing
+  id: ADTMothGlasswing
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
@@ -724,7 +724,7 @@
     state: glasswing3
 
 - type: marking
-  id: MothBee
+  id: ADTMothBee
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
@@ -739,7 +739,7 @@
     state: bee3
 
 - type: marking
-  id: MothGlowAntenna
+  id: ADTMothGlowAntenna
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Moth ]
@@ -751,7 +751,7 @@
   shader: unshaded
 
 - type: marking
-  id: MothFireflyOverlay
+  id: ADTMothFireflyOverlay
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Moth ]
@@ -763,7 +763,7 @@
   shader: unshaded
 
 - type: marking
-  id: MothFirefly
+  id: ADTMothFirefly
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
@@ -774,7 +774,7 @@
     state: mothfirefly2
 
 - type: marking
-  id: MothBeetleTail
+  id: ADTMothBeetleTail
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
@@ -789,7 +789,7 @@
     state: beetle3
 
 - type: marking
-  id: MothBeetleHorn1
+  id: ADTMothBeetleHorn1
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Moth ]
@@ -800,7 +800,7 @@
     state: mothbeetlehorn1
 
 - type: marking
-  id: MothBeetleHorn2
+  id: ADTMothBeetleHorn2
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Moth ]
@@ -811,7 +811,7 @@
     state: mothbeetlehorn2
 
 - type: marking
-  id: MothBiggerEyes
+  id: ADTMothBiggerEyes
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ Moth ]
@@ -824,7 +824,7 @@
     state: mothbiggereyes
 
 - type: marking
-  id: MothSnoth
+  id: ADTMothSnoth
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
@@ -837,7 +837,7 @@
     state: snoth2
 
 - type: marking
-  id: VoxCocktail
+  id: ADTVoxCocktail
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
@@ -854,7 +854,7 @@
     state: voxcocktail4
 
 - type: marking
-  id: VoxTailBalled
+  id: ADTVoxTailBalled
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
@@ -865,7 +865,7 @@
     state: voxtailballed
 
 - type: marking
-  id: VoxTailSplit
+  id: ADTVoxTailSplit
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
@@ -876,7 +876,7 @@
     state: voxtailsplit
 
 - type: marking
-  id: VoxTailStripes
+  id: ADTVoxTailStripes
   bodyPart: Chest
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -887,7 +887,7 @@
     state: voxtailstripes
 
 - type: marking
-  id: VoxLArmProsthetic
+  id: ADTVoxLArmProsthetic
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Vox ]
@@ -903,7 +903,7 @@
     state: voxarmprostheticl
 
 - type: marking
-  id: VoxRArmProsthetic
+  id: ADTVoxRArmProsthetic
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Vox ]
@@ -919,7 +919,7 @@
     state: voxarmprostheticr
 
 - type: marking
-  id: VoxBeakColor
+  id: ADTVoxBeakColor
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [ Vox ]
@@ -930,7 +930,7 @@
     state: voxbeakcolor
 
 - type: marking
-  id: VoxBeakSplit
+  id: ADTVoxBeakSplit
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [ Vox ]
@@ -943,7 +943,7 @@
     state: voxbeaksplit2
 
 - type: marking
-  id: VoxBeakTipped
+  id: ADTVoxBeakTipped
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [ Vox ]
@@ -954,7 +954,7 @@
     state: voxbeaktipped
 
 - type: marking
-  id: VoxChestPlumage
+  id: ADTVoxChestPlumage
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Vox ]
@@ -965,7 +965,7 @@
     state: voxchestplumage
 
 - type: marking
-  id: VoxFootSpines
+  id: ADTVoxFootSpines
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -976,7 +976,7 @@
     state: voxfootspines
 
 - type: marking
-  id: VoxFootGradientLFoot
+  id: ADTVoxFootGradientLFoot
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [ Vox ]
@@ -987,7 +987,7 @@
     state: voxfootgradientl1
 
 - type: marking
-  id: VoxFootGradientRFoot
+  id: ADTVoxFootGradientRFoot
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [ Vox ]
@@ -998,7 +998,7 @@
     state: voxfootgradientr1
 
 - type: marking
-  id: VoxLegGradientLLeg
+  id: ADTVoxLegGradientLLeg
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Vox ]
@@ -1009,7 +1009,7 @@
     state: voxfootgradientl2
 
 - type: marking
-  id: VoxLegGradientRLeg
+  id: ADTVoxLegGradientRLeg
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Vox ]
@@ -1020,7 +1020,7 @@
     state: voxfootgradientr2
 
 - type: marking
-  id: VoxHandGradientRHand
+  id: ADTVoxHandGradientRHand
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Vox ]
@@ -1035,7 +1035,7 @@
     state: voxhandgradientr3
 
 - type: marking
-  id: VoxHandGradientLHand
+  id: ADTVoxHandGradientLHand
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Vox ]
@@ -1050,7 +1050,7 @@
     state: voxhandgradientl3
 
 - type: marking
-  id: VoxHeadGradient
+  id: ADTVoxHeadGradient
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
@@ -1065,7 +1065,7 @@
     state: voxheadgradient3
 
 - type: marking
-  id: VoxTailBell
+  id: ADTVoxTailBell
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -1078,7 +1078,7 @@
     state: voxtailbell2
 
 - type: marking
-  id: VoxTailBack
+  id: ADTVoxTailBack
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
@@ -1089,7 +1089,7 @@
     state: voxtailcolorable
 
 - type: marking
-  id: VoxTailLantern
+  id: ADTVoxTailLantern
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -1101,7 +1101,7 @@
   shader: unshaded
 
 - type: marking
-  id: VoxTailSingleStripe
+  id: ADTVoxTailSingleStripe
   bodyPart: Chest
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -1112,7 +1112,7 @@
     state: voxtailsinglestripe
 
 - type: marking
-  id: VoxTailSmallPlume
+  id: ADTVoxTailSmallPlume
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -1123,7 +1123,7 @@
     state: voxtailsmallplume
 
 - type: marking
-  id: VoxTailSpines
+  id: ADTVoxTailSpines
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -1134,7 +1134,7 @@
     state: voxtailspines
 
 - type: marking
-  id: VoxArmsStripesLHand
+  id: ADTVoxArmsStripesLHand
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Vox ]
@@ -1145,7 +1145,7 @@
     state: voxarmsstripesl
 
 - type: marking
-  id: VoxArmsStripesRHand
+  id: ADTVoxArmsStripesRHand
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Vox ]
@@ -1156,7 +1156,7 @@
     state: voxarmsstripesr
 
 - type: marking
-  id: VoxLegsStripesLLeg
+  id: ADTVoxLegsStripesLLeg
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Vox ]
@@ -1167,7 +1167,7 @@
     state: voxlegsstripesl
 
 - type: marking
-  id: VoxLegsStripesRLeg
+  id: ADTVoxLegsStripesRLeg
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Vox ]
@@ -1178,7 +1178,7 @@
     state: voxlegsstripesr
 
 - type: marking
-  id: VoxChains
+  id: ADTVoxChains
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -1189,7 +1189,7 @@
     state: voxchains
 
 - type: marking
-  id: VoxSunAndMoon
+  id: ADTVoxSunAndMoon
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
@@ -1200,7 +1200,7 @@
     state: voxsunandmoon
 
 - type: marking
-  id: VoxCheeks
+  id: ADTVoxCheeks
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
@@ -1211,7 +1211,7 @@
     state: voxcheeks
 
 - type: marking
-  id: VoxBelly
+  id: ADTVoxBelly
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Vox ]
@@ -1222,7 +1222,7 @@
     state: voxbelly
 
 - type: marking
-  id: VitiligoHeadL
+  id: ADTVitiligoHeadL
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1237,7 +1237,7 @@
     state: vitiligoheadl
 
 - type: marking
-  id: VitiligoHeadR
+  id: ADTVitiligoHeadR
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1252,7 +1252,7 @@
     state: vitiligoheadr
 
 - type: marking
-  id: VitiligoHeadJaw
+  id: ADTVitiligoHeadJaw
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1267,7 +1267,7 @@
     state: vitiligoheadjaw
 
 - type: marking
-  id: VitiligoChestF
+  id: ADTVitiligoChestF
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1282,7 +1282,7 @@
     state: vitiligochestf
 
 - type: marking
-  id: VitiligoChestSpots
+  id: ADTVitiligoChestSpots
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1297,7 +1297,7 @@
     state: vitiligochestspots
 
 - type: marking
-  id: VitiligoArmR
+  id: ADTVitiligoArmR
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1312,7 +1312,7 @@
     state: vitiligoarmr
 
 - type: marking
-  id: VitiligoArmL
+  id: ADTVitiligoArmL
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1327,7 +1327,7 @@
     state: vitiligoarml
 
 - type: marking
-  id: VitiligoHandR
+  id: ADTVitiligoHandR
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1342,7 +1342,7 @@
     state: vitiligohandr
 
 - type: marking
-  id: VitiligoHandL
+  id: ADTVitiligoHandL
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1357,7 +1357,7 @@
     state: vitiligohandl
 
 - type: marking
-  id: VitiligoLegR
+  id: ADTVitiligoLegR
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Dwarf, Felinid]
@@ -1372,7 +1372,7 @@
     state: vitiligolegr
 
 - type: marking
-  id: VitiligoLegL
+  id: ADTVitiligoLegL
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Dwarf, Felinid]

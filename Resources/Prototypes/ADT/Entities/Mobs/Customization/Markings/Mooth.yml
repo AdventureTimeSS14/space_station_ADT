@@ -737,7 +737,7 @@
 
 #moth-Frontier
 - type: marking
-  id: MothBodyClaw
+  id: ADTMothBodyClaw
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -747,7 +747,7 @@
     state: moth_body_claw
 
 - type: marking
-  id: MothBurnLeft
+  id: ADTMothBurnLeft
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -757,7 +757,7 @@
     state: moth_burn_l
 
 - type: marking
-  id: MothBurnRight
+  id: ADTMothBurnRight
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -767,7 +767,7 @@
     state: moth_burn_r
 
 - type: marking
-  id: MothFaceClaw
+  id: ADTMothFaceClaw
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -777,7 +777,7 @@
     state: moth_face_claw
 
 - type: marking
-  id: MothSlashLeft
+  id: ADTMothSlashLeft
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -787,7 +787,7 @@
     state: moth_slash_l
 
 - type: marking
-  id: ChimeraArmLeftMoth
+  id: ADTChimeraArmLeftMoth
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -802,7 +802,7 @@
     state: arm_l_chimera_moth
 
 - type: marking
-  id: ProstheticArmLeftMoth
+  id: ADTProstheticArmLeftMoth
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -817,7 +817,7 @@
     state: arm_l_prosthetic_moth
 
 - type: marking
-  id: TwistingArmLeftMoth
+  id: ADTTwistingArmLeftMoth
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -827,7 +827,7 @@
     state: arm_l_twisting_moth
 
 - type: marking
-  id: ProstheticArmRightMoth
+  id: ADTProstheticArmRightMoth
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -842,7 +842,7 @@
     state: arm_r_prosthetic_moth
 
 - type: marking
-  id: TwistingArmRightMoth
+  id: ADTTwistingArmRightMoth
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -852,7 +852,7 @@
     state: arm_r_twisting_moth
 
 - type: marking
-  id: WingsBackstabbed
+  id: ADTWingsBackstabbed
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -862,7 +862,7 @@
     state: wings_backstabbed
 
 - type: marking
-  id: ChestChimeraFemaleMoth
+  id: ADTChestChimeraFemaleMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -878,7 +878,7 @@
     state: chest_chimera_f_moth
 
 - type: marking
-  id: ChestChimeraMaleMoth
+  id: ADTChestChimeraMaleMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -894,7 +894,7 @@
     state: chest_chimera_m_moth
 
 - type: marking
-  id: ChestTwistingLeftFemaleMoth
+  id: ADTChestTwistingLeftFemaleMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -905,7 +905,7 @@
     state: chest_l_twisting_f_moth
 
 - type: marking
-  id: ChestTwistingLeftMaleMoth
+  id: ADTChestTwistingLeftMaleMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -916,7 +916,7 @@
     state: chest_l_twisting_m_moth
 
 - type: marking
-  id: ChestTwistingRightFemaleMoth
+  id: ADTChestTwistingRightFemaleMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -927,7 +927,7 @@
     state: chest_r_twisting_f_moth
 
 - type: marking
-  id: ChestTwistingRightMaleMoth
+  id: ADTChestTwistingRightMaleMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -938,7 +938,7 @@
     state: chest_r_twisting_m_moth
 
 - type: marking
-  id: ChestStarMoth
+  id: ADTChestStarMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
@@ -948,7 +948,7 @@
     state: chest_star_moth
 
 - type: marking
-  id: HeterochromiaMoth
+  id: ADTHeterochromiaMoth
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -963,7 +963,7 @@
     state: eyes_heterochromia_moth
 
 - type: marking
-  id: FootChimeraLeftMoth
+  id: ADTFootChimeraLeftMoth
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -978,7 +978,7 @@
     state: foot_l_chimera_moth
 
 - type: marking
-  id: FootProstheticLeftMoth
+  id: ADTFootProstheticLeftMoth
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -993,7 +993,7 @@
     state: foot_l_prosthetic_moth
 
 - type: marking
-  id: FootProstheticRightMoth
+  id: ADTFootProstheticRightMoth
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -1008,7 +1008,7 @@
     state: foot_r_prosthetic_moth
 
 - type: marking
-  id: HandChimeraLeftMoth
+  id: ADTHandChimeraLeftMoth
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -1023,7 +1023,7 @@
     state: hand_l_chimera_moth
 
 - type: marking
-  id: HandProstheticLeftMoth
+  id: ADTHandProstheticLeftMoth
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -1038,7 +1038,7 @@
     state: hand_l_prosthetic_moth
 
 - type: marking
-  id: HandTwistingLeftMoth
+  id: ADTHandTwistingLeftMoth
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -1048,7 +1048,7 @@
     state: hand_l_twisting_moth
 
 - type: marking
-  id: HandProstheticRightMoth
+  id: ADTHandProstheticRightMoth
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -1063,7 +1063,7 @@
     state: hand_r_prosthetic_moth
 
 - type: marking
-  id: HandTwistingRightMoth
+  id: ADTHandTwistingRightMoth
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [Moth]
@@ -1073,7 +1073,7 @@
     state: hand_r_twisting_moth
 
 - type: marking
-  id: BadmoltMoth
+  id: ADTBadmoltMoth
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -1083,7 +1083,7 @@
     state: head_badmolt_moth
 
 - type: marking
-  id: HeadChimeraMoth
+  id: ADTHeadChimeraMoth
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -1098,7 +1098,7 @@
     state: head_chimera_moth
 
 - type: marking
-  id: EyebagsMoth
+  id: ADTEyebagsMoth
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -1108,7 +1108,7 @@
     state: head_eyebags_moth
 
 - type: marking
-  id: HeadTwistingMoth
+  id: ADTHeadTwistingMoth
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
@@ -1118,7 +1118,7 @@
     state: head_twisting_moth
 
 - type: marking
-  id: LegChimeraLeftMoth
+  id: ADTLegChimeraLeftMoth
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -1133,7 +1133,7 @@
     state: leg_l_chimera_moth
 
 - type: marking
-  id: LegProstheticLeftMoth
+  id: ADTLegProstheticLeftMoth
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -1148,7 +1148,7 @@
     state: leg_l_prosthetic_moth
 
 - type: marking
-  id: LegTwistingLeftMoth
+  id: ADTLegTwistingLeftMoth
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -1158,7 +1158,7 @@
     state: leg_l_twisting_moth
 
 - type: marking
-  id: LegProstheticRightMoth
+  id: ADTLegProstheticRightMoth
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -1173,7 +1173,7 @@
     state: leg_r_prosthetic_moth
 
 - type: marking
-  id: LegTwistingRightMoth
+  id: ADTLegTwistingRightMoth
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [Moth]
@@ -1183,7 +1183,7 @@
     state: leg_r_twisting_moth
 
 - type: marking
-  id: TorsoIncisionMoth
+  id: ADTTorsoIncisionMoth
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]

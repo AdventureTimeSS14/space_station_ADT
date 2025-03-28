@@ -188,7 +188,7 @@
     state: piercing_brow_r
 
 - type: marking
-  id: HumanHairGatheredlow
+  id: ADTHumanHairGatheredlow
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
@@ -197,7 +197,7 @@
       state: gatheredlow
 
 - type: marking
-  id: HumanHairLowpigtails
+  id: ADTHumanHairLowpigtails
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
@@ -206,7 +206,7 @@
       state: lowpigtails
 
 - type: marking
-  id: HumanHairFrenchBraid
+  id: ADTHumanHairFrenchBraid
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
