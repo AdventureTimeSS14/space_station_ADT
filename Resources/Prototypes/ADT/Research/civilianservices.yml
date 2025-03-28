@@ -44,11 +44,12 @@
   tier: 2
   cost: 12000
   recipeUnlocks:
-  - CloningPodMachineCircuitboard
-  - CloningConsoleComputerCircuitboard
-  - MedicalScannerMachineCircuitboard
+    - CloningPodMachineCircuitboard
+    - CloningConsoleComputerCircuitboard
+    - MedicalScannerMachineCircuitboard
   position: 2,2
   requiredTech:
+  - BiochemicalStasis
   - ADTMedicalMODsuit
 
 - type: technology
@@ -65,3 +66,18 @@
   position: 3,5
   requiredTech:
   - BluespaceCargoTransport
+
+- type: technology
+  id: ADTServicePlus
+  name: research-technology-services-service-plus
+  icon:
+    sprite: ADT/Structures/Machines/advanced_microwave.rsi
+    state: mw
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+    - ADTAdvancedMicrowaveMachineCircuitBoard
+  position: 2,-3
+  requiredTech:
+  - MeatManipulation

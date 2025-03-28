@@ -59,3 +59,21 @@
       stackRequirements:
         Capacitor: 2
         Glass: 1
+
+#Taken from [2670] Pull Request DeltaV
+- type: entity
+  id: ADTAdvancedMicrowaveMachineCircuitBoard
+  parent: MicrowaveMachineCircuitboard
+  name: adt-advanced-microwave-machineboard
+  components:
+  - type: MachineBoard
+    prototype: ADTAdvancedMicrowave
+    stackRequirements:
+      Capacitor: 4
+      Glass: 4
+      Cable: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 1
+        defaultPrototype: Beaker
+#End of DeltaV
