@@ -72,4 +72,4 @@ marking-ADTLizardSnoutpiercings-piercings1 = Пирсинг
 marking-ADTLizardSnoutpiercings = Пирсинг
 marking-ADTLizardHornsKoboldEarspiercings = Унатх, уши (Проколотые)
 marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
-marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг
+marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг\

@@ -43,5 +43,5 @@ marking-ADTFootDollJointsTattooLeft-l_foot_doll = Татуировка в вид
 marking-ADTFootDollJointsTattooLeft = Татуировка в виде кукольных суставов, ступня левой ноги
 marking-ADTFootDollJointsTattooRight-r_foot_doll = Татуировка в виде кукольных суставов, ступня правой ноги
 marking-ADTFootDollJointsTattooRight = Татуировка в виде кукольных суставов, ступня правой ноги
-marking-ADTChestCutHere-chest_cuthere = Тату 'Вырезать здесь' 
-marking-ADTChestCutHere = Тату 'Вырезать здесь' 
+marking-ADTChestCutHere-chest_cuthere = Тату 'Вырезать здесь'
+marking-ADTChestCutHere = Тату 'Вырезать здесь'
