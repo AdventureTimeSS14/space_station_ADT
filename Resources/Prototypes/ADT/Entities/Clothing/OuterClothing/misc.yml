@@ -50,7 +50,7 @@
 #Коробка с подтяжками (для клунь)
 
 - type: entity
-  parent: [ClothingOuterStorageBase,BadgeOnClothingWithContainer]
+  parent: [ClothingOuterStorageBase]
   id: ADTClothingOuterClothingBox
   name: Box vest
   description: box with cutout for legs
@@ -59,6 +59,3 @@
     sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi
-  - type: Storage
-    grid:
-    - 0,0,2,2
