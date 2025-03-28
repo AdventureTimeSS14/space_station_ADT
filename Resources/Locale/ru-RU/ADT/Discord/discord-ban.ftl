@@ -6,10 +6,15 @@ discord-ban-permanent = **Длительность:** ***Навсегда***
 discord-ban-unban-date = **Дата снятия наказания:** { $expires }
 discord-ban-submitted-by = **Наказание выдал(-а):** { $name }
 discord-ban-submitted-by-system = **Наказание выдал(-а):** ***СИСТЕМА***
+discord-ban-submitted-by-discord = **Наказание выдал(-а):** { $name }(Discord)"
 
 # Ресурсы обычного бана
 discord-ban-server-ban-username = Бан
 discord-ban-server-ban-header = ### **Бан | ID { $banId }**
+
+# Бан POST запросом
+discord-ban-server-ban-username-post = Бан (Из Дискорда)
+discord-ban-server-post-ban-header = ### **Discord-Бан | ID { $banId }**
 
 # Ресурсы роль-бана
 discord-ban-role-ban-username = Роль-бан

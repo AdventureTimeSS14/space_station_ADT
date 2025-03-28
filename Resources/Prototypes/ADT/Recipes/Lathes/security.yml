@@ -33,3 +33,12 @@
     Plastic: 145
     Uranium: 125
 
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ADTWeaponIonRifle
+  result: ADTWeaponIonRifle
+  materials:
+    Steel: 2000
+    Glass: 600
+    Plastic: 600
+    Gold: 200
