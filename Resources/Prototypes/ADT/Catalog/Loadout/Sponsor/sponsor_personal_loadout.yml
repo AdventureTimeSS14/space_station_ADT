@@ -1,0 +1,50 @@
+#         ПРИМЕР
+# - type: sponsorPersonalLoadout
+#   id: SponsorPersonalLoadoutSchrodinger71
+#   userName: Schrodinger71
+#   equipment: SponsorPersonalLoadoutSchrodinger71
+#   whitelistJobs:     # Вайтлист должностей
+#   - JobProto1
+#   - JobProto2
+#   blacklistJobs:     # Блэклист должностей
+#   - JobProto3
+#   - JobProto4
+#   speciesRestriction: # Запрет на расы
+#   - SpeciesProto1
+#   - SpeciesProto2
+
+# Персональные
+
+## Schrodinger71 - Шрёдька
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSchrodinger71
+  userName: Schrodinger71
+  equipment: SponsorPersonalLoadoutSchrodinger71
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSchrodinger71
+  equipment:
+    neck: SirenaChokerWithHeart
+    pocket1: ClothingHeadHatCatEars
+    pocket2: ClothingUnderSocksCoder
+    jumpsuit: ClothingUniformJumpskirtElegantMaid
+  storage:
+    back:
+    - ADTPlushieSchrodinger
+
+## Schrodinger71 - Шрёдька
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSchrodinger71
+  userName: Schrodinger71
+  equipment: SponsorPersonalLoadoutSchrodinger71
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSchrodinger71
+  equipment:
+    neck: SirenaChokerWithHeart
+    pocket1: ClothingHeadHatCatEars
+    pocket2: ClothingUnderSocksCoder
+    jumpsuit: ClothingUniformJumpskirtElegantMaid
+  storage:
+    back:
+    - ADTPlushieSchrodinger

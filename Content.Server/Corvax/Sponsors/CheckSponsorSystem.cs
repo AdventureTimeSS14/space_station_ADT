@@ -1,10 +1,6 @@
-using System.Linq;
 using Content.Server.Corvax.Sponsors;
 using Content.Shared.Corvax.Sponsors;
 using Robust.Server.Player;
-using Robust.Shared.Configuration;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
 
 public sealed class CheckSponsorSystem : EntitySystem
 {
@@ -19,21 +15,18 @@ public sealed class CheckSponsorSystem : EntitySystem
 
     public bool CheckUser(string player)
     {
-        EntityUid uid = EntityUid.Parse(player);
-        _playerManager.TryGetSessionByEntity(uid, out var session);
-
-        SponsorInfo? sponsorData;
-        if (session != null)
-            _sponsorsManager.TryGetInfo(session.UserId, out sponsorData);
-        else
+        if (!EntityUid.TryParse(player, out var uid))
             return false;
 
-        //ADT-SPONSORS
-        if (sponsorData != null && (sponsorData.Tier > 0 || sponsorData.AllowJob))
-        //ADT-SPONSORS
-            return true;
-        else
+        if (!_playerManager.TryGetSessionByEntity(uid, out var session))
             return false;
+
+        if (!_sponsorsManager.TryGetInfo(session.UserId, out var sponsorData))
+            return false;
+
+        // ADT-SPONSORS
+        return sponsorData.Tier > 0 || sponsorData.AllowJob;
+        // ADT-SPONSORS
     }
 
     private void SetSponsorStatus(CheckUserSponsor ev)
