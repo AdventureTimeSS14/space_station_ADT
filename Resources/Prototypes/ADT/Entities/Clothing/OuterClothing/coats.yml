@@ -357,7 +357,7 @@
     node: CrazyScientistReady
 
 - type: entity
-  name: incomplete Crazy zagotovka
+  name: incomplete Crazy template
   parent: BaseItem
   id: ADTIncompleteCrazyScientist
   description: that crazy, dude
