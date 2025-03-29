@@ -345,7 +345,7 @@
 - type: entity
   name: incomplete Bedsheet zagotovka
   parent: BaseItem
-  id: IncompleteBedsheet
+  id: ADTIncompleteBedsheet
   description: that crazy, dude
   components:
   - type: Sprite
