@@ -54,21 +54,21 @@
   gasVisbilityFactor: 500
   color: d97e7e
   reagent: Healium
-  pricePerMole: 12
+  pricePerMole: 40
 
 - type: gas
   id: 14
   name: gases-hyper-noblium
-  specificHeat: 2000
+  specificHeat: 1000
   heatCapacityRatio: 1.3
-  molarMass: 150
+  molarMass: 500
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: frezon
   gasMolesVisible: 0.1
   gasVisbilityFactor: 1000
   color: 33cccc
   reagent: Hyper-Noblium
-  pricePerMole: 15
+  pricePerMole: 100
 
 - type: gas
   id: 15
@@ -96,7 +96,7 @@
   gasVisbilityFactor: 250
   color: 1c1a1a
   reagent: Zauker
-  pricePerMole: 30
+  pricePerMole: 150
 
 - type: gas
   id: 17

@@ -14,7 +14,7 @@
       sprite: ADT/Objects/Consumable/Drinks/summershade.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkWinterSunGlass
@@ -31,7 +31,7 @@
       sprite: ADT/Objects/Consumable/Drinks/wintersun.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkHungoverAngelGlass
@@ -48,7 +48,7 @@
       sprite: ADT/Objects/Consumable/Drinks/hungoverangel.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkCitrusBalanceGlass
@@ -65,7 +65,7 @@
       sprite: ADT/Objects/Consumable/Drinks/citrucbalance.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkDobryiDrinkGlass
@@ -82,7 +82,7 @@
       sprite: ADT/Objects/Consumable/Drinks/dobryi.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkMilkEclipseGlass
@@ -99,7 +99,7 @@
       sprite: ADT/Objects/Consumable/Drinks/milkeclipse.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkArcticExplosionGlass
@@ -116,7 +116,7 @@
       sprite: ADT/Objects/Consumable/Drinks/arcticexplosion.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkAppleLiqueurGlass
@@ -133,7 +133,7 @@
       sprite: ADT/Objects/Consumable/Drinks/apple_liqueur_glass.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSugarKnightGlass
@@ -150,7 +150,7 @@
       sprite: ADT/Objects/Consumable/Drinks/sugarknight.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkGrapeLadyGlass
@@ -167,7 +167,7 @@
       sprite: ADT/Objects/Consumable/Drinks/grapelady.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSaturdayBaronGlass
@@ -184,7 +184,7 @@
       sprite: ADT/Objects/Consumable/Drinks/saturdaybaron.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkArcticLatteGlass
@@ -201,7 +201,7 @@
       sprite: ADT/Objects/Consumable/Drinks/arcticlatte.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSpecialTeaOolongGlass
@@ -218,7 +218,7 @@
       sprite: ADT/Objects/Consumable/Drinks/teaoolong.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkAzureBlueGlass
@@ -235,7 +235,7 @@
       sprite: ADT/Objects/Consumable/Drinks/azureblue.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkPenetrationGlass
@@ -252,7 +252,7 @@
       sprite: ADT/Objects/Consumable/Drinks/penetration.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkEclipsedEclispeGlass
@@ -269,7 +269,7 @@
       sprite: ADT/Objects/Consumable/Drinks/eclipsedeclipse.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSpaceBushGlass
@@ -286,7 +286,7 @@
       sprite: ADT/Objects/Consumable/Drinks/spacebush.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkBusinessConversationGlass
@@ -303,7 +303,7 @@
       sprite: ADT/Objects/Consumable/Drinks/buisinessconservation.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkAppleMartiniGlass
@@ -337,7 +337,7 @@
       sprite: ADT/Objects/Consumable/Drinks/bacardiapple.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkElderGuardsGlass
@@ -354,7 +354,7 @@
       sprite: ADT/Objects/Consumable/Drinks/elderguards.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkLimeShadeGlass
@@ -371,7 +371,7 @@
       sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkGoldenAleGlass
@@ -388,7 +388,7 @@
       sprite: ADT/Objects/Consumable/Drinks/goldenale.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSausageBeerGlass
@@ -405,7 +405,7 @@
       sprite: ADT/Objects/Consumable/Drinks/sausagebeer.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkTechnoBeerGlass
@@ -422,7 +422,7 @@
       sprite: ADT/Objects/Consumable/Drinks/technarbeer.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkClassicPaulanerBeerGlass
@@ -439,7 +439,7 @@
       sprite: ADT/Objects/Consumable/Drinks/classicalpaulaner.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkLivseyBeerGlass
@@ -456,7 +456,7 @@
       sprite: ADT/Objects/Consumable/Drinks/doctorlivsey.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkLuckyJonnyBeerGlass
@@ -473,7 +473,7 @@
       sprite: ADT/Objects/Consumable/Drinks/luckyjonny.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkSecUnfilteredBeerGlass
@@ -490,7 +490,7 @@
       sprite: ADT/Objects/Consumable/Drinks/secbeer.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkGlyphidStoutBeerGlass
@@ -507,7 +507,7 @@
       sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlassBase
   id: ADTDrinkCocoaGlass
@@ -525,7 +525,7 @@
     - type: Sprite
       sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkOrangeTeaGlass
@@ -541,7 +541,7 @@
       sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkCherryTeaGlass
@@ -557,7 +557,7 @@
       sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
       state: icon
 
-      
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkWatermelonTeaGlass
@@ -572,3 +572,78 @@
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
       state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTTeqilaOldFashionGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTTeqilaOldFashion
+          Quantity: 30
+  - type: Icon
+    sprite: Corvax/Objects/Consumable/Drinks/oldFashioned.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTJackieWellesGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTJackieWelles
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTTheSilverhandGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTTheSilverhand
+          Quantity: 30
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/silverhand.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTCoffeeBonBonGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTCoffeeBonBon
+          Quantity: 30
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTBacchusBlessingGlass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTBacchusBlessing
+          Quantity: 30
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/bacchusblessing.rsi
+    state: icon
