@@ -1,0 +1,60 @@
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodDrugBase
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bitter
+  - type: Food
+    requiresSpecialDigestion: false
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/drug_food.rsi
+    state: crystal_full
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 28
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 28
+  - type: Tag
+    tags:
+    - ClothMade
+    - Meat
+
+- type: entity
+  name: кристалл дезоксиэфедрина
+  parent: FoodDrugBase
+  id: FoodMethCrystal
+  description: выглядят слишком сладко и желанно...
+  components:
+  - type: Sprite
+    color: "#ffffff"
+  - type: SliceableFood
+    slice: FoodMethCrystalShard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 28
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 28
+
+- type: entity
+  name: осколок кристалла дезоксиэфедрина
+  parent: FoodDrugBase
+  id: FoodMethCrystalShard
+  description: выглядят слишком сладко и желанно...
+  components:
+  - type: Food
+  - type: Sprite
+    color: "#ffffff"
+    state: crystal_shard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 7

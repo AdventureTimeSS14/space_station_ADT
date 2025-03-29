@@ -1,0 +1,19 @@
+- type: entity
+  id: CrackPipe
+  parent: BaseSmokingPipe
+  name: импровизированная трубка-вепорайзер
+  description: Как говорил классик:"Я рыба-ёж!!.. И пора порыбо-ёжить..."
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
+    state: unlit-icon
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
+  - type: Appearance
+  - type: BurnStateVisuals
+    unlitIcon: unlit-icon
