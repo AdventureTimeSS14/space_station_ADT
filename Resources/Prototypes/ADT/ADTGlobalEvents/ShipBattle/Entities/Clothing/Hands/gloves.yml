@@ -1,0 +1,48 @@
+#Base
+- type: entity
+  abstract: true
+  parent: ClothingHandsBase
+  id: ADTShipBattleClothingHandsBase
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ADTShipBattleClothingHandsBase
+  id: ADTShipBattleClothingHandsGlovesGunnerBlack
+  name: black gunner gloves
+  description: black gunner gloves
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Hands/Gloves/gunner_black.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Hands/Gloves/gunner_black.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+  - type: Insulated
+  - type: Armor #ADT Tweak
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ADTShipBattleClothingHandsBase
+  id: ADTShipBattleClothingHandsGlovesGunnerWhite
+  name: white gunner gloves
+  description: white gunner gloves
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Hands/Gloves/gunner_white.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Hands/Gloves/gunner_white.rsi
+  - type: Fiber
+    fiberColor: fibers-white
+  - type: Insulated
+  - type: Armor #ADT Tweak
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Heat: 0.95
