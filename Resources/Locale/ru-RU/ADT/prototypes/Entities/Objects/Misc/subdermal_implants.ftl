@@ -46,9 +46,9 @@ ent-DevTranslatorImplant = имплант языка разработчика
     .desc = Опять чинить апстрим?
     .suffix = АДМЕМЫ
 
-ent-IPCTranslatorImplant = Имплант IPC-транслятора
+ent-IPCTranslatorImplant = имплант IPC-транслятора
     .desc = IPC транслятор
     .suffix = IPC
-ent-VoxPidginTranslatorImplant = Имплантант-транслятор VoxCommon
+ent-VoxPidginTranslatorImplant = имплантант-транслятор VoxCommon
     .desc = VoxCommon транслятор
     .suffix = VoxCommon

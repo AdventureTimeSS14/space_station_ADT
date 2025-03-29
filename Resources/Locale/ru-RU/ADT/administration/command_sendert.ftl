@@ -54,8 +54,8 @@ ert-send-denial-announcer = Центральное командование
 # Hints
 send-ert-hint-type = Тип ОБР
 
-send-ert-hint-type-default = Стандартный отряд(Против ЯО)
-send-ert-hint-type-default-rev = Стандартный отряд(Против бунтов)
+send-ert-hint-type-default = Стандартный противовторженческий отряд
+send-ert-hint-type-default-rev = Стандартный отряд для разгона бунтовщиков
 send-ert-hint-type-security = Отряд СБ ОБР
 send-ert-hint-type-engineer = Отряд инженеров ОБР
 send-ert-hint-type-medical = Отряд медиков ОБР

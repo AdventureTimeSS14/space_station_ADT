@@ -2,7 +2,7 @@ ent-EscapeLingShuttleObjective = Доберитесь до Центкома жи
     .desc = Мы должны пройти через станцию Центрального Командования.
 
 absorb-dna-name = Украдите { $count } штаммов ДНК.
-absorb-dna-desc = Нам нужно украсть { $count } ДНК для дальнейшей эволюции. Сойдут и украденные жалом.
+absorb-dna-desc = Нам нужно украсть { $count } ДНК для дальнейшей эволюции. Скрытый сбор позволит выполнить эту задачу с максимальной эффективностью.
 
 ling-kill-desc = Мы должны убить их.
 objective-condition-steal-personality-title = Украдите личность { $targetName }, в должности { CAPITALIZE($job) }.

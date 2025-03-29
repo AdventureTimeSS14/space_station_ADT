@@ -8,17 +8,15 @@ namespace Content.Server.Objectives.Components;
 [RegisterComponent, Access(typeof(StealDnaConditionSystem))]
 public sealed partial class StealDnaConditionComponent : Component
 {
-    [DataField]
-    public int AbsorbDnaCount = 4;
+    public int AbsorbDnaCount;
 
-    [DataField]
-    public int MaxDnaCount = 13;
+    public int MaxDnaCount = 16;
+    public int MinDnaCount = 8;
 
-    [DataField]
-    public int MinDnaCount = 10;
 
     [DataField(required: true)]
     public LocId ObjectiveText;
+    
     [DataField(required: true)]
     public LocId DescriptionText;
 
