@@ -2,13 +2,13 @@
 # sofa-black
 
 - type: construction
-  name: sofa left side
+  name: "Чёрный диван, левая часть (sofa left side)"
   id: ADTSofaBlackLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablackleft
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
     state: sofa_left
@@ -19,13 +19,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: sofa middle
+  name: "Чёрный диван, середина (sofa middle)"
   id: ADTSofaBlackMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablackmiddle
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
     state: sofa_middle
@@ -36,13 +36,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: sofa right side
+  name: "Чёрный диван, правая часть (sofa right side)"
   id: ADTSofaBlackRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablackright
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
     state: sofa_right
@@ -55,13 +55,13 @@
 # sofa-red
 
 - type: construction
-  name: red sofa left side
+  name: "Красный диван, левая часть (red sofa left side)"
   id: ADTSofaRedLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofaredleft
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
     state: sofa_left
@@ -72,13 +72,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red sofa middle
+  name: "Красный диван, середина (red sofa middle)"
   id: ADTSofaRedMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofaredmiddle
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
     state: sofa_middle
@@ -89,13 +89,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red sofa right side
+  name: "Красный диван, правая часть (red sofa right side)"
   id: ADTSofaRedRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofaredright
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
     state: sofa_right
@@ -105,16 +105,16 @@
   conditions:
     - !type:TileNotBlocked
 
-# sofa-violet
+# sofa-violet  
 
 - type: construction
-  name: violet sofa left side
+  name: "Фиолетовый диван, левая часть (violet sofa left side)"
   id: ADTVioletSofaLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofavioletleft
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
     state: sofa_left
@@ -125,13 +125,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: violet sofa middle
+  name: "Фиолетовый диван, середина (violet sofa middle)"
   id: ADTSofaVioletMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofavioletmiddle
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
     state: sofa_middle
@@ -142,13 +142,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: violet sofa right side
+  name: "Фиолетовый диван, правая часть (violet sofa right side)"
   id: ADTSofaVioletRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofavioletright
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
     state: sofa_right
@@ -161,13 +161,13 @@
 # sofa-leather
 
 - type: construction
-  name: leather sofa left side
+  name: "Кожанный диван, левая часть (leather sofa left side)"
   id: ADTSofaLeatherLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofaleatherleft
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
     state: sofa_left
@@ -178,13 +178,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: leather sofa middle
+  name: "Кожанный диван, середина (leather sofa middle)"
   id: ADTSofaLeatherMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofaleathermiddle
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
     state: sofa_middle
@@ -195,13 +195,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: leather sofa right side
+  name: "Кожанный диван, правая часть (leather sofa right side)"
   id: ADTSofaLeatherRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofaleatherright
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
     state: sofa_right
@@ -214,13 +214,13 @@
 # sofa-white
 
 - type: construction
-  name: white sofa left side
+  name: "Белый диван, левая часть(white sofa left side)"
   id: ADTSofaWhiteLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofawhiteleft
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_left
@@ -231,13 +231,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa right side
+  name: "Белый диван, правая часть(white sofa right side)"
   id: ADTSofaWhiteRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofawhiteright
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_right
@@ -250,13 +250,13 @@
 # sofa-white
 
 - type: construction
-  name: white sofa left side
+  name: "Белый диван, левая часть (white sofa left side)"
   id: ADTSofaWhiteLeftSideRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtsofawhiteleft2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_left_02
@@ -267,13 +267,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa right side
+  name: "Белый диван, правая часть(white sofa right side)"
   id: ADTSofaWhiteRightSideRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtsofawhiteright2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_right_02
@@ -284,13 +284,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa middle
+  name: "Белый диван, середина (white sofa middle)"
   id: ADTSofaWhiteMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofawhitemiddle
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_middle
@@ -301,13 +301,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa left corner
+  name: "Белый диван, левый угол (white sofa left corner)"
   id: ADTSofaWhiteLeftCornerRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofawhiteleftcorner
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_leftcorner
@@ -318,13 +318,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa right corner
+  name: "Белый диван, правый угол (white sofa right corner)"
   id: ADTSofaWhiteRightCornerRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofawhiterightcorner
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
     state: whitesofa_rightcorner
@@ -337,13 +337,13 @@
 # sofa-blue
 
 - type: construction
-  name: blue sofa left side
+  name: "Синий диван, левая часть (blue sofa left side)"
   id: ADTSofaBlueLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablueleft
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_left
@@ -354,13 +354,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa right side
+  name: "Синий диван, правая часть (blue sofa right side)"
   id: ADTSofaBlueRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablueright
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_right
@@ -371,13 +371,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa left side
+  name: "Синиий диван, левая часть (blue sofa left side)"
   id: ADTSofaBlueLeftSideRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablueleft2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_left_02
@@ -388,13 +388,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa right side
+  name: "Синий диван, правая часть (blue sofa right side)"
   id: ADTSofaBlueRightSideRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablueright2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_right_02
@@ -405,13 +405,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa middle
+  name: "Синий диван, середина (blue sofa middle)"
   id: ADTSofaBlueMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabluemiddle
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_middle
@@ -422,13 +422,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa left corner
+  name: "Синий диван, левый угол (blue sofa left corner)"
   id: ADTSofaBlueLeftCornerRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofablueleftcorner
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_leftcorner
@@ -439,13 +439,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa right corner
+  name: "Синий диван, правый угол (blue sofa right corner)"
   id: ADTSofaBlueRightCornerRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabluerightcorner
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
     state: bluesofa_rightcorner
@@ -457,13 +457,13 @@
 
 # sofa-brown
 - type: construction
-  name: brown sofa left side
+  name: "Коричневый диван, левая часть (brown sofa left side)"
   id: ADTSofabrownLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabrownleft
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_left
@@ -474,13 +474,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa right side
+  name: "Коричневый диван, правая часть (brown sofa right side)"
   id: ADTSofabrownRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabrownright
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_right
@@ -491,13 +491,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa left side
+  name: "Коричневый диван, левая часть (brown sofa left side)"
   id: ADTSofabrownLeftSideRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabrownleft2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_left_02
@@ -508,13 +508,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa right side
+  name: "Коричневый диван, правая часть (brown sofa right side)"
   id: ADTSofabrownRightSideRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabrownright2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_right_02
@@ -525,13 +525,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa middle
+  name: "Коричневый диван, середина (brown sofa middle)"
   id: ADTSofabrownMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabrownmiddle
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_middle
@@ -542,13 +542,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa left corner
+  name: "Коричневый диван, левый угол (brown sofa left corner)"
   id: ADTSofabrownLeftCornerRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabrownleftcorner
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_leftcorner
@@ -559,13 +559,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa right corner
+  name: "Коричневый диван, правый угол (brown sofa right corner)"
   id: ADTSofabrownRightCornerRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtsofabrownrightcorner
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
     state: brownsofa_rightcorner
@@ -579,13 +579,13 @@
 # From Yuna
 
 - type: construction
-  name: violet chair
+  name: "Кресло, фиолетовое (violet chair)"
   id: ADTArmchairVioletRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairviolet
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
     state: violet_armchair
@@ -596,13 +596,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red chair
+  name: "Кресло, красное (red chair)"
   id: ADTArmchairRedRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairred
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
     state: red_armchair
@@ -613,13 +613,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: leather chair
+  name: "Кресло, кожанное (leather chair)"
   id: ADTArmchairLeatherRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairleather
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
     state: brown_armchair
@@ -632,13 +632,13 @@
 # From Luna
 
 - type: construction
-  name: black chair
+  name: "Кресло, чёрное (black chair)"
   id: ADTArmchairBlackRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairblack
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: black_armchair
@@ -649,13 +649,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white armchair
+  name: "Кресло, белое (white armchair)"
   id: ADTArmchairWhiteRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairwhite
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: white_armchair
@@ -666,13 +666,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white armchair
+  name: "Кресло, белое (white armchair)"
   id: ADTArmchairWhiteRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairwhite2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: white_armchair_02
@@ -683,7 +683,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown armchair
+  name: "Кресло, коричневое (brown armchair)"
   id: ADTArmchairBrownRecipe
   graph: ADTSeat
   startNode: start
@@ -700,13 +700,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown armchair
+  name: "Кресло, коричневое (brown armchair)"
   id: ADTArmchairBrownRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairbrown2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: brown_armchair_02
@@ -717,13 +717,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue armchair
+  name: "Кресло, синее (blue armchair)"
   id: ADTArmchairBlueRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairblue
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: blue_armchair
@@ -734,13 +734,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue armchair
+  name: "Кресло, синее(blue armchair)"
   id: ADTArmchairBlueRecipe2
   graph: ADTSeat
   startNode: start
   targetNode: adtarmchairblue2
   category: construction-category-furniture
-  description: It looks comfy.
+  description: "Выглядит комфортно.."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
     state: blue_armchair_02
@@ -753,13 +753,13 @@
 # Tables
 
 - type: construction
-  name: plastic round table
+  name: "Круглый, пластиковый стол (plastic round table)"
   id: ADTTableRoundPlasticRecipe
   graph: ADTTable
   startNode: start
   targetNode: adttableroundplastic
   category: construction-category-furniture
-  description: Lets fall in 2470.
+  description: "Давайте представим себя в 2470."
   icon:
     sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_plastic
@@ -770,13 +770,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: wood round table
+  name: "Круглый, деревянный стол (wood round table)"
   id: ADTTableRoundWoodRecipe
   graph: ADTTable
   startNode: start
   targetNode: adttableroundwood
   category: construction-category-furniture
-  description: Lets fall in 2470.
+  description: "Давайте представим себя в 2470."
   icon:
     sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_wood
@@ -787,13 +787,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: glass round table
+  name: "Круглый, стеклянный стол (glass round table)"
   id: ADTTableRoundGlassRecipe
   graph: ADTTable
   startNode: start
   targetNode: adttableroundglass
   category: construction-category-furniture
-  description: Lets fall in 2470.
+  description: "Давайте представим себя в 2470."
   icon:
     sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_glass
@@ -804,13 +804,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white wood table
+  name: "Деревянный стол, белый (white wood table)"
   id: ADTTableWhiteWoodRecipe
   graph: ADTTable
   startNode: start
   targetNode: adttablewhitewood
   category: construction-category-furniture
-  description: A square piece of glass, standing on four metal legs.
+  description: "Четыре ножки с белым покрытием."
   icon:
     sprite: ADT/Structures/Furniture/Tables/table_white_wood.rsi
     state: full
@@ -821,13 +821,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red wood table
+  name: "Деревянный стол, красный (red wood table)"
   id: ADTTableRedWoodRecipe
   graph: ADTTable
   startNode: start
   targetNode: adttableredwood
   category: construction-category-furniture
-  description: A square piece of glass, standing on four metal legs.
+  description: "Четыре ножки с красным покрытием."
   icon:
     sprite: ADT/Structures/Furniture/Tables/table_red_wood.rsi
     state: full
@@ -840,13 +840,13 @@
 # Chairs
 
 - type: construction
-  name: pizza chair
+  name: "Стул для пиццерии (pizza chair)"
   id: ADTChairPizzeriaRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtchairpizzeria
   category: construction-category-furniture
-  description: You can sit on this.
+  description: "Отлично подойдёт для кафе."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: pizza_chair
@@ -857,13 +857,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white chair
+  name: "Стул, белый (white chair)"
   id: ADTChairWhiteRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtchairwhite
   category: construction-category-furniture
-  description: You can sit on this.
+  description: "Вау.. Это же стул."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: white_chair
@@ -874,13 +874,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red chair
+  name: "Стул, красный (red chair)"
   id: ADTChairRedRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtchairred
   category: construction-category-furniture
-  description: You can sit on this.
+  description: "Вау.. Это же стул."
   icon:
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: red_chair
@@ -893,13 +893,13 @@
 # Benchs
 
 - type: construction
-  name: church bench left side
+  name: "Церковная скамейка, левая часть (church bench left side)"
   id: ADTBenchChurchLeftSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtbenchchurchleft
   category: construction-category-furniture
-  description: Simple, but beautiful.
+  description: "Простая, но красивая"
   icon:
     sprite: ADT/Structures/Furniture/bench_church.rsi
     state: bench_left
@@ -910,13 +910,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: church bench middle
+  name: "Церковная скамейка, середина(church bench middle)"
   id: ADTBenchChurchMiddleRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtbenchchurchmiddle
   category: construction-category-furniture
-  description: Simple, but beautiful.
+  description: "Простая, но красивая"
   icon:
     sprite: ADT/Structures/Furniture/bench_church.rsi
     state: bench_middle
@@ -927,13 +927,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: church bench right side
+  name: "Церковная скамейка, правая часть (church bench right side)"
   id: ADTBenchChurchRightSideRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtbenchchurchright
   category: construction-category-furniture
-  description: Simple, but beautiful.
+  description: "Простая, но красивая"
   icon:
     sprite: ADT/Structures/Furniture/bench_church.rsi
     state: bench_right
@@ -946,13 +946,13 @@
 # OctoberFest
 
 - type: construction
-  name: oktoberfest chair
+  name: "Стул октоберфеста (oktoberfest chair)"
   id: ADTChairOktoberfestRecipe
   graph: ADTSeat
   startNode: start
   targetNode: adtchairoktoberfest
   category: construction-category-furniture
-  description: You can sit on this.
+  description: "Октоберфест уже давно прошёл, но мы дождёмся нового!"
   icon:
     sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
     state: oct_chair_orange
@@ -963,13 +963,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: oktoberfest table
+  name: "Стол октоберфеста (oktoberfest table)"
   id: ADTTableOktoberfestRecipe
   graph: ADTTable
   startNode: start
   targetNode: adttableoktoberfest
   category: construction-category-furniture
-  description: Do not apply fire to this. Rumour says it burns easily.
+  description: "Октоберфест уже давно прошёл, но мы дождёмся нового!"
   icon:
     sprite: ADT/Structures/Furniture/Tables/oktoberfest_table.rsi
     state: full
@@ -980,13 +980,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: oktoberfest orange table
+  name: "Стол октоберфеста, оранжевый (oktoberfest orange table)"
   id: ADTTableOktoberfestOrangeRecipe
   graph: ADTTable
   startNode: start
   targetNode: adttableoktoberfestorange
   category: construction-category-furniture
-  description: Do not apply fire to this. Rumour says it burns easily.
+  description: "Октоберфест уже давно прошёл, но мы дождёмся нового!"
   icon:
     sprite: ADT/Structures/Furniture/Tables/oktoberfest_table_orange.rsi
     state: full
@@ -999,13 +999,13 @@
 # Other
 
 - type: construction
-  name: fireplace
+  name: "Камин (fireplace)"
   id: ADTFireplaceRecipe
   graph: ADTFireplace
   startNode: start
   targetNode: fireplace
   category: construction-category-furniture
-  description: A place that has fire. Cozy!
+  description: "Уютненькое место у огонька, классно!"
   icon:
     sprite: Structures/Decoration/fireplace.rsi
     state: fireplace
@@ -1016,9 +1016,9 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: deckchair
+  name: "Шезлонг (deckchair)"
   id: ADTDeckChairRecipe
-  description: A deckchair for the acquisition of an even tan under the light of the nearest star.
+  description: "Шезлонг для приобретения ровного загара под светом ближайшей звезды."
   graph: adt_deckchair
   startNode: start
   targetNode: adtdeckchair
@@ -1034,8 +1034,8 @@
 
 - type: construction
   id: ADTBonfireRecipe
-  name: bonfire
-  description: Just dont freeze.
+  name: "Костёр (bonfire)"
+  description: "Просто не замёрзни."
   graph: ADTBonfire
   startNode: start
   targetNode: bonfire
@@ -1050,13 +1050,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: disco ball
+  name: "Диско-шар (disco ball)"
   id: ADTDiscoBallRecipe
   graph: ADTDiscoBallGraph
   startNode: start
   targetNode: adtdiscoball
   category: construction-category-furniture
-  description: Lets fall in 2470.
+  description: "Давайте представим себя в 2470."
   icon:
     sprite: ADT/Structures/Decoration/discoball.rsi
     state: discoball

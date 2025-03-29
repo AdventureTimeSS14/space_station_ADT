@@ -1,11 +1,11 @@
 - type: construction
-  name: disco floor
+  name: "Плитка, диско (disco floor)"
   id: ADTDiscoFloor
   graph: ADTDiscoFloor
   startNode: start
   targetNode: discoSquare
   category: construction-category-tiles
-  description: Construct multi-colored flooring to light up the dance floor.
+  description: "Это время диско!"
   icon:
     sprite: ADT/Structures/Floor/disco_floor.rsi
     state: off
@@ -16,13 +16,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: wall light shuttle
+  name: "Фара шаттла (wall light shuttle)"
   id: shuttle
   graph: ADTLightFixtureShuttle
   startNode: start
   targetNode: shuttle
   category: construction-category-structures
-  description: A wall light a shuttle fixture. Use light tubes.
+  description: "Используется на шаттлах для лучшей видимости в безкрайней темноте космоса."
   icon:
     sprite: ADT/Structures/Wallmounts/Lighting/shuttle_light.rsi
     state: empty

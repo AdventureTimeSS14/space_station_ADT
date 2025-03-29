@@ -1474,3 +1474,93 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
 
 # USSP USSP USSP USSP USSP USSP USSP USSP USSP END
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformsJumpsuitWhiteHoodie
+  name: whitehudac
+  description: whitehoodie
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/whitehoodie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/whitehoodie.rsi
+  - type: Construction
+    graph: ADTHoodieSewing
+    node: HoodieReady
+
+- type: entity
+  name: incomplete hoodie zagotovka
+  parent: BaseItem
+  id: IncompleteHoodie
+  description: that crazy, dude
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/whitehoodie.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTHoodieSewing
+    node: Hoodie
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformsJumpsuitDarkShirt
+  name: darkshirt
+  description: shirr
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/darkshirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/darkshirt.rsi
+  - type: Construction
+    graph: ADTShirtSewing
+    node: ShirtReady
+
+- type: entity
+  name: incomplete shirt zagotovka
+  parent: BaseItem
+  id: IncompleteShirt
+  description: that crazy, dude
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/darkshirt.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTShirtSewing
+    node: Shirt
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformsJumpsuitGreenSweater
+  name: GreenSweater
+  description: GreenSweater
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/greensweater.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/greensweater.rsi
+  - type: Construction
+    graph: ADTSweaterSewing
+    node: SweaterReady
+
+- type: entity
+  name: incomplete Sweater zagotovka
+  parent: BaseItem
+  id: IncompleteSweater
+  description: that crazy, dude
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/greensweater.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTSweaterSewing
+    node: Sweater

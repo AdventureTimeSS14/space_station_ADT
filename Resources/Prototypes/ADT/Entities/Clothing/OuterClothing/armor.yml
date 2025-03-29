@@ -401,3 +401,43 @@
       damageCoefficient: 0.7
 
 # USSP USSP
+
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTSewingSelfmadearmorkit
+  name: Armor kit
+  description: damn
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/sewing/selfmadearmor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/sewing/selfmadearmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Construction
+    graph: ADTArmorKitSewing
+    node: ArmorKitReady
+
+
+- type: entity
+  name: incomplete armor zagotovka
+  parent: BaseItem
+  id: IncompleteArmorKit
+  description: that crazy, dude
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/sewing/selfmadearmor.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTArmorKitSewing
+    node: ArmorKit

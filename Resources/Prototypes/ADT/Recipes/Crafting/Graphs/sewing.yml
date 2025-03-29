@@ -1,0 +1,275 @@
+- type: constructionGraph
+  id: ADTCrazyScientistSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: CrazyScientist
+        steps:
+          - material: Cloth
+            amount: 2
+          - tag: ADTSewingThread
+            name: "Нить"
+            icon:
+              sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+              state: icon
+            doAfter: 1
+
+    - node: CrazyScientist
+      entity: IncompleteCrazyScientist
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: ADTSewingScissors
+              doAfter: 4
+        - to: CrazyScientistReady
+          steps:
+            - tool: ADTSewing
+              doAfter: 8
+
+    - node: CrazyScientistReady
+      entity: ADTClothingOuterCoatCrazyScientist
+
+
+
+
+
+- type: constructionGraph
+  id: ADTArmorKitSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: ArmorKit
+        steps:
+          - material: Cloth
+            amount: 10
+          - material: Steel
+            amount: 6
+          - tag: ADTSewingThread
+            name: "Нить"
+            icon:
+              sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+              state: icon
+            doAfter: 5
+
+    - node: ArmorKit
+      entity: IncompleteArmorKit
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 10
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 6
+            - !type:DeleteEntity {}
+          steps:
+            - tool: ADTSewingScissors
+              doAfter: 5
+        - to: ArmorKitReady
+          steps:
+            - tool: ADTSewing
+              doAfter: 8
+
+    - node: ArmorKitReady
+      entity: ADTSewingSelfmadearmorkit
+
+
+
+- type: constructionGraph
+  id: ADTSatchelSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: BigSatchel
+        steps:
+          - material: Cloth
+            amount: 15
+          - tag: ADTSewingThread
+            name: "Нить"
+            icon:
+              sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+              state: icon
+            doAfter: 5
+
+    - node: BigSatchel
+      entity: IncompleteSatchel
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 15
+            - !type:DeleteEntity {}
+          steps:
+            - tool: ADTSewingScissors
+              doAfter: 5
+        - to: BigSatchelReady
+          steps:
+            - tool: ADTSewing
+              doAfter: 9
+
+    - node: BigSatchelReady
+      entity: ClothingBackpackSatchelSewingPockets
+
+
+- type: constructionGraph
+  id: ADTHoodieSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: Hoodie
+        steps:
+          - material: Cloth
+            amount: 15
+          - tag: ADTSewingThread
+            name: "Нить"
+            icon:
+              sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+              state: icon
+            doAfter: 5
+
+    - node: Hoodie
+      entity: IncompleteHoodie
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 15
+            - !type:DeleteEntity {}
+          steps:
+            - tool: ADTSewingScissors
+              doAfter: 5
+        - to: HoodieReady
+          steps:
+            - tool: ADTSewing
+              doAfter: 9
+
+    - node: HoodieReady
+      entity: ADTClothingUniformsJumpsuitWhiteHoodie
+
+
+- type: constructionGraph
+  id: ADTShirtSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: Shirt
+        steps:
+          - material: Cloth
+            amount: 15
+          - tag: ADTSewingThread
+            name: "Нить"
+            icon:
+              sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+              state: icon
+            doAfter: 5
+
+    - node: Shirt
+      entity: IncompleteShirt
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 15
+            - !type:DeleteEntity {}
+          steps:
+            - tool: ADTSewingScissors
+              doAfter: 5
+        - to: ShirtReady
+          steps:
+            - tool: ADTSewing
+              doAfter: 9
+
+    - node: ShirtReady
+      entity: ADTClothingUniformsJumpsuitWhiteHoodie
+
+
+- type: constructionGraph
+  id: ADTSweaterSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: Sweater
+        steps:
+          - material: Cloth
+            amount: 15
+          - tag: ADTSewingThread
+            name: "Нить"
+            icon:
+              sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+              state: icon
+            doAfter: 5
+
+    - node: Sweater
+      entity: IncompleteSweater
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 15
+            - !type:DeleteEntity {}
+          steps:
+            - tool: ADTSewingScissors
+              doAfter: 5
+        - to: SweaterReady
+          steps:
+            - tool: ADTSewing
+              doAfter: 9
+
+    - node: SweaterReady
+      entity: ADTClothingUniformsJumpsuitGreenSweater
+
+- type: constructionGraph
+  id: ADTBedsheetSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: Bedsheet
+        steps:
+          - material: Cloth
+            amount: 15
+          - tag: ADTSewingThread
+            name: "Нить"
+            icon:
+              sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+              state: icon
+            doAfter: 5
+
+    - node: Bedsheet
+      entity: IncompleteBedsheet
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 15
+            - !type:DeleteEntity {}
+          steps:
+            - tool: ADTSewingScissors
+              doAfter: 5
+        - to: BedsheetReady
+          steps:
+            - tool: ADTSewing
+              doAfter: 9
+
+    - node: BedsheetReady
+      entity: BedsheetWhite
+
+
+

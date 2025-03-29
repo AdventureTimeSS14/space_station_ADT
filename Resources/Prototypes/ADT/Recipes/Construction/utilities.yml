@@ -1,8 +1,8 @@
 # FAN
 - type: construction
-  name: little fan
+  name: "Вентилятор, маленький (little fan)"
   id: ADTLitleFan
-  description: Fan to hold the air in and space outside.
+  description: "Довольно полезная вещь для каждого атмоса"
   graph: ADTFan
   startNode: start
   targetNode: litleFan
@@ -14,9 +14,9 @@
     state: icon
 
 - type: construction
-  name: little directional fan
+  name: "Вентилятор, направленный (little directional fan)"
   id: ADTLitleDirectionalFan
-  description: Fan to hold the air in and space outside.
+  description: "Довольно полезная вещь для каждого атмоса"
   graph: ADTFan
   startNode: start
   targetNode: directionalFan

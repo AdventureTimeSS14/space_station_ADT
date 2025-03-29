@@ -549,3 +549,12 @@
 
 - type: Tag
   id: ADTBsoWeapon
+
+- type: Tag
+  id: ADTSewingNeedle
+
+- type: Tag
+  id: ADTSewingThread
+
+- type: Tag
+  id: ADTSewingScissors

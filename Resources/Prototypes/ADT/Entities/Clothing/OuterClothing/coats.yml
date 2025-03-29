@@ -337,3 +337,44 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLeathOvercoat]
   id: ADTClothingOuterCoatLeathOvercoatOpened
   name: OvercoatOpenned
+
+
+
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ADTClothingOuterCoatCrazyScientist
+  name: CrazyDiamond!!!
+  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/HookiunKiemacoat.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/HookiunKiemacoat.rsi
+  - type: Construction
+    graph: ADTCrazyScientistSewing
+    node: CrazyScientistReady
+  - type: Pda
+    penSlot:
+      startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  name: incomplete Crazy zagotovka
+  parent: BaseItem
+  id: IncompleteCrazyScientist
+  description: that crazy, dude
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/HookiunKiemacoat.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTCrazyScientistSewing
+    node: CrazyScientist
+

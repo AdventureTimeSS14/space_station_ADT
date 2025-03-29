@@ -1,12 +1,12 @@
 # SURVEILLANCE
 - type: construction
-  name: camera
+  name: "Камера (camera)"
   id: camera
   graph: SurveillanceCamera
   startNode: start
   targetNode: camera
   category: construction-category-utilities
-  description: "Surveillance camera. It's watching. Soon."
+  description: "Большой брат следит за тобой. Наверное.."
   icon:
     sprite: Structures/Wallmounts/camera.rsi
     state: camera
@@ -14,13 +14,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: telescreen
+  name: "Телеэкран (telescreen)" ##ADT Tweak
   id: WallmountTelescreen
   graph: WallmountTelescreen
   startNode: start
   targetNode: Telescreen
   category: construction-category-utilities
-  description: "A surveillance camera monitor for the wall."
+  description: "Телевизор и экран в одном флаконе.."
   icon:
     sprite: Structures/Machines/computers.rsi
     state: telescreen_frame
@@ -29,13 +29,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: station map
+  name: "Станционная карта (station map)"
   id: StationMap
   graph: StationMap
   startNode: start
   targetNode: station_map
   category: construction-category-structures
-  description: A station map.
+  description: "Карта вашей станции."
   icon:
     sprite: Structures/Machines/station_map.rsi
     state: station_map0
@@ -48,13 +48,13 @@
 
 # POWER
 - type: construction
-  name: APC
+  name: "ЛКП (APC)"
   id: APC
   graph: APC
   startNode: start
   targetNode: apc
   category: construction-category-utilities
-  description: "Area Power Controller (APC). Controls power. In an area."
+  description: "Обычный терминал, ничего нового и удивительного"
   icon:
     sprite: Structures/Power/apc.rsi
     state: base
@@ -63,13 +63,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: cable terminal
+  name: "Кабельный терминал (cable terminal)"
   id: CableTerminal
   graph: CableTerminal
   startNode: start
   targetNode: cable_terminal
   category: construction-category-utilities
-  description: "Input of devices such as the SMES. The red cables needs to face the device."
+  description: "Важная вещь при постройке СМЕСов."
   icon:
     sprite: Structures/Power/cable_terminal.rsi
     state: term
@@ -78,13 +78,13 @@
   canBuildInImpassable: false
 
 - type: construction
-  name: wallmount substation
+  name: "Настенная подстанция (wallmount substation)"
   id: WallmountSubstation
   graph: WallmountSubstation
   startNode: start
   targetNode: substation
   category: construction-category-utilities
-  description: "A wallmount substation for compact spaces. Make sure to place cable underneath before building the wall."
+  description: "Не забудьте проложить кабель под стенку для правильной работы"
   icon:
     sprite: Structures/Power/substation.rsi
     state: substation_wall
@@ -93,13 +93,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: wallmount generator
+  name: "Настенный генератор (wallmount generator)"
   id: WallmountGenerator
   graph: WallmountGenerator
   startNode: start
   targetNode: generator
   category: construction-category-utilities
-  description: "A wallmount generator for compact spaces. Make sure to place cable underneath before building the wall."
+  description: "Не забудьте проложить кабель под стенку для правильной работы"
   icon:
     sprite: Structures/Power/Generation/wallmount_generator.rsi
     state: panel
@@ -108,13 +108,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: wallmount APU
+  name: "Настенный ВСУ (wallmount APU)"
   id: WallmountGeneratorAPU
   graph: WallmountGenerator
   startNode: start
   targetNode: APU
   category: construction-category-utilities
-  description: "A wallmount APU for compact shuttles. Make sure to place cable underneath before building the wall."
+  description: "Вспомогательная Силовая Установка."
   icon:
     sprite: Structures/Power/Generation/wallmount_generator.rsi
     state: panel
@@ -124,8 +124,8 @@
 
 # DISPOSALS
 - type: construction
-  name: disposal unit
-  description: A pneumatic waste disposal unit.
+  name: "Утилизационный блок (disposal unit)"
+  description: "Простыми словами - мусорка."
   id: DisposalUnit
   graph: DisposalMachine
   startNode: start
@@ -138,8 +138,8 @@
     state: "disposal"
 
 - type: construction
-  name: mailing unit
-  description: A pneumatic mail delivery unit.
+  name: "Почтовый блок (mailing unit)"
+  description: "Вы вновь перепутали почтовый и утилизационный блок, не так ли?"
   id: MailingUnit
   graph: DisposalMachine
   startNode: start
@@ -152,9 +152,9 @@
     state: "mailing"
 
 - type: construction
-  name: disposal pipe
+  name: "Утилизационная труба (disposal pipe)"
   id: DisposalPipe
-  description: A huge pipe segment used for constructing disposal systems.
+  description: "Большая труба для мусора. Вверх инженерной мысли."
   graph: DisposalPipe
   startNode: start
   targetNode: pipe
@@ -166,8 +166,8 @@
     state: conpipe-s
 
 - type: construction
-  name: disposal tagger
-  description: A pipe that tags entities for routing.
+  name: "Утилизационная разметка (disposal tagger)"
+  description: "Ого.."
   id: DisposalTagger
   graph: DisposalPipe
   startNode: start
@@ -180,8 +180,8 @@
     state: conpipe-tagger
 
 - type: construction
-  name: disposal trunk
-  description: A pipe trunk used as an entry point for disposal systems.
+  name: "Утилизационный ствол трубы (disposal trunk)"
+  description: "Это продолжение системы утилизационных труб."
   id: DisposalTrunk
   graph: DisposalPipe
   startNode: start
@@ -194,8 +194,8 @@
     state: conpipe-t
 
 - type: construction
-  name: disposal router
-  description: A three-way router. Entities with matching tags get routed to the side.
+  name: "Утилизационный маршрутизатор (disposal router)"
+  description: "Ужас. Вы этим пользовались?"
   id: DisposalRouter
   graph: DisposalPipe
   startNode: start
@@ -210,8 +210,8 @@
 
 - type: construction
   hide: true
-  name: disposal router
-  description: A three-way router. Entities with matching tags get routed to the side.
+  name: "Утилизационный маршрутизатор (disposal router)"
+  description: "Ужас. Вы этим пользовались?"
   id: DisposalRouterFlipped
   graph: DisposalPipe
   startNode: start
@@ -225,8 +225,8 @@
   mirror: DisposalRouter
 
 - type: construction
-  name: disposal signal router
-  description: A signal-controlled three-way router.
+  name: "Утилизационный сигнальный маршрутизатор (disposal router)"
+  description: "Ужас. Вы этим пользовались?"
   id: DisposalSignalRouter
   graph: DisposalPipe
   startNode: start
@@ -241,8 +241,8 @@
 
 - type: construction
   hide: true
-  name: disposal signal router
-  description: A signal-controlled three-way router.
+  name: "Утилизационный сигнальный маршрутизатор (disposal router)"
+  description: "Ужас. Вы этим пользовались?"
   id: DisposalSignalRouterFlipped
   graph: DisposalPipe
   startNode: start
@@ -256,8 +256,8 @@
   mirror: DisposalSignalRouter
 
 - type: construction
-  name: disposal junction
-  description: A three-way junction. The arrow indicates where items exit.
+  name: "Утилизационная труба, развязка (disposal junction)"
+  description: "Стрелочка указывает куда предметы полетят дальше"
   id: DisposalJunction
   graph: DisposalPipe
   startNode: start
@@ -272,8 +272,8 @@
 
 - type: construction
   hide: true
-  name: disposal junction
-  description: A three-way junction. The arrow indicates where items exit.
+  name: "Утилизационная труба, развязка (disposal junction)"
+  description: "Стрелочка указывает куда предметы полетят дальше"
   id: DisposalJunctionFlipped
   graph: DisposalPipe
   startNode: start
@@ -287,8 +287,8 @@
   mirror: DisposalJunction
 
 - type: construction
-  name: disposal Y junction
-  description: A three-way junction with another exit point.
+  name: "Утилизационная труба, развязка (disposal Y junction)"
+  description: "Стрелочка указывает куда предметы полетят дальше"
   id: DisposalYJunction
   graph: DisposalPipe
   startNode: start
@@ -301,8 +301,8 @@
     state: conpipe-y
 
 - type: construction
-  name: disposal bend
-  description: A tube bent at a 90 degree angle.
+  name: "Утилизационная труба, поворот (disposal bend)"
+  description: "Повёрнутая труба, чего сказать"
   id: DisposalBend
   graph: DisposalPipe
   startNode: start
@@ -316,13 +316,13 @@
 
 # ATMOS
 - type: construction
-  name: air alarm
+  name: "Воздушная сигнализация (air alarm)"
   id: AirAlarmFixture
   graph: AirAlarm
   startNode: start
   targetNode: air_alarm
   category: construction-category-structures
-  description: An air alarm. Alarms... air?
+  description: "Внимание!! Воздух!!"
   icon:
     sprite: Structures/Wallmounts/air_monitors.rsi
     state: alarm0
@@ -334,13 +334,13 @@
   - !type:WallmountCondition {}
 
 - type: construction
-  name: fire alarm
+  name: "Пожарная сигнализация (fire alarm)"
   id: FireAlarm
   graph: FireAlarm
   startNode: start
   targetNode: fire_alarm
   category: construction-category-structures
-  description: A fire alarm. Spicy!
+  description: "Огненная вещь."
   icon:
     sprite: Structures/Wallmounts/air_monitors.rsi
     state: fire0
@@ -352,13 +352,13 @@
   - !type:WallmountCondition {}
 
 - type: construction
-  name: air sensor
+  name: "Воздушный сенсор (air sensor)"
   id: AirSensor
   graph: AirSensor
   startNode: start
   targetNode: sensor
   category: construction-category-structures
-  description: An air sensor. Senses air.
+  description: "Это он нюхает ваш воздух."
   icon:
     sprite: Structures/Specific/Atmospherics/sensor.rsi
     state: gsensor1
@@ -367,13 +367,13 @@
   canRotate: true
 
 - type: construction
-  name: gas pipe sensor
+  name: "Газовая труба, датчик (gas pipe sensor)"
   id: GasPipeSensor
   graph: GasPipeSensor
   startNode: start
   targetNode: sensor
   category: construction-category-structures
-  description: Reports on the status of the gas within the attached pipe network. 
+  description: "Передаёт информацию о газах в трубе."
   icon:
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
     state: icon
@@ -383,9 +383,9 @@
 
 # ATMOS PIPES
 - type: construction
-  name: gas pipe half
+  name: "Газовая труба, половинка (gas pipe half)"
   id: GasPipeHalf
-  description: Half of a gas pipe. No skateboards.
+  description: "А кто вторую откусил то.."
   graph: GasPipe
   startNode: start
   targetNode: half
@@ -397,9 +397,9 @@
     state: pipeHalf
 
 - type: construction
-  name: gas pipe straight
+  name: "Газовая труба, прямая (gas pipe straight)"
   id: GasPipeStraight
-  description: A straight pipe segment.
+  description: "Прямая и длинная труба. Отличный выбор для переноса газов"
   graph: GasPipe
   startNode: start
   targetNode: straight
@@ -411,9 +411,9 @@
     state: pipeStraight
 
 - type: construction
-  name: gas pipe bend
+  name: "Газовая труба, поворот (gas pipe bend)"
   id: GasPipeBend
-  description: A pipe segment bent at a 90 degree angle.
+  description: "Повёрнутая какая-то труба у нас."
   graph: GasPipe
   startNode: start
   targetNode: bend
@@ -425,9 +425,9 @@
     state: pipeBend
 
 - type: construction
-  name: gas pipe T junction
+  name: "Газовая труба, Т-Сегмент (gas pipe T junction)"
   id: GasPipeTJunction
-  description: A pipe segment with a T junction.
+  description: "Трубы-трубы.."
   graph: GasPipe
   startNode: start
   targetNode: tjunction
@@ -439,9 +439,9 @@
     state: pipeTJunction
 
 - type: construction
-  name: gas pipe fourway
+  name: "Газовая труба, четырёхсторонняя(gas pipe fourway)"
   id: GasPipeFourway
-  description: A pipe segment with a fourway junction.
+  description: "Слишком много дыр в одной трубе, вы так не считаете?"
   graph: GasPipe
   startNode: start
   targetNode: fourway
@@ -454,8 +454,8 @@
 
 # ATMOS UNARY
 - type: construction
-  name: air vent
-  description: Pumps gas into the room.
+  name: "Вентиляция (air vent)"
+  description: "Нужна для запуска газов в комнату"
   id: GasVentPump
   graph: GasUnary
   startNode: start
@@ -475,8 +475,8 @@
     - !type:NoUnstackableInTile
 
 - type: construction
-  name: passive vent
-  description: Unpowered vent that equalises gases on both sides.
+  name: "Пассивная вентиляция (passive vent)"
+  description: "Это ленивая вентиляция.."
   id: GasPassiveVent
   graph: GasUnary
   startNode: start
@@ -496,8 +496,8 @@
     - !type:NoUnstackableInTile
 
 - type: construction
-  name: air scrubber
-  description: Sucks gas into connected pipes.
+  name: "Скруббер (air scrubber)"
+  description: "Всасывает газы в трубу, в которую подключён"
   id: GasVentScrubber
   graph: GasUnary
   startNode: start
@@ -517,8 +517,8 @@
     - !type:NoUnstackableInTile
 
 - type: construction
-  name: air injector
-  description: Injects air into the atmosphere.
+  name: "Инжектор (air injector)"
+  description: "Он же форсунка."
   id: GasOutletInjector
   graph: GasUnary
   startNode: start
@@ -539,9 +539,9 @@
 
 # ATMOS BINARY
 - type: construction
-  name: gas pump
+  name: "Насос (gas pump)"
   id: GasPressurePump
-  description: A pump that moves gas by pressure.
+  description: "Перемещает газ в трубах при помощи давления."
   graph: GasBinary
   startNode: start
   targetNode: pressurepump
@@ -560,8 +560,8 @@
     - !type:NoUnstackableInTile
 
 - type: construction
-  name: volumetric gas pump
-  description: A pump that moves gas by volume.
+  name: "Обьёмный газовый насос (volumetric gas pump)"
+  description: "Перемещает газ с определённым обьёмом."
   id: GasVolumePump
   graph: GasBinary
   startNode: start
@@ -582,8 +582,8 @@
 
 - type: construction
   id: GasPassiveGate
-  name: passive gate
-  description: A one-way air valve that does not require power.
+  name: "Односторонний клапан (passive gate)"
+  description: "Запускает газ в одну сторону, и работает даже без электричества!"
   graph: GasBinary
   startNode: start
   targetNode: passivegate
@@ -603,8 +603,8 @@
 
 - type: construction
   id: GasValve
-  name: manual valve
-  description: A pipe with a valve that can be used to disable the flow of gas through it.
+  name: "Ручной клапан (manual valve)"
+  description: "Вариант если вы не боитесь ручной работы в буквальном смысле"
   graph: GasBinary
   startNode: start
   targetNode: valve
@@ -624,8 +624,8 @@
 
 - type: construction
   id: SignalControlledValve
-  name: signal valve
-  description: Valve controlled by signal inputs.
+  name: "Сигнальный клапан (signal valve)"
+  description: "Клапан, управляемый сигналами."
   graph: GasBinary
   startNode: start
   targetNode: signalvalve
@@ -645,8 +645,8 @@
 
 - type: construction
   id: GasPort
-  name: connector port
-  description: For connecting portable devices related to atmospherics control.
+  name: "Соединительный порт (connector port)"
+  description: "То, чем вы заталкиваете газ из канистры в трубу, или наоборот"
   graph: GasBinary
   startNode: start
   targetNode: port
@@ -666,8 +666,8 @@
 
 - type: construction
   id: GasDualPortVentPump
-  name: dual-port air vent
-  description: Has a valve and a pump attached to it. There are two ports, one is an input for releasing air, the other is an output when siphoning.
+  name: "Двухпортовая вентиляция (dual-port air vent)"
+  description: "Одна сторона закачивает, вторая откачивает, сложно.."
   graph: GasBinary
   startNode: start
   targetNode: dualportventpump
@@ -685,8 +685,8 @@
 
 - type: construction
   id: HeatExchanger
-  name: radiator
-  description: Transfers heat between the pipe and its surroundings.
+  name: "Радиатор (radiator)"
+  description: "Передаёт тепло из трубы в окружение"
   graph: GasBinary
   startNode: start
   targetNode: radiator
@@ -699,8 +699,8 @@
 
 - type: construction
   id: HeatExchangerBend
-  name: radiator bend
-  description: Transfers heat between the pipe and its surroundings.
+  name: "Радиатор, угловой(radiator bend)"
+  description: "Передаёт тепло из трубы в окружение"
   graph: GasBinary
   startNode: start
   targetNode: bendradiator
@@ -714,8 +714,8 @@
 # ATMOS TRINARY
 - type: construction
   id: GasFilter
-  name: gas filter
-  description: Very useful for filtering gases.
+  name: "Фильтр газов (gas filter)"
+  description: "Фильтрует газы, что ещё может делать предмет с таким названием?"
   graph: GasTrinary
   startNode: start
   targetNode: filter
@@ -749,8 +749,8 @@
 
 - type: construction
   id: GasMixer
-  name: gas mixer
-  description: Very useful for mixing gases.
+  name: "Газовый смеситель (gas mixer)"
+  description: "Совмещай газы друг с другом, но ни в коем случае не взрывай атмосию!"
   graph: GasTrinary
   startNode: start
   targetNode: mixer
@@ -784,8 +784,8 @@
 
 - type: construction
   id: PressureControlledValve
-  name: pneumatic valve
-  description: A bidirectional valve controlled by pressure. Opens if the output pipe is lower than the pressure of the control pipe by 101.325 kPa.
+  name: "Пневматический клапан (pneumatic valve)"
+  description: "Какие умные слова.."
   graph: GasTrinary
   startNode: start
   targetNode: pneumaticvalve
@@ -800,13 +800,13 @@
 
 # INTERCOM
 - type: construction
-  name: intercom
+  name: "Интерком (intercom)"
   id: IntercomAssembly
   graph: Intercom
   startNode: start
   targetNode: intercom
   category: construction-category-structures
-  description: An intercom. For when the station just needs to know something.
+  description: "Кричите в интерком. Он всё равно не работает. Или работает.."
   icon:
     sprite: Structures/Wallmounts/intercom.rsi
     state: base
@@ -819,13 +819,13 @@
 
 # TIMERS
 - type: construction
-  name: signal timer
+  name: "Таймер сигнала (signal timer)"
   id: SignalTimer
   graph: Timer
   startNode: start
   targetNode: signal
   category: construction-category-utilities
-  description: "A wallmounted timer for sending timed signals to things."
+  description: "Небольшой настенный дисплей с таймером, для передачи сигнала другой электронике"
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -836,13 +836,13 @@
   - !type:WallmountCondition
 
 - type: construction
-  name: screen timer
+  name: "Экран (screen timer)"
   id: ScreenTimer
   graph: Timer
   startNode: start
   targetNode: screen
   category: construction-category-utilities
-  description: "A wallmounted timer for sending timed signals to things. This one has a screen for displaying text."
+  description: "Настенный экран, который может отображать и текст, и время. Вот это технологии.."
   icon:
     sprite: Structures/Wallmounts/signalscreen.rsi
     state: signalscreen
@@ -854,13 +854,13 @@
   - !type:WallmountCondition
 
 - type: construction
-  name: brig timer
+  name: "Таймер брига (brig timer)"
   id: BrigTimer
   graph: Timer
   startNode: start
   targetNode: brig
   category: construction-category-utilities
-  description: "A wallmounted timer for sending timed signals to things. This one has a screen for displaying text and requires security access to use."
+  description: "Секундомер до вашего освобождения."
   icon:
     sprite: Structures/Wallmounts/signalscreen.rsi
     state: signalscreen

@@ -46,3 +46,35 @@
   - type: StorageFill
     contents:
       - id: JawsOfLife
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelSewingPockets
+  name: TrueSew
+  description: Satchelwithtrueextrapockets
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/satchel.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,5
+    - 3,0,6,5
+    - 8,0,9,5
+  - type: Construction
+    graph: ADTSatchelSewing
+    node: BigSatchelReady
+
+- type: entity
+  name: incomplete Satchel zagotovka
+  parent: BaseItem
+  id: IncompleteSatchel
+  description: that crazy, dude
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/satchel.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTSatchelSewing
+    node: BigSatchel

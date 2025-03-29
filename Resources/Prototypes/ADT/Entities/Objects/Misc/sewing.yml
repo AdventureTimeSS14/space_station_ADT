@@ -1,0 +1,98 @@
+- type: entity
+  name: SewingKit
+  parent: BaseStorageItem
+  id: ADTSewingKitDEBUG
+  description: Its debug item, woaaaah
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/Sewing/SewingKit.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,1
+    - 1,0,4,2
+    whitelist:
+      tags:
+        - ADTSewingScissors
+        - ADTSewingThread
+        - ADTSewingNeedle
+        - ClothMade
+  - type: StorageFill
+    contents:
+    - id: MaterialCloth
+    - id: MaterialCloth
+    - id: ADTThread
+    - id: ADTScissors
+    - id: ADTNeedle
+
+
+- type: entity
+  name: Needle
+  parent: BaseItem
+  id: ADTNeedle
+  description: xd?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/Sewing/Needle.rsi
+    state: icon
+  - type: Tool
+    qualities:
+      - ADTSewing
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: ToolTileCompatible
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: StaticPrice
+    price: 30
+  - type: Tag
+    tags:
+    - ADTSewingNeedle
+
+
+
+- type: entity
+  name: Scissors
+  parent: BaseItem
+  id: ADTScissors
+  description: xd?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/Sewing/Scissors.rsi
+    state: icon
+  - type: Tool
+    qualities:
+      - ADTSewingScissors
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: ToolTileCompatible
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: StaticPrice
+    price: 30
+  - type: Tag
+    tags:
+    - ADTSewingScissors
+
+
+- type: entity
+  name: Thread
+  parent: BaseItem
+  id: ADTThread
+  description: xd?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/Sewing/Thread.rsi
+    state: icon
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: StaticPrice
+    price: 5
+  - type: Tag
+    tags:
+    - ADTSewingThread
+

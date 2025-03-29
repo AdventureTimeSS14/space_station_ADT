@@ -27,3 +27,7 @@
   id: ADTMicsStaticPack
   recipes:
   - StorageCanister
+  - ADTThread
+  - ADTScissors
+  - ADTNeedle
+

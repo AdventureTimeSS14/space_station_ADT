@@ -90,6 +90,16 @@
   speciesBlacklist:
   - IPC
 
+- type: trait
+  id: ADTSewingTrait
+  name: trait-sewing-time
+  description: trait-sewing-desc
+  category: Quirks
+  components:
+    - type: Sewing
+  cost: 4
+  quirk: true
+
 # - type: trait
 #   id: ADTPotentialPoltergeist
 #   name: trait-poltergeist-name

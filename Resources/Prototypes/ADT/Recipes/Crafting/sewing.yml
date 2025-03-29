@@ -1,0 +1,111 @@
+- type: construction
+  name: "Шитьё, халат безумного учёного (Crazy Scientist coat)"
+  id: ClothingOuterCrazyCoat
+  graph: ADTCrazyScientistSewing
+  startNode: start
+  targetNode: CrazyScientist
+  category: construction-category-clothing
+  objectType: Item
+  description: "Безумие — это всегда делать одно и то же, ожидая другого результата. И я приму это безумие всем сердцем!"
+  icon:
+    sprite: ADT/Clothing/OuterClothing/Coats/HookiunKiemacoat.rsi
+    state: icon
+  entityWhitelist:
+    components:
+    - Sewing
+
+- type: construction
+  name: "Шитьё, комплект брони (Armor Kit)"
+  id: ClothingOuterArmorKit
+  graph: ADTArmorKitSewing
+  startNode: start
+  targetNode: ArmorKit
+  category: construction-category-clothing
+  objectType: Item
+  description: "НЕЕЕТ! Ты не можешь просто использовать листы стали как защиту!!"
+  icon:
+    sprite: ADT/Clothing/OuterClothing/Armor/sewing/selfmadearmor.rsi
+    state: icon
+  entityWhitelist:
+    components:
+    - Sewing
+
+- type: construction
+  name: "Шитьё, увеличенная сумка (BigSatchel)"
+  id: ClothingBackBigSatchel
+  graph: ADTSatchelSewing
+  startNode: start
+  targetNode: BigSatchel
+  category: construction-category-clothing
+  objectType: Item
+  description: "Сумка с дополнительными карманами."
+  icon:
+    sprite: Clothing/Back/Satchels/satchel.rsi
+    state: icon
+  entityWhitelist:
+    components:
+    - Sewing
+
+- type: construction
+  name: "Шитьё, белая толстовка (WhiteHoodie)"
+  id: ADTClothingUniformsJumpsuitWhiteHoodie
+  graph: ADTHoodieSewing
+  startNode: start
+  targetNode: Hoodie
+  category: construction-category-clothing
+  objectType: Item
+  description: "Комфортная толстовка."
+  icon:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/whitehoodie.rsi
+    state: icon
+  entityWhitelist:
+    components:
+    - Sewing
+
+- type: construction
+  name: "Шитьё, тёмная футболка (DarkTshirt)"
+  id: ADTClothingUniformsJumpsuitDarkShirt
+  graph: ADTShirtSewing
+  startNode: start
+  targetNode: Shirt
+  category: construction-category-clothing
+  objectType: Item
+  description: "Обычная футболка"
+  icon:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/darkshirt.rsi
+    state: icon
+  entityWhitelist:
+    components:
+    - Sewing
+
+- type: construction
+  name: "Шитьё, зелёный свитер (GreenSweater)"
+  id: ADTClothingUniformsJumpsuitGreenSweater
+  graph: ADTSweaterSewing
+  startNode: start
+  targetNode: Sweater
+  category: construction-category-clothing
+  objectType: Item
+  description: "Комфортный, зелёный свитер"
+  icon:
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sewingclothing/greensweater.rsi
+    state: icon
+  entityWhitelist:
+    components:
+    - Sewing
+
+- type: construction
+  name: "Шитьё, белое одеяло (WhiteBedsheet)"
+  id: BedsheetWhite
+  graph: ADTBedsheetSewing
+  startNode: start
+  targetNode: Bedsheet
+  category: construction-category-clothing
+  objectType: Item
+  description: "Тёплое одеяло"
+  icon:
+    sprite: Objects/Misc/bedsheets.rsi
+    state: sheetwhite
+  entityWhitelist:
+    components:
+    - Sewing

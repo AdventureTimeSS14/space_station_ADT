@@ -1,131 +1,131 @@
 - type: construction
-  name: clown hardsuit
+  name: "Скафандр клоуна (clown hardsuit)" ##ADT Tweak
   id: ClownHardsuit
   graph: ClownHardsuit
   startNode: start
   targetNode: clownHardsuit
   category: construction-category-clothing
-  description: A modified hardsuit fit for a clown.
+  description: "Когда космос мешает тебе хонкать капитана, это отличный вариант решения проблемы." ##ADT Tweak
   icon: { sprite: Clothing/OuterClothing/Hardsuits/clown.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: mime hardsuit
+  name: "Скафандр мима (mime hardsuit)" ##ADT Tweak
   id: MimeHardsuit
   graph: MimeHardsuit
   startNode: start
   targetNode: mimeHardsuit
   category: construction-category-clothing
-  description: A modified hardsuit fit for a mime.
+  description: "*Кричит на языке жестов!*" ##ADT Tweak
   icon: { sprite: Clothing/OuterClothing/Hardsuits/mime.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: bone armor
+  name: "Костянная броня (bone armor)" ##ADT Tweak
   id: BoneArmor
   graph: BoneArmor
   startNode: start
   targetNode: armor
   category: construction-category-clothing
-  description: Armor made of bones.
+  description: "Броня сделанная из костей, для некоторых рас это и обед, и не плохая защита." ##ADT Tweak
   icon: { sprite: Clothing/OuterClothing/Armor/bone_armor.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: bone helmet
+  name: "Костянной шлем (bone helmet)" ##ADT Tweak
   id: BoneHelmet
   graph: BoneHelmet
   startNode: start
   targetNode: helmet
   category: construction-category-clothing
-  description: Helmet made of bones.
+  description: "Череп побеждённых вами врагов. Наверное, Вы не уверены." ##ADT Tweak
   icon: { sprite: Clothing/Head/Helmets/bone_helmet.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: banana clown mask
+  name: "Банановая клоунская маска (banana clown mask)" ##ADT Tweak
   id: BananaClownMask
   graph: BananaClownMask
   startNode: start
   targetNode: mask
   category: construction-category-clothing
-  description: A clown mask upgraded with banana peels.
+  description: "Никому не было дело кто я был, пока я не надел эту маску." ##ADT Tweak
   icon: { sprite: Clothing/Mask/clown_banana.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: banana clown suit
+  name: "Банановый костюм клоуна (banana clown suit)" ##ADT Tweak
   id: BananaClownJumpsuit
   graph: BananaClownJumpsuit
   startNode: start
   targetNode: jumpsuit
   category: construction-category-clothing
-  description: A clown suit upgraded with banana peels.
+  description: "Запечатлите необычайший, животный ужас службы безопасности в этом костюме." ##ADT Tweak
   icon: { sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: banana clown shoes
+  name: "Банановые ботинки клоуна (banana clown shoes)" ##ADT Tweak
   id: BananaClownShoes
   graph: BananaClownShoes
   startNode: start
   targetNode: shoes
   category: construction-category-clothing
-  description: A pair of clown shoes upgraded with banana peels.
+  description: "Ботинки - бананы! Главное не подскользнитесь!" ##ADT Tweak
   icon: { sprite: Clothing/Shoes/Specific/clown_banana.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: medsec hud
+  name: "Медицински-охранный визор (medsec hud)" ##ADT Tweak
   id: ClothingEyesHudMedSec
   graph: HudMedSec
   startNode: start
   targetNode: medsecHud
   category: construction-category-clothing
-  description: Two huds joined by arms
+  description: "Всё таки, Службе безопасности тоже следует следить за здоровьем" ##ADT Tweak
   icon: { sprite: Clothing/Eyes/Hud/medsec.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: ducky slippers
+  name: "Утинные тапки (ducky slippers)" ##ADT Tweak
   id: ClothingShoeSlippersDuck
   graph: ClothingShoeSlippersDuck
   startNode: start
   targetNode: shoes
   category: construction-category-clothing
-  description: Comfy, yet haunted by the ghosts of ducks you fed bread to as a child.
+  description: "Повышенный комфорт, продавец заявляет что Вас не будут преследовать призраки жестоко убитых уток, из которых и сделаны эти тапки." ##ADT Tweak
   icon: { sprite: Clothing/Shoes/Misc/duck-slippers.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: security glasses
+  name: "Охранные очки (security glasses)" ##ADT Tweak
   id: ClothingEyesGlassesSecurity
   graph: GlassesSecHUD
   startNode: start
   targetNode: glassesSec
   category: construction-category-clothing
-  description: A pair of sunglasses, modified to have a built-in security HUD.
+  description: "Когда охранного визора слишком мало" ##ADT Tweak
   icon: { sprite: Clothing/Eyes/Glasses/secglasses.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: quiver
+  name: "Колчан (quiver)" ##ADT Tweak
   id: ClothingBeltQuiver
   graph: Quiver
   startNode: start
   targetNode: Quiver
   category: construction-category-clothing
-  description: Can hold up to 15 arrows, and fits snug around your waist.
+  description: "Вспомните то, что возможно, использовал ваш пра-пра-пра-пра-пра-пра-прадед для хранения стрел" ##ADT Tweak
   icon: { sprite: Clothing/Belt/quiver.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: justice helm
+  name: "Шлем правосудия (justice helm)" ##ADT Tweak
   id: ClothingHeadHelmetJustice
   graph: HelmetJustice
   startNode: start
   targetNode: helmet
   category: construction-category-clothing
-  description: Advanced security gear. Protects the station from ne'er-do-wells.
+  description: "Будьте самым громким, и надоедливым на этой станции." ##ADT Tweak
   icon: { sprite: Clothing/Head/Helmets/justice.rsi, state: icon }
   objectType: Item

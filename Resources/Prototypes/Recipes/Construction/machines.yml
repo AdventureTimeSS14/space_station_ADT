@@ -1,11 +1,11 @@
 ﻿- type: construction
-  name: computer
+  name: "Компьютер (computer)" ##ADT Tweak
   id: Computer
   graph: Computer
   startNode: start
   targetNode: computer
   category: construction-category-machines
-  description: A frame used to construct anything with a computer circuitboard.
+  description: "Вау.. Это же компьютер. Выглядит не так современно, как мог бы" ##ADT Tweak
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
@@ -13,8 +13,8 @@
     state: 4
 
 - type: construction
-  name: machine frame
-  description: A machine under construction. Needs more parts.
+  name: "Каркас машины (machine frame)" ##ADT Tweak
+  description: "Пустышка, если вы не имеете с собой платы." ##ADT Tweak
   id: MachineFrame
   graph: Machine
   startNode: start
@@ -28,13 +28,13 @@
 
 # Switching
 - type: construction
-  name: two-way lever
+  name: "Двухпозиционный рычаг (two-way lever)" ##ADT Tweak
   id: TwoWayLeverRecipe
   graph: LeverGraph
   startNode: start
   targetNode: LeverNode
   category: construction-category-machines
-  description: A lever to control machines. It has 3 modes.
+  description: "Иногда рычаг нужно повернуть и туда, и сюда, и чуток вот так вот. Имеет 3 различных положения" ##ADT Tweak
   objectType: Structure
   canBuildInImpassable: false
   icon:
@@ -44,13 +44,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: light switch
+  name: "Переключатель света (light switch)" ##ADT Tweak
   id: LightSwitchRecipe
   graph: LightSwitchGraph
   startNode: start
   targetNode: LightSwitchNode
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
+  description: "Включает и выключает свет, если подключен к одному ЛКП, удивительно.." ##ADT Tweak
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -62,13 +62,13 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: signal switch
+  name: "Переключатель сигнала (signal switch)" ##ADT Tweak
   id: SignalSwitchRecipe
   graph: SignalSwitchGraph
   startNode: start
   targetNode: SignalSwitchNode
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
+  description: "Передаёт настроенные вами сигналы.. До невозможности удивительно" ##ADT Tweak
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -80,13 +80,13 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: signal button
+  name: "Кнопка сигнала (signal button)" ##ADT Tweak
   id: SignalButtonRecipe
   graph: SignalButtonGraph
   startNode: start
   targetNode: SignalButtonNode
   category: construction-category-machines
-  description: It's a button for activating something.
+  description: "Это кнопка. Передаёт сигналы, может активировать ими что-то." ##ADT Tweak
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -98,13 +98,13 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: directional light switch
+  name: "Направленный переключатель света (directional light switch)" ##ADT Tweak
   id: LightSwitchDirectionalRecipe
   graph: LightSwitchDirectionalGraph
   startNode: start
   targetNode: LightSwitchDirectionalNode
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
+  description: "Переключатель света, но направленный, какой ужас.." ##ADT Tweak
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -116,13 +116,13 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: directional signal switch
+  name: "Направленый переключатель сигнала (directional signal switch)" ##ADT Tweak
   id: SignalSwitchDirectionalRecipe
   graph: SignalSwitchDirectionalGraph
   startNode: start
   targetNode: SignalSwitchDirectionalNode
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
+  description: "Тот же самый переключатель сигнала, но направленый куда-то." ##ADT Tweak
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -134,13 +134,13 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: directional signal button
+  name: "Направленная кнопка сигнала (directional signal button)" ##ADT Tweak
   id: SignalButtonDirectionalRecipe
   graph: SignalButtonDirectionalGraph
   startNode: start
   targetNode: SignalButtonDirectionalNode
   category: construction-category-machines
-  description: It's a button for activating something.
+  description: "Ого-го. Это ведь кнопка, направленная кнопка!" ##ADT Tweak
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on

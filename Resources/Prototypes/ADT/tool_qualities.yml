@@ -4,3 +4,17 @@
   toolName: tool-quality-advanced-prying-tool
   spawn: FireAxe
   icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
+
+- type: tool
+  id: ADTSewing
+  name: tool-quality-sewing-tool-name
+  toolName: tool-quality-sewing
+  spawn: ADTNeedle
+  icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
+
+- type: tool
+  id: ADTSewingScissors
+  name: tool-quality-sewingscissors-tool-name
+  toolName: tool-quality-cutting
+  spawn: ADTScissors
+  icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }

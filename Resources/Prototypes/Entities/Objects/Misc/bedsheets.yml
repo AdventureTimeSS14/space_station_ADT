@@ -338,6 +338,25 @@
     state: sheetwhite
   - type: Clothing
     sprite: Clothing/Neck/Bedsheets/white.rsi
+  - type: Construction ##ADT Tweak Start
+    graph: ADTBedsheetSewing
+    node: BedsheetReady
+
+- type: entity
+  name: incomplete Bedsheet zagotovka
+  parent: BaseItem
+  id: IncompleteBedsheet
+  description: that crazy, dude
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bedsheets.rsi
+    state: sheetwhite
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBedsheetSewing
+    node: Bedsheet
+##ADT Tweak End
 
 - type: entity
   id: BedsheetWiz

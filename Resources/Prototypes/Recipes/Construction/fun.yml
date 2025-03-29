@@ -1,10 +1,10 @@
 - type: construction
-  name: bananium horn
+  name: "Бананиумовый клаксон (bananium horn)" ##ADT Tweak
   id: HornBananium
   graph: BananiumHorn
   startNode: start
   targetNode: bananiumHorn
   category: construction-category-weapons
-  description: An air horn made from bananium.
+  description: "Настоящий хонк." ##ADT Tweak
   icon: { sprite: Objects/Fun/bananiumhorn.rsi, state: icon }
   objectType: Item

@@ -1,32 +1,32 @@
 - type: construction
-  name: bouquet of galactocherthistle
+  name: "Букет чертополоха (bouquet of galactocherthistle)"
   id: ADTObjectBouquetGalakto
   graph: ADTObjectBouquetGalaktoGraph
   startNode: start
   targetNode: bouquetgalakto
   category: construction-category-misc
-  description: "Give a gift to your favorite chemist at the station!"
+  description: "Сделайте подарок своей любимой, работающей в химическом отделе медицинского!"
   icon: { sprite: ADT/Objects/Specific/Service/galakto_bouquet.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: bouquet of poppies
+  name: "Букет, маковый (bouquet of poppies)"
   id: ADTObjectBouquetMac
   graph: ADTObjectBouquetMacGraph
   startNode: start
   targetNode: bouquetmac
   category: construction-category-misc
-  description: "A long thin stalk, with a scarlet light on top. Not a plant, but a lighthouse — it's a bright red poppy!"
+  description: "Длинный тонкий стебель, с алым огоньком на верхушке. Не растение, а маяк — это ярко-красный мак!"
   icon: { sprite: ADT/Objects/Specific/Service/mac_bouquet.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: bouquet of flowers
+  name: "Букет цветов (bouquet of flowers)"
   id: ADTObjectBouquetMix
   graph: ADTObjectBouquetMixGraph
   startNode: start
   targetNode: bouquetmix
   category: construction-category-misc
-  description: "A bouquet of different flowers, bright and colorful, just like you!"
+  description: "Букет разных цветов, ярких и красочных, как и ты!"
   icon: { sprite: ADT/Objects/Specific/Service/mix_bouquet.rsi, state: icon }
   objectType: Item
