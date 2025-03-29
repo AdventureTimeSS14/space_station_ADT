@@ -16,7 +16,7 @@
             doAfter: 1
 
     - node: CrazyScientist
-      entity: IncompleteCrazyScientist
+      entity: ADTIncompleteCrazyScientist
       edges:
         - to: start
           completed:
@@ -59,7 +59,7 @@
             doAfter: 5
 
     - node: ArmorKit
-      entity: IncompleteArmorKit
+      entity: ADTIncompleteArmorKit
       edges:
         - to: start
           completed:
@@ -101,7 +101,7 @@
             doAfter: 5
 
     - node: BigSatchel
-      entity: IncompleteSatchel
+      entity: ADTIncompleteSatchel
       edges:
         - to: start
           completed:
@@ -118,7 +118,7 @@
               doAfter: 9
 
     - node: BigSatchelReady
-      entity: ClothingBackpackSatchelSewingPockets
+      entity: ADTClothingBackpackSatchelSewingPockets
 
 
 - type: constructionGraph
@@ -139,7 +139,7 @@
             doAfter: 5
 
     - node: Hoodie
-      entity: IncompleteHoodie
+      entity: ADTIncompleteHoodie
       edges:
         - to: start
           completed:
@@ -177,7 +177,7 @@
             doAfter: 5
 
     - node: Shirt
-      entity: IncompleteShirt
+      entity: ADTIncompleteShirt
       edges:
         - to: start
           completed:
@@ -215,7 +215,7 @@
             doAfter: 5
 
     - node: Sweater
-      entity: IncompleteSweater
+      entity: ADTIncompleteSweater
       edges:
         - to: start
           completed:
@@ -252,7 +252,7 @@
             doAfter: 5
 
     - node: Bedsheet
-      entity: IncompleteBedsheet
+      entity: ADTIncompleteBedsheet
       edges:
         - to: start
           completed:
