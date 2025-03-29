@@ -18,6 +18,10 @@
   defaultLanguages:
   - GalacticCommon
   - Arkane
+  minAge: 50
+  maxAge: 350
+  oldAge: 250
+  youngAge: 150
 
 - type: speciesBaseSprites
   id: MobDemonSprites

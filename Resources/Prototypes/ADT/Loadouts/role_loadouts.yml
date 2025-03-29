@@ -114,11 +114,12 @@
   - ScientistShoes
   - Survival
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathTool
+  # ADT tweak end
 
 - type: roleLoadout
   id: JobADTSeniorEngineer
@@ -133,11 +134,12 @@
   - StationEngineerShoes
   - SurvivalExtended
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathTool
+  # ADT tweak end
 
 - type: roleLoadout
   id: JobADTSeniorOfficer
@@ -153,11 +155,12 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathToolSecurity
+  # ADT tweak end
 
   # brigmedic
 - type: roleLoadout
@@ -200,11 +203,12 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathToolSecurity
+  # ADT tweak end
 
 - type: roleLoadout
   id: ADTRoleSurvivalCBURN

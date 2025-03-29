@@ -4,7 +4,7 @@ trait-deutsch-desc = Вы говорите как настоящий немец!
 trait-shitcure-name = Тенкодовый акцент
 trait-shitcure-desc = Вы настолько долго работали в службе безопасности, что тенкодовая таблица стала вам слишком родной.
 
-trait-moth-accent-name = Жужащий акцент
+trait-moth-accent-name = Жжужащий акцент
 trait-moth-accent-desc = Вам либо нравятся моли, либо вы ботаник.
 
 trait-nya-accent-name = Ня-кцент

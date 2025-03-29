@@ -24,6 +24,10 @@
   - VoxPidgin
   uniqueLanguages:
   - VoxPidgin
+  minAge: 20
+  maxAge: 60
+  oldAge: 45
+  youngAge: 25
   # ADT end
 
 - type: speciesBaseSprites
