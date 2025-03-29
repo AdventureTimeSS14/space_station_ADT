@@ -1689,6 +1689,129 @@
   - type: Clothing
     sprite: ADT/Personalization/uma_pistol.rsi
 
+- type: entity
+  name: Uma stun baton
+  parent: [BaseItem, BaseSecurityContraband]
+  id: ADTStunbatonUma
+  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  suffix: Sponsor, Uma
+  components:
+  - type: Tag # goob edit
+    tags:
+    - Stunbaton
+  - type: Sprite
+    sprite: ADT/Personalization/uma_stunbaton.rsi
+    layers:
+    - state: stunbaton_off
+    - state: stunbaton_on
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: stunbaton_on_light
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: Stunbaton
+    energyPerUse: 50
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2.0
+    angle: 60
+    animation: WeaponArcThrust
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: UseDelay
+  - type: Item
+    heldPrefix: off
+    size: Small
+  - type: ItemToggleSize
+    activatedSize: Normal
+  - type: Clothing
+    sprite: ADT/Personalization/uma_stunbaton.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: StaticPrice
+    price: 80
+  - type: Riggable
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Explosive
+    explosionType: Default
+    intensitySlope: 1.5
+    maxIntensity: 200
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: MeleeBlacklist
+    blacklist:
+      tags:
+      - ADTBatonBlocker
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    inhandVisuals:
+      left:
+      - state: inhand-left-light
+        shader: unshaded
+      right:
+      - state: inhand-right-light
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    radius: 1.1
+    energy: 0.5
+    color: "#3dffe2"
+    netsync: false
+  - type: ItemTogglePointLight
+
 #Egflaer
 - type: entity
   id: ADTEgflaerFoldingKnife
@@ -1728,7 +1851,7 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: SwitchableWeapon
     openSound: "/Audio/ADT/Weapons/Melee/egflaer_knife_opening.ogg"
-    closeSound: "/Audio/Items/sheath.ogg"
+    # closeSound: "/Audio/Items/sheath.ogg"
     #bonkSound: "/Audio/ADT/bonk_dubinka.ogg"
     damageOpen:
       types:
