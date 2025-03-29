@@ -5,7 +5,7 @@
   description: uplink-syndimech-mech-gygax-desc
   productEntity: ADTMechDarkGygaxBattery
   cost:
-    Telecrystal: 25
+    Telecrystal: 35
   categories:
   - ADTUplinkMechMechs
 
@@ -15,7 +15,7 @@
   description: uplink-syndimech-mech-mauler-desc
   productEntity: ADTMechMaulerBattery
   cost:
-    Telecrystal: 35
+    Telecrystal: 45
   categories:
   - ADTUplinkMechMechs
 
@@ -27,7 +27,7 @@
   description: uplink-syndimech-weapon-tesla-desc
   productEntity: ADTMechGunTeslaCannon
   cost:
-    Telecrystal: 5
+    Telecrystal: 7
   categories:
   - ADTUplinkMechWeapon
 
@@ -37,7 +37,7 @@
   description: uplink-syndimech-weapon-scatter-desc
   productEntity: ADTMechGunScattershot
   cost:
-    Telecrystal: 7
+    Telecrystal: 9
   categories:
   - ADTUplinkMechWeapon
 
@@ -47,7 +47,7 @@
   description: uplink-syndimech-weapon-ultra-desc
   productEntity: ADTMechGunUltraAC2
   cost:
-    Telecrystal: 7
+    Telecrystal: 9
   categories:
   - ADTUplinkMechWeapon
 
@@ -57,7 +57,7 @@
   description: uplink-syndimech-weapon-madeuce-desc
   productEntity: ADTMechGunMHAR21
   cost:
-    Telecrystal: 9
+    Telecrystal: 11
   categories:
   - ADTUplinkMechWeapon
 
@@ -68,7 +68,7 @@
   description: uplink-syndimech-weapon-srm-desc
   productEntity: ADTMechGunSRM8
   cost:
-    Telecrystal: 10
+    Telecrystal: 12
   categories:
   - ADTUplinkMechWeapon
 
