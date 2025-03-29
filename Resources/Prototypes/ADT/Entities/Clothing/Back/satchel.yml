@@ -65,7 +65,7 @@
     node: BigSatchelReady
 
 - type: entity
-  name: incomplete Satchel zagotovka
+  name: incomplete Satchel template
   parent: BaseItem
   id: ADTIncompleteSatchel
   description: that crazy, dude
