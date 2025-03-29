@@ -15,3 +15,29 @@
   materials:
     Steel: 500
     Plastic: 250
+
+- type: latheRecipe
+  id: ADTThread
+  result: ADTThread
+  category: Tools
+  completetime: 1
+  materials:
+    Cloth: 500
+
+- type: latheRecipe
+  id: ADTNeedle
+  result: ADTNeedle
+  category: Tools
+  completetime: 1
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: ADTScissors
+  result: ADTScissors
+  category: Tools
+  completetime: 1
+  materials:
+    Steel: 1000
+
+

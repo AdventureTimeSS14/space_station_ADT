@@ -1,8 +1,8 @@
 #bureaucracy
 - type: construction
   id: FilingCabinet
-  name: filing cabinet
-  description: A cabinet for all your filing needs.
+  name: "Картотечный шкаф (filing cabinet)" ##ADT Tweak
+  description: "Небольшой шкафчик для бумажек и прочего" ##ADT Tweak
   graph: FilingCabinet
   startNode: start
   targetNode: filingCabinet
@@ -18,8 +18,8 @@
 
 - type: construction
   id: TallCabinet
-  name: tall cabinet
-  description: A cabinet for all your filing needs.
+  name: "Высокий шкаф (tall cabinet)" ##ADT Tweak
+  description: "Тот же самый шкаф, но высокий" ##ADT Tweak
   graph: FilingCabinet
   startNode: start
   targetNode: tallCabinet
@@ -35,8 +35,8 @@
 
 - type: construction
   id: ChestDrawer
-  name: chest drawer
-  description: A small drawer for all your filing needs, Now with wheels!
+  name: "Шкафчик для бумаг(chest drawer)" ##ADT Tweak
+  description: "Обычный на первый взгляд шкаф для бумаг, но на самом деле, у него есть колёсики!!" ##ADT Tweak
   graph: FilingCabinet
   startNode: start
   targetNode: chestDrawer
@@ -53,8 +53,8 @@
 # ItemCabinets
 - type: construction
   id: ShowCase
-  name: showcase
-  description: A sturdy showcase for an expensive exhibit.
+  name: "Витрина (showcase)" ##ADT Tweak
+  description: "Покажите все самые дорогие предметы окружающим без беспокойства о том, что его могут просто украсть" ##ADT Tweak
   graph: GlassBox
   startNode: start
   targetNode: glassBox
@@ -72,8 +72,8 @@
 # Normals
 - type: construction
   id: ShelfWood
-  name: wooden shelf
-  description: A convenient place to place, well, anything really.
+  name: "Деревянная полочка (wooden shelf)" ##ADT Tweak
+  description: "Уютное местечко для хранения" ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfWood
@@ -88,8 +88,8 @@
 
 - type: construction
   id: ShelfMetal
-  name: metal shelf
-  description: A sturdy place to place, well, anything really.
+  name: "Стальная полочка (metal shelf)" ##ADT Tweak
+  description: "Крепкая и надёжная." ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfMetal
@@ -104,8 +104,8 @@
 
 - type: construction
   id: ShelfGlass
-  name: glass shelf
-  description: Just like a normal shelf! But fragile and without the walls!
+  name: "Стеклянная полочка (glass shelf)" ##ADT Tweak
+  description: "Выглядит довольно хрупко и небезопасно. Вы уверены что это хорошая идея?" ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfGlass
@@ -121,8 +121,8 @@
 # Reinforced
 - type: construction
   id: ShelfRWood
-  name: sturdy wooden shelf
-  description: The perfect place to store all your vintage records.
+  name: "Прочная леревянная полка (sturdy wooden shelf)" ##ADT Tweak
+  description: "Отличное место для того, чтобы спрятать пару тройку бутылок хорошего виски."  ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfRWood
@@ -137,8 +137,8 @@
 
 - type: construction
   id: ShelfRMetal
-  name: sturdy metal shelf
-  description: Nice and strong, and keeps your maints loot secure.
+  name: "Прочная стальная полка (sturdy metal shelf)" ##ADT Tweak
+  description: "Стильная и сильная. Что ещё можно пожелать?" ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfRMetal
@@ -153,8 +153,8 @@
 
 - type: construction
   id: ShelfRGlass
-  name: sturdy glass shelf
-  description: See through, decent strength, shiny plastic case. Whats not to love?
+  name: "Прочная стеклянная полка (sturdy glass shelf)" ##ADT Tweak
+  description: "Не плохо впитывает урон в себя, выглядит красиво, так ещё и прозрачное!" ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfRGlass
@@ -170,8 +170,8 @@
 # Departmental
 - type: construction
   id: ShelfBar
-  name: bar shelf
-  description: A convenient place for all your extra booze, specifically designed to hold more bottles!
+  name: "Полочки для бара (bar shelf)" ##ADT Tweak
+  description: "Больше полочек - означает больше алкоголя!" ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfBar
@@ -186,8 +186,8 @@
 
 - type: construction
   id: ShelfKitchen
-  name: kitchen shelf
-  description: Holds your knifes, spice, and everything nice!
+  name: "Кухонная полочка (kitchen shelf)" ##ADT Tweak
+  description: "Полезная вещь для поваров, которые терпеть не могут беспорядок!" ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfKitchen
@@ -202,8 +202,8 @@
 
 - type: construction
   id: ShelfChemistry
-  name: chemical shelf
-  description: Perfect for keeping the most important chemicals safe, and out of the clumsy clowns hands!
+  name: "Химическая полочка (chemical shelf)" ##ADT Tweak
+  description: "Держит в себе препараты, пугающие воображение своим названием." ##ADT Tweak
   graph: Shelf
   startNode: start
   targetNode: ShelfChemistry

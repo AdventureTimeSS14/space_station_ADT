@@ -552,3 +552,12 @@
 
 - type: Tag
   id: ADTBatonBlocker
+
+- type: Tag
+  id: ADTSewingNeedle
+
+- type: Tag
+  id: ADTSewingThread
+
+- type: Tag
+  id: ADTSewingScissors

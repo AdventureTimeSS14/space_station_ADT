@@ -1,12 +1,12 @@
 - type: construction
-  name: reiforced miner armor
+  name: "Усиленная шахтерская броня (reiforced miner armor)"
   id: ADTClothingOuterArmorMinerReiforced
   graph: ADTReiforcedMinerArmor
   startNode: start
   targetNode: ADTReiforcedMinerArmor
   category: construction-category-clothing
   objectType: Item
-  description: This explorer suit is reinforced with goliath hides.
+  description: "Исследовательский костюм улучшеный при помощи шкур побеждённых голиафов."
   icon:
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced.rsi
     state: icon

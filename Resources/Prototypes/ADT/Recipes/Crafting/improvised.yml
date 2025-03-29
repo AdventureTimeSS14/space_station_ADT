@@ -1,194 +1,194 @@
 - type: construction
-  name: Shitmade Full Shield
+  name: "Самодельный, двуручный щит (Shitmade Full Shield)"
   id: ADTFullShield
   graph: ADTShield
   startNode: start
   targetNode: ADTCompShield
   category: construction-category-weapons
   objectType: Item
-  description: A big shield for big people.
+  description: "Если вы цените стойкость и урон, позабыв о скорости, это для вас."
   icon:
     sprite: ADT/Objects/Weapons/Melee/fullshield.rsi
     state: icon
 
 - type: construction
-  name: Reinforced Plasma Shiv
+  name: "Заточка, укреплённое плазменное стекло (Reinforced Plasma Shiv)"
   id: ADTPlasmaShiv
   graph: ADTPShiv
   startNode: start
   targetNode: ADTCompPlasmaShiv
   category: construction-category-weapons
   objectType: Item
-  description: Woah. A shiv from reinforced plasma
+  description: "Тот момент, когда обычной плазменной заточки мало."
   icon:
     sprite: ADT/Objects/Weapons/Melee/Rplasma_shiv.rsi
     state: icon
 
 - type: construction
-  name: Reinforced Uranium Shiv
+  name: "Заточка, укреплённый уран (Reinforced Uranium Shiv)"
   id: ADTUraniumShiv
   graph: ADTUShiv
   startNode: start
   targetNode: ADTCompUraniumShiv
   category: construction-category-weapons
   objectType: Item
-  description: Woah. A shiv from reinforced uranium
+  description: "Мы заметили, что обычной урановой заточки вам слишком мало."
   icon:
     sprite: ADT/Objects/Weapons/Melee/Ruranium_shiv.rsi
     state: icon
 
 - type: construction
-  name: Reinforced Uranium Spear
+  name: "Копьё, укреплённый уран (Reinforced Uranium Spear)"
   id: ADTUraniumSpear
   graph: ADTUraniumSpear
   startNode: start
   targetNode: ADTCompUraniumSpear
   category: construction-category-weapons
   objectType: Item
-  description: Woah. A spear from reinforced uranium
+  description: "Мы заметили, что обычного уранового копья вам слишком мало."
   icon:
     sprite: ADT/Objects/Weapons/Melee/Ruranium_spear.rsi
     state: spear
 
 - type: construction
-  name: Reinforced Plasma Spear
+  name: "Копьё, укреплённая плазма (Reinforced Plasma Spear)"
   id: SpearReinforcedPlasma
   graph: ADTPSpear
   startNode: start
   targetNode: ADTCompPlasmaSpear
   category: construction-category-weapons
   objectType: Item
-  description: Woah. Spear from reinforced plasma
+  description: "Мы заметили, что обычного плазменного копья вам слишком мало."
   icon:
     sprite: ADT/Objects/Weapons/Melee/Rplasma_spear.rsi
     state: spear
 
 - type: construction
-  name: glass dagger
+  name: "Кинжал, стеклянный (glass dagger)"
   id: ADTDaggerGlass
   graph: ADTGDagger
   startNode: start
   targetNode: ADTCompGlassDager
   category: construction-category-weapons
   objectType: Item
-  description: Dagger to cut your enemies.
+  description: "Если вы умеете бросать ножи - это для вас."
   icon:
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/glassdagger.rsi
     state: icon
 
 - type: construction
-  name: reinforced glass dagger
+  name: "Кинжал, укреплённое стекло (reinforced glass dagger)"
   id: ADTDaggerRefGlass
   graph: ADTGRDagger
   startNode: start
   targetNode: ADTCompGlassRefDager
   category: construction-category-weapons
   objectType: Item
-  description: Dagger to cut your enemies.
+  description: "Если вы умеете бросать ножи - это для вас."
   icon:
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/reinforceddagger.rsi
     state: icon
 
 - type: construction
-  name: plasma dagger
+  name: "Кинжал, плазменное стекло (plasma dagger)"
   id: ADTDaggerPlasma
   graph: ADTPDagger
   startNode: start
   targetNode: ADTCompPlasmaDager
   category: construction-category-weapons
   objectType: Item
-  description: A dagger to cut your enemies.
+  description: "Если вы умеете бросать ножи - это для вас."
   icon:
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/plasmadagger.rsi
     state: icon
 
 - type: construction
-  name: uranium dagger
+  name: "Кинжал, урановое стекло (uranium dagger)"
   id: ADTDaggerUranium
   graph: ADTUDagger
   startNode: start
   targetNode: ADTCompUranDager
   category: construction-category-weapons
   objectType: Item
-  description: A dagger to cut your enemies.
+  description: "Если вы умеете бросать ножи - это для вас."
   icon:
     sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
     state: icon
 
 - type: construction
-  name: energy crossbow
+  name: "Энергетический арбалет (energy crossbow)"
   id: ADTEnergyCrossbow
   graph: EnergyCrossbowGraph
   startNode: start
   targetNode: crossbow
   category: construction-category-weapons
   objectType: Item
-  description: Big and modifiable.
+  description: "Большой и модифицируемый."
   icon:
     sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
     state: icon
 
 - type: construction
-  name: handmade crowbar
+  name: "Самодельная монтировка (handmade crowbar)"
   id: HandmadeCrowbar
   graph: ADTHandmadeCrowbarGraph
   startNode: start
   targetNode: HandmadeCrowbar
   category: construction-category-tools
   objectType: Item
-  description: This is real need you?.
+  description: "Это действительно нужно тебе?.."
   icon:
     sprite: Objects/Tools/crowbar.rsi
     state: icon
 
 - type: construction
-  name: bone knife
+  name: "Костяной нож (bone knife)"
   id: ADTBoneKnife
   graph: ADTBKnife
   startNode: start
   targetNode: ADTBoneCompKnife
   category: construction-category-weapons
   objectType: Item
-  description: A handmade bone knife.
+  description: "Костяной нож ручной работы."
   icon:
     sprite: ADT/Objects/Weapons/Melee/bone_knife.rsi
     state: icon
 
 - type: construction
-  name: bone machete
+  name: "Костяное мачете(bone machete)"
   id: ADTBoneMachete
   graph: ADTBMachete
   startNode: start
   targetNode: ADTBoneCompMachete
   category: construction-category-weapons
   objectType: Item
-  description: A handmade bone machete.
+  description: "Костяное мачете ручной работы."
   icon:
     sprite: ADT/Objects/Weapons/Melee/bone_machete.rsi
     state: icon
 
 - type: construction
-  name: bone sword
+  name: "Костяной меч (bone sword)"
   id: ADTBoneSword
   graph: ADTBSword
   startNode: start
   targetNode: ADTBoneCompSword
   category: construction-category-weapons
   objectType: Item
-  description: A handmade bone sword.
+  description: "Костяной меч ручной работы."
   icon:
     sprite: ADT/Objects/Weapons/Melee/bone_sword.rsi
     state: icon
 
 - type: construction
-  name: wood cross
+  name: "Деревянный крест (wood cross)"
   id: ADTWoodCross
   graph: ADTWCross
   startNode: start
   targetNode: ADTWoodCompCross
   category: construction-category-clothing
   objectType: Item
-  description: A handmade wood cross.
+  description: "Деревянный крест ручной работы."
   icon:
     sprite: ADT/Clothing/Neck/Misc/wood_cross.rsi
     state: icon
