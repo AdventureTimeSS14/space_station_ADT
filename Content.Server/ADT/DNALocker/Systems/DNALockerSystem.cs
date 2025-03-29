@@ -38,8 +38,8 @@ public sealed partial class DNALockerSystem : EntitySystem
             ExplodeEntity(uid, component, equipee);
             return;
         }
-
-        component.DNA = dna.DNA;
+        if (dna.DNA != null)
+            component.DNA = dna.DNA;
         _audioSystem.PlayPvs(component.LockSound, uid);
         var selfMessage = Loc.GetString("dna-locker-success");
         _popup.PopupEntity(selfMessage, equipee, equipee);

@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Advertise;
-using Content.Server.Advertise.Components;
+using Content.Server.Advertise.EntitySystems;
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
@@ -16,7 +16,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
-using Content.Shared.Emag.Components;
+using Content.Shared.Advertise.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
 using Content.Shared.Interaction;
