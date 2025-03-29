@@ -430,7 +430,7 @@
 - type: entity
   name: incomplete armor zagotovka
   parent: BaseItem
-  id: IncompleteArmorKit
+  id: ADTIncompleteArmorKit
   description: that crazy, dude
   components:
   - type: Sprite
