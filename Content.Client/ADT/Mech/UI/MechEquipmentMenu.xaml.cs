@@ -16,8 +16,6 @@ public sealed partial class MechEquipmentMenu : RadialMenu
 {
     [Dependency] private readonly EntityManager _entManager = default!;
 
-    public List<NetEntity> Equipment = new();
-
     public event Action<NetEntity?>? OnSelectEquip;
 
     public MechEquipmentMenu()
@@ -26,7 +24,7 @@ public sealed partial class MechEquipmentMenu : RadialMenu
         RobustXamlLoader.Load(this);
     }
 
-    public void Populate(PopulateMechEquipmentMenuEvent args)
+    public void Populate(List<NetEntity> equip)
     {
         var spriteSystem = _entManager.System<SpriteSystem>();
         var parent = FindControl<RadialContainer>("Main");
@@ -44,17 +42,18 @@ public sealed partial class MechEquipmentMenu : RadialMenu
         {
             VerticalAlignment = VAlignment.Center,
             HorizontalAlignment = HAlignment.Center,
-            Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new("/Textures/Interface/Default/blocked.png"))), // Проклято
+            Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new("/Textures/Interface/Default/blocked.png"))),
             TextureScale = new Vector2(2f, 2f),
         };
 
+        noButton.OnPressed += _ => OnSelectEquip?.Invoke(null);
         noButton.AddChild(tex);
         parent.AddChild(noButton);
 
-        foreach (var item in args.Equipment)
+        foreach (var item in equip)
         {
             if (!_entManager.TryGetEntityData(item, out var ent, out var meta))
-                throw new Exception();
+                continue;
             if (!_entManager.GetComponent<MechEquipmentComponent>(ent.Value).CanBeUsed)
                 continue;
 
@@ -70,35 +69,15 @@ public sealed partial class MechEquipmentMenu : RadialMenu
                 Entity = item,
             };
 
-            face.Scale *= 1f;
+            button.OnPressed += _ => OnSelectEquip?.Invoke(item);
             button.AddChild(face);
             parent.AddChild(button);
-            Equipment.Add(item);
-        }
-        foreach (var child in Children)
-        {
-            if (child is not RadialContainer container)
-                continue;
-            AddEquipClickAction(container);
-        }
-    }
-    private void AddEquipClickAction(RadialContainer container)
-    {
-        foreach (var child in container.Children)
-        {
-            if (child is not MechEquipmentMenuButton castChild)
-                continue;
-
-            castChild.OnButtonUp += _ =>
-            {
-                OnSelectEquip?.Invoke(castChild.Entity);
-            };
         }
     }
 }
 
 
-public sealed class MechEquipmentMenuButton : RadialMenuTextureButton
+public sealed class MechEquipmentMenuButton : RadialMenuTextureButtonWithSector
 {
     public NetEntity? Entity;
 }
