@@ -31,13 +31,17 @@
     price: 1700
 
 - type: miningShopSection
-  id: Fulton
-  name: Фултоны
+  id: Motion
+  name: Передвижение
   entries:
   - id: FultonBeacon
     price: 600
   - id: Fulton
     price: 1150
+  - id: ADTJaunter
+    price: 900
+  - id: WeaponGrapplingGun
+    price: 750
 
 - type: miningShopSection
   id: Medicine
@@ -51,41 +55,59 @@
     price: 900
   - id: MedkitBurnFilled
     price: 800
+  - id: MedkitToxinFilled
+    price: 1000
 
 - type: miningShopSection
-  id: Equipment
+  id: EquipmentWearable
   name: Снаряжение
   entries:
-  - id: Flare
-    price: 75
+  - id: ADTClothingOuterArmorMiner
+    price: 1000
+  - id: ClothingMaskGasExplorer
+    price: 250
   - id: ClothingBeltSalvageWebbing
     price: 500
+  - id: OreBag
+    price: 350
   - id: ADTAdvancedOreBag
-    price: 500
+    price: 750
   - id: OreBagOfHolding
     price: 3000
-  - id: ADTWeaponCutter
-    price: 500
-  - id: ADTShelterCapsule
-    price: 400
-  - id: ADTJaunter
-    price: 900
-  - id: Binoculars
-    price: 450
-  - id: PowerCellHigh
-    price: 650
-  - id: SeismicCharge
-    price: 250
   - id: ADTClothingOuterArmorMiner
     price: 1000
   - id: ADTClothingModsuitBackMining
     price: 3000
   - id: ADTClothingOuterArmorMinerHeavy
     price: 3600
- # - id: ClothingOuterArmorMinerLight
- #   price: 4000
+#  - id: ClothingOuterArmorMinerLight
+#    price: 4000
   - id: ADTClothingJumpBoots
     price: 2500
+
+
+- type: miningShopSection
+  id: EquipmentHand
+  name: Инвентарь
+  entries:
+  - id: Flare
+    price: 75
+  - id: Pickaxe
+    price: 150
+  - id: MiningDrill
+    price: 400
+  - id: SeismicCharge
+    price: 250
+  - id: FireExtinguisherMini
+    price: 250
+  - id: ADTWeaponCutter
+    price: 1000
+  - id: ADTShelterCapsule
+    price: 400
+  - id: PowerCellHigh
+    price: 650
+  - id: Binoculars
+    price: 450
   - id: ADTShelterCapsuleLuxury
     price: 3000
   - id: ADTShelterCapsuleBar
@@ -111,8 +133,16 @@
   - id: PlushieLizard
     price: 220 # CURSE
   - id: SpaceCash5000
-    price: 1000
+    price: 2000
   - id: DrinkWhiskeyBottleFull
     price: 100
   - id: DrinkAbsintheBottleFull
     price: 150
+  - id: BoxMRE
+    price: 250
+  - id: ADTFunPokerBox
+    price: 500
+  - id: ChessBoard
+    price: 400
+  - id: CheckerBoard
+    price: 400
