@@ -123,12 +123,16 @@
 #          - VGRoid                       ADT remove end
         # ADT-Mining-Start
         salvage: !type:GridSpawnGroup
-          minCount: 3
-          maxCount: 3
           nameGrid: false
           paths:
           - /Maps/ADTMaps/Shuttles/pioneer.yml
+        mining: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
           - /Maps/ADTMaps/Shuttles/mining.yml
+        guest: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
           - /Maps/ADTMaps/Shuttles/mining_guest.yml
         # ADT-Mining-End
         # ADT-Security-Start
