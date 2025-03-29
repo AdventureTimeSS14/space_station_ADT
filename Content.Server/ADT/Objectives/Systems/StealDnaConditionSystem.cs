@@ -66,8 +66,7 @@ public sealed class StealDnaConditionSystem : EntitySystem
 
         // Подсчёт требуемых и имеющихся ДНК
         var count = ling.DNAStolen;
-        var result = (float)count / (float)comp.AbsorbDnaCount;
-        result = Math.Clamp(result, 0, 1);
-        return result;
+        count = Math.Clamp(count, 0, 1);
+        return count;
     }
 }

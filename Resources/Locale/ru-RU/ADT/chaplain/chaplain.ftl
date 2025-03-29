@@ -1,4 +1,4 @@
-chaplain-not-enough-power = Вашей силы веры недостаточно для этого!
+chaplain-not-enough-power = Силы вашей веры для недостаточно этого!
 
 chaplain-believer-already = {CAPITALIZE(THE($target))} уже верующий.
 
