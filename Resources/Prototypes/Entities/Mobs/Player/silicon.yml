@@ -34,6 +34,7 @@
   - type: ActionGrant
     actions:
     - ActionJumpToCore
+    - ActionVisitCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
   - type: UserInterface
@@ -335,10 +336,13 @@
   name: AI Core
   description: The latest in Artificial Intelligences.
   parent:
+  - BaseMob
   - BaseStructure
   - AiHolder
   suffix: Empty
   components:
+  - type: Transform
+    noRot: true
   - type: WarpPoint
   - type: ContainerComp
     proto: AiHeld
@@ -360,15 +364,71 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
-    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
+    noRot: true
     layers:
-    # ADT SAI Custom start
-    - state: empty
-      map: ["enum.StationAiVisualState.Key"]
-      shader: unshaded
     - state: base
-    # ADT SAI Custom end
+      sprite: Mobs/Silicon/station_ai.rsi
+      map: ["enum.StationAiVisualLayers.Core"]
+    - state: ai_empty
+      sprite: Mobs/Silicon/station_ai.rsi
+      shader: unshaded
+      map: ["enum.StationAiVisualLayers.Screen"]
+    - state: base_high
+      sprite: Mobs/Silicon/leggy.rsi
+      map: ["enum.StationAiVisualLayers.CoreStanding"]
+      offset: "0.0,0.5"
+      visible: false
+    - state: ai_high
+      sprite: Mobs/Silicon/leggy.rsi
+      shader: unshaded
+      map: ["enum.StationAiVisualLayers.ScreenStanding"]
+      offset: "0.0,0.5"
+      visible: false
   - type: Appearance
+  - type: AnimationPlayer
+  - type: ActionGrant
+    actions:
+    - ActionUnVisitCore
+  - type: Anchorable
+    flags:
+    - None
+  - type: Physics
+    bodyType: Static
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - Structure
+  - type: Access
+    groups:
+    - AllAccess
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: ShowJobIcons
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
     interactFailureString: petting-failure-station-ai
@@ -408,15 +468,6 @@
   - type: ContainerSpawnPoint
     containerId: station_ai_mind_slot
     job: StationAi
-  - type: Sprite
-    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
-    layers:
-    # ADT SAI Custom start
-    - state: empty
-      map: ["enum.StationAiVisualState.Key"]
-      shader: unshaded
-    - state: base
-    # ADT SAI Custom end
 
 # The actual brain inside the core
 - type: entity
