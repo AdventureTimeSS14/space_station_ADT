@@ -359,7 +359,7 @@
 - type: entity
   name: incomplete Crazy zagotovka
   parent: BaseItem
-  id: IncompleteCrazyScientist
+  id: ADTIncompleteCrazyScientist
   description: that crazy, dude
   components:
   - type: Sprite
