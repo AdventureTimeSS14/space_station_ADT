@@ -26,6 +26,13 @@ using Robust.Shared.Utility;
 using Content.Server.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
+using Content.Shared.Administration;
+using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Database;
+using Content.Shared.Database;
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
 
 namespace Content.Server.Administration;
 
@@ -64,6 +71,11 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private readonly IBanManager _bans = default!;
+    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -87,7 +99,9 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat); // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/a_chat", ActionAdminChat);                // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/play_time_addjob", ActionPlayAddTimeJob); // ADT Tweak
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/server_ban", ActionServerBan);            // ADT Tweak
     }
 
     public void Initialize()
@@ -489,7 +503,9 @@ public sealed partial class ServerApi : IPostInjectInit
                     UserId = player.UserId.UserId,
                     Name = player.Name,
                     IsAdmin = adminData != null,
-                    IsDeadminned = !adminData?.Active ?? false
+                    IsDeadminned = !adminData?.Active ?? false,
+                    PingUser = player.Ping,                 // ADT-Tweak: Передаём пинг пользователя
+                    AdminTitle = adminData?.Title ?? "Null" // ADT-Tweak: Добавляем передачу инфы о Title админа
                 });
             }
 
@@ -689,6 +705,8 @@ public sealed partial class ServerApi : IPostInjectInit
             public required string Name { get; init; }
             public required bool IsAdmin { get; init; }
             public required bool IsDeadminned { get; init; }
+            public required short PingUser { get; init; } // ADT-Tweak
+            public required string AdminTitle { get; init; } // ADT-Tweak
         }
 
         public sealed class MapInfo
@@ -731,7 +749,9 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(async () =>
         {
-            var clients = _admin.ActiveAdmins.Select(p => p.Channel).ToList();
+            var clients = _admin.ActiveAdmins
+            .Where(admin => _adminManager.GetAdminData(admin)?.Flags.HasFlag(AdminFlags.Adminchat) == true)
+            .Select(p => p.Channel).ToList();
 
             // Используем Loc.GetString для формирования сообщения
             var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
@@ -765,10 +785,120 @@ public sealed partial class ServerApi : IPostInjectInit
         });
     }
 
+    private async Task ActionPlayAddTimeJob(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<AdminActionPlayTimeJobBody>(context);
+        if (body == null)
+            return;
+
+        NetUserId userId;
+        if (Guid.TryParse(body.NickName, out var guid))
+        {
+            userId = new NetUserId(guid);
+        }
+        else
+        {
+            var dbGuid = await _playerLocator.LookupIdByNameAsync(body.NickName);
+            if (dbGuid == null)
+            {
+                return;
+            }
+            userId = dbGuid.UserId;
+        }
+
+        if (!int.TryParse(body.Time, out var minutes))
+        {
+            return;
+        }
+
+        await _playTimeTracking.AddTimeToTrackerById(userId, body.JobIdPrototype, TimeSpan.FromMinutes(minutes));
+
+        _sawmill.Info($"{actor.Name} using playtime_addrole {body.NickName} {body.JobIdPrototype} {body.Time}");
+    }
+
+    private async Task ActionServerBan(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<ActionServerBanBody>(context);
+        if (body == null)
+            return;
+
+        await RunOnMainThread(async () =>
+        {
+            if (!uint.TryParse(body.Time, out uint minutes) || minutes < 0)
+            {
+                _sawmill.Warning($"ServerApi BAN: {body.Time} is not a valid amount of minutes!");
+                return;
+            }
+
+            var adminName = actor.Name;
+            var adminUserId = new NetUserId(actor.Guid);
+            var target = body.NickName;
+            var reason = body.Reason;
+            var severity = NoteSeverity.High;
+
+            var locatedTarget = await _playerLocator.LookupIdByNameOrIdAsync(target);
+            if (locatedTarget == null)
+            {
+                _sawmill.Warning($"ServerApi BAN: Unable to find a player with name {target}.");
+                return;
+            }
+
+            var targetUid = locatedTarget.UserId;
+            var targetHWid = locatedTarget.LastHWId;
+
+            if (_bans == null)
+            {
+                _sawmill.Error("ServerApi BAN: _bans (BanManager) is NULL! Cannot process ban.");
+                return;
+            }
+
+            var lastServerBan = await _dbManager.GetLastServerBanAsync();
+            var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+
+            try
+            {
+                _bans.CreateServerBan(targetUid, target, adminUserId, null, targetHWid, minutes, severity, reason);
+            }
+            catch (Exception ex)
+            {
+                _sawmill.Error($"ServerApi BAN: Exception while banning {target}: {ex}");
+                return;
+            }
+
+            var banInfo = new BanInfo
+            {
+                BanId = newServerBanId.ToString()!,
+                Target = target,
+                AdminName = adminName,
+                Minutes = minutes,
+                Reason = reason,
+                Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
+            };
+
+            await _discordBanInfoSender.SendBanInfoAsync<PostServerBanPayloadGenerator>(banInfo);
+            await RespondOk(context);
+            _sawmill.Info($"{actor.Name} banned {body.NickName} for {body.Time} minutes. Reason: {body.Reason}");
+        });
+    }
+
     private sealed class AdminChatActionBody
     {
         public required string Message { get; init; }
         public required string NickName { get; init; }
+    }
+
+    private sealed class AdminActionPlayTimeJobBody
+    {
+        public required string NickName { get; init; }
+        public required string JobIdPrototype { get; init; }
+        public required string Time { get; init; }
+    }
+
+    private sealed class ActionServerBanBody
+    {
+        public required string NickName { get; init; }
+        public required string Reason { get; init; }
+        public required string Time { get; init; }
     }
 
     #endregion

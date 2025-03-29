@@ -1,0 +1,41 @@
+- type: latheRecipePack
+  id: ADTDisposalPack
+  recipes:
+  - DisposalPipe
+  - DisposalTagger
+  - DisposalTrunk
+  - DisposalRouter
+  - DisposalRouterFlipped
+  - DisposalJunction
+  - DisposalJunctionFlipped
+  - DisposalYJunction
+  - DisposalBend
+  - DisposalSignalRouter
+  - DisposalSignalRouterFlipped
+  - GasPipeHalf
+  - GasPipeStraight
+  - GasPipeBend
+  - GasPipeTJunction
+  - GasPipeFourway
+
+- type: latheRecipePack
+  id: ADTEnergyBoardsPack
+  recipes:
+  - ADTIndustrialSMESMachineCircuitboard
+
+- type: latheRecipePack
+  id: ADTMicsStaticPack
+  recipes:
+  - StorageCanister
+  - Lantern
+  - OxygenTank
+  - NitrogenTank
+  - EmergencyOxygenTank
+  - EmergencyNitrogenTank
+  - ClothingMaskBreath
+  - ClothingMaskGas
+  - ClothingEyesGlasses
+  - ToolboxEmergency
+  - ToolboxElectrical
+  - ToolboxMechanical
+  - ToolboxArtistic

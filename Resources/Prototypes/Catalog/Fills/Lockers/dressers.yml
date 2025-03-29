@@ -22,7 +22,7 @@
     contents:
       - id: ClothingUniformJumpsuitChiefEngineerTurtle
       - id: ClothingUniformJumpskirtChiefEngineerTurtle
-      - id: ClothingHeadHatBeretEngineering
+      - id: ADTClothingHeadHatBeretCEngineer # ADT tweak
       - id: ClothingOuterWinterCE
       - id: ClothingNeckCloakCe
 

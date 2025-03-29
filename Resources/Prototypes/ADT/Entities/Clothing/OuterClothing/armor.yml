@@ -65,7 +65,7 @@
           - ADTBadge
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorAirsoftBlue
   name: airsoft suit
   description: Semi-flexible polycarbonate armor suit with weakened protection. Airsoft armor
@@ -78,7 +78,7 @@
   - type: GroupExamine
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorAirsoftRed
   name: airsoft suit
   description: Semi-flexible polycarbonate armor suit with weakened protection. Airsoft armor
@@ -253,6 +253,9 @@
         occludes: True
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+    - ADTMinerArmor
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
@@ -297,3 +300,104 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
+
+#Бронежилет скрытого ношения
+
+- type: entity
+  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
+  id: ADTClothingOuterArmorVestHidden
+  name: armor vest hidden
+  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/hidden_vest.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: false
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/hidden_vest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.75
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-unhidden-verb
+    foldVerbText: fold-hidden-verb
+    folded: false
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Appearance
+
+- type: entity
+  parent: ADTClothingOuterArmorMiner
+  id: ADTClothingOuterArmorMinerReiforced
+  name: Plated Explorer Suit
+  description: This explorer suit is reinforced with goliath hides. The pinnacle of mining ingenuity and Lavaland's own madness in the field of defense.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.40
+        Slash: 0.45
+        Piercing: 0.6
+        Heat: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetMinerReinforced
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: Construction
+    graph: ADTReiforcedMinerArmor
+    node: ADTReiforcedMinerArmor
+
+# USSP USSP
+
+#КЗС-1
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterVestUSSPKZS1
+  name: KZS-1 vest
+  description: A synthetic armor vest. This one has added webbing and ballistic plates.
+  suffix: USSP
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+      scale: 0.6, 0.6
+    - type: Clothing
+      sprite: ADT/Clothing/OuterClothing/Armor/ussp_kzs1.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.6
+          Heat: 0.7
+    - type: ExplosionResistance
+      damageCoefficient: 0.7
+
+# USSP USSP

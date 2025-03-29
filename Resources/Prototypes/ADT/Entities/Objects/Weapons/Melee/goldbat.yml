@@ -1,0 +1,37 @@
+- type: entity
+  name: golden baseball bat
+  parent: BaseBallBat
+  id: ADTGoldBaseBallBat
+  description: An even robust baseball bat!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/goldbat.rsi
+    state: icon
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+        Structural: 15
+  - type: UseDelay
+    delay: 1
+  - type: Construction
+    graph: ADTGoldenBat
+    node: ADTgoldbat
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 250
+
+- type: entity
+  name: incomplete golden baseball bat
+  parent: BaseItem
+  id: ADTIncompleteGoldBaseBallBat
+  description: A few ingot of gold stuck together.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/incomplete_goldbat.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTGoldenBat
+    node: ADTincompleteGoldBat

@@ -15,6 +15,13 @@
       time: 198000 #55 hrs # ADT-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
+      # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+  # ADT RESTRICT End
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

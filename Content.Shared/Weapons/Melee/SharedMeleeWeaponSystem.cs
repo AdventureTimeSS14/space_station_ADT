@@ -217,7 +217,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!Resolve(uid, ref component, false))
             return new DamageSpecifier();
 
-        var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
@@ -250,7 +250,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        var ev = new GetMeleeDamageEvent(uid, new(component.Damage), new(), user, component.ResistanceBypass);
+        var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
         return ev.ResistanceBypass;
@@ -422,7 +422,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         Dirty(weaponUid, weapon);
 
         // Do this AFTER attack so it doesn't spam every tick
-        var ev = new AttemptMeleeEvent();
+        var ev = new AttemptMeleeEvent(user); //ADT tweaked
         RaiseLocalEvent(weaponUid, ref ev);
 
         if (ev.Cancelled)
@@ -758,7 +758,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             if (res.Count != 0)
             {
-                resSet.Add(res[0].HitEntity);
+                // If there's exact distance overlap, we simply have to deal with all overlapping objects to avoid selecting randomly.
+                var resChecked = res.Where(x => x.Distance.Equals(res[0].Distance));
+                foreach (var r in resChecked)
+                {
+                    if (Interaction.InRangeUnobstructed(ignore, r.HitEntity, range + 0.1f, overlapCheck: false))
+                        resSet.Add(r.HitEntity);
+                }
             }
         }
 
@@ -813,6 +819,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
+        // ADT Disarm tweak start
+        if (component.LastDisarm < Timing.CurTime - TimeSpan.FromSeconds(3) || target != component.CurrentlyDisarming)
+            component.DisarmAttemptsCount = 0;
+        if (Timing.IsFirstTimePredicted)
+            component.DisarmAttemptsCount++;
+
+        component.LastDisarm = Timing.CurTime;
+        component.CurrentlyDisarming = target;
+        DirtyField(meleeUid, component, nameof(MeleeWeaponComponent.LastDisarm));
+        DirtyField(meleeUid, component, nameof(MeleeWeaponComponent.DisarmAttemptsCount));
+        // ADT Disarm tweak end
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);
         return true;

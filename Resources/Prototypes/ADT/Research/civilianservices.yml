@@ -1,4 +1,40 @@
 - type: technology
+  id: ADTMedicalMODsuit
+  name: research-technology-medical-modsuit
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: medical
+  discipline: CivilianServices
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ADTModsuitPlateMedical
+  technologyPrerequisites:
+    - ADTModsuitBase
+  position: 3,1
+  requiredTech:
+  - AdvancedEntertainment
+
+- type: technology
+  id: ADTServiceMODsuitMODs
+  name: research-technology-services-modsuit-mods
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: no_baton
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+    - ADTModsuitModAntigrav
+    - ADTModsuitModApparatus
+    - ADTModsuitModNoslip
+  technologyPrerequisites:
+    - ADTMedicalMODsuit
+  position: 5,2
+  requiredTech:
+  - BasicTranslation
+
+- type: technology
   id: ADTCloning
   name: research-technology-medical-cloning-adt
   icon:
@@ -11,3 +47,21 @@
   - CloningPodMachineCircuitboard
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
+  position: 2,2
+  requiredTech:
+  - ADTMedicalMODsuit
+
+- type: technology
+  id: ADTExoskeletons
+  name: research-technology-exoskeletons
+  icon:
+    sprite: ADT/Clothing/OuterClothing/Exoskeletons/rnd_exoskeleton.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - ADTClothingOuterExoskeletonBase
+  position: 3,5
+  requiredTech:
+  - BluespaceCargoTransport

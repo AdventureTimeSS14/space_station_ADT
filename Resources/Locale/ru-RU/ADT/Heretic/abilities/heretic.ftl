@@ -50,7 +50,6 @@ heretic-speech-mansuslink = PI'RC' TH' M'ND
 heretic-speech-realignment = R'S'T
 heretic-speech-fuckoff = F'K 'FF!!
 
-
 ## technically applied to heretic's spawns only but it stays here because why not.
 heretic-speech-blind = E'E'S
 heretic-speech-emp = E'P

@@ -13,6 +13,10 @@
     quickEquip: false
     slots:
     - back
+    # ADT Start
+    equipSound:
+      path: /Audio/ADT/Entities/backpack_equip.ogg
+    # ADT End
   - type: Storage
     grid:
     - 0,0,6,3
@@ -35,6 +39,17 @@
     delay: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/backpack_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/backpack_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/backpack_drop.ogg
+  # ADT End
 
 - type: entity
   parent: ClothingBackpack
@@ -61,7 +76,7 @@
       collection: IanBark
 
 - type: entity
-  parent: [ClothingBackpack, BaseRestrictedContraband]
+  parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackSecurity
   name: security backpack
   description: It's a very robust backpack.
@@ -70,7 +85,7 @@
     sprite: Clothing/Back/Backpacks/security.rsi
 
 - type: entity
-  parent: [ClothingBackpack, BaseRestrictedContraband]
+  parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackBrigmedic
   name: brigmedic backpack
   description: It's a very sterile backpack.
@@ -189,7 +204,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackMerc
-  name: merc bag
+  name: mercenary bag
   description: A backpack that has been in many dangerous places, a reliable combat backpack.
   components:
     - type: Sprite

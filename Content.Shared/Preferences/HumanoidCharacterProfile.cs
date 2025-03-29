@@ -32,6 +32,7 @@ namespace Content.Shared.Preferences
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 96;    // ну тип ADT
+        public const int MaxLoadoutNameLength = 32;
         public const int MaxDescLength = 512;
 
         /// <summary>
@@ -737,7 +738,7 @@ namespace Content.Shared.Preferences
                 _loadouts.Remove(value);
             }
 
-            // ADT Languages start
+            // ADT start
             if (_languages.Count <= 0)
                 _languages = new(speciesPrototype.DefaultLanguages);
             List<ProtoId<LanguagePrototype>> langsInvalid = new();
@@ -750,7 +751,9 @@ namespace Content.Shared.Preferences
             {
                 _languages.Remove(lang);
             }
-            // ADT Languages end
+
+            GetQuirkPoints();
+            // ADT end
         }
 
         /// <summary>
@@ -881,7 +884,7 @@ namespace Content.Shared.Preferences
             return new HumanoidCharacterProfile(this);
         }
 
-        // ADT Languages start
+        // ADT start
         public HumanoidCharacterProfile WithLanguage(ProtoId<LanguagePrototype> language)
         {
             var proto = IoCManager.Resolve<IPrototypeManager>();
@@ -921,6 +924,43 @@ namespace Content.Shared.Preferences
                 _languages = list,
             };
         }
-        // ADT Languages end
+
+        public bool CanToggleQuirk(TraitPrototype proto)
+        {
+            var protoMan = IoCManager.Resolve<IPrototypeManager>();
+            var list = TraitPreferences.Where(x => protoMan.Index(x).Quirk);
+
+            int points = 0;
+            foreach (var item in list)
+            {
+                points -= protoMan.Index(item).Cost;
+            }
+
+            if (list.Contains(proto.ID) && points + proto.Cost < 0)
+                return false;
+            else if (!list.Contains(proto.ID) && points < proto.Cost)
+                return false;
+
+            return true;
+        }
+
+        public int GetQuirkPoints()
+        {
+            var count = 0;
+            var proto = IoCManager.Resolve<IPrototypeManager>();
+            var quirks = TraitPreferences.Where(x => proto.Index(x).Quirk);
+            foreach (var item in quirks)
+            {
+                count += proto.Index(item).Cost;
+            }
+            if (count > 0)
+            {
+                _traitPreferences.Clear();
+                count = 0;
+            }
+
+            return -count;
+        }
+        // ADT end
     }
 }

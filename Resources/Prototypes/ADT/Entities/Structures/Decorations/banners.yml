@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTBannerTSF
+  id: ADTBannerTSFOld
   parent: BannerBase
   name: tsf banner
   description: tsf banner.

@@ -24,6 +24,14 @@
     - ClothMade
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/sneakers_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/sneakers_land.ogg
+  # ADT End
 
 - type: entity
   abstract: true

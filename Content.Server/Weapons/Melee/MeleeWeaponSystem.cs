@@ -53,7 +53,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (damageSpec.Empty)
             return;
 
-        _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee"));
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,
@@ -78,7 +78,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Could also check the arc though future effort + if they're aimbotting it's not really going to make a difference.
 
         // (This runs lagcomp internally and is what clickattacks use)
-        if (!Interaction.InRangeUnobstructed(ignore, targetUid, range + 0.1f))
+        if (!Interaction.InRangeUnobstructed(ignore, targetUid, range + 0.1f, overlapCheck: false))
             return false;
 
         // TODO: Check arc though due to the aforementioned aimbot + damage split comments it's less important.
@@ -129,26 +129,33 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             RaiseLocalEvent(inTargetHand.Value, attemptEvent);
         }
-
+        RaiseLocalEvent(user, attemptEvent); //ADT tweak
         RaiseLocalEvent(target, attemptEvent);
 
         if (attemptEvent.Cancelled)
             return false;
 
-        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
-
-        if (_random.Prob(chance))
-        {
-            // Yknow something tells me this comment is hilariously out of date...
-            // Don't play a sound as the swing is already predicted.
-            // Also don't play popups because most disarms will miss.
+        // ADT Disarm tweak start
+        if (component.DisarmAttemptsCount < component.ShovesToDisarm)
             return false;
-        }
+
+        component.DisarmAttemptsCount = 0;
+        // var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
+
+        // if (_random.Prob(chance))
+        // {
+        //     // Yknow something tells me this comment is hilariously out of date...
+        //     // Don't play a sound as the swing is already predicted.
+        //     // Also don't play popups because most disarms will miss.
+        //     return false;
+        // }
+        // ADT Disarm tweak end
 
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
-        var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 1 - chance };
+        var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 0.22f };  // ADT Disarm tweak
         RaiseLocalEvent(target, eventArgs);
+        RaiseLocalEvent(user, eventArgs); //ADT tweak
 
         if (!eventArgs.Handled)
         {
@@ -193,7 +200,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (session is { } pSession)
         {
             (targetCoordinates, targetLocalAngle) = _lag.GetCoordinatesAngle(target, pSession);
-            return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range);
+            return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range, overlapCheck: false);
         }
 
         return Interaction.InRangeUnobstructed(user, target, range);

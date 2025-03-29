@@ -99,6 +99,9 @@
     guides:
     - Botany
     - Chemicals
+  - type: Tag #ADT tweak
+    tags:
+      - NoPaint
 
 - type: entity
   parent: hydroponicsTray

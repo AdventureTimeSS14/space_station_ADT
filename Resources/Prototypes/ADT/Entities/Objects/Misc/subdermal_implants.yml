@@ -4,6 +4,9 @@
   abstract: true
   components:
   - type: SubdermalImplant
+    blacklist:
+      components:
+      - DeafTrait
   - type: Tag
     tags:
     - SubdermalImplant
@@ -40,7 +43,7 @@
   components:
   - type: TranslatorImplant
     languages:
-      Nian: BadSpeak
+      Arachnid: BadSpeak #Moffic
 
 - type: entity
   parent: BaseTranslatorImplant
@@ -279,6 +282,17 @@
   - type: TranslatorImplant
     languages:
       VoxPidgin: BadSpeak
+
+- type: entity
+  parent: BaseTranslatorImplant
+  id: ScratchesTranslatorImplant
+  name: translator implant
+  # description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    languages:
+      Scratches: Speak
 
 # Отключено до починки импланта
 # - type: entity

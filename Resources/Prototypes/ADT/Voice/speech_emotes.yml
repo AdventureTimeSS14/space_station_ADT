@@ -56,11 +56,9 @@
   name: chat-emote-name-hiss
   category: Vocal
   whitelist:
-    requireAll: true
-    components:
-    - Vocal
     tags:
     - ADTCatEmotes
+    - ADTVoxEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -188,7 +186,7 @@
     - Vocal
     tags:
     - ADTDogEmotes
-  icon: ADT/Interface/Emotes/Vocal/bark.png
+  icon: ADT/Interface/Emotes/Vocal/howl.png
   chatMessages: [воет]
   chatTriggers:
     - воет
@@ -205,7 +203,7 @@
     - Vocal
     tags:
     - ADTDogEmotes
-  icon: ADT/Interface/Emotes/Vocal/bark.png
+  icon: ADT/Interface/Emotes/Vocal/whine.png
   chatMessages: [скулит]
   chatTriggers:
     - скул
@@ -329,3 +327,77 @@
     - харкнуло
     - харкает
     - делает харчок
+
+  #Vox
+
+- type: emote
+  id: VoxCoo
+  name: chat-emote-name-coo
+  icon: ADT/Interface/Emotes/Vocal/coo.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTVoxEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-coo"]
+  chatTriggers:
+    - coo
+    - воркует
+
+- type: emote
+  id: VoxChitter
+  name: chat-emote-name-chitter
+  icon: ADT/Interface/Emotes/Vocal/voxchitter.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTVoxEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-chitter"]
+  chatTriggers:
+    - voxchitter
+    - щебечет
+
+
+# Slime
+
+- type: emote
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSlimeEmotes
+  icon: ADT/Interface/Emotes/Vocal/pop.png
+  chatMessages: [chat-emote-msg-pop]
+  chatTriggers:
+    - чпок
+
+
+- type: emote
+  id: Bubbles
+  name: chat-emote-name-bubbles
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSlimeEmotes
+  icon: ADT/Interface/Emotes/Vocal/bubbles.png
+  chatMessages: [chat-emote-msg-bubbles]
+  chatTriggers:
+    - булькает

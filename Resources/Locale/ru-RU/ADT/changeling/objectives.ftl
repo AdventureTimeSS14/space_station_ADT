@@ -4,6 +4,9 @@ ent-EscapeLingShuttleObjective = Доберитесь до Центкома жи
 absorb-dna-name = Украдите { $count } штаммов ДНК.
 absorb-dna-desc = Нам нужно украсть { $count } ДНК для дальнейшей эволюции. Скрытый сбор позволит выполнить эту задачу с максимальной эффективностью.
 
+absorb-changeling-name = Поглотите другого генокрада
+absorb-changeling-desc = Нам нужны образцы ДНК другого генокрада для дальнейшей эволюции.
+
 ling-kill-desc = Мы должны убить их.
 objective-condition-steal-personality-title = Украдите личность { $targetName }, в должности { CAPITALIZE($job) }.
 objective-condition-steal-head-personality-title = Украдите личность { $targetName }, в должности { CAPITALIZE($job) }. Цель НЕ ДОЛЖНА пережить смену.

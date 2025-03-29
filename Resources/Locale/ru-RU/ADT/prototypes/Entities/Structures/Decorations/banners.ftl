@@ -1,4 +1,4 @@
-ent-ADTBannerTSF = знамя ТСФ
+ent-ADTBannerTSFOld = знамя ТСФ
     .desc = Это знамя с логотипом ТСФ.
     .suffix = { "ТСФ" }
 ent-ADTBannerMGD = знамя MG&D

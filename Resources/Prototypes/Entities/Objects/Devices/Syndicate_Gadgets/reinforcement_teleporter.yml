@@ -24,13 +24,18 @@
   components:
   - type: GhostRole
     name: ghost-role-information-syndicate-reinforcement-spy-name
-    description: ghost-role-information-syndicate-reinforcement-description
-    rules: ghost-role-information-rules-default-solo-antagonist
-# ADT-Tweak-start
+    # ADT-Tweak-start
     requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # 5h
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
+        time: 54000 # adt tweak 2h > 15h
+    # ADT-Tweak-end
+    description: ghost-role-information-syndicate-reinforcement-spy-description
+    rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -75,8 +80,13 @@
 # ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+        time: 54000 # 15h
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # adt tweak 2h > 5h
 # ADT-Tweak-end
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -91,12 +101,14 @@
   - type: GhostRole
     name: ghost-role-information-syndicate-monkey-reinforcement-name
     description: ghost-role-information-syndicate-monkey-reinforcement-description
-    rules: ghost-role-information-rules-default-familiar
 # ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+        time: 18000 # 5h overall
 # ADT-Tweak-end
+    rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -133,6 +145,13 @@
   id: ReinforcementRadioSyndicateAncestorNukeops # Reinforcement radio exclusive to nukeops uplink
   suffix: NukeOps
   components:
+  - type: GhostRole
+    # ADT-Tweak-start
+    requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 18000 # 5h overall
+    # ADT-Tweak-end
+    rules: ghost-role-information-nukeop-reinforcement-rules
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgentNukeops
     selectablePrototypes: ["SyndicateMonkeyNukeops", "SyndicateKoboldNukeops"]
@@ -146,12 +165,14 @@
   - type: GhostRole
     name: ghost-role-information-SyndiCat-name
     description: ghost-role-information-SyndiCat-description
-    rules: ghost-role-information-rules-default-familiar
 # ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
         time: 7200 # 2h overall
 # ADT-Tweak-end
+    rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -173,8 +194,10 @@
 # ADT-Tweak-start
       requirements:
         - !type:OverallPlaytimeRequirement
-          time: 7200 # 2h overall
+          time: 54000 # 15h overall
 # ADT-Tweak-end
+      mindRoles:
+      - MindRoleGhostRoleSilicon
       raffle:
         settings: default
     - type: GhostRoleMobSpawner

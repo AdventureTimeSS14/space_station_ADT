@@ -1,16 +1,16 @@
-using System.Linq;
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
+using Content.Server.Administration;
 using Content.Server.Administration.Managers;
+using Content.Server.Database;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Content.Server.Administration;
-using Content.Server.ADT.Discord;
-using Content.Server.ADT.Discord.Bans;
-using Content.Server.ADT.Discord.Bans.PayloadGenerators;
-using Content.Server.Database;
 using Robust.Shared.Console;
+using System.Linq;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -141,3 +141,13 @@ public sealed class BanMassCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

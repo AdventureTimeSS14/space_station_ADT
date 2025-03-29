@@ -1,0 +1,55 @@
+- type: loadoutEffectGroup
+  id: ADTChaplainBronzeCross10hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 36000 #10 часов
+
+- type: loadoutEffectGroup
+  id: ADTChaplainSilverCross50hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 180000 #50 часов
+
+- type: loadoutEffectGroup
+  id: ADTChaplainGoldCross100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 360000 #100 часов
+
+- type: loadout
+  id: ADTChaplainWCross
+  equipment:
+    neck: ADTWoodCross
+
+- type: loadout
+  id: ADTChaplainBCross
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainBronzeCross10hour
+  equipment:
+    neck: ADTBronzeCross
+
+- type: loadout
+  id: ADTChaplainSCross
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainSilverCross50hour
+  equipment:
+    neck: ADTSilverCross
+
+- type: loadout
+  id: ADTChaplainGCross
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainGoldCross100hour
+  equipment:
+    neck: ADTGoldCross

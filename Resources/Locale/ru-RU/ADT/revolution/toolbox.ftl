@@ -33,8 +33,7 @@ revolution-toolbox-category-printing-name = Набор печатания
 revolution-toolbox-category-printing-description =
     Вы что-то хотите? Напечатайте!
     Включает в себя: плата автолата, плата протолата,
-    плата фабрикатора экзокостюмов, плата ТехФаба патронов,
-    плата охранного техфаба.
+    плата медифинского ТехФаба и плата ТехФаба патронов.
 
 revolution-toolbox-category-cluwnerev-name = Набор Клувеня
 

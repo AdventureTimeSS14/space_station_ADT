@@ -16,6 +16,8 @@
         weight: 9
       - id: PlushieSpaceLizard
         weight: 1
+      - id: PlushieLizardInversed
+        weight: 0.5
     - !type:GroupSelector
       children:
       - id: PlushieCarp
@@ -39,6 +41,7 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
+    - id: ADTPlushieDionaIneedPizza486 #ADT_Tweak
 
 - type: entity
   id: CrateFunPlushie
@@ -100,8 +103,6 @@
         amount: 2
       - id: FrenchHornInstrument
         amount: 2
-      - id: SaxophoneInstrument
-        amount: 2
       - id: EuphoniumInstrument
       - id: TubaInstrument
 
@@ -137,6 +138,8 @@
       - id: ClarinetInstrument
       - id: FluteInstrument
       - id: HarmonicaInstrument
+        amount: 2
+      - id: SaxophoneInstrument
         amount: 2
       - id: OcarinaInstrument
       - id: PanFluteInstrument
@@ -325,8 +328,10 @@
       - id: WhoopieCushion
       - id: ToyHammer
       - id: MrChips
+        prob: 0.5 # ADT tweak
         orGroup: GiftPool
       - id: MrDips
+        prob: 0.5 # ADT tweak
         orGroup: Giftpool
       - id: RevolverCapGun
       - id: BalloonNT
@@ -335,6 +340,14 @@
       - id: BeachBall
       - id: ClothingShoesSkates
       - id: RubberChicken
+      #ADT tweak start
+      - id: FunnyPaint
+        orGroup: Paint
+        prob: 0.5
+      - id: FunnyPaintYellow
+        orGroup: Paint
+        prob: 0.5
+      #ADT tweak end
 
 - type: entity
   id: CrateFunBikeHornImplants

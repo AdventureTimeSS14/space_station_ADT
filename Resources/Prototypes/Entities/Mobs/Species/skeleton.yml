@@ -109,6 +109,14 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+# ADT-Tweak-start
+  - type: Tag
+    tags:
+    - Unimplantable
+    - CanPilot
+    - DoorBumpOpener
+    - FootstepSound
+# ADT-Tweak-end
 
 - type: entity
   parent: BaseSpeciesDummy

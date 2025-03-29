@@ -1,0 +1,33 @@
+- type: entity
+  id: ADTProjectileHealingBoltWeak
+  name: healing bolt weak
+  description: I COMMAND YOU TO LIVE!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: spell
+      color: white
+  - type: Projectile
+    damage:
+      groups: # хилит, но слабее.
+        Brute: -20
+        Burn: -20
+        Airloss: -20
+        Toxin: -20
+    ignoreResistances: true
+
+- type: entity
+  parent: ProjectilePolyboltBase
+  id: ADTProjectilePolyboltVulpkanin
+  name: vulp polybolt
+  description: Nooo, I don't wanna be furry!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PolymorphOnCollide
+    polymorph: ADTWizardForcedVulpkanin
+    whitelist:
+      components:
+      - Body

@@ -4,6 +4,7 @@ using System.Numerics;
 using Content.Client.ADT.Lobby.UI;
 using Content.Client.Corvax.Sponsors;
 using Content.Client.Guidebook;
+using System.Reflection;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -11,9 +12,10 @@ using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
+using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.ADT.CCVar;
-using Content.Shared.ADT.SpeechBarks;
+using Content.Client.Corvax.Sponsors;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
@@ -22,6 +24,7 @@ using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Mobs;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
@@ -37,6 +40,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 
@@ -56,13 +60,14 @@ namespace Content.Client.Lobby.UI
         private readonly MarkingManager _markingManager;
         private readonly JobRequirementsManager _requirements;
         private readonly LobbyUIController _controller;
+        private readonly IDynamicTypeFactory _factory;  // ADT SAI Custom
         [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
 
         // One at a time.
-        private LoadoutWindow? _loadoutWindow;
+        private BaseLoadoutWindow? _loadoutWindow;  // ADT SAI Custom
 
         private bool _exporting;
         private bool _imaging;
@@ -112,6 +117,7 @@ namespace Content.Client.Lobby.UI
         private ISawmill _sawmill;
 
         private SpeciesWindow? _speciesWindow;  // ADT Species window
+        private QuirksWindow? _quirksWindow;  // ADT Quirks window
 
 
         public HumanoidProfileEditor(
@@ -124,7 +130,8 @@ namespace Content.Client.Lobby.UI
             IPrototypeManager prototypeManager,
             IResourceManager resManager,
             JobRequirementsManager requirements,
-            MarkingManager markings)
+            MarkingManager markings,
+            IDynamicTypeFactory factory)    // ADT SAI Custom
         {
             RobustXamlLoader.Load(this);
             _sawmill = logManager.GetSawmill("profile.editor");
@@ -137,6 +144,7 @@ namespace Content.Client.Lobby.UI
             _preferencesManager = preferencesManager;
             _resManager = resManager;
             _requirements = requirements;
+            _factory = factory; // ADT SAI Custom
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
 
             ImportButton.OnPressed += args =>
@@ -271,7 +279,14 @@ namespace Content.Client.Lobby.UI
                 }
                 else
                 {
-                    _speciesWindow = new(Profile, prototypeManager, entManager, _controller, _resManager, _parsingMan);
+                    _speciesWindow = new(
+                        Profile,
+                        prototypeManager,
+                        entManager,
+                        _controller,
+                        _resManager,
+                        _parsingMan);
+
                     _speciesWindow.OpenCenteredLeft();
                     var oldProfile = Profile.Clone();
                     _speciesWindow.ChooseAction += args =>
@@ -284,6 +299,7 @@ namespace Content.Client.Lobby.UI
                         var name1 = _prototypeManager.Index(Profile?.Species ?? "Human").Name;
                         NewSpeciesButton.Text = Loc.GetString(name1);
                         NewSpeciesButton.Pressed = false;
+                        this.SetDefaultLanguages();
                     };
                     _speciesWindow.OnClose += () =>
                     {
@@ -561,8 +577,46 @@ namespace Content.Client.Lobby.UI
         {
             TraitsList.DisposeAllChildren();
 
-            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().Where(t => !t.Quirk).OrderBy(t => Loc.GetString(t.Name)).ToList(); // ADT Quirks tweaked
             TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-traits-tab"));   // ADT Languages tweak
+
+            // ADT Quirks Window start
+            if (Profile != null)
+                _quirksWindow?.Populate(Profile);
+            QuirksMenuButton.OnToggled += args =>
+            {
+                if (Profile == null)
+                    return;
+
+                _quirksWindow?.Dispose();
+
+                if (!args.Pressed)
+                {
+                    _quirksWindow = null;
+                }
+                else
+                {
+                    _quirksWindow = new(_prototypeManager);
+                    _quirksWindow.Populate(Profile);
+                    _quirksWindow.OpenCenteredRight();
+                    _quirksWindow.QuirkSelected += args =>
+                    {
+                        if (Profile.TraitPreferences.Contains(args.ID))
+                            Profile = Profile.WithoutTraitPreference(args.ID, _prototypeManager);
+                        else
+                            Profile = Profile.WithTraitPreference(args.ID, _prototypeManager);
+
+                        SetDirty();
+                        _quirksWindow?.Populate(Profile);
+                    };
+                    _quirksWindow.OnClose += () =>
+                    {
+                        QuirksMenuButton.Pressed = false;
+                        _quirksWindow = null;
+                    };
+                }
+            };
+            // ADT Quirks Window end
 
             if (traits.Count < 1)
             {
@@ -590,6 +644,8 @@ namespace Content.Client.Lobby.UI
                 if (!_prototypeManager.HasIndex(trait.Category))
                     continue;
 
+                if (trait.SponsorOnly && !IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor))
+                    continue;
                 var group = traitGroups.GetOrNew(trait.Category);
                 group.Add(trait.ID);
             }
@@ -935,7 +991,7 @@ namespace Content.Client.Lobby.UI
 
             foreach (var department in departments)
             {
-                var departmentName = Loc.GetString($"department-{department.ID}");
+                var departmentName = Loc.GetString(department.Name);
 
                 if (!_jobCategories.TryGetValue(department.ID, out var category))
                 {
@@ -1054,6 +1110,11 @@ namespace Content.Client.Lobby.UI
                     var collection = IoCManager.Instance!;
                     var protoManager = collection.Resolve<IPrototypeManager>();
 
+                    // ADT SAI Custom start
+                    if (job.LoadoutButtonText != null)
+                        loadoutWindowBtn.Text = Loc.GetString(job.LoadoutButtonText);
+                    // ADT SAI Custom end
+
                     // If no loadout found then disabled button
                     if (!protoManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var roleLoadoutProto))
                     {
@@ -1069,14 +1130,18 @@ namespace Content.Client.Lobby.UI
                             // Clone so we don't modify the underlying loadout.
                             Profile?.Loadouts.TryGetValue(LoadoutSystem.GetJobPrototype(job.ID), out loadout);
                             loadout = loadout?.Clone();
-
                             if (loadout == null)
                             {
                                 loadout = new RoleLoadout(roleLoadoutProto.ID);
                                 loadout.SetDefault(Profile, _playerManager.LocalSession, _prototypeManager);
                             }
 
-                            OpenLoadout(job, loadout, roleLoadoutProto);
+                            // ADT SAI Custom start
+                            if (job.LoadoutOverride != null)
+                                OpenLoadoutOverride(job, loadout, job.LoadoutOverride);
+                            else
+                                OpenLoadout(job, loadout, roleLoadoutProto);
+                            // ADT SAI Custom end
                         };
                     }
 
@@ -1107,22 +1172,34 @@ namespace Content.Client.Lobby.UI
                 Title = jobProto?.ID + "-loadout",
             };
 
+            // ADT SAI Custom start
+            if (_loadoutWindow is not LoadoutWindow window)
+                return;
+            // ADT SAI Custom end
+
             // Refresh the buttons etc.
-            _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+            window.RefreshLoadouts(roleLoadout, session, collection);   // ADT SAI Custom tweaked
             _loadoutWindow.OpenCenteredLeft();
 
-            _loadoutWindow.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
+            window.OnNameChanged += name => // ADT SAI Custom tweaked
+            {
+                roleLoadout.EntityName = name;
+                Profile = Profile.WithLoadout(roleLoadout);
+                SetDirty();
+            };
+
+            window.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>  // ADT SAI Custom tweaked
             {
                 roleLoadout.AddLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+                window.RefreshLoadouts(roleLoadout, session, collection);   // ADT SAI Custom tweaked
                 Profile = Profile?.WithLoadout(roleLoadout);
                 ReloadPreview();
             };
 
-            _loadoutWindow.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>
+            window.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>    // ADT SAI Custom tweaked
             {
                 roleLoadout.RemoveLoadout(loadoutGroup, loadoutProto, _prototypeManager);
-                _loadoutWindow.RefreshLoadouts(roleLoadout, session, collection);
+                window.RefreshLoadouts(roleLoadout, session, collection);   // ADT SAI Custom tweaked
                 Profile = Profile?.WithLoadout(roleLoadout);
                 ReloadPreview();
             };
@@ -1141,6 +1218,48 @@ namespace Content.Client.Lobby.UI
 
             UpdateJobPriorities();
         }
+
+        // ADT SAI Custom start
+        private void OpenLoadoutOverride(JobPrototype? jobProto, RoleLoadout roleLoadout, string windowName)
+        {
+            _loadoutWindow?.Dispose();
+            _loadoutWindow = null;
+
+            _loadoutWindow = _factory.CreateInstance(Type.GetType($"Content.Client.Lobby.UI.Loadouts.{windowName}")!) as BaseLoadoutWindow;
+            if (_loadoutWindow is not ILoadoutOverride loadoutWindow)
+                return;
+
+            loadoutWindow.Refresh(Profile, roleLoadout, _prototypeManager);
+            loadoutWindow.OnValueChanged += item =>
+            {
+                if (roleLoadout.ExtraData.ContainsKey(item.Key))
+                    roleLoadout.ExtraData[item.Key] = item.Value;
+                else
+                    roleLoadout.ExtraData.Add(item.Key, item.Value);
+
+                Profile = Profile?.WithLoadout(roleLoadout);
+                loadoutWindow.Refresh(Profile, roleLoadout, _prototypeManager);
+                ReloadPreview();
+                SetDirty();
+            };
+
+            _loadoutWindow.OpenCenteredLeft();
+
+            JobOverride = jobProto;
+            ReloadPreview();
+
+            _loadoutWindow.OnClose += () =>
+            {
+                JobOverride = null;
+                ReloadPreview();
+            };
+
+            if (Profile is null)
+                return;
+
+            UpdateJobPriorities();
+        }
+        // ADT SAI Custom end
 
         private void OnFlavorTextChange(string content)
         {

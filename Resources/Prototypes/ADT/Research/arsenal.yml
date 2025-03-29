@@ -1,16 +1,40 @@
+
 - type: technology
-  id: AdvSalvageWeapons
-  name: research-technology-salvage-weapons-adv
+  id: ADTSecMODsuit
+  name: research-technology-security-modsuit
   icon:
-    sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
-    state: icon
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: security
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 5000
   recipeUnlocks:
-    - ADTWeaponCutterAdv
+    - ADTModsuitPlateSecurity
   technologyPrerequisites:
-    - SalvageWeapons
+    - ADTModsuitBase
+  position: 1,0
+  requiredTech:
+  - SalvageWeapons
+
+- type: technology
+  id: ADTSecMODsuitMODs
+  name: research-technology-security-modsuit-mods
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: no_baton
+  discipline: Arsenal
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+    - ADTModsuitModArmor
+    - ADTModsuitModSechud
+    - ADTModsuitModPowerKick
+    - ADTModsuitModStun
+  technologyPrerequisites:
+    - ADTSecMODsuit
+  position: 2,0
+  requiredTech:
+  - ADTSecMODsuit
 
 - type: technology
   id: KineticModifications
@@ -25,6 +49,9 @@
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
+  position: 0,2
+  requiredTech:
+  - SalvageWeapons
 
 #Технологии модулей
 - type: technology
@@ -42,6 +69,9 @@
     - ADTAttachmentReflexSightRecipe
   # technologyPrerequisites:
   #   - SalvageWeapons
+  position: 0,-2
+  requiredTech:
+  - DraconicMunitions
 
 - type: technology
   id: ADTArsenalExtendedModules
@@ -62,3 +92,6 @@
     - ADT40mmGrenadeSmokeRecipe
   technologyPrerequisites:
     - ADTArsenalBasicModules
+  position: 0,-3
+  requiredTech:
+  - ADTArsenalBasicModules

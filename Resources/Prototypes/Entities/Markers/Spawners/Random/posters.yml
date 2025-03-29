@@ -112,8 +112,8 @@
       - ADTPosterContrabandUmaAndAzalia
       - ADTPosterContrabandUmaRabbit
       - ADTPosterContrabandUmaOnBeach
-      - ADTPosterWhatDVLegit
-      - ADTPosterUnclePrazLegit
+      - ADTPosterContrabandGoobChuckler
+      - ADTPosterContrabandGoobYakub
       #ADT tweak ^^^
     chance: 1
 
@@ -192,5 +192,15 @@
       - ADTPosterPlasmaMan
       - ADTPosterError
       - ADTPosterNoBad
+      - ADTPosterWhatDVLegit #Перенёс по причинее того, что Legit постеры находятся в этой категории
+      - ADTPosterUnclePrazLegit
+      - ADTPosterLegitGoobSlowDownClown
+      - ADTPosterLegitGoobNTRAdvert
+      - ADTPosterLegitGoobLouieVote
+      - ADTPosterLegitGoobLokoAdvertisement
+      - ADTPosterLegitGoobWelderBomb
+      - ADTPosterLegitGoobDurkPlush
+      - ADTPosterLegitGoobBigBrotherAI
       #ADT tweak ^^^
+      - PosterLegitOppenhopper
     chance: 1

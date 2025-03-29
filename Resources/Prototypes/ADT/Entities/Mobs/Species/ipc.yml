@@ -121,6 +121,8 @@
     - ChangelingBlacklist
     - ADTSiliconStealthWhitelist
     - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable # ADT-Tweak
   - type: Inventory
     templateId: ipc
   - type: SizeAttributeWhitelist # Frontier

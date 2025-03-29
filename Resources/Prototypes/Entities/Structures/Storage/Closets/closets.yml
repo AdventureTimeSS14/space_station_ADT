@@ -118,7 +118,9 @@
 - type: entity
   id: ClosetLibrary
   parent: ClosetSteelBase
-  name: library closet
+  description: It's a storage unit for janitorial explosion-protective suits.
+  categories: [ DoNotMap ]
+  suffix: DO NOT MAP # ADT-Tweak
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -242,6 +244,7 @@
   parent: ClosetMaintenance
   description: It's a storage unit... right?
   components:
+    - type: ArrivalsBlacklist
     - type: BluespaceLocker
       pickLinksFromSameMap: true
       minBluespaceLinks: 1
@@ -260,6 +263,7 @@
   parent: ClosetMaintenance
   description: It's a storage unit... right?
   components:
+    - type: ArrivalsBlacklist
     - type: BluespaceLocker
       pickLinksFromSameMap: true
       minBluespaceLinks: 1

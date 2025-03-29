@@ -17,5 +17,6 @@
       - ADTCrateNecropolisCultArmor
     rarePrototypes:
       - ADTCrateNecropolisVavilon
+      - DeathPaint
       - ADTCrateNecropolisVampirismCrystal
     chance: 1

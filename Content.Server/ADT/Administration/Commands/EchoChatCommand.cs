@@ -1,14 +1,14 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Chat;
+using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-using Content.Server.Chat.Systems;
-using Content.Server.Administration.Managers;
-using System.Linq;
-using Content.Shared.Database;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -116,3 +116,13 @@ public sealed class EchoChatCommand : LocalizedEntityCommands
         return CompletionResult.Empty;
     }
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

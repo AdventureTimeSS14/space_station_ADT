@@ -1,5 +1,4 @@
 using Content.Server.Chat.Systems;
-using Content.Shared.ADT.BloodCough;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
@@ -8,9 +7,10 @@ using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.ADT.Silicon.Components;
-using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
+using Content.Shared.Chat;
 
+namespace Content.Server.ADT.BloodCough;
 
 public sealed class BloodCoughSystem : EntitySystem
 {
@@ -87,3 +87,13 @@ public sealed class BloodCoughSystem : EntitySystem
         }
     }
 }
+
+/*
+    ╔════════════════════════════════════╗
+    ║   Schrödinger's Cat Code   🐾      ║
+    ║   /\_/\\                           ║
+    ║  ( o.o )  Meow!                    ║
+    ║   > ^ <                            ║
+    ╚════════════════════════════════════╝
+
+*/

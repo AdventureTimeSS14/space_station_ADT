@@ -85,6 +85,14 @@
     stackType: ADTPaper
     count: 1
 # Corvax-Printer-End
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/paper_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/paper_drop.ogg
+  # ADT End
 
 - type: entity
   name: paper scrap
@@ -461,7 +469,7 @@
   id: BoxFolderCentCom
   name: CentComm folder
   parent: BoxFolderBase
-  suffix: DO NOT MAP
+  # categories: [ DoNotMap ] #ADT_Tweak - убираем компонент "не маппить"
   description: CentComm's miserable little pile of secrets!
   components:
   - type: Sprite
@@ -623,7 +631,7 @@
   id: TraitorCodePaper
   name: syndicate codeword
   description: A leaked codeword to possibly get in touch with the Syndicate.
-  suffix: DO NOT MAP
+  # categories: [ DoNotMap ] #ADT_Tweak - убираем компонент "не маппить"
   components:
   - type: TraitorCodePaper
 

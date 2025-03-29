@@ -20,8 +20,8 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 5
+    earliestStart: 40
+    weight: 2
     minimumPlayers: 30
     reoccurrenceDelay: 30
     duration: 1

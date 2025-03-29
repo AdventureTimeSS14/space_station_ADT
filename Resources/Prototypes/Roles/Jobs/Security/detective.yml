@@ -7,6 +7,13 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 90000 #25 hrs # ADT-RoleTime
+  # ADT Restrict Start
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Resomi
+    - Vox
+  # ADT RESTRICT End
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos

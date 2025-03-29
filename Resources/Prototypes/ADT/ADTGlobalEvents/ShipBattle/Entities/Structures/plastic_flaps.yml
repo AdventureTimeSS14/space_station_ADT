@@ -20,3 +20,7 @@
   - type: Airtight
   - type: StaticPrice
     price: 100
+  - type: RCDDeconstructable
+    cost: 3
+    delay: 6
+    fx: EffectRCDDeconstruct6

@@ -62,28 +62,28 @@
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
-          minCount: 2
-          maxCount: 2
+          minCount: 0 #ADT tweak, moved to magnet
+          maxCount: 0 #ADT tweak, moved to magnet
           stationGrid: false
           paths:
           - /Maps/Ruins/abandoned_outpost.yml
           # Corvax-Mapping-Start
-          - /Maps/Ruins/corvax_accident.yml
-          - /Maps/Ruins/corvax_adventurer.yml
-          - /Maps/Ruins/corvax_aplink.yml
-          - /Maps/Ruins/corvax_battleship.yml
-          - /Maps/Ruins/corvax_gas_station.yml
-          - /Maps/Ruins/corvax_bss_unluck.yml
-          - /Maps/Ruins/corvax_hotel_trivago.yml
-          - /Maps/Ruins/corvax_kamikaze.yml
-          - /Maps/Ruins/corvax_ore.yml
-          - /Maps/Ruins/corvax_research_station.yml
-          - /Maps/Ruins/corvax_rnd_debris.yml
-          # - /Maps/Ruins/corvax_sanctus.yml
-          # - /Maps/Ruins/corvax_syndi_base.yml Сказали убрать из пула
-          - /Maps/Ruins/corvax_ussp_debris.yml
-          - /Maps/Ruins/corvax_ussp_asteroid.yml
+          - /Maps/Corvax/Ruins/corvax_accident.yml
+          - /Maps/Corvax/Ruins/corvax_adventurer.yml
+          - /Maps/Corvax/Ruins/corvax_aplink.yml
+          - /Maps/Corvax/Ruins/corvax_battleship.yml
+          - /Maps/Corvax/Ruins/corvax_gas_station.yml
+          - /Maps/Corvax/Ruins/corvax_bss_unluck.yml
+          - /Maps/Corvax/Ruins/corvax_hotel_trivago.yml
+          - /Maps/Corvax/Ruins/corvax_kamikaze.yml
+          - /Maps/Corvax/Ruins/corvax_ore.yml
+          - /Maps/Corvax/Ruins/corvax_research_station.yml
+          - /Maps/Corvax/Ruins/corvax_rnd_debris.yml
+          # - /Maps/Corvax/Ruins/corvax_sanctus.yml # ADT-New-Balance
+          - /Maps/Corvax/Ruins/corvax_ussp_debris.yml
+          - /Maps/Corvax/Ruins/corvax_ussp_asteroid.yml
           # Corvax-Mapping-End
+          # - /Maps/Ruins/wrecklaimer.yml # ADT-Tweak
         # ADT Ruins Start
           - /Maps/ADTMaps/Ruins/bss_unluck.yml
           - /Maps/ADTMaps/Ruins/hotel_trivago.yml
@@ -122,10 +122,14 @@
 #          protos:
 #          - VGRoid                       ADT remove end
         # ADT-Mining-Start
-        mining: !type:GridSpawnGroup
+        salvage: !type:GridSpawnGroup
+          minCount: 3
+          maxCount: 3
           nameGrid: false
           paths:
           - /Maps/ADTMaps/Shuttles/pioneer.yml
+          - /Maps/ADTMaps/Shuttles/mining.yml
+          - /Maps/ADTMaps/Shuttles/mining_guest.yml
         # ADT-Mining-End
         # ADT-Security-Start
         security: !type:GridSpawnGroup
@@ -139,7 +143,7 @@
   abstract: true
   components:
     - type: StationCentcomm
-      map: "/Maps/corvax_centcomm.yml"
+      map: "/Maps/centcomm.yml"
 
 - type: entity
   id: BaseStationEvacuation

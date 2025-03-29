@@ -21,13 +21,13 @@ using Content.Shared.Physics;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
+using Content.Shared.Strip;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Wall;
 using JetBrains.Annotations;
-using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
@@ -37,7 +37,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -64,11 +63,10 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
         [Dependency] private readonly PullingSystem _pullSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+        [Dependency] private readonly SharedStrippableSystem _strippable = default!;
         [Dependency] private readonly SharedPlayerRateLimitManager _rateLimit = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly ISharedChatManager _chat = default!;
 
         private EntityQuery<IgnoreUIRangeComponent> _ignoreUiRangeQuery;
@@ -138,7 +136,8 @@ namespace Content.Shared.Interaction
 
         private void RateLimitAlertAdmins(ICommonSession session)
         {
-            _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name)));
+            if (CCVars.InteractionRateLimitAnnounceAdmins.DefaultValue) // ADT-Tweak:
+                _chat.SendAdminAlert(Loc.GetString("interaction-rate-limit-admin-announcement", ("player", session.Name))); // ADT-Tweak:
         }
 
         public override void Shutdown()
@@ -494,7 +493,7 @@ namespace Content.Shared.Interaction
                 return;
             }
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
             // all interactions should only happen when in range / unobstructed, so no range check is needed
             var message = new InteractHandEvent(user, target);
             RaiseLocalEvent(target, message, true);
@@ -503,7 +502,7 @@ namespace Content.Shared.Interaction
             if (message.Handled)
                 return;
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
             // Else we run Activate.
             InteractionActivate(user,
                 target,
@@ -538,7 +537,7 @@ namespace Content.Shared.Interaction
             if (RangedInteractDoBefore(user, used, target, clickLocation, inRangeUnobstructed, checkDeletion: false))
                 return;
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));   // ADT Exception Fix
             if (target != null)
             {
                 var rangedMsg = new RangedInteractEvent(user, used, target.Value, clickLocation);
@@ -550,7 +549,7 @@ namespace Content.Shared.Interaction
                     return;
             }
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));   // ADT Exception Fix
             InteractDoAfter(user, used, target, clickLocation, inRangeUnobstructed, checkDeletion: false);
         }
 
@@ -665,7 +664,8 @@ namespace Content.Shared.Interaction
             float range = InteractionRange,
             CollisionGroup collisionMask = InRangeUnobstructedMask,
             Ignored? predicate = null,
-            bool popup = false)
+            bool popup = false,
+            bool overlapCheck = true)
         {
             if (!Resolve(other, ref other.Comp))
                 return false;
@@ -685,7 +685,8 @@ namespace Content.Shared.Interaction
                 range,
                 collisionMask,
                 predicate,
-                popup);
+                popup,
+                overlapCheck);
         }
 
         /// <summary>
@@ -715,6 +716,7 @@ namespace Content.Shared.Interaction
         /// <returns>
         ///     True if the two points are within a given range without being obstructed.
         /// </returns>
+        /// <param name="overlapCheck">If true, if the broadphase query returns an overlap (0f distance) this function will early out true with no raycast made.</param>
         public bool InRangeUnobstructed(
             Entity<TransformComponent?> origin,
             Entity<TransformComponent?> other,
@@ -723,7 +725,8 @@ namespace Content.Shared.Interaction
             float range = InteractionRange,
             CollisionGroup collisionMask = InRangeUnobstructedMask,
             Ignored? predicate = null,
-            bool popup = false)
+            bool popup = false,
+            bool overlapCheck = true)
         {
             Ignored combinedPredicate = e => e == origin.Owner || (predicate?.Invoke(e) ?? false);
             var inRange = true;
@@ -746,7 +749,7 @@ namespace Content.Shared.Interaction
                 fixtureB.FixtureCount > 0 &&
                 Resolve(origin, ref origin.Comp))
             {
-                var (worldPosA, worldRotA) = origin.Comp.GetWorldPositionRotation();
+                var (worldPosA, worldRotA) = _transform.GetWorldPositionRotation(origin.Comp);
                 var xfA = new Transform(worldPosA, worldRotA);
                 var parentRotB = _transform.GetWorldRotation(otherCoordinates.EntityId);
                 var xfB = new Transform(targetPos.Position, parentRotB + otherAngle);
@@ -766,7 +769,7 @@ namespace Content.Shared.Interaction
                     inRange = false;
                 }
                 // Overlap, early out and no raycast.
-                else if (distance.Equals(0f))
+                else if (overlapCheck && distance.Equals(0f))
                 {
                     return true;
                 }
@@ -819,7 +822,7 @@ namespace Content.Shared.Interaction
             Ignored? predicate = null)
         {
             var transform = Transform(target);
-            var (position, rotation) = transform.GetWorldPositionRotation();
+            var (position, rotation) = _transform.GetWorldPositionRotation(transform);
             var mapPos = new MapCoordinates(position, transform.MapID);
             var combinedPredicate = GetPredicate(origin, target, mapPos, rotation, collisionMask, predicate);
 
@@ -1012,7 +1015,7 @@ namespace Content.Shared.Interaction
             if (RangedInteractDoBefore(user, used, target, clickLocation, canReach: true, checkDeletion: false))
                 return true;
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
             // all interactions should only happen when in range / unobstructed, so no range check is needed
             var interactUsingEvent = new InteractUsingEvent(user, used, target, clickLocation);
             RaiseLocalEvent(target, interactUsingEvent, true);
@@ -1025,7 +1028,7 @@ namespace Content.Shared.Interaction
             if (InteractDoAfter(user, used, target, clickLocation, canReach: true, checkDeletion: false))
                 return true;
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
             return false;
         }
 
@@ -1062,7 +1065,7 @@ namespace Content.Shared.Interaction
             if (target == null)
                 return false;
 
-            DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
+            //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used) && !IsDeleted(target));
             var afterInteractUsingEvent = new AfterInteractUsingEvent(user, used, target, clickLocation, canReach);
             RaiseLocalEvent(target.Value, afterInteractUsingEvent);
 
@@ -1112,6 +1115,7 @@ namespace Content.Shared.Interaction
                 return false;
 
             //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
+
             _delayQuery.TryComp(used, out var delayComponent);
             if (checkUseDelay && delayComponent != null && _useDelay.IsDelayed((used, delayComponent)))
                 return false;
@@ -1142,6 +1146,7 @@ namespace Content.Shared.Interaction
             }
 
             //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
+
             var userEv = new UserActivateInWorldEvent(user, used, complexInteractions.Value);
             RaiseLocalEvent(user, userEv, true);
             if (!userEv.Handled)
@@ -1195,6 +1200,7 @@ namespace Content.Shared.Interaction
             }
 
             //DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));  // ADT Commented
+
             // else, default to activating the item
             return InteractionActivate(user, used, false, false, false, checkDeletion: false);
         }
@@ -1321,7 +1327,7 @@ namespace Content.Shared.Interaction
             if (wearer == user)
                 return true;
 
-            if (slotDef.StripHidden)
+            if (_strippable.IsStripHidden(slotDef, user))
                 return false;
 
             return InRangeUnobstructed(user, wearer) && _containerSystem.IsInSameOrParentContainer(user, wearer);
@@ -1407,7 +1413,7 @@ namespace Content.Shared.Interaction
         /// <returns>If there is an entity being used.</returns>
         public bool TryGetUsedEntity(EntityUid user, [NotNullWhen(true)] out EntityUid? used, bool checkCanUse = true)
         {
-            var ev = new GetUsedEntityEvent();
+            var ev = new GetUsedEntityEvent(user);
             RaiseLocalEvent(user, ref ev);
 
             used = ev.Used;
@@ -1458,8 +1464,9 @@ namespace Content.Shared.Interaction
     ///     Raised directed by-ref on an entity to determine what item will be used in interactions.
     /// </summary>
     [ByRefEvent]
-    public record struct GetUsedEntityEvent()
+    public record struct GetUsedEntityEvent(EntityUid User)
     {
+        public EntityUid User = User;
         public EntityUid? Used = null;
 
         public bool Handled => Used != null;

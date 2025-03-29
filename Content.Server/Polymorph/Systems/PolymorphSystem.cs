@@ -3,7 +3,6 @@ using Content.Server.Humanoid;
 using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
-using Content.Server.Nutrition;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
@@ -16,6 +15,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
@@ -25,7 +25,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Server.Forensics; // ADT-Changeling-Tweak
+using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
 using Content.Server.DetailExaminable; // ADT-Changeling-Tweak
@@ -291,7 +291,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             _humanoid.SetAppearance(data.HumanoidAppearanceComponent, humanoidAppearance);
 
         if (TryComp<DnaComponent>(child, out var dnaComp))
+        {
             dnaComp.DNA = data.DNA;
+            Dirty(child, dnaComp);
+        }
 
         //Transfers all damage from the original to the new one
         if (TryComp<DamageableComponent>(child, out var damageParent)
@@ -314,6 +317,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         EnsurePausedMap();
         if (PausedMap != null)
             _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
+
+        // Raise an event to inform anything that wants to know about the entity swap
+        var ev = new PolymorphedEvent(uid, child, false);
+        RaiseLocalEvent(uid, ref ev);
 
         // goob edit
         if (TryComp<FollowedComponent>(uid, out var followed))
@@ -428,6 +435,10 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
+
+        // Raise an event to inform anything that wants to know about the entity swap
+        var ev = new PolymorphedEvent(uid, parent, true);
+        RaiseLocalEvent(uid, ref ev);
 
         _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
                 ("parent", Identity.Entity(uid, EntityManager)),

@@ -1,0 +1,20 @@
+- type: entity
+  name: staff of healing
+  parent: WeaponStaffBase
+  id: ADTWeaponStaffHealingWeak
+  description: You don't foresee having to use this in your quest for carnage too often.
+  components:
+  - type: Sprite
+    layers:
+    - state: healing
+  - type: Item
+    heldPrefix: healing
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ADTProjectileHealingBoltWeak
+    capacity: 10
+    count: 10
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 90
