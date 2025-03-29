@@ -389,7 +389,7 @@ namespace Content.Shared.Atmos
         public const float H2OxygenFullBurn = 10f;
         public const float FireH2BurnRateDelta = 2f;
         public const float H2MinimumBurnTemperature = T0C + 100f;
-        public const float NitriumFormationTempDivisor = (T0C + 100f) * 8f;
+        public const float NitriumFormationTempDivisor = (T0C + 100f) * 2f;
         public const float NitriumFormationEnergy = 100000f;
         public const float NitriumDecompositionTempDivisor = (T0C + 100f) * 8f;
         public const float NitriumDecompositionEnergy = 30000f;
@@ -400,7 +400,7 @@ namespace Content.Shared.Atmos
         public const float HalonCombustionEnergy = 2500f;
         public const float HealiumFormationEnergy = 9000f;
         public const float ZaukerFormationEnergy = 5000f;
-        public const float ZaukerFormationTemperatureScale = 0.000005f;
+        public const float ZaukerFormationTemperatureScale = 0.00005f;
         public const float ZaukerDecompositionMaxRate = 20f;
         public const float ZaukerDecompositionEnergy = 460f;
         public const float ProtoNitrateTemperatureScale = 0.005f;

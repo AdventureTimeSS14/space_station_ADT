@@ -3,7 +3,7 @@
   name: Крашеры
   entries:
   - id: WeaponCrusherDagger
-    price: 600
+    price: 550
   - id: WeaponCrusher
     price: 750
   - id: WeaponKineticSpear
@@ -24,7 +24,7 @@
   - id: ADTWeaponProtoKineticPistol
     price: 1250
   - id: ADTWeaponProtoKineticShotgun
-    price: 1750
+    price: 1850
   - id: ADTWeaponProtoKineticRepeater
     price: 1650
   - id: ADTWeaponProtoKineticRailgun
@@ -72,6 +72,10 @@
     price: 350
   - id: ADTAdvancedOreBag
     price: 750
+  - id: OreBagOfHolding
+    price: 3000
+  - id: ADTClothingOuterArmorMiner
+    price: 1000
   - id: ADTClothingModsuitBackMining
     price: 3000
   - id: ADTClothingOuterArmorMinerHeavy
@@ -128,7 +132,7 @@
   entries: 
   - id: PlushieLizard
     price: 220 # CURSE
-  - id: SpaceCash1000
+  - id: SpaceCash5000
     price: 2000
   - id: DrinkWhiskeyBottleFull
     price: 100

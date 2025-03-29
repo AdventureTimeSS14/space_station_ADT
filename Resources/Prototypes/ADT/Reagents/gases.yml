@@ -211,8 +211,8 @@
         ignoreResistances: true
         damage:
           groups:
-            Brute: -0.5
-            Burn: -0.5
+            Brute: -1.0
+            Burn: -1.0
             Toxin: -1.25
 
 - type: reagent
