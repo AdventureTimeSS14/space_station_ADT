@@ -282,7 +282,6 @@
     - ShuttleBoards
     # ADT-tweak-start
     - ADTEnergyBoardsPack 
-    - ADTServicePlusPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
