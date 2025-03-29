@@ -67,33 +67,34 @@ public abstract class SharedCrawlingSystem : EntitySystem
         {
             case false:
                 _standing.Down(uid, dropHeldItems: false);
-                if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
-                    combatMode.IsInCombatMode)
-                {
-                    var targetTile = Vector2.Zero;
+                // дропкик перенесён в отдельный компонент. По крайней мере пока-что
+                // if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
+                //     combatMode.IsInCombatMode)
+                // {
+                //     var targetTile = Vector2.Zero;
 
-                    if (TryComp<PhysicsComponent>(uid, out var physics) && !_gravity.IsWeightless(uid))
-                    {
-                        var velocity = physics.LinearVelocity;
+                //     if (TryComp<PhysicsComponent>(uid, out var physics) && !_gravity.IsWeightless(uid))
+                //     {
+                //         var velocity = physics.LinearVelocity;
 
-                        if (velocity.LengthSquared() > 0)
-                        {
-                            var direction = velocity.Normalized();
+                //         if (velocity.LengthSquared() > 0)
+                //         {
+                //             var direction = velocity.Normalized();
 
-                            var currentPosition = uid.ToCoordinates();
+                //             var currentPosition = uid.ToCoordinates();
 
-                            var targetTileX = currentPosition.X + direction.X * 1;
-                            var targetTileY = currentPosition.Y + direction.Y * 1;
+                //             var targetTileX = currentPosition.X + direction.X * 1;
+                //             var targetTileY = currentPosition.Y + direction.Y * 1;
 
-                            int tileX = (int)MathF.Round(targetTileX);
-                            int tileY = (int)MathF.Round(targetTileY);
+                //             int tileX = (int)MathF.Round(targetTileX);
+                //             int tileY = (int)MathF.Round(targetTileY);
 
-                            targetTile = new Vector2(tileX, tileY);
-                        }
-                    }
-                    EnsureComp<GrabThrownComponent>(uid);
-                    _throwing.TryThrow(uid, targetTile, 8, animated: false, playSound: false, doSpin: false);
-                }
+                //             targetTile = new Vector2(tileX, tileY);
+                //         }
+                //     }
+                //     EnsureComp<GrabThrownComponent>(uid);
+                //     _throwing.TryThrow(uid, targetTile, 8, animated: false, playSound: false, doSpin: false);
+                // }
                 break;
             case true:
                 _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.StandUpTime, new CrawlStandupDoAfterEvent(),

@@ -549,3 +549,6 @@
 
 - type: Tag
   id: ADTBsoWeapon
+
+- type: Tag
+  id: ADTBatonBlocker
