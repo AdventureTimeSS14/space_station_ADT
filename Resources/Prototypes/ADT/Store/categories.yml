@@ -1,3 +1,4 @@
+# Emergency Response Team
 - type: storeCategory
   id: ADTUplinkERTWeapon
   name: Оружие
@@ -20,3 +21,24 @@
 - type: storeCategory
   id: ADTPirate
   name: store-category-wearables
+
+# Syndi Mechs
+- type: storeCategory
+  id: ADTUplinkMechMechs
+  name: uplink-syndimech-mechs
+  priority: 1
+
+- type: storeCategory
+  id: ADTUplinkMechWeapon
+  name: uplink-syndimech-weapon
+  priority: 2
+
+- type: storeCategory
+  id: ADTUplinkMechEquipment
+  name: uplink-syndimech-equipment
+  priority: 3
+
+- type: storeCategory
+  id: ADTUplinkMechAmmo
+  name: uplink-syndimech-ammo
+  priority: 4

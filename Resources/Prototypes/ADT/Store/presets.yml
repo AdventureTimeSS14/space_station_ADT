@@ -1,0 +1,13 @@
+- type: entity
+  id: ADTStorePresetUplinkSyndiMech
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkMechMechs
+    - ADTUplinkMechWeapon
+    - ADTUplinkMechEquipment
+    - ADTUplinkMechAmmo
+    currencyWhitelist:
+    - Telecrystal
