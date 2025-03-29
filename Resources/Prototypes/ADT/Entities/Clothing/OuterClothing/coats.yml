@@ -355,13 +355,6 @@
   - type: Construction
     graph: ADTCrazyScientistSewing
     node: CrazyScientistReady
-  - type: Pda
-    penSlot:
-      startingItem: Pen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
 
 - type: entity
   name: incomplete Crazy zagotovka
