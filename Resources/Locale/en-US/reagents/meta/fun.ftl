@@ -30,3 +30,6 @@ reagent-desc-weh = Pure essence of lizard plush. Makes you Weh!
 
 reagent-name-hew = juice that makes you Hew
 reagent-desc-hew = Pure essence of inversed lizard plush. Makes you Hew!
+
+reagent-name-microplastics = microplastics
+reagent-desc-microplastics = A microscopic threat to the bloodstream. Yummy!
