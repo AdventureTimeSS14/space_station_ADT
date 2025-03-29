@@ -11,3 +11,17 @@
   icon: { sprite: /Textures/Objects/Specific/Hydroponics/tobacco.rsi, state: dried }
   spawn: ADTLeavesCannabisWhiteDried
   maxCount: 5
+
+- type: stack
+  id: ADTGroundMethCrystal
+  name: ground desoxyephedrine crystals
+  icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  spawn: ADTGroundMethCrystal
+  maxCount: 15
+
+- type: stack
+  id: ADTFoodMethCrystalShard
+  name: desoxyephedrine crystals shard
+  icon: { sprite: /Textures/ADT/Objects/Consumable/Food/drug_food.rsi, state: crystal_full }
+  spawn: ADTFoodMethCrystalShard
+  maxCount: 15

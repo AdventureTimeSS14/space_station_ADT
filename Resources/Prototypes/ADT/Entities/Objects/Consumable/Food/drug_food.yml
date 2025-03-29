@@ -1,6 +1,6 @@
 - type: entity
   parent: FoodInjectableBase
-  id: FoodDrugBase
+  id: ADTFoodDrugBase
   abstract: true
   components:
   - type: FlavorProfile
@@ -25,28 +25,31 @@
 
 - type: entity
   name: кристалл дезоксиэфедрина
-  parent: FoodDrugBase
-  id: FoodMethCrystal
-  description: выглядят слишком сладко и желанно...
+  parent: ADTFoodDrugBase
+  id: ADTFoodMethCrystal
+  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
   components:
   - type: Sprite
     color: "#ffffff"
   - type: SliceableFood
-    slice: FoodMethCrystalShard
+    slice: ADTFoodMethCrystalShard
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 28
+        maxVol: 100
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 28
+          Quantity: 100
 
 - type: entity
   name: осколок кристалла дезоксиэфедрина
-  parent: FoodDrugBase
-  id: FoodMethCrystalShard
-  description: выглядят слишком сладко и желанно...
+  parent: ADTFoodDrugBase
+  id: ADTFoodMethCrystalShard
+  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
   components:
+  - type: Stack
+    stackType: ADTFoodMethCrystalShard
+    count: 1
   - type: Food
   - type: Sprite
     color: "#ffffff"
@@ -54,7 +57,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 20
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 7
+          Quantity: 20

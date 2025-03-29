@@ -1,0 +1,27 @@
+- type: entity
+  name: измельчённый кристалл дезоксиэфедрина
+  parent: BaseItem
+  id: ADTGroundMethCrystal
+  description: "Мет можно что курить, что есть, что нюхать. Но данный экземпляр лучше курить."
+  components:
+  - type: Stack
+    stackType: ADTGroundMethCrystal
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 20
+  - type: Sprite
+    sprite: Objects/Misc/reagent_fillings.rsi
+    state: powderpile
+    color: white
+  - type: Construction
+    graph: ADTGroundMethCrystal
+    node: ground
+  - type: Tag
+    tags:
+      - Smokable
+  - type: Item
+    size: Tiny
