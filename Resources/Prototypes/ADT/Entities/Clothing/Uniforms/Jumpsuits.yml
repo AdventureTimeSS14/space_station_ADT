@@ -1491,7 +1491,7 @@
     node: HoodieReady
 
 - type: entity
-  name: incomplete hoodie zagotovka
+  name: incomplete hoodie template
   parent: BaseItem
   id: ADTIncompleteHoodie
   description: that crazy, dude
@@ -1521,7 +1521,7 @@
     node: ShirtReady
 
 - type: entity
-  name: incomplete shirt zagotovka
+  name: incomplete shirt template
   parent: BaseItem
   id: ADTIncompleteShirt
   description: that crazy, dude
@@ -1551,7 +1551,7 @@
     node: SweaterReady
 
 - type: entity
-  name: incomplete Sweater zagotovka
+  name: incomplete Sweater template
   parent: BaseItem
   id: ADTIncompleteSweater
   description: that crazy, dude
