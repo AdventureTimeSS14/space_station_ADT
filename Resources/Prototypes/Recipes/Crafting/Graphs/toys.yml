@@ -33,6 +33,6 @@
         icon:
           sprite: Objects/Materials/materials.rsi
           state: corgihide
-       doAfter: 5
+        doAfter: 5
   - node: suit
     entity: ClothingOuterSuitIan
