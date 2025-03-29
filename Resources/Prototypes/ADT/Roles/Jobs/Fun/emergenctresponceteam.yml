@@ -13,6 +13,9 @@
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -37,6 +40,9 @@
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -76,6 +82,9 @@
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -101,6 +110,9 @@
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -131,6 +143,9 @@
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -176,6 +191,9 @@
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -207,6 +225,9 @@
     belt: ClothingBeltSecurityFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -231,6 +252,9 @@
     belt: ClothingBeltSecurityFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -270,6 +294,9 @@
     belt: ClothingBeltSecurityFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   inhand:
     - AirTankFilled
   storage:
@@ -297,6 +324,9 @@
     belt: ADTClothingBeltMedicalSecurityERTFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
@@ -321,6 +351,9 @@
     belt: ADTClothingBeltMedicalSecurityERTFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
@@ -360,6 +393,9 @@
     belt: ADTClothingBeltMedicalSecurityERTFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
@@ -384,6 +420,9 @@
     belt: ClothingBeltJanitorFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -411,6 +450,9 @@
     belt: ClothingBeltJanitorFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -453,6 +495,9 @@
     belt: ClothingBeltJanitorFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering

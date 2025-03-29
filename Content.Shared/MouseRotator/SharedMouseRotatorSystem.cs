@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Interaction;
+using Content.Shared.Mech.Components;
 
 namespace Content.Shared.MouseRotator;
 
@@ -38,6 +39,18 @@ public abstract class SharedMouseRotatorSystem : EntitySystem
                     MathHelper.DegreesToRadians(rotator.RotationSpeed),
                     xform))
             {
+                // ADT Mech start
+                // Немного копипасты, но это поворачивает мехов
+                if (TryComp<MechPilotComponent>(uid, out var pilot))
+                {
+                    _rotate.TryRotateTo(
+                        pilot.Mech,
+                        rotator.GoalRotation.Value,
+                        frameTime,
+                        rotator.AngleTolerance,
+                        MathHelper.DegreesToRadians(rotator.RotationSpeed));
+                }
+                // ADT Mech end
                 // Stop rotating if we finished
                 rotator.GoalRotation = null;
                 Dirty(uid, rotator);
