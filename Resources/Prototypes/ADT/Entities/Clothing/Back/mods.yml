@@ -214,6 +214,7 @@
       outerClothing: ADTClothingOuterModsuitBodyMining
       shoes: ADTClothingModsuitShoesMining
     startingModules:
+      - ADTModsuitModOrebag
       - ADTModsuitModStorage
       - ADTModsuitModLight
       - ADTModsuitModDrill
