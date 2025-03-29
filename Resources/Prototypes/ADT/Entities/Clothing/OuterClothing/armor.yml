@@ -428,7 +428,7 @@
 
 
 - type: entity
-  name: incomplete armor zagotovka
+  name: incomplete armor template
   parent: BaseItem
   id: ADTIncompleteArmorKit
   description: that crazy, dude
