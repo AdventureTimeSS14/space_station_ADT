@@ -17,4 +17,4 @@ reagent-desc-halon = Мощный подавитель огня. При высо
 reagent-name-helium = гелий
 reagent-desc-helium = Инертный газ, получаемый при синтезе водорода и его производных.
 reagent-name-anti-nob = анти-ноблиум
-reagent-desc-anti-nob = Мы до сих пор не знаем, что он делает, но он стоит дорого.
+reagent-desc-anti-nob = Мы узнали что он делает. Лучше бы не узнавали. Но стоит дорого.
