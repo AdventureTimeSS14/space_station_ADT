@@ -32,7 +32,7 @@
     whitelist:
       tags:
       - ShellShotgun
-    capacity: 7
+    capacity: 4 #ADT tweak 7 -> 4
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
@@ -180,8 +180,10 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+    capacity: 7 #ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun # Corvax-Guns
+    fireRate: 1.5
     soundGunshot:
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_metal.ogg
   - type: MeleeWeapon #ADT_Tweak. Для ШТЫКОВОЙ
@@ -242,7 +244,7 @@
     sprite: ADT/Objects/Weapons/Guns/Shotguns/pump.rsi # ADT tweak
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 1
+    fireRate: 1.25
     # ADT-Tweak-start: Corvax sound
     soundGunshot:
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
@@ -250,6 +252,8 @@
   - type: Tag
     tags:
     - WeaponShotgunKammerer
+  - type: BallisticAmmoProvider
+    capacity: 7 #ADT tweak
 
 - type: entity
   name: sawn-off shotgun

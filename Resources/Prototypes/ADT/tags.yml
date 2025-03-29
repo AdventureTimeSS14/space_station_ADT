@@ -551,6 +551,9 @@
   id: ADTBsoWeapon
 
 - type: Tag
+  id: ADTBatonBlocker
+
+- type: Tag
   id: ADTSewingNeedle
 
 - type: Tag

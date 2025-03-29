@@ -25,14 +25,18 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      90: Critical
-      195: Dead
+      100: Critical
+      185: Dead
+  - type: SizeAttributeWhitelist
+    tall: true
+    tallscale: 1.1
+    short: true
+    shortscale: 0.9
   - type: WoundLicking
   - type: Sprite
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.9, 0.9
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -168,11 +172,6 @@
     languages:
       GalacticCommon: Speak
       Nekomimetic: Speak
-  - type: SizeAttributeWhitelist # Frontier
-    tall: true
-    tallscale: 0.95
-    short: true
-    shortscale: 0.8
   - type: Tag
     tags:
     - CanPilot
@@ -193,7 +192,6 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.9, 0.9
     layers:
       # TODO BODY Turn these into individual body parts?
         - map: [ "enum.HumanoidVisualLayers.Chest" ]

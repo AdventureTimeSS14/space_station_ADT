@@ -27,7 +27,18 @@
   id: ADTMicsStaticPack
   recipes:
   - StorageCanister
+  - Lantern
+  - OxygenTank
+  - NitrogenTank
+  - EmergencyOxygenTank
+  - EmergencyNitrogenTank
+  - ClothingMaskBreath
+  - ClothingMaskGas
+  - ClothingEyesGlasses
+  - ToolboxEmergency
+  - ToolboxElectrical
+  - ToolboxMechanical
+  - ToolboxArtistic
   - ADTThread
   - ADTScissors
   - ADTNeedle
-

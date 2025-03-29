@@ -20,6 +20,7 @@
       inverted: true
       species:
       - Resomi
+      - Vox
   # ADT RESTRICT End
   weight: 10
   startingGear: HoSGear
