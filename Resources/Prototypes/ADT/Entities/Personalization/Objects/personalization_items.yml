@@ -1627,6 +1627,13 @@
         enum.ToggleVisuals.Layer:
           True: {state: icon_chainsword}
           False: {state: icon}
+  - type: PointLight
+    enabled: false
+    radius: 1.1
+    energy: 0.1
+    color: "#ffffe2"
+    netsync: false
+  - type: ItemTogglePointLight
 
 # Anvel, гордость сообщества. Спрайтер
 - type: entity
