@@ -50,7 +50,7 @@
   id: ADTBlueSkyDesoxyephedrine
   minTemp: 370
   reactants:
-    ethyloxyephedrine:
+    Ethyloxyephedrine:
       amount: 1
     Iodine:
       amount: 1

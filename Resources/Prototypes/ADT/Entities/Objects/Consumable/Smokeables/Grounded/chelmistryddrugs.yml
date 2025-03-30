@@ -18,7 +18,7 @@
     state: powderpile
     color: white
   - type: Construction
-    graph: ADTGroundMethCrystal
+    graph: ADTGroundWalterMethCrystalGraph
     node: ground
   - type: Tag
     tags:
@@ -46,7 +46,7 @@
     state: powderpile
     color: "#1bcfe7"
   - type: Construction
-    graph: ADTGroundWalterMethCrystal
+    graph: ADTGroundWalterMethCrystalGraph
     node: ground
   - type: Tag
     tags:
