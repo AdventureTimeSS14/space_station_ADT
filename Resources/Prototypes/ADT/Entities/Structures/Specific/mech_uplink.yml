@@ -29,7 +29,7 @@
 #    fixtures:
 #      fix1:
 #        shape:
-#          !type:PhysShapeCircle
+#=          !type:PhysShapeCircle
 #          radius: 0.8
 #        density: 100
 #        mask:
