@@ -5,11 +5,7 @@
   description: uplink-syndimech-mech-gygax-desc
   productEntity: ADTMechDarkGygaxBattery
   cost:
-<<<<<<< HEAD
     Telecrystal: 35
-=======
-    Telecrystal: 25
->>>>>>> 30a4a1b45e72ec27fc9a5022575a5e2754fdd550
   categories:
   - ADTUplinkMechMechs
 
@@ -19,11 +15,7 @@
   description: uplink-syndimech-mech-mauler-desc
   productEntity: ADTMechMaulerBattery
   cost:
-<<<<<<< HEAD
     Telecrystal: 45
-=======
-    Telecrystal: 35
->>>>>>> 30a4a1b45e72ec27fc9a5022575a5e2754fdd550
   categories:
   - ADTUplinkMechMechs
 
@@ -35,11 +27,7 @@
   description: uplink-syndimech-weapon-tesla-desc
   productEntity: ADTMechGunTeslaCannon
   cost:
-<<<<<<< HEAD
     Telecrystal: 7
-=======
-    Telecrystal: 5
->>>>>>> 30a4a1b45e72ec27fc9a5022575a5e2754fdd550
   categories:
   - ADTUplinkMechWeapon
 
@@ -49,11 +37,7 @@
   description: uplink-syndimech-weapon-scatter-desc
   productEntity: ADTMechGunScattershot
   cost:
-<<<<<<< HEAD
     Telecrystal: 9
-=======
-    Telecrystal: 7
->>>>>>> 30a4a1b45e72ec27fc9a5022575a5e2754fdd550
   categories:
   - ADTUplinkMechWeapon
 
@@ -63,11 +47,7 @@
   description: uplink-syndimech-weapon-ultra-desc
   productEntity: ADTMechGunUltraAC2
   cost:
-<<<<<<< HEAD
     Telecrystal: 9
-=======
-    Telecrystal: 7
->>>>>>> 30a4a1b45e72ec27fc9a5022575a5e2754fdd550
   categories:
   - ADTUplinkMechWeapon
 
@@ -77,11 +57,7 @@
   description: uplink-syndimech-weapon-madeuce-desc
   productEntity: ADTMechGunMHAR21
   cost:
-<<<<<<< HEAD
     Telecrystal: 11
-=======
-    Telecrystal: 9
->>>>>>> 30a4a1b45e72ec27fc9a5022575a5e2754fdd550
   categories:
   - ADTUplinkMechWeapon
 
@@ -92,11 +68,7 @@
   description: uplink-syndimech-weapon-srm-desc
   productEntity: ADTMechGunSRM8
   cost:
-<<<<<<< HEAD
     Telecrystal: 12
-=======
-    Telecrystal: 10
->>>>>>> 30a4a1b45e72ec27fc9a5022575a5e2754fdd550
   categories:
   - ADTUplinkMechWeapon
 
