@@ -38,3 +38,34 @@ revenant-shield-effect-desc = Получите возможность обман
 
 revenant-misery-effect-name = Ненастье
 revenant-misery-effect-desc = Прокляните всю станцию, заставляя несчастья происходить невероятно часто.
+
+
+item-jump-into-pocket = {CAPITALIZE(THE($target))} прыгает в ваш карман!
+
+item-jump-into-hands = {CAPITALIZE(THE($target))} прыгает в вашу руку!
+
+revenant-animate-item-animate = {CAPITALIZE(THE($target))} Становится агрессивным!
+
+revenant-animate-item-inanimate = {CAPITALIZE(THE($target))} falls inert.
+
+alerts-revenant-stasis-name = [color=red]Стазис![/color]
+
+alerts-revenant-stasis-desc = Вы в стазисе. Вашей призрачной форме нужно восстановиться.
+
+revenant-stasis-regenerating = [color=yellow]Энергия ревенанта все еще присутствует![/color]
+
+revenant-exorcise-fail = {CAPITALIZE(THE($bible))} не возымела эффект!
+
+revenant-exorcise-begin-user = Вы изгоняете {$revenant} с помощью {THE($bible)}...
+
+revenant-exorcise-begin-other = {CAPITALIZE(THE($user))} начинает изгонять {$revenant} с помощью {THE($bible)}...
+
+revenant-exorcise-begin-target = {CAPITALIZE(THE($user))} изгоняет вас с помощью {THE($bible)}!
+
+revenant-exorcise-success = {$revenant} растворяется в небытие...
+
+revenant-revealed-default = {CAPITALIZE(THE($revealer))} ослабляет ваш эфирный плащ!
+
+revenant-revealed-salt = Горстка соли ослабляет ваш эфирный плащ!
+
+revenant-already-haunted = { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } уже преследуется.

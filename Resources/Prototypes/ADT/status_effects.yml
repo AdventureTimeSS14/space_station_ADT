@@ -5,3 +5,12 @@
 - type: statusEffect
   id: BreathingBlocked
   alwaysAllowed: true
+
+- type: statusEffect
+  id: ADTStasis
+  alert: Stasis
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: ADTEssenceRegen
+  alert: EssenceRegen
