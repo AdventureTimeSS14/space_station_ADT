@@ -580,6 +580,6 @@ public sealed partial class RevenantSystem
             _revenantAnimated.TryAnimateObject(args.Target, comp.AnimateTime, (uid, comp));
     }
     // End Imp Changes ADT Port
-}
+    
     // ADT Revenant abilities end
 }
