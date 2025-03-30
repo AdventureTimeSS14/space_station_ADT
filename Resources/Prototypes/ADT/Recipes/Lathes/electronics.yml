@@ -16,6 +16,11 @@
      Glass: 900
      Gold: 100
 
+  parent: MicrowaveMachineCircuitboard
+  id: ADTAdvancedMicrowaveMachineCircuitBoard
+  result: ADTAdvancedMicrowaveMachineCircuitBoard
+  completetime: 2
+  
 - type: latheRecipe
   id: ADTColdplateMachineCircuitboardCircuitboard
   result: ADTColdplateMachineCircuitboard

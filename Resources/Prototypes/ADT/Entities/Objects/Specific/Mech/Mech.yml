@@ -27,7 +27,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.4
-    maxintegrity: 200
+    maxintegrity: 350
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
@@ -163,7 +163,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.3
-    maxintegrity: 400
+    maxintegrity: 600
     baseState: durand
     openState: durand-open
     brokenState: durand-broken
@@ -292,7 +292,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.2
-    maxintegrity: 200
+    maxintegrity: 350
     baseState: phazon
     openState: phazon-open
     brokenState: phazon-broken
@@ -430,7 +430,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
-    maxintegrity: 400
+    maxintegrity: 600
     baseState: marauder
     openState: marauder-open
     brokenState: marauder-broken
@@ -495,7 +495,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
-    maxintegrity: 400
+    maxintegrity: 600
     baseState: seraph
     openState: seraph-open
     brokenState: seraph-broken
@@ -548,7 +548,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.4
-    maxintegrity: 300
+    maxintegrity: 420
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
@@ -606,7 +606,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
-    maxintegrity: 400
+    maxintegrity: 600
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken

@@ -400,6 +400,22 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: UplinkPinpointerSyndicateNuclear
+  name: uplink-pinpointer-syndicate-universal
+  description: uplink-pinpointer-syndicate-universal-desc
+  icon: { sprite: Objects/Devices/pinpointer.rsi, state: pinpointer-syndicate-way }
+  productEntity: PinpointerSyndicateUniversal
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 #UplinkJob
 
 - type: listing

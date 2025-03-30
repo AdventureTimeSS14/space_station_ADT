@@ -1,0 +1,19 @@
+- type: entity
+  name: универсальный пинпоинтер синдиката
+  description: Портативное устройство слежения синдиката, разработанное специально для агентов, способное отслеживать любой физический объект в выключенном состоянии. Держите вертикально для сохранения точности.
+  id: PinpointerSyndicateUniversal
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-syndicate-way
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-syndicate-way
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
