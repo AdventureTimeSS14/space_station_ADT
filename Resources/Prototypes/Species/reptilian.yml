@@ -27,6 +27,9 @@
   - GalacticCommon
   - Draconic
   - CintaTaj
+  maxAge: 90
+  oldAge: 50
+  youngAge: 30
   # ADT end
 
 - type: speciesBaseSprites
