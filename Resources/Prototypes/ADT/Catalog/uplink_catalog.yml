@@ -405,6 +405,17 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: UplinkPinpointerSyndicateNuclear
+  name: uplink-pinpointer-universal
+  description: uplink-pinpointer-universal-desc
+  icon: { sprite: Objects/Devices/pinpointer.rsi, state: pinpointer-way }
+  productEntity: PinpointerUniversal
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
+
 #UplinkJob
 
 - type: listing
