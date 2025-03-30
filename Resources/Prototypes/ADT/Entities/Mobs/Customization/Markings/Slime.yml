@@ -241,3 +241,54 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/slime_parts.rsi
     state: bonelegright
+
+- type: marking
+  id: ADTfizz
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: fizz
+
+- type: marking
+  id: ADTbubble
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: bubble
+
+- type: marking
+  id: ADTfishbowl
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: fishbowl1
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: fishbowl2
+
+- type: marking
+  id: ADTFadingStars
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: fadingstars1
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: fadingstars2
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: fadingstars3
+  shader: unshaded

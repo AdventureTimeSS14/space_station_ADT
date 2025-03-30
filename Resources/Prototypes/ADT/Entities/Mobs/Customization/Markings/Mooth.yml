@@ -1191,3 +1191,161 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
     state: torso_incision_moth
+
+- type: marking
+  id: ADTMothTrueButterfly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothtruebutterfly1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothtruebutterfly2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothtruebutterfly3
+
+- type: marking
+  id: ADTMothRhinoBeetle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: rhinobeetle1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: rhinobeetle2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: rhinobeetle3
+
+- type: marking
+  id: ADTMothGlasswing
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: glasswing1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: glasswing2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: glasswing3
+
+- type: marking
+  id: ADTMothBee
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: bee1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: bee2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: bee3
+
+- type: marking
+  id: ADTMothGlowAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: mothglowantenna
+  shader: unshaded
+
+- type: marking
+  id: ADTMothFireflyOverlay
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: mothfirefly1
+  shader: unshaded
+
+- type: marking
+  id: ADTMothFirefly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothfirefly2
+
+- type: marking
+  id: ADTMothBeetleTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: beetle1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: beetle2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: beetle3
+
+- type: marking
+  id: ADTMothBeetleHorn1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothbeetlehorn1
+
+- type: marking
+  id: ADTMothBeetleHorn2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothbeetlehorn2
+
+- type: marking
+  id: ADTMothBiggerEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothbiggereyes
+
+- type: marking
+  id: ADTMothSnoth
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: snoth1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: snoth2
