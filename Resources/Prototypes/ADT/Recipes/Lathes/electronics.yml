@@ -15,7 +15,7 @@
      Steel: 100
      Glass: 900
      Gold: 100
-
+- type: latheRecipe
   parent: MicrowaveMachineCircuitboard
   id: ADTAdvancedMicrowaveMachineCircuitBoard
   result: ADTAdvancedMicrowaveMachineCircuitBoard
