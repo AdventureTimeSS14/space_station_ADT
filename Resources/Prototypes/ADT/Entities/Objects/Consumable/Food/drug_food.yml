@@ -24,10 +24,10 @@
     - Meat
 
 - type: entity
-  name: кристалл дезоксиэфедрина
+  name: desoxyephedrine crystal
   parent: ADTFoodDrugBase
   id: ADTFoodMethCrystal
-  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
+  description: "Meth can be smoked, eaten, or sniffed. But you can only slice this specimen."
   components:
   - type: Sprite
     color: "#ffffff"
@@ -42,10 +42,10 @@
           Quantity: 100
 
 - type: entity
-  name: осколок кристалла дезоксиэфедрина
+  name: desoxyephedrine crystal shard
   parent: ADTFoodDrugBase
   id: ADTFoodMethCrystalShard
-  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
+  description: "Meth can be smoked, eaten, or sniffed. Looks to sweet and tasty..."
   components:
   - type: Stack
     stackType: ADTFoodMethCrystalShard
@@ -60,4 +60,43 @@
         maxVol: 20
         reagents:
         - ReagentId: Desoxyephedrine
+          Quantity: 20
+
+- type: entity
+  name: blue sky desoxyephedrine crystal
+  parent: ADTFoodDrugBase
+  id: ADTFoodWalterMethCrystal
+  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
+  components:
+  - type: Sprite
+    color: "#1bcfe7"
+  - type: SliceableFood
+    slice: ADTFoodWalterMethShard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100
+        reagents:
+        - ReagentId: ADTBlueSkyDesoxyephedrine
+          Quantity: 100
+
+- type: entity
+  name: blue sky desoxyephedrine crystal shard
+  parent: ADTFoodDrugBase
+  id: ADTFoodWalterMethShard
+  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
+  components:
+  - type: Stack
+    stackType: ADTFoodWalterMethShard
+    count: 1
+  - type: Food
+  - type: Sprite
+    color: "#1bcfe7"
+    state: crystal_shard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: ADTBlueSkyDesoxyephedrine
           Quantity: 20

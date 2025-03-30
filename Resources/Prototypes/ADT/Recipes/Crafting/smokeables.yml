@@ -41,3 +41,14 @@
   description: "Meth can be smoked, eaten, or sniffed. But this specimen is best smoked."
   icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   objectType: Item
+
+- type: construction
+  name: ground blue sky desoxyephedrine crystals
+  id: ADTGroundWalterMethCrystal
+  graph: ADTGroundWalterMethCrystalGraph
+  startNode: start
+  targetNode: ground
+  category: construction-category-misc
+  description: "Tight, tight, tight! Blue, pink, yellow - whatever man, just bring me some more!"
+  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  objectType: Item

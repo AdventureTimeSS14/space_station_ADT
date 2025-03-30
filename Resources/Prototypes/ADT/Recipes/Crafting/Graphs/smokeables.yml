@@ -56,3 +56,17 @@
               doAfter: 5
     - node: ground
       entity: ADTGroundMethCrystal
+
+- type: constructionGraph
+  id: ADTGroundWalterMethCrystalGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ground
+          steps:
+            - material: ADTFoodWalterMethShard
+              amount: 2
+              doAfter: 5
+    - node: ground
+      entity: ADTGroundWalterMethCrystal

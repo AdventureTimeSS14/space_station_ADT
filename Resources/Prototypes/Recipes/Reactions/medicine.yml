@@ -56,8 +56,9 @@
 
 - type: reaction
   id: Cryoxadone
+  maxTemp: 175
   reactants:
-    Siderlac: # ADT tweak Может сделать новое особое растение для крио, но это лишь в планах.
+    Tricordrazine: # ADT tweak Не, нафиг растения для крио --QWERTY-- (Может сделать новое особое растение для крио, но это лишь в планах.)
       amount: 1
     DexalinPlus: # ADT tweak
       amount: 2 # ADT tweak

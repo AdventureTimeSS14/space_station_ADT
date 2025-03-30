@@ -59,3 +59,15 @@
       stackRequirements:
         Capacitor: 2
         Glass: 1
+
+- type: entity
+  id: ADTColdplateMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: coldplate machine board
+  description: A machine printed circuit board for a coldplate.
+  components:
+    - type: MachineBoard
+      prototype: ADTChemistryColdplate
+      stackRequirements:
+        Capacitor: 2
+        Glass: 1

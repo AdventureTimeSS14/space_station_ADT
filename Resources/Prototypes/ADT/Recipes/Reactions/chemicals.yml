@@ -32,3 +32,55 @@
   - !type:CreateEntityReactionEffect
     entity: ReactionSingularity
 
+- type: reaction
+  id: ADTMethylamine
+  reactants:
+    Diphenylmethylamine:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+    Hydrogen:
+      amount: 1
+  products:
+    ADTMethylamine: 1
+    Benzene: 1
+
+- type: reaction
+  id: ADTBlueSkyDesoxyephedrine
+  minTemp: 370
+  reactants:
+    ethyloxyephedrine:
+      amount: 1
+    Iodine:
+      amount: 1
+    Phosphorus:
+      amount: 1
+    ADTMethylamine:
+      amount: 1
+  products:
+    ADTBlueSkyDesoxyephedrine: 4
+
+- type: reaction
+  id: ADTDesoxyephedrineCrystalSpawn
+  maxTemp: 270
+  impact: Low
+  quantized: true
+  reactants:
+    Desoxyephedrine:
+      amount: 100
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTFoodMethCrystal
+
+- type: reaction
+  id: ADTBlueSkyDesoxyephedrineCrystalSpawn
+  maxTemp: 270
+  impact: Low
+  quantized: true
+  reactants:
+    ADTBlueSkyDesoxyephedrine:
+      amount: 100
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTFoodWalterMethCrystal

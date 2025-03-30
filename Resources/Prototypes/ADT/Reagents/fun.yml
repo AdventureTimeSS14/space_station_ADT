@@ -193,7 +193,7 @@
             min: 16
             max: 16
         probability: 0.5
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphRodMetall2
         conditions:
           - !type:OrganType
@@ -211,7 +211,7 @@
             min: 16
             max: 16
         probability: 0.5
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphCat2
         conditions:
           - !type:OrganType
@@ -239,7 +239,7 @@
             max: 16
         probability: 0.5
       - !type:Polymorph #арканы.
-        prototype: ADTPolymorphMonkey 
+        prototype: ADTPolymorphMonkey
         conditions:
           - !type:OrganType
             type: Demon
@@ -257,7 +257,7 @@
             max: 16
         probability: 0.5
       - !type:Polymorph #урсы.
-        prototype: ADTPolymorphSpaceBear 
+        prototype: ADTPolymorphSpaceBear
         conditions:
           - !type:OrganType
             type: Ursus
@@ -292,7 +292,7 @@
             min: 16
             max: 16
         probability: 0.5
-      - !type:Polymorph #животные, ради разнообразия. так же работает на "животные" расы (урсы, вульпы, таяры и т.д.) 
+      - !type:Polymorph #животные, ради разнообразия. так же работает на "животные" расы (урсы, вульпы, таяры и т.д.)
         prototype: ADTPolymorphMouse
         conditions:
           - !type:OrganType
@@ -301,7 +301,7 @@
             min: 16
             max: 16
         probability: 0.25
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphSpider2
         conditions:
           - !type:OrganType
@@ -310,7 +310,7 @@
             min: 16
             max: 16
         probability: 0.25
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphCarp
         conditions:
           - !type:OrganType
@@ -319,7 +319,7 @@
             min: 16
             max: 16
         probability: 0.25
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphLizard2
         conditions:
           - !type:OrganType
@@ -376,7 +376,7 @@
           - !type:ReagentThreshold
             min: 14
             max: 20
-        alertType: ADTAlertPolymorph 
+        alertType: ADTAlertPolymorph
         clear: true
         time: 10
       - !type:Polymorph #начало полиморфов.
@@ -451,3 +451,24 @@
         probability: 0.1
 
 #потом переделаю, как перенесу весь апдейт.
+
+- type: reagent
+  id: ADTMethylamine
+  name: reagent-name-methylamine
+  group: Fun
+  desc: reagent-desc-methylamine
+  flavor: bitter
+  color: "#c5c5c5"
+  physicalDesc: reagent-physical-desc-opaque
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2

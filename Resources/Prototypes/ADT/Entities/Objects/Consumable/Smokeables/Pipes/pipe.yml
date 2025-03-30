@@ -1,8 +1,8 @@
 - type: entity
-  id: CrackPipe
+  id: ADTCrackPipe
   parent: BaseSmokingPipe
-  name: импровизированная трубка-вепорайзер
-  description: Как говорил классик:"Я рыба-ёж!!.. И пора порыбо-ёжить..."
+  name: Improvised vaporiser pipe
+  description: I am a blowfish! Yeah!... Blowfishin' this up....
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
@@ -17,3 +17,11 @@
   - type: Appearance
   - type: BurnStateVisuals
     unlitIcon: unlit-icon
+  - type: SmokingPipe
+    bowl_slot:
+      whitelist:
+        tags:
+          - ATDSmokebleReagent
+  - type: Construction
+    graph: ADTCrackPipeGraph
+    node: craft
