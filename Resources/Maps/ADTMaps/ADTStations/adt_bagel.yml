@@ -134077,6 +134077,27 @@ entities:
     - type: Transform
       pos: -33.5,-20.5
       parent: 2
+- proto: SpawnPointADTSecurityAtmos
+  entities:
+  - uid: 18664000
+    components:
+    - type: Transform
+      pos: -33.5,-20.5
+      parent: 2
+- proto: SpawnPointADTSecurityService
+  entities:
+  - uid: 18664001
+    components:
+    - type: Transform
+      pos: -33.5,-20.5
+      parent: 2
+- proto: SpawnPointADTSecurityScientist
+  entities:
+  - uid: 18664002
+    components:
+    - type: Transform
+      pos: -33.5,-20.5
+      parent: 2
 - proto: SpawnPointADTPathologist
   entities:
   - uid: 19532

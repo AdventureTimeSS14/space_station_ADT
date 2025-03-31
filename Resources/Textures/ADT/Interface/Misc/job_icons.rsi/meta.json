@@ -25,6 +25,15 @@
         },
         {
             "name": "JobIconUSSPArmyOfficer"
+        },
+        {
+            "name": "SecurityAtmos"
+        },
+        {
+            "name": "SecurityService"
+        },
+        {
+            "name": "SecurityScientis"
         }
     ]
 }
