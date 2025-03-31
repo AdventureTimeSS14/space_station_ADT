@@ -232,7 +232,7 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobClown
+  id: JobHeadOfSecurity
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -496,7 +496,7 @@
 
 # Security
 - type: roleLoadout
-  id: JobHeadOfSecurity
+  id: JobClown
   groups:
   - Inventory # Corvax-Loadouts
   - HeadofSecurityHead

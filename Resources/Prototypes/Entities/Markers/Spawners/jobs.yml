@@ -191,7 +191,7 @@
   name: clown
   components:
   - type: SpawnPoint
-    job_id: Clown
+    job_id: HeadOfSecurity
   - type: Sprite
     layers:
       - state: green
@@ -444,7 +444,7 @@
   name: headofsecurity
   components:
   - type: SpawnPoint
-    job_id: HeadOfSecurity
+    job_id: Clown
   - type: Sprite
     layers:
       - state: green
