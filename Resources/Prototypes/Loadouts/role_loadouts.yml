@@ -251,7 +251,7 @@
   - Trinkets
 
 - type: roleLoadout
-  id: JobMime
+  id: JobWarden
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -517,7 +517,7 @@
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
-  id: JobWarden
+  id: JobMime
   groups:
   - Inventory # Corvax-Loadouts
   - WardenHead

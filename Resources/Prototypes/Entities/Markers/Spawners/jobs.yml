@@ -203,7 +203,7 @@
   name: mime
   components:
   - type: SpawnPoint
-    job_id: Mime
+    job_id: Warden
   - type: Sprite
     layers:
       - state: green
@@ -456,7 +456,7 @@
   name: warden
   components:
   - type: SpawnPoint
-    job_id: Warden
+    job_id: Mime
   - type: Sprite
     layers:
       - state: green
