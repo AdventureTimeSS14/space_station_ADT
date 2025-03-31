@@ -1,1 +1,1 @@
-species-name-resomi = Резоми
+species-name-resomi = Наггетс

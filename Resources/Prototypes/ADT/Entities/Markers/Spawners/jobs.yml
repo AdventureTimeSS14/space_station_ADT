@@ -141,3 +141,39 @@
       layers:
       - state: green
       - state: guardofficer
+
+- type: entity
+  id: SpawnPointADTSecurityAtmos
+  parent: ADTSpawnPointJobBase
+  name: spawn job guard oficcer
+  components:
+    - type: SpawnPoint
+      job_id: ADTSecurityAtmos
+    - type: Sprite
+      layers:
+      - state: green
+      - state: guardofficer
+
+- type: entity
+  id: SpawnPointADTSecurityService
+  parent: ADTSpawnPointJobBase
+  name: spawn job guard oficcer
+  components:
+    - type: SpawnPoint
+      job_id: ADTSecurityService
+    - type: Sprite
+      layers:
+      - state: green
+      - state: guardofficer
+
+- type: entity
+  id: SpawnPointADTSecurityScientist
+  parent: ADTSpawnPointJobBase
+  name: spawn job guard oficcer
+  components:
+    - type: SpawnPoint
+      job_id: ADTSecurityScientist
+    - type: Sprite
+      layers:
+      - state: green
+      - state: guardofficer

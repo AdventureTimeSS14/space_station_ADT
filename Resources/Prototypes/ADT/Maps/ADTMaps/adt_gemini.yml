@@ -72,3 +72,7 @@
         #   - Bank
         #   - MiningOutpost
         #   - VirusologyAmbusol
+            #rofls
+            ADTSecurityAtmos: [ 1, 1 ]
+            ADTSecurityService: [ 1, 1 ]
+            ADTSecurityScientist: [ 1, 1 ]

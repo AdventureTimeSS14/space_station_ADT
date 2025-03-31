@@ -112,6 +112,9 @@
   - Brigmedic # ADT rework brigmedic
   - ADTSeniorOfficer # ADT Role
   - ADTGuardOfficer # ADT Role
+  - ADTSecurityScientist
+  - ADTSecurityService
+  - ADTSecurityAtmos
 
 - type: department
   id: Science

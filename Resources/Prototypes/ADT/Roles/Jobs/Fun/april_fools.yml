@@ -1,0 +1,161 @@
+- type: job
+  id: ADTSecurityScientist
+  name: job-name-sec-sci
+  description: job-description-sec-sci
+  playTimeTracker: JobEvent1
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 6000 # 28,33 hrs #ADT-RoleTime
+    # ADT Restrict Start
+  # ADT RESTRICT End
+  startingGear: SecurityScientistGear
+  icon: "JobIconADTSecurityScientist"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  - Research
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: SecurityScientistGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+    back: ClothingBackpackSatchelSecurity
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatBeretRND
+    eyes: ClothingEyesGlassesSecurity
+    # gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ADTRoboticistPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltUtilityFilled
+    pocket1: NodeScanner
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - SpaceCash500
+    - BoxSurvivalEngineering
+    - ArtifactAnalyzerMachineCircuitboard
+    - AnalysisComputerCircuitboard
+    - MediumXenoArtifactItem
+
+
+- type: job
+  id: ADTSecurityService
+  name: job-name-sec-service
+  description: job-description-sec-service
+  playTimeTracker: JobEvent2
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 6000 # 28,33 hrs #ADT-RoleTime
+    # ADT Restrict Start
+  # ADT RESTRICT End
+  startingGear: SecurityServiceGear
+  icon: "JobIconADTSecurityService"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  - Service
+  - Kitchen
+  - Hydroponics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: SecurityServiceGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+    back: ClothingBackpackSatchelSecurity
+    shoes: ClothingShoesBootsJack
+    # head: ADTClothingHeadHatsBeretAtmos
+    eyes: ClothingEyesGlassesSecurity
+    # gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterApronBar
+    id: BartenderPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltJanitorFilled
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - SpaceCash500
+    - BoxSurvivalEngineering
+    - ClothingUniformJumpskirtElegantMaid
+    - MopItem
+    - ADTClothingUnderwearSocksStockingsBlack
+  inhand:
+    - Gohei
+
+- type: job
+  id: ADTSecurityAtmos
+  name: job-name-sec-atmos
+  description: job-description-sec-atmos
+  playTimeTracker: JobEvent3
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 6000 # 28,33 hrs #ADT-RoleTime
+    # ADT Restrict Start
+  # ADT RESTRICT End
+  startingGear: SecurityAtmosGear
+  icon: "JobIconADTSecurityAtmos"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  - Engineering
+  - Atmospherics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: SecurityAtmosGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+    back: ClothingBackpackSatchelSecurity
+    shoes: ClothingShoesBootsJack
+    head: ADTClothingHeadHatsBeretAtmos
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: AtmosPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltUtilityFilled
+    pocket1: GasAnalyzer
+    pocket2: trayScanner
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - SpaceCash500
+    - BoxSurvivalEngineering
+    - HolofanProjector
+  inhand:
+    - FireAxe
