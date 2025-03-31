@@ -27,7 +27,7 @@
   name: Unica 6
   parent: ADTBaseWeaponRevolverLesser
   id: ADTWeaponRevolverLesserUnica
-  description: Legendary weapon of death squad and angry HoS
+  description: Legendary weapon of angry HoS
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
@@ -43,10 +43,5 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/unica_shot.ogg
       params:
         volume: 2.25
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: true
-  - type: Appearance
   - type: StaticPrice
-    price: 15000
+    price: 3500
