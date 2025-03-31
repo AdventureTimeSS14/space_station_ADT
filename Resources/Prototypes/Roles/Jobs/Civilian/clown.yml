@@ -1,17 +1,25 @@
 - type: job
-  id: Clown
-  name: job-name-clown
-  description: job-description-clown
-  playTimeTracker: JobClown
+  id: HeadOfSecurity
+  name: job-name-hos
+  description: job-description-hos
+  playTimeTracker: JobHeadOfSecurity
   requirements:
   - !type:OverallPlaytimeRequirement
       time: 3600 #1 hrs # Corvax-RoleTime
-  startingGear: ClownGear
-  icon: "JobIconClown"
-  supervisors: job-supervisors-hop
+  startingGear: HoSGear
+  icon: "JobIconHeadOfSecurity"
+  supervisors: job-supervisors-captain
   access:
-  - Theatre
+  - HeadOfSecurity
+  - Command
+  - Brig
+  - Security
+  - Armory
   - Maintenance
+  - Service
+  - External
+  - Detective
+  - Cryogenics
   special:
   - !type:AddComponentSpecial
     components:
@@ -34,7 +42,7 @@
     mask: ClothingMaskClown
     pocket1: BikeHorn
     pocket2: ClownRecorder
-    id: ClownPDA
+    id: HoSPDA
     ears: ClothingHeadsetService
   storage:
     back:

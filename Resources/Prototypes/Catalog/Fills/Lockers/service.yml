@@ -86,6 +86,7 @@
         amount: 2
       - id: Plunger
         amount: 2
+      - id: MoproachBox
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsrv
     # ADT-WikiBooks-End

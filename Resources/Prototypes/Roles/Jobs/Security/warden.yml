@@ -1,8 +1,8 @@
 - type: job
-  id: Warden
-  name: job-name-warden
-  description: job-description-warden
-  playTimeTracker: JobWarden
+  id: Mime
+  name: job-name-mime
+  description: job-description-mime
+  playTimeTracker: JobMime
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -14,19 +14,13 @@
       - Resomi
       - Vox
   # ADT RESTRICT End
-  startingGear: WardenGear
-  icon: "JobIconWarden"
-  supervisors: job-supervisors-hos
+  startingGear: MimeGear
+  icon: "JobIconMime"
+  supervisors: job-supervisors-hop
   canBeAntag: false
   access:
-  - Security
-  - Brig
-  - Armory
+  - Theatre
   - Maintenance
-  - Service
-  - External
-  - Detective
-  - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

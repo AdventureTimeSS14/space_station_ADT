@@ -1,8 +1,8 @@
 - type: job
-  id: HeadOfSecurity
-  name: job-name-hos
-  description: job-description-hos
-  playTimeTracker: JobHeadOfSecurity
+  id: Clown
+  name: job-name-clown
+  description: job-description-clown
+  playTimeTracker: JobClown
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
@@ -23,21 +23,13 @@
       - Vox
   # ADT RESTRICT End
   weight: 10
-  startingGear: HoSGear
-  icon: "JobIconHeadOfSecurity"
-  supervisors: job-supervisors-captain
+  startingGear: ClownGear
+  icon: "JobIconClown"
+  supervisors: job-supervisors-hop
   canBeAntag: false
   access:
-  - HeadOfSecurity
-  - Command
-  - Brig
-  - Security
-  - Armory
+  - Theatre
   - Maintenance
-  - Service
-  - External
-  - Detective
-  - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -50,7 +42,8 @@
   id: HoSGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    id: HoSPDA
+    mask: ClothingMaskClown
+    id: ClownPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
     pocket1: WeaponPistolMk58
