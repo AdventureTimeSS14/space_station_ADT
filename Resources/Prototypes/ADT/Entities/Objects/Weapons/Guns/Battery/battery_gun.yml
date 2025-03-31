@@ -200,18 +200,18 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ADTBulletDisabler
-    fireCost: 50
+    fireCost: 30
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: ADTBulletDisabler
-      fireCost: 50
+      fireCost: 30
     - proto: ADTBulletLaser
-      fireCost: 50
+      fireCost: 30
     - proto: ADTBulletIon
-      fireCost: 150
+      fireCost: 90
   - type: Battery
-    maxCharge: 1500
-    startingCharge: 1500
+    maxCharge: 900
+    startingCharge: 900
   - type: Tag
     tags:
     - HighRiskItem

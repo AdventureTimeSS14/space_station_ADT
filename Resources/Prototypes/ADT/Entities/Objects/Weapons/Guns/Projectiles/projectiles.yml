@@ -147,7 +147,7 @@
     impactEffect: ADTBulletImpactEffectLaser
     damage:
       types:
-        Heat: 12
+        Heat: 15
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -201,12 +201,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StaminaDamageOnCollide
-    damage: 17
+    damage: 25
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 4
+        Heat: 5
     soundHit:
       collection: WeakHit
     forceSound: true
