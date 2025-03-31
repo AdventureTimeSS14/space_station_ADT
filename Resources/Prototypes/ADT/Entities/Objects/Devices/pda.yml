@@ -308,3 +308,96 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
+
+- type: entity
+  parent: ADTBaseSecurityPDA
+  id: ADTSecurityAtmosPDA
+  name: SecurityAtmos PDA
+  description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
+  components:
+  - type: Pda
+    id: ADTSecurityAtmosIDCard
+  - type: PdaBorderColor
+    borderColor: "#774705"
+  - type: Icon
+    state: pda-guardofficer
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-guardofficer
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-guardofficer"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+
+- type: entity
+  parent: ADTBaseSecurityPDA
+  id: ADTSecurityScientistPDA
+  name: SecurityScientist PDA
+  description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
+  components:
+  - type: Pda
+    id: ADTSecurityScientistIDCard
+  - type: PdaBorderColor
+    borderColor: "#774705"
+  - type: Icon
+    state: pda-guardofficer
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-guardofficer
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-guardofficer"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+
+- type: entity
+  parent: ADTBaseSecurityPDA
+  id: ADTSecurityServicePDA
+  name: SecurityService PDA
+  description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
+  components:
+  - type: Pda
+    id: ADTSecurityServiceIDCard
+  - type: PdaBorderColor
+    borderColor: "#774705"
+  - type: Icon
+    state: pda-guardofficer
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-guardofficer
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-guardofficer"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false

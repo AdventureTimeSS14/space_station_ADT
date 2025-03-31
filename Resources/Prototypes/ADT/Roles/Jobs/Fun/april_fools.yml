@@ -35,7 +35,7 @@
     eyes: ClothingEyesGlassesSecurity
     # gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
-    id: ADTRoboticistPDA
+    id: ADTSecurityScientistPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltUtilityFilled
     pocket1: NodeScanner
@@ -44,7 +44,6 @@
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
-    - SpaceCash500
     - BoxSurvivalEngineering
     - ArtifactAnalyzerMachineCircuitboard
     - AnalysisComputerCircuitboard
@@ -90,7 +89,7 @@
     eyes: ClothingEyesGlassesSecurity
     # gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterApronBar
-    id: BartenderPDA
+    id: ADTSecurityServicePDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltJanitorFilled
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -98,10 +97,9 @@
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
-    - SpaceCash500
-    - BoxSurvivalEngineering
-    - ClothingUniformJumpskirtElegantMaid
     - MopItem
+    - ClothingUniformJumpskirtElegantMaid
+    - BoxSurvivalEngineering
     - ADTClothingUnderwearSocksStockingsBlack
   inhand:
     - Gohei
@@ -144,7 +142,7 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
-    id: AtmosPDA
+    id: ADTSecurityAtmosPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltUtilityFilled
     pocket1: GasAnalyzer
@@ -154,7 +152,6 @@
     socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
-    - SpaceCash500
     - BoxSurvivalEngineering
     - HolofanProjector
   inhand:
