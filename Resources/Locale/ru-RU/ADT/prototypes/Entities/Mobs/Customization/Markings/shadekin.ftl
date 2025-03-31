@@ -128,7 +128,7 @@ marking-EarsShadekinAlphaTraced-alpha_traced = Обводка
 
 # Хвосты
 marking-TailShadekin = Хвост
--shadekin
+marking-TailShadekin-shadekin = Хвост
 marking-TailShadekinDragon = Хвост, Змеиный
 marking-TailShadekinDragon-shadekin = Хвост
 marking-TailShadekinDragon-default_dragon = Узор
