@@ -1,6 +1,4 @@
-﻿using Content.Client.Stylesheets; // ADT ROADMAP TWEAK
-using Content.Client.ADT.Roadmap; // ADT ROADMAP TWEAK
-using Content.Client.Changelog;
+﻿using Content.Client.Changelog;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
@@ -49,16 +47,6 @@ namespace Content.Client.Info
             var changelogButton = new ChangelogButton();
             changelogButton.OnPressed += args => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
             buttons.AddChild(changelogButton);
-
-            // ADT ROADMAP TWEAK
-            var roadmapButton = new Button
-            {
-                Text = Loc.GetString("roadmap-name"),
-                StyleClasses = { StyleBase.ButtonCaution }
-            };
-            roadmapButton.OnPressed += _ => UserInterfaceManager.GetUIController<RoadmapUIController>().ToggleRoadmap();
-            buttons.AddChild(roadmapButton);
-            // ADT ROADMAP TWEAK
 
             void AddInfoButton(string loc, CVarDef<string> cVar)
             {
