@@ -156,7 +156,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool ignoreActionBlocker = false,
         LanguagePrototype? language = null) // ADT Languages
     {
-        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, language);  //  Languages
+        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, language);  // ADT Languages
     }
 
     /// <summary>
