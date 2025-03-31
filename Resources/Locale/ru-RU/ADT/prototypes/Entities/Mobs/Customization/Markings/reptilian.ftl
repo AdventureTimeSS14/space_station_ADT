@@ -72,7 +72,7 @@ marking-TailDatashark-datashark_ears_inner = Плавники, внутренн�
 marking-TailDatashark-datashark_ears = Плавники
 marking-TailDatashark-datashark_fin = Конец
 marking-TailDatashark-datashark_tail = Хвост, 1
-marking-TailDatashark-datashark_taildata Хвост, 2
+marking-TailDatashark-datashark_taildata = Хвост, 2
 marking-TailEasternDragon = Хвост, (Восточный дракон)
 marking-TailEasternDragon-easternd_primary = Хвост, 1
 marking-TailEasternDragon-easternd_secondary = Хвост, 2

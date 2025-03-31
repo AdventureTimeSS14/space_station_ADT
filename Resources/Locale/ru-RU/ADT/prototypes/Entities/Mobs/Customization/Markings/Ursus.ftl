@@ -96,9 +96,9 @@ marking-ADTUrsusgradienthand_right2-gradienthand_right2 = Рука
 marking-ADTUrsusfoot_left = Урс, левая ступня
 marking-ADTUrsusfoot_left-foot_left = Ступня
 marking-ADTUrsusgradientfoot_left = Урс, левая ступня (Градиент 1)
-marking-ADTUrsusgradientfoot_left-gradientfoot_left - Ступня
+marking-ADTUrsusgradientfoot_left-gradientfoot_left = Ступня
 marking-ADTUrsusgradientfoot_left2 = Урс, левая ступня (Градиент 2)
-marking-ADTUrsusgradientfoot_left2gradientfoot_left2 - Ступня
+marking-ADTUrsusgradientfoot_left2gradientfoot_left2 = Ступня
 marking-ADTUrsusfoot_right = Урс, правая ступня
 marking-ADTUrsusfoot_right-foot_right = Ступня
 marking-ADTUrsusgradientfoot_right = Урс, правая ступня (Градиент 1)
