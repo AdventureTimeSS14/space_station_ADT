@@ -214,12 +214,16 @@
       outerClothing: ADTClothingOuterModsuitBodyMining
       shoes: ADTClothingModsuitShoesMining
     startingModules:
+      - ADTModsuitModOrebag
       - ADTModsuitModStorage
       - ADTModsuitModLight
       - ADTModsuitModDrill
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: Tag
+    tags:
+    - ADTHardsuitSalvage
   - type: Construction
     graph: ADTModsuitMining
     node: adtmodsuitmining
