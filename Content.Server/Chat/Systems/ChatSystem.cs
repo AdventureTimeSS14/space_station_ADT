@@ -154,9 +154,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        LanguagePrototype? language = null) // ADT Languages
+        LanguagePrototype? language = null) //  Languages
     {
-        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, language);  // ADT Languages
+        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, language);  //  Languages
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        LanguagePrototype? language = null  // ADT Languages
+        LanguagePrototype? language = null  //  Languages
         )
     {
         if (HasComp<GhostComponent>(source))
@@ -225,14 +225,14 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
-        // ADT Languages start
+        //  Languages start
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
         // Capitalizing the word I only happens in English, so we check language here
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
-        // ADT-Tweak: SanitizeInGameICMessageLanguages Да это дублирование уже сущетвующей функции, но без проверки на замены
+        // -Tweak: SanitizeInGameICMessageLanguages Да это дублирование уже сущетвующей функции, но без проверки на замены
         string sanitizedMessage = SanitizeInGameICMessageLanguages(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
         // ADT Languages end
@@ -822,8 +822,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
         // ADT-Tweak-start: Проверка, нужно ли отправлять в чат админам об использовании замены.
-        if ((message != newMessage) && HasComp<ActorComponent>(source))
-            _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
+        // if ((message != newMessage) && HasComp<ActorComponent>(source))
+            // _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
         // ADT-Tweak-end
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
