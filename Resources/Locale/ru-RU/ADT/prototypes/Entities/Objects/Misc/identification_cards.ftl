@@ -38,3 +38,12 @@ ent-ADTUSSPArmyCard = удостоверение военнослужащего 
 ent-ADTUSSPArmyOfficerCard = удостоверение офицера СССП
     .desc = Удостоверение со встроенной ID-картой, подтверждающее, что его владелец является офицером СССП.
     .suffix = { "СССП" }
+
+ent-ADTSecurityAtmosIDCard = ID карта бриг-атмоса
+    .desc = { ent-IDCardStandard.desc }
+
+ent-ADTSecurityScientistIDCard = ID карта бриг-ученого
+    .desc = { ent-IDCardStandard.desc }
+
+ent-ADTSecurityServiceIDCard = ID карта бриг-мейды
+    .desc = { ent-IDCardStandard.desc }
