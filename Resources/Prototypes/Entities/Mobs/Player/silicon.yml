@@ -71,16 +71,11 @@
     canShuttle: false
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
-    # ADT Start
-    sound:
-      path: /Audio/ADT/Announcements/intercept.ogg
-    # ADT End
   - type: HolographicAvatar
     layerData:
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
-  - type: IonStormTarget # ADT edit
 
 - type: entity
   id: AiHeldIntellicard
@@ -320,16 +315,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
+    sprite: Mobs/Silicon/station_ai.rsi
     layers:
-    # ADT SAI Custom start
-    - state: empty
-      map: ["enum.StationAiVisualState.Key"]
-      shader: unshaded
     - state: base
-  - type: StationAiCore
-  - type: Appearance
-    # # ADT SAI Custom end
+    - state: ai
+      shader: unshaded
 
 - type: entity
   id: PlayerStationAiEmpty
@@ -435,12 +425,6 @@
     messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  # - type: GenericVisualizer # ADT SAI Custom commented
-  #   visuals:
-  #     enum.StationAiVisualState.Key:
-  #       unshaded:
-  #         Empty: { state: "0" }
-  #         #Occupied: { state: ai }
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -481,7 +465,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: NTDefault # Corvax-NTDefault
+    laws: Crewsimov
   - type: SiliconLawBound
   - type: ActionGrant
     actions:
@@ -496,6 +480,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
   - type: Eye
     drawFov: false
   - type: Examiner
@@ -508,38 +493,6 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
-    - ADTSiliconStealthWhitelist  # ADT tweak
-  # Start-ADT-Tweak
-  - type: HighlightWordsInChat
-    highlightWords:
-      '#e00':
-      - hl-words-ai-1
-      - hl-words-ai-2
-  - type: LanguageSpeaker
-    languages:
-      GalacticCommon: Speak
-      RobotTalk: Speak
-      Arkane: Speak
-      Urs: Speak
-      Drask: Speak
-      Fire: Speak
-      Nian: Speak
-      SikTaj: Speak
-      Arachnid: Speak
-      RootSpeak: Speak
-      SolCommon: Speak
-      Canilunzt: Speak
-      Draconic: Speak
-      Bubblish: Speak
-      Nekomimetic: Speak
-      BorgTalk: Speak
-      Dwarf: Speak
-      CintaTaj: Speak
-      SiliconCollectiveMind: Speak
-  - type: CollectiveMindRank
-    rankName: collective-mind-sai-rank
-  - type: StationAiBrain
-  # End-ADT-Tweak
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
@@ -626,7 +579,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMicroreactor
+        startingItem: PowerCellHyper
 
 - type: entity
   id: PlayerBorgSyndicateAssaultGhostRole
@@ -709,7 +662,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   id: PlayerBorgDerelictGhostRole
@@ -723,3 +676,4 @@
       raffle:
         settings: default
     - type: GhostTakeoverAvailable
+
