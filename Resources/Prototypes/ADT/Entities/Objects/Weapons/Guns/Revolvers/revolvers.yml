@@ -26,7 +26,7 @@
 - type: entity
   name: Unica 6
   parent: ADTBaseWeaponRevolverLesser
-  id: ADTWeaponRevolverUnica
+  id: ADTWeaponRevolverLesserUnica
   description: Legendary weapon of death squad and angry HoS
   components:
   - type: Sprite
@@ -35,7 +35,7 @@
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2.0
+    fireRate: 2.5
     availableModes:
     - SemiAuto
     - FullAuto
