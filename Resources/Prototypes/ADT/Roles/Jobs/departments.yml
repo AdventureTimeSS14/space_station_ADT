@@ -2,7 +2,7 @@
   id: Juridical
   name: department-Juridical
   description: department-Juridical-description
-  color: "#777777"
+  color: "#915555"
   roles:
   - Magistrat
   - IAA

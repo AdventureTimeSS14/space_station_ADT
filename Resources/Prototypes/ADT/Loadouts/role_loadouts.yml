@@ -65,9 +65,9 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ADTBlueshieldHead
-  - ADTBlueshieldJumpsuit
-  - ADTBlueshieldNeck
+  # - ADTBlueshieldHead
+  # - ADTBlueshieldJumpsuit
+  # - ADTBlueshieldNeck
   - ADTBlueshieldBack
   - SurvivalSecurity
   - Trinkets

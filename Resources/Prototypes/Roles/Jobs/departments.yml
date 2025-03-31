@@ -2,7 +2,7 @@
   id: Cargo
   name: department-Cargo
   description: department-Cargo-description
-  color: "#A46106"
+  color: "#7855c8"
   roles:
   - CargoTechnician
   - Quartermaster
@@ -12,7 +12,7 @@
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
-  color: "#9FED58"
+  color: "#FFA500"
   weight: -10
   roles:
   - Bartender
@@ -36,7 +36,7 @@
   id: CentralCommand
   name: department-CentralCommand
   description: department-CentralCommand-description
-  color: "#0c344d"
+  color: "#2F4F4F"
   roles:
   - CentralCommandOfficial
   - CBURN
@@ -54,7 +54,7 @@
   id: Command
   name: department-Command
   description: department-Command-description
-  color: "#334E6D"
+  color: "#b9a1b1"
   roles:
   - Captain
   - Magistrat # ADT tweak
@@ -65,15 +65,6 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  # - CentralCommandOfficial втф ADT
-  # - CBURN
-  # - ERTLeader
-  # - ERTChaplain
-  # - ERTJanitor
-  # - ERTMedical
-  # - ERTSecurity
-  # - ERTEngineer
-  # - DeathSquad
   - ADTBlueShieldOfficer # ADT-Roles
   primary: false
   weight: 100
@@ -82,7 +73,7 @@
   id: Engineering
   name: department-Engineering
   description: department-Engineering-description
-  color: "#EFB341"
+  color: "#DAA520"  # GoldenRod
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
@@ -94,7 +85,7 @@
   id: Medical
   name: department-Medical
   description: department-Medical-description
-  color: "#52B4E9"
+  color: "#ebe46b"
   roles:
   - Chemist
   - ChiefMedicalOfficer
@@ -109,7 +100,7 @@
   id: Security
   name: department-Security
   description: department-Security-description
-  color: "#DE3A3A"
+  color: "#d647a0"
   weight: 20
   roles:
   - HeadOfSecurity
@@ -126,7 +117,7 @@
   id: Science
   name: department-Science
   description: department-Science-description
-  color: "#D381C9"
+  color: "#1f7971"
   roles:
   - ResearchDirector
   - Scientist
@@ -138,7 +129,7 @@
   id: Silicon
   name: department-Silicon
   description: department-Silicon-description
-  color: "#D381C9"
+  color: "#e82d2d"
   roles:
   - Borg
   - StationAi
@@ -147,7 +138,7 @@
   id: Specific
   name: department-Specific
   description: department-Specific-description
-  color: "#9FED58"
+  color: "#5e56d2"  # LimeGreen
   weight: 10
   roles:
   - Boxer
@@ -156,3 +147,4 @@
   - Psychologist
   - Pilot # Corvax-Pilot
   primary: false
+

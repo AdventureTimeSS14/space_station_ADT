@@ -1,17 +1,23 @@
 - type: job
-  id: Mime
-  name: job-name-mime
-  description: job-description-mime
-  playTimeTracker: JobMime
+  id: Warden
+  name: job-name-warden
+  description: job-description-warden
+  playTimeTracker: JobWarden
   requirements:
   - !type:OverallPlaytimeRequirement
       time: 3600 #1 hrs # Corvax-RoleTime
-  startingGear: MimeGear
-  icon: "JobIconMime"
-  supervisors: job-supervisors-hop
+  startingGear: WardenGear
+  icon: "JobIconWarden"
+  supervisors: job-supervisors-hos
   access:
-  - Theatre
+  - Security
+  - Brig
+  - Armory
   - Maintenance
+  - Service
+  - External
+  - Detective
+  - Cryogenics
   special:
   - !type:AddComponentSpecial
     components:

@@ -35,6 +35,9 @@ ghost-role-information-mouse-description = A hungry and mischievous mouse.
 ghost-role-information-mothroach-name = Mothroach
 ghost-role-information-mothroach-description = A cute but mischievous mothroach.
 
+ghost-role-information-moproach-name = Moproach
+ghost-role-information-moproach-description = A cute mothroach with more cute moplike shoes on its feet.
+
 ghost-role-information-snail-name = Snail
 ghost-role-information-snail-description = A little snail who doesn't mind a bit of space. Just stay on grid!
 
@@ -55,6 +58,9 @@ ghost-role-information-hamster-description = A grumpy little ball of fluff.
 
 ghost-role-information-hamlet-name = Hamlet the Hamster
 ghost-role-information-hamlet-description = Lives in the station bridge, has a bit of a temper and is always hungry.
+
+ghost-role-information-bucket-name = Alive Mop Bucket
+ghost-role-information-bucket-description = You can be a marvel of science!
 
 ghost-role-information-slimes-name = Slime
 ghost-role-information-slimes-description = An ordinary slime with no special needs or interests. You are friendly to others.
