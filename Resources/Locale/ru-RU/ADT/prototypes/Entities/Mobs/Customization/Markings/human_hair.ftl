@@ -1,3 +1,4 @@
+# Прически
 marking-HumanBeardBeardchin = Борода-подбородок
 marking-HumanBeardBeardlong = Длинная борода
 marking-HumanBeardBeardshort = Короткая борода
@@ -15,7 +16,13 @@ marking-HumanHairPigtailtajaran = Косичка-таджаран
 marking-HumanHairShavedside = Выбритая сторона
 marking-HumanHairShorthaired = Коротко стриженные волосы
 marking-HumanWomenbun = Женский пучок
+
+# Кастом
 marking-HumanForeheadBindi = Бинди
-marking-HumanForeheadFathereyebrows = Густые брови
-marking-HumanPiercingBrowL = Пирсинг брови (левая)
-marking-HumanPiercingBrowR = Пирсинг брови (правая)
+marking-HumanForeheadBindi-forehead-Bindi = Бинди
+marking-HumanForeheadFathereyebrows = Пирсинг, густые брови
+marking-HumanForeheadFathereyebrows-forehead-fathereyebrows = Брови
+marking-HumanPiercingBrowL = Пирсинг, левая бровь
+marking-HumanPiercingBrowL-piercing_brow_l = Пирсинг
+marking-HumanPiercingBrowR = Пирсинг, правая бровь
+marking-HumanPiercingBrowR-piercing_brow_r = Пирсинг

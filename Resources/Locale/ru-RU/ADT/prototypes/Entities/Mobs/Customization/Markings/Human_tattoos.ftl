@@ -1,26 +1,61 @@
-marking-HumanTattooArmImheartmomL = Татуировка "Я люблю маму" (левая рука)
-marking-HumanTattooArmImheartmomR = Татуировка "Я люблю маму" (правая рука)
-marking-HumanTattooChurchdomes = Татуировка куполов церкви
-marking-HumanTattooElysiumPatriotism = Татуировка патриотизма Элизиума
-marking-HumanTattooFullskelet = Татуировка полного скелета
-marking-HumanTattooKarabel = Татуировка карабеля
-marking-HumanTattooKrenelMercenary = Татуировка зубцов мерсенария
-marking-HumanTattooLineArmL = Татуировка линии (левая рука)
-marking-HumanTattooLineArmR = Татуировка линии (правая рука)
-marking-HumanTattooPatriotTSF = Татуировка патриота TSF
-marking-HumanTattooRose = Татуировка розы
-marking-HumanTattooSerpentTemptation = Татуировка змеи искушения
-marking-HumanTattooSkull = Татуировка черепа
-marking-HumanTattooSkeletarmL = Татуировка скелетной руки (левая)
-marking-HumanTattooSkeletarmR = Татуировка скелетной руки (правая)
-marking-HumanTattooSkeletbody = Татуировка скелетного тела
-marking-HumanTattooSkeletfootL = Татуировка скелетной ноги (левая)
-marking-HumanTattooSkeletfootR = Татуировка скелетной ноги (правая)
-marking-HumanTattooSkeletlegL = Татуировка скелетной ноги (левая)
-marking-HumanTattooSkeletlegR = Татуировка скелетной ноги (правая)
-marking-HumanTattooSkullFace = Татуировка черепа на лице
-marking-HumanTattooSymbolElysium = Татуировка символа Элизиума
-marking-HumanTattooNarsi = Татуировка Нарси
-marking-HumanTattooSpaceChristianCross = Татуировка космического христианского креста
-marking-HumanTattooArmlazaL = Татуировка лазы (левая рука)
-marking-HumanTattooArmlazaR = Татуировка лазы (правая рука)
+# Лица
+marking-HumanTattooSkullFace = Татуировка, лицо (Череп)
+marking-HumanTattooSkullFace-tattoo_skull_face = Татуировка, лицо (Череп)
+
+# Туловища
+marking-HumanTattooChurchdomes = Татуировка, туловище (Церковные купола)
+marking-HumanTattooChurchdomes-tattoo_churchdomes = Татуировка, туловище (Церковные купола)
+marking-HumanTattooElysiumPatriotism = Татуировка, туловище (Патриотизм Элизиума)
+marking-HumanTattooElysiumPatriotism-tattoo_elysium_patriotism = Татуировка, туловище (Патриотизм Элизиума)
+marking-HumanTattooFullskelet = Татуировка, туловище (Скелет)
+marking-HumanTattooFullskelet-tattoo_fullskelet = Татуировка, туловище (Скелет)
+marking-HumanTattooKarabel = Татуировка, туловище (Карабела)
+marking-HumanTattooKarabel-tattoo_karabel = Татуировка, туловище (Карабела)
+marking-HumanTattooKrenelMercenary = Татуировка, туловище (Группировка "Кренель")
+marking-HumanTattooKrenelMercenary-tattoo_KrenelMercenary = Татуировка, туловище (Группировка "Кренель")
+marking-HumanTattooPatriotTSF = Татуировка, туловище (Патриот ТСФ)
+marking-HumanTattooPatriotTSF-tattoo_PatriotTSF = Татуировка, туловище (Патриот ТСФ)
+marking-HumanTattooRose = Татуировка, туловище (Розы)
+marking-HumanTattooRose-tattoo_Rose = Татуировка, туловище (Розы)
+marking-HumanTattooSerpentTemptation = Татуировка, туловище (Змей искушения)
+marking-HumanTattooSerpentTemptation-tattoo_serpenttemptation = Татуировка, туловище (Змей искушения)
+marking-HumanTattooSkull = Татуировка, туловище (Череп)
+marking-HumanTattooSkull-tattoo_skull = Татуировка, туловище (Череп)
+marking-HumanTattooSkeletbody = Татуировка, туловище (Скелет)
+marking-HumanTattooSkeletbody-tattoo_skelet_body = Татуировка, туловище (Скелет)
+marking-HumanTattooSymbolElysium = Татуировка, туловище (Символ Элизиума)
+marking-HumanTattooSymbolElysium-tattoo_symbol_elysium = Татуировка, туловище (Символ Элизиума)
+marking-HumanTattooNarsi = Татуировка, туловище (Нар'Си)
+marking-HumanTattooNarsi-tattoo_narsi = Татуировка, туловище (Нар'Си)
+marking-HumanTattooSpaceChristianCross = Татуировка, туловище (Космического христианский крест)
+marking-HumanTattooSpaceChristianCross-tattoo_space_christian_cross = Татуировка, туловище (Космического христианский крест)
+
+# Руки
+marking-HumanTattooArmImheartmomL = Татуировка, левая рука ("Я люблю маму")
+marking-HumanTattooArmImheartmomL-tattoo_arm_imheartmom_l = Татуировка, левая рука ("Я люблю маму")
+marking-HumanTattooArmImheartmomR = Татуировка, правая рука ("Я люблю маму")
+marking-HumanTattooArmImheartmomR-tattoo_arm_imheartmom_r = Татуировка, правая рука ("Я люблю маму")
+marking-HumanTattooLineArmL = Татуировка, левая рука (Линии)
+marking-HumanTattooLineArmL-tattoo_line_arm_l = Татуировка, левая рука (Линии)
+marking-HumanTattooLineArmR = Татуировка, правая рука (Линии)
+marking-HumanTattooLineArmR-tattoo_line_arm_r = Татуировка, правая рука (Линии)
+marking-HumanTattooSkeletarmL = Татуировка, левая рука (Скелет)
+marking-HumanTattooSkeletarmL-tattoo_skelet_arm_l = Татуировка, левая рука (Скелет)
+marking-HumanTattooSkeletarmR = Татуировка, правая рука (Скелет)
+marking-HumanTattooSkeletarmR-tattoo_skelet_arm_r = Татуировка, правая рука (Скелет)
+marking-HumanTattooArmlazaL = Татуировка, левая рука (Лоза)
+marking-HumanTattooArmlazaL-tattooarm-laza_l = Татуировка, левая рука (Лоза)
+marking-HumanTattooArmlazaR = Татуировка, правая рука (Лоза)
+marking-HumanTattooArmlazaR-tattooarm-laza_r = Татуировка, правая рука (Лоза)
+
+# Ноги
+marking-HumanTattooSkeletlegL = Татуировка, левая нога (Скелет)
+marking-HumanTattooSkeletlegL-tattoo_skelet_leg_l = Татуировка, левая нога (Скелет)
+marking-HumanTattooSkeletlegR = Татуировка, правая нога (Скелет)
+marking-HumanTattooSkeletlegR-tattoo_skelet_leg_r = Татуировка, правая нога (Скелет)
+
+# Ступни
+marking-HumanTattooSkeletfootL = Татуировка, левая стопа (Скелет)
+marking-HumanTattooSkeletfootL-tattoo_skelet_foot_l = Татуировка, левая стопа (Скелет)
+marking-HumanTattooSkeletfootR = Татуировка, правая стопа (Скелет)
+marking-HumanTattooSkeletfootR-tattoo_skelet_foot_r = Татуировка, правая стопа (Скелет)
