@@ -17,4 +17,6 @@
   defaultLanguages:
   - GalacticCommon
   - Dwarf
+  minAge: 20
+  maxAge: 50
   # ADT end

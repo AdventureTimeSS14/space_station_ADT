@@ -19,6 +19,21 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      # Start ADT tweak
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 1.15
+        type: Add
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.03
+        sprintSpeedModifier: 1.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 310
+        amount: 2500
+      # End ADT tweak
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -43,6 +58,13 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      # Start ADT tweak
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 310
+        amount: 2500
+      # End ADT tweak
 
 - type: reagent
   id: Cream
@@ -109,6 +131,21 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      # Start ADT tweak
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 310
+        amount: 2500
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 1.05
+        type: Add
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.03
+        sprintSpeedModifier: 1.05
+      # End ADT tweak
 
 - type: reagent
   id: GreenTea
@@ -124,6 +161,24 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+      # Start ADT tweak
+  metabolisms:
+    Drink:
+      effects:
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 1.25
+        type: Add
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.05
+        sprintSpeedModifier: 1.10
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 310
+        amount: 2500
+      # End ADT tweak
 
 - type: reagent
   id: Grenadine
@@ -167,6 +222,21 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      # Start ADT tweak
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 280
+        amount: -2500
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-icedcoffee" ]
+        probability: 0.05
+      # End ADT tweak
 
 - type: reagent
   id: IcedGreenTea
@@ -182,6 +252,16 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+      # Start ADT tweak
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 280
+        amount: -2500
+      # End ADT tweak
 
 - type: reagent
   id: IcedTea
@@ -205,6 +285,13 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      # Start ADT tweak
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 280
+        amount: -2500
+      # End ADT tweak
 
 - type: reagent
   id: JuiceBerryPoison
@@ -246,6 +333,13 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      # Start ADT tweak
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 310
+        amount: -2500
+      # End ADT tweak
 
 - type: reagent
   id: Milk
@@ -353,7 +447,18 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Radiation: 0.5
+      # Start ADT tweak
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 4
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 15
+        refresh: false
+      # End ADT tweak
   fizziness: 0.5
 
 - type: reagent
@@ -407,6 +512,27 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      # Start ADT tweak
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 1.2
+        type: Add
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            Poison: -0.5
+        probability: 0.3
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.03
+        sprintSpeedModifier: 1.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 310
+        amount: 2500
+      # End ADT tweak
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty
@@ -470,6 +596,7 @@
         - !type:OrganType
           type: Novakid
 #ADT add ends
+
 - type: reagent
   id: Ice
   name: reagent-name-ice
@@ -489,6 +616,16 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+      # Start ADT tweak
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 280
+        amount: -2500
+      # End ADT tweak
 
 - type: reagent
   id: DryRamen
@@ -517,6 +654,13 @@
       effects:
       - !type:SatiateHunger
         factor: 4
+      # Start ADT tweak
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 310
+        amount: 2500
+      # End ADT tweak
 
 - type: reagent
   id: ArnoldPalmer
@@ -537,6 +681,13 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      # Start ADT tweak
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 280
+        amount: -2500
+      # End ADT tweak
 
 - type: reagent
   id: Pilk
@@ -593,6 +744,19 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.3
+      # Start ADT tweak
+  metabolisms:
+    Drink:
+      effects:
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-rewriter" ]
+        probability: 0.3
+      # End ADT tweak
 
 - type: reagent
   id: Mopwata
