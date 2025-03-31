@@ -27,7 +27,7 @@
   - type: BallisticAmmoProvider
     proto: ADTCartridgeMagnumLesser
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -47,7 +47,7 @@
   - type: BallisticAmmoProvider
     proto: null
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -73,7 +73,7 @@
   - type: BallisticAmmoProvider
     proto: ADTCartridgeMagnumLesserPractice
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -93,7 +93,7 @@
   - type: BallisticAmmoProvider
     proto: ADTCartridgeMagnumLesserAP
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -113,7 +113,7 @@
   - type: BallisticAmmoProvider
     proto: ADTCartridgeMagnumLesserUranium
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
