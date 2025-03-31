@@ -26,3 +26,7 @@ marking-HumanPiercingBrowL = Пирсинг, левая бровь
 marking-HumanPiercingBrowL-piercing_brow_l = Пирсинг
 marking-HumanPiercingBrowR = Пирсинг, правая бровь
 marking-HumanPiercingBrowR-piercing_brow_r = Пирсинг
+
+marking-ADTHumanHairGatheredlow = Собранные (Низкие)
+marking-ADTHumanHairFrenchBraid = Французская коса
+marking-ADTHumanHairLowpigtails = Косички (Низкие)

@@ -19,6 +19,8 @@ marking-ReptilianHornsSuperlong = Унатх, рога (Очень длинны�
 marking-ReptilianHornsSuperlong-horns_superlong = Рога
 marking-ReptilianHornsTwoago = Унатх, рога (Два рога)
 marking-ReptilianHornsTwoago-horns_twoago = Рога
+marking-ADTLizardHornsNubby-horns_nubby = Пухлые рога
+marking-ADTLizardHornsNubby = Пухлые рога
 
 # Импланты Cybersun
 marking-ReptilianImplantCybersunArmL = Аугментация, левая рука (Кибернетика)
@@ -96,6 +98,8 @@ marking-SnoutEasternDW-easterndnw_secondary Морда, 2
 marking-SnoutEasternDNW = Унатх, морда (Восточный дракон 2)
 marking-SnoutEasternDNW-easterndw_primary = Морда, 1
 marking-SnoutEasternDNW-easterndnw_secondary Морда, 2
+marking-ADTFangs = Клыки унатха
+marking-ADTFangs-Fangs = Клыки
 
 # Уши
 marking-EarsSylveon = Унатх, уши (Сильвеон)
@@ -116,3 +120,8 @@ marking-EarsEasternD-easternd_horns = Рога
 marking-EarsMagus = Унатх, уши (Магус)
 marking-EarsMagus-magus_ears = Уши
 marking-EarsMagus-magus_neck = Шея
+marking-ADTLizardSnoutpiercings-piercings1 = Пирсинг
+marking-ADTLizardSnoutpiercings = Пирсинг
+marking-ADTLizardHornsKoboldEarspiercings = Унатх, уши (Проколотые)
+marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears = Уши
+marking-ADTLizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пирсинг
