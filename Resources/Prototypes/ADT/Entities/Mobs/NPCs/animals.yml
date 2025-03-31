@@ -1,0 +1,125 @@
+- type: entity
+  name: pigeon
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  id: ADTMobPigeon
+  description: Those animals from cities, who's pissing you off. Now in space!
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 6
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pigeon
+      sprite: ADT/Mobs/Animals/pigeon.rsi
+  - type: Speech
+    speechVerb: Pigeon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pigeon
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: InteractionPopup
+    successChance: 0.2
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-bat
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: Tag
+    tags:
+    - VimPilot
+  - type: LanguageSpeaker
+    languages:
+      Pigeon: Speak
+      GalacticCommon: Understand
+
+- type: entity
+  name: turtle
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: ADTModTurtle
+  description: A sea doggy. Old, lazy and so cute!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Animals/turtle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: turtle
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: turtle
+      Critical:
+        Base: turtle_dead
+      Dead:
+        Base: turtle_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: dog
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: LanguageSpeaker
+    languages:
+      Turtle: Speak
+      GalacticCommon: Understand

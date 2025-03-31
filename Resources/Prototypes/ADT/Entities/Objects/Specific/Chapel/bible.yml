@@ -1,0 +1,119 @@
+- type: entity
+  parent: Bible
+  name: quaran
+  description: New Interstellar Version 2342. Got updated after bible.
+  id: ADTBibleQuaran
+  components:
+  - type: Bible
+    damage:
+      types:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 25
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+    healSound: "/Audio/Effects/lightburn.ogg"
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRahima
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/quaran.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/quaran.rsi
+    state: icon
+
+- type: entity
+  parent: Bible
+  name: tanakh
+  description:  New Interstellar Version 2345. Got updated after quaran.
+  id: ADTBibleTanakh
+  components:
+  - type: Bible
+    damage:
+      types:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 25
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+    healSound: "/Audio/Effects/lightburn.ogg"
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRafael
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
+    state: icon
+
+- type: entity
+  parent: Bible
+  name: tripitaka
+  description:  New Interstellar Version 2347. Got updated after tanakh.
+  id: ADTBibleTripitaka
+  components:
+  - type: Bible
+    damage:
+      types:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 25
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+    healSound: "/Audio/Effects/lightburn.ogg"
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRatha
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
+    state: icon
+
+- type: entity
+  parent: Bible
+  name: vedas
+  description:  New Interstellar Version 2350. Got updated after tripitaka.
+  id: ADTBibleVedas
+  components:
+  - type: Bible
+    damage:
+      types:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 25
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+    healSound: "/Audio/Effects/lightburn.ogg"
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRagha
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/vedas.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/vedas.rsi
+    state: icon

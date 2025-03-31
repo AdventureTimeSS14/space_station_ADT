@@ -476,6 +476,18 @@
   - ADTUniformJumpsuitGreyGuardOfficer
   - ADTUniformJumpsuitGuardOfficerMaster
 
+- type: loadoutGroup
+  id: ADTChaplainBelt
+  name: loadout-chaplain-blessedbook-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTChaplainBible
+  - ADTChaplainQuaran
+  - ADTChaplainTanahk
+  - ADTChaplainTripitaka
+  - ADTChaplainVedas
+
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !

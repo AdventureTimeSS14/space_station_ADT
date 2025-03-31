@@ -17,6 +17,9 @@ loadout-chef-pocket1-adt = Шеф Повар, карман 1
 loadout-group-librarian-backpack = Библиотекарь, рюкзак
 # Cargo
 
+# Chaplain
+loadout-chaplain-blessedbook-adt = Священник, священная книга
+
 # Engineering
 loadout-group-atmospheric-technician-neck = Атмосферный техник, плащ
 loadout-group-atmospheric-technician-gasmask = Атмосферный техник, противогаз

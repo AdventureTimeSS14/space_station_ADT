@@ -53,3 +53,29 @@
    proto: ADTChaplainGoldCross100hour
   equipment:
     neck: ADTGoldCross
+
+# Я тут немного попоясничаю и добавлю святых книг для нашего святоши (QWERTY)
+- type: loadout
+  id: ADTChaplainBible
+  equipment:
+    belt: Bible
+
+- type: loadout
+  id: ADTChaplainQuaran
+  equipment:
+    belt: ADTBibleQuaran
+
+- type: loadout
+  id: ADTChaplainTanahk
+  equipment:
+    belt: ADTBibleTanakh
+
+- type: loadout
+  id: ADTChaplainTripitaka
+  equipment:
+    belt: ADTBibleTripitaka
+
+- type: loadout
+  id: ADTChaplainVedas
+  equipment:
+    belt: ADTBibleVedas

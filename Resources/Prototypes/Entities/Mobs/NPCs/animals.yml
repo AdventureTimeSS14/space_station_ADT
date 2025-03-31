@@ -1060,6 +1060,12 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+      # Start ADT tweak
+  - type: LanguageSpeaker
+    languages:
+      Goat: Speak
+      GalacticCommon: Understand
+      # End ADT tweak
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
