@@ -1,15 +1,20 @@
-﻿using System.Linq;
-using Content.Client.Lobby;
-using Content.Shared.ADT.Roadmap;
+﻿using Content.Client.Lobby;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.Roadmap;
 
-public sealed class RoadmapUIController : UIController
+public sealed class RoadmapUIController : UIController, IOnStateEntered<LobbyState>
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     private RoadmapWindow? _window;
+    private bool _shown;
+
+    public void OnStateEntered(LobbyState state)
+    {
+        if (_shown || _window != null)
+            return;
+
+        ToggleRoadmap();
+    }
 
     public void ToggleRoadmap()
     {
@@ -19,10 +24,10 @@ public sealed class RoadmapUIController : UIController
             return;
         }
 
+        _shown = true;
         _window = new RoadmapWindow();
         _window.OnClose += () => _window = null;
 
         _window.OpenCentered();
-        _window.Populate(_proto.EnumeratePrototypes<RoadmapItemPrototype>().ToList());
     }
 }
