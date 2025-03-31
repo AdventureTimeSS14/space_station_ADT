@@ -78,8 +78,10 @@ public sealed class SendERTCommand : IConsoleCommand
         switch (args[0].ToLower())
         {
             case "default":
+                alertLevelCode = "epsilon";
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
+                isAnnounce = true;
                 break;
 
             case "default-rev":
@@ -119,7 +121,7 @@ public sealed class SendERTCommand : IConsoleCommand
 
             case "deathsquad":
                 //alertLevelCode = "epsilon";
-                announceColor = Color.White;
+                // announceColor = Color.White;
                 isLoadGrid = true;
                 break;
 
