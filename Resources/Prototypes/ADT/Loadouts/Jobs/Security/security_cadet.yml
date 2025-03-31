@@ -7,12 +7,12 @@
 - type: loadout
   id: ADTSecurityCadetNeckBadgeBronze
   equipment:
-    neck: ADTClothingNeckSecBadgeBronze
+    neck: ADTClothingNeckKubanoidPin
 
 - type: loadout
   id: ADTSecurityCadetNeckBadgeSilver
   equipment:
-    neck: ADTClothingNeckSecBadgeSilver
+    neck: ADTClothingNeckKubanoidPin
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTSecurity100hours
@@ -20,7 +20,7 @@
 - type: loadout
   id: ADTSecurityCadetNeckBadgeGold
   equipment:
-    neck: ADTClothingNeckSecBadgeGold
+    neck: ADTClothingNeckKubanoidPin
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTSecurityVeteran
