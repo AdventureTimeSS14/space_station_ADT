@@ -16,7 +16,7 @@ public sealed partial class StationAiSystem
 
     private void InitializeVisuals()
     {
-        SubscribeLocalEvent<StationAiCoreComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        // SubscribeLocalEvent<StationAiCoreComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
     private void OnAppearanceChange(EntityUid uid, StationAiCoreComponent component, ref AppearanceChangeEvent args)

@@ -8,8 +8,9 @@ paper-component-examine-detail-has-words = {CAPITALIZE(THE($paper))} has somethi
 # Shown when paper with stamps examined
 paper-component-examine-detail-stamped-by = {CAPITALIZE(THE($paper))} {CONJUGATE-HAVE($paper)} been stamped by: {$stamps}.
 
-paper-component-action-stamp-paper-other = {CAPITALIZE(THE($user))} stamps {THE($target)} with {THE($stamp)}.
-paper-component-action-stamp-paper-self = You stamp {THE($target)} with {THE($stamp)}.
+paper-component-action-stamp-paper-other = {CAPITALIZE(THE($user))} stamps {THE($target)} with {THE($stamp)}... But something wrong...
+paper-component-action-stamp-paper-self = You stamp {THE($target)} with {THE($stamp)}... But something wrong...
+paper-component-action-stamp-paper-paperwork-is-bad = Paperwork sucks.
 
 # Indicator to show how full a paper is
 paper-ui-fill-level = {$currentLength}/{$maxLength}

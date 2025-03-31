@@ -47,6 +47,7 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
       components:
+        - type: LegsParalyzed
         - type: CantShoot
           popup: combo-cantshoot
           whitelist:
@@ -156,11 +157,14 @@
 
 - type: startingGear
   id: ADTBlueShieldOfficerGear
+  inhand:
+    - ADTVehicleWheelchairFolded
   equipment:
-    # head: ADTClothingHeadHatBeretBlueshieldBlack
+    head: ClothingHeadHatCatEarsBlueShield
     eyes: ADTClothingEyesGlassesBlueshield
     ears: ADTClothingHeadsetBlueshield
-    # jumpsuit: ADTClothingUniformJumpsuitBlueshield
+    neck: SirenaChokerWithHeartBlueShield
+    jumpsuit: ClothingUniformJumpskirtElegantMaidBlueShield
     # back: ADTClothingBlueshieldBackpack
     shoes: ClothingShoesBootsCombatFilled
     outerClothing: ADTClothingBlueshieldArmor
@@ -171,3 +175,23 @@
   # innerClothingSkirt: ClothingUniformJumpskirtBlueshield
   # satchel: ADTClothingBackpackSatchelBlueshield
   # duffelbag: ADTClothingBackpackDuffelBlueshield
+
+- type: entity
+  parent: ClothingHeadHatCatEars
+  id: ClothingHeadHatCatEarsBlueShield
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingUniformJumpskirtElegantMaid
+  id: ClothingUniformJumpskirtElegantMaidBlueShield
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: SirenaChokerWithHeart
+  id: SirenaChokerWithHeartBlueShield
+  components:
+  - type: Unremoveable
+
+

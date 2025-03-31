@@ -45,6 +45,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle
+  - MopBucketAlive
 
 - type: latheRecipePack
   id: Instruments
@@ -65,3 +66,4 @@
   - CloningPodMachineCircuitboard #ADT tweak
   - CloningConsoleComputerCircuitboard #ADT tweak
   - MedicalScannerMachineCircuitboard #ADT tweak
+  - ADTAdvancedMicrowaveMachineCircuitBoard #ADT tweak

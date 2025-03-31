@@ -1,0 +1,22 @@
+#Taken from [2670] Pull Request DeltaV
+- type: entity
+  parent: KitchenMicrowave
+  id: ADTAdvancedMicrowave
+  name: ADTAdvancedMicrowave
+  description: Don't stand too close to this thing, definitely dont put anything metal in.
+  components:
+  - type: Microwave
+    cookTimeMultiplier: 0.5
+    capacity: 30
+    canMicrowaveIdsSafely: false # No AA farm
+  - type: Sprite
+    sprite: ADT/Structures/Machines/advanced_microwave.rsi
+  - type: Machine
+    board: ADTAdvancedMicrowaveMachineCircuitBoard
+  - type: Explosive
+    explosionType: Radioactive
+    maxIntensity: 60
+    totalIntensity: 50
+    intensitySlope: 10
+    canCreateVacuum: false
+    deleteAfterExplosion: false

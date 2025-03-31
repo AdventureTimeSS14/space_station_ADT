@@ -280,7 +280,9 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
-    - ADTEnergyBoardsPack # ADT-tweak
+    # ADT-tweak-start
+    - ADTEnergyBoardsPack 
+    # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
