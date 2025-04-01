@@ -164,6 +164,11 @@
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
         factor: -0.5
+  tileReactions: # Imp Start
+    - !type:EnsureTileReaction
+      components:
+        - type: RevealRevenantOnCollide
+          popupText: revenant-revealed-salt #Imp end
 
 - type: reagent
   id: Syrup
