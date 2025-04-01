@@ -29,8 +29,8 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
     private readonly Color _colorGreen = StyleNano.GoodGreenFore;
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/ADT/Interface/Supermatter.rsi/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/ADT/Interface/arrows.rsi/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/ADT/Interface/arrows.rsi/arrow_down.png";
 
     public SupermatterGasBarContainer(Gas gas)
     {

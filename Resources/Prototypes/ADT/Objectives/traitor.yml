@@ -72,7 +72,7 @@
 #    - type: Objective
 #      difficulty: 5 # insane, default config max difficulty
 #      icon:
-#        sprite: ADT/Interface/Supermatter.rsi
+#        sprite: ADT/Interface/anti-nob.rsi
 #        state: antinob
 #    - type: CascadeCondition
 

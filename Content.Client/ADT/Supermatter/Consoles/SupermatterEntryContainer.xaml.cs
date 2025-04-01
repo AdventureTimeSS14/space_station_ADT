@@ -34,8 +34,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     private readonly Color _colorTurquoise = Color.FromHex("#00fff7");
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/ADT/Interface/Supermatter.rsi/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/ADT/Interface/Supermatter.rsi/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/ADT/Interface/arrows.rsi/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/ADT/Interface/arrows.rsi/arrow_down.png";
 
     // Supermatter base values
     private readonly float _radiationBase;
