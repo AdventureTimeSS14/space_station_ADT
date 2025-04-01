@@ -32,3 +32,20 @@
   - !type:CreateEntityReactionEffect
     entity: ReactionSingularity
 
+- type: reaction
+  id: ADTAnti-nob
+  reactants:
+    ADTPlutonium:
+      amount: 50
+    Hyper-Noblium:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:CreateGas
+    gas: AntiNoblium
+  - !type:PopupMessage
+    visualType: LargeCaution
+    messages: [ "anti-nob-created" ]
+    type: Pvs
+  products:
+    Anti-Noblium: 50
