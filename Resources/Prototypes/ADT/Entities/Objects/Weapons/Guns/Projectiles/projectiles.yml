@@ -191,7 +191,7 @@
       collection: WeakHit
     forceSound: true
   - type: EmpOnCollide
-    energyConsumption: 10000
+    energyConsumption: 35000
     disableDuration: 20
 
 - type: entity
