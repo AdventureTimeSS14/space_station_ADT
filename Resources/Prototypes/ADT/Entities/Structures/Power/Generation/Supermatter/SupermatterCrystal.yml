@@ -130,10 +130,10 @@
       intensity: 10
     - type: Sprite
       drawdepth: WallMountedItems
-      sprite: ADT\Structures\Power\Supermatter\Cascade.rsi
+      sprite: ADT/Structures/Power/Supermatter/Cascade.rsi
       state: cascade
     - type: Icon
-      sprite: ADT\Structures\Power\Supermatter\Cascade.rsi
+      sprite: ADT/Structures/Power/Supermatter/Cascade.rsi
       state: cascade
 
 ## Trash
@@ -153,10 +153,10 @@
       intensity: 5
     - type: Sprite
       drawdepth: WallMountedItems
-      sprite: ADT\Structures\Power\Supermatter\Destroyed.rsi
+      sprite: ADT/Structures/Power/Supermatter/Destroyed.rsi
       state: destroyed
     - type: Icon
-      sprite: ADT\Structures\Power\Supermatter\Destroyed.rsi
+      sprite: ADT/Structures/Power/Supermatter/Destroyed.rsi
       state: destroyed
 
 ## Lighting
