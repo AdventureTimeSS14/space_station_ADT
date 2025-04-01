@@ -1,17 +1,17 @@
 ﻿- type: construction
-  name: metal rod
+  name: "Стержень (metal rod)" ##ADT Tweak
   id: MetalRod
   graph: MetalRod
   startNode: start
   targetNode: MetalRod
   category: construction-category-materials
-  description: A sturdy metal rod that can be used for various purposes.
+  description: "Давай же, пошути ещё раз насколько сурова жизнь космонавта, что он голыми руками скручивает лист стали в арматуру." ##ADT Tweak
   icon: { sprite: Objects/Materials/parts.rsi, state: rods }
   objectType: Item
 
 - type: construction
-  name: reinforced glass
-  description: A reinforced sheet of glass.
+  name: "Укреплённое стекло (reinforced glass)" ##ADT Tweak
+  description: "Закалённое стекло, это стекло.. С стержнями внутри." ##ADT Tweak
   id: SheetRGlass
   graph: Glass
   startNode: start
@@ -21,8 +21,8 @@
   objectType: Item
 
 - type: construction
-  name: clockwork glass
-  description: A brass-reinforced sheet of glass.
+  name: "Латунное стекло (clockwork glass)" ##ADT Tweak
+  description: "Стекло из латуни. Красиво, должно быть" ##ADT Tweak
   id: SheetClockworkGlass
   graph: Glass
   startNode: start
@@ -32,8 +32,8 @@
   objectType: Item
 
 - type: construction
-  name: plasma glass
-  description: A sheet of translucent plasma.
+  name: "Плазменное стекло (plasma glass)" ##ADT Tweak
+  description: "Стекло из плазмы, крепкое и острое" ##ADT Tweak
   id: SheetPGlass
   graph: Glass
   startNode: start
@@ -43,8 +43,8 @@
   objectType: Item
 
 - type: construction
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
+  name: "Укреплённое плазменное стекло (reinforced plasma glass)" ##ADT Tweak
+  description: "Стекло из закалённой плазмы. Ещё более крепкое и острое" ##ADT Tweak
   id: SheetRPGlass
   graph: Glass
   startNode: start
@@ -54,8 +54,8 @@
   objectType: Item
 
 - type: construction
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
+  name: "Укреплённое плазменное стекло (reinforced plasma glass)" ##ADT Tweak
+  description: "Стекло из закалённой плазмы. Ещё более крепкое и острое" ##ADT Tweak
   id: SheetRPGlass0
   graph: Glass
   startNode: start
@@ -65,8 +65,8 @@
   objectType: Item
 
 - type: construction
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
+  name: "Укреплённое плазменное стекло (reinforced plasma glass)" ##ADT Tweak
+  description: "Стекло из закалённой плазмы. Ещё более крепкое и острое" ##ADT Tweak
   id: SheetRPGlass1
   graph: Glass
   startNode: start
@@ -76,19 +76,19 @@
   objectType: Item
 
 - type: construction
-  name: durathread
+  name: "Дюраткань (durathread)" ##ADT Tweak
   id: MaterialDurathread
   graph: Durathread
   startNode: start
   targetNode: MaterialDurathread
   category: construction-category-materials
-  description: A high-quality thread used to make durable clothes.
+  description: "Выглядит дорого-богато, ничего не скажешь" ##ADT Tweak
   icon: { sprite: Objects/Materials/materials.rsi, state: durathread }
   objectType: Item
 
 - type: construction
-  name: uranium glass
-  description: A sheet of uranium glass.
+  name: "Урановое стекло (uranium glass)" ##ADT Tweak
+  description: "Стекло из урана. Должно быть радиактивное, но как бы не так." ##ADT Tweak
   id: SheetUGlass
   graph: Glass
   startNode: start
@@ -98,8 +98,8 @@
   objectType: Item
 
 - type: construction
-  name: reinforced uranium glass
-  description: A reinforced sheet of uranium glass.
+  name: "Укреплённое урановое стекло (reinforced uranium glass)" ##ADT Tweak
+  description: "Закалённый уран в виде стекла. Вперёд, замените все окна на закалённые, урановые, докажите станции что вы богаты." ##ADT Tweak
   id: SheetRUGlass
   graph: Glass
   startNode: start
@@ -109,8 +109,8 @@
   objectType: Item
 
 - type: construction
-  name: reinforced uranium glass
-  description: A reinforced sheet of uranium glass.
+  name: "Укреплённое урановое стекло (reinforced uranium glass)" ##ADT Tweak
+  description: "Закалённый уран в виде стекла. Вперёд, замените все окна на закалённые, урановые, докажите станции что вы богаты." ##ADT Tweak
   id: SheetRUGlass0
   graph: Glass
   startNode: start
@@ -120,8 +120,8 @@
   objectType: Item
 
 - type: construction
-  name: reinforced uranium glass
-  description: A reinforced sheet of uranium glass.
+  name: "Укреплённое урановое стекло (reinforced uranium glass)" ##ADT Tweak
+  description: "Закалённый уран в виде стекла. Вперёд, замените все окна на закалённые, урановые, докажите станции что вы богаты." ##ADT Tweak
   id: SheetRUGlass1
   graph: Glass
   startNode: start

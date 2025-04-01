@@ -1,54 +1,54 @@
 - type: construction
-  name: torch
+  name: "Факел (torch)" ##ADT Tweak
   id: LightTorch
   graph: LightTorch
   startNode: start
   targetNode: torch
   category: construction-category-tools
-  description: A torch fashioned from some wood.
+  description: "Главное не сожгите себя, и окружающих!" ##ADT Tweak
   icon: { sprite: Objects/Misc/torch.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: logic gate
+  name: "Логический элемент (logic gate)" ##ADT Tweak
   id: LogicGate
   graph: LogicGate
   startNode: start
   targetNode: logic_gate
   category: construction-category-tools
-  description: A binary logic gate for signals.
+  description: "Логичный элемент. Вы спрашивали где логика, так вот же она!" ##ADT Tweak
   icon: { sprite: Objects/Devices/gates.rsi, state: or_icon }
   objectType: Item
 
 - type: construction
-  name: edge detector
+  name: "Детектор сигнала (edge detector)" ##ADT Tweak
   id: EdgeDetector
   graph: LogicGate
   startNode: start
   targetNode: edge_detector
   category: construction-category-tools
-  description: An edge detector for signals.
+  description: "Ужасающая технология, не так ли?" ##ADT Tweak
   icon: { sprite: Objects/Devices/gates.rsi, state: edge_detector }
   objectType: Item
 
 - type: construction
-  name: power sensor
+  name: "Датчик питания (power sensor)" ##ADT Tweak
   id: PowerSensor
   graph: LogicGate
   startNode: start
   targetNode: power_sensor
   category: construction-category-tools
-  description: A power network checking device for signals.
+  description: "Генерирует сигналы в ответ на изменения напряжения в сети. Звучит достаточно умно." ##ADT Tweak
   icon: { sprite: Objects/Devices/gates.rsi, state: power_sensor }
   objectType: Item
 
 - type: construction
-  name: memory cell
+  name: "Ячейка памяти (memory cell)" ##ADT Tweak
   id: MemoryCell
   graph: LogicGate
   startNode: start
   targetNode: memory_cell
   category: construction-category-tools
-  description: A memory cell for signals.
+  description: "Намного лучше вашей памяти." ##ADT Tweak
   icon: { sprite: Objects/Devices/gates.rsi, state: memory_cell }
   objectType: Item

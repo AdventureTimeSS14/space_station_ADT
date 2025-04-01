@@ -1,25 +1,25 @@
 ﻿- type: construction
-  name: revenant plushie
+  name: "Плюшевый ревенант (revenant plushie)" ##ADT Tweak
   id: PlushieGhostRevenant
   graph: PlushieGhostRevenant
   startNode: start
   targetNode: plushie
   category: construction-category-misc
   objectType: Item
-  description: A toy to scare the medbay with.
+  description: "Прекрасная игрушка, чтобы пугать мёртвых!" ##ADT Tweak
   icon:
     sprite: Mobs/Ghosts/revenant.rsi
     state: icon
 
 - type: construction
-  name: ian suit
+  name: "Костюм Иана (ian suit)" ##ADT Tweak
   id: ClothingOuterSuitIan
   graph: ClothingOuterSuitIan
   startNode: start
   targetNode: suit
   category: construction-category-misc
   objectType: Item
-  description: Make yourself look just like Ian!
+  description: "Ты ужасный человек." ##ADT Tweak
   icon:
     sprite: Clothing/OuterClothing/Suits/iansuit.rsi
     state: icon
