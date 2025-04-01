@@ -6,7 +6,7 @@
   components:
   - type: Item
     sprite: ADT/Objects/Misc/plutonium_core.rsi
-    size: Tiny
+    size: Normal
   - type: Sprite
     layers:
       - sprite: ADT/Objects/Misc/plutonium_core.rsi
@@ -20,7 +20,7 @@
   components:
   - type: Item
     sprite: ADT/Objects/Misc/plutonium_core.rsi
-    size: Tiny
+    size: Normal
   - type: Sprite
     layers:
       - sprite: ADT/Objects/Misc/plutonium_core.rsi
@@ -28,3 +28,26 @@
         shader: unshaded
   - type: RadiationSource
     intensity: 2
+  - type: SolutionContainerManager
+    solutions:
+      ADTplutonium:
+        reagents:
+        - ReagentId: ADTPlutonium
+          Quantity: 5
+        canReact: false
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ADTPlutonium: 5
+  - type: Extractable
+    grindableSolutionName: ADTplutonium
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
