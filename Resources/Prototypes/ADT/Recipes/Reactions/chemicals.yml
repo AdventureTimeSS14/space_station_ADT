@@ -34,9 +34,10 @@
 
 - type: reaction
   id: ADTAnti-nob
+  quantized: true
   reactants:
     ADTPlutonium:
-      amount: 50
+      amount: 45
     Hyper-Noblium:
       amount: 5
   effects:
