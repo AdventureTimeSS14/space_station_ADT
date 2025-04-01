@@ -85,7 +85,7 @@
       announcement: alert-level-cascade-announcement
       selectable: false
       sound:
-        path: /Audio/ADT/Supermatter/cascade.ogg
+        path: /Audio/ADT/Supermatter/thecascade.ogg
         params:
           volume: -2
       disableSelection: true
