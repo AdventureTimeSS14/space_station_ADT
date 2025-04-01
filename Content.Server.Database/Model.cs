@@ -46,6 +46,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
 		public DbSet<BookPrinterEntry> BookPrinterEntry { get; set; } = null!; // ADT-BookPrinter
+        public DbSet<DiscordUser> DiscordUser { get; set; } = null!; // ADT-Discord
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -65,6 +66,12 @@ namespace Content.Server.Database
                 .HasIndex(p => p.Id)
                 .IsUnique();
             // ADT-BookPrinter-End
+
+            // ADT-Discord-Start
+            modelBuilder.Entity<DiscordUser>()
+                .HasIndex(p => new { p.UserId, p.DiscordId })
+                .IsUnique();
+            // ADT-Discord-End
 
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
@@ -101,6 +108,14 @@ namespace Content.Server.Database
                 .WithMany(e => e.Loadouts)
                 .HasForeignKey(e => e.ProfileLoadoutGroupId)
                 .IsRequired();
+
+            // ADT SAI Custom start
+            modelBuilder.Entity<ExtraLoadoutData>()
+                .HasOne(x => x.RoleLoadout)
+                .WithMany(l => l.ExtraData)
+                .HasForeignKey(x => x.ProfileRoleLoadoutId)
+                .IsRequired();
+            // ADT SAI Custom end
 
             modelBuilder.Entity<Job>()
                 .HasIndex(j => j.ProfileId);
@@ -515,6 +530,8 @@ namespace Content.Server.Database
         /// Store the saved loadout groups. These may get validated and removed when loaded at runtime.
         /// </summary>
         public List<ProfileLoadoutGroup> Groups { get; set; } = new();
+
+        public List<ExtraLoadoutData> ExtraData { get; set; } = new();
     }
 
     /// <summary>
@@ -564,6 +581,16 @@ namespace Content.Server.Database
          */
     }
 
+    // ADT SAI Custom start
+    public class ExtraLoadoutData
+    {
+        public int Id { get; set; }
+        public ProfileRoleLoadout RoleLoadout { get; set; } = null!;
+        public int ProfileRoleLoadoutId { get; set; }
+        public string Key { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+    }
+    // ADT SAI Custom end
     #endregion
 
     #region Languages (ADT)
@@ -714,7 +741,15 @@ namespace Content.Server.Database
         public string Color { get; set; } = default!;
     }
     // ADT-BookPrinter-End
-
+    // ADT-Discord-Start
+    public class DiscordUser
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public Guid UserId { get; set; }
+        public string DiscordId { get; set; } = default!;
+    }
+    // ADT-Discord-End
     public class Round
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -1043,6 +1078,7 @@ namespace Content.Server.Database
         BabyJail = 4,
         /// Results from rejected connections with external API checking tools
         IPChecks = 5,
+        DiscordAuth = 6, // ADT-Tweak-add
     }
 
     public class ServerBanHit

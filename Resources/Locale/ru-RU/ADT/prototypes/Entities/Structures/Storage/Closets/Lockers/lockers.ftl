@@ -12,3 +12,7 @@ ent-ADTLockerBlueshieldFilled = шкаф офицера синего щита
 ent-ADTSuitStorageBlueshield = хранилище скафандра
     .suffix = Офицер синего щита
     .desc = { ent-SuitStorageBase.desc }
+
+ent-ADTLockerPathologistFilled = шкаф патологоанатома
+    .suffix = Заполненный
+    .desc = { ent-LockerBaseSecure.desc }

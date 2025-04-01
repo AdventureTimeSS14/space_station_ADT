@@ -122,6 +122,7 @@
       - id: ClothingUniformJumpskirtElegantMaid
       - id: ClothingUnderSocksCoder
       - id: SirenaChokerWithHeart
+      - id: ADTClothingHandsCatPawsBlackCombat # ADT Tweak
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -267,3 +268,29 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingOuterCoatLab
       - id: GeigerCounter
+
+  id: ADTClothingBackpackDuffelSyndieMod
+  name: Syndicate MOD bundle
+  description: MODules and MOD.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTModsuitModAntigrav
+      - id: ADTModsuitModApparatus
+      - id: ADTModsuitModDrill
+      - id: ADTModsuitModMagboot
+      - id: ADTModsuitModNightVision
+      - id: ADTModsuitModStun
+      - id: ADTModsuitModNoslip
+      - id: ADTModsuitModPowerKick
+      - id: ADTModsuitModSechud
+      - id: ADTModsuitModTray
+      - id: ADTModsuitModIsulation
+      - id: ADTModsuitModJump
+      - id: ADTModsuitModOrebag
+      - id: ADTModsuitModRadiationProtection
+      - id: ADTModsuitModStorage
+      - id: ADTModsuitModWelding
+      - id: ADTModsuitModLight
+      - id: ADTModsuitModJetpack
+      - id: ADTModsuitModDnaLock

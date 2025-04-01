@@ -132,6 +132,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # ADT-tweak-start
+    - ADTServiceStaticPack
     - ADTRecorderStaticPack
     - ADTMicsStaticPack
     # ADT-tweak-end
@@ -216,6 +217,7 @@
     #ADT-tweak-start
     - ADTRCDPack
     - ADTPKAPack
+    - ADTWeaponExperimentalPKAPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
@@ -278,7 +280,9 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
-    - ADTEnergyBoardsPack # ADT-tweak
+    # ADT-tweak-start
+    - ADTEnergyBoardsPack 
+    # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -326,7 +330,7 @@
     - BorgModulesStatic
     - BorgLimbsStatic
     dynamicPacks:
-    - Robotics
+    # - Robotics  # ADT Commented
     - BorgModules
     - MechParts
     - MechEquipment
@@ -547,8 +551,16 @@
     - Scarves
     - Carpets
     - Bedsheets
+    # ADT tweak start
+    - ADTBackpacks
+    - ADTSatchels
+    - ADTDuffel
+    # ADT tweak end
   - type: EmagLatheRecipes
     emagStaticPacks:
+    # ADT tweak start
+    - ADTSyndicateDuffel
+    # ADT tweak end
     - ClothingCentComm
     - ClothingSyndie
   - type: MaterialStorage

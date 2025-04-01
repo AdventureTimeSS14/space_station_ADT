@@ -9,6 +9,7 @@
                 <CheckBox Name="ColorblindFriendlyCheckBox" Text="{Loc 'ui-options-colorblind-friendly'}" />
                 <!-- ADT Settings start -->
                 <CheckBox Name="CenterRadialMenu" Text="{Loc 'ui-options-center-radial-menu'}" />
+                <CheckBox Name="EnableLanguageFonts" Text="{Loc 'ui-options-language-fonts'}" />
                 <!-- ADT Settings end -->
                 <ui:OptionSlider Name="ChatWindowOpacitySlider" Title="{Loc 'ui-options-chat-window-opacity'}" />
                 <ui:OptionSlider Name="ScreenShakeIntensitySlider" Title="{Loc 'ui-options-screen-shake-intensity'}" />

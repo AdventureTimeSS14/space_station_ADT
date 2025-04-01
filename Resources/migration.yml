@@ -110,8 +110,8 @@ GeneratorUraniumMachineCircuitboard: PortableGeneratorSuperPacmanMachineCircuitb
 #No this is not the CMO hardsuit, their prototype IDs were just confusingly similar
 ClothingOuterHardsuitMedic: ClothingOuterHardsuitSyndieMedic
 
-# 2023-12-13
-VendingMachineSmartFridge: SmartFridge
+# 2023-12-13 # ADT: НЕТ ХОЛОДИЛЬНИКУ ЗАМЕНЫ
+# VendingMachineSmartFridge: SmartFridge
 
 # 2023-12-18
 ReagentContainerMilk: DrinkMilkCarton
@@ -409,12 +409,12 @@ MaterialReclaimer: null
 MaterialReclaimerMachineCircuitboard: null
 
 # 2024-08-11
-FoodTacoBeef: FoodTacoShell
-FoodTacoChicken: FoodTacoShell
-FoodTacoFish: FoodTacoShell
-FoodTacoBeefSupreme: FoodTacoShell
-FoodTacoChickenSupreme: FoodTacoShell
-FoodTacoRat: FoodTacoShell
+# FoodTacoBeef: FoodTacoShell #ADT-Tweak - бургеры старые вернули, тако не вернули
+# FoodTacoChicken: FoodTacoShell
+# FoodTacoFish: FoodTacoShell
+# FoodTacoBeefSupreme: FoodTacoShell
+# FoodTacoChickenSupreme: FoodTacoShell
+# FoodTacoRat: FoodTacoShell
 
 FoodMeatHumanKebab: FoodKebabSkewer
 FoodMeatLizardtailKebab: FoodKebabSkewer
@@ -614,3 +614,19 @@ FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
 WeaponSubMachineGunVector: null
 WeaponSubMachineGunVectorRubber: null
 MagazineBoxCaselessRifleBig: null
+
+PlayerStationAiPilgrim: PlayerStationAi
+
+#ADT 2025-03-07
+
+ClothingOuterHardsuitSecurity: ADTClothingModsuitBackSecurity
+ClothingOuterHardsuitEngineering: ADTClothingModsuitBackEngineering
+ClothingOuterHardsuitSalvage: ADTClothingModsuitBackMining
+
+#ADT 2025-03-21
+
+ClothingOuterWinterCoat: ClothingOuterWinterCoatToggleable
+
+#ADT 2025-03-12
+SmartFridge: ADTSmartFridgeMedical
+VendingMachineSmartFridge: ADTSmartFridgeMedical

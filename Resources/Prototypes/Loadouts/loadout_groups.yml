@@ -60,6 +60,10 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # ADT-Tweak-Start
+  - AcousticGuitarInstrument
+  - HarmonicaInstrument
+  # ADT-Tweak-End
 
 - type: loadoutGroup
   id: Glasses
@@ -152,6 +156,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
+  - ADTArmorVestHidden # ADT Loadout
 
 - type: loadoutGroup
   id: HoPHead
@@ -327,7 +332,16 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
-
+# ADT-Loadouts-Start
+- type: loadoutGroup
+  id: LibrarianBackpack
+  name: loadout-group-librarian-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTLibrarianBWinRAR
+# ADT-Loadouts-End
 - type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit
@@ -393,6 +407,12 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+  # ADT-Loadouts-Start
+  - ADTChaplainWCross
+  - ADTChaplainBCross
+  - ADTChaplainSCross
+  - ADTChaplainGCross
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: JanitorHead
@@ -558,6 +578,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - ADTMimeWintercoatLong #ADT Tweak
 
 - type: loadoutGroup
   id: MimeBelt
@@ -672,6 +693,14 @@
   loadouts:
   - BrownShoes
   - CargoWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -711,6 +740,14 @@
   loadouts:
   - BlackShoes
   - CargoWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -733,6 +770,14 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 # Engineering
 
@@ -774,6 +819,14 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -821,6 +874,14 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -860,6 +921,14 @@
   loadouts:
   - WhiteShoes
   - EngineeringWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SurvivalExtended
@@ -924,6 +993,14 @@
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ScientistHead
@@ -972,6 +1049,14 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1107,6 +1192,7 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - ADTArmorVestHidden #ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1115,6 +1201,14 @@
   - JackSecBoots # Corvax
   - JackBoots
   - SecurityWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1164,6 +1258,7 @@
   - DetectiveCoat
   - DetectiveCoatGrey
   - DetectiveCoatInvestigator # ADT-Loadout
+  - ADTArmorVestHidden # ADT-Loadout
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1237,6 +1332,14 @@
   - BrownShoes
   - MedicalWinterBoots
   - ADTCMOHighBoots # ADT tweak
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1275,6 +1378,14 @@
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1355,6 +1466,14 @@
   loadouts:
   - BlueShoes
   - MedicalWinterBoots
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
 
 - type: loadoutGroup
   id: SurvivalMedical

@@ -201,6 +201,92 @@
   parent: BaseWoodTileRecipe
   id: FloorTileItemWoodPattern
   result: FloorTileItemWoodPattern
+# ADT tweak start
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodParquet
+  result: FloorTileItemWoodParquet
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodLargeRed
+  result: FloorTileItemWoodLargeRed
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodParquetRed
+  result: FloorTileItemWoodParquetRed
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodRed
+  result: FloorTileItemWoodRed
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodChessRed
+  result: FloorTileItemWoodChessRed
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodLargeLight
+  result: FloorTileItemWoodLargeLight
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodParquetLight
+  result: FloorTileItemWoodParquetLight
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodLight
+  result: FloorTileItemWoodLight
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodChessLight
+  result: FloorTileItemWoodChessLight
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodLargeDark
+  result: FloorTileItemWoodLargeDark
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodParquetDark
+  result: FloorTileItemWoodParquetDark
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodDark
+  result: FloorTileItemWoodDark
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodChessDark
+  result: FloorTileItemWoodChessDark
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodLargeBlack
+  result: FloorTileItemWoodLargeBlack
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodParquetBlack
+  result: FloorTileItemWoodParquetBlack
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodBlack
+  result: FloorTileItemWoodBlack
+
+- type: latheRecipe
+  parent: BaseWoodTileRecipe
+  id: FloorTileItemWoodChessBlack
+  result: FloorTileItemWoodChessBlack
+# ADT tweak end
 
 # Concrete
 - type: latheRecipe
@@ -247,3 +333,128 @@
   parent: BaseConcreteTileRecipe
   id: FloorTileItemOldConcreteSmooth
   result: FloorTileItemOldConcreteSmooth
+
+
+# ADT tweak start other steal
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemClown
+  result: FloorTileItemClown
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemMime
+  result: FloorTileItemMime
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemKitchen
+  result: FloorTileItemKitchen
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemLime
+  result: FloorTileItemLime
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemFreezer
+  result: FloorTileItemFreezer
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemMono
+  result: FloorTileItemMono
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemArcadeRed
+  result: FloorTileItemArcadeRed
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemArcadeBlue
+  result: FloorTileItemArcadeBlue
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemArcadeBlue2
+  result: FloorTileItemArcadeBlue2
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemLaundry
+  result: FloorTileItemLaundry
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemElevatorShaft
+  result: FloorTileItemElevatorShaft
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemMetalDiamond
+  result: FloorTileItemMetalDiamond
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemMining
+  result: FloorTileItemMining
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemMiningDark
+  result: FloorTileItemMiningDark
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemMiningLight
+  result: FloorTileItemMiningLight
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemRockVault
+  result: FloorTileItemRockVault
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemBlue
+  result: FloorTileItemBlue
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemHydro
+  result: FloorTileItemHydro
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemBar
+  result: FloorTileItemBar
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemShuttleBlue
+  result: FloorTileItemShuttleBlue
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemShuttleGrey
+  result: FloorTileItemShuttleGrey
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemShuttlePurple
+  result: FloorTileItemShuttlePurple
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemShuttleBlack
+  result: FloorTileItemShuttleBlack
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemShuttleRed
+  result: FloorTileItemShuttleRed
+
+# ADT tweak end other steal

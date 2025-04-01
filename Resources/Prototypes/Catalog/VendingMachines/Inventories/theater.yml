@@ -8,6 +8,8 @@
     ClothingShoesJester: 2
     ClothingOuterWinterClown: 1
     ClothingOuterWinterMime: 1
+    ADTClothingOuterClothingBox: 2 #ADT tweak
+    ADTClothingOuterWinterLongMime: 1 #ADT tweak
     ClothingOuterWinterMusician: 1
     ClothingMaskJoy: 2
     ClothingHeadHatCardborg: 2

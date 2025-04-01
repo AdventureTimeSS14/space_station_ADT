@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.SimpleStation14.Clothing
+namespace Content.Shared.ADT.Clothing
 {
     [RegisterComponent]
     public sealed partial class ClothingGrantComponentComponent : Component

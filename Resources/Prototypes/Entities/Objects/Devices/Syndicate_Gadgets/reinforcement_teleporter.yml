@@ -24,11 +24,14 @@
   components:
   - type: GhostRole
     name: ghost-role-information-syndicate-reinforcement-spy-name
-# ADT-Tweak-start
+    # ADT-Tweak-start
     requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # 5h
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
+        time: 54000 # adt tweak 2h > 15h
+    # ADT-Tweak-end
     description: ghost-role-information-syndicate-reinforcement-spy-description
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
@@ -77,7 +80,10 @@
 # ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+        time: 54000 # 15h
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # adt tweak 2h > 5h
 # ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -98,7 +104,7 @@
 # ADT-Tweak-start
     requirements:
       - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+        time: 18000 # 5h overall
 # ADT-Tweak-end
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
@@ -140,6 +146,11 @@
   suffix: NukeOps
   components:
   - type: GhostRole
+    # ADT-Tweak-start
+    requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 18000 # 5h overall
+    # ADT-Tweak-end
     rules: ghost-role-information-nukeop-reinforcement-rules
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgentNukeops
@@ -183,7 +194,7 @@
 # ADT-Tweak-start
       requirements:
         - !type:OverallPlaytimeRequirement
-          time: 7200 # 2h overall
+          time: 54000 # 15h overall
 # ADT-Tweak-end
       mindRoles:
       - MindRoleGhostRoleSilicon

@@ -357,7 +357,12 @@ internal sealed partial class ChatManager : IChatManager
         }
         // End-ADT Tweak
 
-        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
+        // var clients = _adminManager.ActiveAdmins.Select(p => p.Channel); // ADT-Comment
+        // ADT-Tweak-start: Сортируем в список клиентов только тех кто имеет флаг Adminchat
+        var clients = _adminManager.ActiveAdmins
+        .Where(admin => _adminManager.GetAdminData(admin)?.Flags.HasFlag(AdminFlags.Adminchat) == true)
+        .Select(p => p.Channel);
+        // ADT-Tweak-end
         var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
                                         ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
                                         ("playerName", senderName), ("message", FormattedMessage.EscapeText(message))); // ADT Tweak тут заменил player.Name на senderName

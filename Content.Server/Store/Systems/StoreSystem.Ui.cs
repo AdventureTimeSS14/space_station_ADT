@@ -226,8 +226,11 @@ public sealed partial class StoreSystem
                 actionId = _actionContainer.AddAction(mind, listing.ProductAction);
 
             // ADT start
-            var actionEv = new ActionBoughtEvent(actionId);
-            RaiseLocalEvent(buyer, ref actionEv);
+            if (actionId.HasValue)
+            {
+                var actionEv = new ActionBoughtEvent(actionId.Value);
+                RaiseLocalEvent(buyer, ref actionEv);
+            }
             // ADT end
 
             // Add the newly bought action entity to the list of bought entities

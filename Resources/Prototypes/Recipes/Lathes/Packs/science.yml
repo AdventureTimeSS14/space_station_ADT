@@ -28,14 +28,15 @@
   - AnomalyLocatorWide
   - HoloprojectorField
   - SignallerAdvanced
-  - DeviceQuantumSpinInverter
+  # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
 
 - type: latheRecipePack
   id: ScienceClothing
   recipes:
   - ClothingShoesBootsMagSci
   # - ClothingShoesBootsMoon # ADT-Tweak - убираем луноходы
-  - ClothingShoesBootsSpeed
+  # - ClothingShoesBootsSpeed # ADT tweak
+  - ADTClothingOuterExoskeletonBase #ADT tweak
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding

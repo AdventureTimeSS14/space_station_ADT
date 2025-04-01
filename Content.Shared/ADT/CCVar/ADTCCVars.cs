@@ -66,10 +66,12 @@ public sealed class ADTCCVars
         CVarDef.Create("hud.offer_mode_indicators_point_show", true, CVar.ARCHIVE | CVar.CLIENTONLY);
 
     /*
-    * Supermatter
+    * Language
     */
+    public static readonly CVarDef<bool> EnableLanguageFonts =
+        CVarDef.Create("lang.enable_fonts", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-#region Supermatter
+    #region Supermatter
 
     /// <summary>
     ///     Toggles whether or not Cascade delaminations can occur. If disabled, it will always delam into a Nuke.

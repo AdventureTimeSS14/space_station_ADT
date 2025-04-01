@@ -21,6 +21,7 @@ public sealed partial class AccessibilityTab : Control
 
         // ADT Settings start
         Control.AddOptionCheckBox(ADTCCVars.CenterRadialMenu, CenterRadialMenu);
+        Control.AddOptionCheckBox(ADTCCVars.EnableLanguageFonts, EnableLanguageFonts);
         // ADT Settings end
 
         Control.Initialize();

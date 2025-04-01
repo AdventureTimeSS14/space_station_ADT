@@ -111,7 +111,7 @@
     contents:
         - id: OxygenTankFilled
         - id: ClothingShoesBootsMag
-        - id: ClothingOuterHardsuitEngineering
+        - id: ADTClothingModsuitBackEngineering #ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Engineering"]]
@@ -125,7 +125,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitAtmos
+        - id: ADTClothingModsuitBackAtmos #ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -139,7 +139,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitSecurity
+        - id: ADTClothingModsuitBackSecurity
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
@@ -245,8 +245,8 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitSyndie
-        - id: ClothingShoesBootsMagSyndie
+        - id: ADTClothingModsuitBackSyndicate # ADT tweak
+        # - id: ClothingShoesBootsMagSyndie #ADT tweak
         - id: ClothingMaskGasSyndicate
 
 #Pirate Captain's hardsuit
