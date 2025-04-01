@@ -34,12 +34,12 @@
 
 - type: reaction
   id: ADTAnti-nob
+  quantized: true
   reactants:
     ADTPlutonium:
-      amount: 50
+      amount: 45
     Hyper-Noblium:
-      amount: 1
-      catalyst: true
+      amount: 5
   effects:
   - !type:CreateGas
     gas: AntiNoblium
