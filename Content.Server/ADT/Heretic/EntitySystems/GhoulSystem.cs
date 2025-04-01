@@ -90,17 +90,19 @@ public sealed partial class GhoulSystem : EntitySystem
     private void SendBriefing(Entity<GhoulComponent> ent, EntityUid mindId, MindComponent? mind)
     {
         var brief = Loc.GetString("heretic-ghoul-greeting-noname");
+        EntityUid? master = EntityManager.GetEntity(ent.Comp.BoundHeretic);
 
-        if (ent.Comp.BoundHeretic != null)
-            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity((EntityUid) ent.Comp.BoundHeretic, EntityManager)));
+        if (master.HasValue)
+            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity(master.Value, EntityManager)));
+
         var sound = new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
         _antag.SendBriefing(ent, brief, Color.MediumPurple, sound);
 
-        if (!_mind.TryGetObjectiveComp<GhoulRoleComponent>(ent, out _))
-            _role.MindAddRole(mindId, "MindRoleGhoul");
+        if (!TryComp<GhoulRoleComponent>(ent, out _))
+            AddComp<GhoulRoleComponent>(mindId, new(), overwrite: true);
 
-        if (!_mind.TryGetObjectiveComp<RoleBriefingComponent>(ent, out var rolebrief))
-            _role.MindAddRole(mindId, brief, mind);
+        if (!TryComp<RoleBriefingComponent>(ent, out var rolebrief))
+            AddComp(mindId, new RoleBriefingComponent() { Briefing = brief }, overwrite: true);
         else rolebrief.Briefing += $"\n{brief}";
     }
 
@@ -120,7 +122,7 @@ public sealed partial class GhoulSystem : EntitySystem
         foreach (var look in _lookup.GetEntitiesInRange<HereticComponent>(Transform(ent).Coordinates, 1.5f))
         {
             if (ent.Comp.BoundHeretic == null)
-                ent.Comp.BoundHeretic = look;
+                ent.Comp.BoundHeretic = GetNetEntity(look);
             else break;
         }
 
