@@ -192,6 +192,7 @@
     sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
   - type: Gun
     fireRate: 3
+    projectileSpeed: 60
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
