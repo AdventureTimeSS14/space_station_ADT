@@ -8,10 +8,19 @@
   meltingPoint: 300
 
 - type: reagent
+  id: ADTUsedPlutonium
+  name: reagent-name-copper-nitride
+  desc: reagent-desc-copper-nitride
+  physicalDesc: reagent-physical-desc-crystalline
+  color: "#09590a"
+  boilingPoint: 1500
+  meltingPoint: 2500
+
+- type: reagent
   id: ADTPlutonium
-  name: reagent-name-plutonium
-  desc: reagent-desc-plutonium
-  physicalDesc: reagent-physical-desc-metallic
+  name: reagent-name-copper-nitride
+  desc: reagent-desc-copper-nitride
+  physicalDesc: reagent-physical-desc-crystalline
   color: "#09590a"
   boilingPoint: 1500
   meltingPoint: 2500
