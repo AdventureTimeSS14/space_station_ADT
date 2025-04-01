@@ -55,7 +55,7 @@
       chat-speech-verb-suffix-stutter: Supermatter
       chat-speech-verb-suffix-mumble: Supermatter
   - type: GuideHelp
-    guides: [ Supermatter, Power ]
+    guides: [ SupermatterGuideBook, Power ]
   - type: WarpPoint
     follow: true
     location: supermatter
