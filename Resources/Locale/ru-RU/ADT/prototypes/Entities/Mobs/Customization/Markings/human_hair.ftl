@@ -19,3 +19,7 @@ marking-HumanForeheadBindi = Бинди
 marking-HumanForeheadFathereyebrows = Густые брови
 marking-HumanPiercingBrowL = Пирсинг брови (левая)
 marking-HumanPiercingBrowR = Пирсинг брови (правая)
+
+marking-ADTHumanHairGatheredlow = Собранные (Низкие)
+marking-ADTHumanHairFrenchBraid = Французская коса
+marking-ADTHumanHairLowpigtails = Косички (Низкие)

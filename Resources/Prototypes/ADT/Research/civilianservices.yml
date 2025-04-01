@@ -65,3 +65,18 @@
   position: 3,5
   requiredTech:
   - BluespaceCargoTransport
+
+- type: technology
+  id: ADTServicePlus
+  name: research-technology-services-service-plus
+  icon:
+    sprite: ADT/Structures/Machines/advanced_microwave.rsi
+    state: mw
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+    - ADTAdvancedMicrowaveMachineCircuitBoard #Я не против расширения арсенала этой технологии, просто переименуйте её в локализации, если будете добавлять сюда чего-либо
+  position: 2,-3
+  requiredTech:
+  - MeatManipulation

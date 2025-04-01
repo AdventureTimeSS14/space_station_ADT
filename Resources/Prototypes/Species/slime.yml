@@ -69,16 +69,16 @@
       points: 1
       required: false
     Legs:
-      points: 4
+      points: 8 #ADT_Tweak
       required: false
     Arms:
-      points: 4
+      points: 8 #ADT_Tweak
       required: false
 
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
   markingsMatchSkin: true
-  layerAlpha: 0.5
+  layerAlpha: 0.75 #ADT_Tweak
 
 - type: humanoidBaseSprite
   id: MobSlimeHead

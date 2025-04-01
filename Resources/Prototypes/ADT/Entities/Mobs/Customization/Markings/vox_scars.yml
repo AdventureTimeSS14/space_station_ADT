@@ -1,0 +1,97 @@
+- type: marking
+  id: ADTScarsVoxRoadrashLeftHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/vox_scars.rsi
+    state: roadrash_l_head
+
+- type: marking
+  id: ADTScarsVoxRoadrashRightHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/vox_scars.rsi
+    state: roadrash_r_head
+
+- type: marking
+  id: ADTScarsVoxBigslashLeftHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/vox_scars.rsi
+    state: bigslash_l_head
+
+- type: marking
+  id: ADTScarsVoxBigslashRightHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/vox_scars.rsi
+    state: bigslash_r_head
+
+- type: marking
+  id: ADTScarsVoxSlashLeftHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/vox_scars.rsi
+    state: slash_l_head
+
+- type: marking
+  id: ADTScarsVoxSlashRightHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/vox_scars.rsi
+    state: slash_r_head
+
+- type: marking
+  id: ADTScarsVoxClawTorso
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/vox_scars.rsi
+    state: claw_torso
