@@ -827,8 +827,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
         // ADT-Tweak-start: Проверка, нужно ли отправлять в чат админам об использовании замены.
-        if ((message != newMessage) && HasComp<ActorComponent>(source))
-            _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
+        // if ((message != newMessage) && HasComp<ActorComponent>(source))
+            // _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
         // ADT-Tweak-end
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
@@ -910,7 +910,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public static readonly string[] ChatSanitize_Accent = { "chatsanitize", "adt_chatsanitize" }; // ADT-Tweak
+    public static readonly string[] ChatSanitize_Accent = { "adt_chatsanitize", "chatsanitize" }; // ADT-Tweak
 
     public string SanitizeMessageReplaceWords(string message)
     {

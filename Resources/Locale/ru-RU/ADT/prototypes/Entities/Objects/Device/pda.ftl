@@ -25,3 +25,12 @@ ent-ADTGuardOfficerPDA = КПК надзирателя СБ
 ent-ADTTraderPDA = КПК торговца
     .desc = КПК торговца
     .suffix = { "ТСФ" }
+
+ent-ADTSecurityAtmosPDA = КПК бриг-атмоса
+    .desc = Этот КПК видел РОФЛЫ.
+
+ent-ADTSecurityScientistPDA = КПК бриг-ученого
+    .desc = Эта камера взрыва артефакта просит.
+
+ent-ADTSecurityServicePDA = КПК бриг-мейды
+    .desc = Никакого УВУ.

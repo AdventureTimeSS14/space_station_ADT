@@ -46,4 +46,11 @@ commander-space-sec = командир SPACE SEC
 member-space-sec = сотрудник SPACE SEC
 trader-tsf = торговец
 
+job-name-sec-sci = бриг-ученый
+JobEvent1 = бриг-ученый
 
+job-name-sec-service = бриг-мейд
+JobEvent2 = бриг-мейд
+
+job-name-sec-atmos = бриг-атмос
+JobEvent3 = бриг-атмос
