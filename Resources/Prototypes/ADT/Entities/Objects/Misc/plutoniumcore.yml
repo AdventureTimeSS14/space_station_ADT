@@ -33,12 +33,12 @@
       ADTplutonium:
         reagents:
         - ReagentId: ADTPlutonium
-          Quantity: 5
+          Quantity: 50
         canReact: false
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      ADTPlutonium: 5
+      ADTPlutonium: 50
   - type: Extractable
     grindableSolutionName: ADTplutonium
   - type: Damageable
