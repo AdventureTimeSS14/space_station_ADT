@@ -38,8 +38,7 @@
     ADTPlutonium:
       amount: 50
     Hyper-Noblium:
-      amount: 1
-      catalyst: true
+      amount: 5
   effects:
   - !type:CreateGas
     gas: AntiNoblium
