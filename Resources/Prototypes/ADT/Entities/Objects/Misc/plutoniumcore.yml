@@ -30,17 +30,14 @@
     intensity: 2
   - type: SolutionContainerManager
     solutions:
-      ADTplutonium:
+      PlutoniumCore:
         reagents:
         - ReagentId: ADTPlutonium
           Quantity: 50
         canReact: false
   - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      ADTPlutonium: 50
   - type: Extractable
-    grindableSolutionName: ADTplutonium
+    grindableSolutionName: ADTPlutonium
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
