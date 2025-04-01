@@ -129,6 +129,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             if (loadout != null)
             {
                 EquipRoleName(jobEntity, loadout, roleProto!);
+                ApplyLoadoutExtras(jobEntity, loadout); // ADT SAI Custom
             }
 
             DoJobSpecials(job, jobEntity);

@@ -1,16 +1,17 @@
 # Tier 1
 
-- type: technology
-  id: BasicRobotics
-  name: research-technology-basic-robotics
-  icon:
-    sprite: Structures/Machines/exosuit_fabricator.rsi
-    state: fab-idle
-  discipline: Experimental
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ProximitySensor
+# ADT Commented
+# - type: technology
+#   id: BasicRobotics
+#   name: research-technology-basic-robotics
+#   icon:
+#     sprite: Structures/Machines/exosuit_fabricator.rsi
+#     state: fab-idle
+#   discipline: Experimental
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - ProximitySensor
 
 - type: technology
   id: BasicAnomalousResearch
@@ -28,6 +29,11 @@
   - BorgModuleAnomaly
   - APECircuitboard
   - AnomalyVesselCircuitboard
+  # ADT Research Console Rework start
+  position: 3,-1
+  requiredTech:
+  - AlternativeResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: BasicXenoArcheology
@@ -43,6 +49,11 @@
   - BorgModuleArtifact
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
+  # ADT Research Console Rework start
+  position: 3,1
+  requiredTech:
+  - AlternativeResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: AlternativeResearch
@@ -55,6 +66,7 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
+  position: 2,0 # ADT Research Console Rework end
 
 - type: technology
   id: MagnetsTech
@@ -68,6 +80,11 @@
   recipeUnlocks:
   - ClothingShoesBootsMagSci
   #- ClothingShoesBootsMoon # ADT tweak - убираем луноходы
+  # ADT Research Console Rework start
+  position: 1,0
+  requiredTech:
+  - AlternativeResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: AnomalyCoreHarnessing
@@ -80,6 +97,11 @@
   cost: 10000
   recipeUnlocks:
   - WeaponGauntletGorilla
+  # ADT Research Console Rework start
+  position: 4,-1
+  requiredTech:
+  - BasicAnomalousResearch
+  # ADT Research Console Rework end
 
 # Tier 2
 
@@ -94,6 +116,11 @@
   cost: 5000
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
+  # ADT Research Console Rework start
+  position: 4,1
+  requiredTech:
+  - BasicXenoArcheology
+  # ADT Research Console Rework end
 
 - type: technology
   id: AdvancedAnomalyResearch
@@ -110,6 +137,11 @@
   - AnomalyVesselExperimentalCircuitboard
   technologyPrerequisites:
   - BasicAnomalousResearch
+  # ADT Research Console Rework start
+  position: 3,-2
+  requiredTech:
+  - BasicAnomalousResearch
+  # ADT Research Console Rework end
 
 - type: technology
   id: DeterrenceTechnologies
@@ -123,6 +155,11 @@
   recipeUnlocks:
   - WeaponParticleDecelerator
   - HoloprojectorField
+  # ADT Research Console Rework start
+  position: 0,1
+  requiredTech:
+  - MagnetsTech
+  # ADT Research Console Rework end
 
 # Tier 3
 
@@ -138,15 +175,28 @@
   recipeUnlocks:
     - WeaponForceGun
     - WeaponTetherGun
+  # ADT Research Console Rework start
+  position: 5,0
+  requiredTech:
+  - AbnormalArtifactManipulation
+  - AnomalyCoreHarnessing
+  # ADT Research Console Rework end
 
-- type: technology
-  id: QuantumLeaping
-  name: research-technology-quantum-leaping
-  icon:
-    sprite: Objects/Devices/swapper.rsi
-    state: icon
-  discipline: Experimental
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - DeviceQuantumSpinInverter
+#ADT_Tweak_Start - временно удалено до решения всех багов предмета
+# - type: technology
+#   id: QuantumLeaping
+#   name: research-technology-quantum-leaping
+#   icon:
+#     sprite: Objects/Devices/swapper.rsi
+#     state: icon
+#   discipline: Experimental
+#   tier: 3
+#   cost: 10000
+#   recipeUnlocks:
+#   - DeviceQuantumSpinInverter
+#   # ADT Research Console Rework start
+#   position: 6,0
+#   requiredTech:
+#   - GravityManipulation
+#   # ADT Research Console Rework end
+#ADT_Tweak_End - временно удалено до решения всех багов предмета

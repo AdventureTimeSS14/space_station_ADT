@@ -22,6 +22,12 @@ ent-ADTClothingModsuitBackSecurity = охранный МОД
 ent-ADTClothingModsuitBackScience = научный МОД
     .desc = Сделано учёными для учёных. С любовью!
 
+ent-ADTClothingModsuitBackSyndicate = кроваво-красный МОД
+    .desc = Костюм, разработанный Gorlex Marauders, предлагающий броню, признанную незаконной в большинстве секторов.
+
+ent-ADTClothingModsuitBackSafeguard = МОД "Диктатор"
+    .desc = Улучшенная версия простого охранного МОДА, что был создан специально для ГСБ. Жаждит забить генокрада собой досмерти!
+
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
@@ -43,6 +49,10 @@ ent-ADTClothingHeadHelmetModsuitSecurity = Охранный шлем MOD
     .desc = Шлем охранного MOD
 ent-ADTClothingHeadHelmetModsuitScience = Научный шлем MOD
     .desc = Шлем научного MOD
+ent-ADTClothingHeadHelmetModsuitSyndicate = шлем MOD синдиката
+    .desc = Кроваво-красный шлем.
+ent-ADTClothingHeadHelmetModsuitSafeguard = шлем "Диктатор"
+    .desc = Шлем, что 24/7 сканирует синдикатов вокруг.
 
 # Нагрудники
 ent-ADTClothingOuterModsuitBodyBase = Базовая броня MOD
@@ -61,6 +71,10 @@ ent-ADTClothingOuterModsuitBodySecurity = Охранная броня MOD
     .desc = Броня охранного MOD
 ent-ADTClothingOuterModsuitBodyScience = Научная броня MOD
     .desc = Броня научного MOD
+ent-ADTClothingOuterModsuitBodySyndicate = броня MOD синдиката
+    .desc = Кроваво-красная броня.
+ent-ADTClothingOuterModsuitBodySafeguard = броня МОДа "Диктатор"
+    .desc = Готова впитать любую пулю от ядерного оперативника!
 
 # Ботинки
 ent-ADTClothingModsuitShoesBase = Базовые ботинки MOD
@@ -79,6 +93,10 @@ ent-ADTClothingModsuitShoesSecurity = Охранные ботинки MOD
     .desc = Ботинки охранного MOD
 ent-ADTClothingModsuitShoesScience = Научные ботинки MOD
     .desc = Ботинки научного MOD
+ent-ADTClothingModsuitShoesSyndicate = ботинки MOD синдиката
+    .desc = Кроваво-красные ботинки.
+ent-ADTClothingModsuitShoesSafeguard = ботинки МОДа "Диктатор"
+    .desc = Испачканы кровью революционеров.
 
 # Перчатки
 ent-ADTClothingHandsModsuitBase = Базовые перчатки MOD
@@ -97,3 +115,7 @@ ent-ADTClothingHandsModsuitSecurity = Охранные перчатки MOD
     .desc = Перчатки охранного MOD
 ent-ADTClothingHandsModsuitScience = Научные перчатки MOD
     .desc = Перчатки научного MOD
+ent-ADTClothingHandsModsuitSyndicate = перчатки MOD синдиката
+    .desc = Кроваво-красные перчатки.
+ent-ADTClothingHandsModsuitSafeguard = перчатки МОДа "Диктатор"
+    .desc = Властно сжимают шею еретика!

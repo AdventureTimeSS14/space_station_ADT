@@ -7,3 +7,16 @@
     itemIconStyle: BigItem
     useDelay: 1 # equip noise spam.
     event: !type:ToggleModPartEvent
+
+- type: entity
+  id: ActionToggleBrigmediccSiren
+  name: Toggle Brigmed Siren
+  description: Toggles the Brigmed siren on and off.
+  components:
+  - type: InstantAction 
+    icon:
+      sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi
+      state: icon-siren
+    useDelay: 1
+    itemIconStyle: BigAction
+    event: !type:ToggleActionEvent

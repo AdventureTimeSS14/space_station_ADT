@@ -169,7 +169,10 @@
     languages:
       GalacticCommon: Speak
       BorgTalk: Speak
+      SiliconCollectiveMind: Speak
       RobotTalk: Understand
+  - type: CollectiveMindRank
+    rankName: collective-mind-borg-rank
 # End ADT Tweak
   - type: UnblockableSpeech
   - type: Construction
@@ -250,12 +253,6 @@
     - ADTSiliconStealthWhitelist  # ADT tweak
     - ADTSiliconEmotes            # ADT tweak
   - type: Emoting
-  # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
-    channel: Binary
-    showRank: true
-    rankName: collective-mind-borg-rank
-  # ADT-CollectiveMind-Tweak-End
   - type: GuideHelp
     guides:
     - Cyborgs

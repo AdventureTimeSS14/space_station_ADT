@@ -13,12 +13,12 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
-    fireRate: 1
+    fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ADTProjectileIonRifle
-    fireCost: 1000
+    fireCost: 125
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -26,8 +26,15 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/ion_rifle.rsi
   - type: Battery
-    maxCharge: 5000
-    startingCharge: 5000
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
+    offsetSpeed: 0.3
+  - type: Wieldable
+    unwieldOnUse: false
 
 - type: entity
   name: laser rifle
@@ -284,3 +291,26 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 225
+
+- type: entity
+  name: vulpizator
+  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  id: ADTWeaponVulpizator
+  description: A self-defense weapon that... turns you into vulpkanin..
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: BasicEntityAmmoProvider
+    proto: ADTProjectilePolyboltVulpkanin

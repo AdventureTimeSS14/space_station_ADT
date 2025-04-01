@@ -17,6 +17,9 @@
   defaultLanguages:
   - GalacticCommon
   - Canilunzt
+  maxAge: 80
+  oldAge: 50
+  youngAge: 25
 
 - type: speciesBaseSprites
   id: MobVulpkaninSprites

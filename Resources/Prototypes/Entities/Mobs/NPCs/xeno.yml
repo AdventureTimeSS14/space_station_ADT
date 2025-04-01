@@ -130,9 +130,8 @@
   - type: LanguageSpeaker
     languages:
       Xeno: Speak
-  - type: CollectiveMind
-    channel: XenoCollectiveMind
-    showRank: true
+      XenoCollectiveMind: Speak
+  - type: CollectiveMindRank
     rankName: collective-mind-burrower-rank
   # ADT tweak end
 
@@ -177,7 +176,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-praetorian-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -222,7 +221,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-drone-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -272,7 +271,7 @@
     tags:
     - CannotSuicide
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-queen-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -317,7 +316,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-ravager-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -361,7 +360,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-runner-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -380,7 +379,7 @@
     - id: FoodMeatRouny
       amount: 3
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-rouny-rank
   # ADT-CollectiveMind-Tweak-End
 
@@ -431,7 +430,7 @@
         layer:
         - MobLayer
   # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
+  - type: CollectiveMindRank
     rankName: collective-mind-spitter-rank
   # ADT-CollectiveMind-Tweak-End
 

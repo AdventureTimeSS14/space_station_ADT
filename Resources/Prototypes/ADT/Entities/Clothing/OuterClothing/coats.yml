@@ -254,3 +254,86 @@
     state: icon-open
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLabPathologist_alt] # ADT-fix-senior-and-patholog-labcoat
+  id: ADTClothingOuterCoatLabPathologistOpened_alt
+  name: pathologist's lab coat
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ADTClothingOuterCoatLabPathologist_alt
+  name: pathologist's lab coat
+  description: A suit that protects against minor chemical spills. But still a bit too white for blood stains.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist_alt.rsi
+    state: icon-open
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/labcoat_pathologist_alt.rsi
+
+
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterBikerJacket
+  name: Jacket biker
+  description: duuuhhhhh
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/biker_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/biker_jacket.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Small
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterLeatherJacket
+  name: Leather jacket
+  description: There no way you actually reading theese
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/leather_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/leather_jacket.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Small
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase, ClothingOuterStorageBase]
+  id: ADTClothingOuterCoatLeathOvercoat
+  name: Overcoat
+  description: oooOOOOooooUUUuuwwwWWwaaaaauuUUUUUoooooOOOOoo
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/leather_overcoat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/leather_overcoat.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Small
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLeathOvercoat]
+  id: ADTClothingOuterCoatLeathOvercoatOpened
+  name: OvercoatOpenned

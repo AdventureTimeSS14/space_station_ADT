@@ -16,6 +16,7 @@
     - UplinkAllies
     - UplinkWearables
     - UplinkJob
+    - UplinkSilicon
     - UplinkPointless
     currencyWhitelist:
     - Telecrystal

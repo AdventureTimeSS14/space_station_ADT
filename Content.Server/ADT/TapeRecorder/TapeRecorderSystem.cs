@@ -87,6 +87,9 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         if (!TryGetTapeCassette(ent, out var cassette))
             return;
 
+        if (_language.GetCurrentLanguage(args.Source).LanguageType is not Generic gen)
+            return;
+
         // TODO: Handle "Someone" when whispering from far away, needs chat refactor
 
         //Handle someone using a voice changer
@@ -151,7 +154,10 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             var time = TimeSpan.FromSeconds((double) message.Timestamp);
 
             var language = message.Language ?? _language.Universal;
-            var languagedMessage = _language.CanUnderstand(uid, language) ? message.Message : _language.ObfuscateMessage(uid, message.Message, language);
+            if (_proto.Index(language).LanguageType is not Generic gen)
+                return;
+
+            var languagedMessage = _language.CanUnderstand(uid, language) ? message.Message : _language.ObfuscateMessage(uid, message.Message, gen.Replacement, gen.ObfuscateSyllables);
 
             text.AppendLine(Loc.GetString("tape-recorder-print-message-text",
                 ("time", time.ToString(@"hh\:mm\:ss")),

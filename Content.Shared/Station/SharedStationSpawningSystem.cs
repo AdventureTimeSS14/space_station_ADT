@@ -63,6 +63,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
 
         EquipRoleName(entity, loadout, roleProto);
+        ApplyLoadoutExtras(entity, loadout);    // ADT SAI Custom
     }
 
     /// <summary>
@@ -211,4 +212,15 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             RaiseLocalEvent(entity, ref ev);
         }
     }
+
+    // ADT SAI Custom start
+    public void ApplyLoadoutExtras(EntityUid uid, RoleLoadout loadout)
+    {
+        if (loadout.ExtraData.Count <= 0)
+            return;
+
+        var ev = new ApplyLoadoutExtrasEvent(uid, loadout.ExtraData);
+        RaiseLocalEvent(uid, ref ev);
+    }
+    // ADT SAI Custom end
 }

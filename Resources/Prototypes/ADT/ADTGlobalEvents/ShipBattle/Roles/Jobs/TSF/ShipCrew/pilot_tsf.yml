@@ -1,0 +1,61 @@
+- type: job
+  id: ADTBattleShipPilotTSF
+  name: job-name-pilot-tsf
+  description: job-description-pilot-tsf
+  playTimeTracker: JobADTBattleShipPilotTSF
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+      - Dwarf
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hrs 
+  startingGear: ADTBattleShipPilotTSFGear
+  icon: "JobIconPilotTSF"
+  supervisors: job-supervisors-tsf-gunner
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Engineering
+  - External
+  - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipPilotTSFGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSecurityFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ADTBaseUplinkBOBERT
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - BoxZiptie
+    - CrowbarRed
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500

@@ -2,14 +2,24 @@
   id: ADTHemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Quirks  # ADT Quirks
+  category: Quirks
   components:
     - type: Hemophilia
       modifier: 0.01
-  cost: -2  # ADT Quirks
+  cost: -2
   speciesBlacklist:
   - IPC
-  quirk: true  # ADT Quirks
+  quirk: true
+
+- type: trait
+  id: ADTDeaf
+  name: trait-deaf-name
+  description: trait-deaf-description
+  category: Quirks
+  components:
+    - type: DeafTrait
+  cost: -2
+  quirk: true
 
 # Simple Station
 
@@ -17,17 +27,17 @@
   id: ColorBlindnessMonochrome
   name: trait-monochromacy-name
   description: trait-monochromacy-description
-  category: Quirks  # ADT Quirks
+  category: Quirks
   components:
     - type: Monochromacy
-  cost: -1  # ADT Quirks
-  quirk: true  # ADT Quirks
+  cost: -1
+  quirk: true
 
 - type: trait
   id: Frail
   name: trait-frail-name
   description: trait-frail-description
-  category: Quirks  # ADT Quirks
+  category: Quirks
   components:
     - type: Frail
       modifiers:
@@ -37,5 +47,5 @@
         Heat: 1.2
         Cold: 1.2
         Shock: 1.2
-  cost: -2  # ADT Quirks
-  quirk: true  # ADT Quirks
+  cost: -2
+  quirk: true

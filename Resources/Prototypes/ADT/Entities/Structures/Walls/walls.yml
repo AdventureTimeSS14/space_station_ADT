@@ -79,7 +79,6 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
 
-
 - type: entity
   parent: BaseWall
   id: ADTStonebrickWall
@@ -105,3 +104,221 @@
     sprite: ADT/Structures/Walls/yellow_bricks_wall.rsi
   - type: IconSmooth
     base: yellowbricks
+
+- type: entity
+  parent: BaseWall
+  id: ADTDigitalWall
+  name: digital wall
+  description: What do you even know about the matrix?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: IconSmooth
+    base: digital
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 550
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+
+##Indestructible Rocks
+
+
+- type: entity
+  id: ADTAsteroidRockIndestructible
+  parent: BaseWall
+  name: asteroid rock
+  description: A rocky asteroid.
+  suffix: Indestructible
+  components:
+  - type: Transform
+    noRot: true
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: SmoothEdge
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_asteroid
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+      - state: rock_asteroid
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_asteroid_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_asteroid_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_asteroid_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_asteroid_west
+
+- type: entity
+  id: ADTWallRockAndesiteIndestructible
+  name: andesite
+  parent: BaseWall
+  description: A rocky asteroid.
+  suffix: Indestructible
+  components:
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock_andesite
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+
+
+- type: entity
+  id: ADTWallRockBasaltIndestructible
+  name: basalt
+  parent: BaseWall
+  description: A rocky asteroid.
+  suffix: Indestructible
+  components:
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock_wall
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+
+- type: entity
+  id: ADTWallRockSnowIndestructible
+  name: snowdrift
+  parent: BaseWall
+  description: A rocky asteroid.
+  suffix: Indestructible
+  components:
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock_snow
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+
+- type: entity
+  id: ADTWallRockSandIndestructible
+  name: sandstone
+  parent: BaseWall
+  description: A rocky asteroid.
+  suffix: Indestructible
+  components:
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock_sand
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+
+
+- type: entity
+  id: ADTWallRockIndestructible
+  parent: BaseWall
+  name: rock
+  description: A rocky asteroid.
+  suffix: Indestructible
+  components:
+    - type: Transform
+      noRot: true
+    - type: IconSmooth
+      key: walls
+      mode: NoSprite
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock
+    - type: SmoothEdge
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+
+- type: entity
+  id: ADTIronRockIndestructible
+  parent: BaseWall
+  name: ironrock
+  description: A rocky asteroid.
+  suffix: Indestructible
+  components:
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: ironrock
+  - type: SmoothEdge
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+      - state: ironrock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: ironrock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: ironrock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: ironrock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: ironrock_west
+
+- type: entity
+  parent: BaseWall
+  id: ADTDigitalWallIndestructible
+  name: digital wall
+  description: What do you even know about the matrix?
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_wall.rsi
+  - type: IconSmooth
+    base: digital
