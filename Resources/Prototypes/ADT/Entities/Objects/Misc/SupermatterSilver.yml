@@ -12,10 +12,10 @@
     - type: RadiationSource
       intensity: .75
     - type: Icon
-      sprite: ADT\Objects\Misc\supermatter_silver.rsi
+      sprite: ADT/Objects/Misc/supermatter_silver.rsi
       state: shard
     - type: Sprite
-      sprite: ADT\Objects\Misc\supermatter_silver.rsi
+      sprite: ADT/Objects/Misc/supermatter_silver.rsi
       state: shard
     - type: StealTarget
       stealGroup: SupermatterSliver
