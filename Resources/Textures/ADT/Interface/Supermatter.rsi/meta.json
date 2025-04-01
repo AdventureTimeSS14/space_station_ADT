@@ -1,7 +1,9 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Canisters was drawn by discord:unlumy,can-connector.png,can-o1.png,can-o3.png,can-open.png,locked.png,can-o0.png,can-o2.png,can-oa1.png,unlocked.png Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/tree/13b5c47145804dd24507b75f250de5e87d34e194",
+    "copyright": "Canisters was drawn by discord:unlumy,can-connector.png,can-o1.png,can-o3.png,can-open.png,locked.png,can-o0.png,can-o2.png,can-oa1.png,unlocked.png Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/tree/13b5c47145804dd24507b75f250de5e87d34e194,
+    Arrow icons licensed under CC-BY-3.0  https: thenounproject.com/icon/arrow-2601665/,
+    Supermatter icon licensed under CC-BY-SA-3.0 https: github.com/tgstation/tgstation/blob/2f99af233025f2f9d30f33edf2f628bb461ee797/icons/obj/machines/engine/supermatter.dmi",
     "size": {
       "x": 32,
       "y": 32
@@ -9,7 +11,19 @@
     "states": [
         {
             "name": "antinob"
-          }
+        },
+
+        {
+            "name": "supermatter"
+        },
+
+        {
+          "name": "arrow_up"
+        },
+        
+        {
+          "name": "arrow_down"
+        }
     ]
   }
   
