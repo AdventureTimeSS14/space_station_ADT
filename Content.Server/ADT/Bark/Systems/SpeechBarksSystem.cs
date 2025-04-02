@@ -1,18 +1,8 @@
-using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Serialization;
-using Robust.Shared.Containers;
-using Robust.Shared.Audio;
-using Robust.Shared.Network;
-using Content.Shared.Hands.EntitySystems;
-using System.Linq;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
-using Robust.Shared.Utility;
-using System.Threading.Tasks;
 using Content.Server.Mind;
 
 namespace Content.Server.ADT.SpeechBarks;
@@ -39,7 +29,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
     }
     private void OnMapInit(EntityUid uid, SpeechBarksComponent comp, MapInitEvent args)
     {
-        if (comp.Data.Sound != String.Empty)
+        if (comp.Data.Sound != string.Empty)
             return;
         comp.Data.Sound = _proto.Index(comp.Data.Proto).Sound;
     }

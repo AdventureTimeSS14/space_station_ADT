@@ -1,10 +1,10 @@
-ent-ComputerSupermatter = Консоль мониторинга кристалла Сверхматерии
-    .desc = Используется для сбора данных кристалла Сверхматерии.
+ent-ComputerSupermatter = Консоль мониторинга кристалла Суперматерии
+    .desc = Используется для сбора данных кристалла Суперматерии.
 
-supermatter-console-window-title = Консоль мониторинга кристалла Сверхматерии
+supermatter-console-window-title = Консоль мониторинга кристалла Суперматерии
 supermatter-console-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 supermatter-console-window-unknown-location = Неизвестное местоположение
-supermatter-console-window-no-supermatters = [font size=16][color=white]Кристалл Сверхматерии не обнаружен[/font]
+supermatter-console-window-no-supermatters = [font size=16][color=white]Кристалл Суперматерии не обнаружен[/font]
 
 supermatter-console-window-label-sm = {CAPITALIZE($name)}
 
@@ -67,5 +67,5 @@ supermatter-console-window-label-gas-power-bar = {$power} MeV/K/s
 supermatter-console-window-label-gas-heat = Сопротивление теплу:
 supermatter-console-window-label-gas-heat-bar = {$heat} K
 
-supermatter-console-window-flavor-left = ⚠ Не приближайтесь к кристаллу Сверхматерии
+supermatter-console-window-flavor-left = ⚠ Не приближайтесь к кристаллу Суперматерии
 supermatter-console-window-flavor-right = v1.35
