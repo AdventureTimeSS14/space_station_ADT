@@ -97,7 +97,6 @@
     entity: ADTFoodWalterMethCrystal
 
 - type: reaction
-  id: ADTAnti-nob
   id: ADTAntiNobCreation
   quantized: true
   reactants:
