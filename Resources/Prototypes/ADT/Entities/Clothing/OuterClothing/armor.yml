@@ -286,7 +286,7 @@
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
-  id: ClothingOuterArmorMinerLight
+  id: ADTClothingOuterArmorMinerLight
   name: light miner armor
   description: A lightweight version of miner's armor, made from dragon sinew. Thanks to ichor, you don't feel your weight.
   components:
@@ -352,7 +352,7 @@
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
-  id: ADTClothingOuterArmorMinerReiforced
+  id: ADTClothingOuterArmorMinerReinforced
   name: Plated Explorer Suit
   description: This explorer suit is reinforced with goliath hides. The pinnacle of mining ingenuity and Lavaland's own madness in the field of defense.
   components:
@@ -384,8 +384,11 @@
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
   - type: Construction
-    graph: ADTReiforcedMinerArmor
-    node: ADTReiforcedMinerArmor
+    graph: ADTReinforcedMinerArmor
+    node: ADTReinforcedMinerArmor
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
 
 # USSP USSP
 
