@@ -22,7 +22,7 @@ marking-MothWingsCowcoloring-default = Крылья
 marking-MothWingsCowcoloring-wings-cowcoloring = Коровья окраска
 marking-MothWingsAsterisks = Крылья (Звездочки)
 marking-MothWingsAsterisks-default = Крылья
-marking-MothWingsAsterisks=wings-asterisks = Звездочки
+marking-MothWingsAsterisks-wings-asterisks = Звездочки
 
 # Глаза
 marking-MothEyesR = Ниан, правый глаз
