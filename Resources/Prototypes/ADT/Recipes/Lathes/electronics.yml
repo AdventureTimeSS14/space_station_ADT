@@ -21,3 +21,8 @@
   id: ADTAdvancedMicrowaveMachineCircuitBoard
   result: ADTAdvancedMicrowaveMachineCircuitBoard
   completetime: 2
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SupermatterComputerCircuitboardRecipe
+  result: SupermatterComputerCircuitboard

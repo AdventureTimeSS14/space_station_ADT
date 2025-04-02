@@ -45,3 +45,6 @@ ent-ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments = набор ор�
 
 ent-ADTClothingBackpackDuffelSyndieMod = набор модулей для МОДов
     .desc = Содержит в себе все существвующие модули на МОДсьюиты.
+
+ent-ADTClothingBackpackDuffelSyndicateCascade = набор физика-ядерщика
+    .desc = Покупая данный набор, вы знали, на что идёте.
