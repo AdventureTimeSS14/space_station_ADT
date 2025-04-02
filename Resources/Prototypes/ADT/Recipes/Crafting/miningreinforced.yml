@@ -1,9 +1,9 @@
 - type: construction
-  name: reiforced miner armor
-  id: ADTClothingOuterArmorMinerReiforced
-  graph: ADTReiforcedMinerArmor
+  name: reinforced miner armor
+  id: ADTClothingOuterArmorMinerReinforced
+  graph: ADTReinforcedMinerArmor
   startNode: start
-  targetNode: ADTReiforcedMinerArmor
+  targetNode: ADTReinforcedMinerArmor
   category: construction-category-clothing
   objectType: Item
   description: This explorer suit is reinforced with goliath hides.

@@ -135,11 +135,11 @@
 
 - type: entity
   name: Python
-  parent: [BaseWeaponRevolver, BaseSyndicateContraband]
+  parent: [ADTBaseWeaponRevolverLesser, BaseSyndicateContraband]  # ADT tweak BaseWeaponRevolver > ADTBaseWeaponRevolver
   id: WeaponRevolverPython
   description: A robust revolver favoured by Syndicate agents. Uses .45 magnum ammo.
   components:
-  # ADT tweak End
+  # ADT tweak Start
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Revolvers/python.rsi
     size: Small
@@ -169,9 +169,11 @@
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumAP
+    # ADT tweak start
+        - ADTCartridgeMagnumLesser
+        - ADTSpeedLoaderMagnumLesser
+    proto: ADTCartridgeMagnumLesserAP
+    # ADT tweak end
 
 
 - type: entity
@@ -180,7 +182,7 @@
   id: WeaponRevolverPirate
   description: An odd, old-looking revolver, favoured by pirate crews. Uses .45 magnum ammo.
   components:
-  # ADT tweak End
+  # ADT tweak Start
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
     size: Small

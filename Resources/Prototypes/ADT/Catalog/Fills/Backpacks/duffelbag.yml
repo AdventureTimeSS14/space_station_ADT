@@ -278,3 +278,21 @@
       - id: ADTModsuitModLight
       - id: ADTModsuitModJetpack
       - id: ADTModsuitModDnaLock
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateCascade
+  name: syndicate cascade duffel bag
+  description: write here something yeee cool again i think.
+  components:
+  - type: StorageFill
+    contents:
+      - id: UsedPlutoniumCore
+      - id: ADTHyperNobliumTankFilled
+      - id: Screwdriver
+      - id: Screwdriver
+      - id: PillCanisterPotassiumIodide
+      - id: LargeBeaker
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingOuterCoatLab
+      - id: GeigerCounter
