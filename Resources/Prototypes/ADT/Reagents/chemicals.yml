@@ -65,7 +65,7 @@
           min: 5
           
 - type: reagent
-  id: ADTPlutonium
+  id: ADTPlutoniumReactant
   name: reagent-name-plutonium
   desc: reagent-desc-plutonium
   physicalDesc: reagent-physical-desc-metallic
