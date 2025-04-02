@@ -1,10 +1,10 @@
 - type: constructionGraph
-  id: ADTReiforcedMinerArmor
+  id: ADTReinforcedMinerArmor
   start: start
   graph:
   - node: start
     edges:
-    - to: ADTReiforcedMinerArmor
+    - to: ADTReinforcedMinerArmor
       steps:
       - tag: ADTMinerArmor
         icon:
@@ -15,5 +15,5 @@
       - material: GoliathHide
         amount: 6
         doAfter: 6
-  - node: ADTReiforcedMinerArmor
-    entity: ADTClothingOuterArmorMinerReiforced
+  - node: ADTReinforcedMinerArmor
+    entity: ADTClothingOuterArmorMinerReinforced
