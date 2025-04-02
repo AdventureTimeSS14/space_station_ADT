@@ -15,12 +15,13 @@
      Steel: 100
      Glass: 900
      Gold: 100
+
 - type: latheRecipe
   parent: MicrowaveMachineCircuitboard
   id: ADTAdvancedMicrowaveMachineCircuitBoard
   result: ADTAdvancedMicrowaveMachineCircuitBoard
   completetime: 2
-  
+
 - type: latheRecipe
   id: ADTColdplateMachineCircuitboardCircuitboard
   result: ADTColdplateMachineCircuitboard
@@ -28,3 +29,8 @@
   materials:
      Steel: 100
      Glass: 500
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SupermatterComputerCircuitboardRecipe
+  result: SupermatterComputerCircuitboard

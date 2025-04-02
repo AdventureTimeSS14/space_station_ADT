@@ -18,6 +18,7 @@
   - BoxShotgunPractice
   - MagazineBoxLightRiflePractice
   - MagazineBoxMagnumPractice
+  - ADTMagazineBoxMagnumLesserPractice # ADT tweak
   - MagazineBoxPistolPractice
   - MagazineBoxRiflePractice
   - WeaponDisablerPractice
@@ -32,6 +33,7 @@
   - BoxShotgunSlug
   - MagazineBoxLightRifle
   - MagazineBoxMagnum
+  - ADTMagazineBoxMagnumLesser # ADT tweak
   - MagazineBoxPistol
   - MagazineBoxRifle
   - MagazineLightRifle
@@ -49,6 +51,8 @@
   - MagazineShotgunSlug
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
+  - ADTSpeedLoaderMagnumLesser # ADT tweak
+  - ADTSpeedLoaderMagnumLesserEmpty # ADT tweak
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
@@ -102,6 +106,8 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxMagnumIncendiary
   - MagazineBoxMagnumUranium
+  - ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
+  - ADTMagazineBoxMagnumLesserUranium # ADT tweak
   - MagazineBoxPistolIncendiary
   - MagazineBoxPistolUranium
   - MagazineBoxRifleIncendiary
@@ -118,6 +124,8 @@
   - MagazineShotgunIncendiary
   - SpeedLoaderMagnumIncendiary
   - SpeedLoaderMagnumUranium
+  - ADTSpeedLoaderMagnumLesserIncendiary # ADT tweak
+  - ADTSpeedLoaderMagnumLesserUranium # ADT tweak
 
 - type: latheRecipePack
   id: SecurityWeapons

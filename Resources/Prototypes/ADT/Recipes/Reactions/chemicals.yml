@@ -95,3 +95,21 @@
   effects:
   - !type:CreateEntityReactionEffect
     entity: ADTFoodWalterMethCrystal
+
+- type: reaction
+  id: ADTAntiNobCreation
+  quantized: true
+  reactants:
+    ADTPlutoniumReactant:
+      amount: 45
+    Hyper-Noblium:
+      amount: 5
+  effects:
+  - !type:CreateGas
+    gas: AntiNoblium
+  - !type:PopupMessage
+    visualType: LargeCaution
+    messages: [ "anti-nob-created" ]
+    type: Pvs
+  products:
+    Anti-Noblium: 50

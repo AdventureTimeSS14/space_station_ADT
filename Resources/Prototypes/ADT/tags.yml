@@ -555,3 +555,9 @@
 
 - type: Tag
   id: ATDSmokebleReagent
+
+- type: Tag
+  id: ADTCartridgeMagnumLesser
+
+- type: Tag
+  id: ADTSpeedLoaderMagnumLesser
