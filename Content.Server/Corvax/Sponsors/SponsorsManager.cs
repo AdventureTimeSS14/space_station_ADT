@@ -8,6 +8,7 @@ using Content.Server.ADT.SponsorLoadout;
 using Content.Server.Database;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.Sponsors;
+using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -108,11 +109,11 @@ public sealed class SponsorsManager
         return null;
     }
     // ADT-Tweak-start: add round start sponsor loadouts
-    public bool TryGetSpawnEquipment(NetUserId userId, [NotNullWhen(true)] out string? spawnEquipment)
+    public bool TryGetSpawnEquipment(NetUserId userId, string? jobPrototype, [NotNullWhen(true)] out string? spawnEquipment)
     {
         spawnEquipment = null;
 
-        // // ТЕСТОВЫЕ ДАННЫЕ - НАЧАЛО (удалить в мастере)
+        // // ТЕСТОВЫЕ ДАННЫЕ - НАЧАЛО (удалить в мастере) (ИМИТАЦИЯ СПОНСОРКИ)
         // var sponsorData = new SponsorInfo
         // {
         //     CharacterName = "TestSponsor",
@@ -135,13 +136,29 @@ public sealed class SponsorsManager
         // Попытка найти персональный набор
         if (_playerManager.TryGetSessionById(userId, out var session))
         {
-            var username = session.Name; // Получаем никнейм пользователя
+            var username = session.Name;
             var personalGears = _prototypeManager.EnumeratePrototypes<SponsorPersonalLoadoutPrototype>();
 
-            var personalLoadout = personalGears.FirstOrDefault(loadout => loadout.UserName == username);
-            if (personalLoadout != null)
+            // 1. Сначала ищем лоадаут по должности
+            var jobLoadout = personalGears.FirstOrDefault(loadout =>
+                loadout.UserName == username &&
+                jobPrototype != null &&
+                loadout.WhitelistJobs?.Contains(jobPrototype) == true);
+
+            if (jobLoadout != null)
             {
-                spawnEquipment = personalLoadout.Equipment; // Выдаём персональный лоадаут
+                spawnEquipment = jobLoadout.Equipment;
+                return true;
+            }
+
+            // 2. Если нет подходящего по должности, берём общий персональный
+            var generalLoadout = personalGears.FirstOrDefault(loadout =>
+                loadout.UserName == username &&
+                (loadout.WhitelistJobs == null || loadout.WhitelistJobs.Count == 0));
+
+            if (generalLoadout != null)
+            {
+                spawnEquipment = generalLoadout.Equipment;
                 return true;
             }
         }

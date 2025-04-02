@@ -22,7 +22,7 @@ public sealed class SponsorLoadoutSystem : EntitySystem
             return;
 
         // Получаем экипировку (может быть персональной или по Tier)
-        if (!_sponsorsManager.TryGetSpawnEquipment(ev.Player.UserId, out var spawnEquipment))
+        if (!_sponsorsManager.TryGetSpawnEquipment(ev.Player.UserId, ev.JobId, out var spawnEquipment))
             return;
 
         // Проверяем, является ли лоадаут персональным
