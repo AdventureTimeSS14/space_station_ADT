@@ -22,30 +22,11 @@
       path: /Audio/ADT/Mecha/nominal.ogg
   - type: ContainerContainer
     containers:
+      mech-equipment-container: !type:Container
       modsuit-part: !type:Container
         showEnts: False
         occludes: True
         ents: []
-      modsuit-mod0: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо сделать систему комплектации, ноо мне лень.
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod1: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod3: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod4: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
       storagebase: !type:Container
         showEnts: False
         occludes: True
@@ -53,49 +34,37 @@
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
-        type: ModSuitBoundUserInterface
+        type: ModSuitRadialBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
   - type: Clothing
     quickEquip: false
     slots:
     - back
-  - type: ClothingSpeedModifier
   - type: Construction
     graph: ADTModsuitStandard
     node: adtmodsuitstandard
   - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
     slots:
-      modsuit-mod0:
-        swap: false
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
         whitelist:
           components:
-          - ModSuitMod
-      modsuit-mod1:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod3:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod4:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
+            - PowerCell
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
   - type: Item
     size: Huge
+  - type: PowerCellDraw
+    drawRate: 0
+    useRate: 5
+    delay: 5
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
 
 #атмосферный
 - type: entity
@@ -119,9 +88,6 @@
       - ADTModsuitModLight
       - ADTModsuitModRadiationProtection
       - ADTModsuitModTray
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
   - type: Construction
     graph: ADTModsuitAtmospheric
     node: adtmodsuitatmospheric
@@ -249,51 +215,9 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
   - type: Construction
     graph: ADTModsuitSecurity
     node: adtmodsuitsecurity
-  - type: ItemSlots # меньше модулей, сильнее базовый МОД
-    slots:
-      modsuit-mod0:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod1:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-  - type: ContainerContainer
-    containers:
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-mod0: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod1: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 # учёный
 - type: entity
@@ -318,40 +242,6 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModRadiationProtection
-  - type: ContainerContainer
-    containers:
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-mod0: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod1: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod3: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod4: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod5: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -362,42 +252,9 @@
     quickEquip: false
     slots:
     - back
-  - type: ClothingSpeedModifier
   - type: Construction
     graph: ADTModsuitScience
     node: adtmodsuitscience
-  - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
-    slots:
-      modsuit-mod0:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod1:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod3:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod4:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod5:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
@@ -426,52 +283,6 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModDnaLock
-  - type: ContainerContainer
-    containers:
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-mod0: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо ещё сделать систему комплектации, ноо мне лень.
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod1: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod3: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod4: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod5: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod6: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod7: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod8: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -482,54 +293,6 @@
     quickEquip: false
     slots:
     - back
-  - type: ClothingSpeedModifier
-  - type: ItemSlots
-    slots:
-      modsuit-mod0:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod1:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod3:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod4:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod5:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod6:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod7:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod8:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
@@ -560,6 +323,3 @@
     damage:
       types:
         Blunt: 10
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1

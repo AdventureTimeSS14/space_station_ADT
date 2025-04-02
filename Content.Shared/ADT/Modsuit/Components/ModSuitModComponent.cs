@@ -1,7 +1,4 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
-using Content.Shared.Item.ItemToggle;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.ModSuits;
@@ -9,11 +6,19 @@ namespace Content.Shared.ADT.ModSuits;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ModSuitModComponent : Component
 {
+    public bool Inserted = false;
+    public bool Active = false;
+    /// <summary>
+    ///     Module  limit
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int Complexity = 1;
+
     /// <summary>
     ///     The container that the clothing is stored in when not equipped.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public string Slot = "head";
+    public List<string> Slots = new();
 
     /// <summary>
     /// The components to add when activated.

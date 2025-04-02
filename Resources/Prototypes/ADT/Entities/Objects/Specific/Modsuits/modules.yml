@@ -15,7 +15,8 @@
   - type: Sprite
     state: antigrav
   - type: ModSuitMod
-    slot: shoes
+    slots:
+    - shoes
     components:
     - type: AntiGravityClothing
 
@@ -28,7 +29,8 @@
   - type: Sprite
     state: apparatus
   - type: ModSuitMod
-    slot: head
+    slots:
+    - head
     components:
     - type: IngestionBlocker
     removeComponents:
@@ -43,7 +45,8 @@
   - type: Sprite
     state: drill
   - type: ModSuitMod
-    slot: gloves
+    slots:
+    - gloves
     components:
     - type: IngestionBlocker
     - type: Tag
@@ -73,7 +76,8 @@
   - type: Sprite
     state: jetpack_adv
   - type: ModSuitMod
-    slot: MODcore
+    slots:
+    - MODcore
     components:
     - type: MovementSpeedModifier
       weightlessAcceleration: 1
@@ -99,7 +103,8 @@
   - type: Sprite
     state: magnet
   - type: ModSuitMod
-    slot: shoes
+    slots:
+    - shoes
     components:
     - type: ToggleClothing
       action: ActionToggleMagboots
@@ -123,7 +128,8 @@
   - type: Sprite
     state: night_visor
   - type: ModSuitMod
-    slot: head
+    slots:
+    - head
     components:
     - type: NightVisionItem
       slotFlags: HEAD
@@ -138,7 +144,8 @@
   - type: Sprite
     state: no_baton
   - type: ModSuitMod
-    slot: gloves
+    slots:
+    - gloves
     components:
     - type: StaminaDamageOnHit
       damage: 30
@@ -159,7 +166,8 @@
   - type: Sprite
     state: noslip
   - type: ModSuitMod
-    slot: shoes
+    slots:
+    - shoes
     components:
     - type: NoSlip
 
@@ -172,7 +180,8 @@
   - type: Sprite
     state: power_kick
   - type: ModSuitMod
-    slot: gloves
+    slots:
+    - gloves
     components:
     - type: MeleeThrowOnHit
       lifetime: 1
@@ -193,7 +202,8 @@
   - type: Sprite
     state: sechud_viisor
   - type: ModSuitMod
-    slot: head
+    slots:
+    - head
     components:
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
@@ -208,7 +218,8 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
-    slot: MODcore
+    slots:
+    - MODcore
     components:
     - type: Storage
       grid:
@@ -224,7 +235,8 @@
   - type: Sprite
     state: welding
   - type: ModSuitMod
-    slot: head
+    slots:
+    - head
     components:
     - type: EyeProtection
 
@@ -237,7 +249,8 @@
   - type: Sprite
     state: plate_compression
   - type: ModSuitMod
-    slot: outerClothing
+    slots:
+    - outerClothing
     components:
     - type: Armor
       modifiers:
@@ -257,7 +270,8 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
-    slot: MODcore
+    slots:
+    - MODcore
     components:
     - type: Storage
       maxItemSize: Huge
@@ -273,7 +287,8 @@
   - type: Sprite
     state: tray
   - type: ModSuitMod
-    slot: head
+    slots:
+    - head
     components:
     - type: TrayScanner
       enabled: true
@@ -288,7 +303,8 @@
   - type: Sprite
     state: carry
   - type: ModSuitMod
-    slot: gloves
+    slots:
+    - gloves
     components:
     - type: Insulated
 
@@ -301,7 +317,8 @@
   - type: Sprite
     state: longfall
   - type: ModSuitMod
-    slot: shoes
+    slots:
+    - shoes
     components:
     - type: Jumpboots
 
@@ -314,7 +331,8 @@
   - type: Sprite
     state: dnalock
   - type: ModSuitMod
-    slot: MODcore
+    slots:
+    - MODcore
     components:
     - type: DNALocker
 
@@ -327,7 +345,8 @@
   - type: Sprite
     state: flashlight
   - type: ModSuitMod
-    slot: head
+    slots:
+    - head
     components:
     - type: ToggleableLightVisuals
       clothingVisuals:
@@ -372,7 +391,8 @@
   - type: Sprite
     state: ore
   - type: ModSuitMod
-    slot: outerClothing
+    slots:
+    - outerClothing
     components:
     - type: MagnetPickup
       slotFlags: OUTERCLOTHING
@@ -397,7 +417,8 @@
   - type: Sprite
     state: radshield
   - type: ModSuitMod
-    slot: outerClothing
+    slots:
+    - outerClothing
     components:
     - type: RadiationBlocker
       resistance: 2
@@ -411,7 +432,8 @@
   - type: Sprite
     state: storage_syndi
   - type: ModSuitMod
-    slot: MODcore
+    slots:
+    - MODcore
     components:
     - type: Storage
       grid:

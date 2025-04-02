@@ -19,6 +19,7 @@ using Content.Shared.Wires;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Coordinates;
+using Content.Shared.PowerCell;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -37,6 +38,10 @@ public sealed class ModSuitSystem : EntitySystem
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedPowerCellSystem _cell = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] protected readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -44,6 +49,7 @@ public sealed class ModSuitSystem : EntitySystem
         SubscribeLocalEvent<ModSuitComponent, ComponentInit>(OnModSuitInit);
         SubscribeLocalEvent<ModSuitComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ModSuitComponent, ToggleModPartEvent>(OnToggleClothingAction);
+        SubscribeLocalEvent<ModSuitComponent, ToggleModMenuEvent>(OnToggleMenuAction);
         SubscribeLocalEvent<ModSuitComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<ModSuitComponent, ComponentRemove>(OnRemoveModSuit);
         SubscribeLocalEvent<ModSuitComponent, GotUnequippedEvent>(OnModSuitUnequip);
@@ -60,6 +66,9 @@ public sealed class ModSuitSystem : EntitySystem
         SubscribeLocalEvent<ModSuitComponent, GetVerbsEvent<EquipmentVerb>>(OnGetVerbs);
         SubscribeLocalEvent<ModAttachedClothingComponent, GetVerbsEvent<EquipmentVerb>>(OnGetAttachedStripVerbsEvent);
         SubscribeLocalEvent<ModSuitComponent, TogglePartDoAfterEvent>(OnDoAfterComplete);
+
+        SubscribeLocalEvent<ModSuitComponent, PowerCellSlotEmptyEvent>(OnPowercellEmpty);
+        SubscribeLocalEvent<ModSuitComponent, InventoryRelayedEvent<FindInventoryBatteryEvent>>(OnFindInventoryBatteryEvent);
     }
 
     private void GetRelayedVerbs(Entity<ModSuitComponent> modSuit, ref InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>> args)
@@ -124,7 +133,7 @@ public sealed class ModSuitSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(args))
             return;
 
-        if (!stealth)
+        if (!stealth && user != wearer)
         {
             var popup = Loc.GetString("strippable-component-alert-owner-interact", ("user", Identity.Entity(user, EntityManager)), ("item", modSuit));
             _popupSystem.PopupEntity(popup, wearer, wearer, PopupType.Large);
@@ -347,6 +356,19 @@ public sealed class ModSuitSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Equip or unequip the modsuit.
+    /// </summary>
+    private void OnToggleMenuAction(Entity<ModSuitComponent> modSuit, ref ToggleModMenuEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        _uiSystem.OpenUi(modSuit.Owner, ModSuitMenuUiKey.Key, args.Performer);
+    }
+
+    /// <summary>
     ///     Toggle function for single clothing
     /// </summary>
     private void ToggleClothing(EntityUid user, Entity<ModSuitComponent> modSuit, EntityUid attachedUid)
@@ -356,6 +378,9 @@ public sealed class ModSuitSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString("modsuit-close-wires"), user, user);
             return;
         }
+
+        if (!_cell.HasDrawCharge(modSuit.Owner, user: user))
+            return;
 
         var comp = modSuit.Comp;
 
@@ -377,6 +402,19 @@ public sealed class ModSuitSystem : EntitySystem
             UnequipClothing(user, modSuit, attachedUid, slot!);
         else
             EquipClothing(user, modSuit, attachedUid, slot!);
+    }
+
+    private void UntoggleClothing(EntityUid user, Entity<ModSuitComponent> modSuit)
+    {
+        var comp = modSuit.Comp;
+        var attachedClothings = comp.ClothingUids;
+        var container = comp.Container;
+
+        foreach (var clothing in attachedClothings)
+        {
+            if (!container!.Contains(clothing.Key))
+                UnequipClothing(user, modSuit, clothing.Key, clothing.Value);
+        }
     }
 
     /// <summary>
@@ -414,6 +452,9 @@ public sealed class ModSuitSystem : EntitySystem
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
 
+        if (!_cell.HasDrawCharge(modSuit.Owner, user: user))
+            return false;
+
         if (container == null || attachedClothings.Count == 0)
             return false;
 
@@ -440,6 +481,18 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (storedClothing != null)
             _inventorySystem.TryEquip(parent, storedClothing.Value, slot, force: true);
+        if (!TryComp<PowerCellDrawComponent>(modSuit.Owner, out var celldraw))
+            return;
+        var attachedCount = GetAttachedToggleCount(modSuit.Owner, modSuit.Comp);
+        if (attachedCount <= 0)
+        {
+            _cell.SetDrawEnabled(modSuit.Owner, false);
+            return;
+        }
+        modSuit.Comp.ModEnergyModifyedUsing = modSuit.Comp.ModEnergyBaseUsing * attachedCount;
+        celldraw.DrawRate = modSuit.Comp.ModEnergyModifyedUsing;
+        _cell.SetDrawEnabled(modSuit.Owner, true);
+        UpdateUserInterface(modSuit.Owner, modSuit.Comp);
     }
     private void EquipClothing(EntityUid user, Entity<ModSuitComponent> modSuit, EntityUid clothing, string slot)
     {
@@ -467,12 +520,24 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (GetAttachedToggleStatus(modSuit, modSuit.Comp) == ModSuitAttachedStatus.AllToggled)
         {
+            _cell.SetDrawEnabled(modSuit.Owner, true);
             if (!_mindSystem.TryGetMind(user, out var mindId, out var mind))
                 return;
             if (mind.Session == null)
                 return;
             _audioSystem.PlayGlobal(comp.FullyEnabledSound, mind.Session);
         }
+        if (!TryComp<PowerCellDrawComponent>(modSuit.Owner, out var celldraw))
+            return;
+        var attachedCount = GetAttachedToggleCount(modSuit.Owner, modSuit.Comp);
+        if (attachedCount <= 0)
+        {
+            _cell.SetDrawEnabled(modSuit.Owner, false);
+            return;
+        }
+        celldraw.DrawRate = modSuit.Comp.ModEnergyBaseUsing * attachedCount;
+        _cell.SetDrawEnabled(modSuit.Owner, true);
+        UpdateUserInterface(modSuit.Owner, modSuit.Comp);
     }
 
     private void OnGetActions(Entity<ModSuitComponent> modSuit, ref GetItemActionsEvent args)
@@ -481,9 +546,10 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (comp.ClothingUids.Count == 0 )
             return;
-        if (comp.ActionEntity == null)
+        if (comp.ActionEntity == null || comp.ActionMenuEntity == null)
             return;
         args.AddAction(comp.ActionEntity.Value);
+        args.AddAction(comp.ActionMenuEntity.Value);
     }
 
     private void OnModSuitInit(Entity<ModSuitComponent> modSuit, ref ComponentInit args)
@@ -491,6 +557,7 @@ public sealed class ModSuitSystem : EntitySystem
         var comp = modSuit.Comp;
 
         comp.Container = _containerSystem.EnsureContainer<Container>(modSuit, comp.ContainerId);
+        comp.ModuleContainer = _containerSystem.EnsureContainer<Container>(modSuit, comp.ModuleContainerId);
     }
 
     private void OnAttachedInit(Entity<ModAttachedClothingComponent> attached, ref ComponentInit args)
@@ -547,6 +614,7 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (_actionContainer.EnsureAction(modSuit, ref comp.ActionEntity, out var action, comp.Action))
             _actionsSystem.SetEntityIcon(comp.ActionEntity.Value, modSuit, action);
+        _actionContainer.EnsureAction(modSuit, ref comp.ActionMenuEntity, comp.MenuAction);
 
         int moduleNumber = 0;
         foreach (var module in modSuit.Comp.StartingModules)
@@ -555,6 +623,25 @@ public sealed class ModSuitSystem : EntitySystem
             var slotname = "modsuit-mod" + moduleNumber;
             _itemSlot.TryInsert(modSuit, slotname, spawned, null, excludeUserAudio: false);
             moduleNumber += 1;
+        }
+    }
+    private void OnPowercellEmpty(EntityUid uid, ModSuitComponent component, PowerCellSlotEmptyEvent args)
+    {
+        UpdateUserInterface(uid, component);
+        UntoggleClothing(uid, (uid, component));
+    }
+    /// <summary>
+    /// Tries to find battery for charger
+    /// </summary>
+    private void OnFindInventoryBatteryEvent(Entity<ModSuitComponent> entity, ref InventoryRelayedEvent<FindInventoryBatteryEvent> args)
+    {
+        UpdateUserInterface(entity.Owner, entity.Comp);
+        if (args.Args.FoundBattery != null)
+            return;
+
+        if (_itemSlotsSystem.TryGetSlot(entity.Owner, "cell_slot", out ItemSlot? slot))
+        {
+            args.Args.FoundBattery = slot.Item;
         }
     }
 
@@ -588,7 +675,46 @@ public sealed class ModSuitSystem : EntitySystem
 
         return ModSuitAttachedStatus.AllToggled;
     }
+    public float GetAttachedToggleCount(EntityUid modSuit, ModSuitComponent? component = null)
+    {
+        if (!Resolve(modSuit, ref component))
+            return 0;
 
+        var container = component.Container;
+        var attachedClothings = component.ClothingUids;
+
+        if (container == null || attachedClothings.Count == 0)
+            return 0;
+
+        var toggledCount = 0;
+
+        foreach (var attached in attachedClothings)
+        {
+            if (container.Contains(attached.Key))
+                continue;
+
+            toggledCount++;
+        }
+        return toggledCount;
+    }
+    public void UpdateUserInterface(EntityUid uid, ModSuitComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var ev = new ModModulesUiStateReadyEvent();
+        foreach (var ent in component.ModuleContainer.ContainedEntities)
+        {
+            RaiseLocalEvent(ent, ev);
+        }
+
+        var state = new ModBoundUiState
+        {
+            EquipmentStates = ev.States
+        };
+        Dirty(uid, component);
+        _ui.SetUiState(uid, ModSuitMenuUiKey.Key, state);
+    }
     public List<EntityUid>? GetAttachedClothingsList(EntityUid modSuit, ModSuitComponent? component = null)
     {
         if (!Resolve(modSuit, ref component) || component.ClothingUids.Count == 0)
@@ -603,6 +729,9 @@ public sealed class ModSuitSystem : EntitySystem
     }
 }
 
+public sealed partial class ToggleModMenuEvent : InstantActionEvent
+{
+}
 public sealed partial class ToggleModPartEvent : InstantActionEvent
 {
 }
