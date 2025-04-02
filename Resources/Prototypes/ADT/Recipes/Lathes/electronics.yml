@@ -28,3 +28,8 @@
   materials:
      Steel: 100
      Glass: 500
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SupermatterComputerCircuitboardRecipe
+  result: SupermatterComputerCircuitboard
