@@ -4,12 +4,8 @@
 #   userName: Schrodinger71
 #   equipment: SponsorPersonalLoadoutSchrodinger71
 #   expirationDate: 2025-04-01T00:00:00Z  # После этой даты лоадаут не выдастся
-#   whitelistJobs:     # Вайтлист должностей
-#   - JobProto1
-#   - JobProto2
-#   blacklistJobs:     # Блэклист должностей
-#   - JobProto3
-#   - JobProto4
+#   whitelistJobs: [JobProto1]            # Вайтлист должностей
+#   blacklistJobs: [ JobProto4 ]          # Блэклист должностей
 #   speciesRestriction: # Запрет на расы
 #   - SpeciesProto1
 #   - SpeciesProto2
