@@ -64,6 +64,7 @@
         - !type:ReagentThreshold
           min: 5
           
+- type: reagent
   id: ADTPlutonium
   name: reagent-name-plutonium
   desc: reagent-desc-plutonium
