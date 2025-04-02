@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: UsedPlutoniumCore
+  id: ADTUsedPlutoniumCore
   name: Used Plutonium Core
   description: write here something cool pls.
   components:
@@ -14,7 +14,7 @@
 
 - type: entity
   parent: BaseItem
-  id: PlutoniumCore
+  id: ADTPlutoniumCore
   name: Plutonium Core
   description: write here something more cooler then in "UsedPlutoniumCore" item description.
   components:
@@ -30,14 +30,14 @@
     intensity: 2
   - type: SolutionContainerManager
     solutions:
-      PlutoniumCore:
+      plutoniumCore:
         reagents:
-        - ReagentId: ADTPlutonium
-          Quantity: 50
+        - ReagentId: ADTPlutoniumReactant
+          Quantity: 45
         canReact: false
   - type: Material
   - type: Extractable
-    grindableSolutionName: ADTPlutonium
+    grindableSolutionName: ADTPlutoniumReactant
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
