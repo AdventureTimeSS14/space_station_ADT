@@ -734,3 +734,618 @@
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
     state: eyes_l
 ##END-АDT-Аlаzel
+
+#moth-Frontier
+- type: marking
+  id: ADTMothBodyClaw
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: moth_body_claw
+
+- type: marking
+  id: ADTMothBurnLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: moth_burn_l
+
+- type: marking
+  id: ADTMothBurnRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: moth_burn_r
+
+- type: marking
+  id: ADTMothFaceClaw
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: moth_face_claw
+
+- type: marking
+  id: ADTMothSlashLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: moth_slash_l
+
+- type: marking
+  id: ADTChimeraArmLeftMoth
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: arm_l_chimera_moth
+
+- type: marking
+  id: ADTProstheticArmLeftMoth
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: arm_l_prosthetic_moth
+
+- type: marking
+  id: ADTTwistingArmLeftMoth
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: arm_l_twisting_moth
+
+- type: marking
+  id: ADTProstheticArmRightMoth
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: arm_r_prosthetic_moth
+
+- type: marking
+  id: ADTTwistingArmRightMoth
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: arm_r_twisting_moth
+
+- type: marking
+  id: ADTWingsBackstabbed
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: wings_backstabbed
+
+- type: marking
+  id: ADTChestChimeraFemaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sexRestriction: [Female]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: chest_chimera_f_moth
+
+- type: marking
+  id: ADTChestChimeraMaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sexRestriction: [Male]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: chest_chimera_m_moth
+
+- type: marking
+  id: ADTChestTwistingLeftFemaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sexRestriction: [Female]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: chest_l_twisting_f_moth
+
+- type: marking
+  id: ADTChestTwistingLeftMaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sexRestriction: [Male]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: chest_l_twisting_m_moth
+
+- type: marking
+  id: ADTChestTwistingRightFemaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sexRestriction: [Female]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: chest_r_twisting_f_moth
+
+- type: marking
+  id: ADTChestTwistingRightMaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sexRestriction: [Male]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: chest_r_twisting_m_moth
+
+- type: marking
+  id: ADTChestStarMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: chest_star_moth
+
+- type: marking
+  id: ADTHeterochromiaMoth
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: eyes_heterochromia_moth
+
+- type: marking
+  id: ADTFootChimeraLeftMoth
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: foot_l_chimera_moth
+
+- type: marking
+  id: ADTFootProstheticLeftMoth
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: foot_l_prosthetic_moth
+
+- type: marking
+  id: ADTFootProstheticRightMoth
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: foot_r_prosthetic_moth
+
+- type: marking
+  id: ADTHandChimeraLeftMoth
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: hand_l_chimera_moth
+
+- type: marking
+  id: ADTHandProstheticLeftMoth
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: hand_l_prosthetic_moth
+
+- type: marking
+  id: ADTHandTwistingLeftMoth
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: hand_l_twisting_moth
+
+- type: marking
+  id: ADTHandProstheticRightMoth
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: hand_r_prosthetic_moth
+
+- type: marking
+  id: ADTHandTwistingRightMoth
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: hand_r_twisting_moth
+
+- type: marking
+  id: ADTBadmoltMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: head_badmolt_moth
+
+- type: marking
+  id: ADTHeadChimeraMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: head_chimera_moth
+
+- type: marking
+  id: ADTEyebagsMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: head_eyebags_moth
+
+- type: marking
+  id: ADTHeadTwistingMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: head_twisting_moth
+
+- type: marking
+  id: ADTLegChimeraLeftMoth
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: leg_l_chimera_moth
+
+- type: marking
+  id: ADTLegProstheticLeftMoth
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: leg_l_prosthetic_moth
+
+- type: marking
+  id: ADTLegTwistingLeftMoth
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: leg_l_twisting_moth
+
+- type: marking
+  id: ADTLegProstheticRightMoth
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: leg_r_prosthetic_moth
+
+- type: marking
+  id: ADTLegTwistingRightMoth
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: leg_r_twisting_moth
+
+- type: marking
+  id: ADTTorsoIncisionMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/moth.rsi
+    state: torso_incision_moth
+
+- type: marking
+  id: ADTMothTrueButterfly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothtruebutterfly1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothtruebutterfly2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothtruebutterfly3
+
+- type: marking
+  id: ADTMothRhinoBeetle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: rhinobeetle1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: rhinobeetle2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: rhinobeetle3
+
+- type: marking
+  id: ADTMothGlasswing
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: glasswing1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: glasswing2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: glasswing3
+
+- type: marking
+  id: ADTMothBee
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: bee1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: bee2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: bee3
+
+- type: marking
+  id: ADTMothGlowAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: mothglowantenna
+  shader: unshaded
+
+- type: marking
+  id: ADTMothFireflyOverlay
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: mothfirefly1
+  shader: unshaded
+
+- type: marking
+  id: ADTMothFirefly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothfirefly2
+
+- type: marking
+  id: ADTMothBeetleTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: beetle1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: beetle2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: beetle3
+
+- type: marking
+  id: ADTMothBeetleHorn1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothbeetlehorn1
+
+- type: marking
+  id: ADTMothBeetleHorn2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothbeetlehorn2
+
+- type: marking
+  id: ADTMothBiggerEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: mothbiggereyes
+
+- type: marking
+  id: ADTMothSnoth
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: snoth1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: snoth2

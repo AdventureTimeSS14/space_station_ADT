@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 35
+        Piercing: 42 # ADT tweak 35 > 42
 
 - type: entity
   id: BulletMagnumPractice
@@ -29,7 +29,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 32 #ADT tweak
+        Piercing: 39 #ADT tweak
         # Blunt: 3 ADT tweak
         # Heat: 32 ADT tweak
 
@@ -42,7 +42,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 26 # 20% decrease
+        Piercing: 34 # 25% decrease # ADT tweak 26 > 34
     ignoreResistances: true
 
 - type: entity
@@ -54,5 +54,5 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 15
-        Piercing: 20
+        Radiation: 18 # ADT tweak 15 > 18
+        Piercing: 24 # ADT tweak 20 > 24

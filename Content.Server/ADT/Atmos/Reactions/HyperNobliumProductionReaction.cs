@@ -24,7 +24,7 @@ public sealed partial class HyperNobliumProductionReaction : IGasReactionEffect
 
         mixture.AdjustMoles(Gas.Tritium, -5f * nobFormed * reductionFactor);
         mixture.AdjustMoles(Gas.Nitrogen, -10f * nobFormed);
-        mixture.AdjustMoles(Gas.HyperNoblium, nobFormed);
+        mixture.AdjustMoles(Gas.HyperNoblium, 0.1f * nobFormed);
 
         var energyReleased = nobFormed * (Atmospherics.NobliumFormationEnergy / Math.Max(initialBZ, 1));
 

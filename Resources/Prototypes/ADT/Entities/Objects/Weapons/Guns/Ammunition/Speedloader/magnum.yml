@@ -1,0 +1,126 @@
+- type: entity
+  id: ADTBaseSpeedLoaderMagnumLesser
+  name: "speed loader (.357 magnum)"
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - ADTSpeedLoaderMagnumLesser
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ADTCartridgeMagnumLesser
+    capacity: 6
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  id: ADTSpeedLoaderMagnumLesser
+  name: "speed loader (.357 magnum)"
+  parent: ADTBaseSpeedLoaderMagnumLesser
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesser
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: ADTSpeedLoaderMagnumLesserEmpty
+  name: "speed loader (.357 magnum any)"
+  parent: ADTSpeedLoaderMagnumLesser
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      # TODO: This is actually a issue with all the speed loaders:
+      #       You can mix different ammo types, but it will always
+      #       use the one it was printed for.
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+
+- type: entity
+  id: ADTSpeedLoaderMagnumLesserIncendiary
+  name: "speed loader (.357 magnum incendiary)"
+  parent: ADTSpeedLoaderMagnumLesser
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserIncendiary
+
+- type: entity
+  id: ADTSpeedLoaderMagnumLesserPractice
+  name: "speed loader (.357 magnum practice)"
+  parent: ADTBaseSpeedLoaderMagnumLesser
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserPractice
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: practice-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: practice
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: ADTSpeedLoaderMagnumLesserAP
+  name: "speed loader (.357 magnum armor-piercing)"
+  parent: ADTBaseSpeedLoaderMagnumLesser
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserAP
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: ADTSpeedLoaderMagnumLesserUranium
+  name: "speed loader (.357 magnum uranium)"
+  parent: ADTBaseSpeedLoaderMagnumLesser
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserUranium
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Speedloaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: uranium-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: uranium
+    steps: 7
+    zeroVisible: false
+  - type: Appearance

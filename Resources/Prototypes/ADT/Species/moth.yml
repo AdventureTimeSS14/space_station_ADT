@@ -23,6 +23,9 @@
   defaultLanguages:
   - GalacticCommon
   - Nian
+  maxAge: 70
+  oldAge: 45
+  youngAge: 20
 
 - type: speciesBaseSprites
   id: MobMothSprites
@@ -74,10 +77,10 @@
       points: 1
       required: false
     Head:
-      points: 1
+      points: 4
       required: false
     Chest:
-      points: 2
+      points: 4
       required: false
     Legs:
       points: 4
