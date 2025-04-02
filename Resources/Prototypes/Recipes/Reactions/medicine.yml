@@ -56,7 +56,7 @@
 
 - type: reaction
   id: Cryoxadone
-  maxTemp: 175
+  maxTemp: 175 # ADT tweak
   reactants:
     Tricordrazine: # ADT tweak Не, нафиг растения для крио --QWERTY-- (Может сделать новое особое растение для крио, но это лишь в планах.)
       amount: 1

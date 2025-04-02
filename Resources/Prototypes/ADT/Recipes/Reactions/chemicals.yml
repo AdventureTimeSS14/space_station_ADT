@@ -33,24 +33,35 @@
     entity: ReactionSingularity
 
 - type: reaction
+  id: ADTMethanol
+  reactants:
+    Carbon:
+      amount: 1
+    Hydrogen:
+      amount: 2
+    Oxygen:
+      amount: 1
+  products:
+    ADTMethanol: 2
+
+- type: reaction
   id: ADTMethylamine
   reactants:
-    Diphenylmethylamine:
+    Ammonia:
       amount: 1
     Plasma:
       amount: 1
       catalyst: true
-    Hydrogen:
+    ADTMethanol:
       amount: 1
   products:
-    ADTMethylamine: 1
-    Benzene: 1
+    ADTMethylamine: 2
 
 - type: reaction
   id: ADTBlueSkyDesoxyephedrine
   minTemp: 370
   reactants:
-    Ethyloxyephedrine:
+    Ephedrine:
       amount: 1
     Iodine:
       amount: 1
