@@ -138,14 +138,14 @@ public sealed class SponsorsManager
         {
             var username = session.Name;
             var personalGears = _prototypeManager.EnumeratePrototypes<SponsorPersonalLoadoutPrototype>();
-            var currentDate = DateTime.UtcNow; // Используем UTC для сравнения
+            var currentDate = DateTime.UtcNow;
 
             // 1. Сначала ищем лоадаут по должности
             var jobLoadout = personalGears.FirstOrDefault(loadout =>
                 loadout.UserName == username &&
                 jobPrototype != null &&
                 loadout.WhitelistJobs?.Contains(jobPrototype) == true &&
-                (loadout.ExpirationDate == null || loadout.ExpirationDate > currentDate)); // Проверка срока
+                (loadout.ExpirationDate == null || loadout.ExpirationDate > currentDate));
 
             if (jobLoadout != null)
             {
@@ -157,7 +157,7 @@ public sealed class SponsorsManager
             var generalLoadout = personalGears.FirstOrDefault(loadout =>
                 loadout.UserName == username &&
                 (loadout.WhitelistJobs == null || loadout.WhitelistJobs.Count == 0) &&
-                (loadout.ExpirationDate == null || loadout.ExpirationDate > currentDate)); // Проверка срока
+                (loadout.ExpirationDate == null || loadout.ExpirationDate > currentDate));
 
             if (generalLoadout != null)
             {
