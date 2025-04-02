@@ -33,7 +33,7 @@
       plutoniumCore:
         reagents:
         - ReagentId: ADTPlutoniumReactant
-          Quantity: 50
+          Quantity: 45
         canReact: false
   - type: Material
   - type: Extractable
