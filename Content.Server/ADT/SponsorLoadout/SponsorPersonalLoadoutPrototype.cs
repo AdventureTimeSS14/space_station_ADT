@@ -23,4 +23,8 @@ public sealed class SponsorPersonalLoadoutPrototype : IPrototype
 
     [DataField("speciesRestriction")]
     public List<string>? SpeciesRestrictions { get; }
+
+    // Дата истечения лоадаута
+    [DataField("expirationDate")]
+    public DateTime? ExpirationDate { get; } = null;
 }
