@@ -1,0 +1,373 @@
+- type: marking
+  id: ADTVoxCocktail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxcocktail1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxcocktail2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxcocktail3
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxcocktail4
+
+- type: marking
+  id: ADTVoxTailBalled
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailballed
+
+- type: marking
+  id: ADTVoxTailSplit
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailsplit
+
+- type: marking
+  id: ADTVoxTailStripes
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailstripes
+
+- type: marking
+  id: ADTVoxLArmProsthetic
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxarmprostheticl
+
+- type: marking
+  id: ADTVoxRArmProsthetic
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxarmprostheticr
+
+- type: marking
+  id: ADTVoxBeakColor
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxbeakcolor
+
+- type: marking
+  id: ADTVoxBeakSplit
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxbeaksplit1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxbeaksplit2
+
+- type: marking
+  id: ADTVoxBeakTipped
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxbeaktipped
+
+- type: marking
+  id: ADTVoxChestPlumage
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxchestplumage
+
+- type: marking
+  id: ADTVoxFootSpines
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxfootspines
+
+- type: marking
+  id: ADTVoxFootGradientLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxfootgradientl1
+
+- type: marking
+  id: ADTVoxFootGradientRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxfootgradientr1
+
+- type: marking
+  id: ADTVoxLegGradientLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxfootgradientl2
+
+- type: marking
+  id: ADTVoxLegGradientRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxfootgradientr2
+
+- type: marking
+  id: ADTVoxHandGradientRHand
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxhandgradientr1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxhandgradientr2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxhandgradientr3
+
+- type: marking
+  id: ADTVoxHandGradientLHand
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxhandgradientl1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxhandgradientl2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxhandgradientl3
+
+- type: marking
+  id: ADTVoxHeadGradient
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxheadgradient1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxheadgradient2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxheadgradient3
+
+- type: marking
+  id: ADTVoxTailBell
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailbell1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailbell2
+
+- type: marking
+  id: ADTVoxTailLantern
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtaillantern
+  shader: unshaded
+
+- type: marking
+  id: ADTVoxTailSingleStripe
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailsinglestripe
+
+- type: marking
+  id: ADTVoxTailSmallPlume
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailsmallplume
+
+- type: marking
+  id: ADTVoxTailSpines
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxtailspines
+
+- type: marking
+  id: ADTVoxArmsStripesLHand
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxarmsstripesl
+
+- type: marking
+  id: ADTVoxArmsStripesRHand
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxarmsstripesr
+
+- type: marking
+  id: ADTVoxLegsStripesLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxlegsstripesl
+
+- type: marking
+  id: ADTVoxLegsStripesRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxlegsstripesr
+
+- type: marking
+  id: ADTVoxChains
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxchains
+
+- type: marking
+  id: ADTVoxSunAndMoon
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxsunandmoon
+
+- type: marking
+  id: ADTVoxCheeks
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxcheeks
+
+- type: marking
+  id: ADTVoxBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vox ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: voxbelly

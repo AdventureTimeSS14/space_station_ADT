@@ -7,7 +7,8 @@ public enum CombatAction
 {
     Disarm,
     Grab,
-    Hit
+    Hit,
+    Crawl
 }
 
 [DataDefinition]

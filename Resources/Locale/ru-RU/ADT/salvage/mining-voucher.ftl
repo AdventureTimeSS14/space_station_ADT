@@ -30,3 +30,7 @@ mining-voucher-spatio-description =
 mining-voucher-mining-armor-name = Костюм исследователя
 mining-voucher-mining-armor-description =
     Не спасёт от давления, но хорошо защищает от фауны.
+ent-MiningVoucher = ваучер утилизаторского снаряжения
+    .desc = Ваучер для обмена на какое-либо утилизаторское оборудование.
+ent-MiningSuitVoucher = ваучер утилизаторского костюма
+    .desc = Ваучер для обмена на какой-либо утилизаторский костюм.

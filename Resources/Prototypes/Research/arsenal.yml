@@ -30,14 +30,14 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
-  # Start ADT tweak
-  - ADTMagazineMagnumIncendiary
-  # Start ADT tweak
+  - ADTMagazineMagnumIncendiary # ADT tweak
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
+  - ADTSpeedLoaderMagnumLesserIncendiary # ADT tweak
   - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
+  - ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
   # ADT Research Console Rework start
@@ -58,6 +58,7 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   # Start ADT tweak
+  - ADTWeaponIonRifle
   - ADTBorgModuleHarm #ADT secborg
   - ADTMechGunImmolatorLaser
   position: 2,-1
@@ -100,13 +101,13 @@
   - MagazineRifleUranium
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunUranium
-  # Start ADT tweak
-  - ADTMagazineMagnumUranium
-  # End ADT tweak
+  - ADTMagazineMagnumUranium # ADT tweak
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
+  - ADTSpeedLoaderMagnumLesserUranium # ADT tweak
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
+  - ADTMagazineBoxMagnumLesserUranium # ADT tweak
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
