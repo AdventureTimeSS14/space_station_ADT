@@ -97,7 +97,7 @@ marking-SnoutEasternDW-easterndnw_primary = Морда, 1
 marking-SnoutEasternDW-easterndnw_secondary Морда, 2
 marking-SnoutEasternDNW = Унатх, морда (Восточный дракон 2)
 marking-SnoutEasternDNW-easterndw_primary = Морда, 1
-marking-SnoutEasternDNW-easterndnw_secondary Морда, 2
+marking-SnoutEasternDNW-easterndnw_secondary = Морда, 2
 marking-ADTFangs = Клыки унатха
 marking-ADTFangs-Fangs = Клыки
 
