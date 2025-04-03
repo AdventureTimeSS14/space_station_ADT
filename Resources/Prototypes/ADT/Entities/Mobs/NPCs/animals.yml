@@ -123,3 +123,219 @@
     languages:
       Turtle: Speak
       GalacticCommon: Understand
+
+- type: entity
+  parent:
+  - SimpleSpaceMobBase
+  - FlyingMobBase
+  id: ADTMobDragonPet
+  name: baby space dragon
+  description: Even a flying leviathan starts off small and from an egg.
+  components:
+  - type: Body
+    prototype: Animal
+  - type: Climbing
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: MobPrice
+    price: 2000
+  - type: Perishable
+  - type: Hunger
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0.00925925925926 # Guy needs to eat and drink
+  - type: Thirst
+    thresholds:
+      OverHydrated: 200
+      Okay: 150
+      Thirsty: 100
+      Parched: 50
+      Dead: 0
+    baseDecayRate: 0.04
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - StaminaModifier
+      - Drowsiness
+      - Adrenaline
+  - type: Bloodstream
+    bloodMaxVolume: 650
+  - type: FloatingVisuals
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Speech
+    speechVerb: SmallMob
+  - type: HTN
+    rootTask:
+      task: MouseCompound
+  - type: CombatMode
+  - type: MobMover
+  - type: InputMover
+  - type: Emoting
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+    weightlessModifier: 1.5
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: Rainbow
+  - type: Sprite
+    sprite: ADT/Mobs/Animals/baby_dragon.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: alive-unshaded
+      shader: unshaded
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+        BaseUnshaded: alive-unshaded
+      Critical:
+        Base: crit
+      Dead:
+        Base: dead
+        BaseUnshaded: dead-unshaded
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritLastWords
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      300: Dead
+  - type: Metabolizer
+    solutionOnBody: false
+    metabolizerTypes: [ Dragon ]
+    groups:
+    - id: Medicine
+    - id: Cryogenic
+    - id: Poison
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatDragon
+      amount: 1
+  - type: InteractionPopup
+    successChance: 0.85 # It's no goose, but you better smell like carp.
+    interactSuccessString: petting-success-dragon
+    interactFailureString: petting-failure-dragon
+    interactFailureSound:
+      path: /Audio/Animals/space_dragon_roar.ogg
+    soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Piercing: 5
+        Slash: 5
+  - type: Puller
+    needsHands: false
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: LanguageSpeaker
+    languages:
+      Dragon: Speak
+      GalacticCommon: Understand
+
+- type: entity
+  name: antlion
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: ADTModAntlion
+  description: A natural enemy of combine machines. Hates vibrations.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Animals/antlion.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: antlion
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: antlion
+      Critical:
+        Base: antlion_dead
+      Dead:
+        Base: antlion_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSpider
+      amount: 1
+    - id: ADTViperChelicerae
+      amount: 1
+  # ADT Commented
+  # - type: ReplacementAccent
+  #   accent: dog
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-tarantula
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_click.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: LanguageSpeaker
+    languages:
+      Arachnid: Speak
+      GalacticCommon: Understand

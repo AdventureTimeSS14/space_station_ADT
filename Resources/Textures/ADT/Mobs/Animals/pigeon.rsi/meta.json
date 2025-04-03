@@ -38,20 +38,10 @@
       ]
     },
     {
-      "name": "dead",
-      "delays": [
-        [
-          1
-        ]
-      ]
+      "name": "dead"
     },
     {
-      "name": "icon",
-      "delays": [
-        [
-          1
-        ]
-      ]
+      "name": "icon"
     }
   ]
 }

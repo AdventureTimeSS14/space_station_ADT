@@ -160,6 +160,17 @@
     - аааааг
 
 - type: language
+  id: Dragon
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    replacement:
+    - гррр
+    - грааар
+    - рррррр
+    - рргх
+    - гааррр
+
+- type: language
   id: Bee
   parent: BaseVocalLanguage
   speech: !type:Generic

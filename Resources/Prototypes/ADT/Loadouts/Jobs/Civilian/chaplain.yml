@@ -79,3 +79,18 @@
   id: ADTChaplainVedas
   equipment:
     belt: ADTBibleVedas
+
+- type: loadout
+  id: ADTChaplainTajaran
+  equipment:
+    belt: ADTBibleTajaran
+
+- type: loadout
+  id: ADTChaplainUnathi
+  equipment:
+    belt: ADTBibleUnathi
+
+- type: loadout
+  id: ADTChaplainLeatherCodex
+  equipment:
+    belt: ADTBibleLeatherCodex

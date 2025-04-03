@@ -117,3 +117,109 @@
     size: Small
     sprite: ADT/Objects/Specific/Chapel/vedas.rsi
     state: icon
+
+- type: entity
+  parent: Bible
+  name: sche-zara
+  description: An unathi religion smooth stone tablet. New Interstellar Version 2355.
+  id: ADTBibleUnathi
+  components:
+  - type: Bible
+    damage:
+      types:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 25
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+    healSound: "/Audio/Effects/lightburn.ogg"
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRanikha
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
+    state: icon
+
+- type: entity
+  parent: Bible
+  name: Dras'nori
+  description: An tajarab religion scroll. New Interstellar Version 2355.
+  id: ADTBibleTajaran
+  components:
+  - type: Bible
+    damage:
+      types:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 25
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+    healSound: "/Audio/Effects/lightburn.ogg"
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRonia
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/scroll.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/scroll.rsi
+    state: icon
+
+- type: entity
+  parent: Bible
+  name: leather codex
+  description: New Interstellar blessed book for chapels of any religion.
+  id: ADTBibleLeatherCodex
+  components:
+  - type: Bible
+    damage:
+      types:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 25
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+    healSound: "/Audio/Effects/lightburn.ogg"
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRebecca
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
+    state: icon
+  - type: Paper
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
