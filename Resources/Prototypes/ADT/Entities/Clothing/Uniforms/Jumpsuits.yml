@@ -1474,3 +1474,16 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
 
 # USSP USSP USSP USSP USSP USSP USSP USSP USSP END
+
+# Комбез исследователя для утилией (В будущем мб для шахтёров)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitExplorer
+  name: jumpsuit explorer
+  description: Standard overalls for NT miners
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
