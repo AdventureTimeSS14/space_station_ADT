@@ -64,7 +64,7 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 4 #ADT_Tweak
       required: false
     Legs:
       points: 2
