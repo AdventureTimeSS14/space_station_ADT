@@ -80,7 +80,7 @@
     price: 3000
   - id: ADTClothingOuterArmorMinerHeavy
     price: 3600
-#  - id: ClothingOuterArmorMinerLight
+#  - id: ADTClothingOuterArmorMinerLight
 #    price: 4000
   - id: ADTClothingJumpBoots
     price: 2500

@@ -145,27 +145,27 @@
           - !type:ReagentThreshold
             reagent: Nitrium
             min: 3
-        statusLifetime: 0.25
+        statusLifetime: 0.5
         walkSpeedModifier: 1.5
-        sprintSpeedModifier: 1.5
+        sprintSpeedModifier: 2.5
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
-            min: 6
+            min: 10
         key: Stun
         time: 1
         type: Remove
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
-            min: 6
+            min: 15
         key: KnockedDown
         time: 5
         type: Remove
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
-            min: 6
+            min: 15
         key: ForcedSleep
         component: ForcedSleeping
         time: 15
@@ -174,7 +174,7 @@
         conditions:
           - !type:ReagentThreshold
             reagent: Nitrium
-            min: 9
+            min: 20
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -211,9 +211,9 @@
         ignoreResistances: true
         damage:
           groups:
-            Brute: -1.0
-            Burn: -1.0
-            Toxin: -1.25
+            Brute: -1.25
+            Burn: -1.25
+            Toxin: -1.5
 
 - type: reagent
   id: Hyper-Noblium

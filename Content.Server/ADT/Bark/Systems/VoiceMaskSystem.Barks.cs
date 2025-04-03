@@ -1,6 +1,5 @@
 using Content.Shared.ADT.CCVar;
 using Content.Shared.VoiceMask;
-using Content.Server.ADT.SpeechBarks;
 using Content.Shared.ADT.SpeechBarks;
 using Robust.Shared.Configuration;
 using Content.Shared.Inventory;
@@ -10,6 +9,7 @@ namespace Content.Server.VoiceMask;
 public partial class VoiceMaskSystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    
     private void InitializeBarks()
     {
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerBarkEvent>>(OnSpeakerVoiceTransform);
