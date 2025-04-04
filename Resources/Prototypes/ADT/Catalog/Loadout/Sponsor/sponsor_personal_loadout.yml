@@ -32,7 +32,7 @@
 - type: startingGear
   id: SponsorPersonalLoadoutSchrodinger71_Cargo
   equipment:
-    neck: SirenaChokerWithHeart
+    neck: ADTChokerWithHeart
     pocket1: ClothingHeadHatCatEars
     pocket2: ClothingUnderSocksCoder
     jumpsuit: ClothingUniformJumpskirtElegantMaid
@@ -48,7 +48,7 @@
 - type: startingGear
   id: SponsorPersonalLoadoutSchrodinger71_capitan
   equipment:
-    neck: SirenaChokerWithHeart
+    neck: ADTChokerWithHeart
   storage:
     back:
     - ADTPlushieSchrodinger
