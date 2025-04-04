@@ -570,3 +570,433 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     socks: ADTClothingUnderwearSocksBlueshield
+
+# последую запискам Фило... Куча эбанных носков с ТГ. КОТОРЫЕ МЕНЯ ЗАСТВИЛ ПЕРЕНОСИТЬ ИЛЛЮМИ (Знай, что ты злодей)
+
+- type: loadout
+  id: ADTUnderwearSocksAzure
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksAzure
+
+- type: loadout
+  id: ADTUnderwearSocksKneeAzure
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeAzure
+
+- type: loadout
+  id: ADTUnderwearSocksThighAzure
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighAzure
+
+- type: loadout
+  id: ADTUnderwearSocksBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksBlack
+
+- type: loadout
+  id: ADTUnderwearSocksKneeBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeBlack
+
+- type: loadout
+  id: ADTUnderwearSocksThighBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighBlack
+
+- type: loadout
+  id: ADTUnderwearSocksCyan
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksCyan
+
+- type: loadout
+  id: ADTUnderwearSocksKneeCyan
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeCyan
+
+- type: loadout
+  id: ADTUnderwearSocksThighCyan
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighCyan
+
+- type: loadout
+  id: ADTUnderwearSocksFurr
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksFurr
+
+- type: loadout
+  id: ADTUnderwearSocksKneeFurr
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeFurr
+
+- type: loadout
+  id: ADTUnderwearSocksThighFurr
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighFurr
+
+- type: loadout
+  id: ADTUnderwearSocksGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksGreen
+
+- type: loadout
+  id: ADTUnderwearSocksKneeGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeGreen
+
+- type: loadout
+  id: ADTUnderwearSocksThighGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighGreen
+
+- type: loadout
+  id: ADTUnderwearSocksHomelander
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksHomelander
+
+- type: loadout
+  id: ADTUnderwearSocksKneeHomelander
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeHomelander
+
+- type: loadout
+  id: ADTUnderwearSocksThighHomelander
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighHomelander
+
+- type: loadout
+  id: ADTUnderwearSocksHotpink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksHotpink
+
+- type: loadout
+  id: ADTUnderwearSocksKneeHotpink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeHotpink
+
+- type: loadout
+  id: ADTUnderwearSocksThighHotpink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighHotpink
+
+- type: loadout
+  id: ADTUnderwearSocksOrange
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksOrange
+
+- type: loadout
+  id: ADTUnderwearSocksKneeOrange
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeOrange
+
+- type: loadout
+  id: ADTUnderwearSocksThighOrange
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighOrange
+
+- type: loadout
+  id: ADTUnderwearSocksPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksPink
+
+- type: loadout
+  id: ADTUnderwearSocksKneePink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneePink
+
+- type: loadout
+  id: ADTUnderwearSocksKneeCreepy
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeCreepy
+
+- type: loadout
+  id: ADTUnderwearSocksThighCreepy
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighCreepy
+
+- type: loadout
+  id: ADTUnderwearSocksKneeFishnet
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeFishnet
+
+- type: loadout
+  id: ADTUnderwearSocksFullFishnet
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksFullFishnet
+
+- type: loadout
+  id: ADTUnderwearSocksKneeThin
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeThin
+
+- type: loadout
+  id: ADTUnderwearSocksThighThin
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighThin
+
+- type: loadout
+  id: ADTUnderwearSocksThighBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighBlue
+
+- type: loadout
+  id: ADTUnderwearSocksThighFishnet
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighFishnet
+
+- type: loadout
+  id: ADTUnderwearSocksThighGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighGrey
+
+- type: loadout
+  id: ADTUnderwearSocksThighPantyhose
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighPantyhose
+
+- type: loadout
+  id: ADTUnderwearSocksThighPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighPurple
+
+- type: loadout
+  id: ADTUnderwearSocksThighRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighRed
+
+- type: loadout
+  id: ADTUnderwearSocksYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksYellow
+
+- type: loadout
+  id: ADTUnderwearSocksKneeYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeYellow
+
+- type: loadout
+  id: ADTUnderwearSocksThighYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighYellow
+
+## Носки чисто для клоуна и мима
+
+- type: loadout
+  id: ADTUnderwearSocksKneehRainbow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeRainbow
+
+- type: loadout
+  id: ADTUnderwearSocksThighRainbow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighRainbow
+
+- type: loadout
+  id: ADTUnderwearSocksThighMonochrome
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighMonochrome
+
+## Эбанные носки с ТГ для главв
+
+- type: loadout
+  id: ADTUnderwearSocksHOP
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksHop
+
+- type: loadout
+  id: ADTUnderwearSocksKneeHOP
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeHop
+
+- type: loadout
+  id: ADTUnderwearSocksThighHOP
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighHop
+
+- type: loadout
+  id: ADTUnderwearSocksHOS
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksHos
+
+- type: loadout
+  id: ADTUnderwearSocksKneeHOS
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeHos
+
+- type: loadout
+  id: ADTUnderwearSocksThighHOS
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighHos
+
+- type: loadout
+  id: ADTUnderwearSocksCaptain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksCaptain
+
+- type: loadout
+  id: ADTUnderwearSocksKneeCaptain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeCaptain
+
+- type: loadout
+  id: ADTUnderwearSocksThighCaptain
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighCaptain
