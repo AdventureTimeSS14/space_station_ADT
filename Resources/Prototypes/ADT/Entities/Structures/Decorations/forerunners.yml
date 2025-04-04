@@ -21,7 +21,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: ADT/Structures/Decoration/forerunners_structures\forerunners_sphere.rsi
+    sprite: ADT/Structures/Decoration/forerunners_structures/forerunners_sphere.rsi
     state: forerunnerssphere
     offset: "0.0,0.5"
     drawdepth: Mobs
