@@ -116,7 +116,7 @@ ent-ADTClothingUnderwearSocksGreen = зелёные носки
     .desc = Обычные зелёные носки.
 ent-ADTClothingUnderwearSocksKneeGreen = зелёные гольфы
     .desc = Обычные зелёные гольфы.
-ent-ADTClothingUnderwearSocksThighGreen = зелённые чулки
+ent-ADTClothingUnderwearSocksThighGreen = зелёные чулки
     .desc = Обычные зелёные чулки.
 
 ent-ADTClothingUnderwearSocksKneeHolyday= новогодние гольфы
