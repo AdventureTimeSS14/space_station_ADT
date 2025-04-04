@@ -178,7 +178,151 @@
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/socks_comfyviolet.rsi
 
-## Чулки
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksAzure
+  name: azure socks
+  description: azure socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/azure_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksBlack
+  name: black socks
+  description: Black socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/black_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksCaptain
+  name: captain socks
+  description: Captain socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/cap_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksCentcom
+  name: centcom socks
+  description: Centcom socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/centcom_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksCyan
+  name: cyan socks
+  description: Cyan socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/cyan_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksFurr
+  name: furr socks
+  description: Furr socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/furr_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksGreen
+  name: green socks
+  description: Green socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/green_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHomelander
+  name: homelander socks
+  description: Homelander socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/homelander_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHop
+  name: hop socks
+  description: Hop socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hop_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHos
+  name: hos socks
+  description: Hos socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hos_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksHotpink
+  name: hotpink socks
+  description: Hotpink socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hotpink_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksOrange
+  name: orange socks
+  description: Orange socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/orange_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksSyndieGreen
+  name: syndie green socks
+  description: Syndie green socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/syndie_green_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksSyndieRed
+  name: syndie red socks
+  description: Syndie red socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/syndie_red_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksYellow
+  name: yellow socks
+  description: Yellow socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/yellow_norm.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksPink
+  name: pink socks
+  description: Pink socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/pink_norm.rsi
+
+## Гольфы
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
@@ -215,3 +359,437 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/socks_kneecomfyviolet.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeAzure
+  name: azure knee socks
+  description: Azure knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/azure_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeBlack
+  name: black knee socks
+  description: Black knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/black_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeCaptain
+  name: captain knee socks
+  description: Captain knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/cap_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeCentcom
+  name: centcom knee socks
+  description: Centcom knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/centcom_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeCreepy
+  name: creepy knee socks
+  description: Creepy knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/creepy_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeCyan
+  name: cyan knee socks
+  description: Cyan knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/cyan_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeFishnet
+  name: fishnet knee socks
+  description: Fishnet knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/fishnet_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeFurr
+  name: furr knee socks
+  description: Furr knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/furr_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeGreen
+  name: green knee socks
+  description: Green knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/green_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeHolyday
+  name: holyday knee socks
+  description: Holyday knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/holyday_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeHomelander
+  name: homelander knee socks
+  description: Homelander knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/homelander_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeHop
+  name: hop knee socks
+  description: Hop knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hop_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeHos
+  name: hos knee socks
+  description: Hos knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hos_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeHotpink
+  name: hotpink knee socks
+  description: Hotpink knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hotpink_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeOrange
+  name: orange knee socks
+  description: Orange knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/orange_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneePink
+  name: pink knee socks
+  description: Pink knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/pink_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeRainbow
+  name: rainbow knee socks
+  description: Rainbow knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/rainbow_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeSyndieGreen
+  name: syndie green knee socks
+  description: Syndie green knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/syndie_green_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeSyndieRed
+  name: syndie red knee socks
+  description: Syndie red knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/syndie_red_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeThin
+  name: thin knee socks
+  description: Thin knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/thin_knee.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksKneeYellow
+  name: yellow knee socks
+  description: Yellow knee socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/yellow_knee.rsi
+
+## Чулки
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighAzure
+  name: azure thigh socks
+  description: Azure thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/azure_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighBlack
+  name: black thigh socks
+  description: Black thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/black_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighBlue
+  name: blue thigh socks
+  description: Blue thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/blue_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighCaptain
+  name: captain thigh socks
+  description: Captain thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/cap_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighCentcom
+  name: centcom thigh socks
+  description: Centcom thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/centcom_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighCreepy
+  name: creepy thigh socks
+  description: Creepy thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/creepy_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighCyan
+  name: cyan thigh socks
+  description: Cyan thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/cyan_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksFullFishnet
+  name: fishnet full socks
+  description: Fishnet full socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/fishnet_full.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighFishnet
+  name: fishnet thigh socks
+  description: Fishnet thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/fishnet_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighFurr
+  name: furr thigh socks
+  description: Furr thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/furr_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighGreen
+  name: green thigh socks
+  description: Green thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/green_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighGrey
+  name: grey thigh socks
+  description: Grey thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/grey_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighHolyday
+  name: holyday thigh socks
+  description: Holyday thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/holyday_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighHomelander
+  name: homelander thigh socks
+  description: Homelander thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/homelander_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighHop
+  name: hop thigh socks
+  description: Hop thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hop_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighHos
+  name: hos thigh socks
+  description: Hos thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hos_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighHotpink
+  name: hotpink thigh socks
+  description: Hotpink thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/hotpink_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighMonochrome
+  name: monochrome thigh socks
+  description: Monochrome thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/monochrome_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighOrange
+  name: orange thigh socks
+  description: Orange thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/orange_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighPantyhose
+  name: pantyhose socks
+  description: Pantyhose socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/pantyhose.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighPurple
+  name: purple thigh socks
+  description: Purple thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/purple_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighRainbow
+  name: rainbow thigh socks
+  description: Rainbow thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/rainbow_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighRed
+  name: red thigh socks
+  description: Red thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/red_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighSyndieGreen
+  name: syndie green socks
+  description: Syndie green thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/syndie_green_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighSyndieRed
+  name: syndie redsocks
+  description: Syndie red thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/syndie_red_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighThin
+  name: thin thigh socks
+  description: Thin thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/thin_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksThighYellow
+  name: yellow thigh socks
+  description: Yellow thigh socks.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/yellow_thigh.rsi
