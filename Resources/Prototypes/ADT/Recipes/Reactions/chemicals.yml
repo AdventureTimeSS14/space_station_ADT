@@ -33,10 +33,10 @@
     entity: ReactionSingularity
 
 - type: reaction
-  id: ADTAnti-nob
+  id: ADTAntiNobCreation
   quantized: true
   reactants:
-    ADTPlutonium:
+    ADTPlutoniumReactant:
       amount: 45
     Hyper-Noblium:
       amount: 5

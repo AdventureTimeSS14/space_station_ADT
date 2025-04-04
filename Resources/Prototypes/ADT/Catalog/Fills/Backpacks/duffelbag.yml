@@ -121,7 +121,7 @@
       - id: ClothingHeadHatCatEars
       - id: ClothingUniformJumpskirtElegantMaid
       - id: ClothingUnderSocksCoder
-      - id: SirenaChokerWithHeart
+      - id: ADTChokerWithHeart
       - id: ADTClothingHandsCatPawsBlackCombat # ADT Tweak
 
 - type: entity
@@ -286,7 +286,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: UsedPlutoniumCore
+      - id: ADTUsedPlutoniumCore
       - id: ADTHyperNobliumTankFilled
       - id: Screwdriver
       - id: Screwdriver

@@ -7,7 +7,7 @@
     <Button Name="FocusButton" StyleClasses="OpenLeft" Access="Public">
         <BoxContainer HorizontalExpand="True" VerticalExpand="True" Orientation="Horizontal">
             <!-- Supermatter sprite -->
-            <TextureRect Name="SupermatterSprite" TexturePath="/Textures/ADT/Interface/supermatter.rsi/supermatter.png" Margin="6 2" />
+            <TextureRect Name="SupermatterSprite" TexturePath="/Textures/ADT/Interface/Supermatter.rsi/supermatter.png" Margin="6 2" />
 
             <!-- Supermatter name -->
             <Label Name="SupermatterNameLabel" HorizontalExpand="True" Margin="5 0" />

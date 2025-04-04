@@ -1,10 +1,10 @@
 - type: microwaveMealRecipe
   id: RecipePlutonium
   name: plutonium recipe
-  result: PlutoniumCore
+  result: ADTPlutoniumCore
   time: 30
   solids:
-    UsedPlutoniumCore: 1
+    ADTUsedPlutoniumCore: 1
   reagents:
     Plasma: 5
     Uranium: 5
