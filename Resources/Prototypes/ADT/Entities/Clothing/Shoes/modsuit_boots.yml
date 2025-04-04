@@ -138,6 +138,22 @@
 
 - type: entity
   parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesSafeguard
+  name: safeguard MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesSyndicate
   name: syndicate MOD boots
   description: A pair of boots for a MODsuit.
@@ -154,16 +170,32 @@
 
 - type: entity
   parent: ADTClothingModsuitShoesBase
-  id: ADTClothingModsuitShoesSafeguard
-  name: safeguard MOD boots
+  id: ADTClothingModsuitShoesSyndicateElite
+  name: syndicate MOD boots
   description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_elite.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_elite.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesSyndicateCommander
+  name: syndicate MOD boots
+  description: A pair of boots for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_comma.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_comma.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg

@@ -277,7 +277,6 @@
       - id: ADTModsuitModWelding
       - id: ADTModsuitModLight
       - id: ADTModsuitModJetpack
-      - id: ADTModsuitModDnaLock
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

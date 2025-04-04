@@ -31,16 +31,19 @@
                         <Button Name="ActivateButton"
                               Text="✔ Activate"
                               Margin="0 0 0 5"
-                              Access="Public"/>
+                              Access="Public"
+                              StyleClasses="ButtonSquare"/>
                         <Button Name="DeactivateButton"
                               Text="✖ Deactivate"
                               Margin="0 0 0 5"
-                              Access="Public"/>
+                              Access="Public"
+                              StyleClasses="ButtonSquare"/>
                     </BoxContainer>
                     <BoxContainer Orientation="Vertical">
                         <Button Name="EjectButton"
-                              Text="⚠ Eject"
-                              Access="Public"/>
+                              Text="⚠Eject"
+                              Access="Public"
+                              StyleClasses="ButtonSquare"/>
                     </BoxContainer>
                 </BoxContainer>
             </BoxContainer>

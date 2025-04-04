@@ -1,14 +1,10 @@
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Clothing;
-using Content.Shared.Wires;
 using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.ModSuits;
 
-
-public sealed class ModSuitModSystem : EntitySystem
+public abstract class SharedModSuitModSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -19,8 +15,10 @@ public sealed class ModSuitModSystem : EntitySystem
 
         SubscribeLocalEvent<ModSuitModComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<ModSuitModComponent, ModModulesUiStateReadyEvent>(OnGetUIState);
+
         SubscribeLocalEvent<ModSuitComponent, ModModuleRemoveMessage>(OnEject);
         SubscribeLocalEvent<ModSuitComponent, ModModulActivateMessage>(OnActivate);
+        SubscribeLocalEvent<ModSuitComponent, ModModulDeactivateMessage>(OnDeactivate);
     }
     private void OnEject(EntityUid uid, ModSuitComponent component, ModModuleRemoveMessage args)
     {
@@ -32,6 +30,8 @@ public sealed class ModSuitModSystem : EntitySystem
         if (!mod.Inserted)
             return;
         component.CurrentComplexity -= mod.Complexity;
+        if (mod.Active)
+            DeactivateModule(uid, module, mod, component);
         _container.Remove(module, component.ModuleContainer);
         mod.Inserted = false;
         Dirty(module, mod);
@@ -43,13 +43,25 @@ public sealed class ModSuitModSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
         var module = GetEntity(args.Module);
-        var modsuit = GetEntity(args.Modsuit);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
             return;
 
-        ActivateModule(modsuit, mod, component);
+        ActivateModule(uid, module, mod, component);
 
-        mod.Active = true;
+        Dirty(module, mod);
+        Dirty(uid, component);
+        _mod.UpdateUserInterface(uid);
+    }
+    private void OnDeactivate(EntityUid uid, ModSuitComponent component, ModModulDeactivateMessage args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+        var module = GetEntity(args.Module);
+        if (!TryComp<ModSuitModComponent>(module, out var mod))
+            return;
+
+        DeactivateModule(uid, module, mod, component);
+
         Dirty(module, mod);
         Dirty(uid, component);
         _mod.UpdateUserInterface(uid);
@@ -66,7 +78,7 @@ public sealed class ModSuitModSystem : EntitySystem
             return;
         _container.Insert(uid, modsuit.ModuleContainer);
         component.Inserted = true;
-        modsuit.CurrentComplexity += 1;
+        modsuit.CurrentComplexity += component.Complexity;
         Dirty(uid, component);
         Dirty(args.Target.Value, modsuit);
         _mod.UpdateUserInterface(args.Target.Value, modsuit);
@@ -75,22 +87,17 @@ public sealed class ModSuitModSystem : EntitySystem
     {
         args.States.Add(GetNetEntity(uid), null);
     }
-    public bool ActivateModule(EntityUid modSuit, ModSuitModComponent component, ModSuitComponent modcomp)
+    public bool ActivateModule(EntityUid modSuit, EntityUid module, ModSuitModComponent component, ModSuitComponent modcomp)
     {
-        var container = modcomp.Container;
-        if (container == null)
-            return false;
-
+        //ЛЮБЫЕ МАНИПУЛЯЦИИ С ИНТЕРФЕЙСАМИ РАБОТАЮТ ТОЛЬКО ЧЕРЕЗ ЭТИ ДВА МЕТОДА. ДАЖЕ НЕ ПЫТАЙТЕСЬ СДЕЛАТЬ ЭТО ВСЁ ВНЕ ИХ
         var attachedClothings = modcomp.ClothingUids;
         if (component.Slots.Contains("MODcore"))
         {
             EntityManager.AddComponents(modSuit, component.Components);
         }
-
+        component.Active = true;
         foreach (var attached in attachedClothings)
         {
-            if (!container.Contains(attached.Key))
-                continue;
             if (!component.Slots.Contains(attached.Value))
                 continue;
             EntityManager.AddComponents(attached.Key, component.Components);
@@ -98,21 +105,24 @@ public sealed class ModSuitModSystem : EntitySystem
                 EntityManager.RemoveComponents(attached.Key, component.RemoveComponents);
             break;
         }
-        Dirty(modSuit, component);
+        Dirty(module, component);
+        Dirty(modSuit, modcomp);
 
+        // этот таймер нужен в связи с тем, что обновление интерфейса происходит до того, как на клиент передаёт информацию о включении модуля
+        Timer.Spawn(1, () =>
+        {
+            _mod.UpdateUserInterface(modSuit, modcomp);
+        });
         return true;
     }
-    public void DeactivateModule(EntityUid modSuit, ModSuitModComponent component)
+    public bool DeactivateModule(EntityUid modSuit, EntityUid module, ModSuitModComponent component, ModSuitComponent modcomp)
     {
-        if (!TryComp<ModSuitComponent>(modSuit, out var modsuit))
-        {
-            return;
-        }
-        var container = modsuit.Container;
+        //ЛЮБЫЕ МАНИПУЛЯЦИИ С ИНТЕРФЕЙСАМИ РАБОТАЮТ ТОЛЬКО ЧЕРЕЗ ЭТИ ДВА МЕТОДА. ДАЖЕ НЕ ПЫТАЙТЕСЬ СДЕЛАТЬ ЭТО ВСЁ ВНЕ ИХ
+        var container = modcomp.Container;
         if (container == null)
-            return;
+            return false;
 
-        var attachedClothings = modsuit.ClothingUids;
+        var attachedClothings = modcomp.ClothingUids;
         if (component.Slots.Contains("MODcore"))
         {
             EntityManager.RemoveComponents(modSuit, component.Components);
@@ -129,5 +139,14 @@ public sealed class ModSuitModSystem : EntitySystem
                 EntityManager.AddComponents(attached.Key, component.RemoveComponents);
             break;
         }
+        component.Active = false;
+        Dirty(module, component);
+        Dirty(modSuit, modcomp);
+        // этот таймер нужен в связи с тем, что обновление интерфейса происходит до того, как на клиент передаёт информацию о включении модуля
+        Timer.Spawn(1, () =>
+        {
+            _mod.UpdateUserInterface(modSuit, modcomp);
+        });
+        return true;
     }
 }

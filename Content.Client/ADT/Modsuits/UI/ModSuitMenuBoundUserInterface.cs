@@ -40,13 +40,25 @@ public sealed class ModSuitMenuBoundUserInterface : BoundUserInterface
         _menu.OpenCentered();
         _menu.UpdateModStats();
 
+        _menu.LockButton.OnPressed += _ => OnLockPressed();
+
         _menu.OnRemoveButtonPressed += Owner =>
         {
-            SendMessage(new ModModuleRemoveMessage(EntMan.GetNetEntity(Owner), EntMan.GetNetEntity(Owner)));
+            SendMessage(new ModModuleRemoveMessage(EntMan.GetNetEntity(Owner)));
         };
         _menu.OnActivateButtonPressed += Owner =>
         {
-            SendMessage(new ModModulActivateMessage(EntMan.GetNetEntity(Owner), EntMan.GetNetEntity(Owner)));
+            SendMessage(new ModModulActivateMessage(EntMan.GetNetEntity(Owner)));
         };
+        _menu.OnDeactivateButtonPressed += Owner =>
+        {
+            SendMessage(new ModModulDeactivateMessage(EntMan.GetNetEntity(Owner)));
+        };
+    }
+    private void OnLockPressed()
+    {
+        var msg = new ModLockMessage(EntMan.GetNetEntity(Owner));
+        SendMessage(msg);
+        _menu?.UpdateModStats();
     }
 }

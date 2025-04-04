@@ -11,6 +11,7 @@ public sealed partial class ModuleControl : Control
     [Dependency] private readonly IEntityManager _ent = default!;
     public event Action? OnRemoveButtonPressed;
     public event Action? OnActivateButtonPressed;
+    public event Action? OnDeactivateButtonPressed;
 
     public ModuleControl(EntityUid entity, string itemName, Control? fragment)
     {
@@ -26,9 +27,6 @@ public sealed partial class ModuleControl : Control
 
         EjectButton.OnPressed += _ => OnRemoveButtonPressed?.Invoke();
         ActivateButton.OnPressed += _ => OnActivateButtonPressed?.Invoke();
-    }
-    public void UpdateModStats()
-    {
-
+        DeactivateButton.OnPressed += _ => OnDeactivateButtonPressed?.Invoke();
     }
 }

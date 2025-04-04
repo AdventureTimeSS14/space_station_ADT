@@ -6,7 +6,9 @@ namespace Content.Shared.ADT.ModSuits;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ModSuitModComponent : Component
 {
+    [AutoNetworkedField]
     public bool Inserted = false;
+    [AutoNetworkedField]
     public bool Active = false;
     /// <summary>
     ///     Module  limit

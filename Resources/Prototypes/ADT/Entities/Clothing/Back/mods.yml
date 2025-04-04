@@ -65,7 +65,9 @@
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
-
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
 #атмосферный
 - type: entity
   parent: ADTClothingModsuitBackBase
@@ -259,43 +261,6 @@
   - type: ActivatableUIRequiresPanel
     requireOpen: false
 
-# синдиката
-- type: entity
-  parent: Clothing
-  id: ADTClothingModsuitBackSyndicate
-  name: syndicate MOD control unit
-  description: A suit designed by Gorlex Marauders, offering armor made illegal in most Spinward Stellar. A newer version with more built-in modules compared to the operative variant.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
-    state: icon
-  - type: ModSuit
-    fullyEnabledSound:
-      path: /Audio/ADT/Mecha/nominalsyndi.ogg
-    clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitSyndicate
-      gloves: ADTClothingHandsModsuitSyndicate
-      outerClothing: ADTClothingOuterModsuitBodySyndicate
-      shoes: ADTClothingModsuitShoesSyndicate
-    startingModules:
-      - ADTModsuitModStorageSyndie
-      - ADTModsuitModWelding
-      - ADTModsuitModLight
-      - ADTModsuitModJetpack
-      - ADTModsuitModDnaLock
-  - type: UserInterface
-    interfaces:
-      enum.ModSuitUiKey.Key:
-        type: ModSuitBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: WiresPanel
-  - type: ActivatableUIRequiresPanel
-    requireOpen: false
 
 #гсб
 - type: entity
@@ -323,3 +288,98 @@
     damage:
       types:
         Blunt: 10
+
+# синдиката
+- type: entity
+  parent: Clothing
+  id: ADTClothingModsuitBackSyndicate
+  name: syndicate MOD control unit
+  description: A suit designed by Gorlex Marauders, offering armor made illegal in most Spinward Stellar. A newer version with more built-in modules compared to the operative variant.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
+    state: icon
+  - type: ModSuit
+    backpanelsColor: "#16050599"
+    backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    maxComplexity: 20
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalsyndi.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSyndicate
+      gloves: ADTClothingHandsModsuitSyndicate
+      outerClothing: ADTClothingOuterModsuitBodySyndicate
+      shoes: ADTClothingModsuitShoesSyndicate
+    startingModules:
+      - ADTModsuitModStorageSyndie
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+  - type: UserInterface
+    interfaces:
+      enum.ModSuitUiKey.Key:
+        type: ModSuitRadialBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+    requireOpen: false
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+
+- type: entity
+  parent: ADTClothingModsuitBackSyndicate
+  id: ADTClothingModsuitBackSyndicateElite
+  name: elite syndicate MOD control unit
+  description: A suit designed by Gorlex Marauders, offering armor made illegal in most Spinward Stellar. A newer version with more built-in modules compared to the operative variant.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_elite.rsi
+    state: icon
+  - type: ModSuit
+    backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    maxComplexity: 20
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalsyndi.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSyndicateElite
+      gloves: ADTClothingHandsModsuitSyndicateElite
+      outerClothing: ADTClothingOuterModsuitBodySyndicateElite
+      shoes: ADTClothingModsuitShoesSyndicateElite
+    startingModules:
+      - ADTModsuitModStorageSyndie
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+
+- type: entity
+  parent: ADTClothingModsuitBackSyndicate
+  id: ADTClothingModsuitBackSyndicateCommander
+  name: comm syndicate MOD control unit
+  description: A suit designed by Gorlex Marauders, offering armor made illegal in most Spinward Stellar. A newer version with more built-in modules compared to the operative variant.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_comma.rsi
+    state: icon
+  - type: ModSuit
+    backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    maxComplexity: 15
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalsyndi.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSyndicateCommander
+      gloves: ADTClothingHandsModsuitSyndicateCommander
+      outerClothing: ADTClothingOuterModsuitBodySyndicateCommander
+      shoes: ADTClothingModsuitShoesSyndicateCommander
+    startingModules:
+      - ADTModsuitModStorageSyndie
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack

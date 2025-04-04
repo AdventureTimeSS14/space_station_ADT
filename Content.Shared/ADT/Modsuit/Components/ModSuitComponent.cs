@@ -14,12 +14,20 @@ namespace Content.Shared.ADT.ModSuits;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ModSuitComponent : Component
 {
+    #region gui
+
+    [DataField, AutoNetworkedField]
+    public string BackgroundPath = "/Textures/ADT/Interface/Backgrounds/Modsuits/nanotrasen_background.png";
+    [DataField, AutoNetworkedField]
+
+    public Color BackpanelsColor = new Color(0.06f, 0.1f, 0.16f, 0.6f);
+
+    #endregion gui
     /// <summary>
     ///     non-modifyed energy using. 1 toggled part - 1 energy per PowerCellDraw use
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxComplexity = 15;
-    public int CurrentComplexity = 0;
     public const string DefaultClothingContainerId = "modsuit-part";
     public const string DefaultModuleContainerId = "modsuit-modules";
 
@@ -121,6 +129,12 @@ public sealed partial class ModSuitComponent : Component
     public EntityUid? ActionEntity;
     [DataField, AutoNetworkedField]
     public EntityUid? ActionMenuEntity;
+    [AutoNetworkedField]
+    public int CurrentComplexity = 0;
+    [AutoNetworkedField]
+    public string? UserName = null;
+    [AutoNetworkedField]
+    public EntityUid? TempUser = null;
 }
 [Serializable, NetSerializable]
 public enum ModSuitMenuUiKey : byte
@@ -157,23 +171,39 @@ public sealed class ModModulesUiStateReadyEvent : EntityEventArgs
 public sealed class ModModuleRemoveMessage : BoundUserInterfaceMessage
 {
     public NetEntity Module;
-    public NetEntity Modsuit;
 
-    public ModModuleRemoveMessage(NetEntity module, NetEntity modsuit)
+    public ModModuleRemoveMessage(NetEntity module)
     {
         Module = module;
-        Modsuit = modsuit;
     }
 }
 [Serializable, NetSerializable]
 public sealed class ModModulActivateMessage : BoundUserInterfaceMessage
 {
     public NetEntity Module;
-    public NetEntity Modsuit;
 
-    public ModModulActivateMessage(NetEntity module, NetEntity modsuit)
+    public ModModulActivateMessage(NetEntity module)
     {
         Module = module;
-        Modsuit = modsuit;
+    }
+}
+[Serializable, NetSerializable]
+public sealed class ModModulDeactivateMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Module;
+
+    public ModModulDeactivateMessage(NetEntity module)
+    {
+        Module = module;
+    }
+}
+[Serializable, NetSerializable]
+public sealed class ModLockMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Module;
+
+    public ModLockMessage(NetEntity module)
+    {
+        Module = module;
     }
 }

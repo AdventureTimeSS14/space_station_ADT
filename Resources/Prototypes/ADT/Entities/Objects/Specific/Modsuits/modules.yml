@@ -324,20 +324,6 @@
 
 - type: entity
   parent: ADTModsuitModBase
-  id: ADTModsuitModDnaLock
-  name: MOD jump boot module
-  description: Locks modsuit on you.
-  components:
-  - type: Sprite
-    state: dnalock
-  - type: ModSuitMod
-    slots:
-    - MODcore
-    components:
-    - type: DNALocker
-
-- type: entity
-  parent: ADTModsuitModBase
   id: ADTModsuitModLight
   name: MOD light module
   description: Blind.

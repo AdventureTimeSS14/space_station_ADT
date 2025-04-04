@@ -20,6 +20,7 @@ using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Coordinates;
 using Content.Shared.PowerCell;
+using Content.Shared.Access.Systems;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -42,6 +43,8 @@ public sealed class ModSuitSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedIdCardSystem _id = default!;
+    [Dependency] private readonly SharedModSuitModSystem _module = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -66,6 +69,7 @@ public sealed class ModSuitSystem : EntitySystem
         SubscribeLocalEvent<ModSuitComponent, GetVerbsEvent<EquipmentVerb>>(OnGetVerbs);
         SubscribeLocalEvent<ModAttachedClothingComponent, GetVerbsEvent<EquipmentVerb>>(OnGetAttachedStripVerbsEvent);
         SubscribeLocalEvent<ModSuitComponent, TogglePartDoAfterEvent>(OnDoAfterComplete);
+        SubscribeLocalEvent<ModSuitComponent, ModLockMessage>(OnLocked);
 
         SubscribeLocalEvent<ModSuitComponent, PowerCellSlotEmptyEvent>(OnPowercellEmpty);
         SubscribeLocalEvent<ModSuitComponent, InventoryRelayedEvent<FindInventoryBatteryEvent>>(OnFindInventoryBatteryEvent);
@@ -81,6 +85,13 @@ public sealed class ModSuitSystem : EntitySystem
         var comp = modSuit.Comp;
 
         if (!args.CanInteract || args.Hands == null || comp.ClothingUids.Count == 0 || comp.Container == null)
+            return;
+        if (comp.TempUser == null)
+            return;
+        if (GetAttachedToggleCount(modSuit.Owner, comp) == 0)
+            return;
+
+        if (comp.UserName != null && _id.TryFindIdCard(comp.TempUser.Value, out var id) && comp.UserName != id.Comp.FullName)
             return;
 
         var text = comp.VerbText ?? (comp.ActionEntity == null ? null : Name(comp.ActionEntity.Value));
@@ -158,7 +169,20 @@ public sealed class ModSuitSystem : EntitySystem
 
         ToggleClothing(args.User, modSuit);
     }
-
+    private void OnLocked(EntityUid uid, ModSuitComponent comp, ModLockMessage args)
+    {
+        if (comp.TempUser == null)
+            return;
+        if (!_id.TryFindIdCard(comp.TempUser.Value, out var id))
+            return;
+        if (comp.UserName != null && id.Comp.FullName != comp.UserName)
+            return;
+        if (comp.UserName == null)
+            comp.UserName = id.Comp.FullName;
+        else
+            comp.UserName = null;
+        UpdateUserInterface(uid, comp);
+    }
     private void OnInteractHand(Entity<ModAttachedClothingComponent> attached, ref InteractHandEvent args)
     {
         var comp = attached.Comp;
@@ -318,7 +342,7 @@ public sealed class ModSuitSystem : EntitySystem
     {
         var attachedUid = GetEntity(args.AttachedClothingUid);
 
-        if (modSuit.Comp.Toggletick + TimeSpan.FromSeconds(1) >= _timing.CurTime) //маленькие костыли в связи с тем, что ивент проходит 2 раза после нажатия лкм и 3 после нажатия пкм.
+        if (modSuit.Comp.Toggletick + TimeSpan.FromSeconds(0.1) >= _timing.CurTime) //маленькие костыли в связи с тем, что ивент проходит 2 раза после нажатия лкм и 3 после нажатия пкм.
             return;
         if (_timing.IsFirstTimePredicted)
         {
@@ -402,6 +426,8 @@ public sealed class ModSuitSystem : EntitySystem
             UnequipClothing(user, modSuit, attachedUid, slot!);
         else
             EquipClothing(user, modSuit, attachedUid, slot!);
+
+        UpdateUserInterface(modSuit.Owner, modSuit.Comp);
     }
 
     private void UntoggleClothing(EntityUid user, Entity<ModSuitComponent> modSuit)
@@ -469,6 +495,8 @@ public sealed class ModSuitSystem : EntitySystem
 
     private void UnequipClothing(EntityUid user, Entity<ModSuitComponent> modSuit, EntityUid clothing, string slot)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         var parent = Transform(modSuit.Owner).ParentUid;
 
         _inventorySystem.TryUnequip(user, parent, slot, force: true);
@@ -496,6 +524,8 @@ public sealed class ModSuitSystem : EntitySystem
     }
     private void EquipClothing(EntityUid user, Entity<ModSuitComponent> modSuit, EntityUid clothing, string slot)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         var parent = Transform(modSuit.Owner).ParentUid;
         var comp = modSuit.Comp;
 
@@ -548,8 +578,16 @@ public sealed class ModSuitSystem : EntitySystem
             return;
         if (comp.ActionEntity == null || comp.ActionMenuEntity == null)
             return;
-        args.AddAction(comp.ActionEntity.Value);
+        modSuit.Comp.TempUser = args.User;
+
         args.AddAction(comp.ActionMenuEntity.Value);
+
+        if (comp.TempUser == null)
+            return;
+        if (comp.UserName == null)
+            args.AddAction(comp.ActionEntity.Value);
+        if (comp.UserName != null && _id.TryFindIdCard(comp.TempUser.Value, out var id) && comp.UserName == id.Comp.FullName)
+            args.AddAction(comp.ActionEntity.Value);
     }
 
     private void OnModSuitInit(Entity<ModSuitComponent> modSuit, ref ComponentInit args)
@@ -573,6 +611,8 @@ public sealed class ModSuitSystem : EntitySystem
     /// </summary>
     private void OnMapInit(Entity<ModSuitComponent> modSuit, ref MapInitEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         var comp = modSuit.Comp;
 
         if (comp.Container!.Count != 0)
@@ -616,14 +656,17 @@ public sealed class ModSuitSystem : EntitySystem
             _actionsSystem.SetEntityIcon(comp.ActionEntity.Value, modSuit, action);
         _actionContainer.EnsureAction(modSuit, ref comp.ActionMenuEntity, comp.MenuAction);
 
-        int moduleNumber = 0;
         foreach (var module in modSuit.Comp.StartingModules)
         {
             var spawned = Spawn(module, modSuit.Owner.ToCoordinates());
-            var slotname = "modsuit-mod" + moduleNumber;
-            _itemSlot.TryInsert(modSuit, slotname, spawned, null, excludeUserAudio: false);
-            moduleNumber += 1;
+            if (!TryComp<ModSuitModComponent>(spawned, out var moduleComp))
+                return;
+            _container.Insert(spawned, modSuit.Comp.ModuleContainer);
+            modSuit.Comp.CurrentComplexity += moduleComp.Complexity;
+            Dirty(modSuit.Owner, modSuit.Comp);
+            Dirty(spawned, moduleComp);
         }
+        UpdateUserInterface(modSuit.Owner, modSuit.Comp);
     }
     private void OnPowercellEmpty(EntityUid uid, ModSuitComponent component, PowerCellSlotEmptyEvent args)
     {
