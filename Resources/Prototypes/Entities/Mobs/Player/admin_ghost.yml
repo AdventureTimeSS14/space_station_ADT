@@ -30,7 +30,7 @@
     prototype: Aghost
   - type: Access
     groups:
-    - AllAccess
+    - ADTOverallAccess # ADT-Tweak
     tags:
     - NuclearOperative
     - SyndicateAgent
