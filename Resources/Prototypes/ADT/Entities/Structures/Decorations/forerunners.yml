@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: ADT/Structures/Decoration/forerunners_structures\forerunners_computer.rsi
+    sprite: ADT/Structures/Decoration/forerunners_structures/forerunners_computer.rsi
     state: forerunnerscomputer
     offset: "0.0,0.5"
     drawdepth: Mobs
