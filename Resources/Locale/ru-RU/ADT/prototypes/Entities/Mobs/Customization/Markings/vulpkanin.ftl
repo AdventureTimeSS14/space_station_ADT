@@ -112,3 +112,5 @@ marking-ADTVulpkaninoldchin = Вульпканин, Скулы (2)
 marking-ADTVulpkaninoldchin-oldchin = Скулы
 marking-ADTVulpkaninold = Вульпканин, Скулы
 marking-ADTVulpkaninold-old = Скулы
+marking-ADTVulpkaninEyeGlow = Светящиеся глаза
+marking-ADTVulpkaninEyeGlow-eyesglow = Светящиеся глаза
