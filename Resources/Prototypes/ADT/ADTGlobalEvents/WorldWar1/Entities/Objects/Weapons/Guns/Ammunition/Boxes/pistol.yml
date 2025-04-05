@@ -1,0 +1,74 @@
+# Boxes
+- type: entity
+  parent: BaseItem
+  id: ADTMagazineBox9mmParabellum
+  name: ammunition box (9 mm Parabellum)
+  description: Box 9 mm Parabellum ammo
+  suffix: World War I, Germany
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgePistol9mmParabellum
+    proto: ADTCartridgePistol9mmParabellum
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/WorldWar1/Objects/Weapons/Guns/Ammunition/Boxes/9mmParabellum.rsi
+    layers:
+    - state: base
+  # - type: MagazineVisuals
+  #   magState: mag
+  #   steps: 3
+  #   zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: ADTMagazineBox9mmParabellum
+  id: ADTMagazineBox10mmGerman
+  name: ammunition box (10 mm German)
+  description: Box 10 mm German ammo
+  suffix: World War I, Germany
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgePistol10mmGerman
+    proto: ADTCartridgePistol10mmGerman
+    capacity: 30
+
+- type: entity
+  parent: ADTMagazineBox9mmParabellum
+  id: ADTMagazineBox7mmBrowning
+  name: ammunition box (7 mm Browning)
+  description: Box 7mm Browning ammo
+  suffix: World War I, France
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgePistol7mmBrowning
+    proto: ADTCartridgePistol7mmBrowning
+    capacity: 60
+
+- type: entity
+  parent: ADTMagazineBox9mmParabellum
+  id: ADTMagazineBox8mmFrench
+  name: ammunition box (8 mm French)
+  description: Box 8 mm French
+  suffix: World War I, France
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgePistol8mmFrench
+    proto: ADTCartridgePistol8mmFrench
+    capacity: 30
