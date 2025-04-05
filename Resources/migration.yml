@@ -630,3 +630,6 @@ ClothingOuterWinterCoat: ClothingOuterWinterCoatToggleable
 #ADT 2025-03-12
 SmartFridge: ADTSmartFridgeMedical
 VendingMachineSmartFridge: ADTSmartFridgeMedical
+
+# SpaceDream 2025-04-06
+PrinterDoc: null
