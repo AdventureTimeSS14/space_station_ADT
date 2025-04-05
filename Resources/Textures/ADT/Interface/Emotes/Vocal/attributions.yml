@@ -23,3 +23,10 @@
   license: "CC-BY-SA-3.0"
   copyright: "Modified from existing emote meow.png (by dootythefrooty) by Blackdutchie"
   source: "https://github.com/Blackdutchie"
+
+- files:
+  - jump.png
+  - spin.png
+  license: "CC-BY-SA-4.0"
+  copyright: "Created by Carousel for Impstation"
+  source: "https://github.com/impstation/imp-station-14"
