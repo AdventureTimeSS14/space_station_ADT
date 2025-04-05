@@ -55,7 +55,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
-    state: icon
 
 - type: entity
   parent: Bible
@@ -85,7 +84,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
-    state: icon
 
 - type: entity
   parent: Bible
@@ -115,7 +113,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/vedas.rsi
-    state: icon
 
 - type: entity
   parent: Bible
@@ -145,7 +142,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/scroll.rsi
-    state: icon
 
 - type: entity
   parent: Bible
@@ -175,7 +171,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
-    state: icon
 
 - type: entity
   parent: Bible
@@ -244,7 +239,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
-    state: icon
   - type: Paper
     contentSize: 12000
   - type: ActivatableUI
