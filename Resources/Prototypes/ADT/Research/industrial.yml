@@ -1,5 +1,5 @@
 - type: technology
-  id: Advanted Energy
+  id: AdvantedEnergy
   name: research-avanted-energy
   icon:
     sprite: ADT/Structures/Power/industrial_smes.rsi
@@ -9,6 +9,9 @@
   cost: 15000
   recipeUnlocks:
   - ADTIndustrialSMESMachineCircuitboard
+  position: 3,-2
+  requiredTech:
+  - AtmosphericTech
 
 - type: technology
   id: ADTCompactTechnologies
@@ -24,6 +27,9 @@
     - RPDAmmo
     - RCD
     - RCDAmmo
+  position: 3,-4
+  requiredTech:
+  - AdvancedToolsTechnology
 
 - type: technology
   id: ADTIndustrialMODsuit
@@ -37,9 +43,13 @@
   recipeUnlocks:
     - ADTModsuitPlateMining
     - ADTModsuitPlateEngineering
+    - ADTModsuitPlateCosmohonk
     - ADTModsuitPlateAtmospheric
   technologyPrerequisites:
     - ADTModsuitBase
+  position: 1,-2
+  requiredTech:
+  - AtmosphericTech
 
 - type: technology
   id: ADTIndustrialMODsuitMODs
@@ -59,6 +69,41 @@
     - ADTModsuitModStorage
     - ADTModsuitModMagboot
     - ADTModsuitModJetpack
+    - ADTModsuitModNightVision
     - ADTModsuitModDrill
   technologyPrerequisites:
     - ADTIndustrialMODsuit
+  position: 1,-3
+  requiredTech:
+  - ADTIndustrialMODsuit
+
+- type: technology
+  id: AdvSalvageWeapons
+  name: research-technology-salvage-weapons-adv
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutteradv.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTWeaponCutterAdv
+  position: 4,1
+  requiredTech:
+  - SalvageEquipment
+
+- type: technology
+  id: ExperimentalPKA
+  name: research-technology-experimental-pka
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 8500
+  recipeUnlocks:
+    - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
+  position: 5,1
+  requiredTech:
+  - AdvSalvageWeapons
+  # Fuck you new RnD console

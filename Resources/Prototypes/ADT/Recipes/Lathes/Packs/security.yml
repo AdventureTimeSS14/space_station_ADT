@@ -1,0 +1,34 @@
+- type: latheRecipePack
+  id: ADTMagazineStaticPack
+  recipes:
+  - ADTMagazineMagnum
+  - ADTMagazineMagnumEmpty
+
+- type: latheRecipePack
+  id: ADTMagazineUraniumPack
+  recipes:
+  - ADTMagazineMagnumIncendiary
+  - ADTMagazineMagnumUranium
+
+- type: latheRecipePack
+  id: ADTAttachmentPack
+  recipes:
+  - ADTAttachmentVerticalGripRecipe
+  - ADTAttachmentLaserSightRecipe
+  - ADTAttachmentReflexSightRecipe
+  - ADTAttachmentT2MiniscopeRecipe
+  - ADTAttachmentM90UnderbarrelShotgunRecipe
+  - ADTAttachmentM90GrenadeLauncherRecipe
+
+- type: latheRecipePack
+  id: ADT40mmGrenadePack
+  recipes:
+  - ADT40mmGrenadeBatonRecipe
+  - ADT40mmGrenadeEMPRecipe
+  - ADT40mmGrenadeFlashRecipe
+  - ADT40mmGrenadeSmokeRecipe
+
+- type: latheRecipePack
+  id: ADTWeaponExperimentalPKAPack
+  recipes:
+  - ADTWeaponExperimentalProtoKineticAcelleratorRecipe

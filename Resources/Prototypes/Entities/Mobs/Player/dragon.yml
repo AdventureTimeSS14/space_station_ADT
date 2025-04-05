@@ -169,10 +169,12 @@
   - type: Puller
     needsHands: false
 # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
-    channel: CarpCollectiveMind
-    showRank: true
+  - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      CarpCollectiveMind: Speak
 # ADT-CollectiveMind-Tweak-End
 
 - type: entity

@@ -91,7 +91,7 @@
   parent: BikeHorn
   id: GoldenBikeHorn
   name: golden honker
-  suffix: No mapping
+  # categories: [ DoNotMap ] #ADT_Tweak - категория убрана, так как ломает тесты
   description: A happy honk prize, pray to the gods for your reward.
   components:
   - type: Sprite

@@ -19,6 +19,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Chat;
 
 namespace Content.Server.Body.Systems;
 

@@ -35,10 +35,22 @@
   id: ADTSteelSheet
 
 - type: Tag
-  id: ADTCartridgeBibis
+  id: ADTCartridgeBibis # Обычне
 
 - type: Tag
-  id: ADTMagazineRifleBibis
+  id: ADTCartridgeBibisSoft # Мягкие
+
+- type: Tag
+  id: ADTCartridgeBibisReinforced # Твёрдые
+
+- type: Tag
+  id: ADTMagazineRifleBibis # Магазин обычный
+
+- type: Tag
+  id: ADTMagazineRifleBibisSoft # Магазин мягкий
+
+- type: Tag
+  id: ADTMagazineRifleBibisSoftBig # Магазин пулемёта
 
 - type: Tag
   id: ADTBorgUse
@@ -449,6 +461,12 @@
   id: ADTCatEmotes
 
 - type: Tag
+  id: ADTVoxEmotes
+
+- type: Tag
+  id: ADTSlimeEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag
@@ -517,3 +535,26 @@
 - type: Tag
   id: ADTIgnoreChokeSpeechBlocking
 
+- type: Tag
+  id: ADTMiningGuestShuttle
+
+- type: Tag
+  id: ADTMiningShuttle
+
+- type: Tag
+  id: DockMiningGuest
+
+- type: Tag
+  id: ADTMinerArmor
+
+- type: Tag
+  id: ADTBsoWeapon
+
+- type: Tag
+  id: ADTBatonBlocker
+
+- type: Tag
+  id: ADTCartridgeMagnumLesser
+
+- type: Tag
+  id: ADTSpeedLoaderMagnumLesser

@@ -1,8 +1,6 @@
 - type: vendingMachineInventory
   id: GoodCleanFunInventory
   startingInventory:
-    ADTBoxValentineWhite: 5 # ADT Tweak
-    ADTBoxValentineRed: 5  # ADT Tweak
     DiceBag: 6
     Paper: 8
     d6Dice: 8
@@ -23,3 +21,7 @@
     ADTFunCardsBoxFull54: 3 # ADT playng card
     ADTFunCardsBoxFull36: 3 # ADT playng card
     ADTFunPokerBox: 3 # ADT playng card
+  contrabandInventory:
+    Basketball: 1
+    FoodSnackBoritos: 3
+    DrinkSpaceMountainWindCan: 3

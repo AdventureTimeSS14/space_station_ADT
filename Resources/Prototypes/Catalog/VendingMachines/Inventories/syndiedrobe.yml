@@ -15,7 +15,16 @@
     ClothingNeckScarfStripedSyndieGreen: 2
     ClothingNeckScarfStripedSyndieRed: 2
     ClothingShoesBootsWinterSyndicate: 2
-    
+    ADTClothingUnderwearSocksSyndieGreen: 2 #ADT-Tweak
+    ADTClothingUnderwearSocksSyndieRed: 2 #ADT-Tweak 
+    ADTClothingUnderwearSocksKneeSyndieGreen: 2 #ADT-Tweak
+    ADTClothingUnderwearSocksKneeSyndieRed: 2 #ADT-Tweak
+    ADTClothingUnderwearSocksThighSyndieGreen: 2 #ADT-Tweak
+    ADTClothingUnderwearSocksThighSyndieRed: 2 #ADT-Tweak
+  contrabandInventory:
+    ToyFigurineFootsoldier: 1
+    ToyFigurineNukieElite: 1
+    ToyFigurineNukieCommander: 1
   emaggedInventory:
     ClothingOuterCoatSyndieCapArmored: 1
     ClothingOuterWinterSyndieCapArmored: 1

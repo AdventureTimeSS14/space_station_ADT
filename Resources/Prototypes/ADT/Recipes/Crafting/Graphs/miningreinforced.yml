@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: ADTReinforcedMinerArmor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTReinforcedMinerArmor
+      steps:
+      - tag: ADTMinerArmor
+        icon:
+          sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
+          state: icon
+        name: miner armor
+        doAfter: 6
+      - material: GoliathHide
+        amount: 6
+        doAfter: 6
+  - node: ADTReinforcedMinerArmor
+    entity: ADTClothingOuterArmorMinerReinforced

@@ -301,6 +301,7 @@
     - !type:GroupSelector
       weight: 2
       children:
+      - id: Binoculars
       - id: LanternFlash
       - id: PowerCellHigh
       - id: NetProbeCartridge
@@ -365,6 +366,7 @@
         - id: Brutepack1
         - id: Ointment1
         - id: Gauze1
+      - id: ADTGoldBaseBallBat #ADT tweak
       - id: Bola
       - id: SurvivalKnife
       - id: ScalpelShiv

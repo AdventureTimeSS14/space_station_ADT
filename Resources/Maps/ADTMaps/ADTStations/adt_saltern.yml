@@ -4140,18 +4140,6 @@ entities:
     - type: Transform
       pos: -21.5,-4.5
       parent: 2
-- proto: ADTVendingMachineLoveVend
-  entities:
-  - uid: 4276
-    components:
-    - type: Transform
-      pos: -28.5,-7.5
-      parent: 2
-  - uid: 8171
-    components:
-    - type: Transform
-      pos: -38.5,-1.5
-      parent: 2
 - proto: ADTVendingMachineParaDrobe
   entities:
   - uid: 105
@@ -26390,6 +26378,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -28.5,17.5
+      parent: 2
+  - uid: 4276
+    components:
+    - type: Transform
+      pos: -28.5,-7.5
       parent: 2
   - uid: 4277
     components:
@@ -52537,6 +52530,14 @@ entities:
     components:
     - type: Transform
       pos: 2.5,27.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        stash: !type:ContainerSlot {}
+  - uid: 8171
+    components:
+    - type: Transform
+      pos: -38.5,-1.5
       parent: 2
     - type: ContainerContainer
       containers:

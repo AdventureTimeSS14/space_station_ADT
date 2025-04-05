@@ -6,7 +6,7 @@
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits
   dollPrototype: MobVoxDummy
-  skinColoration: VoxFeathers
+  skinColoration: Hues #ADT_Tweak
   defaultSkinTone: "#6c741d"
   maleFirstNames: names_vox
   femaleFirstNames: names_vox
@@ -24,6 +24,10 @@
   - VoxPidgin
   uniqueLanguages:
   - VoxPidgin
+  minAge: 20
+  maxAge: 60
+  oldAge: 45
+  youngAge: 25
   # ADT end
 
 - type: speciesBaseSprites
@@ -71,8 +75,13 @@
       required: true
       defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
     Chest:
-      points: 1
+      points: 2 #ADT_Tweak
       required: false
+  # ADT-Start
+    Overlay: # imp
+      points: 4
+      required: false
+  # ADT-End
     Tail:
       points: 1
       required: true

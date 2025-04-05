@@ -85,11 +85,11 @@
         - HypopenBox
         - GatfruitSeeds
         - EnergyDagger
-        - SupermatterGrenade
+        - SingularityGrenade
         - WhiteholeGrenade
         - HotPotato
         - WeaponSniperMosin
-        - SpeedLoaderMagnumAP
+        - ADTSpeedLoaderMagnumLesserAP # ADT tweak
       rareChance: 0.2
       prototypes:
         - CigPackSyndicate

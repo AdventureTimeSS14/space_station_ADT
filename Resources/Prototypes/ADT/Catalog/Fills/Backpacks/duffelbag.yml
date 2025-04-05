@@ -121,7 +121,8 @@
       - id: ClothingHeadHatCatEars
       - id: ClothingUniformJumpskirtElegantMaid
       - id: ClothingUnderSocksCoder
-      - id: SirenaChokerWithHeart
+      - id: ADTChokerWithHeart
+      - id: ADTClothingHandsCatPawsBlackCombat # ADT Tweak
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -249,3 +250,49 @@
       - id: ADTAttachmentLaserSight
       - id: ADTAttachmentReflexSight
       - id: ADTAttachmentT2Miniscope
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndieMod
+  name: Syndicate MOD bundle
+  description: MODules and MOD.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTModsuitModAntigrav
+      - id: ADTModsuitModApparatus
+      - id: ADTModsuitModDrill
+      - id: ADTModsuitModMagboot
+      - id: ADTModsuitModNightVision
+      - id: ADTModsuitModStun
+      - id: ADTModsuitModNoslip
+      - id: ADTModsuitModPowerKick
+      - id: ADTModsuitModSechud
+      - id: ADTModsuitModTray
+      - id: ADTModsuitModIsulation
+      - id: ADTModsuitModJump
+      - id: ADTModsuitModOrebag
+      - id: ADTModsuitModRadiationProtection
+      - id: ADTModsuitModStorage
+      - id: ADTModsuitModWelding
+      - id: ADTModsuitModLight
+      - id: ADTModsuitModJetpack
+      - id: ADTModsuitModDnaLock
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ADTClothingBackpackDuffelSyndicateCascade
+  name: syndicate cascade duffel bag
+  description: write here something yeee cool again i think.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTUsedPlutoniumCore
+      - id: ADTHyperNobliumTankFilled
+      - id: Screwdriver
+      - id: Screwdriver
+      - id: PillCanisterPotassiumIodide
+      - id: LargeBeaker
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingOuterCoatLab
+      - id: GeigerCounter

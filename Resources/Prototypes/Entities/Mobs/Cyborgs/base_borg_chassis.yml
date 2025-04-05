@@ -169,7 +169,10 @@
     languages:
       GalacticCommon: Speak
       BorgTalk: Speak
+      SiliconCollectiveMind: Speak
       RobotTalk: Understand
+  - type: CollectiveMindRank
+    rankName: collective-mind-borg-rank
 # End ADT Tweak
   - type: UnblockableSpeech
   - type: Construction
@@ -180,7 +183,6 @@
     - cell_slot
   - type: Lock
     locked: true
-    breakOnEmag: false
     unlockOnClick: false
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
@@ -251,12 +253,6 @@
     - ADTSiliconStealthWhitelist  # ADT tweak
     - ADTSiliconEmotes            # ADT tweak
   - type: Emoting
-  # ADT-CollectiveMind-Tweak-Start
-  - type: CollectiveMind
-    channel: Binary
-    showRank: true
-    rankName: collective-mind-borg-rank
-  # ADT-CollectiveMind-Tweak-End
   - type: GuideHelp
     guides:
     - Cyborgs
@@ -351,6 +347,8 @@
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate

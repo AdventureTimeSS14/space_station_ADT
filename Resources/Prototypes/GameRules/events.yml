@@ -80,7 +80,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Corvax/Announcements/flux.ogg # Corvax-Announcements
+      path: /Audio/ADT/Announcements/spanomalies.ogg # ADT Tweak
       params:
         volume: -4
     weight: 8
@@ -293,19 +293,26 @@
 
 - type: entity
   id: PowerGridCheck
-  parent: BaseStationEventShortDelay
+  parent: BaseStationEvent  # ADT Tweaked
   components:
   - type: StationEvent
     weight: 5
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-      params:
-        volume: -4
     duration: 60
     maxDuration: 120
+    # ADT Start
+    startAudio:
+      # path: /Audio/Announcements/power_off.ogg
+      # params:
+      #   volume: -4
+      collection: ADTPowerOff
   - type: PowerGridCheckRule
+    endSound:
+      collection: ADTPowerOn
+  - type: GameRule
+    delay: null
+    # ADT End
 
 - type: entity
   parent: BaseGameRule
@@ -490,7 +497,7 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection

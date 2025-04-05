@@ -141,6 +141,17 @@
     node: cloth
   - type: Item
     heldPrefix: cloth
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/cloth_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/cloth_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/cloth_drop.ogg
+  # ADT End
 
 - type: entity
   parent: MaterialCloth
@@ -258,6 +269,17 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 10
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/wood_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/wood_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/wood_drop.ogg
+  # ADT End
 
 - type: entity
   parent: MaterialWoodPlank

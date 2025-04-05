@@ -8,7 +8,11 @@
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
   category: Sponsor
-  #sponsorOnly: true # Пока снимаем до решения проблем
+  sponsorOnly: false
+  maxAge: 50
+  oldAge: 35
+  youngAge: 20
+
 
 
 - type: markingPoints
@@ -29,11 +33,11 @@
       required: true
       defaultMarkings: [ CatEars ]
     Chest:
-      points: 2
+      points: 4
       required: false
     Legs:
-      points: 4
+      points: 8
       required: false
     Arms:
-      points: 4
+      points: 8
       required: false

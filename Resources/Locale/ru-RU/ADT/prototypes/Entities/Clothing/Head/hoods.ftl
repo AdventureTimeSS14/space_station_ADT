@@ -14,3 +14,6 @@ ent-ADTClothingHeadHatHoodRedhat = капюшон красной шапочки
 
 ent-ADTClothingHeadHelmetMiner = шахтёрский каплюшон
     .desc = Пропитан отчаянием и безнадежностью.
+
+ent-ADTClothingHeadHelmetMinerReinforced = пластинчатый капюшон исследователя 
+    .desc = Такой же безумный способ укрыть голову от опасностей, как и рассудок придумавшего это.

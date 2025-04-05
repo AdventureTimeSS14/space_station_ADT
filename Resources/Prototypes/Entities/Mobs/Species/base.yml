@@ -20,11 +20,11 @@
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     # ADT tweak start
-    - map: [ "underwearb" ] #Sirena
-    - map: [ "underweart" ] #Sirena
+    - map: [ "underwearb" ]
+    - map: [ "underweart" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "socks" ] #Sirena
+    - map: [ "socks" ]
     - map: ["jumpsuit"]
     # ADT tweak start
     - map: ["enum.HumanoidVisualLayers.LHand"]
@@ -244,6 +244,7 @@
   abstract: true
   components:
   - type: OfferItem # ADT-Tweak
+  - type: RadiationPopup # ADT-Tweak
   - type: Barotrauma
     damage:
       types:
@@ -332,11 +333,11 @@
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     # ADT tweak start
-    - map: [ "underwearb" ] #Sirena
-    - map: [ "underweart" ] #Sirena
+    - map: [ "underwearb" ]
+    - map: [ "underweart" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "socks" ] #Sirena
+    - map: [ "socks" ]
     - map: ["jumpsuit"]
     # ADT tweak start
     - map: ["enum.HumanoidVisualLayers.LHand"]

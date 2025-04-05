@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: ADTWCross
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTWoodCompCross
+      steps:
+      - material: WoodPlank
+        amount: 1
+        doAfter: 1
+  - node: ADTWoodCompCross
+    entity: ADTWoodCross

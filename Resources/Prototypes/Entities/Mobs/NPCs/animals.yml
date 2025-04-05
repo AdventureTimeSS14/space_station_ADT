@@ -239,6 +239,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExamineableHunger
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -676,6 +677,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExamineableHunger
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -837,10 +839,19 @@
         reagents:
         - ReagentId: Milk
           Quantity: 30
+    # ADT Start
+  - type: SolutionRegeneration
+    solution: udder
+    generated:
+      reagents:
+      - ReagentId: Milk
+        Quantity: 0.25
+    # ADT End
   - type: Udder
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
+  - type: ExamineableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -993,10 +1004,19 @@
           Quantity: 30
       wool:
         maxVol: 250
+    # ADT Start
+  - type: SolutionRegeneration
+    solution: udder
+    generated:
+      reagents:
+      - ReagentId: MilkGoat
+        Quantity: 0.25
+    # ADT End
   - type: Udder
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
+  - type: ExamineableHunger
   - type: Wooly
   - type: Food
     solution: wool

@@ -8,6 +8,8 @@
     ClothingShoesJester: 2
     ClothingOuterWinterClown: 1
     ClothingOuterWinterMime: 1
+    ADTClothingOuterClothingBox: 2 #ADT tweak
+    ADTClothingOuterWinterLongMime: 1 #ADT tweak
     ClothingOuterWinterMusician: 1
     ClothingMaskJoy: 2
     ClothingHeadHatCardborg: 2
@@ -55,10 +57,14 @@
     ClothingShoesBootsCowboyBrown: 1
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
+  contrabandInventory:
+    ClothingHeadHatRichard: 1
+    ToyFigurineBoxer: 1
+    ToyFigurineMusician: 1
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
     ClothingOuterDogi: 1
-    ClothingMaskSexyClown: 1
-    ClothingMaskSexyMime: 1
+    ClothingMaskBlushingClown: 1
+    ClothingMaskBlushingMime: 1
     ClothingHeadHatCowboyBountyHunter: 1

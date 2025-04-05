@@ -1,0 +1,9 @@
+- type: latheRecipePack
+  id: ADTMedicalMiscStaticPack
+  recipes:
+  - ADTAntibioticOintment
+  - ADTSmallSyringe
+  - ADTPillCanister
+  - ADTPillPack
+  - ADTPlasticBottle
+  - ADTBaseChemistryEmptyVial

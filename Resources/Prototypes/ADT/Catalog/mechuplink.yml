@@ -1,47 +1,21 @@
-- type: storeCategory
-  id: ADTUplinkMechMechs
-  name: экзоскелеты
-  priority: 1
-
-- type: storeCategory
-  id: ADTUplinkMechWeapon
-  name: вооружение
-  priority: 2
-
-- type: storeCategory
-  id: ADTUplinkMechEquipment
-  name: снаряжение
-  priority: 3
-
-- type: storePreset
-  id: ADTStorePresetUplinkMech
-  storeName: UplinkMech
-  categories:
-  - ADTUplinkMechMechs
-  - ADTUplinkMechWeapon
-  - ADTUplinkMechEquipment
-  currencyWhitelist:
-  - Telecrystal
-
-# listings:
-
+#mech
 - type: listing
   id: UplinkMechGygax
-  name: Гигакс
-  description: Быстрый и манёвренный экзоскелет, обладает перегрузкой ножных сервоприводов, создан для быстрого выполнения целей.
+  name: uplink-syndimech-mech-gygax-name
+  description: uplink-syndimech-mech-gygax-desc
   productEntity: ADTMechDarkGygaxBattery
   cost:
-    Telecrystal: 60
+    Telecrystal: 35
   categories:
   - ADTUplinkMechMechs
 
 - type: listing
   id: UplinkMechMauler
-  name: Маулер
-  description: Тяжёлый бронированный экзоскелет, обладающий 5-ю слотами
+  name: uplink-syndimech-mech-mauler-name
+  description: uplink-syndimech-mech-mauler-desc
   productEntity: ADTMechMaulerBattery
   cost:
-    Telecrystal: 70
+    Telecrystal: 45
   categories:
   - ADTUplinkMechMechs
 
@@ -49,52 +23,52 @@
 
 - type: listing
   id: UplinkMechTeslaCannon
-  name: пушка теслы
-  description: Стреляет шариками энергии
+  name: uplink-syndimech-weapon-tesla-name
+  description: uplink-syndimech-weapon-tesla-desc
   productEntity: ADTMechGunTeslaCannon
   cost:
-    Telecrystal: 10
+    Telecrystal: 7
   categories:
   - ADTUplinkMechWeapon
 
 - type: listing
   id: UplinkMechScattershot
-  name: LBX AC 10 Залп
-  description: Тяжёлый навесной дробовик, стреляющий, очевидно дробью.
+  name: uplink-syndimech-weapon-scatter-name
+  description: uplink-syndimech-weapon-scatter-desc
   productEntity: ADTMechGunScattershot
   cost:
-    Telecrystal: 48
+    Telecrystal: 9
   categories:
   - ADTUplinkMechWeapon
 
 - type: listing
   id: UplinkMechUltraAC2
-  name: AC-2 Ультра
-  description: Тяжёлый навесной пулемёт, основа всех основ.
+  name: uplink-syndimech-weapon-ultra-name
+  description: uplink-syndimech-weapon-ultra-desc
   productEntity: ADTMechGunUltraAC2
   cost:
-    Telecrystal: 42
+    Telecrystal: 9
   categories:
   - ADTUplinkMechWeapon
 
 - type: listing
   id: UplinkMechGunMHAR21
-  name: mHAR-21 "Ma Deuce"
-  description: Поиграть захотелось? Поиграем.
+  name: uplink-syndimech-weapon-madeuce-name
+  description: uplink-syndimech-weapon-madeuce-desc
   productEntity: ADTMechGunMHAR21
   cost:
-    Telecrystal: 30
+    Telecrystal: 11
   categories:
   - ADTUplinkMechWeapon
 
 
 - type: listing
   id: UplinkMechGunSRM8
-  name: SRM-8
-  description: Навесной ракетомёт для борьбы с группами врагов.
+  name: uplink-syndimech-weapon-srm-name
+  description: uplink-syndimech-weapon-srm-desc
   productEntity: ADTMechGunSRM8
   cost:
-    Telecrystal: 34
+    Telecrystal: 12
   categories:
   - ADTUplinkMechWeapon
 
@@ -102,22 +76,63 @@
 
 - type: listing
   id: UplinkMechArmorMelee
-  name: противоударная броня меха
-  description: Частично защищает меха от ударов ближним оружием.
+  name: uplink-syndimech-equipment-armor-melee-name
+  description: uplink-syndimech-equipment-armor-melee-desc
   productEntity: MechEquipmentArmorMelee
+  cost:
+    Telecrystal: 5
+  categories:
+  - ADTUplinkMechEquipment
+
+- type: listing
+  id: UplinkMechArmorRange
+  name: uplink-syndimech-equipment-armor-range-name
+  description: uplink-syndimech-equipment-armor-range-desc
+  productEntity: MechEquipmentArmorRange
   cost:
     Telecrystal: 10
   categories:
   - ADTUplinkMechEquipment
 
-#equipment
+#ammo
+- type: listing
+  id: UplinkMechAmmoScatter
+  name: uplink-syndimech-ammo-scatter-name
+  description: uplink-syndimech-ammo-scatter-desc
+  productEntity: ADTBoxAmmoScattershot
+  cost:
+    Telecrystal: 2
+  categories:
+  - ADTUplinkMechAmmo
 
 - type: listing
-  id: UplinkMechArmorRange
-  name: противопульная броня меха
-  description: Частично защищает меха от выстрелов.
-  productEntity: MechEquipmentArmorRange
+  id: UplinkMechAmmoUltra
+  name: uplink-syndimech-ammo-ultra-name
+  description: uplink-syndimech-ammo-ultra-desc
+  productEntity: ADTBoxAmmoAC2Ultra
   cost:
-    Telecrystal: 15
+    Telecrystal: 2
   categories:
-  - ADTUplinkMechEquipment
+  - ADTUplinkMechAmmo
+
+- type: listing
+  id: UplinkMechAmmoMadeuce
+  name: uplink-syndimech-ammo-madeuce-name
+  description: uplink-syndimech-ammo-madeuce-desc
+  productEntity: ADTBoxAmmoSniper
+  cost:
+    Telecrystal: 4
+  categories:
+  - ADTUplinkMechAmmo
+
+- type: listing
+  id: UplinkMechAmmoSRM
+  name: uplink-syndimech-ammo-srm-name
+  description: uplink-syndimech-ammo-srm-desc
+  productEntity: ADTBoxAmmoGranade
+  cost:
+    Telecrystal: 5
+  categories:
+  - ADTUplinkMechAmmo
+
+

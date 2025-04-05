@@ -10,24 +10,21 @@ public sealed partial class ZaukerProductionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        var initialHyperNoblium = mixture.GetMoles(Gas.HyperNoblium);
-        if (initialHyperNoblium >= 5.0f && mixture.Temperature > 20f)
-            return ReactionResult.NoReaction;
 
         var initialHypernoblium = mixture.GetMoles(Gas.HyperNoblium);
         var initialNitrium = mixture.GetMoles(Gas.Nitrium);
 
         var temperature = mixture.Temperature;
-        var heatEfficiency = Math.Min(temperature * Atmospherics.ZaukerFormationTemperatureScale, Math.Min(initialHypernoblium * 0.01f, initialNitrium * 0.5f));
+        var heatEfficiency = Math.Min(temperature * Atmospherics.ZaukerFormationTemperatureScale, Math.Min(initialHypernoblium * 0.1f, initialNitrium * 0.2f));
 
-        if (heatEfficiency <= 0 || initialHypernoblium - heatEfficiency * 0.01f < 0 || initialNitrium - heatEfficiency * 0.5f < 0)
+        if (heatEfficiency <= 0 || initialHypernoblium - heatEfficiency * 0.1f < 0 || initialNitrium - heatEfficiency * 0.2f < 0)
             return ReactionResult.NoReaction;
 
         var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
 
-        mixture.AdjustMoles(Gas.HyperNoblium, -heatEfficiency * 0.01f);
-        mixture.AdjustMoles(Gas.Nitrium, -heatEfficiency * 0.5f);
-        mixture.AdjustMoles(Gas.Zauker, heatEfficiency * 0.5f);
+        mixture.AdjustMoles(Gas.HyperNoblium, -heatEfficiency * 0.1f);
+        mixture.AdjustMoles(Gas.Nitrium, -heatEfficiency * 5f);
+        mixture.AdjustMoles(Gas.Zauker, heatEfficiency * 6f);
 
         var energyUsed = heatEfficiency * Atmospherics.ZaukerFormationEnergy;
 

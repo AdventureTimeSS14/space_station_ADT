@@ -11,7 +11,7 @@
   # ADT underwear tweak start
   - ADTTopCap
   - ADTBottomCap
-  - ADTSocks
+  - ADTSocksCaptain
   # ADT underwear tweak end
   - Survival
   - Trinkets
@@ -32,16 +32,28 @@
   # ADT underwear tweak start
   - ADTTopHOP
   - ADTBottomHOP
-  - ADTSocks
+  - ADTSocksHOP
   # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
 # Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
 - type: roleLoadout
   id: JobStationAi
   nameDataset: NamesAI
+  canCustomizeName: true
+  # ADT SAI Custom start
+  allowedExtras:
+  - ai-screen
+  - ai-lawset
+  - ai-name
+  # ADT SAI Custom end
 
 # Civilian
 - type: roleLoadout
@@ -113,6 +125,7 @@
   - CommonBackpack
   - ChefOuterClothing
   - Glasses
+  - ADTChefPocket1 #ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -128,7 +141,7 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - LibrarianJumpsuit
-  - CommonBackpack
+  - LibrarianBackpack # ADT tweak
   - Glasses
   # ADT underwear tweak start
   - ADTTop
@@ -232,7 +245,7 @@
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksClown
   # ADT underwear tweak end
   - SurvivalClown
   - Trinkets
@@ -252,7 +265,7 @@
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksMime
   # ADT underwear tweak end
   - SurvivalMime
   - Trinkets
@@ -323,7 +336,9 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - ADTSalvageSpecialistJumpsuit #ADT Loadouts
   - SalvageSpecialistBackpack
+  - ADTSalvageSpecialistNeck #ADT Loadouts
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
@@ -496,7 +511,7 @@
   # ADT underwear tweak start
   - ADTTopHOS
   - ADTBottomHOS
-  - ADTSocks
+  - ADTSocksHOS
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets

@@ -1,5 +1,3 @@
-# Sirena
-
 - type: entity
   parent: ADTClothingUnderwearTopBase
   id: ADTClothingUnderwearTopBraWhite
@@ -203,3 +201,15 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/blueshield_bra.rsi
+
+# Майка
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopTShirt
+  name: t-shirt
+  description: Standard t-shirt.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/t_shirt.rsi
+

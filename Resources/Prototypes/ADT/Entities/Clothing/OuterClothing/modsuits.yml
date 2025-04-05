@@ -32,6 +32,10 @@
         Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.8
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -195,11 +199,11 @@
   description: A chestplate for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Modsuit/cience.rsi
+    sprite: ADT/Clothing/OuterClothing/Modsuit/science.rsi
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/OuterClothing/Modsuit/cience.rsi
+    sprite: ADT/Clothing/OuterClothing/Modsuit/science.rsi
     slots: [ OUTERCLOTHING ]
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
@@ -214,5 +218,65 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodySyndicate
+  name: syndicate MOD chestplate
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.6
+        Radiation: 0.3
+        Caustic: 0.3
+    staminaModifier: 0.45
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodySafeguard
+  name: safeguard MOD chestplate
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/hos.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/hos.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Heat: 0.6
+        Piercing: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.2

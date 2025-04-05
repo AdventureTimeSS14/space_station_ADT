@@ -164,6 +164,9 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public int MaxLanguages = 3;
+
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> ForceLanguages = new();
     // ADT end
 }
 

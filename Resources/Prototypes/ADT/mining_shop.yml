@@ -2,6 +2,8 @@
   id: Crushers
   name: Крашеры
   entries:
+  - id: WeaponCrusherDagger
+    price: 550
   - id: WeaponCrusher
     price: 750
   - id: WeaponKineticSpear
@@ -20,54 +22,96 @@
   - id: WeaponProtoKineticAccelerator
     price: 550
   - id: ADTWeaponProtoKineticPistol
-    price: 1550
+    price: 1250
   - id: ADTWeaponProtoKineticShotgun
-    price: 1500
+    price: 1850
   - id: ADTWeaponProtoKineticRepeater
     price: 1650
   - id: ADTWeaponProtoKineticRailgun
-    price: 1750
+    price: 1700
 
 - type: miningShopSection
-  id: Fulton
-  name: Фултоны
+  id: Motion
+  name: Передвижение
   entries:
   - id: FultonBeacon
     price: 600
   - id: Fulton
     price: 1150
+  - id: ADTJaunter
+    price: 900
+  - id: WeaponGrapplingGun
+    price: 750
 
 - type: miningShopSection
   id: Medicine
   name: Медицина
   entries:
+  - id: SpaceMedipen
+    price: 300
+  - id: EmergencyMedipen
+    price: 150
   - id: MedkitBruteFilled
-    price: 700
+    price: 900
   - id: MedkitBurnFilled
-    price: 600
+    price: 800
+  - id: MedkitToxinFilled
+    price: 1000
 
 - type: miningShopSection
-  id: Equipment
+  id: EquipmentWearable
   name: Снаряжение
   entries:
-  - id: ClothingBeltSalvageWebbing
-    price: 500
-  - id: ADTAdvancedOreBag
-    price: 500
-  - id: ADTWeaponCutter
-    price: 500
-  - id: ADTJaunter
-    price: 900
   - id: ADTClothingOuterArmorMiner
     price: 1000
-  - id: ClothingOuterHardsuitSalvage
+  - id: ClothingMaskGasExplorer
+    price: 250
+  - id: ClothingBeltSalvageWebbing
+    price: 500
+  - id: OreBag
+    price: 350
+  - id: ADTAdvancedOreBag
+    price: 750
+  - id: OreBagOfHolding
+    price: 3000
+  - id: ADTClothingOuterArmorMiner
+    price: 1000
+  - id: ADTClothingModsuitBackMining
     price: 3000
   - id: ADTClothingOuterArmorMinerHeavy
     price: 3600
-  - id: ClothingOuterArmorMinerLight
-    price: 4000
+#  - id: ADTClothingOuterArmorMinerLight
+#    price: 4000
   - id: ADTClothingJumpBoots
     price: 2500
+
+
+- type: miningShopSection
+  id: EquipmentHand
+  name: Инвентарь
+  entries:
+  - id: Flare
+    price: 75
+  - id: Pickaxe
+    price: 150
+  - id: MiningDrill
+    price: 400
+  - id: SeismicCharge
+    price: 250
+  - id: FireExtinguisherMini
+    price: 250
+  - id: ADTWeaponCutter
+    price: 1000
+  - id: ADTShelterCapsule
+    price: 400
+  - id: PowerCellHigh
+    price: 650
+  - id: Binoculars
+    price: 450
+  - id: ADTShelterCapsuleLuxury
+    price: 3000
+  - id: ADTShelterCapsuleBar
+    price: 10000
 
 - type: miningShopSection
   id: Upgrades
@@ -82,3 +126,23 @@
   - id: PKAUpgradeLight
     price: 500
 
+- type: miningShopSection
+  id: Fun
+  name: Безделушки
+  entries: 
+  - id: PlushieLizard
+    price: 220 # CURSE
+  - id: SpaceCash5000
+    price: 2000
+  - id: DrinkWhiskeyBottleFull
+    price: 100
+  - id: DrinkAbsintheBottleFull
+    price: 150
+  - id: BoxMRE
+    price: 250
+  - id: ADTFunPokerBox
+    price: 500
+  - id: ChessBoard
+    price: 400
+  - id: CheckerBoard
+    price: 400

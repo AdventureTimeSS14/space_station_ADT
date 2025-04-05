@@ -2,7 +2,7 @@
   id: HumanBeardBeardchin
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardchin
@@ -11,7 +11,7 @@
   id: HumanBeardBeardlong
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardlong
@@ -20,7 +20,7 @@
   id: HumanBeardBeardshort
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardshort
@@ -29,7 +29,7 @@
   id: HumanBeardBeardthick
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardthick
@@ -38,7 +38,7 @@
   id: HumanBeardBeardviking
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardviking
@@ -47,7 +47,7 @@
   id: HumanBeardBristle
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-bristle
@@ -56,7 +56,7 @@
   id: HumanBeardMustachewithstubble
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-mustachewithstubble
@@ -65,7 +65,7 @@
   id: HumanBeardThickbristle
   bodyPart: FacialHair
   markingCategory: FacialHair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: beard-thickbristle
@@ -74,7 +74,7 @@
   id: HumanHairArabicgatheredhair
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-arabicgatheredhair
@@ -83,7 +83,7 @@
   id: HumanHairClassichairmale
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-classichairmale
@@ -92,7 +92,7 @@
   id: HumanHairCombedfromside
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-combedfromside
@@ -101,7 +101,7 @@
   id: HumanHairLonghair
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-longhair
@@ -110,7 +110,7 @@
   id: HumanHairManbunold
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-manbunold
@@ -119,7 +119,7 @@
   id: HumanHairPigtailtajaran
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-pigtailtajaran
@@ -128,7 +128,7 @@
   id: HumanHairShavedside
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shavedside
@@ -137,7 +137,7 @@
   id: HumanHairShorthaired
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-shorthaired
@@ -146,7 +146,7 @@
   id: HumanWomenbun
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: hair-womenbun
@@ -155,7 +155,7 @@
   id: HumanForeheadBindi
   bodyPart: Head
   markingCategory: Snout
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: forehead-Bindi
@@ -164,7 +164,7 @@
   id: HumanForeheadFathereyebrows
   bodyPart: Head
   markingCategory: Snout
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: forehead-fathereyebrows
@@ -173,7 +173,7 @@
   id: HumanPiercingBrowL
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_brow_l
@@ -182,10 +182,37 @@
   id: HumanPiercingBrowR
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_brow_r
+
+- type: marking
+  id: ADTHumanHairGatheredlow
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
+      state: gatheredlow
+
+- type: marking
+  id: ADTHumanHairLowpigtails
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
+      state: lowpigtails
+
+- type: marking
+  id: ADTHumanHairFrenchBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
+      state: frenchbraid
 
 # Я не захотел создавать отдельный файл для двух ушек. Чмок.
 
@@ -193,7 +220,7 @@
   id: ADTHumanElfEars
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/elf.rsi
     state: elf_ears
@@ -202,7 +229,7 @@
   id: ADTHumanElfEars2
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/elf.rsi
     state: elf_ears2

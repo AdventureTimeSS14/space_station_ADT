@@ -12,6 +12,9 @@
   - type: Construction
     graph: ADTFootWrapsWhite
     node: WrapsWhite
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -24,6 +27,9 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/black_footwraps.rsi #спрайты от floppo4ka
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -36,6 +42,9 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/blackhigh_footwraps.rsi #спрайты от floppo4ka
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -48,6 +57,9 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/whitehigh_footwraps.rsi #спрайты от floppo4ka
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -60,6 +72,9 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/brown_footwraps.rsi #спрайты от floppo4ka
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -72,3 +87,6 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/brownhigh_footwraps.rsi #спрайты от floppo4ka
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard

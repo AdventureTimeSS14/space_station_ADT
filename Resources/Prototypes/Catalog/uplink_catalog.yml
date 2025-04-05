@@ -19,11 +19,11 @@
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2
   cost:
-    Telecrystal: 8 # Originally was 13 TC but was not used due to high cost
+    Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
   categories:
   - UplinkWeaponry
 
@@ -270,10 +270,10 @@
     - UplinkExplosives
 
 - type: listing
-  id: UplinkSupermatterGrenade
-  name: uplink-supermatter-grenade-name
-  description: uplink-supermatter-grenade-desc
-  productEntity: SupermatterGrenade
+  id: UplinkSingularityGrenade
+  name: uplink-singularity-grenade-name
+  description: uplink-singularity-grenade-desc
+  productEntity: SingularityGrenade
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 3
@@ -510,7 +510,7 @@
   name: uplink-speedloader-magnum-name
   description: uplink-speedloader-magnu-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
-  productEntity: SpeedLoaderMagnumAP
+  productEntity: ADTSpeedLoaderMagnumLesserAP # ADT tweak
   cost:
     Telecrystal: 3
   categories:
@@ -873,15 +873,28 @@
 # Disruption
 
 - type: listing
+  id: UplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
-  discountCategory: veryRareDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4 # ADT-Tweak 5>4
+    Telecrystal: 2 # ADT-Tweak
   cost:
-    Telecrystal: 6 # ADT-Tweak 8>6
+    Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkDisruption
 
@@ -1336,6 +1349,20 @@
     - UplinkImplants
 
 - type: listing
+  id: UplinkRadioImplanter
+  name: uplink-radio-implanter-name
+  description: uplink-radio-implanter-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: RadioImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
   id: UplinkMicroBombImplanter
   name: uplink-micro-bomb-implanter-name
   description: uplink-micro-bomb-implanter-desc
@@ -1428,6 +1455,20 @@
       blacklist:
         components:
           - SurplusBundle
+
+- type: listing
+  id: UplinkFakeMindshield
+  name: uplink-fake-mindshield-name
+  description: uplink-fake-mindshield-desc
+  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkImplants
+
 
 # Wearables
 
@@ -1571,19 +1612,21 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkHardsuitSyndie
-  name: uplink-hardsuit-syndie-name
-  description: uplink-hardsuit-syndie-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 4
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkWearables
+#ADT tweak start
+# - type: listing
+  # id: UplinkHardsuitSyndie
+  # name: uplink-hardsuit-syndie-name
+  # description: uplink-hardsuit-syndie-desc
+  # icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
+  # productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
+  # discountCategory: veryRareDiscounts
+  # discountDownTo:
+  #   Telecrystal: 4
+  # cost:
+  #   Telecrystal: 8
+  # categories:
+  # - UplinkWearables
+#ADT tweak end
 
 - type: listing
   id: UplinkClothingOuterArmorRaid
@@ -1929,11 +1972,11 @@
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4 # ADT-Tweak 5>4
+    Telecrystal: 4 # ADT-Tweak
   cost:
-    Telecrystal: 8 # ADT-Tweak 9>8
+    Telecrystal: 8 # ADT-Tweak
   categories:
   - UplinkJob
   conditions:
@@ -2102,8 +2145,11 @@
   description: uplink-combat-bakery-desc
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
-    Telecrystal: 4 # ADT-Tweak 6>4
+    Telecrystal: 4 # ADT-Tweak
   categories:
   - UplinkJob
   conditions:

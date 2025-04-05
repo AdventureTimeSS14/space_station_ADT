@@ -120,6 +120,40 @@
     FoodWatermelonSlice: 1
 
 - type: microwaveMealRecipe
+  id: ADTDrinkTeaMicWatermelon
+  name: WatermelonTeaMicrowave
+  result: ADTDrinkWatermelonTeaGlass
+  time: 10
+  reagents:
+    ADTWatermelonpackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaMicOrange
+  name: OrangeTeaMicrowave
+  result: ADTDrinkOrangeTeaGlass
+  time: 10
+  reagents:
+    ADTOrangepackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+
+- type: microwaveMealRecipe
+  id: ADTDrinkTeaMicCherry
+  name: CherryTeaMicrowave
+  result: ADTDrinkCherryTeaGlass
+  time: 10
+  reagents:
+    ADTCherrypackReg: 5
+    Water: 25
+  solids:
+    DrinkGlass: 1
+
+
+- type: microwaveMealRecipe
   id: ADTFoodMeatSalami
   name: salami recipe
   result: FoodMeatSalami

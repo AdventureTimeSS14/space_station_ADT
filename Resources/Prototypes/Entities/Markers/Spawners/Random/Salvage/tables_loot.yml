@@ -222,6 +222,7 @@
   id: SalvageEquipmentRare
   table: !type:GroupSelector
     children:
+    - id: BlueprintDoubleEmergencyTank
     - id: FultonBeacon
     - id: Fulton
       amount: !type:RangeNumberSelector
@@ -249,7 +250,7 @@
     - id: BlueprintFulton
     - id: BlueprintSeismicCharge
     - id: WeaponCrusherGlaive
-    - id: ClothingOuterHardsuitSalvage
+    - id: ADTClothingModsuitBackMining #ADT tweak
     - id: OmnizineChemistryBottle
     - !type:GroupSelector
       children:
