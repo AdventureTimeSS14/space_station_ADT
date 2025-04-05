@@ -153,7 +153,7 @@
 
 - type: marking
   id: ADTVulpkaninEyeGlow
-  bodyPart: LLeg
+  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [VulpkaninSpecies]
   sprites:
