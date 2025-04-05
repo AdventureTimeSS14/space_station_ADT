@@ -107,9 +107,6 @@ public sealed partial class MeleeWeaponComponent : Component
     public EntProtoId Animation = "WeaponArcPunch";
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public EntProtoId DisarmAnimation = "WeaponArcDisarm";
-
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
 
     // ADT tweak
@@ -166,6 +163,9 @@ public sealed partial class MeleeWeaponComponent : Component
     // ADT Disarm tweak start
     [AutoNetworkedField]
     public TimeSpan LastDisarm = TimeSpan.Zero;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public EntProtoId DisarmAnimation = "WeaponArcDisarm";
 
     public EntityUid? CurrentlyDisarming;
 
