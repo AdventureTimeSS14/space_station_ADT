@@ -79,14 +79,3 @@
     children:
       - !type:NestedSelector
         tableId: BasicFishingLootTable
-
-- type: entityTable
-  id: ToiletFishingLootTable
-  table: !type:GroupSelector
-    children:
-      - !type:NestedSelector
-        tableId: BasicFishingLootTable
-        weight: 80
-      - !type:NestedSelector
-        tableId: WaterFishTable
-        weight: 20
