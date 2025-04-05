@@ -11,7 +11,7 @@ comp-crew-medal-round-end-list =
     {"  "}{$reason}
 # UI
 crew-medal-ui-header = Настройка медали
-crew-medal-ui-reason = Причина награждения:
+crew-medal-ui-reason = Награждается за:
 crew-medal-ui-character-limit = {$number}/{$max}
 crew-medal-ui-info = После вручения медали причина награждения не может быть изменена.
 crew-medal-ui-save = Сохранить
