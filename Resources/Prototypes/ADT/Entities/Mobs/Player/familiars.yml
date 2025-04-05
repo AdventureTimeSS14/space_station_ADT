@@ -1,0 +1,274 @@
+- type: entity
+  name: rafael
+  parent: ADTMobPigeon
+  id: ADTMobPigeonRafael
+  description: The chaplain's familiar. Likes Bread.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rafael-name
+    description: ghost-role-information-rafael-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+
+- type: entity
+  name: rahima
+  parent: MobGoat
+  id: ADTMobGoatRahima
+  description: The chaplain's familiar. Likes oast.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rahima-name
+    description: ghost-role-information-rahima-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+
+- type: entity
+  name: ragha
+  parent: MobMonkey
+  id: ADTMobMonkeyRagha
+  description: The chaplain's familiar. Likes oast.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ragha-name
+    description: ghost-role-information-ragha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      100: Dead
+
+- type: entity
+  name: ratha
+  parent: ADTModTurtle
+  id: ADTModTurtleRatha
+  description: The chaplain's familiar. Likes seaweed.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ratha-name
+    description: ghost-role-information-ratha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+
+- type: entity
+  name: rani-kha
+  parent: ADTModAntlion
+  id: ADTModAntlionRanikha
+  description: The chaplain's familiar. Likes meat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ranikha-name
+    description: ghost-role-information-ranikha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+
+- type: entity
+  name: ronia
+  parent: ADTMobDragonPet
+  id: ADTMobDragonPetRonia
+  description: The chaplain's familiar. Likes everything to eat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ronia-name
+    description: ghost-role-information-ronia-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+
+- type: entity
+  name: ronia
+  parent: MobFox
+  id: ADTMobFoxRosie
+  description: The chaplain's familiar. Likes everything to eat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rosie-name
+    description: ghost-role-information-rosie-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: PointLight
+    enabled: true
+    radius: 2
+
+- type: entity
+  name: rebecca
+  parent: MobSloth
+  id: ADTMobSlothRebecca
+  description: The chaplain's familiar. Likes everything to eat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rebecca-name
+    description: ghost-role-information-rebecca-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 2

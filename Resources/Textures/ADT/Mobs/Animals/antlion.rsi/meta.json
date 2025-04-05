@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "size":
+  {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG git https://github.com/Baystation12/Baystation12/blob/HEAD/icons/mob/simple_animal/antlion.dmi",
+  "states":
+  [
+    {
+      "name": "antlion",
+      "directions": 4
+    },
+
+    {
+      "name": "antlion_dead",
+      "directions": 1
+    }
+  ]
+}

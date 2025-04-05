@@ -1,0 +1,16 @@
+ent-ADTMobPigeonRafael = Рафаэль
+    .desc = Фамильяр священника. Любит хлеб.
+ent-ADTMobGoatRahima = Рахима
+    .desc = Фамильяр священника. Любит пшено.
+ent-ADTMobMonkeyRagha = Рага
+    .desc = Фамильяр священника. Любит бананы.
+ent-ADTModTurtleRatha = Рата
+    .desc = Фамильяр священника. Любит водоросли.
+ent-ADTModAntlionRanikha = Рани-кха
+    .desc = Фамильяр священника. Любит мясо.
+ent-ADTMobDragonPetRonia = Рония
+    .desc = Фамильяр священника. Любит есть всё.
+ent-ADTMobSlothRebecca = Ребекка
+    .desc = Фамильяр священника. Любит растительность.
+ent-ADTMobFoxRosie = Рози
+    .desc = Фамильяр священника. Любит мясо.

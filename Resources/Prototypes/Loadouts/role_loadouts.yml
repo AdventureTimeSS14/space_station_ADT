@@ -190,6 +190,8 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  # ADT chaplain update
+  - ADTChaplainBelt
 
 - type: roleLoadout
   id: JobJanitor
