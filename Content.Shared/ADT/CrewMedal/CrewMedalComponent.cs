@@ -35,5 +35,5 @@ public sealed partial class CrewMedalComponent : Component
     /// </summary>
     [AutoNetworkedField]
     [DataField]
-    public int MaxCharacters = 50;
+    public int MaxCharacters = 75;
 }
