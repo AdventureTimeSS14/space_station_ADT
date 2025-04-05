@@ -36,9 +36,9 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   plantMetabolism:
   - !type:PlantAdjustToxins
-    amount: 40
+    amount: 20
   - !type:PlantAdjustHealth
-    amount: -20
+    amount: -10
   metabolisms:
     Poison:
       effects:

@@ -6,7 +6,7 @@
     Nitrogen:
       amount: 1
   products:
-    ADTCopperNitride: 3
+    ADTCopperNitride: 4
 
 - type: reaction
   id: ADTLiquidDarkMatter
