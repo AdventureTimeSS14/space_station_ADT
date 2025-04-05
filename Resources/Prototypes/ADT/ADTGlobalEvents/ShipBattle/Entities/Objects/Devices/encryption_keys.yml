@@ -1,0 +1,235 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ADTShipBattleEncryptionKey
+  name: encryption key
+  description: A small cypher chip for headsets.
+  components:
+  - type: EncryptionKey
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_gray
+    - state: tsf_common_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyCommonTSF
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioCommonTSF
+    defaultChannel: ADTShipBattleRadioCommonTSF
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: tsf_common_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyCommandTSF
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioCommandTSF
+    defaultChannel: ADTShipBattleRadioCommandTSF
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: tsf_common_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyGunnerTSF
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioGunnerTSF
+    defaultChannel: ADTShipBattleRadioGunnerTSF
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: tsf_gunner_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyMarineTSF
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioMarineTSF
+    defaultChannel: ADTShipBattleRadioMarineTSF
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: tsf_marine_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyMedEngiTSF
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioMedEngiTSF
+    defaultChannel: ADTShipBattleRadioMedEngiTSF
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: tsf_medengi_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyPilotTSF
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioPilotTSF
+    defaultChannel: ADTShipBattleRadioPilotTSF
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: tsf_pilot_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeySuperTSF
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioCommonTSF
+    - ADTShipBattleRadioCommandTSF
+    - ADTShipBattleRadioGunnerTSF
+    - ADTShipBattleRadioMarineTSF
+    - ADTShipBattleRadioMedEngiTSF
+    - ADTShipBattleRadioPilotTSF
+    defaultChannel: ADTShipBattleRadioCommonTSF
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: tsf_super_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyCommonKMT
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioCommonKMT
+    defaultChannel: ADTShipBattleRadioCommonKMT
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: kmt_common_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyCommandKMT
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioCommandKMT
+    defaultChannel: ADTShipBattleRadioCommandKMT
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: kmt_common_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyGunnerKMT
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioGunnerKMT
+    defaultChannel: ADTShipBattleRadioGunnerKMT
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: kmt_gunner_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyMarineKMT
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioMarineKMT
+    defaultChannel: ADTShipBattleRadioMarineKMT
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: kmt_marine_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyMedEngiKMT
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioMedEngiKMT
+    defaultChannel: ADTShipBattleRadioMedEngiKMT
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: kmt_medengi_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeyPilotKMT
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioPilotKMT
+    defaultChannel: ADTShipBattleRadioPilotKMT
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: kmt_pilot_label
+
+- type: entity
+  parent: ADTShipBattleEncryptionKey
+  id: ADTShipBattleEncryptionKeySuperKMT
+  name: common encryption key
+  description: An encryption key used by anyone.
+  components:
+  - type: EncryptionKey
+    channels:
+    - ADTShipBattleRadioCommonKMT
+    - ADTShipBattleRadioCommandKMT
+    - ADTShipBattleRadioGunnerKMT
+    - ADTShipBattleRadioMarineKMT
+    - ADTShipBattleRadioMedEngiKMT
+    - ADTShipBattleRadioPilotKMT
+    defaultChannel: ADTShipBattleRadioCommonKMT
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: kmt_super_label
