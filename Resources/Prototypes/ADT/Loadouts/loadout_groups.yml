@@ -498,6 +498,7 @@
   - ADTChaplainVedas
   - ADTChaplainTajaran
   - ADTChaplainUnathi
+  - ADTChaplainMoth
   - ADTChaplainLeatherCodex
 
 - type: loadoutGroup
@@ -517,13 +518,13 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTNeckSalvageSpecialistCCape 
+  - ADTNeckSalvageSpecialistCCape
   - ADTNeckSalvageSpecialistSCape
-  - ADTNeckSalvageSpecialistGCape 
-  - ADTNeckSalvageSpecialistPCape 
-  - ADTNeckSalvageSpecialistECape 
-  - ADTNeckSalvageSpecialistDCape 
-  - ADTNeckSalvageSpecialistRCape 
+  - ADTNeckSalvageSpecialistGCape
+  - ADTNeckSalvageSpecialistPCape
+  - ADTNeckSalvageSpecialistECape
+  - ADTNeckSalvageSpecialistDCape
+  - ADTNeckSalvageSpecialistRCape
 
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.

@@ -202,6 +202,42 @@
   - type: Familiar
 
 - type: entity
+  name: ronia
+  parent: MobFox
+  id: ADTMobFoxRosie
+  description: The chaplain's familiar. Likes everything to eat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rosie-name
+    description: ghost-role-information-rosie-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: PointLight
+    enabled: true
+    radius: 2
+
+- type: entity
   name: rebecca
   parent: MobSloth
   id: ADTMobSlothRebecca

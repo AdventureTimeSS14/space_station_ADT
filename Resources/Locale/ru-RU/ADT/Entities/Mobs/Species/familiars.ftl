@@ -12,3 +12,5 @@ ent-ADTMobDragonPetRonia = Рония
     .desc = Фамильяр священника. Любит есть всё.
 ent-ADTMobSlothRebecca = Ребекка
     .desc = Фамильяр священника. Любит растительность.
+ent-ADTMobFoxRosie = Рози
+    .desc = Фамильяр священника. Любит мясо.

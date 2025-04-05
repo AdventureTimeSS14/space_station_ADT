@@ -94,3 +94,8 @@
   id: ADTChaplainLeatherCodex
   equipment:
     belt: ADTBibleLeatherCodex
+
+- type: loadout
+  id: ADTChaplainMoth
+  equipment:
+    belt: ADTBibleMoth

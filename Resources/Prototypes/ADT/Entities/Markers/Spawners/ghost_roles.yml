@@ -188,3 +188,22 @@
       - state: green
       - sprite: Mobs/Pets/sloth.rsi
         state: sloth
+
+- type: entity
+  id: ADTSpawnPointGhostRosie
+  name: ghost role spawn point
+  suffix: rosie
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-rosie-name
+    description: ghost-role-information-rosie-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobFoxRosie
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Pets/fox.rsi
+        state: fox
