@@ -422,6 +422,9 @@
   - type: SliceableFood
     count: 3
     slice: ADTFoodFishCutlet
+  - type: Construction
+    graph: FishSteak
+    node: fish steak
 
 - type: entity
   name: raw fish fillet
@@ -445,7 +448,10 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 2
-
+  - type: Construction
+    graph: FishCutlet
+    node: fish cutlet
+    
 - type: entity
   name: baked chicken
   parent: FoodMeatBase
@@ -471,8 +477,8 @@
     count: 3
     slice: ADTFoodFishCutletCooked
   - type: Construction
-    graph: FishCutlet
-    node: fish cutlet
+    graph: FishSteak
+    node: fish steak
 
 - type: entity
   name: baked chicken
