@@ -6561,10 +6561,6 @@ Entries:
     id: 834
   - author: Cethet
     changes:
-      - {message: Добавлено пипи, type: Add}
-      - {message: Удалено пупу, type: Remove}
-      - {message: Изменена унга, type: Tweak}
-      - {message: Исправлена бунга, type: Fix}
       - {message: Почти все расы в игре теперь имеют свои собственные ограничения
           по возрасту, type: Tweak}
       - {message: Воксы на ролях-менторах спавнятся в масках и с баллоном, type: Fix}
@@ -6687,17 +6683,13 @@ Entries:
           все" - прокомментировал главный магистрат Серж Нормдрук.', type: Add}
     time: '2025-04-02T16:02:28Z'
     id: 848
-  - author: (Автор изменения)
+  - author: КэшРаш
     changes:
       - {message: Были изменены цены некоторым газам для поддержания своебразного
           баланса., type: Tweak}
       - {message: Сверхматерия была переименована в Суперматерию., type: Tweak}
       - {message: Не многочисленные правки в локализации., type: Tweak}
       - {message: Цель на штамм у генокрадов вновь работает, type: Fix}
-      - {message: Добавлено пипи, type: Add}
-      - {message: Удалено пупу, type: Remove}
-      - {message: Изменена унга, type: Tweak}
-      - {message: Исправлена бунга, type: Fix}
     time: '2025-04-02T16:24:08Z'
     id: 849
   - author: 'RedLis (заказчик: kultistzvezd)'
@@ -6757,10 +6749,6 @@ Entries:
     id: 857
   - author: Cethet
     changes:
-      - {message: Добавлено пипи, type: Add}
-      - {message: Удалено пупу, type: Remove}
-      - {message: Изменена унга, type: Tweak}
-      - {message: Исправлена бунга, type: Fix}
       - {message: 'НаноТрайзен разработали новое программное обеспечение для КПБ,
           с помощью которого КПБ смогут изменять изображения на своих экранах без
           сторонней помощи', type: Add}
