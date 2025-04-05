@@ -1,0 +1,7 @@
+- type: entity
+  parent: BaseMaterialDoor
+  id: ADTForerunnerDoors
+  suffix: Forerunner
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Misc/forerunners.rsi

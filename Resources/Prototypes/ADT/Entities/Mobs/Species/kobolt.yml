@@ -38,8 +38,6 @@
   - type: Bloodstream
     bloodMaxVolume: 175
     bloodReagent: ADTCorelanderBlood
-#  - type: DiseaseCarrier непонятная недобавленная херня
-#    diseaseResist: 0.1
   - type: MeleeWeapon
     hidden: true
     soundHit:

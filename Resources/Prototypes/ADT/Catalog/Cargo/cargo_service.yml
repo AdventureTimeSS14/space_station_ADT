@@ -1,5 +1,7 @@
 # Оригинал данного прототипа был сделан @temporaldarkness (discord). Прототип был взят с https://github.com/ss14-ganimed/ENT14-Master.
 
+# Ganimed-Proto-End
+
 # Закомментировано пока принтер книг не будет снова введен в сборку с решенными проблемами
 # - type: cargoProduct
 #   id: ADTServiceBookPrinterCartridge
@@ -11,6 +13,8 @@
 #   category: Service
 #   group: market
 
+# Ganimed-Proto-End
+
 - type: cargoProduct
   id: ADTCargoPlantBox
   icon:
@@ -18,5 +22,15 @@
     state: plantbox
   product: ADTPlantBox
   cost: 800
+  category: Service
+  group: market
+
+- type: cargoProduct
+  id: ADTFishingGoodies
+  icon:
+    sprite: ADT/Objects/Specific/Fishing/fishing_rod.rsi
+    state: icon
+  product: ADTCrateFishingGoodies
+  cost: 1000
   category: Service
   group: market
