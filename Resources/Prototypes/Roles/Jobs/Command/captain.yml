@@ -32,7 +32,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
-  - AllAccess
+  - ADTAccessCaptain #ADT-tweak - полный доступ ко всем станционным дверям, кроме ЦК и ОСЩ
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

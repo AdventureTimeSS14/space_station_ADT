@@ -110,6 +110,47 @@
     ADTClothingUnderwearSocksBee: 2
     ClothingUnderSocksBee: 2
     ClothingUnderSocksCoder: 1
+    ADTClothingUnderwearSocksAzure: 2
+    ADTClothingUnderwearSocksKneeAzure: 2 
+    ADTClothingUnderwearSocksThighAzure: 2
+    ADTClothingUnderwearSocksBlack: 2
+    ADTClothingUnderwearSocksKneeBlack: 2
+    ADTClothingUnderwearSocksThighBlack: 2
+    ADTClothingUnderwearSocksCyan: 2
+    ADTClothingUnderwearSocksKneeCyan: 2 
+    ADTClothingUnderwearSocksThighCyan: 2
+    ADTClothingUnderwearSocksFurr: 2
+    ADTClothingUnderwearSocksKneeFurr: 2
+    ADTClothingUnderwearSocksThighFurr: 2
+    ADTClothingUnderwearSocksGreen: 2
+    ADTClothingUnderwearSocksKneeGreen: 2
+    ADTClothingUnderwearSocksThighGreen: 2
+    ADTClothingUnderwearSocksHomelander: 2
+    ADTClothingUnderwearSocksKneeHomelander: 2
+    ADTClothingUnderwearSocksThighHomelander: 2
+    ADTClothingUnderwearSocksHotpink: 2
+    ADTClothingUnderwearSocksKneeHotpink: 2
+    ADTClothingUnderwearSocksThighHotpink: 2
+    ADTClothingUnderwearSocksOrange: 2
+    ADTClothingUnderwearSocksKneeOrange: 2
+    ADTClothingUnderwearSocksThighOrange: 2
+    ADTClothingUnderwearSocksPink: 2
+    ADTClothingUnderwearSocksKneePink: 2
+    ADTClothingUnderwearSocksKneeCreepy: 2
+    ADTClothingUnderwearSocksThighCreepy: 2
+    ADTClothingUnderwearSocksKneeFishnet: 2
+    ADTClothingUnderwearSocksFullFishnet: 2
+    ADTClothingUnderwearSocksKneeThin: 2
+    ADTClothingUnderwearSocksThighThin: 2
+    ADTClothingUnderwearSocksThighBlue: 2
+    ADTClothingUnderwearSocksThighFishnet: 2
+    ADTClothingUnderwearSocksThighGrey: 2
+    ADTClothingUnderwearSocksThighPantyhose: 2
+    ADTClothingUnderwearSocksThighPurple: 2
+    ADTClothingUnderwearSocksThighRed: 2
+    ADTClothingUnderwearSocksYellow: 2
+    ADTClothingUnderwearSocksKneeYellow: 2
+    ADTClothingUnderwearSocksThighYellow: 2
 # ADT конец носков
     # ADT бельё/обмотки/плащи начало
     ADTClothingFootWrapsWhite: 2
