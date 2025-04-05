@@ -13,8 +13,6 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pigeon
       sprite: ADT/Mobs/Animals/pigeon.rsi
-  - type: Speech
-    speechVerb: Pigeon
   - type: Fixtures
     fixtures:
       fix1:
@@ -245,7 +243,6 @@
     metabolizerTypes: [ Dragon ]
     groups:
     - id: Medicine
-    - id: Cryogenic
     - id: Poison
   - type: Butcherable
     spawned:

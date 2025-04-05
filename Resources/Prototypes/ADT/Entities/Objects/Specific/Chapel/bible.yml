@@ -26,7 +26,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/quaran.rsi
-    state: icon
 
 - type: entity
   parent: Bible
@@ -180,7 +179,7 @@
 
 - type: entity
   parent: Bible
-  name: scripture of light
+  name: scripture of weaver woman
   description: An moth religion thready scroll.. New Interstellar Version 2355.
   id: ADTBibleMoth
   components:
@@ -215,10 +214,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/mothbible.rsi
-    layers:
-    - state: book
-    - state: icon
-      map: [ "icon" ]
   - type: MultiHandedItem
 
 - type: entity
