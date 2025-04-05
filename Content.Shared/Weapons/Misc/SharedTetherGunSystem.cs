@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.ADT.Weapons.Misc.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
@@ -176,7 +177,8 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
             return false;
 
         if (physics.BodyType == BodyType.Static && !component.CanUnanchor ||
-            _container.IsEntityInContainer(target))
+            _container.IsEntityInContainer(target) || // Great-ADT-Changes-For-All-Time
+            HasComp<PhysicsGunBlacklistComponent>(target) && !component.CanUnanchor) // Great-ADT-Changes-For-All-Time
             return false;
 
         if (physics.Mass > component.MassLimit)

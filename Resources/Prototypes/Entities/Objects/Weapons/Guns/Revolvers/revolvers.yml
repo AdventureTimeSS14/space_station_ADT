@@ -81,7 +81,7 @@
 
 - type: entity
   name: Inspector
-  parent: [BaseWeaponRevolver, BaseSecurityContraband]
+  parent: [ADTBaseWeaponRevolverLesser, BaseSecurityContraband] # ADT tweak BaseWeaponRevolver > ADTBaseWeaponRevolver
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo.
   components:

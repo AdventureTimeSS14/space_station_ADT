@@ -1,7 +1,7 @@
 - type: species
   id: TajaranSpecies
   name: species-name-tajaran
-  roundStart: true #can player role
+  roundStart: true
   prototype: MobTajaran
   sprites: MobTajaranSprites
   markingLimits: MobTajaranMarkingLimits

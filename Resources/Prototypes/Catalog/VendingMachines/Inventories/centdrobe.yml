@@ -20,6 +20,9 @@
     ClothingNeckCloakCentcom: 3
     ADTClothingOuterCoatCentCom: 3 #ADT-Tweak
     ADTClothingCentComSatchel: 3 #ADT-Tweak
+    ADTClothingUnderwearSocksCentcom: 2 #ADT-Tweak
+    ADTClothingUnderwearSocksKneeCentcom: 2 #ADT-Tweak
+    ADTClothingUnderwearSocksThighCentcom: 2 #ADT-Tweak
   contrabandInventory:
     ToyFigurineCaptain: 1
     ToyFigurineHeadOfPersonnel: 1

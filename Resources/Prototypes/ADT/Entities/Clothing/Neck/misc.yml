@@ -23,7 +23,7 @@
 #Чокеры с Сирены для Стильномата
 - type: entity
   parent: ClothingNeckBase
-  id: SirenaChokerWithSpike
+  id: ADTChokerWithSpike
   name: Choker Spike
   description: If you turn it back and forth, then it will be a weapon of torture
   components:
@@ -34,7 +34,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: SirenaChokerWithHeart
+  id: ADTChokerWithHeart
   name: Choker Heart
   description: For good crew members
   components:
