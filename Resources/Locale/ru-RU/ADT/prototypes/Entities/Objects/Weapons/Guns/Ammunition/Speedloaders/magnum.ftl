@@ -1,0 +1,14 @@
+ent-ADTBaseSpeedLoaderMagnumLesser = спидлоадер (.357 магнум)
+    .desc = { ent-BaseItem.desc }
+ent-ADTSpeedLoaderMagnumLesser = спидлоадер (.357 магнум)
+    .desc = { ent-BaseItem.desc }
+ent-ADTSpeedLoaderMagnumLesserEmpty = спидлоадер (.357 магнум любые)
+    .desc = { ent-SpeedLoaderMagnum.desc }
+ent-ADTSpeedLoaderMagnumLesserAP = спидлоадер (.357 магнум бронебойный)
+    .desc = { ent-ADTSpeedLoaderMagnumLesser.desc }
+ent-ADTSpeedLoaderMagnumLesserPractice = спидлоадер (.357 магнум учебный)
+    .desc = { ent-ADTSpeedLoaderMagnumLesser.desc }
+ent-ADTSpeedLoaderMagnumLesserIncendiary = спидлоадер (.357 магнум зажигательный)
+    .desc = { ent-ADTSpeedLoaderMagnumLesser.desc }
+ent-ADTSpeedLoaderMagnumLesserUranium = спидлоадер (.357 магнум урановый)
+    .desc = { ent-ADTSpeedLoaderMagnumLesser.desc }

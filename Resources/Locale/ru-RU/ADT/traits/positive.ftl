@@ -1,4 +1,4 @@
-trait-soft-walk-name = Осторожный шаг
+trait-soft-walk-name = Смотрящий под ноги
 trait-soft-walk-desc = Вы достаточно осторожны, чтобы не наступать на опасные точки даже без обуви.
 
 trait-freerunning-name = Паркурщик

@@ -66,7 +66,7 @@
   - type: StorageFill
     contents:
       - id: WeaponRevolverPythonAP
-      - id: SpeedLoaderMagnumAP
+      - id: ADTSpeedLoaderMagnumLesserAP # ADT tweak
         amount: 2
 
 - type: entity
@@ -290,7 +290,7 @@
     contents:
       - id: SyringeRomerol
       - id: WeaponRevolverPython
-      - id: MagazineBoxMagnumIncendiary
+      - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
       - id: PillAmbuzolPlus
       - id: PillAmbuzol
         amount: 3

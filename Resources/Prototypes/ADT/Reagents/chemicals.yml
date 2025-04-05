@@ -6,3 +6,12 @@
   color: "#09590a"
   boilingPoint: 300
   meltingPoint: 300
+
+- type: reagent
+  id: ADTPlutoniumReactant
+  name: reagent-name-plutonium
+  desc: reagent-desc-plutonium
+  physicalDesc: reagent-physical-desc-metallic
+  color: "#09590a"
+  boilingPoint: 1500
+  meltingPoint: 2500

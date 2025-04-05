@@ -54,3 +54,4 @@ marking-RobotAntennaWireless = Беспроводная
 marking-RobotAntennaSmallEye = Малый глаз
 
 marking-RobotHeadWires = Кабели
+marking-RobotHeadWires-ipc_wires = Кабели
