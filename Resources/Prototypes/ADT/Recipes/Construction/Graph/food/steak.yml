@@ -27,3 +27,33 @@
       - minTemperature: 340
   - node: shadekin cutlet
     entity: ADTFoodMeatShadekinCutletCooked
+
+- type: constructionGraph
+  id: FishSteak
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: fish steak
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 340
+  - node: fish steak
+    entity: ADTFoodFishCooked
+
+- type: constructionGraph
+  id: FishCutlet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: fish cutlet
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 340
+  - node: fish cutlet
+    entity: ADTFoodFishCutletCooked
