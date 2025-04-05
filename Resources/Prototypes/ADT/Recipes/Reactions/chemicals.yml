@@ -42,7 +42,7 @@
     Oxygen:
       amount: 1
   products:
-    ADTMethanol: 2
+    ADTMethanol: 4
 
 - type: reaction
   id: ADTMethylamine
