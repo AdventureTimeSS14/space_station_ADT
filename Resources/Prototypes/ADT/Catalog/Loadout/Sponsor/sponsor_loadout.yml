@@ -1,0 +1,38 @@
+#         ПРИМЕР
+# - type: sponsorLoadout
+#   id: SuperDeveloperSponsorLoadoutTier3
+#   equipment: SuperDeveloperSponsorLoadoutTier3
+#   whitelistJobs:     # Вайтлист должностей
+#   - JobProto1
+#   - JobProto2
+#   blacklistJobs:     # Блэклист должностей
+#   - JobProto3
+#   - JobProto4
+#   speciesRestriction: # Запрет на расы
+#   - SpeciesProto1
+#   - SpeciesProto2
+
+# Tiers
+
+## Super Developer:
+- type: sponsorLoadout
+  id: SuperDeveloperSponsorLoadoutTier3
+  equipment: SuperDeveloperSponsorLoadoutTier3
+
+- type: startingGear
+  id: SuperDeveloperSponsorLoadoutTier3
+  equipment:
+    neck: ADTChokerWithHeart
+    pocket1: ClothingHeadHatCatEars
+    pocket2: ClothingUnderSocksCoder
+    jumpsuit: ClothingUniformJumpskirtElegantMaid
+
+#Tier4:
+- type: sponsorLoadout
+  id: PremiumSponsorLoadoutTier4
+  equipment: PremiumSponsorLoadoutTier4
+
+- type: startingGear
+  id: PremiumSponsorLoadoutTier4
+  equipment:
+    neck: ClothingNeckScarfStripedSyndieRed
