@@ -251,7 +251,7 @@ namespace Content.Client.VendingMachines.UI
 
             SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
         }
-        #endregion END
+        #endregion
 
         /// <summary>
         /// Updates text entries for vending data in place without modifying the list controls.
