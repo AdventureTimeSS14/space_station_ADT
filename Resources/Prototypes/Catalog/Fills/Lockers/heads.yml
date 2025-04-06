@@ -258,6 +258,7 @@
     - id: RubberStampCMO
     - id: MedTekCartridge
     # ADT tweak Start
+    - id: ADTReagentAnalyzer
     - id: ADTMobileDefibrillator
     - id: ADTBriefcaseBrownHikingCmoFilled
     - id: ADTBriefcaseMedicalFilled

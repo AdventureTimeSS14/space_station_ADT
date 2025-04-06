@@ -155,6 +155,7 @@
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
       - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
+      - id: ADTHighVoltageDefibrillator # ADT Tweak
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic

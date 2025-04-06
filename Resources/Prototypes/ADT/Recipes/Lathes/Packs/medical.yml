@@ -1,9 +1,16 @@
 - type: latheRecipePack
   id: ADTMedicalMiscStaticPack
   recipes:
+  - ADTReagentAnalyzer
   - ADTAntibioticOintment
   - ADTSmallSyringe
   - ADTPillCanister
   - ADTPillPack
   - ADTPlasticBottle
   - ADTBaseChemistryEmptyVial
+
+- type: latheRecipePack
+  id: ADTAdvancedMedicalMiscPack
+  recipes:
+  - ADTHighVoltageDefibrillator
+  - ADTHandheldCrewMonitor

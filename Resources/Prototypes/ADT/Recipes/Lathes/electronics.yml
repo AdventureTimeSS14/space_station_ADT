@@ -21,3 +21,30 @@
   id: ADTAdvancedMicrowaveMachineCircuitBoard
   result: ADTAdvancedMicrowaveMachineCircuitBoard
   completetime: 2
+
+- type: latheRecipe
+  id: MedicalAssemblerMachineCircuitboard
+  parent: BaseCircuitboardRecipe
+  result: MedicalAssemblerMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+
+- type: latheRecipe
+  id: KitchenAssemblerMachineCircuitboard
+  parent: BaseCircuitboardRecipe
+  result: KitchenAssemblerMachineCircuitboard
+  materials:
+    Steel: 600
+    Glass: 750
+
+- type: latheRecipe
+  id: ElectricRangeMachineCircuitboard
+  result: ElectricRangeMachineCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+     Steel: 800
+     Glass: 900
+
+

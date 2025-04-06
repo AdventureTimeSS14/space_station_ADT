@@ -1,0 +1,39 @@
+- type: technology
+  id: ADTHighVoltageDefibrillator
+  name: research-technology-highvolt-defib
+  icon:
+    sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ADTHighVoltageDefibrillator
+  position: 2,-6
+
+
+- type: technology
+  id: IndustrialMedicine
+  name: research-technology-industrial-medicine
+  icon:
+    sprite: ADT/Structures/Machines/medical_assembler.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - MedicalAssemblerMachineCircuitboard
+  position: 2,-4
+
+- type: technology
+  id: CrewMonitoring
+  name: research-technology-crew-monitoring
+  icon:
+    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    state: scanner
+  discipline: CivilianServices
+  tier: 2
+  cost: 8500
+  recipeUnlocks:
+  - ADTHandheldCrewMonitor
+  position: 2,-5

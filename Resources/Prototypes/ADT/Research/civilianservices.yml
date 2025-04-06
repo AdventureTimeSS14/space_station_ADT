@@ -80,3 +80,19 @@
   position: 2,-3
   requiredTech:
   - MeatManipulation
+
+- type: technology
+  id: AdvancedFoodService
+  name: research-technology-advanced-food-service
+  icon:
+    sprite: ADT/Structures/Machines/oven.rsi
+    state: composite_off
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board to service research.
+  - ServiceSelectiveDropper
+  - KitchenAssemblerMachineCircuitboard
+  - ElectricRangeMachineCircuitboard
+  position: 2,-5

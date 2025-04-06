@@ -13,3 +13,12 @@
   materials:
     Glass: 50
     Plastic: 50
+
+- type: latheRecipe
+  id: ADTHandheldCrewMonitor
+  result: HandheldCrewMonitorEmpty
+  completetime: 2
+  materials:
+    Glass: 1200
+    Steel: 1000
+    Plastic: 1400
