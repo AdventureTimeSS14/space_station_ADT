@@ -73,7 +73,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
                 continue;
 
             //ADT-Sponsors-Loadout-Start
-            if (loadProto.SponsorOnly && !isSponsor)
+             if (loadProto.SponsorOnly && !isSponsor)
                 continue;
             //ADT-Sponsors-Loadout-End
 
