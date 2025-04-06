@@ -8,13 +8,13 @@ public sealed partial class CCVars
     ///     Link to Discord server to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksDiscord =
-        CVarDef.Create("infolinks.discord", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.discord", "https://discord.gg/9jUHE5bAR7", CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Link to website to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksForum =
-        CVarDef.Create("infolinks.forum", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.forum", "https://community.fandom.com/wiki/User:Space_Dream_-_Space_Station_14?veaction=edit", CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Link to GitHub page to show in the launcher.
@@ -26,7 +26,7 @@ public sealed partial class CCVars
     ///     Link to website to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksWebsite =
-        CVarDef.Create("infolinks.website", "https://boosty.to/adventuretime", CVar.SERVER | CVar.REPLICATED); // ADT-Tweak
+        CVarDef.Create("infolinks.website", "https://boosty.to/prichinatryaski/donate", CVar.SERVER | CVar.REPLICATED); // ADT-Tweak
 
     /// <summary>
     ///     Link to wiki to show in the launcher.
