@@ -22,7 +22,10 @@
       path: /Audio/ADT/Mecha/nominal.ogg
   - type: ContainerContainer
     containers:
-      mech-equipment-container: !type:Container
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
       modsuit-part: !type:Container
         showEnts: False
         occludes: True
@@ -174,6 +177,7 @@
     sprite: ADT/Clothing/Back/Modsuit/mining.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 10
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -207,6 +211,7 @@
     sprite: ADT/Clothing/Back/Modsuit/security.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 8
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
@@ -383,3 +388,4 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+  - type: DNALocker

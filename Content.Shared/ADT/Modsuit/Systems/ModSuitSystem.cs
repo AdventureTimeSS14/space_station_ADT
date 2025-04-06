@@ -670,6 +670,7 @@ public sealed class ModSuitSystem : EntitySystem
     }
     private void OnPowercellEmpty(EntityUid uid, ModSuitComponent component, PowerCellSlotEmptyEvent args)
     {
+        //TODO: переделать это под более интересные реалии.
         UpdateUserInterface(uid, component);
         UntoggleClothing(uid, (uid, component));
     }

@@ -15,6 +15,7 @@
   - type: Sprite
     state: antigrav
   - type: ModSuitMod
+    complexity: 1
     slots:
     - shoes
     components:
@@ -29,6 +30,7 @@
   - type: Sprite
     state: apparatus
   - type: ModSuitMod
+    complexity: 1
     slots:
     - head
     components:
@@ -47,6 +49,7 @@
   - type: ModSuitMod
     slots:
     - gloves
+    complexity: 2
     components:
     - type: IngestionBlocker
     - type: Tag
@@ -87,12 +90,15 @@
     - type: InputMover
       toParent: true
     - type: GasTank
+      toggleAction: null
       outputPressure: 21.3
       air:
         volume: 5
         temperature: 293.15
+        moles:
+          - 0.615413716 # oxygen
     - type: Jetpack
-      moleUsage: 0.00085
+      moleUsage: 0
 
 - type: entity
   parent: ADTModsuitModBase
@@ -128,12 +134,13 @@
   - type: Sprite
     state: night_visor
   - type: ModSuitMod
+    complexity: 2
     slots:
     - head
     components:
     - type: NightVisionItem
       slotFlags: HEAD
-    - type: ItemToggle
+      toggleable: false
 
 - type: entity
   parent: ADTModsuitModBase
@@ -144,6 +151,7 @@
   - type: Sprite
     state: no_baton
   - type: ModSuitMod
+    complexity: 3
     slots:
     - gloves
     components:
@@ -166,6 +174,7 @@
   - type: Sprite
     state: noslip
   - type: ModSuitMod
+    complexity: 2
     slots:
     - shoes
     components:
@@ -180,6 +189,7 @@
   - type: Sprite
     state: power_kick
   - type: ModSuitMod
+    complexity: 3
     slots:
     - gloves
     components:
@@ -202,6 +212,7 @@
   - type: Sprite
     state: sechud_viisor
   - type: ModSuitMod
+    complexity: 2
     slots:
     - head
     components:
@@ -218,6 +229,7 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
+    complexity: 3
     slots:
     - MODcore
     components:
@@ -235,6 +247,7 @@
   - type: Sprite
     state: welding
   - type: ModSuitMod
+    complexity: 1
     slots:
     - head
     components:
@@ -249,6 +262,7 @@
   - type: Sprite
     state: plate_compression
   - type: ModSuitMod
+    complexity: 4
     slots:
     - outerClothing
     components:
@@ -270,6 +284,7 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
+    complexity: 3
     slots:
     - MODcore
     components:
@@ -287,6 +302,7 @@
   - type: Sprite
     state: tray
   - type: ModSuitMod
+    complexity: 2
     slots:
     - head
     components:
@@ -303,6 +319,7 @@
   - type: Sprite
     state: carry
   - type: ModSuitMod
+    complexity: 2
     slots:
     - gloves
     components:
@@ -317,6 +334,7 @@
   - type: Sprite
     state: longfall
   - type: ModSuitMod
+    complexity: 3
     slots:
     - shoes
     components:
@@ -331,6 +349,7 @@
   - type: Sprite
     state: flashlight
   - type: ModSuitMod
+    complexity: 1
     slots:
     - head
     components:
@@ -377,6 +396,7 @@
   - type: Sprite
     state: ore
   - type: ModSuitMod
+    complexity: 2
     slots:
     - outerClothing
     components:
@@ -403,11 +423,12 @@
   - type: Sprite
     state: radshield
   - type: ModSuitMod
+    complexity: 2
     slots:
     - outerClothing
     components:
     - type: RadiationBlocker
-      resistance: 2
+      resistance: 100
 
 - type: entity
   parent: ADTModsuitModBase
@@ -418,6 +439,7 @@
   - type: Sprite
     state: storage_syndi
   - type: ModSuitMod
+    complexity: 2
     slots:
     - MODcore
     components:

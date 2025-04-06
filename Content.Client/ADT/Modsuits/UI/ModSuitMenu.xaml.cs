@@ -47,8 +47,8 @@ public sealed partial class ModSuitMenu : FancyWindow
         if (!_ent.TryGetComponent<ModSuitComponent>(_mod, out var modComp))
             return;
 
-        ModComplex.Text = Loc.GetString("mod-module-space") + modComp.CurrentComplexity + Environment.NewLine +
-        Loc.GetString("mod-total-space") + modComp.MaxComplexity;
+        ModComplex.Text = Loc.GetString("mod-module-space", ("complexity", modComp.CurrentComplexity), ("maxcomplexity", modComp.MaxComplexity)) + Environment.NewLine +
+        Loc.GetString("mod-energy-waste", ("energy", modComp.ModEnergyBaseUsing));
         var styleBox = new StyleBoxFlat
         {
             BackgroundColor = modComp.BackpanelsColor

@@ -4,7 +4,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.ModSuits;
 
-public abstract class SharedModSuitModSystem : EntitySystem
+public sealed class SharedModSuitModSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -27,13 +27,10 @@ public abstract class SharedModSuitModSystem : EntitySystem
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
             return;
-        if (!mod.Inserted)
-            return;
         component.CurrentComplexity -= mod.Complexity;
         if (mod.Active)
             DeactivateModule(uid, module, mod, component);
         _container.Remove(module, component.ModuleContainer);
-        mod.Inserted = false;
         Dirty(module, mod);
         Dirty(uid, component);
         _mod.UpdateUserInterface(uid);
@@ -70,14 +67,11 @@ public abstract class SharedModSuitModSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-        if (component.Inserted)
-            return;
         if (!TryComp<ModSuitComponent>(args.Target, out var modsuit))
             return;
         if (modsuit.CurrentComplexity + component.Complexity > modsuit.MaxComplexity)
             return;
         _container.Insert(uid, modsuit.ModuleContainer);
-        component.Inserted = true;
         modsuit.CurrentComplexity += component.Complexity;
         Dirty(uid, component);
         Dirty(args.Target.Value, modsuit);
@@ -103,7 +97,6 @@ public abstract class SharedModSuitModSystem : EntitySystem
             EntityManager.AddComponents(attached.Key, component.Components);
             if (component.RemoveComponents != null)
                 EntityManager.RemoveComponents(attached.Key, component.RemoveComponents);
-            break;
         }
         Dirty(module, component);
         Dirty(modSuit, modcomp);

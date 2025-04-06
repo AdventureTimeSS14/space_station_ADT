@@ -1,5 +1,5 @@
-mod-module-space = Тек. комплектация: 
-mod-total-space = Макс. комплектация: 
+mod-module-space = Комплектация: {$complexity}({$maxcomplexity})
+mod-energy-waste = Расход W: {$energy}
 mod-username = Имя пользователя: 
 mod-all-toggled = Полностью включен
 mod-partly-toggled = Частично включен
