@@ -5,5 +5,5 @@ atm-ui-enter-pin = Введите PIN
 atm-ui-select-withdraw-amount = Выберите сумму вывода.
 atm-ui-insert-card = Вставьте карту.
 atm-ui-balance = Баланс: { $balance }$
-atm-ui-nanotrasen-atm = Nanotrasen ATM 1.5
+atm-ui-nanotrasen-atm = Nanotrasen ATM 
 atm-ui-name = Банкомат

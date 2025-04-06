@@ -1,0 +1,43 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:not_so_big_chungus для Времени Приключений МРП сервер",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "closed"
+      },
+      {
+        "name": "closing",
+        "delays": [
+          [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2
+          ]
+        ]
+      },
+      {
+        "name": "open"
+      },
+      {
+        "name": "opening",
+        "delays": [
+          [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2
+          ]
+        ]
+      }
+    ]
+ }

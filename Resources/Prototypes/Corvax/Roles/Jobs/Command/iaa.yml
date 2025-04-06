@@ -17,6 +17,12 @@
 # ADT-Tweak-end
   - !type:AgeRequirement
     requiredAge: 21
+#ADT tweak start
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Vox
+#ADT tweak end
   startingGear: IAAGear
   icon: "JobIconIAA"
   supervisors: job-supervisors-centcom

@@ -136,6 +136,11 @@
     postingSayDamage: blood-cough-ipc
   - type: TimeDespawnDamage
   - type: OfferItem # ADT-Tweak
+  - type: UserInterface
+    interfaces:
+      enum.IpcScreenUiKey.Key:
+        type: IpcScreenBoundUserInterface
+  - type: IpcScreen
 
 - type: entity
   save: false

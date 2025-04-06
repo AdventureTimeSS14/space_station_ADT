@@ -396,3 +396,113 @@
     size: Small
   - type: Food
     transferAmount: 5
+
+- type: entity
+  name: raw fish fillet
+  parent: FoodMeatBase
+  id: ADTFoodMeatFish
+  description: It may well need to be cooked first.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/fish.rsi
+    state: fish
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 9
+  - type: SliceableFood
+    count: 3
+    slice: ADTFoodFishCutlet
+  - type: Construction
+    graph: FishSteak
+    node: start
+    defaultTarget: fish steak
+
+- type: entity
+  name: raw fish fillet
+  parent: FoodMeatBase
+  id: ADTFoodFishCutlet
+  description: It may well need to be cooked first.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/fish.rsi
+    state: fish_slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 2
+  - type: Construction
+    graph: FishCutlet
+    node: start
+    defaultTarget: fish cutlet  
+
+- type: entity
+  name: baked chicken
+  parent: FoodMeatBase
+  id: ADTFoodFishCooked
+  description: Now it's well done.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/fish.rsi
+    state: cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 14
+        - ReagentId: Protein
+          Quantity: 14
+  - type: SliceableFood
+    count: 3
+    slice: ADTFoodFishCutletCooked
+  - type: Construction
+    graph: FishSteak
+    node: fish steak
+
+- type: entity
+  name: baked chicken
+  parent: FoodMeatBase
+  id: ADTFoodFishCutletCooked
+  description: Now it's well done.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/fish.rsi
+    state: cooked_slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: FishCutlet
+    node: fish cutlet

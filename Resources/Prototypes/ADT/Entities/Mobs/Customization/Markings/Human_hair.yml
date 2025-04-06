@@ -296,6 +296,33 @@
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_brow_r
 
+- type: marking
+  id: ADTHumanHairGatheredlow
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
+      state: gatheredlow
+
+- type: marking
+  id: ADTHumanHairLowpigtails
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
+      state: lowpigtails
+
+- type: marking
+  id: ADTHumanHairFrenchBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Frontier/human_hair.rsi
+      state: frenchbraid
+
 # Я не захотел создавать отдельный файл для двух ушек. Чмок.
 
 - type: marking

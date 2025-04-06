@@ -509,3 +509,7 @@ ent-ADTFoodKiwiTartaliokiwi_fruit = тарталетка с киви
 ent-ADTPlushieDionaIneedPizza486 = плюшевая диона в шляпке
     .desc = Плюшевая игрушка в виде Диона с красной шляпой!
     .suffix = { "Спонсорское, ineedpizza486" }
+
+ent-ADTPlushieAnagiri = плюшевая Плейона
+    .desc = Вы видите этого ниана? Вы помните её имя?
+    .suffix = { "Спонсорское, Anagiri" }
