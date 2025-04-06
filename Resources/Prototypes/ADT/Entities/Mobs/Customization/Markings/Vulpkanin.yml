@@ -543,3 +543,670 @@
       state: vulp_skull
 #END-customization-Uma-ADT
 #NewVulpCustomisation
+
+# Head Markings (Snout)
+- type: marking
+  id: ADTVulpSnoutAlt
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: muzzle_alt
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: ADTVulpSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: muzzle
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: ADTVulpSnoutSharp
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: muzzle_sharp
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: ADTVulpSnoutFade
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: muzzle_fade
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: ADTVulpSnoutNose
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: ADTVulpSnoutMask
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: mask
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: ADTVulpSnoutVulpine
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: vulpine
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: vulpine-lines
+
+- type: marking
+  id: ADTVulpSnoutSwift
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: vulpine-lines
+
+- type: marking
+  id: ADTVulpSnoutBlaze
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: blaze
+
+- type: marking
+  id: ADTVulpSnoutPatch
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: patch
+
+# Head Markings (Head)
+- type: marking
+  id: ADTVulpHeadTiger
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: tiger_head
+
+- type: marking
+  id: ADTVulpHeadTigerFace
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: tiger_face
+
+- type: marking
+  id: ADTVulpHeadSlash
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/head_markings.rsi
+      state: slash
+
+# Tail Markings
+- type: marking
+  id: ADTVulpTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin, Human]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp-fade
+
+- type: marking
+  id: ADTVulpTailTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp-tip
+
+- type: marking
+  id: ADTVulpTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_wag
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_wag-tip #fade
+
+- type: marking
+  id: ADTVulpTailWagTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_wag
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_wag-tip
+
+- type: marking
+  id: ADTVulpTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_alt
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_alt-fade
+
+- type: marking
+  id: ADTVulpTailAltTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_alt
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: vulp_alt-tip
+
+- type: marking
+  id: ADTVulpTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: long
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: long-tip
+
+- type: marking
+  id: ADTVulpTailFox
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox-fade
+
+- type: marking
+  id: ADTVulpTailFoxTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox-tip
+
+- type: marking
+  id: ADTVulpTailFoxWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox_wag
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox_wag-fade
+
+- type: marking
+  id: ADTVulpTailFoxWagTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox_wag
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox_wag-tip
+
+- type: marking
+  id: ADTVulpTailCoyote
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: coyote
+
+- type: marking
+  id: ADTVulpTailCoyoteWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: coyote_wag
+
+- type: marking
+  id: ADTVulpTailCorgiWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: corgi_wag
+
+- type: marking
+  id: ADTVulpTailHusky
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: husky-inner
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: husky-outer
+
+- type: marking
+  id: ADTVulpTailHuskyAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: husky
+
+- type: marking
+  id: ADTVulpTailFox2
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fox2
+
+- type: marking
+  id: ADTVulpTailFennec
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fennec
+
+- type: marking
+  id: ADTVulpTailOtie
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: otie
+
+- type: marking
+  id: ADTVulpTailFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: fluffy
+
+- type: marking
+  id: ADTVulpTailDalmatianWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
+      state: dalmatian_wag
+
+ # Body Markings (Overlay)
+# Eventually layering will allow to have markings on the body not layering above jumpsuits
+
+- type: marking
+  id: ADTVulpBodyPointsFade
+  markingCategory: Overlay
+  bodyPart: RHand
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_fade
+
+- type: marking
+  id: ADTVulpBodyPointsSharp
+  markingCategory: Overlay
+  bodyPart: LLeg
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_sharp
+
+# Leg Markings
+- type: marking
+  id: ADTVulpPointsFeet
+  markingCategory: Legs
+  bodyPart: RFoot
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_feet
+
+- type: marking
+  id: ADTVulpPointsCrestLegs
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_crest-legs
+
+- type: marking
+  id: ADTVulpPointsFadeLegs
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_fade-legs
+
+- type: marking
+  id: ADTVulpPointsSharpLegs
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_sharp-legs
+
+# Arm Markings
+- type: marking
+  id: ADTVulpPointsHands
+  markingCategory: Arms
+  bodyPart: RHand
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_hands
+
+- type: marking
+  id: ADTVulpPointsCrestArms
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_crest-arms
+
+- type: marking
+  id: ADTVulpPointsFadeArms
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_fade-arms
+
+- type: marking
+  id: ADTVulpPointsSharpArms
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
+      state: points_sharp-arms
+
+# Hairs
+- type: marking
+  id: ADTVulpHairAdhara
+  bodyPart: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: adhara
+
+- type: marking
+  id: ADTVulpHairAnita
+  bodyPart: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: anita
+
+- type: marking
+  id: ADTVulpHairApollo
+  bodyPart: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: apollo
+
+- type: marking
+  id: ADTVulpHairBelle
+  bodyPart: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: belle
+
+- type: marking
+  id: ADTVulpHairBraided
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: braided
+
+- type: marking
+  id: ADTVulpHairBun
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: bun
+
+- type: marking
+  id: ADTVulpHairCleanCut
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: clean_cut
+
+- type: marking
+  id: ADTVulpHairCurl
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: curl
+
+- type: marking
+  id: ADTVulpHairHawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: hawk
+
+- type: marking
+  id: ADTVulpHairJagged
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: jagged
+
+- type: marking
+  id: ADTVulpHairJeremy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: jeremy
+
+- type: marking
+  id: ADTVulpHairKajam
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: kajam
+
+- type: marking
+  id: ADTVulpHairKeid
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: keid
+
+- type: marking
+  id: ADTVulpHairKleeia
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: kleeia
+
+- type: marking
+  id: ADTVulpHairMizar
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: mizar
+
+- type: marking
+  id: ADTVulpHairPunkBraided
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: punkbraided
+
+- type: marking
+  id: ADTVulpHairRaine
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: raine
+
+- type: marking
+  id: ADTVulpHairRough
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: rough
+
+- type: marking
+  id: ADTVulpHairShort
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: short
+
+- type: marking
+  id: ADTVulpHairShort2
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: short2
+
+- type: marking
+  id: ADTVulpHairSpike
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/hair.rsi
+      state: spike
+
+# Facial Hairs
+- type: marking
+  id: ADTVulpFacialHairRuff
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/facial_hair.rsi
+      state: ruff
+
+- type: marking
+  id: ADTVulpFacialHairElder
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/facial_hair.rsi
+      state: elder
+
+- type: marking
+  id: ADTVulpFacialHairElderChin
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/facial_hair.rsi
+      state: elder_chin
+
+- type: marking
+  id: ADTVulpFacialHairKita
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/facial_hair.rsi
+      state: kita
