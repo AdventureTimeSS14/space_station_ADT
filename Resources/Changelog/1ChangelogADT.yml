@@ -6561,6 +6561,10 @@ Entries:
     id: 834
   - author: Cethet
     changes:
+      - {message: Добавлено пипи, type: Add}
+      - {message: Удалено пупу, type: Remove}
+      - {message: Изменена унга, type: Tweak}
+      - {message: Исправлена бунга, type: Fix}
       - {message: Почти все расы в игре теперь имеют свои собственные ограничения
           по возрасту, type: Tweak}
       - {message: Воксы на ролях-менторах спавнятся в масках и с баллоном, type: Fix}
@@ -6683,13 +6687,17 @@ Entries:
           все" - прокомментировал главный магистрат Серж Нормдрук.', type: Add}
     time: '2025-04-02T16:02:28Z'
     id: 848
-  - author: КэшРаш
+  - author: (Автор изменения)
     changes:
       - {message: Были изменены цены некоторым газам для поддержания своебразного
           баланса., type: Tweak}
       - {message: Сверхматерия была переименована в Суперматерию., type: Tweak}
       - {message: Не многочисленные правки в локализации., type: Tweak}
       - {message: Цель на штамм у генокрадов вновь работает, type: Fix}
+      - {message: Добавлено пипи, type: Add}
+      - {message: Удалено пупу, type: Remove}
+      - {message: Изменена унга, type: Tweak}
+      - {message: Исправлена бунга, type: Fix}
     time: '2025-04-02T16:24:08Z'
     id: 849
   - author: 'RedLis (заказчик: kultistzvezd)'
@@ -6749,6 +6757,10 @@ Entries:
     id: 857
   - author: Cethet
     changes:
+      - {message: Добавлено пипи, type: Add}
+      - {message: Удалено пупу, type: Remove}
+      - {message: Изменена унга, type: Tweak}
+      - {message: Исправлена бунга, type: Fix}
       - {message: 'НаноТрайзен разработали новое программное обеспечение для КПБ,
           с помощью которого КПБ смогут изменять изображения на своих экранах без
           сторонней помощи', type: Add}
@@ -6767,3 +6779,30 @@ Entries:
       - {message: Рыбалка больше не спамит ошибками в консоль. Честное слово., type: Fix}
     time: '2025-04-05T12:02:49Z'
     id: 859
+  - author: Shizik
+    changes:
+      - {message: 'Добавлен безумный халат, для настолько же безумных учёных.', type: Add}
+    time: '2025-04-05T12:37:50Z'
+    id: 860
+  - author: Illumy
+    changes:
+      - {message: NanoTrasen решило поощрить своих сотрудников и теперь по окончанию
+          смены на станции ЦК объявляются заслуги за которые были выданы медали, type: Add}
+    time: '2025-04-05T15:47:01Z'
+    id: 861
+  - author: AshleyWonders(CrtzMaggt)
+    changes:
+      - {message: Анимация дизарма теперь отличается от анимации атаки, type: Add}
+    time: '2025-04-05T17:33:17Z'
+    id: 862
+  - author: buhojmed
+    changes:
+      - {message: 'Изменены спрайты: Шкафчика дефибриллятора, шкафчик дробовика и
+          топора, GPS, коробки для мед. патчей, армейские и ботинки наемника.', type: Tweak}
+    time: '2025-04-05T19:59:03Z'
+    id: 863
+  - author: Петр
+    changes:
+      - {message: Добавлена именная спонсорская игрушка, type: Add}
+    time: '2025-04-06T02:18:03Z'
+    id: 864
