@@ -220,7 +220,7 @@ public sealed partial class MarkingSet
                 {
                     return;
                 }
-
+                
                 var allowedToHave = sponsorMarkings.Contains(marking.MarkingId);
                 if (!allowedToHave)
                 {
