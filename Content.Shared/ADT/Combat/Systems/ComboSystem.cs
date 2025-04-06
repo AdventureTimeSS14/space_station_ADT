@@ -8,6 +8,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.ADT.Crawling;
+using Content.Shared.Coordinates;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -129,8 +130,8 @@ public abstract class SharedComboSystem : EntitySystem
     }
     private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
     {
-        var userCoords = _transform.GetWorldPosition(uid);
-        var targetCoords = _transform.GetWorldPosition(comp.Target);
+        var userCoords = uid.ToCoordinates();
+        var targetCoords = comp.Target.ToCoordinates();
         var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
 
         if (diff >= 4 || diff <= -4)

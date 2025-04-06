@@ -92,9 +92,14 @@
   priority: 10 #ADT_Tweak
 
 - type: storeCategory
+  id: UplinkSilicon
+  name: store-category-silicon #СДЕЛАТЬ
+  priority: 11 #ADT_Tweak
+
+- type: storeCategory
   id: UplinkPointless
   name: store-category-pointless
-  priority: 11 #ADT_Tweak
+  priority: 12 #ADT_Tweak
 
 #revenant
 - type: storeCategory

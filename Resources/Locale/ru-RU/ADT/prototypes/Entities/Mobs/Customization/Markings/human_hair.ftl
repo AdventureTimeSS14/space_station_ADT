@@ -1,3 +1,4 @@
+# Прически
 marking-HumanBeardBeardchin = Борода-подбородок
 marking-HumanBeardBeardlong = Длинная борода
 marking-HumanBeardBeardshort = Короткая борода
@@ -27,7 +28,17 @@ marking-HumanHairValkyrieScythe = Коса валькирии
 marking-HumanHairValkyrieScythe2 = Коса валькирии 2
 marking-HumanHairValkyrieScythe3 = Коса валькирии 3
 marking-HumanWomenbun = Женский пучок
+
+# Кастом
 marking-HumanForeheadBindi = Бинди
-marking-HumanForeheadFathereyebrows = Густые брови
-marking-HumanPiercingBrowL = Пирсинг брови (левая)
-marking-HumanPiercingBrowR = Пирсинг брови (правая)
+marking-HumanForeheadBindi-forehead-Bindi = Бинди
+marking-HumanForeheadFathereyebrows = Пирсинг, густые брови
+marking-HumanForeheadFathereyebrows-forehead-fathereyebrows = Брови
+marking-HumanPiercingBrowL = Пирсинг, левая бровь
+marking-HumanPiercingBrowL-piercing_brow_l = Пирсинг
+marking-HumanPiercingBrowR = Пирсинг, правая бровь
+marking-HumanPiercingBrowR-piercing_brow_r = Пирсинг
+
+marking-ADTHumanHairGatheredlow = Собранные (Низкие)
+marking-ADTHumanHairFrenchBraid = Французская коса
+marking-ADTHumanHairLowpigtails = Косички (Низкие)

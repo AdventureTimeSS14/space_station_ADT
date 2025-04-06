@@ -64,13 +64,13 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 4 #ADT_Tweak
       required: false
     Legs:
-      points: 2
+      points: 8 #ADT_Tweak
       required: false
     Arms:
-      points: 2
+      points: 8 #ADT_Tweak
       required: false
 
 - type: humanoidBaseSprite

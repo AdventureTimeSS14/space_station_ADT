@@ -216,3 +216,170 @@
   sprites:
   - sprite: ADT/Mobs/Customization/augments/headaugs.rsi
     state: iron_jaw
+
+#marking-Frontier
+
+- type: marking
+  id: ADTVitiligoHeadL
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligoheadl
+
+- type: marking
+  id: ADTVitiligoHeadR
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligoheadr
+
+- type: marking
+  id: ADTVitiligoHeadJaw
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligoheadjaw
+
+- type: marking
+  id: ADTVitiligoChestF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligochestf
+
+- type: marking
+  id: ADTVitiligoChestSpots
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligochestspots
+
+- type: marking
+  id: ADTVitiligoArmR
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligoarmr
+
+- type: marking
+  id: ADTVitiligoArmL
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligoarml
+
+- type: marking
+  id: ADTVitiligoHandR
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligohandr
+
+- type: marking
+  id: ADTVitiligoHandL
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligohandl
+
+- type: marking
+  id: ADTVitiligoLegR
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligolegr
+
+- type: marking
+  id: ADTVitiligoLegL
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Human, Dwarf, Felinid ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: vitiligolegl
