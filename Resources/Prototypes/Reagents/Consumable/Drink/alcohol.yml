@@ -125,36 +125,6 @@
       # End ADT tweak
 
 - type: reagent
-  id: BlueHawaiian
-  name: reagent-name-blue-hawaiian
-  parent: BaseAlcohol
-  desc: reagent-desc-blue-hawaiian
-  physicalDesc: reagent-physical-desc-tropical
-  flavor: bluehawaiian
-  color: "#47687b"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/bluehawaiian.rsi
-    state: icon
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-      # Start ADT tweak
-        amount: 0.1
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentThreshold
-          min: 3
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-bluehawaiian" ]
-        probability: 0.2
-      # End ADT tweak
-
-- type: reagent
   id: Cognac
   name: reagent-name-cognac
   parent: BaseAlcohol
@@ -2540,6 +2510,17 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+      # Start ADT tweak
+        amount: 0.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 3
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-bluehawaiian" ]
+        probability: 0.2
+      # End ADT tweak
 
 - type: reagent
   id: Caipirinha
