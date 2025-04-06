@@ -27,7 +27,7 @@
 - type: startingGear
   id: SalvageSpecialistGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+#    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist #ADT tweak
     id: SalvagePDA
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool #ADT start

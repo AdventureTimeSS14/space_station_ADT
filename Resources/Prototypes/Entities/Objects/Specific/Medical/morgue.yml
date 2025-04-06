@@ -137,6 +137,7 @@
     solution: food
   - type: Extractable
     grindableSolutionName: food
+  - type: SupermatterImmune # ADT-Tweak
 
 - type: entity
   parent: Ash

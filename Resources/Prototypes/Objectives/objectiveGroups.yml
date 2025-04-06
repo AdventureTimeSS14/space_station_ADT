@@ -25,6 +25,7 @@
 #    EnergyShotgunStealObjective: 0.5 # ADT objective
     ADTMobileDefibrillatorStealObjective: 1 # ADT Objective
     ADTX01StealObjective: 0.5 # ADT Objective
+    ADTSupermatterSliverObjective: 0.5 # ADT Objective
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -38,6 +39,7 @@
     EscapeShuttleObjective: 1
     DieObjective: 0.05
     HijackShuttleObjective: 0.02 #Corvax-Hijack
+    ADTDoCascade: 0.01 # ADT Objective
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial

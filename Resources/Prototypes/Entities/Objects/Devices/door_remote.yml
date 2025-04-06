@@ -166,7 +166,7 @@
       color: "#22871a"
   - type: Access
     groups:
-    - AllAccess
+    - ADTOverallAccess # ADT-Tweak
     tags:
     - CentralCommand
     - NuclearOperative

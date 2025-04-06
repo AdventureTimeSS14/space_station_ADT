@@ -1,7 +1,7 @@
 - type: species
   id: TajaranSpecies
   name: species-name-tajaran
-  roundStart: true #can player role
+  roundStart: true
   prototype: MobTajaran
   sprites: MobTajaranSprites
   markingLimits: MobTajaranMarkingLimits
@@ -20,6 +20,9 @@
   - GalacticCommon
   - SikTaj
   - CintaTaj
+  maxAge: 45
+  oldAge: 30
+  youngAge: 20
 
 - type: speciesBaseSprites
   id: MobTajaranSprites

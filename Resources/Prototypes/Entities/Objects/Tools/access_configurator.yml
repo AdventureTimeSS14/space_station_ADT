@@ -89,44 +89,54 @@
     sprite: Objects/Tools/universal_access_configurator.rsi
   - type: AccessOverrider
     accessLevels:
-    - Armory
-    - Atmospherics
-    - Bar
     - BasicSilicon
     - Borg
-    - Brig
-    - Detective
+    - CentralCommand # ADT-Roles
+    - EmergencyShuttleRepealAll
     - Captain
-    - Cargo
-    - Chapel
-    - Chemistry
+    - HeadOfPersonnel
     - ChiefEngineer
     - ChiefMedicalOfficer
+    - HeadOfSecurity
+    - ResearchDirector
     - Command
     - Cryogenics
-    - EmergencyShuttleRepealAll
-    - Engineering
-    - External
-    - HeadOfPersonnel
-    - HeadOfSecurity
-    - Hydroponics
-    - Janitor
-    - Kitchen
+    - Security
+    - Detective
+    - Armory
+    - Brig
     - Lawyer
-    - Maintenance
+    - Engineering
     - Medical
     - Quartermaster
-    - Research
-    - ResearchDirector
     - Salvage
-    - Security
+    - Cargo
+    - Research
     - Service
     - StationAi
+    - Maintenance
+    - External
+    - Janitor
     - Theatre
-    - CentralCommand
+    - Bar
+    - Chemistry
+    - Kitchen
+    - Chapel
+    - Hydroponics
+    - Atmospherics
+    - IAA
+    - BlueShield # ADT-Roles
+    - Magistrate # ADT-Roles
     - NuclearOperative
     - SyndicateAgent
     - Wizard
+    - SpaceSecOfficial    # ADT-Roles
+    - SpaceSecMaintenance # ADT-Roles
+    - SpaceSecExternal    # ADT-Roles
+    - SpaceSecSecurity    # ADT-Roles
+    - SpaceSecArmory      # ADT-Roles
+    - SpaceSecCommand     # ADT-Roles
+    - ADTTrader           # ADT-Roles
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

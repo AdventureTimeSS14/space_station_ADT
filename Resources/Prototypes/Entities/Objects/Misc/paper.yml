@@ -125,7 +125,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      ADTPaper: 100 # ADT tweak
+      ADTPaper: 100
   - type: Stack
     stackType: ADTPaper
     count: 1

@@ -35,6 +35,9 @@
   - RootSpeak
   forceLanguages:
   - DionaCollectiveMind
+  maxAge: 500
+  oldAge: 300
+  youngAge: 200
   # ADT end
 
 

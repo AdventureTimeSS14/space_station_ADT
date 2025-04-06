@@ -11,7 +11,7 @@
   # ADT underwear tweak start
   - ADTTopCap
   - ADTBottomCap
-  - ADTSocks
+  - ADTSocksCaptain
   # ADT underwear tweak end
   - Survival
   - Trinkets
@@ -32,7 +32,7 @@
   # ADT underwear tweak start
   - ADTTopHOP
   - ADTBottomHOP
-  - ADTSocks
+  - ADTSocksHOP
   # ADT underwear tweak end
   - Survival
   - Trinkets
@@ -245,7 +245,7 @@
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksClown
   # ADT underwear tweak end
   - SurvivalClown
   - Trinkets
@@ -265,7 +265,7 @@
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksMime
   # ADT underwear tweak end
   - SurvivalMime
   - Trinkets
@@ -336,7 +336,9 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - ADTSalvageSpecialistJumpsuit #ADT Loadouts
   - SalvageSpecialistBackpack
+  - ADTSalvageSpecialistNeck #ADT Loadouts
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
@@ -509,7 +511,7 @@
   # ADT underwear tweak start
   - ADTTopHOS
   - ADTBottomHOS
-  - ADTSocks
+  - ADTSocksHOS
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets

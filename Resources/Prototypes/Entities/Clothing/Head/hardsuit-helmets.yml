@@ -377,6 +377,7 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: SupermatterImmune # ADT-Tweak
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -582,6 +583,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: SupermatterImmune  # ADT-Tweak
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -764,6 +766,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
+  - type: SupermatterImmune  # ADT-Tweak
 
 #ERT Medical Hardsuit
 - type: entity
@@ -915,6 +918,7 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  - type: SupermatterImmune  # ADT-Tweak
 
 #MISC. HARDSUITS
 #Clown Hardsuit

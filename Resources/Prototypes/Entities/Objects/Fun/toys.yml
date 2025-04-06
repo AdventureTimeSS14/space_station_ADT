@@ -1239,9 +1239,9 @@
       tags:
         - CartridgeCap
         - SpeedLoaderCap
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumAP
+        - ADTCartridgeMagnumLesser
+        - ADTSpeedLoaderMagnumLesser
+    proto: ADTCartridgeMagnumLesserAP
 
 - type: entity
   parent: BaseItem

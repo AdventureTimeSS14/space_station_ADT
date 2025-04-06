@@ -923,8 +923,8 @@
     jobIcon: JobIconAdmin
   - type: Access
     groups:
-    - AllAccess
     - Silicon
+    - ADTOverallAccess # ADT-Tweak
     tags:
     - CentralCommand
     - NuclearOperative
