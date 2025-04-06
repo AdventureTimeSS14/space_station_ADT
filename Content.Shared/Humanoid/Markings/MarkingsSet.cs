@@ -216,11 +216,11 @@ public sealed partial class MarkingSet
         {
             foreach (var marking in list)
             {
-                /*if (prototypeManager.TryIndex<MarkingPrototype>(marking.MarkingId, out var proto) && !proto.SponsorOnly)
+                if (prototypeManager.TryIndex<MarkingPrototype>(marking.MarkingId, out var proto) && !proto.SponsorOnly)
                 {
                     return;
-                }*/
-                
+                }
+
                 var allowedToHave = sponsorMarkings.Contains(marking.MarkingId);
                 if (!allowedToHave)
                 {
