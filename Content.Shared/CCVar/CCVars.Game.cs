@@ -21,7 +21,7 @@ public sealed partial class CCVars
     ///     Controls the duration of the lobby timer in seconds. Defaults to 2 minutes and 30 seconds.
     /// </summary>
     public static readonly CVarDef<int>
-        GameLobbyDuration = CVarDef.Create("game.lobbyduration", 150, CVar.ARCHIVE);
+        GameLobbyDuration = CVarDef.Create("game.lobbyduration", 180, CVar.ARCHIVE); //ADT_Tweak 150 > 180
 
     /// <summary>
     ///     Controls if players can latejoin at all.
@@ -383,8 +383,8 @@ public sealed partial class CCVars
         /// <summary>
         ///     If true, contraband severity can be viewed in the examine menu
         /// </summary>
-        public static readonly CVarDef<bool> ContrabandExamine =
-            CVarDef.Create("game.contraband_examine", false, CVar.SERVER | CVar.REPLICATED); ///ADT no wizard cringe
+     public static readonly CVarDef<bool> ContrabandExamine =
+        CVarDef.Create("game.contraband_examine", false, CVar.SERVER | CVar.REPLICATED); ///ADT no wizard cringe
 
     /// <summary>
     ///     Size of the lookup area for adding entities to the context menu
