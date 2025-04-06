@@ -152,6 +152,115 @@
     state: hair-womenbun
 
 - type: marking
+  id: HumanHairBubbleGum
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-bubble_gum
+
+- type: marking
+  id: HumanHairGorgona
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-gorgona
+
+- type: marking
+  id: HumanHairGorgona2
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-gorgona_2
+
+- type: marking
+  id: HumanHairMorningHairStyle
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-morning_hairstyle
+
+- type: marking
+  id: HumanHairMorningHairStyle2
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-morning_hairstyle_2
+
+- type: marking
+  id: HumanHairMorningHairStyle3
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-morning_hairstyle_3
+
+- type: marking
+  id: HumanHairPonyTail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-ponytail
+
+
+- type: marking
+  id: HumanHairShavedFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-shaved_female
+
+- type: marking
+  id: HumanHairShavedUnisex
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-shaved_unisex
+
+- type: marking
+  id: HumanHairValkyrieScythe
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-valkyrie_scythe
+
+- type: marking
+  id: HumanHairValkyrieScythe2
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-valkyrie_scythe_2
+
+- type: marking
+  id: HumanHairValkyrieScythe3
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-valkyrie_scythe_3
+
+- type: marking
   id: HumanForeheadBindi
   bodyPart: Head
   markingCategory: Snout
