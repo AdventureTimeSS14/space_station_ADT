@@ -27,7 +27,7 @@
   - GalacticCommon
   - Scratches
   maxAge: 65
-  oldAge: 45
+  oldAge: 40
   youngAge: 25
 
 - type: speciesBaseSprites

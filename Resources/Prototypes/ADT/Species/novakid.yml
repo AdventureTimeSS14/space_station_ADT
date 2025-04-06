@@ -29,8 +29,8 @@
   uniqueLanguages:
   - Fire
   maxAge: 70
-  oldAge: 45
-  youngAge: 20
+  oldAge: 70
+  youngAge: 40
 
 - type: speciesBaseSprites
   id: MobNovakidSprites

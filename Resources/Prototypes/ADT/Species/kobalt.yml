@@ -18,7 +18,7 @@
   - Draconic
   maxAge: 55
   oldAge: 35
-  youngAge: 20
+  youngAge: 25
 
 - type: speciesBaseSprites
   id: MobKoboltSprites

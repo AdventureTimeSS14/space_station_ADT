@@ -18,5 +18,7 @@
   - GalacticCommon
   - Dwarf
   minAge: 20
-  maxAge: 50
+  youngAge: 50
+  oldAge: 100
+  maxAge: 150
   # ADT end

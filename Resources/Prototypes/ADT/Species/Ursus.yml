@@ -23,7 +23,7 @@
   - Urs
   maxAge: 80
   oldAge: 50
-  youngAge: 25
+  youngAge: 35
 
 - type: speciesBaseSprites
   id: MobUrsusSprites

@@ -27,7 +27,7 @@
   minAge: 20
   maxAge: 60
   oldAge: 45
-  youngAge: 25
+  youngAge: 30
   # ADT end
 
 - type: speciesBaseSprites

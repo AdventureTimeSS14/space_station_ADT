@@ -20,9 +20,9 @@
   - GalacticCommon
   - SikTaj
   - CintaTaj
-  maxAge: 45
-  oldAge: 30
-  youngAge: 20
+  maxAge: 60
+  oldAge: 35
+  youngAge: 21
 
 - type: speciesBaseSprites
   id: MobTajaranSprites
