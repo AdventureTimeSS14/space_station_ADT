@@ -644,8 +644,8 @@ namespace Content.Client.Lobby.UI
                 if (!_prototypeManager.HasIndex(trait.Category))
                     continue;
 
-                /*if (trait.SponsorOnly && !IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor))
-                    continue;*/
+                if (trait.SponsorOnly && !IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor))
+                    continue;
                 var group = traitGroups.GetOrNew(trait.Category);
                 group.Add(trait.ID);
             }
