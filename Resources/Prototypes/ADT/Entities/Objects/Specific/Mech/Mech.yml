@@ -19,19 +19,19 @@
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
+      coefficients: #коэффициенты для легкобронированных мехов 
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.5
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.4
+        Structural: 0.5
     maxintegrity: 350
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.85
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -47,12 +47,12 @@
         Blunt: 30 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 60
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5
-    baseSprintSpeed: 4.6
+    baseWalkSpeed: 2.25
+    baseSprintSpeed: 4.1
   - type: MechOverload
     damage:
       types:
-        Blunt: 2
+        Heat: 20
   - type: AccessReader
     access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
   - type: Storage
@@ -89,18 +89,22 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
-        Shock: 0.9
-        Structural: 0.5
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.75
+    # ADT end
     maxintegrity: 200
     baseState: clarke
     openState: clarke-open
     brokenState: clarke-broken
-    mechToPilotDamageMultiplier: 0
+    mechToPilotDamageMultiplier: 0.25 #Отдельно Кларк будет получать меньше, как мех утилей
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -116,8 +120,8 @@
         Blunt: 15 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 15
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 5.5
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.6
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: Storage
@@ -155,19 +159,19 @@
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.15
-        Slash: 0.15
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
         Piercing: 0.25
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.3
+        Structural: 0.25
     maxintegrity: 600
     baseState: durand
     openState: durand-open
     brokenState: durand-broken
-    mechToPilotDamageMultiplier: 0.95
+    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -183,8 +187,8 @@
         Blunt: 50 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 100
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.2
-    baseSprintSpeed: 3.2
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 2.7
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: AccessReader
@@ -223,14 +227,17 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.8
-        Shock: 0.9
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
         Structural: 0.75
-        Heat: 0.7
+    # ADT end
     maxintegrity: 120
     baseState: odysseus
     openState: odysseus-open
@@ -251,8 +258,8 @@
         Blunt: 15 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 15
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.2
-    baseSprintSpeed: 4.2
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
 
 - type: entity
   id: ADTMechOdysseusBattery
@@ -284,19 +291,19 @@
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.15
-        Slash: 0.15
-        Piercing: 0.2
-        Heat: 0.2
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.25
+        Heat: 0.25
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.2
+        Structural: 0.25
+    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 350
     baseState: phazon
     openState: phazon-open
     brokenState: phazon-broken
-    mechToPilotDamageMultiplier: 0.85
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -312,8 +319,8 @@
         Blunt: 30 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 60
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 6.0
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3.6
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: AccessReader
@@ -353,19 +360,22 @@
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.7
-        Shock: 0.9
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
         Structural: 0.75
-        Heat: 0.1
+    # ADT end
     maxintegrity: 200
     baseState: ripleymkii
     openState: ripleymkii-open
     brokenState: ripleymkii-broken
-    mechToPilotDamageMultiplier: 0.85
+    mechToPilotDamageMultiplier: 0.5
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -380,8 +390,8 @@
       types:
         Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.0
-    baseSprintSpeed: 3.0
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
   - type: Construction
     graph: ADTRipleyMkII
     node: ripley_mkii
@@ -422,19 +432,19 @@
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.15
-        Slash: 0.15
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
         Piercing: 0.25
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
+    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 600
     baseState: marauder
     openState: marauder-open
     brokenState: marauder-broken
-    mechToPilotDamageMultiplier: 0.95
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -451,8 +461,8 @@
         Blunt: 50 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 100
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.4
-    baseSprintSpeed: 3.4
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3.6
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: AccessReader
@@ -487,19 +497,19 @@
       state: seraph
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.15
-        Slash: 0.15
-        Piercing: 0.2
-        Heat: 0.2
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.05
+        Slash: 0.05
+        Piercing: 0.15
+        Heat: 0.15
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.25
+        Structural: 0.15
+    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 600
     baseState: seraph
     openState: seraph-open
     brokenState: seraph-broken
-    mechToPilotDamageMultiplier: 0.95
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -512,6 +522,9 @@
     grid:
     - 0,0,6,3
     clickInsert: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.6
+    baseSprintSpeed: 4.6
 
 - type: entity
   id: ADTMechSeraphBattery
@@ -540,19 +553,19 @@
       state: darkgygax
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
+      coefficients: #коэффициенты для легкобронированных мехов 
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.5
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.4
-    maxintegrity: 420
+        Structural: 0.5
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
+    maxintegrity: 350
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
-    mechToPilotDamageMultiplier: 0.85
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -598,19 +611,19 @@
       path: /Audio/ADT/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.15
-        Slash: 0.15
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
         Piercing: 0.25
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
+    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 600
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
-    mechToPilotDamageMultiplier: 0.95
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -627,8 +640,8 @@
         Blunt: 50 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 100
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.4
-    baseSprintSpeed: 3.4
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3.6
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: AccessReader
@@ -652,19 +665,19 @@
       - PowerCellHigh
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.15
-        Slash: 0.15
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
         Piercing: 0.25
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
+    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 400
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
-    mechToPilotDamageMultiplier: 0.95
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -693,13 +706,15 @@
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.8
-        Shock: 0.8
-        Structural: 0.75
-        Heat: 0.7
+      coefficients: #коэффициенты для легкобронированных мехов 
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.5
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 250
     baseState: paddy
     openState: paddy-open
@@ -719,8 +734,8 @@
         Blunt: 40 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 15
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.2
-    baseSprintSpeed: 4.2
+    baseWalkSpeed: 2.25
+    baseSprintSpeed: 4.1
 
 - type: entity
   id: ADTMechpaddyBattery
@@ -730,13 +745,15 @@
   - type: Mech
     startingEquipment: ["MechEquipmentPuddyGrabber", "ADTMechGunPeacemakerDisabler"]
     modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.8
-        Shock: 0.8
-        Structural: 0.75
-        Heat: 0.7
+      coefficients: #коэффициенты для легкобронированных мехов 
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.5
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 250
     baseState: paddy
     openState: paddy-open

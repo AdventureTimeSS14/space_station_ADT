@@ -93,7 +93,7 @@
         ents: []
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: ADTMechDamageModifierSet  # ADT tweak mech rebalance
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -139,14 +139,16 @@
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    # ADT start
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Shock: 0.9
-        Structural: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.75
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -155,7 +157,7 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-    mechToPilotDamageMultiplier: 0.75
+    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -166,8 +168,8 @@
       types:
         Blunt: 14 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.25
-    baseSprintSpeed: 3.6
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
   - type: Storage #ADT edit
     grid:
     - 0,0,9,2
@@ -203,14 +205,28 @@
       params:
         variation: 0.17
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.75
+    # ADT end
     baseState: honker
     openState: honker-open
     brokenState: honker-broken
-    mechToPilotDamageMultiplier: 0.5
+    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
       - HumanoidAppearance
     # ADT Start
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -244,6 +260,17 @@
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.75
+    # ADT end
     baseState: hamtr
     openState: hamtr-open
     brokenState: hamtr-broken
@@ -309,6 +336,17 @@
       params:
         volume: -10
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.75
+    # ADT end
     baseState: vim
     openState: vim-open
     brokenState: vim-broken

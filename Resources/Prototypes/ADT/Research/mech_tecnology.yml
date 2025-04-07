@@ -247,8 +247,6 @@
   - ADTMechGunUltraAC2
   - ADTBoxAmmoScattershot
   - ADTBoxAmmoAC2Ultra
-  - ADTMechGunFNX99Hades
-  - ADTBoxAmmoHades
   position: 3,-1
   requiredTech:
   - ADTGygaxTechnology
@@ -263,11 +261,13 @@
   tier: 3
   cost: 15000
   recipeUnlocks:
-  - ADTMechGunMHAR21
+  # - ADTMechGunMHAR21 Вырезано ради баланса
   - ADTMechGunSGL6
 #  - ADTMechGunSRM8 Вырезано ради баланса
   - ADTMechGunBRM6
-  - ADTBoxAmmoSniper
+  # - ADTBoxAmmoSniper Вырезано ради баланса
+  - ADTMechGunFNX99Hades
+  - ADTBoxAmmoHades
   - ADTBoxAmmoGranade
   position: 3,-2
   requiredTech:

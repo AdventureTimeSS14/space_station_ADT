@@ -32,3 +32,25 @@
   id: ADTWeaponExperimentalPKAPack
   recipes:
   - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
+
+- type: latheRecipePack
+  id: ADTMechEquipmentSecTechfabPack
+  recipes:
+  - MechEquipmentArmorMelee
+  - MechEquipmentArmorRange
+  - ADTMechGunImmolatorLaser
+  - ADTMechGunPeacemakerDisabler
+  - ADTMechGunSolarisLaserCannon
+  - ADTMechGunTeslaCannon
+  - ADTMechGunScattershot
+  - ADTMechGunUltraAC2
+  - ADTMechGunFNX99Hades    
+  # - ADTMechGunMHAR21       Вырезано ради баланса
+  - ADTMechGunSGL6          
+  - ADTMechGunBRM6          
+  # - ADTMechGunSRM8         Вырезано ради баланса   
+  - ADTBoxAmmoAC2Ultra
+  - ADTBoxAmmoScattershot
+  - ADTBoxAmmoHades         
+  # - ADTBoxAmmoSniper       Вырезано ради баланса
+  - ADTBoxAmmoGranade 
