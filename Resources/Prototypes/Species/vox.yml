@@ -17,8 +17,11 @@
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
   pros:
   - Если у вокса имеется менее 20 единиц повреждений от ядов, он восстанавливает их.
+  - После смерти не могут гнить.
+  - Ходьба является невероятно тихой.
   cons:
   - Получают урон при вдыхании кислорода.
+  - Не могут быть клонируемыми.
   defaultLanguages:
   - GalacticCommon
   - VoxPidgin

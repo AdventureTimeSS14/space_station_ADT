@@ -28,6 +28,19 @@
   quirk: true  # ADT Quirks
 
 - type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Quirks  # ADT Quirks
+  components:
+    - type: Uncloneable
+  cost: -2  # ADT Quirks
+  speciesBlacklist:
+  - IPC
+  quirk: true  # ADT Quirks
+
+
+- type: trait
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
