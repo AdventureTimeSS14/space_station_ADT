@@ -1,5 +1,9 @@
+using Robust.Shared.Audio;
+using Content.Shared.Inventory;
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -34,4 +38,7 @@ public sealed partial class ModSuitModComponent : Component
     /// </summary>
     [DataField]
     public ComponentRegistry? RemoveComponents;
+
+    [AutoNetworkedField]
+    public TimeSpan Ejecttick;
 }

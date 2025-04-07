@@ -27,6 +27,9 @@ public sealed class SharedModSuitModSystem : EntitySystem
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
             return;
+        if (mod.Ejecttick + TimeSpan.FromSeconds(5) >= _timing.CurTime)
+            return;
+        mod.Ejecttick = _timing.CurTime;
         component.CurrentComplexity -= mod.Complexity;
         if (mod.Active)
             DeactivateModule(uid, module, mod, component);
