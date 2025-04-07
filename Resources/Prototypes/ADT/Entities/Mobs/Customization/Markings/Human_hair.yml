@@ -152,7 +152,7 @@
     state: hair-womenbun
 
 - type: marking
-  id: HumanHairBubbleGum
+  id: ADTHumanHairBubbleGum
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -161,7 +161,7 @@
     state: hair-bubble_gum
 
 - type: marking
-  id: HumanHairGorgona
+  id: ADTHumanHairGorgona
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -170,7 +170,7 @@
     state: hair-gorgona
 
 - type: marking
-  id: HumanHairGorgona2
+  id: ADTHumanHairGorgona2
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -179,7 +179,7 @@
     state: hair-gorgona_2
 
 - type: marking
-  id: HumanHairMorningHairStyle
+  id: ADTHumanHairMorningHairStyle
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -188,7 +188,7 @@
     state: hair-morning_hairstyle
 
 - type: marking
-  id: HumanHairMorningHairStyle2
+  id: ADTHumanHairMorningHairStyle2
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -197,7 +197,7 @@
     state: hair-morning_hairstyle_2
 
 - type: marking
-  id: HumanHairMorningHairStyle3
+  id: ADTHumanHairMorningHairStyle3
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -206,7 +206,7 @@
     state: hair-morning_hairstyle_3
 
 - type: marking
-  id: HumanHairPonyTail
+  id: ADTHumanHairPonyTail
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -216,7 +216,7 @@
 
 
 - type: marking
-  id: HumanHairShavedFemale
+  id: ADTHumanHairShavedFemale
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -225,7 +225,7 @@
     state: hair-shaved_female
 
 - type: marking
-  id: HumanHairShavedUnisex
+  id: ADTHumanHairShavedUnisex
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -234,7 +234,7 @@
     state: hair-shaved_unisex
 
 - type: marking
-  id: HumanHairValkyrieScythe
+  id: ADTHumanHairValkyrieScythe
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -243,7 +243,7 @@
     state: hair-valkyrie_scythe
 
 - type: marking
-  id: HumanHairValkyrieScythe2
+  id: ADTHumanHairValkyrieScythe2
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
@@ -252,7 +252,7 @@
     state: hair-valkyrie_scythe_2
 
 - type: marking
-  id: HumanHairValkyrieScythe3
+  id: ADTHumanHairValkyrieScythe3
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [DemonSpecies]
