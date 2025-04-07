@@ -13,12 +13,14 @@
   naming: FirstDashFirst #как у reptilian
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
+  special:
+  - Имеют нестандартные возрастные рамки (Молодые 18-25, Зрелые 26-35, Старые 36-55)
   defaultLanguages:
   - GalacticCommon
   - Draconic
   maxAge: 55
-  oldAge: 35
-  youngAge: 25
+  oldAge: 36
+  youngAge: 26
 
 - type: speciesBaseSprites
   id: MobKoboltSprites

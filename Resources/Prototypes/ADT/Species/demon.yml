@@ -15,13 +15,15 @@
   naming: firstlast
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Arkan.xml"
+  special:
+  - Имеют нестандартные возрастные рамки (Молодые 50-150, Зрелые 151-250, Старые 251-350)
   defaultLanguages:
   - GalacticCommon
   - Arkane
   minAge: 50
   maxAge: 350
-  oldAge: 250
-  youngAge: 150
+  oldAge: 251
+  youngAge: 151
 
 - type: speciesBaseSprites
   id: MobDemonSprites
