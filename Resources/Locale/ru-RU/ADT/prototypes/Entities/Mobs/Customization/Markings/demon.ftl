@@ -36,8 +36,6 @@ marking-ADTDemonrigth_eye = Аркана, Правый глаз
 marking-ADTDemonrigth_eye-tattoo_eye_r = Глаз
 marking-ADTDemonleft_eye = Аркана, Левый глаз
 marking-ADTDemonleft_eye-tattoo_eye_l = Глаз
-marking-ADTDemonEyeGlow = Светящиеся глаза
-marking-ADTDemonEyeGlow-eyeglow = Светящиеся глаза
 
 # Рога
 marking-DemonCowHorns = Аркана, рога (Коровьи)
