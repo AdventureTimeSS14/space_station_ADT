@@ -886,6 +886,10 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatSaintMadmanthingy
     slot: head
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
 
 - type: entity
   parent: ADTSponsorClothingHeadBase
@@ -909,3 +913,7 @@
     sprite: ADT/Personalization/saintmadman-coat.rsi
   - type: Clothing
     sprite: ADT/Personalization/saintmadman-coat.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
