@@ -10,3 +10,5 @@ fold-pull-off-verb = Снять
 fold-put-on-verb = Надеть
 fold-hidden-verb = Спрятать под одежду
 fold-unhidden-verb = Надеть поверх одежды
+fold-scroll-verb = Развернуть
+fold-unscroll-verb = Свернуть

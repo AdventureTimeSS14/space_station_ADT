@@ -11,6 +11,9 @@
       "name": "book"
     },
     {
+      "name": "book_folded"
+    },
+    {
       "name": "icon"
     },
     {
@@ -24,7 +27,15 @@
       "directions": 4
     },
     {
+      "name": "unfolded-inhand-left",
+      "directions": 4
+    },
+    {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "unfolded-inhand-right",
       "directions": 4
     }
   ]

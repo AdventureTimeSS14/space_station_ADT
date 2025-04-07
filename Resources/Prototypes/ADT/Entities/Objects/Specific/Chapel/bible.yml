@@ -178,6 +178,23 @@
   description: An moth religion thready scroll.. New Interstellar Version 2355.
   id: ADTBibleMoth
   components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-unscroll-verb
+    foldVerbText: fold-scroll-verb
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        unfoldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        foldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+        icon:
+          True: {visible: true}
+          False: {visible: false}
   - type: Bible
     damage:
       types:
@@ -198,8 +215,13 @@
     sprite: ADT/Objects/Specific/Chapel/mothbible.rsi
     layers:
     - state: book
+      map: [ "unfoldedLayer" ]
+    - state: book_folded
+      map: [ "foldedLayer" ]
     - state: icon
       map: [ "icon" ]
+  - type: FoldableClothing
+    foldedHeldPrefix: unfolded
   - type: RandomSprite
     available:
       - icon:
@@ -209,7 +231,6 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/mothbible.rsi
-  - type: MultiHandedItem
 
 - type: entity
   parent: Bible
