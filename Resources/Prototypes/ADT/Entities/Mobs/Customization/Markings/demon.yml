@@ -52,6 +52,15 @@
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: trinity_spots
 
+- type: marking
+  id: ADTDemonEyeGlow
+  bodyPart: Head
+  markingCategory: LLeg
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: eyeglow
+
 #Бороды
 - type: marking
   id: DemonGoatee

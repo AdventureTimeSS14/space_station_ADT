@@ -850,3 +850,62 @@
       amount: 3
   - type: StaticPrice
     price: 100
+
+#Saint_madman
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitSaintMadmanClothing
+  name: SaintMadmanClothing
+  description: cool
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-uniform.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatViaDeus
+  name: SaintMadmanCoat
+  description: yeaaaa
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatSaintMadmanthingy
+    slot: head
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ClothingHeadHatSaintMadmanthingy
+  categories: [ HideSpawnMenu ]
+  name: yeaaaaa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatSaintMadman
+  name: SaintMadmanCoat
+  description: yeaaaaagain
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-coat.rsi
