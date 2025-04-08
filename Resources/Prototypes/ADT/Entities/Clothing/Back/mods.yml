@@ -344,12 +344,6 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModRadiationProtection
-  - type: UserInterface
-    interfaces:
-      enum.ModSuitUiKey.Key:
-        type: ModSuitBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: Clothing
     quickEquip: false
     slots:
