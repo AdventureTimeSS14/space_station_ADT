@@ -62,6 +62,7 @@
   - type: Item
     size: Huge
   - type: PowerCellDraw
+    enabled: false
     drawRate: 0
     useRate: 5
     delay: 10
@@ -74,6 +75,10 @@
   - type: EmpDisabling
     disablingTime: 30000
   - type: ShowEnergyAlarm
+  - type: ContainerFill
+    containers:
+      cell_slot:
+      - PowerCellHigh
 
 #атмосферный
 - type: entity

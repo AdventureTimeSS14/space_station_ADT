@@ -229,6 +229,7 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
+    isInstantlyActive: true
     complexity: 3
     slots:
     - MODcore
@@ -284,6 +285,7 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
+    isInstantlyActive: true
     complexity: 3
     slots:
     - MODcore
@@ -396,6 +398,7 @@
   - type: Sprite
     state: ore
   - type: ModSuitMod
+    isInstantlyActive: true
     complexity: 2
     slots:
     - outerClothing
@@ -439,6 +442,7 @@
   - type: Sprite
     state: storage_syndi
   - type: ModSuitMod
+    isInstantlyActive: true
     complexity: 2
     slots:
     - MODcore

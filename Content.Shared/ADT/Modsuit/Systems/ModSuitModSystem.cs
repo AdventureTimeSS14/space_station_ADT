@@ -47,7 +47,6 @@ public sealed class SharedModSuitModSystem : EntitySystem
             return;
 
         ActivateModule(uid, module, mod, component);
-
         Dirty(module, mod);
         Dirty(uid, component);
         _mod.UpdateUserInterface(uid);
@@ -76,6 +75,8 @@ public sealed class SharedModSuitModSystem : EntitySystem
             return;
         _container.Insert(uid, modsuit.ModuleContainer);
         modsuit.CurrentComplexity += component.Complexity;
+        if (component.IsInstantlyActive)
+            ActivateModule(uid, args.Used, component, modsuit);
         Dirty(uid, component);
         Dirty(args.Target.Value, modsuit);
         _mod.UpdateUserInterface(args.Target.Value, modsuit);

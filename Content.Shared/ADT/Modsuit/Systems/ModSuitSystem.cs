@@ -666,6 +666,8 @@ public sealed class ModSuitSystem : EntitySystem
                 return;
             _container.Insert(spawned, modSuit.Comp.ModuleContainer);
             modSuit.Comp.CurrentComplexity += moduleComp.Complexity;
+            if (moduleComp.IsInstantlyActive)
+                _module.ActivateModule(modSuit.Owner, spawned, moduleComp, modSuit.Comp);
             Dirty(modSuit.Owner, modSuit.Comp);
             Dirty(spawned, moduleComp);
         }

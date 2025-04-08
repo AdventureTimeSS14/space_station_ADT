@@ -10,6 +10,8 @@ namespace Content.Shared.ADT.ModSuits;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ModSuitModComponent : Component
 {
+    [DataField, AutoNetworkedField]
+    public bool IsInstantlyActive = false;
     [AutoNetworkedField]
     public bool Inserted = false;
     [AutoNetworkedField]

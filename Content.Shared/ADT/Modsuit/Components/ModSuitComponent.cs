@@ -29,7 +29,7 @@ public sealed partial class ModSuitComponent : Component
     [DataField, AutoNetworkedField]
     public int MaxComplexity = 15;
     public const string DefaultClothingContainerId = "modsuit-part";
-    public const string DefaultModuleContainerId = "modsuit-modules";
+    public const string DefaultModuleContainerId = "mod-modules-container";
 
     /// <summary>
     ///     Action used to toggle the clothing on or off.
