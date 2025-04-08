@@ -50,7 +50,7 @@ station-event-new-law-announcement =
 station-event-random-sentience-role-description = Вы разумный { $name }, оживший благодаря космической магии.
 # Flavors
 station-event-new-law-kind-1 = приличие
-station-event-new-law-kind-2 = профессиональность
+station-event-new-law-kind-2 = профессионализм
 station-event-new-law-kind-3 = владение любым холодным оружием
 station-event-new-law-kind-4 = отдых
 station-event-new-law-kind-5 = общение
