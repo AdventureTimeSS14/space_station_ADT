@@ -457,7 +457,7 @@
   - type: Sprite
     state: empshield
   - type: ModSuitMod
-    complexity: 2
+    complexity: 1
     slots:
     - MODcore
     components:

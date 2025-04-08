@@ -1,4 +1,4 @@
-mod-module-space = Комплектация: {$complexity}({$maxcomplexity})
+mod-module-space = Сложность: {$complexity} ({$maxcomplexity})
 mod-energy-waste = Расход W: {$energy}
 mod-username = Имя пользователя: 
 mod-all-toggled = Полностью включен

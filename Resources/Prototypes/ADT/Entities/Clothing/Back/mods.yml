@@ -64,7 +64,7 @@
   - type: PowerCellDraw
     drawRate: 0
     useRate: 5
-    delay: 5
+    delay: 10
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
@@ -100,6 +100,20 @@
   - type: Construction
     graph: ADTModsuitAtmospheric
     node: adtmodsuitatmospheric
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 #смешной
 - type: entity
@@ -120,6 +134,20 @@
   - type: Construction
     graph: ADTModsuitClown
     node: adtmodsuitclown
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 #инженерный
 - type: entity
@@ -147,6 +175,20 @@
     graph: ADTModsuitEngineering
     node: adtmodsuitengineering
   - type: EmpDisabling
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 #медицинский
 - type: entity
@@ -170,6 +212,20 @@
   - type: Construction
     graph: ADTModsuitMedical
     node: adtmodsuitmedical
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 #шахтёрский
 - type: entity
@@ -204,6 +260,20 @@
   - type: Construction
     graph: ADTModsuitMining
     node: adtmodsuitmining
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 #охранный
 - type: entity
@@ -227,9 +297,24 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
+      - ADTModsuitModEmpProtection
   - type: Construction
     graph: ADTModsuitSecurity
     node: adtmodsuitsecurity
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 # учёный
 - type: entity
@@ -270,7 +355,20 @@
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
-
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 #гсб
 - type: entity
@@ -294,10 +392,25 @@
       - ADTModsuitModStorageLarge
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+      - ADTModsuitModEmpProtection
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 10
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 # синдиката
 - type: entity
@@ -343,6 +456,21 @@
   - type: ItemSlotsRequirePanel
     slots:
       cell_slot: true
+  - type: DNALocker
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 - type: entity
   parent: ADTClothingModsuitBackSyndicate
@@ -368,6 +496,21 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+  - type: DNALocker
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
 
 - type: entity
   parent: ADTClothingModsuitBackSyndicate
@@ -394,3 +537,17 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
   - type: DNALocker
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
