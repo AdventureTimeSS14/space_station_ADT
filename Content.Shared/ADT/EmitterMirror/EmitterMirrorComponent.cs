@@ -1,6 +1,10 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Map;
+using Robust.Shared.Network;
+using Robust.Shared.Maths;
+using System.Numerics;
 
 namespace Content.Shared.ADT.EmitterMirror;
 
@@ -36,4 +40,15 @@ public sealed partial class EmitterMirrorComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// Direction to Vector2
+    /// </summary>
+    public static readonly Dictionary<Direction, Vector2> DirectionToVector = new()
+    {
+        { Direction.North,  Vector2.UnitY  },
+        { Direction.South, -Vector2.UnitY },
+        { Direction.East,  -Vector2.UnitX },
+        { Direction.West,   Vector2.UnitX }
+    };
 }

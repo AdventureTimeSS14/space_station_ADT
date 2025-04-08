@@ -4,6 +4,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.ADT.EmitterMirror;
 using Content.Shared.Whitelist;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Maths;
@@ -22,7 +23,7 @@ public sealed class EmitterMirrorSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<EmitterMirrorComponent,  ProjectileReflectAttemptEvent>(OnProjectileMirrorAttempt);
+        SubscribeLocalEvent<EmitterMirrorComponent,  ProjectileReflectAttemptEvent>(OnReflectMirrorAttempt);
     }
 
     #region Vector Operations
@@ -32,29 +33,15 @@ public sealed class EmitterMirrorSystem : EntitySystem
     /// </summary>
     private Vector2? GetMirrorOffset(EmitterMirrorComponent component, Direction collisionDirection)
     {
-        return component.TrinaryReflector
-            ? component.TrinaryMirrorDirection?.ToVec()
-            : component.BinaryReflector
-                ? ReflectAngular(collisionDirection)
-                : null;
+        if (component.TrinaryReflector)
+            return component.TrinaryMirrorDirection?.ToVec();
+
+        if (component.BinaryReflector &&
+            EmitterMirrorComponent.DirectionToVector.TryGetValue(collisionDirection, out var result))
+            return result;
+
+        return null;
     }
-
-    /// <summary>
-    /// Returns a directional vector based on the cardinal direction for binary reflection.
-    /// </summary>
-    private Vector2 ReflectAngular(Direction collisionDirection)
-    {
-        var directionToVector = new Dictionary<Direction, Vector2>
-        {
-            { Direction.North, Vector2.UnitY  },
-            { Direction.South, -Vector2.UnitY },
-            { Direction.East, -Vector2.UnitX  },
-            { Direction.West, Vector2.UnitX   }
-        };
-
-        return directionToVector.TryGetValue(collisionDirection, out var vector) ? vector : Vector2.Zero;
-    }
-
     #endregion
 
     #region Mirror Logic 
@@ -66,31 +53,18 @@ public sealed class EmitterMirrorSystem : EntitySystem
     {
         direction = GetImpactDirection(uid, projectile);
 
-        if (direction == null)
-            return false;
-
-        if (!TryComp<ReflectiveComponent>(projectile, out var reflective))
-            return false;
-
-        if (reflective.Reflective == 0x0)
-            return false;
-
-        if (!TryComp<GunComponent>(uid, out var gunComponent))
-            return false;
-
-        if (_whitelistService.IsWhitelistFail(component.Whitelist, projectile))
-            return false;
-
-        if (component.BlockedDirections.Contains(direction.Value.ToString()))
-            return false;
-
-        return true;
+        return direction != null
+            && TryComp<ReflectiveComponent>(projectile, out var reflective)
+            && reflective.Reflective != 0x0
+            && TryComp<GunComponent>(uid, out _)
+            && !_whitelistService.IsWhitelistFail(component.Whitelist, projectile)
+            && !component.BlockedDirections.Contains(direction.Value.ToString());
     }
 
     /// <summary>
     /// Handles the event where a projectile attempts to reflect off a mirror.
     /// </summary>
-    private void OnProjectileMirrorAttempt(EntityUid uid, EmitterMirrorComponent component, ref ProjectileReflectAttemptEvent args)
+    private void OnReflectMirrorAttempt(EntityUid uid, EmitterMirrorComponent component, ref ProjectileReflectAttemptEvent args)
     {
         if (args.Cancelled)
             return;
