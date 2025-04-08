@@ -337,3 +337,16 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ADTClothingOuterCoatLeathOvercoat]
   id: ADTClothingOuterCoatLeathOvercoatOpened
   name: OvercoatOpenned
+
+
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTOuterClothingCoatsCrazyScientist
+  name: CrazyDiamond!!
+  description: imcrazy
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/crazyscientist.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/crazyscientist.rsi
