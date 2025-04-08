@@ -98,7 +98,7 @@
         spawn:
           ShardGlassUranium:
             min: 1
-            max: 2
+            max: 1                  #ADT_Tweak
           PartRodMetal:
             min: 1
             max: 2

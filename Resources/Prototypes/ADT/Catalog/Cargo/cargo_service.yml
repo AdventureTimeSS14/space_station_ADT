@@ -31,6 +31,6 @@
     sprite: ADT/Objects/Specific/Fishing/fishing_rod.rsi
     state: icon
   product: ADTCrateFishingGoodies
-  cost: 1000
+  cost: 3200
   category: Service
   group: market
