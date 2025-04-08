@@ -63,3 +63,6 @@ ent-ADTModsuitModRadiationProtection = модуль защиты от радиа
 
 ent-ADTModsuitModStorageSyndie = модуль хранилища синдиката
     .desc = Работает так же как и простой модуль, но делает это намного лучше благодаля манипуляциям с редспейсом.
+
+ent-ADTModsuitModEmpProtection = модуль ЭМИ защиты
+    .desc = Полностью обнуляет эффект эми на батарейку, если включен.

@@ -21,6 +21,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Coordinates;
 using Content.Shared.PowerCell;
 using Content.Shared.Access.Systems;
+using Content.Shared.Emp;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -106,7 +107,8 @@ public sealed class ModSuitSystem : EntitySystem
             return;
 
         var user = args.User;
-
+        if (HasComp<EmpDisabledComponent>(modSuit.Owner) && user == wearer)
+            return;
         var verb = new EquipmentVerb()
         {
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
@@ -362,7 +364,8 @@ public sealed class ModSuitSystem : EntitySystem
     private void OnToggleClothingAction(Entity<ModSuitComponent> modSuit, ref ToggleModPartEvent args)
     {
         var comp = modSuit.Comp;
-
+        if (HasComp<EmpDisabledComponent>(modSuit.Owner))
+            return;
         if (args.Handled)
             return;
 

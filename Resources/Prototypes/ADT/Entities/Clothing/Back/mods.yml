@@ -71,6 +71,10 @@
   - type: ItemSlotsRequirePanel
     slots:
       cell_slot: true
+  - type: EmpDisabling
+    disablingTime: 30000
+  - type: ShowEnergyAlarm
+
 #атмосферный
 - type: entity
   parent: ADTClothingModsuitBackBase
@@ -142,6 +146,7 @@
   - type: Construction
     graph: ADTModsuitEngineering
     node: adtmodsuitengineering
+  - type: EmpDisabling
 
 #медицинский
 - type: entity

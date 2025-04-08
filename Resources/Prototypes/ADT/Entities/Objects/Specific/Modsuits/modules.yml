@@ -140,7 +140,7 @@
     components:
     - type: NightVisionItem
       slotFlags: HEAD
-      toggleable: false
+    - type: ItemToggle
 
 - type: entity
   parent: ADTModsuitModBase
@@ -447,3 +447,18 @@
       grid:
       - 0,0,8,4
       maxItemSize: Huge
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModEmpProtection
+  name: MOD emp protection module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: empshield
+  - type: ModSuitMod
+    complexity: 2
+    slots:
+    - MODcore
+    components:
+    - type: EmpContainerProtaction

@@ -114,9 +114,6 @@ public sealed class SharedModSuitModSystem : EntitySystem
     public bool DeactivateModule(EntityUid modSuit, EntityUid module, ModSuitModComponent component, ModSuitComponent modcomp)
     {
         //ЛЮБЫЕ МАНИПУЛЯЦИИ С ИНТЕРФЕЙСАМИ РАБОТАЮТ ТОЛЬКО ЧЕРЕЗ ЭТИ ДВА МЕТОДА. ДАЖЕ НЕ ПЫТАЙТЕСЬ СДЕЛАТЬ ЭТО ВСЁ ВНЕ ИХ
-        var container = modcomp.Container;
-        if (container == null)
-            return false;
 
         var attachedClothings = modcomp.ClothingUids;
         if (component.Slots.Contains("MODcore"))
@@ -126,8 +123,6 @@ public sealed class SharedModSuitModSystem : EntitySystem
 
         foreach (var attached in attachedClothings)
         {
-            if (!container.Contains(attached.Key))
-                continue;
             if (!component.Slots.Contains(attached.Value))
                 continue;
             EntityManager.RemoveComponents(attached.Key, component.Components);
