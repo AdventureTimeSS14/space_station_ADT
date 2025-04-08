@@ -26,8 +26,7 @@
       Unsexed: UnisexVox
       # Start ADT tweak
   - type: Uncloneable
-  - type: ReplacementAccent
-    accent: voxlanguage
+  - type: VoxAccent
       # End ADT tweak
   - type: Butcherable
     butcheringType: Spike
