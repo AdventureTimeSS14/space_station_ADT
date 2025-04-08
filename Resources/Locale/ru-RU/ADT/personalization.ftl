@@ -520,7 +520,7 @@ ent-ADTClothingUniformJumpsuitSaintMadmanClothing = униформа Via-Deus
     .suffix = { "Спонсорское, Saint_madman" }
 
 ent-ADTClothingOuterCoatSaintMadman = пальто Via-Deus
-    .desc = черно красное пальто компании Via-Deus.
+    .desc = Черно красное пальто компании Via-Deus.
     .suffix = { "Спонсорское, Saint_madman" }
 
 ent-ADTClothingOuterCoatViaDeus = торжественное пальто Via-Deus
