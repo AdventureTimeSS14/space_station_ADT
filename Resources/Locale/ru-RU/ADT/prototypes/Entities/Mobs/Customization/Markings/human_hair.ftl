@@ -15,18 +15,6 @@ marking-HumanHairManbunold = Мужской пучок (старый стиль)
 marking-HumanHairPigtailtajaran = Косичка-таджаран
 marking-HumanHairShavedside = Выбритая сторона
 marking-HumanHairShorthaired = Коротко стриженные волосы
-marking-ADTHumanHairBubbleGum = Жвачка
-marking-ADTHumanHairGorgona = Горгона
-marking-ADTHumanHairGorgona2 = Горгона 2
-marking-ADTHumanHairMorningHairStyle = Утренний стиль
-marking-ADTHumanHairMorningHairStyle2 = Утренний стиль 2
-marking-ADTHumanHairMorningHairStyle3 = Утренний стиль 3
-marking-ADTHumanHairPonyTail = Пони стайл
-marking-ADTHumanHairShavedFemale = Выбритая женская
-marking-ADTHumanHairShavedUnisex = Выбритая унисекс
-marking-ADTHumanHairValkyrieScythe = Коса валькирии
-marking-ADTHumanHairValkyrieScythe2 = Коса валькирии 2
-marking-ADTHumanHairValkyrieScythe3 = Коса валькирии 3
 marking-HumanWomenbun = Женский пучок
 
 # Кастом
