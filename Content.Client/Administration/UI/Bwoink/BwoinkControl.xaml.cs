@@ -13,8 +13,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Network;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Client.Administration.UI.Logs;
-using Content.Client.Eui;
 
 namespace Content.Client.Administration.UI.Bwoink
 {
@@ -183,19 +181,19 @@ namespace Content.Client.Administration.UI.Bwoink
                     _console.ExecuteCommand($"respawn \"{_currentPlayer.Username}\"");
             };
 
-            // ADT-Tweak-Start RAT TWEAK: непонимание выносит в комментарии
-            // Logs.OnPressed += _ =>
-            // {
-            //     if (_currentPlayer is not null)
-            //     _console.ExecuteCommand($"adminlogs \"{_currentPlayer.Username}\"");
-            // };
+            // ADT-Tweak start
+            Logs.OnPressed += _ =>
+            {
+                if (_currentPlayer is not null)
+                    _console.ExecuteCommand($"adminlogs \"{_currentPlayer.Username}\"");
+            };
 
-            // Playerpanel.OnPressed += _ =>
-            // {
-            //     if (_currentPlayer is not null)
-            //         _console.ExecuteCommand($"playerpanel \"{_currentPlayer.Username}\"");
-            // };
-            // ADT-Tweak-End
+            Playerpanel.OnPressed += _ =>
+            {
+                if (_currentPlayer is not null)
+                    _console.ExecuteCommand($"playerpanel \"{_currentPlayer.Username}\"");
+            };
+            // ADT-Tweak end
         }
 
         public void OnBwoink(NetUserId channel)
@@ -244,13 +242,11 @@ namespace Content.Client.Administration.UI.Bwoink
             Follow.Visible = _adminManager.CanCommand("follow");
             Follow.Disabled = !Follow.Visible || disabled;
 
-            // ADT-Tweak-Start RAT TWEAK: непонимание выносит в комментарии
-            // Logs.Visible = _adminManager.HasFlag(AdminFlags.Logs);
-            // Logs.Disabled = !Logs.Visible || disabled;
+            Logs.Visible = _adminManager.HasFlag(AdminFlags.Logs);
+            Logs.Disabled = !Logs.Visible || disabled;
 
-            // Playerpanel.Visible = _adminManager.HasFlag(AdminFlags.Ban);
-            // Playerpanel.Disabled = !Playerpanel.Visible || disabled;
-            // ADT-Tweak-End
+            Playerpanel.Visible = _adminManager.HasFlag(AdminFlags.Ban);
+            Playerpanel.Disabled = !Playerpanel.Visible || disabled;
         }
 
         private string FormatTabTitle(ItemList.Item li, PlayerInfo? pl = default)
