@@ -119,6 +119,7 @@
       - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
+      - id: RubberPig # SD tweak start, Corvax tweak start
       #ADT tweak start
       - id: SprayPaintBlue
       - id: SprayPaintRed
