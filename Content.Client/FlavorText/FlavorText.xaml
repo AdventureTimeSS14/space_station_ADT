@@ -1,5 +1,8 @@
 ﻿<Control Name="CFlavorText" xmlns="https://spacestation14.io">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+        <!-- SD-ERPStatus-Start -->
+        <OptionButton Name="CERPStatusOption" Access="Public" MinSize="220 0" HorizontalExpand="True" />
+        <!-- SD-ERPStatus-End   -->
         <TextEdit Name="CFlavorTextInput" Access="Public" MinSize="220 100" Margin="10" HorizontalExpand="True" VerticalExpand="True" />
     </BoxContainer>
 </Control>

@@ -43,12 +43,15 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
+using Content.Shared.SD;
+using Content.Client.FlavorText;
 
 namespace Content.Client.Lobby.UI
 {
     [GenerateTypedNameReferences]
     public sealed partial class HumanoidProfileEditor : BoxContainer
     {
+        private OptionButton _erpStatus = null!; // SD-ERPStatus
         private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
         private readonly IClientPreferencesManager _preferencesManager;
         private readonly IConfigurationManager _cfgManager;
@@ -555,6 +558,23 @@ namespace Content.Client.Lobby.UI
                 _flavorTextEdit = _flavorText.CFlavorTextInput;
 
                 _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
+                // SD-ERPStatus-Start
+                _erpStatus = _flavorText.CERPStatusOption;
+
+                 // We set id for situation, if we wanna resort option list
+                _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-no"), (int) EnumERPStatus.NO);
+                _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-half"), (int) EnumERPStatus.HALF);
+                _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-full"), (int) EnumERPStatus.FULL);
+                _erpStatus.OnItemSelected += args =>
+                {
+                    if (Profile is null)
+                        return;
+
+                    _erpStatus.SelectId(args.Id);
+                    Profile = Profile.WithERPStatus((EnumERPStatus) args.Id);
+                    IsDirty = true;
+                };
+                // SD-ERPStatus-End
             }
             else
             {
@@ -894,6 +914,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateFlavorTextEdit();
+            UpdateERPStatus(); // SD-ERPStatus
             UpdateSexControls();
             UpdateGenderControls();
             UpdateSkinColor();
@@ -1498,6 +1519,15 @@ namespace Content.Client.Lobby.UI
             }
         }
 
+        // SD-ERPStatus-Start
+        private void UpdateERPStatus()
+        {
+            if (_erpStatus != null)
+            {
+                _erpStatus.SelectId((int) (Profile?.ERPStatus ?? EnumERPStatus.NO));
+            }
+        }
+        // SD-ERPStatus-End
         private void UpdateAgeEdit()
         {
             AgeEdit.Text = Profile?.Age.ToString() ?? "";
