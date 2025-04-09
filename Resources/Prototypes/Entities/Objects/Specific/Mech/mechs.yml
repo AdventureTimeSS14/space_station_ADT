@@ -149,6 +149,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.75
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -215,6 +216,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.75
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end
     baseState: honker
     openState: honker-open
@@ -270,6 +272,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.75
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end
     baseState: hamtr
     openState: hamtr-open
@@ -346,6 +349,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.75
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     # ADT end
     baseState: vim
     openState: vim-open
