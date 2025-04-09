@@ -42,7 +42,7 @@
       amount: 2
     Oxygen:
       amount: 1
-   products:
+  products:
     ADTMethanol: 4
 
 - type: reaction
