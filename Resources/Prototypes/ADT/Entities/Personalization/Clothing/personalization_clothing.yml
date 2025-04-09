@@ -868,8 +868,8 @@
 - type: entity
   parent: ADTSponsorClothingHeadBase
   id: ClothingHeadHatSaintMadmanthingy
-  categories: [ HideSpawnMenu ]
   name: yeaaaaa
+  suffix: Personal, saint_madman
   components:
   - type: Sprite
     sprite: ADT/Personalization/saintmadman-headthingy.rsi
@@ -893,7 +893,7 @@
     maxItemSize: Normal
 
 - type: entity
-  parent: ADTSponsorClothingOuterArmorBase
+  parent: ADTSponsorClothingOuterBase
   id: ADTClothingOuterCoatViaDeus
   name: SaintMadmanCoat
   description: yeaaaaagain
@@ -910,6 +910,3 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatSaintMadmanthingy
-    slot: head
