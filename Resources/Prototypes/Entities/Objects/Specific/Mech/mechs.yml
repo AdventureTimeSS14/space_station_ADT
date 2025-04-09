@@ -224,13 +224,13 @@
       components:
       - HumanoidAppearance
     # ADT Start
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 1.875
-    baseSprintSpeed: 3.375
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentClown
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
     # ADT End
 
 - type: entity
