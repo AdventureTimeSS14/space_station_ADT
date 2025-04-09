@@ -40,6 +40,9 @@
         reagents:
         - ReagentId: Desoxyephedrine
           Quantity: 75
+  - type: Item
+    shape:
+    - 0,0,0,0
 
 - type: entity
   name: desoxyephedrine crystal shard
@@ -79,6 +82,9 @@
         reagents:
         - ReagentId: ADTBlueSkyDesoxyephedrine
           Quantity: 75
+  - type: Item
+    shape:
+    - 0,0,0,0
 
 - type: entity
   name: blue sky desoxyephedrine crystal shard
