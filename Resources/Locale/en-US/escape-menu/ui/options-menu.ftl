@@ -283,3 +283,10 @@ ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-screen-shake-intensity = Screen shake intensity
+
+ui-options-chatstack = Automatically merge identical chat messages
+ui-options-chatstack-count = { $count ->
+    [0] Off
+    [1] Last 1 message
+   *[other] Last {$count} messages
+}
