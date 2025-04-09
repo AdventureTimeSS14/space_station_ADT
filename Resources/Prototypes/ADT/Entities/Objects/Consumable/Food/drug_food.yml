@@ -18,6 +18,9 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 28
+  - type: Item
+    shape:
+    - 0,0,1,1
   - type: Tag
     tags:
     - ClothMade
@@ -36,10 +39,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 100
+        maxVol: 50
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 75
+          Quantity: 50
   - type: Item
     shape:
     - 0,0,0,0
@@ -60,10 +63,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 15
+          Quantity: 10
 
 - type: entity
   name: blue sky desoxyephedrine crystal
@@ -78,10 +81,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 100
+        maxVol: 50
         reagents:
         - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 75
+          Quantity: 50
   - type: Item
     shape:
     - 0,0,0,0
@@ -102,7 +105,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 15
+          Quantity: 10

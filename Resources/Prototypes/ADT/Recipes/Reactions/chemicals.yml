@@ -79,7 +79,7 @@
   quantized: true
   reactants:
     Desoxyephedrine:
-      amount: 100
+      amount: 50
   effects:
   - !type:CreateEntityReactionEffect
     entity: ADTFoodMethCrystal
@@ -91,7 +91,7 @@
   quantized: true
   reactants:
     ADTBlueSkyDesoxyephedrine:
-      amount: 100
+      amount: 50
   effects:
   - !type:CreateEntityReactionEffect
     entity: ADTFoodWalterMethCrystal
