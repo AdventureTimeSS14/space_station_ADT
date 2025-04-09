@@ -18,6 +18,9 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 28
+  - type: Item
+    shape:
+    - 0,0,1,1
   - type: Tag
     tags:
     - ClothMade
