@@ -39,7 +39,7 @@
         maxVol: 100
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 100
+          Quantity: 75
 
 - type: entity
   name: desoxyephedrine crystal shard
@@ -78,7 +78,7 @@
         maxVol: 100
         reagents:
         - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 100
+          Quantity: 75
 
 - type: entity
   name: blue sky desoxyephedrine crystal shard
