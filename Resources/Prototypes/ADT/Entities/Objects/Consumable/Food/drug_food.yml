@@ -39,10 +39,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 100
+        maxVol: 50
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 75
+          Quantity: 50
 
 - type: entity
   name: desoxyephedrine crystal shard
@@ -60,10 +60,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 15
+          Quantity: 10
 
 - type: entity
   name: blue sky desoxyephedrine crystal
@@ -78,10 +78,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 100
+        maxVol: 50
         reagents:
         - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 75
+          Quantity: 50
 
 - type: entity
   name: blue sky desoxyephedrine crystal shard
@@ -99,7 +99,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 15
+          Quantity: 10
