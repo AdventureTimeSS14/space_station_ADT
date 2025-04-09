@@ -910,10 +910,6 @@
         Slash: 0.5
         Piercing: 0.6
         Heat: 0.5
-  - type: Storage
-    grid:
-    - 0,0,4,2
-    maxItemSize: Normal
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatSaintMadmanthingy
     slot: head
