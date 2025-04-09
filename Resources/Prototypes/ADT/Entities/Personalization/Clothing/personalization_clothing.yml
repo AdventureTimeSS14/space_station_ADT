@@ -866,28 +866,6 @@
     sprite: ADT/Personalization/saintmadman-uniform.rsi
 
 - type: entity
-  parent: ADTSponsorClothingOuterBase
-  id: ADTClothingOuterCoatViaDeus
-  name: SaintMadmanCoat
-  description: yeaaaa
-  suffix: Personal, saint_madman
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.5
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatSaintMadmanthingy
-    slot: head
-
-- type: entity
   parent: ADTSponsorClothingHeadBase
   id: ClothingHeadHatSaintMadmanthingy
   categories: [ HideSpawnMenu ]
@@ -913,3 +891,29 @@
     grid:
     - 0,0,4,2
     maxItemSize: Normal
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatViaDeus
+  name: SaintMadmanCoat
+  description: yeaaaaagain
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.5
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatSaintMadmanthingy
+    slot: head
