@@ -893,7 +893,7 @@
     maxItemSize: Normal
 
 - type: entity
-  parent: ADTSponsorClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterArmorBase
   id: ADTClothingOuterCoatViaDeus
   name: SaintMadmanCoat
   description: yeaaaaagain
