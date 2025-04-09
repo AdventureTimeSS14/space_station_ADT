@@ -49,7 +49,7 @@
   - type: Construction
     graph: ADTModsuitStandard
     node: adtmodsuitstandard
-  - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
+  - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
