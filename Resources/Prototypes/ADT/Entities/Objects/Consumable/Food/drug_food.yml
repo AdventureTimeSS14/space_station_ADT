@@ -57,10 +57,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15
         reagents:
         - ReagentId: Desoxyephedrine
-          Quantity: 20
+          Quantity: 15
 
 - type: entity
   name: blue sky desoxyephedrine crystal
@@ -96,7 +96,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15
         reagents:
         - ReagentId: ADTBlueSkyDesoxyephedrine
-          Quantity: 20
+          Quantity: 15
