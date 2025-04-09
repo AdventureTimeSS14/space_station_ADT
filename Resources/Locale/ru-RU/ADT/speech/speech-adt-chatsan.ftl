@@ -1,4 +1,5 @@
-accent-adt_chatsanitize-words-1-1 = фурриaccent-adt_chatsanitize-words-1-2 = фури
+accent-adt_chatsanitize-words-1-1 = фурри
+accent-adt_chatsanitize-words-1-2 = фури
 accent-adt_chatsanitize-replace-1 = ксенорасовец
 
 accent-adt_chatsanitize-words-2-1 = фурриёб

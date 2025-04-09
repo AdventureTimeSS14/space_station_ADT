@@ -34,11 +34,12 @@
   category: Quirks  # ADT Quirks
   components:
     - type: Uncloneable
-  cost: -2  # ADT Quirks
+  cost: -1  # ADT Quirks
   speciesBlacklist:
   - IPC
+  - Vox
+  - NovakidSpecies
   quirk: true  # ADT Quirks
-
 
 - type: trait
   id: Narcolepsy
