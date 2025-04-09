@@ -32,17 +32,18 @@
   - !type:CreateEntityReactionEffect
     entity: ReactionSingularity
 
-# - type: reaction
-#   id: ADTMethanol
-#   reactants:
-#     Carbon:
-#       amount: 1
-#     Hydrogen:
-#       amount: 2
-#     Oxygen:
-#       amount: 1
-#   products:
-#     ADTMethanol: 4
+- type: reaction
+  id: ADTMethanol
+  minTemp: 370
+  reactants:
+    Carbon:
+      amount: 1
+    Hydrogen:
+      amount: 2
+    Oxygen:
+      amount: 1
+   products:
+    ADTMethanol: 4
 
 - type: reaction
   id: ADTMethylamine
