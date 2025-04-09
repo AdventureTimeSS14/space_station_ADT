@@ -866,7 +866,7 @@
     sprite: ADT/Personalization/saintmadman-uniform.rsi
 
 - type: entity
-  parent: ADTSponsorClothingOuterStorageBase
+  parent: ADTSponsorClothingOuterBase
   id: ADTClothingOuterCoatViaDeus
   name: SaintMadmanCoat
   description: yeaaaa
