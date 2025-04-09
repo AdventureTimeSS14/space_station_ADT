@@ -15,6 +15,7 @@
       inverted: true
       species:
       - Resomi
+      - Vox
   # ADT RESTRICT End
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
@@ -40,10 +41,10 @@
     back:
     - Flash
     - MagazinePistol
-#    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+#    underwearb: ClothingUnderwearBottomBoxersWhite
 #    socks: ClothingUnderwearSocksNormal
-#  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
-#  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+#  underweart: ClothingUnderwearTopBraWhite
+#  underwearb: ClothingUnderwearBottomPantiesWhite
 #  innerClothingSkirt: ADTClothingUniformSkirtBrigmedicTurtleneck
 #  satchel: ClothingBackpackSatchelBrigmedicFilled
 #  duffelbag: ClothingBackpackDuffelBrigmedicFilled

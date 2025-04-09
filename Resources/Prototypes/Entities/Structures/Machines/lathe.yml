@@ -280,7 +280,9 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
-    - ADTEnergyBoardsPack # ADT-tweak
+    # ADT-tweak-start
+    - ADTEnergyBoardsPack 
+    # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -639,7 +641,7 @@
     - type: Lathe
       idleState: icon
       runningState: building
-      defaultProductionAmount: 10
+      defaultProductionAmount: 30 #ADT, changed from 10 to 30
       staticPacks:
       - OreSmelting
       - RGlassSmelting

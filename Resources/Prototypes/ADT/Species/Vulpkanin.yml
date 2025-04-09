@@ -1,7 +1,7 @@
 - type: species
   id: VulpkaninSpecies
   name: species-name-vulpkanin
-  roundStart: true #can player role
+  roundStart: true
   prototype: MobVulpkanin
   sprites: MobVulpkaninSprites
   markingLimits: MobVulpkaninMarkingLimits
@@ -17,6 +17,9 @@
   defaultLanguages:
   - GalacticCommon
   - Canilunzt
+  maxAge: 80
+  oldAge: 50
+  youngAge: 25
 
 - type: speciesBaseSprites
   id: MobVulpkaninSprites
@@ -159,5 +162,3 @@
   baseSprite:
     sprite: ADT/Mobs/Species/Vulpkanin/parts.rsi
     state: r_foot
-
-#

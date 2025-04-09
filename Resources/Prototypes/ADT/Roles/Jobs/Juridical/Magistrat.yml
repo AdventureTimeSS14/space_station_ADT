@@ -20,6 +20,12 @@
     # - !type:DepartmentTimeRequirement
     #   department: Sponsor
     #   time: 10
+    #ADT tweak start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
+      #ADT tweak end
   startingGear: MagistratGear
   icon: "JobIconMagistrat"
   requireAdminNotify: true
@@ -62,10 +68,10 @@
     - ADTtelescopicBaton
   # ADT-TelescopicBaton
 #    pocket1: ADTtelescopicBaton
-#    underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+#    underwearb: ClothingUnderwearBottomBoxersWhite
 #    socks: ClothingUnderwearSocksNormal
-#  underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
-#  underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+#  underweart: ClothingUnderwearTopBraWhite
+#  underwearb: ClothingUnderwearBottomPantiesWhite
 #  innerClothingSkirt: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
 #  satchel: ClothingBackpackSatchelIAAFilled
 #  duffelbag: ClothingBackpackDuffelIAAFilled

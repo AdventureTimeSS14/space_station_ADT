@@ -44,3 +44,14 @@
   - type: PointLight
     radius: 1.4
     color: "#ff7a06"
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieOctocat
+  name: Octocat plushie
+  description: He doesn't like books.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_git
+  - type: Rotatable

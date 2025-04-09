@@ -1,0 +1,8 @@
+# Настройка какому тиру, какой лодаут выдать
+# Учитываем что все спонсоры у нас щас 1,2,3 тира
+
+- type: sponsorLoadoutTierSetting
+  id: defaultSponsorTiers
+  tiers:
+    7: SuperDeveloperSponsorLoadoutTier3
+    8: PremiumSponsorLoadoutTier4

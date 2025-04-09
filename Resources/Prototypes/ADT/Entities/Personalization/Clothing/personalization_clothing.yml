@@ -778,6 +778,9 @@
     sprite: ADT/Personalization/anagiri_gloves.rsi
   - type: Clothing
     sprite: ADT/Personalization/anagiri_gloves.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+  - type: FingerprintMask
 
 #MleM
 - type: entity
