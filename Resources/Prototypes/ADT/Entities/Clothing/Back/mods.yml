@@ -255,10 +255,6 @@
       - ADTModsuitModOrebag
       - ADTModsuitModStorage
       - ADTModsuitModLight
-      - ADTModsuitModDrill
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
   - type: Tag
     tags:
     - ADTHardsuitSalvage
