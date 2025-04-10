@@ -23,8 +23,8 @@ public partial class ChatBox : UIWidget
 {
     private readonly ChatUIController _controller;
     private readonly IEntityManager _entManager;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // EE - Chat stacking
-    [Dependency] private readonly ILocalizationManager _loc = default!; // EE - Chat stacking
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT-Tweak, EE - Chat stacking
+    [Dependency] private readonly ILocalizationManager _loc = default!; // ADT-Tweak, EE - Chat stacking
 
     public bool Main { get; set; }
 
@@ -54,13 +54,13 @@ public partial class ChatBox : UIWidget
         _controller.MessageAdded += OnMessageAdded;
         _controller.RegisterChat(this);
 
-        // EE - Chat stacking
+        // ADT-Tweak, EE - Chat stacking
         _chatStackList = new List<ChatStackData>(_chatStackAmount);
         _cfg.OnValueChanged(ADTCCVars.ChatStackLastLines, UpdateChatStack, true);
-        // End EE - Chat stacking
+        // ADT-Tweak, End EE - Chat stacking
     }
 
-    // EE - Chat stacking
+    // ADT-Tweak, EE - Chat stacking
     private void UpdateChatStack(int value)
     {
         _chatStackAmount = value >= 0 ? value : 0;
@@ -87,7 +87,7 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        // EE - Chat stacking
+        // ADT-Tweak, EE - Chat stacking
         var index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
 
         if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
@@ -98,7 +98,7 @@ public partial class ChatBox : UIWidget
         }
 
         UpdateRepeatingLine(index);
-        // End EE - Chat stacking
+        // ADT-Tweak, End EE - Chat stacking
     }
 
     /// <summary>
@@ -112,7 +112,7 @@ public partial class ChatBox : UIWidget
     /// <remarks>
     /// zero index is the very last line in chat, 1 is the line before the last one, 2 is the line before that, etc.
     /// </remarks>
-    // EE - Chat stacking
+    // ADT-Tweak, EE - Chat stacking
     private void UpdateRepeatingLine(int index)
     {
         _chatStackList[index].RepeatCount++;
@@ -124,7 +124,7 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    // EE - Chat stacking
+    // ADT-Tweak, EE - Chat stacking
     private void TrackNewMessage(string wrappedMessage, Color colorOverride)
     {
         if (!_chatStackEnabled)
@@ -144,7 +144,7 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         Contents.Clear();
-        _chatStackList = new List<ChatStackData>(_chatStackAmount); // EE - Chat stacking
+        _chatStackList = new List<ChatStackData>(_chatStackAmount); // ADT-Tweak, EE - Chat stacking
 
         foreach (var message in _controller.History)
         {
@@ -167,14 +167,14 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    public void AddLine(string message, Color color, int repeat = 0) // EE - Chat stacking - repeatr)
+    public void AddLine(string message, Color color, int repeat = 0) // ADT-Tweak, EE - Chat stacking - repeatr)
     {
-        var formatted = new FormattedMessage(4); // EE - Chat stacking - up from
+        var formatted = new FormattedMessage(4); // ADT-Tweak, EE - Chat stacking - up from
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
 
-        // EE - Chat stacking
+        // ADT-Tweak, EE - Chat stacking
         if (repeat != 0)
         {
             var displayRepeat = repeat + 1;
@@ -185,7 +185,7 @@ public partial class ChatBox : UIWidget
                                 ));
         }
         Contents.AddMessage(formatted);
-        // End EE - Chat stacking
+        // ADT-Tweak, End EE - Chat stacking
     }
 
     public void Focus(ChatSelectChannel? channel = null)
@@ -282,10 +282,11 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(ADTCCVars.ChatStackLastLines, UpdateChatStack); // EE - Chat stacking
+        _cfg.UnsubValueChanged(ADTCCVars.ChatStackLastLines, UpdateChatStack); // ADT-Tweak, EE - Chat stacking
     }
 }
 
+// ADT-Tweak, EE - StackChat
 public sealed partial class ChatStackData
 {
     public string WrappedMessage;
@@ -297,4 +298,4 @@ public sealed partial class ChatStackData
         ColorOverride = colorOverride;
     }
 }
-// End EE - Chat stacking
+// ADT-Tweak, End EE - Chat stacking

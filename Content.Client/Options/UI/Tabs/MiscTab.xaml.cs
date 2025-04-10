@@ -37,14 +37,14 @@ public sealed partial class MiscTab : Control
             layoutEntries.Add(new OptionDropDownCVar<string>.ValueOption(layout.ToString()!, Loc.GetString($"ui-options-hud-layout-{layout.ToString()!.ToLower()}")));
         }
 
-        // EE - Chat stacking options for how far back in the chat to stack.
+        // ADT-Tweak, EE - Chat stacking options for how far back in the chat to stack.
         var chatStackEntries = new List<OptionDropDownCVar<int>.ValueOption>();
         for (var option = 0; option <= 3; option++)
         {
             chatStackEntries.Add(
                 new OptionDropDownCVar<int>.ValueOption(option, Loc.GetString("ui-options-chatstack-count", ("count", option))));
         }
-        // End EE - Chat stacking
+        // ADT-Tweak, End EE - Chat stacking
 
         // Channel can be null in replays so.
         // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
@@ -52,7 +52,7 @@ public sealed partial class MiscTab : Control
 
         Control.AddOptionDropDown(CVars.InterfaceTheme, DropDownHudTheme, themeEntries);
         Control.AddOptionDropDown(CCVars.UILayout, DropDownHudLayout, layoutEntries);
-        Control.AddOptionDropDown<int>(ADTCCVars.ChatStackLastLines, ChatStackLastLines, chatStackEntries); // EE - Chat stacking
+        Control.AddOptionDropDown<int>(ADTCCVars.ChatStackLastLines, ChatStackLastLines, chatStackEntries); // ADT-Tweak, EE - Chat stacking
 
         Control.AddOptionCheckBox(CVars.DiscordEnabled, DiscordRich);
         Control.AddOptionCheckBox(CCVars.ShowOocPatronColor, ShowOocPatronColor);
