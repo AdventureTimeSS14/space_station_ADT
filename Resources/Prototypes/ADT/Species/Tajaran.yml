@@ -15,14 +15,15 @@
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Tajaran.xml"
   special:
+  - Имеют нестандартные возрастные рамки (Молодые 18-21, Зрелые 22-35, Старые 36-45)
   - Имеют общий язык с унатхами.
   defaultLanguages:
   - GalacticCommon
   - SikTaj
   - CintaTaj
   maxAge: 45
-  oldAge: 30
-  youngAge: 20
+  oldAge: 36
+  youngAge: 22
 
 - type: speciesBaseSprites
   id: MobTajaranSprites

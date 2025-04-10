@@ -9,9 +9,11 @@
   skinColoration: HumanToned
   category: Sponsor
   sponsorOnly: false
+  special:
+  - Имеют нестандартные возрастные рамки (Зрелые 18-26, Старые 26-50)
   maxAge: 50
-  oldAge: 35
-  youngAge: 20
+  oldAge: 26
+  youngAge: 18
 
 
 
