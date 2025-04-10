@@ -12,4 +12,10 @@ public sealed partial class PillComponent : Component
     [DataField("pillType")]
     [ViewVariables(VVAccess.ReadWrite)]
     public uint PillType;
+
+    /// <summary>
+    /// ADT: if true, pill appearance will be randomly generated on init.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool Random;
 }
