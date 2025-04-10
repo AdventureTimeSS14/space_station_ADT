@@ -28,8 +28,8 @@
   - GalacticCommon
   - Scratches
   maxAge: 65
-  oldAge: 45
-  youngAge: 25
+  oldAge: 41
+  youngAge: 26
 
 - type: speciesBaseSprites
   id: MobResomiSprites

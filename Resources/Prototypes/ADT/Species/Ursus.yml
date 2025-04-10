@@ -16,6 +16,8 @@
   category: Unusual
   #sponsorOnly: true # Пока снимаем до решения проблем
   description: "/ServerInfo/ADT/SpeciesDescriptions/Urs.xml"
+  special:
+  - Имеют нестандартные возрастные рамки (Молодые 20-35, Зрелые 36-50, Старые 51-80)
   pros:
   - Имеют возможность запасать больший запас калорий в организме (примерно в 2 раза).
   - Урсов не атакует космическая (карпы, клещи и т.д.) фауна.
@@ -30,9 +32,10 @@
   defaultLanguages:
   - GalacticCommon
   - Urs
+  minAge: 20
   maxAge: 80
-  oldAge: 50
-  youngAge: 25
+  oldAge: 51
+  youngAge: 36
 
 - type: speciesBaseSprites
   id: MobUrsusSprites

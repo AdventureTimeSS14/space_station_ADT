@@ -28,8 +28,8 @@
   - GalacticCommon
   - Draconic
   maxAge: 55
-  oldAge: 35
-  youngAge: 20
+  oldAge: 36
+  youngAge: 26
 
 - type: speciesBaseSprites
   id: MobKoboltSprites

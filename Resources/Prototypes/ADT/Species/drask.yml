@@ -35,8 +35,8 @@
   - GalacticCommon
   - Drask
   maxAge: 500
-  oldAge: 300
-  youngAge: 200
+  oldAge: 502
+  youngAge: 501
 
 - type: speciesBaseSprites
   id: MobDraskSprites

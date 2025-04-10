@@ -424,7 +424,8 @@
     slice: ADTFoodFishCutlet
   - type: Construction
     graph: FishSteak
-    node: fish steak
+    node: start
+    defaultTarget: fish steak
 
 - type: entity
   name: raw fish fillet
@@ -450,8 +451,9 @@
           Quantity: 2
   - type: Construction
     graph: FishCutlet
-    node: fish cutlet
-    
+    node: start
+    defaultTarget: fish cutlet  
+
 - type: entity
   name: baked chicken
   parent: FoodMeatBase
