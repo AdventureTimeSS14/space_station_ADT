@@ -27,7 +27,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 0.5
-    maxintegrity: 335
+    maxintegrity: 300
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
@@ -667,7 +667,7 @@
         Caustic: 0.1
         Structural: 0.5
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
-    maxintegrity: 400
+    maxintegrity: 360
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
@@ -692,7 +692,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 450
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -798,29 +798,6 @@
     containers:
       mech-battery-slot:
       - PowerCellHigh
-  - type: Mech
-    modifiers:
-      coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.25
-        Heat: 0.25
-        Radiation: 0
-        Caustic: 0.1
-        Structural: 0.25
-    mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 450
-    baseState: mauler
-    openState: mauler-open
-    brokenState: mauler-broken
-    pilotWhitelist:
-      components:
-        - HumanoidAppearance
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
-    maxEquipmentAmount: 5
 
 # paddy
 - type: entity
@@ -850,7 +827,7 @@
         Caustic: 0.1
         Structural: 0.5
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
-    maxintegrity: 335
+    maxintegrity: 300
     baseState: paddy
     openState: paddy-open
     brokenState: paddy-broken
@@ -879,27 +856,6 @@
   components:
   - type: Mech
     startingEquipment: ["MechEquipmentPuddyGrabber", "ADTMechGunPeacemakerDisabler"]
-    modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов 
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0
-        Caustic: 0.1
-        Structural: 0.5
-    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
-    maxintegrity: 335
-    baseState: paddy
-    openState: paddy-open
-    brokenState: paddy-broken
-    pilotWhitelist:
-      components:
-        - HumanoidAppearance
-    equipmentWhitelist:
-      tags:
-      - ADTMechEquipmentGeneral
-      - ADTMechEquipmentSec
   - type: ContainerFill
     containers:
       mech-battery-slot:
