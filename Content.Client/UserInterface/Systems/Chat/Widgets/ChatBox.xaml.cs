@@ -284,18 +284,17 @@ public partial class ChatBox : UIWidget
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
         _cfg.UnsubValueChanged(ADTCCVars.ChatStackLastLines, UpdateChatStack); // EE - Chat stacking
     }
-
-    // EE - Chat stacking
-    private sealed class ChatStackData
-    {
-        public string WrappedMessage;
-        public Color ColorOverride;
-        public int RepeatCount = 0;
-        public ChatStackData(string wrappedMessage, Color colorOverride)
-        {
-            WrappedMessage = wrappedMessage;
-            ColorOverride = colorOverride;
-        }
-    }
-    // End EE - Chat stacking
 }
+
+public sealed partial class ChatStackData
+{
+    public string WrappedMessage;
+    public Color ColorOverride;
+    public int RepeatCount = 0;
+    public ChatStackData(string wrappedMessage, Color colorOverride)
+    {
+        WrappedMessage = wrappedMessage;
+        ColorOverride = colorOverride;
+    }
+}
+// End EE - Chat stacking
