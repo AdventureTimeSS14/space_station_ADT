@@ -9,8 +9,12 @@
   skinColoration: HumanToned
   category: Sponsor
   sponsorOnly: false
+  pros:
+  - Имеют способность к зализыванию открытых ран.
   special:
   - Имеют нестандартные возрастные рамки (Зрелые 18-26, Старые 26-50)
+  cons:
+  - Повышен урон от нехватки крови в 2 раза.
   maxAge: 50
   oldAge: 26
   youngAge: 18
