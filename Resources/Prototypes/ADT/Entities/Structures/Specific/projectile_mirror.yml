@@ -25,10 +25,10 @@
   components:
   - type: Sprite
     state: state0 # заглушка
-  - type: EmitterMirror
-    trinaryReflector: true
+  - type: ProjectileMirror
+    trinaryReflection: true
     trinaryMirrorDirection: East
-    blockedDirections: 
+    exitSide: 
      - East
 
 - type: entity
@@ -38,8 +38,8 @@
   components:
   - type: Sprite
     state: state0 # заглушка
-  - type: EmitterMirror
-    blockedDirections:
+  - type: ProjectileMirror
+    exitSide:
     - East
     - North
 
@@ -50,5 +50,5 @@
   components:
   - type: Sprite
     state: state1 # заглушка
-  - type: EmitterMirror
+  - type: ProjectileMirror
     state: Binary
