@@ -6,112 +6,68 @@ using Content.Shared.Whitelist;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Maths;
 
 namespace Content.Server.ADT.EmitterMirror;
 
-/// <summary>
-/// System responsible for reflecting projectiles, with filtering via the Emitter Mirror Component whitelist.
-/// </summary>
 public sealed class EmitterMirrorSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistService = default!;
-    [Dependency] private readonly SharedTransformSystem _transformService = default!;
-    [Dependency] private readonly GunSystem _gunSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<EmitterMirrorComponent,  ProjectileReflectAttemptEvent>(OnReflectMirrorAttempt);
+        SubscribeLocalEvent<EmitterMirrorComponent, ProjectileReflectAttemptEvent>(OnReflectAttempt);
     }
 
-    #region Vector Operations
-
-    /// <summary>
-    /// Gets the offset vector for a projectile reflection based on mirror settings.
-    /// </summary>
-    private Vector2? GetMirrorOffset(EmitterMirrorComponent component, Direction collisionDirection)
-    {
-        if (component.TrinaryReflector)
-            return component.TrinaryMirrorDirection?.ToVec();
-
-        if (component.BinaryReflector &&
-            EmitterMirrorComponent.DirectionToVector.TryGetValue(collisionDirection, out var result))
-            return result;
-
-        return null;
-    }
-    #endregion
-
-    #region Mirror Logic 
-
-    /// <summary>
-    /// Determines whether a projectile can be reflected based on direction, whitelist, and reflective properties.
-    /// </summary>
-    private bool CanReflectProjectile(EntityUid uid, EntityUid projectile, EmitterMirrorComponent component, out Direction? direction)
-    {
-        direction = GetImpactDirection(uid, projectile);
-
-        return direction != null
-            && TryComp<ReflectiveComponent>(projectile, out var reflective)
-            && reflective.Reflective != 0x0
-            && TryComp<GunComponent>(uid, out _)
-            && !_whitelistService.IsWhitelistFail(component.Whitelist, projectile)
-            && !component.BlockedDirections.Contains(direction.Value.ToString());
-    }
-
-    /// <summary>
-    /// Handles the event where a projectile attempts to reflect off a mirror.
-    /// </summary>
-    private void OnReflectMirrorAttempt(EntityUid uid, EmitterMirrorComponent component, ref ProjectileReflectAttemptEvent args)
+    private void OnReflectAttempt(EntityUid uid, EmitterMirrorComponent comp, ref ProjectileReflectAttemptEvent args)
     {
         if (args.Cancelled)
             return;
 
-        if (!CanReflectProjectile(uid, args.ProjUid, component, out var impactDirection))
+        var proj = args.ProjUid;
+
+        if (!TryGetImpactDirection(uid, proj, out var dir)
+            || !HasComp<GunComponent>(uid)
+            || !TryComp<ReflectiveComponent>(proj, out var refl) || refl.Reflective == 0x0
+            || _whitelist.IsWhitelistFail(comp.Whitelist, proj)
+            || comp.BlockedDirections.Contains(dir.ToString())
+            || !TryGetOffset(comp, dir, out var offset))
             return;
 
         args.Cancelled = true;
 
-        ProcessMirror(uid, args.ProjUid, component, impactDirection);
+        var xform = Transform(uid);
+        var newPos = xform.LocalPosition + xform.LocalRotation.RotateVec(offset);
+
+        _xform.SetLocalPosition(proj, newPos);
+
+        _gun.Shoot(uid, Comp<GunComponent>(uid), proj, xform.Coordinates, new EntityCoordinates(uid, offset), out _);
     }
 
-    /// <summary>
-    /// Calculates the direction from which a projectile hit the mirror, in the mirror's local space.
-    /// </summary>
-    private Direction? GetImpactDirection(EntityUid uid, EntityUid projectile)
+    private bool TryGetImpactDirection(EntityUid mirror, EntityUid proj, out Direction dir)
     {
-        var projectileWorldPos = _transformService.GetWorldPosition(projectile);
-        var emittermirrorMatrixInv = _transformService.GetInvWorldMatrix(Transform(uid));
+        var local = Vector2.Transform(
+            _xform.GetWorldPosition(proj),
+            _xform.GetInvWorldMatrix(Transform(mirror)));
 
-        var localImpactPosition = Vector2.Transform(projectileWorldPos, emittermirrorMatrixInv);
-
-        return localImpactPosition.ToAngle().GetCardinalDir();
+        dir = local.ToAngle().GetCardinalDir();
+        return true;
     }
-    #endregion
-     
-    #region Spawn Projectile
-    /// <summary>
-    /// Reflects the projectile by adjusting its position and shooting it in a new direction.
-    /// </summary>
-    private void ProcessMirror(EntityUid uid, EntityUid projectile, EmitterMirrorComponent component, Direction? direction)
+
+    private bool TryGetOffset(EmitterMirrorComponent comp, Direction dir, out Vector2 offset)
     {
-        if (direction == null)
-            return;
+        if (comp.TrinaryReflector && comp.TrinaryMirrorDirection is { } vec)
+        {
+            offset = vec.ToVec();
+            return true;
+        }
 
-        var MirrorOffset = GetMirrorOffset(component, direction.Value);
-        if (MirrorOffset == null)
-            return;
+        if (comp.BinaryReflector && EmitterMirrorComponent.DirectionToVector.TryGetValue(dir, out offset))
+            return true;
 
-        var emittermirrorTransform = Transform(uid);
-        var adjustedOffset = emittermirrorTransform.LocalRotation.RotateVec(MirrorOffset.Value);
-        var newProjectilePosition = emittermirrorTransform.LocalPosition + adjustedOffset;
-
-        _transformService.SetLocalPosition(projectile, newProjectilePosition);
-
-        var shootingCoords = new EntityCoordinates(uid, MirrorOffset.Value);
-        _gunSystem.Shoot(uid, Comp<GunComponent>(uid), projectile, emittermirrorTransform.Coordinates, shootingCoords, out _);
+        offset = default;
+        return false;
     }
-    #endregion
 }
