@@ -253,7 +253,7 @@ internal sealed class ChargerSystem : EntitySystem
     }
 
     /// ADT tweak method fully rewrited
-    private bool SearchForBattery(EntityUid uid, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? component)
+    public bool SearchForBattery(EntityUid uid, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? component)
     {
         // try get a battery directly on the inserted entity
         if (TryComp(uid, out component))
