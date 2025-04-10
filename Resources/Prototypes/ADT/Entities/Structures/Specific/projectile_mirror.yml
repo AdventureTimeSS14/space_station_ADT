@@ -1,0 +1,54 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [ BaseStructure ]
+  id: ADTBaseProjectileMirror
+  name: ProjectileMirror
+  description: ProjectileMirrorDesc
+  components:
+  - type: Transform
+    noRot: false
+  - type: Sprite
+    sprite: Structures/Windows/clockwork_diagonal.rsi # заглушка
+    state: state0
+  - type: Gun
+    projectileSpeed: 5
+  - type: Lock
+    locked: false
+  - type: LockedAnchorable
+  - type: ProjectileMirror
+
+- type: entity
+  parent: ADTBaseProjectileMirror
+  id: ADTTrinaryProjectileMirror
+  name: ProjectileMirror
+  suffix: [Trinary]
+  components:
+  - type: Sprite
+    state: state0 # заглушка
+  - type: EmitterMirror
+    trinaryReflector: true
+    trinaryMirrorDirection: East
+    blockedDirections: 
+     - East
+
+- type: entity
+  parent: ADTBaseProjectileMirror
+  id: ADTTBinaryProjectileMirror
+  suffix: [Binary, Two sides]
+  components:
+  - type: Sprite
+    state: state0 # заглушка
+  - type: EmitterMirror
+    blockedDirections:
+    - East
+    - North
+
+- type: entity
+  parent: ADTBaseProjectileMirror
+  id: ADTBinaryProjectileMirror
+  suffix: [Binary] 
+  components:
+  - type: Sprite
+    state: state1 # заглушка
+  - type: EmitterMirror
+    state: Binary

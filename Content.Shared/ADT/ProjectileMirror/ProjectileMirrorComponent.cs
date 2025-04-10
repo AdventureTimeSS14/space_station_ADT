@@ -5,16 +5,16 @@ using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using System.Numerics;
 
-namespace Content.Shared.ADT.EmitterMirror;
+namespace Content.Shared.ADT.ProjectileMirror;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-public sealed partial class EmitterMirrorComponent : Component
+public sealed partial class ProjectileMirrorComponent : Component
 {
     /// <summary> 
     /// Directions that block reflection. 
     /// </summary>
     [DataField]
-    public List<string> BlockedDirections = new();
+    public List<string> ExitSide = new();
 
     /// <summary>
     ///  Reflection direction for Trinary reflector. 
@@ -26,13 +26,13 @@ public sealed partial class EmitterMirrorComponent : Component
     ///  Simple binary reflection toggle. 
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool BinaryReflector = true;
+    public bool BinaryReflection = true;
 
     /// <summary>
     ///  Predefined direction reflection toggle. 
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool TrinaryReflector = false;
+    public bool TrinaryReflection = false;
 
     /// <summary> 
     /// Whitelist for reflectable projectiles. 
