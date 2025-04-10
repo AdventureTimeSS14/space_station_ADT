@@ -63,7 +63,7 @@
     size: Huge
   - type: PowerCellDraw
     enabled: false
-    drawRate: 0
+    drawRate: 1
     useRate: 5
     delay: 10
   - type: PowerCellSlot

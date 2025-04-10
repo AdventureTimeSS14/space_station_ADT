@@ -486,3 +486,23 @@
       canEjectStoredMaterials: false
     - type: BatteryRecharge
       multiplier: 1.25
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModUraniumStabilizer
+  name: MOD uranium fuel module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: micriwave_beam
+  - type: ModSuitMod
+    complexity: 3
+    slots:
+    - MODcore
+    components:
+    - type: MaterialStorage
+      storageLimit: 3000
+      materialWhiteList: [Uranium]
+      canEjectStoredMaterials: false
+    - type: BatteryRecharge
+      multiplier: 3
