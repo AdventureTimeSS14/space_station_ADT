@@ -19,6 +19,9 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Content.Server.Roles;
 
 namespace Content.Server.Administration.Commands;
 
@@ -36,9 +39,10 @@ public sealed class RemoveAntagCommand : LocalizedEntityCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 1)
+        if (args.Length < 1)
         {
-            shell.WriteError("Expected exactly 1 argument: <username>");
+            shell.WriteError(@"Expected 1 or more arguments: <username> <RoleComponent>
+            Available roles to delete: Traitor, Heretic, Nukeops, Revolutionary, Thief");
             return;
         }
 
@@ -60,6 +64,48 @@ public sealed class RemoveAntagCommand : LocalizedEntityCommands
             _sharedMind.TryRemoveObjective(mindId, mind, 0);
         }
         shell.WriteLine("All objectives successfully removed!");
+
+        string roleComp = args[1];
+        var type = Type.GetType(roleComp);
+
+        bool success = false;
+
+
+
+        switch (roleComp)
+        {
+            case "TraitorRoleComponent":  // также удаляет аплинк встроенный в кпк синдиката
+                success = _sharedRoleSystem.MindTryRemoveRole<TraitorRoleComponent>(mindId);
+                break;
+            case "HereticRoleComponent":
+                success = _sharedRoleSystem.MindTryRemoveRole<HereticRoleComponent>(mindId);
+                break;
+            case "NukeopsRoleComponent":
+                success = _sharedRoleSystem.MindTryRemoveRole<NukeopsRoleComponent>(mindId);
+                break;
+            case "RevolutionaryRoleComponent":
+                success = _sharedRoleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId);
+                break;
+            case "ThiefRoleComponent":
+                success = _sharedRoleSystem.MindTryRemoveRole<ThiefRoleComponent>(mindId);
+                break;
+            case "ChangelingRoleComponent": // после этого остаются actions, включая магазин
+                success = _sharedRoleSystem.MindTryRemoveRole<ChangelingRoleComponent>(mindId);
+                break;
+            default:
+                shell.WriteLine($"roleComp does not exist or its deletion is not implemented");
+                break;
+
+        }
+
+
+
+        if (success)
+            shell.WriteLine($"{roleComp} role successfully removed!");
+        else
+            shell.WriteLine($"Error while deleting {roleComp} role!");
+
+        // TODO: удаление Actions
 
         // TODO: Нужно дописать, чтобы удалялись компоненты у антагонистов
         // Если это еретик, то должны удаляться компоненты еретика и его магазин
