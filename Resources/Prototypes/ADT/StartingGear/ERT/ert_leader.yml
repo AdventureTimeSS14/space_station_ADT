@@ -14,6 +14,9 @@
     pocket2: DoubleEmergencyOxygenTankFilled
     suitstorage: WeaponShotgunBulldog
     belt: ADTClothingBeltMilitaryWebbingCBURNFilled
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering
@@ -25,9 +28,9 @@
     - PillAmbuzol
     - RubberStampCentcom
     - SpaceCash1000
-    # underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
-  # underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
-  # underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+    # underwearb: ClothingUnderwearBottomBoxersWhite
+  # underweart: ClothingUnderwearTopBraWhite
+  # underwearb: ClothingUnderwearBottomPantiesWhite
   # innerClothingSkirt: ClothingUniformJumpsuitColorBrown
   # satchel: ClothingBackpackDuffelCBURN
   # duffelbag: ClothingBackpackDuffelCBURN

@@ -14,9 +14,14 @@ loadout-group-blueshield-neck = ОСЩ, шея
 loadout-group-blueshield-back = ОСЩ, рюкзак
 # Civilian
 loadout-chef-pocket1-adt = Шеф Повар, карман 1
+
 loadout-barber-jumpsuit-adt = Парикмахер, комбинезон
 loadout-barber-other-clothing-adt = Парикмахер, верхняя одежда
+
+loadout-group-librarian-backpack = Библиотекарь, рюкзак
 # Cargo
+loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
+loadout-salvage-specialist-neck-adt = Утилизатор, шея
 
 # Engineering
 loadout-group-atmospheric-technician-neck = Атмосферный техник, плащ

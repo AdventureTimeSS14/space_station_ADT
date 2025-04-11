@@ -13,7 +13,7 @@
   pros:
   - Могут хранить внутри себя небольшие объекты.
   - Улучшенная пассивная регенерация (в сравнении с людьми).
-  - Получают на 40% меньше тупого урона.
+  - Получают на 40% меньше урона ушибами.
   - Получают на 20% меньше урона от ядов.
   - Получают на 80% меньше урона от клеточных.
   special:
@@ -66,19 +66,19 @@
       points: 1 # Corvax Sponsors
       required: false
     Chest:
-      points: 1
+      points: 4 #ADT_Tweak
       required: false
     Legs:
-      points: 4
+      points: 8 #ADT_Tweak
       required: false
     Arms:
-      points: 4
+      points: 8 #ADT_Tweak
       required: false
 
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
   markingsMatchSkin: true
-  layerAlpha: 0.5
+  layerAlpha: 0.75 #ADT_Tweak
 
 - type: humanoidBaseSprite
   id: MobSlimeHead

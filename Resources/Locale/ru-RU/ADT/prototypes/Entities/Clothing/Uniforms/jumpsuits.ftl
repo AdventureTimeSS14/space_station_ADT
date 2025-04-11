@@ -377,6 +377,8 @@ ent-ADTClothingUniformSwimsuitWinth = купальник ведьмочки
 
 ent-ADTClothingUniformJumpsuitCamisoleQM = укороченный камзол квартирмейстера
     .desc = Камзол, который одновременно хорош как для работы так и для отдыха.
+ent-ADTClothingUniformJumpskirtCamisoleQM = укороченный юбка-камзол квартирмейстера
+    .desc = Камзол, который одновременно хорош как для работы так и для отдыха.
 
 ent-ADTClothingUniformJumpsuitMGDAgent = деловой костюм компании MG&D
     .desc = Состоит из очень мягкой ткани. На себе имеет также имеет белую шубу с черным воротником.
@@ -442,3 +444,7 @@ ent-ADTClothingUniformJumpsuitBarber = модный костюм
     .desc = Один костюм, чтобы править ими всеми.
 ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный костюм
     .desc = Для любитель старомодного стиля.
+
+ent-ADTClothingUniformJumpsuitExplorer = комбинезон исследователя
+    .desc = Стандартный комбинезон шахтёра НТ. От него пахнет... Пеплом?
+    

@@ -152,6 +152,16 @@
       state: ear
 
 - type: marking
+  id: ADTVulpkaninEyeGlow
+  bodyPart: LLeg
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: eyesglow
+  shader: unshaded
+
+- type: marking
   id: ADTVulpkaninearBack
   bodyPart: Head
   markingCategory: Head

@@ -1496,3 +1496,16 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
+
+# Комбез исследователя для утилией (В будущем мб для шахтёров)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitExplorer
+  name: jumpsuit explorer
+  description: Standard overalls for NT miners
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi

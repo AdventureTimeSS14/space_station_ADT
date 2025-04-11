@@ -119,13 +119,13 @@
   maximumTemperature: 27.85
   minimumRequirements:
   - 0     # oxygen
-  - 0     # nitrogen
+  - 10     # nitrogen
   - 0     # carbon dioxide
   - 0     # plasma
   - 5     # tritium
   - 0     # vapor
   - 0     # miasma
-  - 10    # n2o
+  - 0    # n2o
   - 0     # frezon
   - 0     # bz
   - 0     # pluoxium
@@ -201,7 +201,7 @@
 - type: gasReaction
   id: ZaukerProduction
   priority: 9
-  minimumTemperature: 50000
+  minimumTemperature: 20000
   maximumTemperature: 100000
   minimumRequirements:
   - 0     # oxygen
@@ -216,9 +216,9 @@
   - 0     # bz
   - 0     # pluoxium
   - 0     # hydrogen
-  - 0.01  # nitrium
+  - 5   # nitrium
   - 0     # healium
-  - 0.01  # hyper-noblium
+  - 0.1   # hyper-noblium
   - 0     # proto-nitrate
   - 0     # zauker
   - 0     # halon
@@ -230,6 +230,7 @@
 - type: gasReaction
   id: ZaukerDecomposition
   priority: 10
+  minimumTemperature: 373.149
   minimumRequirements:
   - 0     # oxygen
   - 0.01  # nitrogen

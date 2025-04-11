@@ -6,12 +6,13 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
+using Content.Server.Polymorph.Systems;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     private void SubscribeFlesh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgery>(OnFleshSurgery);
@@ -46,35 +47,16 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
             switch (_random.Next(0, 2))
             {
-                // remove stomach
                 case 0:
-                    foreach (var entity in _body.GetBodyOrganEntityComps<StomachComponent>((args.Target, body)))
-                        QueueDel(entity.Owner);
 
-                    _popup.PopupEntity(Loc.GetString("admin-smite-stomach-removal-self"), args.Target,
-                        args.Target, PopupType.LargeCaution);
                     break;
 
-                // remove random hand
                 case 1:
-                    var baseXform = Transform(args.Target);
-                    foreach (var part in _body.GetBodyChildrenOfType(args.Target, BodyPartType.Hand, body))
-                    {
-                        _transform.AttachToGridOrMap(part.Id);
-                        break;
-                    }
-                    _popup.PopupEntity(Loc.GetString("admin-smite-remove-hands-self"), args.Target, args.Target, PopupType.LargeCaution);
-                    _popup.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", args.Target)), baseXform.Coordinates,
-                        Filter.PvsExcept(args.Target), true, PopupType.Medium);
+
                     break;
 
-                // remove lungs
                 case 2:
-                    foreach (var entity in _body.GetBodyOrganEntityComps<LungComponent>((args.Target, body)))
-                        QueueDel(entity.Owner);
 
-                    _popup.PopupEntity(Loc.GetString("admin-smite-lung-removal-self"), args.Target,
-                        args.Target, PopupType.LargeCaution);
                     break;
 
                 default:

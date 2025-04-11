@@ -10,3 +10,7 @@ ent-ADTClothingOuterCupidonWings = крылья купидона
 
 ent-ADTClothingOuterApronBarber = фартук парикмахера
     .desc = Волосы прочь с костюма!
+
+ent-ADTClothingOuterClothingBox = коробка с подтяжками 
+    .desc = Коробка с вырезом для ног.
+

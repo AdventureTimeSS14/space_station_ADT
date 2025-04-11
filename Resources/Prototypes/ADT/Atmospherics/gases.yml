@@ -6,7 +6,7 @@
   molarMass: 100
   color: e69edd
   reagent: BZ
-  pricePerMole: 3
+  pricePerMole: 1.5
 
 - type: gas
   id: 10
@@ -16,7 +16,7 @@
   molarMass: 40
   color: 0054AA
   reagent: Pluoxium
-  pricePerMole: 5
+  pricePerMole: 3
 
 - type: gas
   id: 11
@@ -26,7 +26,7 @@
   molarMass: 2
   color: FFFFFF
   reagent: Hydrogen
-  pricePerMole: 5
+  pricePerMole: 0.5
 
 - type: gas
   id: 12
@@ -40,7 +40,7 @@
   gasVisbilityFactor: 500
   color: 7E4732
   reagent: Nitrium
-  pricePerMole: 12
+  pricePerMole: 15
 
 - type: gas
   id: 13
@@ -54,21 +54,21 @@
   gasVisbilityFactor: 500
   color: d97e7e
   reagent: Healium
-  pricePerMole: 12
+  pricePerMole: 40
 
 - type: gas
   id: 14
   name: gases-hyper-noblium
-  specificHeat: 2000
+  specificHeat: 1000
   heatCapacityRatio: 1.3
-  molarMass: 150
+  molarMass: 500
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: frezon
   gasMolesVisible: 0.1
   gasVisbilityFactor: 1000
   color: 33cccc
   reagent: Hyper-Noblium
-  pricePerMole: 15
+  pricePerMole: 70
 
 - type: gas
   id: 15
@@ -96,7 +96,7 @@
   gasVisbilityFactor: 250
   color: 1c1a1a
   reagent: Zauker
-  pricePerMole: 30
+  pricePerMole: 150
 
 - type: gas
   id: 17
@@ -110,7 +110,7 @@
   gasVisbilityFactor: 500
   color: e3574d
   reagent: Halon
-  pricePerMole: 8
+  pricePerMole: 10
 
 - type: gas
   id: 18
@@ -120,7 +120,7 @@
   molarMass: 4
   color: 005959
   reagent: Helium
-  pricePerMole: 7
+  pricePerMole: 0.1
 
 - type: gas
   id: 19
@@ -134,4 +134,4 @@
   gasVisbilityFactor: 100
   color: 525151
   reagent: Anti-Noblium
-  pricePerMole: 20
+  pricePerMole: 150

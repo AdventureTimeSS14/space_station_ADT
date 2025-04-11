@@ -47,6 +47,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/cupidon_wings.rsi
 
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterApronBarber
@@ -58,3 +59,15 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/barber_apron.rsi
 
+#Коробка с подтяжками (для клунь)
+
+- type: entity
+  parent: [ClothingOuterStorageBase]
+  id: ADTClothingOuterClothingBox
+  name: Box vest
+  description: box with cutout for legs
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/boxvest.rsi

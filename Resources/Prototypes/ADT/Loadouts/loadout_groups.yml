@@ -351,6 +351,15 @@
   loadouts:
   - ADTHatBeretAtmos
 
+# ENGINEER
+
+- type: loadoutGroup
+  id: ADTEngineeringBelt
+  name: loadout-group-engineering-belt
+  loadouts:
+  - ADTBeltUtility
+  - ADTBeltUtilityWebbing
+
 # BRIGMEDIC
 
 #suit --- y
@@ -496,6 +505,34 @@
   loadouts:
   - ADTClothingOuterApronBarberLoadOut
 
+# SALVAGE SPECIALIST (УТИЛИЗАТОР)
+
+# Униформа
+- type: loadoutGroup
+  id: ADTSalvageSpecialistJumpsuit
+  name: loadout-salvage-specialist-jumpsuit-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingUniformJumpsuitSalvageSpecialist
+  - ADTUniformJumpsuitExplorer
+
+
+# Плащи
+- type: loadoutGroup
+  id: ADTSalvageSpecialistNeck
+  name: loadout-salvage-specialist-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTNeckSalvageSpecialistCCape 
+  - ADTNeckSalvageSpecialistSCape
+  - ADTNeckSalvageSpecialistGCape 
+  - ADTNeckSalvageSpecialistPCape 
+  - ADTNeckSalvageSpecialistECape 
+  - ADTNeckSalvageSpecialistDCape 
+  - ADTNeckSalvageSpecialistRCape 
+
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
 
@@ -508,8 +545,15 @@
   maxLimit: 1
   loadouts:
   - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
   - ADTUnderwearPantiesWhite
   - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTTop
@@ -517,10 +561,17 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTSocks
@@ -533,6 +584,203 @@
   - ADTUnderwearSocksShort
   - ADTUnderwearSocksThigh
   - ADTUnderwearStockings
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksHeart
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsHeart
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksKneeCreepy
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
+
+## Бельё для клоуна и мима
+
+- type: loadoutGroup
+  id: ADTSocksClown
+  name: loadout-group-socks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearSocksKneehRainbow
+  - ADTUnderwearSocksThighRainbow
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksHeart
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsHeart
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksKneeCreepy
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
+
+- type: loadoutGroup
+  id: ADTSocksMime
+  name: loadout-group-socks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearSocksThighMonochrome
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksHeart
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsHeart
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksKneeCreepy
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
 
 ## Бельё для глав
 
@@ -544,11 +792,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersQM
   - ADTUnderwearPantiesQM
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTBottomRD
@@ -556,11 +811,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersRD
   - ADTUnderwearPantiesRD
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTBottomCap
@@ -568,11 +830,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersCap
   - ADTUnderwearPantiesCap
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTBottomHOP
@@ -580,11 +849,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersHOP
   - ADTUnderwearPantiesHOP
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTBottomHOS
@@ -592,11 +868,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersHOS
   - ADTUnderwearPantiesHOS
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTBottomCMO
@@ -604,11 +887,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersCMO
   - ADTUnderwearPantiesCMO
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTBottomCE
@@ -616,11 +906,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersCE
   - ADTUnderwearPantiesCE
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 - type: loadoutGroup
   id: ADTBottomBlueshield
@@ -628,11 +925,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTUnderwearBoxersWhite
-  - ADTUnderwearPantiesWhite
-  - ADTUnderwearPantiesComfyWhite
   - ADTUnderwearBoxersBlueshield
   - ADTUnderwearPantiesBlueshield
+  - ADTUnderwearBoxersWhite
+  - ADTUnderwearBoxersAmerica
+  - ADTUnderwearBoxersBoom
+  - ADTUnderwearBriefsWhite
+  - ADTUnderwearPantiesWhite
+  - ADTUnderwearPantiesComfyWhite
+  - ADTUnderwearPantiesLace
+  - ADTUnderwearPantiesLaceBlue
+  - ADTUnderwearPantiesLaceRed
+  - ADTUnderwearPantiesLaceBlack
 
 ### Топ
 
@@ -642,11 +946,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
+  - ADTUnderwearBraQM
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraQM
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopRD
@@ -654,11 +965,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
+  - ADTUnderwearBraRD
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraRD
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopCap
@@ -666,11 +984,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
+  - ADTUnderwearBraCap
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraCap
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopHOP
@@ -678,11 +1003,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
+  - ADTUnderwearBraHOP
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraHOP
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopHOS
@@ -690,11 +1022,17 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearBraHOS
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraHOS
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopCMO
@@ -702,11 +1040,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
+  - ADTUnderwearBraCMO
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraCMO
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopCE
@@ -714,11 +1059,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
+  - ADTUnderwearBraCE
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraCE
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
 - type: loadoutGroup
   id: ADTTopBlueshield
@@ -726,13 +1078,21 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearTShirt
+  - ADTUnderwearBraBlueshield
   - ADTUnderwearBraWhite
   - ADTUnderwearBraComfyWhite
   - ADTUnderwearBraSports
   - ADTUnderwearBraSportsAlternative
-  - ADTUnderwearBraBlueshield
+  - ADTUnderwearBraSportsBlack
+  - ADTUnderwearBraPea
+  - ADTUnderwearBraLace
+  - ADTUnderwearBraLaceBlue
+  - ADTUnderwearBraLaceRed
+  - ADTUnderwearBraLaceBlack
 
-### Чулки
+
+### Носки, гольфы и чулки
 
 - type: loadoutGroup
   id: ADTSocksBlueshield
@@ -740,13 +1100,283 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ADTUnderwearSocksBlueshield
+  - ADTUnderwearStockingsBlueshield
   - ADTUnderwearSocksNormal
   - ADTUnderwearSocksHigh
   - ADTUnderwearSocksShort
   - ADTUnderwearSocksThigh
   - ADTUnderwearStockings
-  - ADTUnderwearSocksBlueshield
-  - ADTUnderwearStockingsBlueshield
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksHeart
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsHeart
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksKneeCreepy
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
+
+
+- type: loadoutGroup
+  id: ADTSocksHOP
+  name: loadout-group-socks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearSocksHOP
+  - ADTUnderwearSocksKneeHOP
+  - ADTUnderwearSocksThighHOP
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksHeart
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsHeart
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksKneeCreepy
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
+
+- type: loadoutGroup
+  id: ADTSocksHOS
+  name: loadout-group-socks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearSocksHOS
+  - ADTUnderwearSocksKneeHOS
+  - ADTUnderwearSocksThighHOS
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksHeart
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsHeart
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksKneeCreepy
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
+
+- type: loadoutGroup
+  id: ADTSocksCaptain
+  name: loadout-group-socks-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearSocksCaptain
+  - ADTUnderwearSocksKneeCaptain
+  - ADTUnderwearSocksThighCaptain
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksHeart
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsHeart
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksKneeCreepy
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
