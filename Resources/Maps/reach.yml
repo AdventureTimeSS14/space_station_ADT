@@ -6231,13 +6231,13 @@ entities:
     - type: Transform
       pos: 3.506415,3.5395489
       parent: 2
-- proto: ClothingNeckLGBTPin
-  entities:
-  - uid: 908
-    components:
-    - type: Transform
-      pos: 6.5183535,-8.5258465
-      parent: 2
+# - proto: ClothingNeckLGBTPin
+#   entities:
+#   - uid: 908
+#     components:
+#     - type: Transform
+#       pos: 6.5183535,-8.5258465
+#       parent: 2
 - proto: ClothingNeckStethoscope
   entities:
   - uid: 909

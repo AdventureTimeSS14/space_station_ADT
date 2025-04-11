@@ -78,11 +78,11 @@
     spriteLayer: light
     clothingVisuals:
       head:
-      - state: equipped-HELMET
+      - state: equipped-HELMET #ADT tweak start
   - type: Clothing
     clothingVisuals:
       head:
-      - state: equipped-HELMET
+      - state: equipped-HELMET #ADT tweak end удалены головы воксов
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

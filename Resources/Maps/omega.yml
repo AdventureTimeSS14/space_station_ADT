@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/07/2025 18:56:09
+  entityCount: 13931
+maps:
+- 473
+grids:
+- 4812
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -48,7 +59,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
   - uid: 4812
     components:
     - type: MetaData
@@ -28269,6 +28279,13 @@ entities:
     - type: Transform
       pos: -46.5,18.5
       parent: 4812
+- proto: CargoMailTeleporter
+  entities:
+  - uid: 13931
+    components:
+    - type: Transform
+      pos: 17.5,23.5
+      parent: 4812
 - proto: Carpet
   entities:
   - uid: 1739
@@ -33451,20 +33468,20 @@ entities:
     - type: Transform
       pos: -0.5106895,-15.532991
       parent: 4812
-- proto: ClothingNeckIntersexPin
-  entities:
-  - uid: 12511
-    components:
-    - type: Transform
-      pos: 19.693497,8.613337
-      parent: 4812
-- proto: ClothingNeckNonBinaryPin
-  entities:
-  - uid: 12513
-    components:
-    - type: Transform
-      pos: 8.410957,-44.59256
-      parent: 4812
+# - proto: ClothingNeckIntersexPin
+#   entities:
+#   - uid: 12511
+#     components:
+#     - type: Transform
+#       pos: 19.693497,8.613337
+#       parent: 4812
+# - proto: ClothingNeckNonBinaryPin
+#   entities:
+#   - uid: 12513
+#     components:
+#     - type: Transform
+#       pos: 8.410957,-44.59256
+#       parent: 4812
 - proto: ClothingNeckScarfStripedBlue
   entities:
   - uid: 8417
@@ -33525,13 +33542,13 @@ entities:
     - type: Transform
       pos: -14.6855755,-0.43132806
       parent: 4812
-- proto: ClothingNeckTransPin
-  entities:
-  - uid: 12515
-    components:
-    - type: Transform
-      pos: -14.357392,4.331708
-      parent: 4812
+# - proto: ClothingNeckTransPin
+#   entities:
+#   - uid: 12515
+#     components:
+#     - type: Transform
+#       pos: -14.357392,4.331708
+#       parent: 4812
 - proto: ClothingOuterApron
   entities:
   - uid: 10913

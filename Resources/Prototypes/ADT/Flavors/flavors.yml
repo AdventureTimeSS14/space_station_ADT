@@ -219,11 +219,6 @@
   description: flavor-complex-ADTsilverhand
 
 - type: flavor
-  id: ADTbacchusblessing
-  flavorType: Complex
-  description: flavor-complex-ADTbacchusblessing
-
-- type: flavor
   id: ADTCoffeeBonBon
   flavorType: Complex
   description: flavor-complex-ADTCoffeeBonBon

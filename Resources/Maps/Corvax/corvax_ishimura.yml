@@ -1,4 +1,4 @@
-﻿meta:
+meta:
   format: 6
   postmapinit: false
 tilemap:
@@ -77707,20 +77707,20 @@ entities:
     - type: Transform
       pos: -49.524063,30.571947
       parent: 2
-- proto: ClothingNeckCloakEnby
-  entities:
-  - uid: 9336
-    components:
-    - type: Transform
-      pos: -32.582123,33.335163
-      parent: 2
-- proto: ClothingNeckCloakGay
-  entities:
-  - uid: 9337
-    components:
-    - type: Transform
-      pos: -34.487938,29.385574
-      parent: 2
+# - proto: ClothingNeckCloakEnby
+#   entities:
+#   - uid: 9336
+#     components:
+#     - type: Transform
+#       pos: -32.582123,33.335163
+#       parent: 2
+# - proto: ClothingNeckCloakGay
+#   entities:
+#   - uid: 9337
+#     components:
+#     - type: Transform
+#       pos: -34.487938,29.385574
+#       parent: 2
 - proto: ClothingNeckCloakGoliathCloak
   entities:
   - uid: 9338
@@ -77735,20 +77735,20 @@ entities:
     - type: Transform
       pos: -8.461792,32.446552
       parent: 2
-- proto: ClothingNeckCloakIntersex
-  entities:
-  - uid: 9340
-    components:
-    - type: Transform
-      pos: -46.493187,25.578531
-      parent: 2
-- proto: ClothingNeckCloakLesbian
-  entities:
-  - uid: 9341
-    components:
-    - type: Transform
-      pos: -25.483047,33.553913
-      parent: 2
+# - proto: ClothingNeckCloakIntersex
+#   entities:
+#   - uid: 9340
+#     components:
+#     - type: Transform
+#       pos: -46.493187,25.578531
+#       parent: 2
+# - proto: ClothingNeckCloakLesbian
+#   entities:
+#   - uid: 9341
+#     components:
+#     - type: Transform
+#       pos: -25.483047,33.553913
+#       parent: 2
 - proto: ClothingNeckCloakMiner
   entities:
   - uid: 9342
@@ -77763,20 +77763,20 @@ entities:
     - type: Transform
       pos: -23.404922,29.538288
       parent: 2
-- proto: ClothingNeckCloakPan
-  entities:
-  - uid: 9344
-    components:
-    - type: Transform
-      pos: 32.597904,7.4234333
-      parent: 2
-- proto: ClothingNeckCloakTrans
-  entities:
-  - uid: 9345
-    components:
-    - type: Transform
-      pos: -76.46504,-16.328894
-      parent: 2
+# - proto: ClothingNeckCloakPan
+#   entities:
+#   - uid: 9344
+#     components:
+#     - type: Transform
+#       pos: 32.597904,7.4234333
+#       parent: 2
+# - proto: ClothingNeckCloakTrans
+#   entities:
+#   - uid: 9345
+#     components:
+#     - type: Transform
+#       pos: -76.46504,-16.328894
+#       parent: 2
 - proto: ClothingNeckCloakVoid
   entities:
   - uid: 9346

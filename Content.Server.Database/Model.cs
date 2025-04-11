@@ -1079,6 +1079,8 @@ namespace Content.Server.Database
         /// Results from rejected connections with external API checking tools
         IPChecks = 5,
         DiscordAuth = 6, // ADT-Tweak-add
+        /// Results from rejected connections who are authenticated but have no modern hwid associated with them.
+        NoHwid = 6
     }
 
     public class ServerBanHit

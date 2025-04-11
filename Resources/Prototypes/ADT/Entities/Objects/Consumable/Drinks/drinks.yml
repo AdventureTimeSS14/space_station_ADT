@@ -632,18 +632,3 @@
   - type: Icon
     sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
     state: icon
-
-- type: entity
-  parent: DrinkGlass
-  id: ADTBacchusBlessingGlass
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTBacchusBlessing
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/bacchusblessing.rsi
-    state: icon

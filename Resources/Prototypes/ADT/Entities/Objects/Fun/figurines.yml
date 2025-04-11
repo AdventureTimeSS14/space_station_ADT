@@ -25,8 +25,8 @@
   - type: Tag
     tags:
     - Figurine
-  - type: StealTarget
-    stealGroup: Figurines
+  # - type: StealTarget
+  #   stealGroup: Figurines
 
 - type: entity
   parent: ADTBaseFigurine

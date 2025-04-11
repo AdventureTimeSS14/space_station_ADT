@@ -153,6 +153,11 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+    screamAction: null
+  - type: DamagedSiliconAccent
 # ADT borgs start
   - type: FootstepModifier
     footstepSoundCollection:
@@ -160,11 +165,6 @@
       params:
         variation: 0.07
         volume: -5
-#ADT borgs end
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSilicon
-# Start ADT Tweak
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -304,7 +304,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - names_borg
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -312,6 +312,8 @@
     enabled: false
     groups:
     - AllAccess
+    tags:
+    - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons

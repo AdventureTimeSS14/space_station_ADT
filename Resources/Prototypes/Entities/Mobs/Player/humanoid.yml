@@ -26,8 +26,8 @@
       state: icon
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
@@ -71,8 +71,8 @@
       roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
 
 
 # ## ERT Leader
@@ -600,7 +600,7 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ corvax_names_death_commando ] # Corvax-Localization
+      nameSegments: [ NamesDeathCommando ]
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 
@@ -642,8 +642,8 @@
       settings: Cluwne
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
 
 - type: randomHumanoidSettings
   id: Cluwne
