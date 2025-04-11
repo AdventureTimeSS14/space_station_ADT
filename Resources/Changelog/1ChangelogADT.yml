@@ -6831,14 +6831,6 @@ Entries:
   - author: WsWiss
     changes:
       - {message: Добавлены 12 новых причёсок исключительно для аркан., type: Add}
-    time: '2025-04-08T20:59:26Z'
-    id: 867
-  - author: (Автор изменения)
-    changes:
-      - {message: Добавлено пипи, type: Add}
-      - {message: Удалено пупу, type: Remove}
-      - {message: Изменена унга, type: Tweak}
-      - {message: Исправлена бунга, type: Fix}
     time: '2025-04-10T15:38:27Z'
     id: 868
   - author: KashRas2
