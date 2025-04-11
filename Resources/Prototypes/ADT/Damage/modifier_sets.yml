@@ -12,8 +12,8 @@
   id: Tajaran # ослабление за счет скорости
   coefficients:
     Blunt: 1
-    Piercing: 1.2
-    Slash: 1.2
+    Piercing: 1.05
+    Slash: 0.9
     Cold: 0.6
     Heat: 1.3
     Poison: 1
