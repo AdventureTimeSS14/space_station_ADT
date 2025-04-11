@@ -109,8 +109,8 @@
   recipes:
   - MechEquipmentDiamondDrill
   - MechEquipmentDrill
-  - MechEquipmentArmorMelee
-  - MechEquipmentArmorRange
+  # - MechEquipmentArmorMelee Вырезано из-за неработоспособности
+  # - MechEquipmentArmorRange Вырезано из-за неработоспособности
   - ADTMechWeaponCutter
   - MechEquipmentHumanSleeper
   - MechEquipmentHumanGrabber

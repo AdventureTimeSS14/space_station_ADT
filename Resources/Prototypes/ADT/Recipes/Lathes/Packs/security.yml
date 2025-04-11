@@ -36,8 +36,8 @@
 - type: latheRecipePack
   id: ADTMechEquipmentSecTechfabPack
   recipes:
-  - MechEquipmentArmorMelee
-  - MechEquipmentArmorRange
+  # - MechEquipmentArmorMelee Вырезано из-за неработоспособности
+  # - MechEquipmentArmorRange Вырезано из-за неработоспособности
   - ADTMechGunImmolatorLaser
   - ADTMechGunPeacemakerDisabler
   - ADTMechGunSolarisLaserCannon
