@@ -34,3 +34,55 @@
   # Need an *additional* condition here that forces there to be a wall in the opposite direction to the one used for placement.
   # Also see below. Didn't add it b/c construction ECS work going on. Cheers, - 20kdc
     - !type:TileNotBlocked
+
+- type: construction
+  name: trinary deflector
+  id: ADTDeflectorTrinary
+  graph: ADTTrinaryProjectileMirrorGraph
+  startNode: start
+  targetNode: adttrinaryprojectilemirror
+  category: construction-category-structures
+  description: A device that redirects energy blasts.
+  icon:
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: trinary
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: binary deflector
+  id: ADTDeflectorBinary
+  graph: ADTProjectileMirrorGraph
+  startNode: start
+  targetNode: adtprojectilemirror
+  category: construction-category-structures
+  description: A device that redirects energy blasts.
+  icon:
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: binary
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: two-sides binary deflector
+  id: ADTDeflectorTBinary
+  graph: ADTTBinaryProjectileMirrorGraph
+  startNode: start
+  targetNode: adttbinaryprojectilemirror
+  category: construction-category-structures
+  description: A device that redirects energy blasts.
+  icon:
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: tbinary
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+

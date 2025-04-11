@@ -1,54 +1,111 @@
+## Если кто-то сюда решил залезть за примером использования компонентов, смотреть ADTTrinaryProjectileMirror и ADTBinaryProjectileMirror
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: [ BaseStructure ]
   id: ADTBaseProjectileMirror
-  name: ProjectileMirror
-  description: ProjectileMirrorDesc
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   components:
-  - type: Transform
-    noRot: false
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 1
+    color: "#6dfff3"
   - type: Sprite
-    sprite: Structures/Windows/clockwork_diagonal.rsi # заглушка
-    state: state0
-  - type: Gun
-    projectileSpeed: 5
+    noRot: true
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+  - type: Rotatable
+    rotateWhileAnchored: true
   - type: Lock
     locked: false
   - type: LockedAnchorable
-  - type: ProjectileMirror
+  - type: AccessReader
+    access: [["Atmospherics"], ["Engineering"], ["Research"]]
+  - type: Gun
+    projectileSpeed: 5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Appearance
+  - type: Transform
+    noRot: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 5
+              max: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   parent: ADTBaseProjectileMirror
   id: ADTTrinaryProjectileMirror
-  name: ProjectileMirror
-  suffix: [Trinary]
+  name: projectileMirror
+  description: Write here something cool again lol
+  suffix: Trinary
   components:
   - type: Sprite
-    state: state0 # заглушка
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: trinary
   - type: ProjectileMirror
-    trinaryReflection: true
-    trinaryMirrorDirection: East
-    exitSide: 
+    trinaryReflection: true #Ставим, только если хотим получить отражатель с 3 входами и 1 выходом.
+    trinaryMirrorDirection: North #Собственно, сторона, с которой будет всё выходить. Важно при создании спрайта.
+    exitSide: #Блокируем возможность отражения у выхода снарядов.
      - East
-
-- type: entity
-  parent: ADTBaseProjectileMirror
-  id: ADTTBinaryProjectileMirror
-  suffix: [Binary, Two sides]
-  components:
-  - type: Sprite
-    state: state0 # заглушка
-  - type: ProjectileMirror
-    exitSide:
-    - East
-    - North
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Construction
+    graph: ADTTrinaryProjectileMirrorGraph
+    node: adttrinaryprojectilemirror
 
 - type: entity
   parent: ADTBaseProjectileMirror
   id: ADTBinaryProjectileMirror
-  suffix: [Binary] 
+  name: projectileMirror
+  description: Write here something cool 
+  suffix: Binary
   components:
   - type: Sprite
-    state: state1 # заглушка
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: binary
+  - type: ProjectileMirror 
+    exitSide: # Если у мы просто оставляем компонент, то отражатель автоматом стает отражать всё на 90°.
+    - East
+    - North
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Construction
+    graph: ADTBinaryProjectileMirrorGraph
+    node: adtbinaryprojectilemirror
+
+- type: entity
+  parent: ADTBaseProjectileMirror
+  id: ADTTBinaryProjectileMirror
+  name: projectileMirror
+  description: Write here something cool 
+  suffix: Binary, Two sides 
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: tbinary
   - type: ProjectileMirror
     state: Binary
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Construction
+    graph: ADTTBinaryProjectileMirrorGraph
+    node: adttbinaryprojectilemirror
