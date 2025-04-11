@@ -554,6 +554,9 @@
   id: ADTBatonBlocker
 
 - type: Tag
+  id: ADTSmokableReagent
+
+- type: Tag
   id: ADTCartridgeMagnumLesser
 
 - type: Tag

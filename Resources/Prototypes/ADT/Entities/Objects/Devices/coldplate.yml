@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseHeaterMachine
+  id: ADTChemistryColdplate
+  name: coldplate
+  description: "Last research in cooking and chemistry sphere - coldplate!"
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/coldplate.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: icon
+    - state: on
+      map: ["enum.SolutionHeaterVisuals.IsOn"]
+      shader: unshaded
+  - type: SolutionHeater
+    heatPerSecond: -250
+  - type: Machine
+    board: ADTColdplateMachineCircuitboard
+  - type: PlaceableSurface
+    placeCentered: true
+    positionOffset: 0, 0.25
+  - type: GenericVisualizer
+    visuals:
+      enum.SolutionHeaterVisuals.IsOn:
+        enum.SolutionHeaterVisuals.IsOn:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemPlacer
+    whitelist:
+      components:
+      - FitsInDispenser
