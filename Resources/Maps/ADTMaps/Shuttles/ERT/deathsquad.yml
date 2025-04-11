@@ -1,12 +1,6 @@
 meta:
   format: 6
   postmapinit: false
-maps: []
-grids:
-- 1
-orphans:
-- 1
-nullspace: []
 tilemap:
   0: Space
   3: ADTLatticeLeftLower
