@@ -63,6 +63,7 @@
   # ADT-Tweak-Start
   - AcousticGuitarInstrument
   - HarmonicaInstrument
+  - ADTModStorageVoucher
   # ADT-Tweak-End
 
 - type: loadoutGroup

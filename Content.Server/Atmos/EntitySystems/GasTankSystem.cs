@@ -111,6 +111,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void OnGetActions(EntityUid uid, GasTankComponent component, GetItemActionsEvent args)
         {
+            if (component.ToggleAction != null) //ADT tweak
             args.AddAction(ref component.ToggleActionEntity, component.ToggleAction);
         }
 

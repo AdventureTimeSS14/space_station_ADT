@@ -37,8 +37,15 @@ public abstract class SharedJetpackSystem : EntitySystem
 
         SubscribeLocalEvent<GravityChangedEvent>(OnJetpackUserGravityChanged);
         SubscribeLocalEvent<JetpackComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<JetpackComponent, ComponentShutdown>(OnComponentRemoved); //ADT tweak
     }
-
+    //ADT tweak start
+    private void OnComponentRemoved(EntityUid uid, JetpackComponent component, ComponentShutdown args)
+    {
+        SetEnabled(uid, component, false);
+        Dirty(uid, component);
+    }
+    //ADT tweak end
     private void OnMapInit(EntityUid uid, JetpackComponent component, MapInitEvent args)
     {
         _actionContainer.EnsureAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
@@ -135,7 +142,7 @@ public abstract class SharedJetpackSystem : EntitySystem
         if (gridUid == null || !TryComp<GravityComponent>(gridUid, out var comp))
             return true;
 
-        return !comp.Enabled; 
+        return !comp.Enabled;
         // ADT Tweak End
     }
 
