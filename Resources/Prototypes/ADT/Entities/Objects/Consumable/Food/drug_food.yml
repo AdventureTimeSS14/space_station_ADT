@@ -92,11 +92,11 @@
 - type: entity
   name: blue sky desoxyephedrine crystal shard
   parent: ADTFoodDrugBase
-  id: ADTFoodWalterMethShard
+  id: ADTFoodWalterMethCrystalShard
   description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
   components:
   - type: Stack
-    stackType: ADTFoodWalterMethShard
+    stackType: ADTFoodWalterMethCrystalShard
     count: 1
   - type: Food
   - type: Sprite

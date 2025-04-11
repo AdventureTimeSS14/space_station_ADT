@@ -27,10 +27,10 @@
   maxCount: 5
 
 - type: stack
-  id: ADTFoodWalterMethShard
+  id: ADTFoodWalterMethCrystalShard
   name: blue sky desoxyephedrine crystals shard
   icon: { sprite: /Textures/ADT/Objects/Consumable/Food/drug_food.rsi, state: crystal_full }
-  spawn: ADTFoodWalterMethShard
+  spawn: ADTFoodWalterMethCrystalShard
   maxCount: 5
 
 - type: stack

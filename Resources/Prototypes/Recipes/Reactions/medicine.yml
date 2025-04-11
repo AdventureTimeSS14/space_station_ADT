@@ -69,6 +69,7 @@
 
 - type: reaction
   id: Doxarubixadone
+  maxTemp: 150 # ADT tweak
   reactants:
   # ADT tweak Start
     Cryoxadone:
@@ -142,6 +143,7 @@
 
 - type: reaction
   id: Inaprovaline
+  maxTemp: 270
   reactants:
     Oxygen:
       amount: 1
@@ -257,6 +259,7 @@
 
 - type: reaction
   id: HeartbreakerToxin
+  maxTemp: 173
   reactants:
     DexalinPlus:
       amount: 1
@@ -592,6 +595,7 @@
 - type: reaction
   id: Aloxadone
   impact: Medium
+  maxTemp: 200 # ADT tweak
   reactants:
   # ADT tweak Start
     Cryoxadone:
@@ -607,6 +611,7 @@
 - type: reaction
   id: Psicodine
   impact: Medium
+  maxTemp: 270
   reactants:
     Mannitol:
       amount: 2

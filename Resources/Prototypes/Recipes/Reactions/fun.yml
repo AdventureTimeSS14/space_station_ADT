@@ -125,7 +125,7 @@
 - type: reaction
   id: Fresium
   priority: 20
-  maxTemp: 300
+  maxTemp: 23
   reactants:
     Frezon:
       amount: 3
