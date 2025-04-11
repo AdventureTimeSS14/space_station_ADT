@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by mnogo_znal",
+  "copyright": "Made by ss13 Paradise Station RU",
   "size": {
     "x": 32,
     "y": 32
@@ -11,10 +11,11 @@
       "name": "icon",
       "delays": [
         [
-          1,
-          1,
-          1,
-          1
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
         ]
       ]
     }

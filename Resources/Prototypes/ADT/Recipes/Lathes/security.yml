@@ -44,6 +44,16 @@
     Gold: 200
 
 - type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ADTWeaponIonCarbine
+  result: ADTWeaponIonCarbine
+  materials:
+    Steel: 1500
+    Glass: 400
+    Plastic: 400
+    Gold: 200
+
+- type: latheRecipe
   parent: BaseAmmoRecipe
   id: ADTMagazineBoxMagnumLesser
   result: ADTMagazineBoxMagnumLesser

@@ -11,3 +11,31 @@
     - ADTUplinkMechAmmo
     currencyWhitelist:
     - Telecrystal
+
+- type: entity
+  id: ADTStorePresetUplinkERTMech
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkERTMechMechs
+    - ADTUplinkERTMechWeapon
+    - ADTUplinkERTMechEquipment
+    - ADTUplinkERTMechAmmo
+    currencyWhitelist:
+    - Productunit
+
+- type: entity
+  id: ADTStorePresetUplinkERTRevolutionalMech
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - ADTUplinkERTMechMechs
+    - ADTUplinkERTRevolutionalMechWeapon
+    - ADTUplinkERTMechEquipment
+    - ADTUplinkERTMechAmmo
+    currencyWhitelist:
+    - Productunit
