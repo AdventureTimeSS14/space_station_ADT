@@ -437,3 +437,8 @@ ent-ADTParatrooperUSSPUniform = форма десантника СССП
 ent-ADTInfantrymanTUSSPUniform = униформа космодесантника СССП
     .desc = Комплект одежды для космодесантника СССП
     .suffix = { "СССП" }
+
+ent-ADTClothingUniformJumpsuitBarber = модный костюм
+    .desc = Один костюм, чтобы править ими всеми.
+ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный костюм
+    .desc = Для любитель старомодного стиля.

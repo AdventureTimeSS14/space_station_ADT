@@ -46,4 +46,5 @@ commander-space-sec = командир SPACE SEC
 member-space-sec = сотрудник SPACE SEC
 trader-tsf = торговец
 
+job-name-ADTbarber = парикмахер
 

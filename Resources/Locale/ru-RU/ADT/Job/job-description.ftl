@@ -17,3 +17,5 @@ job-description-senior-officer = Обучать новых офицеров ос
 job-description-ADTsecborg = Держать на станции порядок, помогать СБ выполнять свою работую
 
 job-description-guard-officer = Следить за заключенными и обеспечивать их основными потребностями, а также за тем, чтобы они не сбежали.
+
+job-description-ADTbarber = Сделайте экипаж самым модным на станции!

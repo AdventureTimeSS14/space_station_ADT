@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC0-1.0",
-  "copyright": "Created by TheShuEd(github) for Space Station 14",
+  "copyright": "Created by TheShuEd(github) for Space Station 14, resprite by prazat911 (discord) for ADT",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,9 @@
   "states": [
     {
       "name": "icon"
+    },
+    {
+      "name": "storage"
     }
   ]
 }

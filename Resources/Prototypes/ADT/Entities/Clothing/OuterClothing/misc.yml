@@ -46,3 +46,15 @@
     sprite: ADT/Clothing/OuterClothing/Misc/cupidon_wings.rsi #спрайты от @lunalita
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/cupidon_wings.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronBarber
+  name: barber's apron
+  description: Get the hair off the suit!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/barber_apron.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/barber_apron.rsi
+

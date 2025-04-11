@@ -476,6 +476,25 @@
   - ADTUniformJumpsuitGreyGuardOfficer
   - ADTUniformJumpsuitGuardOfficerMaster
 
+# Парикмахер костюмы
+- type: loadoutGroup
+  id: ADTBarberJumpsuit
+  name: loadout-barber-jumpsuit-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingUniformJumpsuitBarberLoadOut
+  - ADTClothingUniformJumpsuitBarberBrownLoadOut
+  - ADTClothingUniformJumpskirtBarberLoadOut
+  - ADTClothingUniformJumpskirtBarberBrownLoadOut
+
+- type: loadoutGroup
+  id: ADTBarberOtherClothing
+  name: loadout-barber-other-clothing-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingOuterApronBarberLoadOut
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
