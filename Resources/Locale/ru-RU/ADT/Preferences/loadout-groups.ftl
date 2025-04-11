@@ -19,6 +19,9 @@ loadout-group-librarian-backpack = Библиотекарь, рюкзак
 loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
 loadout-salvage-specialist-neck-adt = Утилизатор, шея
 
+# Chaplain
+loadout-chaplain-blessedbook-adt = Священник, священная книга
+
 # Engineering
 loadout-group-atmospheric-technician-neck = Атмосферный техник, плащ
 loadout-group-atmospheric-technician-gasmask = Атмосферный техник, противогаз
