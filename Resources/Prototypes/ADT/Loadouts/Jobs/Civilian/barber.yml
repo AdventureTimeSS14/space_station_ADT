@@ -1,0 +1,24 @@
+- type: loadout
+  id: ADTClothingUniformJumpskirtBarberLoadOut
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtBarber
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtBarberBrownLoadOut
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtBarberBrown
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitBarberBrownLoadOut
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBarberBrown
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitBarberLoadOut
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBarber
+
+- type: loadout
+  id: ADTClothingOuterApronBarberLoadOut
+  equipment:
+    outerClothing: ADTClothingOuterApronBarber

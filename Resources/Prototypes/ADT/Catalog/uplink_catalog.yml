@@ -479,6 +479,20 @@
     - Passenger
 
 - type: listing
+  id: ADTuplinkStraightRazor
+  name: uplink-ADT-straight-razor-name
+  description: uplink-ADT-straight-razor-desc
+  productEntity: ADTStraightRazor
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - ADTBarber
+
+- type: listing
   id: ADTuplinkMuteToxin
   name: uplink-mute-toxin-name
   description: uplink-mute-toxin-desc

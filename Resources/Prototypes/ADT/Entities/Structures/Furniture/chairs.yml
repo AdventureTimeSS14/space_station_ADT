@@ -231,3 +231,14 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/spider_stool.rsi #спрайт от Умы
     state: icon
+
+- type: entity
+  name: barber chair
+  id: ADTBarberChair
+  parent: StoolBase
+  description: A very comfortable chair designed for the needs of a hairdresser.
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/barber_chair.rsi
+    state: barber_chair

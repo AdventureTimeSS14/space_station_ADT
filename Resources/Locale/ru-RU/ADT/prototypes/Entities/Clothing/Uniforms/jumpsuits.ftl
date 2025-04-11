@@ -440,5 +440,11 @@ ent-ADTInfantrymanTUSSPUniform = униформа космодесантника
     .desc = Комплект одежды для космодесантника СССП
     .suffix = { "СССП" }
 
+ent-ADTClothingUniformJumpsuitBarber = модный костюм
+    .desc = Один костюм, чтобы править ими всеми.
+ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный костюм
+    .desc = Для любитель старомодного стиля.
+
 ent-ADTClothingUniformJumpsuitExplorer = комбинезон исследователя
     .desc = Стандартный комбинезон шахтёра НТ. От него пахнет... Пеплом?
+    

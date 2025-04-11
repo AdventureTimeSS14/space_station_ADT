@@ -7,5 +7,10 @@ ent-ADTClothingOuterBlackCardigan = черный кардиган
 ent-ADTClothingOuterCupidonWings = крылья купидона
     .desc = Мягкие, милые и почти как настоящие.
     .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingOuterApronBarber = фартук парикмахера
+    .desc = Волосы прочь с костюма!
+
 ent-ADTClothingOuterClothingBox = коробка с подтяжками 
     .desc = Коробка с вырезом для ног.
+
