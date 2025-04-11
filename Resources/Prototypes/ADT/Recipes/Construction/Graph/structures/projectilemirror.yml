@@ -1,0 +1,103 @@
+- type: constructionGraph
+  id: ADTTrinaryProjectileMirrorGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adttrinaryprojectilemirror
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+            - material: Cable
+              amount: 1
+            - material: PlasmaGlass
+              amount: 5
+            - material: Diamond
+              amount: 3
+              doAfter: 5
+
+    - node: adttrinaryprojectilemirror
+      entity: ADTTrinaryProjectileMirrorGraph
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 10
+                prototype: SheetPGlass1
+                amount: 5
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5
+
+- type: constructionGraph
+  id: ADTBinaryProjectileMirrorGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adtbinaryprojectilemirror
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+            - material: Cable
+              amount: 1
+            - material: PlasmaGlass
+              amount: 5
+            - material: Diamond
+              amount: 3
+              doAfter: 5
+
+    - node: adtbinaryprojectilemirror
+      entity: ADTBinaryProjectileMirrorGraph
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 10
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5
+
+- type: constructionGraph
+  id: ADTTBinaryProjectileMirrorGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adttbinaryprojectilemirror
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+            - material: Cable
+              amount: 1
+            - material: PlasmaGlass
+              amount: 5
+            - material: Diamond
+              amount: 3
+              doAfter: 5
+
+    - node: adttbinaryprojectilemirror
+      entity: ADTTBinaryProjectileMirrorGraph
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 10
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5
