@@ -17,25 +17,25 @@
   name: ground desoxyephedrine crystals
   icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
   spawn: ADTGroundMethCrystal
-  maxCount: 15
+  maxCount: 10
 
 - type: stack
   id: ADTFoodMethCrystalShard
   name: desoxyephedrine crystals shard
   icon: { sprite: /Textures/ADT/Objects/Consumable/Food/drug_food.rsi, state: crystal_full }
   spawn: ADTFoodMethCrystalShard
-  maxCount: 15
+  maxCount: 5
 
 - type: stack
   id: ADTFoodWalterMethShard
   name: blue sky desoxyephedrine crystals shard
   icon: { sprite: /Textures/ADT/Objects/Consumable/Food/drug_food.rsi, state: crystal_full }
   spawn: ADTFoodWalterMethShard
-  maxCount: 15
+  maxCount: 5
 
 - type: stack
   id: ADTGroundWalterMethCrystal
   name: ground blue sky desoxyephedrine crystals
   icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
   spawn: ADTGroundWalterMethCrystal
-  maxCount: 15
+  maxCount: 10

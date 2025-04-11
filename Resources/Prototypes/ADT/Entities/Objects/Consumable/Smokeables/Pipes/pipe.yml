@@ -21,7 +21,7 @@
     bowl_slot:
       whitelist:
         tags:
-          - ATDSmokebleReagent
+          - ADTSmokableReagent
   - type: Construction
     graph: ADTCrackPipeGraph
     node: craft

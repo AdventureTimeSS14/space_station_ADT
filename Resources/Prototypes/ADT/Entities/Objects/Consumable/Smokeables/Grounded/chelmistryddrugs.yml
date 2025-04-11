@@ -22,7 +22,7 @@
     node: ground
   - type: Tag
     tags:
-      - ATDSmokebleReagent
+      - ADTSmokableReagent
   - type: Item
     size: Tiny
 
@@ -50,6 +50,6 @@
     node: ground
   - type: Tag
     tags:
-      - ATDSmokebleReagent
+      - ADTSmokableReagent
   - type: Item
     size: Tiny

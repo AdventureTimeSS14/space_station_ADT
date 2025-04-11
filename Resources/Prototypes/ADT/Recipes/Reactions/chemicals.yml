@@ -6,7 +6,7 @@
     Nitrogen:
       amount: 1
   products:
-    ADTCopperNitride: 4
+    ADTCopperNitride: 3
 
 - type: reaction
   id: ADTLiquidDarkMatter
@@ -60,6 +60,7 @@
 
 - type: reaction
   id: ADTBlueSkyDesoxyephedrine
+  impact: Medium
   minTemp: 370
   reactants:
     Ephedrine:
@@ -76,7 +77,7 @@
 - type: reaction
   id: ADTDesoxyephedrineCrystalSpawn
   maxTemp: 270
-  impact: Low
+  impact: Medium
   quantized: true
   reactants:
     Desoxyephedrine:
@@ -88,7 +89,7 @@
 - type: reaction
   id: ADTBlueSkyDesoxyephedrineCrystalSpawn
   maxTemp: 270
-  impact: Low
+  impact: Medium
   quantized: true
   reactants:
     ADTBlueSkyDesoxyephedrine:
