@@ -231,6 +231,16 @@
   categories:
   - ADTUplinkERTMechMechs
 
+- type: listing
+  id: UplinkERTMechGygax
+  name: uplink-syndimech-mech-gygax-name
+  description: uplink-syndimech-mech-gygax-desc
+  productEntity: ADTMechErtGygaxBattery
+  cost:
+    Productunit: 12
+  categories:
+  - ADTUplinkERTMechMechs
+
 #weapons
 
 - type: listing

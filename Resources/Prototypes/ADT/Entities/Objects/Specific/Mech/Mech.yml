@@ -615,6 +615,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.6
     baseSprintSpeed: 4.6
+  - type: AccessReader
+    access: [ ["CentralCommand"] ]
   # ADT-tweak start. Правим очки здоровья меха
   - type: Destructible
     thresholds:
@@ -635,6 +637,76 @@
   id: ADTMechSeraphBattery
   parent: ADTMechSeraph
   suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+
+- type: entity
+  id: ADTMechErtGygax
+  parent: ADTMechGygax
+  name: ERT gygax
+  description: Fast and light armored combat mech.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: ntgygax
+  - type: Mech
+    modifiers:
+      coefficients: #коэффициенты для легкобронированных мехов 
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.5
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
+    maxintegrity: 360
+    baseState: ntgygax
+    openState: ntgygax-open
+    brokenState: ntgygax-broken
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: AccessReader
+    access: [ ["CentralCommand"] ]
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    clickInsert: false
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  # ADT-tweak start. Правим очки здоровья меха
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # ADT-tweak end. Правим очки здоровья меха
+
+- type: entity
+  id: ADTMechErtGygaxBattery
+  parent: ADTMechErtGygax
+  suffix: Battery, filled
   components:
   - type: ContainerFill
     containers:
