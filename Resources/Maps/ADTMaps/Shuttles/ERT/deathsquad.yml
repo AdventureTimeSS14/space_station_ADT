@@ -1,11 +1,6 @@
 meta:
-  format: 7
-  category: Grid
-  engineVersion: 247.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 04/10/2025 23:28:59
-  entityCount: 1131
+  format: 6
+  postmapinit: false
 maps: []
 grids:
 - 1
