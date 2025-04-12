@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseMobSpeciesOrganic
+  parent: BaseMobSpeciesOrganicUnRotting
   id: BaseMobVox
   abstract: true
   components:
@@ -24,6 +24,10 @@
       Male: UnisexVox
       Female: UnisexVox
       Unsexed: UnisexVox
+      # Start ADT tweak
+  - type: Uncloneable
+  - type: VoxAccent
+      # End ADT tweak
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -50,7 +54,7 @@
       - ADTVoxEmotes
       - CanPilot
       - DoorBumpOpener
-      - FootstepSound
+   # ADT QWERTY Tweak (Теперь воксы с тихим шагом)
       - AnomalyHost
   # ADT-Tweak End
   - type: DamageVisuals
