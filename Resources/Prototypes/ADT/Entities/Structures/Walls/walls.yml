@@ -116,6 +116,7 @@
   - type: Icon
     sprite: ADT/Structures/Walls/digital_wall.rsi
   - type: IconSmooth
+    key: walls
     base: digital
   - type: Destructible
     thresholds:
@@ -321,4 +322,5 @@
   - type: Icon
     sprite: ADT/Structures/Walls/digital_wall.rsi
   - type: IconSmooth
+    key: walls
     base: digital
