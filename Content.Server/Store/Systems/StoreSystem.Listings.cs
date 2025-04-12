@@ -120,7 +120,7 @@ public sealed partial class StoreSystem
 
             if (listing.Conditions != null)
             {
-                var args = new ListingConditionArgs(GetBuyerMind(buyer), storeEntity, listing, EntityManager);
+                var args = new ListingConditionArgs(buyer, storeEntity, listing, EntityManager); // ADT-Revert-Buyer-Check
                 var conditionsMet = true;
 
                 foreach (var condition in listing.Conditions)
@@ -145,13 +145,16 @@ public sealed partial class StoreSystem
     /// If it doesn't have one, or is a mind entity already, it returns itself.
     /// </summary>
     /// <param name="buyer">The buying entity.</param>
-    public EntityUid GetBuyerMind(EntityUid buyer)
-    {
-        if (!HasComp<MindComponent>(buyer) && _mind.TryGetMind(buyer, out var buyerMind, out var _))
-            return buyerMind;
 
-        return buyer;
-    }
+    // ADT-Revert-Buyer-Check
+    // public EntityUid GetBuyerMind(EntityUid buyer)
+    // {
+    //     if (!HasComp<MindComponent>(buyer) && _mind.TryGetMind(buyer, out var buyerMind, out var _))
+    //         return buyerMind;
+
+    //     return buyer;
+    // }
+    // ADT-Revert-Buyer-Check
 
     /// <summary>
     /// Checks if a listing appears in a list of given categories
