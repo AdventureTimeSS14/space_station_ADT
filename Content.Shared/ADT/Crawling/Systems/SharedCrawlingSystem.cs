@@ -208,6 +208,7 @@ public sealed partial class CrawlingKeybindEvent
 {
 }
 
+
 [NetSerializable, Serializable]
 public enum CrawlingVisuals : byte
 {
