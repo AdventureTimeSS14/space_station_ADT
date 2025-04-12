@@ -108,8 +108,6 @@
   - type: Sprite
     sprite: ADT/Structures/Specific/projectilemirror.rsi
     state: tbinary
-  - type: ProjectileMirror
-    state: Binary
   - type: Rotatable
     rotateWhileAnchored: true
   - type: Construction
