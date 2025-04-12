@@ -20,3 +20,5 @@ ent-ClothingBackpackDuffelSecurityFilledDetective = { ent-ClothingBackpackDuffel
     .desc = { ent-ClothingBackpackDuffelSecurity.desc }
 ent-ADTClothingBackpackDuffelSeniorSecurityFilled = { ent-ClothingBackpackDuffelSecurity }
     .desc = { ent-ClothingBackpackDuffelSecurity }
+ent-ADTClothingBackpackDuffelParamedicFilled = вещмешок парамедика
+    .desc = Вместительный вещмешок для оборудования экстренной помощи.
