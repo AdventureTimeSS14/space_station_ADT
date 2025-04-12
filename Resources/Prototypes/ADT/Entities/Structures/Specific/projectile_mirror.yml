@@ -2,7 +2,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ADTBaseProjectileMirror
-  parent: BaseStructure
+  parent: BaseMachine
   components:
   - type: PointLight
     enabled: true
