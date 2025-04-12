@@ -23,11 +23,11 @@
     bloodMaxVolume: 235
     bloodReagent: Blood
   - type: Hunger
-    baseDecayRate: 0.085
+    baseDecayRate: 0.085 # В 5 с чем-то раз больше стандартного
     thresholds:
-      Overfed: 300
-      Okay: 250
-      Peckish: 175
+      Overfed: 450
+      Okay: 375
+      Peckish: 225
       Starving: 125
       Dead: 0
   - type: Thirst
