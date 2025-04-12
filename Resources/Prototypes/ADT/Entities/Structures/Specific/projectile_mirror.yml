@@ -2,7 +2,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ADTBaseProjectileMirror
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: BaseStructure
   components:
   - type: PointLight
     enabled: true
@@ -50,7 +50,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: Reflector
+  - type: ProjectileMirror
     whitelist:
       tags:
       - EmitterBolt
