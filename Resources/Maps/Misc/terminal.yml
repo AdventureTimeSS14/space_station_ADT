@@ -1,5 +1,6 @@
 meta:
   format: 6
+  postmapinit: false
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -950,17 +951,19 @@ entities:
     - type: SupermatterSpreaderGrid
 - proto: AirlockExternalGlass
   entities:
+  - uid: 1
+    components:
+    - type: Transform
+      pos: 12.5,-10.5
+      parent: 818
   - uid: 2
     components:
     - type: Transform
-      pos: 6.5,-10.5
+      pos: 12.5,-17.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - RCDDeconstructable
-    - Destructible
-    - Construction
   - uid: 3
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-17.5
@@ -971,6 +974,8 @@ entities:
     - Destructible
     - Construction
   - uid: 4
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-10.5
@@ -983,36 +988,16 @@ entities:
   - uid: 5
     components:
     - type: Transform
+      pos: 6.5,-10.5
+      parent: 818
+  - uid: 6
+    components:
+    - type: Transform
       pos: 6.5,-17.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - RCDDeconstructable
-    - Destructible
-    - Construction
-  - uid: 11
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,-10.5
-      parent: 818
-    - type: Godmode
-    missingComponents:
-    - RCDDeconstructable
-    - Destructible
-    - Construction
-  - uid: 12
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,-17.5
-      parent: 818
-    - type: Godmode
-    missingComponents:
-    - RCDDeconstructable
-    - Destructible
-    - Construction
   - uid: 13
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -1024,6 +1009,8 @@ entities:
     - Destructible
     - Construction
   - uid: 14
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -1036,97 +1023,59 @@ entities:
     - Construction
 - proto: AirlockExternalGlassShuttleLocked
   entities:
-  - uid: 1
+  - uid: 7
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -15.5,-10.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 6
+  - uid: 8
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -15.5,-17.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 7
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 14.5,-10.5
-      parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 8
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 14.5,-17.5
-      parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
   - uid: 9
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-10.5
-      parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 15
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,-17.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 16
+  - uid: 11
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -5.5,-10.5
+      pos: 14.5,-10.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 17
+  - uid: 12
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 14.5,-17.5
+      parent: 818
+  - uid: 15
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-10.5
+      parent: 818
+  - uid: 16
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -5.5,-17.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
+  - uid: 806
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-10.5
+      parent: 818
 - proto: AirlockExternalLocked
   entities:
   - uid: 589
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,8.5
@@ -1138,81 +1087,48 @@ entities:
     - Construction
 - proto: AirlockGlass
   entities:
-  - uid: 252
+  - uid: 17
     components:
     - type: Transform
       pos: -9.5,-4.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 253
+  - uid: 146
     components:
     - type: Transform
       pos: -10.5,-4.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 254
+  - uid: 252
     components:
     - type: Transform
       pos: -11.5,-4.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
+  - uid: 253
+    components:
+    - type: Transform
+      pos: 10.5,-4.5
+      parent: 818
+  - uid: 254
+    components:
+    - type: Transform
+      pos: 9.5,-4.5
+      parent: 818
   - uid: 255
     components:
     - type: Transform
       pos: 8.5,-4.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 256
-    components:
-    - type: Transform
-      pos: 9.5,-4.5
-      parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
-  - uid: 257
-    components:
-    - type: Transform
-      pos: 10.5,-4.5
-      parent: 818
-    - type: Godmode
-    missingComponents:
-    - Construction
-    - RCDDeconstructable
-    - Destructible
 - proto: AirlockMaint
   entities:
-  - uid: 146
+  - uid: 256
     components:
     - type: Transform
       pos: 3.5,3.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - RCDDeconstructable
-    - Destructible
-    - Construction
 - proto: AlwaysPoweredWallLight
   entities:
   - uid: 150
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -1224,6 +1140,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 188
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -1235,6 +1153,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 195
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1246,6 +1166,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 209
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -1257,6 +1179,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 341
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1268,6 +1192,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 634
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-16.5
@@ -1278,6 +1204,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 636
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1289,6 +1217,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 649
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1300,6 +1230,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 650
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-16.5
@@ -1310,6 +1242,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 687
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -1321,6 +1255,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 701
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1332,6 +1268,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 702
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1343,6 +1281,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 715
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,5.5
@@ -1353,6 +1293,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 717
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -1364,6 +1306,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 742
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -1377,6 +1321,8 @@ entities:
 - proto: APCBasic
   entities:
   - uid: 205
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,2.5
@@ -1392,6 +1338,8 @@ entities:
     - Construction
     - Destructible
   - uid: 206
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,2.5
@@ -1407,6 +1355,8 @@ entities:
     - Construction
     - Destructible
   - uid: 211
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-11.5
@@ -1422,6 +1372,8 @@ entities:
     - Construction
     - Destructible
   - uid: 212
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-11.5
@@ -1437,6 +1389,8 @@ entities:
     - Construction
     - Destructible
   - uid: 355
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1453,6 +1407,8 @@ entities:
     - Construction
     - Destructible
   - uid: 846
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,3.5
@@ -1470,6 +1426,8 @@ entities:
 - proto: ArrivalsShuttleTimer
   entities:
   - uid: 597
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-5.5
@@ -1478,6 +1436,8 @@ entities:
     missingComponents:
     - Construction
   - uid: 633
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-5.5
@@ -1486,6 +1446,8 @@ entities:
     missingComponents:
     - Construction
   - uid: 928
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-14.5
@@ -1494,6 +1456,8 @@ entities:
     missingComponents:
     - Construction
   - uid: 929
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-14.5
@@ -1504,54 +1468,72 @@ entities:
 - proto: AtmosDeviceFanTiny
   entities:
   - uid: 296
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-10.5
       parent: 818
     - type: Godmode
   - uid: 297
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-10.5
       parent: 818
     - type: Godmode
   - uid: 298
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-17.5
       parent: 818
     - type: Godmode
   - uid: 299
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-17.5
       parent: 818
     - type: Godmode
   - uid: 300
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-17.5
       parent: 818
     - type: Godmode
   - uid: 301
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-10.5
       parent: 818
     - type: Godmode
   - uid: 302
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-10.5
       parent: 818
     - type: Godmode
   - uid: 303
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-17.5
       parent: 818
     - type: Godmode
   - uid: 809
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,8.5
@@ -1560,6 +1542,8 @@ entities:
 - proto: BarSignEngineChange
   entities:
   - uid: 215
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,5.5
@@ -1571,6 +1555,8 @@ entities:
 - proto: BlockGameArcade
   entities:
   - uid: 727
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -1583,6 +1569,8 @@ entities:
     - Construction
     - Destructible
   - uid: 728
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -1597,6 +1585,8 @@ entities:
 - proto: BookshelfFilled
   entities:
   - uid: 442
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,3.5
@@ -1607,6 +1597,8 @@ entities:
     - Anchorable
     - Construction
   - uid: 752
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,3.5
@@ -1619,6 +1611,8 @@ entities:
 - proto: BoozeDispenser
   entities:
   - uid: 710
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,4.5
@@ -1632,6 +1626,8 @@ entities:
 - proto: CableApcExtensionUncuttable
   entities:
   - uid: 203
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,6.5
@@ -1641,6 +1637,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 208
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,7.5
@@ -1650,6 +1648,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 218
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,4.5
@@ -1659,6 +1659,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 402
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,7.5
@@ -1668,6 +1670,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 404
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,1.5
@@ -1677,6 +1681,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 410
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,2.5
@@ -1686,6 +1692,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 411
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,5.5
@@ -1695,6 +1703,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 412
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,4.5
@@ -1704,6 +1714,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 426
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,7.5
@@ -1713,6 +1725,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 427
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,7.5
@@ -1722,6 +1736,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 428
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,7.5
@@ -1731,6 +1747,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 429
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,7.5
@@ -1740,6 +1758,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 430
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,-0.5
@@ -1749,6 +1769,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 431
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,-1.5
@@ -1758,6 +1780,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 434
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,-0.5
@@ -1767,6 +1791,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 435
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,-0.5
@@ -1776,6 +1802,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 436
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,-0.5
@@ -1785,6 +1813,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 437
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,-0.5
@@ -1794,6 +1824,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 438
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,-0.5
@@ -1803,6 +1835,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 439
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,-0.5
@@ -1812,6 +1846,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 440
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,-1.5
@@ -1821,6 +1857,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 443
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,-0.5
@@ -1830,6 +1868,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 444
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,-0.5
@@ -1839,6 +1879,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 445
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,-0.5
@@ -1848,6 +1890,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 446
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,-0.5
@@ -1857,6 +1901,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 447
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,2.5
@@ -1866,6 +1912,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 448
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,1.5
@@ -1875,6 +1923,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 449
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,0.5
@@ -1884,6 +1934,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 450
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-0.5
@@ -1893,6 +1945,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 451
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-0.5
@@ -1902,6 +1956,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 452
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-0.5
@@ -1911,6 +1967,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 453
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-0.5
@@ -1920,6 +1978,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 454
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-0.5
@@ -1929,6 +1989,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 455
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-0.5
@@ -1938,6 +2000,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 456
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-0.5
@@ -1947,6 +2011,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 457
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-1.5
@@ -1956,6 +2022,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 458
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-2.5
@@ -1965,6 +2033,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 459
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-3.5
@@ -1974,6 +2044,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 460
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,0.5
@@ -1983,6 +2055,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 461
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,1.5
@@ -1992,6 +2066,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 462
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,2.5
@@ -2001,6 +2077,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 463
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,3.5
@@ -2010,6 +2088,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 464
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-3.5
@@ -2019,6 +2099,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 465
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-3.5
@@ -2028,6 +2110,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 466
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,3.5
@@ -2037,6 +2121,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 467
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,3.5
@@ -2046,6 +2132,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 468
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-11.5
@@ -2055,6 +2143,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 469
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-11.5
@@ -2064,6 +2154,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 470
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-11.5
@@ -2073,6 +2165,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 471
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-10.5
@@ -2082,6 +2176,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 472
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-16.5
@@ -2091,6 +2187,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 473
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-15.5
@@ -2100,6 +2198,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 474
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-14.5
@@ -2109,6 +2209,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 475
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-12.5
@@ -2118,6 +2220,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 476
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-13.5
@@ -2127,6 +2231,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 477
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-17.5
@@ -2136,6 +2242,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 478
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-18.5
@@ -2145,6 +2253,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 479
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-19.5
@@ -2154,6 +2264,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 480
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-20.5
@@ -2163,6 +2275,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 481
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-17.5
@@ -2172,6 +2286,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 482
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-17.5
@@ -2181,6 +2297,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 483
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-17.5
@@ -2190,6 +2308,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 484
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-17.5
@@ -2199,6 +2319,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 485
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-17.5
@@ -2208,6 +2330,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 486
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-17.5
@@ -2217,6 +2341,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 487
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-17.5
@@ -2226,6 +2352,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 488
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-17.5
@@ -2235,6 +2363,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 489
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-10.5
@@ -2244,6 +2374,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 490
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-10.5
@@ -2253,6 +2385,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 491
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-10.5
@@ -2262,6 +2396,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 492
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-10.5
@@ -2271,6 +2407,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 493
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-10.5
@@ -2280,6 +2418,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 494
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-10.5
@@ -2289,6 +2429,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 495
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-10.5
@@ -2298,6 +2440,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 496
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-10.5
@@ -2307,6 +2451,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 497
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-14.5
@@ -2316,6 +2462,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 498
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-14.5
@@ -2325,6 +2473,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 499
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-13.5
@@ -2334,6 +2484,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 500
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-13.5
@@ -2343,6 +2495,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 501
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-9.5
@@ -2352,6 +2506,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 502
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-8.5
@@ -2361,6 +2517,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 503
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-7.5
@@ -2370,6 +2528,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 504
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-6.5
@@ -2379,6 +2539,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 505
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-11.5
@@ -2388,6 +2550,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 506
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-11.5
@@ -2397,6 +2561,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 507
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-10.5
@@ -2406,6 +2572,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 508
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-10.5
@@ -2415,6 +2583,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 509
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-10.5
@@ -2424,6 +2594,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 510
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-11.5
@@ -2433,6 +2605,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 511
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-10.5
@@ -2442,6 +2616,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 512
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-10.5
@@ -2451,6 +2627,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 513
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-10.5
@@ -2460,6 +2638,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 514
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-10.5
@@ -2469,6 +2649,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 515
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-10.5
@@ -2478,6 +2660,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 516
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-10.5
@@ -2487,6 +2671,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 517
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-16.5
@@ -2496,6 +2682,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 518
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-15.5
@@ -2505,6 +2693,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 519
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-13.5
@@ -2514,6 +2704,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 520
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-12.5
@@ -2523,6 +2715,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 521
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-12.5
@@ -2532,6 +2726,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 522
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-17.5
@@ -2541,6 +2737,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 523
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-18.5
@@ -2550,6 +2748,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 524
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-19.5
@@ -2559,6 +2759,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 525
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-20.5
@@ -2568,6 +2770,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 526
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-17.5
@@ -2577,6 +2781,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 527
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-17.5
@@ -2586,6 +2792,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 528
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-17.5
@@ -2595,6 +2803,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 529
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-17.5
@@ -2604,6 +2814,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 530
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-17.5
@@ -2613,6 +2825,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 531
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-17.5
@@ -2622,6 +2836,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 532
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-17.5
@@ -2631,6 +2847,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 533
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-17.5
@@ -2640,6 +2858,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 534
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-14.5
@@ -2649,6 +2869,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 535
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-14.5
@@ -2658,6 +2880,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 536
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-13.5
@@ -2667,6 +2891,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 537
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-13.5
@@ -2676,6 +2902,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 538
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-9.5
@@ -2685,6 +2913,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 539
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-8.5
@@ -2694,6 +2924,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 540
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-7.5
@@ -2703,6 +2935,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 541
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-6.5
@@ -2712,6 +2946,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 542
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,2.5
@@ -2721,6 +2957,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 543
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,1.5
@@ -2730,6 +2968,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 544
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,0.5
@@ -2739,6 +2979,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 545
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-0.5
@@ -2748,6 +2990,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 546
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-0.5
@@ -2757,6 +3001,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 547
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-0.5
@@ -2766,6 +3012,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 548
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-0.5
@@ -2775,6 +3023,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 549
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,0.5
@@ -2784,6 +3034,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 550
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,1.5
@@ -2793,6 +3045,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 551
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,2.5
@@ -2802,6 +3056,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 552
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,3.5
@@ -2811,6 +3067,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 553
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-0.5
@@ -2820,6 +3078,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 554
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,3.5
@@ -2829,6 +3089,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 555
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,3.5
@@ -2838,6 +3100,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 556
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-0.5
@@ -2847,6 +3111,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 557
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-0.5
@@ -2856,6 +3122,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 558
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-1.5
@@ -2865,6 +3133,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 559
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-2.5
@@ -2874,6 +3144,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 560
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-3.5
@@ -2883,6 +3155,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 561
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-3.5
@@ -2892,6 +3166,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 562
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-3.5
@@ -2901,6 +3177,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 563
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,7.5
@@ -2910,6 +3188,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 564
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,7.5
@@ -2919,6 +3199,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 565
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,7.5
@@ -2928,6 +3210,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 566
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,6.5
@@ -2937,6 +3221,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 579
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,0.5
@@ -2946,6 +3232,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 599
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,6.5
@@ -2955,6 +3243,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 601
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,5.5
@@ -2964,6 +3254,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 651
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-11.5
@@ -2973,6 +3265,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 652
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-16.5
@@ -2982,6 +3276,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 653
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-15.5
@@ -2991,6 +3287,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 654
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-16.5
@@ -3000,6 +3298,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 655
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-15.5
@@ -3009,6 +3309,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 656
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-14.5
@@ -3018,6 +3320,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 657
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-12.5
@@ -3027,6 +3331,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 658
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-11.5
@@ -3036,6 +3342,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 842
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,0.5
@@ -3045,6 +3353,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 843
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,1.5
@@ -3054,6 +3364,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 844
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,3.5
@@ -3065,6 +3377,8 @@ entities:
 - proto: CableHVUncuttable
   entities:
   - uid: 413
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,8.5
@@ -3074,6 +3388,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 415
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,8.5
@@ -3083,6 +3399,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 416
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,8.5
@@ -3092,6 +3410,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 734
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,8.5
@@ -3101,6 +3421,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 735
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,8.5
@@ -3112,6 +3434,8 @@ entities:
 - proto: CableMVUncuttable
   entities:
   - uid: 177
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,3.5
@@ -3121,6 +3445,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 201
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-0.5
@@ -3130,6 +3456,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 210
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,1.5
@@ -3139,6 +3467,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 214
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,0.5
@@ -3148,6 +3478,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 219
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-0.5
@@ -3157,6 +3489,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 221
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,-0.5
@@ -3166,6 +3500,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 224
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,-0.5
@@ -3175,6 +3511,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 226
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,2.5
@@ -3184,6 +3522,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 227
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-0.5
@@ -3193,6 +3533,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 228
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-0.5
@@ -3202,6 +3544,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 349
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-1.5
@@ -3211,6 +3555,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 350
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-0.5
@@ -3220,6 +3566,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 352
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,-0.5
@@ -3229,6 +3577,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 353
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,-0.5
@@ -3238,6 +3588,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 354
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,6.5
@@ -3247,6 +3599,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 356
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-7.5
@@ -3256,6 +3610,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 357
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-6.5
@@ -3265,6 +3621,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 358
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-5.5
@@ -3274,6 +3632,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 359
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-3.5
@@ -3283,6 +3643,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 360
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-4.5
@@ -3292,6 +3654,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 361
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-2.5
@@ -3301,6 +3665,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 362
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-8.5
@@ -3310,6 +3676,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 363
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-9.5
@@ -3319,6 +3687,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 364
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-10.5
@@ -3328,6 +3698,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 365
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-11.5
@@ -3337,6 +3709,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 366
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-11.5
@@ -3346,6 +3720,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 367
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-11.5
@@ -3355,6 +3731,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 368
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-11.5
@@ -3364,6 +3742,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 369
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,-0.5
@@ -3373,6 +3753,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 370
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,-0.5
@@ -3382,6 +3764,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 371
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,-0.5
@@ -3391,6 +3775,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 372
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,-0.5
@@ -3400,6 +3786,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 373
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,-0.5
@@ -3409,6 +3797,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 374
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,-0.5
@@ -3418,6 +3808,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 375
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,-0.5
@@ -3427,6 +3819,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 376
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-0.5
@@ -3436,6 +3830,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 377
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-0.5
@@ -3445,6 +3841,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 378
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-0.5
@@ -3454,6 +3852,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 379
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-0.5
@@ -3463,6 +3863,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 380
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-0.5
@@ -3472,6 +3874,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 381
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-0.5
@@ -3481,6 +3885,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 382
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-0.5
@@ -3490,6 +3896,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 383
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-0.5
@@ -3499,6 +3907,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 384
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,0.5
@@ -3508,6 +3918,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 385
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,1.5
@@ -3517,6 +3929,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 386
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,2.5
@@ -3526,6 +3940,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 387
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-1.5
@@ -3535,6 +3951,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 388
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-2.5
@@ -3544,6 +3962,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 389
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-3.5
@@ -3553,6 +3973,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 390
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-4.5
@@ -3562,6 +3984,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 391
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-5.5
@@ -3571,6 +3995,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 392
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-6.5
@@ -3580,6 +4006,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 393
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-7.5
@@ -3589,6 +4017,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 394
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-8.5
@@ -3598,6 +4028,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 395
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-9.5
@@ -3607,6 +4039,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 396
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-10.5
@@ -3616,6 +4050,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 397
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-11.5
@@ -3625,6 +4061,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 398
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-11.5
@@ -3634,6 +4072,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 399
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-11.5
@@ -3643,6 +4083,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 400
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-11.5
@@ -3652,6 +4094,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 418
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,1.5
@@ -3661,6 +4105,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 419
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,2.5
@@ -3670,6 +4116,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 421
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,7.5
@@ -3679,6 +4127,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 422
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,7.5
@@ -3688,6 +4138,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 423
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,7.5
@@ -3697,6 +4149,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 424
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,7.5
@@ -3706,6 +4160,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 425
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,7.5
@@ -3715,6 +4171,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 567
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,4.5
@@ -3724,6 +4182,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 568
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,5.5
@@ -3733,6 +4193,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 569
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,6.5
@@ -3742,6 +4204,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 570
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,8.5
@@ -3751,6 +4215,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 803
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,0.5
@@ -3760,6 +4226,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 845
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,3.5
@@ -3771,6 +4239,8 @@ entities:
 - proto: CableTerminalUncuttable
   entities:
   - uid: 417
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -3784,6 +4254,8 @@ entities:
 - proto: Catwalk
   entities:
   - uid: 580
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,6.5
@@ -3794,6 +4266,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 584
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,7.5
@@ -3804,6 +4278,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 590
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,5.5
@@ -3814,6 +4290,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 596
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,7.5
@@ -3824,6 +4302,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 747
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,4.5
@@ -3834,6 +4314,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 810
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,7.5
@@ -3844,6 +4326,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 811
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,7.5
@@ -3854,6 +4338,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 812
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,7.5
@@ -3864,6 +4350,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 813
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,7.5
@@ -3874,6 +4362,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 814
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,7.5
@@ -3884,6 +4374,8 @@ entities:
     - Destructible
     - RCDDeconstructable
   - uid: 815
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,7.5
@@ -3896,6 +4388,8 @@ entities:
 - proto: Chair
   entities:
   - uid: 592
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3907,6 +4401,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 593
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3918,6 +4414,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 603
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3929,6 +4427,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 604
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3940,6 +4440,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 605
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3951,6 +4453,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 606
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3962,6 +4466,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 607
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3973,6 +4479,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 608
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -3984,6 +4492,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 609
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -3995,6 +4505,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 610
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4006,6 +4518,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 611
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4017,6 +4531,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 612
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4028,6 +4544,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 613
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4039,6 +4557,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 614
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4050,6 +4570,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 615
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4061,6 +4583,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 616
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4072,6 +4596,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 617
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4083,6 +4609,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 618
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4094,6 +4622,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 619
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4105,6 +4635,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 620
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4116,6 +4648,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 621
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4127,6 +4661,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 622
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4138,6 +4674,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 623
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4149,6 +4687,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 624
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4160,6 +4700,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 625
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4171,6 +4713,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 626
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4182,6 +4726,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 627
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4193,6 +4739,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 628
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4204,6 +4752,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 629
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4215,6 +4765,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 630
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4226,6 +4778,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 631
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4237,6 +4791,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 632
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4248,6 +4804,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 847
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4259,6 +4817,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 848
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4270,6 +4830,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 849
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4281,6 +4843,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 850
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4294,6 +4858,8 @@ entities:
 - proto: ChairOfficeDark
   entities:
   - uid: 18
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4307,6 +4873,8 @@ entities:
 - proto: ChairWood
   entities:
   - uid: 577
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,1.5
@@ -4317,6 +4885,8 @@ entities:
     - Destructible
     - Anchorable
   - uid: 591
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4328,6 +4898,8 @@ entities:
     - Destructible
     - Anchorable
   - uid: 703
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,1.5
@@ -4338,6 +4910,8 @@ entities:
     - Destructible
     - Anchorable
   - uid: 704
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4351,14 +4925,20 @@ entities:
 - proto: ChessBoard
   entities:
   - uid: 714
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 12.5093775,-2.403601
       parent: 818
+    - type: EmitSoundOnCollide
+      nextSound: -84.2333215
 - proto: ClosetWallEmergencyFilledRandom
   entities:
   - uid: 344
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,2.5
@@ -4370,6 +4950,8 @@ entities:
 - proto: ClosetWallFireFilledRandom
   entities:
   - uid: 432
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,2.5
@@ -4381,6 +4963,8 @@ entities:
 - proto: ComfyChair
   entities:
   - uid: 595
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4392,6 +4976,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 718
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-1.5
@@ -4402,6 +4988,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 749
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,1.5
@@ -4412,6 +5000,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 759
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4423,6 +5013,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 760
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4436,6 +5028,8 @@ entities:
 - proto: DisposalBend
   entities:
   - uid: 853
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4447,6 +5041,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 862
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4458,6 +5054,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 891
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,7.5
@@ -4468,6 +5066,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 893
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4479,6 +5079,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 898
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4490,6 +5092,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 899
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-1.5
@@ -4500,6 +5104,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 900
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4513,6 +5119,8 @@ entities:
 - proto: DisposalJunctionFlipped
   entities:
   - uid: 892
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4526,6 +5134,8 @@ entities:
 - proto: DisposalPipe
   entities:
   - uid: 854
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4537,6 +5147,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 855
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4548,6 +5160,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 856
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4559,6 +5173,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 857
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4570,6 +5186,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 858
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4581,6 +5199,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 859
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4592,6 +5212,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 860
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4603,6 +5225,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 861
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4614,6 +5238,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 863
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4625,6 +5251,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 864
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4636,6 +5264,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 865
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4647,6 +5277,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 866
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4658,6 +5290,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 867
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4669,6 +5303,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 868
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4680,6 +5316,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 869
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4691,6 +5329,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 870
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4702,6 +5342,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 871
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4713,6 +5355,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 872
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4724,6 +5368,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 873
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4735,6 +5381,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 874
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4746,6 +5394,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 875
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4757,6 +5407,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 876
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,1.5
@@ -4767,6 +5419,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 877
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,2.5
@@ -4777,6 +5431,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 878
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,3.5
@@ -4787,6 +5443,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 879
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,4.5
@@ -4797,6 +5455,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 880
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,5.5
@@ -4807,6 +5467,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 881
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,6.5
@@ -4817,6 +5479,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 882
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4828,6 +5492,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 883
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4839,6 +5505,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 884
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4850,6 +5518,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 885
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4861,6 +5531,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 886
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4872,6 +5544,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 887
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4883,6 +5557,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 888
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4894,6 +5570,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 889
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4905,6 +5583,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 890
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4916,6 +5596,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 901
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -4927,6 +5609,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 902
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-6.5
@@ -4937,6 +5621,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 903
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-5.5
@@ -4947,6 +5633,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 904
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-4.5
@@ -4957,6 +5645,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 905
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-3.5
@@ -4967,6 +5657,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 906
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-2.5
@@ -4977,6 +5669,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 907
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4988,6 +5682,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 908
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4999,6 +5695,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 909
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -5010,6 +5708,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 910
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -5021,6 +5721,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 911
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -5032,6 +5734,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 912
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5045,6 +5749,8 @@ entities:
 - proto: DisposalTrunk
   entities:
   - uid: 852
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5056,6 +5762,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 894
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5067,6 +5775,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 897
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -5080,20 +5790,28 @@ entities:
 - proto: DisposalUnit
   entities:
   - uid: 851
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-7.5
       parent: 818
+    - type: DisposalUnit
+      nextPressurized: -84.2333215
     - type: Godmode
     missingComponents:
     - Construction
     - Destructible
     - Anchorable
   - uid: 896
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-7.5
       parent: 818
+    - type: DisposalUnit
+      nextPressurized: -84.2333215
     - type: Godmode
     missingComponents:
     - Construction
@@ -5102,25 +5820,43 @@ entities:
 - proto: DrinkGlass
   entities:
   - uid: 723
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.618602,2.5336328
       parent: 818
+    - type: MeleeWeapon
+      nextAttack: -84.2333215
+    - type: EmitSoundOnCollide
+      nextSound: -84.2333215
   - uid: 915
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.399852,2.6273828
       parent: 818
+    - type: MeleeWeapon
+      nextAttack: -84.2333215
+    - type: EmitSoundOnCollide
+      nextSound: -84.2333215
 - proto: DrinkShaker
   entities:
   - uid: 724
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.722768,2.7627993
       parent: 818
+    - type: EmitSoundOnCollide
+      nextSound: -84.2333215
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 213
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-2.5
@@ -5129,6 +5865,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 816
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-2.5
@@ -5139,6 +5877,8 @@ entities:
 - proto: FirelockEdge
   entities:
   - uid: 690
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-11.5
@@ -5149,6 +5889,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 694
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-11.5
@@ -5159,6 +5901,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 695
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5170,6 +5914,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 696
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5181,6 +5927,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 697
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5192,6 +5940,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 698
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5203,6 +5953,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 699
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-11.5
@@ -5213,6 +5965,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 700
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-11.5
@@ -5223,6 +5977,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 822
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-3.5
@@ -5233,6 +5989,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 823
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-3.5
@@ -5243,6 +6001,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 824
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-3.5
@@ -5253,6 +6013,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 825
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5264,6 +6026,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 826
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5275,6 +6039,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 827
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5286,6 +6052,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 828
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-3.5
@@ -5296,6 +6064,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 829
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-3.5
@@ -5306,6 +6076,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 830
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-3.5
@@ -5316,6 +6088,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 831
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5327,6 +6101,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 832
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5338,6 +6114,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 833
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5351,6 +6129,8 @@ entities:
 - proto: FirelockGlass
   entities:
   - uid: 194
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,0.5
@@ -5361,6 +6141,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 216
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,2.5
@@ -5371,6 +6153,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 220
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,2.5
@@ -5381,6 +6165,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 305
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,0.5
@@ -5391,6 +6177,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 345
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-1.5
@@ -5401,6 +6189,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 346
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-0.5
@@ -5411,6 +6201,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 347
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-1.5
@@ -5421,6 +6213,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 348
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-0.5
@@ -5431,6 +6225,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 586
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,2.5
@@ -5441,6 +6237,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 716
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,2.5
@@ -5453,6 +6251,8 @@ entities:
 - proto: GeneratorBasic15kW
   entities:
   - uid: 124
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,8.5
@@ -5464,6 +6264,8 @@ entities:
 - proto: GravityGeneratorMini
   entities:
   - uid: 808
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,8.5
@@ -5476,6 +6278,8 @@ entities:
 - proto: Grille
   entities:
   - uid: 96
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-15.5
@@ -5486,6 +6290,8 @@ entities:
     - Construction
     - Destructible
   - uid: 97
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-14.5
@@ -5496,6 +6302,8 @@ entities:
     - Construction
     - Destructible
   - uid: 98
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-13.5
@@ -5506,6 +6314,8 @@ entities:
     - Construction
     - Destructible
   - uid: 99
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-13.5
@@ -5516,6 +6326,8 @@ entities:
     - Construction
     - Destructible
   - uid: 101
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-15.5
@@ -5526,6 +6338,8 @@ entities:
     - Construction
     - Destructible
   - uid: 102
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-14.5
@@ -5536,6 +6350,8 @@ entities:
     - Construction
     - Destructible
   - uid: 103
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-15.5
@@ -5546,6 +6362,8 @@ entities:
     - Construction
     - Destructible
   - uid: 104
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-14.5
@@ -5556,6 +6374,8 @@ entities:
     - Construction
     - Destructible
   - uid: 125
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5567,6 +6387,8 @@ entities:
     - Construction
     - Destructible
   - uid: 126
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5578,6 +6400,8 @@ entities:
     - Construction
     - Destructible
   - uid: 127
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5589,6 +6413,8 @@ entities:
     - Construction
     - Destructible
   - uid: 128
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5600,6 +6426,8 @@ entities:
     - Construction
     - Destructible
   - uid: 129
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5611,6 +6439,8 @@ entities:
     - Construction
     - Destructible
   - uid: 130
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5622,6 +6452,8 @@ entities:
     - Construction
     - Destructible
   - uid: 131
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5633,6 +6465,8 @@ entities:
     - Construction
     - Destructible
   - uid: 132
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5644,6 +6478,8 @@ entities:
     - Construction
     - Destructible
   - uid: 133
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5655,6 +6491,8 @@ entities:
     - Construction
     - Destructible
   - uid: 134
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5666,6 +6504,8 @@ entities:
     - Construction
     - Destructible
   - uid: 135
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-13.5
@@ -5676,6 +6516,8 @@ entities:
     - Construction
     - Destructible
   - uid: 136
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-12.5
@@ -5686,6 +6528,8 @@ entities:
     - Construction
     - Destructible
   - uid: 137
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-13.5
@@ -5696,6 +6540,8 @@ entities:
     - Construction
     - Destructible
   - uid: 138
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-12.5
@@ -5706,6 +6552,8 @@ entities:
     - Construction
     - Destructible
   - uid: 139
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-12.5
@@ -5716,6 +6564,8 @@ entities:
     - Construction
     - Destructible
   - uid: 140
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-15.5
@@ -5726,6 +6576,8 @@ entities:
     - Construction
     - Destructible
   - uid: 141
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-12.5
@@ -5736,6 +6588,8 @@ entities:
     - Construction
     - Destructible
   - uid: 142
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-14.5
@@ -5746,6 +6600,8 @@ entities:
     - Construction
     - Destructible
   - uid: 143
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5757,6 +6613,8 @@ entities:
     - Construction
     - Destructible
   - uid: 144
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5768,6 +6626,8 @@ entities:
     - Construction
     - Destructible
   - uid: 145
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5779,6 +6639,8 @@ entities:
     - Construction
     - Destructible
   - uid: 147
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5790,6 +6652,8 @@ entities:
     - Construction
     - Destructible
   - uid: 148
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5801,6 +6665,8 @@ entities:
     - Construction
     - Destructible
   - uid: 149
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5812,6 +6678,8 @@ entities:
     - Construction
     - Destructible
   - uid: 151
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5823,6 +6691,8 @@ entities:
     - Construction
     - Destructible
   - uid: 152
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5834,6 +6704,8 @@ entities:
     - Construction
     - Destructible
   - uid: 153
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5845,6 +6717,8 @@ entities:
     - Construction
     - Destructible
   - uid: 155
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5856,6 +6730,8 @@ entities:
     - Construction
     - Destructible
   - uid: 156
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5867,6 +6743,8 @@ entities:
     - Construction
     - Destructible
   - uid: 157
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5878,6 +6756,8 @@ entities:
     - Construction
     - Destructible
   - uid: 167
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5889,6 +6769,8 @@ entities:
     - Construction
     - Destructible
   - uid: 168
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5900,6 +6782,8 @@ entities:
     - Construction
     - Destructible
   - uid: 169
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5911,6 +6795,8 @@ entities:
     - Construction
     - Destructible
   - uid: 170
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5922,6 +6808,8 @@ entities:
     - Construction
     - Destructible
   - uid: 171
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5933,6 +6821,8 @@ entities:
     - Construction
     - Destructible
   - uid: 172
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5944,6 +6834,8 @@ entities:
     - Construction
     - Destructible
   - uid: 173
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5955,6 +6847,8 @@ entities:
     - Construction
     - Destructible
   - uid: 174
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5966,6 +6860,8 @@ entities:
     - Construction
     - Destructible
   - uid: 175
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5977,6 +6873,8 @@ entities:
     - Construction
     - Destructible
   - uid: 176
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -5988,6 +6886,8 @@ entities:
     - Construction
     - Destructible
   - uid: 178
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,-2.5
@@ -5998,6 +6898,8 @@ entities:
     - Construction
     - Destructible
   - uid: 183
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,-2.5
@@ -6008,6 +6910,8 @@ entities:
     - Construction
     - Destructible
   - uid: 184
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,-2.5
@@ -6018,6 +6922,8 @@ entities:
     - Construction
     - Destructible
   - uid: 191
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,-2.5
@@ -6028,6 +6934,8 @@ entities:
     - Construction
     - Destructible
   - uid: 197
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,-2.5
@@ -6038,6 +6946,8 @@ entities:
     - Construction
     - Destructible
   - uid: 229
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,-2.5
@@ -6048,6 +6958,8 @@ entities:
     - Construction
     - Destructible
   - uid: 233
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-4.5
@@ -6058,6 +6970,8 @@ entities:
     - Construction
     - Destructible
   - uid: 234
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-4.5
@@ -6068,6 +6982,8 @@ entities:
     - Construction
     - Destructible
   - uid: 235
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-4.5
@@ -6078,6 +6994,8 @@ entities:
     - Construction
     - Destructible
   - uid: 244
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-4.5
@@ -6088,6 +7006,8 @@ entities:
     - Construction
     - Destructible
   - uid: 276
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-2.5
@@ -6098,6 +7018,8 @@ entities:
     - Construction
     - Destructible
   - uid: 277
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-1.5
@@ -6108,6 +7030,8 @@ entities:
     - Construction
     - Destructible
   - uid: 278
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-0.5
@@ -6118,6 +7042,8 @@ entities:
     - Construction
     - Destructible
   - uid: 279
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,0.5
@@ -6128,6 +7054,8 @@ entities:
     - Construction
     - Destructible
   - uid: 280
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-2.5
@@ -6138,6 +7066,8 @@ entities:
     - Construction
     - Destructible
   - uid: 281
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-1.5
@@ -6148,6 +7078,8 @@ entities:
     - Construction
     - Destructible
   - uid: 282
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-0.5
@@ -6158,6 +7090,8 @@ entities:
     - Construction
     - Destructible
   - uid: 283
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,0.5
@@ -6168,6 +7102,8 @@ entities:
     - Construction
     - Destructible
   - uid: 318
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,3.5
@@ -6178,6 +7114,8 @@ entities:
     - Construction
     - Destructible
   - uid: 319
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,4.5
@@ -6188,6 +7126,8 @@ entities:
     - Construction
     - Destructible
   - uid: 320
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,4.5
@@ -6198,6 +7138,8 @@ entities:
     - Construction
     - Destructible
   - uid: 321
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,5.5
@@ -6208,6 +7150,8 @@ entities:
     - Construction
     - Destructible
   - uid: 322
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,5.5
@@ -6218,6 +7162,8 @@ entities:
     - Construction
     - Destructible
   - uid: 323
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,5.5
@@ -6228,6 +7174,8 @@ entities:
     - Construction
     - Destructible
   - uid: 324
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,5.5
@@ -6238,6 +7186,8 @@ entities:
     - Construction
     - Destructible
   - uid: 325
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,5.5
@@ -6248,6 +7198,8 @@ entities:
     - Construction
     - Destructible
   - uid: 326
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,4.5
@@ -6258,6 +7210,8 @@ entities:
     - Construction
     - Destructible
   - uid: 327
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,4.5
@@ -6268,6 +7222,8 @@ entities:
     - Construction
     - Destructible
   - uid: 328
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,3.5
@@ -6278,6 +7234,8 @@ entities:
     - Construction
     - Destructible
   - uid: 329
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,3.5
@@ -6288,6 +7246,8 @@ entities:
     - Construction
     - Destructible
   - uid: 330
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,4.5
@@ -6298,6 +7258,8 @@ entities:
     - Construction
     - Destructible
   - uid: 331
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,4.5
@@ -6308,6 +7270,8 @@ entities:
     - Construction
     - Destructible
   - uid: 332
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,5.5
@@ -6318,6 +7282,8 @@ entities:
     - Construction
     - Destructible
   - uid: 333
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,5.5
@@ -6328,6 +7294,8 @@ entities:
     - Construction
     - Destructible
   - uid: 334
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,5.5
@@ -6338,6 +7306,8 @@ entities:
     - Construction
     - Destructible
   - uid: 335
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,5.5
@@ -6348,6 +7318,8 @@ entities:
     - Construction
     - Destructible
   - uid: 336
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,5.5
@@ -6358,6 +7330,8 @@ entities:
     - Construction
     - Destructible
   - uid: 337
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,4.5
@@ -6368,6 +7342,8 @@ entities:
     - Construction
     - Destructible
   - uid: 338
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,4.5
@@ -6378,6 +7354,8 @@ entities:
     - Construction
     - Destructible
   - uid: 339
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,3.5
@@ -6390,6 +7368,8 @@ entities:
 - proto: PaperBin10
   entities:
   - uid: 729
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,4.5
@@ -6397,6 +7377,8 @@ entities:
 - proto: PosterLegitCohibaRobustoAd
   entities:
   - uid: 927
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,1.5
@@ -6407,6 +7389,8 @@ entities:
 - proto: PosterLegitEnlist
   entities:
   - uid: 926
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,1.5
@@ -6417,6 +7401,8 @@ entities:
 - proto: PosterLegitHighClassMartini
   entities:
   - uid: 925
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-3.5
@@ -6427,6 +7413,8 @@ entities:
 - proto: PosterLegitJustAWeekAway
   entities:
   - uid: 821
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,1.5
@@ -6437,6 +7425,8 @@ entities:
 - proto: PosterLegitNanomichiAd
   entities:
   - uid: 820
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,3.5
@@ -6447,6 +7437,8 @@ entities:
 - proto: PosterLegitNanotrasenLogo
   entities:
   - uid: 246
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-11.5
@@ -6455,6 +7447,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 247
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-4.5
@@ -6463,6 +7457,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 248
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-4.5
@@ -6471,6 +7467,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 249
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-16.5
@@ -6479,6 +7477,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 250
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-16.5
@@ -6487,6 +7487,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 251
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-11.5
@@ -6495,6 +7497,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 922
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,6.5
@@ -6505,6 +7509,8 @@ entities:
 - proto: PosterLegitNTTGC
   entities:
   - uid: 924
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-3.5
@@ -6515,6 +7521,8 @@ entities:
 - proto: PosterLegitPDAAd
   entities:
   - uid: 920
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-16.5
@@ -6525,6 +7533,8 @@ entities:
 - proto: PosterLegitVacation
   entities:
   - uid: 921
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-16.5
@@ -6535,6 +7545,8 @@ entities:
 - proto: PosterLegitWorkForAFuture
   entities:
   - uid: 923
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,2.5
@@ -6545,36 +7557,48 @@ entities:
 - proto: PottedPlantRandom
   entities:
   - uid: 236
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-19.5
       parent: 818
     - type: Godmode
   - uid: 237
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-19.5
       parent: 818
     - type: Godmode
   - uid: 238
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-19.5
       parent: 818
     - type: Godmode
   - uid: 239
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-19.5
       parent: 818
     - type: Godmode
   - uid: 733
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-5.5
       parent: 818
     - type: Godmode
   - uid: 741
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-3.5
@@ -6583,12 +7607,16 @@ entities:
 - proto: PottedPlantRandomPlastic
   entities:
   - uid: 708
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,1.5
       parent: 818
     - type: Godmode
   - uid: 755
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-3.5
@@ -6597,6 +7625,8 @@ entities:
 - proto: RandomSpawner
   entities:
   - uid: 895
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,4.5
@@ -6605,6 +7635,8 @@ entities:
 - proto: ReinforcedWindow
   entities:
   - uid: 19
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6616,6 +7648,8 @@ entities:
     - Destructible
     - Construction
   - uid: 20
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6627,6 +7661,8 @@ entities:
     - Destructible
     - Construction
   - uid: 21
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6638,6 +7674,8 @@ entities:
     - Destructible
     - Construction
   - uid: 22
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6649,6 +7687,8 @@ entities:
     - Destructible
     - Construction
   - uid: 24
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6660,6 +7700,8 @@ entities:
     - Destructible
     - Construction
   - uid: 25
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6671,6 +7713,8 @@ entities:
     - Destructible
     - Construction
   - uid: 26
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6682,6 +7726,8 @@ entities:
     - Destructible
     - Construction
   - uid: 27
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6693,6 +7739,8 @@ entities:
     - Destructible
     - Construction
   - uid: 28
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6704,6 +7752,8 @@ entities:
     - Destructible
     - Construction
   - uid: 29
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6715,6 +7765,8 @@ entities:
     - Destructible
     - Construction
   - uid: 30
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6726,6 +7778,8 @@ entities:
     - Destructible
     - Construction
   - uid: 31
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6737,6 +7791,8 @@ entities:
     - Destructible
     - Construction
   - uid: 32
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6748,6 +7804,8 @@ entities:
     - Destructible
     - Construction
   - uid: 33
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6759,6 +7817,8 @@ entities:
     - Destructible
     - Construction
   - uid: 34
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6770,6 +7830,8 @@ entities:
     - Destructible
     - Construction
   - uid: 35
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6781,6 +7843,8 @@ entities:
     - Destructible
     - Construction
   - uid: 36
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6792,6 +7856,8 @@ entities:
     - Destructible
     - Construction
   - uid: 37
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6803,6 +7869,8 @@ entities:
     - Destructible
     - Construction
   - uid: 38
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6814,6 +7882,8 @@ entities:
     - Destructible
     - Construction
   - uid: 39
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6825,6 +7895,8 @@ entities:
     - Destructible
     - Construction
   - uid: 91
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-12.5
@@ -6835,6 +7907,8 @@ entities:
     - Destructible
     - Construction
   - uid: 93
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-14.5
@@ -6845,6 +7919,8 @@ entities:
     - Destructible
     - Construction
   - uid: 94
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-13.5
@@ -6855,6 +7931,8 @@ entities:
     - Destructible
     - Construction
   - uid: 95
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-12.5
@@ -6865,6 +7943,8 @@ entities:
     - Destructible
     - Construction
   - uid: 100
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6876,6 +7956,8 @@ entities:
     - Destructible
     - Construction
   - uid: 105
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-12.5
@@ -6886,6 +7968,8 @@ entities:
     - Destructible
     - Construction
   - uid: 106
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-14.5
@@ -6896,6 +7980,8 @@ entities:
     - Destructible
     - Construction
   - uid: 107
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-12.5
@@ -6906,6 +7992,8 @@ entities:
     - Destructible
     - Construction
   - uid: 108
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-13.5
@@ -6916,6 +8004,8 @@ entities:
     - Destructible
     - Construction
   - uid: 109
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6927,6 +8017,8 @@ entities:
     - Destructible
     - Construction
   - uid: 110
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6938,6 +8030,8 @@ entities:
     - Destructible
     - Construction
   - uid: 111
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6949,6 +8043,8 @@ entities:
     - Destructible
     - Construction
   - uid: 113
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6960,6 +8056,8 @@ entities:
     - Destructible
     - Construction
   - uid: 115
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6971,6 +8069,8 @@ entities:
     - Destructible
     - Construction
   - uid: 116
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6982,6 +8082,8 @@ entities:
     - Destructible
     - Construction
   - uid: 117
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -6993,6 +8095,8 @@ entities:
     - Destructible
     - Construction
   - uid: 118
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -7004,6 +8108,8 @@ entities:
     - Destructible
     - Construction
   - uid: 121
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -7015,6 +8121,8 @@ entities:
     - Destructible
     - Construction
   - uid: 122
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -7026,6 +8134,8 @@ entities:
     - Destructible
     - Construction
   - uid: 123
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -7037,6 +8147,8 @@ entities:
     - Destructible
     - Construction
   - uid: 159
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-13.5
@@ -7047,6 +8159,8 @@ entities:
     - Destructible
     - Construction
   - uid: 160
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-15.5
@@ -7057,6 +8171,8 @@ entities:
     - Destructible
     - Construction
   - uid: 161
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-14.5
@@ -7067,6 +8183,8 @@ entities:
     - Destructible
     - Construction
   - uid: 162
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-15.5
@@ -7077,6 +8195,8 @@ entities:
     - Destructible
     - Construction
   - uid: 163
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-13.5
@@ -7087,6 +8207,8 @@ entities:
     - Destructible
     - Construction
   - uid: 164
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-15.5
@@ -7097,6 +8219,8 @@ entities:
     - Destructible
     - Construction
   - uid: 165
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-15.5
@@ -7107,6 +8231,8 @@ entities:
     - Destructible
     - Construction
   - uid: 166
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-14.5
@@ -7117,6 +8243,8 @@ entities:
     - Destructible
     - Construction
   - uid: 185
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,-2.5
@@ -7127,6 +8255,8 @@ entities:
     - Destructible
     - Construction
   - uid: 186
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,-2.5
@@ -7137,6 +8267,8 @@ entities:
     - Destructible
     - Construction
   - uid: 192
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,-2.5
@@ -7147,6 +8279,8 @@ entities:
     - Destructible
     - Construction
   - uid: 196
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,-2.5
@@ -7157,6 +8291,8 @@ entities:
     - Destructible
     - Construction
   - uid: 198
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,-2.5
@@ -7167,6 +8303,8 @@ entities:
     - Destructible
     - Construction
   - uid: 232
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,-2.5
@@ -7177,6 +8315,8 @@ entities:
     - Destructible
     - Construction
   - uid: 240
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-4.5
@@ -7187,6 +8327,8 @@ entities:
     - Destructible
     - Construction
   - uid: 241
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-4.5
@@ -7197,6 +8339,8 @@ entities:
     - Destructible
     - Construction
   - uid: 242
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,-4.5
@@ -7207,6 +8351,8 @@ entities:
     - Destructible
     - Construction
   - uid: 243
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,-4.5
@@ -7217,6 +8363,8 @@ entities:
     - Destructible
     - Construction
   - uid: 268
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-2.5
@@ -7227,6 +8375,8 @@ entities:
     - Destructible
     - Construction
   - uid: 269
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-1.5
@@ -7237,6 +8387,8 @@ entities:
     - Destructible
     - Construction
   - uid: 270
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-0.5
@@ -7247,6 +8399,8 @@ entities:
     - Destructible
     - Construction
   - uid: 271
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,0.5
@@ -7257,6 +8411,8 @@ entities:
     - Destructible
     - Construction
   - uid: 272
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-2.5
@@ -7267,6 +8423,8 @@ entities:
     - Destructible
     - Construction
   - uid: 273
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-1.5
@@ -7277,6 +8435,8 @@ entities:
     - Destructible
     - Construction
   - uid: 274
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-0.5
@@ -7287,6 +8447,8 @@ entities:
     - Destructible
     - Construction
   - uid: 275
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,0.5
@@ -7297,6 +8459,8 @@ entities:
     - Destructible
     - Construction
   - uid: 284
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,4.5
@@ -7307,6 +8471,8 @@ entities:
     - Destructible
     - Construction
   - uid: 285
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,4.5
@@ -7317,6 +8483,8 @@ entities:
     - Destructible
     - Construction
   - uid: 286
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,5.5
@@ -7327,6 +8495,8 @@ entities:
     - Destructible
     - Construction
   - uid: 287
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,5.5
@@ -7337,6 +8507,8 @@ entities:
     - Destructible
     - Construction
   - uid: 288
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,4.5
@@ -7347,6 +8519,8 @@ entities:
     - Destructible
     - Construction
   - uid: 289
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -8.5,5.5
@@ -7357,6 +8531,8 @@ entities:
     - Destructible
     - Construction
   - uid: 290
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,5.5
@@ -7367,6 +8543,8 @@ entities:
     - Destructible
     - Construction
   - uid: 291
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,3.5
@@ -7377,6 +8555,8 @@ entities:
     - Destructible
     - Construction
   - uid: 292
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,5.5
@@ -7387,6 +8567,8 @@ entities:
     - Destructible
     - Construction
   - uid: 293
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,3.5
@@ -7397,6 +8579,8 @@ entities:
     - Destructible
     - Construction
   - uid: 294
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,3.5
@@ -7407,6 +8591,8 @@ entities:
     - Destructible
     - Construction
   - uid: 295
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,4.5
@@ -7417,6 +8603,8 @@ entities:
     - Destructible
     - Construction
   - uid: 308
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,4.5
@@ -7427,6 +8615,8 @@ entities:
     - Destructible
     - Construction
   - uid: 309
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,4.5
@@ -7437,6 +8627,8 @@ entities:
     - Destructible
     - Construction
   - uid: 310
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 7.5,5.5
@@ -7447,6 +8639,8 @@ entities:
     - Destructible
     - Construction
   - uid: 311
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,5.5
@@ -7457,6 +8651,8 @@ entities:
     - Destructible
     - Construction
   - uid: 312
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,5.5
@@ -7467,6 +8663,8 @@ entities:
     - Destructible
     - Construction
   - uid: 313
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,5.5
@@ -7477,6 +8675,8 @@ entities:
     - Destructible
     - Construction
   - uid: 314
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,5.5
@@ -7487,6 +8687,8 @@ entities:
     - Destructible
     - Construction
   - uid: 315
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,4.5
@@ -7497,6 +8699,8 @@ entities:
     - Destructible
     - Construction
   - uid: 316
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,4.5
@@ -7507,6 +8711,8 @@ entities:
     - Destructible
     - Construction
   - uid: 317
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,3.5
@@ -7519,6 +8725,8 @@ entities:
 - proto: SignNanotrasen1
   entities:
   - uid: 721
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,-2.5
@@ -7529,6 +8737,8 @@ entities:
 - proto: SignNanotrasen2
   entities:
   - uid: 722
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,-2.5
@@ -7539,6 +8749,8 @@ entities:
 - proto: SignNanotrasen3
   entities:
   - uid: 719
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,-2.5
@@ -7549,6 +8761,8 @@ entities:
 - proto: SignNanotrasen4
   entities:
   - uid: 801
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,-2.5
@@ -7559,6 +8773,8 @@ entities:
 - proto: SignNanotrasen5
   entities:
   - uid: 802
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,-2.5
@@ -7569,6 +8785,8 @@ entities:
 - proto: SignNosmoking
   entities:
   - uid: 720
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,2.5
@@ -7579,6 +8797,8 @@ entities:
 - proto: SignShipDock
   entities:
   - uid: 200
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-4.5
@@ -7587,6 +8807,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 245
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-4.5
@@ -7597,6 +8819,8 @@ entities:
 - proto: SignSpace
   entities:
   - uid: 571
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-18.5
@@ -7605,6 +8829,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 640
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-18.5
@@ -7613,6 +8839,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 688
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-18.5
@@ -7621,6 +8849,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 689
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-9.5
@@ -7629,6 +8859,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 691
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-9.5
@@ -7637,6 +8869,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 705
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-9.5
@@ -7645,6 +8879,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 709
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-9.5
@@ -7653,6 +8889,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 817
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-18.5
@@ -7661,6 +8899,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 819
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,7.5
@@ -7671,17 +8911,23 @@ entities:
 - proto: SinkWide
   entities:
   - uid: 913
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -12.5,3.5
       parent: 818
+    - type: SolutionRegeneration
+      nextChargeTime: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
 - proto: SmallLight
   entities:
   - uid: 598
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -7693,6 +8939,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 641
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-17.5
@@ -7703,6 +8951,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 642
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-17.5
@@ -7713,6 +8963,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 643
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-10.5
@@ -7723,6 +8975,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 644
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-10.5
@@ -7733,6 +8987,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 645
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-10.5
@@ -7743,6 +8999,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 646
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-10.5
@@ -7753,6 +9011,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 647
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-17.5
@@ -7763,6 +9023,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 648
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-17.5
@@ -7773,6 +9035,8 @@ entities:
     - Construction
     - RCDDeconstructable
   - uid: 917
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -7786,6 +9050,8 @@ entities:
 - proto: SMESBasic
   entities:
   - uid: 805
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,8.5
@@ -7798,6 +9064,8 @@ entities:
 - proto: SodaDispenser
   entities:
   - uid: 795
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,4.5
@@ -7811,6 +9079,8 @@ entities:
 - proto: SpaceVillainArcadeFilled
   entities:
   - uid: 731
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -7823,6 +9093,8 @@ entities:
     - Construction
     - Destructible
   - uid: 732
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -7837,192 +9109,256 @@ entities:
 - proto: SpawnPointLatejoin
   entities:
   - uid: 763
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 764
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 765
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 766
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,-12.5
       parent: 818
     - type: Godmode
   - uid: 767
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 768
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 769
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 770
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-12.5
       parent: 818
     - type: Godmode
   - uid: 771
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 772
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 773
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 774
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-12.5
       parent: 818
     - type: Godmode
   - uid: 775
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 776
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 777
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 778
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,-12.5
       parent: 818
     - type: Godmode
   - uid: 779
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 780
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 781
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 782
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-12.5
       parent: 818
     - type: Godmode
   - uid: 783
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 784
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 785
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 786
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-12.5
       parent: 818
     - type: Godmode
   - uid: 787
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 788
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 789
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 790
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-12.5
       parent: 818
     - type: Godmode
   - uid: 791
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-15.5
       parent: 818
     - type: Godmode
   - uid: 792
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-14.5
       parent: 818
     - type: Godmode
   - uid: 793
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-13.5
       parent: 818
     - type: Godmode
   - uid: 794
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-12.5
@@ -8031,6 +9367,8 @@ entities:
 - proto: SS13Memorial
   entities:
   - uid: 594
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,4.5
@@ -8039,6 +9377,8 @@ entities:
 - proto: Stool
   entities:
   - uid: 119
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -8050,6 +9390,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 639
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -8061,6 +9403,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 730
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -8072,6 +9416,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 737
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -8083,6 +9429,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 738
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8094,6 +9442,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 740
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8105,6 +9455,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 761
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8116,6 +9468,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 914
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8129,6 +9483,8 @@ entities:
 - proto: StoolBar
   entities:
   - uid: 230
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -8140,6 +9496,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 342
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -8151,6 +9509,8 @@ entities:
     - Anchorable
     - Destructible
   - uid: 433
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -8164,6 +9524,8 @@ entities:
 - proto: SubstationBasic
   entities:
   - uid: 807
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,8.5
@@ -8176,6 +9538,8 @@ entities:
 - proto: TableCarpet
   entities:
   - uid: 572
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,0.5
@@ -8185,6 +9549,8 @@ entities:
     - Destructible
     - Construction
   - uid: 573
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-0.5
@@ -8194,6 +9560,8 @@ entities:
     - Destructible
     - Construction
   - uid: 574
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-0.5
@@ -8203,6 +9571,8 @@ entities:
     - Destructible
     - Construction
   - uid: 576
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,0.5
@@ -8214,6 +9584,8 @@ entities:
 - proto: TableReinforced
   entities:
   - uid: 585
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8224,6 +9596,8 @@ entities:
     - Destructible
     - Construction
   - uid: 707
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8234,6 +9608,8 @@ entities:
     - Destructible
     - Construction
   - uid: 751
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8244,6 +9620,8 @@ entities:
     - Destructible
     - Construction
   - uid: 796
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8254,6 +9632,8 @@ entities:
     - Destructible
     - Construction
   - uid: 797
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8264,6 +9644,8 @@ entities:
     - Destructible
     - Construction
   - uid: 798
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8276,6 +9658,8 @@ entities:
 - proto: TableWood
   entities:
   - uid: 441
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,0.5
@@ -8285,6 +9669,8 @@ entities:
     - Destructible
     - Construction
   - uid: 575
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,-2.5
@@ -8294,6 +9680,8 @@ entities:
     - Destructible
     - Construction
   - uid: 587
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,-2.5
@@ -8303,6 +9691,8 @@ entities:
     - Destructible
     - Construction
   - uid: 706
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,4.5
@@ -8312,6 +9702,8 @@ entities:
     - Destructible
     - Construction
   - uid: 750
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,4.5
@@ -8321,6 +9713,8 @@ entities:
     - Destructible
     - Construction
   - uid: 756
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,4.5
@@ -8332,6 +9726,8 @@ entities:
 - proto: TelecomServerFilled
   entities:
   - uid: 919
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,8.5
@@ -8347,10 +9743,14 @@ entities:
 - proto: VendingMachineBooze
   entities:
   - uid: 753
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,4.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8359,10 +9759,14 @@ entities:
 - proto: VendingMachineChang
   entities:
   - uid: 692
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-20.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8370,10 +9774,14 @@ entities:
 - proto: VendingMachineCigs
   entities:
   - uid: 744
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,1.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8382,10 +9790,14 @@ entities:
 - proto: VendingMachineCola
   entities:
   - uid: 635
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-5.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8394,10 +9806,14 @@ entities:
 - proto: VendingMachineColaBlack
   entities:
   - uid: 834
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-20.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8405,10 +9821,14 @@ entities:
 - proto: VendingMachineDiscount
   entities:
   - uid: 836
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-6.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8416,10 +9836,14 @@ entities:
 - proto: VendingMachineDrGibb
   entities:
   - uid: 835
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 11.5,-5.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8427,10 +9851,14 @@ entities:
 - proto: VendingMachineGames
   entities:
   - uid: 748
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,1.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8439,10 +9867,14 @@ entities:
 - proto: VendingMachineSnack
   entities:
   - uid: 637
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -12.5,-6.5
       parent: 818
+    - type: VendingMachine
+      nextEmpEject: -84.2333215
     - type: Godmode
     missingComponents:
     - Destructible
@@ -8451,6 +9883,8 @@ entities:
 - proto: WallRiveted
   entities:
   - uid: 10
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8460,6 +9894,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 23
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8469,6 +9905,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 40
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8478,6 +9916,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 41
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8487,6 +9927,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 42
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8496,6 +9938,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 43
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8505,6 +9949,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 44
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8514,6 +9960,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 45
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8523,6 +9971,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 46
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8532,6 +9982,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 47
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8541,6 +9993,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 48
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8550,6 +10004,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 49
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8559,6 +10015,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 50
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8568,6 +10026,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 51
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8577,6 +10037,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 52
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8586,6 +10048,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 53
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8595,6 +10059,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 54
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8604,6 +10070,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 55
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8613,6 +10081,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 56
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8622,6 +10092,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 57
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8631,6 +10103,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 58
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8640,6 +10114,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 59
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8649,6 +10125,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 60
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8658,6 +10136,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 61
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8667,6 +10147,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 62
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8676,6 +10158,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 63
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8685,6 +10169,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 64
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8694,6 +10180,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 65
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8703,6 +10191,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 66
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8712,6 +10202,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 67
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8721,6 +10213,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 68
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8730,6 +10224,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 69
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8739,6 +10235,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 70
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8748,6 +10246,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 71
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8757,6 +10257,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 72
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8766,6 +10268,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 73
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8775,6 +10279,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 74
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8784,6 +10290,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 75
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8793,6 +10301,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 76
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8802,6 +10312,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 77
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8811,6 +10323,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 78
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8820,6 +10334,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 79
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8829,6 +10345,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 80
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8838,6 +10356,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 81
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8847,6 +10367,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 82
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8856,6 +10378,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 83
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8865,6 +10389,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 84
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8874,6 +10400,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 85
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8883,6 +10411,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 86
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8892,6 +10422,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 87
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8901,6 +10433,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 88
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8910,6 +10444,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 89
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8919,6 +10455,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 90
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8928,6 +10466,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 92
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -8937,6 +10477,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 112
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8946,6 +10488,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 114
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8955,6 +10499,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 120
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,1.5
@@ -8963,6 +10509,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 154
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8972,6 +10520,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 158
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -8981,6 +10531,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 179
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,-2.5
@@ -8989,6 +10541,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 180
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-3.5
@@ -8997,6 +10551,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 182
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,-2.5
@@ -9005,6 +10561,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 187
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-2.5
@@ -9013,6 +10571,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 189
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-4.5
@@ -9021,6 +10581,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 190
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,9.5
@@ -9029,6 +10591,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 193
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,-2.5
@@ -9037,6 +10601,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 199
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-4.5
@@ -9045,6 +10611,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 202
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,1.5
@@ -9053,6 +10621,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 207
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,-3.5
@@ -9061,6 +10631,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 217
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,3.5
@@ -9069,6 +10641,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 222
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,9.5
@@ -9077,6 +10651,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 223
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,9.5
@@ -9085,6 +10661,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 225
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,9.5
@@ -9093,6 +10671,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 231
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -4.5,9.5
@@ -9101,6 +10681,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 258
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-4.5
@@ -9109,6 +10691,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 259
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-3.5
@@ -9117,6 +10701,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 260
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,-4.5
@@ -9125,6 +10711,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 261
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,-3.5
@@ -9133,6 +10721,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 262
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,1.5
@@ -9141,6 +10731,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 263
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 13.5,2.5
@@ -9149,6 +10741,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 264
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 12.5,2.5
@@ -9157,6 +10751,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 265
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,1.5
@@ -9165,6 +10761,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 266
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -14.5,2.5
@@ -9173,6 +10771,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 267
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -13.5,2.5
@@ -9181,6 +10781,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 304
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -7.5,2.5
@@ -9189,6 +10791,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 306
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -6.5,2.5
@@ -9197,6 +10801,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 307
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 6.5,2.5
@@ -9205,6 +10811,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 340
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 5.5,2.5
@@ -9213,6 +10821,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 343
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,9.5
@@ -9221,6 +10831,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 351
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,9.5
@@ -9229,6 +10841,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 401
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,2.5
@@ -9237,6 +10851,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 403
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,9.5
@@ -9245,6 +10861,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 405
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,6.5
@@ -9253,6 +10871,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 406
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,2.5
@@ -9261,6 +10881,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 407
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,6.5
@@ -9269,6 +10891,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 408
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,4.5
@@ -9277,6 +10901,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 409
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,5.5
@@ -9285,6 +10911,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 414
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 3.5,9.5
@@ -9293,6 +10921,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 420
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,3.5
@@ -9301,6 +10931,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 578
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,3.5
@@ -9309,6 +10941,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 581
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,5.5
@@ -9317,6 +10951,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 582
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,4.5
@@ -9325,6 +10961,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 583
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -3.5,6.5
@@ -9333,6 +10971,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 588
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,6.5
@@ -9341,6 +10981,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 602
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,6.5
@@ -9349,6 +10991,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 693
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,6.5
@@ -9357,6 +11001,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 711
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,-2.5
@@ -9365,6 +11011,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 712
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,-2.5
@@ -9373,6 +11021,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 713
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,-2.5
@@ -9381,6 +11031,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 725
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,4.5
@@ -9389,6 +11041,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 726
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,3.5
@@ -9397,6 +11051,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 736
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,5.5
@@ -9405,6 +11061,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 739
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,6.5
@@ -9413,6 +11071,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 743
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,7.5
@@ -9421,6 +11081,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 745
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,8.5
@@ -9429,6 +11091,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 746
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 2.5,9.5
@@ -9437,6 +11101,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 754
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,7.5
@@ -9445,6 +11111,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 757
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,3.5
@@ -9453,6 +11121,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 758
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,6.5
@@ -9461,6 +11131,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 762
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,5.5
@@ -9469,6 +11141,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 799
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 4.5,4.5
@@ -9477,6 +11151,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 800
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -5.5,9.5
@@ -9485,6 +11161,8 @@ entities:
     missingComponents:
     - Destructible
   - uid: 804
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,6.5
@@ -9495,6 +11173,8 @@ entities:
 - proto: WarpPoint
   entities:
   - uid: 638
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,1.5
@@ -9504,17 +11184,14 @@ entities:
     - type: Godmode
 - proto: Windoor
   entities:
-  - uid: 806
+  - uid: 257
     components:
     - type: Transform
       pos: -8.5,2.5
       parent: 818
-    - type: Godmode
-    missingComponents:
-    - RCDDeconstructable
-    - Destructible
-    - Construction
   - uid: 841
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -2.5,3.5
@@ -9527,6 +11204,8 @@ entities:
 - proto: WindowReinforcedDirectional
   entities:
   - uid: 181
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9538,6 +11217,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 204
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9549,6 +11230,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 600
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9560,6 +11243,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 659
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 9.5,-15.5
@@ -9570,6 +11255,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 660
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -9581,6 +11268,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 661
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9592,6 +11281,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 662
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9603,6 +11294,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 663
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9614,6 +11307,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 664
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9625,6 +11320,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 665
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9636,6 +11333,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 666
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9647,6 +11346,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 667
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9658,6 +11359,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 668
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9669,6 +11372,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 669
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -9680,6 +11385,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 670
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -10.5,-15.5
@@ -9690,6 +11397,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 671
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9701,6 +11410,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 672
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9712,6 +11423,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 673
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9723,6 +11436,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 674
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -9734,6 +11449,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 675
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9745,6 +11462,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 676
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9756,6 +11475,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 677
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9767,6 +11488,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 678
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -9778,6 +11501,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 679
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -9789,6 +11514,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 680
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -9800,6 +11527,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 681
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -11.5,-11.5
@@ -9810,6 +11539,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 682
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -9.5,-11.5
@@ -9820,6 +11551,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 683
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 10.5,-11.5
@@ -9830,6 +11563,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 684
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 8.5,-11.5
@@ -9840,6 +11575,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 685
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -9851,6 +11588,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 686
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -9862,6 +11601,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 837
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 1.5,3.5
@@ -9872,6 +11613,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 838
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: 0.5,3.5
@@ -9882,6 +11625,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 839
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -0.5,3.5
@@ -9892,6 +11637,8 @@ entities:
     - RCDDeconstructable
     - Destructible
   - uid: 840
+    mapInit: true
+    paused: true
     components:
     - type: Transform
       pos: -1.5,3.5
