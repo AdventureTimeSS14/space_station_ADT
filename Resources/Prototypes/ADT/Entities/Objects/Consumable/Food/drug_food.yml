@@ -77,7 +77,7 @@
   - type: Sprite
     color: "#1bcfe7"
   - type: SliceableFood
-    slice: ADTFoodWalterMethShard
+    slice: ADTFoodWalterMethCrystalShard
   - type: SolutionContainerManager
     solutions:
       food:
