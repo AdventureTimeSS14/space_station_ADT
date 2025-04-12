@@ -522,7 +522,6 @@ public sealed class ModSuitSystem : EntitySystem
         }
         modSuit.Comp.ModEnergyModifyedUsing = modSuit.Comp.ModEnergyBaseUsing * attachedCount;
         celldraw.DrawRate = modSuit.Comp.ModEnergyModifyedUsing;
-        _cell.SetDrawEnabled(modSuit.Owner, true);
         UpdateUserInterface(modSuit.Owner, modSuit.Comp);
     }
     private void EquipClothing(EntityUid user, Entity<ModSuitComponent> modSuit, EntityUid clothing, string slot)
@@ -553,7 +552,6 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (GetAttachedToggleStatus(modSuit, modSuit.Comp) == ModSuitAttachedStatus.AllToggled)
         {
-            _cell.SetDrawEnabled(modSuit.Owner, true);
             if (!_mindSystem.TryGetMind(user, out var mindId, out var mind))
                 return;
             if (mind.Session == null)
@@ -563,11 +561,6 @@ public sealed class ModSuitSystem : EntitySystem
         if (!TryComp<PowerCellDrawComponent>(modSuit.Owner, out var celldraw))
             return;
         var attachedCount = GetAttachedToggleCount(modSuit.Owner, modSuit.Comp);
-        if (attachedCount <= 0)
-        {
-            _cell.SetDrawEnabled(modSuit.Owner, false);
-            return;
-        }
         celldraw.DrawRate = modSuit.Comp.ModEnergyBaseUsing * attachedCount;
         _cell.SetDrawEnabled(modSuit.Owner, true);
         UpdateUserInterface(modSuit.Owner, modSuit.Comp);
