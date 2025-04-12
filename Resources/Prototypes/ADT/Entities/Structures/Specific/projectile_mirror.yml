@@ -50,6 +50,12 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: Reflector
+    whitelist:
+      tags:
+      - EmitterBolt
+      components:
+      - AnomalousParticle
 
 - type: entity
   parent: ADTBaseProjectileMirror
