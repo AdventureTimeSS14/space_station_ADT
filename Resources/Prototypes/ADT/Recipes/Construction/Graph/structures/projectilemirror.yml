@@ -20,7 +20,7 @@
               doAfter: 5
 
     - node: adttrinaryprojectilemirror
-      entity: ADTTrinaryProjectileMirrorGraph
+      entity: ADTTrinaryProjectileMirror
       edges:
         - to: start
           completed:
@@ -63,7 +63,7 @@
               doAfter: 5
 
     - node: adtbinaryprojectilemirror
-      entity: ADTBinaryProjectileMirrorGraph
+      entity: ADTBinaryProjectileMirror
       edges:
         - to: start
           completed:
@@ -106,7 +106,7 @@
               doAfter: 5
 
     - node: adttbinaryprojectilemirror
-      entity: ADTTBinaryProjectileMirrorGraph
+      entity: ADTTBinaryProjectileMirror
       edges:
         - to: start
           completed:
