@@ -1,6 +1,5 @@
 meta:
   format: 6
-  postmapinit: false
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -22,7 +21,7 @@ entities:
     - type: MetaData
       name: NT-EM Terminal
     - type: Transform
-      parent: 916
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -948,18 +947,7 @@ entities:
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: Godmode
-  - uid: 916
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
+    - type: SupermatterSpreaderGrid
 - proto: AirlockExternalGlass
   entities:
   - uid: 2
