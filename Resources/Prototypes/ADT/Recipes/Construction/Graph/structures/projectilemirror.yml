@@ -16,7 +16,7 @@
             - material: PlasmaGlass
               amount: 5
             - material: Diamond
-              amount: 3
+              amount: 5
               doAfter: 5
 
     - node: adttrinaryprojectilemirror
@@ -27,7 +27,14 @@
           - !type:SpawnPrototype
                 prototype: SheetSteel1
                 amount: 10
+          - !type:SpawnPrototype
                 prototype: SheetPGlass1
+                amount: 5
+          - !type:SpawnPrototype
+                prototype: CableApcStack1
+                amount: 1
+          - !type:SpawnPrototype
+                prototype: MaterialDiamond1
                 amount: 5
           - !type:DeleteEntity {}
           steps:
@@ -46,13 +53,13 @@
               southRotation: true
           steps:
             - material: Steel
-              amount: 10
+              amount: 8
             - material: Cable
               amount: 1
             - material: PlasmaGlass
-              amount: 5
+              amount: 2
             - material: Diamond
-              amount: 3
+              amount: 2
               doAfter: 5
 
     - node: adtbinaryprojectilemirror
@@ -62,7 +69,16 @@
           completed:
           - !type:SpawnPrototype
                 prototype: SheetSteel1
-                amount: 10
+                amount: 8
+          - !type:SpawnPrototype
+                prototype: SheetPGlass1
+                amount: 2
+          - !type:SpawnPrototype
+                prototype: CableApcStack1
+                amount: 1
+          - !type:SpawnPrototype
+                prototype: MaterialDiamond1
+                amount: 2
           - !type:DeleteEntity {}
           steps:
             - tool: Welding
@@ -80,13 +96,13 @@
               southRotation: true
           steps:
             - material: Steel
-              amount: 10
+              amount: 8
             - material: Cable
               amount: 1
             - material: PlasmaGlass
-              amount: 5
+              amount: 4
             - material: Diamond
-              amount: 3
+              amount: 4
               doAfter: 5
 
     - node: adttbinaryprojectilemirror
@@ -96,7 +112,16 @@
           completed:
           - !type:SpawnPrototype
                 prototype: SheetSteel1
-                amount: 10
+                amount: 8
+          - !type:SpawnPrototype
+                prototype: SheetPGlass1
+                amount: 4
+          - !type:SpawnPrototype
+                prototype: CableApcStack1
+                amount: 1
+          - !type:SpawnPrototype
+                prototype: MaterialDiamond1
+                amount: 4
           - !type:DeleteEntity {}
           steps:
             - tool: Welding

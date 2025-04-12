@@ -55,9 +55,9 @@
 - type: construction
   name: binary deflector
   id: ADTDeflectorBinary
-  graph: ADTProjectileMirrorGraph
+  graph: ADTBinaryProjectileMirrorGraph
   startNode: start
-  targetNode: adtprojectilemirror
+  targetNode: adtbinaryprojectilemirror
   category: construction-category-structures
   description: A device that redirects energy blasts.
   icon:
