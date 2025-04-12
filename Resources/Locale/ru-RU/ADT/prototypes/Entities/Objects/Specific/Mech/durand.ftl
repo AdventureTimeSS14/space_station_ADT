@@ -38,6 +38,12 @@ ent-ADTMechSeraphBattery = { ent-ADTMechSeraph }
     .suffix = Батарея
     .desc = { ent-ADTMechSeraph.desc }
 
+ent-ADTMechErtGygax = Гайгэкс ОБР
+    .desc =  Лёгкий мех, оформленный в цветовой схеме NT и принадлежащий силам ОБР.
+ent-ADTMechErtGygaxBattery = { ent-ADTMechErtGygax }
+    .suffix = Батарея
+    .desc = { ent-ADTMechErtGygax.desc }
+
 ent-ADTMechDarkGygax = тёмный Гайгэкс
     .desc =  Лёгкий мех, оформленный в тёмной цветовой схеме. Эта модель, кажется, содержит некоторые модификации.
 ent-ADTMechDarkGygaxBattery = { ent-ADTMechDarkGygax }
@@ -49,3 +55,9 @@ ent-ADTMechMauler = Маулер
 ent-ADTMechMaulerBattery = { ent-ADTMechMauler }
     .suffix = Батарея
     .desc = { ent-ADTMechMauler.desc }
+
+ent-ADTMechpaddy = Падди АВП
+    .desc =  Падди АВП - вариант Рипли для Службы Безопасности. Предназначен для массовых задержаний - мех снабжен гидравлической клешней, которая может захватывать людей, как преступников, так и отряд Службы Безопасности.
+ent-ADTMechpaddyBattery = { ent-ADTMechpaddy }
+    .suffix = Батарея
+    .desc = { ent-ADTMechpaddy.desc }
