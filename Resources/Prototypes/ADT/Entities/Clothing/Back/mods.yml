@@ -365,6 +365,14 @@
         showEnts: False
         occludes: True
         ents: []
+  - type: UserInterface
+    interfaces:
+      enum.ModSuitUiKey.Key:
+        type: ModSuitRadialBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
 
 #гсб
 - type: entity
@@ -393,6 +401,43 @@
     damage:
       types:
         Blunt: 10
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+
+- type: entity
+  parent: ADTClothingModsuitBackSecurity
+  id: ADTClothingModsuitBackBlueShield
+  name: blueshield MOD control unit
+  description: A lightweight NanoTrasen combat suit, with technology not at all stolen from the Syndicate, specifically for the Blue Shield Officer and the protection of his shielding body chapters. I assure you, all of this is ABSOLUTELY legal.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/bso.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitBso
+      gloves: ADTClothingHandsModsuitBso
+      outerClothing: ADTClothingOuterModsuitBodyBso
+      shoes: ADTClothingModsuitBso
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModEmpProtection
   - type: ContainerContainer
     containers:
       mod-modules-container: !type:Container
