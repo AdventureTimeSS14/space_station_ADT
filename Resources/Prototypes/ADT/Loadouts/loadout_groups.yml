@@ -488,7 +488,7 @@
 
 ## PERMAPRISONER
 - type: loadoutGroup
-  id: PermaPrisonerJumpsuit
+  id: ADTPermaPrisonerJumpsuit
   name: loadout-group-perma-prisoner-jumpsuit
   loadouts:
   - ADTPermaPrisonerJumpsuit

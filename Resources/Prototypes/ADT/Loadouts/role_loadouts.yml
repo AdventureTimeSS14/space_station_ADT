@@ -213,7 +213,7 @@
 - type: roleLoadout
   id: ADTJobPermaPrisoner
   groups:
-  - PermaPrisonerJumpsuit
+  - ADTPermaPrisonerJumpsuit
   - CommonBackpack
   - GroupTankHarness
   - Survival
