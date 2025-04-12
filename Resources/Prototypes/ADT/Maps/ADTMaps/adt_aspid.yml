@@ -59,6 +59,7 @@
             SecurityCadet: [ 1, 1 ]
             Detective: [ 1, 1 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
+            ADTPermaPrisoner: [ 1, 0 ] # ADT-Roles
             #supply
             CargoTechnician: [ 3, 3 ]
             Quartermaster: [ 1, 1 ]

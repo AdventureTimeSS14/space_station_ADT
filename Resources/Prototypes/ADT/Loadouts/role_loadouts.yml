@@ -211,6 +211,16 @@
   # ADT tweak end
 
 - type: roleLoadout
+  id: ADTJobPermaPrisoner
+  groups:
+  - PermaPrisonerJumpsuit
+  - CommonBackpack
+  - GroupTankHarness
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
   id: ADTRoleSurvivalCBURN
   groups:
   - SurvivalExtended

@@ -1,0 +1,19 @@
+- type: job
+  id: ADTPermaPrisoner
+  name: job-name-prisoner
+  description: job-description-prisoner
+  playTimeTracker: JobADTPermaPrisoner
+  startingGear: ADTPermaPrisonerGear
+  icon: "JobIconPrisoner"
+  supervisors: job-supervisors-security
+  canBeAntag: false
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15 hrs
+
+- type: startingGear
+  id: ADTPermaPrisonerGear
+  equipment:
+    id: ADTPrisonerPDA
+    shoes: ClothingShoesColorBlack
+    ears: ClothingHeadsetGrey

@@ -59,6 +59,7 @@
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            ADTPermaPrisoner: [ 1, 0 ] # ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 1, 3 ]

@@ -43,6 +43,7 @@ loadout-security-officer-neck-adt = Офицер СБ, шея
 loadout-security-cadet-neck-adt = Кадет СБ, шея
 loadout-guardofficer-head-adt = Надзиратель, голова
 loadout-guardofficer-jumpsuit-adt = Надзиратель, комбинезон
+loadout-group-perma-prisoner-jumpsuit = Заключенный, комбинезон
 # Brigmedic
 loadout-brigmedic-jumpsuit-adt = Бригмедик, комбинезон
 loadout-brigmedic-head-adt = Бригмедик, голова

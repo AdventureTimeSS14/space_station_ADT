@@ -54,7 +54,7 @@
             Detective: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
-            IAA: [ 1, 1 ] # Corvax-Pilot
+            IAA: [ 1, 1 ] # Corvax-Pilot (что блять???)
             Magistrat: [ 1, 1 ] #ADT-Roles
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTPathologist: [ 1, 1 ] #ADT-Roles
@@ -65,6 +65,7 @@
             ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            ADTPermaPrisoner: [ 1, 0 ] # ADT-Roles
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]

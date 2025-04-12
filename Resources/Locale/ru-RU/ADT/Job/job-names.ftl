@@ -38,6 +38,8 @@ JobADTSecBorg = киборг службы безопасности
 job-name-guard-officer = надзиратель
 ADTGuardOfficer = надзиратель
 
+JobPermaPrisoner = заключенный
+
 # Job titles
 cadet-space-sec = кадет SPACE SEC
 officer-space-sec = офицер SPACE SEC

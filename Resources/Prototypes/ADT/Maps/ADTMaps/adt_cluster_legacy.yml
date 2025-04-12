@@ -61,6 +61,7 @@
             SecurityCadet: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
             ADTSeniorOfficer: [ 1, 1 ]
+            ADTPermaPrisoner: [ 1, 0 ] # ADT-Roles
 
             # Supply
             Quartermaster: [ 1, 1 ]

@@ -485,6 +485,15 @@
   - ADTUniformJumpsuitGreyGuardOfficer
   - ADTUniformJumpsuitGuardOfficerMaster
 
+
+## PERMAPRISONER
+- type: loadoutGroup
+  id: PermaPrisonerJumpsuit
+  name: loadout-group-perma-prisoner-jumpsuit
+  loadouts:
+  - ADTPermaPrisonerJumpsuit
+  - ADTPermaPrisonerJumpskirt
+
 # SALVAGE SPECIALIST (УТИЛИЗАТОР)
 
 # Униформа

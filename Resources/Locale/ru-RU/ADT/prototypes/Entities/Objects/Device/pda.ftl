@@ -25,3 +25,6 @@ ent-ADTGuardOfficerPDA = КПК надзирателя СБ
 ent-ADTTraderPDA = КПК торговца
     .desc = КПК торговца
     .suffix = { "ТСФ" }
+
+ent-ADTPrisonerPDA = КПК заключённого
+    .desc = КПК созданный для худших из худших. Никто им даже покушать не принесёт.
