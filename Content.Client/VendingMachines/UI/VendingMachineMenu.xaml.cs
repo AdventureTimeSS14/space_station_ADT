@@ -30,7 +30,7 @@ namespace Content.Client.VendingMachines.UI
 
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
 
-        private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
+        private readonly StyleBoxFlat _styleBox = new();
         public Action<VendingMachineWithdrawMessage>? OnWithdraw; //ADT-Economy
         public event Action<VendingMachineInventoryEntry, VendingMachineItem>? OnItemCountSelected; // ADT vending eject count
         public double PriceMultiplier = 1;  // ADT vending eject count

@@ -1,472 +1,234 @@
-using System.Linq;
-using Content.Client.Gameplay;
-using Content.Shared.CombatMode;
-using Content.Shared.Effects;
-using Content.Shared.Hands.Components;
-using Content.Shared.Mobs.Components;
-using Content.Shared.StatusEffect;
-using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Components; // ADT TWEAK
 using System.Numerics;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Components;
+using Content.Client.Animations;
+using Content.Client.Weapons.Melee.Components;
+using Content.Shared.Weapons.Melee;
+using Robust.Client.Animations;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
-using Robust.Client.Input;
-using Robust.Client.Player;
-using Robust.Client.State;
-using Robust.Shared.Input;
+using Robust.Shared.Animations;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 
 namespace Content.Client.Weapons.Melee;
-/*
 
-public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
+public sealed partial class MeleeWeaponSystem
 {
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly InputSystem _inputSystem = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+    private const string FadeAnimationKey = "melee-fade";
+    private const string SlashAnimationKey = "melee-slash";
+    private const string ThrustAnimationKey = "melee-thrust";
 
-    private EntityQuery<TransformComponent> _xformQuery;
-
-    private const string MeleeLungeKey = "melee-lunge";
-
-    public override void Initialize()
+    /// <summary>
+    /// Does all of the melee effects for a player that are predicted, i.e. character lunge and weapon animation.
+    /// </summary>
+    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, bool predicted = true)
     {
-        base.Initialize();
-        _xformQuery = GetEntityQuery<TransformComponent>();
-        SubscribeNetworkEvent<MeleeLungeEvent>(OnMeleeLunge);
-        UpdatesOutsidePrediction = true;
-    }
-
-    public override void FrameUpdate(float frameTime)
-    {
-        base.FrameUpdate(frameTime);
-        UpdateEffects();
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
         if (!Timing.IsFirstTimePredicted)
             return;
 
-        var entityNull = _player.LocalEntity;
+        var lunge = GetLungeAnimation(localPos);
 
-        if (entityNull == null)
+        // Stop any existing lunges on the user.
+        _animation.Stop(user, MeleeLungeKey);
+        _animation.Play(user, lunge, MeleeLungeKey);
+
+        if (localPos == Vector2.Zero || animation == null)
             return;
 
-        var entity = entityNull.Value;
-
-        if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
+        if (!_xformQuery.TryGetComponent(user, out var userXform) || userXform.MapID == MapId.Nullspace)
             return;
 
-        if (!CombatMode.IsInCombatMode(entity) || !Blocker.CanAttack(entity, weapon: (weaponUid, weapon)))
-        {
-            weapon.Attacking = false;
-            return;
-        }
+        var animationUid = Spawn(animation, userXform.Coordinates);
 
-        var useDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.Use);
-        var altDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.UseSecondary);
-
-        if (weapon.AutoAttack || useDown != BoundKeyState.Down && altDown != BoundKeyState.Down)
-        {
-            if (weapon.Attacking)
-            {
-                RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
-            }
-        }
-
-        if (weapon.Attacking || weapon.NextAttack > Timing.CurTime)
+        if (!TryComp<SpriteComponent>(animationUid, out var sprite)
+            || !TryComp<WeaponArcVisualsComponent>(animationUid, out var arcComponent))
         {
             return;
         }
 
-        // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
-
-        var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
-
-        if (mousePos.MapId == MapId.Nullspace)
+        var spriteRotation = Angle.Zero;
+        if (arcComponent.Animation != WeaponArcAnimation.None
+            && TryComp(weapon, out MeleeWeaponComponent? meleeWeaponComponent))
         {
-            return;
+            if (user != weapon &&
+                !meleeWeaponComponent.CustomWideAnim    // ADT tweak
+                && TryComp(weapon, out SpriteComponent? weaponSpriteComponent))
+                sprite.CopyFrom(weaponSpriteComponent);
+
+            spriteRotation = meleeWeaponComponent.WideAnimationRotation;
+
+            if (meleeWeaponComponent.SwingLeft)
+                angle *= -1;
         }
+        sprite.Rotation = localPos.ToWorldAngle();
+        var distance = Math.Clamp(localPos.Length() / 2f, 0.2f, 1f);
 
-        EntityCoordinates coordinates;
+        var xform = _xformQuery.GetComponent(animationUid);
+        TrackUserComponent track;
 
-        if (MapManager.TryFindGridAt(mousePos, out var gridUid, out _))
+        switch (arcComponent.Animation)
         {
-            coordinates = TransformSystem.ToCoordinates(gridUid, mousePos);
+            case WeaponArcAnimation.Slash:
+                track = EnsureComp<TrackUserComponent>(animationUid);
+                track.User = user;
+                _animation.Play(animationUid, GetSlashAnimation(sprite, angle, spriteRotation), SlashAnimationKey);
+                if (arcComponent.Fadeout)
+                    _animation.Play(animationUid, GetFadeAnimation(sprite, 0.065f, 0.065f + 0.05f), FadeAnimationKey);
+                break;
+            case WeaponArcAnimation.Thrust:
+                track = EnsureComp<TrackUserComponent>(animationUid);
+                track.User = user;
+                _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);
+                if (arcComponent.Fadeout)
+                    _animation.Play(animationUid, GetFadeAnimation(sprite, 0.05f, 0.15f), FadeAnimationKey);
+                break;
+            case WeaponArcAnimation.None:
+                var (mapPos, mapRot) = TransformSystem.GetWorldPositionRotation(userXform);
+                var worldPos = mapPos + (mapRot - userXform.LocalRotation).RotateVec(localPos);
+                var newLocalPos = Vector2.Transform(worldPos, TransformSystem.GetInvWorldMatrix(xform.ParentUid));
+                TransformSystem.SetLocalPositionNoLerp(animationUid, newLocalPos, xform);
+                if (arcComponent.Fadeout)
+                    _animation.Play(animationUid, GetFadeAnimation(sprite, 0f, 0.15f), FadeAnimationKey);
+                break;
         }
-        else
-        {
-            coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
-        }
-
-        // If the gun has AltFireComponent, it can be used to attack.
-        if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-        {
-            if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
-                return;
-
-            switch(altFireComponent.AttackType)
-            {
-                case AltFireAttackType.Light:
-                    ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Heavy:
-                    ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Disarm:
-                    ClientDisarm(entity, mousePos, coordinates);
-                    break;
-            }
-
-            return;
-        }
-
-        // Heavy attack.
-        if (altDown == BoundKeyState.Down)
-        {
-            // If it's an unarmed attack then do a disarm
-            if (weapon.AltDisarm && weaponUid == entity)
-            {
-                ClientDisarm(entity, mousePos, coordinates);
-                return;
-            }
-
-            ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
-            return;
-        }
-
-        // Light attack
-        if (useDown == BoundKeyState.Down)
-            ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
     }
 
-    protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
+    private Animation GetSlashAnimation(SpriteComponent sprite, Angle arc, Angle spriteRotation)
     {
-        var xform = Transform(target);
-        var targetCoordinates = xform.Coordinates;
-        var targetLocalAngle = xform.LocalRotation;
+        const float slashStart = 0.03f;
+        const float slashEnd = 0.065f;
+        const float length = slashEnd + 0.05f;
+        var startRotation = sprite.Rotation + arc / 2;
+        var endRotation = sprite.Rotation - arc / 2;
+        var startRotationOffset = startRotation.RotateVec(new Vector2(0f, -1f));
+        var endRotationOffset = endRotation.RotateVec(new Vector2(0f, -1f));
+        startRotation += spriteRotation;
+        endRotation += spriteRotation;
 
-        return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range, overlapCheck: false);
+        return new Animation()
+        {
+            Length = TimeSpan.FromSeconds(length),
+            AnimationTracks =
+            {
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Rotation),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(startRotation, 0f),
+                        new AnimationTrackProperty.KeyFrame(startRotation, slashStart),
+                        new AnimationTrackProperty.KeyFrame(endRotation, slashEnd)
+                    }
+                },
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Offset),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(startRotationOffset, 0f),
+                        new AnimationTrackProperty.KeyFrame(startRotationOffset, slashStart),
+                        new AnimationTrackProperty.KeyFrame(endRotationOffset, slashEnd)
+                    }
+                },
+            }
+        };
     }
 
-    protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
+    private Animation GetThrustAnimation(SpriteComponent sprite, float distance, Angle spriteRotation)
     {
-        // Server never sends the event to us for predictiveeevent.
-        _color.RaiseEffect(Color.Red, targets, Filter.Local());
+        const float thrustEnd = 0.05f;
+        const float length = 0.15f;
+        var startOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance / 5f));
+        var endOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance));
+        sprite.Rotation += spriteRotation;
+
+        return new Animation()
+        {
+            Length = TimeSpan.FromSeconds(length),
+            AnimationTracks =
+            {
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Offset),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(startOffset, 0f),
+                        new AnimationTrackProperty.KeyFrame(endOffset, thrustEnd),
+                        new AnimationTrackProperty.KeyFrame(endOffset, length),
+                    }
+                },
+            }
+        };
     }
 
-    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
+    private Animation GetFadeAnimation(SpriteComponent sprite, float start, float end)
     {
-        if (!base.DoDisarm(user, ev, meleeUid, component, session))
-            return false;
-
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
+        return new Animation
         {
-            return false;
-        }
-
-        var target = GetEntity(ev.Target);
-
-        // They need to either have hands...
-        if (!HasComp<HandsComponent>(target!.Value))
-        {
-            // or just be able to be shoved over.
-            if (TryComp<StatusEffectsComponent>(target, out var status) && status.AllowedEffects.Contains("KnockedDown"))
-                return true;
-
-            if (Timing.IsFirstTimePredicted && HasComp<MobStateComponent>(target.Value))
-                PopupSystem.PopupEntity(Loc.GetString("disarm-action-disarmable", ("targetName", target.Value)), target.Value);
-
-            return false;
-        }
-
-        return true;
+            Length = TimeSpan.FromSeconds(end),
+            AnimationTracks =
+            {
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Color),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(sprite.Color, start),
+                        new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(0f), end)
+                    }
+                }
+            }
+        };
     }
 
     /// <summary>
-    /// Raises a heavy attack event with the relevant attacked entities.
-    /// This is to avoid lag effecting the client's perspective too much.
+    /// Get the sprite offset animation to use for mob lunges.
     /// </summary>
-    private void ClientHeavyAttack(EntityUid user, EntityCoordinates coordinates, EntityUid meleeUid, MeleeWeaponComponent component)
+    private Animation GetLungeAnimation(Vector2 direction)
     {
-        // Only run on first prediction to avoid the potential raycast entities changing.
-        if (!_xformQuery.TryGetComponent(user, out var userXform) ||
-            !Timing.IsFirstTimePredicted)
+        const float length = 0.1f;
+
+        return new Animation
         {
-            return;
-        }
-
-        var targetMap = TransformSystem.ToMapCoordinates(coordinates);
-
-        if (targetMap.MapId != userXform.MapID)
-            return;
-
-        var userPos = TransformSystem.GetWorldPosition(userXform);
-        var direction = targetMap.Position - userPos;
-        var distance = MathF.Min(component.Range, direction.Length());
-
-        // This should really be improved. GetEntitiesInArc uses pos instead of bounding boxes.
-        // Server will validate it with InRangeUnobstructed.
-        var entities = GetNetEntityList(ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user).ToList());
-        RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities.GetRange(0, Math.Min(MaxTargets, entities.Count)), GetNetCoordinates(coordinates)));
-    }
-}
-*/// ADT TWEAK
-// ADT TWEAK START
-public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
-{
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly InputSystem _inputSystem = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    private EntityQuery<TransformComponent> _xformQuery;
-
-    private const string MeleeLungeKey = "melee-lunge";
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        _xformQuery = GetEntityQuery<TransformComponent>();
-        SubscribeNetworkEvent<MeleeLungeEvent>(OnMeleeLunge);
-        UpdatesOutsidePrediction = true;
-    }
-
-    public override void FrameUpdate(float frameTime)
-    {
-        base.FrameUpdate(frameTime);
-        // UpdateEffects();
-    }
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        if (!Timing.IsFirstTimePredicted)
-            return;
-
-        var entityNull = _player.LocalEntity;
-
-        if (entityNull == null)
-            return;
-
-        var entity = entityNull.Value;
-
-        if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
-            return;
-
-        if (!CombatMode.IsInCombatMode(entity) || !Blocker.CanAttack(entity, weapon: (weaponUid, weapon)))
-        {
-            weapon.Attacking = false;
-            return;
-        }
-
-        var useDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.Use);
-        var altDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.UseSecondary);
-
-        if (weapon.AutoAttack || useDown != BoundKeyState.Down && altDown != BoundKeyState.Down)
-        {
-            if (weapon.Attacking)
+            Length = TimeSpan.FromSeconds(length),
+            AnimationTracks =
             {
-                RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Offset),
+                    InterpolationMode = AnimationInterpolationMode.Linear,
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(direction.Normalized() * 0.15f, 0f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, length)
+                    }
+                }
             }
-        }
-
-        if (weapon.Attacking || weapon.NextAttack > Timing.CurTime)
-        {
-            return;
-        }
-
-        // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
-        var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
-
-        if (mousePos.MapId == MapId.Nullspace)
-        {
-            return;
-        }
-
-        EntityCoordinates coordinates;
-
-        if (MapManager.TryFindGridAt(mousePos, out var gridUid, out _))
-        {
-            coordinates = TransformSystem.ToCoordinates(gridUid, mousePos);
-        }
-        else
-        {
-            coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
-        }
-
-        // If the gun has AltFireMeleeComponent, it can be used to attack.
-        if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-        {
-            if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
-                return;
-
-            switch (altFireComponent.AttackType)
-            {
-                case AltFireAttackType.Light:
-                    ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Heavy:
-                    ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Disarm:
-                    ClientDisarm(entity, mousePos, coordinates);
-                    break;
-            }
-
-            return;
-        }
-
-        // Heavy attack.
-        if (altDown == BoundKeyState.Down)
-        {
-            // If it's an unarmed attack then do a disarm
-            if (weapon.AltDisarm && weaponUid == entity)
-            {
-                ClientDisarm(entity, mousePos, coordinates);
-                return;
-            }
-
-            ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
-            return;
-        }
-
-        // Light attack
-        if (useDown == BoundKeyState.Down)
-            ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
-    }
-
-    protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
-    {
-        var xform = Transform(target);
-        var targetCoordinates = xform.Coordinates;
-        var targetLocalAngle = xform.LocalRotation;
-
-        return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range);
-    }
-
-    protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
-    {
-        // Server never sends the event to us for predictiveeevent.
-        _color.RaiseEffect(Color.Red, targets, Filter.Local());
-    }
-
-    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
-    {
-        if (!base.DoDisarm(user, ev, meleeUid, component, session))
-            return false;
-
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
-        {
-            return false;
-        }
-
-        var target = GetEntity(ev.Target);
-
-        // They need to either have hands...
-        if (!HasComp<HandsComponent>(target!.Value))
-        {
-            // or just be able to be shoved over.
-            if (TryComp<StatusEffectsComponent>(target, out var status) && status.AllowedEffects.Contains("KnockedDown"))
-                return true;
-
-            if (Timing.IsFirstTimePredicted && HasComp<MobStateComponent>(target.Value))
-                PopupSystem.PopupEntity(Loc.GetString("disarm-action-disarmable", ("targetName", target.Value)), target.Value);
-
-            return false;
-        }
-
-        return true;
-    }
-
-    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 direction, string? animation, bool predicted)
-    {
+        };
     }
 
     /// <summary>
-    /// Raises a heavy attack event with the relevant attacked entities.
-    /// This is to avoid lag effecting the client's perspective too much.
+    /// Updates the effect positions to follow the user
     /// </summary>
-    public void ClientHeavyAttack(EntityUid user, EntityCoordinates coordinates, EntityUid meleeUid, MeleeWeaponComponent component)
+    private void UpdateEffects()
     {
-        // Only run on first prediction to avoid the potential raycast entities changing.
-        if (!_xformQuery.TryGetComponent(user, out var userXform) ||
-            !Timing.IsFirstTimePredicted)
+        var query = EntityQueryEnumerator<TrackUserComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var arcComponent, out var xform))
         {
-            return;
+            if (arcComponent.User == null)
+                continue;
+
+            Vector2 targetPos = TransformSystem.GetWorldPosition(arcComponent.User.Value);
+
+            if (arcComponent.Offset != Vector2.Zero)
+            {
+                var entRotation = TransformSystem.GetWorldRotation(xform);
+                targetPos += entRotation.RotateVec(arcComponent.Offset);
+            }
+
+            TransformSystem.SetWorldPosition(uid, targetPos);
         }
-
-        var targetMap = TransformSystem.ToMapCoordinates(coordinates);
-
-        if (targetMap.MapId != userXform.MapID)
-            return;
-
-        var userPos = TransformSystem.GetWorldPosition(userXform);
-        var direction = targetMap.Position - userPos;
-        var distance = MathF.Min(component.Range, direction.Length());
-
-        // This should really be improved. GetEntitiesInArc uses pos instead of bounding boxes.
-        // Server will validate it with InRangeUnobstructed.
-        var entities = GetNetEntityList(ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user).ToList());
-        RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities.GetRange(0, Math.Min(MaxTargets, entities.Count)), GetNetCoordinates(coordinates)));
-    }
-
-    private void ClientDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates)
-    {
-        EntityUid? target = null;
-
-        if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetClickedEntity(mousePos);
-
-        RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
-    }
-
-    private void ClientLightAttack(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates, EntityUid weaponUid, MeleeWeaponComponent meleeComponent)
-    {
-        var attackerPos = TransformSystem.GetMapCoordinates(attacker);
-
-        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > meleeComponent.Range)
-            return;
-
-        EntityUid? target = null;
-
-        if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetClickedEntity(mousePos);
-
-        // Don't light-attack if interaction will be handling this instead
-        if (Interaction.CombatModeCanHandInteract(attacker, target))
-            return;
-
-        RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
-    }
-    // ADT TWEAK END
-    private void OnMeleeLunge(MeleeLungeEvent ev)
-    {
-        var ent = GetEntity(ev.Entity);
-        var entWeapon = GetEntity(ev.Weapon);
-
-        // Entity might not have been sent by PVS.
-        if (Exists(ent) && Exists(entWeapon))
-            DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, true);
     }
 }

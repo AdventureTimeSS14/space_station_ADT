@@ -60,6 +60,10 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
         if (grid == null)
             return;
+
+        for (int i = 0; i < _rand.Next(3, 5); i++)
+            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
+                Spawn("EldritchInfluence", coords);
     }
 
     public bool TryMakeHeretic(EntityUid target, HereticRuleComponent rule)
