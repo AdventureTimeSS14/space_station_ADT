@@ -184,14 +184,16 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
-            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
+            // SD-ERPStatus-Start
+            if (_configurationManager.GetCVar(CCVars.FlavorText))
             {
-                // SD-ERPStatus-Start
-                var _DetailExamineComp = EntityManager.AddComponent<DetailExaminableComponent>(entity.Value);
-                _DetailExamineComp.Content = profile.FlavorText;
-                _DetailExamineComp.ERPStatus = profile.ERPStatus;
-                // SD-ERPStatus-End
+                var detailExamineComp = EntityManager.EnsureComponent<DetailExaminableComponent>(entity.Value);
+                detailExamineComp.Content = profile.FlavorText ?? "";
+
+                // Сохраняем ERPStatus независимо от наличия FlavorText
+                detailExamineComp.ERPStatus = profile.ERPStatus;
             }
+            // SD-ERPStatus-End
         }
 
         DoJobSpecials(job, entity.Value);
