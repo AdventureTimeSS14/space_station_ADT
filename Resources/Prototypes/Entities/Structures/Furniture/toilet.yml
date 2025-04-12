@@ -41,6 +41,7 @@
       - HumanoidAppearance
       - Plunger
       - SolutionTransfer
+      - EntityStorage
     whitelist:
       components:
       - Item
