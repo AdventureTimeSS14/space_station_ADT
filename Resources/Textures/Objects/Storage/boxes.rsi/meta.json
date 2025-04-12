@@ -200,11 +200,20 @@
         {
             "name": "france"
         },
-		{
+        {
             "name": "agrichemkit"
         },
         {
             "name": "box_olive"
+        },
+        {
+            "name": "shelltranquilizer"
+        },
+        {
+            "name": "shelluranium"
+        },
+        {
+            "name": "recorder"
         }
     ]
 }
