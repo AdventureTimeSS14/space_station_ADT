@@ -65,7 +65,7 @@
     Water:
       amount: 2 # ADT tweak
   products:
-    Cryoxadone: 4 # ADT tweak
+    Cryoxadone: 5 # ADT tweak
 
 - type: reaction
   id: Doxarubixadone
