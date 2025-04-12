@@ -7373,36 +7373,36 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ERTSpawnerJanitor
-  entities:
-  - uid: 625
-    components:
-    - type: MetaData
-      name: аирдроп
-    - type: Transform
-      pos: -0.5,13.5
-      parent: 183
-    - type: SpawnOnTrigger
-      proto: FrameStationRandomSpawner
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      repeatable: True
-      deleteAfterExplosion: False
-      canCreateVacuum: False
-      maxTileBreak: 0
-      tileBreakScale: 0
-      explosionType: DemolitionCharge
-    missingComponents:
-    - DeleteOnTrigger
-  - uid: 2060
-    components:
-    - type: Transform
-      pos: -0.5,13.5
-      parent: 183
-    - type: SpawnOnTrigger
-      proto: FrameStationRandomSpawner
-    missingComponents:
-    - DeleteOnTrigger
+# - proto: ERTSpawnerJanitor
+#   entities:
+#   - uid: 625
+#     components:
+#     - type: MetaData
+#       name: аирдроп
+#     - type: Transform
+#       pos: -0.5,13.5
+#       parent: 183
+#     - type: SpawnOnTrigger
+#       proto: FrameStationRandomSpawner
+#     - type: ExplodeOnTrigger
+#     - type: Explosive
+#       repeatable: True
+#       deleteAfterExplosion: False
+#       canCreateVacuum: False
+#       maxTileBreak: 0
+#       tileBreakScale: 0
+#       explosionType: DemolitionCharge
+#     missingComponents:
+#     - DeleteOnTrigger
+#   - uid: 2060
+#     components:
+#     - type: Transform
+#       pos: -0.5,13.5
+#       parent: 183
+#     - type: SpawnOnTrigger
+#       proto: FrameStationRandomSpawner
+#     missingComponents:
+#     - DeleteOnTrigger
 - proto: ExtendedEmergencyNitrogenTankFilled
   entities:
   - uid: 64
@@ -11930,16 +11930,16 @@ entities:
       linkedPorts:
         638:
         - Timer: Trigger
-        625:
-        - Timer: Trigger
+        # 625:
+        # - Timer: Trigger
         2071:
         - Start: Toggle
         - Timer: Toggle
         2069:
         - Start: Toggle
         - Timer: Toggle
-        2060:
-        - Timer: Trigger
+        # 2060:
+        # - Timer: Trigger
     - type: ApcPowerReceiver
       needsPower: False
     - type: Stealth

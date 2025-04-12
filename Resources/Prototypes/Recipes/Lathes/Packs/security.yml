@@ -132,9 +132,13 @@
   recipes:
   - Truncheon
   - WeaponAdvancedLaser
-  - WeaponDisabler
-  - WeaponDisablerSMG
   - WeaponLaserCannon
   - WeaponLaserCarbine
   - WeaponXrayCannon
-  - ADTWeaponIonRifle  #ADT tweak
+  - ADTWeaponIonRifle #ADT_Tweak
+  
+- type: latheRecipePack
+  id: SecurityDisablers
+  recipes:
+  - WeaponDisabler
+  - WeaponDisablerSMG
