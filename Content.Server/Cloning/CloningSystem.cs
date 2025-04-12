@@ -16,6 +16,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Robust.Shared.Random;
+using Content.Server.Traits.Assorted;
+
 
 namespace Content.Server.Cloning;
 
@@ -68,6 +71,60 @@ public sealed class CloningSystem : EntitySystem
         foreach (var componentName in componentsToCopy)
         {
             if (!_componentFactory.TryGetRegistration(componentName, out var componentRegistration))
+            
+            if (!Resolve(uid, ref clonePod))
+                return false;
+
+            if (HasComp<ActiveCloningPodComponent>(uid))
+                return false;
+
+            var mind = mindEnt.Comp;
+            if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
+            {
+                if (EntityManager.EntityExists(clone) &&
+                    !_mobStateSystem.IsDead(clone) &&
+                    TryComp<MindContainerComponent>(clone, out var cloneMindComp) &&
+                    (cloneMindComp.Mind == null || cloneMindComp.Mind == mindEnt))
+                    return false; // Mind already has clone
+
+                ClonesWaitingForMind.Remove(mind);
+            }
+
+            if (mind.OwnedEntity != null && !_mobStateSystem.IsDead(mind.OwnedEntity.Value))
+                return false; // Body controlled by mind is not dead
+
+            // Yes, we still need to track down the client because we need to open the Eui
+            if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
+                return false; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
+
+            if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
+                return false; // whatever body was to be cloned, was not a humanoid
+
+            if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
+                return false;
+
+            if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
+                return false;
+
+            var cloningCost = (int) Math.Round(physics.FixturesMass);
+
+            if (_configManager.GetCVar(CCVars.BiomassEasyMode))
+                cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+
+            // Check if they have the uncloneable trait
+            if (TryComp<UncloneableComponent>(bodyToClone, out _))
+            {
+                if (clonePod.ConnectedConsole != null)
+                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value,
+                        Loc.GetString("cloning-console-uncloneable-trait-error"),
+                        InGameICChatType.Speak, false);
+                return false;
+            }
+
+            // biomass checks
+            var biomassAmount = _material.GetMaterialAmount(uid, clonePod.RequiredMaterial);
+
+            if (biomassAmount < cloningCost)
             {
                 Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
                 continue;
