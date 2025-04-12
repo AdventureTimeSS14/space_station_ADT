@@ -29,6 +29,7 @@
       - id: BoxBodyBag
       - id: EpinephrineChemistryBottle
         amount: 1
+      - id: BrigmedHypo
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -69,4 +70,4 @@
       - id: ADTBookSRPsec
       - id: ADTBookSRPmed
       - id: ADTBookPCDsec
-
+      - id: BrigmedHypo

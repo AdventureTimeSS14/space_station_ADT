@@ -163,7 +163,7 @@
     tags:
     - ADTMedipen
     # ADT Tweak END
-    
+
 - type: entity
   name: poison auto-injector
   parent: ChemicalMedipen
@@ -298,7 +298,7 @@
     tags:
     - ADTMedipen
     # ADT Tweak END
-    
+
 - type: entity
   name: puncturase auto-injector
   parent: ChemicalMedipen
@@ -632,3 +632,53 @@
     injectOnly: true
   - type: Tag
     tags: []
+
+# SD-tweak-start
+- type: entity
+  name: brigmedic hypospray
+  parent: BaseItem
+  description: Use of scientistic research made those hyposprays worth less, and now they issue them even to security, but with a limited capacity.
+  id: BrigmedHypo
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Specific/Medical/brigmedhypo.rsi
+    state: hypo
+  - type: Item
+    sprite: SD/Objects/Specific/Medical/brigmedhypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 1
+
+- type: entity
+  name: blueshield hypospray
+  parent: BaseItem
+  description: Looking fresh, safe and tacti-cool!
+  id: BlueShieldHypo
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Specific/Medical/bshypo.rsi
+    state: hypo
+  - type: Item
+    sprite: SD/Objects/Specific/Medical/bshypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 25
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.7
+# SD-tweak-end

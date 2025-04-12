@@ -21,7 +21,7 @@
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
     - id: ADTCqcManualWeak
-
+    - id: BlueShieldHypo
 - type: entity
   id: ADTLockerBlueshieldFilled
   suffix: Filled
@@ -43,3 +43,4 @@
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
     - id: ADTCqcManualWeak
+    - id: BlueShieldHypo
