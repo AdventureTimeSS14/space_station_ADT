@@ -7,6 +7,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Traits.Assorted;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -136,6 +137,17 @@ public sealed class CloningPodSystem : EntitySystem
         if (HasComp<ActiveCloningPodComponent>(uid))
             return false;
 
+        // ADT-Clone
+        if (TryComp<UncloneableComponent>(bodyToClone, out _))
+        {
+            if (clonePod.ConnectedConsole != null)
+                _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value,
+                Loc.GetString("cloning-console-uncloneable-trait-error"),
+                InGameICChatType.Speak, false);
+            return false;
+        }
+        // ADT-Clone
+        
         var mind = mindEnt.Comp;
         if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
         {
