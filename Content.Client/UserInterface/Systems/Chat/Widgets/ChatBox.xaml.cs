@@ -169,6 +169,8 @@ public partial class ChatBox : UIWidget
 
     public void AddLine(string message, Color color, int repeat = 0) // ADT-Tweak, EE - Chat stacking - repeatr)
     {
+        int sizeIncrease = 11;
+
         var formatted = new FormattedMessage(4); // ADT-Tweak, EE - Chat stacking - up from
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
@@ -178,10 +180,9 @@ public partial class ChatBox : UIWidget
         if (repeat != 0)
         {
             var displayRepeat = repeat + 1;
-            var sizeIncrease = Math.Min(displayRepeat / 6, 5);
             formatted.AddMarkupOrThrow(_loc.GetString("chat-system-repeated-message-counter",
                                 ("count", displayRepeat),
-                                ("size", 8 + sizeIncrease)
+                                ("size", sizeIncrease)
                                 ));
         }
         Contents.AddMessage(formatted);
