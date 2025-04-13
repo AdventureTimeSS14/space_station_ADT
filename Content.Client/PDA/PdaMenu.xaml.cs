@@ -134,8 +134,6 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
                 popupsystem.PopupCursor(Loc.GetString("ui-copy-text-in-pda")); // ADT-Tweak
             };
-
-
             HideAllViews();
             ToHomeScreen();
         }
