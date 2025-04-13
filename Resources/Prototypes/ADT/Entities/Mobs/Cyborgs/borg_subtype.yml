@@ -42,7 +42,6 @@
   dummyPrototype: ADTBorgChassisSec
 
 #Custom subtypes
-
 - type: borgSubtype
   parentBorgType: medical
   id: qualified_doctor
