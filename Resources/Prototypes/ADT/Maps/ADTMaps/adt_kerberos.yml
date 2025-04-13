@@ -3,17 +3,16 @@
   mapName: 'Kerberos Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_kerberos.yml
   maxRandomOffset: 0
-  randomRotation: false
   minPlayers: 50
   stations:
     ADT_Kerberos:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Керберос {1}'
+          mapNameTemplate: '{0}KRB {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'TG'
+            prefixCreator: '-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
         - type: StationJobs

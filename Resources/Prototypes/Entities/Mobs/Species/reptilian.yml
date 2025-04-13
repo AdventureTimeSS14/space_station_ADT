@@ -11,6 +11,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    undergarmentBottom: UndergarmentBottomBoxersReptilian
   - type: Hunger
   - type: Puller
     needsHands: false
@@ -146,7 +147,7 @@
   - type: Bloodstream
     bloodReagent: ADTZessulsBlood
   - type: InjectorsBlocker
-  - type: SizeAttributeWhitelist # Frontier
+  - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.12
     short: true
@@ -165,31 +166,32 @@
     - Snout
     - HeadTop
     - HeadSide
+    undergarmentBottom: UndergarmentBottomBoxersReptilian
   - type: Inventory
     speciesId: reptilian
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi # Corvax-Digitigrade
+            sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-    # Corvax-Digitigrade-Start
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: shoes
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: shoes
-    # Corvax-Digitigrade-End
+    # # Corvax-Digitigrade-Start
+    #   shoes:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Corvax/Mobs/Species/displacement.rsi
+    #         state: shoes
+    # displacements:
+    #   jumpsuit:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Corvax/Mobs/Species/displacement.rsi
+    #         state: jumpsuit
+    #   shoes:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Corvax/Mobs/Species/displacement.rsi
+    #         state: shoes
+    # # Corvax-Digitigrade-End
 
 #Weh

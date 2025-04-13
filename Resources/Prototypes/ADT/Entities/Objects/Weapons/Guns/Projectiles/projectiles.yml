@@ -29,6 +29,8 @@
     forceSound: true
   - type: EmpOnCollide
     energyConsumption: 80000
+  - type: StaminaDamageOnCollide
+    damage: 0 #ADT_Tweak с 33 до 30, возвращаем станнер к старым параметрам
 
 - type: entity
   name: Laser bolt

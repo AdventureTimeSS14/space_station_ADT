@@ -11,7 +11,7 @@
   skinColoration: Hues
   sponsorOnly: false
   minAge: 1
-  maxAge: 240
+  maxAge: 55
   oldAge: 50
   youngAge: 25
   maleFirstNames: IpcFirst

@@ -254,6 +254,7 @@
         - Radio
         - DiscreteHealthAnalyzer
         - Folder
+        - ADTMobileDefibrillator #ADT_Tweak
       components:
         - Hypospray
         - Injector

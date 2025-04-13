@@ -36,6 +36,8 @@
     state: full
   - type: IconSmooth
     key: floor
+    additionalKeys:
+    - walls
     base: lava
   - type: Physics
     bodyType: Static
@@ -51,6 +53,23 @@
           - ItemMask
         density: 1000
         hard: false
+  # ADT-Fishing-Start
+      fishing:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        layer:
+        - ItemMask
+        mask:
+        - HighImpassable
+        density: 1000
+        hard: false
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: LavaFishingLootTable
+    fishDefaultTimer: 25.0
+    fishTimerVariety: 15.0
+  # ADT-Fishing-End
   - type: Tag
     tags:
       - HideContextMenu
