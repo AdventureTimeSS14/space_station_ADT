@@ -3648,17 +3648,17 @@ entities:
     - type: Transform
       pos: -11.470391,11.486723
       parent: 2
-- proto: ActionStartFishing
-  entities:
-  - uid: 11941
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 11940
-    - type: WorldTargetAction
-      originalIconColor: '#FFFFFFFF'
-      container: 11940
+# - proto: ActionStartFishing
+#   entities:
+#   - uid: 11941
+#     mapInit: true
+#     paused: true
+#     components:
+#     - type: Transform
+#       parent: 11940
+#     - type: WorldTargetAction
+#       originalIconColor: '#FFFFFFFF'
+#       container: 11940
 - proto: ActionToggleLight
   entities:
   - uid: 7
@@ -4127,21 +4127,21 @@ entities:
     - type: Transform
       pos: 0.5,-19.5
       parent: 2
-- proto: ADTFishingRod
-  entities:
-  - uid: 11940
-    components:
-    - type: Transform
-      pos: -23.49427,-37.621597
-      parent: 2
-    - type: FishingRod
-      throwLureActionEntity: 11941
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 11941
+# - proto: ADTFishingRod
+#   entities:
+#   - uid: 11940
+#     components:
+#     - type: Transform
+#       pos: -23.49427,-37.621597
+#       parent: 2
+#     - type: FishingRod
+#       throwLureActionEntity: 11941
+#     - type: ActionsContainer
+#     - type: ContainerContainer
+#       containers:
+#         actions: !type:Container
+#           ents:
+#           - 11941
 - proto: ADTLockerBlueshieldFilled
   entities:
   - uid: 93
