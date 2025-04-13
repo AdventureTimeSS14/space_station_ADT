@@ -8,6 +8,10 @@
   - type: Fish
   - type: StaticPrice
     price: 250
+  - type: Butcherable
+    spawned:
+      - id: ADTFoodMeatFish
+        amount: 2
 
 - type: entity
   id: ADTBaseFishRare

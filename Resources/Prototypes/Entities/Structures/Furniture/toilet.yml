@@ -41,6 +41,7 @@
       - HumanoidAppearance
       - Plunger
       - SolutionTransfer
+      - EntityStorage
     whitelist:
       components:
       - Item
@@ -64,23 +65,6 @@
         - MachineMask
         layer:
         - None
-      # ADT-Fishing-Start
-      fishing:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.4
-        layer:
-        - ItemMask
-        mask:
-        - HighImpassable
-        density: 1000
-        hard: false
-  - type: FishingSpot
-    fishList: !type:NestedSelector
-      tableId: ToiletFishingLootTable
-    fishDefaultTimer: 45.0
-    fishTimerVariety: 15.0
-      # ADT-Fishing-End
   - type: PlungerUse
   - type: Appearance
   - type: SecretStash

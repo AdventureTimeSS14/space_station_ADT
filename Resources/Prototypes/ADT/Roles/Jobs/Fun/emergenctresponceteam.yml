@@ -51,6 +51,7 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - ADTertMechUplink
 
 - type: job
   id: ERTLeader
@@ -92,6 +93,7 @@
     - CrowbarRed
     - PinpointerNuclear
     - SpaceCash500
+    - ADTertRevolutionaryMechUplink
 
 #engie
 

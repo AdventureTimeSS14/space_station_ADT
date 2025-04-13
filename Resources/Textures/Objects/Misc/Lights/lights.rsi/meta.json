@@ -19,13 +19,37 @@
       "name": "floodlight"
     },
     {
-      "name": "floodlight_on"
+      "name": "off-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "off-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "floodlight-on"
+    },
+    {
+      "name": "on-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "on-inhand-right",
+      "directions": 4
     },
     {
       "name": "floodlight_burned"
     },
     {
-      "name": "floodlight_broken"
+      "name": "floodlight-broken"
+    },
+    {
+      "name": "floodlight-broken-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "floodlight-broken-inhand-right",
+      "directions": 4
     }
   ]
 }

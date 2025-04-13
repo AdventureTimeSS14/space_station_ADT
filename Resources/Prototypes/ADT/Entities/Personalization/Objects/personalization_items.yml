@@ -1945,4 +1945,43 @@
         - ReagentId: Fiber
           Quantity: 10
 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAnagiri
+  name: Anagiri plushie
+  description: Anagiri plushie
+  suffix: Personal, Anagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_anagiri
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/toy_rustle.ogg
+  - type: SolutionContainerManager
+    solutions:
+      plushie:
+        maxVol: 1
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
 #SPONSOR-ITEMS-END
