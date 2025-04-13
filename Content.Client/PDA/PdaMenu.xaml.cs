@@ -33,6 +33,7 @@ namespace Content.Client.PDA
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
 
+
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
