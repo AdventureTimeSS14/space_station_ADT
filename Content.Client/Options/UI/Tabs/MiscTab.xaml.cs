@@ -39,7 +39,7 @@ public sealed partial class MiscTab : Control
 
         // ADT-Tweak, EE - Chat stacking options for how far back in the chat to stack.
         var chatStackEntries = new List<OptionDropDownCVar<int>.ValueOption>();
-        for (var option = 0; option <= 3; option++)
+        for (var option = 1; option <= 3; option++)
         {
             chatStackEntries.Add(
                 new OptionDropDownCVar<int>.ValueOption(option, Loc.GetString("ui-options-chatstack-count", ("count", option))));

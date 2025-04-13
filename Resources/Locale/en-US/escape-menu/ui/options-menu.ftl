@@ -328,15 +328,6 @@ ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
 ui-options-screen-shake-intensity = Screen shake intensity
 
-# ADT-Tweak, EE - StackChat
-ui-options-chatstack = Automatically merge identical chat messages
-ui-options-chatstack-count = { $count ->
-    [0] Off
-    [1] Last 1 message
-   *[other] Last {$count} messages
-}
-# ADT-Tweak, EE - StackChat
-
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
 ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
