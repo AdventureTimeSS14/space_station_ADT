@@ -42,17 +42,9 @@
   dummyPrototype: ADTBorgChassisSec
 
 #Custom subtypes
-- type: borgSubtype
-  parent: base_subtype
-  parentBorgType: medical
-  id: qualified_doctor
-
-  spritePath: ADT/Mobs/Silicon/Borgs/Borg_subtype/Medical/qualified_doctor.rsi
-  dummyPrototype: QualifiedDoctorChassis
 
 - type: borgSubtype
   parentBorgType: medical
   id: qualified_doctor
-
   spritePath: ADT/Mobs/Silicon/Borgs/Borg_subtype/Medical/qualified_doctor.rsi
   dummyPrototype: QualifiedDoctorChassis
