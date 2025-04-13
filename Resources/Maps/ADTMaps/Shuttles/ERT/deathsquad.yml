@@ -571,6 +571,7 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: SupermatterSpreaderGrid
 - proto: ActionToggleInternals
   entities:
   - uid: 3
@@ -623,6 +624,18 @@ entities:
       parent: 11
     - type: InstantAction
       container: 11
+- proto: ADTBaseUplinkBOBERT
+  entities:
+  - uid: 1128
+    components:
+    - type: Transform
+      pos: 4.8471036,20.793764
+      parent: 1
+  - uid: 1129
+    components:
+    - type: Transform
+      pos: 4.8627286,20.481264
+      parent: 1
 - proto: ADTBigThruster
   entities:
   - uid: 14
@@ -704,6 +717,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ADTertMechUplink
+  entities:
+  - uid: 1130
+    components:
+    - type: Transform
+      pos: 4.223301,20.36555
+      parent: 1
 - proto: ADTMediumThruster
   entities:
   - uid: 43
@@ -784,12 +804,31 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ADTSpawnMechSeraph
+  entities:
+  - uid: 1131
+    components:
+    - type: Transform
+      pos: 3.5,16.5
+      parent: 1
 - proto: ADTWarpPointBeaconERTShuttle
   entities:
   - uid: 1119
     components:
     - type: Transform
       pos: 9.5,17.5
+      parent: 1
+- proto: ADTWeaponIonRifle
+  entities:
+  - uid: 1125
+    components:
+    - type: Transform
+      pos: 3.5436287,18.74689
+      parent: 1
+  - uid: 1126
+    components:
+    - type: Transform
+      pos: 3.5436287,18.606264
       parent: 1
 - proto: AdvMopItem
   entities:
@@ -1445,7 +1484,7 @@ entities:
   - uid: 162
     components:
     - type: Transform
-      pos: 4.5,20.5
+      pos: 3.854908,20.699247
       parent: 1
 - proto: BoxMRE
   entities:
@@ -8019,7 +8058,12 @@ entities:
   - uid: 1093
     components:
     - type: Transform
-      pos: 3.5,18.5
+      pos: 3.4967537,18.37189
+      parent: 1
+  - uid: 1127
+    components:
+    - type: Transform
+      pos: 3.5123787,18.21564
       parent: 1
 - proto: WindoorSecure
   entities:

@@ -635,3 +635,113 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+
+- type: reagent
+  id: ADTTeqilaOldFashion
+  name: teqila-oldfashioned-name
+  parent: BaseAlcohol
+  desc: teqila-oldfashioned-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: ADTteqilaoldfashion
+  color: "#f49c18"
+  metamorphicSprite:
+    sprite: Corvax/Objects/Consumable/Drinks/oldFashioned.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: ADTJackieWelles
+  name: jackie-welles-name
+  parent: BaseAlcohol
+  desc: jackie-welles-desc
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTjackiewelles
+  color: "#f5e58c"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            Radiation: -0.6
+        probability: 0.5
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-jackwelles" ]
+        probability: 0.1
+      - !type:Emote
+        emote: Crying
+        probability: 0.05
+
+- type: reagent
+  id: ADTTheSilverhand
+  name: the-silverhand-name
+  parent: BaseAlcohol
+  desc: the-silverhand-desc
+  physicalDesc: reagent-physical-desc-thick-and-grainy
+  flavor: ADTsilverhand
+  color: "#ad0e0e"
+  recognizable: true
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/silverhand.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  fizziness: 0.6
+  metabolisms:
+    Drink:
+      effects:
+        - !type:PopupMessage
+          conditions:
+            - !type:ReagentThreshold
+              min: 5
+              max: 15
+          type: Local
+          visualType: Medium
+          messages: ["generic-reagent-effect-themartinez-cool"]
+          probability: 0.1
+        - !type:PopupMessage
+          conditions:
+            - !type:ReagentThreshold
+              min: 15
+              max: 20
+          type: Local
+          visualType: Medium
+          messages: ["generic-reagent-effect-silverhand-riot"]
+          probability: 0.1
+        - !type:PopupMessage
+          conditions:
+            - !type:ReagentThreshold
+              min: 20
+          type: Local
+          visualType: Medium
+          messages: ["generic-reagent-effect-silverhand-terrorist"]
+          probability: 0.1

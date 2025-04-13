@@ -3,17 +3,16 @@
   mapName: 'Avrite Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_avrite.yml
   maxRandomOffset: 0
-  randomRotation: false
   minPlayers: 60
   stations:
     ADT_Avrit:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Avrite {1}'
+          mapNameTemplate: '{0}AVR {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'SY'
+            prefixCreator: '-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxavrite.yml
         - type: StationJobs
@@ -63,7 +62,6 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 7, 8 ]
             SecurityCadet: [ 4, 6 ]
-            Pilot: [ 1, 1]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             ADTGuardOfficer: [ 1, 1 ] # ADT-Roles

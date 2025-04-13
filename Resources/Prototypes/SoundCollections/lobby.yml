@@ -4,6 +4,7 @@
     - /Audio/Lobby/thunderdome.ogg
     - /Audio/Lobby/absconditus.ogg
     - /Audio/Lobby/space_asshole.ogg
+    - /Audio/Lobby/the_wizard.ogg
     - /Audio/Lobby/endless_space.ogg
     - /Audio/Lobby/singuloose.ogg
     - /Audio/Lobby/comet_haley.ogg
@@ -17,10 +18,13 @@
     - /Audio/Corvax/Lobby/title2.ogg # Corvax-LobbyMusic
     - /Audio/Lobby/atomicamnesiammx.ogg
     - /Audio/Corvax/Lobby/service.ogg # Corvax-LobbyMusic
-    - /Audio/ADT/Lobby/The_Wrong_Party.ogg # ADT tweak
     # ADT music start
+    - /Audio/ADT/Lobby/The_Wrong_Party.ogg
     - /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
+    - /Audio/ADT/Lobby/friday_night.ogg
+    - /Audio/ADT/Lobby/space_oddity.ogg
     - /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
     - /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
     - /Audio/ADT/Jukebox/fsm-team-eagle.ogg
+    - /Audio/ADT/Lobby/horn.ogg
     # ADT music end

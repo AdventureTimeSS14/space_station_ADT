@@ -338,3 +338,77 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.8
+
+# USSP USSP
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ADTClothingHeadHelmetHardsuitOBS7USSP
+  name: helmet of the USSP OBS-7 Konrad armor suit
+  description: helmet of the USSP OBS-7 Konrad armor suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/OBS7_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/OBS7_USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ADTClothingHeadHelmetHardsuitOBS5USSP
+  name: helmet of the USSP OBS-5 Konrad Armor Suit
+  description: helmet of the USSP OBS-5 Konrad armor suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/OBS5_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/OBS5_USSP.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+# USSP USSP
+
+# Ивентовый, ага
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ADTDigitalHelm
+  categories: [ HideSpawnMenu ]
+  name: digital helmet
+  description: What do you even know about the matrix?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/digital.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/digital.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

@@ -22,6 +22,7 @@
     - AnomalyFlora
     - AnomalyShadow
     - AnomalyTech
+    - ADTAnomalyMonkey # ADT Tweak
     #- AnomalySanta 
     rareChance: 0.3
     rarePrototypes:
@@ -40,7 +41,9 @@
   - type: RandomSpawner
     prototypes:
     - AnomalyRockIron
+    - AnomalyRockCoal
     - AnomalyRockSilver
+    - AnomalyRockGold
     - AnomalyRockQuartz
     - AnomalyRockUranium
     chance: 1
@@ -69,4 +72,4 @@
     - AnomalyTrapRock
     #- AnomalyTrapSanta
     chance: 1
-  
+

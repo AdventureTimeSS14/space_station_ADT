@@ -1379,3 +1379,111 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/whitesweaterheart_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/whitesweaterheart_suit.rsi
+
+# USSP USSP USSP USSP USSP USSP USSP USSP USSP START
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTCapitanUSSPUniform
+  name: the uniform of the captain of the SSS fleet
+  description: The standard casual uniform of a captain of the USSP Space Fleet. YOU'RE IN CHARGE HERE! unless, of course, there are people with a rank higher than you nearby...
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/capitan_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/capitan_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTAdmiralUSSPUniform
+  name: the uniform of the admiral of the SSS fleet
+  description: The standard casual uniform of a admiral of the USSP Space Fleet.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/admiral_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/admiral_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTFlotUSSPUniform
+  name: uniform of an officer of the SSS Fleet
+  description: The standard uniform of a field and staff officer of the Space Fleet of the USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/flot_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/flot_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTPilotUSSPUniform
+  name: USSP pilot's uniform
+  description: Personal protective equipment for the pilot to counteract low pressure in case of cabin depressurization.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/pilot_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/pilot_USSP.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTSeniorUSSPUniform
+  name: the uniform of the petty officer of the USSP fleet
+  description: The standard daily uniform of senior officers of the USSP space Fleet, they mostly do not take part in combat operations, most often sit in headquarters and command junior officers.
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/senior_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/senior_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTParatrooperUSSPUniform
+  name: the uniform of the USSP paratrooper
+  description: A set of clothes for Space Marines of the USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/paratrooper_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/paratrooper_USSP.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTInfantrymanTUSSPUniform
+  name: the uniform of the SSP infantryman
+  description: A set of clothes for a Space marine USSP
+  suffix: USSP
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/USSP/infantryman_USSP.rsi
+
+# USSP USSP USSP USSP USSP USSP USSP USSP USSP END
+
+# Комбез исследователя для утилией (В будущем мб для шахтёров)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitExplorer
+  name: jumpsuit explorer
+  description: Standard overalls for NT miners
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi

@@ -140,3 +140,23 @@
     sprite: ADT/Clothing/Ears/Headsets/headset_paramedic.rsi
   - type: Clothing
     sprite: ADT/Clothing/Ears/Headsets/headset_paramedic.rsi
+
+# USSP USSP
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTClothingHeadsetUSSP
+  name: USSP forces headset
+  description: A headset for USSP forces.
+  suffix: USSP
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+        - ADTEncryptionKeyUSSP
+    - type: Sprite
+      sprite: ADT/Clothing/Ears/Headsets/armyheadset.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Ears/Headsets/armyheadset.rsi
+
+# USSP USSP

@@ -32,18 +32,18 @@
   # - ClothingNeckTransPin
   # - ClothingNeckAutismPin
   # - ClothingNeckGoldAutismPin
+  # # Corvax-Loadouts-Start
+  # - ClothingNeckAtharaPin
+  # - ClothingNeckCorvaxPin
+  # - ClothingNeckEchoPin
+  # - ClothingNeckElysiumPin
+  # - ClothingNeckMainPin
+  # - ClothingNeckNebulaPin
+  # - ClothingNeckNovaPin
+  # - ClothingNeckSolarisPin
+  # - ClothingNeckWhiteListPin
+  # # Corvax-Loadouts-End
   #ADT end
-   # Corvax-Loadouts-Start
-  - ClothingNeckAtharaPin
-  - ClothingNeckCorvaxPin
-  - ClothingNeckEchoPin
-  - ClothingNeckElysiumPin
-  - ClothingNeckMainPin
-  - ClothingNeckNebulaPin
-  - ClothingNeckNovaPin
-  - ClothingNeckSolarisPin
-  - ClothingNeckWhiteListPin
-  # Corvax-Loadouts-End
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -91,9 +91,12 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
-  - ADTEmergencyMoth #ADT_Species
-  - ADTEmergencyIPC #ADT_Species
+  # ADT-Species-Start
+  - ADTEmergencyMoth
+  - ADTEmergencyIPC
+  # ADT-Species-End
 
+# nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
   id: GroupEVATank
   name: loadout-group-EVA-tank
@@ -101,6 +104,14 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+
+# vox get a nitrogen tank, other species get nothing
+- type: loadoutGroup
+  id: GroupEVATankVox
+  name: loadout-group-vox-tank
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -140,6 +151,7 @@
   loadouts:
   - CaptainCloak
   - CaptainCloakFormal
+  - ADTClothingCaptainShoulderNeck # ADT Loadout
   - CaptainMantle
 
 - type: loadoutGroup
@@ -332,7 +344,16 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
-
+# ADT-Loadouts-Start
+- type: loadoutGroup
+  id: LibrarianBackpack
+  name: loadout-group-librarian-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTLibrarianBWinRAR
+# ADT-Loadouts-End
 - type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit
@@ -528,8 +549,10 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
-  - ADTEmergencyMothClown #ADT_Species
-  - ADTEmergencyIPCClown #ADT_Species
+  # ADT-Loadout-Species-Start
+  - ADTEmergencyMothClown
+  - ADTEmergencyIPCClown
+  # ADT-Loadout-Species-End
 
 - type: loadoutGroup
   id: MimeHead
@@ -569,6 +592,7 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - ADTMimeWintercoatLong #ADT Tweak
 
 - type: loadoutGroup
   id: MimeBelt
@@ -659,8 +683,10 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
-  - ADTQMJumpsuitCamisole # ADT tweak
-  - ADTQMJumpskirtCamisole # ADT tweak
+  # ADT-Loadout-Start
+  - ADTQMJumpsuitCamisole
+  - ADTQMJumpskirtCamisole
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -828,6 +854,7 @@
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
+  minLimit: 0
   loadouts:
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
@@ -932,15 +959,6 @@
   - ADTEmergencyMothExtended #ADT_Species
   - ADTEmergencyIPCExtended #ADT_Species
 
-# ADT-TWEAK-START
-- type: loadoutGroup
-  id: ADTEngineeringBelt
-  name: loadout-group-engineering-belt
-  loadouts:
-  - ADTBeltUtility
-  - ADTBeltUtilityWebbing
-# ADT-TWEAK-END
-
 # Science
 
 - type: loadoutGroup
@@ -998,8 +1016,10 @@
   minLimit: 0
   loadouts:
   - SkullBandana
-  - PurpleCap # ADT-Tweak-senior
-  - HonoredScientistBeret # ADT-Tweak-senior
+  # ADT-Loadout-Senior-Start
+  - PurpleCap
+  - HonoredScientistBeret
+  # ADT-Loadout-Senior-End
 
 - type: loadoutGroup
   id: ScientistNeck
@@ -1101,10 +1121,12 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
-  - HeadofSecurityMantleShoulder #ADT-Loadout
-  - ADTSecurityOfficerNeckBadgeBronze #ADT-Loadout
-  - ADTSecurityOfficerNeckBadgeSilver #ADT-Loadout
-  - ADTSecurityOfficerNeckBadgeGold #ADT-Loadout
+  # ADT-Loadout-Start
+  - HeadofSecurityMantleShoulder
+  - ADTSecurityOfficerNeckBadgeBronze
+  - ADTSecurityOfficerNeckBadgeSilver
+  - ADTSecurityOfficerNeckBadgeGold
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1179,6 +1201,7 @@
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
+  - ArmorVestSec # Corvax
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
@@ -1221,9 +1244,11 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-  - ADTSecurityOfficerNeckBadgeBronze # ADT-Loadout
-  - ADTSecurityOfficerNeckBadgeSilver # ADT-Loadout
-  - ADTSecurityOfficerNeckBadgeGold # ADT-Loadout
+  # ADT-Loadout-Start
+  - ADTSecurityOfficerNeckBadgeBronze
+  - ADTSecurityOfficerNeckBadgeSilver
+  - ADTSecurityOfficerNeckBadgeGold
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1254,8 +1279,8 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - SecurityJumpsuitGrey # Corvax-Resprite
+  - SecurityJumpskirtGrey # Corvax-Resprite
 
 - type: loadoutGroup
   id: SurvivalSecurity
@@ -1266,8 +1291,10 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
-  - ADTEmergencyMothSecurity #ADT_Species
-  - ADTEmergencyIPCSecurity #ADT_Species
+  # ADT-Loadout-Species-Start
+  - ADTEmergencyMothSecurity
+  - ADTEmergencyIPCSecurity
+  # ADT-Loadout-Species-Start
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1293,10 +1320,10 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
-  # ADT tweak start
+  # ADT-Loadout-Start
   - ADTCMOJumpsuitHike
   - ADTCMOJumpskirtHike
-  # ADT tweak end
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1474,8 +1501,10 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
-  - ADTEmergencyMothMedical #ADT_Species
-  - ADTEmergencyIPCMedical #ADT_Species
+  # ADT-Loadout-Species-Start
+  - ADTEmergencyMothMedical
+  - ADTEmergencyIPCMedical
+  # ADT-Loadout-Species-End
 
 # Wildcards
 
@@ -1520,8 +1549,10 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
-  - ADTEmergencyMothSyndicate #ADT_Species
-  - ADTEmergencyIPCSyndicate #ADT_Species
+  # ADT-Loadout-Species-Start
+  - ADTEmergencyMothSyndicate
+  - ADTEmergencyIPCSyndicate
+  # ADT-Loadout-Species-End
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

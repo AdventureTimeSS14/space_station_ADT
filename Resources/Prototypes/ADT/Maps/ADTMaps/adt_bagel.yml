@@ -3,16 +3,16 @@
   mapName: 'Bagel Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_bagel.yml
   minPlayers: 20
-  maxPlayers: 90
+  maxPlayers: 50
   stations:
     ADT_Bagel:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Bagel Station {1}'
+          mapNameTemplate: '{0}BGL {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '14'
+            prefixCreator: '-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
         - type: StationJobs
@@ -58,7 +58,6 @@
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
-            Pilot: [ 1, 1] # Corvax-Pilot
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]

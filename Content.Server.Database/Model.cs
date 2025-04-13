@@ -46,6 +46,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
 		public DbSet<BookPrinterEntry> BookPrinterEntry { get; set; } = null!; // ADT-BookPrinter
+        public DbSet<DiscordUser> DiscordUser { get; set; } = null!; // ADT-Discord
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -65,6 +66,12 @@ namespace Content.Server.Database
                 .HasIndex(p => p.Id)
                 .IsUnique();
             // ADT-BookPrinter-End
+
+            // ADT-Discord-Start
+            modelBuilder.Entity<DiscordUser>()
+                .HasIndex(p => new { p.UserId, p.DiscordId })
+                .IsUnique();
+            // ADT-Discord-End
 
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
@@ -734,7 +741,15 @@ namespace Content.Server.Database
         public string Color { get; set; } = default!;
     }
     // ADT-BookPrinter-End
-
+    // ADT-Discord-Start
+    public class DiscordUser
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public Guid UserId { get; set; }
+        public string DiscordId { get; set; } = default!;
+    }
+    // ADT-Discord-End
     public class Round
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -1063,6 +1078,9 @@ namespace Content.Server.Database
         BabyJail = 4,
         /// Results from rejected connections with external API checking tools
         IPChecks = 5,
+        DiscordAuth = 6, // ADT-Tweak-add
+        /// Results from rejected connections who are authenticated but have no modern hwid associated with them.
+        NoHwid = 6
     }
 
     public class ServerBanHit

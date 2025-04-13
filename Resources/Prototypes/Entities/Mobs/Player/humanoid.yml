@@ -26,8 +26,8 @@
       state: icon
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
@@ -61,6 +61,9 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 270000 # 75h # adt tweak
       mindRoles:
       - MindRoleGhostRoleFamiliar
     - type: Loadout
@@ -68,8 +71,8 @@
       roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
 
 
 # ## ERT Leader
@@ -534,6 +537,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h # ADT-tweak
     - type: RandomMetadata
       nameSegments:
       - ADTNamesFirstMilitaryRXBZZ # ADT Tweak
@@ -594,7 +600,7 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ corvax_names_death_commando ] # Corvax-Localization
+      nameSegments: [ NamesDeathCommando ]
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 
@@ -636,8 +642,8 @@
       settings: Cluwne
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
 
 - type: randomHumanoidSettings
   id: Cluwne

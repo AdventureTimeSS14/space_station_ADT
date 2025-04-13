@@ -59,6 +59,7 @@
         Piercing: 0.7
         Heat: 0.9
         Caustic: 0.9
+    staminaModifier: 0.65  # ADT-Tweak
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
@@ -140,6 +141,9 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-light
+        shader: unshaded
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-light-vox
         shader: unshaded
   - type: Appearance
   - type: HandheldLight

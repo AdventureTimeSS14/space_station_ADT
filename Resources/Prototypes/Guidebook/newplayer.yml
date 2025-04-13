@@ -1,6 +1,7 @@
 - type: guideEntry
   id: NewPlayer
   name: guide-entry-newplayer
+  priority: 0
   text: "/ServerInfo/Guidebook/NewPlayer/NewPlayer.xml"
   children:
   - Controls

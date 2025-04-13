@@ -10,10 +10,10 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Saltern {1}'
+          mapNameTemplate: '{0}SLT {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '14'
+            prefixCreator: '-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Corvax/Shuttles/corvax_emergency.yml # Corvax-EmergencyShuttle
         - type: StationJobs
@@ -59,7 +59,6 @@
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
-            Pilot: [ 1, 1] # Corvax-Pilot
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 1, 3 ]

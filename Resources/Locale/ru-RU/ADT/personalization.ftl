@@ -415,6 +415,10 @@ ent-ADTWeaponPistolUma = "Умми"
     .desc = Пистолет на основе МК58, выполненный под прихоти владельца. На затворе имеет небольшую надпись "Умми".
     .suffix = { "Пистолет, Спонсорское, Ума" }
 
+ent-ADTStunbatonUma = "Шоковая дубинка U.M.A."
+    .desc = Довольно массивная шоковая дубинка, отдалённо напоминает биту для игры в лапту. На рукояти виднеется надпись "Ума Э. С."
+    .suffix = { "Спонсорское, Ума" }
+
 ent-ADTClothingNeckUmaChoker = чокер Умы
     .desc = Небольшого размера чокер, вокруг которого расположенны шипы, а спереди сердечко с надписью "Ума".
     .suffix = { "Спонсорское, Ума" }
@@ -505,3 +509,24 @@ ent-ADTFoodKiwiTartaliokiwi_fruit = тарталетка с киви
 ent-ADTPlushieDionaIneedPizza486 = плюшевая диона в шляпке
     .desc = Плюшевая игрушка в виде Диона с красной шляпой!
     .suffix = { "Спонсорское, ineedpizza486" }
+
+ent-ADTPlushieAnagiri = плюшевая Плейона
+    .desc = Вы видите этого ниана? Вы помните её имя?
+    .suffix = { "Спонсорское, Anagiri" }
+
+
+ent-ADTClothingUniformJumpsuitSaintMadmanClothing = униформа Via-Deus
+    .desc = Униформа компании Via-Deus. 
+    .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ADTClothingOuterCoatSaintMadman = пальто Via-Deus
+    .desc = Черно-красное пальто компании Via-Deus.
+    .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ADTClothingOuterCoatViaDeus = торжественное пальто Via-Deus
+    .desc = Пальто для важных персон VD.
+    .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ClothingHeadHatSaintMadmanthingy = монокль
+    .desc = Выглядит довольно элитно.
+    .suffix = { "Спонсорское, Saint_madman" }

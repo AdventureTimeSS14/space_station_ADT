@@ -1,7 +1,6 @@
 - type: latheRecipe
   id: ADTBorgModuleHarm
   result: ADTBorgModuleHarm
-  category: Robotics
   completetime: 3
   materials:
     Steel: 500
@@ -13,7 +12,6 @@
 - type: latheRecipe
   id: ADTBorgModuleDisabler
   result: ADTBorgModuleDisabler
-  category: Robotics
   completetime: 3
   materials:
     Steel: 500
@@ -25,7 +23,6 @@
 - type: latheRecipe
   id: ADTBorgModuleDetention
   result: ADTBorgModuleDetention
-  category: Robotics
   completetime: 3
   materials:
     Steel: 500
@@ -35,7 +32,6 @@
 - type: latheRecipe
   id: ADTBorgModuleRPD
   result: ADTBorgModuleRPD
-  category: Robotics
   completetime: 3
   materials:
     Steel: 500
@@ -46,7 +42,6 @@
 - type: latheRecipe
   id: ADTCustomLawCircuitBoard
   result: ADTCustomLawCircuitBoard
-  category: Robotics
   completetime: 3
   materials:
     Steel: 500
@@ -329,3 +324,14 @@
     Plastic: 250
     Gold: 100
     Plasma: 50
+
+- type: latheRecipe
+  id: ADTClothingOuterExoskeletonBase
+  result: ADTClothingOuterExoskeletonBase
+  completetime: 2
+  materials:
+    Steel: 2000
+    Plastic: 250
+    Gold: 100
+    Plasma: 50
+    Silver: 400

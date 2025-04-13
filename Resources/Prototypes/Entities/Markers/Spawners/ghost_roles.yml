@@ -18,6 +18,11 @@
   - type: GhostRole
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
+    # ADT-Tweak-start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5h
+    # ADT-Tweak-end
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
@@ -108,11 +113,17 @@
   - type: GhostRole
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
-# ADT-Tweak-start
+    # ADT-Tweak-start
     requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+    # ADT-Tweak-end
     rules: ghost-role-information-loneop-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
@@ -170,6 +181,11 @@
     rules: ghost-role-information-space-dragon-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    # ADT-Tweak-start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+    # ADT-Tweak-end
   - type: Sprite
     layers:
     - state: green
@@ -185,11 +201,17 @@
     name: ghost-role-information-space-ninja-name
     description: ghost-role-information-space-ninja-description
     rules: ghost-role-information-space-ninja-rules
-# ADT-Tweak-start
+    # ADT-Tweak-start
     requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 18000 # 5h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    - !type:OverallPlaytimeRequirement
+      time: 90000 # adt tweak 2h > 25h
+    # ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
     raffle:
@@ -204,11 +226,36 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
+  id: SpawnPointGhostParadoxClone
+  components:
+  - type: GhostRole
+    name: ghost-role-information-paradox-clone-name
+    description: ghost-role-information-paradox-clone-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - sprite: Mobs/Aliens/paradox_clone.rsi
+      state: preview
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
   id: SpawnPointGhostDerelictCyborg
   components:
   - type: GhostRole
     name: ghost-role-information-derelict-cyborg-name
     description: ghost-role-information-derelict-cyborg-description
+    # ADT-Tweak-start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5h
+    # ADT-Tweak-end
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
@@ -218,3 +265,24 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: derelict_icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostWizard
+  name: ghost role spawn point
+  suffix: wizard
+  components:
+  - type: GhostRole
+    name: ghost-role-information-wizard-name
+    description: ghost-role-information-wizard-desc
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon

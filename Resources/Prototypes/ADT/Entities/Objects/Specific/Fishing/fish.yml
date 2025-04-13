@@ -1,0 +1,252 @@
+- type: entity
+  id: ADTBaseFish
+  parent: BaseItem
+  abstract: true
+  name: fish
+  description: Water-born creature from the infinite sea... Or toilet.
+  components:
+  - type: Fish
+  - type: StaticPrice
+    price: 250
+  - type: Butcherable
+    spawned:
+      - id: ADTFoodMeatFish
+        amount: 2
+
+- type: entity
+  id: ADTBaseFishRare
+  parent: ADTBaseFish
+  abstract: true
+  name: rare fish
+  description: Water-born creature from the infinite sea... Or toilet.
+  components:
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  id: ADTFishAlien
+  parent: ADTBaseFishRare
+  name: alien fish
+  description: Looks pretty... Abductory.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: alien
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishAngler
+  parent: ADTBaseFish
+  name: angler fish
+  description: Scariest thing in existence, after bingles.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: angler
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishBass
+  parent: ADTBaseFish
+  name: bass fish
+  description: Probably the most normal fish in existence. Unless you use it as bass guitar.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: bass
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishBingle
+  parent: ADTBaseFishRare
+  name: bingle fish
+  description: bingle
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: bingle
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishBlob
+  parent: ADTBaseFish
+  name: blob fish
+  description: Unfortuantly, this is not a 5th level bio-hazard threat.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: blob
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishBlueFintuna
+  parent: ADTBaseFish
+  name: blue fintuna
+  description: It's looking straight to you...
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: blue_fintuna
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishBoyFisher
+  parent: ADTBaseFishRare
+  name: boy fisher
+  description: You like kissing fish, don't you?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: boy_fisher
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishCat
+  parent: ADTBaseFish
+  name: cat fish
+  description: Ironically this looks nothing like a cat. And it doesn't meow.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: catfish
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishTropicalClown
+  parent: ADTBaseFish
+  name: clown clown fish
+  description: That is almost certanly some kind of joke.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: clown
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishNukeDisk
+  parent: ADTBaseFishRare
+  name: nuke disk fish
+  description: Erm, Actually, it's a bad idea trying to fit a fish inside a nuclear explosion device.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: disk
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishGib
+  parent: ADTBaseFishRare
+  name: gib stick fish
+  description: "My face when i open a present and get gibstick:"
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: gib
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishMutant
+  parent: ADTBaseFishRare
+  name: mutant fish
+  description: Anomalous fish that looks like it ate some nuclear waste.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: mutant
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishNuker
+  parent: ADTBaseFishRare
+  name: nuclear operative fish
+  description: Predator of the nuke disk fish.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: nuker
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishPuffer
+  parent: ADTBaseFish
+  name: puffer fish
+  description: It is poisonous... in many ways.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: pufferfish
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishSilver
+  parent: ADTBaseFish
+  name: silver fish
+  description: Actually contains silver.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: silverfish
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishTropicalSun
+  parent: ADTBaseFish
+  name: tropical sun fish
+  description: It probably looked at the sun for too long...?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: sun_tropical
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishToxic
+  parent: ADTBaseFishRare
+  name: toxic waste fish
+  description: "Looking at this fish, you understand how much it was a bad idea to allow nuclear waste to be dumped into rivers."
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: toxic
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishTropical
+  parent: ADTBaseFish
+  name: clown fish
+  description: This fish is always searching for something... Or maybe someone?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: tropical
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: ADTFishIan
+  parent: ADTBaseFishRare
+  name: ian fish
+  description: Water-born ian from the sea.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi
+    state: ian
+  - type: Item
+    sprite: ADT/Objects/Specific/Fishing/fish.rsi

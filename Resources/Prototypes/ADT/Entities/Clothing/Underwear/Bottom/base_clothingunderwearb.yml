@@ -1,5 +1,3 @@
-# From sirena
-
 - type: entity
   abstract: true
   parent: Clothing

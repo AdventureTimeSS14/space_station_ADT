@@ -254,6 +254,7 @@
         - Radio
         - DiscreteHealthAnalyzer
         - Folder
+        - ADTMobileDefibrillator #ADT_Tweak
       components:
         - Hypospray
         - Injector
@@ -378,8 +379,67 @@
       - id: Welder
       - id: Multitool
 
-#
-
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ADTClothingBeltJudo
+  name: corporative judo belt
+  description: Can hold security gear like handcuffs and flashes.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/judo_belt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/judo_belt.rsi
+  - type: ClothingGrantTag
+    tag: ADTBatonBlocker
+  - type: ClothingGrantComponent
+    component:
+      - type: Combo
+        availableMoves:
+          - actionsNeeds:
+              - Grab
+              - Disarm
+            comboEvent:
+              - !type:ComboStunEffect
+                stunTime: 1
+                dropItems: false
+              - !type:ComboDamageEffect
+                damage:
+                  types:
+                    Blunt: 5
+          - actionsNeeds:
+              - Disarm
+              - Disarm
+              - Grab
+            comboEvent:
+              - !type:ComboMoreDamageToDownedEffect
+                damage:
+                  types:
+                    Blunt: 10
+              - !type:ComboMoreStaminaDamageToDownedEffect
+                damage: 45
+          - actionsNeeds:
+              - Disarm
+              - Grab
+              - Hit
+            comboEvent:
+              - !type:ComboFlashEffect
+                duration: 5
+                slowDown: 3
+          - actionsNeeds:
+              - Disarm
+              - Hit
+            comboEvent:
+              - !type:ComboEffectToUserPuller
+                comboEvents:
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 10
+                - !type:ComboTrowOnUserEffect
+                - !type:ComboStopTargetGrabEffect
+                - !type:ComboStunEffect
+                  stunTime: 1
+                  dropItems: false
 #День Святого Валентина
 
 - type: entity
@@ -395,3 +455,40 @@
     - state: icon
     - map: [ "enum.StorageContainerVisualLayers.Fill" ]
       visible: false
+
+# USSP
+
+
+#рпс
+
+- type: entity
+  id: ADTClothingRPSUSSP
+  parent: ClothingBeltMilitaryWebbing
+  name: RPS USSP
+  description: RPS USSP
+  suffix: USSP
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/rps_ussp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/rps_ussp.rsi
+
+#тактический рпс
+
+- type: entity
+  id: ADTClothingRPSTacticalUSSP
+  parent: ClothingBeltMilitaryWebbing
+  name: RPS Tactical USSP
+  description: RPS Tactical USSP
+  suffix: USSP
+  components:
+  - type: Storage
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/rps_tactical_ussp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/rps_tactical_ussp.rsi
+
+# USSP

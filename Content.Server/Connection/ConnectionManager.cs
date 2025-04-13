@@ -21,6 +21,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.CCVar;
+using Serilog;
 
 /*
  * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
@@ -225,6 +227,11 @@ namespace Content.Server.Connection
 
             var modernHwid = e.UserData.ModernHWIds;
 
+            if (modernHwid.Length == 0 && e.AuthType == LoginType.LoggedIn && _cfg.GetCVar(CCVars.RequireModernHardwareId))
+            {
+                return (ConnectionDenyReason.NoHwid, Loc.GetString("hwid-required"), null);
+            }
+
             var bans = await _db.GetServerBansAsync(addr, userId, hwId, modernHwid, includeUnbanned: false);
             if (bans.Count > 0)
             {
@@ -240,7 +247,20 @@ namespace Content.Server.Connection
             }
 
             var adminData = await _db.GetAdminDataForAsync(e.UserId);
-
+            // ADT-Tweak-Start: Check Auth for Discord ID
+            if (_cfg.GetCVar(DiscordAuthCCVars.DiscordAuthEnable) && adminData == null)
+            {
+                var discordId = await _db.GetDiscordIdAsync(userId);
+                if (discordId != null)
+                {
+                    Log.Debug($"Discord ID for user {userId.ToString()}: {discordId}");
+                }
+                else
+                {
+                    return (ConnectionDenyReason.DiscordAuth, "You are not authorized through discord!!!", null);
+                }
+            }
+            // ADT-Tweak-End
             // Corvax-Start: Allow privileged players bypass bunker
             var isPrivileged = await HavePrivilegedJoin(e.UserId);
             if (_cfg.GetCVar(CCVars.PanicBunkerEnabled) && adminData == null && !isPrivileged)
