@@ -4,6 +4,9 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
 using Robust.Shared.Utility;
+using Robust.Shared.Random;
+using Robust.Shared.GameObjects;
+using Content.Server.ADT.Atmos.EntityDamage.Pipes; //ADT-Tweak
 
 namespace Content.Server.NodeContainer.NodeGroups
 {
@@ -18,9 +21,10 @@ namespace Content.Server.NodeContainer.NodeGroups
     [NodeGroup(NodeGroupID.Pipe)]
     public sealed class PipeNet : BaseNodeGroup, IPipeNet
     {
-        [ViewVariables] public GasMixture Air { get; set; } = new() {Temperature = Atmospherics.T20C};
+        [ViewVariables] public GasMixture Air { get; set; } = new() { Temperature = Atmospherics.T20C };
 
         [ViewVariables] private AtmosphereSystem? _atmosphereSystem;
+        [ViewVariables] private IEntityManager? _entMan;
 
         public EntityUid? Grid { get; private set; }
 
@@ -36,6 +40,7 @@ namespace Content.Server.NodeContainer.NodeGroups
                 return;
             }
 
+            _entMan = entMan;
             _atmosphereSystem = entMan.EntitySysManager.GetEntitySystem<AtmosphereSystem>();
             _atmosphereSystem.AddPipeNet(Grid.Value, this);
         }
@@ -43,6 +48,18 @@ namespace Content.Server.NodeContainer.NodeGroups
         public void Update()
         {
             _atmosphereSystem?.React(Air, this);
+
+            // ADT-Tweak start
+            var overpressurePipeDamageSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
+            if (overpressurePipeDamageSystem != null)
+            {
+                foreach (var node in Nodes)
+                {
+                    if (node is PipeNode pipe)
+                        overpressurePipeDamageSystem.HandleOverpressure(pipe, Air);
+                }
+            }
+            // ADT-Tweak end
         }
 
         public override void LoadNodes(List<Node> groupNodes)
@@ -51,7 +68,7 @@ namespace Content.Server.NodeContainer.NodeGroups
 
             foreach (var node in groupNodes)
             {
-                var pipeNode = (PipeNode) node;
+                var pipeNode = (PipeNode)node;
                 Air.Volume += pipeNode.Volume;
             }
         }
@@ -93,7 +110,7 @@ namespace Content.Server.NodeContainer.NodeGroups
 
         public override string GetDebugData()
         {
-            return @$"Pressure: { Air.Pressure:G3}
+            return @$"Pressure: {Air.Pressure:G3}
 Temperature: {Air.Temperature:G3}
 Volume: {Air.Volume:G3}";
         }
