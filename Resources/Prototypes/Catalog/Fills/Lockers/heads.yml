@@ -324,6 +324,7 @@
     - id: ADTBookSRPrnd
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
+    - id: ADTBoxAICircuitBoard
     # ADT-WikiBooks-End
 
 # Hardsuit table, used for suit storage as well
