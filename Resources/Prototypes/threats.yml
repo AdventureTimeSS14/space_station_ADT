@@ -4,7 +4,7 @@
   weights:
     Dragon: 1
     Revenant: 1
-    Pirate: 0.15 # ADT pirates
+    Pirate: 0.75 # ADT pirates
     Phantom: 1 # ADT phantom
     Wizard: 0.15 #ADT tweak
 
