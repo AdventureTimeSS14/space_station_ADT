@@ -224,7 +224,7 @@
   id: ADTPirateLethalShot
   name: uplink-pirate-lethal-shot-name
   description: uplink-pirate-lethal-shot-desc
-  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: shelllethal }
+  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: boxwide }
   productEntity: BoxLethalshot
   cost:
     Piastre: 1100
