@@ -110,8 +110,8 @@
   recipes:
   - MechEquipmentDiamondDrill
   - MechEquipmentDrill
-  - MechEquipmentArmorMelee
-  - MechEquipmentArmorRange
+  # - MechEquipmentArmorMelee Вырезано из-за неработоспособности
+  # - MechEquipmentArmorRange Вырезано из-за неработоспособности
   - ADTMechWeaponCutter
   - MechEquipmentHumanSleeper
   - MechEquipmentHumanGrabber
@@ -121,14 +121,14 @@
   - ADTMechGunTeslaCannon
   - ADTMechGunScattershot
   - ADTMechGunUltraAC2
-  - ADTMechGunFNX99Hades
-  - ADTMechGunMHAR21
-  - ADTMechGunSGL6
-  - ADTMechGunBRM6
-#  - ADTMechGunSRM8 Вырезано ради баланса
+  # - ADTMechGunFNX99Hades    Перенесено в охранный техфаб
+  # - ADTMechGunMHAR21        Вырезано ради баланса
+  # - ADTMechGunSGL6          Перенесено в охранный техфаб
+  # - ADTMechGunBRM6          Перенесено в охранный техфаб
+  # - ADTMechGunSRM8          Вырезано ради баланса
   - ADTBoxAmmoAC2Ultra
   - ADTBoxAmmoScattershot
-  - ADTBoxAmmoHades
-  - ADTBoxAmmoSniper
-  - ADTBoxAmmoGranade
-  - ADTBoxPlasmaBox
+  # - ADTBoxAmmoHades         Перенесено в охранный техфаб
+  # - ADTBoxAmmoSniper        Вырезано ради баланса
+  # - ADTBoxAmmoGranade       Перенесено в охранный техфаб
+  - ADTBoxPlasmaBox      
