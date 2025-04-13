@@ -34,6 +34,8 @@ namespace Content.Client.PDA
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
+
+
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
@@ -57,8 +59,6 @@ namespace Content.Client.PDA
 
             /// Переменная для получения <see cref="SharedPopupSystem"/>
             var popupsystem = _entMan.System<SharedPopupSystem>(); // ADT-Tweak
-
-
             HomeButton.OnPressed += _ => ToHomeScreen();
 
             ProgramListButton.OnPressed += _ =>
@@ -126,7 +126,6 @@ namespace Content.Client.PDA
             {
                 var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
                 _clipboard.SetText((stationTime.ToString("hh\\:mm\\:ss")));
-
                 popupsystem.PopupCursor(Loc.GetString("ui-copy-text-in-pda")); // ADT-Tweak
             };
 
