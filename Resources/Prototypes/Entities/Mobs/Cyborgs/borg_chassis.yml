@@ -31,6 +31,7 @@
     inherentRadioChannels:
     - Common
     - Binary
+  - type: BorgSwitchableSubtype #ADT Tweak
 
 - type: entity
   id: BorgChassisGeneric
@@ -40,6 +41,10 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: generic
+  #Start ADT Tweak
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_generic
+  #End ADT Tweak
 
 - type: entity
   id: BorgChassisMining
@@ -48,6 +53,10 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: mining
+  #Start ADT Tweak
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_mining
+  #End ADT Tweak
 
 - type: entity
   id: BorgChassisEngineer
@@ -56,6 +65,10 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: engineering
+  #Start ADT Tweak
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_engineering
+  #End ADT Tweak
 
 - type: entity
   id: BorgChassisJanitor
@@ -64,6 +77,10 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: janitor
+  #Start ADT Tweak
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_janitor
+  #End ADT Tweak
 
 - type: entity
   id: BorgChassisMedical
@@ -74,6 +91,10 @@
     selectedBorgType: medical
   - type: TTS # Corvax-TTS
     voice: fact_core
+  #Start ADT Tweak
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_medical
+  #End ADT Tweak
 
 - type: entity
   id: BorgChassisService
@@ -82,6 +103,10 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: service
+  #Start ADT Tweak
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_service
+  #End ADT Tweak
 
 - type: entity
   id: BorgChassisSyndicateAssault

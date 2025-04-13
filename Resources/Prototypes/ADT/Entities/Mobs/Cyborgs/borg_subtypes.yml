@@ -1,0 +1,10 @@
+# Entity
+- type: entity
+  parent: BorgChassisMedical
+  id: QualifiedDoctorChassis
+  name: qualified medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: qualified_doctor

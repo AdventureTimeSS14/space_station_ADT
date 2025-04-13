@@ -8,6 +8,8 @@
     selectedBorgType: security
   - type: TTS
     voice: sentrybot
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_generic
 
 - type: entity
   id: ADTBorgChassisKerfusNT
@@ -89,3 +91,25 @@
         type: StrippableBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+
+- type: entity
+  parent: BorgChassisMedical
+  id: QualifiedDoctorChassis
+  name: qualified medical cyborg
+  components:
+  - type: Sprite
+    layers:
+    - state: robot
+      map: [ "enum.BorgVisualLayers.Body", "movement" ]
+    - state: robot_e_r
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+      visible: false
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: qualified_doctor
