@@ -175,7 +175,6 @@
     slot: gloves
     components:
     - type: MeleeThrowOnHit
-      lifetime: 1
     - type: MeleeWeapon
       attackRate: 1
       damage:
