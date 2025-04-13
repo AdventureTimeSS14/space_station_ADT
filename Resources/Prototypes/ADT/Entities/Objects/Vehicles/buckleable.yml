@@ -215,8 +215,8 @@
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
             volume: -3
-  - type: StealTarget
-    stealGroup: VehicleSecway
+  # - type: StealTarget # временно в комментоариях
+  #   stealGroup: VehicleSecway
 
 - type: entity
   parent: ADTBaseVehicleRideable

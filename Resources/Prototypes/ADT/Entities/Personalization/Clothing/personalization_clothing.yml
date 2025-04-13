@@ -778,6 +778,9 @@
     sprite: ADT/Personalization/anagiri_gloves.rsi
   - type: Clothing
     sprite: ADT/Personalization/anagiri_gloves.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+  - type: FingerprintMask
 
 #MleM
 - type: entity
@@ -847,3 +850,63 @@
       amount: 3
   - type: StaticPrice
     price: 100
+
+#Saint_madman
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformJumpsuitSaintMadmanClothing
+  name: SaintMadmanClothing
+  description: cool
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-uniform.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ClothingHeadHatSaintMadmanthingy
+  name: yeaaaaa
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatSaintMadman
+  name: SaintMadmanCoat
+  description: yeaaaaagain
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-coat.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+
+- type: entity
+  parent: ADTSponsorClothingOuterBase
+  id: ADTClothingOuterCoatViaDeus
+  name: SaintMadmanCoat
+  description: yeaaaaagain
+  suffix: Personal, saint_madman
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95

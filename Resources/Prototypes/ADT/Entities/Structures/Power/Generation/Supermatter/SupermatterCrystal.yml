@@ -62,6 +62,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
+  - type: PhysicsGunBlacklist
 
 - type: entity
   parent: BaseSupermatter
@@ -368,7 +369,7 @@
     path: /Audio/ADT/Supermatter/status/ohfuck.ogg
   exclaimSound:
     path: /Audio/ADT/Supermatter/status/ohfuck.ogg
-  
+
 ## SpeechVerb
 - type: speechVerb
   id: Supermatter

@@ -11,7 +11,7 @@
   # ADT underwear tweak start
   - ADTTopCap
   - ADTBottomCap
-  - ADTSocks
+  - ADTSocksCaptain
   # ADT underwear tweak end
   - Survival
   - Trinkets
@@ -32,7 +32,7 @@
   # ADT underwear tweak start
   - ADTTopHOP
   - ADTBottomHOP
-  - ADTSocks
+  - ADTSocksHOP
   # ADT underwear tweak end
   - Survival
   - Trinkets
@@ -245,7 +245,7 @@
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksClown
   # ADT underwear tweak end
   - SurvivalClown
   - Trinkets
@@ -265,7 +265,7 @@
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksMime
   # ADT underwear tweak end
   - SurvivalMime
   - Trinkets
@@ -511,7 +511,7 @@
   # ADT underwear tweak start
   - ADTTopHOS
   - ADTBottomHOS
-  - ADTSocks
+  - ADTSocksHOS
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
@@ -782,11 +782,20 @@
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
+# gives vox a harness and breathing mask
+# nitrogen tank not included
 - type: roleLoadout
   id: RoleSurvivalVoxSupport
   groups:
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
 
 - type: roleLoadout
   id: RoleSurvivalStandard
