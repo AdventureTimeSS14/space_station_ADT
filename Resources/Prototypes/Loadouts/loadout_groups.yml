@@ -142,6 +142,7 @@
   loadouts:
   - CaptainCloak
   - CaptainCloakFormal
+  - ADTClothingCaptainShoulderNeck # ADT Loadout
   - CaptainMantle
 
 - type: loadoutGroup

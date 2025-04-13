@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Discord: JerryTheMouse#8561",
+  "copyright": "Discord: JerryTheMouse#8561 and resprited by prazat911:discord",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,10 @@
     },
     {
       "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-hamster",
       "directions": 4
     }
   ]

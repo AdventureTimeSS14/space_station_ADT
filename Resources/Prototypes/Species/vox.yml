@@ -17,8 +17,14 @@
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
   pros:
   - Если у вокса имеется менее 20 единиц повреждений от ядов, он восстанавливает их.
+  - После смерти не могут гнить.
+  - Ходьба является невероятно тихой.
+  special:
+  - Имеют нестандартные возрастные рамки (Молодые 20-30, Зрелые 31-45, Старые 46-60)
   cons:
   - Получают урон при вдыхании кислорода.
+  - Не могут быть клонируемыми.
+  - Воксы не могут быть сотрудниками Службы безопасности, Юридического Отдела и некоторыми главами.
   defaultLanguages:
   - GalacticCommon
   - VoxPidgin
@@ -26,8 +32,8 @@
   - VoxPidgin
   minAge: 20
   maxAge: 60
-  oldAge: 45
-  youngAge: 25
+  oldAge: 46
+  youngAge: 31
   # ADT end
 
 - type: speciesBaseSprites
