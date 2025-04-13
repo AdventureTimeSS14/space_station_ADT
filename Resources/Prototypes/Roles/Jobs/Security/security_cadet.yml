@@ -6,10 +6,6 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 54000 #15 hrs # ADT-RoleTime
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 72000 #20 hrs # Corvax-RoleTime
-      inverted: true # stop playing intern if you're good at security!
 # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true
