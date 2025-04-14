@@ -210,6 +210,10 @@
     - TerrorObjective
     - MassArrestObjective
     - NinjaSurviveObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ADTninjaObjectiveGroups # ADT tweak
+    maxDifficulty: 1.5
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
     definitions:

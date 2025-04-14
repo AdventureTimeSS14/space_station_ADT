@@ -28,6 +28,7 @@
   - AnomalyLocatorWide
   - HoloprojectorField
   - SignallerAdvanced
+  - ArtifactCarrier  # ADT tweak
   # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
 
 - type: latheRecipePack

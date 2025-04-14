@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Make by QWERTY.",
+  "states": [
+    {
+      "name": "closed"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "locked"
+    },
+    {
+      "name": "unlocked"
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "welded"
+    }
+  ]
+}

@@ -123,3 +123,15 @@
   weights:
     EscapeThiefShuttleObjective: 1
 #Changeling, crew, wizard, when you code it...
+
+- type: weightedRandom
+  id: ADTninjaObjectiveGroups
+  weights:
+    ADTninjaObjectiveGroupSave: 1
+
+- type: weightedRandom
+  id: ADTninjaObjectiveGroupSave
+  weights:
+    ADTRandomPersonAliveObjective: 1
+    ADTRandomHeadAliveObjective: 1
+    ADTRandomTraitorObjective: 1

@@ -85,3 +85,41 @@
     icon:
       sprite: Objects/Weapons/Melee/stunbaton.rsi
       state: stunbaton_on
+
+    # Start ADT Tweak
+- type: entity
+  parent: [BaseNinjaObjective, BaseKeepAliveObjective]
+  id: ADTRandomHeadAliveObjective
+  components:
+  - type: TargetObjective
+    title: objective-condition-save-head-title
+  - type: PickRandomHead
+  - type: Objective
+    icon:
+      sprite: ADT/Markers/jobs.rsi
+      state: spiderclan
+
+- type: entity
+  parent: [BaseNinjaObjective, BaseKeepAliveObjective]
+  id: ADTRandomTraitorObjective
+  components:
+  - type: TargetObjective
+    title: objective-condition-save-traitor-title
+  - type: RandomTraitorAlive
+  - type: Objective
+    icon:
+      sprite: Structures/Decoration/banner.rsi
+      state: banner_syndicate
+
+- type: entity
+  parent: [BaseNinjaObjective, BaseKeepAliveObjective]
+  id: ADTRandomPersonAliveObjective
+  components:
+  - type: TargetObjective
+    title: objective-condition-save-random-person-title
+  - type: PickRandomPerson
+  - type: Objective
+    icon:
+      sprite: ADT/Markers/jobs.rsi
+      state: spiderclan
+    # End ADT Tweak

@@ -1,0 +1,3 @@
+objective-condition-save-head-title = Повелитель { $targetName } уважаем и любим нашим кланом. Спаси его жизнь или свободу и отплатит он нашему клану также.
+objective-condition-save-random-person-title = Странник { $targetName } однажды спас нашего брата от тьмы погибели. Спаси его жизнь или свободу и отдай ему наш долг.
+objective-condition-save-traitor-title = Чужак { $targetName } доказал свою значимость клану. Спаси его жизнь или свободу, быть может полезен он.
