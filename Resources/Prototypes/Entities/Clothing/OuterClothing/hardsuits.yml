@@ -319,7 +319,7 @@
     radius: 1.8
     energy: 2
     color: red
-    mask: /Textures/Effects/LightMasks/double_cone.png 
+    mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight
     speed: 360
   - type: ContainerContainer
@@ -435,7 +435,7 @@
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
-  - type: SupermatterImmune 
+  - type: SupermatterImmune
   # ADT-Tweak-end
 
 #Chief Medical Officer's Hardsuit
@@ -935,7 +935,7 @@
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
-  - type: SupermatterImmune 
+  - type: SupermatterImmune
   # ADT-Tweak-end
 
 #ERT Medic Hardsuit
@@ -1030,7 +1030,7 @@
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
-  - type: SupermatterImmune 
+  - type: SupermatterImmune
   # ADT-Tweak-end
 
 #CBURN Hardsuit
