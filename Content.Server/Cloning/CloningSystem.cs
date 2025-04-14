@@ -119,10 +119,13 @@ public sealed partial class CloningSystem : EntitySystem
     ///     Copies the equipment the original has to the clone.
     ///     This uses the original prototype of the items, so any changes to components that are done after spawning are lost!
     /// </summary>
-    public void CopyEquipment(EntityUid original, EntityUid clone, SlotFlags slotFlags, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    public void CopyEquipment(Entity<InventoryComponent?> original, Entity<InventoryComponent?> clone, SlotFlags slotFlags, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
     {
         if (!TryComp<InventoryComponent>(original, out var originalInventory) || !TryComp<InventoryComponent>(clone, out var cloneInventory))
             return;
+
+        var coords = Transform(clone).Coordinates;
+
         // Iterate over all inventory slots
         var slotEnumerator = _inventory.GetSlotEnumerator((original, originalInventory), slotFlags);
         while (slotEnumerator.NextItem(out var item, out var slot))
