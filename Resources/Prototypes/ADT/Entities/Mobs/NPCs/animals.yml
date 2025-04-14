@@ -52,9 +52,6 @@
         path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
-    damage:
-      types:
-        Piercing: 5
   - type: Tag
     tags:
     - VimPilot
@@ -123,9 +120,7 @@
       GalacticCommon: Understand
 
 - type: entity
-  parent:
-  - SimpleSpaceMobBase
-  - FlyingMobBase
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: ADTMobDragonPet
   name: baby space dragon
   description: Even a flying leviathan starts off small and from an egg.

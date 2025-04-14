@@ -4,25 +4,11 @@
   description: New Interstellar Version 2342. Got updated after bible.
   id: ADTBibleQuaran
   components:
-  - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRahima
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/quaran.rsi
-    state: icon
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/quaran.rsi
@@ -33,25 +19,11 @@
   description:  New Interstellar Version 2345. Got updated after quaran.
   id: ADTBibleTanakh
   components:
-  - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRafael
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
-    state: icon
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
@@ -62,25 +34,11 @@
   description:  New Interstellar Version 2347. Got updated after tanakh.
   id: ADTBibleTripitaka
   components:
-  - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRatha
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
-    state: icon
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
@@ -91,25 +49,11 @@
   description:  New Interstellar Version 2350. Got updated after tripitaka.
   id: ADTBibleVedas
   components:
-  - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRagha
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/vedas.rsi
-    state: icon
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/vedas.rsi
@@ -121,24 +65,11 @@
   id: ADTBibleUnathi
   components:
   - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRanikha
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/scroll.rsi
-    state: icon
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/scroll.rsi
@@ -149,25 +80,11 @@
   description: An tajaran religion smooth stone tablet. New Interstellar Version 2355. Stone made of polyurethane foams.
   id: ADTBibleTajaran
   components:
-  - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRonia
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
-    state: icon
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
@@ -195,19 +112,6 @@
         icon:
           True: {visible: true}
           False: {visible: false}
-  - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRosie
     respawnTime: 300
@@ -238,25 +142,11 @@
   description: New Interstellar blessed book for chapels of any religion.
   id: ADTBibleLeatherCodex
   components:
-  - type: Bible
-    damage:
-      types:
-        Brute: -15
-        Burn: -15
-    damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
-    damageOnUntrainedUse:
-      groups:
-        Burn: 10
-    healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable
     specialItem: ADTSpawnPointGhostRebecca
     respawnTime: 300
   - type: Sprite
     sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
-    state: icon
   - type: Item
     size: Small
     sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
