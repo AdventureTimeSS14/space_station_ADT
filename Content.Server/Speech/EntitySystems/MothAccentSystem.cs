@@ -21,26 +21,26 @@ public sealed class MothAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        // Changed By 1Stepka1 Moth_speech_ADT start
-        
-        message = Regex.Replace(message, "з{1,3}", "ззз");
+        // re edited by Tosti, SD-tweak-start
 
-        message = Regex.Replace(message, "с{1,3}", "зз");
+        message = Regex.Replace(message, "з{1,3}", "зз");
 
-        message = Regex.Replace(message, "ц{1,3}", "зз");
+        message = Regex.Replace(message, "с{1,3}", "с");
 
-        message = Regex.Replace(message, "ж{1,3}", "жзж");
+        message = Regex.Replace(message, "ц{1,3}", "ц");
 
-        message = Regex.Replace(message, "З{1,3}", "ЗЗЗ");
+        message = Regex.Replace(message, "ж{1,3}", "жж");
 
-        message = Regex.Replace(message, "С{1,3}", "ЗЗ");
+        message = Regex.Replace(message, "З{1,3}", "ЗЗ");
 
-        message = Regex.Replace(message, "Ц{1,3}", "ЗЗ");
+        message = Regex.Replace(message, "С{1,3}", "С");
 
-        message = Regex.Replace(message, "Ж{1,3}", "ЖЗЖ");
+        message = Regex.Replace(message, "Ц{1,3}", "Ц");
 
-        // Changed By 1Stepka1 Moth_speech_ADT end
-        
+        message = Regex.Replace(message, "Ж{1,3}", "ЖЖ");
+
+        // re edited by Tosti, SD-tweak-end
+
         args.Message = message;
     }
 }
