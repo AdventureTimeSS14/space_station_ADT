@@ -213,7 +213,9 @@ public sealed partial class RevenantSystem : EntitySystem
 
     private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEvent args)
     {
-        _store.OnInternalShop(uid); // ADT-Changeling-Tweak
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+        _store.ToggleUi(uid, uid, store);
     }
 
     private void OnSinguloConsumeAttempt(EntityUid uid, RevenantComponent component, ref EventHorizonAttemptConsumeEntityEvent args) // ADT

@@ -10,3 +10,6 @@ queue-position = Ваша позиция:
 queue-total = Всего в очереди:
 queue-priority-join = Приорити проход
 queue-website = Пройти без очереди!
+
+### Копирование текста в КПК
+ui-copy-text-in-pda = Скопировано!

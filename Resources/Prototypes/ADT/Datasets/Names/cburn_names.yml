@@ -1,13 +1,11 @@
-- type: dataset
+- type: localizedDataset
   id: ADTCmndNamesFirstMilitary
   values:
-  - Капитан
+    prefix: names_ADTCmndNamesFirstMilitary-
+    count: 1
 
-- type: dataset
+- type: localizedDataset
   id: ADTNamesFirstMilitaryRXBZZ
   values:
-  - Прапорщик
-  - Старший Прапорщик
-  - Младший лейтенант
-  - Лейтенант
-  - Старший лейтенант
+    prefix: names_ADTNamesFirstMilitaryRXBZZ-
+    count: 5

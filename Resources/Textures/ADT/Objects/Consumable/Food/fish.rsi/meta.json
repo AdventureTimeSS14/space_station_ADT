@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "https://wiki.ss13.co/index.php?title=Category:Object_Sprites",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "fish"
+        },
+        {
+            "name": "cooked"
+        },
+        {
+            "name": "fish_slice"
+        },
+        {
+            "name": "cooked_slice"
+        }
+    ]
+}

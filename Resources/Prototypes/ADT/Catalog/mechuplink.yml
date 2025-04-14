@@ -1,123 +1,540 @@
-- type: storeCategory
-  id: ADTUplinkMechMechs
-  name: экзоскелеты
-  priority: 1
+#Мех-Аплинк ЯО
 
-- type: storeCategory
-  id: ADTUplinkMechWeapon
-  name: вооружение
-  priority: 2
-
-- type: storeCategory
-  id: ADTUplinkMechEquipment
-  name: снаряжение
-  priority: 3
-
-- type: storePreset
-  id: ADTStorePresetUplinkMech
-  storeName: UplinkMech
-  categories:
-  - ADTUplinkMechMechs
-  - ADTUplinkMechWeapon
-  - ADTUplinkMechEquipment
-  currencyWhitelist:
-  - Telecrystal
-
-# listings:
-
+#mech
 - type: listing
   id: UplinkMechGygax
-  name: Гигакс
-  description: Быстрый и манёвренный экзоскелет, обладает перегрузкой ножных сервоприводов, создан для быстрого выполнения целей.
+  name: uplink-syndimech-mech-gygax-name
+  description: uplink-syndimech-mech-gygax-desc
   productEntity: ADTMechDarkGygaxBattery
   cost:
-    Telecrystal: 60
+    Telecrystal: 30
   categories:
   - ADTUplinkMechMechs
 
 - type: listing
   id: UplinkMechMauler
-  name: Маулер
-  description: Тяжёлый бронированный экзоскелет, обладающий 5-ю слотами
+  name: uplink-syndimech-mech-mauler-name
+  description: uplink-syndimech-mech-mauler-desc
   productEntity: ADTMechMaulerBattery
   cost:
-    Telecrystal: 70
+    Telecrystal: 50
   categories:
   - ADTUplinkMechMechs
 
 #weapons
 
 - type: listing
+  id: UplinkMechImmolatorLaser
+  name: uplink-syndimech-weapon-immolator-name
+  description: uplink-syndimech-weapon-immolator-desc
+  productEntity: ADTMechGunImmolatorLaser
+  cost:
+    Telecrystal: 6
+  categories:
+  - ADTUplinkMechWeapon
+
+- type: listing
+  id: UplinkMechSolarisLaserCannon
+  name: uplink-syndimech-weapon-solaris-name
+  description: uplink-syndimech-weapon-solaris-desc
+  productEntity: ADTMechGunSolarisLaserCannon
+  cost:
+    Telecrystal: 9
+  categories:
+  - ADTUplinkMechWeapon
+
+- type: listing
   id: UplinkMechTeslaCannon
-  name: пушка теслы
-  description: Стреляет шариками энергии
+  name: uplink-syndimech-weapon-tesla-name
+  description: uplink-syndimech-weapon-tesla-desc
   productEntity: ADTMechGunTeslaCannon
   cost:
-    Telecrystal: 10
+    Telecrystal: 7
   categories:
   - ADTUplinkMechWeapon
 
 - type: listing
   id: UplinkMechScattershot
-  name: LBX AC 10 Залп
-  description: Тяжёлый навесной дробовик, стреляющий, очевидно дробью.
+  name: uplink-syndimech-weapon-scatter-name
+  description: uplink-syndimech-weapon-scatter-desc
   productEntity: ADTMechGunScattershot
   cost:
-    Telecrystal: 48
+    Telecrystal: 9
   categories:
   - ADTUplinkMechWeapon
 
 - type: listing
   id: UplinkMechUltraAC2
-  name: AC-2 Ультра
-  description: Тяжёлый навесной пулемёт, основа всех основ.
+  name: uplink-syndimech-weapon-ultra-name
+  description: uplink-syndimech-weapon-ultra-desc
   productEntity: ADTMechGunUltraAC2
   cost:
-    Telecrystal: 42
+    Telecrystal: 9
+  categories:
+  - ADTUplinkMechWeapon
+
+- type: listing
+  id: UplinkMechFNX99Hades
+  name: uplink-syndimech-weapon-hades-name
+  description: uplink-syndimech-weapon-hades-desc
+  productEntity: ADTMechGunFNX99Hades
+  cost:
+    Telecrystal: 11
   categories:
   - ADTUplinkMechWeapon
 
 - type: listing
   id: UplinkMechGunMHAR21
-  name: mHAR-21 "Ma Deuce"
-  description: Поиграть захотелось? Поиграем.
+  name: uplink-syndimech-weapon-madeuce-name
+  description: uplink-syndimech-weapon-madeuce-desc
   productEntity: ADTMechGunMHAR21
   cost:
-    Telecrystal: 30
+    Telecrystal: 12
   categories:
   - ADTUplinkMechWeapon
 
 
 - type: listing
   id: UplinkMechGunSRM8
-  name: SRM-8
-  description: Навесной ракетомёт для борьбы с группами врагов.
+  name: uplink-syndimech-weapon-srm-name
+  description: uplink-syndimech-weapon-srm-desc
   productEntity: ADTMechGunSRM8
   cost:
-    Telecrystal: 34
+    Telecrystal: 12
   categories:
   - ADTUplinkMechWeapon
 
 #equipment
 
+# Отключил в связи с тем, что не работают
+# - type: listing
+#   id: UplinkMechArmorMelee
+#   name: uplink-syndimech-equipment-armor-melee-name
+#   description: uplink-syndimech-equipment-armor-melee-desc
+#   productEntity: MechEquipmentArmorMelee
+#   cost:
+#     Telecrystal: 5
+#   categories:
+#   - ADTUplinkMechEquipment
+
+# - type: listing
+#   id: UplinkMechArmorRange
+#   name: uplink-syndimech-equipment-armor-range-name
+#   description: uplink-syndimech-equipment-armor-range-desc
+#   productEntity: MechEquipmentArmorRange
+#   cost:
+#     Telecrystal: 10
+#   categories:
+#   - ADTUplinkMechEquipment
+
 - type: listing
-  id: UplinkMechArmorMelee
-  name: противоударная броня меха
-  description: Частично защищает меха от ударов ближним оружием.
-  productEntity: MechEquipmentArmorMelee
+  id: UplinkMechWelderIndustrial
+  name: uplink-syndimech-equipment-welder-industrial-name
+  description: uplink-syndimech-equipment-welder-industrial-desc
+  productEntity: WelderIndustrial
   cost:
-    Telecrystal: 10
+    Telecrystal: 3
   categories:
   - ADTUplinkMechEquipment
+
+- type: listing
+  id: UplinkMechWelderIndustrialAdvanced
+  name: uplink-syndimech-equipment-welder-industrial-advanced-name
+  description: uplink-syndimech-equipment-welder-industrial-advanced-desc
+  productEntity: WelderIndustrialAdvanced
+  cost:
+    Telecrystal: 5
+  categories:
+  - ADTUplinkMechEquipment
+
+- type: listing
+  id: UplinkMechWelderPowerCellHigh
+  name: uplink-syndimech-equipment-powercellhigh-name
+  description: uplink-syndimech-equipment-powercellhigh-desc
+  productEntity: PowerCellHigh
+  cost:
+    Telecrystal: 3
+  categories:
+  - ADTUplinkMechEquipment
+
+- type: listing
+  id: UplinkMechWelderPowerCellHyper
+  name: uplink-syndimech-equipment-powercellhyper-name
+  description: uplink-syndimech-equipment-powercellhyper-desc
+  productEntity: PowerCellHyper
+  cost:
+    Telecrystal: 5
+  categories:
+  - ADTUplinkMechEquipment
+
+#ammo
+- type: listing
+  id: UplinkMechAmmoScatter
+  name: uplink-syndimech-ammo-scatter-name
+  description: uplink-syndimech-ammo-scatter-desc
+  productEntity: ADTBoxAmmoScattershot
+  cost:
+    Telecrystal: 2
+  categories:
+  - ADTUplinkMechAmmo
+
+- type: listing
+  id: UplinkMechAmmoUltra
+  name: uplink-syndimech-ammo-ultra-name
+  description: uplink-syndimech-ammo-ultra-desc
+  productEntity: ADTBoxAmmoAC2Ultra
+  cost:
+    Telecrystal: 2
+  categories:
+  - ADTUplinkMechAmmo
+
+- type: listing
+  id: UplinkMechAmmoMadeuce
+  name: uplink-syndimech-ammo-madeuce-name
+  description: uplink-syndimech-ammo-madeuce-desc
+  productEntity: ADTBoxAmmoSniper
+  cost:
+    Telecrystal: 4
+  categories:
+  - ADTUplinkMechAmmo
+
+- type: listing
+  id: UplinkMechAmmoFNX99Hades
+  name: uplink-syndimech-ammo-hades-name
+  description: uplink-syndimech-ammo-hades-desc
+  productEntity: ADTBoxAmmoHades
+  cost:
+    Telecrystal: 4
+  categories:
+  - ADTUplinkMechAmmo
+
+- type: listing
+  id: UplinkMechAmmoSRM
+  name: uplink-syndimech-ammo-srm-name
+  description: uplink-syndimech-ammo-srm-desc
+  productEntity: ADTBoxAmmoGranade
+  cost:
+    Telecrystal: 5
+  categories:
+  - ADTUplinkMechAmmo
+
+#Мех-Аплинк ОБР против ЯО и РХБЗЗ
+
+#mech
+- type: listing
+  id: UplinkERTMechMarauder
+  name: uplink-ertmech-mech-marauder-name
+  description: uplink-ertmech-mech-marauder-desc
+  productEntity: ADTMechMarauderBattery
+  cost:
+    Productunit: 20
+  categories:
+  - ADTUplinkERTMechMechs
+
+- type: listing
+  id: UplinkERTMechGygax
+  name: uplink-syndimech-mech-gygax-name
+  description: uplink-syndimech-mech-gygax-desc
+  productEntity: ADTMechErtGygaxBattery
+  cost:
+    Productunit: 12
+  categories:
+  - ADTUplinkERTMechMechs
+
+#weapons
+
+- type: listing
+  id: UplinkERTMechImmolatorLaser
+  name: uplink-syndimech-weapon-immolator-name
+  description: uplink-syndimech-weapon-immolator-desc
+  productEntity: ADTMechGunImmolatorLaser
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechSolarisLaserCannon
+  name: uplink-syndimech-weapon-solaris-name
+  description: uplink-syndimech-weapon-solaris-desc
+  productEntity: ADTMechGunSolarisLaserCannon
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechTeslaCannon
+  name: uplink-syndimech-weapon-tesla-name
+  description: uplink-syndimech-weapon-tesla-desc
+  productEntity: ADTMechGunTeslaCannon
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechScattershot
+  name: uplink-syndimech-weapon-scatter-name
+  description: uplink-syndimech-weapon-scatter-desc
+  productEntity: ADTMechGunScattershot
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechUltraAC2
+  name: uplink-syndimech-weapon-ultra-name
+  description: uplink-syndimech-weapon-ultra-desc
+  productEntity: ADTMechGunUltraAC2
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechFNX99Hades
+  name: uplink-syndimech-weapon-hades-name
+  description: uplink-syndimech-weapon-hades-desc
+  productEntity: ADTMechGunFNX99Hades
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechGunMHAR21
+  name: uplink-syndimech-weapon-madeuce-name
+  description: uplink-syndimech-weapon-madeuce-desc
+  productEntity: ADTMechGunMHAR21
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechGunHeavyPulseRifle
+  name: uplink-syndimech-weapon-pulse-rifle-name
+  description: uplink-syndimech-weapon-pulse-rifle-desc
+  productEntity: ADTMechGunHeavyPulseRifle
+  cost:
+    Productunit: 12
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechGunPeacemakerDisabler
+  name: uplink-syndimech-weapon-peacemaker-disabler-name
+  description: uplink-syndimech-peacemaker-disabler-desc
+  productEntity: ADTMechGunPeacemakerDisabler
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechGunSRM8
+  name: uplink-syndimech-weapon-srm-name
+  description: uplink-syndimech-weapon-srm-desc
+  productEntity: ADTMechGunSRM8
+  cost:
+    Productunit: 8
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechGunSGL6
+  name: uplink-syndimech-weapon-sgl-name
+  description: uplink-syndimech-weapon-sgl-desc
+  productEntity: ADTMechGunSGL6
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMechWeapon
+
+- type: listing
+  id: UplinkERTMechGunBRM6
+  name: uplink-syndimech-weapon-brm-name
+  description: uplink-syndimech-weapon-brm-desc
+  productEntity: ADTMechGunBRM6
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMechWeapon
 
 #equipment
 
 - type: listing
-  id: UplinkMechArmorRange
-  name: противопульная броня меха
-  description: Частично защищает меха от выстрелов.
-  productEntity: MechEquipmentArmorRange
+  id: UplinkERTMechWelderIndustrial
+  name: uplink-syndimech-equipment-welder-industrial-name
+  description: uplink-syndimech-equipment-welder-industrial-desc
+  productEntity: WelderIndustrial
   cost:
-    Telecrystal: 15
+    Productunit: 1
   categories:
-  - ADTUplinkMechEquipment
+  - ADTUplinkERTMechEquipment
+
+- type: listing
+  id: UplinkERTMechWelderIndustrialAdvanced
+  name: uplink-syndimech-equipment-welder-industrial-advanced-name
+  description: uplink-syndimech-equipment-welder-industrial-advanced-desc
+  productEntity: WelderIndustrialAdvanced
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMechEquipment
+
+- type: listing
+  id: UplinkERTMechWelderPowerCellHigh
+  name: uplink-syndimech-equipment-powercellhigh-name
+  description: uplink-syndimech-equipment-powercellhigh-desc
+  productEntity: PowerCellHigh
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMechEquipment
+
+- type: listing
+  id: UplinkERTMechWelderPowerCellHyper
+  name: uplink-syndimech-equipment-powercellhyper-name
+  description: uplink-syndimech-equipment-powercellhyper-desc
+  productEntity: PowerCellHyper
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMechEquipment
+
+- type: listing
+  id: UplinkERTMechPaddyGrabber
+  name: uplink-syndimech-equipment-grabber-name
+  description: uplink-syndimech-equipment-grabber-desc
+  productEntity: MechEquipmentPuddyGrabber
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMechEquipment
+
+#ammo
+- type: listing
+  id: UplinkERTMechAmmoScatter
+  name: uplink-syndimech-ammo-scatter-name
+  description: uplink-syndimech-ammo-scatter-desc
+  productEntity: ADTBoxAmmoScattershot
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMechAmmo
+
+- type: listing
+  id: UplinkERTMechAmmoUltra
+  name: uplink-syndimech-ammo-ultra-name
+  description: uplink-syndimech-ammo-ultra-desc
+  productEntity: ADTBoxAmmoAC2Ultra
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMechAmmo
+
+- type: listing
+  id: UplinkERTMechAmmoMadeuce
+  name: uplink-syndimech-ammo-madeuce-name
+  description: uplink-syndimech-ammo-madeuce-desc
+  productEntity: ADTBoxAmmoSniper
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMechAmmo
+
+- type: listing
+  id: UplinkERTMechAmmoFNX99Hades
+  name: uplink-syndimech-ammo-hades-name
+  description: uplink-syndimech-ammo-hades-desc
+  productEntity: ADTBoxAmmoHades
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMechAmmo
+
+- type: listing
+  id: UplinkERTMechAmmoSRM
+  name: uplink-syndimech-ammo-srm-name
+  description: uplink-syndimech-ammo-srm-desc
+  productEntity: ADTBoxAmmoGranade
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMechAmmo
+
+#Оружие аплинка ОБР против революции
+
+- type: listing
+  id: UplinkERTRevMechImmolatorLaser
+  name: uplink-syndimech-weapon-immolator-name
+  description: uplink-syndimech-weapon-immolator-desc
+  productEntity: ADTMechGunImmolatorLaser
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTRevolutionalMechWeapon
+
+- type: listing
+  id: UplinkERTRevMechSolarisLaserCannon
+  name: uplink-syndimech-weapon-solaris-name
+  description: uplink-syndimech-weapon-solaris-desc
+  productEntity: ADTMechGunSolarisLaserCannon
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTRevolutionalMechWeapon
+
+
+- type: listing
+  id: UplinkERTRevMechScattershot
+  name: uplink-syndimech-weapon-scatter-name
+  description: uplink-syndimech-weapon-scatter-desc
+  productEntity: ADTMechGunScattershot
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTRevolutionalMechWeapon
+
+- type: listing
+  id: UplinkERTRevMechUltraAC2
+  name: uplink-syndimech-weapon-ultra-name
+  description: uplink-syndimech-weapon-ultra-desc
+  productEntity: ADTMechGunUltraAC2
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTRevolutionalMechWeapon
+
+- type: listing
+  id: UplinkERTRevMechGunPeacemakerDisabler
+  name: uplink-syndimech-weapon-peacemaker-disabler-name
+  description: uplink-syndimech-peacemaker-disabler-desc
+  productEntity: ADTMechGunPeacemakerDisabler
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTRevolutionalMechWeapon
+
+- type: listing
+  id: UplinkERTRevMechGunSGL6
+  name: uplink-syndimech-weapon-sgl-name
+  description: uplink-syndimech-weapon-sgl-desc
+  productEntity: ADTMechGunSGL6
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTRevolutionalMechWeapon
+
+- type: listing
+  id: UplinkERTRevMechGunBRM6
+  name: uplink-syndimech-weapon-brm-name
+  description: uplink-syndimech-weapon-brm-desc
+  productEntity: ADTMechGunBRM6
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTRevolutionalMechWeapon

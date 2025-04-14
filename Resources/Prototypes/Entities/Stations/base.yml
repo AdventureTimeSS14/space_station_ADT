@@ -123,12 +123,16 @@
 #          - VGRoid                       ADT remove end
         # ADT-Mining-Start
         salvage: !type:GridSpawnGroup
-          minCount: 3
-          maxCount: 3
           nameGrid: false
           paths:
           - /Maps/ADTMaps/Shuttles/pioneer.yml
+        mining: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
           - /Maps/ADTMaps/Shuttles/mining.yml
+        guest: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
           - /Maps/ADTMaps/Shuttles/mining_guest.yml
         # ADT-Mining-End
         # ADT-Security-Start
@@ -143,7 +147,7 @@
   abstract: true
   components:
     - type: StationCentcomm
-      map: "/Maps/centcomm.yml"
+      map: "/Maps/ADTMaps/ADTStations/adt_centcomm.yml" #ADT_Centcomm
 
 - type: entity
   id: BaseStationEvacuation
@@ -182,6 +186,12 @@
   abstract: true
   components:
     - type: StationNews
+
+- type: entity
+  id: BaseStationDeliveries
+  abstract: true
+  components:
+  - type: CargoDeliveryData
 
 - type: entity
   id: BaseStationAllEventsEligible

@@ -192,6 +192,7 @@
     sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
   - type: Gun
     fireRate: 3
+    projectileSpeed: 60
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -200,18 +201,18 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ADTBulletDisabler
-    fireCost: 50
+    fireCost: 30
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: ADTBulletDisabler
-      fireCost: 50
+      fireCost: 30
     - proto: ADTBulletLaser
-      fireCost: 50
+      fireCost: 30
     - proto: ADTBulletIon
-      fireCost: 150
+      fireCost: 90
   - type: Battery
-    maxCharge: 1500
-    startingCharge: 1500
+    maxCharge: 900
+    startingCharge: 900
   - type: Tag
     tags:
     - HighRiskItem
@@ -314,3 +315,38 @@
       - Belt
   - type: BasicEntityAmmoProvider
     proto: ADTProjectilePolyboltVulpkanin
+
+- type: entity
+  name: ion carbine
+  parent: [BaseWeaponBattery, ADTBaseMagneticGun]
+  id: ADTWeaponIonCarbine
+  description: An ion-electronic disruptor carbine specifically designed to fight cyborgs and mechs.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/ion_carbine.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTProjectileIonRifle
+    fireCost: 150
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/ion_carbine.rsi
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,1

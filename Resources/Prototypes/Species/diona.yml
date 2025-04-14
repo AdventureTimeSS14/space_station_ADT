@@ -8,19 +8,20 @@
   markingLimits: MobDionaMarkingLimits
   dollPrototype: MobDionaDummy
   skinColoration: Hues
-  maleFirstNames: DionaFirst
-  femaleFirstNames: DionaFirst
-  maleLastNames: DionaLast # Corvax-LastnameGender
-  femaleLastNames: DionaLast # Corvax-LastnameGender
+  maleFirstNames: NamesDionaFirst
+  femaleFirstNames: NamesDionaFirst
+  maleLastNames: NamesDionaLast # Corvax-LastnameGender
+  femaleLastNames: NamesDionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
   # ADT start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
   pros:
   - Не получают негативных эффектов от кудзу.
   - Меньше замедляются от накопленных повреждений.
-  - Получают на 30% меньше тупого урона.
-  - Получают на 20% меньше колющего урона.
+  - Получают на 30% меньше урона ушибами.
+  - Получают на 20% меньше урона уколами.
   special:
+  - Имеют нестандартные возрастные рамки (Молодые 18-25, Зрелые 26-90, Старые 90+)
   - В критическом состоянии дионы могут распасться на нимф, после чего вернуться к жизни. Для этого нужна кровь.
   - При употреблении реагента робаст харвест, могут превратиться в дерево.
   - Имеют коллективный разум.
@@ -36,8 +37,8 @@
   forceLanguages:
   - DionaCollectiveMind
   maxAge: 500
-  oldAge: 300
-  youngAge: 200
+  oldAge: 91
+  youngAge: 26
   # ADT end
 
 
@@ -47,6 +48,8 @@
     Head: MobDionaHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobDionaTorso
     Eyes: MobDionaEyes
     LArm: MobDionaLArm
@@ -69,6 +72,12 @@
       points: 1
       required: false
     HeadSide:
+      points: 1
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
       points: 1
       required: false
     Chest:

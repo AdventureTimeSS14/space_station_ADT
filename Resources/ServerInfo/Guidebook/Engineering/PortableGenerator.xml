@@ -1,18 +1,18 @@
-﻿<Document>
-  # Портативные генераторы
+<Document>
+  # Portable Generators
 
   Нужна мощность? Не работает двигатель? Линейка портативных генераторов " П.А.К.М.А.Н." обеспечит вас всем необходимым.
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="М.И.Н.И.П.А.К.М.А.Н." />
-    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="П.А.К.М.А.Н." />
-    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="С.У.П.Е.Р.П.А.К.М.А.Н." />
+    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
   </Box>
 
-  # Младший
+  # The Junior
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="М.И.Н.И.П.А.К.М.А.Н." />
+    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
     <GuideEntityEmbed Entity="WeldingFuelTank" />
   </Box>
 
@@ -21,22 +21,23 @@
 
   Сварочного топлива на станции должно быть много. В крайнем случае, можно даже перелить немного из больших баков с помощью банки из-под газировки. Только не забудьте сначала опорожнить банку, не думаю, что генератору нравится газировка в качестве топлива.
 
-  # Большие
+  # The Big Ones
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="П.А.К.М.А.Н." />
+    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
     <GuideEntityEmbed Entity="SheetPlasma" />
   </Box>
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="С.У.П.Е.Р.П.А.К.М.А.Н." />
+    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
     <GuideEntityEmbed Entity="SheetUranium" />
   </Box>
 
   (С.У.П.Е.Р.)П.А.К.М.А.Н. предназначен для использования инженерами для продвинутых сценариев питания. Начальный запуск двигателя, питание отделов и так далее.
 
-  С.У.П.Е.Р.П.А.К.М.А.Н. может похвастаться большей мощностью и более длительным временем работы на максимальной мощности, но менее эффективно масштабируется до более низких мощностей.
+  The S.U.P.E.R.P.A.C.M.A.N. boasts a larger power output (up to [color=orange][protodata="PortableGeneratorSuperPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color]) and longer runtime at maximum output, but scales down to lower outputs less efficiently.
 
   Они подключаются непосредственно к [color=yellow]СВ[/color] или [color=orange]ВВ[/color] кабелям с возможностью переключения между ними для гибкости.
 
+  The S.U.P.E.R.P.A.C.M.A.N and P.A.C.M.A.N require uranium sheets and plasma sheets as fuel, respectively.
 </Document>

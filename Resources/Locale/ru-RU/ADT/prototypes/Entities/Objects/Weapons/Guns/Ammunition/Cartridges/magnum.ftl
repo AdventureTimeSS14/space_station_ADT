@@ -1,0 +1,10 @@
+ent-ADTCartridgeMagnumLesser = патрон (.357 магнум)
+    .desc = { ent-BaseCartridge.desc }
+ent-ADTCartridgeMagnumLesserAP = патрон (.357 магнум бронебойный)
+    .desc = { ent-ADTCartridgeMagnumLesser.desc }
+ent-ADTCartridgeMagnumLesserPractice = патрон (.357 магнум учебный)
+    .desc = { ent-ADTCartridgeMagnumLesser.desc }
+ent-ADTCartridgeMagnumLesserIncendiary = патрон (.357 магнум зажигательный)
+    .desc = { ent-ADTCartridgeMagnumLesser.desc }
+ent-ADTCartridgeMagnumLesserUranium = патрон (.357 магнум урановый)
+    .desc = { ent-ADTCartridgeMagnumLesser.desc }

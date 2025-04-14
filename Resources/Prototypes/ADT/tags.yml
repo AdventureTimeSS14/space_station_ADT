@@ -554,7 +554,10 @@
   id: ADTBatonBlocker
 
 - type: Tag
+  id: ADTSpeedLoaderMagnumLesser
+  
+  - type: Tag
   id: Salt
-
+  
 - type: Tag
   id: Holy

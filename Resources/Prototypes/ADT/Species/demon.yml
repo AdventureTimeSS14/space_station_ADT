@@ -10,18 +10,28 @@
   skinColoration: Hues
   maleFirstNames: names_first_male
   femaleFirstNames: names_first_female
-  maleLastNames: names_last_male
-  femaleLastNames: names_last_female
+  maleLastNames: NamesHumanLastMale
+  femaleLastNames: NamesHumanLastFemale
   naming: firstlast
   category: Unusual
   description: "/ServerInfo/ADT/SpeciesDescriptions/Arkan.xml"
+  pros:
+  - Получают на 30% меньше урона обморожением
+  - Получают на 15% меньше урона ожогами
+  - Получают на 20% меньше урона ядом
+  special:
+  - Имеют нестандартные возрастные рамки (Молодые 50-150, Зрелые 151-250, Старые 251-350)
+  cons:
+  - Получают на 10% больше тупого и колотого урона
+  - Получают на 5% больше урона порезами
+  - Получают на 50% больше урона клеточными
   defaultLanguages:
   - GalacticCommon
   - Arkane
   minAge: 50
   maxAge: 350
-  oldAge: 250
-  youngAge: 150
+  oldAge: 251
+  youngAge: 151
 
 - type: speciesBaseSprites
   id: MobDemonSprites
@@ -60,7 +70,7 @@
       points: 1
       required: false
     Chest:
-      points: 2
+      points: 4
       required: false
     Tail:
       points: 1
@@ -69,10 +79,10 @@
       points: 2
       required: false
     Legs:
-      points: 4
+      points: 8
       required: false
     Arms:
-      points: 4
+      points: 8
       required: false
 
 - type: humanoidBaseSprite

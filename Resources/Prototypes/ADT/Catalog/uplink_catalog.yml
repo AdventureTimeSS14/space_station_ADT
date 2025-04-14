@@ -400,6 +400,22 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: UplinkPinpointerSyndicateNuclear
+  name: uplink-pinpointer-syndicate-universal
+  description: uplink-pinpointer-syndicate-universal-desc
+  icon: { sprite: Objects/Devices/pinpointer.rsi, state: pinpointer-syndicate-way }
+  productEntity: PinpointerSyndicateUniversal
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 #UplinkJob
 
 - type: listing
@@ -719,3 +735,14 @@
     Telecrystal: 8
   categories:
   - UplinkWearables
+
+## Disruption
+- type: listing
+  id: UplinkNuclearPhysicistKit
+  name: uplink-agent-nuclear-physicist-kit-name
+  description: uplink-agent-nuclear-physicist-kit-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateCascade
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDisruption
