@@ -2157,3 +2157,18 @@
     whitelist:
     - Chef
     - Mime
+
+  # sd-tweak-start
+- type: listing
+  id: UplinkClothingOuterVestSyndReflect
+  name: uplink-reflector-vest-name
+  description: uplink-reflector-vest-desc
+  productEntity: ClothingOuterVestSyndReflect
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
+  # sd-tweak-end

@@ -1,0 +1,25 @@
+# sd-tweak-start
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  id: ClothingOuterVestSyndReflect
+  name: blood-red reflective vest
+  description: Nice-made chunk of reflect plates, reflecting all laser beams and protecting it's owner from the heat.
+  components:
+  - type: Sprite
+    sprite: SD/Entities/Clothing/OuterClothing/Armor/syndreflect.rsi
+  - type: Clothing
+    sprite: SD/Entities/Clothing/OuterClothing/Armor/syndreflect.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.6 # as've been said in official prototype, those do not protect from atmos temperature
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Reflect
+    reflectProb: 0.75
+    reflects:
+      - Energy
+# sd-tweak-end
