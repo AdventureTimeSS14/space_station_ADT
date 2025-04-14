@@ -47,11 +47,6 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
       components:
-        - type: CantShoot
-          popup: combo-cantshoot
-          whitelist:
-            tags:
-            - ADTBsoWeapon
         - type: Puller
           grabStats:
             None:
@@ -79,10 +74,11 @@
               escapeAttemptTime: 1.25
               setStageTime: 1.25
         - type: MeleeWeapon
+          attackRate: 2
           animation: WeaponArcFist
           damage:
             types:
-              Blunt: 13
+              Blunt: 6
         - type: Combo
           availableMoves:
             - actionsNeeds:
@@ -97,9 +93,11 @@
                       Blunt: 10
                 - !type:ComboFallEffect
                 - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Hit
-                - Disarm
                 - Hit
               comboEvent:
                 - !type:ComboMoreDamageToDownedEffect
@@ -115,6 +113,10 @@
                 - !type:ComboStunEffect
                   stunTime: 2
                   dropItems: false
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+                - !type:ComboTrowTargetEffect
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -145,6 +147,9 @@
                 - !type:ComboFallEffect
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 60
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Grab
                 - Disarm
@@ -153,6 +158,26 @@
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
                 - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+            - actionsNeeds:
+                - Crawl
+                - Crawl
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 10
+                  - !type:ComboTrowOnUserEffect
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboPopupEffect
+                    localeText: combo-leg-sweep-end
 
 - type: startingGear
   id: ADTBlueShieldOfficerGear
