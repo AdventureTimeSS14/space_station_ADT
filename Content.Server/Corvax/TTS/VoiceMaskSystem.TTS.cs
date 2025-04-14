@@ -1,4 +1,3 @@
-﻿using Content.Server.Corvax.TTS;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Inventory;
 using Content.Shared.VoiceMask;
@@ -10,11 +9,13 @@ public partial class VoiceMaskSystem
     private void InitializeTTS()
     {
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerVoiceEvent>>(OnSpeakerVoiceTransform);
+        SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerVoiceEvent>>(OnSpeakerVoiceTransform);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVoiceMessage>(OnChangeVoice);
     }
 
     private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, ref InventoryRelayedEvent<TransformSpeakerVoiceEvent> args)
     {
+        args.Args.VoiceId = component.VoiceId;
         args.Args.VoiceId = component.VoiceId;
     }
 

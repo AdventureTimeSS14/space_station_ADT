@@ -14,6 +14,8 @@
     - BypassDropChecks
     - NoConsoleSound
     - IgnoreBalanceChecks # ADT-Economy-Tweak
+    - SilentStorageUser
+    - PreventAccessLogging
   - type: Input
     context: "aghost"
   - type: Ghost

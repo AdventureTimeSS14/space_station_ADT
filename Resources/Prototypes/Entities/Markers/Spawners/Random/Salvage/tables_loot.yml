@@ -251,7 +251,7 @@
     - id: BlueprintSeismicCharge
     - id: WeaponCrusherGlaive
     - id: ADTClothingModsuitBackMining #ADT tweak
-    - id: OmnizineChemistryBottle
+    - id: ChemistryBottleOmnizine
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled

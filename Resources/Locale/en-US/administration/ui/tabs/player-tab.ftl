@@ -2,7 +2,6 @@
 player-tab-username = Username
 player-tab-character = Character
 player-tab-job = Job
-player-tab-antagonist = Antagonist
 player-tab-sponsor = Sponsor
 player-tab-roletype = Role Type
 player-tab-playtime = Playtime
@@ -14,3 +13,7 @@ player-tab-is-antag-yes = YES
 player-tab-is-antag-no = NO
 player-tab-is-sponsor-yes = YES
 player-tab-is-sponsor-no = NO
+
+player-tab-character-name-antag-symbol = {$symbol} {$name}
+
+player-tab-antag-prefix = 🗡

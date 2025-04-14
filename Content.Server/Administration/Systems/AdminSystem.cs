@@ -227,6 +227,7 @@ public sealed class AdminSystem : EntitySystem
         var name = data.UserName;
         var entityName = string.Empty;
         var identityName = string.Empty;
+        var sortWeight = 0;
 
         // Visible (identity) name can be different from real name
         if (session?.AttachedEntity != null)
@@ -240,8 +241,10 @@ public sealed class AdminSystem : EntitySystem
         // Starting role, antagonist status and role type
         RoleTypePrototype roleType = new();
         var startingRole = string.Empty;
-        if (_minds.TryGetMind(session, out var mindId, out var mindComp))
+        if (_minds.TryGetMind(session, out var mindId, out var mindComp) && mindComp is not null)
         {
+            sortWeight = _role.GetRoleCompByTime(mindComp)?.Comp.SortWeight ?? 0;
+
             if (_proto.TryIndex(mindComp.RoleType, out var role))
                 roleType = role;
             else
@@ -269,8 +272,20 @@ public sealed class AdminSystem : EntitySystem
         SponsorInfo? sponsorInfo = null;
         _sponsorsManager.TryGetInfo(data.UserId, out sponsorInfo);
 
-        return new PlayerInfo(name, entityName, identityName, startingRole, antag, sponsorInfo, roleType, GetNetEntity(session?.AttachedEntity), data.UserId,
-            connected, _roundActivePlayers.Contains(data.UserId), overallPlaytime);
+        return new PlayerInfo(
+            name,
+            entityName,
+            identityName,
+            startingRole,
+            antag,
+            sponsorInfo,
+            roleType,
+            sortWeight,
+            GetNetEntity(session?.AttachedEntity),
+            data.UserId,
+            connected,
+            _roundActivePlayers.Contains(data.UserId),
+            overallPlaytime);
         //ADT-SPONSORS
     }
 
