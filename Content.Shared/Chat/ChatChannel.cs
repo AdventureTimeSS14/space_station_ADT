@@ -4,7 +4,7 @@ namespace Content.Shared.Chat
     ///     Represents chat channels that the player can filter chat tabs by.
     /// </summary>
     [Flags]
-    public enum ChatChannel : ushort
+    public enum ChatChannel : uint // SD-Tweak
     {
         None = 0,
 
@@ -61,39 +61,44 @@ namespace Content.Shared.Chat
         Emotes = 1 << 9,
 
         /// <summary>
+        ///     SD AntiGhost emotes
+        /// </summary>
+        AntiGhost = 1 << 10, // SD-Tweak
+
+        /// <summary>
         ///     Deadchat
         /// </summary>
-        Dead = 1 << 10,
+        Dead = 1 << 11,
 
         /// <summary>
         ///     Misc admin messages
         /// </summary>
-        Admin = 1 << 11,
+        Admin = 1 << 12,
 
         /// <summary>
         ///     Admin alerts, messages likely of elevated importance to admins
         /// </summary>
-        AdminAlert = 1 << 12,
+        AdminAlert = 1 << 13,
 
         /// <summary>
         ///     Admin chat
         /// </summary>
-        AdminChat = 1 << 13,
+        AdminChat = 1 << 14,
 
         /// <summary>
         ///     Unspecified.
         /// </summary>
-        Unspecified = 1 << 14,
+        Unspecified = 1 << 15,
 
         /// <summary>
         ///     Collective mind channel for entities who have comp.
         /// </summary>
-        CollectiveMind = 1 << 15, // ADT-CollectiveMind-Tweak
+        CollectiveMind = 1 << 16, // ADT-CollectiveMind-Tweak
 
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications | CollectiveMind, // ADT-CollectiveMind-Tweak
+        IC = Local | Whisper | Radio | Dead | Emotes | AntiGhost| Damage | Visual | Notifications | CollectiveMind, // SD-ADT-CollectiveMind-Tweak
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

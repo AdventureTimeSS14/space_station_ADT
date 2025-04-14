@@ -20,6 +20,10 @@ public enum MessageType : byte
     /// </summary>
     Emote,
     /// <summary>
+    /// Antighost
+    /// </summary>
+    AntiGhost,
+    /// <summary>
     /// Chat that players use to make lame jokes to people nearby.
     /// </summary>
     Local,

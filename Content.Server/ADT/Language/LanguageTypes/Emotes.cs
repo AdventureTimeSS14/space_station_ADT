@@ -128,6 +128,11 @@ public sealed partial class Emotes : ILanguageType
                 chatMan.ChatMessageToOne(ChatChannel.Emotes, message, wrappedLanguageMessage, uid, entHideChat, session.Channel, author: session.UserId);
             else
                 chatMan.ChatMessageToOne(ChatChannel.Local, message, wrappedMessage, uid, entHideChat, session.Channel, author: session.UserId);
+
+            if (!lang.CanUnderstand(listener, Language))
+                chatMan.ChatMessageToOne(ChatChannel.AntiGhost, message, wrappedLanguageMessage, uid, entHideChat, session.Channel, author: session.UserId);
+            else
+                chatMan.ChatMessageToOne(ChatChannel.Local, message, wrappedMessage, uid, entHideChat, session.Channel, author: session.UserId);
         }
 
         audio.PlayPvs(Sound, uid);
@@ -209,6 +214,11 @@ public sealed partial class Emotes : ILanguageType
 
             if (!lang.CanUnderstand(listener, Language))
                 chatMan.ChatMessageToOne(ChatChannel.Emotes, message, wrappedLanguageMessage, uid, entHideChat, session.Channel, author: session.UserId);
+            else
+                chatMan.ChatMessageToOne(ChatChannel.Local, message, wrappedMessage, uid, entHideChat, session.Channel, author: session.UserId);
+
+            if (!lang.CanUnderstand(listener, Language))
+                chatMan.ChatMessageToOne(ChatChannel.AntiGhost, message, wrappedLanguageMessage, uid, entHideChat, session.Channel, author: session.UserId);
             else
                 chatMan.ChatMessageToOne(ChatChannel.Local, message, wrappedMessage, uid, entHideChat, session.Channel, author: session.UserId);
         }

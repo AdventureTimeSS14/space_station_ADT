@@ -110,6 +110,9 @@ binds:
   type: State
   mod1: Shift
   key: Apostrophe
+- function: FocusAntiGhost
+  type: State
+  key: num3
 - function: FocusWhisperChatWindow
   type: State
   key: Comma

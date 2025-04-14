@@ -31,12 +31,24 @@ public sealed class DeadChatCreatedEvent(EntityUid speaker, string message, bool
 /// <summary>
 /// Raised locally when a character emotes.
 /// </summary>
-public sealed class EmoteCreatedEvent(EntityUid sender, string message, float range) : IChatEvent
+public sealed class AntiGhostCreatedEvent(EntityUid sender, string message, float range) : IChatEvent
 {
     public uint Id { get; set; }
     public EntityUid Sender { get; set; } = sender;
     public string Message { get; set; } = message;
     public MessageType Type => MessageType.Emote;
+    public float Range = range;
+}
+
+/// <summary>
+/// Antighost
+/// </summary>
+public sealed class EmoteCreatedEvent(EntityUid sender, string message, float range) : IChatEvent
+{
+    public uint Id { get; set; }
+    public EntityUid Sender { get; set; } = sender;
+    public string Message { get; set; } = message;
+    public MessageType Type => MessageType.AntiGhost;
     public float Range = range;
 }
 

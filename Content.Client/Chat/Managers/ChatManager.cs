@@ -2,7 +2,9 @@ using Content.Client.Administration.Managers;
 using Content.Client.Ghost;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
+using Content.Shared.Ghost;
 using Robust.Client.Console;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Chat.Managers;
@@ -58,6 +60,11 @@ internal sealed class ChatManager : IChatManager
                 _consoleHost.ExecuteCommand($"me \"{CommandParsing.Escape(str)}\"");
                 break;
 
+            case ChatSelectChannel.AntiGhost:
+                _consoleHost.ExecuteCommand($"AntiGhost \"{CommandParsing.Escape(str)}\"");
+                break;
+            // SD-Tweak
+
             case ChatSelectChannel.Dead:
                 if (_systems.GetEntitySystemOrNull<GhostSystem>() is {IsGhost: true})
                     goto case ChatSelectChannel.Local;
@@ -80,8 +87,10 @@ internal sealed class ChatManager : IChatManager
 
             default:
                 throw new ArgumentOutOfRangeException(nameof(channel), channel, null);
+
         }
     }
+
 
 // ADT-CollectiveMind-Tweak-Start
     public void UpdatePermissions()
