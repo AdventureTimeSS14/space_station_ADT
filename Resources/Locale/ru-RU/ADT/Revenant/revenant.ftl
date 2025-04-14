@@ -46,7 +46,7 @@ item-jump-into-hands = {CAPITALIZE(THE($target))} прыгает в вашу р�
 
 revenant-animate-item-animate = {CAPITALIZE(THE($target))} Становится агрессивным!
 
-revenant-animate-item-inanimate = {CAPITALIZE(THE($target))} falls inert.
+revenant-animate-item-inanimate = {CAPITALIZE(THE($target))} становится инертным.
 
 alerts-revenant-stasis-name = [color=red]Стазис![/color]
 
