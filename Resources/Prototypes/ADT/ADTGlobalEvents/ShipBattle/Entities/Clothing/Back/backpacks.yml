@@ -1,11 +1,11 @@
 - type: entity
   parent: [ ClothingBackpack, BaseJetpack]
   id: ADTShipBattleClothingBlackBackpackJet
-  name: army backpack
+  name: backpack jet
   description: A spacious backpack with lots of pockets, worn by military structures.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet.rsi
   - type: Storage
     grid:
     - 0,0,7,4
@@ -13,10 +13,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Item
-    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet.rsi
     size: Ginormous
   - type: Clothing
-    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet.rsi
   - type: GasTank
     outputPressure: 42.6
     air:
@@ -26,3 +26,33 @@
       moles:
         - 1.025689525 # oxygen
         - 1.025689525 # nitrogen
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJet
+  id: ADTShipBattleClothingBlackBackpackJetTSF
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet_tsf.rsi
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet_tsf.rsi
+    size: Ginormous
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet_tsf.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJet
+  id: ADTShipBattleClothingBlackBackpackJetKMT
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet_kmt.rsi
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet_kmt.rsi
+    size: Ginormous
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet_kmt.rsi
