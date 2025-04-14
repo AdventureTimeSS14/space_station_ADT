@@ -243,6 +243,22 @@ public sealed class PaperSystem : EntitySystem
     }
     // ADT-BookPrinter-End
 
+    public void CopyStamps(Entity<PaperComponent?> source, Entity<PaperComponent?> target)
+    {
+        if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp))
+            return;
+
+        target.Comp.StampedBy = new List<StampDisplayInfo>(source.Comp.StampedBy);
+        target.Comp.StampState = source.Comp.StampState;
+        Dirty(target);
+
+        if (TryComp<AppearanceComponent>(target, out var appearance))
+        {
+            // delete any stamps if the stamp state is null
+            _appearance.SetData(target, PaperVisuals.Stamp, target.Comp.StampState ?? "", appearance);
+        }
+    }
+
     public void SetContent(Entity<PaperComponent> entity, string content, bool? doNewline = true) // ADT-BookPrinter
     {
         entity.Comp.Content = content;

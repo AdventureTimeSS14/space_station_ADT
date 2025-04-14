@@ -2,6 +2,7 @@ using Content.Client.Administration.Managers;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
+using Robust.Shared.Configuration;
 
 namespace Content.Client.Administration.Systems
 {
