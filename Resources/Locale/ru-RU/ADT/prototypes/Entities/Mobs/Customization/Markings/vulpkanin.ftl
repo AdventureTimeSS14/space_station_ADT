@@ -318,8 +318,3 @@ marking-ADTVulpHairRough = Грубая
 marking-ADTVulpHairShort = короткие волосы
 marking-ADTVulpHairShort2 = короткие волосы 2
 marking-ADTVulpHairSpike = Шип
-
-marking-ADTVulpFacialHairRuff = Ruff
-marking-ADTVulpFacialHairElder = Elder
-marking-ADTVulpFacialHairElderChin = Elder Chin
-marking-ADTVulpFacialHairKita = Kita
