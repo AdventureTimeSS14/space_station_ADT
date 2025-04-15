@@ -21,6 +21,7 @@
   - type: Tag
     tags:
     - Wall
+  - type: IsRoof
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -50,6 +51,7 @@
   - type: RadiationBlocker
     resistance: 2
   - type: BlockWeather
+  - type: SunShadowCast
 
 - type: entity
   parent: BaseWall
@@ -79,7 +81,7 @@
         acts: [ "Destruction" ]
   - type: CanBuildWallOnTopRPD # ADT-RPD
   - type: IconSmooth
-    key: bricks
+    key: walls
     base: brick
 
 - type: entity
@@ -847,8 +849,8 @@
     damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
-  - type: Reflect
-    reflectProb: 1
+  - type: Reflect 
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -953,7 +955,7 @@
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
 
 - type: entity
   parent: BaseWall
@@ -997,8 +999,8 @@
   - type: IconSmooth
     key: walls
     base: state
-  - type: Reflect
-    reflectProb: 1
+  - type: Reflect #ADT_Tweak - без рикошетов
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
 
 - type: entity
   parent: BaseWall

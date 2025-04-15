@@ -1,23 +1,23 @@
 <Document>
-# Шаттлостроение
+  # Shuttle-craft
 
 Строительство шаттла — занятие простое и легкое, хотя и довольно хлопотное по ресурсам и времени. Оно отлично подойдёт тем, у кого много свободного времени и кому хочется вызова.
 
-## С чего начать
-<Box>Без чего никак:</Box>
-<Box>
-<GuideEntityEmbed Entity="Thruster"/>
-<GuideEntityEmbed Entity="Gyroscope"/>
-<GuideEntityEmbed Entity="ComputerShuttle"/>
-<GuideEntityEmbed Entity="SubstationBasic"/>
-<GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
-</Box>
-<Box>
-<GuideEntityEmbed Entity="CableHVStack"/>
-<GuideEntityEmbed Entity="CableMVStack"/>
-<GuideEntityEmbed Entity="CableApcStack"/>
-<GuideEntityEmbed Entity="APCBasic"/>
-</Box>
+  ## Getting started
+  <Box>Required parts:</Box>
+  <Box>
+  <GuideEntityEmbed Entity="Thruster"/>
+  <GuideEntityEmbed Entity="Gyroscope"/>
+  <GuideEntityEmbed Entity="ComputerShuttle"/>
+  <GuideEntityEmbed Entity="SubstationBasic"/>
+  <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="CableHVStack"/>
+  <GuideEntityEmbed Entity="CableMVStack"/>
+  <GuideEntityEmbed Entity="CableApcStack"/>
+  <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
 
 <Box>Опционально:</Box>
 <Box>

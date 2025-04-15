@@ -126,7 +126,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                 if (Transform(entity).ParentUid == EntityUid.Invalid)
                     continue;
 
-                _audio.PlayEntity(audioResource.AudioStream, entity, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
+                _audio.PlayEntity(audioResource.AudioStream, entity, null, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
 
                 await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(ev.LowVar, ev.HighVar)));
             }

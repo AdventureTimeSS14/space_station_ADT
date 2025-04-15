@@ -48,5 +48,4 @@ flavor-base-adtsindipizza = зловеще сырно
 flavor-complex-ADTteqilaoldfashion =  тёрпко и как брутальность
 flavor-complex-ADTjackiewelles = сладко, тёрпко и грустно
 flavor-complex-ADTsilverhand = сладко, тёрпко, как брутальность и рок
-flavor-complex-ADTbacchusblessing = как кирпичная стена
 flavor-complex-ADTCoffeeBonBon = как очень сладкое кофе

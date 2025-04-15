@@ -30,6 +30,7 @@
     prototype: Aghost
   - type: Access
     groups:
+    - Silicon
     - ADTOverallAccess # ADT-Tweak
     tags:
     - NuclearOperative
