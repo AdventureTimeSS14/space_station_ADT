@@ -65,5 +65,9 @@
       "name": "overlay_husk",
       "directions": 4
     }
+    {
+      "name": "tail_m",
+      "directions": 4
+    }
   ]
 }
