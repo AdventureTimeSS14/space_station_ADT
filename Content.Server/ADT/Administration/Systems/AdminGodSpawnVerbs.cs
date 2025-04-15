@@ -41,7 +41,7 @@ public sealed partial class AdminVerbSystem
                         }
 
                         var stationUid = _stations.GetOwningStation(args.Target);
-                        ProtoId<JobPrototype> job = "ADTJobTimeGod"; // Используется как затычка для метода SpawnPlayerMob()
+                        ProtoId<JobPrototype> job = "ADTJobAdminGod";
                         var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
                         var mobUidSpawn = _spawning.SpawnPlayerMob(coords.Value, job, profile, stationUid);
                         var targetMind = _mindSystem.GetMind(args.Target);
