@@ -64,9 +64,17 @@
     {
       "name": "overlay_husk",
       "directions": 4
-    }
+    },
     {
       "name": "tail_m",
+      "directions": 4
+    },
+    {
+      "name": "tail_m_wagging",
+      "directions": 4
+    },
+    {
+      "name": "vulpkanin_m",
       "directions": 4
     }
   ]
