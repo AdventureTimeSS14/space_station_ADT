@@ -150,7 +150,7 @@
     contents:
       - id: ClothingEyesGlassesSecurity
         prob: 0.3
-      - id: ClothingHeadHatDetGadget
+      - id: ADTClothingHeadHatDetGadgetv2
       - id: ClothingNeckTieDet
       - id: ClothingOuterVestDetective
       - id: ClothingOuterCoatDetective

@@ -36,17 +36,12 @@
           - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
-#ADT-tweak
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatFedoraBrown
   id: ClothingHeadHatDetGadget
   name: go go hat
   description: A novel hat with a built in toolkit. Automatically stores and retrieves items at the say of a phrase!
   components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/fedoragadget.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/fedoragadget.rsi
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
   - type: TriggerOnVoice
