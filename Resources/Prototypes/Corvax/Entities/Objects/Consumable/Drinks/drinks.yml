@@ -14,24 +14,24 @@
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/alexander.rsi
     state: icon
-
-- type: entity
-  parent: DrinkGlass
-  id: DrinkBadTouchGlass
-  suffix: bad touch
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: BadTouch
-          Quantity: 30
-  - type: Drink
-  - type: Icon
-    sprite: Corvax/Objects/Consumable/Drinks/badTouch.rsi
-    state: icon
-
+#ADT - tweak start
+#- type: entity
+#  parent: DrinkGlass
+#  id: DrinkBadTouchGlass
+#  suffix: bad touch
+#  components:
+#  - type: SolutionContainerManager
+#    solutions:
+#      drink:
+#        maxVol: 30
+#        reagents:
+#        - ReagentId: BadTouch
+#          Quantity: 30
+#  - type: Drink
+#  - type: Icon
+#    sprite: Corvax/Objects/Consumable/Drinks/badTouch.rsi
+#    state: icon
+#ADT - tweak end
 - type: entity
   parent: DrinkGlass
   id: DrinkBoyarskyGlass
