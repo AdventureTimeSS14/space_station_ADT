@@ -35,7 +35,7 @@ namespace Content.Shared.Preferences
 
         public const int MaxNameLength = 96;    // ну тип ADT
         public const int MaxLoadoutNameLength = 32;
-        public const int MaxDescLength = 512;
+        public const int MaxDescLength = 4096;
 
         /// <summary>
         /// Job preferences for initial spawn.
