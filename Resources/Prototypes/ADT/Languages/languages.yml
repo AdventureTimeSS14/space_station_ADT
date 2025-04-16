@@ -91,6 +91,39 @@
     - гарр
 
 - type: language
+  id: Turtle
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    replacement:
+    - пссс-кхх
+    - блуп
+    - эээх
+    - клац-клац
+
+- type: language
+  id: Pigeon
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    replacement:
+    - курлык
+    - курлы
+    - курло
+    - гугл-курл
+
+- type: language
+  id: Goat
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    replacement:
+    - бе-е-е
+    - бэ-э-э
+    - фыр
+    - баа-а-а
+
+- type: language
   id: Mothroach
   parent: BaseVocalLanguage
   speech: !type:Generic
@@ -125,6 +158,17 @@
     - аааг
     - ааааг
     - аааааг
+
+- type: language
+  id: Dragon
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    replacement:
+    - гррр
+    - грааар
+    - рррррр
+    - рргх
+    - гааррр
 
 - type: language
   id: Bee
@@ -171,6 +215,8 @@
     replacement:
     - Moo
     - Mooo
+
+
 
 - type: language
   id: Sheep

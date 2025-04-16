@@ -149,7 +149,3 @@ ent-ADTTheSilverhandGlass = { ent-DrinkGlass }
 ent-ADTCoffeeBonBonGlass = { ent-DrinkGlass }
     .suffix = Кофе бон-бон
     .desc = { ent-DrinkGlass.desc }
-
-ent-ADTBacchusBlessingGlass = { ent-DrinkGlass }
-    .suffix = Благославение бахуса
-    .desc = { ent-DrinkGlass.desc }

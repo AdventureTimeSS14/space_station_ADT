@@ -18,6 +18,9 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> BarksMaxPitch =
         CVarDef.Create("barks.max_pitch", 1.5f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
+    public static readonly CVarDef<int> ChatStackLastLines =
+        CVarDef.Create("chat.chatstack_last_lines", 1, CVar.CLIENTONLY | CVar.ARCHIVE, "How far into the chat history to look when looking for similiar messages to coalesce them.");
+
     public static readonly CVarDef<float> BarksMinPitch =
         CVarDef.Create("barks.min_pitch", 0.6f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
