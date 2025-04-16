@@ -1,3 +1,61 @@
+# Default subtypes
+- type: borgSubtype
+  parentBorgType: generic
+  id: default_generic
+  sprite:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: robot
+  dummyPrototype: BorgChassisGeneric
+
+- type: borgSubtype
+  parentBorgType: mining
+  id: default_mining
+  sprite:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: miner
+  dummyPrototype: BorgChassisMining
+
+- type: borgSubtype
+  parentBorgType: engineering
+  id: default_engineering
+  sprite:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: engineer
+  dummyPrototype: BorgChassisEngineer
+
+- type: borgSubtype
+  parentBorgType: janitor
+  id: default_janitor
+  sprite:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: janitor
+  dummyPrototype: BorgChassisJanitor
+
+- type: borgSubtype
+  parentBorgType: medical
+  id: default_medical
+  sprite:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  dummyPrototype: BorgChassisMedical
+
+- type: borgSubtype
+  parentBorgType: service
+  id: default_service
+  sprite:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: service
+  dummyPrototype: BorgChassisService
+
+- type: borgSubtype
+  parentBorgType: security
+  id: default_security
+  sprite:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: sec
+  dummyPrototype: ADTBorgChassisSec
+
+#Custom subtypes
 - type: borgSubtype
   parentBorgType: medical
   id: qualified_doctor
