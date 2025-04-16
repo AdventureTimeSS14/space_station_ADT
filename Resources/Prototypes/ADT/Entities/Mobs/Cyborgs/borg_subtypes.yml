@@ -4,14 +4,15 @@
   name: qualified medical cyborg
   components:
   - type: Sprite
+    sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Medical/qualified_doctor.rsi
     layers:
-    - state: robot
+    - state: medical
       map: [ "enum.BorgVisualLayers.Body", "movement" ]
-    - state: robot_e_r
+    - state: medical_e_r
       map: [ "enum.BorgVisualLayers.Light" ]
       shader: unshaded
       visible: false
-    - state: robot_l
+    - state: medical_l
       shader: unshaded
       map: [ "light","enum.BorgVisualLayers.LightStatus" ]
       visible: false

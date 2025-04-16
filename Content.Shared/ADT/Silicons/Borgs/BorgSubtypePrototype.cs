@@ -22,7 +22,7 @@ public sealed partial class BorgSubtypePrototype : IPrototype
     /// The sprite path belonging to this particular subtype.
     /// </summary>
     [DataField]
-    public required ResPath SpritePath;
+    public required SpriteSpecifier Sprite = default!;
 
     /// <summary>
     /// The parent borg type that the subtype will be shown under in the selection menu.

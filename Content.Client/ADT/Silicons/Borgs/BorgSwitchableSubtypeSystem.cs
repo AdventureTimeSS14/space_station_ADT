@@ -1,41 +1,28 @@
 using Content.Shared.ADT.Silicons.Borgs;
 using Robust.Client.GameObjects;
-using Robust.Client.ResourceManagement;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Silicons.Borgs;
 
 public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSubtypeSystem
 {
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSubtypeChangedEvent>(OnSubtypeChanged);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
-    private void OnSubtypeChanged(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSubtypeChangedEvent args)
+    private void OnAppearanceChange(EntityUid uid, BorgSwitchableSubtypeComponent component, ref AppearanceChangeEvent args)
     {
-        SetAppearanceFromSubtype(ent, args.Subtype);
-    }
-
-    protected override void SetAppearanceFromSubtype(
-        Entity<BorgSwitchableSubtypeComponent> ent,
-        ProtoId<BorgSubtypePrototype> subtype)
-    {
-
-        if (!Prototypes.TryIndex(subtype, out var subtypePrototype))
+        if (args.Sprite == null)
             return;
 
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
+        if (!_appearance.TryGetData<SpriteSpecifier>(uid, BorgSwitchableSubtypeUiKey.Key, out var sprite))
             return;
 
-        var rsiPath = SpriteSpecifierSerializer.TextureRoot / subtypePrototype.SpritePath;
-
-        if (_resourceCache.TryGetResource<RSIResource>(rsiPath, out var resource))
-            sprite.BaseRSI = resource.RSI;
+        args.Sprite.LayerSetSprite(0, sprite);
     }
 }

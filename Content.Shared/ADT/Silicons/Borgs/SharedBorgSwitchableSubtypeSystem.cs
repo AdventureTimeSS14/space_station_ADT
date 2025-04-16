@@ -1,36 +1,24 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Silicons.Borgs;
 
 public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
-    [Dependency] private readonly SharedBorgSwitchableSubtypeSystem _subtypeSystem = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSelectSubtypeMessage>(OnSubtypeSelection);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSubtypeChangedEvent>(OnSubtypeChanged);
     }
 
     private void OnSubtypeSelection(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSelectSubtypeMessage args)
     {
         SetSubtype(ent, args.Subtype);
-    }
-
-
-    private void OnComponentInit(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentInit args)
-    {
-        if (ent.Comp.BorgSubtype == null)
-            return;
-
-        SetAppearanceFromSubtype(ent, ent.Comp.BorgSubtype.Value);
-    }
-
-    protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
-    {
     }
 
     public void SetSubtype(EntityUid ent, ProtoId<BorgSubtypePrototype> subtype)
@@ -40,6 +28,19 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 
         subtypeComp.BorgSubtype = subtype;
         RaiseLocalEvent(ent, new BorgSubtypeChangedEvent(subtype));
+    }
+
+    private void OnSubtypeChanged(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSubtypeChangedEvent args)
+    {
+        UpdateAppearance(ent, args.Subtype);
+    }
+
+    private void UpdateAppearance(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
+    {
+        if (!_proto.TryIndex(subtype, out var subtypePrototype))
+            return;
+
+        _appearance.SetData(ent, BorgSwitchableSubtypeUiKey.Key, subtypePrototype.Sprite);
     }
 }
 
@@ -52,4 +53,10 @@ public class BorgSubtypeChangedEvent : EntityEventArgs
     {
         Subtype = subtype;
     }
+}
+
+[Serializable, NetSerializable]
+public enum BorgSwitchableSubtypeUiKey : byte
+{
+    Key
 }
