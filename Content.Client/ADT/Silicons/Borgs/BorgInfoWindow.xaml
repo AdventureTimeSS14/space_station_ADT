@@ -84,7 +84,6 @@
         <customControls:VSeparator Margin="0 10 0 10"/>
         
         <BoxContainer Orientation="Vertical" 
-                    VerticalExpand="False" 
                     HorizontalExpand="True" 
                     Margin="15 10 15 15">
             
