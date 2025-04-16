@@ -5,12 +5,12 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.ADT.Atmos.EntityDamage.Pipes
 {
     [RegisterComponent, NetworkedComponent]
-    public sealed partial class OverpressurePipeDamageComponent : Component
+    public sealed partial class OverheatPipeDamageComponent : Component
     {        
         /// <summary>
-        /// Our limit pressure that we can have in pipe.  
+        /// Our limit temperature that we can have in pipe.  
         /// </summary>
         [DataField]
-        public float LimitPressure = 0f;
+        public float LimitTemperature = 0f;
     }
 }
