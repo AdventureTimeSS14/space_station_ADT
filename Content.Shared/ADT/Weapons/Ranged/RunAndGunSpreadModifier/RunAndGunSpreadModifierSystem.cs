@@ -12,7 +12,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<RunAndGunSpreadModifierComponent, GunShotEvent>(OnModifyAngle);
-        SubscribeLocalEvent<RunAndGunSpreadModifierComponent, AttemptShootEvent>(OnBlocker);
+        SubscribeLocalEvent<RunAndGunBlockerComponent, AttemptShootEvent>(OnBlocker);
     }
     private void OnModifyAngle(Entity<RunAndGunSpreadModifierComponent> ent, ref GunShotEvent args)
     {
@@ -23,7 +23,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
 
         args.ToCoordinates = toCoordinates;
     }
-    private void OnBlocker(Entity<RunAndGunSpreadModifierComponent> ent, ref AttemptShootEvent args)
+    private void OnBlocker(Entity<RunAndGunBlockerComponent> ent, ref AttemptShootEvent args)
     {
         if (args.Cancelled)
             return;
