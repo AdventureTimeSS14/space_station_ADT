@@ -217,3 +217,16 @@
       job: ADTJobUSSPArmyOfficer
 
 # USSP USSP
+
+- type: entity
+  parent: IDCardStandard
+  id: ADTBarberIDCard
+  name: ID карта парикмахера
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: id-barber
+  - type: PresetIdCard
+    job: ADTBarber
