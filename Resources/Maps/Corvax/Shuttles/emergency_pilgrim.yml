@@ -4448,7 +4448,8 @@ entities:
     - type: Transform
       pos: 4.5,-11.5
       parent: 1
-- proto: DrinkBadTouchGlass
+#ADT - tweak start
+- proto: ADTDrinkPenetrationGlass
   entities:
   - uid: 305
     components:
@@ -4456,6 +4457,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.037622273,-6.572359
       parent: 1
+#ADT - tweak end 
 - proto: DrinkBeerGrowler
   entities:
   - uid: 630

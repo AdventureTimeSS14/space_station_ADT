@@ -24745,7 +24745,7 @@ entities:
     - type: Transform
       pos: 60.434013,26.512457
       parent: 2
-- proto: DrinkBadTouchGlass
+- proto: ADTDrinkPenetrationGlass
   entities:
   - uid: 3119
     components:

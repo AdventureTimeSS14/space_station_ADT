@@ -25928,13 +25928,15 @@ entities:
     - type: Transform
       pos: 60.434013,26.512457
       parent: 2
-- proto: DrinkBadTouchGlass
+#ADT - tweak start
+- proto: ADTDrinkPenetrationGlass
   entities:
   - uid: 3119
     components:
     - type: Transform
       pos: 46.30257,47.527214
       parent: 2
+#ADT - tweak end
 - proto: DrinkBeerBottleFull
   entities:
   - uid: 3120

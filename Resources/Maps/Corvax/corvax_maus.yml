@@ -61948,7 +61948,7 @@ entities:
     - type: Transform
       pos: -20.530357,-62.515533
       parent: 2
-- proto: DrinkBadTouchGlass
+- proto: ADTDrinkPenetrationGlass
   entities:
   - uid: 20012
     components:
