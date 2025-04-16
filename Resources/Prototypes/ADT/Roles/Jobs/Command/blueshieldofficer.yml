@@ -47,6 +47,11 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
       components:
+        - type: CantShoot
+          popup: combo-cantshoot
+          whitelist:
+            tags:
+            - ADTBsoWeapon
         - type: Puller
           grabStats:
             None:
