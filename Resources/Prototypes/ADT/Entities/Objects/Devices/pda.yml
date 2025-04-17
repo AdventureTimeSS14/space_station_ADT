@@ -312,8 +312,8 @@
 - type: entity
   parent: ADTBasePDA
   id: ADTBarberPDA
-  name: КПК парикмахера
-  description: Почему он не серый?
+  name: barber PDA
+  description: Why isn't it gray?
   components:
   - type: Pda
     id: ADTBarberIDCard

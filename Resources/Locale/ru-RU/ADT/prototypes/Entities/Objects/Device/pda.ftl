@@ -25,3 +25,6 @@ ent-ADTGuardOfficerPDA = КПК надзирателя СБ
 ent-ADTTraderPDA = КПК торговца
     .desc = КПК торговца
     .suffix = { "ТСФ" }
+
+ent-ADTBasePDA = КПК парикмахера
+    .desc = Почему он не серый?

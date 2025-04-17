@@ -18,4 +18,4 @@ job-description-ADTsecborg = Держать на станции порядок, 
 
 job-description-guard-officer = Следите за заключенными, обеспечивайте их основными потребностями, чтобы они не посмели сбежать.
 
-job-description-ADTbarber = Сделайте экипаж самым модным на станции!
+job-description-ADTbarber = Покажите кто тут самый модный на станции!

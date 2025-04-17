@@ -221,7 +221,7 @@
 - type: entity
   parent: IDCardStandard
   id: ADTBarberIDCard
-  name: ID карта парикмахера
+  name: barber ID card
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/id_cards.rsi
