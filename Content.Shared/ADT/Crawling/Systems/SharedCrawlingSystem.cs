@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.DoAfter;
 using Content.Shared.Explosion;
 using Content.Shared.Input;
@@ -14,6 +15,7 @@ using Content.Shared.Climbing.Systems;
 using Content.Shared.CombatMode;
 using System.Numerics;
 using Content.Shared.Throwing;
+using Content.Shared.Buckle;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Gravity;
 using Content.Shared.Coordinates;
@@ -23,6 +25,7 @@ namespace Content.Shared.ADT.Crawling;
 public abstract class SharedCrawlingSystem : EntitySystem
 {
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
@@ -31,6 +34,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly BonkSystem _bonk = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -49,7 +53,8 @@ public abstract class SharedCrawlingSystem : EntitySystem
         SubscribeLocalEvent<CrawlerComponent, MapInitEvent>(OnCrawlerInit);
 
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.ToggleCrawling, InputCmdHandler.FromDelegate(ToggleCrawlingKeybind, handle: false))
+            .Bind(ContentKeyFunctions.ToggleCrawling,
+                InputCmdHandler.FromDelegate(ToggleCrawlingKeybind, handle: false))
             .Register<SharedCrawlingSystem>();
     }
 
@@ -60,9 +65,14 @@ public abstract class SharedCrawlingSystem : EntitySystem
         var ev = new CrawlingKeybindEvent();
         RaiseLocalEvent(session.AttachedEntity.Value, ev);
     }
+
     private void ToggleCrawling(EntityUid uid, CrawlerComponent component, CrawlingKeybindEvent args)
     {
-        ///checks players standing state, downing player if they are standding and starts doafter with standing up if they are downed
+        // should not start do after if the player is buckled to anything. Either that or we should unbuckle player. I'd prefer not starting do after at all
+        if (_buckle.IsBuckled(uid))
+            return;
+
+        // checks players standing state, downing player if they are standding and starts doafter with standing up if they are downed
         switch (_standing.IsDown(uid))
         {
             case false:
@@ -97,27 +107,28 @@ public abstract class SharedCrawlingSystem : EntitySystem
                 // }
                 break;
             case true:
-                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.StandUpTime, new CrawlStandupDoAfterEvent(),
-                uid, used: uid)
+                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.StandUpTime,
+                    new CrawlStandupDoAfterEvent(),
+                    uid, used: uid)
                 {
                     BreakOnDamage = true
                 });
                 break;
         }
     }
+
     private void OnDoAfter(EntityUid uid, CrawlerComponent component, CrawlStandupDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
 
-        foreach (var item in _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f))
+        var lookup = _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f);
+        if (lookup.Count != 0)
         {
-            if (HasComp<ClimbableComponent>(item))
-            {
-                _bonk.TryBonk(uid, item, source: uid);
-                return;
-            }
+            _bonk.TryBonk(uid, lookup.First(), source: uid);
+            return;
         }
+
         _standing.Stand(uid);
     }
 
@@ -128,21 +139,24 @@ public abstract class SharedCrawlingSystem : EntitySystem
         RemCompDeferred<CrawlingComponent>(uid);
         _alerts.ClearAlert(uid, component.CrawlingAlert);
     }
+
     private void OnFall(EntityUid uid, CrawlerComponent component, DownAttemptEvent args)
     {
         if (args.Cancelled)
             return;
         _alerts.ShowAlert(uid, component.CrawlingAlert);
 
-
         EnsureComp<CrawlingComponent>(uid);
     }
+
     private void OnStunned(EntityUid uid, CrawlerComponent component, StunnedEvent args)
     {
         EnsureComp<CrawlingComponent>(uid);
         _alerts.ShowAlert(uid, component.CrawlingAlert);
     }
-    private void OnGetExplosionResistance(EntityUid uid, CrawlerComponent component, ref GetExplosionResistanceEvent args)
+
+    private void OnGetExplosionResistance(EntityUid uid, CrawlerComponent component,
+        ref GetExplosionResistanceEvent args)
     {
         // fall on explosion damage and lower explosion damage of crawling
         if (_standing.IsDown(uid))
@@ -154,14 +168,15 @@ public abstract class SharedCrawlingSystem : EntitySystem
             if (!ev.Cancelled)
                 _standing.Down(uid);
         }
-
     }
+
     private void OnCrawlSlowdownInit(EntityUid uid, CrawlingComponent component, ComponentInit args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         _appearance.SetData(uid, CrawlingVisuals.Standing, false);
         _appearance.SetData(uid, CrawlingVisuals.Crawling, true);
     }
+
     private void OnCrawlSlowRemove(EntityUid uid, CrawlingComponent component, ComponentShutdown args)
     {
         component.SprintSpeedModifier = 1f;
@@ -170,6 +185,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
         _appearance.SetData(uid, CrawlingVisuals.Crawling, false);
         _appearance.SetData(uid, CrawlingVisuals.Standing, true);
     }
+
     private void OnRefreshMovespeed(EntityUid uid, CrawlingComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
@@ -191,6 +207,7 @@ public sealed partial class CrawlStandupDoAfterEvent : SimpleDoAfterEvent
 public sealed partial class CrawlingKeybindEvent
 {
 }
+
 
 [NetSerializable, Serializable]
 public enum CrawlingVisuals : byte

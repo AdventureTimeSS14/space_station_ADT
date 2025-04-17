@@ -96,9 +96,9 @@
   - ADTDurandArmorPlates
   - ADTDurandCentralElectronics
   - ADTDurandPeripheralsElectronics
-  position: 4,1
+  position: 3,1
   requiredTech:
-  - ADTMechTechnologyArmor
+  - ADTGygaxTechnology
 
 - type: technology
   id: ADTPhazonTechnology
@@ -217,21 +217,22 @@
   requiredTech:
   - ADTMechTechnologyDrill
 
-- type: technology
-  id: ADTMechTechnologyArmor
-  name: research-technology-mech-armor
-  icon:
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_abooster_proj
-  discipline: Mech
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - MechEquipmentArmorMelee
-  - MechEquipmentArmorRange
-  position: 3,1
-  requiredTech:
-  - ADTGygaxTechnology
+# Выведено из игры пока броня не будет починена
+# - type: technology
+#   id: ADTMechTechnologyArmor
+#   name: research-technology-mech-armor
+#   icon:
+#     sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#     state: mecha_abooster_proj
+#   discipline: Mech
+#   tier: 2
+#   cost: 5000
+#   recipeUnlocks:
+#   - MechEquipmentArmorMelee
+#   - MechEquipmentArmorRange
+#   position: 3,1
+#   requiredTech:
+#   - ADTGygaxTechnology
 
 - type: technology
   id: ADTMechGunSmallTechnology
@@ -247,8 +248,6 @@
   - ADTMechGunUltraAC2
   - ADTBoxAmmoScattershot
   - ADTBoxAmmoAC2Ultra
-  - ADTMechGunFNX99Hades
-  - ADTBoxAmmoHades
   position: 3,-1
   requiredTech:
   - ADTGygaxTechnology
@@ -263,11 +262,13 @@
   tier: 3
   cost: 15000
   recipeUnlocks:
-  - ADTMechGunMHAR21
+  # - ADTMechGunMHAR21 Вырезано ради баланса
   - ADTMechGunSGL6
 #  - ADTMechGunSRM8 Вырезано ради баланса
   - ADTMechGunBRM6
-  - ADTBoxAmmoSniper
+  # - ADTBoxAmmoSniper Вырезано ради баланса
+  - ADTMechGunFNX99Hades
+  - ADTBoxAmmoHades
   - ADTBoxAmmoGranade
   position: 3,-2
   requiredTech:
