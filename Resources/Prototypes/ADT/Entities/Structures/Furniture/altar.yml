@@ -1,0 +1,11 @@
+- type: entity
+  id: ADTAltarOctoCat
+  parent: AltarNanotrasen
+  name: OctoCat altar
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: gitoctocat
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: gitoctocat
