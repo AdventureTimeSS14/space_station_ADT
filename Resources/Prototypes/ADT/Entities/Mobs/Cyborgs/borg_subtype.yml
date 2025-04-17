@@ -63,11 +63,3 @@
     sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Medical/qualified_doctor.rsi
     state: medical
   dummyPrototype: ADTQualifiedDoctorChassis
-
-- type: borgSubtype
-  parentBorgType: service
-  id: kerfusSkin
-  sprite:
-    sprite: ADT/Mobs/Silicon/Borgs/cyborg_kerfus.rsi
-    state: kerfusNT
-  dummyPrototype: ADTBorgChassisKerfusNT
