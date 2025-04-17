@@ -2,7 +2,6 @@
 - type: latheRecipe
   id: ADTGygaxHarness
   result: ADTGygaxHarness
-  category: ADTMechGygax
   completetime: 4
   materials:
     Steel: 3000
@@ -12,7 +11,6 @@
 - type: latheRecipe
   id: ADTGygaxLArm
   result: ADTGygaxLArm
-  category: ADTMechGygax
   completetime: 4
   materials:
     Steel: 1800
@@ -21,7 +19,6 @@
 - type: latheRecipe
   id: ADTGygaxLLeg
   result: ADTGygaxLLeg
-  category: ADTMechGygax
   completetime: 4
   materials:
     Steel: 1800
@@ -30,7 +27,6 @@
 - type: latheRecipe
   id: ADTGygaxRLeg
   result: ADTGygaxRLeg
-  category: ADTMechGygax
   completetime: 4
   materials:
     Steel: 1800
@@ -39,7 +35,6 @@
 - type: latheRecipe
   id: ADTGygaxRArm
   result: ADTGygaxRArm
-  category: ADTMechGygax
   completetime: 4
   materials:
     Steel: 1800
@@ -48,7 +43,6 @@
 - type: latheRecipe
   id: ADTGygaxArmorPlates
   result: ADTGygaxArmorPlates
-  category: ADTMechGygax
   completetime: 4
   materials:
     Steel: 2000
@@ -57,7 +51,6 @@
 - type: latheRecipe
   id: ADTGygaxHead
   result: ADTGygaxHead
-  category: ADTMechGygax
   completetime: 4
   materials:
     Steel: 600
@@ -67,7 +60,6 @@
 - type: latheRecipe
   id: ADTGygaxCentralElectronics
   result: ADTGygaxCentralElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 150
@@ -77,7 +69,6 @@
 - type: latheRecipe
   id: ADTGygaxPeripheralsElectronics
   result: ADTGygaxPeripheralsElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 150
@@ -88,7 +79,6 @@
 - type: latheRecipe
   id: ADTOdysseusHarness
   result: ADTOdysseusHarness
-  category: ADTMechOdysseus
   completetime: 4
   materials:
     Steel: 2500
@@ -98,7 +88,6 @@
 - type: latheRecipe
   id: ADTOdysseusLArm
   result: ADTOdysseusLArm
-  category: ADTMechOdysseus
   completetime: 4
   materials:
     Steel: 1000
@@ -107,7 +96,6 @@
 - type: latheRecipe
   id: ADTOdysseusLLeg
   result: ADTOdysseusLLeg
-  category: ADTMechOdysseus
   completetime: 4
   materials:
     Steel: 1000
@@ -116,7 +104,6 @@
 - type: latheRecipe
   id: ADTOdysseusRLeg
   result: ADTOdysseusRLeg
-  category: ADTMechOdysseus
   completetime: 4
   materials:
     Steel: 1000
@@ -125,7 +112,6 @@
 - type: latheRecipe
   id: ADTOdysseusRArm
   result: ADTOdysseusRArm
-  category: ADTMechOdysseus
   completetime: 4
   materials:
     Steel: 1000
@@ -143,7 +129,6 @@
 - type: latheRecipe
   id: ADTOdysseusHead
   result: ADTOdysseusHead
-  category: ADTMechOdysseus
   completetime: 4
   materials:
     Steel: 500
@@ -152,7 +137,6 @@
 - type: latheRecipe
   id: ADTOdysseusCentralElectronics
   result: ADTOdysseusCentralElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 100
@@ -162,7 +146,6 @@
 - type: latheRecipe
   id: ADTOdysseusPeripheralsElectronics
   result: ADTOdysseusPeripheralsElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 100
@@ -174,7 +157,6 @@
 - type: latheRecipe
   id: ADTMechGunMedigun
   result: ADTMechGunMedigun
-  category: Mech
   completetime: 4
   materials:
     Steel: 750
@@ -187,7 +169,6 @@
 - type: latheRecipe
   id: ADTClarkeHarness
   result: ADTClarkeHarness
-  category: ADTMechClarke
   completetime: 4
   materials:
     Steel: 3000
@@ -197,7 +178,6 @@
 - type: latheRecipe
   id: ADTClarkeLArm
   result: ADTClarkeLArm
-  category: ADTMechClarke
   completetime: 4
   materials:
     Steel: 1000
@@ -206,7 +186,6 @@
 - type: latheRecipe
   id: ADTClarkeRArm
   result: ADTClarkeRArm
-  category: ADTMechClarke
   completetime: 4
   materials:
     Steel: 1000
@@ -215,7 +194,6 @@
 - type: latheRecipe
   id: ADTClarkeLTread
   result: ADTClarkeLTread
-  category: ADTMechClarke
   completetime: 4
   materials:
     Steel: 1000
@@ -224,7 +202,6 @@
 - type: latheRecipe
   id: ADTClarkeRTread
   result: ADTClarkeRTread
-  category: ADTMechClarke
   completetime: 4
   materials:
     Steel: 1000
@@ -233,7 +210,6 @@
 - type: latheRecipe
   id: ADTClarkeHead
   result: ADTClarkeHead
-  category: ADTMechClarke
   completetime: 4
   materials:
     Steel: 1000
@@ -242,7 +218,6 @@
 - type: latheRecipe
   id: ADTClarkeCentralElectronics
   result: ADTClarkeCentralElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 100
@@ -252,7 +227,6 @@
 - type: latheRecipe
   id: ADTClarkePeripheralsElectronics
   result: ADTClarkePeripheralsElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 100
@@ -263,7 +237,6 @@
 - type: latheRecipe
   id: ADTDurandHarness
   result: ADTDurandHarness
-  category: ADTMechDurand
   completetime: 4
   materials:
     Steel: 1750
@@ -274,7 +247,6 @@
 - type: latheRecipe
   id: ADTDurandLArm
   result: ADTDurandLArm
-  category: ADTMechDurand
   completetime: 4
   materials:
     Steel: 1250
@@ -284,7 +256,6 @@
 - type: latheRecipe
   id: ADTDurandLLeg
   result: ADTDurandLLeg
-  category: ADTMechDurand
   completetime: 4
   materials:
     Steel: 1250
@@ -294,7 +265,6 @@
 - type: latheRecipe
   id: ADTDurandRLeg
   result: ADTDurandRLeg
-  category: ADTMechDurand
   completetime: 4
   materials:
     Steel: 1250
@@ -304,7 +274,6 @@
 - type: latheRecipe
   id: ADTDurandRArm
   result: ADTDurandRArm
-  category: ADTMechDurand
   completetime: 4
   materials:
     Steel: 1250
@@ -314,7 +283,6 @@
 - type: latheRecipe
   id: ADTDurandArmorPlates
   result: ADTDurandArmorPlates
-  category: ADTMechDurand
   completetime: 4
   materials:
     Steel: 2250
@@ -324,7 +292,6 @@
 - type: latheRecipe
   id: ADTDurandHead
   result: ADTDurandHead
-  category: ADTMechDurand
   completetime: 4
   materials:
     Steel: 500
@@ -335,7 +302,6 @@
 - type: latheRecipe
   id: ADTDurandCentralElectronics
   result: ADTDurandCentralElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 300
@@ -345,7 +311,6 @@
 - type: latheRecipe
   id: ADTDurandPeripheralsElectronics
   result: ADTDurandPeripheralsElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 300
@@ -356,7 +321,6 @@
 - type: latheRecipe
   id: ADTPhazonHarness
   result: ADTPhazonHarness
-  category: ADTMechPhazon
   completetime: 4
   materials:
     Steel: 2750
@@ -366,7 +330,6 @@
 - type: latheRecipe
   id: ADTPhazonLArm
   result: ADTPhazonLArm
-  category: ADTMechPhazon
   completetime: 4
   materials:
     Steel: 1500
@@ -376,7 +339,6 @@
 - type: latheRecipe
   id: ADTPhazonLLeg
   result: ADTPhazonLLeg
-  category: ADTMechPhazon
   completetime: 4
   materials:
     Steel: 1500
@@ -386,7 +348,6 @@
 - type: latheRecipe
   id: ADTPhazonRLeg
   result: ADTPhazonRLeg
-  category: ADTMechPhazon
   completetime: 4
   materials:
     Steel: 1500
@@ -396,7 +357,6 @@
 - type: latheRecipe
   id: ADTPhazonRArm
   result: ADTPhazonRArm
-  category: ADTMechPhazon
   completetime: 4
   materials:
     Steel: 1500
@@ -406,7 +366,6 @@
 - type: latheRecipe
   id: ADTPhazonArmorPlates
   result: ADTPhazonArmorPlates
-  category: ADTMechPhazon
   completetime: 4
   materials:
     Steel: 2000
@@ -416,7 +375,6 @@
 - type: latheRecipe
   id: ADTPhazonHead
   result: ADTPhazonHead
-  category: ADTMechPhazon
   completetime: 4
   materials:
     Steel: 750
@@ -426,7 +384,6 @@
 - type: latheRecipe
   id: ADTPhazonCentralElectronics
   result: ADTPhazonCentralElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 300
@@ -436,7 +393,6 @@
 - type: latheRecipe
   id: ADTPhazonPeripheralsElectronics
   result: ADTPhazonPeripheralsElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 300
@@ -446,7 +402,6 @@
 - type: latheRecipe
   id: ADTPhazonWeaponControlElectronics
   result: ADTPhazonWeaponControlElectronics
-  category: Circuitry
   completetime: 2
   materials:
     Steel: 300
@@ -457,7 +412,6 @@
 - type: latheRecipe
   id: ADTRipleyMk2ModificationKit
   result: ADTRipleyMk2ModificationKit
-  category: Mech
   completetime: 4
   materials:
     Steel: 2000
@@ -469,7 +423,6 @@
 - type: latheRecipe
   id: MechEquipmentHumanGrabber
   result: MechEquipmentHumanGrabber
-  category: Mech
   completetime: 3
   materials:
     Steel: 450
@@ -480,7 +433,6 @@
 - type: latheRecipe
   id: MechEquipmentHumanSleeper
   result: MechEquipmentHumanSleeper
-  category: Mech
   completetime: 3
   materials:
     Steel: 750
@@ -491,7 +443,6 @@
 - type: latheRecipe
   id: ADTMechWeaponCutter
   result: ADTMechWeaponCutter
-  category: Mech
   completetime: 3
   materials:
     Steel: 1050
@@ -503,7 +454,6 @@
 - type: latheRecipe
   id: MechEquipmentArmorRange
   result: MechEquipmentArmorRange
-  category: Mech
   completetime: 3
   materials:
     Steel: 2050
@@ -513,7 +463,6 @@
 - type: latheRecipe
   id: MechEquipmentArmorMelee
   result: MechEquipmentArmorMelee
-  category: Mech
   completetime: 3
   materials:
     Steel: 2050
@@ -523,7 +472,6 @@
 - type: latheRecipe
   id: MechEquipmentDrill
   result: MechEquipmentDrill
-  category: Mech
   completetime: 3
   materials:
     Steel: 2050
@@ -533,7 +481,6 @@
 - type: latheRecipe
   id: MechEquipmentDiamondDrill
   result: MechEquipmentDiamondDrill
-  category: Mech
   completetime: 3
   materials:
     Steel: 2050
@@ -556,7 +503,6 @@
 - type: latheRecipe
   id: ADTMechGunImmolatorLaser
   result: ADTMechGunImmolatorLaserCrate
-  category: Mech
   completetime: 4
   materials:
     Steel: 2250
@@ -566,7 +512,6 @@
 - type: latheRecipe
   id: ADTMechGunPeacemakerDisabler
   result: ADTMechGunPeacemakerDisablerCrate
-  category: Mech
   completetime: 4
   materials:
     Steel: 1750
@@ -576,7 +521,6 @@
 - type: latheRecipe
   id: ADTMechGunSolarisLaserCannon
   result: ADTMechGunSolarisLaserCannonCrate
-  category: Mech
   completetime: 4
   materials:
     Steel: 2750
@@ -587,7 +531,6 @@
 - type: latheRecipe
   id: ADTMechGunTeslaCannon
   result: ADTMechGunTeslaCannonCrate
-  category: Mech
   completetime: 4
   materials:
     Steel: 3000
@@ -598,7 +541,6 @@
 - type: latheRecipe
   id: ADTMechGunScattershot
   result: ADTMechGunScattershotCrate
-  category: Mech
   completetime: 4
   materials:
     Steel: 4500
@@ -607,7 +549,6 @@
 - type: latheRecipe
   id: ADTMechGunUltraAC2
   result: ADTMechGunUltraAC2Crate
-  category: Mech
   completetime: 4
   materials:
     Steel: 3000
@@ -616,7 +557,6 @@
 - type: latheRecipe
   id: ADTMechGunFNX99Hades
   result: ADTMechGunFNX99HadesCrate
-  category: Mech
   completetime: 4
   materials:
     Steel: 6000
@@ -625,7 +565,6 @@
 - type: latheRecipe
   id: ADTMechGunMHAR21
   result: ADTMechGunMHAR21Crate
-  category: Mech
   completetime: 4
   materials:
     Steel: 6000
@@ -635,7 +574,6 @@
 - type: latheRecipe
   id: ADTMechGunSGL6
   result: ADTMechGunSGL6Crate
-  category: Mech
   completetime: 4
   materials:
     Steel: 6000
@@ -645,7 +583,6 @@
 - type: latheRecipe
   id: ADTMechGunBRM6
   result: ADTMechGunBRM6Crate
-  category: Mech
   completetime: 4
   materials:
     Steel: 3000
@@ -655,7 +592,6 @@
 - type: latheRecipe
   id: ADTMechGunSRM8
   result: ADTMechGunSRM8Crate
-  category: Mech
   completetime: 4
   materials:
     Steel: 27000
@@ -666,7 +602,6 @@
 - type: latheRecipe
   id: ADTBoxAmmoAC2Ultra
   result: ADTBoxAmmoAC2Ultra
-  category: Mech
   completetime: 1
   materials:
     Steel: 450
@@ -675,7 +610,6 @@
 - type: latheRecipe
   id: ADTBoxAmmoScattershot
   result: ADTBoxAmmoScattershot
-  category: Mech
   completetime: 1
   materials:
     Steel: 450
@@ -684,7 +618,6 @@
 - type: latheRecipe
   id: ADTBoxAmmoHades
   result: ADTBoxAmmoHades
-  category: Mech
   completetime: 1
   materials:
     Steel: 450
@@ -694,7 +627,6 @@
 - type: latheRecipe
   id: ADTBoxAmmoSniper
   result: ADTBoxAmmoSniper
-  category: Mech
   completetime: 1
   materials:
     Steel: 550
@@ -703,7 +635,6 @@
 - type: latheRecipe
   id: ADTBoxAmmoGranade
   result: ADTBoxAmmoGranade
-  category: Mech
   completetime: 1
   materials:
     Steel: 1100
@@ -714,7 +645,6 @@
 - type: latheRecipe
   id: ADTBoxPlasmaBox
   result: ADTBoxPlasmaBox
-  category: Mech
   completetime: 1
   materials:
     Plastic: 200

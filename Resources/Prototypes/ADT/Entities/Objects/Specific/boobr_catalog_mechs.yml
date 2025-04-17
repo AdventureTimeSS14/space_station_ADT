@@ -1,0 +1,49 @@
+#Аплинк ОБР против ЯО и РХБЗЗ
+
+- type: entity
+  parent: [BaseItem,  ADTStorePresetUplinkERTMech]
+  id: ADTertMechUplink
+  name: ERT Mech Uplink
+  description: ERT Mech Uplink
+  suffix: Against Nukie
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/ert_mechuplink.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/ert_mechuplink.rsi
+    heldPrefix: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Productunit: 30
+
+- type: entity
+  parent: [BaseItem,  ADTStorePresetUplinkERTRevolutionalMech]
+  id: ADTertRevolutionaryMechUplink
+  name: ERT Mech Uplink
+  description: ERT Mech Uplink
+  suffix: Against Revolutionary
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/ert_mechuplink.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/ert_mechuplink.rsi
+    heldPrefix: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Productunit: 30

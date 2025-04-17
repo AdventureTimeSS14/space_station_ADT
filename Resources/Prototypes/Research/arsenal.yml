@@ -59,6 +59,7 @@
   - WeaponLaserCarbine
   # Start ADT tweak
   - ADTWeaponIonRifle
+  - ADTWeaponIonCarbine
   - ADTBorgModuleHarm #ADT secborg
   - ADTMechGunImmolatorLaser
   position: 2,-1
