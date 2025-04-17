@@ -1,6 +1,6 @@
 - type: entity
   parent: BorgChassisMedical
-  id: QualifiedDoctorChassis
+  id: ADTQualifiedDoctorChassis
   name: qualified medical cyborg
   components:
   - type: Sprite
