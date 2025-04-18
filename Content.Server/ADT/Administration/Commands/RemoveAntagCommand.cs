@@ -6,23 +6,10 @@ using Content.Shared.Roles;
 using Robust.Shared.Console;
 using Robust.Server.Player;
 using Content.Server.Antag;
-
-using Content.Server.Administration.Commands;
-using Content.Server.Antag;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Zombies;
-using Content.Shared.Administration;
-using Content.Shared.Database;
-using Content.Shared.Mind.Components;
-using Content.Shared.Roles;
-using Content.Shared.Verbs;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Content.Server.Roles;
 using Content.Shared.Actions;
+using Content.Shared.Changeling.Components;
+using Content.Shared.Zombies;
 
 namespace Content.Server.Administration.Commands;
 
@@ -72,37 +59,51 @@ public sealed class RemoveAntagCommand : LocalizedEntityCommands
 
         bool success = false;
 
-
-
-        switch (role)
+        EntityUid antagCharacterEntity = EntityUid.Invalid;
+        if (_entityManager.TryGetComponent<MindComponent>(uid: mindId, out var mindComponent))
         {
-            case "Traitor":  // также удаляет аплинк встроенный в кпк синдиката
-                success = _sharedRoleSystem.MindTryRemoveRole<TraitorRoleComponent>(mindId);
-                break;
-            case "Heretict":
-                success = _sharedRoleSystem.MindTryRemoveRole<HereticRoleComponent>(mindId);
-                break;
-            case "Nukeops":
-                success = _sharedRoleSystem.MindTryRemoveRole<NukeopsRoleComponent>(mindId);
-                break;
-            case "Revolutionary":
-                success = _sharedRoleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId);
-                break;
-            case "Thief":
-                success = _sharedRoleSystem.MindTryRemoveRole<ThiefRoleComponent>(mindId);
-                break;
-            case "Changeling": // после этого остаются actions, включая магазин
-                success = _sharedRoleSystem.MindTryRemoveRole<ChangelingRoleComponent>(mindId);
-                break;
-            case "InitialInfected": //
-                success = _sharedRoleSystem.MindTryRemoveRole<InitialInfectedRoleComponent>(mindId);
-                break;
-            default:
-                shell.WriteLine($"roleComp does not exist or its deletion is not implemented");
-                break;
-
+            antagCharacterEntity = mindComponent.OwnedEntity.HasValue ? mindComponent.OwnedEntity.Value : EntityUid.Invalid;
         }
 
+        var roleRemovers = new Dictionary<string, Func<bool>>
+        {
+            { "Traitor", () => _sharedRoleSystem.MindTryRemoveRole<TraitorRoleComponent>(mindId) },
+            { "Heretic", () => _sharedRoleSystem.MindTryRemoveRole<HereticRoleComponent>(mindId) },
+            { "Nukeops", () => _sharedRoleSystem.MindTryRemoveRole<NukeopsRoleComponent>(mindId) },
+            { "Revolutionary", () => _sharedRoleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId) },
+            { "Thief", () => _sharedRoleSystem.MindTryRemoveRole<ThiefRoleComponent>(mindId) },
+            { "Changeling", () =>
+                {
+                    var removed = _sharedRoleSystem.MindTryRemoveRole<ChangelingRoleComponent>(mindId);
+                    if (_entityManager.TryGetComponent<ChangelingComponent>(antagCharacterEntity, out var changelingComponent))
+                    {
+                        _entityManager.RemoveComponent<ChangelingComponent>(antagCharacterEntity);
+                        shell.WriteLine("ChangelingComponent removed.");
+                    }
+                    return removed;
+                }
+            },
+            { "InitialInfected", () =>
+                {
+                    var removed = _sharedRoleSystem.MindTryRemoveRole<InitialInfectedRoleComponent>(mindId);
+                    if (_entityManager.TryGetComponent<InitialInfectedComponent>(antagCharacterEntity, out var infectedComponent))
+                    {
+                        _entityManager.RemoveComponent<InitialInfectedComponent>(antagCharacterEntity);
+                        shell.WriteLine("InitialInfectedComponent removed.");
+                    }
+                    return removed;
+                }
+            }
+        };
+        if (roleRemovers.TryGetValue(role, out var remover))
+        {
+            success = remover.Invoke();
+            shell.WriteLine(success ? $"{role} removed successfully!" : $"Failed to remove {role}.");
+        }
+        else
+        {
+            shell.WriteError("Unknown or unsupported role.");
+        }
 
 
         if (success)
@@ -110,37 +111,8 @@ public sealed class RemoveAntagCommand : LocalizedEntityCommands
         else
             shell.WriteLine($"Error while deleting {role} role!");
 
-        // TODO: удаление Actions
-
-        if (_entityManager.TryGetComponent<MindComponent>(uid: mindId, out var mindComponent))
-        {
-            EntityUid antagCharacterEntity = mindComponent.OwnedEntity.HasValue ? mindComponent.OwnedEntity.Value : EntityUid.Invalid;
-            if (_entityManager.TryGetComponent<ActionsComponent>(antagCharacterEntity, out var actionsComponent))
-            {
-
-                foreach (var action in actionsComponent.Actions)
-                {
-                    if (_entityManager.TryGetComponent<MetaDataComponent>(action, out var metaDataComponent))
-                    {
-                        if (metaDataComponent.EntityPrototype != null)
-                            if (metaDataComponent.EntityPrototype.ID.Contains(role)) // удаляет действия содержащие имя роли
-                            {
-                                _sharedActionsSystem.RemoveAction(performer: antagCharacterEntity, actionId: action, comp: actionsComponent);
-                                shell.WriteLine($"action {metaDataComponent.EntityPrototype.ID} has been removed from entity {antagCharacterEntity}");
-                            }
-                    }
-                }
-
-            }
-
-        }
-
-        //_sharedActionsSystem.RemoveAction(performer: , actionId: , comp:)
-
+        // TODO: переписать все роли так, чтобы при удалении компонента у персонажа удалялись и actions
         // TODO: удаление Factions
-
-
-
         // TODO: Нужно дописать, чтобы удалялись компоненты у антагонистов
         // Если это еретик, то должны удаляться компоненты еретика и его магазин
         // Если генокрад, то всё тоже самое кмпонент Генокрада и его магазин удалить
