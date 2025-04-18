@@ -44,7 +44,6 @@ public class RPDSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 
-    private readonly EntProtoId _instantConstructionFx = "EffectRPDConstruct0";
 
     private HashSet<EntityUid> _intersectingEntities = new();
 
@@ -341,7 +340,7 @@ public class RPDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) component.CachedPrototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)component.CachedPrototype.CollisionMask) == 0)
                         continue;
 
                     // Continue if our custom collision bounds are not intersected
