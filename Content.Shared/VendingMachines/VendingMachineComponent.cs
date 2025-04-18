@@ -182,7 +182,7 @@ namespace Content.Shared.VendingMachines
 
         //ADT-Economy-Start
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public double PriceMultiplier = 0.25;
+        public double PriceMultiplier = 0.75;
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public bool AllForFree = false;
@@ -216,10 +216,12 @@ namespace Content.Shared.VendingMachines
         public string ID;
         [ViewVariables(VVAccess.ReadWrite)]
         public uint Amount;
-        [ViewVariables(VVAccess.ReadWrite)] //ADT-Economy
-        public int Price; //ADT-Economy
+        //ADT-Economy-Start
+        [ViewVariables(VVAccess.ReadWrite)]
+        public int Price;
+        //ADT-Economy-End
 
-        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, int price)
+        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, int price) //ADT-Economy
         {
             Type = type;
             ID = id;
