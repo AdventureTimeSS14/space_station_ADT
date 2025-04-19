@@ -222,5 +222,15 @@ public sealed class ADTCCVars
         CVarDef.Create("supermatter.yell_timer", 60f, CVar.SERVER);
 
     #endregion
+
+    #region Admin
+
+    /// <summary>
+    ///     When true, bypass the normal checks to determine delam type, and instead use the type chosen by supermatter.forced_delam_type
+    /// </summary>
+    public static readonly CVarDef<bool> ChatFilterAdminAlertEnable =
+        CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
+
+    #endregion
 }
 
