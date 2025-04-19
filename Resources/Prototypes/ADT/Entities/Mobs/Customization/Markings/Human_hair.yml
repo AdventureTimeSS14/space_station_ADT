@@ -1,5 +1,5 @@
 - type: marking
-  id: HumanBeardBeardchin
+  id: ADTHumanBeardBeardchin
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -8,7 +8,7 @@
     state: beard-beardchin
 
 - type: marking
-  id: HumanBeardBeardlong
+  id: ADTHumanBeardBeardlong
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -17,7 +17,7 @@
     state: beard-beardlong
 
 - type: marking
-  id: HumanBeardBeardshort
+  id: ADTHumanBeardBeardshort
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -26,7 +26,7 @@
     state: beard-beardshort
 
 - type: marking
-  id: HumanBeardBeardthick
+  id: ADTHumanBeardBeardthick
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -35,7 +35,7 @@
     state: beard-beardthick
 
 - type: marking
-  id: HumanBeardBeardviking
+  id: ADTHumanBeardBeardviking
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -44,7 +44,7 @@
     state: beard-beardviking
 
 - type: marking
-  id: HumanBeardBristle
+  id: ADTHumanBeardBristle
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -53,7 +53,7 @@
     state: beard-bristle
 
 - type: marking
-  id: HumanBeardMustachewithstubble
+  id: ADTHumanBeardMustachewithstubble
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -62,7 +62,7 @@
     state: beard-mustachewithstubble
 
 - type: marking
-  id: HumanBeardThickbristle
+  id: ADTHumanBeardThickbristle
   bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Human, Felinid]
@@ -71,7 +71,7 @@
     state: beard-thickbristle
 
 - type: marking
-  id: HumanHairArabicgatheredhair
+  id: ADTHumanHairArabicgatheredhair
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -80,7 +80,7 @@
     state: hair-arabicgatheredhair
 
 - type: marking
-  id: HumanHairClassichairmale
+  id: ADTHumanHairClassichairmale
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -89,7 +89,7 @@
     state: hair-classichairmale
 
 - type: marking
-  id: HumanHairCombedfromside
+  id: ADTHumanHairCombedfromside
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -98,7 +98,7 @@
     state: hair-combedfromside
 
 - type: marking
-  id: HumanHairLonghair
+  id: ADTHumanHairLonghair
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -107,7 +107,7 @@
     state: hair-longhair
 
 - type: marking
-  id: HumanHairManbunold
+  id: ADTHumanHairManbunold
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -116,7 +116,7 @@
     state: hair-manbunold
 
 - type: marking
-  id: HumanHairPigtailtajaran
+  id: ADTHumanHairPigtailtajaran
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -125,7 +125,7 @@
     state: hair-pigtailtajaran
 
 - type: marking
-  id: HumanHairShavedside
+  id: ADTHumanHairShavedside
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -134,7 +134,7 @@
     state: hair-shavedside
 
 - type: marking
-  id: HumanHairShorthaired
+  id: ADTHumanHairShorthaired
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -143,7 +143,7 @@
     state: hair-shorthaired
 
 - type: marking
-  id: HumanWomenbun
+  id: ADTHumanWomenbun
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Human, Felinid]
@@ -152,7 +152,7 @@
     state: hair-womenbun
 
 - type: marking
-  id: HumanForeheadBindi
+  id: ADTHumanForeheadBindi
   bodyPart: Head
   markingCategory: Snout
   speciesRestriction: [Human, Felinid]
@@ -161,7 +161,7 @@
     state: forehead-Bindi
 
 - type: marking
-  id: HumanForeheadFathereyebrows
+  id: ADTHumanForeheadFathereyebrows
   bodyPart: Head
   markingCategory: Snout
   speciesRestriction: [Human, Felinid]
@@ -170,7 +170,7 @@
     state: forehead-fathereyebrows
 
 - type: marking
-  id: HumanPiercingBrowL
+  id: ADTHumanPiercingBrowL
   bodyPart: Head
   markingCategory: HeadSide
   speciesRestriction: [Human, Felinid]
@@ -179,7 +179,7 @@
     state: piercing_brow_l
 
 - type: marking
-  id: HumanPiercingBrowR
+  id: ADTHumanPiercingBrowR
   bodyPart: Head
   markingCategory: HeadSide
   speciesRestriction: [Human, Felinid]
@@ -233,3 +233,269 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Human/elf.rsi
     state: elf_ears2
+
+# From Goobstation
+
+- type: marking
+  id: ADTHumanHairBraidedExtension
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: braidedExtensions
+
+- type: marking
+  id: ADTHumanHairCometTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: cometTail
+
+- type: marking
+  id: ADTHumanHairFantasyHair
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: fantasyHair
+
+- type: marking
+  id: ADTHumanHairFlatTwistsUpdo
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: flatTwistsUpdo
+
+- type: marking
+  id: ADTHumanHairFloorlengthBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: floorlengthBraid
+
+- type: marking
+  id: ADTHumanHairFloorlengthWavy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: floorlengthWavy
+
+- type: marking
+  id: ADTHumanHairFrontBraidsLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: frontBraidsLong
+
+- type: marking
+  id: ADTHumanHairFrontBraidsMedium
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: frontBraidsMedium
+
+- type: marking
+  id: ADTHumanHairFrontBraidsShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: frontBraidsShort
+
+- type: marking
+  id: ADTHumanHairHairnet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: hairnet
+
+- type: marking
+  id: ADTHumanHairJellyfish
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: jellyfish
+
+- type: marking
+  id: ADTHumanHairKazuyaMishima
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: kazuyaMishima
+
+- type: marking
+  id: ADTHumanHairLongBraids
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: longBraids
+
+- type: marking
+  id: ADTHumanHairLongCurvy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: longCurvy
+
+- type: marking
+  id: ADTHumanHairLongPompadour
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: longPompadour
+
+- type: marking
+  id: ADTHumanHairMediumCurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: mediumCurls
+
+- type: marking
+  id: ADTHumanHairMullet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: mullet
+
+- type: marking
+  id: ADTHumanHairPelvicLengthBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: pelvicLengthBraid
+
+- type: marking
+  id: ADTHumanHairPlateau
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: plateau
+
+- type: marking
+  id: ADTHumanHairQueenBee
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: queenBee
+
+- type: marking
+  id: ADTHumanHairSaggedMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: saggedMohawk
+
+- type: marking
+  id: ADTHumanHairSharpMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: sharpMohawk
+
+- type: marking
+  id: ADTHumanHairShortAndPoofy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: shortAndPoofy
+
+- type: marking
+  id: ADTHumanHairShortCurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: shortCurls
+
+- type: marking
+  id: ADTHumanHairShoulderLengthBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: shoulderLengthBraid
+
+- type: marking
+  id: ADTHumanHairSideSpike
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: sideSpike
+
+- type: marking
+  id: ADTHumanHairSpaceLoops
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: spaceLoops
+
+- type: marking
+  id: ADTHumanHairStar
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: star
+
+- type: marking
+  id: ADTHumanHairStarFro
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: starFro
+
+- type: marking
+  id: ADTHumanHairStyledCurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: styledCurls
+
+- type: marking
+  id: ADTHumanHairUnkemptScientist
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: unkemptScientist
+
+- type: marking
+  id: ADTHumanHairFrizzyBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: frizzyBraid
+
+- type: marking
+  id: ADTHumanHairWispy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: wispy
