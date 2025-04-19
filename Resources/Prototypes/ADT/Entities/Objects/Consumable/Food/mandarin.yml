@@ -97,6 +97,8 @@
   - type: FlavorProfile
     flavors:
       - ADTmandarin
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
   - type: Extractable
