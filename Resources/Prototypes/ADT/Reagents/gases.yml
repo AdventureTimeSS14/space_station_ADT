@@ -188,10 +188,10 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 2
+          min: 1
         key: ForcedSleep
         component: ForcedSleeping
-        time: 3
+        refresh: false
         type: Add
       - !type:HealthChange
         conditions:
@@ -202,9 +202,12 @@
         ignoreResistances: true
         damage:
           groups:
-            Brute: -1.25
-            Burn: -1.25
-            Toxin: -1.5
+            Brute: -1.5
+            Burn: -2
+          types:
+            Asphyxiation: -0.5
+            Poison: -0.5
+
 
 - type: reagent
   id: Hyper-Noblium
@@ -285,36 +288,6 @@
   color: "#005959"
   boilingPoint: -253.0
   meltingPoint: -259.2
-  metabolisms:
-    Gas:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Helium
-          min: 1
-          max: 8
-        scaleByQuantity: true
-        ignoreResistances: true
-        damage:
-          groups:
-            Brute: -1.5
-            Burn: -2
-          types:
-            Asphyxiation: -0.5
-            Poison: -0.5
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        key: ForcedSleep
-        component: ForcedSleeping
-        time: 5
-        type: Add
 
 - type: reagent
   id: Anti-Noblium
