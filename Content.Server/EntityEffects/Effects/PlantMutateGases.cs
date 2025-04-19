@@ -18,6 +18,7 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
     [DataField]
     public float MaxValue = 0.5f;
 
+    // ADT-Tweak-Start
     private static readonly Dictionary<Gas, float> GasWeights = new()
     {
         // Standard chance
@@ -46,6 +47,7 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
         { Gas.Frezon,        0.2f },
         { Gas.AntiNoblium,   0.1f },
     };
+    // ADT-Tweak-End
 
     public override void Effect(EntityEffectBaseArgs args)
     {
@@ -70,6 +72,7 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
         }
     }
 
+    // ADT-Tweak-Start
     private static Gas PickWeightedGas(IRobustRandom random)
     {
         var totalWeight = GasWeights.Values.Sum();
@@ -85,6 +88,7 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
 
         return Gas.Oxygen; // fallback
     }
+    // ADT-Tweak-End
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
@@ -103,6 +107,7 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
     [DataField]
     public float MaxValue = 0.5f;
 
+    // ADT-Tweak-Start
     private static readonly Dictionary<Gas, float> GasWeights = new()
     {
         // Standard chance
@@ -131,6 +136,7 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
         { Gas.Frezon,        0.2f },
         { Gas.AntiNoblium,   0.1f },
     };
+    // ADT-Tweak-End
 
     public override void Effect(EntityEffectBaseArgs args)
     {
@@ -155,6 +161,7 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
         }
     }
 
+    // ADT-Tweak-Start
     private static Gas PickWeightedGas(IRobustRandom random)
     {
         var totalWeight = GasWeights.Values.Sum();
@@ -170,6 +177,7 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
 
         return Gas.Oxygen; // fallback
     }
+    // ADT-Tweak-End
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
