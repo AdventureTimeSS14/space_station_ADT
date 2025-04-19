@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Created by EmoGarbage, edited by QWERTY",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "icon"
+      },
+      {
+        "name": "beaker"
+      },
+      {
+        "name": "on"
+      }
+    ]
+  }

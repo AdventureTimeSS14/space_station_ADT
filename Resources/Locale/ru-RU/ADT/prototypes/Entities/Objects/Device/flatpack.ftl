@@ -1,2 +1,5 @@
-ent-ADTBookPrinterFlatpack = упаковонный принтер книг
+ent-ADTBookPrinterFlatpack = упакованный принтер книг
     .desc = Упаковка, при помощи которой можно создать принтер книг.
+
+ent-ADTChemistryColdplateFlatpack = упакованный электрочиллер
+    .desc = Упаковка, при помощи которой можно создать электрочиллер.

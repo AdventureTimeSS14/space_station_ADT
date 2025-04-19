@@ -1,0 +1,27 @@
+- type: entity
+  id: ADTCrackPipe
+  parent: BaseSmokingPipe
+  name: Improvised vaporiser pipe
+  description: I am a blowfish! Yeah!... Blowfishin' this up....
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
+    state: unlit-icon
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
+  - type: Appearance
+  - type: BurnStateVisuals
+    unlitIcon: unlit-icon
+  - type: SmokingPipe
+    bowl_slot:
+      whitelist:
+        tags:
+          - ADTSmokableReagent
+  - type: Construction
+    graph: ADTCrackPipeGraph
+    node: craft

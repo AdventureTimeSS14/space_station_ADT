@@ -143,6 +143,9 @@
     # ADT-WikiBooks-Start
       - id: ADTBookSRPmed
     # ADT-WikiBooks-End
+    # ADT-Druglordupdate-Start
+      - id: ADTChemistryColdplateFlatpack
+    # ADT-Druglordupdate-End
 
 - type: entity
   id: LockerParamedicFilled

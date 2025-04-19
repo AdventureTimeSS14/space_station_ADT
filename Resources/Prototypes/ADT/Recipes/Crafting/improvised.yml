@@ -205,3 +205,16 @@
     sprite: ADT/Objects/Weapons/Melee/goldbat.rsi
     state: icon
   objectType: Item
+
+- type: construction
+  name: Improvised vaporiser pipe
+  id: ADTCrackPipe
+  graph: ADTCrackPipeGraph
+  startNode: start
+  targetNode: craft
+  category: construction-category-misc
+  objectType: Item
+  description: I am a blowfish! Yeah!... Blowfishin' this up....
+  icon:
+    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
+    state: unlit-icon
