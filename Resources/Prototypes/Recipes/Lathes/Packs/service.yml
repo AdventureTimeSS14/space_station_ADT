@@ -5,6 +5,7 @@
   recipes:
   - Mousetrap  # ADT Tweak
   - TrashBag  # ADT Tweak
+  - ADTPlantAnalyzer # ADT Tweak
   - Bucket
   - DrinkMug
   - DrinkMugMetal
@@ -68,3 +69,5 @@
   - CloningConsoleComputerCircuitboard #ADT tweak
   - MedicalScannerMachineCircuitboard #ADT tweak
   - ADTAdvancedMicrowaveMachineCircuitBoard #ADT tweak
+  - ADTAdvancedReagentGrinderMachineCircuitboard #ADT tweak
+  - ADTHydroponicsTrayAdvancedMachineCircuitboard #ADT tweak

@@ -1,0 +1,34 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-4.0",
+    "copyright": "By RedTerror ",
+    "states": [
+        {
+            "name": "plantanalyzer"
+        },
+        {
+            "name": "unlit",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+
+        },
+        {
+            "name": "icon"
+        }
+    ]
+
+}
