@@ -138,6 +138,62 @@
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Standard/rd.rsi
 
+- type: entity
+  parent: Airlock
+  id: ADTLibraryAirlock
+  suffix: Library
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/library.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTBlueShieldAirlock
+  suffix: BS
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/blueshield.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTMagistratAirlock
+  suffix: MG
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/magistrat.rsi
+
+- type: entity
+  parent: AirlockCommand
+  id: ADTIAAAirlock
+  suffix: IAA
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/iaa.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTServiceAirlock
+  suffix: Service
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/service.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTLawyerAirlock
+  suffix: Lawyer
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/lawyer.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTJanitorAirlock
+  suffix: Janitor
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/janitor.rsi
+
 #Glass
 - type: entity
   parent: AirlockGlass
@@ -264,3 +320,51 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/rd.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassBlueShieldAirlock
+  suffix: BS
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/blueshield.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassMagistratAirlock
+  suffix: MG
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/magistrat.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassIAAAirlock
+  suffix: IAA
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/iaa.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTGlassServiceAirlock
+  suffix: Service
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/service.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTGlassLawyerAirlock
+  suffix: Lawyer
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/lawyer.rsi
+
+- type: entity
+  parent: Airlock
+  id: ADTGlassJanitorAirlock
+  suffix: Janitor
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/janitor.rsi
