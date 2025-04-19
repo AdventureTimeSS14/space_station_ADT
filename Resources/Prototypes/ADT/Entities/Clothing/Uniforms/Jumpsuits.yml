@@ -1487,3 +1487,17 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformsJumpsuitWhiteAdminGod
+  name: white-god-suit-namе
+  description: white-god-suit-desc
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_admin_god_suit.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_admin_god_suit.rsi
+    equippedState: equipped-INNERCLOTHING

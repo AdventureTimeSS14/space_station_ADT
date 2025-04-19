@@ -442,3 +442,6 @@ ent-ADTInfantrymanTUSSPUniform = униформа космодесантника
 
 ent-ADTClothingUniformJumpsuitExplorer = комбинезон исследователя
     .desc = Стандартный комбинезон шахтёра НТ. От него пахнет... Пеплом?
+
+ent-ADTClothingUniformsJumpsuitWhiteAdminGod = белая мантия
+    .desc = Белая мантия сделанная из облаков
