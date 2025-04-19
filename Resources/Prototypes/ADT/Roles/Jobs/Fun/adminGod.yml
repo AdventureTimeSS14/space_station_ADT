@@ -30,4 +30,5 @@
 - type: startingGear
   id: ADTAdminGodlGear
   equipment:
+    jumpsuit: ADTClothingUniformsJumpsuitWhiteAdminGod
     shoes: ADTClothingFootCloudGod
