@@ -99,7 +99,7 @@
     fireRate: 4
   - type: HitscanMechAmmoProvider
     proto: RedLaser
-    fireCost: 15
+    fireCost: 10
   # - type: Battery
   #   maxCharge: 30
   #   startingCharge: 30
@@ -119,7 +119,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 30
+    fireCost: 20
   # - type: Battery
   #   maxCharge: 60
   #   startingCharge: 60
@@ -142,7 +142,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: Pulse
-    fireCost: 100
+    fireCost: 20
   # - type: Battery
   #   maxCharge: 200
   #   startingCharge: 200
@@ -165,7 +165,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: BatteryMechAmmoProvider
     proto: BulletDisabler
-    fireCost: 30
+    fireCost: 10
 
 - type: entity
   name: MKI Tesla Cannon
@@ -188,7 +188,7 @@
         variation: 0.2
   - type: BatteryMechAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 100
+    fireCost: 50
 #Огнестрельное
 
 - type: entity
@@ -211,8 +211,8 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: ShellShotgun
-    shots: 12
-    capacity: 12
+    shots: 20
+    capacity: 20
     ammoType: shotgun
   - type: UIFragment
     ui: !type:MechGunUi
@@ -238,8 +238,8 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    shots: 30
-    capacity: 30
+    shots: 60
+    capacity: 60
     proto: BulletPistol
     reloadTime: 5
   - type: UIFragment
@@ -265,8 +265,8 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: BulletPistolIncendiary
-    shots: 45
-    capacity: 45
+    shots: 60
+    capacity: 60
     ammoType: lightrifleincendiary
     reloadTime: 5
   - type: UIFragment
@@ -292,8 +292,8 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: BulletAntiMateriel
-    shots: 7
-    capacity: 7
+    shots: 12
+    capacity: 12
     ammoType: sniper
   - type: UIFragment
     ui: !type:MechGunUi
@@ -344,7 +344,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    proto: ADT40mmGrenadeHEAT
+    proto: ADT40mmGrenadeBlast
     shots: 4
     capacity: 4
     ammoType: granade
