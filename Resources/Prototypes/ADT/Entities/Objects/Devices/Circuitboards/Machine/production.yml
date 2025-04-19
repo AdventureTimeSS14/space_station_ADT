@@ -77,3 +77,41 @@
         amount: 1
         defaultPrototype: Beaker
 #End of DeltaV
+
+#Corvax Next Advanced Service Machinery Start
+- type: entity
+  id: ADTHydroponicsTrayAdvancedMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced hydroponics tray machine board
+  description: A machine printed circuit board for a advanced hydroponics tray.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTHydroponicsTrayAdvanced
+      stackRequirements:
+        Glass: 5
+        Cable: 4
+        Plasma: 5
+      tagRequirements:
+        GlassBeaker:
+          amount: 3
+          defaultPrototype: Beaker
+
+- type: entity
+  id: ADTAdvancedReagentGrinderMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced reagent grinder machine board
+  description: A machine printed circuit board for a reagent grinder.
+  components:
+    - type: MachineBoard
+      prototype: ADTAdvancedKitchenReagentGrinder
+      stackRequirements:
+        MatterBin: 2
+        Manipulator: 4
+        Plasma: 5
+      tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker
+#Corvax Next Advanced Service Machinery End
