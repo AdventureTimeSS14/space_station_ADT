@@ -6,7 +6,7 @@
     Revenant: 1
     Pirate: 0.75 # ADT pirates
     Phantom: 1 # ADT phantom
-    Wizard: 0.75 #ADT tweak
+##    Wizard: 0.75 #ADT tweak.
 
 - type: ninjaHackingThreat
   id: Dragon

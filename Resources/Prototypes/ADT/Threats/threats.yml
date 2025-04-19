@@ -8,7 +8,7 @@
   announcement: terror-revenant
   rule: PhantomSpawn
 
-- type: ninjaHackingThreat
-  id: Wizard
-  announcement: terror-wizard
-  rule: WizardSpawn
+#- type: ninjaHackingThreat
+#  id: Wizard
+#  announcement: terror-wizard
+#  rule: WizardSpawn
