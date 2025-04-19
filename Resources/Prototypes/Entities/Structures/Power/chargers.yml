@@ -105,7 +105,6 @@
           tags:
           - PowerCell
           - PowerCellSmall
-
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
   id: PowerCageRecharger
@@ -255,6 +254,7 @@
     whitelist:
       components:
       - BorgChassis
+      - Inventory #ADT tweak
   - type: Construction
     containers:
     - machine_parts
@@ -298,6 +298,7 @@
     whitelist:
       components:
       - BorgChassis
+      - Inventory #ADT tweak
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

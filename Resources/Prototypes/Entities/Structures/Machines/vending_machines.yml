@@ -1249,6 +1249,12 @@
     radius: 1.5
     energy: 1.6
     color: "#9dc5c9"
+  #ADT tweak start
+  - type: Tag
+    tags:
+      - Structure
+      - ADTVendModStorage
+  #ADT tweak end
 
 - type: entity
   parent: VendingMachine

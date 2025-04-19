@@ -335,3 +335,13 @@
     Gold: 100
     Plasma: 50
     Silver: 400
+
+- type: latheRecipe
+  id: ADTModsuitModEmpProtection
+  result: ADTModsuitModEmpProtection
+  completetime: 1
+  materials:
+    Steel: 250
+    Plastic: 800
+    Glass: 1000
+    Silver: 200

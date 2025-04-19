@@ -15,7 +15,9 @@
   - type: Sprite
     state: antigrav
   - type: ModSuitMod
-    slot: shoes
+    complexity: 1
+    slots:
+    - shoes
     components:
     - type: AntiGravityClothing
 
@@ -28,7 +30,9 @@
   - type: Sprite
     state: apparatus
   - type: ModSuitMod
-    slot: head
+    complexity: 1
+    slots:
+    - head
     components:
     - type: IngestionBlocker
     removeComponents:
@@ -43,7 +47,9 @@
   - type: Sprite
     state: drill
   - type: ModSuitMod
-    slot: gloves
+    slots:
+    - gloves
+    complexity: 2
     components:
     - type: IngestionBlocker
     - type: Tag
@@ -73,7 +79,8 @@
   - type: Sprite
     state: jetpack_adv
   - type: ModSuitMod
-    slot: MODcore
+    slots:
+    - MODcore
     components:
     - type: MovementSpeedModifier
       weightlessAcceleration: 1
@@ -83,12 +90,15 @@
     - type: InputMover
       toParent: true
     - type: GasTank
+      toggleAction: null
       outputPressure: 21.3
       air:
         volume: 5
         temperature: 293.15
+        moles:
+          - 0.615413716 # oxygen
     - type: Jetpack
-      moleUsage: 0.00085
+      moleUsage: 0
 
 - type: entity
   parent: ADTModsuitModBase
@@ -99,7 +109,8 @@
   - type: Sprite
     state: magnet
   - type: ModSuitMod
-    slot: shoes
+    slots:
+    - shoes
     components:
     - type: ToggleClothing
       action: ActionToggleMagboots
@@ -123,7 +134,9 @@
   - type: Sprite
     state: night_visor
   - type: ModSuitMod
-    slot: head
+    complexity: 2
+    slots:
+    - head
     components:
     - type: NightVisionItem
       slotFlags: HEAD
@@ -138,7 +151,9 @@
   - type: Sprite
     state: no_baton
   - type: ModSuitMod
-    slot: gloves
+    complexity: 3
+    slots:
+    - gloves
     components:
     - type: StaminaDamageOnHit
       damage: 30
@@ -159,7 +174,9 @@
   - type: Sprite
     state: noslip
   - type: ModSuitMod
-    slot: shoes
+    complexity: 2
+    slots:
+    - shoes
     components:
     - type: NoSlip
 
@@ -172,7 +189,9 @@
   - type: Sprite
     state: power_kick
   - type: ModSuitMod
-    slot: gloves
+    complexity: 3
+    slots:
+    - gloves
     components:
     - type: MeleeThrowOnHit
     - type: MeleeWeapon
@@ -192,7 +211,9 @@
   - type: Sprite
     state: sechud_viisor
   - type: ModSuitMod
-    slot: head
+    complexity: 2
+    slots:
+    - head
     components:
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
@@ -207,12 +228,57 @@
   - type: Sprite
     state: storage
   - type: ModSuitMod
-    slot: MODcore
+    isInstantlyActive: true
+    complexity: 3
+    slots:
+    - MODcore
     components:
     - type: Storage
       grid:
       - 0,0,6,3
       maxItemSize: Huge
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModDuffelbagStorage
+  name: MOD duffelbag storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage_large
+  - type: ModSuitMod
+    isInstantlyActive: true
+    complexity: 3
+    slots:
+    - MODcore
+    components:
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+      - 0,0,7,4
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 0.9
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModSatchelStorage
+  name: MOD satchel storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage
+  - type: ModSuitMod
+    isInstantlyActive: true
+    complexity: 3
+    slots:
+    - MODcore
+    components:
+    - type: Storage
+      grid:
+      - 0,0,1,3
+      - 3,0,6,3
+      - 8,0,9,3
 
 - type: entity
   parent: ADTModsuitModBase
@@ -223,7 +289,9 @@
   - type: Sprite
     state: welding
   - type: ModSuitMod
-    slot: head
+    complexity: 1
+    slots:
+    - head
     components:
     - type: EyeProtection
 
@@ -236,7 +304,9 @@
   - type: Sprite
     state: plate_compression
   - type: ModSuitMod
-    slot: outerClothing
+    complexity: 4
+    slots:
+    - outerClothing
     components:
     - type: Armor
       modifiers:
@@ -256,7 +326,10 @@
   - type: Sprite
     state: storage_large
   - type: ModSuitMod
-    slot: MODcore
+    isInstantlyActive: true
+    complexity: 3
+    slots:
+    - MODcore
     components:
     - type: Storage
       maxItemSize: Huge
@@ -272,7 +345,9 @@
   - type: Sprite
     state: tray
   - type: ModSuitMod
-    slot: head
+    complexity: 2
+    slots:
+    - head
     components:
     - type: TrayScanner
       enabled: true
@@ -287,7 +362,9 @@
   - type: Sprite
     state: carry
   - type: ModSuitMod
-    slot: gloves
+    complexity: 2
+    slots:
+    - gloves
     components:
     - type: Insulated
 
@@ -300,22 +377,11 @@
   - type: Sprite
     state: longfall
   - type: ModSuitMod
-    slot: shoes
+    complexity: 3
+    slots:
+    - shoes
     components:
     - type: Jumpboots
-
-- type: entity
-  parent: ADTModsuitModBase
-  id: ADTModsuitModDnaLock
-  name: MOD jump boot module
-  description: Locks modsuit on you.
-  components:
-  - type: Sprite
-    state: dnalock
-  - type: ModSuitMod
-    slot: MODcore
-    components:
-    - type: DNALocker
 
 - type: entity
   parent: ADTModsuitModBase
@@ -326,7 +392,9 @@
   - type: Sprite
     state: flashlight
   - type: ModSuitMod
-    slot: head
+    complexity: 1
+    slots:
+    - head
     components:
     - type: ToggleableLightVisuals
       clothingVisuals:
@@ -371,7 +439,10 @@
   - type: Sprite
     state: ore
   - type: ModSuitMod
-    slot: outerClothing
+    isInstantlyActive: true
+    complexity: 2
+    slots:
+    - outerClothing
     components:
     - type: MagnetPickup
       slotFlags: OUTERCLOTHING
@@ -396,10 +467,12 @@
   - type: Sprite
     state: radshield
   - type: ModSuitMod
-    slot: outerClothing
+    complexity: 2
+    slots:
+    - outerClothing
     components:
     - type: RadiationBlocker
-      resistance: 2
+      resistance: 100
 
 - type: entity
   parent: ADTModsuitModBase
@@ -410,9 +483,67 @@
   - type: Sprite
     state: storage_syndi
   - type: ModSuitMod
-    slot: MODcore
+    isInstantlyActive: true
+    complexity: 2
+    slots:
+    - MODcore
     components:
     - type: Storage
       grid:
       - 0,0,8,4
       maxItemSize: Huge
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModEmpProtection
+  name: MOD emp protection module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: empshield
+  - type: ModSuitMod
+    complexity: 1
+    slots:
+    - MODcore
+    components:
+    - type: EmpContainerProtaction
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModPlasmaStabilizer
+  name: MOD plasma fuel module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: micriwave_beam
+  - type: ModSuitMod
+    complexity: 3
+    slots:
+    - MODcore
+    components:
+    - type: MaterialStorage
+      storageLimit: 3000
+      materialWhiteList: [RawPlasma, Plasma]
+      canEjectStoredMaterials: false
+    - type: BatteryRecharge
+      multiplier: 1.25
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModUraniumStabilizer
+  name: MOD uranium fuel module
+  description: Locks modsuit on you.
+  components:
+  - type: Sprite
+    state: micriwave_beam
+  - type: ModSuitMod
+    complexity: 3
+    slots:
+    - MODcore
+    components:
+    - type: MaterialStorage
+      storageLimit: 3000
+      materialWhiteList: [Uranium]
+      canEjectStoredMaterials: false
+    - type: BatteryRecharge
+      multiplier: 3

@@ -7,12 +7,14 @@ using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Content.Shared.Projectiles;
-using Content.Shared.ADT.Emp; // ADT TWEAK
+using Content.Shared.ADT.Emp;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Emp;
 
 public sealed class EmpSystem : SharedEmpSystem
 {
+    [Dependency] private readonly ChargerSystem _charger = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
@@ -79,6 +81,7 @@ public sealed class EmpSystem : SharedEmpSystem
     /// <param name="duration">The duration of the EMP effects.</param>
     public void TryEmpEffects(EntityUid uid, float energyConsumption, float duration)
     {
+        if (HasComp<EmpProtectionComponent>(uid)) return; //ADT tweak
         var attemptEv = new EmpAttemptEvent();
         RaiseLocalEvent(uid, attemptEv);
         if (attemptEv.Cancelled)
@@ -159,6 +162,10 @@ public sealed class EmpSystem : SharedEmpSystem
     private void OnProjectileHit(EntityUid uid, EmpOnCollideComponent component, ref ProjectileHitEvent args)
     {
         TryEmpEffects(args.Target, component.EnergyConsumption, component.DisableDuration);
+        if (!TryComp<InventoryComponent>(args.Target, out var inventory))
+            return;
+        if (_charger.SearchForBattery(args.Target, out var batteryEnt, out var batteryComp))
+            TryEmpEffects(batteryEnt.Value, component.EnergyConsumption, component.DisableDuration);
     }
     ///ADT ion end
 }
