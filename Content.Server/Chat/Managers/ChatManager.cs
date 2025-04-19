@@ -415,6 +415,7 @@ internal sealed partial class ChatManager : IChatManager
 
         var msg = new ChatMessage(channel, message, wrappedMessage, netSource, user?.Key, hideChat, colorOverride, audioPath, audioVolume);
         _netManager.ServerSendMessage(new MsgChatMessage() { Message = msg }, client);
+
         // ADT-Tweak-start: Поиск ругательств и оскорбление родных
         var words = message.Split(
             new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
