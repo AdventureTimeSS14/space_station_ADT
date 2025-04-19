@@ -236,8 +236,9 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.85
+        Piercing: 0.8
         Heat: 0.75
+        Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: ToggleableClothing
@@ -274,15 +275,18 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.65
-        Heat: 0.55
-        Caustic: 0.55
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.65
+        Caustic: 0.60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.75
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
-  id: ClothingOuterArmorMinerLight
+  id: ADTClothingOuterArmorMinerLight
   name: light miner armor
   description: A lightweight version of miner's armor, made from dragon sinew. Thanks to ichor, you don't feel your weight.
   components:
@@ -297,6 +301,14 @@
       - state: equipped-OUTERCLOTHING
       - state: equipped-OUTERCLOTHING-unshaded
         shader: unshaded
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.85
+        Caustic: 0.9
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
@@ -325,7 +337,7 @@
         Blunt: 0.85
         Slash: 0.85
         Piercing: 0.75
-        Heat: 0.85
+        Heat: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: Foldable
@@ -340,7 +352,7 @@
 
 - type: entity
   parent: ADTClothingOuterArmorMiner
-  id: ADTClothingOuterArmorMinerReiforced
+  id: ADTClothingOuterArmorMinerReinforced
   name: Plated Explorer Suit
   description: This explorer suit is reinforced with goliath hides. The pinnacle of mining ingenuity and Lavaland's own madness in the field of defense.
   components:
@@ -351,12 +363,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.40
-        Slash: 0.45
+        Blunt: 0.55
+        Slash: 0.55
         Piercing: 0.6
-        Heat: 0.5
+        Heat: 0.6
+        Caustic: 0.8
   - type: ExplosionResistance
-    damageCoefficient: 0.90
+    damageCoefficient: 0.80
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetMinerReinforced
   - type: ContainerContainer
@@ -371,8 +384,11 @@
         ent: null
       toggleable-clothing: !type:ContainerSlot {}
   - type: Construction
-    graph: ADTReiforcedMinerArmor
-    node: ADTReiforcedMinerArmor
+    graph: ADTReinforcedMinerArmor
+    node: ADTReinforcedMinerArmor
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
 
 # USSP USSP
 

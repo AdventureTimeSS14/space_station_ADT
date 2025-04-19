@@ -169,3 +169,77 @@
         Piercing: 0.9
   - type: Item
     size: Normal
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingCopperCape
+  name: copper cape
+  description: A sure sign of a novice miner... Why is everyone looking at you with a sad look?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/copper_cape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingSilverCape
+  name: silver cape
+  description: A brand-new silver-plated raincoat issued by the miners union. It means that you survived being a beginner
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/silver_cape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingGoldenCape
+  name: golden cape
+  description: Battered by time and blows, your trusty raincoat that kept your neck and back from burns during the storm... Its specially very bright to get noticed... or your leftovers... And theres a cool flower on it!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/golden_cape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingPlatinumCape
+  name: platinum cape
+  description: A once beautiful golden cloak that has faded from the heat and ashes... Fortunately, he is still loyal to you and ready to shelter you from the storm... The gaiter was soaked with blood
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/platinum_cape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingEmeraldCape
+  name: emerald cape
+  description: Even in the world of death, there is life... Cactus seeds got on the cloak and it sprouted on it... At least now you have a friend.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/emerald_cape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingDiamondCape
+  name: diamond cape
+  description: The miner who created this cloak used the shells of bone marrow weavers. He gives the style and status of an experienced miner, which he has seen a lot in his lifetime.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/diamond_cape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingRubieCape
+  name: rubie cape
+  description: It consists of parts of young and ancient goliaths their plates, tentacles and eyes that stare dead trying to eat your soul. The owner of this cloak has seen a lot... Hell is his home, which he was able to conquer and survive...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/rubie_cape.rsi
+
+# Captain
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingCaptainShoulder
+  name: captain shoulder
+  description: Theres not enough room for the two of us at this station...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/captain_neck.rsi

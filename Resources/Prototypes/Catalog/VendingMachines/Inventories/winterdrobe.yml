@@ -9,6 +9,7 @@
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckScarfStripedOrange: 3
     ClothingNeckScarfStripedPurple: 3
+    ADTClothingNeckScarfStripedWhite: 3 #ADT Tweak
     ClothingOuterCoatTrench: 6
     ClothingOuterWinterCoatToggleable: 6 #ADT-Tweak
     ClothingShoesBootsWinter: 6
@@ -32,6 +33,8 @@
     ADTClothingNeckScarfLongPink: 6 #ADT-Tweak
     ADTClothingNeckScarfLongBlack: 6 #ADT-Tweak
     ADTClothingNeckScarfLongBlue: 6 #ADT-Tweak
+    ADTClothingUnderwearSocksKneeHolyday: 2 #ADT-Tweak
+    ADTClothingUnderwearSocksThighHolyday: 2 #ADT-Tweak
 
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3

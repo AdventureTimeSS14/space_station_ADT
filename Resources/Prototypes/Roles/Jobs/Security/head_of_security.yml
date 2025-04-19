@@ -53,10 +53,10 @@
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
-    pocket1: WeaponPistolMk58
+    pocket1: ADTWeaponRevolverLesserUnica
   storage:
     back:
     - Flash
-    - MagazinePistol
+    - ADTSpeedLoaderMagnumLesser
     - ADTtelescopicBaton #ADT-CustomADTLoadout
 

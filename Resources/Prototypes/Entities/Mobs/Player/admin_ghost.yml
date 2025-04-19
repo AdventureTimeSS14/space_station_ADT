@@ -30,7 +30,8 @@
     prototype: Aghost
   - type: Access
     groups:
-    - AllAccess
+    - Silicon
+    - ADTOverallAccess # ADT-Tweak
     tags:
     - NuclearOperative
     - SyndicateAgent
@@ -101,6 +102,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 30
   # Corvax-End
+  - type: SupermatterImmune # ADT-Tweak
 
 - type: entity
   id: ActionAGhostShowSolar

@@ -1,0 +1,300 @@
+- type: marking
+  id: ADTDwarfBearCheeks
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Dwarf ]
+  forcedColoring: true
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: dwarfbearcheeks
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfHeadGlow
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Dwarf ]
+  forcedColoring: true
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfheadglow
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationHead
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationhead
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationChest
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationchest
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationLArm
+  bodyPart: LArm
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationlarm
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationLHand
+  bodyPart: LHand
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationlhand
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationRArm
+  bodyPart: RArm
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationrarm
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationRHand
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationrhand
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationLLeg
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationlleg
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationlfoot
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationRLeg
+  bodyPart: RLeg
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationrleg
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfConstellationRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfconstellationrfoot
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfChestHair
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: dwarfchesthair
+
+- type: marking
+  id: ADTDwarfArmHair
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Dwarf ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: dwarfarmhair
+
+- type: marking
+  id: ADTDwarfLegHair
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Dwarf ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: dwarfleghair
+
+- type: marking
+  id: ADTDwarfTattooShootingStar
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: dwarftattooshootingstar
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfMarkBear
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfmarkbear
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfMarkKangarooLHand
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfmarkkangaroolhand
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfMarkKangarooRHand
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfmarkkangaroo
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfMarkCobra
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfmarkcobra
+  shader: unshaded
+
+- type: marking
+  id: ADTDwarfMarkSpider
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dwarfmarkspider
+  shader: unshaded

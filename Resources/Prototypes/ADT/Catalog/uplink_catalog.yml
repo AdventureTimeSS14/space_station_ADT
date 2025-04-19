@@ -735,3 +735,14 @@
     Telecrystal: 8
   categories:
   - UplinkWearables
+
+## Disruption
+- type: listing
+  id: UplinkNuclearPhysicistKit
+  name: uplink-agent-nuclear-physicist-kit-name
+  description: uplink-agent-nuclear-physicist-kit-desc
+  productEntity: ADTClothingBackpackDuffelSyndicateCascade
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDisruption

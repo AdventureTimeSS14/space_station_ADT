@@ -21,10 +21,19 @@
             "name": "GuardOfficer"
         },
         {
+            "name": "HereticMaster"
+        },
+        {
+            "name": "Ghoul"
+        },
+        {
             "name": "JobIconUSSPArmyPrivate"
         },
         {
             "name": "JobIconUSSPArmyOfficer"
+        },
+        {
+            "name": "Taumaturg"
         }
     ]
 }

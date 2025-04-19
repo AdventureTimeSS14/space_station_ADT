@@ -16,6 +16,11 @@ loadout-group-blueshield-back = ОСЩ, рюкзак
 loadout-chef-pocket1-adt = Шеф Повар, карман 1
 loadout-group-librarian-backpack = Библиотекарь, рюкзак
 # Cargo
+loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
+loadout-salvage-specialist-neck-adt = Утилизатор, шея
+
+# Chaplain
+loadout-chaplain-blessedbook-adt = Священник, священная книга
 
 # Engineering
 loadout-group-atmospheric-technician-neck = Атмосферный техник, плащ

@@ -6,10 +6,10 @@
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits
   dollPrototype: MobVoxDummy
-  skinColoration: VoxFeathers
+  skinColoration: Hues #ADT_Tweak
   defaultSkinTone: "#6c741d"
-  maleFirstNames: names_vox
-  femaleFirstNames: names_vox
+  maleFirstNames: NamesVox
+  femaleFirstNames: NamesVox
   naming: First
   sexes:
   - Unsexed
@@ -17,8 +17,14 @@
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
   pros:
   - Если у вокса имеется менее 20 единиц повреждений от ядов, он восстанавливает их.
+  - После смерти не могут гнить.
+  - Ходьба является невероятно тихой.
+  special:
+  - Имеют нестандартные возрастные рамки (Молодые 20-30, Зрелые 31-45, Старые 46-60)
   cons:
   - Получают урон при вдыхании кислорода.
+  - Не могут быть клонируемыми.
+  - Воксы не могут быть сотрудниками Службы безопасности, Юридического Отдела и некоторыми главами.
   defaultLanguages:
   - GalacticCommon
   - VoxPidgin
@@ -26,8 +32,8 @@
   - VoxPidgin
   minAge: 20
   maxAge: 60
-  oldAge: 45
-  youngAge: 25
+  oldAge: 46
+  youngAge: 31
   # ADT end
 
 - type: speciesBaseSprites
@@ -37,6 +43,8 @@
     Snout: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobVoxTorso
     Eyes: MobVoxEyes
     LArm: MobVoxLArm
@@ -74,9 +82,20 @@
       points: 4
       required: true
       defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
-    Chest:
+    UndergarmentTop:
       points: 1
       required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 2 #ADT_Tweak
+      required: false
+  # ADT-Start
+    Overlay: # imp
+      points: 4
+      required: false
+  # ADT-End
     Tail:
       points: 1
       required: true

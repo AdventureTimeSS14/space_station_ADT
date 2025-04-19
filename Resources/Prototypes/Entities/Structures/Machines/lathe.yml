@@ -203,6 +203,7 @@
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
+    - ScienceExplosives
     - ScienceClothing
     - PowerCells
     - ScienceWeapons
@@ -435,10 +436,12 @@
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
+    - SecurityDisablers
     # ADT-tweak-start
     - ADTMagazineUraniumPack
     - ADTAttachmentPack
     - ADT40mmGrenadePack
+    - ADTMechEquipmentSecTechfabPack
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist:
@@ -554,6 +557,7 @@
     - Scarves
     - Carpets
     - Bedsheets
+    - CorvaxClothing # Corvax-Clothing
     # ADT tweak start
     - ADTBackpacks
     - ADTSatchels
@@ -644,7 +648,7 @@
     - type: Lathe
       idleState: icon
       runningState: building
-      defaultProductionAmount: 10
+      defaultProductionAmount: 30 #ADT, changed from 10 to 30
       staticPacks:
       - OreSmelting
       - RGlassSmelting
