@@ -18,6 +18,35 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
     [DataField]
     public float MaxValue = 0.5f;
 
+    private static readonly Dictionary<Gas, float> GasWeights = new()
+    {
+        // Standard chance
+        { Gas.CarbonDioxide, 1.0f },
+        { Gas.WaterVapor,    1.0f },
+        { Gas.Ammonia,       1.0f },
+        { Gas.NitrousOxide,  1.0f },
+        { Gas.Oxygen,        0.8f },
+        { Gas.Nitrogen,      0.8f },
+
+        // Rare chance
+        { Gas.Healium,       0.7f },
+        { Gas.Nitrium,       0.7f },
+        { Gas.BZ,            0.6f },
+        { Gas.Pluoxium,      0.6f },
+        { Gas.Helium,        0.6f },
+        { Gas.Hydrogen,      0.5f },
+        { Gas.Plasma,        0.5f },
+        { Gas.ProtoNitrate,  0.5f },
+        { Gas.Tritium,       0.5f },
+        { Gas.HyperNoblium,  0.4f },
+        { Gas.Halon,         0.4f },
+
+        // Minimum chance
+        { Gas.Zauker,        0.3f },
+        { Gas.Frezon,        0.2f },
+        { Gas.AntiNoblium,   0.1f },
+    };
+
     public override void Effect(EntityEffectBaseArgs args)
     {
         var plantholder = args.EntityManager.GetComponent<PlantHolderComponent>(args.TargetEntity);
@@ -28,9 +57,9 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
         var random = IoCManager.Resolve<IRobustRandom>();
         var gasses = plantholder.Seed.ExudeGasses;
 
-        // Add a random amount of a random gas to this gas dictionary
         float amount = random.NextFloat(MinValue, MaxValue);
-        Gas gas = random.Pick(Enum.GetValues(typeof(Gas)).Cast<Gas>().ToList());
+        Gas gas = PickWeightedGas(random);
+
         if (gasses.ContainsKey(gas))
         {
             gasses[gas] += amount;
@@ -39,6 +68,22 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
         {
             gasses.Add(gas, amount);
         }
+    }
+
+    private static Gas PickWeightedGas(IRobustRandom random)
+    {
+        var totalWeight = GasWeights.Values.Sum();
+        var pick = random.NextFloat(0f, totalWeight);
+        float cumulative = 0f;
+
+        foreach (var (gas, weight) in GasWeights)
+        {
+            cumulative += weight;
+            if (pick <= cumulative)
+                return gas;
+        }
+
+        return Gas.Oxygen; // fallback
     }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
@@ -57,6 +102,36 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
 
     [DataField]
     public float MaxValue = 0.5f;
+
+    private static readonly Dictionary<Gas, float> GasWeights = new()
+    {
+        // Standard chance
+        { Gas.CarbonDioxide, 1.0f },
+        { Gas.WaterVapor,    1.0f },
+        { Gas.Ammonia,       1.0f },
+        { Gas.NitrousOxide,  1.0f },
+        { Gas.Oxygen,        0.8f },
+        { Gas.Nitrogen,      0.8f },
+
+        // Rare chance
+        { Gas.Healium,       0.7f },
+        { Gas.Nitrium,       0.7f },
+        { Gas.BZ,            0.6f },
+        { Gas.Pluoxium,      0.6f },
+        { Gas.Helium,        0.6f },
+        { Gas.Hydrogen,      0.5f },
+        { Gas.Plasma,        0.5f },
+        { Gas.ProtoNitrate,  0.5f },
+        { Gas.Tritium,       0.5f },
+        { Gas.HyperNoblium,  0.4f },
+        { Gas.Halon,         0.4f },
+
+        // Minimum chance
+        { Gas.Zauker,        0.3f },
+        { Gas.Frezon,        0.2f },
+        { Gas.AntiNoblium,   0.1f },
+    };
+
     public override void Effect(EntityEffectBaseArgs args)
     {
         var plantholder = args.EntityManager.GetComponent<PlantHolderComponent>(args.TargetEntity);
@@ -67,9 +142,9 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
         var random = IoCManager.Resolve<IRobustRandom>();
         var gasses = plantholder.Seed.ConsumeGasses;
 
-        // Add a random amount of a random gas to this gas dictionary
         float amount = random.NextFloat(MinValue, MaxValue);
-        Gas gas = random.Pick(Enum.GetValues(typeof(Gas)).Cast<Gas>().ToList());
+        Gas gas = PickWeightedGas(random);
+
         if (gasses.ContainsKey(gas))
         {
             gasses[gas] += amount;
@@ -78,6 +153,22 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
         {
             gasses.Add(gas, amount);
         }
+    }
+
+    private static Gas PickWeightedGas(IRobustRandom random)
+    {
+        var totalWeight = GasWeights.Values.Sum();
+        var pick = random.NextFloat(0f, totalWeight);
+        float cumulative = 0f;
+
+        foreach (var (gas, weight) in GasWeights)
+        {
+            cumulative += weight;
+            if (pick <= cumulative)
+                return gas;
+        }
+
+        return Gas.Oxygen; // fallback
     }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
