@@ -1,5 +1,5 @@
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassMagistratAirlock
   id: AirlockMagistrateGlassLocked
   suffix: Magistrate, Locked
   components:
@@ -8,7 +8,7 @@
       board: [ DoorElectronicsMagistrate ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassIAAAirlock
   id: AirlockIAAGlassLocked
   suffix: IAA, Locked
   components:
