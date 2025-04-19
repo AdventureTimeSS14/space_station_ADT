@@ -44,9 +44,8 @@ public sealed partial class PhantomFreedomMenu : RadialMenu
 
             var button = new PhantomFreedomMenuButton
             {
-                StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64f, 64f),
-                ToolTip = Loc.GetString(proto.Name ?? String.Empty),
+                ToolTip = Loc.GetString(proto.Name ?? string.Empty),
                 ID = proto.ID,
             };
 
@@ -81,14 +80,14 @@ public sealed partial class PhantomFreedomMenu : RadialMenu
 
             castChild.OnButtonUp += _ =>
             {
-                OnSelectFreedom?.Invoke(castChild.ID ?? String.Empty);
+                OnSelectFreedom?.Invoke(castChild.ID ?? string.Empty);
             };
         }
     }
 }
 
 
-public sealed class PhantomFreedomMenuButton : RadialMenuTextureButton
+public sealed class PhantomFreedomMenuButton : RadialMenuTextureButtonWithSector
 {
     public string? ID;
 }

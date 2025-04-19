@@ -223,3 +223,14 @@
           reagents:
           - ReagentId: Fiber
             Quantity: 15
+
+- type: entity
+  parent: ClothingScarfBase
+  id: ADTClothingNeckScarfStripedWhite
+  name: whitescarfyeaa
+  description: desc
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Scarfs/white.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Neck/Scarfs/white.rsi
