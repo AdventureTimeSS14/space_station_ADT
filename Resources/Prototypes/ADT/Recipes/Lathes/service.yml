@@ -21,14 +21,6 @@
   materials:
     Steel: 100
 
-- type: latheRecipe
-  id: ADTServiceTool
-  completetime: 3
-  materials:
-    Glass: 500
-    Steel: 500
-    Plastic: 100
-    Gold: 100
 
 # Recipes
 
@@ -80,9 +72,14 @@
   result: Urn
 
 - type: latheRecipe
-  parent: ADTServiceTool
   id: ADTPlantAnalyzer
   result: ADTPlantAnalyzerEmpty
+  completetime: 4
+  materials:
+    Glass: 500
+    Steel: 500
+    Plastic: 100
+    Gold: 100
 
 - type: latheRecipe
   id: ADTAdvancedPlantAnalyzer
