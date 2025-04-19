@@ -145,6 +145,14 @@ namespace Content.Server.Kitchen.Components
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public string TooBigPopup = "microwave-component-interact-item-too-big";
 
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public string TooBigPopupAssembler = "microwave-component-assembler-interact-item-too-big";
+
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public string TooBigPopupMedicalAssembler = "microwave-component-medical-assembler-interact-item-too-big";
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public string TooBigPopupRange = "microwave-component-range-interact-item-too-big";
+
         /// <summary>
         /// The sound that is played when a set of ingredients does not match an assembly recipe.
         /// </summary>

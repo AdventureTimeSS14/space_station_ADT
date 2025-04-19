@@ -102,7 +102,7 @@ guide-entry-drinks = Drinks
 guide-entry-foodrecipes = Food Recipes
 
 guide-entry-elements = Elements
-guide-entry-medicine = Medicine
+guide-entry-medication = Medicine
 guide-entry-narcotics = Narcotics
 guide-entry-pyrotechnics = Pyrotechnic
 guide-entry-toxins = Toxins

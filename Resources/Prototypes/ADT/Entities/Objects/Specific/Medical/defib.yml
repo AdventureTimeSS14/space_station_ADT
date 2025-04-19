@@ -28,7 +28,7 @@
 
 - type: entity
   id: ADTHandDefibrillator
-  name:
+  name: adt-hand-defibrillator
   description:
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   components:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: ADTHighVoltageDefibrillator
-  name: high voltage defibrillator
+  name: adt-high-voltage-efibrillator
   description: A defibrillator that takes less time to zap but deals more electric damage.
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   components:
@@ -78,7 +78,7 @@
   - type: Tag
     tags:
     - Defibrillator
-    - HighVoltageDefibrillator
+    - ADTHighVoltageDefibrillator
   - type: Defibrillator
     zapHeal:
       types:

@@ -1,10 +1,11 @@
+
 - type: guideEntry
   id: Chemicals
   name: guide-entry-chemicals
   text: "/ServerInfo/Guidebook/Chemicals.xml"
   children:
   - Elements
-  - Medicine
+  - Medication
   - Narcotics
   - Pyrotechnic
   - Toxins

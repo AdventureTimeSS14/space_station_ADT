@@ -43,7 +43,7 @@
   - DiseaseSwab
   - BodyBag
   - WhiteCane
-  - BlankMediPen # ADT-Tweak
+  - ADTBlankMediPen # ADT-Tweak
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -100,4 +100,4 @@
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
-  - MedicalAssemblerMachineCircuitboard # ADT-Tweak
+  - ADTMedicalAssemblerMachineCircuitBoard # ADT-Tweak

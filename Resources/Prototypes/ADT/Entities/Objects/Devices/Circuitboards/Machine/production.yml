@@ -80,15 +80,15 @@
 
 # Taken from Frontier Station
 - type: entity
-  id: MedicalAssemblerMachineCircuitboard
+  id: ADTMedicalAssemblerMachineCircuitBoard
   parent: BaseMachineCircuitboard
-  name: medical assembler machine board
+  name: adt-medical-assembler-machine-board
   description: A machine printed circuit board for a medical assembler.
   components:
     - type: Sprite
       state: medical
     - type: MachineBoard
-      prototype: MedicalAssembler
+      prototype: ADTMedicalAssembler
       requirements:
         Capacitor: 3
       stackRequirements:
@@ -97,15 +97,15 @@
         Cable: 4
 
 - type: entity
-  id: ElectricRangeMachineCircuitboard
+  id: ADTElectricRangeMachineCircuitBoard
   parent: BaseMachineCircuitboard
-  name: electric range machine board
+  name: adt-electric-range-machine-board
   description: A machine printed circuit board for an electric range.
   components:
      - type: Sprite
        state: service
      - type: MachineBoard
-       prototype: KitchenElectricRange
+       prototype: ADTKitchenElectricRange
        requirements:
          Capacitor: 3
        stackRequirements:
@@ -114,36 +114,36 @@
          Cable: 4
 
 - type: entity
-  id: KitchenAssemblerMachineCircuitboard
+  id: ADTSyndicateElectricRangeMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: food-o-mat machine board
-  description: A machine printed circuit board for a Food-O-Mat, suitable for a kitchen.
-  components:
-    - type: Sprite
-      state: service
-    - type: MachineBoard
-      prototype: KitchenAssembler
-      requirements:
-        Capacitor: 1
-      stackRequirements:
-        Glass: 2
-        Cable: 2
-
-- type: entity
-  id: SyndicateElectricRangeMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: syndicate electric range machine board
+  name: syndicate-electric-range-machine-board
   description: A machine printed circuit board for an syndicate electric range.
   components:
     - type: Sprite
       state: service
     - type: MachineBoard
-      prototype: SyndicateKitchenElectricRange
+      prototype: ADTSyndicateKitchenElectricRange
       requirements:
         Capacitor: 3
       stackRequirements:
         Steel: 5
         Glass: 2
         Cable: 4
+
+- type: entity
+  id: ADTKitchenAssemblerMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: adt-kitchen-assembler-machine-board
+  description: A machine printed circuit board for a Food-O-Mat, suitable for a kitchen.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTKitchenAssembler
+      requirements:
+        Capacitor: 1
+      stackRequirements:
+        Glass: 2
+        Cable: 2
 
 #End of Frontier Station

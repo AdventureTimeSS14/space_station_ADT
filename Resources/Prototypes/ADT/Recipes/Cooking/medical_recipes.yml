@@ -8,7 +8,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Epinephrine: 12
     TranexamicAcid: 3
@@ -21,7 +21,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Ultravasculine: 10
     Epinephrine: 5
@@ -34,7 +34,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Bicaridine: 15
     TranexamicAcid: 5
@@ -47,7 +47,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Dermaline: 10
     Leporazine: 10
@@ -60,7 +60,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Arithrazine: 15
     Bicaridine: 5
@@ -73,7 +73,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Puncturase: 10
     TranexamicAcid: 5
@@ -86,7 +86,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Pyrazine: 10
     Dermaline: 10
@@ -99,7 +99,7 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Saline: 20
     DexalinPlus: 20
@@ -110,11 +110,11 @@
 - type: microwaveMealRecipe
   id: RecipePenHemostasis
   name: hemostasis auto-injector
-  result: HemostasisAutoInjector
+  result: ADTHemostasisAutoInjector
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     TranexamicAcid: 5
     Saline: 15
@@ -123,11 +123,11 @@
 - type: microwaveMealRecipe
   id: RecipePenStimulant
   name: stimulant auto-injector
-  result: StimulantAutoInjector
+  result: ADTStimulantAutoInjector
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Desoxyephedrine: 10
     Dylovene: 10
@@ -136,11 +136,11 @@
 - type: microwaveMealRecipe
   id: RecipePenCrisisAutoInjector
   name: crisis auto-injector
-  result: CrisisAutoInjector
+  result: ADTCrisisAutoInjector
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Inaprovaline: 10
     DexalinPlus: 10
@@ -149,11 +149,11 @@
 - type: microwaveMealRecipe
   id: RecipePenLacerAutoInjector
   name: lacerinol auto-injector
-  result: LacerAutoInjector
+  result: ADTLacerAutoInjector
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Lacerinol: 10
     TranexamicAcid: 5
@@ -162,11 +162,11 @@
 - type: microwaveMealRecipe
   id: RecipePenBruizAutoInjector
   name: bruizine auto-injector
-  result: BruizAutoInjector
+  result: ADTBruizAutoInjector
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Bruizine: 10
     TranexamicAcid: 5
@@ -175,11 +175,11 @@
 - type: microwaveMealRecipe
   id: RecipePenEthylredoxrazineAutoInjector
   name: barkeeper's friend auto-injector
-  result: EthylredoxrazineAutoInjector
+  result: ADTEthylredoxrazineAutoInjector
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
+    ADTBlankMediPen: 1
   reagents:
     Ethylredoxrazine: 15
     Dylovene: 5

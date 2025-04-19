@@ -1,7 +1,7 @@
 - type: entity
-  id: KitchenAssembler
+  id: ADTKitchenAssembler
   parent: KitchenMicrowave
-  name: food-o-mat
+  name: adt-kitchen-assembler
   description: Assembles and prepares NT-approved meals. You don't know what it's doing in there.
   components:
   - type: Microwave
@@ -65,7 +65,7 @@
   - type: ApcPowerReceiver
     powerLoad: 400
   - type: Machine
-    board: KitchenAssemblerMachineCircuitboard
+    board: ADTKitchenAssemblerMachineCircuitBoard
   - type: ActivatableUI
     key: enum.MicrowaveUiKey.AssemblerKey
   - type: UserInterface
@@ -74,9 +74,9 @@
         type: AssemblerBoundUserInterface
 
 - type: entity
-  id: MedicalAssembler
-  parent: [ BaseMachinePowered, ConstructibleMachine, KitchenAssembler]
-  name: medical assembler
+  id: ADTMedicalAssembler
+  parent: [ BaseMachinePowered, ConstructibleMachine, ADTKitchenAssembler]
+  name: adt-medical-assembler
   description: Great for medicine, apparently. You don't know how it works.
   components:
   - type: Microwave
@@ -113,7 +113,7 @@
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: Machine
-    board: MedicalAssemblerMachineCircuitboard
+    board: ADTMedicalAssemblerMachineCircuitBoard
   - type: ActivatableUI
     key: enum.MicrowaveUiKey.MedicalAssemblerKey
   - type: UserInterface
@@ -128,9 +128,9 @@
 
 
 - type: entity
-  id: KitchenElectricRange
+  id: ADTKitchenElectricRange
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: electric range
+  name: adt-electric-range
   description: A functional range with a range of functions.
   components:
    - type: Microwave
@@ -230,7 +230,7 @@
    - type: ApcPowerReceiver
      powerLoad: 1000 # Assume the range is off.
    - type: Machine
-     board: ElectricRangeMachineCircuitboard
+     board: ADTElectricRangeMachineCircuitBoard
    - type: ContainerContainer
      containers:
        microwave_entity_container: !type:Container
@@ -253,16 +253,16 @@
        - Temperature
 
 - type: entity
-  id: SyndicateKitchenElectricRange
-  parent: KitchenElectricRange
-  name: donk co. electric range
+  id: ADTSyndicateKitchenElectricRange
+  parent: ADTKitchenElectricRange
+  name: adt-syndicate-electric-range
   components:
     - type: Microwave
       cookTimeMultiplier: 0.5
     - type: Sprite
       sprite: ADT/Structures/Machines/oven_syndie.rsi
     - type: Machine
-      board: SyndicateElectricRangeMachineCircuitboard
+      board: ADTSyndicateElectricRangeMachineCircuitboard
     - type: FoodRecipeProvider
       providedRecipes:
       - RecipeBaguetteSword

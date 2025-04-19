@@ -1,19 +1,3 @@
-- type: technology
-  id: ADTMedicalMODsuit
-  name: research-technology-medical-modsuit
-  icon:
-    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
-    state: medical
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ADTModsuitPlateMedical
-  technologyPrerequisites:
-    - ADTModsuitBase
-  position: 3,1
-  requiredTech:
-  - AdvancedEntertainment
 
 - type: technology
   id: ADTServiceMODsuitMODs
@@ -30,26 +14,9 @@
     - ADTModsuitModNoslip
   technologyPrerequisites:
     - ADTMedicalMODsuit
-  position: 5,2
+  position: 3,1
   requiredTech:
-  - BasicTranslation
-
-- type: technology
-  id: ADTCloning
-  name: research-technology-medical-cloning-adt
-  icon:
-    sprite: Structures/Machines/scanner.rsi
-    state: closed
-  discipline: CivilianServices
-  tier: 2
-  cost: 12000
-  recipeUnlocks:
-  - CloningPodMachineCircuitboard
-  - CloningConsoleComputerCircuitboard
-  - MedicalScannerMachineCircuitboard
-  position: 2,2
-  requiredTech:
-  - ADTMedicalMODsuit
+  - AdvancedEntertainment
 
 - type: technology
   id: ADTExoskeletons
@@ -62,7 +29,7 @@
   cost: 10000
   recipeUnlocks:
   - ADTClothingOuterExoskeletonBase
-  position: 3,5
+  position: 2,3
   requiredTech:
   - BluespaceCargoTransport
 
@@ -82,8 +49,23 @@
   - MeatManipulation
 
 - type: technology
-  id: AdvancedFoodService
+  id: ADTAdvancedFoodService
   name: research-technology-advanced-food-service
+  icon:
+    sprite: ADT/Structures/Machines/assembler.rsi
+    state: assembler
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ADTKitchenAssemblerMachineCircuitBoard
+  requiredTech:
+  - MeatManipulation
+  position: 3,-2
+
+- type: technology
+  id: ADTElectricalRange
+  name: research-technology-electrical-range
   icon:
     sprite: ADT/Structures/Machines/oven.rsi
     state: composite_off
@@ -91,8 +73,7 @@
   tier: 2
   cost: 7500
   recipeUnlocks:
-  - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board to service research.
-  - ServiceSelectiveDropper
-  - KitchenAssemblerMachineCircuitboard
-  - ElectricRangeMachineCircuitboard
-  position: 2,-5
+  - ADTElectricRangeMachineCircuitBoard
+  requiredTech:
+  - MeatManipulation
+  position: 1,-2

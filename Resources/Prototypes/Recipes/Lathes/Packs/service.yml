@@ -54,7 +54,8 @@
 - type: latheRecipePack
   id: ServiceBoards
   recipes:
-  - KitchenAssemblerMachineCircuitboard #ADT Tweak
+  - ADTElectricRangeMachineCircuitBoard #ADT Tweak
+  - ADTKitchenAssemblerMachineCircuitBoard #ADT Tweak
   - BiofabricatorMachineCircuitboard
   - FatExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard # roundstart gear being unlocked roundstart when

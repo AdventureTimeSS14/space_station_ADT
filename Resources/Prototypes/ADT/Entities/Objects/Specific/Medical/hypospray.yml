@@ -29,7 +29,7 @@
   name: empty medipen
   parent: BaseItem
   description: A empty medipen with endless potential. Does not allow for deviation from Nanotrasen recipes.
-  id: BlankMediPen
+  id: ADTBlankMediPen
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/medipen.rsi
@@ -40,7 +40,7 @@
 - type: entity
   name: hemostasis auto-injector
   parent: ChemicalMedipen
-  id: HemostasisAutoInjector
+  id: ADTHemostasisAutoInjector
   description: A rapid dose of coagulants and circulatory fluids. Contains tranexamic acid and saline.
   components:
   - type: Sprite
@@ -65,7 +65,7 @@
 - type: entity
   name: stimulant auto-injector
   parent: ChemicalMedipen
-  id: StimulantAutoInjector
+  id: ADTStimulantAutoInjector
   description: A rapid dose of potent stimulants and governing agents. Contains desoxyephedrine and dylovene. Use with extreme caution.
   components:
   - type: Sprite
@@ -90,7 +90,7 @@
 - type: entity
   name: crisis auto-injector
   parent: ChemicalMedipen
-  id: CrisisAutoInjector
+  id: ADTCrisisAutoInjector
   description: A rapid dose of stabilizers and vasodialaters for use on critically injured patients. Contains inaprovaline and dexalin plus.
   components:
   - type: Sprite
@@ -115,7 +115,7 @@
 - type: entity
   name: lacerinol auto-injector
   parent: ChemicalMedipen
-  id: LacerAutoInjector
+  id: ADTLacerAutoInjector
   description: A rapid dose of lacerinol and tranexamic acid, intended for combat applications.
   components:
   - type: Sprite
@@ -138,7 +138,7 @@
 - type: entity
   name: bruizine auto-injector
   parent: ChemicalMedipen
-  id: BruizAutoInjector
+  id: ADTBruizAutoInjector
   description: A rapid dose of bruizine and tranexamic acid, intended for combat applications.
   components:
   - type: Sprite
@@ -161,7 +161,7 @@
 - type: entity
   name: barkeeper's friend auto-injector
   parent: ChemicalMedipen
-  id: EthylredoxrazineAutoInjector
+  id: ADTEthylredoxrazineAutoInjector
   description: A rapid dose of ethanol neutralizers and anti-toxins for customers who have maybe had enough for the night. Contains ethylredoxrazine and dylovene.
   components:
   - type: Sprite

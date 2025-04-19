@@ -27,8 +27,8 @@
     Glass: 50
 
 - type: latheRecipe
-  id: BlankMediPen
-  result: BlankMediPen
+  id: ADTBlankMediPen
+  result: ADTBlankMediPen
   completetime: 2
   materials:
     Plastic: 25
