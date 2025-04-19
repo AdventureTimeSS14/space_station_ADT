@@ -46,6 +46,9 @@ ent-ADTBarAirlock = шлюз
 ent-ADTMorgueAirlock = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Морг
+ent-ADTBarberAirlock = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Парикмахер
 
 # стеклянные
 
@@ -91,3 +94,6 @@ ent-ADTTheatreAirlockGlass = стеклянный шлюз
 ent-ADTBarAirlockGlass = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Бар
+ent-ADTBarberAirlockGlass = стеклянный шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Парикмахер

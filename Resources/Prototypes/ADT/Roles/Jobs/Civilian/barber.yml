@@ -1,0 +1,23 @@
+- type: job
+  id: ADTBarber
+  name: job-name-ADTbarber
+  description: job-description-ADTbarber
+  playTimeTracker: JobADTBarber
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 9000 #2.5 hrs
+  startingGear: ADTBarberGear
+  icon: "JobIconADTBarber"
+  supervisors: job-supervisors-hop
+  access:
+  - Service
+  - Maintenance
+
+- type: startingGear
+  id: ADTBarberGear
+  equipment:
+    shoes: ClothingShoesColorBlack
+    id: ADTBarberPDA
+    ears: ClothingHeadsetService
+    pocket1: ADTRazor
+    pocket2: BarberScissors

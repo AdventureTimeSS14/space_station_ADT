@@ -141,3 +141,15 @@
       layers:
       - state: green
       - state: guardofficer
+
+- type: entity
+  id: SpawnPointADTBarber
+  parent: ADTSpawnPointJobBase
+  name: barber
+  components:
+  - type: SpawnPoint
+    job_id: ADTBarber
+  - type: Sprite
+    layers:
+      - state: green
+      - state: barber

@@ -87,3 +87,11 @@
     sprite: /Textures/ADT/Interface/Misc/space_sec_icons.rsi
     state: ADTSpaceSecServiceStatusIcon
   jobName: job-name-ADTSpaceSecService
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconADTBarber
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTHairdresser
+  jobName: job-name-ADTbarber

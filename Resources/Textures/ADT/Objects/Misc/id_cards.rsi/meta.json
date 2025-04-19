@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/icons/obj/card.dmi, pathologist made by JustKekc, SpaceSec made by the Adventure Time Project team",
+    "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/icons/obj/card.dmi, pathologist made by JustKekc, SpaceSec made by the Adventure Time Project team, id-barber by prazat911 (discord) for ADT",
     "size": {
       "x": 32,
       "y": 32
@@ -79,6 +79,9 @@
         },
         {
             "name": "id-guardofficer"
+        },
+        {
+            "name": "id-barber"
         },
         {
             "name": "id-taumaturg"
