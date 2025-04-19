@@ -59,23 +59,23 @@
       amount: 1
   products:
     OldFashioned: 10
-
-- type: reaction
-  id: BadTouch
-  reactants:
-    Vodka: 
-      amount: 1
-    LemonLime:
-      amount: 1
-    SpaceUp:
-      amount: 2
-    BlueCuracao:
-      amount: 1
-    Absinthe:
-      amount: 1
-  products:
-    BadTouch: 6
-
+#ADT - tweak start
+#- type: reaction
+#  id: BadTouch
+#  reactants:
+#    Vodka: 
+#      amount: 1
+#    LemonLime:
+#      amount: 1
+#    SpaceUp:
+#      amount: 2
+#    BlueCuracao:
+#      amount: 1
+#    Absinthe:
+#      amount: 1
+#  products:
+#    BadTouch: 6
+#ADT - tweak end
 - type: reaction
   id: DarkAndStormy
   reactants:
