@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord: buhoj_med for Adventure Time",
+"states": [
+    {
+      "name": "gitoctocat"
+    }
+  ]
+}

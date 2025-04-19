@@ -54,3 +54,156 @@
       - state: green
       - sprite: Mobs/Species/Skeleton/parts.rsi
         state: skull_icon
+
+- type: entity
+  id: ADTSpawnPointGhostRafael
+  name: ghost role spawn point
+  suffix: Rafael
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-rafael-name
+    description: ghost-role-information-rafael-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobPigeonRafael
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Animals/pigeon.rsi
+        state: icon
+
+
+- type: entity
+  id: ADTSpawnPointGhostRahima
+  name: ghost role spawn point
+  suffix: Rahima
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-rahima-name
+    description: ghost-role-information-rahima-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobGoatRahima
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Animals/goat.rsi
+        state: goat
+
+- type: entity
+  id: ADTSpawnPointGhostRagha
+  name: ghost role spawn point
+  suffix: Ragha
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ragha-name
+    description: ghost-role-information-ragha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobMonkeyRagha
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Animals/monkey.rsi
+        state: monkey
+
+- type: entity
+  id: ADTSpawnPointGhostRatha
+  name: ghost role spawn point
+  suffix: Ratha
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ratha-name
+    description: ghost-role-information-ratha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTModTurtleRatha
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Animals/turtle.rsi
+        state: turtle
+
+- type: entity
+  id: ADTSpawnPointGhostRonia
+  name: ghost role spawn point
+  suffix: Ronia
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ronia-name
+    description: ghost-role-information-ronia-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobDragonPetRonia
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Animals/baby_dragon.rsi
+        state: icon
+
+- type: entity
+  id: ADTSpawnPointGhostRanikha
+  name: ghost role spawn point
+  suffix: rani-kha
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ranikha-name
+    description: ghost-role-information-ranikha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTModAntlionRanikha
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Animals/antlion.rsi
+        state: antlion
+
+- type: entity
+  id: ADTSpawnPointGhostRebecca
+  name: ghost role spawn point
+  suffix: rebecca
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-rebecca-name
+    description: ghost-role-information-rebecca-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobSlothRebecca
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Pets/sloth.rsi
+        state: sloth
+
+- type: entity
+  id: ADTSpawnPointGhostRosie
+  name: ghost role spawn point
+  suffix: rosie
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-rosie-name
+    description: ghost-role-information-rosie-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobFoxRosie
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Pets/fox.rsi
+        state: fox
