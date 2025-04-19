@@ -38,6 +38,7 @@ using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.Interaction;
 using Content.Server.ADT.Chat;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Server.Chat.Systems;
 
@@ -694,24 +695,27 @@ public sealed partial class ChatSystem : SharedChatSystem
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Dead chat from {player:Player}: {message}");
         }
 
+        _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList(), author: player.UserId);
         // ADT-Tweak-start: Поиск ругательств и оскорбление родных
-        var words = message.Split(
-            new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
-            StringSplitOptions.RemoveEmptyEntries
-        );
-        foreach (var word in words)
+        if (_configurationManager.GetCVar(ADTCCVars.ChatFilterAdminAlertEnable))
         {
-            if (ChatFilterConstants.OffensiveWords.Contains(word))
+            var words = message.Split(
+                new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (var word in words)
             {
-                _chatManager.SendAdminAlert(
-                    $"Внимние!! Сущность {ToPrettyString(source)} использовала слово `{word}`" +
-                    $" в сообщении, требуется проверка администратора: {message}"
-                );
-                break;
+                if (ChatFilterConstants.OffensiveWords.Contains(word))
+                {
+                    _chatManager.SendAdminAlert(
+                        $"Внимние!! Сущность {ToPrettyString(source)} использовала слово `{word}`" +
+                        $" в сообщении, требуется проверка администратора: {message}"
+                    );
+                    break;
+                }
             }
         }
         // ADT-Tweak-end
-        _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList(), author: player.UserId);
     }
     #endregion
 

@@ -417,19 +417,22 @@ internal sealed partial class ChatManager : IChatManager
         _netManager.ServerSendMessage(new MsgChatMessage() { Message = msg }, client);
 
         // ADT-Tweak-start: Поиск ругательств и оскорбление родных
-        var words = message.Split(
-            new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
-            StringSplitOptions.RemoveEmptyEntries
-        );
-        foreach (var word in words)
+        if (_configurationManager.GetCVar(ADTCCVars.ChatFilterAdminAlertEnable))
         {
-            if (ChatFilterConstants.OffensiveWords.Contains(word))
+            var words = message.Split(
+                new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (var word in words)
             {
-                SendAdminAlert(
-                    $"Внимние!! Сущность {_entityManager.ToPrettyString(source)} использовала слово `{word}`" +
-                    $" в сообщении, требуется проверка администратора: {message}"
-                );
-                break;
+                if (ChatFilterConstants.OffensiveWords.Contains(word))
+                {
+                    SendAdminAlert(
+                        $"Внимние!! Сущность {_entityManager.ToPrettyString(source)} использовала слово `{word}`" +
+                        $" в сообщении, требуется проверка администратора: {message}"
+                    );
+                    break;
+                }
             }
         }
         // ADT-Tweak-end
