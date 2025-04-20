@@ -62,7 +62,7 @@
     sprite: ADT/Objects/Weapons/Guns/StrikeBall/Bolt-Snipers/heavy_sniper.rsi
     state: base
   product: ADTWeaponAirsoftCrate
-  cost: 15000
+  cost: 23500
   category: Fun
   group: market
 
@@ -72,7 +72,7 @@
     sprite: ADT/Clothing/OuterClothing/Armor/airsoft_red_armor.rsi
     state: icon
   product: ADTArmorAirsoftCrate
-  cost: 7500
+  cost: 9250
   category: Fun
   group: market
 
@@ -82,6 +82,6 @@
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/rifle.rsi
     state: base
   product: ADTPistolAirsoftCrate
-  cost: 4250
+  cost: 7500
   category: Fun
   group: market
