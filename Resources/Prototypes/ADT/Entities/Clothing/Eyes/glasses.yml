@@ -146,7 +146,7 @@
 
 - type: entity
   parent: ClothingEyesBase
-  id: ADTClothingEyesGlassesCMO
+  id: ADTClothingEyesGlassesMedChem
   name: chemical and medical goggles
   description: Goggles are similar to chemical goggles, but have a built-in medical visor.
   components:
