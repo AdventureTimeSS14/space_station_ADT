@@ -28,6 +28,7 @@
           reagents:
             - ReagentId: ADTPenetrationDrink
               Quantity: 30
+    - type: Drink
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/penetration.rsi
       state: icon
