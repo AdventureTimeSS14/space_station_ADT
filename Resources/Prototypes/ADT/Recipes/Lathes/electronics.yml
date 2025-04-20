@@ -57,31 +57,6 @@
     Gold: 100
 
 - type: latheRecipe
-  id: ADTMedicalAssemblerMachineCircuitBoard
-  parent: BaseCircuitboardRecipe
-  result: ADTMedicalAssemblerMachineCircuitBoard
-  materials:
-    Steel: 800
-    Glass: 900
-
-- type: latheRecipe
-  id: ADTKitchenAssemblerMachineCircuitBoard
-  parent: BaseCircuitboardRecipe
-  result: ADTKitchenAssemblerMachineCircuitBoard
-  materials:
-    Steel: 600
-    Glass: 750
-
-- type: latheRecipe
-  id: ADTElectricRangeMachineCircuitBoard
-  result: ADTElectricRangeMachineCircuitBoard
-  category: Circuitry
-  completetime: 4
-  materials:
-     Steel: 800
-     Glass: 900
-
-- type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: SupermatterComputerCircuitboardRecipe
   result: SupermatterComputerCircuitboard

@@ -17,5 +17,3 @@ guide-entry-holiday-recipes = Праздничные рецепты
 guide-entry-medicinal-recipes = Наборы и медипены
 guide-entry-other-recipes = Другое
 guide-entry-secret-recipes = Секретное
-
-guide-entry-medicine = Медицина
