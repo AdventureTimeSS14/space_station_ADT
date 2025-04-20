@@ -65,7 +65,7 @@ public sealed partial class MechEquipmentMenu : RadialMenu
             {
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64f, 64f),
-                ToolTip = Loc.GetString(meta.EntityName ?? String.Empty),
+                ToolTip = Loc.GetString(meta.EntityName ?? string.Empty),
                 Entity = item,
             };
 
