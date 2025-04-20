@@ -143,3 +143,19 @@
         icon:
           True: { state: icon }
           False: { state: icon }
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesGlassesCMO
+  name: chemical and medical goggles
+  description: Goggles are similar to chemical goggles, but have a built-in medical visor.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Eyes/Glasses/cmo_goggles.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Eyes/Glasses/cmo_goggles.rsi
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    - type: SolutionScanner
+    - type: IdentityBlocker
+      coverage: EYES
