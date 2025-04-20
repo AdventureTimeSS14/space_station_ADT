@@ -19,7 +19,10 @@
     - DoorBumpOpener
   - type: UniversalLanguageSpeaker
   - type: Physics
+    ignorePaused: true
     bodyType: Kinematic
     canCollide: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 20
   - type: Loadout
     roleLoadout: [ JobADTAdminGod ]
