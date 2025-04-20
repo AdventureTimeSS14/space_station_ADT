@@ -37,7 +37,7 @@
 - type: latheRecipe
   id: ADTReagentAnalyzer
   result: ADTReagentAnalyzer
-  completetime: 2
+  completetime: 4
   materials:
     Glass: 600
     Steel: 500

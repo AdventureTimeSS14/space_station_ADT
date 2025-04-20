@@ -7,8 +7,5 @@ ent-ADTKitchenElectricRange = Электрическая печь
 ent-ADTSyndicateKitchenElectricRange = Электрическая печь
     .desc = Функциональная печь с множеством функций.
 
-ent-ADTMedicalAssembler = Медицинский ассемблер
-    .desc = По всей видимости, отлично подходит для медицины. Вы не знаете как это работает.
-
 ent-ADTKitchenAssembler = Кухонный ассемблер
     .desc = Готовит за вас большую часть лицензированных блюд в NanoTrasen. Вы не знаете как оно это делает.

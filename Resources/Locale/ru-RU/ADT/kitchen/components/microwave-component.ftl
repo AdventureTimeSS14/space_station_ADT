@@ -8,7 +8,7 @@ microwave-component-upgrade-cook-time = cook time
 microwave-component-assembler-no-valid-recipe = Не найден подходящий рецепт!
 
 ## Bound UI
-assembler-bound-user-interface-insert-ingredients = ПОЛОЖИТЕ МАТЕРИАЛЫ
+assembler-bound-user-interface-insert-ingredients = ОЖИДАЮТСЯ МАТЕРИАЛЫ
 assembler-bound-user-interface-cook-time-label = ВРЕМЕНИ ОСТАЛОСЬ: {$time}
 
 ## UI
