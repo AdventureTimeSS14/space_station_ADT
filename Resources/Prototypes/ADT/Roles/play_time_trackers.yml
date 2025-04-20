@@ -32,9 +32,6 @@
   id: JobTimePatrol
 
 - type: playTimeTracker
-  id: JobAdminGod
-
-- type: playTimeTracker
   id: JobADTGuardOfficer
 
 - type: playTimeTracker

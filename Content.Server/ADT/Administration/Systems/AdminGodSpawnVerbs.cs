@@ -40,19 +40,21 @@ public sealed partial class AdminVerbSystem
                             return;
                         }
 
-                        var stationUid = _stations.GetOwningStation(args.Target);
-                        ProtoId<JobPrototype> job = "ADTJobAdminGod";
-                        var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
-                        var mobUidSpawn = _spawning.SpawnPlayerMob(coords.Value, job, profile, stationUid);
                         var targetMind = _mindSystem.GetMind(args.Target);
 
-                        _audio.PlayPvs("/Audio/Effects/holy.ogg", mobUidSpawn);
+                        // Спавнит прототип
+                        var prototypeId = "ADTGodSpawn";
+                        var spawnedEntity = EntityManager.SpawnEntity(prototypeId, coords.Value);
 
-                        EnsureComp<ElectrionPulseActComponent>(mobUidSpawn);
+                        // Проигрывает звук при спавне
+                        _audio.PlayPvs("/Audio/Effects/holy.ogg", spawnedEntity);
 
+                        EnsureComp<ElectrionPulseActComponent>(spawnedEntity);
+
+                        // Вселяет args.Target в прототип
                         if (targetMind != null)
                         {
-                            _mindSystem.TransferTo(targetMind.Value, mobUidSpawn, true);
+                            _mindSystem.TransferTo(targetMind.Value, spawnedEntity, true);
                         }
                     },
                     ConfirmationPopup = true,

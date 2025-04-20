@@ -1,27 +1,25 @@
 - type: entity
   name: Admin God
   parent: BaseMobHuman
-  id: ADTGodSpawn
+  id: ADTGodSpawn # НЕ МЕНЯТЬ ID ПРОТОТИПА
   suffix: "Админ бог"
   components:
   - type: NpcFactionMember
     factions:
-    - NanoTrasen
+    - Passive
   - type: Godmode
-  - type: TriggerOnMobstateChange
-    mobState:
-    - Dead
   - type: Vocal
     sounds:
-      Male: UnisexIPC
-      Female: UnisexIPC
-      Unsexed: UnisexIPC
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
   - type: Tag
     tags:
     - CanPilot
     - DoorBumpOpener
-  - type: UniversalLanguageSpeaker # Ghosts should understand any language.
-  - type: RandomMetadata
-    nameSegments:
-      - NamesFirstMilitaryLeaderCorvax # Corvax-Localization
-      - NamesLastERTCallsign # Corvax-Localization
+  - type: UniversalLanguageSpeaker
+  - type: Physics
+    bodyType: Kinematic
+    canCollide: false
+  - type: Loadout
+    roleLoadout: [ JobADTAdminGod ]
