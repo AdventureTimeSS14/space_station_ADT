@@ -3,20 +3,15 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.NightVision;
+namespace Content.Shared.ADT.ThermalVision;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(SharedNightVisionSystem))]
-public sealed partial class NightVisionComponent : Component
+[Access(typeof(SharedThermalVisionSystem))]
+public sealed partial class ThermalVisionComponent : Component
 {
-    [DataField]
-    public ProtoId<AlertPrototype>? Alert;
 
     [DataField, AutoNetworkedField]
-    public NightVisionState State = NightVisionState.Full;
-
-    [DataField, AutoNetworkedField]
-    public bool Overlay;
+    public ThermalVisionState State = ThermalVisionState.Full;
 
     [DataField, AutoNetworkedField]
     public bool Innate;
@@ -26,10 +21,10 @@ public sealed partial class NightVisionComponent : Component
 }
 
 [Serializable, NetSerializable]
-public enum NightVisionState
+public enum ThermalVisionState
 {
     Off,
     Full
 }
 
-public sealed partial class ToggleNightVision : BaseAlertEvent;
+public sealed partial class ToggleThermalVision : BaseAlertEvent;

@@ -632,6 +632,16 @@
     - UplinkWearables
 
 - type: listing
+  id: ADTUplinkThermalVision
+  name: uplink-thermal-name
+  description: uplink-thermal-desc
+  productEntity: ClothingEyesGlassesThermal
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables
+
+- type: listing
   id: UplinkADTModularGrenadeBundle
   name: uplink-ADTModularGrenadeBundle-name
   description: uplink-ADTModularGrenadeBundle-desc

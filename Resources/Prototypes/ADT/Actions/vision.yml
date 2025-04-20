@@ -1,0 +1,51 @@
+- type: entity
+  id: ActionToggleNightVision
+  categories: [HideSpawnMenu]
+  name: Toggle nightvision
+  description: Allows you to see even in complete darkness.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/nightvision.rsi
+      state: icon_on
+    iconOn:
+      sprite: ADT/Interface/Actions/nightvision.rsi
+      state: icon_off
+    itemIconStyle: BigAction
+    event: !type:ToggleActionEvent
+    useDelay: 0.25
+
+- type: entity
+  id: ActionToggleThermalVision
+  categories: [HideSpawnMenu]
+  name: Toggle thermalvision
+  description: Allows you to see even in complete darkness.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/thermalvision.rsi
+      state: icon_on
+    iconOn:
+      sprite: ADT/Interface/Actions/thermalvision.rsi
+      state: icon_off
+    itemIconStyle: BigAction
+    event: !type:ToggleActionEvent
+    useDelay: 0.25
+
+- type: entity
+  id: ActionToggleMesonVision
+  categories: [HideSpawnMenu]
+  name: Toggle mesonvision
+  description: Allows you to see even in complete darkness.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/mesonvision.rsi
+      state: icon_on
+    iconOn:
+      sprite: ADT/Interface/Actions/mesonvision.rsi
+      state: icon_off
+    itemIconStyle: BigAction
+    event: !type:ToggleActionEvent
+    useDelay: 0.25
+

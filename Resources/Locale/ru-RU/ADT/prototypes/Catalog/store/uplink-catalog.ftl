@@ -230,3 +230,6 @@ uplink-pinpointer-syndicate-universal-desc = Портативное устрой
 # Supermatter shit
 uplink-agent-nuclear-physicist-kit-name = Набор физика-ядерщика
 uplink-agent-nuclear-physicist-kit-desc = Набор для юных физиков-ядерщиков, которые хотят подорвать работу кристалла сверхматерии. "Не рекомендуется к покупке."
+
+uplink-thermal-name = термальные очки
+uplink-thermal-desc = Термальный визор, что позволяет видить всех живых существ через стены.

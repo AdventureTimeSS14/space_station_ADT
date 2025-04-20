@@ -3,17 +3,17 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.NightVision;
+namespace Content.Shared.ADT.MesonVision;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(SharedNightVisionSystem))]
-public sealed partial class NightVisionComponent : Component
+[Access(typeof(SharedMesonVisionSystem))]
+public sealed partial class MesonVisionComponent : Component
 {
     [DataField]
     public ProtoId<AlertPrototype>? Alert;
 
     [DataField, AutoNetworkedField]
-    public NightVisionState State = NightVisionState.Full;
+    public MesonVisionState State = MesonVisionState.Full;
 
     [DataField, AutoNetworkedField]
     public bool Overlay;
@@ -22,14 +22,14 @@ public sealed partial class NightVisionComponent : Component
     public bool Innate;
 
     [DataField, AutoNetworkedField]
-    public Color Color = Color.FromHex("#FF4500");
+    public Color Color = Color.FromHex("#D3D3D3");
 }
 
 [Serializable, NetSerializable]
-public enum NightVisionState
+public enum MesonVisionState
 {
     Off,
     Full
 }
 
-public sealed partial class ToggleNightVision : BaseAlertEvent;
+public sealed partial class ToggleMesonVision : BaseAlertEvent;

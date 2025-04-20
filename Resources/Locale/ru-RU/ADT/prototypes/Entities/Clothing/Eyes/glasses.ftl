@@ -28,3 +28,6 @@ ent-ClothingEyesNightVision = прибор ночного видения
 ent-ADTClothingEyesNightVisionMGD = ПНВ компании MG&D
     .desc = Стандартный прибор ночного видения, используемый сотрудниками компании MG&D
     .suffix = { "MG&D" }
+
+ent-ADTClothingEyesWelding = сварочные очки
+    .desc = Стандартные тёмные очки, что защищают глаза от яркого света сварки.
