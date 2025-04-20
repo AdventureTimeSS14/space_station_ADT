@@ -226,7 +226,8 @@ public sealed class ADTCCVars
     #region Admin
 
     /// <summary>
-    ///     When true, bypass the normal checks to determine delam type, and instead use the type chosen by supermatter.forced_delam_type
+    /// Включает или отключает уведомления администраторов о сообщениях,
+    /// содержащих оскорбительные выражения в адрес родственников.
     /// </summary>
     public static readonly CVarDef<bool> ChatFilterAdminAlertEnable =
         CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
