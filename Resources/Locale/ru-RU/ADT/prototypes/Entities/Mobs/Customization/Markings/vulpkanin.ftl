@@ -114,3 +114,207 @@ marking-ADTVulpkaninold = Вульпканин, Скулы
 marking-ADTVulpkaninold-old = Скулы
 marking-ADTVulpkaninEyeGlow = Светящиеся глаза
 marking-ADTVulpkaninEyeGlow-eyesglow = Светящиеся глаза
+
+marking-ADTVulpEar-vulp = Вульпканин, уши (основа)
+marking-ADTVulpEar-vulp-inner = Вульпканин, уши (inner)
+marking-ADTVulpEar = Вульпканин,
+
+marking-ADTVulpEarFade-vulp = Вульпканин, уши (основа)
+marking-ADTVulpEarFade-vulp-fade = Вульпканин, уши (затемнение)
+marking-ADTVulpEarFade = Вульпканин, (затемнение)
+
+marking-ADTVulpEarSharp-vulp = Вульпканин, уши (основа)
+marking-ADTVulpEarSharp-vulp-sharp = Вульпканин, уши (острая)
+marking-ADTVulpEarSharp = Вульпканин, (острая)
+
+
+marking-ADTVulpSnoutAlt-muzzle_alt = Морда
+marking-ADTVulpSnoutAlt-nose = Нос
+marking-ADTVulpSnoutAlt = Вульпканин, Морда 2
+
+marking-ADTVulpSnout-muzzle = Морда
+marking-ADTVulpSnout-nose = Нос
+marking-ADTVulpSnout = Вульпканин, Морда
+
+marking-ADTVulpSnoutSharp-muzzle_sharp = Морда
+marking-ADTVulpSnoutSharp-nose = Нос
+marking-ADTVulpSnoutSharp = Вульпканин, Морда (острая)
+
+marking-ADTVulpSnoutFade-muzzle_fade = Морда
+marking-ADTVulpSnoutFade-nose = Нос
+marking-ADTVulpSnoutFade = Вульпканин, Морда (затемнение)
+
+marking-ADTVulpSnoutNose-nose = Нос
+marking-ADTVulpSnoutNose = Вульпканин, Нос
+
+marking-ADTVulpSnoutMask-mask = Маска
+marking-ADTVulpSnoutMask-nose = Нос
+marking-ADTVulpSnoutMask = Вульпканин, маска
+
+marking-ADTVulpSnoutVulpine-vulpine = Лисий (основа)
+marking-ADTVulpSnoutVulpine-vulpine-lines = Лисий (линии)
+marking-ADTVulpSnoutVulpine = Вульпканин, лисий
+
+marking-ADTVulpSnoutSwift-vulpine-lines = Борзая
+marking-ADTVulpSnoutSwift = Вульпканин, борзая
+
+marking-ADTVulpSnoutBlaze-blaze = Яростная
+marking-ADTVulpSnoutBlaze = Вульпканин, яростная
+
+marking-ADTVulpSnoutPatch-patch = Пятно
+marking-ADTVulpSnoutPatch = Вульпканин, Пятно
+
+
+marking-ADTVulpHeadTiger-tiger_head = Тигриные полосы
+marking-ADTVulpHeadTiger = Вульпканин, тигриные полосы (голова)
+
+marking-ADTVulpHeadTigerFace-tiger_face = Тигриные полосы
+marking-ADTVulpHeadTigerFace = Вульпканин, тигриные полосы (лицо)
+
+marking-ADTVulpHeadSlash-slash = порез
+marking-ADTVulpHeadSlash = Вульпканин, порез
+
+
+marking-ADTVulpTail-vulp = Вульпканин, хвост (основа)
+marking-ADTVulpTail-vulp-fade = Вульпканин, хвост (затемнение)
+marking-ADTVulpTail = Вульпканин,
+
+marking-ADTVulpTailTip-vulp = Вульпканин, хвост (основа)
+marking-ADTVulpTailTip-vulp-tip = Вульпканин, хвост (кончик)
+marking-ADTVulpTailTip = Вульпканин, (кончик)
+
+marking-ADTVulpTailWag-ADTvulp_wag = Вульпканин, хвост (основа)
+marking-ADTVulpTailWag-ADTvulp_wag-fade = Вульпканин, хвост (затемнение)
+marking-ADTVulpTailWag = Вульпканин, (виляющий)
+
+marking-ADTVulpTailWagTip-vulp_wag = Вульпканин, хвост (основа)
+marking-ADTVulpTailWagTip-vulp_wag-tip = Вульпканин, хвост (кончик)
+marking-ADTVulpTailWagTip = Вульпканин, (виляющий, кончик)
+
+marking-ADTVulpTailAlt-vulp_alt = Вульпканин, хвост (основа)
+marking-ADTVulpTailAlt-vulp_alt-fade = Вульпканин, хвост (затемнение)
+marking-ADTVulpTailAlt = Вульпканин, (альтернативный)
+
+marking-ADTVulpTailAltTip-vulp_alt = Вульпканин, хвост (основа)
+marking-ADTVulpTailAltTip-vulp_alt-tip = Вульпканин, хвост (кончик)
+marking-ADTVulpTailAltTip = Вульпканин, (альтернативный, кончик)
+
+marking-ADTVulpTailLong-long = Длинный хвост (основа)
+marking-ADTVulpTailLong-long-tip = Длинный хвост (кончик)
+marking-ADTVulpTailLong = Вульпканин, длинный
+
+marking-ADTVulpTailFox-fox = Лисиный хвост (основа)
+marking-ADTVulpTailFox-fox-fade = Лисиный хвост (затемнение)
+marking-ADTVulpTailFox = Вульпканин, Лисиный
+
+marking-ADTVulpTailFoxTip-fox = Лисиный хвост (основа)
+marking-ADTVulpTailFoxTip-fox-tip = Лисиный хвост (затемнение)
+marking-ADTVulpTailFoxTip = Вульпканин, Лисиный (кончик)
+
+marking-ADTVulpTailFoxWag-fox_wag = Лисиный хвост (основа)
+marking-ADTVulpTailFoxWag-fox_wag-fade = Лисиный хвост (затемнение)
+marking-ADTVulpTailFoxWag = Вульпканин, Лисиный (виляющий)
+
+marking-ADTVulpTailFoxWagTip-fox_wag = Лисиный хвост (основа)
+marking-ADTVulpTailFoxWagTip-fox_wag-tip = Лисиный хвост (кончик)
+marking-ADTVulpTailFoxWagTip = Вульпканин, Лисиный (виляющий, кончик)
+
+marking-ADTVulpTailBushy-bushfluff = Пышный хвост
+marking-ADTVulpTailBushy = Вульпканин, Пышный
+
+marking-ADTVulpTailBushyWag-bushfluff_wag = Пышный хвост
+marking-ADTVulpTailBushyWag = Вульпканин, Пышный (виляющий)
+
+marking-ADTVulpTailCoyote-coyote = Хвост Койота
+marking-ADTVulpTailCoyote = Вульпканин, Койот
+
+marking-ADTVulpTailCoyoteWag-coyote_wag = Хвост Койота
+marking-ADTVulpTailCoyoteWag = Вульпканин, Койот (виляющий)
+
+marking-ADTVulpTailCorgiWag-corgi_wag = Хвост
+marking-ADTVulpTailCorgiWag = Вульпканин, Корги (виляющий)
+
+marking-ADTVulpTailHusky-husky-inner = Хвост Хаски (inner)
+marking-ADTVulpTailHusky-husky-outer = Хвост Хаски (outer)
+marking-ADTVulpTailHusky = Вульпканин, Хаски
+
+marking-ADTVulpTailHuskyAlt-husky = Хвост Хаски
+marking-ADTVulpTailHuskyAlt = Вульпканин, Хаски (альтернативный)
+
+marking-ADTVulpTailFox2-fox2 = Лисиный хвост
+marking-ADTVulpTailFox2 = Вульпканин, Лисиный 2
+
+marking-ADTVulpTailFox3-fox3 = Лисиный хвост (основа)
+marking-ADTVulpTailFox3-fox3-tip = Лисиный хвост (кончик)
+marking-ADTVulpTailFox3 = Вульпканин, Лисиный 3
+
+marking-ADTVulpTailFennec-fennec = Хвост Фенека
+marking-ADTVulpTailFennec = Вульпканин, Фенек
+
+marking-ADTVulpTailOtie-otie = хвост Оти
+marking-ADTVulpTailOtie = Вульпканин, Оти
+
+marking-ADTVulpTailFluffy-fluffy = Пушистый хвост
+marking-ADTVulpTailFluffy = Вульпканин, Пушистый
+
+marking-ADTVulpTailDalmatianWag-dalmatian_wag = хвост Далматина
+marking-ADTVulpTailDalmatianWag = Вульпканин, Далматин (виляющий)
+
+
+marking-ADTVulpBodyPointsCrest-points_crest = Пятна (крест)
+marking-ADTVulpBodyPointsCrest = Вульпканин, Пятна (крест)
+
+marking-ADTVulpBodyPointsFade-points_fade = Вульпканин, Пятна (затемнение)
+marking-ADTVulpBodyPointsFade = Вульпканин, Пятна (затемнение)
+
+marking-ADTVulpBodyPointsSharp-points_sharp = Вульпканин, Пятна (острая)
+marking-ADTVulpBodyPointsSharp = Вульпканин, Пятна (острая)
+
+
+marking-ADTVulpPointsFeet-points_feet = Пятна Стопы
+marking-ADTVulpPointsFeet = Вульпканин, Пятна Стопы
+
+marking-ADTVulpPointsCrestLegs-points_crest-legs = Пятна (крест)
+marking-ADTVulpPointsCrestLegs = Вульпканин, Пятна Ног (крест)
+
+marking-ADTVulpPointsFadeLegs-points_fade-legs = Пятна (затемнение)
+marking-ADTVulpPointsFadeLegs = Вульпканин, Пятна Ног (затемнение)
+
+marking-ADTVulpPointsSharpLegs-points_sharp-legs = Пятна (острая)
+marking-ADTVulpPointsSharpLegs = Вульпканин, Пятна Ног (острая)
+
+
+marking-ADTVulpPointsHands-points_hands = Пятна Рук
+marking-ADTVulpPointsHands = Вульпканин, Пятна Рук
+
+marking-ADTVulpPointsCrestArms-points_crest-arms = Пятна (крест)
+marking-ADTVulpPointsCrestArms = Вульпканин, Пятна Рук (крест)
+
+marking-ADTVulpPointsFadeArms-points_fade-arms = Пятна (затемнение)
+marking-ADTVulpPointsFadeArms = Вульпканин, Пятна Рук (затемнение)
+
+marking-ADTVulpPointsSharpArms-points_sharp-arms = Пятна (острая)
+marking-ADTVulpPointsSharpArms = Вульпканин, Пятна Рук (острая)
+
+
+marking-ADTVulpHairAdhara = Адара
+marking-ADTVulpHairAnita = Анита
+marking-ADTVulpHairApollo = Аполло
+marking-ADTVulpHairBelle = Белль
+marking-ADTVulpHairBraided = плетёные волосы
+marking-ADTVulpHairBun = Шишка
+marking-ADTVulpHairCleanCut = Аккуратная стрижка
+marking-ADTVulpHairCurl = Кудри
+marking-ADTVulpHairHawk = Хавк
+marking-ADTVulpHairJagged = Неровная
+marking-ADTVulpHairJeremy = Джереми
+marking-ADTVulpHairKajam = Каджам
+marking-ADTVulpHairKeid = Кейд
+marking-ADTVulpHairKleeia = Клия
+marking-ADTVulpHairMizar = Мизар
+marking-ADTVulpHairPunkBraided = Панк плетёный
+marking-ADTVulpHairRaine = Рэйн
+marking-ADTVulpHairRough = Грубая
+marking-ADTVulpHairShort = короткие волосы
+marking-ADTVulpHairShort2 = короткие волосы 2
+marking-ADTVulpHairSpike = Шип
