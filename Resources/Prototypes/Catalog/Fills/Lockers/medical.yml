@@ -81,16 +81,18 @@
       - id: ClothingEyesHudMedical
       - id: ClothingHeadHatSurgcapGreen
         weight: 0.1
+        orGroup: Surgshrubs
       - id: ClothingHeadHatSurgcapPurple
         weight: 0.05
+        orGroup: Surgshrubs
       - id: ClothingHeadHatSurgcapBlue
         weight: 0.90
-    - !type:GroupSelector
-      children:
       - id: UniformScrubsColorBlue
         weight: 0.5
+        orGroup: Surgshrubs
       - id: UniformScrubsColorGreen
         weight: 0.1
+        orGroup: Surgshrubs
       - id: UniformScrubsColorPurple
         prob: 0.05
         orGroup: Surgshrubs
