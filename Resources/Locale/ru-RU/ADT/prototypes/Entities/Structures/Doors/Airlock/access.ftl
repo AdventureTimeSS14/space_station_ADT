@@ -34,6 +34,13 @@ ent-ADTPsychoAirlockLocked = шлюз
 ent-ADTCorporateAirlockLocked = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Корпорат, Закрытый
+ent-AirlockMagistrateLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Магистрат, Закрытый
+ent-AirlockIAALocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = АВД, Закрытый
+
 
 ent-ADTSpaceSecAirlockShuttle = стыковочный шлюз
     .desc = Необходим для соединения двух космических кораблей вместе.
@@ -75,3 +82,9 @@ ent-ADTGlassBlackCentcommAirlockLocked = шлюз
 ent-ADTGlassCorporateAirlockLocked = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Корпорат, Закрытый
+ent-AirlockMagistrateGlassLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Магистрат, Закрытый
+ent-AirlockIAAGlassLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = АВД, Закрытый

@@ -45,3 +45,11 @@ ent-ADTDoorElectronicsMedicalPsycho = { ent-DoorElectronics }
 ent-ADTDoorElectronicsCentralCorporate = { ent-DoorElectronics }
     .suffix = Корпорат
     .desc = { ent-DoorElectronics.desc }
+
+ent-DoorElectronicsIAA = { ent-DoorElectronics }
+    .suffix = АВД
+    .desc = { ent-DoorElectronics.desc }
+
+ent-DoorElectronicsMagistrate = { ent-DoorElectronics }
+    .suffix = Магистрат
+    .desc = { ent-DoorElectronics.desc }
