@@ -33,11 +33,13 @@
   description: Nooo, I don't wanna be furry!
   categories: [ HideSpawnMenu ]
   components:
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: ADTWizardForcedVulpkanin
+    - type: TriggerWhitelist
     whitelist:
       components:
       - Body
+
 
 - type: entity
   id: ADTProjectileMagicArrow
