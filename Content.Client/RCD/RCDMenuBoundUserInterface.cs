@@ -1,13 +1,13 @@
-using Content.Shared.ADT.CCVar; // ADT Radial menu settings
+using Content.Shared.ADT.CCVar;
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.RCD;
 using JetBrains.Annotations;
 using Content.Shared.RCD.Components;
-using Robust.Client.Graphics; // ADT Radial menu settings
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
-using Robust.Client.Input; // ADT Radial menu settings
-using Robust.Shared.Configuration; // ADT Radial menu settings
+using Robust.Client.Input;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
