@@ -125,8 +125,6 @@
             - tool: Cutting
               doAfter: 1
 
-              doAfter: 1
-
     - node: CurtainsBlue
       entity: CurtainsBlue
       edges:
