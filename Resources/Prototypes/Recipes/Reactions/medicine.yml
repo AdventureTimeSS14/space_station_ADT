@@ -143,7 +143,6 @@
 
 - type: reaction
   id: Inaprovaline
-  maxTemp: 270
   reactants:
     Oxygen:
       amount: 1
@@ -259,7 +258,7 @@
 
 - type: reaction
   id: HeartbreakerToxin
-  maxTemp: 173
+  maxTemp: 173 ### ADT Tweak
   reactants:
     DexalinPlus:
       amount: 1
@@ -611,7 +610,7 @@
 - type: reaction
   id: Psicodine
   impact: Medium
-  maxTemp: 270
+  maxTemp: 270 # ADT tweak
   reactants:
     Mannitol:
       amount: 2

@@ -72,7 +72,7 @@
   name: blue sky desoxyephedrine crystal
   parent: ADTFoodDrugBase
   id: ADTFoodWalterMethCrystal
-  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
+  description: "Meth can be smoked, eaten, or sniffed. But you can only slice this specimen."
   components:
   - type: Sprite
     color: "#1bcfe7"
@@ -93,7 +93,7 @@
   name: blue sky desoxyephedrine crystal shard
   parent: ADTFoodDrugBase
   id: ADTFoodWalterMethCrystalShard
-  description: "Мет можно что курить, что есть, что нюхать. Выглядят слишком сладко и желанно..."
+  description: "Tight, tight, tight!! Yeah!.. Blue, yellow, pink, whatever, man, just keep bringing me that!"
   components:
   - type: Stack
     stackType: ADTFoodWalterMethCrystalShard
