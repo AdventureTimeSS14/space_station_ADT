@@ -101,15 +101,6 @@
       - id: ADTBookSRPmed
     # ADT-WikiBooks-End
 
-- type: entity
-  parent: LockerMedical
-  id: LockerMedicalFilled
-  suffix: Filled
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: LockerFillMedicalDoctor
 
 - type: entity
   parent: LockerWallMedical
