@@ -21,6 +21,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.CCVar;
 using Content.Server.Discord;
+using Content.Server.ADT.Chat;
 
 namespace Content.Server.Chat.Managers;
 
@@ -415,6 +416,26 @@ internal sealed partial class ChatManager : IChatManager
         var msg = new ChatMessage(channel, message, wrappedMessage, netSource, user?.Key, hideChat, colorOverride, audioPath, audioVolume);
         _netManager.ServerSendMessage(new MsgChatMessage() { Message = msg }, client);
 
+        // ADT-Tweak-start: Поиск ругательств и оскорбление родных
+        if (_configurationManager.GetCVar(ADTCCVars.ChatFilterAdminAlertEnable))
+        {
+            var words = message.Split(
+                new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (var word in words)
+            {
+                if (ChatFilterConstants.OffensiveWords.Contains(word))
+                {
+                    SendAdminAlert(
+                        $"Внимние!! Сущность {_entityManager.ToPrettyString(source)} использовала слово `{word}`" +
+                        $" в сообщении, требуется проверка администратора: {message}"
+                    );
+                    break;
+                }
+            }
+        }
+        // ADT-Tweak-end
         if (!recordReplay)
             return;
 
