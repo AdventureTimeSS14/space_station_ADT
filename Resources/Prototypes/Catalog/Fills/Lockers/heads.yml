@@ -267,6 +267,7 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: OpporozidoneBeakerSmall
+    - id: ADTClothingEyesGlassesMedChem
     # ADT tweak End
 
 # Hardsuit table, used for suit storage as well

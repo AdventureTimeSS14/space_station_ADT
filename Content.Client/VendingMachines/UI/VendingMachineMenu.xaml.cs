@@ -20,20 +20,12 @@ namespace Content.Client.VendingMachines.UI
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
         private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
-        private readonly Dictionary<EntProtoId, (ListContainerButton Button, VendingMachineItem Item)> _listItems = new();
-        private readonly Dictionary<EntProtoId, uint> _amounts = new();
-
-        /// <summary>
-        /// Whether the vending machine is able to be interacted with or not.
-        /// </summary>
-        private bool _enabled;
-
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
-
-        private readonly StyleBoxFlat _styleBox = new();
         public Action<VendingMachineWithdrawMessage>? OnWithdraw; //ADT-Economy
-        public event Action<VendingMachineInventoryEntry, VendingMachineItem>? OnItemCountSelected; // ADT vending eject count
-        public double PriceMultiplier = 1;  // ADT vending eject count
+        // ADT vending eject count start
+        public event Action<VendingMachineInventoryEntry, VendingMachineItem>? OnItemCountSelected;
+        public double PriceMultiplier = 1;
+        // ADT vending eject count end
         public VendingMachineMenu()
         {
             MinSize = new Vector2(250, 150); // Corvax-Resize
@@ -104,68 +96,8 @@ namespace Content.Client.VendingMachines.UI
             button.AddChild(item);
 
             button.ToolTip = text;
-            button.StyleBoxOverride = _styleBox;
         }
 
-        // ADT Commented start
-        // /// <summary>
-        // /// Populates the list of available items on the vending machine interface
-        // /// and sets icons based on their prototypes
-        // /// </summary>
-        // public void Populate(List<VendingMachineInventoryEntry> inventory)
-        // {
-        //     if (inventory.Count == 0 && VendingContents.Visible)
-        //     {
-        //         SearchBar.Visible = false;
-        //         VendingContents.Visible = false;
-
-        //         var outOfStockLabel = new Label()
-        //         {
-        //             Text = Loc.GetString("vending-machine-component-try-eject-out-of-stock"),
-        //             Margin = new Thickness(4, 4),
-        //             HorizontalExpand = true,
-        //             VerticalAlignment = VAlignment.Stretch,
-        //             HorizontalAlignment = HAlignment.Center
-        //         };
-
-        //         MainContainer.AddChild(outOfStockLabel);
-
-        //         SetSizeAfterUpdate(outOfStockLabel.Text.Length, 0);
-
-        //         return;
-        //     }
-
-        //     var longestEntry = string.Empty;
-        //     var listData = new List<VendorItemsListData>();
-
-        //     for (var i = 0; i < inventory.Count; i++)
-        //     {
-        //         var entry = inventory[i];
-
-        //         if (!_prototypeManager.TryIndex(entry.ID, out var prototype))
-        //             continue;
-
-        //         if (!_dummies.TryGetValue(entry.ID, out var dummy))
-        //         {
-        //             dummy = _entityManager.Spawn(entry.ID);
-        //             _dummies.Add(entry.ID, dummy);
-        //         }
-
-        //         var itemName = Identity.Name(dummy, _entityManager);
-        //         var itemText = $"{itemName} [{entry.Amount}]";
-
-        //         if (itemText.Length > longestEntry.Length)
-        //             longestEntry = itemText;
-
-        //         listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
-        //     }
-
-        //     VendingContents.PopulateList(listData);
-
-        //     SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
-        // }
-        // ADT Commented end
-        #region START ADT TWEAK
         /// <summary>
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
@@ -179,6 +111,7 @@ namespace Content.Client.VendingMachines.UI
             {
                 if (credits == 0)
                     return;
+
                 OnWithdraw?.Invoke(new VendingMachineWithdrawMessage());
             };
             var vendComp = _entityManager.GetComponent<VendingMachineComponent>(entityUid); //ADT-Economy
@@ -214,7 +147,6 @@ namespace Content.Client.VendingMachines.UI
 
                 if (!_prototypeManager.TryIndex(entry.ID, out var prototype))
                 {
-                    _amounts[entry.ID] = 0;
                     continue;
                 }
 
@@ -227,7 +159,7 @@ namespace Content.Client.VendingMachines.UI
                 }
                 else
                 {
-                    price = 0; // Это работает только если заспавненный вендомат уже был с этим значением. Спасибо визардам и их bounduserinterface емае.
+                    price = 0;
                     PriceMultiplier = 0;
                 }
                 //ADT-Economy-Start
@@ -239,46 +171,17 @@ namespace Content.Client.VendingMachines.UI
                 }
 
                 var itemName = Identity.Name(dummy, _entityManager);
-                var itemText = $" [{entry.Amount}] {itemName}"; //ADT-Economy
+                var itemText = $" [{entry.Amount}] {itemName}";
 
                 if (itemText.Length > longestEntry.Length)
                     longestEntry = itemText;
 
-                listData.Add(new VendorItemsListData(prototype.ID, itemText, i, entry));    // ADT vending eject count
+                listData.Add(new VendorItemsListData(prototype.ID, itemText, i, entry)); // ADT vending eject count
             }
 
             VendingContents.PopulateList(listData);
 
             SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
-        }
-        #endregion
-
-        /// <summary>
-        /// Updates text entries for vending data in place without modifying the list controls.
-        /// </summary>
-        public void UpdateAmounts(List<VendingMachineInventoryEntry> cachedInventory, bool enabled)
-        {
-            _enabled = enabled;
-
-            foreach (var proto in _dummies.Keys)
-            {
-                if (!_listItems.TryGetValue(proto, out var button))
-                    continue;
-
-                var dummy = _dummies[proto];
-                var amount = cachedInventory.First(o => o.ID == proto).Amount;
-                // Could be better? Problem is all inventory entries get squashed.
-                var text = GetItemText(dummy, amount);
-
-                button.Item.SetText(text);
-                button.Button.Disabled = !enabled || amount == 0;
-            }
-        }
-
-        private string GetItemText(EntityUid dummy, uint amount)
-        {
-            var itemName = Identity.Name(dummy, _entityManager);
-            return $"{itemName} [{amount}]";
         }
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
@@ -288,4 +191,6 @@ namespace Content.Client.VendingMachines.UI
         }
     }
 
-public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex, VendingMachineInventoryEntry Entry) : ListData;}   // ADT vending eject count tweaked
+}
+
+public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex, VendingMachineInventoryEntry Entry) : ListData; // ADT vending eject count tweaked
