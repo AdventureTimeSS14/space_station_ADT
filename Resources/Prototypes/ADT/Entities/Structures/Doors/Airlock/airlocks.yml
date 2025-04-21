@@ -147,7 +147,7 @@
     sprite: ADT/Structures/Doors/Airlocks/Standard/library.rsi
 
 - type: entity
-  parent: AirlockCommand
+  parent: ADTCaptainAirlock
   id: ADTBlueShieldAirlock
   suffix: BS
   components:
@@ -193,6 +193,38 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Standard/janitor.rsi
+
+- type: entity
+  parent: ADTCaptainAirlock
+  id: ADTShelterAirlock
+  suffix: Shelter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/shelter.rsi
+
+- type: entity
+  parent: ADTSpaceSecAirlock
+  id: ADTBlackCentcommAirlock
+  suffix: Black Centcomm
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/black_cc.rsi
+
+- type: entity
+  parent: AirlockMedical
+  id: ADTPsychoAirlock
+  suffix: Psycho
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/psycho.rsi
+
+- type: entity
+  parent: ADTCaptainAirlock
+  id: ADTCorporateAirlock
+  suffix: Corporate
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/corporate.rsi
 
 #Glass
 - type: entity
@@ -328,6 +360,9 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/blueshield.rsi
+  - type: Wires
+    boardName: wires-board-name-highsec
+    layoutId: HighSec
 
 - type: entity
   parent: AirlockCommandGlass
@@ -362,9 +397,28 @@
     sprite: ADT/Structures/Doors/Airlocks/Glass/lawyer.rsi
 
 - type: entity
-  parent: Airlock
+  parent: AirlockGlass
   id: ADTGlassJanitorAirlock
   suffix: Janitor
   components:
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Glass/janitor.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassBlackCentcommAirlock
+  suffix: Black Centcomm
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/black_cc.rsi
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: ADTGlassCorporateAirlock
+  suffix: Corporate
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/corporate.rsi
+  - type: Wires
+    boardName: wires-board-name-highsec
+    layoutId: HighSec
