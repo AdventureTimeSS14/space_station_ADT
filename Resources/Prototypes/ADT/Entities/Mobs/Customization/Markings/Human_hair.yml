@@ -499,3 +499,41 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: wispy
+
+#Прически от Hlaji
+
+- type: marking
+  id: ADTHumanHairLady
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: lady
+
+- type: marking
+  id: ADTHumanHairLongHairFringe
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: longhairfringe
+
+- type: marking
+  id: ADTHumanHairSheaf
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: sheaf
+
+- type: marking
+  id: ADTHumanHairShortTail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, DemonSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Hair/hair.rsi
+      state: shorttail
