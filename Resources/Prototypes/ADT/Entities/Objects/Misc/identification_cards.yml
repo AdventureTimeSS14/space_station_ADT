@@ -241,14 +241,6 @@
 
 - type: entity
   parent: PassengerIDCard
-  id: ADTOffDutyCrewIDCard
-  name: off-duty crew ID card
-  components:
-  - type: IdCard
-    jobTitle: job-name-off-duty
-
-- type: entity
-  parent: PassengerIDCard
   id: ADTStudentIDCard
   name: student ID card
   components:
