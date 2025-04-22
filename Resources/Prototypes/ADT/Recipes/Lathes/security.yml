@@ -1,7 +1,6 @@
 - type: latheRecipe
   id: ADTMagazineMagnumEmpty
   result: MagazineMagnumEmpty
-  category: Ammo
   completetime: 5
   materials:
     Steel: 25
@@ -9,7 +8,6 @@
 - type: latheRecipe
   id: ADTMagazineMagnum
   result: MagazineMagnum
-  category: Ammo
   completetime: 5
   materials:
     Steel: 170
@@ -17,7 +15,6 @@
 - type: latheRecipe
   id: ADTMagazineMagnumIncendiary
   result: ADTMagazineMagnumIncendiary
-  category: Ammo
   completetime: 5
   materials:
     Steel: 25
@@ -26,7 +23,6 @@
 - type: latheRecipe
   id: ADTMagazineMagnumUranium
   result: MagazineMagnumUranium
-  category: Ammo
   completetime: 5
   materials:
     Steel: 25
@@ -41,6 +37,16 @@
     Steel: 2000
     Glass: 600
     Plastic: 600
+    Gold: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ADTWeaponIonCarbine
+  result: ADTWeaponIonCarbine
+  materials:
+    Steel: 1500
+    Glass: 400
+    Plastic: 400
     Gold: 200
 
 - type: latheRecipe

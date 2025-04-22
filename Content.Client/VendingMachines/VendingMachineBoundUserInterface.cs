@@ -23,13 +23,10 @@ namespace Content.Client.VendingMachines
         {
             base.Open();
 
-            var vendingMachineSys = EntMan.System<VendingMachineSystem>();
-
+            _menu = new VendingMachineMenu();
             var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
-            _cachedInventory = vendingMachineSys.GetAllInventory(Owner, component); //ADT-Economy
-
-            _menu = this.CreateWindow<VendingMachineMenu>();
-            _menu.OpenCenteredLeft();
+            var system = EntMan.System<VendingMachineSystem>(); //ADT-Economy
+            _cachedInventory = system.GetAllInventory(Owner, component); //ADT-Economy
             _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 
             _menu.OnClose += Close; //ADT-Economy
@@ -37,7 +34,7 @@ namespace Content.Client.VendingMachines
             _menu.OnWithdraw += SendMessage; //ADT-Economy
             _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
 
-            _menu.OpenCenteredLeft();
+            _menu.OpenCentered();
         }
 
         public void Refresh()
@@ -46,8 +43,9 @@ namespace Content.Client.VendingMachines
             var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
             _cachedInventory = system.GetAllInventory(Owner);
 
-            _menu?.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak);
+            _menu?.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
         }
+
 
         // START-ADT-TWEAK
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -66,7 +64,7 @@ namespace Content.Client.VendingMachines
 
         private void OnItemSelected(VendingMachineInventoryEntry entry, VendingMachineItem item)
         {
-            SendMessage(new VendingMachineEjectCountMessage(entry, item.Count.SelectedId + 1));
+            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, item.Count.SelectedId + 1));
         }
 
         // END-ADT-TWEAK
@@ -87,7 +85,7 @@ namespace Content.Client.VendingMachines
             if (selectedItem == null)
                 return;
 
-            SendMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
+            SendPredictedMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
         }
 
         protected override void Dispose(bool disposing)
