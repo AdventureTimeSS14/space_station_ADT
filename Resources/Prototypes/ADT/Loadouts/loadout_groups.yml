@@ -526,6 +526,21 @@
   - ADTNeckSalvageSpecialistDCape
   - ADTNeckSalvageSpecialistRCape
 
+# ДЕТЕКТИВ
+- type: loadoutGroup
+  id: DetectiveShoes
+  name: loadout-group-security-shoes
+  loadouts:
+  - JackSecBoots
+  - JackBoots
+  - SecurityWinterBoots
+  - ADTDetectiveBootsOld
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !

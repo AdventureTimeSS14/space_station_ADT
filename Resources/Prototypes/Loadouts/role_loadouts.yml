@@ -572,7 +572,7 @@
   - DetectiveJumpsuit
   - SecurityBackpack
   - DetectiveOuterClothing
-  - SecurityShoes
+  - DetectiveShoes # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

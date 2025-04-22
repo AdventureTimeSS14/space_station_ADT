@@ -529,3 +529,16 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
+    
+# Юбка деку, ага
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpskirtDetectiveOld
+  name: detective old jumpskirt
+  description: Decy jimpskirt, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/detective_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/detective_old.rsi

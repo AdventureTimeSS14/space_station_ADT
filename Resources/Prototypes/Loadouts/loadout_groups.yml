@@ -1236,7 +1236,10 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
-  - DetectiveInvestigatorCap # ADT-Loadout
+  # ADT-Loadout-Start
+  - DetectiveInvestigatorCap 
+  - ADTDetectiveOldFedora 
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1259,6 +1262,8 @@
   - NoirJumpsuit
   - NoirJumpskirt
   # ADT-Loadouts-Start
+  - ADTDetectiveOldSuit
+  - ADTDetectiveOldJumpskirt
   - DetectiveInvestigatorSuit
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
@@ -1272,8 +1277,11 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
-  - DetectiveCoatInvestigator # ADT-Loadout
-  - ADTArmorVestHidden # ADT-Loadout
+  # ADT-Loadouts-Start
+  - ADTDetectiveCoatOld
+  - DetectiveCoatInvestigator 
+  - ADTArmorVestHidden 
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
