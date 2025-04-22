@@ -1085,6 +1085,102 @@
   - ADTUnderwearBraLaceRed
   - ADTUnderwearBraLaceBlack
 
+# PDAs
+- type: loadoutGroup
+  id: ADTPassengerPDA
+  name: loadout-group-passenger-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PassengerPDA
+  - ADTVisitorPDA
+  - ADTTouristPDA
+  - ADTStudentPDA
+
+- type: loadoutGroup
+  id: ADTBartenderPDA
+  name: loadout-group-bartender-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BartenderPDA
+  - ADTMixologistPDA
+
+- type: loadoutGroup
+  id: ADTChefPDA
+  name: loadout-group-chef-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChefPDA
+  - ADTBakerPDA
+  - ADTButcherPDA
+  - ADTPizzaioloPDA
+
+- type: loadoutGroup
+  id: ADTMedicalInternPDA
+  name: loadout-group-medical-intern-id-adt
+  loadouts:
+  - MedicalInternPDA
+  - ADTPracticalNursePDA
+  - ADTResidentPDA
+
+- type: loadoutGroup
+  id: ADTAtmosPDA
+  name: loadout-group-atmos-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AtmosPDA
+  - ADTLifeSupportTechPDA
+  - ADTPlasmaScientistPDA
+
+- type: loadoutGroup
+  id: ADTCargoPDA
+  name: loadout-group-cargo-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CargoPDA
+  - ADTPostmanPDA
+  - ADTInventoryAssociatePDA
+
+- type: loadoutGroup
+  id: ADTSalvagePDA
+  name: loadout-group-salvage-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SalvagePDA
+  - ADTExcavatorPDA
+
+- type: loadoutGroup
+  id: ADTClownPDA
+  name: loadout-group-clown-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClownPDA
+  - ADTJesterPDA
+  - ADTFoolPDA
+
+- type: loadoutGroup
+  id: ADTDetectivePDA
+  name: loadout-group-detective-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectivePDA
+  - ADTInvestigatorPDA
+
+- type: loadoutGroup
+  id: ADTJanitorPDA
+  name: loadout-group-detective-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - JanitorPDA
+  - ADTMaidPDA
 
 ### Носки, гольфы и чулки
 

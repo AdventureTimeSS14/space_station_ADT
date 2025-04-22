@@ -69,6 +69,7 @@
   - PassengerOuterClothing
   - PassengerShoes
   - Glasses
+  - ADTPassengerPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -88,6 +89,7 @@
   - CommonBackpack
   - BartenderOuterClothing
   - Glasses
+  - ADTBartenderPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -126,6 +128,7 @@
   - ChefOuterClothing
   - Glasses
   - ADTChefPocket1 #ADT tweak
+  - ADTChefPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -204,6 +207,7 @@
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
+  - ADTJanitorPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -244,6 +248,7 @@
   - ClownOuterClothing
   - ClownShoes
   - Glasses
+  - ADTClownPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -324,6 +329,7 @@
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - Glasses
+  - ADTCargoPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -344,6 +350,7 @@
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
+  - ADTSalvagePDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -426,6 +433,7 @@
   - ADTEngineeringBelt # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  - ADTAtmosPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -573,6 +581,7 @@
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
+  - ADTDetectivePDA #ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -657,6 +666,7 @@
   - MedicalBackpack
   - ADTMedicalBelt # ADT tweak
   - Glasses
+  - ADTMedicalInternPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

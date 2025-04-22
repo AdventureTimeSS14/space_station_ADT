@@ -46,4 +46,26 @@ commander-space-sec = командир SPACE SEC
 member-space-sec = сотрудник SPACE SEC
 trader-tsf = торговец
 
-
+# Alternate job names
+job-name-tourist = турист
+job-name-student = студент
+job-name-mixologist = миксолог
+job-name-baker = пекарь
+job-name-butcher = мясник
+job-name-pizzaiolo = пиццайоло
+job-name-practical-nurse = фельдшер
+job-name-resident = ординатор
+job-name-clinician = медик
+job-name-life-support-tech = техник жизнеобеспечения
+job-name-plasma-scientist = плазмотехнолог
+job-name-electrician = электрик
+job-name-mechanic = механик
+job-name-job-name-postman = почтальон
+job-name-inventory-associate = кладовщик
+job-name-excavator = шахтёр
+job-name-lab-tech = аналитик
+job-name-anomalist = аномалист
+job-name-xenoarch = ксеноархеолог
+job-name-jester = шут
+job-name-fool = дурак
+job-name-investigator = следователь

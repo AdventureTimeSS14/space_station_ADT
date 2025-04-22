@@ -28,7 +28,7 @@
   id: SalvageSpecialistGear
   equipment:
 #    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist #ADT tweak
-    id: SalvagePDA
+    #id: SalvagePDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool #ADT start
     pocket2: OreBag

@@ -905,6 +905,8 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
+  - ADTElectricianPDA # ADT
+  - ADTMechanicPDA # ADT
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1081,6 +1083,9 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
+  - ADTLabTechPDA # ADT
+  - ADTXenoarchPDA # ADT
+  - ADTAnomalistPDA # ADT
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1409,6 +1414,8 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
+  - ADTClinicianPDA # ADT
+
 
 - type: loadoutGroup
   id: MedicalGloves
