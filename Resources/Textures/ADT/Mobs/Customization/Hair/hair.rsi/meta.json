@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "honor and shaved_female created by discord:JayJacobs#1187 other Sprited by Bloomyex and implemented by RobynTheWarcrime, FrizzyBraid by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288887697917607936",
+    "copyright": "honor and shaved_female created by discord:JayJacobs#1187 other Sprited by Bloomyex and implemented by RobynTheWarcrime, FrizzyBraid by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288887697917607936, mistanas, Zeth's bild and RoughTown",
     "states": [
         {
             "name": "honor",
@@ -145,6 +145,22 @@
         },
         {
             "name": "wispy",
+            "directions": 4
+        },
+        {
+            "name": "longhairfringe",
+            "directions": 4
+        },
+        {
+            "name": "sheaf",
+            "directions": 4
+        },
+        {
+            "name": "lady",
+            "directions": 4
+        },
+        {
+            "name": "shorttail",
             "directions": 4
         }
     ]
