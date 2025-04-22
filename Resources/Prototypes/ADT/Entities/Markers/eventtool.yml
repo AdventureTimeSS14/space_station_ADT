@@ -1,0 +1,223 @@
+
+- type: entity
+  id: ADTEventXenoSpawner
+  name: Волна с ксено
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/jobs.rsi
+        state: xeno_warning
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:NestedSelector
+      tableId: ADTXenoEventTable
+  - type: AnnounceOnSpawn
+    sound:
+      path: /Audio/ADT/Voice/Vocal-Barks/weh.ogg
+    sender: "Система автоматического опознавания угроз."
+    message: "Следующая волна - Королева, Плевальщик, Руни."
+    color: "#cf3600"
+### Существа - мерзость
+
+- type: entity
+  name: Abomination Death AI Timed Spawner
+  id: ADAbominationDeathAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: ADT/Mobs/Abomination/death.rsi
+        state: alive
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - ADTAbominationDeath
+      intervalSeconds: 5
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+- type: entity
+  name: Abomination Hypertrophied AI Timed Spawner
+  id: ADTAbominationHypertrophiedAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: ADT/Mobs/Abomination/bloated.rsi
+        state: running
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - ADTAbominationHypertrophied
+      intervalSeconds: 3
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+- type: entity
+  name: Abomination Bloated AI Timed Spawner
+  id: ADTAbominationBloatedAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: ADT/Mobs/Abomination/hypertrophied.rsi
+        state: running
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - ADTAbominationBloated
+      intervalSeconds: 2
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+### Существа - космическая живность
+- type: entity
+  name: Dragon AI Timed Spawner
+  id: ADTDragonAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: Mobs/Aliens/Carps/dragon.rsi
+        state: alive
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - MobDragonDungeon
+      intervalSeconds: 10
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+- type: entity
+  name: Carp AI Timed Spawner
+  id: ADTCarpAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: Mobs/Aliens/Carps/dragon.rsi
+        state: alive
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - MobCarp
+      intervalSeconds: 2
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+### Существа - ксеносы
+- type: entity
+  name: Rouny AI Timed Spawner
+  id: ADTRounyAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: Mobs/Aliens/Xenos/burrower.rsi
+        state: crit
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - MobXenoRouny
+      intervalSeconds: 2
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+- type: entity
+  name: Spitter AI Timed Spawner
+  id: ADTSpitterAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: Mobs/Aliens/Xenos/burrower.rsi
+        state: crit
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - MobXenoSpitter
+      intervalSeconds: 2
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+- type: entity
+  name: Queen AI Timed Spawner
+  id: ADTQueenAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: Mobs/Aliens/Xenos/burrower.rsi
+        state: crit
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - MobXenoQueen
+      intervalSeconds: 5
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+### Существа - рофло-твари
+- type: entity
+  name: Asshole Monkey AI Timed Spawner
+  id: ADTAssholeMonkeyAITimedSpawnerEvent
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: Mobs/Aliens/Xenos/burrower.rsi
+        state: crit
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - ADTMobAssholeMonkey
+      intervalSeconds: 2
+      maximumEntitiesSpawned: 1
+    - type: TimedDespawn
+      lifetime: 20
+
+### Я пока сюда запихну списки.
+- type: entityTable
+  id: ADTXenoWaveTable
+  table: !type:AllSelector
+    children:
+    - id: ADTRounyAITimedSpawnerEvent
+    - id: ADTSpitterAITimedSpawnerEvent
+    - id: ADTQueenAITimedSpawnerEvent
+      weight: 0.10
+
+- type: entityTable
+  id: ADTXenoWaveTable
+  table: !type:AllSelector
+    children:
+    - id: ADTRounyAITimedSpawnerEvent
+    - id: ADTSpitterAITimedSpawnerEvent
+    - id: ADTQueenAITimedSpawnerEvent
+      weight: 0.10

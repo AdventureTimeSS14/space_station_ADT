@@ -334,3 +334,37 @@
         - !type:Temperature
           max: 310
         amount: 2500
+
+- type: reagent
+  id: ADTCoffeePowder
+  name: reagent-name-coffeepowder
+  parent: BaseDrink
+  desc: reagent-desc-coffeepowder
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: coffee
+  color: "#3d2200"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.05
+      - !type:ChemVomit
+        probability: 0.04
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-disgusting" ]
+        probability: 0.3

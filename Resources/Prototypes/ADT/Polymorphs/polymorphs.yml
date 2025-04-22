@@ -370,3 +370,13 @@
     revertOnCrit: true
     revertOnDeath: true
     duration: 30
+
+- type: polymorph
+  id: ADTGondolaMorph
+  configuration:
+    entity: ADTMobGondola
+    forced: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: false
+    revertOnCrit: false

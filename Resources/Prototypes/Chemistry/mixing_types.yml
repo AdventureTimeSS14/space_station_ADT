@@ -65,3 +65,12 @@
   icon:
     sprite: Objects/Misc/utensils.rsi
     state: spoon
+
+### Start ADT tweak
+- type: mixingCategory
+  id: Foaming
+  verbText: mixing-verb-foaming
+  icon:
+    sprite: Objects/Misc/utensils.rsi
+    state: fork
+### End ADT tweak

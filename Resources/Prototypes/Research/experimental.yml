@@ -116,7 +116,6 @@
   cost: 7500
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
-  - ArtifactCarrier # ADT tweak
   # ADT Research Console Rework start
   position: 4,1
   requiredTech:

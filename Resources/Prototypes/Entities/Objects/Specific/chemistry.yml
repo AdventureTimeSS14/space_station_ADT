@@ -412,11 +412,11 @@
     removalTime: 0.25
     embedOnThrow: false
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 1
+    transferAmount: 7
     solution: injector
-    updateInterval: 2
+    updateInterval: 1
   - type: SolutionInjectOnEmbed
-    transferAmount: 2
+    transferAmount: 5
     solution: injector
   - type: Fixtures
     fixtures:

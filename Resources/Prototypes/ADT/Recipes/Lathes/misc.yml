@@ -14,18 +14,6 @@
     Steel: 3000
 
 - type: latheRecipe
-  id: ArtifactCarrier
-  result: ADTArtifactCarrier
-  category: Tools
-  completetime: 30
-  materials:
-    Steel: 3000
-    Plasma: 1500
-    Gold: 500
-    Silver: 500
-    Glass: 1000
-
-- type: latheRecipe
   id: CassetteTape
   result: ADTCassetteTape
   completetime: 2

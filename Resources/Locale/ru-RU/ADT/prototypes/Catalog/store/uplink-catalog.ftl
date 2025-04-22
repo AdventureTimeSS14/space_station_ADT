@@ -230,3 +230,7 @@ uplink-pinpointer-syndicate-universal-desc = Портативное устрой
 # Supermatter shit
 uplink-agent-nuclear-physicist-kit-name = Набор физика-ядерщика
 uplink-agent-nuclear-physicist-kit-desc = Набор для юных физиков-ядерщиков, которые хотят подорвать работу кристалла сверхматерии. "Не рекомендуется к покупке."
+
+# GONDOLA SHIEEET
+uplink-gondola-name = Гондола
+uplink-gondola-desc = Священное животное множества религий. Будет смешно, превратить всех в такое чучело.

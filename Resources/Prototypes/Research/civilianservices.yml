@@ -292,7 +292,7 @@
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
     state: beakerbluespace
   discipline: CivilianServices
-  tier: 3
+  tier: 2
   cost: 10000
   recipeUnlocks:
   - BluespaceBeaker
@@ -301,4 +301,24 @@
   position: 1,3
   requiredTech:
   - ADTCloning
+  # ADT Research Console Rework end
+
+- type: technology
+  id: ADTAdvancedMedicalCare
+  name: research-technology-advanced-medical-care
+  icon:
+    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    state: scanner
+  discipline: CivilianServices
+  tier: 3
+  cost: 12500
+  recipeUnlocks:
+  - ADTHandheldCrewMonitor
+  - ADTMiniSyringe
+  - ADTLauncherSyringe
+  - ADTTourniquet
+  # ADT Research Console Rework start
+  position: 3,3
+  requiredTech:
+  - ADTMedicalMODsuit
   # ADT Research Console Rework end

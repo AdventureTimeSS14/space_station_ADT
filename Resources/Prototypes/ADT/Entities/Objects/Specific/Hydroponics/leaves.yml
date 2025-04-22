@@ -69,3 +69,43 @@
     - Smokable
   - type: Item
     size: Tiny
+
+### Добавим теперь кофейку
+
+- type: entity
+  name: coffee beans
+  parent: ProduceBase
+  id: ADTCoffeeBeans
+  description: "Kinda green, but kinda red..."
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi
+  - type: Produce
+    seedId: ADTCoffeeTree
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 2
+
+- type: entity
+  name: roasted coffee beans
+  parent: BaseItem
+  id: ADTCoffeeBeansRoasted
+  description: "Now its brown and smells realy great..."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: ADTCoffeePowder
+          Quantity: 10
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi # Corvax-Resprite: Fix path
+    state: dried
