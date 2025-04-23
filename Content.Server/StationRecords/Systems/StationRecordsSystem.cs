@@ -152,10 +152,11 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             return;
         }
 
-        // ADT - use id card if possible
+        // ADT tweak start - use id card if possible
         Entity<IdCardComponent>? card = null;
         if (idUid != null && _idCard.TryFindIdCard(idUid.Value, out var card2))
             card = card2;
+        // ADT tweak end
 
         var record = new GeneralStationRecord()
         {
