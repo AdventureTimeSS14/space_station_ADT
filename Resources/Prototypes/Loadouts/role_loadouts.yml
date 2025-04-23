@@ -146,6 +146,7 @@
   - LibrarianJumpsuit
   - LibrarianBackpack # ADT tweak
   - Glasses
+  - ADTLibrarianPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -164,6 +165,7 @@
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses
+  - ADTlawyerID # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -185,6 +187,7 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - Glasses
+  - ADTChaplainPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -228,6 +231,7 @@
   - BotanistBackpack
   - BotanistOuterClothing
   - Glasses
+  - ADTBotanistPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -765,6 +769,7 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
+  - ADTPsychologistPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

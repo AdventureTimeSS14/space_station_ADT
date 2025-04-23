@@ -449,13 +449,104 @@
   - type: IdCard
     jobTitle: job-name-mechanical-assembler
 
-# HOS
+# HoS
 
 - type: entity
   parent: HoSIDCard
   id: ADTSheriffIDCard
-  name: mechanical assembler ID card
+  name: sheriff ID card
   components:
   - type: IdCard
     jobTitle: job-name-sheriff
 
+# Lawyer
+
+- type: entity
+  parent: LawyerIDCard
+  id: ADTLawyerIDCard
+  name: lawyer ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-adt-lawyer
+
+# Botanist
+
+- type: entity
+  parent: BotanistIDCard
+  id: ADTGardenerIDCard
+  name: gardener ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-gardener
+
+- type: entity
+  parent: BotanistIDCard
+  id: ADTEcologistIDCard
+  name: ecologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-ecologist
+
+
+
+- type: entity
+  parent: LibrarianIDCard
+  id: ADTMythologistIDCard
+  name: mythologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-mythologist
+
+- type: entity
+  parent: LibrarianIDCard
+  id: ADTEthnologistIDCard
+  name: ethnologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-ethnologist
+
+# Chaplain
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTMonkIDCard
+  name: monk ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-monk
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTExorcistIDCard
+  name: exorcist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-exorcist
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: ADTPsychiatristIDCard
+  name: psychiatrist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-psychiatrist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: ADTPsychotherapistIDCard
+  name: psychotherapist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-psychotherapist
+
+# Brigmedic
+
+- type: entity
+  parent: BrigmedicIDCard
+  id: ADTFieldDoctorIDCard
+  name: field doctor ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-field-doctor

@@ -99,3 +99,20 @@
   id: ADTChaplainMoth
   equipment:
     belt: ADTBibleMoth
+
+# PDA
+
+- type: loadout
+  id: ChaplainPDA
+  equipment:
+    id: ChaplainPDA
+
+- type: loadout
+  id: ADTMonkPDA
+  equipment:
+    id: ADTMonkPDA
+
+- type: loadout
+  id: ADTExorcistPDA
+  equipment:
+    id: ADTExorcistPDA

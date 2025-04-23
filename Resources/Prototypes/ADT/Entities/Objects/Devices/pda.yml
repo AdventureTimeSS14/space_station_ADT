@@ -546,7 +546,7 @@
   - type: Pda
     id: ADTMechAssemblerIDCard
 
-# HOS
+# HoS
 
 - type: entity
   parent: HoSPDA
@@ -557,3 +557,94 @@
   - type: Pda
     id: ADTSheriffIDCard
 
+# Lawyer
+
+- type: entity
+  parent: LawyerPDA
+  id: ADTLawyerPDA
+  name: lawyer PDA
+  components:
+  - type: Pda
+    id: ADTLawyerIDCard
+
+# Botanist
+
+- type: entity
+  parent: BotanistPDA
+  id: ADTGardenerPDA
+  name: gardener PDA
+  components:
+  - type: Pda
+    id: ADTGardenerIDCard
+
+- type: entity
+  parent: BotanistPDA
+  id: ADTEcologistPDA
+  name: ecologist PDA
+  components:
+  - type: Pda
+    id: ADTEcologistIDCard
+
+# Librarian
+
+- type: entity
+  parent: LibrarianPDA
+  id: ADTMythologistPDA
+  name: mythologist PDA
+  components:
+  - type: Pda
+    id: ADTMythologistIDCard
+
+- type: entity
+  parent: LibrarianPDA
+  id: ADTEthnologistPDA
+  name: ethnologist PDA
+  components:
+  - type: Pda
+    id: ADTEthnologistIDCard
+
+# Chaplain
+
+- type: entity
+  parent: ChaplainPDA
+  id: ADTMonkPDA
+  name: monk PDA
+  components:
+  - type: Pda
+    id: ADTMonkIDCard
+
+- type: entity
+  parent: ChaplainPDA
+  id: ADTExorcistPDA
+  name: exorcist PDA
+  components:
+  - type: Pda
+    id: ADTExorcistIDCard
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistPDA
+  id: ADTPsychiatristPDA
+  name: psychiatrist PDA
+  components:
+  - type: Pda
+    id: ADTPsychiatristIDCard
+
+- type: entity
+  parent: PsychologistPDA
+  id: ADTPsychotherapistPDA
+  name: psychotherapist PDA
+  components:
+  - type: Pda
+    id: ADTPsychotherapistIDCard
+
+# Brigmedic
+
+- type: entity
+  parent: BrigmedicPDA
+  id: ADTFieldDoctorPDA
+  name: field doctor PDA
+  components:
+  - type: Pda
+    id: ADTFieldDoctorIDCard

@@ -1200,6 +1200,64 @@
   - HoSPDA
   - ADTSheriffPDA
 
+- type: loadoutGroup
+  id: ADTlawyerID
+  name: loadout-group-lawyer-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LawyerPDA
+  - ADTLawyerPDA
+
+- type: loadoutGroup
+  id: ADTBotanistPDA
+  name: loadout-group-botanist-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BotanistPDA
+  - ADTGardenerPDA
+  - ADTEcologistPDA
+
+- type: loadoutGroup
+  id: ADTLibrarianPDA
+  name: loadout-group-librarian-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LibrarianPDA
+  - ADTMythologistPDA
+  - ADTEthnologistPDA
+
+- type: loadoutGroup
+  id: ADTChaplainPDA
+  name: loadout-group-chaplain-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChaplainPDA
+  - ADTMonkPDA
+  - ADTExorcistPDA
+
+- type: loadoutGroup
+  id: ADTPsychologistPDA
+  name: loadout-group-psychologist-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PsychologistPDA
+  - ADTPsychiatristPDA
+  - ADTPsychotherapistPDA
+
+- type: loadoutGroup
+  id: ADTBrigmedicPDA
+  name: loadout-brigmedic-pda-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicPDA
+  - ADTFieldDoctorPDA
+
 ### Носки, гольфы и чулки
 
 - type: loadoutGroup

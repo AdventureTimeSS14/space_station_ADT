@@ -40,79 +40,109 @@ ent-ADTUSSPArmyOfficerCard = удостоверение офицера СССП
     .suffix = { "СССП" }
 
 ent-ADTVisitorIDCard = ID карта посетителя
-    .desc = ID карта посетителя
+    .desc = ID карта посетителя.
 
 ent-ADTTouristIDCard = ID карта туриста
     .desc = ID карта туриста
 
 ent-ADTStudentIDCard = ID карта студента
-    .desc = ID карта студента
+    .desc = ID карта студента.
 
 ent-ADTMixologistIDCard = ID карта миксолога
-    .desc = ID карта миксолога
+    .desc = ID карта миксолога.
 
 ent-ADTBakerIDCard = ID карта пекаря
-    .desc = ID карта пекаря
+    .desc = ID карта пекаря.
 
 ent-ADTButcherIDCard = ID карта мясника
-    .desc = ID карта мясника
+    .desc = ID карта мясника.
 
 ent-ADTPizzaioloIDCard = ID карта пиццайоло
-    .desc = ID карта пиццайоло
+    .desc = ID карта пиццайоло.
 
 ent-ADTPracticalNurseIDCard = ID карта фельдшера
-    .desc = ID карта фельдшера
+    .desc = ID карта фельдшера.
 
 ent-ADTResidentIDCard = ID карта ординатора
     .desc = ID карта ординатора
 
 ent-ADTClinicianIDCard = ID карта медика
-    .desc = ID карта медика
+    .desc = ID карта медика.
 
 ent-ADTLifeSupportTechIDCard = ID карта техника жизнеобеспечения
-    .desc = ID карта техника жизнеобеспечения
+    .desc = ID карта техника жизнеобеспечения.
 
 ent-ADTPlasmaScientistIDCard = ID карта плазмотехнолога
-    .desc = ID карта плазмотехнолога
+    .desc = ID карта плазмотехнолога.
 
 ent-ADTElectricianIDCard = ID карта электрика
-    .desc = ID карта электрика
+    .desc = ID карта электрика.
 
 ent-ADTMechanicIDCard = ID карта механика
-    .desc = ID карта механика
+    .desc = ID карта механика.
 
 ent-ADTPostmanIDCard = ID карта почтальона
-    .desc = ID карта почтальона
+    .desc = ID карта почтальона.
 
 ent-ADTInventoryAssociateIDCard = ID карта кладовщика
-    .desc = ID карта кладовщика
+    .desc = ID карта кладовщика.
 
 ent-ADTExcavatorIDCard = ID карта шахтёра
-    .desc = ID карта шахтёра
+    .desc = ID карта шахтёра.
 
 ent-ADTLabTechIDCard = ID карта аналитика
-    .desc = ID карта аналитика
+    .desc = ID карта аналитика.
 
 ent-ADTAnomalistIDCard = ID карта аномалиста
-    .desc = ID карта аномалиста
+    .desc = ID карта аномалиста.
 
 ent-ADTXenoarchIDCard = ID карта ксеноархеолога
-    .desc = ID карта ксеноархеолога
+    .desc = ID карта ксеноархеолога.
 
 ent-ADTJesterIDCard = ID карта шута
-    .desc = ID карта шута
+    .desc = ID карта шута.
 
 ent-ADTFoolIDCard = ID карта дурака
-    .desc = ID карта дурака
+    .desc = ID карта дурака.
 
 ent-ADTInvestigatorIDCard = ID карта следователя
-    .desc = ID карта следователя
+    .desc = ID карта следователя.
 
 ent-ADTMaidIDCard = ID карта горничной
-    .desc = ID карта горинчной
+    .desc = ID карта горинчной.
 
 ent-ADTMechAssemblerIDCard = ID карта механосборщика
-    .desc = ID карта механосборщика
+    .desc = ID карта механосборщика.
 
 ent-ADTSheriffIDCard = ID карта шерифа
-    .desc = iD карта шерифа
+    .desc = ID карта шерифа.
+
+ent-ADTLawyerIDCard = ID карта юриста
+    .desc = ID карта юриста.
+
+ent-ADTGardenerIDCard = ID карта садовода
+    .desc = ID карта садовода.
+
+ent-ADTEcologistIDCard = ID карта эколога
+    .desc = ID карта эколога.
+
+ent-ADTMythologistIDCard = ID карта мифолога
+    .desc = ID карта мифолога.
+
+ent-ADTEthnologistIDCard = ID карта этнолога
+    .desc = ID карта этнолога.
+
+ent-ADTMonkIDCard = ID карта монаха
+    .desc = ID карта монаха.
+
+ent-ADTExorcistIDCard = ID карта экзорциста
+    .desc = ID карта экзорциста.
+
+ent-ADTPsychiatristIDCard = ID карта психиатра
+    .desc = ID карта психиатра.
+
+ent-ADTPsychotherapistIDCard = ID карта психотерапевта
+    .desc = ID карта психотерапевта.
+
+ent-BrigmedicIDCard = ID карта полевого врача
+    .desc = ID карта полевого врача.

@@ -1,0 +1,9 @@
+- type: loadout
+  id: LawyerPDA
+  equipment:
+    id: LawyerPDA
+
+- type: loadout
+  id: ADTLawyerPDA
+  equipment:
+    id: ADTLawyerPDA

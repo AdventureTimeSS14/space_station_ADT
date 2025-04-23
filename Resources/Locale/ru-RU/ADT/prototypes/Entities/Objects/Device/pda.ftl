@@ -100,3 +100,33 @@ ent-ADTMechAssemblerPDA = КПК механосборщика
 
 ent-ADTSheriffPDA = КПК шерифа
     .desc = Стоять ковбой.
+
+ent-ADTLawyerPDA = КПК юриста
+    .desc = КПК юриста.
+
+ent-ADTGardenerPDA = КПК садовода
+    .desc = КПК садовода.
+
+ent-ADTEcologistPDA = КПК эколога
+    .desc = КПК эколога.
+
+ent-ADTMythologistPDA = КПК мифолога
+    .desc = КПК мифолога.
+
+ent-ADTEthnologistPDA = КПК этнолога
+    .desc = КПК этнолога.
+
+ent-ADTMonkPDA = КПК монаха
+    .desc = КПК монаха.
+
+ent-ADTExorcistPDA = КПК экзорциста
+    .desc = КПК экзорциста.
+
+ent-ADTPsychiatristPDA = КПК психиатра
+    .desc = КПК психиатра.
+
+ent-ADTPsychotherapistPDA = КПК психотерапевта
+    .desc = КПК психотерапевта.
+
+ent-ADTFieldDoctorPDA = КПК полевого врача
+    .desc = КПК полевого врача.

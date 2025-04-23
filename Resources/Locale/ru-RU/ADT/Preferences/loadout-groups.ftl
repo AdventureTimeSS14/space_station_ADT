@@ -16,11 +16,13 @@ loadout-group-blueshield-back = ОСЩ, рюкзак
 # Civilian
 loadout-chef-pocket1-adt = Шеф Повар, карман 1
 loadout-group-librarian-backpack = Библиотекарь, рюкзак
+loadout-group-librarian-id-adt = Библиотекарь, ID
 loadout-group-passenger-id-adt = Ассистент, ID
 loadout-group-bartender-id-adt = Бармен, ID
 loadout-group-chef-id-adt = Шеф-Повар, ID
 loadout-group-clown-id-adt = Клоун, ID
 loadout-group-janitor-id-adt = Уборщик, ID
+loadout-group-botanist-id-adt = Ботаник, ID
 
 # Cargo
 loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
@@ -30,6 +32,7 @@ loadout-group-salvage-id-adt = Утилизатор, ID
 
 # Chaplain
 loadout-chaplain-blessedbook-adt = Священник, священная книга
+loadout-group-chaplain-id-adt = Священник, ID
 
 # Engineering
 loadout-group-atmospheric-technician-neck = Атмосферный техник, плащ
@@ -82,4 +85,7 @@ loadout-group-senior-physician-head = Ведущий врач, голова
 loadout-group-senior-physician-jumpsuit = Ведущий врач, комбинезон
 loadout-group-senior-physician-outerclothing = Ведущий врач, верхняя одежда
 loadout-group-medical-intern-id-adt = Интерн, ID
+loadout-group-psychologist-id-adt = Психолог, ID
 # Wildcards
+# Juridical
+loadout-group-lawyer-id-adt = Адвокат, ID
