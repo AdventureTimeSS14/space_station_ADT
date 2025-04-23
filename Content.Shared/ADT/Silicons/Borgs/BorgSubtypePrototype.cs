@@ -31,16 +31,16 @@ public sealed partial class BorgSubtypePrototype : IPrototype
     public required ProtoId<BorgTypePrototype> ParentBorgType = "generic";
 
     [DataField]
-    public string SpriteBodyState = "robot";
+    public string SpriteBodyState { get; set; } = "robot";
 
-    public string? SpriteBodyMovementState;
-
-    [DataField]
-    public string SpriteHasMindState = "robot_e";
+    public string? SpriteBodyMovementState { get; set; }
 
     [DataField]
-    public string SpriteNoMindState = "robot_e_r";
+    public string SpriteHasMindState { get; set; } = "robot_e";
 
     [DataField]
-    public string SpriteToggleLightState = "robot_l";
+    public string SpriteNoMindState { get; set; } = "robot_e_r";
+
+    [DataField]
+    public string SpriteToggleLightState { get; set; } = "robot_l";
 }
