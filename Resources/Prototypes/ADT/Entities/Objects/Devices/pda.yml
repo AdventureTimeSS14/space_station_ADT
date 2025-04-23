@@ -535,3 +535,25 @@
   components:
   - type: Pda
     id: ADTMaidIDCard
+
+# ROBOTICIST
+
+- type: entity
+  parent: ADTRoboticistPDA
+  id: ADTMechAssemblerPDA
+  name: mechanical assembler PDA
+  components:
+  - type: Pda
+    id: ADTMechAssemblerIDCard
+
+# HOS
+
+- type: entity
+  parent: HoSPDA
+  id: ADTSheriffPDA
+  name: sheriff PDA
+  description: Stand down cowboy.
+  components:
+  - type: Pda
+    id: ADTSheriffIDCard
+

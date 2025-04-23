@@ -438,3 +438,24 @@
   components:
   - type: IdCard
     jobTitle: job-name-maid
+
+# ROBOTICIST
+
+- type: entity
+  parent: ADTRoboticistIDCard
+  id: ADTMechAssemblerIDCard
+  name: mechanical assembler ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-mechanical-assembler
+
+# HOS
+
+- type: entity
+  parent: HoSIDCard
+  id: ADTSheriffIDCard
+  name: mechanical assembler ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-sheriff
+

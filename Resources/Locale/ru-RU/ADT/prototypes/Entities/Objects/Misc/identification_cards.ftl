@@ -110,3 +110,9 @@ ent-ADTInvestigatorIDCard = ID карта следователя
 
 ent-ADTMaidIDCard = ID карта горничной
     .desc = ID карта горинчной
+
+ent-ADTMechAssemblerIDCard = ID карта механосборщика
+    .desc = ID карта механосборщика
+
+ent-ADTSheriffIDCard = ID карта шерифа
+    .desc = iD карта шерифа

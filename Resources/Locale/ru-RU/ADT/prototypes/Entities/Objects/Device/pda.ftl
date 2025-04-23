@@ -94,3 +94,9 @@ ent-ADTFoolPDA = КПК дурака
 
 ent-ADTMaidPDA = КПК горничной
     .desc = Прислуживайте своему господину!
+
+ent-ADTMechAssemblerPDA = КПК механосборщика
+    .desc = Почему это всё ещё не робот?!
+
+ent-ADTSheriffPDA = КПК шерифа
+    .desc = Стоять ковбой.

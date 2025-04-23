@@ -43,6 +43,7 @@ loadout-group-roboticist-head = Робототехник, голова
 loadout-group-roboticist-jumpsuit = Робототехник, комбинезон
 loadout-group-roboticist-outerclothing = Робототехник, верхняя одежда
 loadout-group-roboticist-gloves = Робототехник, перчатки
+loadout-group-mechanical-assembler-id-adt = Робототехник, ID
 loadout-group-senior-researcher-head = Доцент, голова
 loadout-group-senior-researcher-jumpsuit = Доцент, комбинезон
 loadout-group-senior-researcher-gloves = Доцент, перчатки
@@ -57,6 +58,7 @@ loadout-security-cadet-neck-adt = Кадет СБ, шея
 loadout-guardofficer-head-adt = Надзиратель, голова
 loadout-guardofficer-jumpsuit-adt = Надзиратель, комбинезон
 loadout-group-detective-id-adt = Детектив, ID
+loadout-group-sheriff-id-adt = Глава службы безопасности, ID
 # Brigmedic
 loadout-brigmedic-jumpsuit-adt = Бригмедик, комбинезон
 loadout-brigmedic-head-adt = Бригмедик, голова

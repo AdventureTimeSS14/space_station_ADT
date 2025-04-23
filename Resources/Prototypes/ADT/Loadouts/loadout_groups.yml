@@ -1182,6 +1182,24 @@
   - JanitorPDA
   - ADTMaidPDA
 
+- type: loadoutGroup
+  id: ADTRoboticistPDALoadout
+  name: loadout-group-mechanical-assembler-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTRoboticistPDA
+  - ADTMechAssemblerPDA
+
+- type: loadoutGroup
+  id: ADTHosPDA
+  name: loadout-group-sheriff-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HoSPDA
+  - ADTSheriffPDA
+
 ### Носки, гольфы и чулки
 
 - type: loadoutGroup

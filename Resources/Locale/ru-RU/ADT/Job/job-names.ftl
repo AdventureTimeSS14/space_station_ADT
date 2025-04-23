@@ -70,3 +70,5 @@ job-name-jester = шут
 job-name-fool = дурак
 job-name-investigator = следователь
 job-name-maid = горничная
+job-name-mechanical-assembler = механосборщик
+job-name-sheriff = шериф
