@@ -144,5 +144,5 @@ ent-ADTPsychiatristIDCard = ID карта психиатра
 ent-ADTPsychotherapistIDCard = ID карта психотерапевта
     .desc = ID карта психотерапевта.
 
-ent-BrigmedicIDCard = ID карта полевого врача
+ent-ADTFieldDoctorIDCard = ID карта полевого врача
     .desc = ID карта полевого врача.
