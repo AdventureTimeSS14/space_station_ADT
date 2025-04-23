@@ -17,8 +17,31 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Flash.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
-
+using Robust.Shared.Timing;
+using Robust.Shared.Network;
 namespace Content.Shared.ADT.Combat;
+using System.Linq;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Database;
+using Content.Shared.Effects;
+using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Ranged;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Weapons.Reflect;
+using Content.Shared.Damage.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using System.Numerics;
+using Content.Shared.Physics;
+using Robust.Shared.Physics.Systems;
+using Content.Shared.Mobs.Components;
 
 [ImplicitDataDefinitionForInheritors]
 public partial interface IComboEffect
@@ -146,7 +169,7 @@ public sealed partial class ComboPopupEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var popup = entMan.System<SharedPopupSystem>();
-        popup.PopupEntity(Loc.GetString(LocaleText, ("user", Identity.Entity(user, entMan)), ("target", target)), target, PopupType.LargeCaution);
+        popup.PopupPredicted(Loc.GetString(LocaleText, ("user", Identity.Entity(user, entMan)), ("target", target)), target, target, PopupType.LargeCaution);
     }
 }
 /// <summary>
@@ -193,7 +216,7 @@ public sealed partial class ComboAudioEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var audio = entMan.System<SharedAudioSystem>();
-        audio.PlayPvs(Sound, user);
+        audio.PlayPredicted(Sound, user, user);
     }
 }
 
@@ -354,5 +377,54 @@ public sealed partial class ComboEffectToUserPuller : IComboEffect
         {
             comboEvent.DoEffect(user, target, entMan);
         }
+    }
+}
+[Serializable]
+public sealed partial class ComboEffectDash : IComboEffect
+{
+    [DataField]
+    public int MoveForce = 4;
+
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var gameTiming = IoCManager.Resolve<INetManager>();
+        if (gameTiming.IsClient)
+            return;
+
+        var physics = entMan.System<SharedPhysicsSystem>();
+        var transform = entMan.System<SharedTransformSystem>();
+        var mapManager = IoCManager.Resolve<IMapManager>();
+
+        // Получаем координаты пользователя и цели с карты
+        var userXform = entMan.GetComponent<TransformComponent>(user);
+        var targetXform = entMan.GetComponent<TransformComponent>(target);
+
+        var userCoords = userXform.MapPosition;
+        var targetCoords = targetXform.MapPosition;
+
+        // Если не на одной карте, выходим
+        if (userCoords.MapId != targetCoords.MapId)
+            return;
+
+        var direction = targetCoords.Position - userCoords.Position;
+        if (direction == Vector2.Zero)
+            return;
+
+        // Создаем луч для проверки столкновений
+        var ray = new CollisionRay(userCoords.Position, direction.Normalized(), (int)CollisionGroup.Opaque);
+
+        // Проверяем столкновения по пути
+        foreach (var rayCastResult in physics.IntersectRay(userCoords.MapId, ray, MoveForce, user, false))
+        {
+            if (!entMan.HasComponent<MobStateComponent>(rayCastResult.HitEntity))
+                continue;
+        }
+
+        // Вычисляем новую позицию
+        var newWorldPos = userCoords.Position + direction;
+        var newEntityCoords = new EntityCoordinates(userXform.GridUid ?? userXform.MapUid ?? userXform.ParentUid,
+                                                    newWorldPos - userXform.WorldPosition);
+
+        transform.SetCoordinates(user, newEntityCoords);
     }
 }

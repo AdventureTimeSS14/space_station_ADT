@@ -16,6 +16,7 @@ public sealed class ThermalVisionOverlay : Overlay
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     private readonly SharedTransformSystem _xformSystem;
+    private readonly ContainerSystem _container;
     private readonly EntityQuery<MobStateComponent> _mobQuery;
     private readonly EntityQuery<SpriteComponent> _spriteQuery;
     private readonly EntityQuery<TransformComponent> _xformQuery;
@@ -26,6 +27,7 @@ public sealed class ThermalVisionOverlay : Overlay
     public ThermalVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
+        _container = _entity.System<ContainerSystem>();
         _xformSystem = _entity.System<SharedTransformSystem>();
         _mobQuery = _entity.GetEntityQuery<MobStateComponent>();
         _spriteQuery = _entity.GetEntityQuery<SpriteComponent>();
@@ -53,7 +55,7 @@ public sealed class ThermalVisionOverlay : Overlay
             if (!_mobQuery.TryGetComponent(entity, out var mob) || mob.CurrentState == MobState.Dead) continue;
             if (!_spriteQuery.TryGetComponent(entity, out var sprite)) continue;
             if (!_xformQuery.TryGetComponent(entity, out var xform)) continue;
-
+            if (_container.TryGetOuterContainer(entity, xform, out var container)) continue;
             if (xform.MapID != mapId) continue;
 
             var worldPos = _xformSystem.GetWorldPosition(xform);

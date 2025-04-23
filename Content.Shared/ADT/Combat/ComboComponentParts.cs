@@ -10,6 +10,20 @@ public enum CombatAction
     Hit,
     Crawl
 }
+[Serializable, NetSerializable]
+public enum WeaponCombatAction
+{
+    ProtectiveHit,      // 0 (00)
+    OffensiveHit,       // 1 (01)
+    ProtectiveWideHit,  // 2 (10)
+    OffensiveWideHit    // 3 (11)
+}
+[Serializable, NetSerializable]
+public enum ComboWeaponStand : sbyte
+{
+    Protective,
+    Offensive
+}
 
 [DataDefinition]
 public sealed partial class CombatMove
@@ -19,6 +33,19 @@ public sealed partial class CombatMove
     /// </summary>
     [DataField]
     public List<CombatAction> ActionsNeeds { get; private set; } = new List<CombatAction>();
+
+    [DataField]
+    public List<IComboEffect> ComboEvent = new List<IComboEffect>{};
+}
+
+[DataDefinition]
+public sealed partial class ComboWeaponMove
+{
+    /// <summary>
+    /// это надо указывать в прототипе в виде списка
+    /// </summary>
+    [DataField]
+    public List<WeaponCombatAction> ActionsNeeds { get; private set; } = new List<WeaponCombatAction>();
 
     [DataField]
     public List<IComboEffect> ComboEvent = new List<IComboEffect>{};
