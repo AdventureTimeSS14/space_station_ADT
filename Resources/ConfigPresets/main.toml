@@ -37,16 +37,19 @@ enabled = true
 
 [game]
 hostname = "Space Dream [MRP][18+][RU]"
-maxplayers = 100
-soft_max_players = 105
+maxplayers = 20
+soft_max_players = 20
 map_rotation = true
 peaceful_end = false
 lobbyenabled = true
 contraband_examine = false
-lobbyduration = 300
+lobbyduration = 20
+
+[ic]
+flavor_text = true
 
 [rules]
-time = 180.0
+time = 20.0
 
 [shuttle]
 emergency_early_launch_allowed = true
