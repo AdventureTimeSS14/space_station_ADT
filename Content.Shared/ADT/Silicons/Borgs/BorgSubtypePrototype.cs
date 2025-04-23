@@ -22,7 +22,7 @@ public sealed partial class BorgSubtypePrototype : IPrototype
     /// The sprite path belonging to this particular subtype.
     /// </summary>
     [DataField]
-    public required SpriteSpecifier Sprite = default!;
+    public required ResPath Sprite = default!;
 
     /// <summary>
     /// The parent borg type that the subtype will be shown under in the selection menu.
@@ -30,4 +30,17 @@ public sealed partial class BorgSubtypePrototype : IPrototype
     [DataField]
     public required ProtoId<BorgTypePrototype> ParentBorgType = "generic";
 
+    [DataField]
+    public string SpriteBodyState = "robot";
+
+    public string? SpriteBodyMovementState;
+
+    [DataField]
+    public string SpriteHasMindState = "robot_e";
+
+    [DataField]
+    public string SpriteNoMindState = "robot_e_r";
+
+    [DataField]
+    public string SpriteToggleLightState = "robot_l";
 }

@@ -1,21 +1,8 @@
 - type: entity
-  parent: BorgChassisMedical
   id: ADTQualifiedDoctorChassis
+  parent: BorgChassisMedical
   name: qualified medical cyborg
   components:
-  - type: Sprite
-    sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Medical/qualified_doctor.rsi
-    layers:
-    - state: medical
-      map: [ "enum.BorgVisualLayers.Body", "movement" ]
-    - state: medical_e_r
-      map: [ "enum.BorgVisualLayers.Light" ]
-      shader: unshaded
-      visible: false
-    - state: medical_l
-      shader: unshaded
-      map: [ "light","enum.BorgVisualLayers.LightStatus" ]
-      visible: false
   - type: BorgSwitchableType
     selectedBorgType: medical
   - type: BorgSwitchableSubtype

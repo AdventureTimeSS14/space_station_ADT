@@ -5,54 +5,45 @@ namespace Content.Shared.ADT.Silicons.Borgs;
 
 public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSelectSubtypeMessage>(OnSubtypeSelection);
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSubtypeChangedEvent>(OnSubtypeChanged);
     }
 
+    private void OnComponentInit(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentInit args)
+    {
+        if (ent.Comp.BorgSubtype == null)
+            return;
+
+        SetAppearanceFromSubtype(ent, ent.Comp.BorgSubtype.Value);
+    }
     private void OnSubtypeSelection(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSelectSubtypeMessage args)
     {
         SetSubtype(ent, args.Subtype);
     }
 
-    public void SetSubtype(EntityUid ent, ProtoId<BorgSubtypePrototype> subtype)
+    protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
     {
-        if (!TryComp(ent, out BorgSwitchableSubtypeComponent? subtypeComp))
-            return;
-
-        subtypeComp.BorgSubtype = subtype;
-        RaiseLocalEvent(ent, new BorgSubtypeChangedEvent(subtype));
     }
 
-    private void OnSubtypeChanged(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSubtypeChangedEvent args)
+    public void SetSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
     {
-        UpdateAppearance(ent, args.Subtype);
-    }
-
-    private void UpdateAppearance(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
-    {
-        if (!_proto.TryIndex(subtype, out var subtypePrototype))
-            return;
-
-        _appearance.SetData(ent, BorgSwitchableSubtypeUiKey.Key, subtypePrototype.Sprite);
+        ent.Comp.BorgSubtype = subtype;
+        var ev = new BorgSubtypeChangedEvent(subtype);
+        RaiseLocalEvent(ent, ref ev);
     }
 }
 
-[Virtual]
-public class BorgSubtypeChangedEvent : EntityEventArgs
-{
-    public ProtoId<BorgSubtypePrototype> Subtype { get; }
+[ByRefEvent]
+public readonly record struct BorgSubtypeChangedEvent(ProtoId<BorgSubtypePrototype> Subtype);
 
-    public BorgSubtypeChangedEvent(ProtoId<BorgSubtypePrototype> subtype)
-    {
-        Subtype = subtype;
-    }
+[Serializable, NetSerializable]
+public sealed class BorgSelectSubtypeMessage(ProtoId<BorgSubtypePrototype> subtype) : BoundUserInterfaceMessage
+{
+    public ProtoId<BorgSubtypePrototype> Subtype = subtype;
 }
 
 [Serializable, NetSerializable]

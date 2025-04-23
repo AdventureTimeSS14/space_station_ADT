@@ -9,7 +9,7 @@
   - type: TTS
     voice: sentrybot
   - type: BorgSwitchableSubtype
-    borgSubtype: default_generic
+    borgSubtype: default_security
 
 - type: entity
   id: ADTBorgChassisKerfusNT
