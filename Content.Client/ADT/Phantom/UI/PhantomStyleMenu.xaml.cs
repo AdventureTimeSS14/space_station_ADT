@@ -43,7 +43,6 @@ public sealed partial class PhantomStyleMenu : RadialMenu
 
             var button = new PhantomStyleMenuButton
             {
-                StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64f, 64f),
                 ToolTip = Loc.GetString(style.Name ?? String.Empty),
                 ProtoId = style.ID,
@@ -87,7 +86,7 @@ public sealed partial class PhantomStyleMenu : RadialMenu
 }
 
 
-public sealed class PhantomStyleMenuButton : RadialMenuTextureButton
+public sealed class PhantomStyleMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<PhantomStylePrototype> ProtoId { get; set; }
 }
