@@ -53,13 +53,6 @@
 
 - type: entity
   parent: BaseGameRule
-  id: CrewTransferScheduler
-  components:
-  - type: GameRule
-  - type: CrewTransferScheduler
-
-- type: entity
-  parent: BaseGameRule
   id: MeteorSwarmScheduler
   components:
   - type: GameRule
