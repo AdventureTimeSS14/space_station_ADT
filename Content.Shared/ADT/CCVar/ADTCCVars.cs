@@ -222,5 +222,16 @@ public sealed class ADTCCVars
         CVarDef.Create("supermatter.yell_timer", 60f, CVar.SERVER);
 
     #endregion
+
+    #region Admin
+
+    /// <summary>
+    /// Включает или отключает уведомления администраторов о сообщениях,
+    /// содержащих оскорбительные выражения в адрес родственников.
+    /// </summary>
+    public static readonly CVarDef<bool> ChatFilterAdminAlertEnable =
+        CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
+
+    #endregion
 }
 
