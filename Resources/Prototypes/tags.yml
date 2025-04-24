@@ -1303,6 +1303,9 @@
 - type: Tag
   id: UraniumGlassShard
 
+- type: Tag # SD-Edit / VXS
+  id: UAVAssaultWeaponry
+
 - type: Tag
   id: Vegetable
 
