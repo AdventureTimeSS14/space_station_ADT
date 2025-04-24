@@ -1384,3 +1384,26 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: longbow
+      # SD added start
+- type: marking
+  id: SDHumanHairSeph
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: seph_bayo
+- type: marking
+  id: SDHumanHairSephAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: seph_bayo_alt
+- type: marking
+  id: SDHumanHairSephLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: seph_floorlength_braid
+      # SD added end

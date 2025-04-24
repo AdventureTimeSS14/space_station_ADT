@@ -802,6 +802,18 @@
       {
         "name": "longbow",
         "directions": 4
+      },
+      {
+        "name": "seph_bayo",
+        "directions": 4
+      },
+      {
+        "name": "seph_bayo_alt",
+        "directions": 4
+      },
+      {
+        "name": "seph_floorlength_braid",
+        "directions": 4
       }
     ]
   }

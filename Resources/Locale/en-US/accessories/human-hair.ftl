@@ -196,3 +196,8 @@ marking-HumanHairVeryshortovereyealternate = Very Short Over Eye
 marking-HumanHairVlongfringe = Very Long with Fringe
 marking-HumanHairVolaju = Volaju
 marking-HumanHairWisp = Wisp
+# sd added start
+marking-SDHumanHairSeph = Sephy
+marking-SDHumanHairSephAlt = Sephy (Alt)
+marking-SDHumanHairSephLong = Sephy (Long)
+# sd added end
