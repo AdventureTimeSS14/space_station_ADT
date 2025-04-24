@@ -71,7 +71,7 @@ ghost-role-information-kangaroo-name = Кенгуру
 ghost-role-information-kangaroo-description = Вы кенгуру! Делайте всё, что делают кенгуру.
 ghost-role-information-monkey-name = Обезьяна
 ghost-role-information-monkey-description = У-у-у а-а-а!
-ghost-role-information-kobold-name = Кобольд
+ghost-role-information-kobold-name = Прото-сохун
 ghost-role-information-kobold-description = Будьте маленьким гремлином, которым и являетесь, кричите на членов экипажа и просите мяса!
 ghost-role-information-rat-king-name = Крысиный король
 ghost-role-information-rat-king-description = Вы - Крысиный король, вас интересует еда, еда и ещё раз еда. Сотрудничайте со станцией или сражайтесь с ней ради еды. Я уже упоминал, что вас интересует еда?
@@ -260,3 +260,5 @@ ghost-role-information-gingerbread-name = Пряничный человечек
 ghost-role-information-gingerbread-description =
     Существо чистого праздничного духа.
     Распространяйте паточную вкуснятину и хорошее настроение.
+ghost-role-information-wizard-name = Маг
+ghost-role-information-wizard-desc = ВЫ МАГ! Покажите станции, из чего сделана ваша магия.

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from SS220 Paradise RU",
+    "size": {
+        "x": 642,
+        "y": 362
+    },
+    "states": [
+        {
+            "name": "rnd_nt"
+        }
+    ]
+}

@@ -29,6 +29,8 @@
     forceSound: true
   - type: EmpOnCollide
     energyConsumption: 80000
+  - type: StaminaDamageOnCollide
+    damage: 0 #ADT_Tweak с 33 до 30, возвращаем станнер к старым параметрам
 
 - type: entity
   name: Laser bolt
@@ -332,8 +334,8 @@
   components:
   - type: ProjectileSpread
     proto: ADTBulletKineticShotgunPellet
-    count: 3
-    spread: 20
+    count: 6
+    spread: 35
 
 - type: entity
   id: ADTBulletKineticShotgunPellet

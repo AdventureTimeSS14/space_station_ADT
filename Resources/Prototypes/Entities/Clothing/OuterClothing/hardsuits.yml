@@ -936,6 +936,8 @@
     component:
     - type: SupermatterImmune
   - type: SupermatterImmune
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
   # ADT-Tweak-end
 
 #ERT Medic Hardsuit

@@ -13,7 +13,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        80: Critical
+        90: Critical
         200: Dead
     - type: RoarAccent
     - type: Hunger

@@ -113,18 +113,6 @@ public sealed partial class StoreSystem : EntitySystem
     }
 
     /// <summary>
-    /// Toggles the shop UI if the given entityuid has a shop component.
-    /// Used for things such as revenants or changelings.
-    /// </summary>
-
-    public void OnInternalShop(EntityUid uid)
-    {
-        if (!TryComp(uid, out StoreComponent? store))
-            return;
-        ToggleUi(uid, uid, store);
-    }
-
-    /// <summary>
     /// Gets the value from an entity's currency component.
     /// Scales with stacks.
     /// </summary>
@@ -202,38 +190,6 @@ public sealed partial class StoreSystem : EntitySystem
     }
 
     // ADT changeling start
-    public bool TryAddStore(EntityUid uid,
-                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
-                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
-                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
-                            bool allowRefund,
-                            bool ownerOnly)
-    {
-        if (HasComp<StoreComponent>(uid))
-            return false;
-
-        AddStore(uid, currencyWhitelist, categories, balance, allowRefund, ownerOnly);
-
-        return true;
-    }
-
-    public void AddStore(EntityUid uid,
-                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
-                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
-                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
-                            bool allowRefund,
-                            bool ownerOnly)
-    {
-        var comp = new StoreComponent();
-        comp.CurrencyWhitelist = currencyWhitelist;
-        comp.Categories = categories;
-        comp.Balance = balance;
-        comp.RefundAllowed = allowRefund;
-        comp.OwnerOnly = ownerOnly;
-
-        AddComp(uid, comp);
-    }
-
     public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
     {
         if (!Resolve(uid, ref store))

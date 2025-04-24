@@ -19,6 +19,7 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
+    - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
     # ADT-Economy-Start
     - id: ADTCommandBudgetCard
@@ -266,6 +267,7 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: OpporozidoneBeakerSmall
+    - id: ADTClothingEyesGlassesMedChem
     # ADT tweak End
 
 # Hardsuit table, used for suit storage as well

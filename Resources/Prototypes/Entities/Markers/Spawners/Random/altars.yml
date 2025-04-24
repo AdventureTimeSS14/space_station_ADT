@@ -17,6 +17,9 @@
         - AltarSpaceChristian
         - AltarSatana
         - AltarTechnology
+        # ADT tweak -start
+        - ADTAltarOctoCat
+        # ADT tweak - end
       offset: 0.0
 
 - type: entity
@@ -31,6 +34,9 @@
           state: convertaltar
     - type: RandomSpawner
       prototypes:
+        #ADT tweak - start
+        - ADTAltarOctoCat
+        #ADT tweak - end
         - AltarConvert
         - AltarConvertFestival
         - AltarConvertMaint
