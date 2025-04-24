@@ -69,7 +69,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: cargo
-    stateDoorOpen: color_black3_open
+    stateDoorOpen: cargo_open
     stateDoorClosed: cargo_door
   - type: AccessReader
     access: [["Cargo"]]
