@@ -16,7 +16,12 @@
   - type: Item
     size: Tiny
     sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
-
+  - type: ActivatableUI
+    key: enum.ReagentAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ReagentAnalyzerUiKey.Key:
+        type: ReagentAnalyzerBoundUserInterface
   - type: ReagentAnalyzer
   - type: ItemSlots
     slots:
