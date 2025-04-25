@@ -177,19 +177,19 @@ marking-ADTVulpHeadSlash = Вульпканин, порез
 
 marking-ADTVulpTail-vulp = Вульпканин, хвост (основа)
 marking-ADTVulpTail-vulp-fade = Вульпканин, хвост (затемнение)
-marking-ADTVulpTail = Вульпканин,
+marking-ADTVulpTail = Вульпканин
 
 marking-ADTVulpTailTip-vulp = Вульпканин, хвост (основа)
 marking-ADTVulpTailTip-vulp-tip = Вульпканин, хвост (кончик)
 marking-ADTVulpTailTip = Вульпканин, (кончик)
 
-marking-ADTVulpTailWag-ADTvulp_wag = Вульпканин, хвост (основа)
-marking-ADTVulpTailWag-ADTvulp_wag-fade = Вульпканин, хвост (затемнение)
-marking-ADTVulpTailWag = Вульпканин, (виляющий)
+marking-ADTVulpTailAnimated-ADTvulp_wag = Вульпканин, хвост (основа)
+marking-ADTVulpTailAnimated-ADTvulp_wag-fade = Вульпканин, хвост (затемнение)
+marking-ADTVulpTailAnimated = Вульпканин, (виляющий)
 
-marking-ADTVulpTailWagTip-vulp_wag = Вульпканин, хвост (основа)
-marking-ADTVulpTailWagTip-vulp_wag-tip = Вульпканин, хвост (кончик)
-marking-ADTVulpTailWagTip = Вульпканин, (виляющий, кончик)
+marking-ADTVulpTailTipAnimated-vulp_wag = Вульпканин, хвост (основа)
+marking-ADTVulpTailTipAnimated-vulp_wag-tip = Вульпканин, хвост (кончик)
+marking-ADTVulpTailTipAnimated = Вульпканин, (виляющий, кончик)
 
 marking-ADTVulpTailAlt-vulp_alt = Вульпканин, хвост (основа)
 marking-ADTVulpTailAlt-vulp_alt-fade = Вульпканин, хвост (затемнение)
@@ -211,28 +211,28 @@ marking-ADTVulpTailFoxTip-fox = Лисиный хвост (основа)
 marking-ADTVulpTailFoxTip-fox-tip = Лисиный хвост (затемнение)
 marking-ADTVulpTailFoxTip = Вульпканин, Лисиный (кончик)
 
-marking-ADTVulpTailFoxWag-fox_wag = Лисиный хвост (основа)
-marking-ADTVulpTailFoxWag-fox_wag-fade = Лисиный хвост (затемнение)
-marking-ADTVulpTailFoxWag = Вульпканин, Лисиный (виляющий)
+marking-ADTVulpTailFoxAnimated-fox_wag = Лисиный хвост (основа)
+marking-ADTVulpTailFoxAnimated-fox_wag-fade = Лисиный хвост (затемнение)
+marking-ADTVulpTailFoxAnimated = Вульпканин, Лисиный (виляющий)
 
-marking-ADTVulpTailFoxWagTip-fox_wag = Лисиный хвост (основа)
-marking-ADTVulpTailFoxWagTip-fox_wag-tip = Лисиный хвост (кончик)
-marking-ADTVulpTailFoxWagTip = Вульпканин, Лисиный (виляющий, кончик)
+marking-ADTVulpTailFoxTipAnimated-fox_wag = Лисиный хвост (основа)
+marking-ADTVulpTailFoxTipAnimated-fox_wag-tip = Лисиный хвост (кончик)
+marking-ADTVulpTailFoxTipAnimated = Вульпканин, Лисиный (виляющий, кончик)
 
 marking-ADTVulpTailBushy-bushfluff = Пышный хвост
 marking-ADTVulpTailBushy = Вульпканин, Пышный
 
-marking-ADTVulpTailBushyWag-bushfluff_wag = Пышный хвост
-marking-ADTVulpTailBushyWag = Вульпканин, Пышный (виляющий)
+marking-ADTVulpTailBushyAnimated-bushfluff_wag = Пышный хвост
+marking-ADTVulpTailBushyAnimated = Вульпканин, Пышный (виляющий)
 
 marking-ADTVulpTailCoyote-coyote = Хвост Койота
 marking-ADTVulpTailCoyote = Вульпканин, Койот
 
-marking-ADTVulpTailCoyoteWag-coyote_wag = Хвост Койота
-marking-ADTVulpTailCoyoteWag = Вульпканин, Койот (виляющий)
+marking-ADTVulpTailCoyoteAnimated-coyote_wag = Хвост Койота
+marking-ADTVulpTailCoyoteAnimated = Вульпканин, Койот (виляющий)
 
-marking-ADTVulpTailCorgiWag-corgi_wag = Хвост
-marking-ADTVulpTailCorgiWag = Вульпканин, Корги (виляющий)
+marking-ADTVulpTailCorgiAnimated-corgi_wag = Хвост
+marking-ADTVulpTailCorgiAnimated = Вульпканин, Корги (виляющий)
 
 marking-ADTVulpTailHusky-husky-inner = Хвост Хаски (inner)
 marking-ADTVulpTailHusky-husky-outer = Хвост Хаски (outer)
@@ -257,8 +257,8 @@ marking-ADTVulpTailOtie = Вульпканин, Оти
 marking-ADTVulpTailFluffy-fluffy = Пушистый хвост
 marking-ADTVulpTailFluffy = Вульпканин, Пушистый
 
-marking-ADTVulpTailDalmatianWag-dalmatian_wag = хвост Далматина
-marking-ADTVulpTailDalmatianWag = Вульпканин, Далматин (виляющий)
+marking-ADTVulpTailDalmatianAnimated-dalmatian_wag = хвост Далматина
+marking-ADTVulpTailDalmatianAnimated = Вульпканин, Далматин (виляющий)
 
 
 marking-ADTVulpBodyPointsCrest-points_crest = Пятна (крест)
