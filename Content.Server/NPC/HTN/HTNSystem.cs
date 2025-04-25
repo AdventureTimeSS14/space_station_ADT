@@ -13,10 +13,10 @@ using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Server.Worldgen; // Frontier
-using Content.Server.Worldgen.Components; // Frontier
-using Content.Server.Worldgen.Systems; // Frontier
-using Robust.Server.GameObjects; // Frontier
+using Content.Server.Worldgen; // ADT-Tweak
+using Content.Server.Worldgen.Components; // ADT-Tweak
+using Content.Server.Worldgen.Systems; // ADT-Tweak
+using Robust.Server.GameObjects; // ADT-Tweak
 
 namespace Content.Server.NPC.HTN;
 
@@ -26,12 +26,12 @@ public sealed class HTNSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly NPCUtilitySystem _utility = default!;
-    // Frontier
+    // ADT-Tweak
     [Dependency] private readonly WorldControllerSystem _world = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     private EntityQuery<WorldControllerComponent> _mapQuery;
     private EntityQuery<LoadedChunkComponent> _loadedQuery;
-    // Frontier
+    // ADT-Tweak
     private readonly JobQueue _planQueue = new(0.004);
 
     private readonly HashSet<ICommonSession> _subscribers = new();
@@ -40,8 +40,8 @@ public sealed class HTNSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _mapQuery = GetEntityQuery<WorldControllerComponent>(); // Frontier
-        _loadedQuery = GetEntityQuery<LoadedChunkComponent>(); // Frontier
+        _mapQuery = GetEntityQuery<WorldControllerComponent>(); // ADT-Tweak
+        _loadedQuery = GetEntityQuery<LoadedChunkComponent>(); // ADT-Tweak
         SubscribeLocalEvent<HTNComponent, MobStateChangedEvent>(_npc.OnMobStateChange);
         SubscribeLocalEvent<HTNComponent, MapInitEvent>(_npc.OnNPCMapInit);
         SubscribeLocalEvent<HTNComponent, PlayerAttachedEvent>(_npc.OnPlayerNPCAttach);
@@ -197,7 +197,7 @@ public sealed class HTNSystem : EntitySystem
             if (count >= maxUpdates)
                 break;
 
-            if (!IsNPCActive(uid) || !comp.Enabled)  // Frontier
+            if (!IsNPCActive(uid) || !comp.Enabled)  // ADT-Tweak
                 continue;
 
             if (comp.PlanningJob != null)
@@ -288,7 +288,7 @@ public sealed class HTNSystem : EntitySystem
         }
     }
 
-    private bool IsNPCActive(EntityUid entity) // Frontier
+    private bool IsNPCActive(EntityUid entity) // ADT-Tweak
     {
         var transform = Transform(entity);
 

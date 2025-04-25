@@ -42,11 +42,11 @@ using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.Kitchen.Components; // Frontier
+using Content.Shared.ADT.Kitchen.Components; // ADT-Tweak
 
 namespace Content.Server.Kitchen.EntitySystems
 {
-    public sealed partial class MicrowaveSystem : EntitySystem // Frontier: add partial
+    public sealed partial class MicrowaveSystem : EntitySystem // ADT-Tweak: add partial
     {
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
@@ -108,7 +108,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
             SubscribeLocalEvent<FoodRecipeProviderComponent, GetSecretRecipesEvent>(OnGetSecretRecipes);
 
-            SubscribeLocalEvent<MicrowaveComponent, AssemblerStartCookMessage>(TryStartAssembly); // Frontier
+            SubscribeLocalEvent<MicrowaveComponent, AssemblerStartCookMessage>(TryStartAssembly); // ADT-Tweak
         }
 
         private void OnCookStart(Entity<ActiveMicrowaveComponent> ent, ref ComponentStartup args)
@@ -178,10 +178,10 @@ namespace Content.Server.Kitchen.EntitySystems
         /// <param name="time">The time on the microwave, in seconds.</param>
         private void AddTemperature(MicrowaveComponent component, float time)
         {
-            // Frontier: temperature requires heat or irradiation
+            // ADT-Tweak: temperature requires heat or irradiation
             if (!component.CanHeat && !component.CanIrradiate)
                 return;
-            // End Frontier
+            // End ADT-Tweak
 
             var heatToAdd = time * component.BaseHeatMultiplier;
             foreach (var entity in component.Storage.ContainedEntities)
@@ -289,7 +289,7 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             // this really does have to be in ComponentInit
             ent.Comp.Storage = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
-            ent.Comp.FinalCookTimeMultiplier = ent.Comp.CookTimeMultiplier; // Frontier: initial cook time consistency (assumes stock components)
+            ent.Comp.FinalCookTimeMultiplier = ent.Comp.CookTimeMultiplier; // ADT-Tweak: initial cook time consistency (assumes stock components)
         }
 
         private void OnMapInit(Entity<MicrowaveComponent> ent, ref MapInitEvent args)
@@ -310,10 +310,10 @@ namespace Content.Server.Kitchen.EntitySystems
             if (!TryComp<DamageableComponent>(args.Victim, out var damageableComponent))
                 return;
 
-            // Frontier: suicide requires heat or irradiation
+            // ADT-Tweak: suicide requires heat or irradiation
             if (!ent.Comp.CanHeat && !ent.Comp.CanIrradiate)
                 return;
-            // Frontier
+            // ADT-Tweak
 
             // The application of lethal damage is what kills you...
             _suicide.ApplyLethalDamage((args.Victim, damageableComponent), "Heat");
@@ -416,7 +416,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     if (TryComp<MicrowaveComponent>(ent, out var component))
                     {
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Microwave)
-                            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopup, ("item", args.Used)), ent, args.User); // Frontier: "microwave-component-interact-item-too-big"<ent.Comp.TooBigPopup
+                            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopup, ("item", args.Used)), ent, args.User); // ADT-Tweak: "microwave-component-interact-item-too-big"<ent.Comp.TooBigPopup
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Assembler)
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupAssembler, ("item", args.Used)), ent, args.User);
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.MedicalAssembler)
@@ -567,7 +567,7 @@ namespace Content.Server.Kitchen.EntitySystems
             foreach (var item in component.Storage.ContainedEntities.ToArray())
             {
                 // special behavior when being microwaved ;)
-                var ev = new BeingMicrowavedEvent(uid, user, component.CanHeat, component.CanIrradiate); // Frontier: add CanHeat, CanIrradiate
+                var ev = new BeingMicrowavedEvent(uid, user, component.CanHeat, component.CanIrradiate); // ADT-Tweak: add CanHeat, CanIrradiate
                 RaiseLocalEvent(item, ev);
 
                 if (ev.Handled)
@@ -576,12 +576,12 @@ namespace Content.Server.Kitchen.EntitySystems
                     return;
                 }
 
-                if (_tag.HasTag(item, "Metal"))// Frontier: add && !component.DisableMetalMalfunctions
+                if (_tag.HasTag(item, "Metal"))// ADT-Tweak: add && !component.DisableMetalMalfunctions
                 {
                     malfunctioning = true;
                 }
 
-                if (_tag.HasTag(item, "Plastic"))// Frontier: add && !component.DisableRuiningPlastic
+                if (_tag.HasTag(item, "Plastic"))// ADT-Tweak: add && !component.DisableRuiningPlastic
                 {
                     var junk = Spawn(component.BadRecipeEntityId, Transform(uid).Coordinates);
                     _container.Insert(junk, component.Storage);
@@ -637,11 +637,11 @@ namespace Content.Server.Kitchen.EntitySystems
 
             _audio.PlayPvs(component.StartCookingSound, uid);
             var activeComp = AddComp<ActiveMicrowaveComponent>(uid); //microwave is now cooking
-            activeComp.CookTimeRemaining = component.CurrentCookTimerTime * component.FinalCookTimeMultiplier; // Frontier: CookTimeMultiplier<FinalCookTimeMultiplier
+            activeComp.CookTimeRemaining = component.CurrentCookTimerTime * component.FinalCookTimeMultiplier; // ADT-Tweak: CookTimeMultiplier<FinalCookTimeMultiplier
             activeComp.TotalTime = component.CurrentCookTimerTime; //this doesn't scale so that we can have the "actual" time
             activeComp.PortionedRecipe = portionedRecipe;
             //Scale tiems with cook times
-            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime * component.FinalCookTimeMultiplier); // Frontier: CookTimeMultiplier<FinalCookTimeMultiplier
+            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime * component.FinalCookTimeMultiplier); // ADT-Tweak: CookTimeMultiplier<FinalCookTimeMultiplier
             if (malfunctioning)
                 activeComp.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.MalfunctionInterval);
             UpdateUserInterfaceState(uid, component);
@@ -666,12 +666,12 @@ namespace Content.Server.Kitchen.EntitySystems
                 return (recipe, 0);
             }
 
-            // Frontier: microwave recipe machine types
+            // ADT-Tweak: microwave recipe machine types
             if ((recipe.RecipeType & component.ValidRecipeTypes) == 0)
             {
                 return (recipe, 0);
             }
-            // End Frontier
+            // End ADT-Tweak
 
             foreach (var solid in recipe.IngredientsSolids)
             {
@@ -732,12 +732,12 @@ namespace Content.Server.Kitchen.EntitySystems
                     for (var i = 0; i < active.PortionedRecipe.Item2; i++)
                     {
                         SubtractContents(microwave, active.PortionedRecipe.Item1);
-                        // Frontier: ResultCount - support multiple results per recipe
+                        // ADT-Tweak: ResultCount - support multiple results per recipe
                         for (var r = 0; r < active.PortionedRecipe.Item1.ResultCount; r++)
                         {
                             Spawn(active.PortionedRecipe.Item1.Result, coords);
                         }
-                        // End Frontier
+                        // End ADT-Tweak
                     }
                 }
 

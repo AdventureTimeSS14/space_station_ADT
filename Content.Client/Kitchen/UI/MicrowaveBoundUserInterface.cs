@@ -21,14 +21,14 @@ namespace Content.Client.Kitchen.UI
         [ViewVariables]
         private readonly Dictionary<int, ReagentQuantity> _reagents = new();
 
-        // Frontier: UI parameters
+        // ADT-Tweak: UI parameters
         private readonly string _menuTitle;
         private readonly string _leftFlavorText;
 
 
         public MicrowaveBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
-             // Frontier: switch UI params based on key
+             // ADT-Tweak: switch UI params based on key
             if ((MicrowaveUiKey)uiKey == MicrowaveUiKey.ElectricRangeKey)
             {
                 _menuTitle = "microwave-menu-range-title";
@@ -39,7 +39,7 @@ namespace Content.Client.Kitchen.UI
                 _menuTitle = "microwave-menu-title";
                 _leftFlavorText = "microwave-menu-footer-flavor-left";
             }
-            // End Frontier
+            // End ADT-Tweak
         }
 
         protected override void Open()
@@ -78,10 +78,10 @@ namespace Content.Client.Kitchen.UI
                 }
             };
 
-            // Frontier: UI customization
+            // ADT-Tweak: UI customization
             _menu.Title = Loc.GetString(_menuTitle);
             _menu.LeftFooter.Text = Loc.GetString(_leftFlavorText);
-            // End Frontier
+            // End ADT-Tweak
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

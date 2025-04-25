@@ -5,10 +5,10 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Kitchen; // Frontier
-using Robust.Shared.Serialization; // Frontier
+using Content.Shared.Kitchen; // ADT-Tweak
+using Robust.Shared.Serialization; // ADT-Tweak
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared.Kitchen.Components; // Frontier
+using Content.Shared.Kitchen.Components; // ADT-Tweak
 
 namespace Content.Server.Kitchen.Components
 {
@@ -17,10 +17,10 @@ namespace Content.Server.Kitchen.Components
     {
         [DataField("cookTimeMultiplier"), ViewVariables(VVAccess.ReadWrite)]
         public float CookTimeMultiplier = 1;
-        [DataField("machinePartCookTimeMultiplier")] // Frontier: machine parts
-        public ProtoId<MachinePartPrototype> MachinePartCookTimeMultiplier = "Capacitor"; // Frontier: machine parts
+        [DataField("machinePartCookTimeMultiplier")] // ADT-Tweak: machine parts
+        public ProtoId<MachinePartPrototype> MachinePartCookTimeMultiplier = "Capacitor"; // ADT-Tweak: machine parts
         [ViewVariables(VVAccess.ReadOnly)]
-        public float FinalCookTimeMultiplier = 1.0f; // Frontier: machine parts
+        public float FinalCookTimeMultiplier = 1.0f; // ADT-Tweak: machine parts
         [DataField("cookTimeScalingConstant")]
         public float CookTimeScalingConstant = 0.5f;
         [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
@@ -120,7 +120,7 @@ namespace Content.Server.Kitchen.Components
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public bool CanMicrowaveIdsSafely = true;
 
-        // Frontier: recipe type
+        // ADT-Tweak: recipe type
         /// <summary>
         /// the types of recipes that this "microwave" can handle.
         /// </summary>
@@ -164,17 +164,17 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadOnly)]
         public MicrowaveUiKey Key = MicrowaveUiKey.Key;
-        // End Frontier
+        // End ADT-Tweak
     }
 
     public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
     {
         public EntityUid Microwave;
         public EntityUid? User;
-        // Frontier: fields for whether or not the object is actually being heated or irradiated.
+        // ADT-Tweak: fields for whether or not the object is actually being heated or irradiated.
         public bool BeingHeated;
         public bool BeingIrradiated;
-        // End Frontier
+        // End ADT-Tweak
 
 
         public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user)
@@ -183,7 +183,7 @@ namespace Content.Server.Kitchen.Components
             User = user;
 
         }
-        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, bool heating, bool irradiating) // Frontier: added heating, irradiating
+        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, bool heating, bool irradiating) // ADT-Tweak: added heating, irradiating
         {
             Microwave = microwave;
             User = user;

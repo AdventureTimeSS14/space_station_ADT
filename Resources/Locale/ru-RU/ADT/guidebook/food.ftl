@@ -17,10 +17,10 @@ guidebook-food-ingredient-liquid = [bold]{$name}[/bold] \[{$amount}u\]
 
 guidebook-food-output = [bold]{$name}[/bold] \[{$number}\]
 
-# Frontier: processing types
+# ADT-Tweak: processing types
 guidebook-food-processing-type-microwave = Микроволновка
 guidebook-food-processing-type-oven = Печь
 guidebook-food-processing-type-assembler = Ассемлер
 guidebook-food-processing-type-medical-assembler = Медицинский Ассемлер
 guidebook-food-processing-type-medical-generic = Жарить
-# End Frontier: processing types
+# End ADT-Tweak: processing types

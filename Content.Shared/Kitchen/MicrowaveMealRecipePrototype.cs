@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization; // Frontier
+using Robust.Shared.Serialization; // ADT-Tweak
 
 namespace Content.Shared.Kitchen
 {
@@ -33,15 +33,15 @@ namespace Content.Shared.Kitchen
         [DataField("result", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string Result { get; private set; } = string.Empty;
 
-        // Frontier
+        // ADT-Tweak
         [DataField]
         public int ResultCount { get; private set; } = 1;
-        // End Frontier
+        // End ADT-Tweak
 
         [DataField("time")]
         public uint CookTime { get; private set; } = 5;
 
-        // Frontier: separate microwave recipe types.
+        // ADT-Tweak: separate microwave recipe types.
 
         [DataField(customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))]
         public int RecipeType = (int)MicrowaveRecipeType.Microwave;
@@ -78,7 +78,7 @@ namespace Content.Shared.Kitchen
         }
     }
 
-    // Frontier: microwave recipe types, to limit certain recipes to certain machines
+    // ADT-Tweak: microwave recipe types, to limit certain recipes to certain machines
     [Flags, FlagsFor(typeof(MicrowaveRecipeTypeFlags))]
     [Serializable, NetSerializable]
     public enum MicrowaveRecipeType : int

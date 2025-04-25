@@ -24,7 +24,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
-    private readonly SpriteSystem _sprite = default!; // Frontier
+    private readonly SpriteSystem _sprite = default!; // ADT-Tweak
 
     private ISawmill _sawmill = default!;
 
@@ -35,7 +35,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
         MouseFilter = MouseFilterMode.Stop;
 
         _sawmill = _logManager.GetSawmill("guidemicrowaveembed");
-        _sprite = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>(); // Frontier
+        _sprite = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>(); // ADT-Tweak
     }
 
     public GuideMicrowaveEmbed(string recipe) : this()
@@ -170,7 +170,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
 
     private void GenerateCookTime(FoodRecipePrototype recipe)
     {
-        // Frontier: multiple processing methods per recipe
+        // ADT-Tweak: multiple processing methods per recipe
         List<string> processingTypes = new();
         var recipeType = (MicrowaveRecipeType)recipe.RecipeType;
         if (recipeType.HasFlag(MicrowaveRecipeType.Microwave))
@@ -206,20 +206,20 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
         msg_machine.Pop();
         msg_time.AddMarkupOrThrow(Loc.GetString("guidebook-food-processing-cooking-time", ("time", recipe.CookTime)));
         msg_time.Pop();
-        // End Frontier: multiple processing methods per recipe
+        // End ADT-Tweak: multiple processing methods per recipe
 
         CookTimeLabelMachine.SetMessage(msg_machine);
         CookTimeLabelTime.SetMessage(msg_time);
     }
 
-    // Frontier: convenience function to add a machine to the recipe
+    // ADT-Tweak: convenience function to add a machine to the recipe
     private void AppendMachineTexture(string path, string state)
     {
         var machineTexture = new TextureRect();
         machineTexture.Texture = _sprite.Frame0(new SpriteSpecifier.Rsi(new ResPath(path), state));
         Machines.AddChild(machineTexture);
     }
-    // End Frontier
+    // End ADT-Tweak
 
     private void GenerateControl(FoodRecipePrototype recipe)
     {

@@ -24,9 +24,9 @@ using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared.Clumsy;
-using Content.Shared.Changeling.Components;
 using Content.Shared.ADT.Atmos.Miasma;
+using Content.Shared.Clumsy; //ADT-Tweak
+using Content.Shared.Changeling.Components;
 using Robust.Server.Containers;
 using System.Linq;
 using Content.Server.Resist; //ADT-Medicine
@@ -38,7 +38,7 @@ namespace Content.Server.Medical;
 /// </summary>
 public sealed class DefibrillatorSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; //ADT-Tweak
     [Dependency] private readonly ChatSystem _chatManager = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -50,7 +50,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //ADT-Tweak
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -60,12 +60,13 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<DefibrillatorComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<DefibrillatorComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
+        SubscribeLocalEvent<DefibrillatorComponent, UseInHandEvent>(OnUseInHand); //ADT-Tweak
+        SubscribeLocalEvent<DefibrillatorComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty); //ADT-Tweak
         SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
     }
 
+    //ADT-Tweak
     private void OnUseInHand(EntityUid uid, DefibrillatorComponent component, UseInHandEvent args)
     {
         if (args.Handled || !TryComp(uid, out UseDelayComponent? useDelay) || _useDelay.IsDelayed((uid, useDelay)))
@@ -83,6 +84,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!TerminatingOrDeleted(uid))
             TryDisable(uid, component);
     }
+    //End ADT-Tweak
 
     private void OnAfterInteract(EntityUid uid, DefibrillatorComponent component, AfterInteractEvent args)
     {
@@ -107,6 +109,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         Zap(uid, target, args.User, component);
     }
 
+    //ADT-Tweak
     public bool TryToggle(EntityUid uid, DefibrillatorComponent? component = null, EntityUid? user = null)
     {
         if (!Resolve(uid, ref component))
@@ -129,19 +132,19 @@ public sealed class DefibrillatorSystem : EntitySystem
             return false;
 
 
-
+        component.LowChargeState = false;
         component.Enabled = true;
         _appearance.SetData(uid, ToggleVisuals.Toggled, true);
         _audio.PlayPvs(component.PowerOnSound, uid);
         return true;
     }
 
-    public bool TryDisable(EntityUid uid, DefibrillatorComponent? component = null)
+    public bool TryDisable(EntityUid uid, DefibrillatorComponent? component = null) //ADT-Tweak
     {
         if (!Resolve(uid, ref component))
             return false;
 
-        if (!component.Enabled)
+        if (!component.Enabled) //ADT-Tweak
             return false;
 
         component.Enabled = false;
@@ -150,6 +153,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         _audio.PlayPvs(component.PowerOffSound, uid);
         return true;
     }
+    //End ADT-Tweak
 
     /// <summary>
     ///     Checks if you can actually defib a target.
@@ -176,7 +180,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             return false;
         }
 
-        if (_timing.CurTime < component.NextZapTime)
+        if (_timing.CurTime < component.NextZapTime) //ADT-Tweak
             return false;
 
         if (!TryComp<MobStateComponent>(target, out var mobState))
@@ -185,7 +189,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user))
             return false;
 
-        if (_mobState.IsAlive(target, mobState))
+        if (_mobState.IsAlive(target, mobState))    //ADT-Tweak
             return false;
 
         return true;
@@ -226,10 +230,10 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// </summary>
     public void Zap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null, MobStateComponent? mob = null, MobThresholdsComponent? thresholds = null)
     {
-        if (!Resolve(uid, ref component) || !Resolve(target, ref mob, ref thresholds, false))
+        if (!Resolve(uid, ref component) || !Resolve(target, ref mob, ref thresholds, false))   //ADT-Tweak
             return;
 
-        // clowns zap themselves
+        // ADT-Tweak: clowns zap themselves
         if (HasComp<ClumsyComponent>(user) && user != target)
         {
             Zap(uid, user, user, component);
@@ -237,6 +241,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         }
         if (!_powerCell.TryUseActivatableCharge(uid, user: user))
             return;
+        //End ADT-Tweak
 
         _audio.PlayPvs(component.ZapSound, uid);
         _electrocution.TryDoElectrocution(target, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
@@ -323,6 +328,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         RaiseLocalEvent(target, ref ev);
     }
 
+    //ADT-Tweak: Ready-Toggle sound FX
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -357,4 +363,5 @@ public sealed class DefibrillatorSystem : EntitySystem
 
         }
     }
+    //End ADT-Tweak
 }
