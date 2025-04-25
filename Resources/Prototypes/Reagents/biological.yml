@@ -175,6 +175,14 @@
       effects:
       - !type:ModifyBloodLevel
         amount: 3
+      # ADT tweak start Поощрение агрессивной игры то есть больше крови от трупа в 3 раза
+      - !type:ModifyBloodLevel
+        amount: 6
+        conditions:
+        - !type:OrganType
+          type: Dragon
+          shouldHave: true
+      # ADT tweak end
       - !type:HealthChange
         damage:
           groups:

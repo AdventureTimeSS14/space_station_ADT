@@ -8,6 +8,7 @@
   components:
   - type: Bloodstream
     bloodMaxVolume: 650
+    damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak # ADT-Tweak
   - type: GhostRole
     allowMovement: true
     allowSpeech: true

@@ -207,6 +207,22 @@
     Bloodloss: 0.7 # твёрдая кожа
 
 - type: damageModifierSet
+  id: ADTBloodlossDragon # Ослабление накопления стаков кровотечения
+  coefficients:
+    Blunt: 0.02
+    Slash: 0.06
+    Piercing: 0.04
+    Shock: 0.0
+    Cold: 0.0
+    Heat: -0.5 # heat damage cauterizes wounds, but will still hurt obviously.
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0 # no double dipping
+    Cellular: 0.0
+    Caustic: 0.0
+
+- type: damageModifierSet
   id: ADTCandle
   coefficients:
     Blunt: 1.5
