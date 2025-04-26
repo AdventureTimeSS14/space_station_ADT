@@ -432,6 +432,7 @@
   - type: SiliconLawProvider
     laws: NTDefault # Corvax-NTDefault
   - type: SiliconLawBound
+  - type: StationAiInfo
   - type: ActionGrant
     actions:
     - ActionViewLaws
@@ -440,6 +441,8 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
         requireInputValidation: false
+      enum.StationAiInfoUiKey.Key:
+        type: StationAiBoundUserInterface
   - type: ComplexInteraction
   - type: Actions
   - type: Access

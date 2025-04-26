@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionStationAiInfo
+  name: View Information
+  description: View the information of your chassis and station.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: manifest
+    event: !type:StationAiInfoActionEvent
+    useDelay: 0.5
