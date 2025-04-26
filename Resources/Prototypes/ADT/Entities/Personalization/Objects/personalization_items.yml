@@ -1984,4 +1984,17 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+
+#kringe
+- type: entity
+  parent: BaseWhistle
+  id: ADTWhistleKringe
+  description: Sound of it make you feel fear.
+  suffix: Personal, kringe
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kringe-whistle.rsi
+    state: icon
+  - type: Whistle
+    distance: 10
 #SPONSOR-ITEMS-END
