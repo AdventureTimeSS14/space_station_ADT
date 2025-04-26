@@ -557,3 +557,7 @@ ent-ADTClothingOuterHardsuitKringe = скафандр исследователя
 ent-ADTClothingHeadHelmetHardsuitKringe = шлем скафандра исследователя
     .desc = Шлем из чёрного материала неизвестного происхождения.
     .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingBackpackDuffelKringeStuff = комплект вещей исследователя
+    .desc = Вещмешок с полным комплектом вещей исследователя - скафандром, комбинезоном, ботинками, перчатками и свистком.
+    .suffix = { "Спонсорское, kringe" }

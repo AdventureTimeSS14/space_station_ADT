@@ -1997,4 +1997,19 @@
     state: icon
   - type: Whistle
     distance: 10
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelKringeStuff
+  name: bag of kringe personal clothes
+  description: bag of kringe personal clothes
+  suffix: Personal, kringe
+  components:
+    - type: StorageFill
+      contents:
+        - id: ADTClothingOuterHardsuitKringe
+        - id: ADTClothingHandsKringeGloves
+        - id: ADTClothingShoesBootsMagKringe
+        - id: ADTClothingUniformJumpsuitKringeClothing
+        - id: ADTWhistleKringe
 #SPONSOR-ITEMS-END
