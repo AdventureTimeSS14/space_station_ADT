@@ -26,9 +26,7 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
         var sightingId = Weight(component.Weights);
         var sightingEvent = $"centcom-random-event-sighting-{sightingId}";
 
-        string sightingText;
-
-        GetSightingText(sightingId, sightingEvent)
+        string sightingText = GetSightingText(sightingId, sightingEvent);
 
         var announcement = Loc.GetString("centcom-random-event-announcement",
             ("sighting", sightingText));
