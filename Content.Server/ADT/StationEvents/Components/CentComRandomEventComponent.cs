@@ -5,9 +5,6 @@ using Content.Server.ADT.StationEvents.Events;
 
 namespace Content.Server.ADT.StationEvents.Components;
 
-/// <summary>
-/// Used an event that spawns an anomaly somewhere random on the map.
-/// </summary>
 [RegisterComponent, Access(typeof(CentComRandomEvent))]
 public sealed partial class CentComRandomEventComponent : Component
 {
