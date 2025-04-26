@@ -13,10 +13,10 @@ using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Server.Worldgen; // ADT-Tweak
-using Content.Server.Worldgen.Components; // ADT-Tweak
-using Content.Server.Worldgen.Systems; // ADT-Tweak
-using Robust.Server.GameObjects; // ADT-Tweak
+using Content.Server.Worldgen; // Frontier
+using Content.Server.Worldgen.Components; // Frontier
+using Content.Server.Worldgen.Systems; // Frontier
+using Robust.Server.GameObjects; // Frontier
 
 namespace Content.Server.NPC.HTN;
 
@@ -40,8 +40,8 @@ public sealed class HTNSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _mapQuery = GetEntityQuery<WorldControllerComponent>(); // ADT-Tweak
-        _loadedQuery = GetEntityQuery<LoadedChunkComponent>(); // ADT-Tweak
+        _mapQuery = GetEntityQuery<WorldControllerComponent>(); // Frontier
+        _loadedQuery = GetEntityQuery<LoadedChunkComponent>(); // Frontier
         SubscribeLocalEvent<HTNComponent, MobStateChangedEvent>(_npc.OnMobStateChange);
         SubscribeLocalEvent<HTNComponent, MapInitEvent>(_npc.OnNPCMapInit);
         SubscribeLocalEvent<HTNComponent, PlayerAttachedEvent>(_npc.OnPlayerNPCAttach);
