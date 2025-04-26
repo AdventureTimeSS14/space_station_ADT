@@ -28,38 +28,7 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
 
         string sightingText;
 
-        switch (sightingId)
-        {
-            case 3:
-                sightingText = Loc.GetString(sightingEvent,
-                    ("word", Loc.GetString($"centcom-random-event-word-{RobustRandom.Next(1, 22)}")));
-                break;
-
-            case 2:
-            case 8:
-                sightingText = Loc.GetString(sightingEvent,
-                    ("clothing", Loc.GetString($"centcom-random-event-clothing-{RobustRandom.Next(1, 13)}")));
-                break;
-
-            case 9:
-                sightingText = Loc.GetString(sightingEvent,
-                    ("generator", Loc.GetString($"centcom-random-event-generator-{RobustRandom.Next(1, 7)}")));
-                break;
-
-            case 12:
-                sightingText = Loc.GetString(sightingEvent,
-                    ("plant", Loc.GetString($"centcom-random-event-plant-{RobustRandom.Next(1, 4)}")));
-                break;
-
-            case 14:
-                sightingText = Loc.GetString(sightingEvent,
-                    ("mode", Loc.GetString($"centcom-random-event-mode-{RobustRandom.Next(1, 5)}")));
-                break;
-
-            default:
-                sightingText = Loc.GetString(sightingEvent);
-                break;
-        }
+        GetSightingText(sightingId, sightingEvent)
 
         var announcement = Loc.GetString("centcom-random-event-announcement",
             ("sighting", sightingText));
@@ -110,6 +79,18 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
         return wasSent;
     }
 
+    private string GetSightingText(int id, string baseEvent)
+    {
+        return id switch
+        {
+            3 => Loc.GetString(baseEvent, ("word", Loc.GetString($"centcom-random-event-word-{RobustRandom.Next(1, 22)}"))),
+            2 or 8 => Loc.GetString(baseEvent, ("clothing", Loc.GetString($"centcom-random-event-clothing-{RobustRandom.Next(1, 13)}"))),
+            9 => Loc.GetString(baseEvent, ("generator", Loc.GetString($"centcom-random-event-generator-{RobustRandom.Next(1, 7)}"))),
+            12 => Loc.GetString(baseEvent, ("plant", Loc.GetString($"centcom-random-event-plant-{RobustRandom.Next(1, 4)}"))),
+            14 => Loc.GetString(baseEvent, ("mode", Loc.GetString($"centcom-random-event-mode-{RobustRandom.Next(1, 5)}"))),
+            _ => Loc.GetString(baseEvent),
+        };
+    }
     private int Weight(Dictionary<int, float> weights)
     {
         var totalWeight = weights.Values.Sum();
