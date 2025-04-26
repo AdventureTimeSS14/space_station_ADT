@@ -21,6 +21,10 @@
     size: Normal
     sprite: ADT/Heretic/Blades/blade_blade-inhand.rsi
   - type: ItemToggle
+  - type: RandomTeleport
+    radius:
+      min: 10
+      max: 100
 
 - type: entity
   parent: HereticBladeBase

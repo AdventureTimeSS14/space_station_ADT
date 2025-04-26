@@ -17,7 +17,8 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Flash.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
-
+using Robust.Shared.Timing;
+using Robust.Shared.Network;
 namespace Content.Shared.ADT.Combat;
 
 [ImplicitDataDefinitionForInheritors]
@@ -146,7 +147,7 @@ public sealed partial class ComboPopupEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var popup = entMan.System<SharedPopupSystem>();
-        popup.PopupEntity(Loc.GetString(LocaleText, ("user", Identity.Entity(user, entMan)), ("target", target)), target, PopupType.LargeCaution);
+        popup.PopupPredicted(Loc.GetString(LocaleText, ("user", Identity.Entity(user, entMan)), ("target", target)), target, target, PopupType.LargeCaution);
     }
 }
 /// <summary>
@@ -193,7 +194,7 @@ public sealed partial class ComboAudioEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var audio = entMan.System<SharedAudioSystem>();
-        audio.PlayPvs(Sound, user);
+        audio.PlayPredicted(Sound, user, user);
     }
 }
 
@@ -354,5 +355,24 @@ public sealed partial class ComboEffectToUserPuller : IComboEffect
         {
             comboEvent.DoEffect(user, target, entMan);
         }
+    }
+}
+[Serializable]
+public sealed partial class ComboEffectDash : IComboEffect
+{
+    [DataField]
+    public int MoveForce = 4;
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var gameTiming = IoCManager.Resolve<INetManager>();
+        if (gameTiming.IsClient)
+            return;
+        var transform = entMan.System<SharedTransformSystem>();
+        var userCoords = transform.GetMoverCoordinates(user);
+        var targetCoords = transform.GetMoverCoordinates(target);
+        var direction = targetCoords.Position - userCoords.Position;
+
+        var newCoords = userCoords.Offset(direction.Normalized() * MoveForce);
+        transform.SetCoordinates(user, newCoords);
     }
 }

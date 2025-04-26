@@ -45,6 +45,7 @@
     components:
       - type: CommandStaff
       # - type: PhantomTyranyTarget # ADT Phantom
+      - type: SecurityStaff # goobstation
 
 - type: startingGear
   id: HoSGear
