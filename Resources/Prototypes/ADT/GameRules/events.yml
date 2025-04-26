@@ -47,13 +47,3 @@
       mindRoles:
       - MindRolePhantom
   - type: AntagRandomSpawn
-
-- type: entity
-  id: CentComRandomEvent
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    earliestStart: 30
-    weight: 3
-    reoccurrenceDelay: 30
-  - type: CentComRandomEvent
