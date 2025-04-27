@@ -11,24 +11,24 @@
 
     <!-- Entry layer (shows main categories) -->
     <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="64" ReserveSpaceForHiddenChildren="False">
-        <ui:RadialMenuTextureButton StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rpd-component-DisposalPipe'}" TargetLayer="DisposalPipe" Visible="False">
+        <ui:RadialMenuTextureButtonWithSector StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rpd-component-DisposalPipe'}" TargetLayer="DisposalPipe" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Interface/Radial/RPD/DisposalPipe.png"/>
-        </ui:RadialMenuTextureButton>
-        <ui:RadialMenuTextureButton StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rpd-component-Gaspipes'}" TargetLayer="Gaspipes" Visible="False">
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rpd-component-Gaspipes'}" TargetLayer="Gaspipes" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Interface/Radial/RPD/Gaspipes.png"/>
-        </ui:RadialMenuTextureButton>
-        <ui:RadialMenuTextureButton StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rpd-component-Devices'}" TargetLayer="Devices" Visible="False">
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rpd-component-Devices'}" TargetLayer="Devices" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/ADT/Interface/Radial/RPD/Devices.png"/>
-        </ui:RadialMenuTextureButton>
+        </ui:RadialMenuTextureButtonWithSector>
     </ui:RadialContainer>
 
     <!-- DisposalPipe -->
-    <ui:RadialContainer Name="DisposalPipe"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="64"/>
+    <ui:RadialContainer Name="DisposalPipe"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
     <!-- Gaspipes -->
-    <ui:RadialContainer Name="Gaspipes"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="64"/>
+    <ui:RadialContainer Name="Gaspipes"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
     <!-- Devices -->
-    <ui:RadialContainer Name="Devices"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="64"/>
+    <ui:RadialContainer Name="Devices"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
 </ui:RadialMenu>
