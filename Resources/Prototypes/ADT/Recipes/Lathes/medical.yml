@@ -21,7 +21,7 @@
   materials:
     Glass: 450
     Plastic: 500
-    Steal: 500
+    Steel: 500
 
 - type: latheRecipe
   id: ADTMiniSyringe

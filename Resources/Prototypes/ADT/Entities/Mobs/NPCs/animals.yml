@@ -367,7 +367,7 @@
       tags:
       - ADTGondola
     offspring:
-    - id: MobBearfoot
+    - id: ADTMobGondola
   - type: ReproductivePartner
   - type: Appearance
   - type: DamageStateVisuals
