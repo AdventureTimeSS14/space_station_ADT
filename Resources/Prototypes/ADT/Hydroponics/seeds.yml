@@ -88,10 +88,10 @@
   name: seeds-coffeetree-name
   noun: seeds-noun-seeds
   displayName: seeds-coffeetree-display-name
-  plantRsi: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi
-  packetPrototype: ADTCoffeeBeans
+  plantRsi: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi
+  packetPrototype: ADTCoffeeTreeSeeds
   productPrototypes:
-    - ADTLeavesCannabisWADTCoffeeBeanshite
+    - ADTCoffeeBeans
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 8

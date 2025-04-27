@@ -412,11 +412,11 @@
     removalTime: 0.25
     embedOnThrow: false
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 7
+    transferAmount: 7  # ADT Tweak
     solution: injector
-    updateInterval: 1
+    updateInterval: 1  # ADT Tweak
   - type: SolutionInjectOnEmbed
-    transferAmount: 5
+    transferAmount: 5  # ADT Tweak
     solution: injector
   - type: Fixtures
     fixtures:

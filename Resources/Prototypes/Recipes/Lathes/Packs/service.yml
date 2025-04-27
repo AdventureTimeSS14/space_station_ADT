@@ -37,6 +37,7 @@
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
   - PrinterDocMachineCircuitboard # Corvax-Printer
+  - ADTCoffeeMachineCircuitboard # ADT Tweak
 
 ## Dynamic
 
@@ -68,3 +69,4 @@
   - CloningConsoleComputerCircuitboard #ADT tweak
   - MedicalScannerMachineCircuitboard #ADT tweak
   - ADTAdvancedMicrowaveMachineCircuitBoard #ADT tweak
+  - ADTCoffeeMachineBluespaceCircuitboard #ADT tweak

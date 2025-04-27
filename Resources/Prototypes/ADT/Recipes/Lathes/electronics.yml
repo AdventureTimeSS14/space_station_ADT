@@ -26,3 +26,18 @@
   parent: BaseCircuitboardRecipe
   id: SupermatterComputerCircuitboardRecipe
   result: SupermatterComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTCoffeeMachineCircuitboard
+  result: ADTCoffeeMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTCoffeeMachineBluespaceCircuitboard
+  result: ADTCoffeeMachineBluespaceCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+     Gold: 100

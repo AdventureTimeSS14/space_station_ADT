@@ -545,6 +545,12 @@
         reagents:
         - ReagentId: Coffee
           Quantity: 50
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Coffee
+        Quantity: 1
   - type: Unremoveable
   - type: Drink
   - type: Label

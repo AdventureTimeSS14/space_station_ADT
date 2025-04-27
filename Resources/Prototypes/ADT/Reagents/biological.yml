@@ -112,7 +112,7 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: 2
+            Cellular: 0.5
       - !type:Polymorph
         prototype: ADTGondolaMorph
         conditions:

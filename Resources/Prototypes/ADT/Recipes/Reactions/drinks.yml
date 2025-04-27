@@ -429,7 +429,7 @@
 
 - type: reaction
   id: ADTCoffeCooking
-  minTemp: 353
+  minTemp: 373
   reactants:
     ADTCoffeePowder:
       amount: 1

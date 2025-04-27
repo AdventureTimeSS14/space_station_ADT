@@ -77,3 +77,39 @@
         amount: 1
         defaultPrototype: Beaker
 #End of DeltaV
+
+###  КОФЕ БРЕЙК ДА?!
+- type: entity
+  id: ADTCoffeeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: coffee machine machine board
+  description: A machine printed circuit board for a soda dispenser.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTCoffeeMachineEmpty
+      stackRequirements:
+        Steel: 5
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker
+
+- type: entity
+  id: ADTCoffeeMachineBluespaceCircuitboard
+  parent: BaseMachineCircuitboard
+  name: coffee machine bluespace machine board
+  description: A machine printed circuit board for a soda dispenser.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTCoffeeMachineBluespace
+      stackRequirements:
+        Steel: 5
+        MatterBin: 3
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker

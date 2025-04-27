@@ -28,5 +28,7 @@
     - state: icon
       color: green
   - type: HandTeleporter
-    firstPortalPrototype: PortalGatewayBlue
-    secondPortalPrototype: PortalGatewayOrange
+### Start ADT Tweak
+    firstPortalPrototype: ADTPortalAdminBlue
+    secondPortalPrototype: ADTPortalAdminOrange
+### End ADT Tweak

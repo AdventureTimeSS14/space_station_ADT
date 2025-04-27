@@ -78,6 +78,11 @@
     - DrinkCreamCartonXL
 
 - type: reagentDispenserInventory
+  id: CoffeeMachineBluespaceInventory
+  inventory:
+    - DrinkCoffeeBluespaceJug
+
+- type: reagentDispenserInventory
   id: CoffeeMachineCommandInventory
   inventory:
     - DrinkCoffeeJug

@@ -51,10 +51,10 @@
     radius: 3
     energy: 1
     netsync: false
-    
+
 - type: entity
   id: PortalArtifact
-  parent: BasePortal
+  parent: ADTBasePortalInterMap ### ADT Tweak
   components:
   - type: Sprite
     layers:
@@ -123,3 +123,21 @@
     volume: -3
     sound:
       path: /Audio/Ambience/anomaly_scary.ogg
+
+### Start ADT Tweak
+- type: entity
+  abstract: true
+  parent: BasePortal
+  id: ADTBasePortalInterMap
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: [ PortalGatewayOrange, ADTBasePortalInterMap ]
+  id: ADTPortalAdminOrange
+
+- type: entity
+  parent: [ PortalGatewayBlue, ADTBasePortalInterMap ]
+  id: ADTPortalAdminBlue
+### End ADT Tweak
