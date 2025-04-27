@@ -6,6 +6,13 @@
     mode: SnapgridCenter
   components:
   - type: SignalingLoudspeak
+  - type: RadioMicrophone
+    broadcastChannel: Security
+  - type: RadioSpeaker
+    channels:
+    - Security
+  - type: Speech
+    speechVerb: Robotic
   - type: Item
     size: Normal
   - type: Transform

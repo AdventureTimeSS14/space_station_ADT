@@ -1,4 +1,7 @@
+using Content.Shared.Chat;
+using Content.Shared.Radio;
 using Robust.Shared.Audio;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.ADT.SignalingLoudspeak;
 
@@ -27,19 +30,15 @@ public sealed partial class SignalingLoudspeakComponent : Component
     [DataField]
     public float AudioMaxDistance = 13f;
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("broadcastChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+    public string BroadcastChannel = SharedChatSystem.CommonChannel;
+
     #endregion
 
+    [DataField("microphoneEnabled")]
+    public bool MicrophoneEnabled;
 
-
-    // /// <summary>
-    // ///     The continuous noise this item makes when it's activated (like an e-sword's hum).
-    // /// </summary>
-    // [DataField(required: true)]
-    // public SoundSpecifier? ActiveSound;
-
-    /// <summary>
-    ///     Used when the item emits sound while active.
-    /// </summary>
     [DataField]
     public EntityUid? PlayingStream;
 }
