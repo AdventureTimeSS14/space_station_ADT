@@ -17,6 +17,10 @@ public sealed partial class SignalingLoudspeakComponent : Component
     [DataField]
     public SoundSpecifier? SoundShort = new SoundPathSpecifier("/Audio/ADT/Misc/sgu.ogg");
 
+
+    [DataField]
+    public SoundSpecifier? SoundSpeak = new SoundPathSpecifier("/Audio/ADT/Misc/sgu_speak.ogg");
+
     #endregion
 
     #region Setting
@@ -25,10 +29,10 @@ public sealed partial class SignalingLoudspeakComponent : Component
     public SelectiveSignaling SelectedModeSound = SelectiveSignaling.Long;
 
     [DataField]
-    public float AudioVolume = 7f;
+    public float AudioVolume = 9f;
 
     [DataField]
-    public float AudioMaxDistance = 13f;
+    public float AudioMaxDistance = 20f;
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("broadcastChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]

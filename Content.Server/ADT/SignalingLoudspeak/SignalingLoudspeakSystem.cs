@@ -151,7 +151,16 @@ public sealed class SignalingLoudspeakSystem : EntitySystem
                 args.Message,
                 InGameICChatType.Speak,
                 ChatTransmitRange.Normal,
-                checkRadioPrefix: true);  // Assuming radio prefix is already handled
+                checkRadioPrefix: true);
+
+            _audio.PlayPvs(
+            component.SoundSpeak,
+            uid,
+            AudioParams.Default
+                .WithLoop(false)
+                .WithMaxDistance(component.AudioMaxDistance)
+                .WithVolume(component.AudioVolume)
+            );
         }
     }
 }
