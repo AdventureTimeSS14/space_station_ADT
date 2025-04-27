@@ -59,17 +59,10 @@
     languages:
       Pigeon: Speak
       GalacticCommon: Understand
-  - type: TTS
-    voice: kleiner
-  - type: SpeechBarks
-    data:
-      proto: Synth3
-      sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
-
 
 - type: entity
   name: turtle
-  parent: [SimpleMobBase]
+  parent: SimpleMobBase
   id: ADTModTurtle
   description: A sea doggy. Old, lazy and so cute!
   components:
@@ -121,12 +114,6 @@
     languages:
       Turtle: Speak
       GalacticCommon: Understand
-  - type: TTS
-    voice: queen_of_pain_dota_2
-  - type: SpeechBarks
-    data:
-      proto: Queen
-      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
 
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
@@ -279,16 +266,10 @@
     languages:
       Dragon: Speak
       GalacticCommon: Understand
-  - type: TTS
-    voice: zenobianoke
-  - type: SpeechBarks
-    data:
-      proto: Noelle
-      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
 
 - type: entity
   name: antlion
-  parent: [SimpleMobBase]
+  parent: SimpleMobBase
   id: ADTModAntlion
   description: A natural enemy of combine machines. Hates vibrations.
   components:
@@ -354,13 +335,6 @@
     languages:
       Arachnid: Speak
       GalacticCommon: Understand
-  - type: TTS
-    voice: ziggs
-  - type: SpeechBarks
-    data:
-      proto: Chujin
-      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-chujin.ogg
-      pitch: 0.7
 
 - type: entity
   name: gondola
