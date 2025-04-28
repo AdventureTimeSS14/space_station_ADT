@@ -3,7 +3,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: true
+  showInVote: true 
   description: survival-description
   rules:
     - MeteorSwarmScheduler
@@ -11,7 +11,6 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: KesslerSyndrome
@@ -27,7 +26,6 @@
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: AllAtOnce
@@ -45,7 +43,6 @@
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: AllerAtOnce
@@ -70,7 +67,6 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Extended
@@ -85,7 +81,6 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Greenshift
@@ -98,7 +93,6 @@
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
-  - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Secret
@@ -123,7 +117,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
@@ -135,7 +128,6 @@
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
-  - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Sandbox
@@ -163,7 +155,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Deathmatch
@@ -192,7 +183,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Revolutionary
@@ -210,7 +200,6 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
 
 #- type: gamePreset
 #  id: Wizard
@@ -244,7 +233,6 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Zombieteors
@@ -261,4 +249,3 @@
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - CrewTransferScheduler #ADT tweak

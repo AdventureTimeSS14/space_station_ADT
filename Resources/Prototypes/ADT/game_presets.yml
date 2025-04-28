@@ -12,7 +12,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - CrewTransferScheduler
+
 - type: gamePreset
   id: Changeling
   alias:
@@ -27,4 +27,3 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - CrewTransferScheduler
