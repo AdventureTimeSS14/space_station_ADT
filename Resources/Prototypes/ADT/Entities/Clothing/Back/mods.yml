@@ -272,6 +272,16 @@
         whitelist:
           components:
           - ModSuitMod
+      modsuit-mod3:
+        swap: false
+        whitelist:
+          components:
+          - ModSuitMod
+      modsuit-mod4:
+        swap: false
+        whitelist:
+          components:
+          - ModSuitMod
   - type: ContainerContainer
     containers:
       modsuit-part: !type:Container
@@ -287,6 +297,14 @@
         occludes: True
         ent: null
       modsuit-mod2: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod3: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      modsuit-mod4: !type:ContainerSlot
         showEnts: False
         occludes: True
         ent: null

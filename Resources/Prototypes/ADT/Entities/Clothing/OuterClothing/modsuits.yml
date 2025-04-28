@@ -183,14 +183,18 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Heat: 0.6
-        Piercing: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Heat: 0.8
+        Piercing: 0.55
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.75
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
