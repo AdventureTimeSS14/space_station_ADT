@@ -33,6 +33,7 @@ public sealed class SharedWeaponComboSystem : EntitySystem
         int index = ((isWide ? 1 : 0) << 1) | (int)stance;
         return (WeaponCombatAction)index;
     }
+
     private void OnHeavyHit(EntityUid uid, ComboWeaponComponent comp, MeleeHitEvent args)
     {
         if (!_timing.IsFirstTimePredicted)
@@ -41,6 +42,7 @@ public sealed class SharedWeaponComboSystem : EntitySystem
             return;
         if (!HasComp<HumanoidAppearanceComponent>(args.HitEntities[0]))
             return;
+
         var move = GetWeaponAction(args.Iswide, comp.CurrentStand);
         comp.CurrestActions.Add(move);
 
@@ -52,25 +54,23 @@ public sealed class SharedWeaponComboSystem : EntitySystem
         TryDoCombo(args.User, args.HitEntities[0], comp);
     }
 
-
-
     private void OnUniqueAction(EntityUid uid, ComboWeaponComponent comp, UniqueActionEvent args)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-        if (comp.CurrentStand == ComboWeaponStand.Protective) {
-            comp.CurrentStand = ComboWeaponStand.Offensive;
-            _appearance.SetData(uid, ComboWeaponStand.Offensive, true);
-        }
-        else {
-            _appearance.SetData(uid, ComboWeaponStand.Protective, true);
-            comp.CurrentStand = ComboWeaponStand.Protective;
+
+        switch (comp.CurrentStand)
+        {
+            case ComboWeaponStand.Protective:
+                comp.CurrentStand = ComboWeaponStand.Offensive;
+                _appearance.SetData(uid, ComboWeaponState.State, true);
+                break;
+            case ComboWeaponStand.Offensive:
+                comp.CurrentStand = ComboWeaponStand.Protective;
+                _appearance.SetData(uid, ComboWeaponState.State, false);
+                break;
         }
     }
-
-
-
-
 
     private bool TryDoCombo(EntityUid user, EntityUid target, ComboWeaponComponent comp)
     {

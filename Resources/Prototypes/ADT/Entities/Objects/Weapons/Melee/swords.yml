@@ -96,10 +96,9 @@
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
     layers:
     - state: icon
-      map: [ "enum.ComboWeaponStand.Protective" ]
-    - state: icon-on
-      map: [ "enum.ComboWeaponStand.Offensive" ]
+      map: [ "enum.ComboWeaponState.State" ]
   - type: MeleeWeapon
+    wideAnimationRotation: -135
     attackRate: 2
     damage:
       types:
@@ -117,7 +116,7 @@
         comboEvent:
           - !type:ComboPopupEffect
             localeText: combo-slam-end
-          - !type:ComboEffectDash
+          - !type:ComboEffectTeleportOnVictim
           - !type:ComboFallEffect
           - !type:ComboAudioEffect
             sound:
@@ -138,19 +137,9 @@
               collection: SwordHit
   - type: GenericVisualizer
     visuals:
-      enum.ComboWeaponStand.Protective:
-        enum.ComboWeaponStand.Protective:
+      enum.ComboWeaponState.State:
+        enum.ComboWeaponState.State:
           True: {state: icon}
-          False: {state: icon}
-        enum.ComboWeaponStand.Offensive:
-          True: {state: icon}
-          False: {state: icon}
-      enum.ComboWeaponStand.Offensive:
-        enum.ComboWeaponStand.Protective:
-          True: {state: icon-on}
-          False: {state: icon-on}
-        enum.ComboWeaponStand.Offensive:
-          True: {state: icon-on}
           False: {state: icon-on}
   - type: Appearance
 

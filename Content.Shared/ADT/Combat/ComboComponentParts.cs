@@ -18,11 +18,20 @@ public enum WeaponCombatAction
     ProtectiveWideHit,  // 2 (10)
     OffensiveWideHit    // 3 (11)
 }
+
+
 [Serializable, NetSerializable]
 public enum ComboWeaponStand : sbyte
 {
     Protective,
     Offensive
+}
+
+
+[Serializable, NetSerializable]
+public enum ComboWeaponState : sbyte
+{
+    State,
 }
 
 [DataDefinition]
@@ -35,7 +44,7 @@ public sealed partial class CombatMove
     public List<CombatAction> ActionsNeeds { get; private set; } = new List<CombatAction>();
 
     [DataField]
-    public List<IComboEffect> ComboEvent = new List<IComboEffect>{};
+    public List<IComboEffect> ComboEvent = new List<IComboEffect> { };
 }
 
 [DataDefinition]
@@ -48,5 +57,5 @@ public sealed partial class ComboWeaponMove
     public List<WeaponCombatAction> ActionsNeeds { get; private set; } = new List<WeaponCombatAction>();
 
     [DataField]
-    public List<IComboEffect> ComboEvent = new List<IComboEffect>{};
+    public List<IComboEffect> ComboEvent = new List<IComboEffect> { };
 }
