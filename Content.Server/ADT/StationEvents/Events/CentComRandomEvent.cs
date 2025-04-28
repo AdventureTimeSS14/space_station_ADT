@@ -86,9 +86,11 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
             9 => Loc.GetString(baseEvent, ("generator", Loc.GetString($"centcom-random-event-generator-{RobustRandom.Next(1, 7)}"))),
             12 => Loc.GetString(baseEvent, ("plant", Loc.GetString($"centcom-random-event-plant-{RobustRandom.Next(1, 4)}"))),
             14 => Loc.GetString(baseEvent, ("mode", Loc.GetString($"centcom-random-event-mode-{RobustRandom.Next(1, 5)}"))),
+            16 => Loc.GetString(baseEvent, ("movement", Loc.GetString($"centcom-random-event-movement-{RobustRandom.Next(1, 4)}"))),
             _ => Loc.GetString(baseEvent),
         };
     }
+
     private int Weight(Dictionary<int, float> weights)
     {
         var totalWeight = weights.Values.Sum();
