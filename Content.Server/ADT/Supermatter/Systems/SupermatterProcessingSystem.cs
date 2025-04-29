@@ -1,28 +1,35 @@
+using System.Linq;
 using System.Numerics;
-using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Traits.Assorted.Components;
-using Content.Shared.Physics;
-using Robust.Shared.Audio;
-using Content.Shared.Speech;
-using Robust.Shared.GameObjects;
+using System.Text;
 using Content.Server.Chat.Systems;
+using Content.Server.Singularity.Components;
 using Content.Server.RoundEnd;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
-using Content.Shared.DeviceLinking;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Radiation.Components;
-using Content.Shared.Singularity.Components;
-using Content.Shared.Storage.Components;
+using Content.Shared.Audio;
 using Content.Shared.Chat;
+using Content.Shared.DeviceLinking;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Physics;
+using Content.Shared.Radiation.Components;
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Speech;
+using Content.Shared.Storage.Components;
+using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
+using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Spawners;
 using Vector4 = Robust.Shared.Maths.Vector4;
 
 namespace Content.Server.ADT.Supermatter.Systems;
@@ -215,7 +222,7 @@ public sealed partial class SupermatterSystem
                 new Box2(localpos + new Vector2(-1, -1), localpos + new Vector2(1, 1)),
                 true);
 
-            if (tilerefs.Count < 9)
+            if (tilerefs.Count() < 9)
             {
                 var factor = GetIntegrity(sm) switch
                 {
