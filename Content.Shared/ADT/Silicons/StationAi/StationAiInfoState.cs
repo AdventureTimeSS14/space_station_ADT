@@ -4,16 +4,15 @@ namespace Content.Shared.ADT.Silicons.StationAi
 {
 
     [Serializable, NetSerializable]
-    public sealed class StationAiUpdateState : BoundUserInterfaceState
+    public sealed class StationAiInfoUpdateState : BoundUserInterfaceState
     {
-        //public string AIName;
+        public string AiName;
         public string? StationName;
         public string? StationAlertLevel;
         public Color StationAlertColor;
-        public StationAiUpdateState(//string aIName,
-         string? stationName, string? stationAlertLevel, Color stationAlertColor)
+        public StationAiInfoUpdateState(string aIName, string? stationName, string? stationAlertLevel, Color stationAlertColor)
         {
-            //AIName = aIName;
+            AiName = aIName;
             StationName = stationName;
             StationAlertLevel = stationAlertLevel;
             StationAlertColor = stationAlertColor;

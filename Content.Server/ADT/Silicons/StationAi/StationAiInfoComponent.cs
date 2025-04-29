@@ -7,7 +7,7 @@ public sealed partial class StationAiInfoComponent : Component
 {
     [DataField]
     public EntityUid? Target;
-    [DataField]
+    [DataField("Info")]
     public EntProtoId Action = "ActionStationAiInfo";
 
     [DataField, AutoNetworkedField]
@@ -19,4 +19,5 @@ public sealed partial class StationAiInfoComponent : Component
     public string? StationAlertLevel;
     [ViewVariables]
     public Color StationAlertColor = Color.White;
+
 }

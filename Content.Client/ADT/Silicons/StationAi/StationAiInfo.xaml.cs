@@ -15,10 +15,10 @@ public sealed partial class StationAiInfo : FancyWindow
     [Dependency] private readonly IClipboardManager _clipboard = null!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
     private readonly ClientGameTicker _gameTicker;
     public float AccumulatedTime;
 
+    private string _stationAiName = Loc.GetString("comp-pda-ui-unknown");
     private string _stationName = Loc.GetString("comp-pda-ui-unknown");
     private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
     private string _instructions = Loc.GetString("comp-pda-ui-unknown");
@@ -29,6 +29,10 @@ public sealed partial class StationAiInfo : FancyWindow
         IoCManager.InjectDependencies(this);
         _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
 
+        StationAiNameButton.OnPressed += _ =>
+        {
+            _clipboard.SetText(_stationAiName);
+        };
 
         StationNameButton.OnPressed += _ =>
         {
@@ -52,10 +56,19 @@ public sealed partial class StationAiInfo : FancyWindow
         };
     }
 
-    public void UpdateState(StationAiUpdateState state)
+    protected override void FrameUpdate(FrameEventArgs args)
     {
+        base.FrameUpdate(args);
 
-        //NameLabel.Text = state.AIName;
+        var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+        StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
+            ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+    }
+    public void UpdateState(StationAiInfoUpdateState state)
+    {
+        _stationAiName = state.AiName ?? Loc.GetString("comp-pda-ui-unknown");
+        StationAiNameLabel.SetMarkup(Loc.GetString("sai-info-name-label",
+            ("name", _stationAiName)));
 
         _stationName = state.StationName ?? Loc.GetString("comp-pda-ui-unknown");
         StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",

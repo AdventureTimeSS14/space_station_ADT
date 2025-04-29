@@ -4,6 +4,8 @@ using Content.Server.Actions;
 using Robust.Shared.Player;
 using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
+using Content.Shared.Robotics.Components;
+using Content.Shared.Robotics;
 
 namespace Content.Server.ADT.Silicons.StationAi;
 
@@ -23,6 +25,11 @@ public sealed partial class StationAiInfoSystem : EntitySystem
         SubscribeLocalEvent<StationAiInfoComponent, StationAiInfoActionEvent>(StationAiInfoAction);
         SubscribeLocalEvent<StationRenamedEvent>(OnStationRenamed);
         SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
+
+        Subs.BuiEvents<StationAiInfoComponent>(StationAiInfoUiKey.Key, subs =>
+        {
+            subs.Event<RoboticsControlOpenUiMessage>(OnRoboticsControlOpen);
+        });
     }
 
     private void OnWindowOpen(Entity<StationAiInfoComponent> ent, ref BoundUIOpenedEvent args)
@@ -30,17 +37,29 @@ public sealed partial class StationAiInfoSystem : EntitySystem
         if (!StationAiInfoUiKey.Key.Equals(args.UiKey))
             return;
 
-        UpdateWindow(ent.Owner, ent.Comp);
+        UpdateAllPdaUisOnStation();
+    }
+
+    private void OnRoboticsControlOpen(Entity<StationAiInfoComponent> ent, ref RoboticsControlOpenUiMessage args)
+    {
+        var query = EntityQueryEnumerator<RoboticsConsoleComponent>();
+        while (query.MoveNext(out var consoleUid, out var _))
+        {
+            _uiSystem.TryOpenUi(consoleUid, RoboticsConsoleUiKey.Key, args.Actor);
+            break;
+        }
     }
 
     private void OnMapInit(EntityUid uid, StationAiInfoComponent component, MapInitEvent args)
     {
         _action.AddAction(uid, ref component.ActionEntity, component.Action);
     }
+
     private void OnShutdown(EntityUid uid, StationAiInfoComponent component, ComponentShutdown args)
     {
         _action.RemoveAction(uid, component.ActionEntity);
     }
+
     private void StationAiInfoAction(EntityUid uid, StationAiInfoComponent comp, StationAiInfoActionEvent args)
     {
         if (args.Handled)
@@ -53,6 +72,7 @@ public sealed partial class StationAiInfoSystem : EntitySystem
 
         args.Handled = true;
     }
+
     private void OnStationRenamed(StationRenamedEvent ev)
     {
         UpdateAllPdaUisOnStation();
@@ -83,8 +103,8 @@ public sealed partial class StationAiInfoSystem : EntitySystem
         UpdateStationName(uid, component);
         UpdateAlertLevel(uid, component);
 
-        var state = new StationAiUpdateState(
-            //aIName,
+        var state = new StationAiInfoUpdateState(
+            aIName,
             component.StationName,
             component.StationAlertLevel,
             component.StationAlertColor

@@ -12,3 +12,9 @@ public enum StationAiInfoUiKey : byte
 public sealed partial class StationAiInfoActionEvent : InstantActionEvent
 {
 }
+
+
+[Serializable, NetSerializable]
+public sealed class RoboticsControlOpenUiMessage : BoundUserInterfaceMessage
+{
+}

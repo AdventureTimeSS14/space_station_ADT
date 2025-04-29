@@ -5,12 +5,13 @@ using Content.Shared.ADT.Silicons.StationAi;
 
 namespace Content.Client.ADT.Silicons.StationAi;
 
-public sealed class StationAiBoundUserInterface : BoundUserInterface
+[UsedImplicitly]
+public sealed class StationAiInfoBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
     private StationAiInfo? _window;
 
-    public StationAiBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public StationAiInfoBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
@@ -20,14 +21,17 @@ public sealed class StationAiBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<StationAiInfo>();
         _window.CrewManifestButton.OnPressed += _ => SendMessage(new CrewManifestOpenUiMessage());
+        _window.RoboticsControlButton.OnPressed += _ => SendMessage(new RoboticsControlOpenUiMessage());
     }
+
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
 
-        if (state is not StationAiUpdateState updateState || _window == null)
+        if (state is not StationAiInfoUpdateState updateState || _window == null)
             return;
 
         _window.UpdateState(updateState);
     }
+
 }
