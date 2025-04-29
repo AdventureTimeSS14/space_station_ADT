@@ -76,7 +76,7 @@ ent-ADTClothingOuterModsuitBodySafeguard = оболочка МОДа "Дикта
 ent-ADTClothingOuterModsuitBodyAdvanced = оболочка продвинутого МОДа
 ent-ADTClothingOuterModsuitBodyBso = оболочка МОДа офицера синего щита
 ent-ADTClothingOuterModsuitBodySyndicateElite = элитная оболочка МОДа
-ent-ADTClothingModsuitBackSyndicateCommander = оболочка МОДа "Меркурий"
+ent-ADTClothingOuterModsuitBodySyndicateCommander = оболочка МОДа "Меркурий"
 
 # Ботинки
 ent-ADTClothingModsuitShoesBase = Базовые ботинки МОДа
