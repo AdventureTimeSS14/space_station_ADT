@@ -8,16 +8,19 @@
     },
     "states": [
         {
-            "name": "fish"
+            "name": "fish_sticks-1"
         },
         {
-            "name": "cooked"
+            "name": "fish_sticks-2"
         },
         {
-            "name": "fish_slice"
+            "name": "fish_sticks-3"
         },
         {
-            "name": "cooked_slice"
+            "name": "fish_sticks-4"
+        },
+        {
+            "name": "fish_sticks-5"
         }
     ]
 }
