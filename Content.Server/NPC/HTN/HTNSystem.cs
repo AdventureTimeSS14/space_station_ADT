@@ -197,7 +197,7 @@ public sealed class HTNSystem : EntitySystem
             if (count >= maxUpdates)
                 break;
 
-            if (!IsNPCActive(uid) || !comp.Enabled)  // ADT-Tweak
+            if (!IsNPCActive(uid) || !comp.Enabled)  // Frontier 
                 continue;
 
             if (comp.PlanningJob != null)
@@ -288,7 +288,7 @@ public sealed class HTNSystem : EntitySystem
         }
     }
 
-    private bool IsNPCActive(EntityUid entity) // ADT-Tweak
+    private bool IsNPCActive(EntityUid entity) // Frontier
     {
         var transform = Transform(entity);
 
