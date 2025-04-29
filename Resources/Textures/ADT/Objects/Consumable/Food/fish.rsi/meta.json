@@ -20,6 +20,18 @@
             "name": "fish_sticks-4"
         },
         {
+            "name": "fish_slice"
+        },
+        {
+            "name": "cooked"
+        },
+        {
+            "name": "fish"
+        },
+        {
+            "name": "cooked_slice"
+        },
+        {
             "name": "fish_sticks-5"
         }
     ]
