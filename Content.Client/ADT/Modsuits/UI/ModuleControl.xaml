@@ -20,7 +20,8 @@
                         RectClipContent="True"/>
                     <RichTextLabel Name="EquipmentName"
                                 VerticalAlignment="Center"
-                                Margin="5 0 0 0"/>
+                                Margin="5 0 0 0"
+                                MaxWidth="100"/>
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal"
                             HorizontalAlignment="Right"

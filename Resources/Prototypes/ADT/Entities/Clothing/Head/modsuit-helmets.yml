@@ -262,6 +262,25 @@
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitAdvanced
+  name: advanced MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/advanced.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: PointLight # Corvax-Resprite
+    color: "#e6aa5c"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitSyndicate
   name: syndicate MOD helmet
   description: A helmet for a MODsuit.

@@ -231,7 +231,6 @@ public sealed class ModSuitSystem : EntitySystem
     private void OnModSuitUnequip(Entity<ModSuitComponent> modSuit, ref GotUnequippedEvent args)
     {
         var comp = modSuit.Comp;
-
         // If it's a part of PVS departure then don't handle it.
         if (_timing.ApplyingState)
             return;
@@ -251,7 +250,7 @@ public sealed class ModSuitSystem : EntitySystem
             if (part.Value == null)
                 continue;
 
-            _inventorySystem.TryUnequip(args.Equipee, part.Value, force: true);
+            _inventorySystem.TryUnequip(args.Equipee, part.Value, force: true); //TODO: сделать чтобы это работало, а то сейчас писец после гиба
         }
     }
 
@@ -667,6 +666,7 @@ public sealed class ModSuitSystem : EntitySystem
             Dirty(spawned, moduleComp);
         }
         _cell.SetDrawEnabled(modSuit.Owner, true);
+        _cell.SetDrawEnabled(modSuit.Owner, false); //эмэмэмэмэмэм, я не знаю почему, но оно работает только если вначале включить, а потом выключить
         UpdateUserInterface(modSuit.Owner, modSuit.Comp);
     }
     private void OnPowercellEmpty(EntityUid uid, ModSuitComponent component, PowerCellSlotEmptyEvent args)

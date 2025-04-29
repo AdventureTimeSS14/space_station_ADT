@@ -736,6 +736,20 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: ADTUplinkModsuitElite
+  name: uplink-mod-elite-name
+  description: uplink-mod-elite-description
+  icon: { sprite: /Textures/ADT/Clothing/Back/Modsuit/syndicate_elite.rsi, state: icon }
+  productEntity: ADTClothingModsuitBackSyndicateElite
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+
 ## Disruption
 - type: listing
   id: UplinkNuclearPhysicistKit

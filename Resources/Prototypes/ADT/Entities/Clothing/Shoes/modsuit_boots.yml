@@ -25,7 +25,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesAtmos
   name: atmos MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/atmospheric.rsi
@@ -41,7 +40,6 @@
   parent: [ClothingShoesClown, ADTClothingModsuitShoesBase]
   id: ADTClothingModsuitShoesClown
   name: clown MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/clown.rsi
@@ -60,7 +58,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesEngineering
   name: engineering MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/engineering.rsi
@@ -76,7 +73,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesMedical
   name: medical MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/medical.rsi
@@ -92,7 +88,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesMining
   name: mining MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
@@ -108,7 +103,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesSecurity
   name: security MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
@@ -124,7 +118,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesScience
   name: Science MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/cience.rsi
@@ -140,7 +133,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesSafeguard
   name: safeguard MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/hos.rsi
@@ -156,7 +148,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitBso
   name: bso MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/bso.rsi
@@ -170,9 +161,23 @@
 
 - type: entity
   parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesAdvanced
+  name: advanced MOD boots
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/advanced.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/advanced.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesSyndicate
   name: syndicate MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/syndicate.rsi
@@ -188,7 +193,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesSyndicateElite
   name: syndicate MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/syndicate_elite.rsi
@@ -204,7 +208,6 @@
   parent: ADTClothingModsuitShoesBase
   id: ADTClothingModsuitShoesSyndicateCommander
   name: syndicate MOD boots
-  description: A pair of boots for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/syndicate_comma.rsi

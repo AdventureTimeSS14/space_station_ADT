@@ -18,7 +18,6 @@ public sealed partial class ModSuitMenu : FancyWindow
 
     [Dependency] private readonly IEntityManager _ent = default!;
     private readonly ModSuitSystem _modsuit = default!;
-    private readonly SharedIdCardSystem _id = default!;
     private readonly SpriteSystem spriteSystem = default!;
     private EntityUid _mod;
 
@@ -31,7 +30,6 @@ public sealed partial class ModSuitMenu : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _modsuit = _ent.System<ModSuitSystem>();
-        _id = _ent.System<SharedIdCardSystem>();
         spriteSystem = _ent.System<SpriteSystem>();
 
     }

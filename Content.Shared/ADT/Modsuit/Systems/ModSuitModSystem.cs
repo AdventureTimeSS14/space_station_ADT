@@ -13,7 +13,7 @@ public sealed class SharedModSuitModSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ModSuitModComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<ModSuitModComponent, BeforeRangedInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<ModSuitModComponent, ModModulesUiStateReadyEvent>(OnGetUIState);
 
         SubscribeLocalEvent<ModSuitComponent, ModModuleRemoveMessage>(OnEject);
@@ -36,7 +36,7 @@ public sealed class SharedModSuitModSystem : EntitySystem
         _container.Remove(module, component.ModuleContainer);
         Dirty(module, mod);
         Dirty(uid, component);
-        _mod.UpdateUserInterface(uid);
+        _mod.UpdateUserInterface(uid, component);
     }
     private void OnActivate(EntityUid uid, ModSuitComponent component, ModModulActivateMessage args)
     {
@@ -49,7 +49,7 @@ public sealed class SharedModSuitModSystem : EntitySystem
         ActivateModule(uid, module, mod, component);
         Dirty(module, mod);
         Dirty(uid, component);
-        _mod.UpdateUserInterface(uid);
+        _mod.UpdateUserInterface(uid, component);
     }
     private void OnDeactivate(EntityUid uid, ModSuitComponent component, ModModulDeactivateMessage args)
     {
@@ -63,9 +63,9 @@ public sealed class SharedModSuitModSystem : EntitySystem
 
         Dirty(module, mod);
         Dirty(uid, component);
-        _mod.UpdateUserInterface(uid);
+        _mod.UpdateUserInterface(uid, component);
     }
-    private void OnAfterInteract(EntityUid uid, ModSuitModComponent component, AfterInteractEvent args)
+    private void OnAfterInteract(EntityUid uid, ModSuitModComponent component, ref BeforeRangedInteractEvent args)
     {
         if (!_timing.IsFirstTimePredicted)
             return;

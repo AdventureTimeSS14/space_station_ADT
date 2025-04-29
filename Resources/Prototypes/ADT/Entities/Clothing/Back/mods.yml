@@ -79,6 +79,10 @@
     containers:
       cell_slot:
       - PowerCellHigh
+  - type: Geiger
+    showExamine: true
+    attachedToSuit: true
+    showControl: true
 
 #атмосферный
 - type: entity
@@ -105,20 +109,6 @@
   - type: Construction
     graph: ADTModsuitAtmospheric
     node: adtmodsuitatmospheric
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 #смешной
 - type: entity
@@ -139,20 +129,6 @@
   - type: Construction
     graph: ADTModsuitClown
     node: adtmodsuitclown
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 #инженерный
 - type: entity
@@ -179,21 +155,6 @@
   - type: Construction
     graph: ADTModsuitEngineering
     node: adtmodsuitengineering
-  - type: EmpDisabling
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 #медицинский
 - type: entity
@@ -217,20 +178,6 @@
   - type: Construction
     graph: ADTModsuitMedical
     node: adtmodsuitmedical
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 #шахтёрский
 - type: entity
@@ -262,20 +209,6 @@
   - type: Construction
     graph: ADTModsuitMining
     node: adtmodsuitmining
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 #охранный
 - type: entity
@@ -303,24 +236,10 @@
   - type: Construction
     graph: ADTModsuitSecurity
     node: adtmodsuitsecurity
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 # учёный
 - type: entity
-  parent: Clothing
+  parent: ADTClothingModsuitBackBase
   id: ADTClothingModsuitBackScience
   name: Sciene MOD control unit
   description: Made by scientists for scientists.
@@ -341,38 +260,9 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModRadiationProtection
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
   - type: Construction
     graph: ADTModsuitScience
     node: adtmodsuitscience
-  - type: WiresPanel
-  - type: ActivatableUIRequiresPanel
-    requireOpen: false
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.ModSuitUiKey.Key:
-        type: ModSuitRadialBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ModSuitMenuUiKey.Key:
-        type: ModSuitMenuBoundUserInterface
 
 #гсб
 - type: entity
@@ -416,6 +306,7 @@
         occludes: True
         ents: []
 
+#осщ
 - type: entity
   parent: ADTClothingModsuitBackSecurity
   id: ADTClothingModsuitBackBlueShield
@@ -438,20 +329,34 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
+
+# СИ
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackAdvanced
+  name: advanced MOD control unit
+  description: Made by scientists for scientists.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/advanced.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitAdvanced
+      gloves: ADTClothingHandsModsuitAdvanced
+      outerClothing: ADTClothingOuterModsuitBodyAdvanced
+      shoes: ADTClothingModsuitShoesAdvanced
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModEmpProtection
+  - type: Construction
+    graph: ADTModsuitScience
+    node: adtmodsuitscience
+  - type: SupermatterImmune
 
 # синдиката
 - type: entity
@@ -537,21 +442,6 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
-  - type: DNALocker
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 - type: entity
   parent: ADTClothingModsuitBackSyndicate
@@ -577,18 +467,3 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
-  - type: DNALocker
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
