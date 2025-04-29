@@ -1,15 +1,22 @@
+using System.Linq;
+using Content.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Maths;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Spawners;
+using Robust.Shared.Timing;
+using System.Numerics;
 
-namespace Content.Server.ADT.Supermatter.Processing.Systems;
+namespace Content.Server.ADT.Supermatter.Systems;
 
-public sealed partial class SupermatterAnomaliesSystem
+public sealed partial class SupermatterSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-
     /// <summary>
     /// Generate temporary anomalies depending on accumulated power.
     /// </summary>
@@ -66,9 +73,9 @@ public sealed partial class SupermatterAnomaliesSystem
             grid,
             new Box2(localpos + new Vector2(-sm.AnomalySpawnMaxRange, -sm.AnomalySpawnMaxRange), 
                    localpos + new Vector2(sm.AnomalySpawnMaxRange, sm.AnomalySpawnMaxRange)))
-            .ToList();
+            .ToList<TileRef>();
 
-        if (tilerefs.Count == 0)
+        if (tilerefs.Count() == 0)
             return null;
 
         var physQuery = GetEntityQuery<PhysicsComponent>();
@@ -76,7 +83,7 @@ public sealed partial class SupermatterAnomaliesSystem
         
         while (resultList.Count < amount)
         {
-            if (tilerefs.Count == 0)
+            if (tilerefs.Count() == 0)
                 break;
 
             var tileref = _random.Pick(tilerefs);

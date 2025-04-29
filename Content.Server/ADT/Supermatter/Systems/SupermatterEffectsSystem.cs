@@ -1,20 +1,23 @@
+using Robust.Shared.Physics;
+using Content.Shared.Physics;
+using Content.Shared.Light.Components;
+using Robust.Shared.Lighting.Components;
 using Content.Shared.ADT.Supermatter.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio.Components;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using Robust.Shared.GameObjects;
 
-namespace Content.Server.ADT.Supermatter.Processing.Systems;
-
-public sealed partial class SupermatterEffectsSystem
+namespace Content.Server.ADT.Supermatter.Systems;
+public sealed partial class SupermatterSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ParacusiaSystem _paracusia = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly ExamineSystem _examine = default!;
-
     /// <summary>
     /// Scales the energy and radius of the supermatter's light based on its power
     /// </summary>

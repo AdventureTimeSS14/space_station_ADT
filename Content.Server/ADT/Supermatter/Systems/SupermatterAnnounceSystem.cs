@@ -1,15 +1,19 @@
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using System.Text;
+using Content.Server.Chat.Systems;
+using Content.Server.Radio.EntitySystems;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Chat;
-using Robust.Shared.Player;
+using Content.Shared.Radio;
+using Content.Shared.Speech;
+using Robust.Shared.Timing;
 
-namespace Content.Server.ADT.Supermatter.Processing.Systems;
+namespace Content.Server.ADT.Supermatter.Systems;
 
-public sealed partial class SupermatterAnnouncementSystem
+public sealed partial class SupermatterSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-
     /// <summary>
     /// Handles core damage announcements
     /// </summary>

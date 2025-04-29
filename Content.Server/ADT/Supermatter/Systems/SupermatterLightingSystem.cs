@@ -1,13 +1,15 @@
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Content.Server.Lightning;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
+using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 
-namespace Content.Server.ADT.Supermatter.Processing.Systems;
+namespace Content.Server.ADT.Supermatter.Systems;
 
-public sealed partial class SupermatterLightingSystem
+public sealed partial class SupermatterSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-
     /// <summary>
     /// Shoot lightning bolts depending on accumulated power.
     /// </summary>

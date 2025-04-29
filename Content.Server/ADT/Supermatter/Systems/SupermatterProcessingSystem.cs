@@ -1,9 +1,32 @@
+using System.Numerics;
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Traits.Assorted.Components;
+using Content.Shared.Physics;
+using Robust.Shared.Audio;
+using Content.Shared.Speech;
+using Robust.Shared.GameObjects;
+using Content.Server.Chat.Systems;
+using Content.Server.RoundEnd;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
+using Content.Shared.DeviceLinking;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Radiation.Components;
+using Content.Shared.Singularity.Components;
+using Content.Shared.Storage.Components;
+using Content.Shared.Chat;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
+using Vector4 = Robust.Shared.Maths.Vector4;
 
-namespace Content.Server.ADT.Supermatter.Processing.Systems;
-public sealed partial class SupermatterProcessingSystem
+namespace Content.Server.ADT.Supermatter.Systems;
+public sealed partial class SupermatterSystem
 {
     private bool CheckFirstPower(EntityUid uid, SupermatterComponent sm, GasMixture mix)
     {
@@ -192,7 +215,7 @@ public sealed partial class SupermatterProcessingSystem
                 new Box2(localpos + new Vector2(-1, -1), localpos + new Vector2(1, 1)),
                 true);
 
-            if (tilerefs.Count() < 9)
+            if (tilerefs.Count < 9)
             {
                 var factor = GetIntegrity(sm) switch
                 {
