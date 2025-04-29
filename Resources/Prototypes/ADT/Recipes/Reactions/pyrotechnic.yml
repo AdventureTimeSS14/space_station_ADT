@@ -1,0 +1,122 @@
+﻿- type: reaction
+  id: ADTStabilizingAgent
+  reactants:
+    Iron:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Hydrogen:
+      amount: 1
+  products:
+    ADTStabilizingAgent: 3
+
+- type: reaction
+  id: ADTLiquidDarkMatterClear
+  priority: 20
+  reactants:
+    Uranium:
+      amount: 1
+    Plasma:
+      amount: 1
+    Carbon:
+      amount: 1
+    ADTStabilizingAgent:
+      amount: 1
+      catalyst: true
+  products:
+    ADTLiquidDarkMatter: 3
+
+- type: reaction
+  id: ADTLiquidDarkMatterRough
+  impact: High
+  reactants:
+    Uranium:
+      amount: 1
+    Plasma:
+      amount: 1
+    Carbon:
+      amount: 1
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTReactionSingularity
+
+- type: reaction
+  id: ADTSingularityExplosion
+  minTemp: 290
+  impact: High
+  quantized: true
+  reactants:
+    ADTLiquidDarkMatter:
+      amount: 1
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTReactionSingularity
+
+- type: reaction
+  id: ADTADTSoriumClear
+  priority: 20
+  reactants:
+    Uranium:
+      amount: 1
+    Plasma:
+      amount: 1
+    Mercury:
+      amount: 1
+    ADTStabilizingAgent:
+      amount: 1
+      catalyst: true
+  products:
+    ADTSorium: 3
+
+- type: reaction
+  id: ADTADTSoriumRough
+  impact: High
+  reactants:
+    Uranium:
+      amount: 1
+    Plasma:
+      amount: 1
+    Mercury:
+      amount: 1
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTReactionWhiteHole
+
+- type: reaction
+  id: ADTWhiteHoleExplosion
+  minTemp: 290
+  impact: High
+  quantized: true
+  reactants:
+    ADTSorium:
+      amount: 30
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTReactionWhiteHole
+
+- type: reaction
+  id: Cryostilane
+  impact: High
+  priority: 20
+  minTemp: 163
+  reactants:
+    Water:
+      amount: 1
+    Plasma:
+      amount: 1
+    Nitrogen:
+      amount: 1
+  effects:
+    - !type:AdjustSolutionTemperatureEffect
+      delta: -100
+      minTemp: 20
+      scaled: true
+    - !type:CreateGas
+      gas: Frezon
+      multiplier: 0.3
+    - !type:PopupMessage
+      visualType: LargeCaution
+      messages: [ "cryostilane-gas-created" ]
+      type: Pvs
+  products:
+    Cryostilane: 3

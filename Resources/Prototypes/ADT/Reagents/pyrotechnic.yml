@@ -1,0 +1,71 @@
+﻿
+- type: reagent
+  id: ADTLiquidDarkMatter
+  name: reagent-name-liquiddarkmatter
+  group: Pyrotechnic
+  desc: reagent-desc-liquiddarkmatter
+  flavor: nothing
+  color: "#782088"
+  physicalDesc: reagent-physical-desc-opaque
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 2
+
+
+- type: reagent
+  id: ADTSorium
+  name: reagent-name-sorium
+  group: Pyrotechnic
+  desc: reagent-desc-sorium
+  flavor: sharp
+  color: "#ffffffa6"
+  physicalDesc: reagent-physical-desc-opaque
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 2
+
+- type: reagent
+  id: ADTStabilizingAgent
+  name: reagent-name-stabilizing-agent
+  desc: reagent-desc-stabilizing-agent
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: funny
+  color: "#E0E92C"
+  group: Pyrotechnic
+
+- type: reagent
+  id: Cryostilane
+  name: reagent-name-cryostilane
+  group: Pyrotechnic
+  desc: reagent-desc-cryostilane
+  physicalDesc: reagent-physical-desc-frosty
+  flavor: cold
+  pricePerUnit: 1.5
+  color: "#A7B0E9"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 1.5
+      - !type:AdjustTemperature
+        amount: -15000

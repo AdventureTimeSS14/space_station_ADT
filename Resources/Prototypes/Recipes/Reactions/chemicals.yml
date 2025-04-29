@@ -116,9 +116,9 @@
       intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
       intensitySlope: 4
       maxTotalIntensity: 100
-
+### Start ADT Tweak
 - type: reaction
-  id: Smoke
+  id: SmokeInstant
   priority: 10
   impact: High
   reactants:
@@ -135,6 +135,28 @@
       sound:
         path: /Audio/Effects/smoke.ogg
 
+- type: reaction
+  id: SmokeCanceled
+  priority: 11
+  minTemp: 370
+  impact: High
+  reactants:
+    Phosphorus:
+      amount: 1
+    Potassium:
+      amount: 1
+    Sugar:
+      amount: 1
+    ADTStabilizingAgent:
+      amount: 1
+      catalyst: true
+  effects:
+    - !type:AreaReactionEffect
+      duration: 10
+      prototypeId: Smoke
+      sound:
+        path: /Audio/Effects/smoke.ogg
+### End ADT Tweak
 - type: reaction
   id: Foam
   priority: 10

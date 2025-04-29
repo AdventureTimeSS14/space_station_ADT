@@ -1,5 +1,5 @@
 - type: entity
-  id: ReactionSingularity
+  id: ADTReactionSingularity
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -18,12 +18,42 @@
     sound:
       path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
   - type: GravityWell
-    maxRange: 5
-    baseRadialAcceleration: 5
-    baseTangentialAcceleration: 5
+    maxRange: 1
+    baseRadialAcceleration: 75
+    baseTangentialAcceleration: -3
     gravPulsePeriod: 0.03
   - type: SingularityDistortion
     intensity: 50
+    falloffPower: 1.5
+  - type: TimedDespawn
+    lifetime: 8
+
+- type: entity
+  id: ADTReactionWhiteHole
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 8
+  - type: SoundOnTrigger
+    removeOnTrigger: true
+    sound:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+      volume: 5
+  - type: AmbientSound
+    enabled: true
+    volume: -5
+    range: 14
+    sound:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
+  - type: GravityWell
+    maxRange: 1
+    baseRadialAcceleration: -75
+    baseTangentialAcceleration: 3
+    gravPulsePeriod: 0.03
+  - type: SingularityDistortion
+    intensity: -50
     falloffPower: 1.5
   - type: TimedDespawn
     lifetime: 8

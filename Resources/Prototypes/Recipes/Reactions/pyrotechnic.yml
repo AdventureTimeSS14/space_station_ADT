@@ -28,9 +28,29 @@
     type: Pvs
   products:
     Phlogiston: 3
+### Start ADT Tweak
+- type: reaction
+  id: ChlorineTrifluorideClear
+  minTemp: 370
+  priority: 20
+  reactants:
+    Chlorine:
+      amount: 1
+    Fluorine:
+      amount: 3
+    ADTStabilizingAgent:
+      amount: 1
+      catalyst: true
+  effects:
+  - !type:PopupMessage
+    messages: [ "clf3-explosion" ]
+    type: Pvs
+    visualType: LargeCaution
+  products:
+    ChlorineTrifluoride: 4
 
 - type: reaction
-  id: ChlorineTrifluoride
+  id: ChlorineTrifluorideRough
   minTemp: 370
   priority: 20
   reactants:
@@ -39,19 +59,34 @@
     Fluorine:
       amount: 3
   effects:
+  - !type:PopupMessage
+    messages: [ "clf3-explosion" ]
+    type: Pvs
+    visualType: LargeCaution
   - !type:ExplosionReactionEffect
     explosionType: Default # 15 damage per intensity.
     maxIntensity: 200
     intensityPerUnit: 5
     intensitySlope: 5
     maxTotalIntensity: 200
-  - !type:PopupMessage
-    messages: [ "clf3-explosion" ]
-    type: Pvs
-    visualType: LargeCaution
-  products:
-    ChlorineTrifluoride: 4
 
+- type: reaction
+  id: ChlorineTrifluorideExplosion
+  minTemp: 373
+  priority: 20
+  impact: High
+  quantized: true
+  reactants:
+    ChlorineTrifluoride:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default # 15 damage per intensity.
+    maxIntensity: 200
+    intensityPerUnit: 5
+    intensitySlope: 5
+    maxTotalIntensity: 200
+### End ADT Tweak
 - type: reaction
   id: Ash
   minTemp: 520

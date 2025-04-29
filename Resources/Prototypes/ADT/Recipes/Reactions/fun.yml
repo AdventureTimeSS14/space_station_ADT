@@ -25,3 +25,13 @@
       amount: 1
   products:
     ADTPolymorphine: 4
+
+- type: reaction
+  id: ADTGenusiphine
+  reactants:
+    ADTPolymorphine:
+      amount: 1
+    Cognizine:
+      amount: 1
+  products:
+    ADTGenusiphine: 1
