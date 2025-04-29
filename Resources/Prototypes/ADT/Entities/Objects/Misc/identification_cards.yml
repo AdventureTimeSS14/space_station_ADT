@@ -311,6 +311,22 @@
   - type: IdCard
     jobTitle: job-name-clinician
 
+- type: entity
+  parent: MedicalIDCard
+  id: ADTDoctorIDCard
+  name: doctor ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-doctor
+
+- type: entity
+  parent: MedicalIDCard
+  id: ADTTherapistIDCard
+  name: therapist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-therapist
+
 # Atmospheric Technician
 
 - type: entity
@@ -522,6 +538,30 @@
   components:
   - type: IdCard
     jobTitle: job-name-exorcist
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTPriestIDCard
+  name: priest ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-priest
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTShepherdIDCard
+  name: shepherd ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-shepherd
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTClergymanIDCard
+  name: clergyman ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-clergyman
 
 # Psychologist
 

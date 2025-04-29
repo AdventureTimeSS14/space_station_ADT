@@ -1415,7 +1415,8 @@
   loadouts:
   - MedicalDoctorPDA
   - ADTClinicianPDA # ADT
-
+  - ADTDoctorPDA # ADT
+  - ADTTherapistPDA # ADT
 
 - type: loadoutGroup
   id: MedicalGloves

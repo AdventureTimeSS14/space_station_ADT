@@ -146,3 +146,18 @@ ent-ADTPsychotherapistIDCard = ID карта психотерапевта
 
 ent-ADTFieldDoctorIDCard = ID карта полевого врача
     .desc = ID карта полевого врача.
+
+ent-ADTDoctorIDCard = ID карта доктора
+    .desc = ID карта доктора.
+
+ent-ADTTherapistIDCard = ID карта терапевта
+    .desc = ID карта терапевта.
+
+ent-ADTPriestIDCard = ID карта жреца
+    .desc = ID карта жреца.
+
+ent-ADTShepherdIDCard = ID карта пастора
+    .desc = ID карта пастора.
+
+ent-ADTClergymanIDCard = ID карта священнослужителя
+    .desc = ID карта священнослужителя.

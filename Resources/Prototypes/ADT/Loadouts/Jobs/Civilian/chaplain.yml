@@ -116,3 +116,18 @@
   id: ADTExorcistPDA
   equipment:
     id: ADTExorcistPDA
+
+- type: loadout
+  id: ADTPriestPDA
+  equipment:
+    id: ADTPriestPDA
+
+- type: loadout
+  id: ADTShepherdPDA
+  equipment:
+    id: ADTShepherdPDA
+
+- type: loadout
+  id: ADTClergymanPDA
+  equipment:
+    id: ADTClergymanPDA
