@@ -87,3 +87,364 @@
   - type: Sprite
     layers:
     - state: pizzaslice
+
+
+
+
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodPizzaBBQ
+  name: slice of sindi pizza
+  description: A slice of syndicate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - oily
+      - bread
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bbq
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaBBQSlice
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: Tag
+    tags:
+    - Pizza
+    - ReptilianFood
+
+
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodPizzaBBQSlice
+  name: slice of sindi pizza
+  description: A slice of syndicate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - oily
+      - bread
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bbq-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Pizza
+    - ReptilianFood
+    - Slice
+
+
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaBolognese
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bolognese
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaBologneseSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaBologneseSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bolognese-slice
+
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaCaesar
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: caesar
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaCaesarSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaCaesarSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: caesar-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaCheese
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: cheese
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaCheeseSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaCheeseSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: cheese-slice
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaChicago
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicago
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaChicagoSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaChicagoSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicago-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaChicken
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicken
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaChickenSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaChickenSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicken-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaClassic
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: classic
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaClassicSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaClassicSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: classic-slice
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaDiablo
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: diablo
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaDiabloSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaDiabloSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: diablo-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaFourcheese
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: fourcheese
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaFourcheeseSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaFourcheeseSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: fourcheese-slice
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaMexican
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mexican
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaMexicanSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaMexicanSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mexican-slice
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaMushroomchicken
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mushroomchicken
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaMushroomchickenSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaMushroomchickenSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mushroomchicken-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaSea
+  name: seqeqwe
+  description: A sliewqeqweq
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: sea
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaSeaSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaSeaSlice
+  name: slice of sindi 312312321
+  description: A slice ofr32 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: sea-slice

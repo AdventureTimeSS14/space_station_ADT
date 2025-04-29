@@ -1,0 +1,84 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bbq"
+        },
+        {
+            "name": "bbq-slice"
+        },
+        {
+            "name": "bolognese"
+        },
+        {
+            "name": "bolognese-slice"
+        },
+        {
+            "name": "caesar"
+        },
+        {
+            "name": "caesar-slice"
+        },
+        {
+            "name": "cheese"
+        },
+        {
+            "name": "cheese-slice"
+        },
+        {
+            "name": "chicago"
+        },
+        {
+            "name": "chicago-slice"
+        },
+        {
+            "name": "chicken"
+        },
+        {
+            "name": "chicken-slice"
+        },
+        {
+            "name": "classic"
+        },
+        {
+            "name": "classic-slice"
+        },
+        {
+            "name": "diablo"
+        },
+        {
+            "name": "diablo-slice"
+        },
+        {
+            "name": "fourcheese"
+        },
+        {
+            "name": "fourcheese-slice"
+        },
+        {
+            "name": "mexican"
+        },
+        {
+            "name": "mexican-slice"
+        },
+        {
+            "name": "mushroomchicken"
+        },
+        {
+            "name": "mushroomchicken-slice"
+        },
+        {
+            "name": "sea"
+        },
+        {
+            "name": "sea-slice"
+        }
+    ]
+}
+

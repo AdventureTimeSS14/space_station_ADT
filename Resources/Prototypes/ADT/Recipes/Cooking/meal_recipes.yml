@@ -174,3 +174,278 @@
     FoodMeat: 1
     FoodCarrot: 1
     FoodOnionSlice: 2
+
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaBBQRecipe
+  name: pizza bbq
+  result: ADTFoodPizzaBBQ
+  time: 30
+  reagents:
+    BbqSauce: 5
+  solids:
+    FoodDoughFlat: 1
+    FoodMeat: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaBologneseRecipe
+  name: pizza bolognese
+  result: ADTFoodPizzaBolognese
+  time: 30
+  solids:
+    FoodDoughFlat: 1
+    FoodMeatChicken: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaCaesarRecipe
+  name: pizza caesar
+  result: ADTFoodPizzaCaesar
+  time: 30
+  solids: 
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodOnionRedSlice: 2
+    FoodCabbage: 1
+    FoodMeatChicken: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaCheeseRecipe
+  name: pizza cheese
+  result: ADTFoodPizzaCheese
+  time: 30
+  solids: 
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaFourcheeseRecipe
+  name: pizza cheese
+  result: ADTFoodPizzaFourcheese
+  time: 30
+  solids: 
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodChevreSlice: 2
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaChicagoRecipe
+  name: pizza chicago
+  result: ADTFoodPizzaChicago
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodMeatChicken: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaChickenRecipe
+  name: pizza chicen
+  result: ADTFoodPizzaChicken
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodMeatChicken: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaMushroomchickenRecipe
+  name: pizza mushroomchicka
+  result: ADTFoodPizzaMushroomchicken
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodMeat: 1
+    FoodTomato: 1
+    FoodMushroom: 5
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaDiabloRecipe
+  name: pizza diablo
+  result: ADTFoodPizzaDiablo
+  time: 30
+  reagents:
+    Hotsauce: 5
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodMeat: 1
+    FoodTomato: 1
+    FoodChiliPepper: 2
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaSeaRecipe
+  name: pizza sea
+  result: ADTFoodPizzaSea
+  time: 30
+  reagents:
+    Mayo: 5
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    ADTFoodMeatFish: 3
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaMexicanRecipe
+  name: pizza mexico
+  result: ADTFoodPizzaMexican
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodMeat: 1
+    FoodTomato: 1
+    FoodChiliPepper: 2
+    FoodOnionRedSlice: 2
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealBologneseRecipe
+  name: pasta bolognese
+  result: ADTFoodMealBolognese
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodMeat: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCheeseMeatballRecipe
+  name: pasta cheesemeat
+  result: ADTFoodMealCheeseMeatball
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodCheeseSlice: 1
+    FoodMeatMeatball: 2
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCheeseTomatoRecipe
+  name: pasta cheesetomato
+  result: ADTFoodMealCheeseTomato
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 2
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealClothRecipe
+  name: pasta cloth
+  result: ADTFoodMealCloth
+  time: 10
+  reagents:
+    Water: 10
+    Egg: 12
+  solids:     
+    FoodDoughCottonRope: 1
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCreamRecipe
+  name: pasta cream
+  result: ADTFoodMealCream
+  time: 10
+  reagents:
+    Cream: 5 
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodButterSlice: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCreamMeatballRecipe
+  name: pasta creammeathball
+  result: ADTFoodMealCreamMeatball
+  time: 10
+  solids:     
+    ADTFoodMealCream: 1
+    FoodMeatMeatball: 2
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealFishRecipe
+  name: pasta fish
+  result: ADTFoodMealFish
+  time: 10
+  solids:     
+    ADTFoodMealCream: 1
+    ADTFoodMeatFish: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealInkRecipe
+  name: pasta ink
+  result: ADTFoodMealInk
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    Pen: 1
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealInkFishRecipe
+  name: pasta inkfish
+  result: ADTFoodMealInkFish
+  time: 10
+  solids:     
+    ADTFoodMealInk: 1
+    ADTFoodMeatFish: 2
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealMushroomRecipe
+  name: pasta mushroom
+  result: ADTFoodMealMushroom
+  time: 10
+  solids:     
+    ADTFoodMealCream: 1
+    FoodMushroom: 2
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealTomatoMeatballRecipe
+  name: pasta tomatomeat
+  result: ADTFoodMealTomatoMeatball
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodMeatMeatball: 2
+    FoodTomato: 2
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealNigiriCarpRecipe
+  name: nigiri carp
+  result: ADTFoodMealNigiriCarp
+  time: 5
+  solids:     
+    FoodRiceBoiled: 1
+    FoodMeatFish: 1
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealNigiriCookedRecipe
+  name: nigiri fish
+  result: ADTFoodMealNigiriCooked
+  time: 5
+  solids:     
+    FoodRiceBoiled: 1
+    ADTFoodFishCutletCooked: 1
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealNigiriFishRecipe
+  name: nigiri fish
+  result: ADTFoodMealNigiriFish
+  time: 5
+  solids:     
+    FoodRiceBoiled: 1
+    ADTFoodFishCutlet: 1
+
+
+

@@ -47,3 +47,137 @@
           Quantity: 10
         - ReagentId: TableSalt
           Quantity: 3
+
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealBolognese
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTBolognesePasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: bolognese
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealCheeseMeatball
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCheeseMeatballPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: cheese_meatball
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealCheeseTomato
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCheeseTomatoPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: cheese_tomato
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealCloth
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTClothPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: cloth
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealCream
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCreamPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: cream
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealCreamMeatball
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCreamMeatballPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: cream_meatball
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealFish
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTSalmoPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: fish
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealInk
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTInkPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: ink
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealInkFish
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTInkFishPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: ink_fish
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealMushroom
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTMushroomPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: mushroom
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealTomatoMeatball
+  description: A delicious meal, cooked with love.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTTomatoMeatballPasta
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/noodles.rsi
+    state: tomato_meatball
+

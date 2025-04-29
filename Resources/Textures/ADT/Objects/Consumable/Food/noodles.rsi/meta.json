@@ -1,0 +1,50 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bolognese"
+        },
+        {
+            "name": "carp"
+        },
+        {
+            "name": "cheese"
+        },
+        {
+            "name": "cheese_meatball"
+        },
+        {
+            "name": "cheese_tomato"
+        },
+        {
+            "name": "cloth"
+        },
+        {
+            "name": "cream"
+        },
+        {
+            "name": "cream_meatball"
+        },
+        {
+            "name": "fish"
+        },
+        {
+            "name": "ink"
+        },
+        {
+            "name": "ink_fish"
+        },
+        {
+            "name": "mushroom"
+        },
+        {
+            "name": "tomato_meatball"
+        }
+    ]
+}
