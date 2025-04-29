@@ -79,3 +79,12 @@ ent-ADTClothingOuterCoatLeathOvercoatOpened = кожанный плащ
 
 ent-ADTClothingOuterBikerJacket = косуха
     .desc = Плохой до мозга костей!
+
+ent-ADTClothingOuterDutch = голландская куртка
+    .desc = За те долгие ночи на пляже Таити.
+
+ent-ADTClothingOuterLettermanNanoTrasen = корпоративно-синяя жилетка
+    .desc = Корпоративно-синяя жилетка с гордой НаноТрайзенской буквой "N" на спине. На бирке написано, что она была изготовлена Mr.Chang's corp.
+
+ent-ADTClothingOuterLettermanSyndie = кроваво-красная жилетка
+    .desc = Кроваво-красная жилетка с огромной буквой "S" на спине. Ничего подозрительного.

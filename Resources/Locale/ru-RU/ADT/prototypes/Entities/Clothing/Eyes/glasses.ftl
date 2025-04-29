@@ -31,3 +31,6 @@ ent-ADTClothingEyesNightVisionMGD = ПНВ компании MG&D
 
 ent-ADTClothingEyesGlassesMedChem = Химико-медицинские очки
     .desc = Защитные очки аналогичны химическим, но имеют встроенный медицинский визор.
+
+ent-ADTClothingEyesGlassesMonocle = монокль
+    .desc = Такой щегольской окуляр!

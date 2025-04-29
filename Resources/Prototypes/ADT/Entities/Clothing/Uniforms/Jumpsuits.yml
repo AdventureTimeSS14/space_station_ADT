@@ -1487,3 +1487,14 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDutch
+  name: dutch suit
+  description: A dapper dutch suit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dutch_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dutch_suit.rsi

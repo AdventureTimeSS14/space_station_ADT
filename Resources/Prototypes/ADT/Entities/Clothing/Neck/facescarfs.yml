@@ -1,0 +1,93 @@
+- type: entity
+  parent: ClothingScarfBase
+  id: ADTClothingNeckFacescarfBlack
+  name: black facescarf
+  description: A cozy black facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_black.rsi
+    slots: [mask, neck]
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ADTClothingNeckFacescarfBlack
+  id: ADTClothingNeckFacescarfBlue
+  name: blue facescarf
+  description: A cozy blue facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_blue.rsi
+
+- type: entity
+  parent: ADTClothingNeckFacescarfBlack
+  id: ADTClothingNeckFacescarfGreen
+  name: green facescarf
+  description: A cozy green facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_green.rsi
+
+- type: entity
+  parent: ADTClothingNeckFacescarfBlack
+  id: ADTClothingNeckFacescarfGrey
+  name: grey facescarf
+  description: A cozy grey facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_grey.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_grey.rsi
+
+- type: entity
+  parent: ADTClothingNeckFacescarfBlack
+  id: ADTClothingNeckFacescarfOrange
+  name: orange facescarf
+  description: A cozy orange facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_orange.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_orange.rsi
+
+- type: entity
+  parent: ADTClothingNeckFacescarfBlack
+  id: ADTClothingNeckFacescarfPurple
+  name: purple facescarf
+  description: A cozy purple facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_purple.rsi
+
+- type: entity
+  parent: ADTClothingNeckFacescarfBlack
+  id: ADTClothingNeckFacescarfRed
+  name: red facescarf
+  description: A cozy red facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_red.rsi
+
+- type: entity
+  parent: ADTClothingNeckFacescarfBlack
+  id: ADTClothingNeckFacescarfWhite
+  name: white facescarf
+  description: A cozy white facescarf that will keep your face warm. It can be worn both on the face and on the neck.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_white.rsi

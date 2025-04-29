@@ -4,6 +4,7 @@
     ADTClothingHeadHatCinnamonFlatCap: 5
     ADTClothingHeadHatGreyFlatCap: 5
     ADTClothingEyesGlassesPink: 5
+    ADTClothingEyesGlassesMonocle: 5
     ADTClothingNeckGoldChain: 5
     ADTClothingNeckBlueTie: 5
     ADTClothingNeckGoldTie: 5
@@ -25,8 +26,12 @@
     ADTClothingUniformJumpsuitOldGreySuit: 5
     ADTClothingUniformJumpsuitOldBrownSuit: 5
     ADTClothingUniformJumpsuitSweatshirtBright: 5
+    ADTClothingUniformJumpsuitDutch: 5
+    ADTClothingOuterDutch: 5
     ADTClothingOuterGraySweatshirtTop: 5
     ADTClothingOuterBlackSweatshirtTop: 5
+    ADTClothingOuterLettermanNanoTrasen: 5
+    ADTClothingOuterLettermanSyndie: 5
     ADTClothingOuterWinterRussianCoat: 5
     ADTClothingBeltBlackSuspenders: 5
     ADTClothingBeltBrownSuspenders: 5
