@@ -435,7 +435,7 @@
 - type: entity
   id: StationAiBrain
   parent: PositronicBrain
-  #categories: [ HideSpawnMenu, DoNotMap ]
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
