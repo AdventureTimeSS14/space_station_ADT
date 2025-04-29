@@ -95,7 +95,7 @@
   id: CryoPod
   name: research-technology-cryo-pod
   icon:
-    sprite: Structures/Machines/cryogenics.rsi
+    sprite: Structures/Machines/Medical/cryopod.rsi
     state: pod-open
   discipline: Biochemical
   tier: 3

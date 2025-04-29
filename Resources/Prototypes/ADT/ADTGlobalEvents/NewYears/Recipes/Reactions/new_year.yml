@@ -123,6 +123,7 @@
   name: warm mulled wine recipe
   result: ADTMulledWineGlass
   time: 10
+  group: Holidays
   reagents:
     ADTMulledWineCold: 30
   solids:
@@ -133,6 +134,7 @@
   name: warm mulled wine recipe
   result: ADTMulledWineGlass
   time: 10
+  group: Holidays
   reagents:
     ADTMulledWineCold: 30
   solids:
@@ -143,6 +145,7 @@
   name: hot chocolate recipe
   result: ADTHotChocolateGlass
   time: 10
+  group: Holidays
   solids:
     DrinkGlass: 1
     FoodSnackChocolateBar: 2
@@ -152,6 +155,7 @@
   name: hot chocolate recipe
   result: ADTHotChocolateGlass
   time: 10
+  group: Holidays
   solids:
     ADTHotChocolateGlass: 1
     FoodSnackChocolateBar: 2
@@ -161,6 +165,7 @@
   name: hot hypoallergen chocolate recipe
   result: ADTHotChocolateAllergicGlass
   time: 10
+  group: Holidays
   solids:
     DrinkGlass: 1
     ADTHypoAllergenChocolateBar: 2
@@ -170,6 +175,7 @@
   name: hot hypoallergen chocolate recipe
   result: ADTHotChocolateAllergicGlass
   time: 10
+  group: Holidays
   solids:
     ADTHotChocolateAllergicGlass: 1
     ADTHypoAllergenChocolateBar: 2
@@ -179,6 +185,7 @@
   name: hot cocoa recipe
   result: ADTHotCocoaGlass
   time: 10
+  group: Holidays
   reagents:
     ADTCocoaDrink: 30
   solids:
@@ -189,6 +196,7 @@
   name: hot cocoa recipe
   result: ADTHotCocoaGlass
   time: 10
+  group: Holidays
   reagents:
     ADTCocoaDrink: 30
   solids:
