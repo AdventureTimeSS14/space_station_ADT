@@ -84157,4 +84157,11 @@ entities:
     - type: Transform
       pos: 21.797337,73.15025
       parent: 2
+- proto: SpawnPointMusician
+  entities:
+  - uid: 10629
+    components:
+    - type: Transform
+      pos: 30.5,-15.5
+      parent: 2
 ...
