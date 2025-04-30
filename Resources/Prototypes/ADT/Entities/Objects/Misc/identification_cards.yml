@@ -317,7 +317,7 @@
   name: doctor ID card
   components:
   - type: IdCard
-    jobTitle: job-name-doctor
+    jobTitle: job-name-adt-doctor
 
 - type: entity
   parent: MedicalIDCard
