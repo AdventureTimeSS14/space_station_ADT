@@ -289,7 +289,6 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             // this really does have to be in ComponentInit
             ent.Comp.Storage = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
-            ent.Comp.FinalCookTimeMultiplier = ent.Comp.CookTimeMultiplier; // ADT-Tweak: initial cook time consistency (assumes stock components)
         }
 
         private void OnMapInit(Entity<MicrowaveComponent> ent, ref MapInitEvent args)
@@ -637,11 +636,11 @@ namespace Content.Server.Kitchen.EntitySystems
 
             _audio.PlayPvs(component.StartCookingSound, uid);
             var activeComp = AddComp<ActiveMicrowaveComponent>(uid); //microwave is now cooking
-            activeComp.CookTimeRemaining = component.CurrentCookTimerTime * component.FinalCookTimeMultiplier; // ADT-Tweak: CookTimeMultiplier<FinalCookTimeMultiplier
+            activeComp.CookTimeRemaining = component.CurrentCookTimerTime;
             activeComp.TotalTime = component.CurrentCookTimerTime; //this doesn't scale so that we can have the "actual" time
             activeComp.PortionedRecipe = portionedRecipe;
             //Scale tiems with cook times
-            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime * component.FinalCookTimeMultiplier); // ADT-Tweak: CookTimeMultiplier<FinalCookTimeMultiplier
+            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime);
             if (malfunctioning)
                 activeComp.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.MalfunctionInterval);
             UpdateUserInterfaceState(uid, component);

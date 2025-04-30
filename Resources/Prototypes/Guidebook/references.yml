@@ -14,7 +14,7 @@
 - type: guideEntry
   id: Medicine
   name: guide-entry-medicine
-  text: "ServerInfo/Guidebook/Medicine.xml"
+  text: "/ServerInfo/Guidebook/Medicine.xml"
   children:
     - MedicinalRecipes
     - Chemicals

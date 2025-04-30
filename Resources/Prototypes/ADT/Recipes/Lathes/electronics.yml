@@ -48,9 +48,9 @@
      Glass: 900
 
 - type: latheRecipe
-  id: ADTCryoPodMachineCircuitBoard
+  id: ADTCryoPodMachineCircuitboard
   parent: BaseCircuitboardRecipe
-  result: CryoPodMachineCircuitBoard
+  result: CryoPodMachineCircuitboard
   materials:
     Steel: 800
     Glass: 900

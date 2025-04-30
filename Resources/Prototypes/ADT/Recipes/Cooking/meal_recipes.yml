@@ -184,7 +184,7 @@
   name: CherryTeaMicrowave
   result: ADTDrinkCherryTeaGlass
   time: 10
-  other: Other
+  group: Other
   reagents:
     ADTCherrypackReg: 5
     Water: 25

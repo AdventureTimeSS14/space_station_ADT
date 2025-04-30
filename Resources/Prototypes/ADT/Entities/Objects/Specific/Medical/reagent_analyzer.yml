@@ -30,7 +30,7 @@
         whitelist:
           components:
           - FitsInDispenser
-          tag:
+          tags:
           - ADTSmallSyringe
   - type: ContainerContainer
     containers:

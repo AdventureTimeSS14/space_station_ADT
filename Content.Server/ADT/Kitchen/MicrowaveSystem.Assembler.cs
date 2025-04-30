@@ -124,11 +124,11 @@ public sealed partial class MicrowaveSystem : EntitySystem
         _audio.PlayPvs(component.StartCookingSound, uid);
         var activeComp = AddComp<ActiveMicrowaveComponent>(uid); //microwave is now cooking
         component.CurrentCookTimerTime = (uint)portionedRecipe.Item2 * portionedRecipe.Item1.CookTime;
-        activeComp.CookTimeRemaining = component.CurrentCookTimerTime * component.FinalCookTimeMultiplier; // ADT-Tweak: CookTimeMultiplier<FinalCookTimeMultiplier
+        activeComp.CookTimeRemaining = component.CurrentCookTimerTime;
         activeComp.TotalTime = component.CurrentCookTimerTime; //this doesn't scale so that we can have the "actual" time
         activeComp.PortionedRecipe = portionedRecipe;
         //Scale times with cook times
-        component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime * component.FinalCookTimeMultiplier); // ADT-Tweak: CookTimeMultiplier<FinalCookTimeMultiplier
+        component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime);
         if (malfunctioning)
             activeComp.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.MalfunctionInterval);
         UpdateUserInterfaceState(uid, component);

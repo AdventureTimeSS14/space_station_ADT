@@ -89,8 +89,6 @@
       state: medical
     - type: MachineBoard
       prototype: ADTMedicalAssembler
-      requirements:
-        Capacitor: 3
       stackRequirements:
         Steel: 5
         Glass: 2
@@ -106,8 +104,6 @@
        state: service
      - type: MachineBoard
        prototype: ADTKitchenElectricRange
-       requirements:
-         Capacitor: 3
        stackRequirements:
          Steel: 5
          Glass: 2
@@ -123,8 +119,6 @@
       state: service
     - type: MachineBoard
       prototype: ADTSyndicateKitchenElectricRange
-      requirements:
-        Capacitor: 3
       stackRequirements:
         Steel: 5
         Glass: 2
@@ -140,8 +134,6 @@
       state: service
     - type: MachineBoard
       prototype: ADTKitchenAssembler
-      requirements:
-        Capacitor: 1
       stackRequirements:
         Glass: 2
         Cable: 2
