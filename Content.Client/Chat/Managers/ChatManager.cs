@@ -26,12 +26,7 @@ internal sealed class ChatManager : IChatManager
     {
         // See server-side manager. This just exists for shared code.
     }
-    // ADT-Tweak-start: добавлена перегрузка с указанием параметра цвета админ уведомления
-    public void SendAdminAlert(string message, Color? colorOverride)
-    {
-        // See server-side manager. This just exists for shared code.
-    }
-    // ADT-Tweak-end
+
     public void SendAdminAlert(EntityUid player, string message)
     {
         // See server-side manager. This just exists for shared code.
