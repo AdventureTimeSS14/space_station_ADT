@@ -100,10 +100,10 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Misc/shale_shoes.rsi
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 20
     sound: /Audio/ADT/Misc/slap_secondary.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 20
     sound: /Audio/ADT/Misc/slap.ogg
   - type: MeleeWeapon
     wideAnimationRotation: -135
