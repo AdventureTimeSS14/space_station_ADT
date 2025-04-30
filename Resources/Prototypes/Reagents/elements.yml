@@ -169,6 +169,11 @@
         - !type:OrganType
           type: Arachnid
           shouldHave: false
+        # ADT tweak start
+        - !type:OrganType
+          type: Drask
+          shouldHave: false
+        # ADT tweak end
         amount: 0.4
 
 - type: reagent

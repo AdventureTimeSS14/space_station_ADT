@@ -218,12 +218,12 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 5
+          min: 3
         - !type:OrganType
           type: Drask
         damage:
           types:
-          Poison: 0.5
+            Poison: 0.2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

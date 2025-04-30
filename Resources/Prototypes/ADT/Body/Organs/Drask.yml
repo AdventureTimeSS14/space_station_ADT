@@ -127,3 +127,13 @@
     - Organ
     - Kidneys
 
+- type: entity
+  id: ADTOrganDraskLiver
+  parent: OrganHumanLiver
+  name: drask liver
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Drask ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.05 # removes alcohol very slowly because its drask

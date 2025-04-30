@@ -898,6 +898,12 @@
           factor: 6
         - !type:ModifyBloodLevel
           amount: 6
+          # Start ADT tweak
+          conditions:
+          - !type:OrganType
+            type: Drask
+            shouldHave: false
+          # End ADT tweak
 
 - type: reagent
   id: Siderlac

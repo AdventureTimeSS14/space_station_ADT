@@ -49,24 +49,28 @@
       types:
         Blunt: 10
   - type: Bloodstream
+    bleedReductionAmount: 0.5
+    bloodRefreshAmount: 2
     bloodMaxVolume: 250
     bloodReagent: Cryoxadone
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.3
     baseSprintSpeed : 4.3
   - type: Temperature
-    heatDamageThreshold: 330
-    coldDamageThreshold: 193
+    heatDamageThreshold: 303.15 # 30C
+    coldDamageThreshold: 243.15 # -30C
     currentTemperature: 273.15
     coldDamage: #per second, scales with temperature & other constants
       groups:
         Brute: -0.25
         Burn: -0.25
         Toxin: -0.1
+      types:
+        Cellular: -0.05
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
-        Heat : 0.6
+        Heat : 3.0
   - type: TemperatureSpeed
     thresholds:
       40: 0.8
@@ -77,7 +81,13 @@
       62: 0.8
       84: 0.6
   - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 1500
+    shiveringHeatRegulation: 3500
     normalBodyTemperature: 273.15
+    thermalRegulationTemperatureThreshold: 25
   - type: Fixtures
     fixtures:
       fix1:
@@ -109,6 +119,71 @@
       Male: MaleDrask
       Female: FemaleDrask
       Unsexed: MaleDrask
+  - type: Inventory
+    speciesId: drask
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: eyes
+      ears:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: ears
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: gloves
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: outerclothing
+    femaleDisplacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: eyes
+      ears:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: ears
+      gloves:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: gloves
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: outerclothing
+
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Drask
@@ -133,6 +208,19 @@
     species: DraskSpecies
   - type: Sprite
     scale: 1.07, 1.07
+  - type: Inventory
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: head
+    femaleDisplacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: head
 
 
 
