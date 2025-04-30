@@ -96,7 +96,7 @@
       path: /Audio/ADT/Items/Defib/highvolt-defib_ready.ogg
     lowChargeSound:
       path: /Audio/ADT/Items/Defib/highvolt-defib_low_charge.ogg
-    zapDamage: 25
+    zapDamage: 15
     writheDuration: 10
 
 - type: entity
