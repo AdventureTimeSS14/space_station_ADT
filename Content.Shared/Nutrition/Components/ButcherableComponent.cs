@@ -25,7 +25,6 @@ namespace Content.Shared.Nutrition.Components
         public bool BeingButchered;
     }
 
-    [Serializable]
     public enum ButcheringType : byte
     {
         Knife, // e.g. goliaths
