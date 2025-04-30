@@ -384,6 +384,9 @@
   id: ADTMedipen
 
 - type: Tag
+  id: ADTSmallSyringe
+
+- type: Tag
   id: ADTBluespaceAnomalyCore
 
 - type: Tag
