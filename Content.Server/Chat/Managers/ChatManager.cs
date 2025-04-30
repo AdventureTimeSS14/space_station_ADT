@@ -200,21 +200,6 @@ internal sealed partial class ChatManager : IChatManager
         ChatMessageToMany(ChatChannel.AdminAlert, message, wrappedMessage, default, false, true, clients);
     }
 
-    // ADT-Tweak-start: добавлена перегрузка с указанием параметра цвета админ уведомления
-    // Расширенная версия
-    public void SendAdminAlert(string message, Color? colorOverride)
-    {
-        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
-        var wrappedMessage = Loc.GetString(
-            "chat-manager-send-admin-announcement-wrap-message",
-            ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
-            ("message", FormattedMessage.EscapeText(message))
-        );
-
-        ChatMessageToMany(ChatChannel.AdminAlert, message, wrappedMessage,
-            default, false, true, clients, colorOverride);
-    }
-    // ADT-Tweak-end
     public void SendAdminAlert(EntityUid player, string message)
     {
         var mindSystem = _entityManager.System<SharedMindSystem>();
