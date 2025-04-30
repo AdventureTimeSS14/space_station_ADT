@@ -86,7 +86,7 @@
 - type: guideEntry
   id: PastaRecipes
   name: guide-entry-pasta-recipes
-  text: "/ServerInfo/Guidebook/Service/PastaRecipes.xml"
+  text: "/ServerInfo/ADT/Guidebook/Service/PastaRecipes.xml"
   filterEnabled: True
 
 - type: guideEntry
