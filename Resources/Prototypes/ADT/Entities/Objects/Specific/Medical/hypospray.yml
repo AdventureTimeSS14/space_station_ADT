@@ -36,6 +36,9 @@
     state: blank_medipen
   - type: Item
     sprite: ADT/Objects/Specific/Medical/medipen.rsi
+  - type: Tag
+    tags:
+    - ADTMedipen
 
 - type: entity
   name: hemostasis auto-injector
@@ -61,6 +64,9 @@
           Quantity: 5
         - ReagentId: Saline
           Quantity: 15
+  - type: Tag
+    tags:
+    - ADTMedipen
 
 - type: entity
   name: stimulant auto-injector
@@ -86,6 +92,9 @@
           Quantity: 10
         - ReagentId: Dylovene
           Quantity: 10
+  - type: Tag
+    tags:
+    - ADTMedipen
 
 - type: entity
   name: crisis auto-injector
@@ -111,6 +120,9 @@
           Quantity: 10
         - ReagentId: DexalinPlus
           Quantity: 10
+  - type: Tag
+    tags:
+    - ADTMedipen
 
 - type: entity
   name: lacerinol auto-injector
@@ -134,6 +146,9 @@
           Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
 
 - type: entity
   name: bruizine auto-injector
@@ -157,6 +172,9 @@
           Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
 
 - type: entity
   name: barkeeper's friend auto-injector
@@ -182,3 +200,6 @@
           Quantity: 15
         - ReagentId: Dylovene
           Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen

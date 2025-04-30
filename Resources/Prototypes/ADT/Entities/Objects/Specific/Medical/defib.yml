@@ -28,7 +28,7 @@
 
 - type: entity
   id: ADTHandDefibrillator
-  name: adt-hand-defibrillator
+  name: hand defibrillator
   description:
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   components:
@@ -52,10 +52,9 @@
   - type: PowerCellDraw
     useRate: 200
 
-
 - type: entity
   id: ADTHighVoltageDefibrillator
-  name: adt-high-voltage-efibrillator
+  name: high-voltage defibrillator
   description: A defibrillator that takes less time to zap but deals more electric damage.
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   components:

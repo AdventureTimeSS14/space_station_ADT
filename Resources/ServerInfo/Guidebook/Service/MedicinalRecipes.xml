@@ -1,8 +1,8 @@
 <Document>
 
-# Создание наборов и медипенов
+# Medicinal Recipes
 
-Эти предметы обладают спектром всевозможных полезных эффектов, или же являются обычными лекарствами, само собой, лицензированных NanoTrasen.
+These preparations have interesting medical effects, or are just straight-up medicines.
 
 <GuideMicrowaveGroupEmbed Group="Medicinal"/>
 

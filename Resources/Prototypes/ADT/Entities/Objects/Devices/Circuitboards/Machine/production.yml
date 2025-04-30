@@ -82,7 +82,7 @@
 - type: entity
   id: ADTMedicalAssemblerMachineCircuitBoard
   parent: BaseMachineCircuitboard
-  name: adt-medical-assembler-machine-board
+  name: medical assembler machine board
   description: A machine printed circuit board for a medical assembler.
   components:
     - type: Sprite
@@ -99,7 +99,7 @@
 - type: entity
   id: ADTElectricRangeMachineCircuitBoard
   parent: BaseMachineCircuitboard
-  name: adt-electric-range-machine-board
+  name: electric range machine board
   description: A machine printed circuit board for an electric range.
   components:
      - type: Sprite
@@ -116,7 +116,7 @@
 - type: entity
   id: ADTSyndicateElectricRangeMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: syndicate-electric-range-machine-board
+  name: syndicate electric range machine board
   description: A machine printed circuit board for an syndicate electric range.
   components:
     - type: Sprite
@@ -133,7 +133,7 @@
 - type: entity
   id: ADTKitchenAssemblerMachineCircuitBoard
   parent: BaseMachineCircuitboard
-  name: adt-kitchen-assembler-machine-board
+  name: kitchen assembler machine board
   description: A machine printed circuit board for a Food-O-Mat, suitable for a kitchen.
   components:
     - type: Sprite

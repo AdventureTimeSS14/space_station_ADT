@@ -1,38 +1,54 @@
 <Document>
 
-# Рецепты еды
+# Рецепты приготовления в микроволновке
 
-Это последняя опубликованная версия сборника рецептов NanoTrasen Central Command Kitchen de Cuisine, предназначенного для шеф-поваров, готовящих блюда, используя посуду NanoTrasen.
+Это последняя опубликованная версия сборника рецептов "NanoTrasen Central Command Kitchen de Cuisine's", предназначенного для шеф-поваров, готовящих блюда на судах NanoTrasen.
 
-
+## Пицца
 <GuideMicrowaveGroupEmbed Group="Pizza"/>
 
+## Вкусные блюда
 <GuideMicrowaveGroupEmbed Group="Savory"/>
 
-<GuideMicrowaveGroupEmbed Group="Breads"/>
+БЗЗЗ! Не забудьте про диету расы ниан!
+- Хлопковое тесто = 5 муки, 10 ткани, 10 воды
+- Хлопковый хлеб готовится так же, как и обычный, только вместо обычного теста - хлопковое
+- Хлопковая пицца: приготовьте в микроволновке 1 хлопковое тесто и 4 хлопковых шарика на протяжении 30 секунд
 
+## Завтраки
 <GuideMicrowaveGroupEmbed Group="Breakfast"/>
 
+## Еда для Нианов
 <GuideMicrowaveGroupEmbed Group="Moth"/>
 
+## Пасты & Лапша
 <GuideMicrowaveGroupEmbed Group="Pasta"/>
 
+## Выпечка & Десерты
 <GuideMicrowaveGroupEmbed Group="Dessert"/>
 
+## Супы & Рагу
 <GuideMicrowaveGroupEmbed Group="Soup"/>
 
+## Пироги & Тарталетки
 <GuideMicrowaveGroupEmbed Group="Pie"/>
 
+## Батончики & Печенье
 <GuideMicrowaveGroupEmbed Group="BarsAndCookies"/>
 
+## Торты
 <GuideMicrowaveGroupEmbed Group="Cake"/>
 
+## Салаты
 <GuideMicrowaveGroupEmbed Group="Salad"/>
 
-<GuideMicrowaveGroupEmbed Group="Holiday"/>
+## Лекарства
+<GuideMicrowaveGroupEmbed Group="Medicinal"/>
 
+## Другие
 <GuideMicrowaveGroupEmbed Group="Other"/>
 
+## Секрет
 <GuideMicrowaveGroupEmbed Group="Secret"/>
 
 </Document>

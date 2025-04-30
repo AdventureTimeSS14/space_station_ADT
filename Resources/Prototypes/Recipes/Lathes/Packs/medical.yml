@@ -43,7 +43,6 @@
   - DiseaseSwab
   - BodyBag
   - WhiteCane
-  - ADTBlankMediPen # ADT-Tweak
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -93,6 +92,7 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  - ADTBlankMediPen # ADT-Tweak
 
 - type: latheRecipePack
   id: MedicalBoards

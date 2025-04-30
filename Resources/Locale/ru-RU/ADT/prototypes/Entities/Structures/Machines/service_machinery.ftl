@@ -4,8 +4,8 @@ ent-ADTAdvancedMicrowave = Крупноволновка 2000
 ent-ADTKitchenElectricRange = Электрическая печь
     .desc = Функциональная печь с множеством функций.
 
-ent-ADTSyndicateKitchenElectricRange = Электрическая печь
-    .desc = Функциональная печь с множеством функций.
+ent-ADTSyndicateKitchenElectricRange = Электрическая печь синдиката
+    .desc = Функциональная печь синдиката с множеством функций.
 
 ent-ADTKitchenAssembler = Кухонный ассемблер
     .desc = Готовит за вас большую часть лицензированных блюд в NanoTrasen. Вы не знаете как оно это делает.

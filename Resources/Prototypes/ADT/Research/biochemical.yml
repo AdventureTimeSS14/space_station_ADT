@@ -28,7 +28,7 @@
   - MedicalScannerMachineCircuitboard
   position: 5,-1
   requiredTech:
-  - BiochemicalStasis
+  - ADTBiochemicalStasis
 
 - type: technology
   id: ADTHighVoltageDefibrillator
@@ -42,12 +42,12 @@
   recipeUnlocks:
   - ADTHighVoltageDefibrillator
   requiredTech:
-  - IndustrialMedicine
+  - ADTIndustrialMedicine
   position: 1,0
 
 
 - type: technology
-  id: IndustrialMedicine
+  id: ADTIndustrialMedicine
   name: research-technology-industrial-medicine
   icon:
     sprite: ADT/Structures/Machines/medical_assembler.rsi
@@ -62,22 +62,7 @@
   position: 2,0
 
 - type: technology
-  id: CrewMonitoring
-  name: research-technology-crew-monitoring
-  icon:
-    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
-    state: scanner
-  discipline: Biochemical
-  tier: 3
-  cost: 8500
-  recipeUnlocks:
-  - ADTHandheldCrewMonitor
-  requiredTech:
-  - IndustrialMedicine
-  position: 1,-1
-
-- type: technology
-  id: ReagentAnalyzer
+  id: ADTReagentAnalyzer
   name: research-technology-reagent-analyzer
   icon:
     sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
@@ -88,7 +73,7 @@
   recipeUnlocks:
   - ADTReagentAnalyzer
   requiredTech:
-  - IndustrialMedicine
+  - ADTIndustrialMedicine
   position: 1,1
 
 - type: technology
@@ -105,11 +90,11 @@
   - CryostasisBeaker
   - SyringeCryostasis
   requiredTech:
-  - BiochemicalStasis
+  - ADTBiochemicalStasis
   position: 5,1
 
 - type: technology
-  id: MechanizedTreatment
+  id: ADTMechanizedTreatment
   name: research-technology-mechanized-treatment
   icon:
     sprite: Mobs/Silicon/chassis.rsi
@@ -125,7 +110,7 @@
   - ADTMedicalMODsuit
 
 - type: technology
-  id: BluespaceChemistry
+  id: ADTBluespaceChemistry
   name: research-technology-bluespace-chemistry
   icon:
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
@@ -138,11 +123,11 @@
   - SyringeBluespace
   position: 5,0
   requiredTech:
-  - BiochemicalStasis
+  - ADTBiochemicalStasis
 
 
 - type: technology
-  id: BiochemicalStasis
+  id: ADTBiochemicalStasis
   name: research-technology-biochemical-stasis
   icon:
     sprite: Structures/Machines/stasis_bed.rsi

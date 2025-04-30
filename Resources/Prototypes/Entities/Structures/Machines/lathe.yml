@@ -513,11 +513,10 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-
     - ADTMedicalMiscStaticPack # ADT-Tweak
     dynamicPacks:
     - Chemistry
-    - ADTAdvancedMedicalMiscPack
+    - ADTAdvancedMedicalMiscPack #ADT-Tweak
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

@@ -56,7 +56,7 @@
     state: assembler
   discipline: CivilianServices
   tier: 2
-  cost: 7500
+  cost: 5000
   recipeUnlocks:
   - ADTKitchenAssemblerMachineCircuitBoard
   requiredTech:
@@ -71,7 +71,7 @@
     state: composite_off
   discipline: CivilianServices
   tier: 2
-  cost: 7500
+  cost: 5000
   recipeUnlocks:
   - ADTElectricRangeMachineCircuitBoard
   requiredTech:

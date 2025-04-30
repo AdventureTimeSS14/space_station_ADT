@@ -40,15 +40,15 @@
 
 - type: latheRecipe
   id: ADTElectricRangeMachineCircuitBoard
+  parent: BaseCircuitboardRecipe
   result: ADTElectricRangeMachineCircuitBoard
-  category: Circuitry
   completetime: 4
   materials:
      Steel: 800
      Glass: 900
 
 - type: latheRecipe
-  id: CryoPodMachineCircuitBoard
+  id: ADTCryoPodMachineCircuitBoard
   parent: BaseCircuitboardRecipe
   result: CryoPodMachineCircuitBoard
   materials:

@@ -30,6 +30,8 @@
         whitelist:
           components:
           - FitsInDispenser
+          tag:
+          - ADTSmallSyringe
   - type: ContainerContainer
     containers:
       beakerSlot: !type:ContainerSlot
