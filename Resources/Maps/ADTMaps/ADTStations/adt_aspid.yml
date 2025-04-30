@@ -1,17 +1,6 @@
 meta:
-  format: 7
-  category: Map
-  engineVersion: 250.0.0
-  forkId: ADT
-  forkVersion: ca99ea9b4309d3dd655ff3f2e9cdb064b6e753d5
-  time: 04/15/2025 10:02:42
-  entityCount: 18337
-maps:
-- 1
-grids:
-- 2
-orphans: []
-nullspace: []
+  format: 6
+  postmapinit: false
 tilemap:
   0: Space
   35: FloorAstroGrass

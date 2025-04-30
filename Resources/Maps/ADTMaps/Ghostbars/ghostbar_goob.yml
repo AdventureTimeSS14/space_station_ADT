@@ -1,17 +1,6 @@
 meta:
-  format: 7
-  category: Map
-  engineVersion: 250.0.0
-  forkId: ADT
-  forkVersion: 08b3e4d106b0b819c730d4706915c43a9df646ca
-  time: 04/17/2025 14:29:45
-  entityCount: 1753
-maps:
-- 1740
-grids:
-- 1
-orphans: []
-nullspace: []
+  format: 6
+  postmapinit: false
 tilemap:
   0: Space
   1: ADTFloorBlackOrange

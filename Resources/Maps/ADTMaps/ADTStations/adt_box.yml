@@ -1,18 +1,6 @@
 meta:
-  format: 7
-  category: Map
-  engineVersion: 250.0.0
-  forkId: ADT
-  forkVersion: 09550cb44495cb50de6b742e7452b2e0194a56fa
-  time: 04/29/2025 15:04:47
-  entityCount: 28311
-maps:
-- 1
-grids:
-- 2
-- 28309
-orphans: []
-nullspace: []
+  format: 6
+  postmapinit: false
 tilemap:
   0: Space
   5: FloorArcadeBlue2
