@@ -1,0 +1,27 @@
+- type: roleLoadout
+  id: JobADTAdminGod
+  groups:
+  - AdminGodShoes
+  - AdminGodJumpsuit
+
+- type: loadoutGroup
+  id: AdminGodJumpsuit
+  name: loadout-group-admin-god-jumpsuit
+  loadouts:
+  - ADTJumsuitAdminGod
+
+- type: loadoutGroup
+  id: AdminGodShoes
+  name: loadout-group-admin-god-jumpsuit
+  loadouts:
+  - ADTShoesAdminGod
+
+- type: loadout
+  id: ADTShoesAdminGod
+  equipment:
+    shoes: ADTClothingFootCloudGod
+
+- type: loadout
+  id: ADTJumsuitAdminGod
+  equipment:
+    jumpsuit: ADTClothingUniformsJumpsuitWhiteAdminGod

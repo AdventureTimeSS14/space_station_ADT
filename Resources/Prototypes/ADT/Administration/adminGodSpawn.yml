@@ -1,0 +1,28 @@
+- type: entity
+  name: Admin God
+  parent: BaseMobHuman
+  id: ADTGodSpawn # НЕ МЕНЯТЬ ID ПРОТОТИПА
+  suffix: "Админ бог"
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: Godmode
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
+  - type: Tag
+    tags:
+    - CanPilot
+    - DoorBumpOpener
+  - type: UniversalLanguageSpeaker
+  - type: Physics
+    ignorePaused: true
+    bodyType: Kinematic
+    canCollide: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 20
+  - type: Loadout
+    roleLoadout: [ JobADTAdminGod ]
