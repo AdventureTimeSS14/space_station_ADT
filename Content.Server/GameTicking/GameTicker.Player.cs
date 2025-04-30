@@ -13,6 +13,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.CCVar;
 using Content.Server.Discord;
+using System.Linq;
 
 namespace Content.Server.GameTicking
 {
@@ -70,7 +71,37 @@ namespace Content.Server.GameTicking
                     // ADT-Tweak-start
                     if (firstConnection)
                     {
-                        _chatManager.SendAdminAnnouncementColor($"\nВНИМАНИЕ!!! \nЗашёл новичок {args.Session.Name} с {firstSeenTime}. Администрации быть внимательней :0, у данного игрока меньше 10ч на нашем сервере. \n ВНИМАНИЕ!!!", colorOverrid: Color.White);
+                        _chatManager.SendAdminAnnouncementColor(
+                            "\nВНИМАНИЕ!!!\n" +
+                            $"Зашёл новичок {args.Session.Name} с {firstSeenTime}.\n" +
+                            "Администрации быть внимательней :0, у данного игрока меньше 10ч на нашем сервере.\n" +
+                            "ВНИМАНИЕ!!!",
+                            colorOverrid: Color.White
+                        );
+
+                        // Получаем всех администраторов
+                        var clients = _adminManager.ActiveAdmins
+                        .Where(admin => _adminManager.GetAdminData(admin)?.Flags.HasFlag(AdminFlags.Adminchat) == true)
+                        .Select(p => p.Channel).ToList();
+
+                        Filter filter = Filter.Empty();
+                        foreach (var client in clients)
+                        {
+                            var sessionAdmin = _playerManager.GetSessionByChannel(client);
+                            filter.AddPlayer(sessionAdmin);
+                        }
+
+                        var soundPath = new ResPath("/Audio/ADT/Misc/sgu.ogg");
+                        var audioParams = AudioParams.Default.WithVolume(-8f);
+                        var replay = false;
+
+                        // Каждому воспроизводим звук
+                        _audio.PlayGlobal(
+                            soundPath,
+                            filter,
+                            replay,
+                            audioParams
+                        );
                     }
                     else
                     {
