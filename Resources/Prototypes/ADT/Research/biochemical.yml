@@ -57,6 +57,7 @@
   cost: 5000
   recipeUnlocks:
   - ADTMedicalAssemblerMachineCircuitBoard
+  - ADTBlankMediPen
   requiredTech:
   - ADTMedicalMODsuit
   position: 2,0
