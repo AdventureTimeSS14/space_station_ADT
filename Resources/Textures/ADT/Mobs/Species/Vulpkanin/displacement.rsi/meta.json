@@ -1,7 +1,7 @@
 ﻿{
-    "version": 1,
+    "version": 3,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by TheShuEd, head by Filo",
+    "copyright": "Made by TheShuEd, head by Filo, jumpsuit, shoes by .redlis (discord), jumpsuit-female edited by .redlis",
     "size": {
         "x": 32,
         "y": 32
@@ -13,6 +13,14 @@
         {
             "name": "jumpsuit-female",
             "directions": 4
+        },
+        {
+            "name": "jumpsuit",
+            "directions": 4
+        },
+        {
+            "name": "shoes",
+            "directions" : 4
         },
         {
             "name": "head",

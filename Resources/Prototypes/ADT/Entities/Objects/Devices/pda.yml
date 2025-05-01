@@ -311,6 +311,40 @@
       shader: "unshaded"
       visible: false
 
+#КПК парикмахера
+- type: entity
+  parent: ADTBasePDA
+  id: ADTBarberPDA
+  name: barber PDA
+  description: Why isn't it gray?
+  components:
+  - type: Pda
+    id: ADTBarberIDCard
+  - type: PdaBorderColor
+    borderColor: "#717059"
+    accentVColor: "#00cc35"
+  - type: Icon
+    sprite: Objects/Devices/pda.rsi
+    state: pda-internservice
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-internservice
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-internservice"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+
 ## Alternate Job Titles
 
 # Passenger
@@ -690,3 +724,4 @@
   components:
   - type: Pda
     id: ADTFieldDoctorIDCard
+
