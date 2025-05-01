@@ -1,0 +1,8 @@
+marking-ADTGauzeLowerLegLeftDigi-gauze_lowerleg_l_digi = Бинт, Перевязь лапы (Левая)
+marking-ADTGauzeLowerLegLeftDigi = Бинт, Перевязь лапы (Левая)
+marking-ADTGauzeLowerLegRightDigi-gauze_lowerleg_r_digi = Бинт, Перевязь лапы (Правая)
+marking-ADTGauzeLowerLegRightDigi = Бинт, Перевязь лапы (Правая)
+marking-ADTGauzeUpperLegLeftDigi-gauze_upperleg_l_digi = Бинт, Перевязь ноги (Левая)
+marking-ADTGauzeUpperLegLeftDigi = Бинт, Перевязь ноги (Левая)
+marking-ADTGauzeUpperLegRightDigi-gauze_upperleg_r_digi = Бинт, Перевязь ноги (Правая)
+marking-ADTGauzeUpperLegRightDigi = Бинт, Перевязь ноги (Правая)
