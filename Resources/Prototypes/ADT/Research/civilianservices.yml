@@ -44,39 +44,40 @@
   cost: 12500
   recipeUnlocks:
     - ADTAdvancedMicrowaveMachineCircuitBoard
-    - ADTAdvancedReagentGrinderMachineCircuitboard
-    - ADTHydroponicsTrayAdvancedMachineCircuitboard
-    - ADTAdvancedPlantAnalyzer
-  position: 2,-3
+    - ADTKitchenAssemblerMachineCircuitBoard
+    - ADTElectricRangeMachineCircuitBoard
+  position: 1,-2
   requiredTech:
   - MeatManipulation
 
+
 - type: technology
-  id: ADTAdvancedFoodService
-  name: research-technology-advanced-food-service
+  id: ADTHydroponicsAdvanced
+  name: research-technology-services-hydroponics-advanced
   icon:
-    sprite: ADT/Structures/Machines/assembler.rsi
-    state: assembler
+    sprite: ADT/Objects/Devices/plant_analyzerT2.rsi
+    state: plantanalyzer
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+    - ADTHydroponicsTrayAdvancedMachineCircuitboard
+    - ADTAdvancedPlantAnalyzer
+  position: 1,-1
+  requiredTech:
+  - Hydroponics
+
+- type: technology
+  id: ADTReagentGrinder
+  name: research-advanced-reagent-grinder
+  icon:
+    sprite: ADT/Structures/Machines/juicer_T2.rsi
+    state: juicer0
   discipline: CivilianServices
   tier: 2
   cost: 5000
   recipeUnlocks:
-  - ADTKitchenAssemblerMachineCircuitBoard
+  - ADTAdvancedReagentGrinderMachineCircuitboard
   requiredTech:
   - MeatManipulation
   position: 3,-2
-
-- type: technology
-  id: ADTElectricalRange
-  name: research-technology-electrical-range
-  icon:
-    sprite: ADT/Structures/Machines/oven.rsi
-    state: composite_off
-  discipline: CivilianServices
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - ADTElectricRangeMachineCircuitBoard
-  requiredTech:
-  - MeatManipulation
-  position: 1,-2

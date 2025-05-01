@@ -10,6 +10,9 @@ ent-ADTAdvancedKitchenReagentGrinder = продвинутый измельчит
 ent-ADTAdvancedPlantAnalyzer = Агровед 9000
     .desc = Продвинутая модель анализатора растений
 
+ent-ADTAdvancedPlantAnalyzerEmpty = Агровед 9000
+    .desc = Продвинутая модель анализатора растений
+
 ent-ADTKitchenElectricRange = Электрическая печь
     .desc = Функциональная печь с множеством функций.
 
