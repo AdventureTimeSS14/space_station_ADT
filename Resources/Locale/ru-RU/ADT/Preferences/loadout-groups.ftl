@@ -23,6 +23,8 @@ loadout-group-bartender-id-adt = Бармен, ID
 loadout-group-clown-id-adt = Клоун, ID
 loadout-group-janitor-id-adt = Уборщик, ID
 loadout-group-botanist-id-adt = Ботаник, ID
+loadout-barber-jumpsuit-adt = Парикмахер, комбинезон
+loadout-barber-other-clothing-adt = Парикмахер, верхняя одежда
 
 # Cargo
 loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
