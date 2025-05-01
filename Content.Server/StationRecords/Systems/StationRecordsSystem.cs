@@ -152,11 +152,17 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             return;
         }
 
+        // ADT tweak start - use id card if possible
+        Entity<IdCardComponent>? card = null;
+        if (idUid != null && _idCard.TryFindIdCard(idUid.Value, out var card2))
+            card = card2;
+        // ADT tweak end
+
         var record = new GeneralStationRecord()
         {
             Name = name,
             Age = age,
-            JobTitle = jobPrototype.LocalizedName,
+            JobTitle = card?.Comp.LocalizedJobTitle ?? jobPrototype.LocalizedName, // ADT
             JobIcon = jobPrototype.Icon,
             JobPrototype = jobId,
             Species = species,

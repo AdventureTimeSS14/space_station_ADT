@@ -36,33 +36,41 @@ namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {
-    /// <summary>
-    /// Handle power and radiation output depending on atmospheric things.
-    /// </summary>
+    private bool CheckFirstPower(EntityUid uid, SupermatterComponent sm, GasMixture mix)
+    {
+        if (sm.Power > 0 && !sm.HasBeenPowered)
+        {
+            LogFirstPower(uid, sm, mix);
+        }
+
+        return sm.HasBeenPowered;
+    }
+
     private void ProcessAtmos(EntityUid uid, SupermatterComponent sm, float frameTime)
     {
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
-
         if (mix is not { })
             return;
 
-        sm.GasStorage = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-        var moles = sm.GasStorage.TotalMoles;
+        if (!sm.HasBeenPowered)
+            return;
 
+        sm.GasStorage = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
+
+        var moles = sm.GasStorage.TotalMoles;
         if (!(moles > 0f))
             return;
 
         var gasComposition = sm.GasStorage.Clone();
 
-        // Let's get the proportions of the gases in the mix for scaling stuff later
-        // They range between 0 and 1
-        foreach (var gasId in Enum.GetValues<Gas>())
+        // Normalize gas proportions (total moles should add up to 1)
+        foreach (Gas gasId in Enum.GetValues(typeof(Gas)))
         {
             var proportion = sm.GasStorage.GetMoles(gasId) / moles;
             gasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
         }
 
-        // No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
+        // No less than zero, and no greater than one, we use this to do explosions and heat to power transfer.
         var powerRatio = SupermatterGasData.GetPowerMixRatios(gasComposition);
 
         // Affects plasma, o2 and heat output.
@@ -114,8 +122,7 @@ public sealed partial class SupermatterSystem
         else
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
 
-        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500))))
-        // We take the mol count, and scale it to be our inhibitor
+        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500)))). We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor = Math.Clamp(
             1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(ADTCCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
             0f, 1f);
@@ -130,7 +137,7 @@ public sealed partial class SupermatterSystem
             sm.MatterPower = Math.Max(sm.MatterPower - removedMatter, 0);
         }
 
-        // Based on gas mix, makes the power more based on heat or less effected by heat
+        // Based on gas mix, makes the power more based on heat or less affected by heat
         var tempFactor = powerRatio > 0.8 ? 50f : 30f;
 
         // If there is more frezon and N2 than anything else, we receive no power increase from heat
@@ -176,7 +183,7 @@ public sealed partial class SupermatterSystem
         var powerReduction = (float)Math.Pow(sm.Power / 500, 3);
 
         // After this point power is lowered
-        // This wraps around to the begining of the function
+        // This wraps around to the beginning of the function
         sm.PowerLoss = Math.Min(powerReduction * sm.PowerlossInhibitor, sm.Power * 0.83f * sm.PowerlossInhibitor);
         sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
 
@@ -184,15 +191,10 @@ public sealed partial class SupermatterSystem
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))
             gravityWell.MaxRange = Math.Clamp(sm.Power / 850f, 0.5f, 3f);
 
-        // Log the first powering of the supermatter
-        if (sm.Power > 0 && !sm.HasBeenPowered)
-            LogFirstPower(uid, sm, mix);
-
         // Cascade stuff.
         var SupermatterResonantFrequency = SupermatterGasData.GetResonantFrequency(gasComposition);
 
         sm.ResonantFrequency = SupermatterResonantFrequency;
-
     }
 
     /// <summary>
@@ -337,6 +339,9 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleDamage(EntityUid uid, SupermatterComponent sm)
     {
+        if (!sm.HasBeenPowered)
+            return;
+
         var xform = Transform(uid);
         var gridId = xform.GridUid;
 

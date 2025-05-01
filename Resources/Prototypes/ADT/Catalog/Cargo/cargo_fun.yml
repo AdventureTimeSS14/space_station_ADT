@@ -55,33 +55,3 @@
   cost: 2000
   category: Fun
   group: market
-
-- type: cargoProduct
-  id: ADTFunAirsoftWeapon
-  icon:
-    sprite: ADT/Objects/Weapons/Guns/StrikeBall/Bolt-Snipers/heavy_sniper.rsi
-    state: base
-  product: ADTWeaponAirsoftCrate
-  cost: 15000
-  category: Fun
-  group: market
-
-- type: cargoProduct
-  id: ADTFunAirsoftArmor
-  icon:
-    sprite: ADT/Clothing/OuterClothing/Armor/airsoft_red_armor.rsi
-    state: icon
-  product: ADTArmorAirsoftCrate
-  cost: 7500
-  category: Fun
-  group: market
-
-- type: cargoProduct
-  id: ADTFunAirsoftBalls
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/rifle.rsi
-    state: base
-  product: ADTPistolAirsoftCrate
-  cost: 4250
-  category: Fun
-  group: market
