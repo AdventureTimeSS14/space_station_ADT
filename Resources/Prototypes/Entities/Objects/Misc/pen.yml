@@ -26,6 +26,11 @@
         maxDistance: 2
   - type: UseDelay
     delay: 1.5
+  #ADT-Tweak-Start
+  - type: Tool
+    qualities:
+    - Drawing
+  #ADT-Tweak-End
 
 - type: entity
   parent: Pen

@@ -39,3 +39,19 @@
   id: ADTHatBeretAtmos
   equipment:
     head: ADTClothingHeadHatsBeretAtmos
+
+# PDA
+- type: loadout
+  id: AtmosPDA
+  equipment:
+    id: AtmosPDA
+
+- type: loadout
+  id: ADTLifeSupportTechPDA
+  equipment:
+    id: ADTLifeSupportTechPDA
+
+- type: loadout
+  id: ADTPlasmaScientistPDA
+  equipment:
+    id: ADTPlasmaScientistPDA
