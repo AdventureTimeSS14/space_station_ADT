@@ -18,6 +18,6 @@
   id: ADTRoboticistGear
   equipment:
     ears: ClothingHeadsetRobotics
-    id: ADTRoboticistPDA
+    # id: ADTRoboticistPDA ADT: different PDAs in loadouts
     pocket1: BorgTranslatorImplanter
-    belt: ClothingBeltUtilityEngineering 
+    belt: ClothingBeltUtilityEngineering
