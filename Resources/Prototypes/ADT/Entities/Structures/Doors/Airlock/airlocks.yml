@@ -140,6 +140,14 @@
 
 - type: entity
   parent: Airlock
+  id: ADTBarberAirlock
+  suffix: Barber
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/barber.rsi
+
+- type: entity
+  parent: Airlock
   id: ADTLibraryAirlock
   suffix: Library
   components:
@@ -354,6 +362,18 @@
     sprite: ADT/Structures/Doors/Airlocks/Glass/rd.rsi
 
 - type: entity
+  parent: AirlockGlass
+  id: ADTBarberAirlockGlass
+  suffix: Barber
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/barber.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
+
+- type: entity
   parent: AirlockCommandGlass
   id: ADTGlassBlueShieldAirlock
   suffix: BS
@@ -422,3 +442,4 @@
   - type: Wires
     boardName: wires-board-name-highsec
     layoutId: HighSec
+

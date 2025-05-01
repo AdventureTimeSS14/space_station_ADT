@@ -443,8 +443,15 @@ ent-ADTInfantrymanTUSSPUniform = униформа космодесантника
 ent-ADTClothingUniformJumpsuitExplorer = комбинезон исследователя
     .desc = Стандартный комбинезон шахтёра НТ. От него пахнет... Пеплом?
 
+
 ent-ADTClothingUniformJumpsuitDetectiveOld = старая рубашка с брюками, галстуком и подтяжками
     .desc = Носящий это точно хочет показать, что он ценит старые принципы и поведения. Всё это явно потрёпанно, но хозяин этих вещей точно любит их.
 
 ent-ADTClothingUniformJumpsuitOldDark = старый комбинезон учёного
     .desc = Кажется это комбинезон заигравшегося творца.
+
+ent-ADTClothingUniformJumpsuitBarber = модный костюм
+    .desc = Один костюм, чтобы править ими всеми.
+ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный костюм
+    .desc = Для любителей старомодного стиля.
+

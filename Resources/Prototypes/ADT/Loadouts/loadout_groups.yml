@@ -526,7 +526,10 @@
   - ADTNeckSalvageSpecialistDCape
   - ADTNeckSalvageSpecialistRCape
 
-# ДЕТЕКТИВ
+
+## ДЕТЕКТИВ
+
+#Обувь
 - type: loadoutGroup
   id: DetectiveShoes
   name: loadout-group-security-shoes
@@ -541,6 +544,30 @@
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+
+## Парикмахер 
+
+# костюмы
+- type: loadoutGroup
+  id: ADTBarberJumpsuit
+  name: loadout-barber-jumpsuit-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingUniformJumpsuitBarberLoadOut
+  - ADTClothingUniformJumpsuitBarberBrownLoadOut
+  - ADTClothingUniformJumpskirtBarberLoadOut
+  - ADTClothingUniformJumpskirtBarberBrownLoadOut
+
+# фартук
+- type: loadoutGroup
+  id: ADTBarberOtherClothing
+  name: loadout-barber-other-clothing-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingOuterApronBarberLoadOut
+
 
 # Alts PDA start
 - type: loadoutGroup

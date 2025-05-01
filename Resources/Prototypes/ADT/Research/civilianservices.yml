@@ -74,9 +74,12 @@
     state: mw
   discipline: CivilianServices
   tier: 2
-  cost: 7500
+  cost: 12500
   recipeUnlocks:
-    - ADTAdvancedMicrowaveMachineCircuitBoard #Я не против расширения арсенала этой технологии, просто переименуйте её в локализации, если будете добавлять сюда чего-либо
+    - ADTAdvancedMicrowaveMachineCircuitBoard
+    - ADTAdvancedReagentGrinderMachineCircuitboard
+    - ADTHydroponicsTrayAdvancedMachineCircuitboard
+    - ADTAdvancedPlantAnalyzer
   position: 2,-3
   requiredTech:
   - MeatManipulation

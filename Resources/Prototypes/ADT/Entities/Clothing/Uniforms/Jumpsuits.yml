@@ -1513,3 +1513,28 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
+
+# Парикмахер
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBarber
+  name: fashion suit
+  description: One suit to rule them all.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBarberBrown
+  name: brown fashion suit
+  description: For an old-fashioned style lover.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
+
