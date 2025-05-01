@@ -1,0 +1,111 @@
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodDrugBase
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bitter
+  - type: Food
+    requiresSpecialDigestion: false
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/drug_food.rsi
+    state: crystal_full
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 28
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 28
+  - type: Item
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - ClothMade
+    - Meat
+
+- type: entity
+  name: desoxyephedrine crystal
+  parent: ADTFoodDrugBase
+  id: ADTFoodMethCrystal
+  description: "Meth can be smoked, eaten, or sniffed. But you can only slice this specimen."
+  components:
+  - type: Sprite
+    color: "#ffffff"
+  - type: SliceableFood
+    slice: ADTFoodMethCrystalShard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 50
+  - type: Item
+    shape:
+    - 0,0,0,0
+
+- type: entity
+  name: desoxyephedrine crystal shard
+  parent: ADTFoodDrugBase
+  id: ADTFoodMethCrystalShard
+  description: "Meth can be smoked, eaten, or sniffed. Looks to sweet and tasty..."
+  components:
+  - type: Stack
+    stackType: ADTFoodMethCrystalShard
+    count: 1
+  - type: Food
+  - type: Sprite
+    color: "#ffffff"
+    state: crystal_shard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 10
+
+- type: entity
+  name: blue sky desoxyephedrine crystal
+  parent: ADTFoodDrugBase
+  id: ADTFoodWalterMethCrystal
+  description: "Meth can be smoked, eaten, or sniffed. But you can only slice this specimen."
+  components:
+  - type: Sprite
+    color: "#1bcfe7"
+  - type: SliceableFood
+    slice: ADTFoodWalterMethCrystalShard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTBlueSkyDesoxyephedrine
+          Quantity: 50
+  - type: Item
+    shape:
+    - 0,0,0,0
+
+- type: entity
+  name: blue sky desoxyephedrine crystal shard
+  parent: ADTFoodDrugBase
+  id: ADTFoodWalterMethCrystalShard
+  description: "Tight, tight, tight!! Yeah!.. Blue, yellow, pink, whatever, man, just keep bringing me that!"
+  components:
+  - type: Stack
+    stackType: ADTFoodWalterMethCrystalShard
+    count: 1
+  - type: Food
+  - type: Sprite
+    color: "#1bcfe7"
+    state: crystal_shard
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: ADTBlueSkyDesoxyephedrine
+          Quantity: 10
