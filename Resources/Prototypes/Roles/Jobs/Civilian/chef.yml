@@ -22,6 +22,6 @@
   id: ChefGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: ChefPDA
+    #id: ChefPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled
