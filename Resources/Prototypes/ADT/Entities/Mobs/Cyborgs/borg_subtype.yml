@@ -96,3 +96,16 @@
   id: female_service
   sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Service/female_service.rsi
   dummyPrototype: ADTFemaleServiceChassis
+
+- type: borgSubtype
+  parentBorgType: service
+  id: kerfus_service
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Service/cyborg_kerfus.rsi
+  dummyPrototype: ADTKerfusServiceChassis
+
+#Janitor
+- type: borgSubtype
+  parentBorgType: janitor
+  id: kerfus_janitor
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Janitor/cyborg_maid_kerfus.rsi
+  dummyPrototype: ADTKerfusJanitorChassis

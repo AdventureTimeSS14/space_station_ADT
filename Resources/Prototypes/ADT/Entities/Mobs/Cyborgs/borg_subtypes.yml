@@ -82,3 +82,24 @@
     selectedBorgType: service
   - type: BorgSwitchableSubtype
     borgSubtype: brobot_service
+
+- type: entity
+  id: ADTKerfusServiceChassis
+  parent: BorgChassisService
+  name: kerfus cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: kerfus_service
+
+#Janitor
+- type: entity
+  id: ADTKerfusJanitorChassis
+  parent: BorgChassisJanitor
+  name: kerfus cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: kerfus_janitor
