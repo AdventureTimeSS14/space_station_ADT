@@ -326,7 +326,7 @@
 
 - type: marking
   id: ADTUrsusfoot_left
-  bodyPart: RFoot
+  bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [UrsusSpecies]
   sprites:
@@ -335,7 +335,7 @@
 
 - type: marking
   id: ADTUrsusgradientfoot_left
-  bodyPart: RFoot
+  bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [UrsusSpecies]
   sprites:
@@ -344,7 +344,7 @@
 
 - type: marking
   id: ADTUrsusgradientfoot_left2
-  bodyPart: RFoot
+  bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [UrsusSpecies]
   sprites:
@@ -371,7 +371,7 @@
 
 - type: marking
   id: ADTUrsusgradientfoot_right2
-  bodyPart: RFoot
+  bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [UrsusSpecies]
   sprites:
