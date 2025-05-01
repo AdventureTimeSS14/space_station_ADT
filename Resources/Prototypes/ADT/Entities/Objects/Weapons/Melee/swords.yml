@@ -414,7 +414,8 @@
   - type: Construction
     graph: ADTBSword
     node: ADTBoneCompSword
-
+    
+- type: entity
   id: ADTStraightRazor
   name: straight razor
   description: It's easy to slit a throat with it.
