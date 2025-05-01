@@ -39,3 +39,6 @@
 
 - type: playTimeTracker
   id: JobADTUSSPArmyPrivate
+
+- type: playTimeTracker
+  id: JobADTBarber
