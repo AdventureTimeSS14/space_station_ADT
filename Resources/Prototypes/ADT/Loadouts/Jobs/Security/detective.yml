@@ -34,3 +34,14 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterDetective
+
+# PDA
+- type: loadout
+  id: DetectivePDA
+  equipment:
+    id: DetectivePDA
+
+- type: loadout
+  id: ADTInvestigatorPDA
+  equipment:
+    id: ADTInvestigatorPDA

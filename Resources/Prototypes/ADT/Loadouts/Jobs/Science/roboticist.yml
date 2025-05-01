@@ -42,3 +42,8 @@
   id: ADTRoboticistPDA
   equipment:
     id: ADTRoboticistPDA
+
+- type: loadout
+  id: ADTMechAssemblerPDA
+  equipment:
+    id: ADTMechAssemblerPDA

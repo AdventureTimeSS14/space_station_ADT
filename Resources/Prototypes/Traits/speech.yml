@@ -12,6 +12,7 @@
     - type: LizardAccent
     - type: MothAccent
     - type: RoarAccent # ADT-Tweak
+    - type: NyaAccent # ADT-Tweak
     - type: ReplacementAccent
       accent: dwarf
 
