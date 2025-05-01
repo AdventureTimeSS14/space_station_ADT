@@ -164,7 +164,7 @@
   parent: ClothingEyesBase
   id: ADTClothingEyesGlassesMonocle
   name: monocle
-  description: Such a dapper eyepiece!
+  description: An outdated optical device for correcting vision or demonstrating arrogance.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
