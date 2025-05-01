@@ -390,6 +390,44 @@
     walkModifier: 0.95
     sprintModifier: 0.95
 
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTCenturionArmor
+  name: Centurion armor
+  description: The breastplate of a Centurion of the Roman armies should be an honor for you to wear it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/centurion_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/centurion_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTLegionerArmor
+  name: Legioner armor
+  description: The standard breast armour of a Roman legionary.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/legioner_armor.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/legioner_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
 # USSP USSP
 
 #КЗС-1

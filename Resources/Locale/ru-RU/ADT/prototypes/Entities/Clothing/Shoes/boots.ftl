@@ -31,3 +31,5 @@ ent-ADTClothingShoesBootsUSSPArmy = армейские берцы СССП
 ent-ADTClothingShoesKirzaBoots = кирзовые сапоги
     .desc = Неубиваемая обувь солдат и офицеров СССП.
 
+ent-ADTClothingShoesRomanSandales = римские сандали
+    .desc = Старые римские сандалии по-прежнему надежны и стильны.
