@@ -1,0 +1,17 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+	"copyright": "Made by Cethet",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "comms_console"
+		},
+		{
+			"name": "atmos_alerts"
+		}
+	]
+}

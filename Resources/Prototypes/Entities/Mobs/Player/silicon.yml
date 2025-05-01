@@ -48,16 +48,26 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+    # ADT Start
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+      enum.StationAiInfoUiKey.Key:
+        type: StationAiInfoBoundUserInterface
+    # ADT End
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowRadar
+        toggleAction: ActionStationAiRadar #ADT-Tweak
       enum.CrewMonitoringUIKey.Key:
-        toggleAction: ActionAGhostShowCrewMonitoring
+        toggleAction: ActionStationAiCrewMonitoring #ADT-Tweak
       enum.GeneralStationRecordConsoleKey.Key:
-        toggleAction: ActionAGhostShowStationRecords
+        toggleAction: ActionStationAiStationRecords #ADT-Tweak
       enum.CommunicationsConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowCommunications
+    # ADT Start
+        toggleAction: ActionStationAiCommunications
+      enum.AtmosAlertsComputerUiKey.Key:
+        toggleAction: ActionStationAiAtmosphericAlerts
+    # ADT End
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
@@ -73,6 +83,9 @@
     # ADT Start
     sound:
       path: /Audio/ADT/Announcements/intercept.ogg
+  - type: StationAiInfo
+  - type: CrewManifestViewer
+    ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
   - type: HolographicAvatar
     layerData:
