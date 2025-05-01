@@ -20,7 +20,6 @@ ent-ADTFoodFishCooked = рыбный стейк
     .desc = Превосходно.
 ent-ADTFoodFishCutletCooked = рыбная котлета
     .desc = Превосходно наполовину.
-    .desc = Преовосходно в 1/2 степени.
 ent-FoodMeatGondola = мясо гондолы
     .desc = Монструозный кусок гондольского мяса.
 ent-FoodMeatGondolaCooked = готовое мясо гондолы

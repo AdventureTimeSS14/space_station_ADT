@@ -267,6 +267,7 @@
 - type: reaction
   id: Thermite
   impact: Medium
+  maxTemp: 237
   reactants:
     Iron:
       amount: 1
@@ -376,6 +377,7 @@
 - type: reaction
   id: ChloralHydrate
   impact: Medium
+  maxTemp: 233
   reactants:
     Chlorine:
       amount: 3
@@ -506,6 +508,7 @@
 - type: reaction
   id: SodiumPolyacrylate
   impact: Medium
+  maxTemp: 233
   reactants:
     Oxygen:
       amount: 2
@@ -530,6 +533,7 @@
 - type: reaction
   id: Tazinide
   impact: Medium
+  maxTemp: 233
   reactants:
     Licoxide:
       amount: 1

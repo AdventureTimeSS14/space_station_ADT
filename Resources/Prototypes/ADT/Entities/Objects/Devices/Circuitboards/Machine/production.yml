@@ -78,6 +78,7 @@
         defaultPrototype: Beaker
 #End of DeltaV
 
+
 ###  КОФЕ БРЕЙК ДА?!
 - type: entity
   id: ADTCoffeeMachineCircuitboard
@@ -96,6 +97,7 @@
             amount: 1
             defaultPrototype: Beaker
 
+
 - type: entity
   id: ADTCoffeeMachineBluespaceCircuitboard
   parent: BaseMachineCircuitboard
@@ -113,3 +115,54 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
+
+### немного обновления наркоты
+- type: entity
+  id: ADTColdplateMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: coldplate machine board
+  description: A machine printed circuit board for a coldplate.
+  components:
+    - type: MachineBoard
+      prototype: ADTChemistryColdplate
+      stackRequirements:
+        Capacitor: 2
+        Glass: 1
+
+#Corvax Next Advanced Service Machinery Start
+- type: entity
+  id: ADTHydroponicsTrayAdvancedMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced hydroponics tray machine board
+  description: A machine printed circuit board for a advanced hydroponics tray.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTHydroponicsTrayAdvanced
+      stackRequirements:
+        Glass: 5
+        Cable: 4
+        Plasma: 5
+      tagRequirements:
+        GlassBeaker:
+          amount: 3
+          defaultPrototype: Beaker
+
+- type: entity
+  id: ADTAdvancedReagentGrinderMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced reagent grinder machine board
+  description: A machine printed circuit board for a reagent grinder.
+  components:
+    - type: MachineBoard
+      prototype: ADTAdvancedKitchenReagentGrinder
+      stackRequirements:
+        MatterBin: 2
+        Manipulator: 4
+        Plasma: 5
+      tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker
+#Corvax Next Advanced Service Machinery End

@@ -8,6 +8,63 @@
   meltingPoint: 300
 
 - type: reagent
+  id: ADTMethylamine
+  name: reagent-name-methylamine
+  desc: reagent-desc-methylamine
+  flavor: bitter
+  color: "#c5c5c5"
+  physicalDesc: reagent-physical-desc-opaque
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: ADTMethanol
+  name: reagent-name-methanol
+  desc: reagent-desc-methanol
+  flavor: bitter
+  color: "#7cff70"
+  physicalDesc: reagent-physical-desc-strong-smelling
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 20
+  - !type:PlantAdjustHealth
+    amount: -10
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 10
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:PopupMessage
+        visualType: MediumCaution
+        type: Local
+        messages:
+        - norepinephricacid-effect-eye-disconnect
+        - norepinephricacid-effect-eye-pain
+        - norepinephricacid-effect-darkness
+        - norepinephricacid-effect-blindness
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
   id: ADTPlutoniumReactant
   name: reagent-name-plutonium
   desc: reagent-desc-plutonium
