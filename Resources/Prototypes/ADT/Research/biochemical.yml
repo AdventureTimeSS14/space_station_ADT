@@ -141,3 +141,20 @@
   position: 4,0
   requiredTech:
   - ADTMedicalMODsuit
+
+- type: technology
+  id: ADTAdvancedMedicalCare
+  name: research-technology-advanced-medical-care
+  icon:
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: syringe_gun
+  discipline: Biochemical
+  tier: 3
+  cost: 12500
+  recipeUnlocks:
+  - ADTMiniSyringe
+  - ADTLauncherSyringe
+  - ADTTourniquet
+  position: 1,-1
+  requiredTech:
+  - ADTIndustrialMedicine

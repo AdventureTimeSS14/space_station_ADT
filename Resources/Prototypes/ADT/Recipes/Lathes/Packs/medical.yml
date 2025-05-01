@@ -13,3 +13,10 @@
   recipes:
   - ADTHighVoltageDefibrillator
   - ADTReagentAnalyzer
+
+- type: latheRecipePack
+  id: ADTAdvancedMedicalCarePack
+  recipes:
+  - ADTLauncherSyringe
+  - ADTMiniSyringe
+  - ADTTourniquet
