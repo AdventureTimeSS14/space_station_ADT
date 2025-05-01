@@ -140,9 +140,15 @@
     - type: MachineBoard
       prototype: ADTMedicalAssembler
       stackRequirements:
+        Manipulator: 1
+        Capacitor: 1
         Steel: 5
         Glass: 2
         Cable: 4
+      tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker
 
 - type: entity
   id: ADTElectricRangeMachineCircuitBoard
@@ -150,14 +156,18 @@
   name: electric range machine board
   description: A machine printed circuit board for an electric range.
   components:
-     - type: Sprite
-       state: service
-     - type: MachineBoard
-       prototype: ADTKitchenElectricRange
-       stackRequirements:
-         Steel: 5
-         Glass: 2
-         Cable: 4
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTKitchenElectricRange
+      stackRequirements:
+        Steel: 5
+        Glass: 2
+        Cable: 4
+      tagRequirements:
+        Igniter:
+          amount: 1
+          defaultPrototype: Igniter
 
 - type: entity
   id: ADTSyndicateElectricRangeMachineCircuitboard
@@ -173,6 +183,10 @@
         Steel: 5
         Glass: 2
         Cable: 4
+      tagRequirements:
+        Igniter:
+          amount: 1
+          defaultPrototype: Igniter
 
 - type: entity
   id: ADTKitchenAssemblerMachineCircuitBoard
@@ -185,7 +199,12 @@
     - type: MachineBoard
       prototype: ADTKitchenAssembler
       stackRequirements:
+        Manipulator: 2
         Glass: 2
         Cable: 2
+      tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker
 
 #End of Frontier Station
