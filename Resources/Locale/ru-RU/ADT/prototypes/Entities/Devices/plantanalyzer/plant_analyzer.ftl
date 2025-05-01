@@ -1,0 +1,10 @@
+ent-ADTBasePlantAnalyzer = АгроВед 1200
+    .desc = Портативный прибор, позволяющий сканировать семена и растения для получения подробной информации об их генах.
+ent-ADTPlantAnalyzer = { ent-ADTBasePlantAnalyzer }
+    .desc = { ent-ADTBasePlantAnalyzer.desc }
+ent-ADTPlantAnalyzerEmpty = { ent-ADTBasePlantAnalyzer }
+    .desc = { ent-ADTBasePlantAnalyzer.desc }
+    .suffix = Пустой
+ent-ADTPlantAnalyzerDebug = { ent-ADTBasePlantAnalyzer }
+    .desc = { ent-ADTBasePlantAnalyzer.desc }
+    .suffix = DEBUG

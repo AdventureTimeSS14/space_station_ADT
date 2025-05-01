@@ -21,7 +21,7 @@
   id: ChaplainGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: ChaplainPDA
+    # id: ChaplainPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   storage:
     back:

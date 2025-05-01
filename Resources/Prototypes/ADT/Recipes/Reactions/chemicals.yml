@@ -33,6 +33,72 @@
     entity: ReactionSingularity
 
 - type: reaction
+  id: ADTMethanol
+  minTemp: 370
+  reactants:
+    Carbon:
+      amount: 1
+    Hydrogen:
+      amount: 2
+    Oxygen:
+      amount: 1
+  products:
+    ADTMethanol: 4
+
+- type: reaction
+  id: ADTMethylamine
+  reactants:
+    Ammonia:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+    ADTMethanol:
+      amount: 1
+  products:
+    ADTMethylamine: 2
+
+- type: reaction
+  id: ADTBlueSkyDesoxyephedrine
+  impact: Medium
+  minTemp: 370
+  reactants:
+    Ephedrine:
+      amount: 1
+    Iodine:
+      amount: 1
+    Phosphorus:
+      amount: 1
+    ADTMethylamine:
+      amount: 1
+  products:
+    ADTBlueSkyDesoxyephedrine: 4
+
+- type: reaction
+  id: ADTDesoxyephedrineCrystalSpawn
+  maxTemp: 270
+  impact: Medium
+  quantized: true
+  reactants:
+    Desoxyephedrine:
+      amount: 50
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTFoodMethCrystal
+
+- type: reaction
+  id: ADTBlueSkyDesoxyephedrineCrystalSpawn
+  maxTemp: 270
+  impact: Medium
+  quantized: true
+  reactants:
+    ADTBlueSkyDesoxyephedrine:
+      amount: 50
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTFoodWalterMethCrystal
+
+- type: reaction
   id: ADTAntiNobCreation
   quantized: true
   reactants:

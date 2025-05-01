@@ -22,7 +22,7 @@
   id: BotanistGear
   equipment:
     shoes: ClothingShoesColorBrown
-    id: BotanistPDA
+    # id: BotanistPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
     belt: ClothingBeltPlantFilled
   #storage:

@@ -137,6 +137,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: Crewsimov
 
@@ -149,6 +150,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: Corporate
 
@@ -161,6 +163,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: NTDefault
 
@@ -173,6 +176,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: CommandmentsLawset
 
@@ -185,6 +189,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: PaladinLawset
 
@@ -197,6 +202,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
 
@@ -209,6 +215,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: EfficiencyLawset
 
@@ -221,6 +228,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: RobocopLawset
 
@@ -233,6 +241,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: OverlordLawset
 
@@ -245,6 +254,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: GameMasterLawset
 
@@ -257,6 +267,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: PainterLawset
 
@@ -269,6 +280,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: AntimovLawset
     lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
@@ -282,6 +294,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: NutimovLawset
 
@@ -486,6 +499,7 @@
       Dwarf: Speak
       CintaTaj: Speak
       SiliconCollectiveMind: Speak
+      NeoRusskiya: Speak
   - type: CollectiveMindRank
     rankName: collective-mind-sai-rank
   - type: StationAiBrain
@@ -538,6 +552,30 @@
   - type: CargoSellBlacklist
   - type: StationAiVision
     range: 20
+  # Start-ADT-Tweak
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      RobotTalk: Speak
+      Arkane: Speak
+      Urs: Speak
+      Drask: Speak
+      Fire: Speak
+      Nian: Speak
+      SikTaj: Speak
+      Arachnid: Speak
+      RootSpeak: Speak
+      SolCommon: Speak
+      Canilunzt: Speak
+      Draconic: Speak
+      Bubblish: Speak
+      Nekomimetic: Speak
+      BorgTalk: Speak
+      Dwarf: Speak
+      CintaTaj: Speak
+      SiliconCollectiveMind: Speak
+      NeoRusskiya: Speak
+  # End-ADT-Tweak
 
 # Borgs
 - type: entity
