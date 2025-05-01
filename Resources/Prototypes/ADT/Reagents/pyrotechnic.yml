@@ -18,7 +18,7 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: 2
+            Cellular: 0.5
 
 
 - type: reagent
@@ -40,7 +40,7 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: 2
+            Cellular: 0.5
 
 - type: reagent
   id: ADTStabilizingAgent

@@ -222,7 +222,6 @@
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
-    - ADTAdvancedMedicalCarePack
     #ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -514,7 +513,6 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     - ADTMedicalMiscStaticPack # ADT-Tweak
-    - ADTAdvancedMedicalCarePack # ADT-Tweak
     dynamicPacks:
     - Chemistry
   - type: Machine

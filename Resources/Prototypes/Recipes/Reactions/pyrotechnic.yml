@@ -41,11 +41,6 @@
     ADTStabilizingAgent:
       amount: 1
       catalyst: true
-  effects:
-  - !type:PopupMessage
-    messages: [ "clf3-explosion" ]
-    type: Pvs
-    visualType: LargeCaution
   products:
     ChlorineTrifluoride: 4
 
@@ -80,6 +75,10 @@
     ChlorineTrifluoride:
       amount: 1
   effects:
+  - !type:PopupMessage
+    messages: [ "clf3-explosion" ]
+    type: Pvs
+    visualType: LargeCaution
   - !type:ExplosionReactionEffect
     explosionType: Default # 15 damage per intensity.
     maxIntensity: 200

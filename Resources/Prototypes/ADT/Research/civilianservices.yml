@@ -81,21 +81,3 @@
   position: 2,-3
   requiredTech:
   - MeatManipulation
-
-- type: technology
-  id: ADTAdvancedMedicalCare
-  name: research-technology-advanced-medical-care
-  icon:
-    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
-    state: scanner
-  discipline: CivilianServices
-  tier: 3
-  cost: 12500
-  recipeUnlocks:
-  - ADTHandheldCrewMonitor
-  - ADTMiniSyringe
-  - ADTLauncherSyringe
-  - ADTTourniquet
-  position: 3,3
-  requiredTech:
-  - ADTMedicalMODsuit

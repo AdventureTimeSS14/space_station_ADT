@@ -53,7 +53,7 @@
     entity: ADTReactionSingularity
 
 - type: reaction
-  id: ADTADTSoriumClear
+  id: ADTSoriumClear
   priority: 20
   reactants:
     Uranium:
@@ -69,7 +69,7 @@
     ADTSorium: 3
 
 - type: reaction
-  id: ADTADTSoriumRough
+  id: ADTSoriumRough
   impact: High
   reactants:
     Uranium:
@@ -89,13 +89,13 @@
   quantized: true
   reactants:
     ADTSorium:
-      amount: 30
+      amount: 1
   effects:
   - !type:CreateEntityReactionEffect
     entity: ADTReactionWhiteHole
 
 - type: reaction
-  id: Cryostilane
+  id: ADTCryostilane
   impact: High
   priority: 20
   minTemp: 163
@@ -109,7 +109,7 @@
   effects:
     - !type:AdjustSolutionTemperatureEffect
       delta: -100
-      minTemp: 20
+      minTemp: 186
       scaled: true
     - !type:CreateGas
       gas: Frezon
