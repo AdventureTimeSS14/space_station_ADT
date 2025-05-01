@@ -111,6 +111,9 @@
       stackRequirements:
         Steel: 5
         MatterBin: 3
+        Plasma: 5
+        Capacitor: 3
+        Glass: 5
       tagRequirements:
           GlassBeaker:
             amount: 1
