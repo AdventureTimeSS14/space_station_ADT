@@ -33,7 +33,11 @@
       storagebase: !type:Container
         showEnts: False
         occludes: True
-        ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+        ents: []
+      cell_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -291,20 +295,6 @@
     damage:
       types:
         Blunt: 10
-  - type: ContainerContainer
-    containers:
-      mod-modules-container: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 #осщ
 - type: entity
