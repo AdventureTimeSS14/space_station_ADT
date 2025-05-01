@@ -27,7 +27,6 @@ namespace Content.Shared.ADT.ModSuits;
 
 public sealed class ModSuitSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlot = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
@@ -552,7 +551,7 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (GetAttachedToggleStatus(modSuit, modSuit.Comp) == ModSuitAttachedStatus.AllToggled)
         {
-            if (!_mindSystem.TryGetMind(user, out var mindId, out var mind))
+            if (!_mindSystem.TryGetMind(user, out var _, out var mind))
                 return;
             if (mind.Session == null)
                 return;
@@ -742,11 +741,8 @@ public sealed class ModSuitSystem : EntitySystem
         }
         return toggledCount;
     }
-    public void UpdateUserInterface(EntityUid uid, ModSuitComponent? component = null)
+    public void UpdateUserInterface(EntityUid uid, ModSuitComponent component)
     {
-        if (!Resolve(uid, ref component))
-            return;
-
         var ev = new ModModulesUiStateReadyEvent();
         foreach (var ent in component.ModuleContainer.ContainedEntities)
         {

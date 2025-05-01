@@ -163,9 +163,6 @@
   parent: BaseModsuitCorePart
   name: MOD core assembly
   components:
-  - type: ContainerContainer
-    containers:
-      battery-container: !type:Container
   - type: Appearance
   - type: MechAssemblyVisuals
     statePrefix: modcore

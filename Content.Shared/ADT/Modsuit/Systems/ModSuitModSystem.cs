@@ -40,8 +40,6 @@ public sealed class SharedModSuitModSystem : EntitySystem
     }
     private void OnActivate(EntityUid uid, ModSuitComponent component, ModModulActivateMessage args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
             return;
@@ -76,7 +74,7 @@ public sealed class SharedModSuitModSystem : EntitySystem
         _container.Insert(uid, modsuit.ModuleContainer);
         modsuit.CurrentComplexity += component.Complexity;
         if (component.IsInstantlyActive)
-            ActivateModule(uid, args.Used, component, modsuit);
+            ActivateModule(args.Target.Value, uid, component, modsuit);
         Dirty(uid, component);
         Dirty(args.Target.Value, modsuit);
         _mod.UpdateUserInterface(args.Target.Value, modsuit);
