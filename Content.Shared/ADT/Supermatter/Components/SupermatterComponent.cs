@@ -104,6 +104,9 @@ public sealed partial class SupermatterComponent : Component
     public SoundSpecifier? CurrentSoundLoop;
 
     [DataField]
+    public SoundSpecifier Count = new SoundPathSpecifier("/Audio/ADT/Supermatter/count1.ogg");
+
+    [DataField]
     public SoundSpecifier CalmAccent = new SoundCollectionSpecifier("SupermatterAccentNormal");
 
     [DataField]
@@ -261,6 +264,18 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float DelamTimer = 30f;
+
+    /// <summary>
+    /// Every 60 seconds, Supermatter will release lightning bolts
+    /// </summary>
+    [DataField]
+    public TimeSpan ZapEndTimer;
+
+    /// <summary>
+    /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
+    /// </summary>
+    [DataField]
+    public float ZapTimer = 60f;
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -494,7 +509,7 @@ public static class SupermatterGasData
         { Gas.Nitrogen,      new(0f,   -1.5f, -1f, 0f, 1f)  },
         { Gas.CarbonDioxide, new(0f,   0.1f,   1f, 0f, 1f)  },
         { Gas.Plasma,        new(4f,   15f,    1f, 0f, 1f)  },
-        { Gas.Tritium,       new(30f,  10f,    1f, 0f, 3f)  },
+        { Gas.Tritium,       new(20f,  10f,    1f, 0f, 3f)  },
         { Gas.WaterVapor,    new(2f,   12f,    1f, 0f, 1f)  },
         { Gas.Frezon,        new(3f,   -10f,  -1f, 0f, 1f)  },
         { Gas.Ammonia,       new(0f,   0.5f,   1f, 0f, 1f)  },

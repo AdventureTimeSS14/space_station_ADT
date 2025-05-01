@@ -1,14 +1,20 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using System.Text;
+using Robust.Shared.Player;
 using Content.Server.Chat.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
 using Robust.Shared.Timing;
+using Content.Shared.Audio;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
@@ -64,6 +70,9 @@ public sealed partial class SupermatterSystem
 
         if (sm.Delamming && sm.DelamAnnounced)
         {
+            var mapId = Transform(uid).MapID;
+            var mapFilter = Filter.BroadcastMap(mapId);
+
             var seconds = Math.Ceiling(sm.DelamEndTime.TotalSeconds - _timing.CurTime.TotalSeconds);
 
             if (seconds <= 0)
@@ -88,8 +97,11 @@ public sealed partial class SupermatterSystem
                 speech.SoundCooldownTime = 4.5f;
 
             message = Loc.GetString(loc, ("seconds", seconds));
-            global = true;
 
+            if (seconds == 6)
+                _audio.PlayGlobal(sm.Count, mapFilter, true);
+
+            global = true;
             SendSupermatterAnnouncement(uid, sm, message, global);
             return;
         }

@@ -126,9 +126,12 @@ public sealed partial class SupermatterSystem
 
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
         {
+            var integrity = GetIntegrity(sm);
+            var integrityRatio = Math.Clamp(integrity / 100f, 0f, 1f);
+            var integrityRadModificator = MathF.Pow(1f - integrityRatio, 2f) * 5f;
+
             rad.Intensity =
-                _config.GetCVar(ADTCCVars.SupermatterRadsBase) +
-                sm.Power
+                _config.GetCVar(ADTCCVars.SupermatterRadsBase) + sm.Power + integrityRadModificator
                 * Math.Max(0, 1f + transmissionBonus / 10f)
                 * 0.003f
                 * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);

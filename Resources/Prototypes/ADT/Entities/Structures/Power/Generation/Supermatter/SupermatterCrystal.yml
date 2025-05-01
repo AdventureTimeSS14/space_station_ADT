@@ -178,7 +178,7 @@
     shockDamage: 40
   - type: PointLight
     enabled: true
-    color: "#FFFFEC"
+    color: "#ffffa7"
     radius: 3.5
     softness: 1
     autoRot: true
@@ -209,7 +209,7 @@
     shockDamage: 60
   - type: PointLight
     enabled: true
-    color: "#ECF2FF"
+    color: "#ffff6c"
     radius: 3.5
     softness: 1
     autoRot: true
@@ -235,7 +235,7 @@
     shockDamage: 80
   - type: PointLight
     enabled: true
-    color: "#FFECED"
+    color: "#ffef5b"
     radius: 3.5
     softness: 1
     autoRot: true

@@ -97,9 +97,25 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityManager.EntityQueryEnumerator<SupermatterComponent>();
+        _zapAccumulator += TimeSpan.FromSeconds(frameTime);
+        var shouldZap = false;
+
+        if (_zapAccumulator.TotalSeconds >= 60)
+        {
+            _zapAccumulator -= TimeSpan.FromSeconds(60);
+            shouldZap = true;
+        }
+
+        var query = EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var uid, out var sm))
+        {
             AnnounceCoreDamage(uid, sm);
+
+            if (shouldZap && EntityManager.EntityExists(uid))
+            {
+                SupermatterZap(uid, sm);
+            }
+        }
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)

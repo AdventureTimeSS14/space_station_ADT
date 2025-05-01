@@ -10,6 +10,8 @@ namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {
+    private TimeSpan _zapAccumulator = TimeSpan.Zero;
+
     /// <summary>
     /// Shoot lightning bolts depending on accumulated power.
     /// </summary>
@@ -18,6 +20,9 @@ public sealed partial class SupermatterSystem
         var zapPower = 0;
         var zapCount = 0;
         var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
+
+        var integrity = GetIntegrity(sm);
+
 
         if (_random.Prob(0.05f))
             zapCount += 1;
@@ -37,7 +42,15 @@ public sealed partial class SupermatterSystem
             zapCount += 1;
         }
 
-        if (zapCount >= 1)
-            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower]);
+        if (integrity < 25)
+        {
+            zapCount += 1;
+        }
+
+        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterMinPowerToLighting))
+            zapCount = Math.Max(zapCount, 1);
+
+
+        _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower]);
     }
 }
