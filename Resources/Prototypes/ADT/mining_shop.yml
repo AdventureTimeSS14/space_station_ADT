@@ -78,8 +78,8 @@
     price: 1000
   - id: ADTClothingModsuitBackMining
     price: 3000
-  - id: ADTClothingOuterArmorMinerHeavy
-    price: 3600
+#  - id: ADTClothingOuterArmorMinerHeavy
+#    price: 3600
 #  - id: ADTClothingOuterArmorMinerLight
 #    price: 4000
   - id: ADTClothingJumpBoots

@@ -1488,6 +1488,34 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
 
+# И ещё один комбез для детектива 
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDetectiveOld
+  name: detective old jumpsuit 
+  description: Decy jumpsuit, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_old.rsi
+
+# Со старой сборки комбезик, да
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldDark
+  name: old dark jumpsuit 
+  description: Old dark jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
+
+# Парикмахер
+
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitBarber
@@ -1509,3 +1537,4 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
+
