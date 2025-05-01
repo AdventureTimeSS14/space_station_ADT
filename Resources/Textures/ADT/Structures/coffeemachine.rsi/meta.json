@@ -29,7 +29,16 @@
       "name": "cargo"
     },
     {
-      "name": "bluespace"
+      "name": "bluespace",
+      "delays": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
     },
     {
       "name": "security"

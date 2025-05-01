@@ -31,7 +31,23 @@
   reactants:
     ADTPolymorphine:
       amount: 1
-    Cognizine:
+    Omnizine:
+      amount: 1
+    Blood:
+      amount: 1
+    ADTZessulsBlood:
+      amount: 1
+    ADTCorelanderBlood:
+      amount: 1
+    ResomiBlood:
+      amount: 1
+    ShadekinBlood:
+      amount: 1
+    InsectBlood:
+      amount: 1
+    CopperBlood:
+      amount: 1
+    AmmoniaBlood:
       amount: 1
   products:
-    ADTGenusiphine: 1
+    ADTGenusiphine: 5
