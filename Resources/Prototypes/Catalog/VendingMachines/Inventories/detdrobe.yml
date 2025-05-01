@@ -3,16 +3,21 @@
   startingInventory:
     ClothingUniformJumpsuitDetective: 2
     ClothingUniformJumpskirtDetective: 2
+    ADTClothingUniformJumpsuitDetectiveOld: 2 # ADT tweak
+    ADTClothingUniformJumpskirtDetectiveOld: 2 # ADT tweak
     ClothingShoesColorBrown: 2
+    ADTClothingShoesOldDetectiveBoots: 1 # ADT tweak
     ClothingOuterCoatDetectiveLoadout: 1
     ClothingOuterCoatDetectiveLoadoutGrey: 1
     ClothingOuterCoatDetectiveDark: 1 # Corvax-Resprite-Detective
+    ADTClothingOuterCoatDetectiveLoadoutOld: 1 # ADT tweak
     ClothingHeadHatFedoraBrown: 2
     ClothingUniformJumpsuitDetectiveGrey: 2
     ClothingUniformJumpskirtDetectiveGrey: 2
     ClothingOuterVestDetective: 2
     ClothingNeckTieDet: 2
     ClothingHeadHatFedoraGrey: 2
+    ADTClothingHeadOldFedora: 2 # ADT tweak
     ClothingHandsGlovesColorBlack: 2
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetSecurity: 2
