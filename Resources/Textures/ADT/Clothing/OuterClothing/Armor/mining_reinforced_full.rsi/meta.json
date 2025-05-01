@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "TTaken from Paradise https://github.com/ss220-space/Paradise/tree/master220",
+  "copyright": "Taken from Paradise https://github.com/ss220-space/Paradise/tree/master220 edited by .redlis (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -11,7 +11,7 @@
       "name": "icon"
     },
     {
-      "name": "equipped-HELMET",
+      "name": "equipped-OUTERCLOTHING",
       "directions": 4
     }
   ]
