@@ -5,7 +5,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSalvageSpecialist 
+      role: JobSalvageSpecialist
       time: 18000 #5 часов
 
 - type: loadoutEffectGroup
@@ -64,14 +64,14 @@
   - !type:GroupLoadoutEffect
    proto: ADTSalvageSpecialistSilverCape5hour
   equipment:
-    neck: ADTClothingSilverCape 
+    neck: ADTClothingSilverCape
 
 - type: loadout
   id: ADTNeckSalvageSpecialistGCape
   effects:
   - !type:GroupLoadoutEffect
    proto: ADTSalvageSpecialistGoldenCape15hour
-  equipment: 
+  equipment:
     neck: ADTClothingGoldenCape
 
 - type: loadout
@@ -116,3 +116,15 @@
   id: ADTUniformJumpsuitExplorer
   equipment:
     jumpsuit: ADTClothingUniformJumpsuitExplorer
+
+# PDA
+- type: loadout
+  id: SalvagePDA
+  equipment:
+    id: SalvagePDA
+
+- type: loadout
+  id: ADTExcavatorPDA
+  equipment:
+    id: ADTExcavatorPDA
+
