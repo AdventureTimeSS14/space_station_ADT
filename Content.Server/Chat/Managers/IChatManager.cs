@@ -22,6 +22,7 @@ namespace Content.Server.Chat.Managers
 
         void SendHookOOC(string sender, string message);
         void SendAdminAnnouncement(string message, AdminFlags? flagBlacklist = null, AdminFlags? flagWhitelist = null);
+        void SendAdminAnnouncementColor(string message, AdminFlags? flagBlacklist = null, AdminFlags? flagWhitelist = null, Color? colorOverrid = null); // ADT-Tweak
         void SendAdminAnnouncementMessage(ICommonSession player, string message, bool suppressLog = true);
 
         void ChatMessageToOne(ChatChannel channel, string message, string wrappedMessage, EntityUid source, bool hideChat,
