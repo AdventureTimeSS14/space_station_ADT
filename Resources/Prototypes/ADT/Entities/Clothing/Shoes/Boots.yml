@@ -90,3 +90,15 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/kirzaboots.rsi
 
+# Боты деку, ага 
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ADTClothingShoesOldDetectiveBoots
+  name: old detective boots
+  description: Decy boots, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/old_detective_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/old_detective_boots.rsi

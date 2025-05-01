@@ -527,6 +527,24 @@
   - ADTNeckSalvageSpecialistRCape
 
 
+## ДЕТЕКТИВ
+
+#Обувь
+- type: loadoutGroup
+  id: DetectiveShoes
+  name: loadout-group-security-shoes
+  loadouts:
+  - JackSecBoots
+  - JackBoots
+  - SecurityWinterBoots
+  - ADTDetectiveBootsOld
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+
 ## Парикмахер 
 
 # костюмы
@@ -549,7 +567,6 @@
   maxLimit: 1
   loadouts:
   - ADTClothingOuterApronBarberLoadOut
-
 
 
 # Alts PDA start
