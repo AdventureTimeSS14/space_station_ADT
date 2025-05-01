@@ -150,7 +150,7 @@
     state: syringe_gun
   discipline: Biochemical
   tier: 3
-  cost: 12500
+  cost: 20000
   recipeUnlocks:
   - ADTMiniSyringe
   - ADTLauncherSyringe
