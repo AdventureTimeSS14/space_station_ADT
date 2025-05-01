@@ -88,3 +88,30 @@
     sprite: ADT/Clothing/Shoes/Misc/empress_of_light_shoes.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Misc/empress_of_light_shoes.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesShaleBrealVulp
+  name: shale shoes
+  description: Very stylish pair of boots, made from fine leather.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Misc/shale_shoes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Misc/shale_shoes.rsi
+  - type: StaminaDamageOnHit
+    damage: 20
+    sound: /Audio/ADT/Misc/slap_secondary.ogg
+  - type: StaminaDamageOnCollide
+    damage: 20
+    sound: /Audio/ADT/Misc/slap.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: ADTSlapVulp
+    bluntStaminaDamageFactor: 2.0
+    angle: 60
+    animation: WeaponArcThrust

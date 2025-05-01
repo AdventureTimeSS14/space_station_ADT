@@ -56,8 +56,9 @@
 
 - type: reaction
   id: Cryoxadone
+  maxTemp: 175 # ADT tweak
   reactants:
-    Siderlac: # ADT tweak Может сделать новое особое растение для крио, но это лишь в планах.
+    Tricordrazine: # ADT tweak Не, нафиг растения для крио --QWERTY-- (Может сделать новое особое растение для крио, но это лишь в планах.)
       amount: 1
     DexalinPlus: # ADT tweak
       amount: 2 # ADT tweak
@@ -68,6 +69,7 @@
 
 - type: reaction
   id: Doxarubixadone
+  maxTemp: 150 # ADT tweak
   reactants:
   # ADT tweak Start
     Cryoxadone:
@@ -256,6 +258,7 @@
 
 - type: reaction
   id: HeartbreakerToxin
+  maxTemp: 173 ### ADT Tweak
   reactants:
     DexalinPlus:
       amount: 1
@@ -591,6 +594,7 @@
 - type: reaction
   id: Aloxadone
   impact: Medium
+  maxTemp: 200 # ADT tweak
   reactants:
   # ADT tweak Start
     Cryoxadone:
@@ -606,6 +610,7 @@
 - type: reaction
   id: Psicodine
   impact: Medium
+  maxTemp: 270 # ADT tweak
   reactants:
     Mannitol:
       amount: 2

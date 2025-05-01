@@ -16,6 +16,7 @@
         - Impassable
         - HighImpassable
         - MidImpassable
+        hard: false #ADT tweak
       fix2:
         shape:
           !type:PhysShapeCircle
