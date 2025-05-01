@@ -374,7 +374,7 @@
     layoutId: AirlockEngineering
 
 - type: entity
-parent: AirlockCommandGlass
+  parent: AirlockCommandGlass
   id: ADTGlassBlueShieldAirlock
   suffix: BS
   components:
