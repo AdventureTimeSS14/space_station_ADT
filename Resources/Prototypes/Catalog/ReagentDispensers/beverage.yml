@@ -74,7 +74,7 @@
   id: CoffeeMachineInventory
   inventory:
     - DrinkCoffeeJug
-    - ADTDrinkMilkJug
+    - ADTMilkJug
     - DrinkCreamCartonXL
 
 - type: reagentDispenserInventory
@@ -86,7 +86,7 @@
   id: CoffeeMachineCommandInventory
   inventory:
     - DrinkCoffeeJug
-    - ADTDrinkMilkJug
+    - ADTMilkJug
     - DrinkCreamCartonXL
     - DrinkCognacBottleFull
 ### End ADT Tweak

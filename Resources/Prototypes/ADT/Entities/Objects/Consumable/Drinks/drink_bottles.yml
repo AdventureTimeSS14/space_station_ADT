@@ -20,7 +20,7 @@
 
 - type: entity
   parent: DrinkBottlePlasticBaseFull
-  id: ADTDrinkMilkJug
+  id: ADTMilkJug
   name: Smite jug
   description: A milk jug for some more thingies.
   components:
