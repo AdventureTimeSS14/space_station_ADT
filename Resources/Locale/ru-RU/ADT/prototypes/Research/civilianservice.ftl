@@ -4,6 +4,8 @@ research-technology-services-modsuit-mods = Модификации сервис�
 
 research-technology-exoskeletons = Экзоскелеты
 
+research-technology-services-service-plus = Промышленный сервис
+
 research-technology-services-service-plus = Крупноволновое излучение
 
 research-technology-advanced-food-service = Продвинутое ресторанное обслуживание
