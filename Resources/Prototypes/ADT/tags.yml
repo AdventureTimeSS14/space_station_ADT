@@ -573,3 +573,6 @@
 
 - type: Tag
   id: ADTSpeedLoaderMagnumLesser
+
+- type: Tag
+  id: ADTVendModStorage

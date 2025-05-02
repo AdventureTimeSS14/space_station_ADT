@@ -5,7 +5,7 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client.ADT.Modsuits.UI;
 
-public sealed class ModSuitBoundUserInterface : BoundUserInterface
+public sealed class ModSuitRadialBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
@@ -13,7 +13,7 @@ public sealed class ModSuitBoundUserInterface : BoundUserInterface
     private IEntityManager _entityManager;
     private ModSuitRadialMenu? _menu;
 
-    public ModSuitBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public ModSuitRadialBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
         _entityManager = IoCManager.Resolve<IEntityManager>();
