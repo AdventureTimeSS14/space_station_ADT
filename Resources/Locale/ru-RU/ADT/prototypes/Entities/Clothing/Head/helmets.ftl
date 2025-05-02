@@ -24,8 +24,8 @@ ent-ADTClothingHeadHelmetSecCap = фуражка службы безопасно
 ent-ADTClothingHeadHelmetSecUshanka = ушанка службы безопасности
     .desc = Тёплая ушанка службы безопасности. "СДЕЛАНО В СССП".
 
-ent-ADTCentorionHemlet = Шлем центуриона
+ent-ADTCentorionHemlet = шлем центуриона
     .desc = Шлем древнеримского центуриона с узнаваемым красным гребнем.
 
-ent-ADTLegionerHemlet = Шлем легионера
+ent-ADTLegionerHemlet = шлем легионера
     .desc = Лёгкий шлем римского легиона что сделан из более дешёвых материалов чем шлем центуриона но всё ещё способный вас защитить от тулбокса.
