@@ -33,6 +33,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.ADT.Supermatter;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -113,13 +114,16 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             if (shouldZap && EntityManager.EntityExists(uid))
             {
-                SupermatterZap(uid, sm);
+                SupermatterZap(uid, sm, frameTime);
             }
         }
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
+        // Set timer for a zap's
+        sm.ZapEndTimer = TimeSpan.FromSeconds(sm.ZapTimer);
+
         // Set the yell timer
         sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ADTCCVars.SupermatterYellTimer));
 
@@ -140,6 +144,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         ProcessAtmos(uid, sm, args.dt);
         HandleDamage(uid, sm);
+        SupermatterZap(uid, sm, args.dt);
 
         if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
             HandleDelamination(uid, sm);
@@ -152,7 +157,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
         {
-            SupermatterZap(uid, sm);
+            SupermatterZap(uid, sm, args.dt);
             GenerateAnomalies(uid, sm);
         }
     }
