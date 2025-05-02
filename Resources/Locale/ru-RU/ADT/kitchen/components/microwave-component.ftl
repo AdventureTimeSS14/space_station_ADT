@@ -12,6 +12,8 @@ assembler-bound-user-interface-insert-ingredients = ОЖИДАЮТСЯ МАТЕ�
 assembler-bound-user-interface-cook-time-label = ВРЕМЕНИ ОСТАЛОСЬ: {$time}
 
 ## UI
+microwave-menu-range-title = Электрическая печь
+microwave-menu-range-footer-flavor-left = NT не несет ответственности за ущерб, причиненный в результате пожара на кухне.
 assembler-menu-title = Кухонный ассемблер
 assembler-menu-medical-title = Медицинский ассемблер
 assembler-menu-start-button = Старт
