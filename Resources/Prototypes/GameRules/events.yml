@@ -39,7 +39,7 @@
     - id: SleeperAgents
     # - id: ZombieOutbreak # ADT tweak
     - id: DerelictCyborgSpawn
-    #- id: WizardSpawn
+    - id: WizardSpawn
     - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
     - id: Pirates # ADT tweak pirates
     - id: PhantomSpawn # ADT tweak phantom
