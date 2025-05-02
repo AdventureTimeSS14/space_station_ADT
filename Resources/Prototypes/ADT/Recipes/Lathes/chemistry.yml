@@ -25,3 +25,20 @@
   completetime: 2
   materials:
     Glass: 50
+
+- type: latheRecipe
+  id: ADTBlankMediPen
+  result: ADTBlankMediPen
+  completetime: 2
+  materials:
+    Plastic: 25
+    Steel: 25
+
+- type: latheRecipe
+  id: ADTReagentAnalyzer
+  result: ADTReagentAnalyzer
+  completetime: 4
+  materials:
+    Glass: 600
+    Steel: 500
+    Plastic: 700
