@@ -46,10 +46,10 @@ ent-ADTClothingOuterArmorVestHidden = бронежилет скрытого но
 ent-ADTClothingOuterArmorMinerReinforced = пластинчатый костюм исследователя
     .desc = Этот исследовательский костюм укреплён шкурами голиафов. Вершина шахтёрской мысли и безумности самого Лавалэнда в области защиты. 
 
-ent-ADTCenturionArmor = Защитный доспех центуриона
+ent-ADTCenturionArmor = защитный доспех центуриона
     .desc = Носить нагрудный знак центуриона римской армии должно быть честью для вас.
 
-ent-ADTLegionerArmor = Защитный доспех легионера
+ent-ADTLegionerArmor = защитный доспех легионера
     .desc = Стандартный нагрудный доспех римского легионера.
 
 ent-ADTClothingOuterArmorMinerReinforcedOne = частично усиленный костюм исследователя
