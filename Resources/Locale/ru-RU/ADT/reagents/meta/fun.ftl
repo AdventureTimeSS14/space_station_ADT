@@ -3,4 +3,4 @@ reagent-desc-polymorphine = До сих пор неизученный препа
 reagent-name-chaotic-polymorphine = нестабильный полиморфин
 reagent-desc-chaotic-polymorphine = Крайне нестабильный препарат, вызывающий необычный эффект на тело существа.
 reagent-name-genusiphine = генусифин
-reagent-desc-genusiphine = более стабильная версия полиморфина, имеющая в составе гены всех известных космических видов.
+reagent-desc-genusiphine = Более стабильная версия полиморфина, имеющая в составе гены всех известных космических видов.

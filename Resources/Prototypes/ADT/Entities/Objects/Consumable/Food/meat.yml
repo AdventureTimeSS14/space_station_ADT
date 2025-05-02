@@ -526,7 +526,7 @@
   - type: Construction
     graph: BearfootSteak
     node: start
-    defaultTarget: MetamorphBaer
+    defaultTarget: bearfoot steak
 
 - type: entity
   name: cooked bearfoot
@@ -550,4 +550,4 @@
           Quantity: 15
   - type: Construction
     graph: BearfootSteak
-    node: MetamorphBaer
+    node: bearfoot steak

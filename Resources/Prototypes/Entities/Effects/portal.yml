@@ -155,13 +155,31 @@
 
 - type: entity
   id: ADTPortalInvisible
-  parent: [ BasePortal, ADTBasePortalInterMap ]
+  name: invisible portal
   description: This one looks more like a nullspace portal.
   components:
+  - type: Transform
+    anchored: True
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
   - type: Sprite
     color: "#00000026"
     layers:
     - state: portal-red
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Portal
+    canTeleportToOtherMaps: true
 
 - type: entity
   id: ADTPortalShadowAnomaly

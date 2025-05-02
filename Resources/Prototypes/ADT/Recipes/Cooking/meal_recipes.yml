@@ -178,7 +178,7 @@
 - type: microwaveMealRecipe
   id: ADTCoffeeBeansRoasted
   name: roasted coffee beans recipe
-  result: LeavesCannabisDried
+  result: ADTCoffeeBeansRoasted
   time: 10
   solids:
     ADTCoffeeBeans: 1
