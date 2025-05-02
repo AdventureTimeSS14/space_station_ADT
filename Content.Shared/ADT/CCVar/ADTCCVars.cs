@@ -84,7 +84,7 @@ public sealed class ADTCCVars
     ///     The supermatter will also spawn anomalies, and gains +2 bolts of electricity.
     /// </summary>
     public static readonly CVarDef<float> SupermatterMinPowerToLighting =
-        CVarDef.Create("supermatter.power_penalty_threshold", 1000f, CVar.SERVER);
+        CVarDef.Create("supermatter.power_minpower_to_lighting", 1000f, CVar.SERVER);
 
 
     /// <summary>
