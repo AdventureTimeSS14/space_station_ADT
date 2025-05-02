@@ -1,0 +1,12 @@
+- type: entity
+  id: ADTByondCut
+  components:
+  - type: Sprite
+    snapCardinals: true
+    noRot: true
+    drawdepth: Effects
+    sprite: ADT/Effects/byond_cut.rsi
+    state: cut
+  - type: AnimationPlayer
+  - type: TimedDespawn
+    lifetime: 0.85

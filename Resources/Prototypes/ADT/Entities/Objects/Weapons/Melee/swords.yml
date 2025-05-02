@@ -95,14 +95,14 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
     layers:
-    - state: icon
+    - state: icon-on
       map: [ "enum.ComboWeaponState.State" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 2
     damage:
       types:
-        Slash: 17
+        Slash: 12
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -130,17 +130,19 @@
           - !type:ComboDamageEffect
             damage:
               types:
-                Blunt: 1000
+                Blunt: 15
           - !type:ComboFallEffect
+          - !type:ComboSpawnEffect
+            spawnOnTarget: ADTByondCut
           - !type:ComboAudioEffect
             sound:
-              collection: SwordHit
+              path: /Audio/ADT/Entities/Objects/Weapons/Melee/cut.ogg
   - type: GenericVisualizer
     visuals:
       enum.ComboWeaponState.State:
         enum.ComboWeaponState.State:
-          True: {state: icon}
-          False: {state: icon-on}
+          True: {state: icon-on}
+          False: {state: icon}
   - type: Appearance
 
 - type: entity
