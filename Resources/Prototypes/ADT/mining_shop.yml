@@ -81,9 +81,9 @@
   - id: ADTModsuitModDrill
     price: 1000
   - id: ADTModsuitModStorageLarge
-    price: 500
-  - id: ADTClothingOuterArmorMinerHeavy
-    price: 3600
+    price: 500 
+#  - id: ADTClothingOuterArmorMinerHeavy
+#    price: 3600
 #  - id: ADTClothingOuterArmorMinerLight
 #    price: 4000
   - id: ADTClothingJumpBoots

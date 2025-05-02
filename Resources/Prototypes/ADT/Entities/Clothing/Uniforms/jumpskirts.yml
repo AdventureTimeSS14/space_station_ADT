@@ -529,3 +529,42 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
+
+    
+# Юбка деку, ага
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpskirtDetectiveOld
+  name: detective old jumpskirt
+  description: Decy jimpskirt, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/detective_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/detective_old.rsi
+
+# ПАРИКМАХЕР
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBarber
+  name: fashionable skirt suit
+  description: One suit to rule them all.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBarberBrown
+  name: brown fashionable skirt suit
+  description: For an old-fashioned style lover.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit_brown.rsi
+

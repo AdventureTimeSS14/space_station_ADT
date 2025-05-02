@@ -218,6 +218,20 @@
 
 # USSP USSP
 
+#Парикмахер
+- type: entity
+  parent: IDCardStandard
+  id: ADTBarberIDCard
+  name: barber ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: id-barber
+  - type: PresetIdCard
+    job: ADTBarber
+
 ## Alternate Job Titles
 
 # Passenger

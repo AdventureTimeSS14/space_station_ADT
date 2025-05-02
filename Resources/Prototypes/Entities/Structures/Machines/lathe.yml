@@ -219,6 +219,8 @@
     - ADTRCDPack
     - ADTPKAPack
     - ADTWeaponExperimentalPKAPack
+    - ADTServiceHydroponics
+    - ADTAdvancedMedicalMiscPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
@@ -282,7 +284,7 @@
     - MechBoards
     - ShuttleBoards
     # ADT-tweak-start
-    - ADTEnergyBoardsPack 
+    - ADTEnergyBoardsPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -515,6 +517,10 @@
     - ADTMedicalMiscStaticPack # ADT-Tweak
     dynamicPacks:
     - Chemistry
+    #ADT-Tweak Start
+    - ADTAdvancedMedicalMiscPack
+    - ADTAdvancedMedicalCarePack
+    #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

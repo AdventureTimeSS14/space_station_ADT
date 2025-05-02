@@ -21,6 +21,7 @@
   materials:
     Steel: 100
 
+
 # Recipes
 
 - type: latheRecipe
@@ -69,3 +70,13 @@
   parent: FoodPlatePlastic
   id: Urn
   result: Urn
+
+
+- type: latheRecipe
+  id: ADTAdvancedReagentGrinderMachineCircuitboard
+  result: ADTAdvancedReagentGrinderMachineCircuitboard
+  completetime: 2
+  materials:
+    Glass: 1000
+    Steel: 500
+    Gold: 500

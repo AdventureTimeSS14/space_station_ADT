@@ -414,3 +414,44 @@
   - type: Construction
     graph: ADTBSword
     node: ADTBoneCompSword
+
+- type: entity
+  id: ADTStraightRazor
+  name: straight razor
+  description: It's easy to slit a throat with it.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/straight_razor.rsi
+    layers:
+    - state: straight-razor
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    openSound: "/Audio/Items/unsheath.ogg"
+    closeSound: "/Audio/Items/sheath.ogg"
+    damageOpen:
+      types:
+        Slash: 17
+    damageFolded:
+      types:
+        Blunt: 3
+    sizeOpened: Small
+    sizeClosed: Small
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 17
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Tools/straight_razor.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: straight-razor-blade}
+          False: {state: straight-razor}

@@ -1,0 +1,55 @@
+- type: entity
+  name: Ground desoxyephedrine crystal
+  parent: BaseItem
+  id: ADTGroundMethCrystal
+  description: "Meth can be smoked, eaten, or sniffed. But this specimen is best smoked."
+  components:
+  - type: Stack
+    stackType: ADTGroundMethCrystal
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 20
+  - type: Sprite
+    sprite: Objects/Misc/reagent_fillings.rsi
+    state: powderpile
+    color: white
+  - type: Construction
+    graph: ADTGroundWalterMethCrystalGraph
+    node: ground
+  - type: Tag
+    tags:
+      - ADTSmokableReagent
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Ground blue sky desoxyephedrine crystal
+  parent: BaseItem
+  id: ADTGroundWalterMethCrystal
+  description: "Tight, tight, tight! Blue, pink, yellow - whatever man, just bring me some more!"
+  components:
+  - type: Stack
+    stackType: ADTGroundWalterMethCrystal
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: ADTBlueSkyDesoxyephedrine
+          Quantity: 20
+  - type: Sprite
+    sprite: Objects/Misc/reagent_fillings.rsi
+    state: powderpile
+    color: "#1bcfe7"
+  - type: Construction
+    graph: ADTGroundWalterMethCrystalGraph
+    node: ground
+  - type: Tag
+    tags:
+      - ADTSmokableReagent
+  - type: Item
+    size: Tiny

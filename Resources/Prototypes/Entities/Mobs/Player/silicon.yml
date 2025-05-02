@@ -48,16 +48,26 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+    # ADT Start
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+      enum.StationAiInfoUiKey.Key:
+        type: StationAiInfoBoundUserInterface
+    # ADT End
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowRadar
+        toggleAction: ActionStationAiRadar #ADT-Tweak
       enum.CrewMonitoringUIKey.Key:
-        toggleAction: ActionAGhostShowCrewMonitoring
+        toggleAction: ActionStationAiCrewMonitoring #ADT-Tweak
       enum.GeneralStationRecordConsoleKey.Key:
-        toggleAction: ActionAGhostShowStationRecords
+        toggleAction: ActionStationAiStationRecords #ADT-Tweak
       enum.CommunicationsConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowCommunications
+    # ADT Start
+        toggleAction: ActionStationAiCommunications
+      enum.AtmosAlertsComputerUiKey.Key:
+        toggleAction: ActionStationAiAtmosphericAlerts
+    # ADT End
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
@@ -73,6 +83,9 @@
     # ADT Start
     sound:
       path: /Audio/ADT/Announcements/intercept.ogg
+  - type: StationAiInfo
+  - type: CrewManifestViewer
+    ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
   - type: HolographicAvatar
     layerData:
@@ -499,6 +512,7 @@
       Dwarf: Speak
       CintaTaj: Speak
       SiliconCollectiveMind: Speak
+      NeoRusskiya: Speak
   - type: CollectiveMindRank
     rankName: collective-mind-sai-rank
   - type: StationAiBrain
@@ -551,6 +565,30 @@
   - type: CargoSellBlacklist
   - type: StationAiVision
     range: 20
+  # Start-ADT-Tweak
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      RobotTalk: Speak
+      Arkane: Speak
+      Urs: Speak
+      Drask: Speak
+      Fire: Speak
+      Nian: Speak
+      SikTaj: Speak
+      Arachnid: Speak
+      RootSpeak: Speak
+      SolCommon: Speak
+      Canilunzt: Speak
+      Draconic: Speak
+      Bubblish: Speak
+      Nekomimetic: Speak
+      BorgTalk: Speak
+      Dwarf: Speak
+      CintaTaj: Speak
+      SiliconCollectiveMind: Speak
+      NeoRusskiya: Speak
+  # End-ADT-Tweak
 
 # Borgs
 - type: entity
