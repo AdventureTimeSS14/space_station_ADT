@@ -7,3 +7,16 @@
   - ADTPillPack
   - ADTPlasticBottle
   - ADTBaseChemistryEmptyVial
+
+- type: latheRecipePack
+  id: ADTAdvancedMedicalMiscPack
+  recipes:
+  - ADTHighVoltageDefibrillator
+  - ADTReagentAnalyzer
+
+- type: latheRecipePack
+  id: ADTAdvancedMedicalCarePack
+  recipes:
+  - ADTLauncherSyringe
+  - ADTMiniSyringe
+  - ADTTourniquet

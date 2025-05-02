@@ -2,6 +2,9 @@
   id: ADTMothFriendlyFood
 
 - type: Tag
+  id: ADTHighVoltageDefibrillator
+
+- type: Tag
   id: Patch
 
 - type: Tag
@@ -379,6 +382,9 @@
 
 - type: Tag
   id: ADTMedipen
+
+- type: Tag
+  id: ADTSmallSyringe
 
 - type: Tag
   id: ADTBluespaceAnomalyCore
