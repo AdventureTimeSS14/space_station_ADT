@@ -1380,6 +1380,17 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/whitesweaterheart_suit.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingRomanShirt
+  name: Roman Shirt
+  description: The usual tunic of a Roman civilian, putting it on you want to start drinking wine and going to pubs.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/roman_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/roman_shirt.rsi
+
 # USSP USSP USSP USSP USSP USSP USSP USSP USSP START
 
 - type: entity

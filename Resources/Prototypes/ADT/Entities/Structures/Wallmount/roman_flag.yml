@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseFlag
+  id: ADTRomanFlag
+  name: roman flag
+  description: The ancient Roman flag of the Roman Empire, which by some miracle is still well preserved.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/roman_flag.rsi
+    state: icon
