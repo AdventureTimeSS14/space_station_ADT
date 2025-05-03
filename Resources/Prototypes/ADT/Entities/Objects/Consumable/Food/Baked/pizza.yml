@@ -95,8 +95,8 @@
 - type: entity
   parent: FoodInjectableBase
   id: ADTFoodPizzaBBQ
-  name: slice of sindi pizza
-  description: A slice of syndicate.
+  name: bbqPizza
+  description: A bbq pizza
   components:
   - type: FlavorProfile
     flavors:
@@ -130,8 +130,8 @@
 - type: entity
   parent: FoodInjectableBase
   id: ADTFoodPizzaBBQSlice
-  name: slice of sindi pizza
-  description: A slice of syndicate.
+  name: slice of bbq pizza
+  description: A slice of bbq pizza
   components:
   - type: FlavorProfile
     flavors:
@@ -163,8 +163,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaBolognese
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: bolognesePizza
+  description: A bolognesse pizza
   components:
   - type: Food
   - type: Sprite
@@ -178,8 +178,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaBologneseSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of bolognesse pizza
+  description: A slice of bolognesse pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -191,8 +191,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaCaesar
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: caesar pizza
+  description: A caesar pizza
   components:
   - type: Food
   - type: Sprite
@@ -206,8 +206,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaCaesarSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of caesar pizza
+  description: A slice of caesar pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -217,8 +217,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaCheese
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: cheese pizza
+  description: A cheese pizza
   components:
   - type: Food
   - type: Sprite
@@ -232,8 +232,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaCheeseSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of cheese pizza
+  description: A slice of cheese pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -242,8 +242,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaChicago
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: chicago pizza
+  description: A Chicago pizza
   components:
   - type: Food
   - type: Sprite
@@ -257,8 +257,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaChicagoSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of chicago pizza
+  description: A slice of chicago pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -268,8 +268,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaChicken
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: chicken pizza
+  description: A chicken pizza
   components:
   - type: Food
   - type: Sprite
@@ -283,8 +283,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaChickenSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of chicken pizza
+  description: A slice of chicken pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -294,8 +294,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaClassic
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: classic pizza
+  description: A classic pizza
   components:
   - type: Food
   - type: Sprite
@@ -309,8 +309,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaClassicSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of classic pizza
+  description: A slice of classic pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -321,8 +321,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaDiablo
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: diablo pizza
+  description: The diablo pizza
   components:
   - type: Food
   - type: Sprite
@@ -336,8 +336,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaDiabloSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of diablo pizza
+  description: A slice of diablo pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -347,8 +347,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaFourcheese
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: four cheese pizza
+  description: A four cheese pizza
   components:
   - type: Food
   - type: Sprite
@@ -362,8 +362,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaFourcheeseSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of four cheese pizza
+  description: A slice of four cheese pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -374,8 +374,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaMexican
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: mexican pizza
+  description: A mexican pizza
   components:
   - type: Food
   - type: Sprite
@@ -389,8 +389,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaMexicanSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of mexican pizza
+  description: A slice of mexican pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -401,8 +401,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaMushroomchicken
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: mushroom chicken pizza
+  description: A mushroom chicken pizza
   components:
   - type: Food
   - type: Sprite
@@ -416,8 +416,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaMushroomchickenSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of mushroom chicken pizza
+  description: A slice of mushroom chicken pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
@@ -427,8 +427,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQ
   id: ADTFoodPizzaSea
-  name: seqeqwe
-  description: A sliewqeqweq
+  name: sea pizza
+  description: A sea pizza
   components:
   - type: Food
   - type: Sprite
@@ -442,8 +442,8 @@
 - type: entity
   parent: ADTFoodPizzaBBQSlice
   id: ADTFoodPizzaSeaSlice
-  name: slice of sindi 312312321
-  description: A slice ofr32 
+  name: slice of sea pizza
+  description: A slice of sea pizza
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
