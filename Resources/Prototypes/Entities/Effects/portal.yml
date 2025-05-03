@@ -165,8 +165,9 @@
     bodyType: Static
   - type: Sprite
     color: "#00000026"
+    sprite: /Textures/Effects/portal.rsi
     layers:
-    - state: portal-red
+    - state: portal-artifact
   - type: Fixtures
     fixtures:
       portalFixture:
