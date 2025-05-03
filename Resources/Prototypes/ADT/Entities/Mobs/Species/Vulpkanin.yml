@@ -70,6 +70,11 @@
     - type: Inventory
       speciesId: vulp
       maleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit
         head:
           sizeMaps:
             32:
@@ -80,6 +85,21 @@
             32:
               sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
               state: head
+        shoes:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit
+        socks:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes
       femaleDisplacements:
         jumpsuit:
           sizeMaps:
@@ -96,6 +116,21 @@
             32:
               sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
               state: head
+        shoes:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit
+        socks:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes
     - type: InteractionPopup
       successChance: 1
       interactSuccessString: hugging-success-generic
@@ -138,6 +173,11 @@
       scale: 0.95, 0.95
     - type: Inventory
       maleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit
         head:
           sizeMaps:
             32:
@@ -148,6 +188,21 @@
             32:
               sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
               state: head
+        shoes:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit
+        socks:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes
       femaleDisplacements:
         jumpsuit:
           sizeMaps:
@@ -164,3 +219,18 @@
             32:
               sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
               state: head
+        shoes:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: jumpsuit
+        socks:
+          sizeMaps:
+            32:
+              sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+              state: shoes

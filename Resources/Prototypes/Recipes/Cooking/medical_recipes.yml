@@ -6,6 +6,8 @@
   group: Medicinal
   solids:
     FoodAloe: 1
+  recipeType:
+  - MedicalAssembler
 
 - type: microwaveMealRecipe
   id: RecipeMedicatedSuture
@@ -20,6 +22,10 @@
   reagents:
     TranexamicAcid: 20
     Cryptobiolin: 20
+  # ADT-Tweak
+  recipeType:
+  - MedicalAssembler
+  # ADT-Tweak End
 
 - type: microwaveMealRecipe
   id: RecipeRegenerativeMesh
@@ -34,3 +40,7 @@
   reagents:
     Sigynate: 20
     Dermaline: 20
+  # ADT-Tweak
+  recipeType:
+  - MedicalAssembler
+  # ADT-Tweak End

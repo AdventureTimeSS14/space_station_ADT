@@ -239,83 +239,83 @@
   result: ADTDurandHarness
   completetime: 4
   materials:
-    Steel: 1750
-    Glass: 1000
-    Silver: 1000
-    Plasteel: 1500
+    Steel: 3000
+    Glass: 1500
+    Silver: 1500
+    Plasteel: 3000
 
 - type: latheRecipe
   id: ADTDurandLArm
   result: ADTDurandLArm
   completetime: 4
   materials:
-    Steel: 1250
+    Steel: 1500
     Silver: 500
-    Plasteel: 250
+    Plasteel: 500
 
 - type: latheRecipe
   id: ADTDurandLLeg
   result: ADTDurandLLeg
   completetime: 4
   materials:
-    Steel: 1250
+    Steel: 1500
     Silver: 500
-    Plasteel: 250
+    Plasteel: 500
 
 - type: latheRecipe
   id: ADTDurandRLeg
   result: ADTDurandRLeg
   completetime: 4
   materials:
-    Steel: 1250
+    Steel: 1500
     Silver: 500
-    Plasteel: 250
+    Plasteel: 500
 
 - type: latheRecipe
   id: ADTDurandRArm
   result: ADTDurandRArm
   completetime: 4
   materials:
-    Steel: 1250
+    Steel: 1500
     Silver: 500
-    Plasteel: 250
+    Plasteel: 500
 
 - type: latheRecipe
   id: ADTDurandArmorPlates
   result: ADTDurandArmorPlates
   completetime: 4
   materials:
-    Steel: 2250
-    Plasteel: 2500
-    Silver: 500
+    Steel: 3000
+    Plasteel: 4000
+    Silver: 1000
 
 - type: latheRecipe
   id: ADTDurandHead
   result: ADTDurandHead
   completetime: 4
   materials:
-    Steel: 500
-    Glass: 1250
-    Silver: 500
-    Plasteel: 250
+    Steel: 1000
+    Glass: 1500
+    Silver: 1000
+    Plasteel: 500
 
 - type: latheRecipe
   id: ADTDurandCentralElectronics
   result: ADTDurandCentralElectronics
   completetime: 2
   materials:
-    Steel: 300
-    Glass: 1000
-    Gold: 500
+    Steel: 1000
+    Glass: 1500
+    Gold: 1000
 
 - type: latheRecipe
   id: ADTDurandPeripheralsElectronics
   result: ADTDurandPeripheralsElectronics
   completetime: 2
   materials:
-    Steel: 300
-    Glass: 1000
-    Gold: 500
+    Steel: 1000
+    Glass: 1500
+    Gold: 1000
 
 #Фазон
 - type: latheRecipe
@@ -323,17 +323,17 @@
   result: ADTPhazonHarness
   completetime: 4
   materials:
-    Steel: 2750
-    Glass: 2000
-    Plasma: 1500
+    Steel: 3000
+    Glass: 3000
+    Plasma: 3000
 
 - type: latheRecipe
   id: ADTPhazonLArm
   result: ADTPhazonLArm
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 250
+    Steel: 2000
+    Glass: 500
     Plasma: 500
 
 - type: latheRecipe
@@ -341,8 +341,8 @@
   result: ADTPhazonLLeg
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 250
+    Steel: 2000
+    Glass: 500
     Plasma: 500
 
 - type: latheRecipe
@@ -350,8 +350,8 @@
   result: ADTPhazonRLeg
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 250
+    Steel: 2000
+    Glass: 500
     Plasma: 500
 
 - type: latheRecipe
@@ -359,8 +359,8 @@
   result: ADTPhazonRArm
   completetime: 4
   materials:
-    Steel: 1500
-    Glass: 250
+    Steel: 2000
+    Glass: 500
     Plasma: 500
 
 - type: latheRecipe
@@ -368,45 +368,45 @@
   result: ADTPhazonArmorPlates
   completetime: 4
   materials:
-    Steel: 2000
-    Plasteel: 2500
-    Plasma: 500
+    Steel: 3000
+    Plasteel: 4000
+    Plasma: 1000
 
 - type: latheRecipe
   id: ADTPhazonHead
   result: ADTPhazonHead
   completetime: 4
   materials:
-    Steel: 750
+    Steel: 1000
     Glass: 1500
-    Plasma: 500
+    Plasma: 1000
 
 - type: latheRecipe
   id: ADTPhazonCentralElectronics
   result: ADTPhazonCentralElectronics
   completetime: 2
   materials:
-    Steel: 300
-    Glass: 1000
-    Gold: 500
+    Steel: 1000
+    Glass: 1500
+    Gold: 1000
 
 - type: latheRecipe
   id: ADTPhazonPeripheralsElectronics
   result: ADTPhazonPeripheralsElectronics
   completetime: 2
   materials:
-    Steel: 300
-    Glass: 1000
-    Gold: 500
+    Steel: 1000
+    Glass: 1500
+    Gold: 1000
 
 - type: latheRecipe
   id: ADTPhazonWeaponControlElectronics
   result: ADTPhazonWeaponControlElectronics
   completetime: 2
   materials:
-    Steel: 300
-    Glass: 1250
-    Gold: 750
+    Steel: 1000
+    Glass: 1500
+    Gold: 1000
 
 #комплект модификации
 - type: latheRecipe

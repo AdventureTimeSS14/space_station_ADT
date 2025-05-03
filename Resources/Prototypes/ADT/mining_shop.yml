@@ -77,9 +77,13 @@
   - id: ADTClothingOuterArmorMiner
     price: 1000
   - id: ADTClothingModsuitBackMining
-    price: 3000
-  - id: ADTClothingOuterArmorMinerHeavy
-    price: 3600
+    price: 1800
+  - id: ADTModsuitModDrill
+    price: 1000
+  - id: ADTModsuitModStorageLarge
+    price: 500 
+#  - id: ADTClothingOuterArmorMinerHeavy
+#    price: 3600
 #  - id: ADTClothingOuterArmorMinerLight
 #    price: 4000
   - id: ADTClothingJumpBoots
@@ -129,7 +133,7 @@
 - type: miningShopSection
   id: Fun
   name: Безделушки
-  entries: 
+  entries:
   - id: PlushieLizard
     price: 220 # CURSE
   - id: SpaceCash5000

@@ -1,0 +1,16 @@
+# PDA
+- type: loadout
+  id: MedicalInternPDA
+  equipment:
+    id: MedicalInternPDA
+
+- type: loadout
+  id: ADTPracticalNursePDA
+  equipment:
+    id: ADTPracticalNursePDA
+
+- type: loadout
+  id: ADTResidentPDA
+  equipment:
+    id: ADTResidentPDA
+

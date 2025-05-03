@@ -1,0 +1,38 @@
+<Document>
+
+# Рецепты еды
+
+Это последняя опубликованная версия сборника рецептов NanoTrasen Central Command Kitchen de Cuisine, предназначенного для шеф-поваров, готовящих блюда, используя посуду NanoTrasen.
+
+
+<GuideMicrowaveGroupEmbed Group="Pizza"/>
+
+<GuideMicrowaveGroupEmbed Group="Savory"/>
+
+<GuideMicrowaveGroupEmbed Group="Breads"/>
+
+<GuideMicrowaveGroupEmbed Group="Breakfast"/>
+
+<GuideMicrowaveGroupEmbed Group="Moth"/>
+
+<GuideMicrowaveGroupEmbed Group="Pasta"/>
+
+<GuideMicrowaveGroupEmbed Group="Dessert"/>
+
+<GuideMicrowaveGroupEmbed Group="Soup"/>
+
+<GuideMicrowaveGroupEmbed Group="Pie"/>
+
+<GuideMicrowaveGroupEmbed Group="BarsAndCookies"/>
+
+<GuideMicrowaveGroupEmbed Group="Cake"/>
+
+<GuideMicrowaveGroupEmbed Group="Salad"/>
+
+<GuideMicrowaveGroupEmbed Group="Holiday"/>
+
+<GuideMicrowaveGroupEmbed Group="Other"/>
+
+<GuideMicrowaveGroupEmbed Group="Secret"/>
+
+</Document>

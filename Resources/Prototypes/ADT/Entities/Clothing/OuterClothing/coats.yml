@@ -351,6 +351,8 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/crazyscientist.rsi
 
+
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterDutch
@@ -383,3 +385,31 @@
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
+
+
+# Тренч деку
+
+- type: entity
+  parent: ClothingOuterCoatDetectiveLoadout
+  id: ADTClothingOuterCoatDetectiveLoadoutOld
+  name: old trenchcoat
+  description: Decy trench, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_old.rsi
+
+# Просто штука со старой сбокри, чё уж 
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatXCoat
+  name: x coat
+  description: x coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/x_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/x_coat.rsi
+

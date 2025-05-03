@@ -4,4 +4,10 @@ research-technology-services-modsuit-mods = Модификации сервис�
 
 research-technology-exoskeletons = Экзоскелеты
 
-research-technology-services-service-plus = Крупноволновое излучение
+research-technology-services-service-plus = Продвинутое ресторанное обслуживание
+
+research-advanced-reagent-grinder = Продвинутый измельчитель реагентов
+
+research-technology-services-hydroponics-advanced = Продвинутая гидропоника
+
+research-technology-electrical-range = Электрическая печь
