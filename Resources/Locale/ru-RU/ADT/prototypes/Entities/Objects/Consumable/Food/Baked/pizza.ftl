@@ -6,11 +6,11 @@ ent-ADTFoodPizzaSindiSlice = кусочек пиццы синдиката
 
 
 
-ent-ADTFoodPizzaBBQ = пицца барбекью
+ent-ADTFoodPizzaBBQ = пицца барбекю
     .desc = С дымком!
 
 
-ent-ADTFoodPizzaBBQSlice = кусок пиццы барбекью
+ent-ADTFoodPizzaBBQSlice = кусок пиццы барбекю
     .desc = С дымком!
 
 
@@ -29,11 +29,11 @@ ent-ADTFoodPizzaCaesarSlice = кусок пиццы цезарь
     .desc = Pizza pizza!
 
 ent-ADTFoodPizzaCheese = сырная пицца 
-    .desc = Иногда, мне снятся сны о сыре..
+    .desc = Иногда мне снятся сны о сыре..
 
 
 ent-ADTFoodPizzaCheeseSlice = кусок сырной пиццы
-    .desc = Иногда, мне снятся сны о сыре..
+    .desc = Иногда мне снятся сны о сыре..
 
 ent-ADTFoodPizzaChicago = пицца по-чикагски
     .desc = Высокая пицца с толстым слоем сыра на дне и большим количеством начинки.
@@ -42,16 +42,16 @@ ent-ADTFoodPizzaChicago = пицца по-чикагски
 ent-ADTFoodPizzaChicagoSlice = кусок пиццы по-чикагски
     .desc = Высокая пицца с толстым слоем сыра на дне и большим количеством начинки.
 
-ent-ADTFoodPizzaChicken = куринная пицца
-    .desc = Раньше это была курица. Теперь это пицца
+ent-ADTFoodPizzaChicken = куриная пицца
+    .desc = Раньше это была курица. Теперь это пицца.
 
-ent-ADTFoodPizzaChickenSlice = кусок куринной пиццы
-    .desc = Раньше это была курица. Теперь это пицца
+ent-ADTFoodPizzaChickenSlice = кусок куриной пиццы
+    .desc = Раньше это была курица. Теперь это пицца.
 
-ent-ADTFoodPizzaClassic = пицца пеппирони
+ent-ADTFoodPizzaClassic = пицца пеперони
     .desc = Самая популярная пицца в ТСФ.
 
-ent-ADTFoodPizzaClassicSlice = кусок пиццы пеппирони
+ent-ADTFoodPizzaClassicSlice = кусок пиццы пеперони
     .desc = Самая популярная пицца в ТСФ.
 
 ent-ADTFoodPizzaDiablo = пицца дьябло
@@ -72,14 +72,14 @@ ent-ADTFoodPizzaMexican = мексиканская пицца
 ent-ADTFoodPizzaMexicanSlice = кусок мексиканской пиццы
     .desc = Маленький привет из Месики!
 
-ent-ADTFoodPizzaMushroomchicken = куринная пицца с грибами
+ent-ADTFoodPizzaMushroomchicken = куриная пицца с грибами
     .desc = Раньше это была курица, которая ела слишком много грибов. Теперь это пицца.
 
-ent-ADTFoodPizzaMushroomchickenSlice = кусок куринной пиццы с грибами
+ent-ADTFoodPizzaMushroomchickenSlice = кусок куриной пиццы с грибами
     .desc = Раньше это была курица, которая ела слишком много грибов. Теперь это пицца.
 
 ent-ADTFoodPizzaSea = пицца с морепродуктами
-    .desc = Буль-буль!!, сказали бы все рыбы, смотрящие за тем, как вы готовите эту пиццу.
+    .desc = "Буль-буль!!", - сказали бы все рыбы, смотрящие за тем, как вы готовите эту пиццу.
 
 ent-ADTFoodPizzaSeaSlice = кусок пиццы с морепродуктами
-    .desc = Буль-буль!!, сказали бы все рыбы, смотрящие за тем, как вы готовите эту пиццу.
+    .desc = "Буль-буль!!", - сказали бы все рыбы, смотрящие за тем, как вы готовите эту пиццу.
