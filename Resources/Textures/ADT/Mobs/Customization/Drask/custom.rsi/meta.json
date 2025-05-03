@@ -14,6 +14,26 @@
         {
             "name": "r_arm",
             "directions": 4
+        },
+        {
+            "name": "gauze_eye_upper",
+            "directions": 4
+        },
+        {
+            "name": "gauze_eyes_bottom",
+            "directions": 4
+        },
+        {
+            "name": "roughness_arms",
+            "directions": 4
+        },
+        {
+            "name": "roughness_legs",
+            "directions": 4
+        },
+        {
+            "name": "roughness_body",
+            "directions": 4
         }
     ]
 }

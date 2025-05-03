@@ -23,18 +23,18 @@
       types:
         Blunt: 0.8
   - type: PointLight
-    color: "#4682B4FF"
+    color: "#10207b"
     energy: 1
     radius: 1.2
   - type: Prying
-    speedModifier: 0.4
+    speedModifier: 0.5
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
     allowedStates:
     - Alive
     damageCap: 25
     damage:
       types:
-        Heat: -0.08
+        Heat: -0.04
       groups:
         Brute: -0.06
   - type: Body
@@ -49,7 +49,6 @@
       types:
         Blunt: 10
   - type: Bloodstream
-    bleedReductionAmount: 0.5
     bloodRefreshAmount: 2
     bloodMaxVolume: 250
     bloodReagent: Cryoxadone
@@ -70,22 +69,19 @@
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
-        Heat : 3.0
+        Heat : 4.0
   - type: TemperatureSpeed
     thresholds:
-      40: 0.8
-      0: 0.6
-      -60: 0.4
+      -33: 0.8
+      -103: 0.6
+      -173: 0.4
   - type: SlowOnDamage
     speedModifierThresholds:
       62: 0.8
-      84: 0.6
+      86: 0.6
   - type: ThermalRegulator
-    metabolismHeat: 800
-    radiatedHeat: 100
-    implicitHeatRegulation: 500
     sweatHeatRegulation: 1500
-    shiveringHeatRegulation: 3500
+    shiveringHeatRegulation: 500
     normalBodyTemperature: 273.15
     thermalRegulationTemperatureThreshold: 25
   - type: Fixtures
@@ -147,6 +143,21 @@
           32:
             sprite: ADT/Mobs/Species/Drask/displacement.rsi
             state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: jumpsuit
+      underweart:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: underweart
+      underwearb:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: underwearb
       outerClothing:
         sizeMaps:
           32:
@@ -178,12 +189,26 @@
           32:
             sprite: ADT/Mobs/Species/Drask/displacement.rsi
             state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: jumpsuit
+      underweart:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: underweart
+      underwearb:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+            state: underwearb
       outerClothing:
         sizeMaps:
           32:
             sprite: ADT/Mobs/Species/Drask/displacement.rsi
             state: outerclothing
-
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Drask

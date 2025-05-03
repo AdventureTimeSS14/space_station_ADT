@@ -1,2 +1,23 @@
-marking-DraskArmRight = правая рука
-marking-DraskArmLeft = левая рука
+# Оставлю пока так
+ent-ADTPartDrask = часть тела Драска
+    .desc = { ent-BaseItem.desc }
+ent-ADTTorsoDrask = торс Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTHeadDrask = голова Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTLeftArmDrask = левая рука Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTRightArmDrask = правая рука Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTLeftHandDrask = левая рука Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTRightHandDrask = правая рука Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTLeftLegDrask = левая нога Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTRightLegDrask = правая нога Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTLeftFootDrask = левая стопа Драска
+    .desc = { ent-ADTPartDrask.desc }
+ent-ADTRightFootDrask = правая стопа Драска
+    .desc = { ent-ADTPartDrask.desc }
