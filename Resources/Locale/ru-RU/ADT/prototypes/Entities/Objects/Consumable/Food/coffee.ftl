@@ -1,6 +1,6 @@
 # Дерево
 seeds-coffeetree-name = кофе
-seeds-coffeetree-display-name = кофейное дерево
+seeds-coffeetree-display-name = кофейное дерeво
 
 # Реагент кофе
 reagent-name-coffeepowder = кофейный порошок
