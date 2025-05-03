@@ -121,9 +121,6 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
     {
-        // Set timer for a zap's
-        sm.ZapEndTimer = TimeSpan.FromSeconds(sm.ZapTimer);
-
         // Set the yell timer
         sm.YellTimer = TimeSpan.FromSeconds(_config.GetCVar(ADTCCVars.SupermatterYellTimer));
 

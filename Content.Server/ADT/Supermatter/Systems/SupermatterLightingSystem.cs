@@ -11,53 +11,43 @@ namespace Content.Server.ADT.Supermatter.Systems;
 public sealed partial class SupermatterSystem
 {
     private TimeSpan _zapAccumulator = TimeSpan.Zero;
-    private static readonly TimeSpan ZapInterval = TimeSpan.FromSeconds(60);
 
     /// <summary>
     /// Shoot lightning bolts depending on accumulated power, but only once per interval.
     /// </summary>
     public void SupermatterZap(EntityUid uid, SupermatterComponent sm, float frameTime)
     {
-        _zapAccumulator += TimeSpan.FromSeconds(frameTime);
-
-        if (_zapAccumulator < ZapInterval)
-            return;
-
-        int zapTimes = (int)(_zapAccumulator.Ticks / ZapInterval.Ticks);
-        _zapAccumulator -= TimeSpan.FromTicks(ZapInterval.Ticks * zapTimes);
-
-        var power = sm.Power;
-        var integrity = GetIntegrity(sm);
-        var zapRange = Math.Clamp(power / 1000, 2, 7);
-
-        for (int i = 0; i < zapTimes; i++)
+        if (!sm.HasBeenPowered)
+        return;
+        
+        while (_zapAccumulator >= sm.ZapTimer)
         {
+            _zapAccumulator -= sm.ZapTimer;
+
+            var power = sm.Power;
+            var integrity = GetIntegrity(sm);
+            var zapRange = Math.Clamp(power / 1000, 2, 7);
+
+            int zapCount = 1 + (int)(power / 2000);
+
+            if (_random.Prob(0.2f))
+                zapCount++;
+
+            if (integrity < 50)
+                zapCount++;
+                sm.ZapTimer = sm.ZapTimer / 2;
+
+            zapCount = Math.Clamp(zapCount, 1, 5);
+
             int zapPower = 0;
-            int zapCount = 0;
-
-            if (_random.Prob(0.05f))
-                zapCount++;
-
-            if (power >= _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold))
-                zapCount += 2;
-
             if (power >= _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
-            {
                 zapPower++;
-                zapCount++;
-            }
-
+                sm.ZapTimer = sm.ZapTimer - 10;
             if (power >= _config.GetCVar(ADTCCVars.SupermatterCriticalPowerPenaltyThreshold))
-            {
                 zapPower++;
-                zapCount++;
-            }
+                sm.ZapTimer = sm.ZapTimer - 5;
 
-            if (integrity < 25)
-                zapCount++;
-
-            if (power >= _config.GetCVar(ADTCCVars.SupermatterMinPowerToLighting))
-                zapCount = Math.Max(zapCount, 1);
+            zapPower = Math.Clamp(zapPower, 1, 3);
 
             _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower]);
         }

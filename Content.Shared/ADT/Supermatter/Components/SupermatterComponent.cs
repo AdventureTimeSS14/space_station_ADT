@@ -268,14 +268,8 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// Every 60 seconds, Supermatter will release lightning bolts
     /// </summary>
-    [DataField]
-    public TimeSpan ZapEndTimer;
-
-    /// <summary>
-    /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
-    /// </summary>
-    [DataField]
-    public float ZapTimer = 60f;
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan ZapTimer { get; set; } = TimeSpan.FromSeconds(60);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -289,11 +283,8 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float AccentMinCooldown = 2f;
 
-    [DataField]
-    public TimeSpan ZapLast;
-
     [DataField("restartDelay"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan RestartDelay = TimeSpan.FromSeconds(60f);
+    public TimeSpan RestartDelay = TimeSpan.FromSeconds(120f);
 
     #endregion
 
