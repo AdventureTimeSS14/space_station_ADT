@@ -45,10 +45,6 @@
   recipeUnlocks:
     - ADTAdvancedMicrowaveMachineCircuitBoard #Я не против расширения арсенала этой технологии, просто переименуйте её в локализации, если будете добавлять сюда чего-либо
     - ADTCoffeeMachineBluespaceCircuitboard # Окей, братан. Я тебя понял :3
-    - ADTAdvancedReagentGrinderMachineCircuitboard
-    - ADTHydroponicsTrayAdvancedMachineCircuitboard
-    - ADTAdvancedPlantAnalyzer
-  position: 2,-3
     - ADTKitchenAssemblerMachineCircuitBoard
     - ADTElectricRangeMachineCircuitBoard
   position: 1,-2
