@@ -23,7 +23,7 @@ ent-ADTFoodMealCream = сливочная паста
 ent-ADTFoodMealCreamMeatball = сливочная паста с фрикадельками
     .desc = Выглядит довольно вкусно!
 
-ent-ADTFoodMealFish = сливочная паста с лососём
+ent-ADTFoodMealFish = сливочная паста с лососем
     .desc = Это такая же вкусная лапша, лишь с лососем!
 
 ent-ADTFoodMealInk = паста неро
