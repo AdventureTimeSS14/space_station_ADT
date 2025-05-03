@@ -294,7 +294,7 @@
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaChickenRecipe
-  name: pizza chicen
+  name: pizza chicken
   result: ADTFoodPizzaChicken
   time: 30
   solids:     
@@ -305,7 +305,7 @@
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaMushroomchickenRecipe
-  name: pizza mushroomchicka
+  name: pizza mushroomchicken
   result: ADTFoodPizzaMushroomchicken
   time: 30
   solids:     
@@ -368,7 +368,7 @@
 
 - type: microwaveMealRecipe
   id: ADTFoodMealCheeseMeatballRecipe
-  name: pasta cheesemeat
+  name: pasta cheesemeatball
   result: ADTFoodMealCheeseMeatball
   time: 10
   solids:     
