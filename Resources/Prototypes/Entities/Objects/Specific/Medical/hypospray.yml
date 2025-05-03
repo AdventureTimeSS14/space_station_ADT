@@ -163,7 +163,7 @@
     tags:
     - ADTMedipen
     # ADT Tweak END
-    
+
 - type: entity
   name: poison auto-injector
   parent: ChemicalMedipen
@@ -298,7 +298,7 @@
     tags:
     - ADTMedipen
     # ADT Tweak END
-    
+
 - type: entity
   name: puncturase auto-injector
   parent: ChemicalMedipen
@@ -392,12 +392,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 20
         reagents:
         - ReagentId: Saline
-          Quantity: 20
+          Quantity: 10
         - ReagentId: DexalinPlus
-          Quantity: 20
+          Quantity: 10
   - type: Tag
     #ADT Tweak Start
     tags:
@@ -631,4 +631,7 @@
     onlyAffectsMobs: false
     injectOnly: true
   - type: Tag
-    tags: []
+    #ADT Tweak Start
+    tags:
+    - ADTMedipen
+    # ADT Tweak END

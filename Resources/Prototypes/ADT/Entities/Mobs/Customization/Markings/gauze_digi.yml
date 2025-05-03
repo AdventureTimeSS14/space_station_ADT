@@ -1,0 +1,56 @@
+# Не спрашивайте почему 2 правых стопы и 2 левых ноги в частях тела. Если указывать по другому оно не отображало спрайты полностью, но так чинится и ничего не ломает (Фишка слоев, чё уж)
+- type: marking
+  id: ADTGauzeLowerLegLeftDigi
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [VulpkaninSpecies] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Digi/gauze_digi.rsi
+    state: gauze_lowerleg_l_digi
+
+- type: marking
+  id: ADTGauzeUpperLegLeftDigi
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [VulpkaninSpecies]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Digi/gauze_digi.rsi
+    state: gauze_upperleg_l_digi
+
+- type: marking
+  id: ADTGauzeUpperLegRightDigi
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [VulpkaninSpecies] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Digi/gauze_digi.rsi
+    state: gauze_upperleg_r_digi
+
+- type: marking
+  id: ADTGauzeLowerLegRightDigi
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [VulpkaninSpecies] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Digi/gauze_digi.rsi
+    state: gauze_lowerleg_r_digi

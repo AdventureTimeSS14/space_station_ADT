@@ -155,3 +155,13 @@ ent-ADTClothingUniformJumpskirtCMOHike = походная юбка-костюм 
 ent-ADTClothingUniformJumpSkirtRedHat = костюм красной шапочки
     .desc = Самое страшное, что ждёт эту шапочку, что вместо волка за нею придут вульпы
     .suffix = Хеллоуин
+
+
+ent-ADTClothingUniformJumpskirtDetectiveOld = старая рубашка с юбкой, галстуком и подтяжками
+    .desc = Носящая это точно хочет показать, что она ценит старые принципы и поведения. Всё это явно потрёпанно, но хозяйка этих вещей точно любит их.
+
+ent-ADTClothingUniformJumpskirtBarber = модная юбка-костюм
+    .desc = Один костюм, чтобы править ими всеми.
+ent-ADTClothingUniformJumpskirtBarberBrown = коричневая модная юбка-костюм
+    .desc = Для любителей старомодного стиля.
+

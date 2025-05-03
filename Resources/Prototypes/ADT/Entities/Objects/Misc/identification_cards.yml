@@ -217,3 +217,390 @@
       job: ADTJobUSSPArmyOfficer
 
 # USSP USSP
+
+#Парикмахер
+- type: entity
+  parent: IDCardStandard
+  id: ADTBarberIDCard
+  name: barber ID card
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: id-barber
+  - type: PresetIdCard
+    job: ADTBarber
+
+## Alternate Job Titles
+
+# Passenger
+
+- type: entity
+  parent: PassengerIDCard
+  id: ADTVisitorIDCard
+  name: visitor ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-visitor
+
+
+- type: entity
+  parent: PassengerIDCard
+  id: ADTTouristIDCard
+  name: tourist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-tourist
+
+- type: entity
+  parent: PassengerIDCard
+  id: ADTStudentIDCard
+  name: student ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-student
+
+# Bartender
+
+- type: entity
+  parent: BartenderIDCard
+  id: ADTMixologistIDCard
+  name: mixologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-mixologist
+
+# Chef
+
+- type: entity
+  parent: ChefIDCard
+  id: ADTBakerIDCard
+  name: baker ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-baker
+
+- type: entity
+  parent: ChefIDCard
+  id: ADTButcherIDCard
+  name: butcher ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-butcher
+
+- type: entity
+  parent: ChefIDCard
+  id: ADTPizzaioloIDCard
+  name: pizzaiolo ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-pizzaiolo
+
+# Medical Intern
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: ADTPracticalNurseIDCard
+  name: practical nurse ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-practical-nurse
+
+- type: entity
+  parent: MedicalInternIDCard
+  id: ADTResidentIDCard
+  name: resident ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-resident
+
+# Medical Doctor
+
+- type: entity
+  parent: MedicalIDCard
+  id: ADTClinicianIDCard
+  name: clinician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-clinician
+
+- type: entity
+  parent: MedicalIDCard
+  id: ADTDoctorIDCard
+  name: doctor ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-adt-doctor
+
+- type: entity
+  parent: MedicalIDCard
+  id: ADTTherapistIDCard
+  name: therapist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-therapist
+
+# Atmospheric Technician
+
+- type: entity
+  parent: AtmosIDCard
+  id: ADTLifeSupportTechIDCard
+  name: life support technician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-life-support-tech
+
+- type: entity
+  parent: AtmosIDCard
+  id: ADTPlasmaScientistIDCard
+  name: plasma scientist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-plasma-scientist
+
+# Station Engineer
+
+- type: entity
+  parent: EngineeringIDCard
+  id: ADTElectricianIDCard
+  name: electrician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-electrician
+
+- type: entity
+  parent: EngineeringIDCard
+  id: ADTMechanicIDCard
+  name: mechanic ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-mechanic
+
+# Cargo Technician
+
+- type: entity
+  parent: CargoIDCard
+  id: ADTPostmanIDCard
+  name: postman ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-postman
+
+- type: entity
+  parent: CargoIDCard
+  id: ADTInventoryAssociateIDCard
+  name: inventory associate ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-inventory-associate
+
+# Salvage Specialist
+
+- type: entity
+  parent: SalvageIDCard
+  id: ADTExcavatorIDCard
+  name: excavator ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-excavator
+
+# Scientist
+
+- type: entity
+  parent: ResearchIDCard
+  id: ADTLabTechIDCard
+  name: lab technician ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-lab-tech
+
+- type: entity
+  parent: ResearchIDCard
+  id: ADTXenoarchIDCard
+  name: xenoarchaeologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-xenoarch
+
+- type: entity
+  parent: ResearchIDCard
+  id: ADTAnomalistIDCard
+  name: anomalist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-anomalist
+
+# Clown
+
+- type: entity
+  parent: ClownIDCard
+  id: ADTJesterIDCard
+  name: jester ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-jester
+
+- type: entity
+  parent: ClownIDCard
+  id: ADTFoolIDCard
+  name: fool ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-fool
+
+# Detective
+
+- type: entity
+  parent: DetectiveIDCard
+  id: ADTInvestigatorIDCard
+  name: investigator ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-investigator
+
+# Janitor
+
+- type: entity
+  parent: JanitorIDCard
+  id: ADTMaidIDCard
+  name: maid ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-maid
+
+# ROBOTICIST
+
+- type: entity
+  parent: ADTRoboticistIDCard
+  id: ADTMechAssemblerIDCard
+  name: mechanical assembler ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-mechanical-assembler
+
+# HoS
+
+- type: entity
+  parent: HoSIDCard
+  id: ADTSheriffIDCard
+  name: sheriff ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-sheriff
+
+# Lawyer
+
+- type: entity
+  parent: LawyerIDCard
+  id: ADTLawyerIDCard
+  name: lawyer ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-adt-lawyer
+
+# Botanist
+
+- type: entity
+  parent: BotanistIDCard
+  id: ADTGardenerIDCard
+  name: gardener ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-gardener
+
+- type: entity
+  parent: BotanistIDCard
+  id: ADTEcologistIDCard
+  name: ecologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-ecologist
+
+
+
+- type: entity
+  parent: LibrarianIDCard
+  id: ADTMythologistIDCard
+  name: mythologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-mythologist
+
+- type: entity
+  parent: LibrarianIDCard
+  id: ADTEthnologistIDCard
+  name: ethnologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-ethnologist
+
+# Chaplain
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTMonkIDCard
+  name: monk ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-monk
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTExorcistIDCard
+  name: exorcist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-exorcist
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTPriestIDCard
+  name: priest ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-priest
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTShepherdIDCard
+  name: shepherd ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-shepherd
+
+- type: entity
+  parent: ChaplainIDCard
+  id: ADTClergymanIDCard
+  name: clergyman ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-clergyman
+
+# Psychologist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: ADTPsychiatristIDCard
+  name: psychiatrist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-psychiatrist
+
+- type: entity
+  parent: PsychologistIDCard
+  id: ADTPsychotherapistIDCard
+  name: psychotherapist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-psychotherapist
+
+# Brigmedic
+
+- type: entity
+  parent: BrigmedicIDCard
+  id: ADTFieldDoctorIDCard
+  name: field doctor ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-field-doctor

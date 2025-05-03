@@ -102,7 +102,9 @@ guide-entry-drinks = Drinks
 guide-entry-foodrecipes = Food Recipes
 
 guide-entry-elements = Elements
-guide-entry-medicine = Medicine
+# adt tweak start
+guide-entry-medication = Medicine
+# adt tweak start end
 guide-entry-narcotics = Narcotics
 guide-entry-pyrotechnics = Pyrotechnic
 guide-entry-toxins = Toxins

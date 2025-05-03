@@ -1,10 +1,7 @@
 - type: salary
   id: Salaries
   salaries:
-    ADTBlueShieldOfficer: 1000
-    Captain: 800
-    Magistrat: 800
-    CentralCommandOfficial: 800
+    # Главы/ЦК
     IAA: 600
     ChiefEngineer: 600
     ChiefMedicalOfficer: 600
@@ -12,43 +9,55 @@
     HeadOfSecurity: 600
     ResearchDirector: 600
     Quartermaster: 600
+    CentralCommandOfficial: 800
+    Captain: 800
+    Magistrat: 800
+    ADTBlueShieldOfficer: 1000
+    # Карго
     CargoTechnician: 200
     SalvageSpecialist: 300
-    Bartender: 200
-    Botanist: 200
+    # Сервис
     Boxer: 150
     Chaplain: 150
-    Chef: 200
     Clown: 150
-    Janitor: 200
-    Lawyer: 150
     Librarian: 150
     Mime: 150
     Musician: 150
     Passenger: 100
     Reporter: 150
     Zookeeper: 150
+    ADTBarber: 150
     ServiceWorker: 150
-    AtmosphericTechnician: 400
-    StationEngineer: 300
+    Janitor: 200
+    Chef: 200
+    Bartender: 200
+    Botanist: 200
+    # Инж
     TechnicalAssistant: 200
-    Chemist: 400
-    MedicalDoctor: 300
+    StationEngineer: 300
+    AtmosphericTechnician: 400
+    ADTSeniorEngineer: 450
+    # Мед
     MedicalIntern: 200
     Psychologist: 200
+    MedicalDoctor: 300
     Paramedic: 400
+    ADTPathologist: 400
+    Chemist: 400
+    ADTSeniorPhysician: 450
+    # СБ
     SecurityCadet: 200
     SecurityOfficer: 300
+    ADTGuardOfficer: 375
     Detective: 400
     Pilot: 400
-    Warden: 500
-    ADTPathologist: 400
-    ADTRoboticist: 400
-    Scientist: 300
-    ResearchAssistant: 200
     Brigmedic: 400
-    ADTSeniorEngineer: 450
-    ADTSeniorPhysician: 450
-    ADTSeniorResearcher: 450
     ADTSeniorOfficer: 450
-    ADTGuardOfficer: 375
+    Warden: 500
+    # НИО
+    ResearchAssistant: 200
+    Scientist: 300
+    ADTRoboticist: 400
+    ADTSeniorResearcher: 450
+    # Юридический
+    Lawyer: 150

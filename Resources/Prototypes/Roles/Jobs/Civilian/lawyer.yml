@@ -25,7 +25,7 @@
   id: LawyerGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: LawyerPDA
+    # id: LawyerPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetLawyer
   inhand:
     - BriefcaseBrownFilled

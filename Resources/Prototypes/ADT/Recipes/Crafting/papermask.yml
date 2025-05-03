@@ -1,0 +1,12 @@
+- type: construction
+  name: paper mask
+  id: PaperMask
+  graph: PaperMask
+  startNode: start
+  targetNode: CompletePaperMaskHeart
+  category: construction-category-clothing
+  description: A neat, circular mask made out of paper.
+  icon:
+    sprite: ADT/Clothing/Mask/papermask_blank.rsi
+    state: icon
+  objectType: Item
