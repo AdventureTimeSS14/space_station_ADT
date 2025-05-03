@@ -28,9 +28,9 @@
   - CintaTajTranslator
   - IPCTranslator
   - DwarfTranslator
-  position: 4,2
+  position: 3,2
   requiredTech:
-  - ADTMedicalMODsuit
+  - ADTServiceMODsuitMODs
 
 - type: technology
   id: AdvancedTranslation
@@ -65,6 +65,6 @@
   - IPCTranslatorImplanter
   - BorgTranslatorImplanter
   - DwarfTranslatorImplanter
-  position: 5,3
+  position: 4,2
   requiredTech:
   - BasicTranslation
