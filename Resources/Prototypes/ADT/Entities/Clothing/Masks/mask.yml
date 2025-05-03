@@ -481,3 +481,227 @@
   - type: ShowJobIcons
 
 # USSP USSP
+
+# Paper mask
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskPaperBlank
+  name: paper mask
+  description: A neat, circular mask made out of paper.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_blank.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_blank.rsi
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskBlank
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperNeutral
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_neutral.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_neutral.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskNeutral
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperEyes
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_eyes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_eyes.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskEyes
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperSleeping
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_sleeping.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_sleeping.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskSleeping
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperHeart
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_heart.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_heart.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskHeart
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperCore
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_core.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_core.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskCore
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperPlus
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_plus.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_plus.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskPlus
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperSquare
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_square.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_square.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskSquare
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperBullseye
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_bullseye.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_bullseye.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskBullseye
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperVertical
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_vertical.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_vertical.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskVertical
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperHorizontal
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_horizontal.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_horizontal.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskHorizontal
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperX
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_x.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_x.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskX
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperBugeyes
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_bugeyes.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_bugeyes.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskBugeyes
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperDouble
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_double.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_double.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskDouble
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperMark
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_mark.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_mark.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskMark
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperSad
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_sad.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_sad.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskSad
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperShadekin
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_shadekin.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_shadekin.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskShadekin
+
+- type: entity
+  parent: ADTClothingMaskPaperBlank
+  id: ADTClothingMaskPaperBlack
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/papermask_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/papermask_black.rsi
+  - type: Construction
+    graph: PaperMask
+    node: CompletePaperMaskBlack

@@ -28,7 +28,7 @@
 
 - type: entity
   id: ADTHandDefibrillator
-  name:
+  name: hand defibrillator
   description:
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   components:
@@ -51,3 +51,71 @@
   - type: MultiHandedItem
   - type: PowerCellDraw
     useRate: 200
+
+- type: entity
+  id: ADTHighVoltageDefibrillator
+  name: high-voltage defibrillator
+  description: A defibrillator that takes less time to zap but deals more electric damage.
+  parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
+  components:
+  - type: MultiHandedItem #новую текстурку.
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    useRate: 222 #~3 использования
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
+    layers:
+      - state: icon
+      - state: screen
+        map: [ "enum.ToggleVisuals.Layer" ]
+        visible: false
+        shader: unshaded
+      - state: ready
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+        shader: unshaded
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Defibrillator
+    - ADTHighVoltageDefibrillator
+  - type: Defibrillator
+    zapHeal:
+      types:
+        Asphyxiation: -45
+    doAfterDuration: 2
+    zapDelay: 2
+    powerOnSound:
+      path: /Audio/ADT/Items/Defib/highvolt-defib_safety_on.ogg
+    powerOffSound:
+      path: /Audio/ADT/Items/Defib/highvolt-defib_safety_off.ogg
+    chargeSound:
+      path: /Audio/ADT/Items/Defib/highvolt-defib_charge.ogg
+    zapSound:
+      path: /Audio/ADT/Items/Defib/highvolt-defib_zap.ogg
+    readySound:
+      path: /Audio/ADT/Items/Defib/highvolt-defib_ready.ogg
+    lowChargeSound:
+      path: /Audio/ADT/Items/Defib/highvolt-defib_low_charge.ogg
+    zapDamage: 15
+    writheDuration: 10
+
+- type: entity
+  id: ADTHighVoltageDefibrillatorEmpty
+  parent: ADTHighVoltageDefibrillator
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  id: ADTHighVoltageDefibrillatorFake #дефиб синди.
+  parent: ADTHighVoltageDefibrillator
+  description: A defibrillator that takes less time to zap but deals more electric damage. But something's off..
+  components:
+    - type: Defibrillator
+      zapHeal:
+        types:
+          Asphyxiation: -1
+      zapDamage: 100

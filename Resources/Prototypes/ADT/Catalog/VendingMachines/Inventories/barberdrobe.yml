@@ -1,0 +1,13 @@
+- type: vendingMachineInventory
+  id: ADTBarberdrobeInventory
+  startingInventory:
+    ADTClothingUniformJumpsuitBarber: 3
+    ADTClothingUniformJumpsuitBarberBrown: 3
+    ADTClothingUniformJumpskirtBarber: 3
+    ADTClothingUniformJumpskirtBarberBrown: 3
+    ADTClothingOuterApronBarber: 2
+    ClothingHeadsetService: 2
+    ClothingShoesColorBlack: 2
+    ClothingShoesBootsLaceup: 2
+    ClothingHeadBandBlack: 1
+    ClothingHandsGlovesColorBlack: 2

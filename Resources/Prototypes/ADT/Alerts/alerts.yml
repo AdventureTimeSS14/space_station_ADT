@@ -234,3 +234,24 @@
   description: alerts-pulling-desc
   minSeverity: 0
   maxSeverity: 3
+
+
+- type: alert
+  id: ModsuitPower
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/modpower.rsi
+    state: modpower0
+  - sprite: /Textures/ADT/Interface/Alerts/modpower.rsi
+    state: modpower1
+  - sprite: /Textures/ADT/Interface/Alerts/modpower.rsi
+    state: modpower2
+  - sprite: /Textures/ADT/Interface/Alerts/modpower.rsi
+    state: modpower3
+  - sprite: /Textures/ADT/Interface/Alerts/modpower.rsi
+    state: modpower4
+  - sprite: /Textures/ADT/Interface/Alerts/modpower.rsi
+    state: modpower5
+  name: alerts-modsuit-power-name
+  description: alerts-modsuit-power-desc
+  minSeverity: 0
+  maxSeverity: 5

@@ -1,0 +1,10 @@
+# PDA
+- type: loadout
+  id: ADTElectricianPDA
+  equipment:
+    id: ADTElectricianPDA
+
+- type: loadout
+  id: ADTMechanicPDA
+  equipment:
+    id: ADTMechanicPDA

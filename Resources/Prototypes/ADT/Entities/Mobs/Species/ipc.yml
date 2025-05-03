@@ -140,6 +140,14 @@
     interfaces:
       enum.IpcScreenUiKey.Key:
         type: IpcScreenBoundUserInterface
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
   - type: IpcScreen
 
 - type: entity

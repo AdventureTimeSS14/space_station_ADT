@@ -87,7 +87,7 @@
 - type: gasReaction
   id: NitriumDecomposition
   priority: 6
-  maximumTemperature: 343.15
+  maximumTemperature: 600.324
   minimumRequirements:
   - 0.01  # oxygen
   - 0     # nitrogen

@@ -42,10 +42,11 @@ using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Kitchen.Components; // ADT-Tweak
 
 namespace Content.Server.Kitchen.EntitySystems
 {
-    public sealed class MicrowaveSystem : EntitySystem
+    public sealed partial class MicrowaveSystem : EntitySystem // ADT-Tweak: add partial
     {
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
@@ -87,6 +88,7 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<MicrowaveComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<MicrowaveComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<MicrowaveComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+
             SubscribeLocalEvent<MicrowaveComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
 
             SubscribeLocalEvent<MicrowaveComponent, SignalReceivedEvent>(OnSignalReceived);
@@ -105,6 +107,8 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<ActivelyMicrowavedComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
 
             SubscribeLocalEvent<FoodRecipeProviderComponent, GetSecretRecipesEvent>(OnGetSecretRecipes);
+
+            SubscribeLocalEvent<MicrowaveComponent, AssemblerStartCookMessage>(TryStartAssembly); // ADT-Tweak
         }
 
         private void OnCookStart(Entity<ActiveMicrowaveComponent> ent, ref ComponentStartup args)
@@ -174,6 +178,11 @@ namespace Content.Server.Kitchen.EntitySystems
         /// <param name="time">The time on the microwave, in seconds.</param>
         private void AddTemperature(MicrowaveComponent component, float time)
         {
+            // ADT-Tweak: temperature requires heat or irradiation
+            if (!component.CanHeat && !component.CanIrradiate)
+                return;
+            // End ADT-Tweak
+
             var heatToAdd = time * component.BaseHeatMultiplier;
             foreach (var entity in component.Storage.ContainedEntities)
             {
@@ -300,6 +309,11 @@ namespace Content.Server.Kitchen.EntitySystems
             if (!TryComp<DamageableComponent>(args.Victim, out var damageableComponent))
                 return;
 
+            // ADT-Tweak: suicide requires heat or irradiation
+            if (!ent.Comp.CanHeat && !ent.Comp.CanIrradiate)
+                return;
+            // ADT-Tweak
+
             // The application of lethal damage is what kills you...
             _suicide.ApplyLethalDamage((args.Victim, damageableComponent), "Heat");
 
@@ -398,8 +412,19 @@ namespace Content.Server.Kitchen.EntitySystems
                 // check if size of an item you're trying to put in is too big
                 if (_item.GetSizePrototype(item.Size) > _item.GetSizePrototype(ent.Comp.MaxItemSize))
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-item-too-big", ("item", args.Used)), ent, args.User);
-                    return;
+                    if (TryComp<MicrowaveComponent>(ent, out var component))
+                    {
+                        if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Microwave)
+                            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopup, ("item", args.Used)), ent, args.User); // ADT-Tweak: "microwave-component-interact-item-too-big"<ent.Comp.TooBigPopup
+                        if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Assembler)
+                            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupAssembler, ("item", args.Used)), ent, args.User);
+                        if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.MedicalAssembler)
+                            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupMedicalAssembler, ("item", args.Used)), ent, args.User);
+                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Oven)
+                            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupRange, ("item", args.Used)), ent, args.User);
+                        return;
+
+                    }
                 }
             }
             else
@@ -458,7 +483,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         public void UpdateUserInterfaceState(EntityUid uid, MicrowaveComponent component)
         {
-            _userInterface.SetUiState(uid, MicrowaveUiKey.Key, new MicrowaveUpdateUserInterfaceState(
+            _userInterface.SetUiState(uid, component.Key, new MicrowaveUpdateUserInterfaceState(
                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
                 HasComp<ActiveMicrowaveComponent>(uid),
                 component.CurrentCookTimeButtonIndex,
@@ -541,7 +566,7 @@ namespace Content.Server.Kitchen.EntitySystems
             foreach (var item in component.Storage.ContainedEntities.ToArray())
             {
                 // special behavior when being microwaved ;)
-                var ev = new BeingMicrowavedEvent(uid, user);
+                var ev = new BeingMicrowavedEvent(uid, user, component.CanHeat, component.CanIrradiate); // ADT-Tweak: add CanHeat, CanIrradiate
                 RaiseLocalEvent(item, ev);
 
                 if (ev.Handled)
@@ -550,12 +575,12 @@ namespace Content.Server.Kitchen.EntitySystems
                     return;
                 }
 
-                if (_tag.HasTag(item, "Metal"))
+                if (_tag.HasTag(item, "Metal"))// ADT-Tweak: add && !component.DisableMetalMalfunctions
                 {
                     malfunctioning = true;
                 }
 
-                if (_tag.HasTag(item, "Plastic"))
+                if (_tag.HasTag(item, "Plastic"))// ADT-Tweak: add && !component.DisableRuiningPlastic
                 {
                     var junk = Spawn(component.BadRecipeEntityId, Transform(uid).Coordinates);
                     _container.Insert(junk, component.Storage);
@@ -611,11 +636,11 @@ namespace Content.Server.Kitchen.EntitySystems
 
             _audio.PlayPvs(component.StartCookingSound, uid);
             var activeComp = AddComp<ActiveMicrowaveComponent>(uid); //microwave is now cooking
-            activeComp.CookTimeRemaining = component.CurrentCookTimerTime * component.CookTimeMultiplier;
+            activeComp.CookTimeRemaining = component.CurrentCookTimerTime;
             activeComp.TotalTime = component.CurrentCookTimerTime; //this doesn't scale so that we can have the "actual" time
             activeComp.PortionedRecipe = portionedRecipe;
             //Scale tiems with cook times
-            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime * component.CookTimeMultiplier);
+            component.CurrentCookTimeEnd = _gameTiming.CurTime + TimeSpan.FromSeconds(component.CurrentCookTimerTime);
             if (malfunctioning)
                 activeComp.MalfunctionTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.MalfunctionInterval);
             UpdateUserInterfaceState(uid, component);
@@ -639,6 +664,13 @@ namespace Content.Server.Kitchen.EntitySystems
                 //can't be a multiple of this recipe
                 return (recipe, 0);
             }
+
+            // ADT-Tweak: microwave recipe machine types
+            if ((recipe.RecipeType & component.ValidRecipeTypes) == 0)
+            {
+                return (recipe, 0);
+            }
+            // End ADT-Tweak
 
             foreach (var solid in recipe.IngredientsSolids)
             {
@@ -699,7 +731,12 @@ namespace Content.Server.Kitchen.EntitySystems
                     for (var i = 0; i < active.PortionedRecipe.Item2; i++)
                     {
                         SubtractContents(microwave, active.PortionedRecipe.Item1);
-                        Spawn(active.PortionedRecipe.Item1.Result, coords);
+                        // ADT-Tweak: ResultCount - support multiple results per recipe
+                        for (var r = 0; r < active.PortionedRecipe.Item1.ResultCount; r++)
+                        {
+                            Spawn(active.PortionedRecipe.Item1.Result, coords);
+                        }
+                        // End ADT-Tweak
                     }
                 }
 

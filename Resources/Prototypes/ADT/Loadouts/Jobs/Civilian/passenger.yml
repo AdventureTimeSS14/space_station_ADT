@@ -1,0 +1,20 @@
+# PDA
+- type: loadout
+  id: PassengerPDA
+  equipment:
+    id: PassengerPDA
+
+- type: loadout
+  id: ADTVisitorPDA
+  equipment:
+    id: ADTVisitorPDA
+
+- type: loadout
+  id: ADTTouristPDA
+  equipment:
+    id: ADTTouristPDA
+
+- type: loadout
+  id: ADTStudentPDA
+  equipment:
+    id: ADTStudentPDA
