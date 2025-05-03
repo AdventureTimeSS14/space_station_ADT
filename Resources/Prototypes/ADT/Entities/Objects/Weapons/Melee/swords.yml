@@ -414,7 +414,7 @@
   - type: Construction
     graph: ADTBSword
     node: ADTBoneCompSword
-
+    
 - type: entity
   id: ADTStraightRazor
   name: straight razor
@@ -455,3 +455,20 @@
         enum.ToggleVisuals.Layer:
           True: {state: straight-razor-blade}
           False: {state: straight-razor}
+
+- type: entity
+  name: gladius
+  parent: BaseSword
+  id: ADTGladius
+  description: The old sword of the Roman Empire, it is still good for campaigns against the barbarians on the technical corridors
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/gladius.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 20
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
