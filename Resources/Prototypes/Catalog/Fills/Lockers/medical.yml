@@ -154,10 +154,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitVoidParamed
+      - id: ADTClothingModsuitBackMedical #ADT tweak
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
       - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
+      - id: ADTHighVoltageDefibrillator # ADT Tweak
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic
