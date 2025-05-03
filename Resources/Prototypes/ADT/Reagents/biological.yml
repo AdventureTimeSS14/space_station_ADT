@@ -118,9 +118,3 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
-      - !type:AdjustReagent
-        reagent: ADTGondolium
-        amount: 0.5
-        conditions:
-        - !type:ReagentThreshold
-          min: 25
