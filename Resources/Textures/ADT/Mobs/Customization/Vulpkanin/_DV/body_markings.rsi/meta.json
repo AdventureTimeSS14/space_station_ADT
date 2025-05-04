@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise edited by Floofers. points_feet, points_fade-legs, points_crest-legs, points_sharp-legs edited by .redlis (discord)",
+  "size": {"x": 32, "y": 32},
+  "states": [
+    {
+      "name": "points_hands",
+      "directions": 4
+    },
+    {
+      "name": "points_feet",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-arms",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-legs",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-arms",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-legs",
+      "directions": 4
+    },
+    {
+      "name": "points_crest-arms",
+      "directions": 4
+    },
+    {
+      "name": "points_crest-legs",
+      "directions": 4
+    }
+  ]
+}

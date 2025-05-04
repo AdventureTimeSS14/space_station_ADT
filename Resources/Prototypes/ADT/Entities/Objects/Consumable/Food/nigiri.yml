@@ -1,0 +1,36 @@
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealNigiriCarp
+  name: carp nigiri
+  description: A delicious meal, cooked with love.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/nigiri.rsi
+    state: nigiri-carp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: CarpoToxin
+          Quantity: 5
+
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealNigiriCooked
+  name: cooked nigiri
+  description: A delicious meal, cooked with love.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/nigiri.rsi
+    state: nigiri-cooked
+
+- type: entity
+  parent: ADTFoodMealBase
+  id: ADTFoodMealNigiriFish
+  name: fish nigiri
+  description: A delicious meal, cooked with love.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/nigiri.rsi
+    state: nigiri-fish

@@ -172,7 +172,6 @@
     enabled: false
     color: "#ffeead"
 
-
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
   id: ADTClothingHeadHelmetModsuitScience
@@ -201,6 +200,84 @@
       - state: equipped-head
       - state: equipped-head-unshaded
         shader: unshaded
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitSafeguard
+  name: safeguard MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/hos.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/hos.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.8
+  - type: PointLight
+    enabled: false
+    color: "#a50500"
+    energy: 3
+    radius: 7
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitBso
+  name: bso MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/bso.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitAdvanced
+  name: advanced MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/advanced.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: PointLight # Corvax-Resprite
+    color: "#e6aa5c"
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
@@ -235,19 +312,18 @@
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
-  id: ADTClothingHeadHelmetModsuitSafeguard
-  name: safeguard MOD helmet
+  id: ADTClothingHeadHelmetModsuitSyndicateElite
+  name: syndicate MOD helmet
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Modsuit/hos.rsi
-    layers:
-    - state: icon
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_elite.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Modsuit/hos.rsi
     clothingVisuals:
       head:
       - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
   - type: Armor
     modifiers:
       coefficients:
@@ -259,6 +335,39 @@
         Caustic: 0.8
   - type: PointLight
     enabled: false
-    color: "#a50500"
-    energy: 3
-    radius: 7
+    color: "#b9a706"
+  - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitSyndicateCommander
+  name: syndicate MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/syndicate_comma.rsi
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.8
+  - type: PointLight
+    enabled: false
+    color: "#b9a706"
+  - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons

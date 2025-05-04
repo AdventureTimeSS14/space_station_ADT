@@ -87,3 +87,364 @@
   - type: Sprite
     layers:
     - state: pizzaslice
+
+
+
+
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodPizzaBBQ
+  name: bbqPizza
+  description: A bbq pizza
+  components:
+  - type: FlavorProfile
+    flavors:
+      - oily
+      - bread
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bbq
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaBBQSlice
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: Tag
+    tags:
+    - Pizza
+    - ReptilianFood
+
+
+
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTFoodPizzaBBQSlice
+  name: slice of bbq pizza
+  description: A slice of bbq pizza
+  components:
+  - type: FlavorProfile
+    flavors:
+      - oily
+      - bread
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bbq-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Pizza
+    - ReptilianFood
+    - Slice
+
+
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaBolognese
+  name: bolognesePizza
+  description: A bolognesse pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bolognese
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaBologneseSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaBologneseSlice
+  name: slice of bolognesse pizza
+  description: A slice of bolognesse pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: bolognese-slice
+
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaCaesar
+  name: caesar pizza
+  description: A caesar pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: caesar
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaCaesarSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaCaesarSlice
+  name: slice of caesar pizza
+  description: A slice of caesar pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: caesar-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaCheese
+  name: cheese pizza
+  description: A cheese pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: cheese
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaCheeseSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaCheeseSlice
+  name: slice of cheese pizza
+  description: A slice of cheese pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: cheese-slice
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaChicago
+  name: chicago pizza
+  description: A Chicago pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicago
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaChicagoSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaChicagoSlice
+  name: slice of chicago pizza
+  description: A slice of chicago pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicago-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaChicken
+  name: chicken pizza
+  description: A chicken pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicken
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaChickenSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaChickenSlice
+  name: slice of chicken pizza
+  description: A slice of chicken pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: chicken-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaClassic
+  name: classic pizza
+  description: A classic pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: classic
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaClassicSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaClassicSlice
+  name: slice of classic pizza
+  description: A slice of classic pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: classic-slice
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaDiablo
+  name: diablo pizza
+  description: The diablo pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: diablo
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaDiabloSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaDiabloSlice
+  name: slice of diablo pizza
+  description: A slice of diablo pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: diablo-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaFourcheese
+  name: four cheese pizza
+  description: A four cheese pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: fourcheese
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaFourcheeseSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaFourcheeseSlice
+  name: slice of four cheese pizza
+  description: A slice of four cheese pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: fourcheese-slice
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaMexican
+  name: mexican pizza
+  description: A mexican pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mexican
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaMexicanSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaMexicanSlice
+  name: slice of mexican pizza
+  description: A slice of mexican pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mexican-slice
+
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaMushroomchicken
+  name: mushroom chicken pizza
+  description: A mushroom chicken pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mushroomchicken
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaMushroomchickenSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaMushroomchickenSlice
+  name: slice of mushroom chicken pizza
+  description: A slice of mushroom chicken pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: mushroomchicken-slice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQ
+  id: ADTFoodPizzaSea
+  name: sea pizza
+  description: A sea pizza
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: sea
+  - type: SliceableFood
+    count: 8
+    slice: ADTFoodPizzaSeaSlice
+
+
+- type: entity
+  parent: ADTFoodPizzaBBQSlice
+  id: ADTFoodPizzaSeaSlice
+  name: slice of sea pizza
+  description: A slice of sea pizza
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
+    state: sea-slice

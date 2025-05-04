@@ -327,6 +327,7 @@
         - NamesWizardLast
       mindRoles:
       - MindRoleWizard
+#      - MindRoleWizard
 
 # disabled until event is rewritten to be more interesting
 #- type: entity

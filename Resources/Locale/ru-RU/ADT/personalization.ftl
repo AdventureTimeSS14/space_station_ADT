@@ -530,3 +530,34 @@ ent-ADTClothingOuterCoatViaDeus = торжественное пальто Via-De
 ent-ClothingHeadHatSaintMadmanthingy = монокль
     .desc = Выглядит довольно элитно.
     .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ADTWhistleKringe = "Молящиеся руки"
+    .desc = Свисток из неизвестного материала в виде молящихся рук.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingUniformJumpsuitKringeClothing = комбинезон исследователя
+    .desc = Темный комбинезон, потрепанный временем и приключениями.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingShoesBootsMagKringe = магнитные ботинки исследователя
+    .desc = Ботинки, которые не раз были поджарены и порваны.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTActionToggleMagbootsKringe = Переключить магнитные сапоги
+    .desc = Включает или выключает магнитные сапоги.
+
+ent-ADTClothingHandsKringeGloves = перчатки исследователя
+    .desc = Грубые кожаные перчатки с изоляционным слоем.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingOuterHardsuitKringe = скафандр исследователя
+    .desc = Скафандр из чёрного материала неизвестного происхождения, на вид подходит только для учёных малой пробы.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingHeadHelmetHardsuitKringe = шлем скафандра исследователя
+    .desc = Шлем из чёрного материала неизвестного происхождения.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingBackpackDuffelKringeStuff = комплект вещей исследователя
+    .desc = Вещмешок с полным комплектом вещей исследователя - скафандром, комбинезоном, ботинками, перчатками и свистком.
+    .suffix = { "Спонсорское, kringe" }

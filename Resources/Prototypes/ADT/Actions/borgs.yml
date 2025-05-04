@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: ActionBorgInfo
+  name: View Information
+  description: View the information of your chassis and station.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Interface/Actions/actions_borg.rsi
+      state: state-info
+    event: !type:BorgInfoActionEvent
+    useDelay: 0.5

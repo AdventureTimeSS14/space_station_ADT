@@ -18,9 +18,6 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> BarksMaxPitch =
         CVarDef.Create("barks.max_pitch", 1.5f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
-    public static readonly CVarDef<int> ChatStackLastLines =
-        CVarDef.Create("chat.chatstack_last_lines", 1, CVar.CLIENTONLY | CVar.ARCHIVE, "How far into the chat history to look when looking for similiar messages to coalesce them.");
-
     public static readonly CVarDef<float> BarksMinPitch =
         CVarDef.Create("barks.min_pitch", 0.6f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
@@ -223,6 +220,17 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<float> SupermatterYellTimer =
         CVarDef.Create("supermatter.yell_timer", 60f, CVar.SERVER);
+
+    #endregion
+
+    #region Admin
+
+    /// <summary>
+    /// Включает или отключает уведомления администраторов о сообщениях,
+    /// содержащих оскорбительные выражения в адрес родственников.
+    /// </summary>
+    public static readonly CVarDef<bool> ChatFilterAdminAlertEnable =
+        CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
 
     #endregion
 }

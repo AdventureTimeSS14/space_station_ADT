@@ -34,7 +34,7 @@
 - type: startingGear
   id: BrigmedicGear
   equipment:
-    id: BrigmedicPDA
+    # id: BrigmedicPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetBrigmedic
     pocket1: WeaponPistolMk58
   storage:

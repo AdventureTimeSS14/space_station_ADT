@@ -9,8 +9,8 @@ namespace Content.Shared.VendingMachines
         //ADT-Economy-Start
         public double PriceMultiplier;
         public int Credits;
-        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits)
         //ADT-Economy-End
+        public VendingMachineInterfaceState(List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits) //ADT-Economy
         {
             Inventory = inventory;
             //ADT-Economy-Start

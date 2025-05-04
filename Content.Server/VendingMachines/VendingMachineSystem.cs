@@ -56,7 +56,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly EmagSystem _emag = default!;
 
         private const float WallVendEjectDistanceFromWall = 1f;
-        private const double GlobalPriceMultiplier = 2.0; //ADT-Economy
 
         public override void Initialize()
         {
@@ -124,7 +123,7 @@ namespace Content.Server.VendingMachines
 
         private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
-            var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), GetPriceMultiplier(component),
+            var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
                 component.Credits); //ADT-Economy
 
             _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
@@ -227,12 +226,7 @@ namespace Content.Server.VendingMachines
 
         private int GetPrice(VendingMachineInventoryEntry entry, VendingMachineComponent comp, int count)
         {
-            return (int)(entry.Price * count * GetPriceMultiplier(comp));
-        }
-
-        private double GetPriceMultiplier(VendingMachineComponent comp)
-        {
-            return comp.PriceMultiplier * GlobalPriceMultiplier;
+            return (int)(entry.Price * count * comp.PriceMultiplier);
         }
 
         private void OnWithdrawMessage(EntityUid uid, VendingMachineComponent component, VendingMachineWithdrawMessage args)

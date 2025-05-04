@@ -12,11 +12,18 @@
       color: white
   - type: Projectile
     damage:
-      groups: # хилит, но слабее.
-        Brute: -20
-        Burn: -20
-        Airloss: -20
-        Toxin: -20
+      types: # хилит, но слабее.
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
+        Heat: -20
+        Shock: -20
+        Cold: -20
+        Caustic: -20
+        Asphyxiation: -20
+        Bloodloss: -20
+        Poison: -20
+        Radiation: -20
     ignoreResistances: true
 
 - type: entity
@@ -31,3 +38,21 @@
     whitelist:
       components:
       - Body
+
+- type: entity
+  id: ADTProjectileMagicArrow
+  name: magic arrow
+  description: magic arrow
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: spell
+      color: white
+  - type: Projectile
+    damage:
+      types:
+        Shock: 33
+    ignoreResistances: true

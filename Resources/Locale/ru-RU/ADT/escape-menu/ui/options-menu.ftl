@@ -16,12 +16,3 @@ ui-options-function-toggle-crawling = Переключить ползание
 ui-options-function-open-languages-menu = Открыть меню выбора языка
 ui-options-function-offer-item = Передать что-либо
 ui-options-hud-theme-operative = Оперативник
-
-
-## EE - StackChat
-
-ui-options-chatstack = Автоматически объединять сообщения в чате:
-ui-options-chatstack-count = { $count ->
-    [1] Последнее сообщение
-   *[other] Последние {$count} сообщения
-}

@@ -14,7 +14,7 @@
   id: LibrarianGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: LibrarianPDA
+    # id: LibrarianPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
     pocket1: d20Dice
     pocket2: HandLabeler # for making named bestsellers

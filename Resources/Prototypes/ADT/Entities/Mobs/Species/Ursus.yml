@@ -9,6 +9,7 @@
   - type: NpcFactionMember
     factions:
     - Ursus
+    - NanoTrasen
   - type: MobThresholds
     thresholds:
       0: Alive

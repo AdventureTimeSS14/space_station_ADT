@@ -12,6 +12,7 @@
     inverted: true
     species:
     - Resomi
+    - Vox
   # ADT RESTRICT End
   startingGear: PilotGear
   icon: "JobIconPilot"

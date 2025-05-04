@@ -1,17 +1,17 @@
 - type: localizedDataset
-  id: NamesMilitaryFirstLeader
+  id: NamesFirstMilitaryLeader #ADT-Tweak
   values:
     prefix: names-military-leader-first-dataset-
     count: 5 # Corvax-MRP-Edit
 
 - type: localizedDataset
-  id: NamesMilitaryFirst
+  id: NamesFirstMilitary #ADT-Tweak
   values:
     prefix: names-military-first-dataset-
     count: 5 # Corvax-MRP-Edit
 
 - type: localizedDataset
-  id: NamesMilitaryLast
+  id: NamesLastMilitary #ADT-Tweak
   values:
     prefix: names-military-last-dataset-
     count: 43 # Corvax-MRP-Edit
