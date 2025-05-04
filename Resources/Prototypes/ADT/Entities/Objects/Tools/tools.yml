@@ -250,3 +250,26 @@
   - type: Appearance
   - type: StaticPrice
     price: 40
+
+- type: entity
+  name: scalpel
+  id: ADTSupermatterScalpel
+  parent: BaseToolSurgery
+  description: A surgical tool used to make incisions into flesh.
+  components:
+  - type: Sharp
+    butcherDelayModifier: 1.5
+  - type: Tool
+    qualities:
+    - Slicing
+    speedModifier: 0.66
+  - type: Utensil
+    types:
+      - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Tools/supermatter_scalpel.rsi
+    state: scalpel
+  - type: Item
+    sprite: ADT/Objects/Tools/supermatter_scalpel.rsi
+    storedRotation: 90
+  - type : SupermatterImmune

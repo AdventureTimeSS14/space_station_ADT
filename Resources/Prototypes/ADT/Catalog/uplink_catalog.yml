@@ -746,3 +746,14 @@
     Telecrystal: 4
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkSyndicateSupermatterScalpel
+  name: uplink-supermatter-scalpel-name
+  description: uplink-supermatter-scalpel-desc
+  productEntity: ADTSupermatterScalpel
+  categories:
+    - UplinkDisruption
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
