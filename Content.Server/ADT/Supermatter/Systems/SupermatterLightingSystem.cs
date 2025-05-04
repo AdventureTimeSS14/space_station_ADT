@@ -35,17 +35,17 @@ public sealed partial class SupermatterSystem
 
             if (integrity < 50)
                 zapCount++;
-                sm.ZapTimer = sm.ZapTimer / 2;
+                sm.ZapTimer -= TimeSpan.FromSeconds(30);
 
             zapCount = Math.Clamp(zapCount, 1, 5);
 
             int zapPower = 0;
             if (power >= _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
                 zapPower++;
-                sm.ZapTimer = sm.ZapTimer - 10;
+                sm.ZapTimer -= TimeSpan.FromSeconds(10);
             if (power >= _config.GetCVar(ADTCCVars.SupermatterCriticalPowerPenaltyThreshold))
                 zapPower++;
-                sm.ZapTimer = sm.ZapTimer - 5;
+                sm.ZapTimer -= TimeSpan.FromSeconds(5);
 
             zapPower = Math.Clamp(zapPower, 1, 3);
 
