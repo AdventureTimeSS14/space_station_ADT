@@ -63,7 +63,7 @@
     maxIntensity: 200
     intensityPerUnit: 5
     intensitySlope: 5
-    maxTotalIntensity: 200я
+    maxTotalIntensity: 200
 
 - type: reaction
   id: ChlorineTrifluorideExplosion
