@@ -53,7 +53,7 @@
     autoRecharge: true
     autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
 
-
+#TSF
 #Command
 - type: entity
   parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
@@ -310,6 +310,271 @@
       map: [ "light" ]
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/navigator_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+
+#KMT
+#Command
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitCaptainKMT
+  name: captain KMT hardsuit helmet
+  description: captain KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captain_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/captain_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitExOfficerKMT
+  name: executional officer of the KMT hardsuit helmet
+  description: executional officer of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/exofficer_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/exofficer_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitCommanderKMT
+  name: commander of the KMT hardsuit helmet
+  description: commander of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/commander_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/commander_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitChiefGunnerKMT
+  name: chief gunner of the KMT hardsuit helmet
+  description: chief gunner of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/chiefgunner_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/chiefgunner_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+#Marines
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantKMT
+  name: marine leutenant of the KMT hardsuit helmet
+  description: marine leutenant of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_leutenant_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_leutenant_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.85
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitMarineKMT
+  name: marine of the hardsuit helmet
+  description: marine of the hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/marine_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#Shipcrew
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT
+  name: gunner of the KMT hardsuit helmet
+  description: gunner of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/gunner_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/gunner_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitPilotKMT
+  name: pilot of the KMT hardsuit helmet
+  description: pilot of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/pilot_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/pilot_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitMedicKMT
+  name: medic of the KMT hardsuit helmet
+  description: medic of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/medic_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/medic_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitEngineerKMT
+  name: engineer of the KMT hardsuit helmet
+  description: engineer of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/engineer_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/engineer_kmt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+        Radiation: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingHeadHelmetHardsuitBasic
+  id: ADTShipBattleClothingHeadHelmetHardsuitNavigatorKMT
+  name: navigator of the KMT hardsuit helmet
+  description: navigator of the KMT hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/navigator_kmt.rsi
+    layers:
+    - state: icon
+    - state: icon-light
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Helmets/navigator_kmt.rsi
   - type: Armor
     modifiers:
       coefficients:

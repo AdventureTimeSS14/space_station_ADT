@@ -56,6 +56,9 @@
     belt: ClothingBeltUtilityFilled
     # pocket1: DoubleEmergencyOxygenTankFilled
     # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - BoxSurvivalEngineering

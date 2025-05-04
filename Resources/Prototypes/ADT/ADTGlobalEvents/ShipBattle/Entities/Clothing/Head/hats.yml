@@ -7,6 +7,7 @@
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 
+#TSF
 #Command
 - type: entity
   parent: ADTShipBattleClothingHeadBase
@@ -52,3 +53,61 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/gunner_tsf.rsi
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/gunner_tsf.rsi
+
+#KMT
+#Command
+- type: entity
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatCaptainKMT
+  name: captain KMT cap
+  description: captain KMT cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/captain_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/captain_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatExOfficerKMT
+  name: executional officer KMT cap
+  description: executional officer KMT cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/exofficer_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/exofficer_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatCommanderKMT
+  name: commander KMT cap
+  description: commander KMT cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/commander_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/commander_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatChiefGunnerKMT
+  name: chief gunner KMT cap
+  description: chief gunner KMT cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/chiefgunner_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/chiefgunner_kmt.rsi
+
+#Shipcrew
+- type: entity
+  parent: ADTShipBattleClothingHeadBase
+  id: ADTShipBattleClothingHeadHatGunnerKMT
+  name: gunner KMT cap
+  description: gunner KMT cap
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/gunner_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Head/Hats/gunner_kmt.rsi
