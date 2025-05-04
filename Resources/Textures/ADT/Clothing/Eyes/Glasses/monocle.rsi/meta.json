@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by 0uch, taken from MOLOT-BlueMoon-Station at commit https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/commit/443ee973e41cfd91bd0803501b318ef1b709eeee. If the author is specified incorrectly, you can contact us: https://discord.gg/MraaYU9ZE3",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-EYES",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

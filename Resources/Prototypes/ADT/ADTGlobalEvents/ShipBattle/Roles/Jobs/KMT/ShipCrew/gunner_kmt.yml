@@ -38,20 +38,24 @@
 - type: startingGear
   id: ADTBattleShipGunnerKMTGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitOperative
-    back: ADTClothingModsuitBackSyndicate #ADT tweak
-    # mask: ClothingMaskGasSyndicate ADT tweak
-    # eyes: ClothingEyesHudSyndicate ADT tweak
-    ears: ClothingHeadsetAltSyndicate
-    gloves: ClothingHandsGlovesCombat
-    # outerClothing: ClothingOuterHardsuitSyndie ADT tweak
-    shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDA
-    pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: BaseUplinkRadio40TC
-    belt: ClothingBeltAssault #ADT nukebuff
+    jumpsuit: ADTShipBattleClothingUniformGunnerKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMT
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    head: ADTShipBattleClothingHeadHatGunnerKMT
+    # eyes: ClothingEyesHudMedical
+    gloves: ADTShipBattleClothingHandsGlovesGunnerBlack
+    outerClothing: ADTShipBattleClothingOuterHardsuitGunnerKMT
+    id: ADTShipBattleDogtagMarineKMT
+    ears: ADTShipBattleClothingHeadsetMarineKMT
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
   storage:
     back:
-    - WeaponPistolViper
-    - PinpointerSyndicateNuclear
-    - DeathAcidifierImplanter
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT
