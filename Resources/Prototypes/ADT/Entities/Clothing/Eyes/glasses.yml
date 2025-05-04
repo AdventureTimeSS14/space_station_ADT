@@ -156,6 +156,7 @@
   - type: Appearance
   - type: EyeProtection
 
+- type: entity
   id: ADTClothingEyesGlassesMedChem
   name: chemical and medical goggles
   description: Goggles are similar to chemical goggles, but have a built-in medical visor.
@@ -185,4 +186,3 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
- 
