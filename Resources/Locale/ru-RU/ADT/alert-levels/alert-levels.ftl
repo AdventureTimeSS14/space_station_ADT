@@ -4,3 +4,4 @@ alert-level-amber-instructions = Не покидайте свой отдел, с
 alert-level-cascade = К.А.С.К.А.Д
 alert-level-cascade-announcement = Центральное командование объявило код К.А.С.К.А.Д. Станция находится под угрозой неминуемого уничтожения. Мы вынуждены поместить сектор, в котором вы находитесь, в карантинную зону. Спасибо, что выбрали NanoTrasen!
 alert-level-cascade-instructions = Положите свои вещи на пол и лягьте на живот, прижав руки к телу.
+alert-level-altdelta = дельта

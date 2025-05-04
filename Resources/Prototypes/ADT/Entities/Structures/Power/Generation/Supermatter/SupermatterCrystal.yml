@@ -403,3 +403,13 @@
   name: chat-speech-verb-name-supermatter
   speechVerbStrings:
   - chat-speech-verb-supermatter
+
+
+## я заебался и не придумал название сука
+- type: entity
+  parent: BaseItem
+  id: ADTSupermatterRadiation
+  name: supermatterradiation
+  suffix: DO NOT SPAWN IT
+  components:
+    - type: SupermatterRadiationEvent

@@ -280,17 +280,17 @@ public sealed partial class SupermatterSystem
 
             if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterCriticalPowerPenaltyThreshold))
             {
-                _alert.SetLevel((EntityUid)station, sm.AlertCodeYellowId, true, true, true, false);
+                _alert.SetLevel((EntityUid)station, sm.AlertCodeDeltaId, true, true, true, false);
                 return DelamType.Tesla;
             }
 
             if (!xform.GridUid.HasValue || mix == null || mix.TotalMoles == 0f)
             {
-                _alert.SetLevel((EntityUid)station, sm.AlertCodeYellowId, true, true, true, false);
+                _alert.SetLevel((EntityUid)station, sm.AlertCodeDeltaId, true, true, true, false);
                 return DelamType.Singularity;
             }
 
-            _alert.SetLevel((EntityUid)station, sm.AlertCodeYellowId, true, true, true, false);
+            _alert.SetLevel((EntityUid)station, sm.AlertCodeDeltaId, true, true, true, false);
             return DelamType.Explosion;
         }
 
@@ -375,7 +375,7 @@ public sealed partial class SupermatterSystem
 
             default:
                 _explosion.TriggerExplosive(uid);
-  //              Spawn(sm.SupermatterTrashPrototype, xform.Coordinates);
+                Spawn(sm.AfterExplosionRadiationPrototype, xform.Coordinates);
                 break;
         }
     }

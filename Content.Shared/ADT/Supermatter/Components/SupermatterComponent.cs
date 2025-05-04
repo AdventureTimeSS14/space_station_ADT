@@ -64,6 +64,9 @@ public sealed partial class SupermatterComponent : Component
     public EntProtoId SingularityPrototype = "Singularity";
 
     [DataField]
+    public EntProtoId AfterExplosionRadiationPrototype = "ADTSupermatterRadiation";
+
+    [DataField]
     public EntProtoId TeslaPrototype = "TeslaEnergyBall";
 
     [DataField]
@@ -375,6 +378,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public string AlertCodeYellowId = "yellow";
+
+    [DataField]
+    public string AlertCodeDeltaId = "altdelta";
 
     [DataField]
     public string AlertCodeCascadeId = "cascade";

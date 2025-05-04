@@ -81,6 +81,18 @@
       emergencyLightColor: "#ffbf00"
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    altdelta:
+      announcement: alert-level-delta-announcement
+      selectable: false
+      sound:
+        path: /Audio/Misc/delta_alt.ogg
+        params:
+          volume: -1 # ADT-Tweak
+      disableSelection: true
+      color: DarkRed
+      emergencyLightColor: Orange
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200
     cascade:
       announcement: alert-level-cascade-announcement
       selectable: false
