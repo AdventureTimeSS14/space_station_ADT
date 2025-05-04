@@ -64,6 +64,8 @@
     intensityPerUnit: 5
     intensitySlope: 5
     maxTotalIntensity: 200
+  products:
+    ChlorineTrifluoride: 4
 
 - type: reaction
   id: ChlorineTrifluorideExplosion
