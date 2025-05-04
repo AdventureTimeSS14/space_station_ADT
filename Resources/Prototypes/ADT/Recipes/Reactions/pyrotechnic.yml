@@ -54,7 +54,6 @@
 
 - type: reaction
   id: ADTSoriumClear
-  priority: 20
   reactants:
     Uranium:
       amount: 1
@@ -62,32 +61,16 @@
       amount: 1
     Mercury:
       amount: 1
-    ADTStabilizingAgent:
-      amount: 1
-      catalyst: true
   products:
     ADTSorium: 3
 
 - type: reaction
-  id: ADTSoriumRough
-  impact: High
-  reactants:
-    Uranium:
-      amount: 1
-    Plasma:
-      amount: 1
-    Mercury:
-      amount: 1
-  effects:
-  - !type:CreateEntityReactionEffect
-    entity: ADTReactionWhiteHole
-
-- type: reaction
   id: ADTWhiteHoleExplosion
-  minTemp: 290
   impact: High
   quantized: true
   reactants:
+    ADTLiquidDarkMatter:
+      amount: 1
     ADTSorium:
       amount: 1
   effects:
