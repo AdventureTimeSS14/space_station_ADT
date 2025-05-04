@@ -6,6 +6,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.ADT.SS40k.Turrets;
 using Content.Shared.ADT.SS40k.Turrets.Components;
+using Content.Shared.Mind.Components;
 
 namespace Content.Shared.ADT.SS40k.Turrets.Systems;
 
@@ -47,14 +48,16 @@ public sealed class TurretControllerSystem : EntitySystem
         if (!TryComp<DeviceLinkSourceComponent>(uid, out var linkSource))
             return;
 
-        if (linkSource.LinkedPorts.Count != 0)
-        {
-            var target = linkSource.LinkedPorts.First().Key;
-            component.CurrentUser = args.User;
-            component.CurrentTurret = target;
-            RaiseLocalEvent(target, new GettingControlledEvent(args.User, uid));
-            _mindSystem.ControlMob(args.User, target);
-        }
+        TryComp<MindContainerComponent>(args.Target, out var mindForTest);//check
+        if (mindForTest is null || !mindForTest.HasMind)
+            if (linkSource.LinkedPorts.Count != 0)
+            {
+                var target = linkSource.LinkedPorts.First().Key;
+                component.CurrentUser = args.User;
+                component.CurrentTurret = target;
+                RaiseLocalEvent(target, new GettingControlledEvent(args.User, uid));
+                _mindSystem.ControlMob(args.User, target);
+            }
     }
 
     public void OnShutdown(EntityUid uid, TurretControllerComponent component, ComponentShutdown args)
