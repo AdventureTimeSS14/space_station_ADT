@@ -1,6 +1,6 @@
 - type: entity
   name: Admin God
-  parent: BaseMobHuman
+  parent: [ BaseMobSpecies, FlyingMobBase ] # BaseMobHuman
   id: ADTGodSpawn # НЕ МЕНЯТЬ ID ПРОТОТИПА
   suffix: "Админ бог"
   components:
@@ -23,6 +23,7 @@
     bodyType: Kinematic
     canCollide: false
   - type: MovementSpeedModifier
-    baseWalkSpeed: 20
+    baseSprintSpeed: 50
+    baseWalkSpeed: 50
   - type: Loadout
     roleLoadout: [ JobADTAdminGod ]
