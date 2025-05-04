@@ -14,6 +14,13 @@
     state: icon
 
 - type: stealTargetGroup
+  id: ClothingHandsGlovesKravMaga
+  name: steal-target-groups-adt-krav-maga
+  sprite:
+    sprite: ADT/Clothing/Hands/Gloves/kravgloves.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: ADTWeaponPistolX01
   name: steal-target-groups-adt-pistol-x01
   sprite:
@@ -40,6 +47,13 @@
   sprite:
     sprite: ADT/Objects/Specific/handheldshuttleconsole.rsi
     state: salvage
+
+- type: stealTargetGroup
+  id: SupermatterSliver
+  name: objective-condition-steal-smsliver-title
+  sprite:
+    sprite: ADT/Objects/Misc/supermatter_silver.rsi
+    state: shard
 
 # changeling
 

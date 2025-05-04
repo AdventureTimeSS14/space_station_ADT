@@ -1,0 +1,125 @@
+- type: marking
+  id: ADTChestCutHere
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: chest_cuthere
+
+- type: marking
+  id: ADTArmDollJointsTattooLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: l_arm_doll
+
+- type: marking
+  id: ADTArmDollJointsTattooRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: r_arm_doll
+
+- type: marking
+  id: ADTHandDollJointsTattooLeft
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: l_hand_doll
+
+- type: marking
+  id: ADTHandDollJointsTattooRight
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: r_hand_doll
+
+- type: marking
+  id: ADTLegDollJointsTattooLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: l_leg_doll
+
+- type: marking
+  id: ADTLegDollJointsTattooRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: r_leg_doll
+
+- type: marking
+  id: ADTFootDollJointsTattooLeft
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: l_foot_doll
+
+- type: marking
+  id: ADTFootDollJointsTattooRight
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
+    state: r_foot_doll

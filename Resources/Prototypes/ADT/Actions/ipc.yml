@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionIpcScreen
+  name: action-ipc-screen
+  description: action-ipc-screen-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Interface/Actions/actions_ipc.rsi
+      state: screen
+    itemIconStyle: BigAction
+    event: !type:IpcScreenActionEvent
+    useDelay: 1

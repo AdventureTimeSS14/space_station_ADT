@@ -15,6 +15,13 @@
       time: 198000 #55 hrs # ADT-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
+      # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+  # ADT RESTRICT End
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -43,13 +50,13 @@
   id: HoSGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    id: HoSPDA
+    # id: HoSPDA ADT: different PDAs in loadouts
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
-    pocket1: WeaponPistolMk58
+    pocket1: ADTWeaponRevolverLesserUnica
   storage:
     back:
     - Flash
-    - MagazinePistol
+    - ADTSpeedLoaderMagnumLesser
     - ADTtelescopicBaton #ADT-CustomADTLoadout
 

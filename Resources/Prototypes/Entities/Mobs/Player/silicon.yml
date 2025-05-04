@@ -48,16 +48,26 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+    # ADT Start
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+      enum.StationAiInfoUiKey.Key:
+        type: StationAiInfoBoundUserInterface
+    # ADT End
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowRadar
+        toggleAction: ActionStationAiRadar #ADT-Tweak
       enum.CrewMonitoringUIKey.Key:
-        toggleAction: ActionAGhostShowCrewMonitoring
+        toggleAction: ActionStationAiCrewMonitoring #ADT-Tweak
       enum.GeneralStationRecordConsoleKey.Key:
-        toggleAction: ActionAGhostShowStationRecords
+        toggleAction: ActionStationAiStationRecords #ADT-Tweak
       enum.CommunicationsConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowCommunications
+    # ADT Start
+        toggleAction: ActionStationAiCommunications
+      enum.AtmosAlertsComputerUiKey.Key:
+        toggleAction: ActionStationAiAtmosphericAlerts
+    # ADT End
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
   - type: DeviceNetwork
@@ -70,6 +80,13 @@
     canShuttle: false
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
+    # ADT Start
+    sound:
+      path: /Audio/ADT/Announcements/intercept.ogg
+  - type: StationAiInfo
+  - type: CrewManifestViewer
+    ownerKey: enum.StationAiInfoUiKey.Key
+    # ADT End
   - type: HolographicAvatar
     layerData:
     - sprite: Mobs/Silicon/station_ai.rsi
@@ -97,6 +114,7 @@
     interfaces:
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+  - type: ShowJobIcons
 
 # Ai
 - type: entity
@@ -132,6 +150,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: Crewsimov
 
@@ -144,6 +163,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: Corporate
 
@@ -156,6 +176,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: NTDefault
 
@@ -168,6 +189,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: CommandmentsLawset
 
@@ -180,6 +202,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: PaladinLawset
 
@@ -192,6 +215,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
 
@@ -204,6 +228,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: EfficiencyLawset
 
@@ -216,6 +241,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: RobocopLawset
 
@@ -228,6 +254,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: OverlordLawset
 
@@ -240,6 +267,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: GameMasterLawset
 
@@ -252,6 +280,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: PainterLawset
 
@@ -264,6 +293,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: AntimovLawset
     lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
@@ -277,6 +307,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound #ADT-Tweak
   - type: SiliconLawProvider
     laws: NutimovLawset
 
@@ -314,11 +345,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
-    - state: base
-    - state: ai
+    # ADT SAI Custom start
+    - state: empty
+      map: ["enum.StationAiVisualState.Key"]
       shader: unshaded
+    - state: base
+  - type: StationAiCore
+  - type: Appearance
+    # # ADT SAI Custom end
 
 - type: entity
   id: PlayerStationAiEmpty
@@ -350,12 +386,14 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
-    - state: base
-    - state: ai_empty
-      map: ["unshaded"]
+    # ADT SAI Custom start
+    - state: empty
+      map: ["enum.StationAiVisualState.Key"]
       shader: unshaded
+    - state: base
+    # ADT SAI Custom end
   - type: Appearance
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
@@ -363,12 +401,12 @@
     messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: GenericVisualizer
-    visuals:
-      enum.StationAiVisualState.Key:
-        unshaded:
-          Empty: { state: ai_empty }
-          Occupied: { state: ai }
+  # - type: GenericVisualizer # ADT SAI Custom commented
+  #   visuals:
+  #     enum.StationAiVisualState.Key:
+  #       unshaded:
+  #         Empty: { state: "0" }
+  #         #Occupied: { state: ai }
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -397,18 +435,20 @@
     containerId: station_ai_mind_slot
     job: StationAi
   - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
+    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
     layers:
-    - state: base
-    - state: ai
+    # ADT SAI Custom start
+    - state: empty
+      map: ["enum.StationAiVisualState.Key"]
       shader: unshaded
+    - state: base
+    # ADT SAI Custom end
 
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
   parent: PositronicBrain
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
@@ -431,6 +471,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
   - type: Eye
     drawFov: false
   - type: Examiner
@@ -470,6 +511,11 @@
       BorgTalk: Speak
       Dwarf: Speak
       CintaTaj: Speak
+      SiliconCollectiveMind: Speak
+      NeoRusskiya: Speak
+  - type: CollectiveMindRank
+    rankName: collective-mind-sai-rank
+  - type: StationAiBrain
   # End-ADT-Tweak
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
@@ -483,8 +529,7 @@
   id: StationAiHolo
   name: AI eye
   description: The AI's viewer.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: NoFTL
   - type: WarpPoint
@@ -505,8 +550,7 @@
   id: StationAiHoloLocal
   name: AI hologram
   description: A holographic representation of an AI.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Transform
     anchored: true
@@ -521,6 +565,30 @@
   - type: CargoSellBlacklist
   - type: StationAiVision
     range: 20
+  # Start-ADT-Tweak
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      RobotTalk: Speak
+      Arkane: Speak
+      Urs: Speak
+      Drask: Speak
+      Fire: Speak
+      Nian: Speak
+      SikTaj: Speak
+      Arachnid: Speak
+      RootSpeak: Speak
+      SolCommon: Speak
+      Canilunzt: Speak
+      Draconic: Speak
+      Bubblish: Speak
+      Nekomimetic: Speak
+      BorgTalk: Speak
+      Dwarf: Speak
+      CintaTaj: Speak
+      SiliconCollectiveMind: Speak
+      NeoRusskiya: Speak
+  # End-ADT-Tweak
 
 # Borgs
 - type: entity
@@ -531,7 +599,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - MMIFilled
+      - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:
@@ -559,7 +627,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHyper
+        startingItem: PowerCellMicroreactor
 
 - type: entity
   id: PlayerBorgSyndicateAssaultGhostRole
@@ -642,7 +710,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
 
 - type: entity
   id: PlayerBorgDerelictGhostRole

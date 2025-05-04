@@ -1,0 +1,85 @@
+- type: accessGroup 
+  id: ADTOverallAccess #ADT-group-roles - все возможные доступы в игре
+  tags:
+  - CentralCommand 
+  - EmergencyShuttleRepealAll
+  - Captain
+  - HeadOfPersonnel
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - HeadOfSecurity
+  - ResearchDirector
+  - Command
+  - Cryogenics
+  - Security
+  - Detective
+  - Armory
+  - Brig
+  - Lawyer
+  - Engineering
+  - Medical
+  - Quartermaster
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Chemistry
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - Atmospherics
+  - IAA
+  - BlueShield # ADT-Roles
+  - Magistrate # ADT-Roles
+  - NuclearOperative
+  - SyndicateAgent
+  - Wizard
+  - SpaceSecOfficial
+  - SpaceSecMaintenance
+  - SpaceSecExternal
+  - SpaceSecSecurity
+  - SpaceSecArmory
+  - SpaceSecCommand
+  - ADTTrader
+
+- type: accessGroup
+  id: ADTAccessCaptain  #ADT-group-roles - для капитана давать все доступы, кроме ЦК и Офицера Синего Щита
+  tags:
+  - EmergencyShuttleRepealAll
+  - Captain
+  - HeadOfPersonnel
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - HeadOfSecurity
+  - ResearchDirector
+  - Command
+  - Cryogenics
+  - Security
+  - Detective
+  - Armory
+  - Brig
+  - Lawyer
+  - Engineering
+  - Medical
+  - Quartermaster
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Chemistry
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - Atmospherics
+  - IAA
+  - Magistrate # ADT-Roles

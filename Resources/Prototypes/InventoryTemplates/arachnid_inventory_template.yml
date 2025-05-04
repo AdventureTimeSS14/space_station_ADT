@@ -9,7 +9,7 @@
       strippingWindowPos: 1,3
       displayName: Shoes
 # ADT tweak start
-    - name: socks #Sirena slot
+    - name: socks
       slotTexture: socks
       slotFlags: SOCKS
       stripTime: 6
@@ -19,7 +19,7 @@
       whitelist:
         tags:
           - ADTSocks
-    - name: underwearb #Sirena slot
+    - name: underwearb
       slotTexture: underwearb
       slotFlags: UNDERWEARB
       stripTime: 6
@@ -29,7 +29,7 @@
       whitelist:
         tags:
           - ADTUnderwearB
-    - name: underweart #Sirena slot
+    - name: underweart
       slotTexture: underweart
       slotFlags: UNDERWEART
       stripTime: 6

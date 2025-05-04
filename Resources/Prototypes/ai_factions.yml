@@ -1,15 +1,16 @@
 - type: npcFaction
   id: Dragon
   hostile:
-    - NanoTrasen
-    - Syndicate
-    - Xeno
-    - PetsNT
-    - Zombie
-    - Revolutionary
-    - Heretic # goob edit - heretics
-    - Ursus # ADT tweak
-    - AllHostile
+  - NanoTrasen
+  - Syndicate
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Heretic # goob edit - heretics
+  - Ursus # ADT tweak
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: NanoTrasen
@@ -22,13 +23,15 @@
   - DroneAntag # ADT tweak
   - Dragon
   - AllHostile
+  - Wizard
   - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Mouse
   hostile:
-    - PetsNT
-    - AllHostile
+  - PetsNT
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Passive
@@ -41,6 +44,7 @@
   - Zombie
   - Xeno
   - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: SimpleHostile
@@ -53,6 +57,7 @@
   - Revolutionary
   - Ursus # ADT tweak
   - AllHostile
+  - Wizard
   - Heretic # goob edit - heretics
 
 - type: npcFaction
@@ -71,6 +76,7 @@
   - Ursus # ADT tweak
   - Dragon
   - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Xeno
@@ -84,6 +90,7 @@
   - Heretic # goob edit - heretics
   - Ursus # ADT tweak
   - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Zombie
@@ -97,6 +104,7 @@
   - Revolutionary
   - Ursus # ADT tweak
   - AllHostile
+  - Wizard
   - Heretic # goob edit - heretics
 
 - type: npcFaction
@@ -108,6 +116,7 @@
   - Dragon
   - Ursus # ADT tweak
   - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: AllHostile
@@ -125,3 +134,20 @@
   - Revolutionary
   - Ursus # ADT tweak
   - DroneAntag # ADT tweak
+  - Wizard
+
+- type: npcFaction
+  id: Wizard
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - AllHostile

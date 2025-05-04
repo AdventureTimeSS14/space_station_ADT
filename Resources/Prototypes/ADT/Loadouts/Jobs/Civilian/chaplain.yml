@@ -1,0 +1,133 @@
+- type: loadoutEffectGroup
+  id: ADTChaplainBronzeCross10hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 36000 #10 часов
+
+- type: loadoutEffectGroup
+  id: ADTChaplainSilverCross50hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 180000 #50 часов
+
+- type: loadoutEffectGroup
+  id: ADTChaplainGoldCross100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 360000 #100 часов
+
+- type: loadout
+  id: ADTChaplainWCross
+  equipment:
+    neck: ADTWoodCross
+
+- type: loadout
+  id: ADTChaplainBCross
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainBronzeCross10hour
+  equipment:
+    neck: ADTBronzeCross
+
+- type: loadout
+  id: ADTChaplainSCross
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainSilverCross50hour
+  equipment:
+    neck: ADTSilverCross
+
+- type: loadout
+  id: ADTChaplainGCross
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainGoldCross100hour
+  equipment:
+    neck: ADTGoldCross
+
+# Я тут немного попоясничаю и добавлю святых книг для нашего святоши (QWERTY)
+- type: loadout
+  id: ADTChaplainBible
+  equipment:
+    belt: Bible
+
+- type: loadout
+  id: ADTChaplainQuaran
+  equipment:
+    belt: ADTBibleQuaran
+
+- type: loadout
+  id: ADTChaplainTanahk
+  equipment:
+    belt: ADTBibleTanakh
+
+- type: loadout
+  id: ADTChaplainTripitaka
+  equipment:
+    belt: ADTBibleTripitaka
+
+- type: loadout
+  id: ADTChaplainVedas
+  equipment:
+    belt: ADTBibleVedas
+
+- type: loadout
+  id: ADTChaplainTajaran
+  equipment:
+    belt: ADTBibleTajaran
+
+- type: loadout
+  id: ADTChaplainUnathi
+  equipment:
+    belt: ADTBibleUnathi
+
+- type: loadout
+  id: ADTChaplainLeatherCodex
+  equipment:
+    belt: ADTBibleLeatherCodex
+
+- type: loadout
+  id: ADTChaplainMoth
+  equipment:
+    belt: ADTBibleMoth
+
+# PDA
+
+- type: loadout
+  id: ChaplainPDA
+  equipment:
+    id: ChaplainPDA
+
+- type: loadout
+  id: ADTMonkPDA
+  equipment:
+    id: ADTMonkPDA
+
+- type: loadout
+  id: ADTExorcistPDA
+  equipment:
+    id: ADTExorcistPDA
+
+- type: loadout
+  id: ADTPriestPDA
+  equipment:
+    id: ADTPriestPDA
+
+- type: loadout
+  id: ADTShepherdPDA
+  equipment:
+    id: ADTShepherdPDA
+
+- type: loadout
+  id: ADTClergymanPDA
+  equipment:
+    id: ADTClergymanPDA

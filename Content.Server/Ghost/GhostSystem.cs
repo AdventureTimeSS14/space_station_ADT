@@ -27,6 +27,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -37,13 +38,13 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Linq;
-using System.Numerics;
-using Content.Shared.ADT.OnGhostAttemtpDamage;
+using Content.Server.ADT.OnGhostAttemtpDamage;
 using Content.Shared.ADT.Ghost;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
-using Robust.Shared.Random;
+using Content.Server.Medical.SuitSensors;
+using Content.Shared.Inventory;
+using Content.Shared.Interaction.Components;
 
 namespace Content.Server.Ghost
 {
@@ -65,7 +66,6 @@ namespace Content.Server.Ghost
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -73,9 +73,10 @@ namespace Content.Server.Ghost
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly GameTicker _ticker = default!; //ADT tweak
+        [Dependency] private readonly TagSystem _tag = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!; //ADT tweak
 
-    [   Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -278,15 +279,26 @@ namespace Content.Server.Ghost
             {
                 return;
             }
-            var profile = _ticker.GetPlayerProfile(actor.PlayerSession);
+            var profile = _gameTicker.GetPlayerProfile(actor.PlayerSession);
             if (profile == null)
                 return;
             _humanoidSystem.LoadProfile(uid, profile);
 
-            if (component.AbleClothingMarkings != null)
+            if (component.AvailableClothing != null)
             {
-                var clothing = _random.Pick(component.AbleClothingMarkings); // без этого вара рандома не будет
-                _humanoidSystem.AddMarking(uid, clothing);
+                var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
+                if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
+                {
+                    ghostInv.Displacements = inv.Displacements;
+                    DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
+                }
+                QueueDel(mob);
+
+                var clothing = Spawn(_random.Pick(component.AvailableClothing));
+                RemComp<SuitSensorComponent>(clothing);
+                EnsureComp<UnremoveableComponent>(clothing);
+                if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
+                    QueueDel(clothing);
             }
         }
         //ADT tweak end
@@ -439,8 +451,11 @@ namespace Content.Server.Ghost
         public void MakeVisible(bool visible)
         {
             var entityQuery = EntityQueryEnumerator<GhostComponent, VisibilityComponent>();
-            while (entityQuery.MoveNext(out var uid, out _, out var vis))
+            while (entityQuery.MoveNext(out var uid, out var _, out var vis))
             {
+                if (!_tag.HasTag(uid, "AllowGhostShownByEvent"))
+                    continue;
+
                 if (visible)
                 {
                     _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Normal, false);
@@ -542,7 +557,7 @@ namespace Content.Server.Ghost
             return ghost;
         }
 
-        public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, MindComponent? mind = null)
+        public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, bool forced = false, MindComponent? mind = null)
         {
             if (!Resolve(mindId, ref mind))
                 return false;
@@ -550,7 +565,12 @@ namespace Content.Server.Ghost
             var playerEntity = mind.CurrentEntity;
 
             if (playerEntity != null && viaCommand)
-                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+            {
+                if (forced)
+                    _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} was forced to ghost via command");
+                else
+                    _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+            }
 
             var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);
             RaiseLocalEvent(handleEv);
@@ -559,7 +579,7 @@ namespace Content.Server.Ghost
             if (handleEv.Handled)
                 return handleEv.Result;
 
-            if (mind.PreventGhosting)
+            if (mind.PreventGhosting && !forced)
             {
                 if (mind.Session != null && mind.PreventGhostingSendMessage) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts   // ADT tweak
                 {
@@ -628,7 +648,7 @@ namespace Content.Server.Ghost
             }
 
             if (playerEntity != null)
-                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
+                _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
             var ghost = SpawnGhost((mindId, mind), position, canReturn);
 

@@ -25,7 +25,7 @@
 - type: radioChannel
   id: ADTTransSolar19482Channel
   name: ТСФ 1948.2
-  keycode: '2'
+  keycode: 'j'
   frequency: 1947
   color: "#75c1ff"
   longRange: true
@@ -33,7 +33,7 @@
 - type: radioChannel
   id: ADTTransSolar19487Channel
   name: ТСФ 1948.7
-  keycode: '7'
+  keycode: 'k'
   frequency: 1948
   color: "#75c1ff"
   longRange: true
@@ -41,7 +41,7 @@
 - type: radioChannel
   id: ADTTransSolar19489Channel
   name: ТСФ 1948.9
-  keycode: '9'
+  keycode: 'l'
   frequency: 1949
   color: "#75c1ff"
   longRange: true
@@ -52,4 +52,12 @@
   keycode: 'ъ'
   frequency: 1673
   color: "#b88646"
+  longRange: true
+
+- type: radioChannel
+  id: ADTUSSPChannel
+  name: СССП
+  keycode: 'я'
+  frequency: 1304
+  color: "#7ecc8e"
   longRange: true

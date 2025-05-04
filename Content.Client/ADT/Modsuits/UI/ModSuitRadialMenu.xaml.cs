@@ -49,6 +49,7 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
 
             var button = new ModSuitRadialMenuButton()
             {
+                BackgroundColor = clothing.BackpanelsColor,
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64, 64),
                 ToolTip = tooltipText,
@@ -86,7 +87,7 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
             if (castChild == null)
                 return;
 
-            castChild.OnButtonDown += _ =>
+            castChild.OnButtonUp += _ =>
             {
                 SendToggleClothingMessageAction?.Invoke(castChild.AttachedClothingId);
                 mainControl.DisposeAllChildren();
@@ -96,7 +97,7 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
     }
 }
 
-public sealed class ModSuitRadialMenuButton : RadialMenuTextureButton
+public sealed class ModSuitRadialMenuButton : RadialMenuTextureButtonWithSector
 {
     public EntityUid AttachedClothingId { get; set; }
 }

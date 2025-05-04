@@ -19,6 +19,7 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
+    - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
     # ADT-Economy-Start
     - id: ADTCommandBudgetCard
@@ -205,8 +206,8 @@
   id: FillChiefEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskBreath
-    - id: ClothingOuterHardsuitEngineeringWhite
+    - id: ClothingMaskGasAtmos
+    - id: ADTClothingModsuitBackAdvanced #ADT tweak
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
@@ -258,6 +259,7 @@
     - id: RubberStampCMO
     - id: MedTekCartridge
     # ADT tweak Start
+    - id: ADTReagentAnalyzer
     - id: ADTMobileDefibrillator
     - id: ADTBriefcaseBrownHikingCmoFilled
     - id: ADTBriefcaseMedicalFilled
@@ -266,6 +268,7 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: OpporozidoneBeakerSmall
+    - id: ADTClothingEyesGlassesMedChem
     # ADT tweak End
 
 # Hardsuit table, used for suit storage as well
@@ -324,6 +327,7 @@
     - id: ADTBookSRPrnd
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
+    - id: ADTBoxAICircuitBoard
     # ADT-WikiBooks-End
 
 # Hardsuit table, used for suit storage as well
@@ -385,10 +389,12 @@
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
     - id: WantedListCartridge
+    - id: DrinkHosFlask
     - id: ClothingHeadHatCapHoS # Corvax-SecFashion
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
     - id: BookBusido # Corvax-Books
+    - id: ADTBookPTCR #ADT tweak
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPsec
@@ -406,7 +412,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ClothingOuterHardsuitSecurityRed
+    - id: ADTClothingModsuitBackSafeguard #ADT tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 

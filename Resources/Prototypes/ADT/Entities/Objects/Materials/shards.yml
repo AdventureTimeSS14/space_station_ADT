@@ -1,8 +1,8 @@
 - type: entity
   parent: ShardBase
   id: ADTShardGlassReinforcedPlasma
-  name: plsmaref glass shard
-  description: A small piece of plasma glass.
+  name: reinforced plasma glass shard
+  description: A small piece of reinforced plasma glass.
   components:
   - type: Sprite
     color: "#FF72E7"
@@ -39,8 +39,8 @@
 - type: entity
   parent: ShardBase
   id: ADTShardGlassReinforcedUran
-  name: ref uran glass shard
-  description: A small piece of uranium glass.
+  name: reinforced uranium glass shard
+  description: A small piece of reinforced uranium glass.
   components:
   - type: Sprite
     color: "#8eff7a"

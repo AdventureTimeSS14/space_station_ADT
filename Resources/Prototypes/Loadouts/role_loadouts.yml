@@ -11,7 +11,7 @@
   # ADT underwear tweak start
   - ADTTopCap
   - ADTBottomCap
-  - ADTSocks
+  - ADTSocksCaptain
   # ADT underwear tweak end
   - Survival
   - Trinkets
@@ -32,16 +32,28 @@
   # ADT underwear tweak start
   - ADTTopHOP
   - ADTBottomHOP
-  - ADTSocks
+  - ADTSocksHOP
   # ADT underwear tweak end
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
 
 # Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
 - type: roleLoadout
   id: JobStationAi
   nameDataset: NamesAI
+  canCustomizeName: true
+  # ADT SAI Custom start
+  allowedExtras:
+  - ai-screen
+  - ai-lawset
+  - ai-name
+  # ADT SAI Custom end
 
 # Civilian
 - type: roleLoadout
@@ -57,6 +69,7 @@
   - PassengerOuterClothing
   - PassengerShoes
   - Glasses
+  - ADTPassengerPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -76,6 +89,7 @@
   - CommonBackpack
   - BartenderOuterClothing
   - Glasses
+  - ADTBartenderPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -113,6 +127,8 @@
   - CommonBackpack
   - ChefOuterClothing
   - Glasses
+  - ADTChefPocket1 #ADT tweak
+  - ADTChefPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -128,8 +144,9 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - LibrarianJumpsuit
-  - CommonBackpack
+  - LibrarianBackpack # ADT tweak
   - Glasses
+  - ADTLibrarianPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -148,6 +165,7 @@
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses
+  - ADTlawyerID # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -169,6 +187,7 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - Glasses
+  - ADTChaplainPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -177,6 +196,8 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  # ADT chaplain update
+  - ADTChaplainBelt
 
 - type: roleLoadout
   id: JobJanitor
@@ -189,6 +210,7 @@
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
+  - ADTJanitorPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -209,6 +231,7 @@
   - BotanistBackpack
   - BotanistOuterClothing
   - Glasses
+  - ADTBotanistPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -229,10 +252,11 @@
   - ClownOuterClothing
   - ClownShoes
   - Glasses
+  - ADTClownPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksClown
   # ADT underwear tweak end
   - SurvivalClown
   - Trinkets
@@ -252,7 +276,7 @@
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
-  - ADTSocks
+  - ADTSocksMime
   # ADT underwear tweak end
   - SurvivalMime
   - Trinkets
@@ -309,6 +333,7 @@
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - Glasses
+  - ADTCargoPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -323,10 +348,13 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
+  - ADTSalvageSpecialistJumpsuit #ADT Loadouts
   - SalvageSpecialistBackpack
+  - ADTSalvageSpecialistNeck #ADT Loadouts
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
+  - ADTSalvagePDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -409,6 +437,7 @@
   - ADTEngineeringBelt # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  - ADTAtmosPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -493,10 +522,11 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
+  - ADTHosPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopHOS
   - ADTBottomHOS
-  - ADTSocks
+  - ADTSocksHOS
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
@@ -555,7 +585,8 @@
   - DetectiveJumpsuit
   - SecurityBackpack
   - DetectiveOuterClothing
-  - SecurityShoes
+  - DetectiveShoes # ADT tweak
+  - ADTDetectivePDA #ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -640,6 +671,7 @@
   - MedicalBackpack
   - ADTMedicalBelt # ADT tweak
   - Glasses
+  - ADTMedicalInternPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -737,6 +769,7 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
+  - ADTPsychologistPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -767,11 +800,20 @@
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
+# gives vox a harness and breathing mask
+# nitrogen tank not included
 - type: roleLoadout
   id: RoleSurvivalVoxSupport
   groups:
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
 
 - type: roleLoadout
   id: RoleSurvivalStandard

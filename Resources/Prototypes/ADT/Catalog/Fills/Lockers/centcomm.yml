@@ -6,7 +6,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: ADTBlueshieldSuit
+    - id: ADTClothingModsuitBackBlueShield
     - id: MedkitCombatFilled
     - id: MedkitBruteFilled
     - id: WeaponDisabler
@@ -20,6 +20,7 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTCqcManualWeak
 
 - type: entity
   id: ADTLockerBlueshieldFilled
@@ -41,3 +42,4 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTCqcManualWeak

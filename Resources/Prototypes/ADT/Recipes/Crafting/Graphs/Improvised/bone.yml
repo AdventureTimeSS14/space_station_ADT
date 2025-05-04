@@ -1,0 +1,47 @@
+- type: constructionGraph
+  id: ADTBKnife
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoneCompKnife
+      steps:
+      - material: Bones
+        amount: 1
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: ADTBoneCompKnife
+    entity: ADTBoneKnife
+
+- type: constructionGraph
+  id: ADTBMachete
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoneCompMachete
+      steps:
+      - material: Bones
+        amount: 3
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: ADTBoneCompMachete
+    entity: ADTBoneMachete
+
+- type: constructionGraph
+  id: ADTBSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoneCompSword
+      steps:
+      - material: Bones
+        amount: 4
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: ADTBoneCompSword
+    entity: ADTBoneSword

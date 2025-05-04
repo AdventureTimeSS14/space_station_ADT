@@ -1,4 +1,4 @@
-﻿- type: palette
+- type: palette
   id: Advanced
   name: Advanced
   colors:
@@ -6,48 +6,48 @@
     #medium: "#000000"
     #dark: "#000000"
     #black: "#000000"
-    
-    commandlight: "#4B709C"
-    commandmedium: "#334E6D"
-    commanddark: "#203144"
-    commandblack: "#16212E"
-    
-    securitylight: "#FF5C5C"
-    securitymedium: "#DE3A3A"
-    securitydark: "#9C2020"
-    securityblack: "#571212"
-    
-    medicallight: "#96DAFF"
-    medicalmedium: "#52B4E9"
-    medicaldark: "#37789B"
-    medicalblack: "#1A394A"
-    
-    engineeringlight: "#FFA647"
-    engineeringmedium: "#FF9821"
-    engineeringdark: "#AE6716"
-    engineeringblack: "#663C0D"
-    
-    sciencelight: "#FBB2FF"
-    sciencemedium: "#F98AFF"
-    sciencedark: "#BE6BC3"
-    scienceblack: "#724276"
-    
-    cargolight: "#D69949"
-    cargomedium: "#BC863F"
-    cargodark: "#765428"
-    cargoblack: "#4A3519"
-    
-    salvagelight: "#CA7EF2"
-    salvagemedium: "#9A54BF"
-    salvagedark: "#774194"
-    salvageblack: "#4C2A5E"
-    
-    servicelight: "#C6FF91"
-    servicemedium: "#9FED58"
-    servicedark: "#639137"
-    serviceblack: "#446326"
-    
-    neutrallight: "#E6E6E6"
+
+    commandlight: "#0259c4"
+    commandmedium: "#024188"
+    commanddark: "#002a5a"
+    commandblack: "#011831"
+
+    securitylight: "#fa2727"
+    securitymedium: "#bb1e1e"
+    securitydark: "#800909"
+    securityblack: "#500404"
+
+    medicallight: "#45beff"
+    medicalmedium: "#0381c5"
+    medicaldark: "#045b8a"
+    medicalblack: "#064a6e"
+
+    engineeringlight: "#f8b064"
+    engineeringmedium: "#e08012"
+    engineeringdark: "#b96f1a"
+    engineeringblack: "#5e390f"
+
+    sciencelight: "#f98bff"
+    sciencemedium: "#e944f1"
+    sciencedark: "#97329c"
+    scienceblack: "#59275e"
+
+    cargolight: "#f0ab52"
+    cargomedium: "#b17d39"
+    cargodark: "#805b2c"
+    cargoblack: "#362713"
+
+    salvagelight: "#d17bff"
+    salvagemedium: "#9c50c5"
+    salvagedark: "#6d3b88"
+    salvageblack: "#3c224b"
+
+    servicelight: "#b0fc69"
+    servicemedium: "#89ec2c"
+    servicedark: "#56a50d"
+    serviceblack: "#31580a"
+
+    neutrallight: "#dfdede"
     neutralmedium: "#B3B3B3"
     neutraldark: "#999999"
     neutralblack: "#808080"

@@ -164,6 +164,9 @@ public sealed partial class MeleeWeaponComponent : Component
     [AutoNetworkedField]
     public TimeSpan LastDisarm = TimeSpan.Zero;
 
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public EntProtoId DisarmAnimation = "WeaponArcDisarm";
+
     public EntityUid? CurrentlyDisarming;
 
     [DataField, AutoNetworkedField]

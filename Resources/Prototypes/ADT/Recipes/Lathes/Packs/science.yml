@@ -1,0 +1,76 @@
+- type: latheRecipePack
+  id: ADTRCDPack
+  recipes:
+  - RCD
+  - RCDAmmo
+  - RPDAmmo
+  - RPD
+
+- type: latheRecipePack
+  id: ADTPKAPack
+  recipes:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+  - ADTWeaponCutter
+  - ADTWeaponCutterAdv
+
+- type: latheRecipePack
+  id: ADTTranslatorPack
+  recipes:
+  - CanilunztTranslator
+  - BubblishTranslator
+  - NekomimeticTranslator
+  - DraconicTranslator
+  - VoxPidginTranslator
+  - ScratchesTranslator
+  - SolCommonTranslator
+  - RootSpeakTranslator
+
+- type: latheRecipePack
+  id: ADTXenoTranslatorPack
+  recipes:
+  - DraskTranslator
+  - GalacticCommonTranslatorImplanter
+  - BubblishTranslatorImplanter
+  - NekomimeticTranslatorImplanter
+  - DraconicTranslatorImplanter
+  - CanilunztTranslatorImplanter
+  - VoxPidginTranslatorImplanter
+  - ScratchesTranslatorImplanter
+  - SolCommonTranslatorImplanter
+  - RootSpeakTranslatorImplanter
+  - AnimalTranslator
+  - MofficTranslatorImplanter
+  - MofficTranslator
+  - SikTajTranslatorImplanter
+  - NianTranslatorImplanter
+  - FireTranslatorImplanter
+  - DraskTranslatorImplanter
+  - UrsTranslatorImplanter
+  - ArkaneTranslatorImplanter
+  - CintaTajTranslatorImplanter
+  - IPCTranslatorImplanter
+  - BorgTranslatorImplanter
+  - DwarfTranslatorImplanter
+  - UrsTranslator
+  - ArkaneTranslator
+  - NianTranslator
+  - FireTranslator
+  - SikTajTranslator
+  - CintaTajTranslator
+  - DwarfTranslator
+  - IPCTranslator
+
+- type: latheRecipePack
+  id: ADTPhantomPack
+  recipes:
+  - GhostRadio
+  - OuijaBoard
+  - EctoRifle
+  - EctoPistol
+  - EctoBatterySmall
+  - EctoBattery
+  - PsiShield
+  - PhantomHud
+  - EctoShield

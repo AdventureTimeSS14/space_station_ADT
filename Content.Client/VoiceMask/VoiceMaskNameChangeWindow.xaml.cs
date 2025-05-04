@@ -38,7 +38,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
 
         SpeechVerbSelector.OnItemSelected += args =>
         {
-            OnVerbChange?.Invoke((string?) args.Button.GetItemMetadata(args.Id));
+            OnVerbChange?.Invoke((string?)args.Button.GetItemMetadata(args.Id));
             SpeechVerbSelector.SelectId(args.Id);
         };
 
@@ -85,7 +85,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     {
         var id = SpeechVerbSelector.ItemCount;
         SpeechVerbSelector.AddItem(name);
-        if (verb is {} metadata)
+        if (verb is { } metadata)
             SpeechVerbSelector.SetItemMetadata(id, metadata);
 
         if (verb == _verb)
@@ -147,7 +147,6 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     }
     // ADT Barks end
     public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb) // Corvax-TTS
-    // public void UpdateState(string name, string voice, string? verb) // Corvax-TTS
     {
         NameSelector.Text = name;
         _verb = verb;

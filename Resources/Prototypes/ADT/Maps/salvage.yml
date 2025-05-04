@@ -114,3 +114,48 @@
   id: ADT_SyndicateLarge
   mapPath: /Maps/ADTMaps/Salvage/syndicate_large.yml
   sizeString: salvage-map-wreck-size-large
+
+# maps from ruins
+
+- type: salvageMap
+  id: ADT_Derbisusssp
+  mapPath: /Maps/ADTMaps/Ruins/ussp_debris.yml
+  sizeString: salvage-map-wreck-size-medium
+
+# SHMALL
+
+- type: salvageMap
+  id: ADT_adventurer
+  mapPath: /Maps/Corvax/Ruins/corvax_adventurer.yml
+  sizeString: salvage-map-wreck-size-small
+
+#large
+- type: salvageMap
+  id: ADT_Abandoned_Outpost
+  mapPath: /Maps/Ruins/abandoned_outpost.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_Accident
+  mapPath: /Maps/Corvax/Ruins/corvax_accident.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_Battleship
+  mapPath: /Maps/Corvax/Ruins/corvax_battleship.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_GasStation
+  mapPath: /Maps/Corvax/Ruins/corvax_gas_station.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_BssUnluck
+  mapPath: /Maps/ADTMaps/Ruins/bss_unluck.yml
+  sizeString: salvage-map-wreck-size-large
+
+- type: salvageMap
+  id: ADT_debris
+  mapPath: /Maps/ADTMaps/Ruins/rnd_debris.yml
+  sizeString: salvage-map-wreck-size-large

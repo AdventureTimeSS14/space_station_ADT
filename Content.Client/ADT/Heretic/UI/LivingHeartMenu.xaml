@@ -9,8 +9,6 @@
     <ui:RadialContainer Name="Main"
                         VerticalExpand="True"
                         HorizontalExpand="True"
-                        Radius="64"
+                        InitialRadius="100"
                         ReserveSpaceForHiddenChildren="False"/>
-
-
 </ui:RadialMenu>

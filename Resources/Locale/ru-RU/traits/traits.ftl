@@ -39,3 +39,7 @@ trait-french-name = Французский акцент
 trait-french-desc = Ваш акцент, похоже, имеет определённый «je ne sais quoi».
 trait-spanish-name = Испанский акцент
 trait-spanish-desc = Hola señor, как пройти в la biblioteca.
+trait-painnumbness-name = Онемевший
+trait-painnumbness-desc = У вас отсутствует какое-либо ощущение боли, вы не осознаете, насколько вам может быть больно.
+trait-uncloneable-name = Неклонируемость
+trait-uncloneable-desc = Вы не можете быть клонированы.

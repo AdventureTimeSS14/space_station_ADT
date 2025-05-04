@@ -31,6 +31,10 @@
     - type: Item
       sprite: Objects/Misc/glowstick.rsi
       heldPrefix: unlit
+      # ADT tweak start
+      shape:
+      - 0,0,0,0
+      # ADT tweak end
     - type: Appearance
     - type: PointLight
       enabled: false

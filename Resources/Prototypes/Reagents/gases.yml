@@ -14,7 +14,7 @@
         conditions:
         - !type:OrganType
           type: Human
-      # Start ADT tweak: Drask
+      # Start ADT tweak
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -23,6 +23,10 @@
         conditions:
         - !type:OrganType
           type: Novakid
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Resomi
       # End ADT tweak
       - !type:Oxygenate
         conditions:
@@ -133,11 +137,11 @@
         ignoreResistances: true
         damage:
           types:
-            Blunt: -0.015
-            Slash: -0.015
-            Piercing: -0.015
-            Heat: -0.015
-            Poison: -0.012
+            Blunt: -0.25
+            Slash: -0.25
+            Piercing: -0.25
+            Heat: -0.25
+            Poison: -0.25
       - !type:GenericStatusEffect
         conditions:
         - !type:OrganType

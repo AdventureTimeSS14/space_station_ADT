@@ -9,11 +9,16 @@
             <RichTextLabel Name="LawNumberLabel" StyleClasses="LabelKeyText"/>
             <customControls:HSeparator Margin="0 5 0 5"/>
             <RichTextLabel Name="LawLabel"/>
+            <!-- ADT Start-->
             <BoxContainer Name="LawAnnouncementButtons" Orientation="Horizontal" HorizontalExpand="True" Margin="0 5 0 0">
                 <Label Text="{Loc laws-ui-state-law}" StyleClasses="StatusFieldTitle"/>
                 <Control Margin="5 0 0 0" />
+                <ScrollContainer HorizontalExpand="True" VScrollEnabled="False">
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True"/>
+                </ScrollContainer>
                 <!-- Buttons are added via C# code-->
             </BoxContainer>
+                <!-- ADT End -->
         </BoxContainer>
     </PanelContainer>
 </Control>

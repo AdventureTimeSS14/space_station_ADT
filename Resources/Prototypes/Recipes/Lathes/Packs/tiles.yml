@@ -1,0 +1,95 @@
+# Static
+
+- type: latheRecipePack
+  id: FloorTilesStatic
+  recipes:
+  - FloorTileItemDark
+  - FloorTileItemDarkDiagonalMini
+  - FloorTileItemDarkDiagonal
+  - FloorTileItemDarkHerringbone
+  - FloorTileItemDarkMini
+  - FloorTileItemDarkMono
+  - FloorTileItemDarkPavement
+  - FloorTileItemDarkPavementVertical
+  - FloorTileItemDarkOffset
+  - FloorTileItemSteelCheckerDark
+  - FloorTileItemSteel
+  - FloorTileItemSteelOffset
+  - FloorTileItemSteelDiagonalMini
+  - FloorTileItemSteelDiagonal
+  - FloorTileItemSteelHerringbone
+  - FloorTileItemSteelMini
+  - FloorTileItemSteelMono
+  - FloorTileItemSteelPavement
+  - FloorTileItemSteelPavementVertical
+  - FloorTileItemWhite
+  - FloorTileItemWhiteOffset
+  - FloorTileItemWhiteDiagonalMini
+  - FloorTileItemWhiteDiagonal
+  - FloorTileItemWhiteHerringbone
+  - FloorTileItemWhiteMini
+  - FloorTileItemWhiteMono
+  - FloorTileItemWhitePavement
+  - FloorTileItemWhitePavementVertical
+  - FloorTileItemSteelCheckerLight
+  - FloorTileItemGratingMaint
+  - FloorTileItemTechmaint
+  - FloorTileItemSteelMaint
+  - FloorTileItemWood
+  - FloorTileItemWoodLarge
+  - FloorTileItemWoodPattern
+  - FloorTileItemConcrete
+  - FloorTileItemConcreteMono
+  - FloorTileItemConcreteSmooth
+  - FloorTileItemGrayConcrete
+  - FloorTileItemGrayConcreteMono
+  - FloorTileItemGrayConcreteSmooth
+  - FloorTileItemOldConcrete
+  - FloorTileItemOldConcreteMono
+  - FloorTileItemOldConcreteSmooth
+
+# ADT tweak start
+
+  - FloorTileItemWoodParquet
+  - FloorTileItemWoodLargeRed
+  - FloorTileItemWoodParquetRed
+  - FloorTileItemWoodRed
+  - FloorTileItemWoodChessRed
+  - FloorTileItemWoodLargeLight
+  - FloorTileItemWoodParquetLight
+  - FloorTileItemWoodLight
+  - FloorTileItemWoodChessLight
+  - FloorTileItemWoodLargeDark
+  - FloorTileItemWoodParquetDark
+  - FloorTileItemWoodDark
+  - FloorTileItemWoodChessDark
+  - FloorTileItemWoodLargeBlack
+  - FloorTileItemWoodParquetBlack
+  - FloorTileItemWoodBlack
+  - FloorTileItemWoodChessBlack
+  - FloorTileItemClown
+  - FloorTileItemMime
+  - FloorTileItemKitchen
+  - FloorTileItemLime
+  - FloorTileItemFreezer
+  - FloorTileItemMono
+  - FloorTileItemArcadeRed
+  - FloorTileItemArcadeBlue
+  - FloorTileItemArcadeBlue2
+  - FloorTileItemLaundry
+  - FloorTileItemElevatorShaft
+  - FloorTileItemMetalDiamond
+  - FloorTileItemMining
+  - FloorTileItemMiningDark
+  - FloorTileItemMiningLight
+  - FloorTileItemRockVault
+  - FloorTileItemBlue
+  - FloorTileItemHydro
+  - FloorTileItemBar
+  - FloorTileItemShuttleBlue
+  - FloorTileItemShuttleGrey
+  - FloorTileItemShuttlePurple
+  - FloorTileItemShuttleBlack
+  - FloorTileItemShuttleRed
+
+# ADT tweak end

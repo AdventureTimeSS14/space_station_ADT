@@ -13,8 +13,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Network;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Client.Administration.UI.Logs;
-using Content.Client.Eui;
 
 namespace Content.Client.Administration.UI.Bwoink
 {
@@ -46,6 +44,8 @@ namespace Content.Client.Administration.UI.Bwoink
 
             _adminManager.AdminStatusUpdated += UpdateButtons;
             UpdateButtons();
+
+            AdminOnly.OnToggled += args => PlaySound.Disabled = args.Pressed;
 
             ChannelSelector.OnSelectionChanged += sel =>
             {
@@ -181,11 +181,11 @@ namespace Content.Client.Administration.UI.Bwoink
                     _console.ExecuteCommand($"respawn \"{_currentPlayer.Username}\"");
             };
 
-            // ADT-Tweak-Start
+            // ADT-Tweak start
             Logs.OnPressed += _ =>
             {
                 if (_currentPlayer is not null)
-                _console.ExecuteCommand($"adminlogs \"{_currentPlayer.Username}\"");
+                    _console.ExecuteCommand($"adminlogs \"{_currentPlayer.Username}\"");
             };
 
             Playerpanel.OnPressed += _ =>
@@ -193,7 +193,7 @@ namespace Content.Client.Administration.UI.Bwoink
                 if (_currentPlayer is not null)
                     _console.ExecuteCommand($"playerpanel \"{_currentPlayer.Username}\"");
             };
-            // ADT-Tweak-End
+            // ADT-Tweak end
         }
 
         public void OnBwoink(NetUserId channel)
@@ -242,13 +242,11 @@ namespace Content.Client.Administration.UI.Bwoink
             Follow.Visible = _adminManager.CanCommand("follow");
             Follow.Disabled = !Follow.Visible || disabled;
 
-            // ADT-Tweak-Start
             Logs.Visible = _adminManager.HasFlag(AdminFlags.Logs);
             Logs.Disabled = !Logs.Visible || disabled;
 
             Playerpanel.Visible = _adminManager.HasFlag(AdminFlags.Ban);
             Playerpanel.Disabled = !Playerpanel.Visible || disabled;
-            // ADT-Tweak-End
         }
 
         private string FormatTabTitle(ItemList.Item li, PlayerInfo? pl = default)

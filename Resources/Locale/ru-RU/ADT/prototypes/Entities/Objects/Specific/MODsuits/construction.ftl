@@ -1,6 +1,6 @@
 ent-ADTModsuitHelmet = шлем МОДа
 ent-ADTModsuitGauntlets = перчатки МОДа
-ent-ADTModsuitCoreEnergy = ядро питанция МОДа
+ent-ADTModsuitCoreEnergy = ядро питания МОДа
 ent-ADTModsuitChestplate = нагрудник МОДа
 ent-ADTModsuitBoots = ботинки МОДа
 ent-ADTModsuitPlateAtmospheric = покрытие атмосферного МОДа

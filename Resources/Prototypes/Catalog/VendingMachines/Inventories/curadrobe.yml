@@ -19,3 +19,6 @@
     # ADTBookPrinterFlatpack: 1
     # ADTBookPrinterInkCartridge: 2
     # ADT-BookPrinter-End
+  contrabandInventory:
+    ToyFigurineLibrarian: 1
+

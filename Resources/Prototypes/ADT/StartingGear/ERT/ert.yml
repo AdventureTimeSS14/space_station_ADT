@@ -13,6 +13,9 @@
     pocket2: WeaponLaserGun
     belt: ADTClothingBeltBandolierFilledIncendiary
     suitstorage: WeaponShotgunEnforcer
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
   storage:
     back:
     - CrowbarOrange

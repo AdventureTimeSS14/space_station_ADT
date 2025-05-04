@@ -21,6 +21,7 @@
   - type: Tag
     tags:
     - Wall
+  - type: IsRoof
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -50,15 +51,13 @@
   - type: RadiationBlocker
     resistance: 2
   - type: BlockWeather
+  - type: SunShadowCast
 
 - type: entity
   parent: BaseWall
   id: WallBrick
   name: brick wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/brick.rsi
   - type: Icon
@@ -82,7 +81,7 @@
         acts: [ "Destruction" ]
   - type: CanBuildWallOnTopRPD # ADT-RPD
   - type: IconSmooth
-    key: bricks
+    key: walls
     base: brick
 
 - type: entity
@@ -546,6 +545,7 @@
   - type: Tag
     tags:
     - Wall
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -687,6 +687,9 @@
     snap:
     - Wall
   components:
+  - type: Tag
+    tags:
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
@@ -829,6 +832,7 @@
   - type: Tag
     tags:
     - Wall
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
@@ -845,8 +849,8 @@
     damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
-  - type: Reflect
-    reflectProb: 1
+  - type: Reflect 
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -951,7 +955,7 @@
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
 
 - type: entity
   parent: BaseWall
@@ -995,8 +999,8 @@
   - type: IconSmooth
     key: walls
     base: state
-  - type: Reflect
-    reflectProb: 1
+  - type: Reflect #ADT_Tweak - без рикошетов
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
 
 - type: entity
   parent: BaseWall

@@ -10,6 +10,10 @@
   - type: Handcuff
     cuffedRSI: Objects/Misc/handcuffs.rsi
     bodyIconState: body-overlay
+    # ADT Start
+    startCuffSound:
+      path: /Audio/ADT/Entities/Objects/handcuffs.ogg
+    # ADT End
   - type: Sprite
     sprite: Objects/Misc/handcuffs.rsi
     state: handcuff

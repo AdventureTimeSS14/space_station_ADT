@@ -50,8 +50,8 @@ public sealed partial class GhostComponent : Component
     [DataField("booMaxTargets"), ViewVariables(VVAccess.ReadWrite)]
     public int BooMaxTargets = 3;
 
-    [DataField("ableClothingMarkings")] //ADT tweak
-    public List<string>? AbleClothingMarkings { get; private set; }
+    [DataField("availableClothing")] //ADT tweak
+    public List<string>? AvailableClothing { get; private set; }
 
     // TODO: instead of this funny stuff just give it access and update in system dirtying when needed
     [ViewVariables(VVAccess.ReadWrite)]
@@ -89,8 +89,8 @@ public sealed partial class GhostComponent : Component
     /// Ghost color
     /// </summary>
     /// <remarks>Used to allow admins to change ghost colors. Should be removed if the capability to edit existing sprite colors is ever added back.</remarks>
-    [DataField("color"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public Color color = Color.White;
+    [DataField, AutoNetworkedField]
+    public Color Color = Color.White;
 
     [DataField("canReturnToBody"), AutoNetworkedField]
     private bool _canReturnToBody;

@@ -33,35 +33,38 @@ namespace Content.Server.StationEvents.Events
                     component.Powered.Add(apcUid);
             }
 
+            DisableApc(component.Powered, component);  // ADT Tweak
+
             RobustRandom.Shuffle(component.Powered);
 
             component.NumberPerSecond = Math.Max(1, (int)(component.Powered.Count / component.SecondsUntilOff)); // Number of APCs to turn off every second. At least one.
         }
 
+        // ADT: достаточно сильно поменял эту функцию, потому считайте что она фулл наша
         protected override void Ended(EntityUid uid, PowerGridCheckRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
         {
             base.Ended(uid, component, gameRule, args);
 
-            foreach (var entity in component.Unpowered)
-            {
-                if (Deleted(entity))
-                    continue;
-
-                if (TryComp(entity, out ApcComponent? apcComponent))
-                {
-                    if(!apcComponent.MainBreakerEnabled)
-                        _apcSystem.ApcToggleBreaker(entity, apcComponent);
-                }
-            }
-
             // Can't use the default EndAudio
             component.AnnounceCancelToken?.Cancel();
             component.AnnounceCancelToken = new CancellationTokenSource();
-            Timer.Spawn(3000, () =>
+            Audio.PlayGlobal(component.EndSound ?? new SoundPathSpecifier("/Audio/Announcements/power_on.ogg"), Filter.Broadcast(), true);
+            Timer.Spawn(TimeSpan.FromSeconds(2), () =>
             {
-                Audio.PlayGlobal("/Audio/Announcements/power_on.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-4f));
+                foreach (var entity in component.Unpowered)
+                {
+                    if (Deleted(entity))
+                        continue;
+
+                    if (TryComp(entity, out ApcComponent? apcComponent))
+                    {
+                        if (!apcComponent.MainBreakerEnabled)
+                            _apcSystem.ApcToggleBreaker(entity, apcComponent);
+                    }
+                }
+
+                component.Unpowered.Clear();
             }, component.AnnounceCancelToken.Token);
-            component.Unpowered.Clear();
         }
 
         protected override void ActiveTick(EntityUid uid, PowerGridCheckRuleComponent component, GameRuleComponent gameRule, float frameTime)
@@ -92,5 +95,22 @@ namespace Content.Server.StationEvents.Events
                 component.Unpowered.Add(selected);
             }
         }
+
+        // ADT Start
+        private void DisableApc(List<EntityUid> list, PowerGridCheckRuleComponent component)
+        {
+            foreach (var item in list)
+            {
+                if (Deleted(item))
+                    continue;
+                if (TryComp<ApcComponent>(item, out var apcComponent))
+                {
+                    if (apcComponent.MainBreakerEnabled)
+                        _apcSystem.ApcToggleBreaker(item, apcComponent);
+                }
+                component.Unpowered.Add(item);
+            }
+        }
+        // ADT End
     }
 }

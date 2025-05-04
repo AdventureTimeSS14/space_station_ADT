@@ -1,0 +1,88 @@
+- type: entity
+  abstract: true
+  parent: BaseMagazineBoxMagnum
+  id: ADTBaseMagazineBoxMagnumLesser
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgeMagnumLesser
+    proto: ADTCartridgeMagnumLesser
+    capacity: 30 # ADT-Tweak baff ammo
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+# Boxes
+- type: entity
+  parent: ADTBaseMagazineBoxMagnumLesser
+  id: ADTMagazineBoxMagnumLesser
+  name: ammunition box (.357 magnum)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesser
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: ADTBaseMagazineBoxMagnumLesser
+  id: ADTMagazineBoxMagnumLesserPractice
+  name: ammunition box (.357 magnum practice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  id: ADTMagazineBoxMagnumLesserIncendiary
+  parent: ADTBaseMagazineBoxMagnumLesser
+  name: ammunition box (.357 magnum incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  id: ADTMagazineBoxMagnumLesserUranium
+  parent: ADTBaseMagazineBoxMagnumLesser
+  name: ammunition box (.357 magnum uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+- type: entity
+  id: ADTMagazineBoxMagnumLesserAP
+  parent: ADTBaseMagazineBoxMagnumLesser
+  name: ammunition box (.357 magnum armor-piercing)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumLesserAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: piercing

@@ -69,6 +69,14 @@ public sealed partial class TechnologyPrototype : IPrototype
     /// </summary>
     [DataField]
     public IReadOnlyList<GenericUnlock> GenericUnlocks = new List<GenericUnlock>();
+
+    // ADT Research Console Rework start
+    [DataField(required: true)]
+    public Vector2i Position { get; private set; }
+
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>> RequiredTech = new();
+    // ADT Research Console Rework end
 }
 
 [DataDefinition]

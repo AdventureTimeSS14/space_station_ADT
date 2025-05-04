@@ -5,3 +5,6 @@ ent-ADTBlackSharkPlushie = черная плюшевая акула
 ent-SkidAndPump = Скид и Тыковка
     .desc = Это ЖУТКИЙ МЕСЯЦ!
     .suffix = Хеллоуин
+
+ent-ADTPlushieOctocat = плюшевый Октокот
+    .desc = Он не любит книги.

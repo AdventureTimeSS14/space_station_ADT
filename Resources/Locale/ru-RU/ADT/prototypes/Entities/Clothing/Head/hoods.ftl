@@ -14,3 +14,12 @@ ent-ADTClothingHeadHatHoodRedhat = капюшон красной шапочки
 
 ent-ADTClothingHeadHelmetMiner = шахтёрский каплюшон
     .desc = Пропитан отчаянием и безнадежностью.
+
+ent-ADTClothingHeadHelmetMinerReinforcedOne = частично усиленный капюшон исследователя 
+    .desc = Пропитан отчаянием и безнадежностью, но малая часть надежды теперь чуствуется в нём.
+
+ent-ADTClothingHeadHelmetMinerReinforcedTwo = усиленный капюшон исследователя 
+    .desc = Пропитан отчаянием и безнадежностью, а теперь к надежде прибавилось безумие... Безумие самого Лаваленда.
+
+ent-ADTClothingHeadHelmetMinerReinforcedFull = пластинчатый капюшон исследователя 
+    .desc = Такой же безумный способ укрыть голову от опасностей, как и рассудок придумавшего это.

@@ -77,12 +77,14 @@
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
-- type: stealTargetGroup
-  id: WeaponEnergyShotgun
-  name: steal-target-groups-weapon-energy-shot-gun
-  sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
-    state: base
+# ADT tweak start
+# - type: stealTargetGroup ADT tweak
+#   id: WeaponEnergyShotgun
+#   name: steal-target-groups-weapon-energy-shot-gun
+#   sprite:
+#     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+#     state: base
+# ADT tweak end
 
 # Thief Collection
 
@@ -129,6 +131,13 @@
     state: datadisk_base
 
 - type: stealTargetGroup
+  id: Mail
+  name: steal-target-groups-mail
+  sprite:
+    sprite: Objects/Specific/Cargo/mail.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: IDCard
   name: steal-target-groups-id-cards
   sprite:
@@ -172,12 +181,14 @@
     sprite: Clothing/Head/Hats/warden.rsi
     state: icon
 
-- type: stealTargetGroup
-  id: ClothingOuterHardsuitVoidParamed
-  name: steal-target-groups-clothing-outer-hardsuit-void-paramed
-  sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-    state: icon
+#ADT tweak start
+# - type: stealTargetGroup
+#   id: ClothingOuterHardsuitVoidParamed
+#   name: steal-target-groups-clothing-outer-hardsuit-void-paramed
+#   sprite:
+#     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#     state: icon
+#ADT tweak end
 
 - type: stealTargetGroup
   id: MedicalTechFabCircuitboard

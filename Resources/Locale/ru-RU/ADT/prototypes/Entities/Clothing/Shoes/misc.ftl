@@ -7,7 +7,6 @@ ent-ADTClothingFootWhiteSandals = белые сандали
 ent-ADTClothingFootBlackBoots = чёрные сапоги
     .desc = В них удобно бегать хулиганам!
 
-
 ent-ADTClownNightmareShoes = кошмарные туфли клоуна
     .suffix = Хеллоуин
     .desc = Нет смысла бежать! Ты обречен!
@@ -19,3 +18,7 @@ ent-ADTGreyClownPsyhoShoes = серые ботинки клоуна-психоп
 ent-ADTEmpressOfLightShoes = туфли Императрицы света
     .suffix = Хеллоуин
     .desc = Величественные туфельки.
+
+ent-ADTClothingShoesShaleBrealVulp = сланцы
+   .suffix = "Бить вульп, Conjurer"
+   .desc = "Божественные сланцы отшлёпавшие ни одну вульпу."

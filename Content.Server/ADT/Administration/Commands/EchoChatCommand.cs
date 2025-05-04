@@ -2,6 +2,7 @@ using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Console;

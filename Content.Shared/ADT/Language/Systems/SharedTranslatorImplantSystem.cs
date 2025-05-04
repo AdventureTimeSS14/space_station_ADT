@@ -4,12 +4,13 @@ using Content.Shared.Implants.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Content.Shared.ADT.Language;
+using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Shared.Implants;
 
 public abstract class SharedTranslatorImplantSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
 
     public override void Initialize()
@@ -53,5 +54,4 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
         if (component.Permanent && component.ImplantedEntity != null)
             args.Cancel();
     }
-
 }

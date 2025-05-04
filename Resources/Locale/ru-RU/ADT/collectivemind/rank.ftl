@@ -1,5 +1,6 @@
 collective-mind-borg-rank = Киборг
 collective-mind-pai-rank = Персональный ИИ
+collective-mind-sai-rank = ИИ станции
 collective-mind-dragon-rank = Дракон
 collective-mind-shark-rank = Карпоакула
 collective-mind-carp-rank = Карп

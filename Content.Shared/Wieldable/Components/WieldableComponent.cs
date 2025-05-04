@@ -7,7 +7,7 @@ namespace Content.Shared.Wieldable.Components;
 /// <summary>
 ///     Used for objects that can be wielded in two or more hands,
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(WieldableSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedWieldableSystem)), AutoGenerateComponentState]
 public sealed partial class WieldableComponent : Component
 {
     [DataField("wieldSound")]
@@ -33,10 +33,19 @@ public sealed partial class WieldableComponent : Component
     [DataField]
     public bool UnwieldOnUse = true;
 
+    /// <summary>
+    ///     Should use delay trigger after the wield/unwield?
+    /// </summary>
+    [DataField]
+    public bool UseDelayOnWield = true;
+
     [DataField("wieldedInhandPrefix")]
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;
+
+
+    public EntityUid? User = null; // ADT-Resomi
 }
 
 [Serializable, NetSerializable]

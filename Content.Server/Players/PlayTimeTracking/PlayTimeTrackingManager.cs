@@ -468,4 +468,112 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
         _userDb.AddOnLoadPlayer(LoadData);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
     }
+    // ADT-Tweak-start
+    public async Task FlushTrackerById(NetUserId userId)
+    {
+        var playTimes = await _db.GetPlayTimes(userId, CancellationToken.None);
+
+        foreach (var timer in playTimes)
+        {
+            await _db.UpdatePlayTimes(new List<PlayTimeUpdate> { new PlayTimeUpdate(userId, timer.Tracker, timer.TimeSpent) });
+        }
+    }
+
+    public async Task SaveSessionById(NetUserId userId)
+    {
+        var playTimes = await _db.GetPlayTimes(userId, CancellationToken.None);
+
+        foreach (var timer in playTimes)
+        {
+            await _db.UpdatePlayTimes(new List<PlayTimeUpdate> { new PlayTimeUpdate(userId, timer.Tracker, timer.TimeSpent) });
+        }
+    }
+
+    public async Task AddTimeToTrackerById(NetUserId userId, string tracker, TimeSpan time)
+    {
+        var playTimes = await _db.GetPlayTimes(userId, CancellationToken.None);
+
+        foreach (var timer in playTimes)
+        {
+            if (timer.Tracker == tracker)
+            {
+                timer.TimeSpent += time;
+                await _db.UpdatePlayTimes(new List<PlayTimeUpdate> { new PlayTimeUpdate(userId, tracker, timer.TimeSpent) });
+                return;
+            }
+        }
+
+        // If tracker doesn't exist, add it
+        await _db.UpdatePlayTimes(new List<PlayTimeUpdate> { new PlayTimeUpdate(userId, tracker, time) });
+    }
+
+    public async Task AddTimeToOverallPlaytimeById(NetUserId userId, TimeSpan time)
+    {
+        var playTimes = await _db.GetPlayTimes(userId, CancellationToken.None);
+        var playTimeUpdates = new List<PlayTimeUpdate>();
+
+        bool overallTrackerExists = false;
+
+        foreach (var timer in playTimes)
+        {
+            if (timer.Tracker == PlayTimeTrackingShared.TrackerOverall)
+            {
+                timer.TimeSpent += time;
+                playTimeUpdates.Add(new PlayTimeUpdate(userId, timer.Tracker, timer.TimeSpent));
+                overallTrackerExists = true;
+                break;
+            }
+        }
+
+        if (!overallTrackerExists)
+        {
+            playTimeUpdates.Add(new PlayTimeUpdate(userId, PlayTimeTrackingShared.TrackerOverall, time));
+        }
+
+        await _db.UpdatePlayTimes(playTimeUpdates);
+    }
+
+    public async Task<TimeSpan> GetOverallPlaytimeById(NetUserId userId)
+    {
+        var playTimes = await _db.GetPlayTimes(userId, CancellationToken.None);
+
+        foreach (var timer in playTimes)
+        {
+            if (timer.Tracker == PlayTimeTrackingShared.TrackerOverall)
+            {
+                return timer.TimeSpent;
+            }
+        }
+
+        return TimeSpan.Zero;
+    }
+
+    public async Task<Dictionary<string, TimeSpan>> GetTrackerTimesById(NetUserId userId)
+    {
+        var playTimes = await _db.GetPlayTimes(userId, CancellationToken.None);
+        var trackerTimes = new Dictionary<string, TimeSpan>();
+
+        foreach (var timer in playTimes)
+        {
+            trackerTimes[timer.Tracker] = timer.TimeSpent;
+        }
+
+        return trackerTimes;
+    }
+
+    public async Task<TimeSpan> GetPlayTimeForTrackerById(NetUserId userId, string tracker)
+    {
+        var playTimes = await _db.GetPlayTimes(userId, CancellationToken.None);
+
+        foreach (var timer in playTimes)
+        {
+            if (timer.Tracker == tracker)
+            {
+                return timer.TimeSpent;
+            }
+        }
+
+        return TimeSpan.Zero;
+    }
+    // ADT-Tweak-end
 }

@@ -1,0 +1,62 @@
+- type: job
+  id: ADTBattleShipMarineLeutenantTSF
+  name: job-name-marine-leutenant-tsf
+  description: job-description-marine-leutenant-tsf
+  playTimeTracker: JobADTBattleShipMarineLeutenantTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 144000 #40 hrs # ADT-RoleTime
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 25
+  startingGear: ADTBattleShipMarineLeutenantTSFGear
+  icon: "JobIconMarineLeutenantTSF"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-tsf-captain
+  weight: 10
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipMarineLeutenantTSFGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformMarineLeutenantTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSF
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    # head: ADTShipBattleClothingHeadHatExOfficerTSF
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitMarineLeutenantTSF
+    id: ADTShipBattlePDAMarineLeutenantTSF
+    ears: ADTShipBattleClothingHeadsetMarineLeutenantTSF
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantTSF

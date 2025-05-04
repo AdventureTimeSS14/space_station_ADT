@@ -11,14 +11,24 @@
       "name": "icon"
     },
     {
+      "name": "icon-unshaded"
+    },
+    {
       "name": "icon-flash"
     },
     {
-      "name": "off-equipped-HELMET",
+      "name": "light-overlay"
+    },
+    {
+      "name": "equipped-head",
       "directions": 4
     },
     {
-      "name": "on-equipped-HELMET",
+      "name": "equipped-head-light",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded",
       "directions": 4
     }
   ]

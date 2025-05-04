@@ -1,0 +1,89 @@
+- type: entity
+  id: ADTBaseCartridgeMagnumLesser
+  name: cartridge (.357 magnum)
+  parent: BaseCartridge
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - ADTCartridgeMagnumLesser
+  - type: CartridgeAmmo
+    proto: ADTBulletMagnumLesser
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: ADTCartridgeMagnumLesser
+  name: cartridge (.357 magnum)
+  parent: ADTBaseCartridgeMagnumLesser
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletMagnumLesser
+
+- type: entity
+  id: ADTCartridgeMagnumLesserPractice
+  name: cartridge (.357 magnum practice)
+  parent: ADTBaseCartridgeMagnumLesser
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletMagnumLesserPractice
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#dbdbdb"
+
+- type: entity
+  id: ADTCartridgeMagnumLesserIncendiary
+  name: cartridge (.357 magnum incendiary)
+  parent: ADTBaseCartridgeMagnumLesser
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletMagnumLesserIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff6e52"
+
+- type: entity
+  id: ADTCartridgeMagnumLesserAP
+  name: cartridge (.357 magnum armor-piercing)
+  parent: ADTBaseCartridgeMagnumLesser
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletMagnumLesserAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#0a0a0a"
+
+- type: entity
+  id: ADTCartridgeMagnumLesserUranium
+  name: cartridge (.357 magnum uranium)
+  parent: ADTBaseCartridgeMagnumLesser
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletMagnumLesserUranium
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#65fe08"

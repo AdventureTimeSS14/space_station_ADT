@@ -11,3 +11,70 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Diona/customization.rsi
     state: tree_paint
+
+- type: marking
+  id: ADTDionaLivingNymph
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dionalivingnymph
+
+- type: marking
+  id: ADTDionaMossChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: dionamosschest
+
+- type: marking
+  id: ADTDionaMoonBloom
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: dionamoonbloom
+  shader: unshaded
+
+- type: marking
+  id: ADTDionaBigFirefly
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dionabigfirefly
+  shader: unshaded
+
+- type: marking
+  id: ADTDionaFirefly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dionafirefly
+  shader: unshaded
+
+- type: marking
+  id: ADTDionaPollenDust
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Diona ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: dionapollendust

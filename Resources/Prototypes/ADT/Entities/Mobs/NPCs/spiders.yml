@@ -380,6 +380,12 @@
   - type: Item
     sprite: ADT/Mobs/Animals/minispider.rsi
     size: Huge
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Mobs/Animals/minispider.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
   - type: MobThresholds
     thresholds:
       0: Alive

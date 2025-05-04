@@ -20,9 +20,9 @@ public sealed partial class BZProductionReaction : IGasReactionEffect
         var environmentEfficiency = mixture.Volume / mixture.Pressure;
         var ratioEfficiency = Math.Min(initialNitrousOxide / initialPlasma, 1);
 
-        var bZFormed = Math.Min(0.01f * ratioEfficiency * environmentEfficiency, Math.Min(initialNitrousOxide * 0.4f, initialPlasma * 0.8f));
+        var bZFormed = Math.Min(ratioEfficiency * environmentEfficiency, Math.Min(initialNitrousOxide * 4f, initialPlasma * 8f));
 
-        if (initialNitrousOxide - bZFormed * 0.4f < 0 || initialPlasma - (0.8f - bZFormed) < 0 || bZFormed <= 0)
+        if (initialNitrousOxide - bZFormed * 4f < 0 || initialPlasma - (8f - bZFormed) < 0 || bZFormed <= 0)
             return ReactionResult.NoReaction;
 
         var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
@@ -31,14 +31,14 @@ public sealed partial class BZProductionReaction : IGasReactionEffect
         var nitrousOxideDecomposedFactor = Math.Max(4.0f * (initialPlasma / (initialNitrousOxide + initialPlasma) - 0.75f), 0);
         if (nitrousOxideDecomposedFactor > 0)
         {
-            amountDecomposed = 0.4f * bZFormed * nitrousOxideDecomposedFactor;
+            amountDecomposed = 4f * bZFormed * nitrousOxideDecomposedFactor;
             mixture.AdjustMoles(Gas.Oxygen, amountDecomposed);
-            mixture.AdjustMoles(Gas.Nitrogen, 0.5f * amountDecomposed);
+            mixture.AdjustMoles(Gas.Nitrogen, 5f * amountDecomposed);
         }
 
         mixture.AdjustMoles(Gas.BZ, Math.Max(0f, bZFormed * (1.0f - nitrousOxideDecomposedFactor)));
-        mixture.AdjustMoles(Gas.NitrousOxide, -0.4f * bZFormed);
-        mixture.AdjustMoles(Gas.Plasma, -0.8f * bZFormed * (1.0f - nitrousOxideDecomposedFactor));
+        mixture.AdjustMoles(Gas.NitrousOxide, -4f * bZFormed);
+        mixture.AdjustMoles(Gas.Plasma, -8f * bZFormed * (1.0f - nitrousOxideDecomposedFactor));
 
         var energyReleased = bZFormed * (Atmospherics.BZFormationEnergy + nitrousOxideDecomposedFactor * (Atmospherics.NitrousOxideDecompositionEnergy - Atmospherics.BZFormationEnergy));
 

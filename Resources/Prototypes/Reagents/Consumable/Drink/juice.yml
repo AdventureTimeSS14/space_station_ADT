@@ -146,6 +146,16 @@
   physicalDesc: reagent-physical-desc-saucey
   flavor: tomato
   color: "#731008"
+      # Start ADT tweak
+  metabolisms:
+    Drink:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -2
+        probability: 0.2
+      # End ADT tweak
 
 - type: reagent
   id: JuiceWatermelon

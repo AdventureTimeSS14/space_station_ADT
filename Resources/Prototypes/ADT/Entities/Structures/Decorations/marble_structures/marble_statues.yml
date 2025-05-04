@@ -1,0 +1,97 @@
+- type: entity
+  parent: BaseStructure
+  id: ADTmarblelady
+  name: beutiful marble lady
+  description: She's so pretty
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/marble_structures/marble_lady.rsi
+    state: marlady
+    offset: "0.0,0.5"
+    drawdepth: Mobs
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTmarblelady
+  id: ADTmarbleLadyFlower
+  name: marble lady in flowers
+  description: She's so pretty
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/marblelady_flower.rsi
+    state: marlady_flowers
+
+- type: entity
+  parent: ADTmarblelady
+  id: ADTmarblepillar
+  name: marble pillar
+  description: pillar out of marble
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/pillar_marble.rsi
+    state: pillar_marble
+
+- type: entity
+  parent: ADTmarblelady
+  id: ADTmarbleStand
+  name: marble stand
+  description: stand for someone
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/marble_stand.rsi
+    state: marstand
+
+- type: entity
+  parent: ADTmarblelady
+  id: ADTmarbleMan
+  name: marble man
+  description: he stands
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/marbleman.rsi
+    state: marman
+
+- type: entity
+  parent: ADTmarblelady
+  id: ADTmarbleManDamage
+  name: marble man crack
+  description: he stands
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/marblemandamage.rsi
+    state: marmandmg
+
+- type: entity
+  parent: ADTmarblelady
+  id: ADTpeacemakermarble
+  name: Statue of Peacemaker
+  description: for the peace in world!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/marble_structures/peacemaker.rsi
+    state: peacemaker

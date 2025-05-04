@@ -5,7 +5,7 @@
       "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Make by discord:mr.nikolos7205, moving and modify sprites by discord:filokini",
+    "copyright": "Make by discord:mr.nikolos7205, moving and modify sprites by discord:filokini. Head sprites by discord: anvel",
     "states": [
       {
         "name": "mini-moving",
@@ -38,6 +38,10 @@
       },
       {
         "name": "mini",
+        "directions": 4
+      },
+      {
+        "name": "0-equipped-HELMET",
         "directions": 4
       },
       {

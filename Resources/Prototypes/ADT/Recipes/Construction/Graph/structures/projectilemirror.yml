@@ -1,0 +1,128 @@
+- type: constructionGraph
+  id: ADTTrinaryProjectileMirrorGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adttrinaryprojectilemirror
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+            - material: Cable
+              amount: 1
+            - material: PlasmaGlass
+              amount: 5
+            - material: Diamond
+              amount: 5
+              doAfter: 5
+
+    - node: adttrinaryprojectilemirror
+      entity: ADTTrinaryProjectileMirror
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 10
+          - !type:SpawnPrototype
+                prototype: SheetPGlass1
+                amount: 5
+          - !type:SpawnPrototype
+                prototype: CableApcStack1
+                amount: 1
+          - !type:SpawnPrototype
+                prototype: MaterialDiamond1
+                amount: 5
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5
+
+- type: constructionGraph
+  id: ADTBinaryProjectileMirrorGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adtbinaryprojectilemirror
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 8
+            - material: Cable
+              amount: 1
+            - material: PlasmaGlass
+              amount: 2
+            - material: Diamond
+              amount: 2
+              doAfter: 5
+
+    - node: adtbinaryprojectilemirror
+      entity: ADTBinaryProjectileMirror
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 8
+          - !type:SpawnPrototype
+                prototype: SheetPGlass1
+                amount: 2
+          - !type:SpawnPrototype
+                prototype: CableApcStack1
+                amount: 1
+          - !type:SpawnPrototype
+                prototype: MaterialDiamond1
+                amount: 2
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5
+
+- type: constructionGraph
+  id: ADTTBinaryProjectileMirrorGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: adttbinaryprojectilemirror
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 8
+            - material: Cable
+              amount: 1
+            - material: PlasmaGlass
+              amount: 4
+            - material: Diamond
+              amount: 4
+              doAfter: 5
+
+    - node: adttbinaryprojectilemirror
+      entity: ADTTBinaryProjectileMirror
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 8
+          - !type:SpawnPrototype
+                prototype: SheetPGlass1
+                amount: 4
+          - !type:SpawnPrototype
+                prototype: CableApcStack1
+                amount: 1
+          - !type:SpawnPrototype
+                prototype: MaterialDiamond1
+                amount: 4
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5

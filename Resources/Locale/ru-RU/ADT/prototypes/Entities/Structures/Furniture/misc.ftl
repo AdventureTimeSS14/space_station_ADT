@@ -33,7 +33,6 @@ ent-ADTHalloweenCarvedPumpkinWily = { ent-ADTHalloweenCarvedPumpkinSmile }
     .suffix = { ent-ADTHalloweenCarvedPumpkinSmile.suffix }
     .desc = { ent-ADTHalloweenCarvedPumpkinSmile.desc }
 
-
 ent-ADTSnowballsCrate = телега со снегом
     .suffix = New Year
     .desc = Ради неё вовсе не разрушают чьи-то планеты... Вовсе нет.

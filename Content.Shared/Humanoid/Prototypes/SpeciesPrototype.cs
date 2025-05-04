@@ -92,17 +92,17 @@ public sealed partial class SpeciesPrototype : IPrototype
     public HumanoidSkinColor SkinColoration { get; private set; }
 
     [DataField]
-    public string MaleFirstNames { get; private set; } = "names_first_male";
+    public string MaleFirstNames { get; private set; } = "NamesFirstMale";
 
     [DataField]
-    public string FemaleFirstNames { get; private set; } = "names_first_female";
+    public string FemaleFirstNames { get; private set; } = "NamesFirstFemale";
 
     // Corvax-LastnameGender-Start: Split lastname field by gender
     [DataField]
-    public string MaleLastNames { get; private set; } = "names_last_male";
+    public string MaleLastNames { get; private set; } = "NamesHumanLastMale";
 
     [DataField]
-    public string FemaleLastNames { get; private set; } = "names_last_female";
+    public string FemaleLastNames { get; private set; } = "NamesHumanLastFemale";
     // Corvax-LastnameGender-End
 
     [DataField]
@@ -151,7 +151,7 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public List<string> Special = new();
-    
+
     /// <summary>
     /// Особые языки, которые не могут выбрать представители других рас.
     /// Уникальные языки не должны быть раундстартовыми.
@@ -164,6 +164,9 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public int MaxLanguages = 3;
+
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> ForceLanguages = new();
     // ADT end
 }
 
@@ -184,6 +187,7 @@ public enum SpeciesCategory : byte
 {
     Classic,
     Unusual,
-    Special
+    Special,
+    Sponsor
 }
 // ADT end

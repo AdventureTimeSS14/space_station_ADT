@@ -10,6 +10,8 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Robust.Shared.Timing;
+using Content.Shared.Mind;
 using Content.Shared.Store; // ADT-Changeling-Tweak
 
 namespace Content.Server.Store.Systems;
@@ -22,6 +24,7 @@ public sealed partial class StoreSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -70,10 +73,13 @@ public sealed partial class StoreSystem : EntitySystem
         if (!component.OwnerOnly)
             return;
 
-        component.AccountOwner ??= args.User;
+        if (!_mind.TryGetMind(args.User, out var mind, out _))
+            return;
+
+        component.AccountOwner ??= mind;
         DebugTools.Assert(component.AccountOwner != null);
 
-        if (component.AccountOwner == args.User)
+        if (component.AccountOwner == mind)
             return;
 
         _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);
@@ -104,18 +110,6 @@ public sealed partial class StoreSystem : EntitySystem
     private void OnImplantActivate(EntityUid uid, StoreComponent component, OpenUplinkImplantEvent args)
     {
         ToggleUi(args.Performer, uid, component);
-    }
-
-    /// <summary>
-    /// Toggles the shop UI if the given entityuid has a shop component.
-    /// Used for things such as revenants or changelings.
-    /// </summary>
-
-    public void OnInternalShop(EntityUid uid)
-    {
-        if (!TryComp(uid, out StoreComponent? store))
-            return;
-        ToggleUi(uid, uid, store);
     }
 
     /// <summary>
@@ -196,38 +190,6 @@ public sealed partial class StoreSystem : EntitySystem
     }
 
     // ADT changeling start
-    public bool TryAddStore(EntityUid uid,
-                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
-                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
-                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
-                            bool allowRefund,
-                            bool ownerOnly)
-    {
-        if (HasComp<StoreComponent>(uid))
-            return false;
-
-        AddStore(uid, currencyWhitelist, categories, balance, allowRefund, ownerOnly);
-
-        return true;
-    }
-
-    public void AddStore(EntityUid uid,
-                            HashSet<ProtoId<CurrencyPrototype>> currencyWhitelist,
-                            HashSet<ProtoId<StoreCategoryPrototype>> categories,
-                            Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance,
-                            bool allowRefund,
-                            bool ownerOnly)
-    {
-        var comp = new StoreComponent();
-        comp.CurrencyWhitelist = currencyWhitelist;
-        comp.Categories = categories;
-        comp.Balance = balance;
-        comp.RefundAllowed = allowRefund;
-        comp.OwnerOnly = ownerOnly;
-
-        AddComp(uid, comp);
-    }
-
     public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
     {
         if (!Resolve(uid, ref store))

@@ -18,6 +18,12 @@
 #      time: 72000 # 20 hrs
     - !type:OverallPlaytimeRequirement
       time: 180000 #50 hrs # Corvax-RoleTime
+      #ADT tweak start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
+      #ADT tweak end
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

@@ -33,3 +33,10 @@ ent-ADTVendingMachineGamesFree = Безобидные развлечения
 ent-ADTVendingMachineCoffeeFree = Лучшие горячие напитки Солнечной
     .suffix = Бесплатный
     .desc = Подаются кипящими, чтобы оставались горячими всю смену!
+
+ent-ADTVendingMachineLoveVend = Любовенд
+    .desc = С днём всех влюбленных!
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTVendingMachineBarberDrobe = БарберШкаф
+    .desc = Торговый автомат со стильной одеждой для парикмахера.

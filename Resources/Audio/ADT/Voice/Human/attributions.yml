@@ -22,3 +22,8 @@
   license: "CC0-1.0"
   copyright: "https://zvukogram.com/zvuk/86551/ edited by discord:filokini"
   source: "https://zvukogram.com/zvuk/86551/"
+
+- files: ["female_giggle1.ogg", "female_giggle2.ogg", "scream_f1.ogg", "scream_f2.ogg", "scream_m1.ogg", "scream_m2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"

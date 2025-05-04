@@ -1,0 +1,207 @@
+# Щит (Пусть туту будет)
+
+# НубикКубик не смог реализовать это так быстро :(
+
+# - type: entity
+#   id: RiotShieldBibis
+#   parent: BaseShield
+#   name: riot shield bibis
+#   description: A large tower shield. Good for controlling crowds.
+#   suffix: ADT
+#   components:
+#     - type: StaminaResistance
+#       damageCoefficient: 0
+
+# Автоматы:
+
+- type: entity
+  id: ADTWeaponRifleLecterBibis
+  parent: WeaponRifleLecter
+  name: Lecter Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/Rifles/lecter.rsi
+  - type: Gun
+    fireRate: 6
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibis
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibis
+
+- type: entity
+  id: ADTWeaponRifleXC67Bibis
+  parent: ADTWeaponRifleXC67
+  name: xC67 StrikeBall
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/Rifles/xc67.rsi
+  - type: Gun
+    fireRate: 6
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibis
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibis
+
+- type: entity
+  id: WeaponRifleM90GrenadeLauncherBibis
+  parent: WeaponRifleM90GrenadeLauncher
+  name: M-90gl Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/Rifles/carbine.rsi
+  - type: Gun
+    fireRate: 6
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibis
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibis
+
+- type: entity
+  id: WeaponRifleAkBibis
+  parent: WeaponRifleAk
+  name: AKMS Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/Rifles/ak.rsi
+  - type: Gun
+    fireRate: 6
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibis
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibis
+
+# Пистолет-Пулемёты
+
+- type: entity
+  id: WeaponSubMachineGunAtreidesBibis
+  parent: WeaponSubMachineGunAtreides
+  name: Atreides Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/SMG/atreides.rsi
+  - type: Gun
+    fireRate: 8
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibisSoft
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibisSoft
+
+- type: entity
+  id: WeaponSubMachineGunWt550Bibis
+  parent: WeaponSubMachineGunWt550
+  name: WT550 Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/SMG/wt550.rsi
+  - type: Gun
+    fireRate: 8
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibisSoft
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibisSoft
+
+- type: entity
+  id: WeaponSubMachineGunC20rBibis
+  parent: WeaponSubMachineGunC20r
+  name: C-20r sub machine gun Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/SMG/c20r.rsi
+  - type: Gun
+    fireRate: 8
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: ADTMagazineRifleBibisSoft
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibisSoft
+
+# Винтовки
+
+- type: entity
+  id: WeaponSniperHristovBibis
+  parent: WeaponSniperHristov
+  name: Hristov Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/Bolt-Snipers/heavy_sniper.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ADTCartridgeBibisReinforced
+    capacity: 8
+    proto: ADTCartridgeStrikeballBibisReinforced
+
+- type: entity
+  id: MusketBibis
+  parent: Musket
+  name: musket Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/Bolt-Snipers/bolt_gun_wood.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ADTCartridgeBibisReinforced
+    proto: ADTCartridgeStrikeballBibisReinforced
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 0
+        Bloodloss: 0
+
+# Пулемёты
+- type: entity
+  id: WeaponLightMachineGunL6Bibis
+  parent: WeaponLightMachineGunL6
+  name: L6 SAW Strikeball
+  suffix: ADT
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/StrikeBall/LMG/l6.rsi
+  - type: Gun
+    fireRate: 12
+  - type: GunRequiresWield
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifleBoxBibis
+        whitelist:
+          tags:
+            - ADTMagazineRifleBibisSoftBig

@@ -1,0 +1,70 @@
+- type: job
+  id: ADTBattleShipCaptainTSF
+  name: job-name-captain-tsf
+  description: job-description-captain-tsf
+  playTimeTracker: JobADTBattleShipCaptainTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 72000 #20 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 72000 #20 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 #20 hrs 
+    - !type:OverallPlaytimeRequirement
+      time: 504000 #140 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 35
+  startingGear: ADTBattleShipCaptainTSFGear
+  icon: "JobIconCaptainTSF"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-tsf-highcommand
+  weight: 20
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipCaptainTSFGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformCaptainTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSF
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    head: ADTShipBattleClothingHeadHatCaptainTSF
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitCaptainTSF
+    id: ADTShipBattlePDACaptainTSF
+    ears: ADTShipBattleClothingHeadsetCommandTSF
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitCaptainTSF

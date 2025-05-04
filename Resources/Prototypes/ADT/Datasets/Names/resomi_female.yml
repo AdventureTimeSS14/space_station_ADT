@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: names_resomi_female
+  values:
+    prefix: names_resomi_female-
+    count: 52

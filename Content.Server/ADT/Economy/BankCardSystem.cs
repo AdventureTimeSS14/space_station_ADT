@@ -212,7 +212,7 @@ public sealed class BankCardSystem : EntitySystem
                 if (acc.BankAccount.AccountId != accountId)
                     continue;
 
-                _cargo.UpdateBankAccount(uid, acc, amount);
+                _cargo.UpdateBankAccount((uid, acc), amount);
                 return true;
             }
         }

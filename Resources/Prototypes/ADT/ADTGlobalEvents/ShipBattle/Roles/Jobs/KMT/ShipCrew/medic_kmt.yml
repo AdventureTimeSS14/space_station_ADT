@@ -1,0 +1,62 @@
+- type: job
+  id: ADTBattleShipMedicKMT
+  name: job-name-medic-kmt
+  description: job-description-medic-kmt
+  playTimeTracker: JobADTBattleShipMedicKMT
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 14400 #4 hrs
+  startingGear: ADTBattleShipMedicKMTGear
+  icon: "JobIconMedicKMT"
+  supervisors: job-supervisors-kmt-commander
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  access:
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  - Medical
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipMedicKMTGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformMedicKMT
+    back: ADTShipBattleClothingBlackBackpackJet
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    # head: ADTShipBattleClothingHeadHatExOfficerTSF
+    eyes: ClothingEyesHudMedical
+    gloves: ClothingHandsGlovesNitrile
+    outerClothing: ADTShipBattleClothingOuterHardsuitMedicKMT
+    id: ADTShipBattleDogtagMedicKMT
+    ears: ADTShipBattleClothingHeadsetMedEngiKMT
+    belt: ClothingBeltMedicalFilled
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - HandheldHealthAnalyzer
+    - ADTShipBattleClothingHeadHelmetHardsuitMedicKMT

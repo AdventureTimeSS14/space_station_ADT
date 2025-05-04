@@ -118,6 +118,8 @@ public sealed partial class StaminaSystem : EntitySystem
         if (args.Handled)
             return;
 
+        if (args.Source == uid) ///ADT tweak
+            return;
         if (component.Critical)
             return;
 

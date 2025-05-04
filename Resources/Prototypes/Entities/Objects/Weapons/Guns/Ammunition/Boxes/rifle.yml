@@ -22,24 +22,38 @@
     steps: 4
     zeroVisible: false
   - type: Appearance
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  # ADT End
 
 # Boxes
 - type: entity
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRifleBig
   name: ammunition box (.20 rifle)
+  suffix: Big
   components:
   - type: BallisticAmmoProvider
     capacity: 200
     proto: CartridgeRifle
   - type: Sprite
     layers:
+ # ADT TWEAK Start - Откат кабинетных спрайтов
     - state: base-b
       map: ["enum.GunVisualLayers.Base"]
     - state: magb-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: magb
+ # ADT TWEAK End - Откат кабинетных спрайтов
     steps: 4
     zeroVisible: false
   - type: Appearance

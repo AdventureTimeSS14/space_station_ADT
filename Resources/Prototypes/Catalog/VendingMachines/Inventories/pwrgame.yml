@@ -1,8 +1,9 @@
 - type: vendingMachineInventory
   id: PwrGameInventory
   startingInventory:
-    DrinkPwrGameCan: 4
-    DrinkEnergyDrinkCan: 4
+    DrinkPwrGameCan: 3 # ADT-tweak 4 > 3
+    DrinkEnergyDrinkCan: 3 # ADT-tweak 4 > 3
+    ADTDrinkNoStopCan: 2 # ADT-tweak
     DrinkGrapeCan: 2
     DrinkRootBeerCan: 2
     DrinkIcedTeaCan: 2
@@ -10,6 +11,8 @@
     DrinkLemonLimeCan: 2
     DrinkLemonLimeCranberryCan: 2
     DrinkFourteenLokoCan: 2
+  contrabandInventory:
+    DrinkDrGibbCan: 3
   emaggedInventory:
     DrinkNukieCan: 2
     DrinkChangelingStingCan: 2

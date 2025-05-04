@@ -5,6 +5,7 @@
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
   components:
+  - type: Animateable
   - type: ResistLocker
   - type: Transform
     noRot: true
@@ -55,6 +56,12 @@
         layer:
         - MachineLayer
   - type: EntityStorage
+    # ADT Start
+    closeSound:
+      path: /Audio/ADT/Entities/closet_close.ogg
+    openSound:
+      path: /Audio/ADT/Entities/closet_open.ogg
+    # ADT End
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

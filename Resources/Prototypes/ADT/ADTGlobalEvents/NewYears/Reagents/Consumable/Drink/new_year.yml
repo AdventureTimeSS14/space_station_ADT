@@ -66,7 +66,7 @@
   parent: BaseDrink
   desc: reagent-desc-hot-chocolate
   physicalDesc: reagent-physical-desc-aromatic
-  flavor: ADTChocolateDrinkFlavor 
+  flavor: ADTChocolateDrinkFlavor
   color: "#9c9289"
   metamorphicSprite:
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
@@ -86,7 +86,7 @@
   parent: BaseDrink
   desc: reagent-desc-hot-chocolate-allergic
   physicalDesc: reagent-physical-desc-aromatic
-  flavor: ADTChocolateDrinkFlavor 
+  flavor: ADTChocolateDrinkFlavor
   color: "#9c9289"
   metamorphicSprite:
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi

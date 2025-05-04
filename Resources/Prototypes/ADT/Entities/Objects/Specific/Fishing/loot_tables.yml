@@ -1,0 +1,81 @@
+- type: entityTable
+  id: BasicFishingLootTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 75
+      children:
+      - !type:NestedSelector
+        tableId: SalvageScrapLowValue
+        weight: 65
+      - !type:NestedSelector
+        tableId: SalvageScrapHighValue
+        weight: 35
+    - !type:NestedSelector
+      tableId: GenericTrashItems
+      weight: 15
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - !type:NestedSelector
+        tableId: SalvageTreasureCommon
+      - !type:NestedSelector
+        tableId: MaintToolsTable
+
+- type: entityTable
+  id: RareFishTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTFishAlien
+    - id: ADTFishBingle
+    - id: ADTFishBoyFisher
+    - id: ADTFishNukeDisk
+    - id: ADTFishGib
+    - id: ADTFishMutant
+    - id: ADTFishNuker
+    - id: ADTFishToxic
+    - id: ADTFishIan
+
+
+- type: entityTable
+  id: WaterFishTable
+  table: !type:GroupSelector
+    children:
+    - id: ADTFishAngler
+    - id: ADTFishBass
+    - id: ADTFishBlob
+    - id: ADTFishBlueFintuna
+    - id: ADTFishCat
+    - id: ADTFishTropicalClown
+    - id: ADTFishPuffer
+    - id: ADTFishSilver
+    - id: ADTFishTropicalSun
+    - id: ADTFishTropical
+
+- type: entityTable
+  id: WaterFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+        weight: 70
+      - !type:NestedSelector
+        tableId: WaterFishTable
+        weight: 20
+      - !type:NestedSelector
+        tableId: RareFishTable
+        weight: 10
+
+- type: entityTable
+  id: LavaFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+
+- type: entityTable
+  id: PlasmaFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable

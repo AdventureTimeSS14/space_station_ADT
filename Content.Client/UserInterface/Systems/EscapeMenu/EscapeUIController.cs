@@ -101,7 +101,13 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             CloseEscapeWindow();
             _console.ExecuteCommand("quit");
         };
-
+        // ADT-Tweak-start
+        _escapeWindow.WebSiteButton.OnPressed += _ =>
+        {
+            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWebsite));
+        };
+        _escapeWindow.WebSiteButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWebsite) != "";
+        // ADT-Tweak-end
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
             _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));

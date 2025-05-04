@@ -8,7 +8,10 @@
     damage:
       types:
         Piercing: 90 # ADT tweak
-        Structural: 30
+        Structural: 60
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
   - type: StaminaDamageOnCollide
     damage: 75
   - type: TimedDespawn
@@ -72,7 +75,10 @@
     damage:
       types:
         Piercing: 500 # ADT tweak
-        Structural: 2000
+        Structural: 2050
+    penetrationThreshold: 1550
+    penetrationDamageTypeRequirement:
+    - Structural
   - type: StaminaDamageOnCollide
     damage: 300
   - type: Sprite
@@ -81,12 +87,12 @@
       - state: frag
   - type: TimedDespawn
     lifetime: 30
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 20 # a ~2 tile radius
-    intensitySlope: 10
-    maxIntensity: 3
+  # - type: ExplodeOnTrigger
+  # - type: Explosive
+  #   explosionType: Default
+  #   totalIntensity: 20 # a ~2 tile radius
+  #   intensitySlope: 10
+  #   maxIntensity: 3
   # - type: IFF
   #   flags: HideLabel
   #   color: "#ff0000"
@@ -150,6 +156,9 @@
       types:
         Piercing: 500 # ADT tweak
         Structural: 5500
+    penetrationThreshold: 3000
+    penetrationDamageTypeRequirement:
+    - Structural
   - type: StaminaDamageOnCollide
     damage: 300
   - type: Sprite
@@ -158,9 +167,9 @@
       - state: frag
   - type: TimedDespawn
     lifetime: 30
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 50 # a ~2 tile radius
-    intensitySlope: 10
-    maxIntensity: 5
+  # - type: ExplodeOnTrigger
+  # - type: Explosive
+  #   explosionType: Default
+  #   totalIntensity: 50 # a ~2 tile radius
+  #   intensitySlope: 10
+  #   maxIntensity: 5

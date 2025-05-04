@@ -157,6 +157,12 @@ namespace Content.Shared.Roles
         // ADT station AI tweak start
         [DataField]
         public bool ContainerInsert = false;
+
+        [DataField]
+        public string? LoadoutOverride;
+
+        [DataField]
+        public string? LoadoutButtonText;
         // ADT station AI tweak end
     }
 

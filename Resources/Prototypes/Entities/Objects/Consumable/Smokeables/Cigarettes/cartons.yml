@@ -6,11 +6,13 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
+ # ADT TWEAK Start - Откат кабинетных спрайтов
     layers:
       - state: closed
         map: ["closeLayer"]
       - state: open
         map: ["openLayer"]
+ # ADT TWEAK End - Откат кабинетных спрайтов
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
     size: Normal
@@ -37,8 +39,10 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
+ # ADT TWEAK Start - Откат кабинетных спрайтов
     layers:
       - state: closed
+ # ADT TWEAK End - Откат кабинетных спрайтов
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
   - type: StorageFill
@@ -54,8 +58,10 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
+ # ADT TWEAK Start - Откат кабинетных спрайтов
     layers:
       - state: closed
+ # ADT TWEAK End - Откат кабинетных спрайтов
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
   - type: StorageFill
@@ -71,8 +77,10 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
+ # ADT TWEAK Start - Откат кабинетных спрайтов
     layers:
       - state: closed
+ # ADT TWEAK End - Откат кабинетных спрайтов
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
   - type: StorageFill
@@ -88,8 +96,10 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
+ # ADT TWEAK Start - Откат кабинетных спрайтов
     layers:
       - state: closed
+ # ADT TWEAK End - Откат кабинетных спрайтов
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
   - type: StorageFill

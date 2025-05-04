@@ -29,6 +29,7 @@ public sealed partial class OverallPlaytimeRequirement : JobRequirement
         var overallDiffSpan = Time - overallTime;
         var overallDiff = overallDiffSpan.TotalMinutes;
         var formattedOverallDiff = ContentLocalizationManager.FormatPlaytime(overallDiffSpan);
+        var formattedOverallDiffMinutes = ContentLocalizationManager.FormatPlaytimeMinutes(overallDiffSpan); // ADT change
 
         if (!Inverted)
         {
@@ -37,14 +38,17 @@ public sealed partial class OverallPlaytimeRequirement : JobRequirement
 
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
                 "role-timer-overall-insufficient",
-                ("time", formattedOverallDiff)));
+                ("time", formattedOverallDiff),
+                ("timeminutes", formattedOverallDiffMinutes))); //ADT Changes
             return false;
         }
 
         if (overallDiff <= 0 || overallTime >= Time)
         {
-            reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-overall-too-high",
-                ("time", formattedOverallDiff)));
+            reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
+                "role-timer-overall-too-high",
+                ("time", formattedOverallDiff),
+                ("timeminutes", formattedOverallDiffMinutes))); //ADT Changes
             return false;
         }
 

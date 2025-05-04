@@ -10,6 +10,8 @@ public sealed class BanInfo
 
     [JsonIgnore]
     public ICommonSession? Player { get; set; }
+
+    public string AdminName { get; set; } = default!;
     public string PlayerName
     {
         get

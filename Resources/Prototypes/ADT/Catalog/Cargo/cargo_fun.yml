@@ -26,7 +26,7 @@
   product: ADTCrateWedding
   category: cargoproduct-category-name-fun
   cost: 1500
-  
+
 - type: cargoProduct
   id: FunRingBox
   icon:
@@ -44,4 +44,14 @@
   product: ADTCrateHalloweenCloth
   cost: 4250
   category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: ADTFunSprayPaints
+  icon:
+    sprite: ADT/Objects/Fun/spraycans.rsi
+    state: death2_cap
+  product: ADTCrateFunSprayPaints
+  cost: 2000
+  category: Fun
   group: market

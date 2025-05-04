@@ -24,3 +24,62 @@
     solution: ammo
   - type: InjectableSolution
     solution: ammo
+
+# 357 CALLIBR OAOAOAO
+
+- type: entity
+  id: ADTBulletMagnumLesser
+  name: bullet (.357 magnum)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+
+- type: entity
+  id: ADTBulletMagnumLesserPractice
+  name: bullet (.357 magnum practice)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: ADTBulletMagnumLesserIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (.357 magnum incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 32
+
+- type: entity
+  id: ADTBulletMagnumLesserAP
+  name: bullet (.357 magnum armor-piercing)
+  parent: BaseBulletAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 26 # 20% decrease
+    ignoreResistances: true
+
+- type: entity
+  id: ADTBulletMagnumLesserUranium
+  name: bullet (.357 magnum uranium)
+  parent: BaseBulletUranium
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 15
+        Piercing: 20

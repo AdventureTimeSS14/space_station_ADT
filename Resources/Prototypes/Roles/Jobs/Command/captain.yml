@@ -18,6 +18,13 @@
 #      time: 54000 # 15 hours
     - !type:OverallPlaytimeRequirement
       time: 504000 #140 hrs # Corvax-RoleTime
+  # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+  # ADT RESTRICT End
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -25,7 +32,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
-  - AllAccess
+  - ADTAccessCaptain #ADT-tweak - полный доступ ко всем станционным дверям, кроме ЦК и ОСЩ
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

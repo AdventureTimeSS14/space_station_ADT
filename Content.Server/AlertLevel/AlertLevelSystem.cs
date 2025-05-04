@@ -154,11 +154,11 @@ public sealed class AlertLevelSystem : EntitySystem
 
         var stationName = dataComponent.EntityName;
 
-        var name = level.ToLower();
+        var name = level; // ADT-Tweak
 
         if (Loc.TryGetString($"alert-level-{level}", out var locName))
         {
-            name = locName.ToLower();
+            name = locName; // ADT-Tweak
         }
 
         // Announcement text. Is passed into announcementFull.

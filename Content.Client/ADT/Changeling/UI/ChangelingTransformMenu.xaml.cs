@@ -67,6 +67,12 @@ public sealed partial class ChangelingTransformMenu : RadialMenu
                 Entity = item.NetEntity,
                 Profile = item.Profile,
                 Name = item.Name,
+                SeparatorColor = Color.Black,
+                BackgroundColor = new Color(173, 33, 42, 128),
+                HoverBackgroundColor = new Color(224, 22, 36, 128),
+                BorderColor = new Color(224, 22, 36, 128),
+                HoverBorderColor = new Color(224, 22, 36, 128),
+                DrawBorder = true
             };
 
             face.Scale *= 1f;
@@ -97,7 +103,7 @@ public sealed partial class ChangelingTransformMenu : RadialMenu
 }
 
 
-public sealed class ChangelingTransformMenuButton : RadialMenuTextureButton
+public sealed class ChangelingTransformMenuButton : RadialMenuTextureButtonWithSector
 {
     public NetEntity Entity;
     public HumanoidCharacterProfile? Profile;

@@ -1,0 +1,37 @@
+- type: loadoutEffectGroup
+  id: ADTMasterChef
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChef
+      time: 36000 #10 часов
+
+- type: loadout
+  id: ADTChefCqc
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMasterChef
+  equipment:
+    pocket1: ADTCqcManualWeak
+
+# PDA
+- type: loadout
+  id: ChefPDA
+  equipment:
+    id: ChefPDA
+
+- type: loadout
+  id: ADTBakerPDA
+  equipment:
+    id: ADTBakerPDA
+
+- type: loadout
+  id: ADTButcherPDA
+  equipment:
+    id: ADTButcherPDA
+
+- type: loadout
+  id: ADTPizzaioloPDA
+  equipment:
+    id: ADTPizzaioloPDA

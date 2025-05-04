@@ -2,6 +2,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterWinterCoat
   name: winter coat
+  categories: [ HideSpawnMenu ] # ADT-tweak
   description: A heavy jacket made from 'synthetic' animal furs.
   components:
   - type: Sprite
@@ -39,7 +40,7 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatToggleable
   name: winter coat with hood
-  categories: [ HideSpawnMenu ]
+  # categories: [ HideSpawnMenu ] # ADT-tweak
   components:
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterDefault
@@ -664,7 +665,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseRestrictedContraband]
+  parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterSec
   name: security winter coat
   components:
@@ -718,7 +719,7 @@
 
 ################################################################
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseRestrictedContraband]
+  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterWarden
   name: warden's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
@@ -732,7 +733,7 @@
 ################################################################
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseRestrictedContraband]
+  parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterWardenUnarmored
   name: warden's winter coat
   description: A sturdy coat, a warm coat, but not an armored coat.

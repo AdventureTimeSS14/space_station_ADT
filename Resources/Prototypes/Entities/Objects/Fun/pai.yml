@@ -82,6 +82,9 @@
     languages:
       GalacticCommon: Speak
       BorgTalk: Speak
+      SiliconCollectiveMind: Speak
+  - type: CollectiveMindRank
+    rankName: collective-mind-pai-rank
   # ADT-Tweak-end
 
 

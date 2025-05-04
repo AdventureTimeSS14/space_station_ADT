@@ -1,0 +1,54 @@
+#         ПРИМЕР
+# - type: sponsorPersonalLoadout
+#   id: SponsorPersonalLoadoutSchrodinger71
+#   userName: Schrodinger71
+#   equipment: SponsorPersonalLoadoutSchrodinger71
+#   expirationDate: 2025-04-01T00:00:00Z  # После этой даты лоадаут не выдастся
+#   whitelistJobs: [JobProto1]            # Вайтлист должностей
+#   blacklistJobs: [ JobProto4 ]          # Блэклист должностей
+#   speciesRestriction: # Запрет на расы
+#   - SpeciesProto1
+#   - SpeciesProto2
+
+# Персональные
+## Schrodinger71 - Шрёдька - ОБЩИЙ
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSchrodinger71
+  userName: localhost@Schrodinger71
+  equipment: SponsorPersonalLoadoutSchrodinger71
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSchrodinger71
+  equipment:
+    pocket1: ClothingUnderSocksCoder
+
+## Schrodinger71 - Шрёдька - ГРУЗЧИК
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSchrodinger71_Cargo
+  userName: localhost@Schrodinger71
+  equipment: SponsorPersonalLoadoutSchrodinger71_Cargo
+  whitelistJobs: [ CargoTechnician ]
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSchrodinger71_Cargo
+  equipment:
+    neck: ADTChokerWithHeart
+    pocket1: ClothingHeadHatCatEars
+    pocket2: ClothingUnderSocksCoder
+    jumpsuit: ClothingUniformJumpskirtElegantMaid
+
+## Schrodinger71 - Шрёдька - КАПИТАН
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSchrodinger71_capitan
+  userName: localhost@Schrodinger71
+  equipment: SponsorPersonalLoadoutSchrodinger71_capitan
+  whitelistJobs: [ Captain ]
+  # expirationDate: 2025-04-01T00:00:00Z  # После этой даты лоадаут не выдастся
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSchrodinger71_capitan
+  equipment:
+    neck: ADTChokerWithHeart
+  storage:
+    back:
+    - ADTPlushieSchrodinger

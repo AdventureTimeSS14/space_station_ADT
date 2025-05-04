@@ -1,0 +1,71 @@
+- type: job
+  id: ADTBattleShipCommanderTSF
+  name: job-name-commander-tsf
+  description: job-description-commander-tsf
+  playTimeTracker: JobADTBattleShipCommanderTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+      - Dwarf
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 #10 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 #10 hrs 
+    - !type:OverallPlaytimeRequirement
+      time: 252000 #70 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 30
+  startingGear: ADTBattleShipCommanderTSFGear
+  icon: "JobIconCommanderTSF"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-tsf-captain
+  canBeAntag: false
+  weight: 19
+  overrideConsoleVisibility: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipCommanderTSFGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformCommanderTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSF
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    head: ADTShipBattleClothingHeadHatCommanderTSF
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitCommanderTSF
+    id: ADTShipBattlePDACommanderTSF
+    ears: ADTShipBattleClothingHeadsetCommandTSF
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitCommanderTSF

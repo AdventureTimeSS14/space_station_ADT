@@ -11,6 +11,7 @@
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: ashen_shift
     event: !type:EventHereticAshenShift
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-jaunt
@@ -34,8 +35,8 @@
 
 - type: entity
   id: ActionHereticNightwatcherRebirth
-  name: action-heretic-ash-rebirth-name
-  description: action-heretic-ash-rebirth-desc
+  name: Nightwatcher's Rebirth
+  description: Drains nearby heathens engulfed in flames of their life force.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -51,8 +52,8 @@
 
 - type: entity
   id: ActionHereticAscension1
-  name: action-heretic-ash-oath-name
-  description: action-heretic-ash-oath-desc
+  name: Oath of Flame
+  description: Create a ring of fire around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -68,8 +69,8 @@
 
 - type: entity
   id: ActionHereticAscension2
-  name: action-heretic-ash-cascade-name
-  description: action-heretic-ash-cascade-desc
+  name: Fire Cascade
+  description: Burn everything in a large distance.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

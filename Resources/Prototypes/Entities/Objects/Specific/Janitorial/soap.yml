@@ -70,6 +70,7 @@
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-green
+  - type: PaintRemover #ADT tweak
 
 - type: entity
   name: soap

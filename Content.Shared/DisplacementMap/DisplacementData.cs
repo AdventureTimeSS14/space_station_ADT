@@ -1,6 +1,9 @@
+using Robust.Shared.Serialization;
+
 namespace Content.Shared.DisplacementMap;
 
 [DataDefinition]
+[Serializable, NetSerializable] // ADT Tweak
 public sealed partial class DisplacementData
 {
     /// <summary>

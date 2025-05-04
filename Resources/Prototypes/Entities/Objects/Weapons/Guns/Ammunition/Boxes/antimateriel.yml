@@ -23,8 +23,34 @@
     steps: 4
     zeroVisible: false
   - type: Appearance
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  # ADT End
 
 # Boxes
+- type: entity
+  parent: BaseMagazineBoxAntiMateriel
+  id: MagazineBoxAntiMateriel
+  name: ammunition box (.60 anti-materiel)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMateriel
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+ # ADT TWEAK Start - Откат кабинетных спрайтов
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMaterielBig
@@ -44,17 +70,4 @@
     steps: 4
     zeroVisible: false
   - type: Appearance
-
-- type: entity
-  parent: BaseMagazineBoxAntiMateriel
-  id: MagazineBoxAntiMateriel
-  name: ammunition box (.60 anti-materiel)
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeAntiMateriel
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+ # ADT TWEAK End - Откат кабинетных спрайтов

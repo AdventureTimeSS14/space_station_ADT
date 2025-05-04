@@ -76,10 +76,10 @@
   - type: RandomMetadata
     nameSegments:
     # - The # ADT CHANGE
-    - RevenantType
+    - NamesRevenantType
+    - NamesRevenantAdjective
+    - NamesRevenantTheme
     # - of # ADT CHANGE
-    - RevenantAdjective
-    - RevenantTheme
   - type: Speech
     speechVerb: Ghost
   - type: ShowHealthBars
@@ -90,3 +90,6 @@
   - type: Reactive
     groups:
       Acidic: [Touch]
+  - type: Tag #ADT tweak
+    tags:
+      - NoPaint

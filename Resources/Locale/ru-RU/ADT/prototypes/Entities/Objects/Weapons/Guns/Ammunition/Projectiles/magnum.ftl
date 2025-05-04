@@ -1,0 +1,10 @@
+ent-ADTBulletMagnumLesser = пуля (.357 магнум)
+    .desc = { ent-BaseBullet.desc }
+ent-ADTBulletMagnumLesserPractice = пуля (.357 магнум учебная)
+    .desc = { ent-BaseBulletPractice.desc }
+ent-ADTBulletMagnumLesserIncendiary = пуля (.357 магнум зажигательная)
+    .desc = { ent-BaseBulletIncendiary.desc }
+ent-ADTBulletMagnumLesserAP = пуля (.357 магнум бронебойная)
+    .desc = { ent-BaseBulletAP.desc }
+ent-ADTBulletMagnumUraniumLesser = пуля (.357 магнум урановая)
+    .desc = { ent-BaseBulletUranium.desc }

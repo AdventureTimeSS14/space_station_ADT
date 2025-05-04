@@ -1,0 +1,66 @@
+- type: job
+  id: ADTBattleShipEngineerTSF
+  name: job-name-engineer-tsf
+  description: job-description-engineer-tsf
+  playTimeTracker: JobADTBattleShipEngineerTSF
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+      - Dwarf
+      - Moth
+      - VulpkaninSpecies
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 14400 #4 hrs 
+  startingGear: ADTBattleShipEngineerTSFGear
+  icon: "JobIconEngineerTSF"
+  supervisors: job-supervisors-tsf-gunner
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Engineering
+  - External
+  - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipEngineerTSFGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformEngineerTSF
+    back: ADTShipBattleClothingBlackBackpackJet
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    # head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTShipBattleClothingOuterHardsuitEngineerTSF
+    id: ADTShipBattleDogtagEngineerTSF
+    ears: ADTShipBattleClothingHeadsetMedEngiTSF
+    belt: ClothingBeltUtilityFilled
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitEngineerTSF

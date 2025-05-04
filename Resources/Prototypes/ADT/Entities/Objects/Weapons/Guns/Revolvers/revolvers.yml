@@ -1,0 +1,47 @@
+- type: entity
+  name: BaseWeaponRevolver
+  parent: BaseWeaponRevolver
+  id: ADTBaseWeaponRevolverLesser
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    state: icon
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - ADTCartridgeMagnumLesser
+        - ADTSpeedLoaderMagnumLesser
+    proto: ADTCartridgeMagnumLesser
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: Unica 6
+  parent: ADTBaseWeaponRevolverLesser
+  id: ADTWeaponRevolverLesserUnica
+  description: Legendary weapon of angry HoS
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 2.5
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/unica_shot.ogg
+      params:
+        volume: 2.25
+  - type: StaticPrice
+    price: 3500

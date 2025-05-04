@@ -46,9 +46,11 @@ ent-DevTranslatorImplant = имплант языка разработчика
     .desc = Опять чинить апстрим?
     .suffix = АДМЕМЫ
 
-ent-IPCTranslatorImplant = Имплант IPC-транслятора
-    .desc = IPC транслятор
-    .suffix = IPC
-ent-VoxPidginTranslatorImplant = Имплантант-транслятор VoxCommon
-    .desc = VoxCommon транслятор
-    .suffix = VoxCommon
+ent-IPCTranslatorImplant = полноценный языковой имплант троичного кода
+    .desc = Имплант, позволяющий понимать и общаться на троичном коде.
+
+ent-VoxPidginTranslatorImplant = полноценный языковой имплант Вокс-пиджин
+    .desc = Имплант, позволяющий понимать и общаться на Вокс-пиджине.
+
+ent-ScratchesTranslatorImplant = полноценный языковой имплант Скретчи
+    .desc = Имплант, позволяющий понимать и общаться на Скретчи.

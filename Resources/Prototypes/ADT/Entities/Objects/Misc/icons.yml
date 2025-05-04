@@ -1,0 +1,39 @@
+- type: entity
+  id: ADTIconJesus
+  parent: BaseItem
+  name: Icon of Christ the Savior
+  description: This Is an Icon of Christ, the son of God. Teaches you to love others.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/icon_jesus.rsi
+    state: icon
+
+- type: entity
+  id: ADTIconMaria
+  parent: BaseItem
+  name: Icon of the Holy Mother of God
+  description: This Is an Icon of the Holy Mother of God. Teaches you to love children.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/icon_maria.rsi
+    state: icon
+
+- type: entity
+  id: ADTIconPrecept
+  parent: BaseItem
+  name: Silver Icon of the 10 Commandments
+  description: All 10 commandments are carved on silver. You're tempted to break everything...
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/icon_precept.rsi
+    state: icon
+
+- type: entity
+  id: ADTIconPreceptGold
+  parent: BaseItem
+  name: The Golden Icon of the 10 Commandments
+  description: All 10 commandments are carved on the gold. It stands above the cosmic law.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/icon_precept_gold.rsi
+    state: icon

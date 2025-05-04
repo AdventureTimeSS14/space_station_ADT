@@ -1,3 +1,4 @@
+using Content.Client.ADT.Research.UI;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using JetBrains.Annotations;

@@ -1,6 +1,9 @@
 ent-ADTClothingUnderwearTopBraWhite = лифчик
     .desc =  Стандартный лифчик для NanoTrasen для работниц станции. Окрашен в белый цвет.
 
+ent-ADTClothingUnderwearTopTShirt = майка
+    .desc = Обычная белая майка.
+
 ent-ADTClothingUnderwearTopBraLaceRed = красный кружевной лифчик
     .desc = Красное, кружевное и, скорее всего, очень дорогое.
     .suffix = { "" }

@@ -8,6 +8,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Server.Console;
 using Robust.Shared.Player;
 using Content.Shared.Speech.Muting;
+using Content.Shared.Chat;
 
 namespace Content.Server.Mobs;
 

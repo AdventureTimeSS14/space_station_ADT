@@ -52,53 +52,6 @@
     - suitStorage
 
 - type: entity
-  name: Lecter Strikeball
-  parent: BaseWeaponRifle
-  id: ADTWeaponRifleLecterBibis
-  description: A high end military grade assault rifle. Uses .20 rifle ammo.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
-  - type: Gun
-    fireRate: 10
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: ADTMagazineRifleBibis
-        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - ADTMagazineRifleBibis
-      gun_chamber:
-        name: Chamber
-        startingItem: ADTCartridgeStrikeballBibis
-        priority: 1
-        whitelist:
-          tags:
-            - ADTCartridgeBibis
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
-
-- type: entity
   name: AR-12
   parent: [WeaponRifleLecter, ADTBaseMagneticGun]
   id: ADTWeaponRifleAR12
@@ -134,6 +87,11 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.25, -0.125
+      rmc-aslot-rail: 0, 0
+      rmc-aslot-barrel: 0.96875, 0
 
 - type: entity
   name: TAR-60SF
@@ -152,6 +110,11 @@
     sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
   - type: Gun
     fireRate: 5.5
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.34375, -0.125
+      rmc-aslot-rail: 0.03125, -0.09375
+      rmc-aslot-barrel: 0.96875, 0
 
 - type: entity
   name: xC67

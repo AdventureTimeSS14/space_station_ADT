@@ -26,3 +26,13 @@
     sprite: ADT/Clothing/OuterClothing/WinterCoats/russian_coat.rsi #спрайты от prazat911
   - type: StaticPrice
     price: 120
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterLongMime
+  name: mime's long winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi  

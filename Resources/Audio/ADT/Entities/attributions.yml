@@ -1,0 +1,46 @@
+- files:
+  - id_drop.ogg
+  - id_pickup.ogg
+  - backpack_drop.ogg
+  - backpack_pickup.ogg
+  - backpack_equip.ogg
+  - gas_tank_drop.ogg
+  - gas_tank_pickup.ogg
+  - metal_drop.ogg
+  - metal_pickup.ogg
+  - rod_pickup.ogg
+  - glass_drop.ogg
+  - glass_pickup.ogg
+  - medkit_drop.ogg
+  - medkit_pickup.ogg
+  - medkit_open.ogg
+  - medkit_rustle.ogg
+  - skin_drop.ogg
+  - sneakers_land.ogg
+  - sneakers_pickup.ogg
+  - toolbox_open.ogg
+  - toolbox_rustle.ogg
+  - wood_drop.ogg
+  - wood_pickup.ogg
+  - glove_equip.ogg
+  - helmet_drop.ogg
+  - helmet_equip.ogg
+  - helmet_pickup.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds taken from https://github.com/Fluffy-Frontier/FluffySTG"
+  source: "https://github.com/Fluffy-Frontier/FluffySTG"
+
+- files:
+  - paper_drop.ogg
+  - paper_pickup.ogg
+  - ammobox_drop.ogg
+  - ammobox_pickup.ogg
+  - cardboardbox_pickup.ogg
+  - cardboardbox_drop.ogg
+  - cloth_drop.ogg
+  - cloth_pickup.ogg
+  - closet_open.ogg
+  - closet_close.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds taken from https://github.com/tgstation/tgstation"
+  source: "https://github.com/tgstation/tgstation"

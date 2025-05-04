@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseMobSpeciesOrganic
+  parent: BaseMobSpeciesOrganicUnRotting
   id: BaseMobVox
   abstract: true
   components:
@@ -11,8 +11,10 @@
   - type: Body
     prototype: Vox
     requiredLegs: 2
-  - type:  HumanoidAppearance
+  - type: HumanoidAppearance
     species: Vox
+    undergarmentTop: UndergarmentTopTanktopVox
+    undergarmentBottom: UndergarmentBottomBoxersVox
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
@@ -24,6 +26,10 @@
       Male: UnisexVox
       Female: UnisexVox
       Unsexed: UnisexVox
+      # Start ADT tweak
+  - type: Uncloneable
+  - type: VoxAccent
+      # End ADT tweak
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -44,6 +50,15 @@
         Poison: -0.2
       groups:
         Brute: -0.07
+  # ADT-Tweak Start
+  - type: Tag
+    tags:
+      - ADTVoxEmotes
+      - CanPilot
+      - DoorBumpOpener
+   # ADT QWERTY Tweak (Теперь воксы с тихим шагом)
+      - AnomalyHost
+  # ADT-Tweak End
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -71,6 +86,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
@@ -79,12 +96,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "neck" ]
+    - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -161,6 +178,8 @@
   components:
   - type: HumanoidAppearance
     species: Vox
+    undergarmentTop: UndergarmentTopTanktopVox
+    undergarmentBottom: UndergarmentBottomBoxersVox
   - type: Body
     prototype: Vox
   - type: Inventory

@@ -1,3 +1,7 @@
 - type: statusEffect
   id: BlurryVision
   alwaysAllowed: true
+
+- type: statusEffect
+  id: BreathingBlocked
+  alwaysAllowed: true

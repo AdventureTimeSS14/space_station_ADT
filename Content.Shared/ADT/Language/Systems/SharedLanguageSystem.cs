@@ -112,7 +112,7 @@ public abstract class SharedLanguageSystem : EntitySystem
 
     public void SelectDefaultLanguage(EntityUid uid, LanguageSpeakerComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(uid, ref component, false))
             return;
         if (!_netMan.IsServer)
             return;
@@ -203,7 +203,7 @@ public abstract class SharedLanguageSystem : EntitySystem
 
     public void AddSpokenLanguage(EntityUid uid, string lang, LanguageKnowledge knowledge = LanguageKnowledge.Speak, LanguageSpeakerComponent? comp = null)
     {
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(uid, ref comp, false))
             return;
         if (!_proto.TryIndex<LanguagePrototype>(lang, out var proto))
             return;
@@ -211,11 +211,13 @@ public abstract class SharedLanguageSystem : EntitySystem
             comp.Languages[lang] = knowledge;
         else
             comp.Languages.Add(lang, knowledge);
+
+        UpdateUi(uid, comp);
     }
 
     public void SortLanguages(EntityUid uid, LanguageSpeakerComponent? comp = null)
     {
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(uid, ref comp, false))
             return;
         var list = comp.Languages.ToList();
         list.Sort((x, y) => _proto.Index<LanguagePrototype>(x.Key).LocalizedName[0].CompareTo(_proto.Index<LanguagePrototype>(y.Key).LocalizedName[0]));

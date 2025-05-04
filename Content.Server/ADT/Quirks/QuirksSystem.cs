@@ -1,6 +1,5 @@
 using Content.Shared.ADT.Traits;
 using Content.Server.Storage.Components;
-using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
 using Content.Shared.Tools.Components;
 using Content.Shared.Whitelist;

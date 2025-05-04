@@ -107,11 +107,17 @@ public sealed partial class TTSSystem : EntitySystem
 
     private async void HandleSay(EntityUid uid, string message, string speaker, LanguagePrototype language)
     {
+        // ADT Start
+        if (language.LanguageType is not Generic gen)
+            return;
+        // ADT End
+
         var soundData = await GenerateTTS(message, speaker);
         if (soundData is null) return;
 
         // ADT Languages start
-        var languageSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, language), speaker);
+
+        var languageSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables), speaker);
         if (languageSoundData is null) return;
         // ADT Languages end
 
@@ -120,6 +126,11 @@ public sealed partial class TTSSystem : EntitySystem
 
     private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker, LanguagePrototype language)
     {
+        // ADT Start
+        if (language.LanguageType is not Generic gen)
+            return;
+        // ADT End
+
         var fullSoundData = await GenerateTTS(message, speaker, true);
         if (fullSoundData is null) return;
 
@@ -127,10 +138,10 @@ public sealed partial class TTSSystem : EntitySystem
         if (obfSoundData is null) return;
 
         // ADT Languages start
-        var fullLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, language), speaker, true);
+        var fullLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables), speaker, true);
         if (fullLangSoundData is null) return;
 
-        var obfLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, obfMessage, language), speaker, true);
+        var obfLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, obfMessage, gen.Replacement, gen.ObfuscateSyllables), speaker, true);
         if (obfLangSoundData is null) return;
         // ADT Languages end
 

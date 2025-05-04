@@ -1,7 +1,6 @@
 action-name-lick-wounds = Зализать раны
 action-desc-lick-wounds = Уменьшает кровотечение, но нарушает санитарию и может вызывать заболевания.
 lick-wounds-yourself-impossible = Вы не можете зализать свои раны
-lick-wounds-other-impossible = Вы не можете зализать чьи-то раны
 lick-wounds-yourself-no-wounds = У вас нету кровотечения
 lick-wounds-yourself-begin = Вы начинаете зализывать свои раны
 lick-wounds-yourself-success = Вы зализываете ваши раны, уменьшая кровотечение

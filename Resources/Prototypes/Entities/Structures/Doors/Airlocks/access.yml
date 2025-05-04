@@ -1,6 +1,6 @@
 # Airlocks
 - type: entity
-  parent: Airlock
+  parent: ADTServiceAirlock # ADT-Doors
   id: AirlockServiceLocked
   suffix: Service, Locked
   components:
@@ -11,7 +11,7 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTLawyerAirlock # ADT-Doors
   id: AirlockLawyerLocked
   suffix: Lawyer, Locked
   components:
@@ -38,7 +38,7 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTJanitorAirlock # ADT-Doors
   id: AirlockJanitorLocked
   suffix: Janitor, Locked
   components:
@@ -63,6 +63,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBar ]
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockBarKitchenLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
 
 - type: entity
   parent: AirlockHydroponics
@@ -433,7 +442,7 @@
 
 # Glass Airlocks
 - type: entity
-  parent: AirlockGlass
+  parent: ADTGlassServiceAirlock # ADT-Doors
   id: AirlockServiceGlassLocked
   suffix: Service, Locked
   components:
@@ -444,7 +453,7 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTGlassLawyerAirlock # ADT-Doors
   id: AirlockLawyerGlassLocked
   suffix: Lawyer, Locked
   components:
@@ -469,6 +478,16 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBar ]
+
+- type: entity
+  parent: AirlockServiceGlassLocked
+  id: AirlockBarKitchenGlassLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
+
 
 - type: entity
   parent: AirlockExternalGlass
@@ -544,7 +563,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTGlassJanitorAirlock # ADT-Doors
   id: AirlockJanitorGlassLocked
   suffix: Janitor, Locked
   components:
@@ -562,7 +581,7 @@
       board: [ DoorElectronicsHydroponics ]
 
 - type: entity
-  parent: ADTChaplainAirlock # ADT-Doors
+  parent: ADTChaplainAirlockGlass # ADT-Doors
   id: AirlockChapelGlassLocked
   suffix: Chapel, Locked
   components:
@@ -903,6 +922,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBar ]
+
+- type: entity
+  parent: AirlockMaintServiceLocked
+  id: AirlockMaintBarKitchenLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
 
 - type: entity
   parent: AirlockMaintServiceLocked

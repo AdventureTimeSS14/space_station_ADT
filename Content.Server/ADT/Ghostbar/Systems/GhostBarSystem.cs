@@ -1,10 +1,8 @@
-using Robust.Server.GameObjects;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Station.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Server.Maps;
 using Robust.Shared.Random;
 using Content.Shared.Ghost;
 using Content.Server.ADT.Ghostbar.Components;
@@ -17,10 +15,11 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Weather;
 using Content.Shared.Stealth.Components;
 using Content.Server.Stealth;
-using Content.Server.Popups;
-using Content.Shared.NameModifier.EntitySystems;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.Map.Components;
 using System.Linq;
-using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Ghostbar;
 
@@ -45,22 +44,31 @@ public sealed class GhostBarSystem : EntitySystem
 
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
     }
+
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        _mapSystem.CreateMap(out var mapId);
-        var options = new MapLoadOptions { LoadMap = true };
+        // _mapSystem.CreateMap(out var mapId);
+        var opts = new DeserializationOptions
+        {
+            StoreYamlUids = true,
+            InitializeMaps = true,
+        };
 
         var mapList = _prototypeManager.EnumeratePrototypes<GhostBarMapPrototype>().ToList();
         GhostBarMap = _random.Pick(mapList);
         if (GhostBarMap == null)
             return;
 
-        if (!_mapLoader.TryLoad(mapId, GhostBarMap.Path, out _, options))
+        if (!_mapLoader.TryLoadMap(new ResPath(GhostBarMap.Path), out var mapId, out _, opts))
             return;
 
-        _mapSystem.SetPaused(mapId, false);
+        if (!TryComp<MapComponent>(mapId, out var mapComponent))
+            return;
+
+        _mapSystem.SetPaused(mapComponent.MapId, false);
+
         if (GhostBarMap.Weather.HasValue)
-            _weathersystem.SetWeather(mapId, _prototypeManager.Index(GhostBarMap.Weather.Value), null);
+            _weathersystem.SetWeather(mapComponent.MapId, _prototypeManager.Index(GhostBarMap.Weather.Value), null);
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)

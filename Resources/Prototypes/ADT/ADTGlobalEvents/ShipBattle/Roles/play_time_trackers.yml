@@ -1,0 +1,65 @@
+- type: playTimeTracker
+  id: JobADTBattleShipGunnerKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipGunnerTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipCommanderKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipCommanderTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipCaptainTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipCaptainKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineLeutenantTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipMarineLeutenantKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipExecutionalOfficerTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipExecutionalOfficerKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipChiefGunnerTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipChiefGunnerKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipNavigatorTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipNavigatorKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipPilotTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipPilotKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipMedicTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipMedicKMT
+
+- type: playTimeTracker
+  id: JobADTBattleShipEngineerTSF
+
+- type: playTimeTracker
+  id: JobADTBattleShipEngineerKMT

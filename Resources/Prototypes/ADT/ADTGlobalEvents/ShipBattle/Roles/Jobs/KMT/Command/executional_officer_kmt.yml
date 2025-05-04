@@ -1,0 +1,69 @@
+- type: job
+  id: ADTBattleShipExecutionalOfficerKMT
+  name: job-name-executional-officer-kmt
+  description: job-description-executional-officer-kmt
+  playTimeTracker: JobADTBattleShipExecutionalOfficerKMT
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 #10 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 #10 hrs 
+    - !type:OverallPlaytimeRequirement
+      time: 252000 #70 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 30
+  startingGear: ADTBattleShipExecutionalOfficerKMTGear
+  icon: "JobIconExecutionalOfficerKMT"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-kmt-captain
+  canBeAntag: false
+  weight: 18
+  overrideConsoleVisibility: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipExecutionalOfficerKMTGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformExOfficerKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMT
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    head: ADTShipBattleClothingHeadHatExOfficerKMT
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitExOfficerKMT
+    id: ADTShipBattlePDAExecutionalOfficerKMT
+    ears: ADTShipBattleClothingHeadsetCommandKMT
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitExOfficerKMT

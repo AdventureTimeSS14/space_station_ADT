@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseStructure
+  id: ADTForerunnersComputer
+  suffix: Forerunner
+  name: forerunners computer
+  description: Forerunners computer
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/forerunners_structures/forerunners_computer.rsi
+    state: forerunnerscomputer
+    offset: "0.0,0.5"
+    drawdepth: Mobs
+
+- type: entity
+  parent: BaseStructure
+  id: ADTForerunnersSphere
+  suffix: Forerunner
+  name: forerunners sphere
+  description: Forerunners sphere
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/forerunners_structures/forerunners_sphere.rsi
+    state: forerunnerssphere
+    offset: "0.0,0.5"
+    drawdepth: Mobs
+

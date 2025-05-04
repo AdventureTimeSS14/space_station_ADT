@@ -29,6 +29,10 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
   # ADT Tweak Start: IPC
   - type: Healing # cables can be used to heal IPC
     damageContainers:

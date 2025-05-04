@@ -1,0 +1,61 @@
+- type: job
+  id: ADTBattleShipMarineLeutenantKMT
+  name: job-name-marine-leutenant-kmt
+  description: job-description-marine-leutenant-kmt
+  playTimeTracker: JobADTBattleShipMarineLeutenantKMT
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 144000 #40 hrs # ADT-RoleTime
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 25
+  startingGear: ADTBattleShipMarineLeutenantKMTGear
+  icon: "JobIconMarineLeutenantKMT"
+  joinNotifyCrew: true
+  weight: 10
+  overrideConsoleVisibility: false
+  supervisors: job-supervisors-kmt-captain
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipMarineLeutenantKMTGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformMarineLeutenantKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMT
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    # head: ADTShipBattleClothingHeadHatExOfficerTSF
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitMarineLeutenantKMT
+    id: ADTShipBattlePDAMarineLeutenantKMT
+    ears: ADTShipBattleClothingHeadsetMarineLeutenantKMT
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantKMT

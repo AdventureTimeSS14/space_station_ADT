@@ -1,4 +1,4 @@
-using Content.Shared.Clothing.EntitySystems;
+using Robust.Shared.Audio;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -7,27 +7,46 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.ModSuits;
 
-// GOOBSTATION - MODSUITS FULLY CHANGE THIS SYSTEM
-
 /// <summary>
 ///     This component gives an item an action that will equip or un-equip some clothing e.g. hardsuits and hardsuit helmets.
 /// </summary>
-[Access(typeof(ModSuitSystem))]
+
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ModSuitComponent : Component
 {
+    #region gui
+
+    [DataField, AutoNetworkedField]
+    public string BackgroundPath = "/Textures/ADT/Interface/Backgrounds/Modsuits/nanotrasen_background.png";
+    [DataField, AutoNetworkedField]
+
+    public Color BackpanelsColor = new Color(0.06f, 0.1f, 0.16f, 0.6f);
+
+    #endregion gui
+    /// <summary>
+    ///     non-modifyed energy using. 1 toggled part - 1 energy per PowerCellDraw use
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int MaxComplexity = 15;
     public const string DefaultClothingContainerId = "modsuit-part";
+    public const string DefaultModuleContainerId = "mod-modules-container";
 
     /// <summary>
     ///     Action used to toggle the clothing on or off.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntProtoId Action = "ADTActionToggleMODPiece";
-
     [DataField, AutoNetworkedField]
-    public EntityUid? ActionEntity;
+    public EntProtoId MenuAction = "ADTActionToggleMODMenu";
 
-    // Goobstation - ClothingPrototype and Slot Fields saved for compatibility with old prototype
+    /// <summary>
+    ///     non-modifyed energy using. 1 toggled part - 1 energy per PowerCellDraw use
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ModEnergyBaseUsing = 1;
+
+    public float ModEnergyModifyedUsing = 1;
+
     /// <summary>
     ///     Default clothing entity prototype to spawn into the clothing container.
     /// </summary>
@@ -58,6 +77,8 @@ public sealed partial class ModSuitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string ContainerId = DefaultClothingContainerId;
+    [DataField, AutoNetworkedField]
+    public string ModuleContainerId = DefaultModuleContainerId;
 
     [ViewVariables]
     public Container? Container;
@@ -85,9 +106,40 @@ public sealed partial class ModSuitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ReplaceCurrentClothing = true;
+    /// <summary>
+    /// Sound, playing when mod is fully enabled
+    /// </summary>
+    [DataField]
+    public SoundSpecifier FullyEnabledSound = new SoundPathSpecifier("/Audio/ADT/Mecha/nominal.ogg");
 
     [DataField("requiredSlot"), AutoNetworkedField]
     public SlotFlags RequiredFlags = SlotFlags.BACK;
+    public TimeSpan Toggletick;
+    /// <summary>
+    ///     Modules on start
+    /// </summary>
+
+    [DataField]
+    public List<EntProtoId> StartingModules = [];
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Container ModuleContainer = default!;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ActionEntity;
+    [DataField, AutoNetworkedField]
+    public EntityUid? ActionMenuEntity;
+    [AutoNetworkedField]
+    public int CurrentComplexity = 0;
+    [AutoNetworkedField]
+    public string? UserName = null;
+    [AutoNetworkedField]
+    public EntityUid? TempUser = null;
+}
+[Serializable, NetSerializable]
+public enum ModSuitMenuUiKey : byte
+{
+    Key
 }
 
 [Serializable, NetSerializable]
@@ -104,5 +156,54 @@ public sealed class ModSuitUiMessage : BoundUserInterfaceMessage
     public ModSuitUiMessage(NetEntity attachedClothingUid)
     {
         AttachedClothingUid = attachedClothingUid;
+    }
+}
+[Serializable, NetSerializable]
+public sealed class ModBoundUiState : BoundUserInterfaceState
+{
+    public Dictionary<NetEntity, BoundUserInterfaceState?> EquipmentStates = new();
+}
+public sealed class ModModulesUiStateReadyEvent : EntityEventArgs
+{
+    public Dictionary<NetEntity, BoundUserInterfaceState?> States = new();  // ADT Mech UI Fix
+}
+[Serializable, NetSerializable]
+public sealed class ModModuleRemoveMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Module;
+
+    public ModModuleRemoveMessage(NetEntity module)
+    {
+        Module = module;
+    }
+}
+[Serializable, NetSerializable]
+public sealed class ModModulActivateMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Module;
+
+    public ModModulActivateMessage(NetEntity module)
+    {
+        Module = module;
+    }
+}
+[Serializable, NetSerializable]
+public sealed class ModModulDeactivateMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Module;
+
+    public ModModulDeactivateMessage(NetEntity module)
+    {
+        Module = module;
+    }
+}
+[Serializable, NetSerializable]
+public sealed class ModLockMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Module;
+
+    public ModLockMessage(NetEntity module)
+    {
+        Module = module;
     }
 }

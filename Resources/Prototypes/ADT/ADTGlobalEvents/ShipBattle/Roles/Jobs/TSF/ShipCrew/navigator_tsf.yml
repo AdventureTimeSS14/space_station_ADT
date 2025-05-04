@@ -1,0 +1,62 @@
+- type: job
+  id: ADTBattleShipNavigatorTSF
+  name: job-name-navigator-tsf
+  description: job-description-navigator-tsf
+  playTimeTracker: JobADTBattleShipNavigatorTSF
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+      - Dwarf
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hrs 
+  startingGear: ADTBattleShipNavigatorTSFGear
+  icon: "JobIconNavigatorTSF"
+  supervisors: job-supervisors-tsf-commander
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Engineering
+  - External
+  - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipNavigatorTSFGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformGunnerTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSF
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    head: ADTShipBattleClothingHeadHatGunnerTSF
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerBlack
+    outerClothing: ADTShipBattleClothingOuterHardsuitNavigatorTSF
+    id: ADTShipBattleDogtagNavigatorTSF
+    ears: ADTShipBattleClothingHeadsetPilotTSF
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitNavigatorTSF

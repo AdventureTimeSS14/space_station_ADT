@@ -1,6 +1,6 @@
 ent-MonkeyCube = обезьяний кубик
     .desc = Просто добавь воды!
-ent-KoboldCube = кобольдовый кубик
+ent-KoboldCube = прото-сохуновый кубик
     .desc = Просто добавь воды!
 ent-CowCube = коровий кубик
     .desc = { ent-MonkeyCube.desc }

@@ -154,7 +154,7 @@ public sealed partial class StoreSystem
         //condition checking because why not
         if (listing.Conditions != null)
         {
-            var args = new ListingConditionArgs(component.AccountOwner ?? buyer, uid, listing, EntityManager);
+            var args = new ListingConditionArgs(component.AccountOwner ?? buyer, uid, listing, EntityManager); // ADT-Revert-Buyer-Check
             var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
 
             if (!conditionsMet)
@@ -172,7 +172,7 @@ public sealed partial class StoreSystem
         }
 
         if (!IsOnStartingMap(uid, component))
-            component.RefundAllowed = false;
+            DisableRefund(uid, component);
 
         //subtract the cash
         foreach (var (currency, amount) in cost)
@@ -226,8 +226,11 @@ public sealed partial class StoreSystem
                 actionId = _actionContainer.AddAction(mind, listing.ProductAction);
 
             // ADT start
-            var actionEv = new ActionBoughtEvent(actionId);
-            RaiseLocalEvent(buyer, ref actionEv);
+            if (actionId.HasValue)
+            {
+                var actionEv = new ActionBoughtEvent(actionId.Value);
+                RaiseLocalEvent(buyer, ref actionEv);
+            }
             // ADT end
 
             // Add the newly bought action entity to the list of bought entities
@@ -355,7 +358,7 @@ public sealed partial class StoreSystem
 
         if (!IsOnStartingMap(uid, component))
         {
-            component.RefundAllowed = false;
+            DisableRefund(uid, component);
             UpdateUserInterface(buyer, uid, component);
         }
 
@@ -399,6 +402,7 @@ public sealed partial class StoreSystem
         component.BoughtEntities.Add(purchase);
         var refundComp = EnsureComp<StoreRefundComponent>(purchase);
         refundComp.StoreEntity = uid;
+        refundComp.BoughtTime = _timing.CurTime;
     }
 
     private bool IsOnStartingMap(EntityUid store, StoreComponent component)

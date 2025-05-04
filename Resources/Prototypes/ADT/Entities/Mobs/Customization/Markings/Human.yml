@@ -1,63 +1,9 @@
-- type: marking
-  id: HumanPiercingEarL
-  bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: piercing_ear_l
-
-- type: marking
-  id: HumanPiercingEarR
-  bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: piercing_ear_r
-
-- type: marking
-  id: HumanPiercingNavel
-  bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: piercing_navel
-
-- type: marking
-  id: HumanPiercingNippleL
-  bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: piercing_nipple_l
-
-- type: marking
-  id: HumanPiercingNippleR
-  bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: piercing_nipple_r
-
-- type: marking
-  id: HumanPiercingNipple
-  bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Human]
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: piercing_nipple
-
 # Лисий хвост
 - type: marking
   id: ADTFoxTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   #sponsorOnly: false # AdventureTime-Sponsors
   coloring:
     default:
@@ -80,7 +26,7 @@
   id: ADTMilkyTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_tail
@@ -91,7 +37,7 @@
   id: ADTMilkyEars
   bodyPart: HeadSide
   markingCategory: HeadSide
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_ears
@@ -100,7 +46,7 @@
   id: ADTMilkyHorns
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_horns

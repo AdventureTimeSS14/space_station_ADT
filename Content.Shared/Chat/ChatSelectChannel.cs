@@ -42,11 +42,6 @@
         Emotes = ChatChannel.Emotes,
 
         /// <summary>
-        ///     CollectiveMind
-        /// </summary>
-        CollectiveMind = ChatChannel.CollectiveMind,    // ADT-CollectiveMind-Tweak
-
-        /// <summary>
         ///     Deadchat
         /// </summary>
         Dead = ChatChannel.Dead,

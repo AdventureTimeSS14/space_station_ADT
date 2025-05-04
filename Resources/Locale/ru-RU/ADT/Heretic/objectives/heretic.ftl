@@ -6,5 +6,3 @@ objective-condition-sacrifice-head-title = Принесите в жертву {$
 
 objective-condition-description-ascend = Я обязан сделать это во имя Вознесения!
 
-
-

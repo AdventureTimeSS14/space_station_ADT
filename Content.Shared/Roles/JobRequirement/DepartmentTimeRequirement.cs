@@ -51,6 +51,7 @@ public sealed partial class DepartmentTimeRequirement : JobRequirement
         var deptDiffSpan = Time - playtime;
         var deptDiff = deptDiffSpan.TotalMinutes;
         var formattedDeptDiff = ContentLocalizationManager.FormatPlaytime(deptDiffSpan);
+        var formattedDeptDiffMinutes = ContentLocalizationManager.FormatPlaytimeMinutes(deptDiffSpan); // ADT change
         var nameDepartment = "role-timer-department-unknown";
 
         if (protoManager.TryIndex(Department, out var departmentIndexed))
@@ -66,6 +67,7 @@ public sealed partial class DepartmentTimeRequirement : JobRequirement
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
                 "role-timer-department-insufficient",
                 ("time", formattedDeptDiff),
+                ("timeminutes", formattedDeptDiffMinutes), // ADT change
                 ("department", Loc.GetString(nameDepartment)),
                 ("departmentColor", department.Color.ToHex())));
             return false;
@@ -76,6 +78,7 @@ public sealed partial class DepartmentTimeRequirement : JobRequirement
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString(
                 "role-timer-department-too-high",
                 ("time", formattedDeptDiff),
+                ("timeminutes", formattedDeptDiffMinutes), // ADT change
                 ("department", Loc.GetString(nameDepartment)),
                 ("departmentColor", department.Color.ToHex())));
             return false;

@@ -280,7 +280,7 @@
       effects:
       - !type:SatiateThirst
         factor: 0.1
-        
+
 - type: reagent
   id: ADTCocoaDrink
   name: cocoa-drink-name
@@ -301,3 +301,36 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTCoffeeBonBon
+  name: coffee-bon-bon-name
+  parent: BaseAlcohol
+  desc: coffee-bon-bon-desc
+  physicalDesc: reagent-physical-desc-coffeebonbon
+  flavor: ADTCoffeeBonBon
+  color: "#5f341c"
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 1.15
+        type: Add
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.03
+        sprintSpeedModifier: 1.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 310
+        amount: 2500

@@ -8,7 +8,6 @@ ent-ADTEctoplasmicPistol = эктоплазменный револьвер
 ent-ADTEctoplasmicRifle = эктоплазменная винтовка
     .desc = Разнаботано специально для GhostBusters™.
 
-
 ent-ADTWeaponLaserCarbineBorg = лазерная винтовка борга
     .desc = от боргов, для боргов.
 

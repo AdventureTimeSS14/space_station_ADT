@@ -88,7 +88,8 @@ namespace Content.Server.Hands.Systems
         {
             if (args.Handled)
                 return;
-
+            if (args.Source == uid) ///ADT tweak
+                return;
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
                 _pullingSystem.TryStopPull(puller.Pulling.Value, pullable);

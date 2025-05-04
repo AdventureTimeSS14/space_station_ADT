@@ -1,0 +1,69 @@
+- type: job
+  id: ADTBattleShipCaptainKMT
+  name: job-name-captain-kmt
+  description: job-description-captain-kmt
+  playTimeTracker: JobADTBattleShipCaptainKMT
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 72000 #20 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 72000 #20 hrs 
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 #20 hrs 
+    - !type:OverallPlaytimeRequirement
+      time: 504000 #140 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 35
+  startingGear: ADTBattleShipCaptainKMTGear
+  icon: "JobIconCaptainKMT"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-kmt-highcommand
+  weight: 20
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipCaptainKMTGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformCaptainKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMT
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    head: ADTShipBattleClothingHeadHatCaptainKMT
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitCaptainKMT
+    id: ADTShipBattlePDACaptainKMT
+    ears: ADTShipBattleClothingHeadsetCommandKMT
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitCaptainKMT

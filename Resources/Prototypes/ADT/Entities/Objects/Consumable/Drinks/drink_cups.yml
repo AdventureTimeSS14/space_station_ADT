@@ -1,0 +1,11 @@
+- type: entity
+  parent: DrinkBaseMug
+  id: ADTUSSPMug
+  name: ussp mug
+  description: A metal mug. You're not sure which metal.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/ussp_cup.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25

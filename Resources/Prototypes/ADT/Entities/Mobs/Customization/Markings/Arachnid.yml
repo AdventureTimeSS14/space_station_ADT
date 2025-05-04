@@ -1,0 +1,40 @@
+- type: marking
+  id: ADTSpiderMirror
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Arachnid ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
+    state: spidermirror
+  shader: unshaded
+
+- type: marking
+  id: ADTSpiderGlowEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: spidergloweyes
+  shader: unshaded
+
+- type: marking
+  id: ADTSpiderEyesMulti
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: spidereyesmulti1
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: spidereyesmulti2
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: spidereyesmulti3
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+    state: spidereyesmulti4

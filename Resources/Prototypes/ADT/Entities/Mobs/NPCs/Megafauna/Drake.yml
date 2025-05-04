@@ -579,10 +579,10 @@
   - type: BallisticAmmoProvider
     proto: BulletFirethrow
     capacity: 69000
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: true
+  # - type: MagazineVisuals # Commented. Debug-fix
+  #   magState: mag
+  #   steps: 4
+  #   zeroVisible: true
   - type: Appearance
   - type: ContainerContainer
     containers:

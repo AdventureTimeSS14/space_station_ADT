@@ -574,7 +574,6 @@
       orGroup: materials
     - id: SheetPlastic
       orGroup: materials
-
 - type: artifactEffect
   id: EffectShuffle
   targetDepth: 3

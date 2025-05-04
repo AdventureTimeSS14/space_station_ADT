@@ -1,0 +1,61 @@
+- type: job
+  id: ADTBattleShipGunnerKMT
+  name: job-name-gunner-kmt
+  description: job-description-gunner-kmt
+  playTimeTracker: JobADTBattleShipGunnerKMT
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+  startingGear: ADTBattleShipGunnerKMTGear
+  icon: "JobIconGunnerKMT"
+  supervisors: job-supervisors-kmt-gunner
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Engineering
+  - External
+  - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipGunnerKMTGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformGunnerKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMT
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    head: ADTShipBattleClothingHeadHatGunnerKMT
+    # eyes: ClothingEyesHudMedical
+    gloves: ADTShipBattleClothingHandsGlovesGunnerBlack
+    outerClothing: ADTShipBattleClothingOuterHardsuitGunnerKMT
+    id: ADTShipBattleDogtagMarineKMT
+    ears: ADTShipBattleClothingHeadsetMarineKMT
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT

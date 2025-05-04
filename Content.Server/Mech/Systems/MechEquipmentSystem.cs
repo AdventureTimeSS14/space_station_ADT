@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Mech.Equipment.Components;
 using Content.Server.Popups;
 using Content.Shared.ADT.Mech.EntitySystems;
@@ -73,6 +74,15 @@ public sealed class MechEquipmentSystem : SharedMechEquipmentSystem // ADT - Par
 
         _popup.PopupEntity(Loc.GetString("mech-equipment-finish-install", ("item", uid)), args.Args.Target.Value);
         _mech.InsertEquipment(args.Args.Target.Value, uid);
+
+        // ADT Mech start
+        if (TryComp<MechComponent>(args.Args.Target, out var mech))
+        {
+            var ev = new PopulateMechEquipmentMenuEvent(mech.EquipmentContainer.ContainedEntities.Select(x => GetNetEntity(x)).ToList());
+            RaiseNetworkEvent(ev, args.Args.Target.Value);
+        }
+
+        // ADT Mech end
 
         args.Handled = true;
     }

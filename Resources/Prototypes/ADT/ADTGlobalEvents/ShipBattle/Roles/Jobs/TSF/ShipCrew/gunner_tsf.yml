@@ -1,0 +1,63 @@
+- type: job
+  id: ADTBattleShipGunnerTSF
+  name: job-name-gunner-tsf
+  description: job-description-gunner-tsf
+  playTimeTracker: JobADTBattleShipGunnerTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Reptilian
+      - Dwarf
+  startingGear: ADTBattleShipGunnerTSFGear
+  icon: "JobIconGunnerTSF"
+  supervisors: job-supervisors-tsf-gunner
+  canBeAntag: false
+  overrideConsoleVisibility: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Engineering
+  - External
+  - Atmospherics
+  - Cryogenics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipGunnerTSFGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformGunnerTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSF
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    head: ADTShipBattleClothingHeadHatGunnerTSF
+    # eyes: ClothingEyesHudMedical
+    gloves: ADTShipBattleClothingHandsGlovesGunnerBlack
+    outerClothing: ADTShipBattleClothingOuterHardsuitGunnerTSF
+    id: ADTShipBattleDogtagMarineTSF
+    ears: ADTShipBattleClothingHeadsetMarineTSF
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitGunnerTSF

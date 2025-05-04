@@ -21,7 +21,7 @@
   id: PsychologistGear
   equipment:
     shoes: ClothingShoesLeather
-    id: PsychologistPDA
+    # id: PsychologistPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetMedical
   storage:
     back:

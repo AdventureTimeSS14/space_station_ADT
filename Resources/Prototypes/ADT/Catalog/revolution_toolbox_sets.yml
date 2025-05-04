@@ -75,9 +75,10 @@
   content:
   - AutolatheMachineCircuitboard
   - ProtolatheMachineCircuitboard
-  - ExosuitFabricatorMachineCircuitboard
+  # - ExosuitFabricatorMachineCircuitboard
   - AmmoTechFabCircuitboard
-  - SecurityTechFabCircuitboard
+  # - SecurityTechFabCircuitboard
+  - MedicalTechFabCircuitboard
 
 - type: thiefBackpackSet
   id: ADTCluwneRev

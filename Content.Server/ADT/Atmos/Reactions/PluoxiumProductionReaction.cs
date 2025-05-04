@@ -27,7 +27,7 @@ public sealed partial class PluoxiumProductionReaction : IGasReactionEffect
         mixture.AdjustMoles(Gas.Oxygen, -producedAmount * 0.5f);
         mixture.AdjustMoles(Gas.Tritium, -producedAmount * 0.01f);
         mixture.AdjustMoles(Gas.Pluoxium, producedAmount);
-        mixture.AdjustMoles(Gas.Hydrogen, producedAmount * 0.01f);
+        mixture.AdjustMoles(Gas.Hydrogen, producedAmount * 0.5f);
 
         var energyReleased = producedAmount * Atmospherics.PluoxiumFormationEnergy;
 

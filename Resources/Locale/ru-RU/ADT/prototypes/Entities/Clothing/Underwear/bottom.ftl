@@ -32,29 +32,43 @@ ent-ADTClothingUnderwearBottomBoxersRD = трусы научного руков�
 ent-ADTClothingUnderwearBottomPantiesRD = трусики научного руководителя
     .desc = Стандартное белье для научного руководителя.
 
+
+ent-ADTClothingUnderwearBottomBoxersAmerica = трусы "Америка"
+    .desc = От них веет свободой..
+
+ent-ADTClothingUnderwearBottomBoxersBoom = трусы с монстром
+    .desc = От них веет свободой..
+
+ent-ADTClothingUnderwearBottomBriefsWhite = брифы
+    .desc = От них веет свободой..
+
+ent-ADTClothingUnderwearBottomBriefsMoth = брифы "Моль"
+    .desc = От них веет свободой..
+
+
 ent-ADTClothingUnderwearBottomPantiesLace = кружевные трусики
     .desc = Красивое кружевное нижнее бельё.
 
 ent-ADTClothingUnderwearBottomPantiesChristmas = рождественские трусики
     .desc = Достаточно своеобразное рождественское бельё...
 
-ent-ADTClothingUnderwearBottomPantiesLaceRed = красные кружевные трусы
+ent-ADTClothingUnderwearBottomPantiesLaceRed = красные кружевные трусики
     .desc = Красные, кружевные и, скорее всего, очень дорогие.
     .suffix = { "" }
 
-ent-ADTClothingUnderwearBottomPantiesLaceBlack = черные кружевные трусы
+ent-ADTClothingUnderwearBottomPantiesLaceBlack = черные кружевные трусики
     .desc = Черные, кружевные и, скорее всего, очень дорогие.
     .suffix = { "" }
 
-ent-ADTClothingUnderwearBottomPantiesComfyWhite = белые комфортные трусы
+ent-ADTClothingUnderwearBottomPantiesComfyWhite = белые комфортные трусики
     .desc = Белые, очень удобные и с розовым бантиком.
     .suffix = { "" }
 
-ent-ADTClothingUnderwearBottomPantiesLaceBlueAlternative = шелковые трусы
+ent-ADTClothingUnderwearBottomPantiesLaceBlueAlternative = шелковые трусики
     .desc = Синие, приятные на ощупь трусы, сделанные из чистого шелка по эскизам семьи Ноло.
     .suffix = { "" }
 
-ent-ADTClothingUnderwearBottomPantiesLaceRedAlternative = шелковые трусы
+ent-ADTClothingUnderwearBottomPantiesLaceRedAlternative = шелковые трусики
     .desc = Красные, приятные на ощупь трусы, сделанные из чистого шелка по эскизам семьи Ноло.
     .suffix = { "" }
 

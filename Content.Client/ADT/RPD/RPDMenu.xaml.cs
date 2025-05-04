@@ -87,9 +87,7 @@ public sealed partial class RPDMenu : RadialMenu
 
             foreach (var child in main.Children)
             {
-                var castChild = child as RadialMenuTextureButton;
-
-                if (castChild is not RadialMenuTextureButton)
+                if (child is not RadialMenuTextureButton castChild)
                     continue;
 
                 if (castChild.TargetLayer == proto.Category)
@@ -156,12 +154,7 @@ public sealed partial class RPDMenu : RadialMenu
     }
 }
 
-public sealed class RPDMenuButton : RadialMenuTextureButton
+public sealed class RPDMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<RPDPrototype> ProtoId { get; set; }
-
-    public RPDMenuButton()
-    {
-
-    }
 }

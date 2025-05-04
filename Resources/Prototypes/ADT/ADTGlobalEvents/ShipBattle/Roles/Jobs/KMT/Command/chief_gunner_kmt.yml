@@ -1,0 +1,61 @@
+- type: job
+  id: ADTBattleShipChiefGunnerKMT
+  name: job-name-chief-gunnner-kmt
+  description: job-description-chief-gunnner-kmt
+  playTimeTracker: JobADTBattleShipChiefGunnerKMT
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 #20 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 25
+  startingGear: ADTBattleShipChiefGunnerKMTGear
+  icon: "JobIconChiefGunnerKMT"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-kmt-captain
+  canBeAntag: false
+  weight: 17
+  overrideConsoleVisibility: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - KMT
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipChiefGunnerKMTGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformChiefGunnerKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMT
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    head: ADTShipBattleClothingHeadHatChiefGunnerKMT
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitChiefGunnerKMT
+    id: ADTShipBattleDogtagChiefGunnerKMT
+    ears: ADTShipBattleClothingHeadsetChiefGunnerKMT
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitChiefGunnerKMT

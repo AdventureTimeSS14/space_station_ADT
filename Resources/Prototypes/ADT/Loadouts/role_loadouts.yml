@@ -51,6 +51,7 @@
   - RobohandsGloves
   - ScientistShoes
   - Glasses
+  - ADTRoboticistPDALoadout
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -114,11 +115,12 @@
   - ScientistShoes
   - Survival
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathTool
+  # ADT tweak end
 
 - type: roleLoadout
   id: JobADTSeniorEngineer
@@ -133,11 +135,12 @@
   - StationEngineerShoes
   - SurvivalExtended
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathTool
+  # ADT tweak end
 
 - type: roleLoadout
   id: JobADTSeniorOfficer
@@ -153,11 +156,12 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathToolSecurity
+  # ADT tweak end
 
   # brigmedic
 - type: roleLoadout
@@ -180,6 +184,7 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - ADTBrigmedicPDA
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -200,14 +205,33 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  # ADT underwear tweak start
+  # ADT tweak start
   - ADTTop
   - ADTBottom
   - ADTSocks
-  # ADT underwear tweak end
+  - GroupSpeciesBreathToolSecurity
+  # ADT tweak end
 
 - type: roleLoadout
   id: ADTRoleSurvivalCBURN
   groups:
   - SurvivalExtended
   - GroupPocketTankDouble
+
+- type: roleLoadout
+  id: JobADTBarber
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - CommonBackpack
+  - Glasses
+  - ADTBarberJumpsuit
+  - ADTBarberOtherClothing
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

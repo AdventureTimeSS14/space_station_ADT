@@ -14,6 +14,7 @@ using Content.Shared.Administration.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.Sponsors;
+using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -88,13 +89,14 @@ public sealed class AdminSystem : EntitySystem
         Subs.CVar(_config, CCVars.PanicBunkerMinOverallMinutes, OnPanicBunkerMinOverallMinutesChanged, true);
         // Subs.CVar(_config, CCCVars.PanicBunkerDenyVPN, OnPanicBunkerDenyVpnChanged, true); // Corvax-VPNGuard // ADT-commented
 
-        SubscribeLocalEvent<IdentityChangedEvent>(OnIdentityChanged);
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<RoleAddedEvent>(OnRoleEvent);
         SubscribeLocalEvent<RoleRemovedEvent>(OnRoleEvent);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+
         SubscribeLocalEvent<ActorComponent, EntityRenamedEvent>(OnPlayerRenamed);
+        SubscribeLocalEvent<ActorComponent, IdentityChangedEvent>(OnIdentityChanged);
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
@@ -150,12 +152,9 @@ public sealed class AdminSystem : EntitySystem
         return value ?? null;
     }
 
-    private void OnIdentityChanged(ref IdentityChangedEvent ev)
+    private void OnIdentityChanged(Entity<ActorComponent> ent, ref IdentityChangedEvent ev)
     {
-        if (!TryComp<ActorComponent>(ev.CharacterEntity, out var actor))
-            return;
-
-        UpdatePlayerList(actor.PlayerSession);
+        UpdatePlayerList(ent.Comp.PlayerSession);
     }
 
     private void OnRoleEvent(RoleEvent ev)
@@ -229,6 +228,7 @@ public sealed class AdminSystem : EntitySystem
         var entityName = string.Empty;
         var identityName = string.Empty;
 
+        // Visible (identity) name can be different from real name
         if (session?.AttachedEntity != null)
         {
             entityName = EntityManager.GetComponent<MetaDataComponent>(session.AttachedEntity.Value).EntityName;
@@ -237,6 +237,7 @@ public sealed class AdminSystem : EntitySystem
 
         var antag = false;
 
+        // Starting role, antagonist status and role type
         RoleTypePrototype roleType = new();
         var startingRole = string.Empty;
         if (_minds.TryGetMind(session, out var mindId, out var mindComp))
@@ -250,8 +251,13 @@ public sealed class AdminSystem : EntitySystem
             startingRole = _jobs.MindTryGetJobName(mindId);
         }
 
+        // Connection status and playtime
         var connected = session != null && session.Status is SessionStatus.Connected or SessionStatus.InGame;
-        TimeSpan? overallPlaytime = null;
+
+        // Start with the last available playtime data
+        var cachedInfo = GetCachedPlayerInfo(data.UserId);
+        var overallPlaytime = cachedInfo?.OverallPlaytime;
+        // Overwrite with current playtime data, unless it's null (such as if the player just disconnected)
         if (session != null &&
             _playTime.TryGetTrackerTimes(session, out var playTimes) &&
             playTimes.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out var playTime))

@@ -22,3 +22,5 @@ ent-ClothingBackpackSecurityFilledDetective = { ent-ClothingBackpackSecurity }
     .desc = { ent-ClothingBackpackSecurity.desc }
 ent-ADTClothingBackpackSeniorSecurityFilled = { ent-ClothingBackpackSecurity }
     .desc = { ent-ClothingBackpackSecurity }
+ent-ADTClothingBackpackParamedicFilled = рюкзак парамедика
+    .desc = Рюкзак, изготовленный для экстренных вызовов медицинской помощи.

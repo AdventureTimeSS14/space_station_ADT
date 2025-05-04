@@ -12,7 +12,7 @@
       visible: false
       map: [ "empty-icon" ]
   - type: UpgradeableGun
-    maxUpgradeCount: 7
+    maxUpgradeCount: 6
     whitelist:
       tags:
       - PKAUpgrade
@@ -84,7 +84,7 @@
     - Belt
 
 - type: entity
-  name: proto-kinetic raingun
+  name: proto-kinetic railgun
   id: ADTWeaponProtoKineticRailgun
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
   description: The Railgun trades customization, fire rate, and storage capabilities for the ability to fire a high damage shot that penetrates creatures!
@@ -130,7 +130,7 @@
 - type: entity
   name: proto-kinetic shotgun
   id: ADTWeaponProtoKineticShotgun
-  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable, BaseCargoContraband]
   description: The Shotgun fires a short range set of three rounds that does more damage than base PKA if all three shots land. This trades mod capacity and cooldown speed.
   components:
   - type: Sprite
@@ -145,6 +145,10 @@
     whitelist:
       tags:
       - PKAUpgrade
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: GunRequiresWield
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
@@ -157,6 +161,41 @@
     count: 1
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_shotgun.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+
+- type: entity
+  name: Experimental proto-kinetic accelerator 
+  id: ADTWeaponExperimentalProtoKineticAcellerator
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: Upgraded version of PKA, customizable classic.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: UpgradeableGun
+    maxUpgradeCount: 8
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+  - type: Item
+    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
+    size: Small
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletKineticPistol
+    capacity: 1
+    count: 1
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
     quickEquip: false
     slots:
     - suitStorage

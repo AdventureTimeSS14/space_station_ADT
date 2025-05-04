@@ -1,0 +1,3 @@
+- type: edgeSupermatterSpreader
+  id: SupermatterKudzu
+  updatesPerSecond: 1

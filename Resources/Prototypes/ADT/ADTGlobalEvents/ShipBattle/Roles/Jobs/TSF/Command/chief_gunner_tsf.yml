@@ -1,0 +1,62 @@
+- type: job
+  id: ADTBattleShipChiefGunnerTSF
+  name: job-name-chief-gunnner-tsf
+  description: job-description-chief-gunnner-tsf
+  playTimeTracker: JobADTBattleShipChiefGunnerTSF
+  requirements:
+    - !type:SexRequirement
+      allowedSex:
+      - Male
+    - !type:SpeciesRequirement
+      inverted: false
+      species:
+      - Human
+      - Dwarf
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 #20 hrs
+    - !type:AgeRequirement #ADT-Tweak
+      requiredAge: 25
+  startingGear: ADTBattleShipChiefGunnerTSFGear
+  icon: "JobIconChiefGunnerTSF"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-tsf-captain
+  canBeAntag: false
+  weight: 17
+  overrideConsoleVisibility: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSF
+    - type: FriendlyFire
+      enabled: true
+    - type: FriendlyFireToggleable
+
+- type: startingGear
+  id: ADTBattleShipChiefGunnerTSFGear
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformChiefGunnerTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSF
+    shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
+    head: ADTShipBattleClothingHeadHatGunnerTSF
+    # eyes: ClothingEyesGlassesSecurity
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    outerClothing: ADTShipBattleClothingOuterHardsuitChiefGunnerTSF
+    id: ADTShipBattleDogtagChiefGunnerTSF
+    ears: ADTShipBattleClothingHeadsetChiefGunnerTSF
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - CrowbarRed
+    - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitChiefGunnerTSF

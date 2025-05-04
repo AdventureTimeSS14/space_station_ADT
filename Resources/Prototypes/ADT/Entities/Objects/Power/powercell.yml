@@ -5,8 +5,8 @@
   parent: BaseItem
   components:
   - type: Battery
-    maxCharge: 1500
-    startingCharge: 1500
+    maxCharge: 600
+    startingCharge: 600
   - type: Explosive
     explosionType: Default
     maxIntensity: 200
@@ -41,4 +41,4 @@
   - type: Appearance
   - type: ProjectileBatteryAmmoProvider
     proto: ADTBulletLaserMK2
-    fireCost: 220
+    fireCost: 100

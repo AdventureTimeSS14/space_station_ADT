@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using System.Data.Common;
 using System.IO;
 using System.Net;
 using System.Text.Json;
@@ -51,6 +52,10 @@ namespace Content.Server.Database
         // Username assignment (for guest accounts, so they persist GUID)
         Task AssignUserIdAsync(string name, NetUserId userId);
         Task<NetUserId?> GetAssignedUserIdAsync(string name);
+        #endregion
+        #region Discord ADT
+        Task<string?> GetDiscordIdAsync(Guid userId);
+        Task<Guid?> GetUserIdByDiscordIdAsync(string discordId);
         #endregion
 
         #region Bans
@@ -284,7 +289,7 @@ namespace Content.Server.Database
         #region Rules
 
         Task<DateTimeOffset?> GetLastReadRules(NetUserId player);
-        Task SetLastReadRules(NetUserId player, DateTimeOffset time);
+        Task SetLastReadRules(NetUserId player, DateTimeOffset? time);
 
         #endregion
 
@@ -360,6 +365,15 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="notification">The notification to trigger</param>
         void InjectTestNotification(DatabaseNotification notification);
+
+        /// <summary>
+        /// Send a notification to all other servers connected to the same database.
+        /// </summary>
+        /// <remarks>
+        /// The local server will receive the sent notification itself again.
+        /// </remarks>
+        /// <param name="notification">The notification to send.</param>
+        Task SendNotification(DatabaseNotification notification);
 
         #endregion
     }
@@ -500,6 +514,20 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AssignUserIdAsync(name, userId));
         }
+
+        // ADT-Tweak-start: Discord
+        public Task<string?> GetDiscordIdAsync(Guid userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDiscordIdAsync(userId));
+        }
+
+        public Task<Guid?> GetUserIdByDiscordIdAsync(string discordId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetUserIdByDiscordIdAsync(discordId));
+        }
+        // ADT-Tweak-end
 
         public Task<NetUserId?> GetAssignedUserIdAsync(string name)
         {
@@ -845,7 +873,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetLastReadRules(player));
         }
 
-        public Task SetLastReadRules(NetUserId player, DateTimeOffset time)
+        public Task SetLastReadRules(NetUserId player, DateTimeOffset? time)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SetLastReadRules(player, time));
@@ -1080,6 +1108,12 @@ namespace Content.Server.Database
         public void InjectTestNotification(DatabaseNotification notification)
         {
             HandleDatabaseNotification(notification);
+        }
+
+        public Task SendNotification(DatabaseNotification notification)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SendNotification(notification));
         }
 
         private async void HandleDatabaseNotification(DatabaseNotification notification)

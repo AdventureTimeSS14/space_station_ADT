@@ -29,7 +29,6 @@ ent-ADTClothingBeltMedTSF = подсумок для медицины
     .desc = Подсумок, применяемый в экипировке пехотинца ТСФ для хранения медицинских принадлежностей. Можно прикрепить в слот кармана.
     .suffix = { "ТСФ" }
 
-
 ent-ADTClothingBeltKilla = РПС "Тритон"
     .suffix = Хеллоуин
     .desc = Боевой нагрудник Тритон М43–А - Создан для размещёния и переноски элементов амуниции и снаряжения, для использования в умеренном и жарком климате.
@@ -48,3 +47,18 @@ ent-ADTClothingBeltUtilityWebbingFilled = жилет для инструмент
 ent-ADTClothingBeltUtilityWebbingEngineering = жилет для инструментов
     .desc = { ent-ADTClothingBeltUtilityWebbing.desc }
     .suffix = Инженерный
+
+ent-ADTClothingBeltQuiverCupidon = колчан купидона
+    .desc = Для доставки влюбленностей, и пусть никто не уйдет без стрелы в сердце!
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingBeltJudo = пояс корпоративного дзюдо
+    .desc = Наниты пояса наделяют вас мастерством черного пояса по корпоративному дзюдо!
+
+ent-ADTClothingRPSUSSP = РПС
+    .desc = РПС, который был создан в СССП
+    .suffix = { "СССП" }
+
+ent-ADTClothingRPSTacticalUSSP = тактический РПС
+    .desc = Тактический РПС, который был создан в СССП
+    .suffix = { "СССП" }

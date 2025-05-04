@@ -1,0 +1,111 @@
+- type: constructionGraph
+  id: ADTObjectBouquetGalaktoGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bouquetgalakto
+      steps:
+      - tag: Galaxythistle
+        name: galaxythistle
+        icon:
+          sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
+          state: produce
+      - tag: Galaxythistle
+        name: galaxythistle
+        icon:
+          sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
+          state: produce
+      - tag: Galaxythistle
+        name: galaxythistle
+        icon:
+          sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
+          state: produce
+      - tag: Galaxythistle
+        name: galaxythistle
+        icon:
+          sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
+          state: produce
+      - tag: Galaxythistle
+        name: galaxythistle
+        icon:
+          sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
+          state: produce
+      - tag: Paper
+        name: Paper
+        doAfter: 5
+  - node: bouquetgalakto
+    entity: ADTObjectBouquetGalakto
+
+- type: constructionGraph
+  id: ADTObjectBouquetMacGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bouquetmac
+      steps:
+      - tag: Poppy
+        name: Poppy
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Poppy
+        name: Poppy
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Poppy
+        name: Poppy
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Poppy
+        name: Poppy
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Poppy
+        name: Poppy
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Paper
+        name: Paper
+        doAfter: 5
+  - node: bouquetmac
+    entity: ADTObjectBouquetMac
+
+- type: constructionGraph
+  id: ADTObjectBouquetMixGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bouquetmix
+      steps:
+      - tag: Poppy
+        name: Poppy
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Ambrosia
+        name: Ambrosia
+        icon:
+          sprite: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
+          state: produce
+      - tag: ADTAloe
+        name: Aloe
+        icon:
+          sprite: Objects/Specific/Hydroponics/aloe.rsi
+          state: produce
+      - tag: Galaxythistle
+        name: galaxythistle
+        icon:
+          sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
+          state: produce
+      - tag: Paper
+        name: Paper
+        doAfter: 5
+  - node: bouquetmix
+    entity: ADTObjectBouquetMix

@@ -8,6 +8,7 @@
     Gold: 300
     Plasma: 800
 
+
 - type: latheRecipe
   id: ADTWeaponCutterAdv
   result: ADTWeaponCutterAdv
@@ -18,6 +19,17 @@
     Gold: 300
     Plasma: 900
     Diamond: 200
+
+- type: latheRecipe
+  id: ADTWeaponExperimentalProtoKineticAcelleratorRecipe
+  result: ADTWeaponExperimentalProtoKineticAcellerator
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 350
+    Gold: 500
+    Plasma: 300
+    Silver: 300
 
 - type: latheRecipe
   id: ADTAttachmentVerticalGripRecipe

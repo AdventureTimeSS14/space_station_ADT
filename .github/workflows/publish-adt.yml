@@ -5,8 +5,8 @@ name: Publish ADT
 
 on:
   workflow_dispatch:
-  schedule:
-  - cron: '0 6 * * *'
+  # schedule:
+  # - cron: '0 6 * * *'
   workflow_run:
     workflows: [Build & Test Release]
     types: [completed]

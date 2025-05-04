@@ -1,0 +1,40 @@
+- type: entity
+  name: chocolate cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeChocolateHeart
+  description: A cake with added chocolate.
+  components:
+  - type: Sprite
+    state: chocolate_heart
+  - type: SliceableFood
+    slice: ADTFoodCakeChocolateHeartSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: slice of chocolate cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeChocolateHeartSlice
+  components:
+  - type: Sprite
+    state: chocolate-slice-heart
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Theobromine
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1

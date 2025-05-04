@@ -16,6 +16,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Corvax.CCCVars;
 using Robust.Client.Audio.Effects;
 using Robust.Shared.Audio.Effects;
+using Content.Shared.ADT.Language;
 
 namespace Content.Client.ADT.SpeechBarks;
 
@@ -86,6 +87,9 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         if (ev.Message == null)
             return;
 
+        if (HasComp<DeafTraitComponent>(_player.LocalEntity))
+            return;
+
         if (ev.Source != null)
         {
             var audioParams = AudioParams.Default
@@ -117,12 +121,12 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                 if (!HasComp<TransformComponent>(entity) || !HasComp<TransformComponent>(_player.LocalEntity.Value))
                     continue;
                 if (Transform(entity).Coordinates.TryDistance(EntityManager, Transform(_player.LocalEntity.Value).Coordinates, out var distance) &&
-                    distance > SharedChatSystem.VoiceRange)
+                    distance > (ev.IsWhisper ? SharedChatSystem.WhisperMuffledRange : SharedChatSystem.VoiceRange))
                     continue;
                 if (Transform(entity).ParentUid == EntityUid.Invalid)
                     continue;
 
-                _audio.PlayEntity(audioResource.AudioStream, entity, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
+                _audio.PlayEntity(audioResource.AudioStream, entity, null, audioParams.WithPitchScale(_random.NextFloat(ev.Pitch - 0.1f, ev.Pitch + 0.1f)));
 
                 await Task.Delay(TimeSpan.FromSeconds(_random.NextFloat(ev.LowVar, ev.HighVar)));
             }

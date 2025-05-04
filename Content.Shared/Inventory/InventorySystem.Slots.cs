@@ -216,7 +216,9 @@ public partial class InventorySystem : EntitySystem
             throw new ArgumentException("Incompatible inventory template!");
 
         ent.Comp.TemplateId = newTemplate;
-        Dirty(ent);
+
+        DirtyField(ent.Owner, ent.Comp, nameof(InventoryComponent.TemplateId)); // ADT Tweak - field deltas
+        //Dirty(ent);
     }
 
     /// <summary>

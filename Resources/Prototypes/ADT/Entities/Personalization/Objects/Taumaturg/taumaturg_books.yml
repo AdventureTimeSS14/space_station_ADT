@@ -1,0 +1,27 @@
+- type: entity
+  id: ADTTaumaturgGrimoire
+  name: taumaturg grimoire
+  suffix: Sponsor, KonnorSmith
+  parent: [ BaseItem, ADTStorePresetSpellbookTaumaturg, BaseMagicalContraband ]
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper_blood
+      - state: cover_strong
+        color: "#454b59"
+      - state: decor_wingette_flat
+        color: "#425071"
+      - state: icon_letter_N
+        color: "#043cba"
+    - type: UserInterface
+      interfaces:
+        enum.StoreUiKey.Key:
+          type: StoreBoundUserInterface
+    - type: ActivatableUI
+      key: enum.StoreUiKey.Key
+    - type: Store
+      refundAllowed: true
+      ownerOnly: true # get your own tome!
+      balance:
+        WizCoin: 10 # prices are balanced around this 10 point maximum and how strong the spells are

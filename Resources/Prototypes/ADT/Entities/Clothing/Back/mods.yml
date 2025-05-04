@@ -14,82 +14,79 @@
       gloves: ADTClothingHandsModsuitBase
       outerClothing: ADTClothingOuterModsuitBodyBase
       shoes: ADTClothingModsuitShoesBase
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominal.ogg
   - type: ContainerContainer
     containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
       modsuit-part: !type:Container
         showEnts: False
         occludes: True
         ents: []
-      modsuit-mod1: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо сделать систему комплектации, ноо мне лень.
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod3: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod4: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod5: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
       storagebase: !type:Container
         showEnts: False
         occludes: True
-        ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+        ents: []
+      cell_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
-        type: ModSuitBoundUserInterface
+        type: ModSuitRadialBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
   - type: Clothing
     quickEquip: false
     slots:
     - back
-  - type: ClothingSpeedModifier
   - type: Construction
     graph: ADTModsuitStandard
     node: adtmodsuitstandard
-  - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
+  - type: ItemSlots
     slots:
-      modsuit-mod1:
-        swap: false
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
         whitelist:
           components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod3:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod4:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod5:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
+            - PowerCell
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
   - type: Item
     size: Huge
+  - type: PowerCellDraw
+    enabled: false
+    drawRate: 1
+    useRate: 5
+    delay: 10
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: EmpDisabling
+    disablingTime: 30000
+  - type: ShowEnergyAlarm
+  - type: ContainerFill
+    containers:
+      cell_slot:
+      - PowerCellHigh
+  - type: Geiger
+    showExamine: true
+    attachedToSuit: true
+    showControl: true
 
 #атмосферный
 - type: entity
@@ -107,51 +104,15 @@
       gloves: ADTClothingHandsModsuitAtmos
       outerClothing: ADTClothingOuterModsuitBodyAtmos
       shoes: ADTClothingModsuitShoesAtmos
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModRadiationProtection
+      - ADTModsuitModTray
   - type: Construction
     graph: ADTModsuitAtmospheric
     node: adtmodsuitatmospheric
-  - type: ItemSlots # меньше модулей, сильнее базовый МОД
-    slots:
-      modsuit-mod1:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod3:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-  - type: ContainerContainer
-    containers:
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-mod1: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod3: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 #смешной
 - type: entity
@@ -189,6 +150,12 @@
       gloves: ADTClothingHandsModsuitEngineering
       outerClothing: ADTClothingOuterModsuitBodyEngineering
       shoes: ADTClothingModsuitShoesEngineering
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModRadiationProtection
+      - ADTModsuitModMagboot
   - type: Construction
     graph: ADTModsuitEngineering
     node: adtmodsuitengineering
@@ -209,6 +176,9 @@
       gloves: ADTClothingHandsModsuitMedical
       outerClothing: ADTClothingOuterModsuitBodyMedical
       shoes: ADTClothingModsuitShoesMedical
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModLight
   - type: Construction
     graph: ADTModsuitMedical
     node: adtmodsuitmedical
@@ -224,14 +194,22 @@
     sprite: ADT/Clothing/Back/Modsuit/mining.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 10
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitMining
       gloves: ADTClothingHandsModsuitMining
       outerClothing: ADTClothingOuterModsuitBodyMining
       shoes: ADTClothingModsuitShoesMining
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    startingModules:
+      - ADTModsuitModOrebag
+      - ADTModsuitModStorage
+      - ADTModsuitModLight
+      - ADTModsuitModPlasmaStabilizer
+  - type: Tag
+    tags:
+    - ADTHardsuitSalvage
   - type: Construction
     graph: ADTModsuitMining
     node: adtmodsuitmining
@@ -247,154 +225,235 @@
     sprite: ADT/Clothing/Back/Modsuit/security.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 8
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
       head: ADTClothingHeadHelmetModsuitSecurity
       gloves: ADTClothingHandsModsuitSecurity
       outerClothing: ADTClothingOuterModsuitBodySecurity
       shoes: ADTClothingModsuitShoesSecurity
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModLight
+      - ADTModsuitModEmpProtection
   - type: Construction
     graph: ADTModsuitSecurity
     node: adtmodsuitsecurity
-  - type: ItemSlots # меньше модулей, сильнее базовый МОД
-    slots:
-      modsuit-mod1:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod3:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-  - type: ContainerContainer
-    containers:
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-mod1: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod3: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
 
 # учёный
-
 - type: entity
-  parent: Clothing
-  id: ADTClothingModsuitBackCience
-  name: ciene MOD control unit
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackScience
+  name: Sciene MOD control unit
   description: Made by scientists for scientists.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Back/Modsuit/cience.rsi
+    sprite: ADT/Clothing/Back/Modsuit/science.rsi
     state: icon
   - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitСience
-      gloves: ADTClothingHandsModsuitCience
-      outerClothing: ADTClothingOuterModsuitBodyCience
-      shoes: ADTClothingModsuitShoesCience
-  - type: ContainerContainer
-    containers:
-      modsuit-part: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      modsuit-mod1: !type:ContainerSlot # ещё невероятный костыль, было бы хорошо ещё сделать систему комплектации, ноо мне лень.
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod2: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod3: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod4: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod5: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      modsuit-mod6: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-      storagebase: !type:Container
-        showEnts: False
-        occludes: True
-        ents: [] # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+      head: ADTClothingHeadHelmetModsuitScience
+      gloves: ADTClothingHandsModsuitScience
+      outerClothing: ADTClothingOuterModsuitBodyScience
+      shoes: ADTClothingModsuitShoesScience
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModRadiationProtection
+  - type: Construction
+    graph: ADTModsuitScience
+    node: adtmodsuitscience
+
+#гсб
+- type: entity
+  parent: ADTClothingModsuitBackSecurity
+  id: ADTClothingModsuitBackSafeguard
+  name: safeguard MOD control unit
+  description: An Apadyne Technologies security suit, offering quicker speed at the cost of carrying capacity.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/hos.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSafeguard
+      gloves: ADTClothingHandsModsuitSafeguard
+      outerClothing: ADTClothingOuterModsuitBodySafeguard
+      shoes: ADTClothingModsuitShoesSafeguard
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModEmpProtection
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+
+#осщ
+- type: entity
+  parent: ADTClothingModsuitBackSecurity
+  id: ADTClothingModsuitBackBlueShield
+  name: blueshield MOD control unit
+  description: A lightweight NanoTrasen combat suit, with technology not at all stolen from the Syndicate, specifically for the Blue Shield Officer and the protection of his shielding body chapters. I assure you, all of this is ABSOLUTELY legal.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/bso.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitBso
+      gloves: ADTClothingHandsModsuitBso
+      outerClothing: ADTClothingOuterModsuitBodyBso
+      shoes: ADTClothingModsuitBso
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModEmpProtection
+
+# СИ
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackAdvanced
+  name: advanced MOD control unit
+  description: Made by scientists for scientists.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/advanced.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitAdvanced
+      gloves: ADTClothingHandsModsuitAdvanced
+      outerClothing: ADTClothingOuterModsuitBodyAdvanced
+      shoes: ADTClothingModsuitShoesAdvanced
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModEmpProtection
+  - type: Construction
+    graph: ADTModsuitScience
+    node: adtmodsuitscience
+  - type: SupermatterImmune
+
+# синдиката
+- type: entity
+  parent: Clothing
+  id: ADTClothingModsuitBackSyndicate
+  name: syndicate MOD control unit
+  description: A suit designed by Gorlex Marauders, offering armor made illegal in most Spinward Stellar. A newer version with more built-in modules compared to the operative variant.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/syndicate.rsi
+    state: icon
+  - type: ModSuit
+    backpanelsColor: "#16050599"
+    backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    maxComplexity: 20
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalsyndi.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSyndicate
+      gloves: ADTClothingHandsModsuitSyndicate
+      outerClothing: ADTClothingOuterModsuitBodySyndicate
+      shoes: ADTClothingModsuitShoesSyndicate
+    startingModules:
+      - ADTModsuitModStorageSyndie
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
-        type: ModSuitBoundUserInterface
+        type: ModSuitRadialBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
   - type: Clothing
     quickEquip: false
     slots:
     - back
-  - type: ClothingSpeedModifier
-  - type: Construction
-    graph: ADTModsuitCience
-    node: adtmodsuitcience
-  - type: ItemSlots # ПОЖАЛУЙСТА, НЕ БЕЙТЕ ЗА ЭТО!
-    slots:
-      modsuit-mod1:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod2:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod3:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod4:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod5:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
-      modsuit-mod6:
-        swap: false
-        whitelist:
-          components:
-          - ModSuitMod
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
     requireOpen: false
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: DNALocker
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+
+- type: entity
+  parent: ADTClothingModsuitBackSyndicate
+  id: ADTClothingModsuitBackSyndicateElite
+  name: elite syndicate MOD control unit
+  description: A suit designed by Gorlex Marauders, offering armor made illegal in most Spinward Stellar. A newer version with more built-in modules compared to the operative variant.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_elite.rsi
+    state: icon
+  - type: ModSuit
+    backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    maxComplexity: 20
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalsyndi.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSyndicateElite
+      gloves: ADTClothingHandsModsuitSyndicateElite
+      outerClothing: ADTClothingOuterModsuitBodySyndicateElite
+      shoes: ADTClothingModsuitShoesSyndicateElite
+    startingModules:
+      - ADTModsuitModStorageSyndie
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+
+- type: entity
+  parent: ADTClothingModsuitBackSyndicate
+  id: ADTClothingModsuitBackSyndicateCommander
+  name: comm syndicate MOD control unit
+  description: A suit designed by Gorlex Marauders, offering armor made illegal in most Spinward Stellar. A newer version with more built-in modules compared to the operative variant.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_comma.rsi
+    state: icon
+  - type: ModSuit
+    backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    maxComplexity: 15
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalsyndi.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSyndicateCommander
+      gloves: ADTClothingHandsModsuitSyndicateCommander
+      outerClothing: ADTClothingOuterModsuitBodySyndicateCommander
+      shoes: ADTClothingModsuitShoesSyndicateCommander
+    startingModules:
+      - ADTModsuitModStorageSyndie
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack

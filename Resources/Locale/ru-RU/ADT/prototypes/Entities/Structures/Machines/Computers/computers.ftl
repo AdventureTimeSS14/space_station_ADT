@@ -14,6 +14,9 @@ ent-TurretControllerConsole = консоль управления корабел
 ent-ComputerShuttleMining = консоль управления шахтёрским шаттлом
     .desc = Используется для пилотирования шаттлом шахтёров.
 
+ent-ComputerShuttleMiningGuest = консоль управления гостевым шаттлом
+    .desc = Используется для пилотирования гостевым шаттлом.
+
 ent-ADTComputerPalletConsolePirate = пиратская консоль продаж
     .desc = Продаёт за пиастры.
 

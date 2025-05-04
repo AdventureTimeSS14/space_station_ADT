@@ -7,6 +7,7 @@
   path: "Maps/ADTMaps/Ghostbars/ratbar.yml"
 
 # Гост бар от maksim21612
+# Обновлён 1azymage от 06.02.2025г
 - type: ghostbarMap
   id: GhostbarMapCalm
   path: "Maps/ADTMaps/Ghostbars/calm_ghostly_bar.yml"

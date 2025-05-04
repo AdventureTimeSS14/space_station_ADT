@@ -331,7 +331,7 @@ public sealed class ClientClothingSystem : ClothingSystem
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;
 
-            if (displacementData is not null)
+            if (displacementData is not null && !clothingComponent.ClothingVisuals.ContainsKey($"{slot}-{inventory.SpeciesId}"))    // ADT Resomi tweak: Добавлена проверка на отсутствие конкретного спрайта для расы перед добавлением дисплейсмента
             {
                 //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
                 if (layerData.State is not null && inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId))

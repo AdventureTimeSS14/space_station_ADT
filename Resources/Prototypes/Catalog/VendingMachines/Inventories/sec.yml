@@ -18,12 +18,15 @@
     Zipties: 12
     RiotShield: 2
     RiotLaserShield: 2
+    ADTClothingBeltJudo: 3 #ADT tweak
+    ADTBookPTCR: 4 #ADT tweak
     # RiotBulletShield: 2 ADT no nullet shield
     RadioHandheldSecurity: 5
     Bola: 5 #ADT tweak
     ADTClothingNeckBodyCamera: 3 #ADT-tweak
   # security officers need to follow a diet regimen!
   contrabandInventory:
+    WeaponMeleeNeedle: 2
     FoodDonutHomer: 12
     FoodBoxDonut: 2
     #box evidence

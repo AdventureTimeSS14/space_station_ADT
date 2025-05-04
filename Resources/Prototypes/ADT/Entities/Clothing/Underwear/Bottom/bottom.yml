@@ -1,5 +1,3 @@
-# Sirena
-
 - type: entity
   parent: ADTClothingUnderwearBottomBase
   id: ADTClothingUnderwearBottomPantiesWhite
@@ -17,6 +15,42 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/boxers.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersAmerica
+  name: boxers america
+  description: Standard Nanotrasen underwear for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_america.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBoxersBoom
+  name: boxers boom
+  description: Standard Nanotrasen underwear for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/boxers_boom.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBriefsWhite
+  name: briefs
+  description: Standard Nanotrasen underwear for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/briefs.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomBriefsMoth
+  name: briefs moth
+  description: Standard Nanotrasen underwear for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/briefs_moth.rsi
 
 #Underwear-for-the-heads
 - type: entity
@@ -255,3 +289,4 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/blueshield_panties.rsi
+

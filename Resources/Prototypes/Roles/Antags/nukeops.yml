@@ -48,12 +48,12 @@
   id: SyndicateOperativeGearFullNoUplink
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    back: ClothingBackpackDuffelSyndicate
-    mask: ClothingMaskGasSyndicate
-    eyes: ClothingEyesHudSyndicate
+    back: ADTClothingModsuitBackSyndicate #ADT tweak
+    # mask: ClothingMaskGasSyndicate ADT tweak
+    # eyes: ClothingEyesHudSyndicate ADT tweak
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitSyndie
+    # outerClothing: ClothingOuterHardsuitSyndie ADT tweak
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA
     pocket1: DoubleEmergencyOxygenTankFilled
@@ -77,8 +77,10 @@
   id: SyndicateCommanderGearFull
   parent: SyndicateOperativeGearFull
   equipment:
+    eyes: ClothingEyesHudSyndicate #ADT tweak
+    back: ADTClothingModsuitBackSyndicateCommander #ADT tweak
     neck: SyndicateWhistle
-    outerClothing: ClothingOuterHardsuitSyndieCommander
+    # outerClothing: ClothingOuterHardsuitSyndieCommander #ADT tweak
   inhand:
   - NukeOpsDeclarationOfWar
 # ADT-NukieCommanderGear-tweak-start (если вписать тупо последнее, то остальное не заспавнится)
@@ -88,6 +90,7 @@
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
     - ADTHandheldShuttleConsoleSyndicate
+    - ADTSyndiMechUplink
 # ADT-NukieCommanderGear-tweak-end
 
 #Nuclear Operative Medic Gear
@@ -95,8 +98,9 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFull
   equipment:
+    back: ADTClothingModsuitBackSyndicateElite #ADT tweak
     eyes: ClothingEyesHudSyndicateAgent
-    outerClothing: ClothingOuterHardsuitSyndieMedic
+    # outerClothing: ClothingOuterHardsuitSyndieMedic #ADT tweak
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
