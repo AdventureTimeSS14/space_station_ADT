@@ -84,9 +84,9 @@
       # femaleScream: /Audio/Voice/Human/femalescream_2.ogg
       wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
       sounds:
-        Male: ADTMaleTajaran
-        Female: ADTFemaleTajaran
-        Unsexed: ADTMaleTajaran
+        Male: MaleFelinid
+        Female: FemaleFelinid
+        Unsexed: MaleFelinid
     - type: LanguageSpeaker
       languages:
         GalacticCommon: Speak

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Content.Client.UserInterface.Controls;
-using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.Guidebook;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
@@ -24,6 +24,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
     private BorgTypePrototype? _selectedBorgType;
 
     public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
+    public event Action<ProtoId<BorgSubtypePrototype>>? ConfirmedBorgSubtype;
 
     [ValidatePrototypeId<GuideEntryPrototype>]
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
@@ -51,6 +52,11 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
         HelpGuidebookIds = GuidebookEntries;
+
+        //Start ADT Tweak
+        ChassisSpriteSelection.SubtypeSelected += () =>
+            ConfirmTypeButton.Disabled = false;
+        //End ADT Tweak
     }
 
     private void UpdateInformation(BorgTypePrototype prototype)
@@ -64,6 +70,10 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         NameLabel.Text = PrototypeName(prototype);
         DescriptionLabel.Text = Loc.GetString($"borg-type-{prototype.ID}-desc");
         ChassisView.SetPrototype(prototype.DummyPrototype);
+        //Start ADT Tweak
+        ChassisSpriteSelection.FillContainer(prototype);
+        ConfirmTypeButton.Disabled = true;
+        //End ADT Tweak
     }
 
     private void ConfirmButtonPressed(BaseButton.ButtonEventArgs obj)
@@ -72,6 +82,13 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
             return;
 
         ConfirmedBorgType?.Invoke(_selectedBorgType);
+
+        //Start ADT Tweak
+        if (ChassisSpriteSelection.SelectedBorgSubtype == null)
+            return;
+
+        ConfirmedBorgSubtype?.Invoke(ChassisSpriteSelection.SelectedBorgSubtype);
+        //End ADT Tweak
     }
 
     private static string PrototypeName(BorgTypePrototype prototype)

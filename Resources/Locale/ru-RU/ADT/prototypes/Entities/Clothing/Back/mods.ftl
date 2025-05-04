@@ -28,94 +28,85 @@ ent-ADTClothingModsuitBackSyndicate = кроваво-красный МОД
 ent-ADTClothingModsuitBackSafeguard = МОД "Диктатор"
     .desc = Улучшенная версия простого охранного МОДА, что был создан специально для ГСБ. Жаждит забить генокрада собой досмерти!
 
+ent-ADTClothingModsuitBackBlueShield = МОД офицера синего щита
+    .desc =  Лёгкий боевой МОД NanoTrasen, с технологиями точно не украденными у синдиката, специально для офицера синего щита и защиты его частей тела. Я уверяю вас, это АБСОЛЮТНО легально.
+
+ent-ADTClothingModsuitBackAdvanced = продвинутый МОД
+    .desc = Усовершенствованная версия классического костюма Nakamura Engineering, сияющая белизной, кислото- и огнестойкой полировкой.
+
+ent-ADTClothingModsuitBackSyndicateElite = элитный МОД синдиката
+    .desc = Элитный костюм, усовершенствованный Cybersun Industries и предлагающий повышенные показатели брони.
+
+ent-ADTClothingModsuitBackSyndicateCommander = МОД "Меркурий"
+    .desc = Сильно улучшенная версия обычного МОДа синдиката, что выполшена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.
+
 # Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
 
 # Шлемы
-ent-ADTClothingHeadHelmetModsuitBase = Базовый шлем MOD
-    .desc = Шлем базового MOD
-ent-ADTClothingHeadHelmetModsuitAtmos = Атмосферный шлем MOD
-    .desc = Шлем атмосферного MOD
-ent-ADTClothingHeadHelmetModsuitClown = Шлем MOD "Космохонк"
-    .desc = Шлем от MOD "Космохонк"
-ent-ADTClothingHeadHelmetModsuitEngineering = Инженерный шлем MOD
-    .desc = Шлем инженерного MOD
-ent-ADTClothingHeadHelmetModsuitMedical = Медицинский шлем MOD
-    .desc = Шлем медицинского MOD
-ent-ADTClothingHeadHelmetModsuitMining = Шахтёрский шлем MOD
-    .desc = Шлем шахтёрского MOD
-ent-ADTClothingHeadHelmetModsuitSecurity = Охранный шлем MOD
-    .desc = Шлем охранного MOD
-ent-ADTClothingHeadHelmetModsuitScience = Научный шлем MOD
-    .desc = Шлем научного MOD
-ent-ADTClothingHeadHelmetModsuitSyndicate = шлем MOD синдиката
-    .desc = Кроваво-красный шлем.
+ent-ADTClothingHeadHelmetModsuitBase = базовый шлем МОДа
+ent-ADTClothingHeadHelmetModsuitAtmos = атмосферный шлем МОДа
+ent-ADTClothingHeadHelmetModsuitClown = шлем МОДа "Космохонк"
+ent-ADTClothingHeadHelmetModsuitEngineering = инженерный шлем МОДа
+ent-ADTClothingHeadHelmetModsuitMedical = медицинский шлем МОДа
+ent-ADTClothingHeadHelmetModsuitMining = шахтёрский шлем MМОДа
+ent-ADTClothingHeadHelmetModsuitSecurity = охранный шлем МОДа
+ent-ADTClothingHeadHelmetModsuitScience = научный шлем МОДа
+ent-ADTClothingHeadHelmetModsuitSyndicate = шлем МОДа синдиката
 ent-ADTClothingHeadHelmetModsuitSafeguard = шлем "Диктатор"
-    .desc = Шлем, что 24/7 сканирует синдикатов вокруг.
+    .desc = Шлем, что 24/7 сканирует агентов вокруг.
+ent-ADTClothingHeadHelmetModsuitBso = шлем МОДа офицера синего щита
+ent-ADTClothingHeadHelmetModsuitAdvanced = продвинутый шлем МОДа
+ent-ADTClothingHeadHelmetModsuitSyndicateElite = элитный шлем МОДа
+ent-ADTClothingHeadHelmetModsuitSyndicateCommander = шлем МОДа "Меркурий"
 
-# Нагрудники
-ent-ADTClothingOuterModsuitBodyBase = Базовая броня MOD
-    .desc = Броня базового MOD
-ent-ADTClothingOuterModsuitBodyAtmos = Атмосферная броня MOD
-    .desc = Броня атмосферного MOD
-ent-ADTClothingOuterModsuitBodyClown = Броня MOD "Космохонк"
-    .desc = Броня от MOD "Космохонк"
-ent-ADTClothingOuterModsuitBodyEngineering = Инженерная броня MOD
-    .desc = Броня инженерного MOD
-ent-ADTClothingOuterModsuitBodyMedical = Медицинская броня MOD
-    .desc = Броня медицинского MOD
-ent-ADTClothingOuterModsuitBodyMining = Шахтёрская броня MOD
-    .desc = Броня шахтёрского MOD
-ent-ADTClothingOuterModsuitBodySecurity = Охранная броня MOD
-    .desc = Броня охранного MOD
-ent-ADTClothingOuterModsuitBodyScience = Научная броня MOD
-    .desc = Броня научного MOD
-ent-ADTClothingOuterModsuitBodySyndicate = броня MOD синдиката
-    .desc = Кроваво-красная броня.
-ent-ADTClothingOuterModsuitBodySafeguard = броня МОДа "Диктатор"
+# Оболочка
+ent-ADTClothingOuterModsuitBodyBase = Базовая оболочка МОДа
+ent-ADTClothingOuterModsuitBodyAtmos = Атмосферная оболочка МОДа
+ent-ADTClothingOuterModsuitBodyClown = Оболочка МОДа "Космохонк"
+ent-ADTClothingOuterModsuitBodyEngineering = Инженерная оболочка МОДа
+ent-ADTClothingOuterModsuitBodyMedical = Медицинская оболочка МОДа
+ent-ADTClothingOuterModsuitBodyMining = Шахтёрская оболочка МОДа
+ent-ADTClothingOuterModsuitBodySecurity = Охранная оболочка МОДа
+ent-ADTClothingOuterModsuitBodyScience = Научная оболочка МОДа
+ent-ADTClothingOuterModsuitBodySyndicate = оболочка МОДа синдиката
+ent-ADTClothingOuterModsuitBodySafeguard = оболочка МОДа "Диктатор"
     .desc = Готова впитать любую пулю от ядерного оперативника!
+ent-ADTClothingOuterModsuitBodyAdvanced = оболочка продвинутого МОДа
+ent-ADTClothingOuterModsuitBodyBso = оболочка МОДа офицера синего щита
+ent-ADTClothingOuterModsuitBodySyndicateElite = элитная оболочка МОДа
+ent-ADTClothingOuterModsuitBodySyndicateCommander = оболочка МОДа "Меркурий"
 
 # Ботинки
-ent-ADTClothingModsuitShoesBase = Базовые ботинки MOD
-    .desc = Ботинки базового MOD
-ent-ADTClothingModsuitShoesAtmos = Атмосферные ботинки MOD
-    .desc = Ботинки атмосферного MOD
-ent-ADTClothingModsuitShoesClown = Ботинки MOD "Космохонк"
-    .desc = Ботинки от MOD "Космохонк"
-ent-ADTClothingModsuitShoesEngineering = Инженерные ботинки MOD
-    .desc = Ботинки инженерного MOD
-ent-ADTClothingModsuitShoesMedical = Медицинские ботинки MOD
-    .desc = Ботинки медицинского MOD
-ent-ADTClothingModsuitShoesMining = Шахтёрские ботинки MOD
-    .desc = Ботинки шахтёрского MOD
-ent-ADTClothingModsuitShoesSecurity = Охранные ботинки MOD
-    .desc = Ботинки охранного MOD
-ent-ADTClothingModsuitShoesScience = Научные ботинки MOD
-    .desc = Ботинки научного MOD
-ent-ADTClothingModsuitShoesSyndicate = ботинки MOD синдиката
-    .desc = Кроваво-красные ботинки.
+ent-ADTClothingModsuitShoesBase = Базовые ботинки МОДа
+ent-ADTClothingModsuitShoesAtmos = Атмосферные ботинки МОДа
+ent-ADTClothingModsuitShoesClown = Ботинки МОДа "Космохонк"
+ent-ADTClothingModsuitShoesEngineering = Инженерные ботинки МОДа
+ent-ADTClothingModsuitShoesMedical = Медицинские ботинки МОДа
+ent-ADTClothingModsuitShoesMining = Шахтёрские ботинки МОДа
+ent-ADTClothingModsuitShoesSecurity = Охранные ботинки МОДа
+ent-ADTClothingModsuitShoesScience = Научные ботинки МОДа
+ent-ADTClothingModsuitShoesSyndicate = ботинки МОДа синдиката
 ent-ADTClothingModsuitShoesSafeguard = ботинки МОДа "Диктатор"
     .desc = Испачканы кровью революционеров.
+ent-ADTClothingModsuitBso = ботинки МОДа офицера синего щита
+ent-ADTClothingModsuitShoesAdvanced = ботинки продвинутого МОДа
+ent-ADTClothingModsuitShoesSyndicateElite = ботинки элитного МОДа
+ent-ADTClothingModsuitShoesSyndicateCommander = ботинки МОДа "Меркурий"
 
 # Перчатки
-ent-ADTClothingHandsModsuitBase = Базовые перчатки MOD
-    .desc = Перчатки базового MOD
-ent-ADTClothingHandsModsuitAtmos = Атмосферные перчатки MOD
-    .desc = Перчатки атмосферного MOD
-ent-ADTClothingHandsModsuitClown = Перчатки MOD "Космохонк"
-    .desc = Перчатки от MOD "Космохонк"
-ent-ADTClothingHandsModsuitEngineering = Инженерные перчатки MOD
-    .desc = Перчатки инженерного MOD
-ent-ADTClothingHandsModsuitMedical = Медицинские перчатки MOD
-    .desc = Перчатки медицинского MOD
-ent-ADTClothingHandsModsuitMining = Шахтёрские перчатки MOD
-    .desc = Перчатки шахтёрского MOD
-ent-ADTClothingHandsModsuitSecurity = Охранные перчатки MOD
-    .desc = Перчатки охранного MOD
-ent-ADTClothingHandsModsuitScience = Научные перчатки MOD
-    .desc = Перчатки научного MOD
-ent-ADTClothingHandsModsuitSyndicate = перчатки MOD синдиката
-    .desc = Кроваво-красные перчатки.
+ent-ADTClothingHandsModsuitBase = Базовые перчатки МОДа
+ent-ADTClothingHandsModsuitAtmos = Атмосферные перчатки МОДа
+ent-ADTClothingHandsModsuitClown = Перчатки МОДа "Космохонк"
+ent-ADTClothingHandsModsuitEngineering = Инженерные перчатки МОДа
+ent-ADTClothingHandsModsuitMedical = Медицинские перчатки МОДа
+ent-ADTClothingHandsModsuitMining = Шахтёрские перчатки МОДа
+ent-ADTClothingHandsModsuitSecurity = Охранные перчатки МОДа
+ent-ADTClothingHandsModsuitScience = Научные перчатки МОДа
+ent-ADTClothingHandsModsuitSyndicate = перчатки МОДа синдиката
 ent-ADTClothingHandsModsuitSafeguard = перчатки МОДа "Диктатор"
     .desc = Властно сжимают шею еретика!
+ent-ADTClothingHandsModsuitAdvanced = перчатки продвинутого МОДа
+ent-ADTClothingHandsModsuitSyndicateElite = перчатки элитного МОДа
+ent-ADTClothingHandsModsuitSyndicateCommander = перчатки МОДа "Меркурий"

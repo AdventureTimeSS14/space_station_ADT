@@ -1,0 +1,115 @@
+- type: entity
+  parent: ADTBasePDA
+  id: ADTShipBattlePDACaptainTSF
+  name: TSF PDA
+  description: TSF PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagCaptainTSF
+  - type: PdaBorderColor
+    borderColor: "#4e639c"
+  - type: Icon
+    state: pda-tsf
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-tsf
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-tsf"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+
+- type: entity
+  parent: ADTShipBattlePDACaptainTSF
+  id: ADTShipBattlePDAExecutionalOfficerTSF
+  name: TSF PDA
+  description: TSF PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagExecutionalOfficerTSF
+
+- type: entity
+  parent: ADTShipBattlePDACaptainTSF
+  id: ADTShipBattlePDACommanderTSF
+  name: TSF PDA
+  description: TSF PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagCommanderTSF
+
+- type: entity
+  parent: ADTShipBattlePDACaptainTSF
+  id: ADTShipBattlePDAMarineLeutenantTSF
+  name: TSF PDA
+  description: TSF PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagMarineLeutenantTSF
+
+- type: entity
+  parent: ADTBasePDA
+  id: ADTShipBattlePDACaptainKMT
+  name: KMT PDA
+  description: KMT PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagCaptainKMT
+  - type: PdaBorderColor
+    borderColor: "#78613b"
+  - type: Icon
+    state: pda-kmt
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+      !type:String
+      pda-kmt
+  - type: Sprite
+    sprite: ADT/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-kmt"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+
+- type: entity
+  parent: ADTShipBattlePDACaptainKMT
+  id: ADTShipBattlePDAExecutionalOfficerKMT
+  name: KMT PDA
+  description: KMT PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagExecutionalOfficerKMT
+
+- type: entity
+  parent: ADTShipBattlePDACaptainKMT
+  id: ADTShipBattlePDACommanderKMT
+  name: KMT PDA
+  description: KMT PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagCommanderKMT
+
+- type: entity
+  parent: ADTShipBattlePDACaptainKMT
+  id: ADTShipBattlePDAMarineLeutenantKMT
+  name: KMT PDA
+  description: KMT PDA.
+  components:
+  - type: Pda
+    id: ADTShipBattleDogtagMarineLeutenantKMT

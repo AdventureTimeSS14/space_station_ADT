@@ -4,3 +4,4 @@ chime.ogg taken from: https://github.com/Baystation12/Baystation12 at commit 662
 polaroid1.ogg taken from: https://github.com/Baystation12/Baystation12 at commit 662c08272acd7be79531550919f56f846726eabb and edited (stereo to mono)
 polaroid2.ogg taken from: https://github.com/Baystation12/Baystation12 at commit 662c08272acd7be79531550919f56f846726eabb and edited (stereo to mono)
 twobeep.ogg taken from: https://github.com/Baystation12/Baystation12 at commit 662c08272acd7be79531550919f56f846726eabb
+medical-assembler.ogg taken from: https://github.com/new-frontiers-14/frontier-station-14 at commit 2479231c612d8b22236b1ef0821f78f7b04f17d2

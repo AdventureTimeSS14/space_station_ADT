@@ -79,3 +79,9 @@ ent-ADTClothingOuterCoatLeathOvercoatOpened = кожанный плащ
 
 ent-ADTClothingOuterBikerJacket = косуха
     .desc = Плохой до мозга костей!
+
+ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
+    .desc = Носящий это точно хочет показать, что он ценит старые принципы и поведения. Общий видок явно потрёпан, а подкладка так вообще менялась не один раз.
+
+ent-ADTClothingOuterCoatXCoat = икс-ключительное облачение
+    .desc = Кажется это облачение заигравшегося творца.

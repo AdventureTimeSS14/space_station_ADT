@@ -271,8 +271,8 @@
             - ADTAttachmentT2Miniscope
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-underbarrel: 0.345, -0.125
-      rmc-aslot-rail: -0.1185, -0.0325
+      rmc-aslot-underbarrel: 0.25, -0.14
+      rmc-aslot-rail: -0.03125, -0.09375
 # ADT TWEAK END
 
 - type: entity
