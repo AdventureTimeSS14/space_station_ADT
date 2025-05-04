@@ -36,3 +36,25 @@
     sprite: ADT/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/WinterCoats/mimelongcoat.rsi  
+
+- type: entity
+  parent: [ClothingOuterStorageBase, ClothingOuterWinterCoat]
+  id: ADTClothingOuterHoodyBlack
+  name: black hoodie
+  description: A soft black hoodie with a hood.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_black.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageBase, ClothingOuterWinterCoat]
+  id: ADTClothingOuterHoodyWhite
+  name: white hoodie
+  description: A soft white hoodie with a hood.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/hoody_white.rsi

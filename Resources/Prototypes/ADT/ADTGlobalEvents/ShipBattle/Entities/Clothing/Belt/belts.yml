@@ -1,0 +1,17 @@
+- type: entity
+  id: ADTShipBattleClothingBeltWarbelt
+  parent: ClothingBeltMilitaryWebbing
+  name: TSF warbelt
+  description: TSF warbelt
+  suffix: ShipBattle
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Belt/warbelt_black.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Belt/warbelt_black.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    - 3,0,6,1
+    - 8,0,10,1
+    maxItemSize: Normal

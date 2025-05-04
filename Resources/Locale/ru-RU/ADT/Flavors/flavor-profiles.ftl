@@ -49,3 +49,17 @@ flavor-complex-ADTteqilaoldfashion =  тёрпко и как брутально�
 flavor-complex-ADTjackiewelles = сладко, тёрпко и грустно
 flavor-complex-ADTsilverhand = сладко, тёрпко, как брутальность и рок
 flavor-complex-ADTCoffeeBonBon = как очень сладкое кофе
+
+flavor-base-adtbolognesepasta = изумительно
+flavor-base-adtcarppasta = божественно и как яд
+flavor-base-adtcheesepasta = очень сырно
+flavor-base-adtcheesemeatballpasta = очень сырно и мясисто
+flavor-base-adtcheesetomatopasta = очень сырно и томатно
+flavor-base-adtclothpasta = как мокрый носок
+flavor-base-adtcreampasta = как паста и сливочное масло
+flavor-base-adtcreammeatballpasta = как паста и сливочное масло с мясом
+flavor-base-adtinkpasta = как чернила от ручки
+flavor-base-adtfishpasta = как референс
+flavor-base-adtmushroompasta = как паста и грибы
+flavor-base-adtsalmonpasta = как рыба с лапшой
+flavor-base-adttomatomeatballpasta = замечательно и мясисто
