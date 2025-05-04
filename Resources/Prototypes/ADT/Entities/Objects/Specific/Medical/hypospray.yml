@@ -24,3 +24,182 @@
     delay: 1.2
   - type: StaticPrice
     price: 750
+
+- type: entity
+  name: empty medipen
+  parent: BaseItem
+  description: A empty medipen with endless potential. Does not allow for deviation from Nanotrasen recipes.
+  id: ADTBlankMediPen
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    state: blank_medipen
+  - type: Item
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: hemostasis auto-injector
+  parent: ChemicalMedipen
+  id: ADTHemostasisAutoInjector
+  description: A rapid dose of coagulants and circulatory fluids. Contains tranexamic acid and saline.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: hemostasispen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: hemostasispen_empty
+  - type: Hypospray
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+        - ReagentId: Saline
+          Quantity: 15
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: stimulant auto-injector
+  parent: ChemicalMedipen
+  id: ADTStimulantAutoInjector
+  description: A rapid dose of potent stimulants and governing agents. Contains desoxyephedrine and dylovene. Use with extreme caution.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: stimulantpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: stimulantpen_empty
+  - type: Hypospray
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 10
+        - ReagentId: Dylovene
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: crisis auto-injector
+  parent: ChemicalMedipen
+  id: ADTCrisisAutoInjector
+  description: A rapid dose of stabilizers and vasodialaters for use on critically injured patients. Contains inaprovaline and dexalin plus.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: crisispen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: crisispen_empty
+  - type: Hypospray
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 10
+        - ReagentId: DexalinPlus
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: lacerinol auto-injector
+  parent: ChemicalMedipen
+  id: ADTLacerAutoInjector
+  description: A rapid dose of lacerinol and tranexamic acid, intended for combat applications.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: lacerpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: lacerpen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Lacerinol
+          Quantity: 10
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: bruizine auto-injector
+  parent: ChemicalMedipen
+  id: ADTBruizAutoInjector
+  description: A rapid dose of bruizine and tranexamic acid, intended for combat applications.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: bruizpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: bruizpen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Bruizine
+          Quantity: 10
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: barkeeper's friend auto-injector
+  parent: ChemicalMedipen
+  id: ADTEthylredoxrazineAutoInjector
+  description: A rapid dose of ethanol neutralizers and anti-toxins for customers who have maybe had enough for the night. Contains ethylredoxrazine and dylovene.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: barkeepersfriend
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: barkeepersfriend_empty
+  - type: Hypospray
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ethylredoxrazine
+          Quantity: 15
+        - ReagentId: Dylovene
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen

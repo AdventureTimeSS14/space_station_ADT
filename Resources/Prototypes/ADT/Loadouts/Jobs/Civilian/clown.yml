@@ -1,0 +1,15 @@
+# PDA
+- type: loadout
+  id: ClownPDA
+  equipment:
+    id: ClownPDA
+
+- type: loadout
+  id: ADTJesterPDA
+  equipment:
+    id: ADTJesterPDA
+
+- type: loadout
+  id: ADTFoolPDA
+  equipment:
+    id: ADTFoolPDA

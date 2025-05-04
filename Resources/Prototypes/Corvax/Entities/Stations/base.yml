@@ -13,15 +13,30 @@
       # - Zoo
       # - MiningOutpost
       # - Tesla
-      - ADTStationGoalTransitBase
+      - ADTStationGoalTransportShuttle
+      - ADTStationGoalDock
+      - ADTStationGoalDormitory
+      - ADTStationGoalTournament
+      - ADTStationGoalRestavration
+      - ADTStationGoalBridge
+      - ADTStationGoalMail
+      - ADTStationGoalAmbusol
+      # - ADTStationGoalTransitBase
       - ADTStationGoalTransitResourses
       - ADTStationGoalTransitUpgrade
       - ADTStationGoalTransitServiceDecor
       - ADTStationGoalTransitServiceTransport
       - ADTStationGoalTransitArtifact
       - ADTStationGoalTransitMedicine
-      - ADTStationGoalTransitContraband
-      - ADTStationGoalMultiple
+      # - ADTStationGoalTransitContraband
+      - ADTStationGoalMultiple1
+      - ADTStationGoalMultiple2
+      - ADTStationGoalMultiple3
+      - ADTStationGoalMultiple4
+      - ADTStationGoalMultiple5
+      - ADTStationGoalMultiple6
+      # - ADTStationGoalMultiple7
+      # - ADTStationGoalMultiple8
 
 - type: entity
   id: BaseStationSiliconLawNTDefault

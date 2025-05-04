@@ -1,4 +1,4 @@
-# Цели в рамках теста станции без цели
+# Цели транзита
 
 - type: stationGoal
   id: ADTStationGoalTransitBase
@@ -32,7 +32,75 @@
   id: ADTStationGoalTransitContraband
   text: adt-station-goal-transit-contraband
 
-# Множественные цели
+# Множественные цели (сделано несколько одинаковых целей для обеспечения шанса 33/33/33 по схеме Одна цель/Транзит/Список целей на выбор)
 - type: stationGoal
-  id: ADTStationGoalMultiple
+  id: ADTStationGoalMultiple1
   text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple2
+  text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple3
+  text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple4
+  text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple5
+  text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple6
+  text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple7
+  text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple8
+  text: adt-station-goal-multiple
+
+# Одна крупная цель смены
+- type: stationGoal
+  id: ADTStationGoalTransportShuttle
+  text: adt-station-goal-shuttle
+
+- type: stationGoal
+  id: ADTStationGoalDock
+  text: adt-station-goal-dock
+
+- type: stationGoal
+  id: ADTStationGoalDormitory
+  text: adt-station-goal-dormitory
+
+- type: stationGoal
+  id: ADTStationGoalTournament
+  text: adt-station-goal-tournament
+  spawns:
+  - ClothingBeltChampion
+
+- type: stationGoal
+  id: ADTStationGoalRestavration
+  text: adt-station-goal-restavration
+
+- type: stationGoal
+  id: ADTStationGoalBridge
+  text: adt-station-goal-bridge
+
+- type: stationGoal
+  id: ADTStationGoalMail
+  text: adt-station-goal-mail
+
+- type: stationGoal
+  id: ADTStationGoalAmbusol
+  text: adt-station-goal-ambusol
+  spawns:
+  - PillRomerol
+  - PillRomerol
+  - PillRomerol
+

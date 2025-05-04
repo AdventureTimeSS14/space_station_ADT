@@ -1,6 +1,6 @@
 # Airlocks
 - type: entity
-  parent: Airlock
+  parent: ADTServiceAirlock # ADT-Doors
   id: AirlockServiceLocked
   suffix: Service, Locked
   components:
@@ -11,7 +11,7 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTLawyerAirlock # ADT-Doors
   id: AirlockLawyerLocked
   suffix: Lawyer, Locked
   components:
@@ -38,7 +38,7 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTJanitorAirlock # ADT-Doors
   id: AirlockJanitorLocked
   suffix: Janitor, Locked
   components:
@@ -442,7 +442,7 @@
 
 # Glass Airlocks
 - type: entity
-  parent: AirlockGlass
+  parent: ADTGlassServiceAirlock # ADT-Doors
   id: AirlockServiceGlassLocked
   suffix: Service, Locked
   components:
@@ -453,7 +453,7 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTGlassLawyerAirlock # ADT-Doors
   id: AirlockLawyerGlassLocked
   suffix: Lawyer, Locked
   components:
@@ -563,7 +563,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTGlassJanitorAirlock # ADT-Doors
   id: AirlockJanitorGlassLocked
   suffix: Janitor, Locked
   components:
