@@ -48,6 +48,17 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
 
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesRomanSandales
+  name: Roman sandales
+  description: The old Roman sandals are still reliable and stylish.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/roman_sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/roman_sandals.rsi
+
 # USSP USSP USSP USSP USSP USSP START
 
 - type: entity
