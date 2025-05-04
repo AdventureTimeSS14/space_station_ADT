@@ -261,23 +261,36 @@ public sealed partial class SupermatterSystem
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
         var station = _station.GetOwningStation(uid);
+        var xform = Transform(uid);
+        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+
         if (station != null)
-        {  
+        {
             if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
             {
                 if (!sm.KudzuSpawned)
                 {
-                    var xform = Transform(uid);
                     Spawn(sm.KudzuPrototype, xform.Coordinates);
-
                     sm.KudzuSpawned = true;
                 }
-                _alert.SetLevel((EntityUid) station, sm.AlertCodeCascadeId, true, true, true, false);
-                _roundEnd.EndRound(sm.RestartDelay);
+
+                _alert.SetLevel((EntityUid)station, sm.AlertCodeCascadeId, true, true, true, false);
                 return DelamType.Cascade;
             }
 
-            _alert.SetLevel((EntityUid) station, sm.AlertCodeYellowId, true, true, true, false);
+            if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterCriticalPowerPenaltyThreshold))
+            {
+                _alert.SetLevel((EntityUid)station, sm.AlertCodeYellowId, true, true, true, false);
+                return DelamType.Tesla;
+            }
+
+            if (!xform.GridUid.HasValue || mix == null || mix.TotalMoles == 0f)
+            {
+                _alert.SetLevel((EntityUid)station, sm.AlertCodeYellowId, true, true, true, false);
+                return DelamType.Singularity;
+            }
+
+            _alert.SetLevel((EntityUid)station, sm.AlertCodeYellowId, true, true, true, false);
             return DelamType.Explosion;
         }
 
@@ -349,11 +362,20 @@ public sealed partial class SupermatterSystem
             case DelamType.Cascade:
                 QueueDel(uid);
                 Spawn(sm.SupermatterCascadePrototype, xform.Coordinates);
+                _roundEnd.EndRound(sm.RestartDelay);
+                break;
+ 
+            case DelamType.Tesla:
+                Spawn(sm.TeslaPrototype, xform.Coordinates);
+                break;
+
+            case DelamType.Singularity:
+                Spawn(sm.SingularityPrototype, xform.Coordinates);
                 break;
 
             default:
                 _explosion.TriggerExplosive(uid);
-                Spawn(sm.SupermatterTrashPrototype, xform.Coordinates);
+  //              Spawn(sm.SupermatterTrashPrototype, xform.Coordinates);
                 break;
         }
     }

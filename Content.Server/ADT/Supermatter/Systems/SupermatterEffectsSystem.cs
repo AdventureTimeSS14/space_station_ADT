@@ -1,3 +1,4 @@
+using Content.Server.ADT.Hallucinations;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -71,6 +72,13 @@ public sealed partial class SupermatterSystem
                 _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
             }
+
+            var hallucinationKey = "ADTHallucination";
+            var hallucinationProto = "Supermatter";
+            var hallucinationDuration = TimeSpan.FromSeconds(10);
+            var refresh = true;
+
+            _hallucinations.StartHallucinations(mob, hallucinationKey, hallucinationDuration, refresh, hallucinationProto);
         }
 
         sm.PsyCoefficient = Math.Clamp(sm.PsyCoefficient + psyDiff, 0f, 1f);

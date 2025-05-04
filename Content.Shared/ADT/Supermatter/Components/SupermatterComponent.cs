@@ -61,7 +61,10 @@ public sealed partial class SupermatterComponent : Component
     public EntProtoId SliverPrototype = "SupermatterSliver";
 
     [DataField]
-    public EntProtoId SupermatterTrashPrototype = "SupermatterTrash";
+    public EntProtoId SingularityPrototype = "Singularity";
+
+    [DataField]
+    public EntProtoId TeslaPrototype = "TeslaEnergyBall";
 
     [DataField]
     public EntProtoId KudzuPrototype = "SupermatterKudzu";
@@ -457,7 +460,7 @@ public sealed partial class SupermatterComponent : Component
 public enum DelamType : int
 {
     Explosion = 0,
-    Singulo = 1,
+    Singularity = 1,
     Tesla = 2,
     Cascade = 3
 }

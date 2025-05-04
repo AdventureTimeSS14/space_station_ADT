@@ -89,7 +89,7 @@
       GlowDelam: { state: supermatter-glow-delam }
   - type: Explosive
     explosionType: Supermatter
-    totalIntensity: 120000
+    totalIntensity: 500000
     intensitySlope: 5
     maxIntensity: 100
   - type: GravityWell
@@ -113,6 +113,33 @@
     - SupermatterDanger
     - SupermatterEmergency
     - SupermatterDelaminating
+
+- type: entity
+  parent: Supermatter
+  id: DARKMATTER
+  name: supermatter crystal
+  description: A strangely translucent and iridescent crystal.
+  components:
+  - type: Icon
+    sprite: ADT/Structures/Power/Supermatter/DARKMATTER.rsi
+    state: supermatter
+  - type: Sprite
+    sprite: ADT/Structures/Power/Supermatter/DARKMATTER.rsi
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+    layers:
+      - state: supermatter
+        map: ["enum.SupermatterVisuals.Crystal"]
+      - state: supermatter-psy
+        map: ["enum.SupermatterVisuals.Psy"]
+        color: "#ffffff00"
+  - type: SupermatterVisuals
+    crystal:
+      Normal: { state: supermatter }
+      Glow: { state: supermatter-glow }
+      GlowEmergency: { state: supermatter-glow-emergency }
+      GlowDelam: { state: supermatter-glow-delam }
 
 ## Cascade
 - type: entity
