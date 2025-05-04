@@ -60,7 +60,7 @@
     belt: ADTShipBattleClothingBeltWarbelt
     # pocket1: DoubleEmergencyOxygenTankFilled
     # pocket2: ADTBaseUplinkBOBERT
-    underwearb: ADTUnderwearBoxersWhite
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
   storage:
