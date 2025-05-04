@@ -1,0 +1,129 @@
+#Base
+
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformBase
+  id: ADTShipBattleClothingUniformBase
+  components:
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+    savableAddress: false
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+#Command
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformCaptainTSF
+  name: uniform of the captain of the TSF
+  description: uniform of the captain of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_tsf.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformExOfficerTSF
+  name: uniform of the executional officer of the TSF
+  description: uniform of the executional officer of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_tsf.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformCommanderTSF
+  name: uniform of the commander of the TSF
+  description: uniform of the commander of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_tsf.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformChiefGunnerTSF
+  name: uniform of the chief gunner of the TSF
+  description: uniform of the chief gunner of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_tsf.rsi
+
+#Marines
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformMarineLeutenantTSF
+  name: uniform of the marine leutenant TSF
+  description: uniform of the marine leutenant TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_tsf.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformMarineTSF
+  name: uniform of the marine TSF
+  description: uniform of the marine TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_tsf.rsi
+
+#Shipcrew
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformGunnerTSF
+  name: uniform of the gunner of the TSF
+  description: uniform of the gunner of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_tsf.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformEngineerTSF
+  name: uniform engineer TSF
+  description: uniform engineer TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_tsf.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformMedicTSF
+  name: uniform medic TSF
+  description: uniform medic TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_tsf.rsi
