@@ -1,0 +1,61 @@
+- type: entity
+  parent: ClothingShoesBootsMagBase
+  id: ADTShipBattleClothingShoesBootsMagFleet
+  name: Fleet magnetic boots
+  description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi
+  - type: ToggleClothing
+    action: ADTShipBattleActionToggleMagbootsFleet
+    mustEquip: false
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ADTShipBattleClothingShoesBootsMagFleet
+  id: ADTShipBattleClothingShoesBootsMagFleetOfficer
+  name: Officer magnetic boots
+  description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi
+  - type: ToggleClothing
+    action: ADTShipBattleActionToggleMagbootsFleetOfficer
+    mustEquip: false
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  id: ADTShipBattleActionToggleMagbootsFleetOfficer
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi, state: icon }
+    iconOn: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi/icon-on.png
+
+- type: entity
+  id: ADTShipBattleActionToggleMagbootsFleet
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi, state: icon }
+    iconOn: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi/icon-on.png

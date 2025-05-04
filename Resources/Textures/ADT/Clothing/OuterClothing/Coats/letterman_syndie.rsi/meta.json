@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "made by 0uch, taken from MOLOT-BlueMoon-Station at commit https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/commit/db123ed5355624266a78edca5ffbbb51dc105fb3. If the author is specified incorrectly, you can contact us: https://discord.gg/MraaYU9ZE3",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}
