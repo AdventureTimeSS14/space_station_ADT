@@ -1,7 +1,7 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  id: PartDrask
+  id: ADTPartDrask
   parent: BaseItem
   name: "drask body part"
   abstract: true
@@ -15,9 +15,9 @@
         ents: []
 
 - type: entity
-  id: TorsoDrask
+  id: ADTTorsoDrask
   name: "drask torso"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -30,9 +30,9 @@
     partType: Torso
 
 - type: entity
-  id: HeadDrask
+  id: ADTHeadDrask
   name: "drask head"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -56,9 +56,9 @@
       - Head
 
 - type: entity
-  id: LeftArmDrask
+  id: ADTLeftArmDrask
   name: "left drask arm"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -72,9 +72,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightArmDrask
+  id: ADTRightArmDrask
   name: "right drask arm"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -88,9 +88,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftHandDrask
+  id: ADTLeftHandDrask
   name: "left drask hand"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -104,9 +104,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightHandDrask
+  id: ADTRightHandDrask
   name: "right drask hand"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -120,9 +120,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftLegDrask
+  id: ADTLeftLegDrask
   name: "left drask leg"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -139,9 +139,9 @@
     sprintSpeed : 4.3
 
 - type: entity
-  id: RightLegDrask
+  id: ADTRightLegDrask
   name: "right drask leg"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -158,9 +158,9 @@
     sprintSpeed : 4.3
 
 - type: entity
-  id: LeftFootDrask
+  id: ADTLeftFootDrask
   name: "left drask foot"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false
@@ -174,9 +174,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightFootDrask
+  id: ADTRightFootDrask
   name: "right drask foot"
-  parent: PartDrask
+  parent: ADTPartDrask
   components:
   - type: Sprite
     netsync: false

@@ -81,6 +81,12 @@
         - !type:ReagentThreshold
           min: 6
         probability: 0.20
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Drask
+          shouldHave: true
+        factor: 2
     Drink:
       effects:
       - !type:ChemVomit
