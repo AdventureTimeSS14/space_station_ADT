@@ -47,7 +47,7 @@ public sealed partial class ShipsVsShipsRuleComponent : Component
 
     // Задержка перед возможностью атаки FTL (по умолчанию 15 минут)
     [DataField]
-    public TimeSpan AttackFtlDelay = TimeSpan.FromMinutes(2);
+    public TimeSpan AttackFtlDelay = TimeSpan.FromMinutes(5);
 
     // Сообщение, отправляемое при атаке FTL
     [DataField]

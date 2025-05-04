@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using Content.Server.ADT.ShipsVsShips;
+﻿using Content.Server.ADT.ShipsVsShips;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Communications;
 using Content.Server.GameTicking;
@@ -21,6 +21,7 @@ namespace Content.Server.ADT.GameTicking.Rules;
 public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComponent>
 {
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
@@ -28,7 +29,6 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     public override void Initialize()
     {
         base.Initialize();
-        Log.Warning("ShipsVsShipsRuleSystem initialized.");
 
         SubscribeLocalEvent<ShipsVsShipsRuleComponent, RoundStartAttemptEvent>(OnStartAttempt); // Подписка на событие начала раунда.
         SubscribeLocalEvent<ShipsVsShipsRuleComponent, RoundEndTextAppendEvent>(OnRoundEndText); // Подписка на событие добавления текста при окончании раунда.
@@ -50,49 +50,51 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     protected override void Added(EntityUid uid, ShipsVsShipsRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
-        Log.Warning("Game rule ShipsVsShips added.");
 
-        // Установка времени следующей атаки FTL.
-        // component.AttackFtlTime = _timing.CurTime + component.AttackFtlDelay;
+        // Установка времени следующей атаки FTL след раунде.
+        component.CanAttackFtl = false;
+        component.AttackFtlTime = _timing.CurTime + component.AttackFtlDelay;
 
         // Получение всех карт и добавление их в компонент.
         var mapQuery = EntityQueryEnumerator<ShipsVsShipsMapComponent>();
-        Log.Warning($"[MAP] {mapQuery}");
         while (mapQuery.MoveNext(out var mapUid, out var map))
         {
-            if (component.Maps.ContainsKey(map.Side)) // Проверка, содержит ли уже карта эту сторону.
+            if (component.Maps.ContainsKey(map.Side))
+            {
                 continue;
+            }
 
-            component.Maps.Add(map.Side, mapUid); // Добавление карты в словарь.
-            Log.Warning($"Added map {mapUid} for side {map.Side}");
+            component.Maps.Add(map.Side, mapUid);
         }
 
         // Получение всех шаттлов и добавление их в компонент.
         var shuttlesQuery = EntityQueryEnumerator<ShipsVsShipsShuttleComponent>();
         while (shuttlesQuery.MoveNext(out var shuttleUid, out var shuttle))
         {
-            if (component.Shuttles.ContainsKey(shuttle.Side)) // Проверка, содержит ли уже шаттл эту сторону.
+            if (component.Shuttles.ContainsKey(shuttle.Side))
+            {
                 continue;
+            }
 
-            component.Shuttles.Add(shuttle.Side, shuttleUid); // Добавление шаттла в словарь.
-            Log.Warning($"Added shuttle {shuttleUid} for side {shuttle.Side}");
+            component.Shuttles.Add(shuttle.Side, shuttleUid);
         }
     }
 
     // Метод, вызываемый каждый тик игры для активных правил.
     protected override void ActiveTick(EntityUid uid, ShipsVsShipsRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
-        base.ActiveTick(uid, component, gameRule, frameTime); // Вызов базового метода.
+        base.ActiveTick(uid, component, gameRule, frameTime);
 
-        if (component.CanAttackFtl) // Проверка, можно ли атаковать FTL.
+        if (component.CanAttackFtl)
+        {
             return;
+        }
 
-        if (component.AttackFtlTime < _timing.CurTime) // Проверка времени атаки FTL.
-            return;
-
-        _chat.DispatchGlobalAnnouncement(component.AttackFtlMessage, component.AttackFtlSender, playSound: false); // Отправка глобального сообщения о возможности атаки FTL.
-        component.CanAttackFtl = true; // Установка флага, что атака FTL теперь возможна.
-        Log.Warning("FTL attack is now possible.");
+        if (component.AttackFtlTime < _timing.CurTime)
+        {
+            _chat.DispatchGlobalAnnouncement(component.AttackFtlMessage, component.AttackFtlSender, playSound: false);
+            component.CanAttackFtl = true;
+        }
     }
 
     // Обработчик события начала раунда.
@@ -104,16 +106,16 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     // Обработчик события добавления текста при окончании раунда.
     private void OnRoundEndText(EntityUid uid, ShipsVsShipsRuleComponent component, RoundEndTextAppendEvent ev)
     {
-        var ruleQuery = QueryActiveRules(); // Запрос активных правил игры.
-        while (ruleQuery.MoveNext(out _, out _, out var shipsVsShips, out _)) // Перебор активных правил "Ships vs Ships".
+        var ruleQuery = QueryActiveRules();
+        while (ruleQuery.MoveNext(out _, out _, out var shipsVsShips, out _))
         {
-            var winText = Loc.GetString($"ships-vs-ships-{shipsVsShips.WinSide.ToString().ToLower()}-{shipsVsShips.WinType.ToString().ToLower()}"); // Получение текста победы.
-            ev.AddLine(winText); // Добавление текста победы в событие.
+            var winText = Loc.GetString($"ships-vs-ships-{shipsVsShips.WinSide.ToString().ToLower()}-{shipsVsShips.WinType.ToString().ToLower()}");
+            ev.AddLine(winText);
 
-            foreach (var condition in shipsVsShips.WinConditions) // Перебор условий победы.
+            foreach (var condition in shipsVsShips.WinConditions)
             {
-                var text = Loc.GetString($"ships-vs-ships-condition-{condition.Side.ToString().ToLower()}-{condition.Condition.ToString().ToLower()}"); // Получение текста условия победы.
-                ev.AddLine(text); // Добавление текста условия в событие.
+                var text = Loc.GetString($"ships-vs-ships-condition-{condition.Side.ToString().ToLower()}-{condition.Condition.ToString().ToLower()}");
+                ev.AddLine(text);
             }
         }
     }
@@ -121,61 +123,61 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     // Обработчик события взрыва ядерной бомбы.
     private void OnNukeExploded(NukeExplodedEvent ev)
     {
-        Log.Warning("Nuke explosion detected!");
         // Запрос активных правил игры.
         var ruleQuery = QueryActiveRules();
-        while (ruleQuery.MoveNext(out _, out _, out var shipsVsShips, out _)) // Перебор всех активных правил "Ships vs Ships".
+        while (ruleQuery.MoveNext(out _, out _, out var shipsVsShips, out _))
         {
-            // Получение стороны, к которой принадлежит станция, вызвавшая событие.
+            // Получение стороны, к которой принадлежит станция
             var side = GetEntitySide(ev.OwningStation);
-            Log.Warning($"Explosion owned by side: {side}");
 
-            // Если сторона неизвестна, добавляем условие победы и устанавливаем тип победы как нейтральный.
+            // Если сторона неизвестна
             if (side == Side.Unknown)
             {
-                AddWinCondition(side, WinCondition.NukeExplodedWrongPlace, shipsVsShips); // Условие: ядерная бомба взорвалась не в том месте.
-                SetWinType(side, WinType.Neutral, shipsVsShips); // Тип победы: нейтральный.
-                continue; // Переход к следующему правилу.
+                AddWinCondition(side, WinCondition.NukeExplodedWrongPlace, shipsVsShips);
+
+                SetWinType(side, WinType.Neutral, shipsVsShips);
+
+                continue;
             }
 
-            // Определяем победителя на основе стороны, которая вызвала событие.
-            var winner = shipsVsShips.EnemySides[side]; // Получаем противника для текущей стороны.
+            // Определяем победителя
+            var winner = shipsVsShips.EnemySides[side];
 
-            // Добавляем условие победы для противника и устанавливаем тип победы как основной.
-            AddWinCondition(winner, WinCondition.NukeExploded, shipsVsShips); // Условие: ядерная бомба взорвалась у противника.
-            SetWinType(winner, WinType.Major, shipsVsShips); // Тип победы: основной.
-            Log.Warning($"Side {winner} wins due to nuke explosion.");
+            // Добавляем условие победы
+            AddWinCondition(winner, WinCondition.NukeExploded, shipsVsShips);
+
+            // Устанавливаем тип победы
+            SetWinType(winner, WinType.Major, shipsVsShips);
         }
     }
 
     // Обработчик события спавна игрока.
     private void OnPlayerSpawning(PlayerSpawningEvent ev)
     {
-        ev.SpawnResult = null; // Устанавливаем результат спавна как null (не даем спавниться игроку).
+        ev.SpawnResult = null;
     }
 
     // Обработчик события завершения спавна игрока.
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent ev)
     {
-        Log.Warning($"Player {ev.Player} spawned.");
         // Запрос активных правил игры.
         var query = QueryActiveRules();
-        while (query.MoveNext(out _, out _, out var shipsVsShips, out _)) // Перебор всех активных правил "Ships vs Ships".
+        while (query.MoveNext(out _, out _, out var shipsVsShips, out _))
         {
-            // Проверяем, есть ли у сущности компонент игрока "ShipsVsShipsPlayerComponent".
+            // Проверка компонента игрока
             if (!TryComp<ShipsVsShipsPlayerComponent>(ev.Mob, out var player))
-                continue; // Если компонента нет, переходим к следующему.
+            {
+                continue;
+            }
 
-            var side = player.Side; // Получаем сторону игрока.
-            Log.Warning($"Player {ev.Player} spawned on side {side}");
-
-            // Если сторона игрока еще не зарегистрирована в правилах, добавляем её.
+            var side = player.Side;
+            // Регистрация новой стороны при необходимости
             if (!shipsVsShips.Players.ContainsKey(side))
-                shipsVsShips.Players.Add(side, new HashSet<ICommonSession>()); // Создаем новый набор игроков для этой стороны.
-
-            shipsVsShips.TotalAllPlayers++; // Увеличиваем общее количество игроков.
-            shipsVsShips.Players[side].Add(ev.Player); // Добавляем игрока в соответствующий набор по его стороне.
-            Log.Warning($"Player {ev.Player} added to team {side}. Total players: {shipsVsShips.Players[side].Count}");
+            {
+                shipsVsShips.Players.Add(side, new HashSet<ICommonSession>());
+            }
+            shipsVsShips.TotalAllPlayers++;
+            shipsVsShips.Players[side].Add(ev.Player);
         }
     }
 
@@ -200,11 +202,11 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
         {
             // Проверяем, есть ли у сущности компонент шаттла "ShipsVsShipsShuttleComponent".
             if (!TryComp<ShipsVsShipsShuttleComponent>(ev.Entity, out var shuttleComponent))
-                continue; // Если компонента нет, переходим к следующему.
+                continue;
 
             // Проверяем, зарегистрирован ли шаттл в правилах.
             if (!shipsVsShips.Shuttles.ContainsValue(ev.Entity))
-                continue; // Если шаттл не зарегистрирован, переходим к следующему.
+                continue;
 
             // Если шаттл еще не атакует (не переместился для атаки).
             if (!shuttleComponent.FtlToAttack)
@@ -215,7 +217,6 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
                     // Если переместился на базу противника, устанавливаем флаг атаки FTL как true.
                     shuttleComponent.FtlToAttack = true;
                 }
-
                 continue; // Переход к следующему правилу.
             }
 
@@ -232,19 +233,16 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     // Обработчик события попытки FTL (сверхсветового) перемещения шаттла
     private void OnShuttleFTLAttempt(ref ConsoleFTLAttemptEvent ev)
     {
-        Log.Warning($"[INFO] ConsoleFTLAttemptEvent: {ToPrettyString(ev.Uid)}");
         // Запрашиваем активные правила игры
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var shipsVsShips, out _))
         {
             // Определяем сторону, к которой принадлежит сущность
             var side = GetEntitySide(ev.Uid);
-            if (side == Side.Unknown) // Если сторона неизвестна, продолжаем цикл
+            if (side == Side.Unknown)
                 continue;
-            if (shipsVsShips.CanAttackFtl) // Если разрешено атаковать FTL, продолжаем цикл
+            if (shipsVsShips.CanAttackFtl)
                 continue;
-
-            // Отменяем попытку FTL перемещения, если условия не выполнены
             ev.Cancelled = true;
         }
     }
@@ -256,19 +254,15 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var shipsVsShips, out _))
         {
-            // Определяем сторону, к которой принадлежит сущность
             var side = GetEntitySide(ev.Uid);
 
-            // Отменяем попытку вызова эвакуации, если это не разрешено
             if (!shipsVsShips.CanCallEmergency.Contains(side))
             {
-                ev.Cancelled = true; // Отмена события
-                continue; // Переход к следующей итерации цикла
+                ev.Cancelled = true;
+                continue;
             }
 
-            // Добавляем условие победы для стороны
             AddWinCondition(side, WinCondition.CallEmergency, shipsVsShips);
-            // Устанавливаем тип победы для противника
             SetWinType(shipsVsShips.EnemySides[side], WinType.Minor, shipsVsShips);
         }
     }
@@ -276,73 +270,55 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
     // Проверка условий по количеству игроков
     private void CheckPlayerCountCondition()
     {
-        Log.Warning("Checking player count conditions...");
-        // Запрашиваем активные правила игры
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var shipsVsShips, out _))
         {
-            List<Side> losesSides = new(); // Список сторон, которые проиграли
-            Log.Warning($"Processing ShipsVsShipsRule. Total sides: {shipsVsShips.Players.Count}");
+            List<Side> losesSides = new();
             foreach (var side in shipsVsShips.Players.Keys)
             {
-                var sideCountTotal = shipsVsShips.Players[side].Count; // Общее количество игроков на стороне
-                var sideCountAlive = 0; // Счетчик живых игроков на стороне
-                Log.Warning($"Checking side {side}. Total players: {sideCountTotal}");
+                var sideCountTotal = shipsVsShips.Players[side].Count;
+                var sideCountAlive = 0;
 
                 foreach (var player in shipsVsShips.Players[side])
                 {
-
-                    if (player.AttachedEntity is not { } entity) // Если нет прикрепленной сущности, пропускаем
+                    if (player.AttachedEntity is not { } entity)
                     {
-                        Log.Warning($"Player {player} has no attached entity, skipping.");
-                        continue; }
+                        continue;
+                    }
+
                     if (_mobState.IsDead(entity))
                     {
-                        Log.Warning($"Player {player} is dead, skipping.");
-                        continue; }
-                    sideCountAlive++; // Увеличиваем счетчик живых игроков
+                        continue;
+                    }
+                    sideCountAlive++;
                 }
-                Log.Warning($"Side {side}: {sideCountAlive} alive out of {sideCountTotal}");
 
-                var lossThreshold = Math.Ceiling(sideCountTotal - sideCountTotal * shipsVsShips.MinDiedPercent); // Порог потерь (добавил Math.Ceiling чтобы при 1 на 1 режим работал)
-                //var lossThreshold = sideCountTotal - sideCountTotal * shipsVsShips.MinDiedPercent;
-                Log.Warning($"Loss threshold for side {side}: {lossThreshold}");
+                var lossThreshold = Math.Ceiling(sideCountTotal - sideCountTotal * shipsVsShips.MinDiedPercent);
 
-                // Если количество живых игроков больше порога, продолжаем цикл
                 if (sideCountAlive > lossThreshold)
                 {
-                    Log.Warning($"Side {side} still has enough players alive, continuing.");
                     continue;
                 }
 
-                Log.Warning($"Side {side} has lost.");
-                losesSides.Add(side); // Добавляем сторону в список проигравших
+                losesSides.Add(side);
             }
 
-            // Если проигравших больше одной стороны, устанавливаем нейтральный результат
             if (losesSides.Count > 1)
             {
                 SetWinType(Side.Unknown, WinType.Neutral, shipsVsShips);
-                Log.Warning("Multiple sides lost, setting result to neutral.");
-                continue; // Переход к следующей итерации цикла
+
+                continue;
             }
 
-            if (losesSides.Count == 0) // АГА БЛЯТЬ
+            if (losesSides.Count == 0)
             {
-                Log.Warning("Список пуст, пропускаем обработку.");
-                Log.Warning("No losing sides detected. Skipping further processing.");
                 return;
             }
 
-            var looser = losesSides[0]; // Определяем проигравшую сторону
-            Log.Warning($"Determined losing side: {looser}");
+            var looser = losesSides[0];
 
-            // Добавляем условие победы для проигравшей стороны
             AddWinCondition(looser, WinCondition.MostDied, shipsVsShips);
-
-            // Устанавливаем тип победы для противника
             SetWinType(shipsVsShips.EnemySides[looser], WinType.Major, shipsVsShips);
-            Log.Warning($"Side {looser} lost. Winner: {shipsVsShips.EnemySides[looser]}");
         }
     }
 
@@ -367,14 +343,17 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
         if (TryComp<ShipsVsShipsMapComponent>(parent, out var mapComponent))
             return mapComponent.Side;
 
-        return Side.Unknown; // Если сторона не определена, возвращаем неизвестную сторону
+        // Если сторона не определена, возвращаем неизвестную сторону
+        return Side.Unknown;
     }
 
     // Добавление условия победы для стороны в компоненте правил
     private void AddWinCondition(Side side, WinCondition condition, ShipsVsShipsRuleComponent component)
     {
-        component.WinConditions.Add(new WindConditionInfo(side, condition)); // Добавляем новое условие победы
+        // Добавляем новое условие победы
+        component.WinConditions.Add(new WindConditionInfo(side, condition));
     }
+
 
     // Установка типа победы для стороны в компоненте правил и завершение раунда при необходимости
     private void SetWinType(Side side, WinType type, ShipsVsShipsRuleComponent component, bool endRound = true)
@@ -382,9 +361,11 @@ public sealed class ShipsVsShipsRuleSystem : GameRuleSystem<ShipsVsShipsRuleComp
         component.WinType = type; // Устанавливаем тип победы
         component.WinSide = side; // Устанавливаем сторону победителя
 
-        if (!endRound) // Если не требуется завершение раунда, выходим из метода
+        // Если не требуется завершение раунда, выходим из метода
+        if (!endRound)
             return;
 
-        _roundEndSystem.EndRound(); // Завершаем раунд
+        // Завершаем раунд
+        _roundEndSystem.EndRound();
     }
 }
