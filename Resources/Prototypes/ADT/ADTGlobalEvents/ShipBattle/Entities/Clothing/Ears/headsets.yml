@@ -1,0 +1,228 @@
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetCommandTSF
+  name: tsf command headset
+  description: tsf command headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeySuperTSF
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/tsf.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetChiefGunnerTSF
+  name: tsf chief gunner headset
+  description: tsf chief gunner headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonTSF
+      - ADTShipBattleEncryptionKeyCommandTSF
+      - ADTShipBattleEncryptionKeyGunnerTSF
+      - ADTShipBattleEncryptionKeyPilotTSF
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/tsf.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetMarineLeutenantTSF
+  name: tsf marine leutenant headset
+  description: tsf marine leutenant headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonTSF
+      - ADTShipBattleEncryptionKeyCommandTSF
+      - ADTShipBattleEncryptionKeyMarineTSF
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/tsf.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetMarineTSF
+  name: tsf marine headset
+  description: tsf marine headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonTSF
+      - ADTShipBattleEncryptionKeyMarineTSF
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/tsf.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetGunnerTSF
+  name: tsf gunner headset
+  description: tsf gunner headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonTSF
+      - ADTShipBattleEncryptionKeyGunnerTSF
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/tsf.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetPilotTSF
+  name: tsf pilot headset
+  description: tsf pilot headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonTSF
+      - ADTShipBattleEncryptionKeyPilotTSF
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/tsf.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetMedEngiTSF
+  name: tsf med engi headset
+  description: tsf med engi headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonTSF
+      - ADTShipBattleEncryptionKeyMedEngiTSF
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/tsf.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetCommandKMT
+  name: kmt command headset
+  description: kmt command headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeySuperKMT
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/kmt.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetChiefGunnerKMT
+  name: kmt chief gunner headset
+  description: kmt chief gunner headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonKMT
+      - ADTShipBattleEncryptionKeyCommandKMT
+      - ADTShipBattleEncryptionKeyGunnerKMT
+      - ADTShipBattleEncryptionKeyPilotKMT
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/kmt.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetMarineLeutenantKMT
+  name: kmt marine leutenant headset
+  description: kmt marine leutenant headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonKMT
+      - ADTShipBattleEncryptionKeyCommandKMT
+      - ADTShipBattleEncryptionKeyMarineKMT
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/kmt.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetMarineKMT
+  name: kmt marine headset
+  description: kmt marine headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonKMT
+      - ADTShipBattleEncryptionKeyMarineKMT
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/kmt.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetGunnerKMT
+  name: kmt gunner headset
+  description: kmt gunner headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonKMT
+      - ADTShipBattleEncryptionKeyGunnerKMT
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/kmt.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetPilotKMT
+  name: kmt pilot headset
+  description: kmt pilot headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonKMT
+      - ADTShipBattleEncryptionKeyPilotKMT
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/kmt.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5
+
+- type: entity
+  parent: ClothingHeadset
+  id: ADTShipBattleClothingHeadsetMedEngiKMT
+  name: kmt med engi headset
+  description: kmt med engi headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - ADTShipBattleEncryptionKeyCommonKMT
+      - ADTShipBattleEncryptionKeyMedEngiKMT
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Ears/Headsets/kmt.rsi
+  - type: EncryptionKeyHolder
+    keySlots: 5

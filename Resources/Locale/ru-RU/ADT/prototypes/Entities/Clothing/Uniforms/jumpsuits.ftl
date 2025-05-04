@@ -448,7 +448,6 @@ ent-ADTClothingUniformJumpsuitExplorer = комбинезон исследова
 ent-ADTClothingUniformJumpsuitDutch = голландский костюм
     .desc = Элегантный голландский костюм.
 
-
 ent-ADTClothingUniformJumpsuitDetectiveOld = старая рубашка с брюками, галстуком и подтяжками
     .desc = Носящий это точно хочет показать, что он ценит старые принципы и поведения. Всё это явно потрёпанно, но хозяин этих вещей точно любит их.
 
@@ -457,7 +456,10 @@ ent-ADTClothingUniformJumpsuitOldDark = старый комбинезон учё
 
 ent-ADTClothingUniformJumpsuitBarber = модный костюм
     .desc = Один костюм, чтобы править ими всеми.
+    
 ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный костюм
     .desc = Для любителей старомодного стиля.
 
 
+ent-ADTClothingRomanShirt = красная римская туника
+    .desc = Обычная туника римского гражданского. Надевая её, вам хочется начать распивать вино и ходить по кабакам.
