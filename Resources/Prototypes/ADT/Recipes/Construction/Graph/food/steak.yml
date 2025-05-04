@@ -63,7 +63,6 @@
   id: BearfootSteak
   start: start
   graph:
-
   - node: start
     edges:
     - to: bearfoot steak
@@ -72,6 +71,5 @@
         sound: /Audio/Effects/sizzle.ogg
       steps:
       - minTemperature: 345
-
   - node: bearfoot steak
     entity: FoodMeatGondolaCooked
