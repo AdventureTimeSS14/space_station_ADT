@@ -242,8 +242,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             sm.MatterPower += power;
 
-            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);// Перевод
-            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);                           // Перевод
+            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);                           
             _audio.PlayPvs(sm.DustSound, uid);
 
             // Prevent spam or excess power production
@@ -341,7 +341,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             var targetProto = MetaData(target).EntityPrototype;
             if (targetProto != null && targetProto.ID != sm.CollisionResultPrototype)
             {
-                _popup.PopupEntity(Loc.GetString("supermatter-collide-mob", ("sm", uid), ("target", target)), uid, PopupType.LargeCaution); // перевод
+                _popup.PopupEntity(Loc.GetString("supermatter-collide-mob", ("sm", uid), ("target", target)), uid, PopupType.LargeCaution);
                 _audio.PlayPvs(sm.DustSound, uid);
             }
 

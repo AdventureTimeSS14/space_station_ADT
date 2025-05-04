@@ -132,9 +132,7 @@ public sealed partial class SupermatterSystem
         {
             rad.Intensity =
                 _config.GetCVar(ADTCCVars.SupermatterRadsBase) +
-                sm.Power + integrityRadModificator
-                * Math.Max(0, 1f + transmissionBonus / 10f)
-                * 0.003f
+                (sm.Power * Math.Max(0, 1f + transmissionBonus / 10f) * 0.003f + integrityRadModificator)
                 * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);
 
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
@@ -260,7 +258,7 @@ public sealed partial class SupermatterSystem
             _appearance.SetData(uid, SupermatterVisuals.Crystal, visual, appearance);
         }
     }
-        public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
+    public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
         var station = _station.GetOwningStation(uid);
         if (station != null)

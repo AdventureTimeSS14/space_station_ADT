@@ -17,30 +17,52 @@ namespace Content.Server.ADT.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {
+    public AnomalyMode ChooseAnomalyType(EntityUid uid, SupermatterComponent sm)
+    {
+        if (sm.ResonantFrequency >= 1)
+            return AnomalyMode.BeforeCascade;
+
+        if (sm.KudzuSpawned == true)
+            return AnomalyMode.AfterCascade;
+
+        return AnomalyMode.Base;
+    }
+
     /// <summary>
     /// Generate temporary anomalies depending on accumulated power.
     /// </summary>
     public void GenerateAnomalies(EntityUid uid, SupermatterComponent sm)
     {
         var xform = Transform(uid);
-        var anomalies = new List<string>();
-
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        // Bluespace anomaly
-        if (_random.Prob(1 / sm.AnomalyBluespaceChance))
-            anomalies.Add(sm.AnomalyBluespaceSpawnPrototype);
+        var anomalies = new List<string>();
 
-        // Gravity anomaly
-        if (sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyGravityChanceSevere) ||
-            _random.Prob(1 / sm.AnomalyGravityChance))
-            anomalies.Add(sm.AnomalyGravitySpawnPrototype);
+        switch (sm.PreferredAnomalyMode)
+        {
+            case AnomalyMode.BeforeCascade:
+                if (_random.Prob(1 / sm.AnomalyPyroChanceSevere))
+                    anomalies.Add(sm.AnomalyPyroSpawnPrototype);
+                break;
 
-        // Pyroclastic anomaly
-        if (sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChanceSevere) ||
-            sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChance))
-            anomalies.Add(sm.AnomalyPyroSpawnPrototype);
+            case AnomalyMode.AfterCascade:
+                anomalies.Add(sm.AnomalyPyroSpawnPrototype);
+                break;
+
+            case AnomalyMode.Base:
+                if (_random.Prob(1 / sm.AnomalyBluespaceChance))
+                    anomalies.Add(sm.AnomalyBluespaceSpawnPrototype);
+
+                if (sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyGravityChanceSevere) ||
+                    _random.Prob(1 / sm.AnomalyGravityChance))
+                    anomalies.Add(sm.AnomalyGravitySpawnPrototype);
+
+                if (sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChanceSevere) ||
+                    sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChance))
+                    anomalies.Add(sm.AnomalyPyroSpawnPrototype);
+                break;
+        }
 
         var count = anomalies.Count;
         if (count == 0)
@@ -67,31 +89,38 @@ public sealed partial class SupermatterSystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return null;
 
+        float maxRange = sm.PreferredAnomalyMode switch
+        {
+            AnomalyMode.BeforeCascade => sm.PortalSpawnMaxRange,
+            AnomalyMode.AfterCascade => sm.PortalSpawnMaxRange,
+            _ => sm.AnomalySpawnMaxRange
+        };
+
         var localpos = xform.Coordinates.Position;
         var tilerefs = _map.GetLocalTilesIntersecting(
             xform.GridUid.Value,
             grid,
-            new Box2(localpos + new Vector2(-sm.AnomalySpawnMaxRange, -sm.AnomalySpawnMaxRange), 
-                   localpos + new Vector2(sm.AnomalySpawnMaxRange, sm.AnomalySpawnMaxRange)))
-            .ToList<TileRef>();
+            new Box2(localpos + new Vector2(-maxRange, -maxRange),
+                    localpos + new Vector2(maxRange, maxRange)))
+            .ToList();
 
-        if (tilerefs.Count() == 0)
+        if (tilerefs.Count == 0)
             return null;
 
         var physQuery = GetEntityQuery<PhysicsComponent>();
         var resultList = new List<TileRef>();
-        
+
         while (resultList.Count < amount)
         {
-            if (tilerefs.Count() == 0)
+            if (tilerefs.Count == 0)
                 break;
 
             var tileref = _random.Pick(tilerefs);
             var distance = MathF.Sqrt(
-                MathF.Pow(tileref.X - xform.LocalPosition.X, 2) + 
+                MathF.Pow(tileref.X - xform.LocalPosition.X, 2) +
                 MathF.Pow(tileref.Y - xform.LocalPosition.Y, 2));
 
-            if (distance > sm.AnomalySpawnMaxRange || distance < sm.AnomalySpawnMinRange)
+            if (distance > maxRange || distance < sm.AnomalySpawnMinRange)
             {
                 tilerefs.Remove(tileref);
                 continue;

@@ -208,6 +208,12 @@ public sealed partial class SupermatterComponent : Component
     public float AnomalySpawnMaxRange = 10f;
 
     /// <summary>
+    /// The maximum distance from the supermatter that portal will spawn at
+    /// </summary>
+    [DataField]
+    public float PortalSpawnMaxRange = 100f;
+
+    /// <summary>
     /// The chance for a bluespace anomaly to spawn when power or damage is high
     /// </summary>
     [DataField]
@@ -236,6 +242,9 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float AnomalyPyroChance = 2500f;
+
+    [DataField]
+    public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
 
     #endregion
 
@@ -593,4 +602,12 @@ public sealed partial class SupermatterSpriteUpdateEvent(NetEntity uid, string s
 {
     public NetEntity Entity = uid;
     public string State = state;
+}
+
+[Serializable, NetSerializable]
+public enum AnomalyMode : byte
+{
+    Base = 0,
+    BeforeCascade = 1,
+    AfterCascade = 2
 }
