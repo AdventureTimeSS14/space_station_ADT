@@ -4,7 +4,7 @@
   root: torso
   slots:
     head:
-      part: HeadDrask
+      part: ADTHeadDrask
       connections:
       - torso
       organs:
@@ -12,11 +12,11 @@
         eyes: OrganDraskEyes
         heart: OrganDraskHeart
     torso:
-      part: TorsoDrask
+      part: ADTTorsoDrask
       organs:
         lungs: OrganDraskLungs
         stomach: OrganDraskInnards
-        liver: OrganHumanLiver
+        liver: ADTOrganDraskLiver
         kidneys: OrganDraskKidneys
       connections:
       - right arm
@@ -24,26 +24,26 @@
       - left leg
       - right leg
     right arm:
-      part: RightArmDrask
+      part: ADTRightArmDrask
       connections:
       - right hand
     left arm:
-      part: LeftArmDrask
+      part: ADTLeftArmDrask
       connections:
       - left hand
     right hand:
-      part: RightHandDrask
+      part: ADTRightHandDrask
     left hand:
-      part: LeftHandDrask
+      part: ADTLeftHandDrask
     right leg:
-      part: RightLegDrask
+      part: ADTRightLegDrask
       connections:
       - right foot
     left leg:
-      part: LeftLegDrask
+      part: ADTLeftLegDrask
       connections:
       - left foot
     right foot:
-      part: RightFootDrask
+      part: ADTRightFootDrask
     left foot:
-      part: LeftFootDrask
+      part: ADTLeftFootDrask
