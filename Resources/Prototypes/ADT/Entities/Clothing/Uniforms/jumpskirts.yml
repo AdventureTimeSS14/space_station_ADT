@@ -530,7 +530,6 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
 
-
 # Юбка деку, ага
 
 - type: entity
