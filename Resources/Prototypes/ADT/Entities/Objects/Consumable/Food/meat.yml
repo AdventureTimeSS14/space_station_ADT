@@ -452,7 +452,7 @@
   - type: Construction
     graph: FishCutlet
     node: start
-    defaultTarget: fish cutlet  
+    defaultTarget: fish cutlet
 
 - type: entity
   name: baked chicken
@@ -506,3 +506,48 @@
   - type: Construction
     graph: FishCutlet
     node: fish cutlet
+
+- type: entity
+  name: raw gondola meat
+  parent: FoodMeatRawBase
+  id: FoodMeatGondola
+  description: A very manly slab of raw bearfoot meat.
+  components:
+  - type: Sprite
+    state: bear
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: ADTGondolium
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 10
+  - type: Construction
+    graph: BearfootSteak
+    node: start
+    defaultTarget: bearfoot steak
+
+- type: entity
+  name: cooked bearfoot
+  parent: FoodMeatBase
+  id: FoodMeatGondolaCooked
+  description: A well-cooked slab of bearfoot meat. Tough, but tasty with the right sides.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    layers:
+    - state: product-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: ADTGondolium
+          Quantity: 15
+  - type: Construction
+    graph: BearfootSteak
+    node: bearfoot steak

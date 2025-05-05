@@ -575,6 +575,12 @@
   id: ADTSpeedLoaderMagnumLesser
 
 - type: Tag
+  id: ADTGondola
+
+- type: Tag
+  id: ADTBluespaceCoffeine
+
+- type: Tag
   id: ADTVendModStorage
 
 - type: Tag
