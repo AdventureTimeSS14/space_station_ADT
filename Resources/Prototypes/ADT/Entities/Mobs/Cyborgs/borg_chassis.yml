@@ -8,6 +8,8 @@
     selectedBorgType: security
   - type: TTS
     voice: sentrybot
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_security
 
 - type: entity
   id: ADTBorgChassisKerfusNT

@@ -1,0 +1,27 @@
+- type: entity
+  id: ADTAdvancedKitchenReagentGrinder
+  parent: KitchenReagentGrinder
+  name: advanced reagent grinder
+  description: From BlenderTech. Will It Blend? Let's find out!
+  suffix: grinder/juicer
+  components:
+  - type: ReagentGrinder
+    workTimeMultiplier: 0.33
+  - type: GenericVisualizer #FUCK YOU WHOEVER CODE THIS YML WITHOUT GENERICVISUALIZER. YOU SHOULD COMPLETE 510 GUIDES FOR SS14 CODING
+    visuals: 
+      enum.ReagentGrinderVisualState.BeakerAttached:
+        grinder:
+          True: {state: "juicer1"}
+          False: {state: "juicer0"}
+  - type: Sprite
+    sprite: ADT/Structures/Machines/juicer_T2.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    offset: "0.0,0.4"
+    layers:
+    - map: [ "grinder" ]
+      state: "juicer0"
+  - type: ApcPowerReceiver
+    powerLoad: 600
+  - type: Machine
+    board: ADTAdvancedReagentGrinderMachineCircuitboard

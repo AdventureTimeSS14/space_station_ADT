@@ -67,3 +67,92 @@
           types:
             Poison: 2
       # End edit by Filo
+
+- type: reagent
+  id: ADTBlueSkyDesoxyephedrine
+  name: reagent-name-blueskydesoxyephedrine
+  group: Narcotics
+  desc: reagent-desc-blueskydesoxyephedrine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#1bcfe7"
+  boilingPoint: 212.0  # Dexosyephedrine vape when?
+  meltingPoint: 170.0
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        damage:
+          types:
+            Poison: 0.25
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 1 # this is added to the base damage of the meth.
+            Asphyxiation: 1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        damage:
+          types:
+            Poison: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 2
+            Bloodloss: 1
+    Narcotic:
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.4
+        sprintSpeedModifier: 1.4
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 16
+        refresh: false
+    Medicine:
+      effects:
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentThreshold
+          min: 20

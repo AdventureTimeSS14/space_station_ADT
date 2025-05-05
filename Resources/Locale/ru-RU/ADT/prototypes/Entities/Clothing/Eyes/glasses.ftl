@@ -29,5 +29,8 @@ ent-ADTClothingEyesNightVisionMGD = ПНВ компании MG&D
     .desc = Стандартный прибор ночного видения, используемый сотрудниками компании MG&D
     .suffix = { "MG&D" }
 
-ent-ADTClothingEyesGlassesMedChem = Химико-медицинские очки
+ent-ADTClothingEyesGlassesMedChem = химико-медицинские очки
     .desc = Защитные очки аналогичны химическим, но имеют встроенный медицинский визор.
+
+ent-ADTClothingEyesGlassesMonocle = монокль
+    .desc = Устаревший оптический прибор для коррекции зрения или демонстрации высокомерия.

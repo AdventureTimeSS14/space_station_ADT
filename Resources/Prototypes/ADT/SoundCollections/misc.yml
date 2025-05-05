@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: ADTSlapVulp
+  files:
+  - /Audio/ADT/Misc/slap.ogg
+  - /Audio/ADT/Misc/slap_secondary.ogg

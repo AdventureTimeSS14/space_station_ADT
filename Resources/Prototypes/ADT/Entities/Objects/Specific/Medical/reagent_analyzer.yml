@@ -1,0 +1,45 @@
+- type: entity
+  name: reagent analyzer
+  description: Your pocket helper of destinguishing strange chemicals.
+  parent: BaseItem
+  id: ADTReagentAnalyzer
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
+    layers:
+      - state: icon
+      - state: screen
+        shader: unshaded
+      - state: content
+        shader: unshaded
+        visible: false
+  - type: Item
+    size: Tiny
+    sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
+  - type: ActivatableUI
+    key: enum.ReagentAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ReagentAnalyzerUiKey.Key:
+        type: ReagentAnalyzerBoundUserInterface
+  - type: ReagentAnalyzer
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ADTSmallSyringe
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+  - type: ItemMapper
+    mapLayers:
+      content:
+        whitelist:
+          components:
+          - FitsInDispenser
+    sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
+  - type: Appearance

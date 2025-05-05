@@ -350,3 +350,66 @@
     sprite: ADT/Clothing/OuterClothing/Coats/crazyscientist.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/crazyscientist.rsi
+
+
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterDutch
+  name: dutch's jacket
+  description: For those long nights on the beach in Tahiti.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/dutch_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/dutch_jacket.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterLettermanNanoTrasen
+  name: blue letterman jacket
+  description: A blue letterman jacket with a proud Nanotrasen N on the back. The tag says that it was made by Mr.Chang's corp.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_nanotrasen.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_nanotrasen.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterLettermanSyndie
+  name: blood-red letterman jacket
+  description: A blood-red letterman jacket with a huge S on the back. Nothing suspicious.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
+
+
+# Тренч деку
+
+- type: entity
+  parent: ClothingOuterCoatDetectiveLoadout
+  id: ADTClothingOuterCoatDetectiveLoadoutOld
+  name: old trenchcoat
+  description: Decy trench, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/detective_old.rsi
+
+# Просто штука со старой сбокри, чё уж 
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatXCoat
+  name: x coat
+  description: x coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/x_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/x_coat.rsi
+

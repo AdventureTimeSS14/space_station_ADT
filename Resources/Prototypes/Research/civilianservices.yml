@@ -99,7 +99,7 @@
   recipeUnlocks:
   - BorgModuleAdvancedCleaning
   # ADT Research Console Rework start
-  position: 2,0
+  position: 1,0
   requiredTech:
   - AdvancedEntertainment
   # ADT Research Console Rework end
@@ -147,43 +147,46 @@
   - AdvancedEntertainment
   # ADT Research Console Rework end
 
-- type: technology
-  id: BiochemicalStasis
-  name: research-technology-biochemical-stasis
-  icon:
-    sprite: Structures/Machines/stasis_bed.rsi
-    state: icon
-  discipline: CivilianServices
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - StasisBedMachineCircuitboard
-  - CryoPodMachineCircuitboard
-  - CryostasisBeaker
-  - SyringeCryostasis
-  # ADT Research Console Rework start
-  position: 1,2
-  requiredTech:
-  - ADTCloning
-  # ADT Research Console Rework end
+# Перенесено в ADT/Research/biochemical.yml
+# - type: technology
+#   id: BiochemicalStasis
+#   name: research-technology-biochemical-stasis
+#   icon:
+#     sprite: Structures/Machines/stasis_bed.rsi
+#     state: icon
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 7500
+#   recipeUnlocks:
+#   - StasisBedMachineCircuitboard
+#   - CryoPodMachineCircuitboard
+#   - CryostasisBeaker
+#   - SyringeCryostasis
+#   # ADT Research Console Rework start
+#   position: 1,2
+#   requiredTech:
+#   - ADTCloning
+#   # ADT Research Console Rework end
 
-- type: technology
-  id: MechanizedTreatment
-  name: research-technology-mechanized-treatment
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: medical
-  discipline: CivilianServices
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
-  # ADT Research Console Rework start
-  position: 4,1
-  requiredTech:
-  - ADTMedicalMODsuit
-  # ADT Research Console Rework end
+# Перенесено в ADT/Research/biochemical.yml
+# - type: technology
+#   id: MechanizedTreatment
+#   name: research-technology-mechanized-treatment
+#   icon:
+#     sprite: Mobs/Silicon/chassis.rsi
+#     state: medical
+#   discipline: CivilianServices
+#   tier: 2
+#   cost: 5000
+#   recipeUnlocks:
+#   - BorgModuleAdvancedTreatment
+#   - BorgModuleDefibrillator
+#   # ADT Research Console Rework start
+#   position: 4,1
+#   requiredTech:
+#   - ADTMedicalMODsuit
+#   # ADT Research Console Rework end
+
 
 - type: technology
   id: AdvancedCleaning
@@ -198,7 +201,7 @@
   - AdvMopItem
   - MegaSprayBottle
   # ADT Research Console Rework start
-  position: 2,1
+  position: 1,1
   requiredTech:
   - RoboticCleanliness
   # ADT Research Console Rework end
@@ -241,7 +244,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   # ADT Research Console Rework start
-  position: 1,0
+  position: 0,0
   requiredTech:
   - AdvancedCleaning
   # ADT Research Console Rework end
@@ -258,10 +261,9 @@
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
   # ADT Research Console Rework start
-  position: 3,4
+  position: 2,2
   requiredTech:
   - BasicTranslation
-  - ADTCloning
   # ADT Research Console Rework end
 
 # Tier 3
@@ -285,20 +287,22 @@
   # ADT Research Console Rework end
 #ADT tweak end
 
-- type: technology
-  id: BluespaceChemistry
-  name: research-technology-bluespace-chemistry
-  icon:
-    sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
-    state: beakerbluespace
-  discipline: CivilianServices
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - BluespaceBeaker
-  - SyringeBluespace
-  # ADT Research Console Rework start
-  position: 1,3
-  requiredTech:
-  - ADTCloning
-  # ADT Research Console Rework end
+# Перенесено в ADT/Research/biochemical.yml
+# - type: technology
+#   id: BluespaceChemistry
+#   name: research-technology-bluespace-chemistry
+#   icon:
+#     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
+#     state: beakerbluespace
+#   discipline: CivilianServices
+#   tier: 3
+#   cost: 10000
+#   recipeUnlocks:
+#   - BluespaceBeaker
+#   - SyringeBluespace
+#   # ADT Research Console Rework start
+#   position: 1,3
+#   requiredTech:
+#   - ADTCloning
+#   # ADT Research Console Rework end
+
