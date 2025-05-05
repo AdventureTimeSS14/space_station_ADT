@@ -6,7 +6,7 @@
     Oxygen:
       amount: 1
     Hydrogen:
-      amount: 1
+      amount: 2
   products:
     ADTStabilizingAgent: 3
 
