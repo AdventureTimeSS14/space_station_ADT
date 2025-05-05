@@ -1,3 +1,21 @@
+# Для разблокировки одежды ветерана СБ
+- type: loadoutEffectGroup
+  id: ADTJuridicalVeteran
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Juridical
+      time: 144000 #40 hrs
+
+- type: loadout
+  id: LawyerGreenSuit
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitGreenSuitLawyer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTJuridicalVeteran
+
 - type: loadout
   id: LawyerPDA
   equipment:

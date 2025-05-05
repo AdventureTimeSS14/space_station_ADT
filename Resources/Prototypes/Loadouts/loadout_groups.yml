@@ -369,6 +369,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
+  - LawyerGreenSuit # ADT-Loadouts
 
 - type: loadoutGroup
   id: LawyerNeck
