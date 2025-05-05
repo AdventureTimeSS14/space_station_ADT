@@ -68,4 +68,4 @@
           types:
             Cold: 1.5
       - !type:AdjustTemperature
-        amount: -273
+        amount: -15000
