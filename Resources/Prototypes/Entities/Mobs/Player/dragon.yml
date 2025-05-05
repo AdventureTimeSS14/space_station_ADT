@@ -7,8 +7,10 @@
   abstract: true
   components:
   - type: Bloodstream
+    bloodlossThreshold: 0.8 # ADT-Tweak
+    bloodRefreshAmount: 2 # ADT-Tweak
     bloodMaxVolume: 650
-    damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak # ADT-Tweak
+    damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
