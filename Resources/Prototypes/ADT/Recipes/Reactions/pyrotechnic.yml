@@ -24,7 +24,7 @@
       amount: 1
       catalyst: true
   products:
-    ADTLiquidDarkMatter: 3
+    ADTLiquidDarkMatter: 4
 
 - type: reaction
   id: ADTLiquidDarkMatterRough
