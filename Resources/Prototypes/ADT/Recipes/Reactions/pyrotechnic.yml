@@ -84,7 +84,7 @@
   minTemp: 163
   reactants:
     Water:
-      amount: 1
+      amount: 2
     Plasma:
       amount: 1
     Nitrogen:
