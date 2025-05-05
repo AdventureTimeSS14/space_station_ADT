@@ -1,4 +1,4 @@
-ent-ADTClothingUniformsJumpsuitWhiteDiplomatSuitL = Белый костюм дипломата
+ent-ADTClothingUniformsJumpsuitWhiteDiplomatSuitL = белый костюм дипломата
     .desc = Специально изготовленный белый костюм дипломата NanoTrasen.
 
 ent-ADTClothingUniformPathologistSuit = костюм патологоанатома
@@ -463,3 +463,6 @@ ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный к
 
 ent-ADTClothingRomanShirt = красная римская туника
     .desc = Обычная туника римского гражданского. Надевая её, вам хочется начать распивать вино и ходить по кабакам.
+
+ent-ADTClothingUniformJumpsuitGreenSuitLawyer = костюм члена "клуба ревизоров"
+    .desc = Светло-зеленый костюм с золотыми элементами. Знаковый элемент "клуба ревизоров" - неформальной группы юристов, работающих в интересах NT и отметившихся выдающимся стажем работы и особыми заслугами в профессиональной среде.
