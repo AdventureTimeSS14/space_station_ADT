@@ -1,0 +1,118 @@
+﻿- type: constructionGraph
+  id: ConvertToMODSuit
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Effects/double_beep.ogg
+          steps:
+            - tag: ADTHardsuitConverter
+              doAfter: 2
+
+    - node: upgraded
+      entity: ADTClothingModsuitBackEngineering
+
+- type: constructionGraph
+  id: ConvertToMODSuitSec
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Effects/double_beep.ogg
+          steps:
+            - tag: ADTHardsuitConverter
+              doAfter: 2
+
+    - node: upgraded
+      entity: ADTClothingModsuitBackSecurity
+
+- type: constructionGraph
+  id: ConvertToMODSuitHeadOfSec
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Effects/double_beep.ogg
+          steps:
+            - tag: ADTHardsuitConverter
+              doAfter: 2
+
+    - node: upgraded
+      entity: ADTClothingModsuitBackSafeguard
+
+- type: constructionGraph
+  id: ConvertToMODSuitEngineerChef
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Effects/double_beep.ogg
+          steps:
+            - tag: ADTHardsuitConverter
+              doAfter: 2
+
+    - node: upgraded
+      entity: ADTClothingModsuitBackAdvanced
+
+- type: constructionGraph
+  id: ConvertToMODSuitBlueShield
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Effects/double_beep.ogg
+          steps:
+            - tag: ADTHardsuitConverter
+              doAfter: 2
+
+    - node: upgraded
+      entity: ADTClothingModsuitBackBlueShield
+
+- type: constructionGraph
+  id: ConvertToMODSuitBloodRed
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Effects/double_beep.ogg
+          steps:
+            - tag: ADTHardsuitConverter
+              doAfter: 2
+
+    - node: upgraded
+      entity: ADTClothingModsuitBackSyndicate
+
+- type: constructionGraph
+  id: ConvertToMODSuitAtmos
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: upgraded
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Effects/double_beep.ogg
+          steps:
+            - tag: ADTHardsuitConverter
+              doAfter: 2
+
+    - node: upgraded
+      entity: ADTClothingModsuitBackAtmos

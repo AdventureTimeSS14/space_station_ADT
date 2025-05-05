@@ -576,3 +576,27 @@
 
 - type: Tag
   id: ADTVendModStorage
+
+- type: Tag
+  id: ADTHardsuitConverter
+
+- type: Tag
+  id: EngineeringHardsuit
+
+- type: Tag
+  id: SecurityHardsuit
+
+- type: Tag
+  id: HeadOfSecurityHardsuit
+
+- type: Tag
+  id: EngineerChefHardsuit
+
+- type: Tag
+  id: BloodyRedHardsuit
+
+- type: Tag
+  id: BlueShieldHarsuit
+
+- type: Tag
+  id: AtmosHardsuit

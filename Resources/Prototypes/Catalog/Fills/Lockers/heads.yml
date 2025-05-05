@@ -207,7 +207,8 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasAtmos
-    - id: ADTClothingModsuitBackAdvanced #ADT tweak
+    - id: ClothingOuterHardsuitEngineeringWhite #ADT tweak
+    - id: ADTMODConverter #ADT tweak
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
@@ -412,7 +413,8 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ADTClothingModsuitBackSafeguard #ADT tweak
+    - id: ClothingOuterHardsuitSecurityRed #ADT tweak
+    - id: ADTMODConverter #ADT tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 

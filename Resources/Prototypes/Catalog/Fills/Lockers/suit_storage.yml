@@ -111,7 +111,8 @@
     contents:
         - id: OxygenTankFilled
         - id: ClothingShoesBootsMag
-        - id: ADTClothingModsuitBackEngineering #ADT tweak
+        - id: ClothingOuterHardsuitEngineering #ADT tweak
+        - id: ADTMODConverter #ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Engineering"]]
@@ -125,7 +126,8 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackAtmos #ADT tweak
+        - id: ClothingOuterHardsuitAtmos #ADT tweak
+        - id: ADTMODConverter #ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -139,7 +141,8 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackSecurity
+        - id: ClothingOuterHardsuitSecurity
+        - id: ADTMODConverter #ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
@@ -245,7 +248,8 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackSyndicate # ADT tweak
+        - id: ClothingOuterHardsuitSyndie # ADT tweak
+        - id: ADTMODConverter #ADT tweak
         # - id: ClothingShoesBootsMagSyndie #ADT tweak
         - id: ClothingMaskGasSyndicate
 

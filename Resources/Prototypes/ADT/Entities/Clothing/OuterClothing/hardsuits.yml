@@ -155,6 +155,12 @@
     damageCoefficient: 0.6
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitBlueshield
+  - type: Tag #ADT-Tweak start
+    tags:
+      - BlueShieldHarsuit
+  - type: Construction
+    graph: ConvertToMODSuitBlueShield
+    node: start #ADT-Tweak end
 
 - type: entity
   parent: ClothingOuterHardsuitBase

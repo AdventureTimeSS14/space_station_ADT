@@ -7,8 +7,9 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackBlueShield
+        - id: ADTBlueshieldSuit
         - id: ClothingMaskBreath
+        - id: ADTMODConverter
   - type: AccessReader
     access: [["BlueShield"]]
 

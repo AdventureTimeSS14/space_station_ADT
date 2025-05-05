@@ -69,6 +69,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
+  - type: Tag #ADT-Tweak start
+    tags:
+      - AtmosHardsuit
+  - type: Construction
+    graph: ConvertToMODSuitAtmos
+    node: start #ADT-Tweak end
 
 #Engineering Hardsuit
 - type: entity
@@ -101,6 +107,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
+  - type: Tag #ADT-Tweak start
+    tags:
+      - EngineeringHardsuit
+  - type: Construction
+    graph: ConvertToMODSuit
+    node: start #ADT-Tweak end
 
 #Spationaut Hardsuit
 - type: entity
@@ -271,6 +283,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
+  - type: Tag #ADT-Tweak start
+    tags:
+      - SecurityHardsuit
+  - type: Construction
+    graph: ConvertToMODSuitSec
+    node: start #ADT-Tweak end
 
 #Brigmedic Hardsuit ADT rework
 - type: entity
@@ -436,7 +454,12 @@
     component:
     - type: SupermatterImmune
   - type: SupermatterImmune
-  # ADT-Tweak-end
+  - type: Tag
+    tags:
+      - EngineerChefHardsuit
+  - type: Construction
+    graph: ConvertToMODSuitEngineerChef
+    node: start #ADT-Tweak end
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -538,6 +561,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
+  - type: Tag #ADT-Tweak start
+    tags:
+      - HeadOfSecurityHardsuit
+  - type: Construction
+    graph: ConvertToMODSuitHeadOfSec
+    node: start #ADT-Tweak end
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -611,6 +640,7 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+    - BloodyRedHardsuit
   - type: DNALocker # ADT-Tweak
   # ADT Grab start
   - type: ModifyGrabStageTime
@@ -618,6 +648,11 @@
       Hard: 2.25
       Choke: 2
   # ADT Grab end
+  - type: Construction
+    graph: ConvertToMODSuitBloodRed
+    node: start #ADT-Tweak end
+
+
 
 # Syndicate Medic Hardsuit
 - type: entity
