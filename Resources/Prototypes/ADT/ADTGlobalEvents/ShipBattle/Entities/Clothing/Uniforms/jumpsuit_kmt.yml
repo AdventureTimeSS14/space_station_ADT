@@ -1,0 +1,123 @@
+#Command
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformCaptainKMT
+  name: uniform of the captain of the KMT
+  description: uniform of the captain of the KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/captain_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformExOfficerKMT
+  name: uniform of the executional officer of the KMT
+  description: uniform of the executional officer of the KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/exofficer_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformCommanderKMT
+  name: uniform of the commander of the KMT
+  description: uniform of the commander of the KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/commander_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformChiefGunnerKMT
+  name: uniform of the chief gunner of the KMT
+  description: uniform of the chief gunner of the KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/chiefgunner_kmt.rsi
+
+#Marines
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformMarineLeutenantKMT
+  name: uniform of the marine leutenant KMT
+  description: uniform of the marine leutenant KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_leutenant_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformMarineKMT
+  name: uniform of the marine KMT
+  description: uniform of the marine KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/marine_kmt.rsi
+
+#Shipcrew
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformGunnerKMT
+  name: uniform of the gunner of the KMT
+  description: uniform of the gunner of the KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/gunner_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformEngineerKMT
+  name: uniform engineer KMT
+  description: uniform engineer KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/engineer_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformMedicKMT
+  name: uniform medic KMT
+  description: uniform medic KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/medic_kmt.rsi
+
+- type: entity
+  parent: ADTShipBattleClothingUniformBase
+  id: ADTShipBattleClothingUniformPilotKMT
+  name: uniform pilot KMT
+  description: uniform pilot KMT
+  suffix: ShipBattle, KMT
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/pilot_kmt.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Uniforms/Jumpsuit/pilot_kmt.rsi

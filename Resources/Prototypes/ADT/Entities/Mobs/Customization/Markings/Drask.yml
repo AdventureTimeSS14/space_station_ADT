@@ -1,6 +1,6 @@
 - type: marking
   id: DraskArmRight
-  bodyPart: RArm
+  bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [DraskSpecies]
   sponsorOnly: false
@@ -22,7 +22,7 @@
 
 - type: marking
   id: DraskArmLeft
-  bodyPart: LArm
+  bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [DraskSpecies]
   sponsorOnly: false
@@ -41,3 +41,30 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Drask/custom.rsi
       state: l_arm
+
+- type: marking
+  id: ADTDraskChestRoughnessChest
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/custom.rsi
+    state: roughness_body
+
+- type: marking
+  id: ADTDraskRoughnessArms
+  bodyPart: LArm
+  markingCategory: Overlay
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/custom.rsi
+    state: roughness_arms
+
+- type: marking
+  id: ADTDraskRoughnessLegs
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/custom.rsi
+    state: roughness_legs
