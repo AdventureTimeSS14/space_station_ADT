@@ -183,11 +183,13 @@ namespace Content.Server.Stack
 
             AlternativeVerb owncount = new()
             {
-                Text = Loc.GetString("comp-stack-split-own-count"),
+                Text = Loc.GetString("comp-stack-split-own-count-verb"),
                 Category = VerbCategory.Split,
                 Act = () =>
                 {
-                    _quickDialog.OpenDialog(player, "Выбрать собственное количество", "Количество:",
+                    _quickDialog.OpenDialog(player,
+                    Loc.GetString("comp-stack-split-choice-label"),
+                    Loc.GetString("comp-stack-split-choice-field"),
                     (string myCount) =>
                     {
                         _ = int.TryParse(myCount, out var count);
