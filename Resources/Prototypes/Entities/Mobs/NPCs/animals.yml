@@ -250,7 +250,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEggLaid # ADT: FoodEgg<FoodEggLaid
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
@@ -315,7 +315,7 @@
 
 - type: entity
   id: FoodEggChickenFertilized
-  parent: FoodEggLaid # ADT: FoodEgg<FoodEggLaid
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Chicken
   components:
   - type: Timer
@@ -691,7 +691,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEggLaid # ADT: FoodEgg<FoodEggLaid
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
@@ -744,7 +744,7 @@
 
 - type: entity
   id: FoodEggDuckFertilized
-  parent: FoodEggLaid # ADT: FoodEgg<FoodEggLaid
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Duck
   components:
     - type: Timer

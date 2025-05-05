@@ -1,2 +1,2 @@
-ent-FoodEggLaid = яйцо
+ent-ADTFoodEggLaid = яйцо
     .desc = { ent-FoodEggBase.desc }
