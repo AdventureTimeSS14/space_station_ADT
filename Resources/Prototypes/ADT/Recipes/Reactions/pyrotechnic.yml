@@ -20,4 +20,4 @@
       amount: 30
   effects:
   - !type:CreateEntityReactionEffect
-    entity: ReactionSingularity
+    entity: ADTReactionSingularity
