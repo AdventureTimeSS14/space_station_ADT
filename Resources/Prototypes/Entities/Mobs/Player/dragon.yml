@@ -115,6 +115,8 @@
   - type: EyeProtection
   - type: Damageable
     damageModifierSet: ADTDragonDamageSet
+  - type: Stamina
+    critThreshold: 350
 # ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
