@@ -1,0 +1,115 @@
+#Магазин спонсора 3 уровня
+
+- type: storeCategory
+  id: ADTSponsorTier3Uniform
+  name: store-category-tier3-uniform
+  priority: 0
+
+- type: storeCategory
+  id: ADTSponsorTier3OuterClothing
+  name: store-category-tier3-outer
+  priority: 1
+
+- type: storeCategory
+  id: ADTSponsorTier3Head
+  name: store-category-tier3-head
+  priority: 2
+
+- type: storeCategory
+  id: ADTSponsorTier3Shoes
+  name: store-category-tier3-shoes
+  priority: 3
+
+- type: entity
+  id: ADTStorePresetSponsorTier3
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-tier3
+    categories:
+    - ADTSponsorTier3Uniform
+    - ADTSponsorTier3OuterClothing
+    - ADTSponsorTier3Head
+    - ADTSponsorTier3Shoes
+    currencyWhitelist:
+    - WizCoin
+
+- type: entity
+  id: ADTSponsorTier3Grimoire
+  name: tier 3 grimoire
+  suffix: Sponsor, KonnorSmith
+  parent: [ BaseItem, ADTStorePresetSponsorTier3 ]
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper_blood
+      - state: cover_strong
+        color: "#454b59"
+      - state: decor_wingette_flat
+        color: "#425071"
+      - state: icon_letter_N
+        color: "#043cba"
+    - type: UserInterface
+      interfaces:
+        enum.StoreUiKey.Key:
+          type: StoreBoundUserInterface
+    - type: ActivatableUI
+      key: enum.StoreUiKey.Key
+    - type: Store
+      refundAllowed: false
+      ownerOnly: true # get your own tome!
+      balance:
+        WizCoin: 0 # prices are balanced around this 10 point maximum and how strong the spells are
+
+- type: listing
+  id: ADTSponsorTier3Tshirt
+  name: sponsor-tier3-tshirt-name
+  description: sponsor-tier3-tshirt-description
+  productEntity: ADTClothingUniformTier3Shirt
+  cost:
+    WizCoin: 0
+  categories:
+  - ADTSponsorTier3Uniform
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ADTSponsorTier3Bomber
+  name: sponsor-tier3-bomber-name
+  description: sponsor-tier3-bomber-description
+  productEntity: ADTClothingOuterCoatTrader
+  cost:
+    WizCoin: 0
+  categories:
+  - ADTSponsorTier3OuterClothing
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ADTSponsorTier3Cone
+  name: sponsor-tier3-cone-name
+  description: sponsor-tier3-cone-description
+  productEntity: ClothingHeadHatJester
+  cost:
+    WizCoin: 0
+  categories:
+  - ADTSponsorTier3Head
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ADTSponsorTier3schnur
+  name: sponsor-tier3-schnur-name
+  description: sponsor-tier3-schnur-description
+  productEntity: ClothingShoesBootsLaceup
+  cost:
+    WizCoin: 0
+  categories:
+  - ADTSponsorTier3Shoes
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

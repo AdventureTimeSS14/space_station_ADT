@@ -1042,3 +1042,16 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+
+#Тест спонсорского магазина
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformTier3Shirt
+  name: tier 3 shirt
+  description: tier 3 shirt
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/tier3shirt.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/tier3shirt.rsi
