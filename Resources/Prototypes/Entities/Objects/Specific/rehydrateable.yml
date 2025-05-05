@@ -53,6 +53,7 @@
         hard: false
         layer:
         - LowImpassable
+  - type: BadFood # ADT tweak
 
 - type: entity
   parent: MonkeyCube
