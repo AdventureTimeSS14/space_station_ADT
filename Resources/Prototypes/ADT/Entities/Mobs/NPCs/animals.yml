@@ -362,6 +362,7 @@
   - type: Tag
     tags:
     - ADTGondola
+    - DoorBumpOpener
   - type: Reproductive
     partnerWhitelist:
       tags:
