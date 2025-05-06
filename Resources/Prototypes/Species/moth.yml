@@ -68,7 +68,6 @@
     Hair:
       points: 1
       required: false
-      layer: 100
     FacialHair:
       points: 0
       required: false
