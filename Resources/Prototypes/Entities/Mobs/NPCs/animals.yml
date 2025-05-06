@@ -1789,10 +1789,13 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
-# ADT-Tweak-start
+  # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
-# ADT-Tweak-end
+  - type: CellGeneration
+    cells:
+      - Murine
+  # ADT-Tweak-end
   - type: Tag
     tags:
     - Trash

@@ -12,6 +12,9 @@
       - state: server_o
         map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: ResearchServer
+  # ADT
+  - type: CellServer
+  # ADT
   - type: TechnologyDatabase
     supportedDisciplines:
     - Industrial
