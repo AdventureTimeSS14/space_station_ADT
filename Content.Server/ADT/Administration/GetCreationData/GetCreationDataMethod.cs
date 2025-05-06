@@ -1,6 +1,14 @@
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+using Robust.Server.GameStates;
 
 namespace Content.Server.ADT.Administration;
 public sealed partial class GetCreationData
@@ -29,25 +37,30 @@ public sealed partial class GetCreationData
                 }
                 else
                 {
-                    return "Дата создания отсутствует или пустая";
+                    Logger.Error($"Пустая дата создания для UUID: {uuid}");
+                    return "Произошла ошибка";
                 }
             }
             else
             {
-                return "Дата создания не найдена в ответе API";
+                Logger.Error($"Свойство createdTime не найдено в ответе API для UUID: {uuid}");
+                return "Произошла ошибка";
             }
         }
         catch (HttpRequestException httpEx)
         {
-            return $"Ошибка при запросе API: {httpEx.Message}";
+            Logger.Error($"Ошибка HTTP при запросе API для UUID {uuid}: {httpEx.Message}");
+            return "Произошла ошибка";
         }
-        catch (JsonException)
+        catch (JsonException jsonEx)
         {
-            return "Ошибка при разборе ответа API (неправильный формат JSON)";
+            Logger.Error($"Ошибка парсинга JSON для UUID {uuid}: {jsonEx.Message}");
+            return "Произошла ошибка";
         }
         catch (Exception ex)
         {
-            return $"Произошла ошибка: {ex.Message}";
+            Logger.Error($"Неожиданная ошибка для UUID {uuid}: {ex}");
+            return "Произошла ошибка";
         }
     }
 }
