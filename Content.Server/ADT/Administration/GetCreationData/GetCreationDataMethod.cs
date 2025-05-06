@@ -1,8 +1,7 @@
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System;
-using Robust.Shared.Utility;
+
 
 namespace Content.Server.ADT.Administration;
 
@@ -20,7 +19,7 @@ public sealed partial class GetCreationDateClass
 
             if (!response.IsSuccessStatusCode)
             {
-                Logger.Error($"API request failed for UUID {uuid}: {response.StatusCode}");
+                Logger.Warning($"API request failed for UUID {uuid}: {response.StatusCode}");
                 return "Дата не найдена";
             }
 
@@ -39,27 +38,27 @@ public sealed partial class GetCreationDateClass
                 }
             }
 
-            Logger.Error($"CreatedTime property missing or invalid for UUID: {uuid}");
+            Logger.Warning($"CreatedTime property missing or invalid for UUID: {uuid}");
             return "Дата не найдена";
         }
         catch (HttpRequestException httpEx)
         {
-            Logger.Error($"HTTP error for UUID {uuid}: {httpEx.Message}");
+            Logger.Warning($"HTTP error for UUID {uuid}: {httpEx.Message}");
             return "Ошибка соединения";
         }
         catch (JsonException jsonEx)
         {
-            Logger.Error($"JSON parsing error for UUID {uuid}: {jsonEx.Message}");
+            Logger.Warning($"JSON parsing error for UUID {uuid}: {jsonEx.Message}");
             return "Ошибка данных";
         }
         catch (FormatException)
         {
-            Logger.Error($"Invalid date format for UUID: {uuid}");
+            Logger.Warning($"Invalid date format for UUID: {uuid}");
             return "Неверный формат даты";
         }
         catch (Exception ex)
         {
-            Logger.Error($"Unexpected error for UUID {uuid}: {ex.Message}");
+            Logger.Warning($"Unexpected error for UUID {uuid}: {ex.Message}");
             return "Ошибка системы";
         }
     }
