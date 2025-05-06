@@ -4,6 +4,7 @@ using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
+using Content.Shared.Popups;
 using Content.Shared.ADT.SS40k.Turrets;
 using Content.Shared.ADT.SS40k.Turrets.Components;
 using Content.Shared.Mind.Components;
@@ -13,6 +14,7 @@ namespace Content.Shared.ADT.SS40k.Turrets.Systems;
 public sealed class TurretControllerSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -47,6 +49,13 @@ public sealed class TurretControllerSystem : EntitySystem
 
         if (!TryComp<DeviceLinkSourceComponent>(uid, out var linkSource))
             return;
+
+        if (component.CurrentUser != null)
+        {
+            var message = Loc.GetString("machine-already-in-use", ("machine", uid));
+            _popupSystem.PopupEntity(message, uid, args.User);
+            return;
+        }
 
         TryComp<MindContainerComponent>(args.Target, out var mindForTest);//check
         if (mindForTest is null || !mindForTest.HasMind)
