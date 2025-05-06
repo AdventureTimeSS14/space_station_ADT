@@ -39,6 +39,8 @@ public sealed partial class SupermatterSystem
             var loc = sm.PreferredDelamType switch
             {
                 DelamType.Cascade => "supermatter-delam-cascade",
+                DelamType.Singularity => "supermatter-delam-singularity",
+                DelamType.Tesla => "supermatter-delam-tesla",
                 _ => "supermatter-delam-explosion"
             };
 
@@ -98,7 +100,7 @@ public sealed partial class SupermatterSystem
 
             message = Loc.GetString(loc, ("seconds", seconds));
 
-            if (seconds == 6)
+            if (seconds == 5)
                 _audio.PlayGlobal(sm.Count, mapFilter, true);
 
             global = true;

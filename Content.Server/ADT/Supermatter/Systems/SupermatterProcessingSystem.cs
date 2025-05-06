@@ -33,8 +33,12 @@ using Robust.Shared.Spawners;
 using Vector4 = Robust.Shared.Maths.Vector4;
 
 namespace Content.Server.ADT.Supermatter.Systems;
+
 public sealed partial class SupermatterSystem
 {
+    /// <summary>
+    /// Logging the first launch of supermatter
+    /// <summary>    
     private bool CheckFirstPower(EntityUid uid, SupermatterComponent sm, GasMixture mix)
     {
         if (sm.Power > 0 && !sm.HasBeenPowered)
@@ -45,6 +49,10 @@ public sealed partial class SupermatterSystem
         return sm.HasBeenPowered;
     }
 
+    
+    /// <summary>
+    /// The logic of supermatter working with gases.
+    /// </summary>
     private void ProcessAtmos(EntityUid uid, SupermatterComponent sm, float frameTime)
     {
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
@@ -152,6 +160,7 @@ public sealed partial class SupermatterSystem
             Gas.Oxygen,
             Math.Max((energy + gasReleased.Temperature * sm.HeatModifier - Atmospherics.T0C) / _config.GetCVar(ADTCCVars.SupermatterOxygenReleaseModifier), 0f));
 
+//        mix.Temperature = gasReleased.Temperature;
         _atmosphere.Merge(mix, gasReleased);
 
         var powerReduction = (float)Math.Pow(sm.Power / 500, 3);
@@ -165,8 +174,12 @@ public sealed partial class SupermatterSystem
         sm.ResonantFrequency = SupermatterResonantFrequency;
     }
 
+    /// <summary>
+    /// Supermatter damage logic. SM takes damage when: 1) there are a lot of moles of gas. 2) there is a lot of energy. 3) there is too much temperature.
+    /// </summary>
     private void HandleDamage(EntityUid uid, SupermatterComponent sm)
     {
+        // While Supermatter not working, we don't have any damage.
         if (!sm.HasBeenPowered)
             return;
 
@@ -177,12 +190,14 @@ public sealed partial class SupermatterSystem
 
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
+        // Vacuum damage.
         if (!xform.GridUid.HasValue || mix is not { } || mix.TotalMoles == 0f)
         {
-            sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
+            sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 10f);
             return;
         }
 
+        // AntiNob damage.
         if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
         {
             var integrity = GetIntegrity(sm);
@@ -196,6 +211,7 @@ public sealed partial class SupermatterSystem
 
         var totalDamage = 0f;
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(ADTCCVars.SupermatterHeatPenaltyThreshold);
+
 
         var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
             sm.MoleHeatPenaltyThreshold / 150f * sm.DamageIncreaseMultiplier;
@@ -257,43 +273,54 @@ public sealed partial class SupermatterSystem
 
             _appearance.SetData(uid, SupermatterVisuals.Crystal, visual, appearance);
         }
+
+         // return's absorbed gases
+        _atmosphere.Merge(mix, absorbedGas);
     }
     public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
     {
         var station = _station.GetOwningStation(uid);
-        var xform = Transform(uid);
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+        var xform = Transform(uid);;
 
-        if (station != null)
-        {
-            if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
-            {
-                if (!sm.KudzuSpawned)
-                {
-                    Spawn(sm.KudzuPrototype, xform.Coordinates);
-                    sm.KudzuSpawned = true;
-                }
-
-                _alert.SetLevel((EntityUid)station, sm.AlertCodeCascadeId, true, true, true, false);
-                return DelamType.Cascade;
-            }
-
-            if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterCriticalPowerPenaltyThreshold))
-            {
-                _alert.SetLevel((EntityUid)station, sm.AlertCodeDeltaId, true, true, true, false);
-                return DelamType.Tesla;
-            }
-
-            if (!xform.GridUid.HasValue || mix == null || mix.TotalMoles == 0f)
-            {
-                _alert.SetLevel((EntityUid)station, sm.AlertCodeDeltaId, true, true, true, false);
-                return DelamType.Singularity;
-            }
-
-            _alert.SetLevel((EntityUid)station, sm.AlertCodeDeltaId, true, true, true, false);
+        if (station == null)
             return DelamType.Explosion;
+
+        EntityUid stationId = (EntityUid)station;
+
+        // Cascade Delam
+        if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
+        {
+            if (!sm.KudzuSpawned)
+            {
+                Spawn(sm.KudzuPrototype, xform.Coordinates);
+                sm.KudzuSpawned = true;
+            }
+
+            _alert.SetLevel(stationId, sm.AlertCodeCascadeId, true, true, true, false);
+            return DelamType.Cascade;
         }
 
+        // Singularity Delam
+        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+
+        if (mix is { })
+        {
+            var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
+            var moles = absorbedGas.TotalMoles;
+
+            if (moles >= _config.GetCVar(ADTCCVars.SupermatterMolePenaltyThreshold))
+                return DelamType.Singularity;
+        }
+
+        // Tesla Delam
+        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterCriticalPowerPenaltyThreshold))
+        {
+            _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
+            return DelamType.Tesla;
+        }
+
+        // Base explosion
+        _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
         return DelamType.Explosion;
     }
 
@@ -364,22 +391,32 @@ public sealed partial class SupermatterSystem
                 Spawn(sm.SupermatterCascadePrototype, xform.Coordinates);
                 _roundEnd.EndRound(sm.RestartDelay);
                 break;
- 
-            case DelamType.Tesla:
-                Spawn(sm.TeslaPrototype, xform.Coordinates);
-                break;
 
             case DelamType.Singularity:
                 Spawn(sm.SingularityPrototype, xform.Coordinates);
                 break;
 
+            case DelamType.Tesla:
+                Spawn(sm.TeslaPrototype, xform.Coordinates);
+                break;
+
             default:
                 _explosion.TriggerExplosive(uid);
                 Spawn(sm.AfterExplosionRadiationPrototype, xform.Coordinates);
+
+                var station = _station.GetOwningStation(uid);
+                if (station.HasValue)
+                {
+                    var stationId = station.Value;
+                    _alert.SetLevel(stationId, sm.AlertCodeYellowId, true, true, true, false);
+                }
                 break;
         }
     }
 
+    /// <summary>
+    /// Console stuff
+    /// </summary>
     private void HandleStatus(EntityUid uid, SupermatterComponent sm)
     {
         var currentStatus = GetStatus(uid, sm);

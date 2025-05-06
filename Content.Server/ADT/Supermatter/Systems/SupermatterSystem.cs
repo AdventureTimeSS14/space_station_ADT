@@ -80,7 +80,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
@@ -200,7 +199,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         // Ability to cut Sliver Supermatter if the object in your hand is sharp
         if (!sm.HasBeenPowered)
-              sm.HasBeenPowered = true;
+            sm.HasBeenPowered = true;
 
         if (sm.SliverRemoved)
             return;
@@ -218,7 +217,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             _doAfter.TryStartDoAfter(doAfterArgs);
             _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), uid, args.User);
         }
-            
+
         var target = args.User;
         var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
@@ -227,8 +226,8 @@ public sealed partial class SupermatterSystem : EntitySystem
         HasComp<GhostComponent>(target) ||
         HasComp<SupermatterImmuneComponent>(item) ||
         HasComp<GodmodeComponent>(item))
-        return;
-            
+            return;
+
         if (HasComp<UnremoveableComponent>(item))
         {
             if (!sm.HasBeenPowered)
@@ -245,7 +244,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             sm.MatterPower += power;
 
             _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);
-            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);                           
+            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);
             _audio.PlayPvs(sm.DustSound, uid);
 
             // Prevent spam or excess power production
