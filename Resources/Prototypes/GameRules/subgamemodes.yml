@@ -33,34 +33,34 @@
         sound: "/Audio/Misc/thief_greeting.ogg"
 
 # Needs testing
-#- type: entity
-#  parent: BaseWizardRule
-#  id: SubWizard
-#  components:
-#  - type: AntagSelection
-#    agentName: wizard-round-end-name
-#    selectionTime: PrePlayerSpawn
-#    definitions:
-#    - prefRoles: [ Wizard ]
-#      max: 1
-#      playerRatio: 1
-#      spawnerPrototype: SpawnPointGhostWizard
-#      roleLoadout:
-#      - RoleSurvivalExtended
-#      briefing:
-#        text: wizard-role-greeting
-#        color: Turquoise
-#        # TODO: Need Wizard Start sound
-#        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
-#      startingGear: WizardBlueGear
-#      # TODO: WizardComp as needed
-#      components:
-#      - type: NpcFactionMember
-#        factions:
-#        - Wizard
-#      - type: RandomMetadata
-#        nameSegments:
-#        - NamesWizardFirst
-#        - NamesWizardLast
-#      mindRoles:
-#      - MindRoleWizard
+- type: entity
+  parent: BaseWizardRule
+  id: SubWizard
+  components:
+  - type: AntagSelection
+    agentName: wizard-round-end-name
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ Wizard ]
+      max: 1
+      playerRatio: 1
+      spawnerPrototype: SpawnPointGhostWizard
+      roleLoadout:
+      - RoleSurvivalExtended
+      briefing:
+        text: wizard-role-greeting
+        color: Turquoise
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      startingGear: WizardBlueGear
+      # TODO: WizardComp as needed
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWizardFirst
+        - NamesWizardLast
+      mindRoles:
+      - MindRoleWizard

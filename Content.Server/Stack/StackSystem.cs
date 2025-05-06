@@ -4,6 +4,10 @@ using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+// ADT-Tweak start
+using Content.Server.Administration;
+using Robust.Shared.Player;
+// ADT-Tweak end
 
 namespace Content.Server.Stack
 {
@@ -15,6 +19,7 @@ namespace Content.Server.Stack
     public sealed class StackSystem : SharedStackSystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly QuickDialogSystem _quickDialog = default!; // ADT-Tweak for system own split
 
         public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
 
@@ -169,6 +174,32 @@ namespace Content.Server.Stack
         {
             if (!args.CanAccess || !args.CanInteract || args.Hands == null || stack.Count == 1)
                 return;
+
+            // ADT-Tweak start
+            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+                return;
+
+            var player = actor.PlayerSession;
+
+            AlternativeVerb owncount = new()
+            {
+                Text = Loc.GetString("comp-stack-split-own-count-verb"),
+                Category = VerbCategory.Split,
+                Act = () =>
+                {
+                    _quickDialog.OpenDialog(player,
+                    Loc.GetString("comp-stack-split-choice-label"),
+                    Loc.GetString("comp-stack-split-choice-field"),
+                    (string myCount) =>
+                    {
+                        _ = int.TryParse(myCount, out var count);
+                        UserSplit(uid, args.User, count, stack);
+                    });
+                },
+                Priority = 1
+            };
+            args.Verbs.Add(owncount);
+            // ADT-Tweak end
 
             AlternativeVerb halve = new()
             {

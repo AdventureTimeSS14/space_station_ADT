@@ -102,7 +102,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband, BadgeOnClothingWithContainer]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -111,7 +111,7 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
-   #ADT-Tweak-Start
+  # ADT tweak start
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -122,7 +122,7 @@
         showEnts: False
         occludes: True
         ent: null
-   #ADT-Tweak-End
+  # ADT tweak end
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -420,6 +420,18 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+  # ADT tweak start
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  # ADT tweak end
 
 - type: entity
   parent: ClothingOuterStorageBase

@@ -17,3 +17,20 @@
     state: icon
   - type: Label
     currentLabel: apple-liqueur-name
+
+- type: entity
+  parent: DrinkBottlePlasticBaseFull
+  id: ADTMilkJug
+  name: Smite jug
+  description: A milk jug for some more thingies.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 150
+        reagents:
+        - ReagentId: Milk
+          Quantity: 150
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-milk

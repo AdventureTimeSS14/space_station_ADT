@@ -68,3 +68,25 @@
     - ADTDrinkVodkaCanister
     - ADTDrinkWhiskeyCanister
     - ADTDrinkWineCanister #ADT_Tweak, бутылки заменены на канистры
+
+### Start ADT Tweak
+- type: reagentDispenserInventory
+  id: CoffeeMachineInventory
+  inventory:
+    - DrinkCoffeeJug
+    - ADTMilkJug
+    - DrinkCreamCartonXL
+
+- type: reagentDispenserInventory
+  id: CoffeeMachineBluespaceInventory
+  inventory:
+    - DrinkCoffeeBluespaceJug
+
+- type: reagentDispenserInventory
+  id: CoffeeMachineCommandInventory
+  inventory:
+    - DrinkCoffeeJug
+    - ADTMilkJug
+    - DrinkCreamCartonXL
+    - DrinkCognacBottleFull
+### End ADT Tweak

@@ -35,8 +35,8 @@
   - AdvancedBrute
 
 - type: guideEntry
-  id: Medicine
-  name: guide-entry-medicine
+  id: Medication  #ADT-Tweak Medicine > Medication
+  name: guide-entry-medication  #ADT-Tweak Medicine > Medication
   text: "/ServerInfo/Guidebook/Medical/Medicine.xml"
   filterEnabled: True
 

@@ -23,6 +23,65 @@
   completetime: 2
 
 - type: latheRecipe
+  id: ADTColdplateMachineCircuitboardCircuitboard
+  result: ADTColdplateMachineCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 500
+
+- type: latheRecipe
+  id: ADTMedicalAssemblerMachineCircuitBoard
+  parent: BaseCircuitboardRecipe
+  result: ADTMedicalAssemblerMachineCircuitBoard
+  materials:
+    Steel: 800
+    Glass: 900
+
+- type: latheRecipe
+  id: ADTKitchenAssemblerMachineCircuitBoard
+  parent: BaseCircuitboardRecipe
+  result: ADTKitchenAssemblerMachineCircuitBoard
+  materials:
+    Steel: 600
+    Glass: 750
+
+- type: latheRecipe
+  id: ADTElectricRangeMachineCircuitBoard
+  parent: BaseCircuitboardRecipe
+  result: ADTElectricRangeMachineCircuitBoard
+  completetime: 4
+  materials:
+     Steel: 800
+     Glass: 900
+
+- type: latheRecipe
+  id: ADTCryoPodMachineCircuitboard
+  parent: BaseCircuitboardRecipe
+  result: CryoPodMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+    Gold: 100
+
+- type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: SupermatterComputerCircuitboardRecipe
   result: SupermatterComputerCircuitboard
+
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTCoffeeMachineCircuitboard
+  result: ADTCoffeeMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTCoffeeMachineBluespaceCircuitboard
+  result: ADTCoffeeMachineBluespaceCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+     Gold: 100
+

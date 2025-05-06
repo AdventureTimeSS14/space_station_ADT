@@ -93,3 +93,22 @@
   - ClothingOuterHardsuitSpatio
   - ClothingMaskGasExplorer
 
+- type: thiefBackpackSet
+  id: ModStorageDuffelbag
+  name: voucher-mod-duffelbag-name
+  description: voucher-mod-duffelbag-description
+  sprite:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: storage_large
+  content:
+  - ADTModsuitModDuffelbagStorage
+
+- type: thiefBackpackSet
+  id: ModStorageSatchel
+  name: voucher-mod-satchel-name
+  description: voucher-mod-satchel-description
+  sprite:
+    sprite: ADT/Objects/Specific/Modsuits/modules.rsi
+    state: storage
+  content:
+  - ADTModsuitModSatchelStorage

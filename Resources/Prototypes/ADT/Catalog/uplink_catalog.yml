@@ -479,6 +479,20 @@
     - Passenger
 
 - type: listing
+  id: ADTuplinkStraightRazor
+  name: uplink-ADT-straight-razor-name
+  description: uplink-ADT-straight-razor-desc
+  productEntity: ADTStraightRazor
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - ADTBarber
+
+- type: listing
   id: ADTuplinkMuteToxin
   name: uplink-mute-toxin-name
   description: uplink-mute-toxin-desc
@@ -736,6 +750,20 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: ADTUplinkModsuitElite
+  name: uplink-mod-elite-name
+  description: uplink-mod-elite-description
+  icon: { sprite: /Textures/ADT/Clothing/Back/Modsuit/syndicate_elite.rsi, state: icon }
+  productEntity: ADTClothingModsuitBackSyndicateElite
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+
 ## Disruption
 - type: listing
   id: UplinkNuclearPhysicistKit
@@ -746,3 +774,18 @@
     Telecrystal: 4
   categories:
   - UplinkDisruption
+
+## ГОНДОЛА НАХУЙ!!!
+- type: listing
+  id: UplinkGondola
+  name: uplink-gondola-name
+  description: uplink-gondola-desc
+  icon: { sprite: ADT/Mobs/Animals/gondola.rsi, state: old-radio-bearfoot }
+  productEntity: ADTMobGondola
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 6
+  categories:
+    - UplinkAllies

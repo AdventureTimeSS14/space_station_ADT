@@ -1,6 +1,6 @@
 - type: entity
   id: ADTProjectileIonRifle
-  parent: BulletDisabler
+  parent: BulletDisablerPractice
   name: ion bolt
   description: No energy
   categories: [ HideSpawnMenu ]
