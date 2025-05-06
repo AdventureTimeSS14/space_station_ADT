@@ -575,4 +575,17 @@
   id: ADTSpeedLoaderMagnumLesser
 
 - type: Tag
+  id: ADTGondola
+
+- type: Tag
+  id: ADTBluespaceCoffeine
+
+- type: Tag
   id: ADTVendModStorage
+
+- type: Tag
+  id: ADTBadgeBronze
+- type: Tag
+  id: ADTBadgeSilver
+- type: Tag
+  id: ADTBadgeGolden
