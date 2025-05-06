@@ -6,3 +6,9 @@ ent-ADTClothingOuterWinterRussianCoat = русский пуховик
 
 ent-ADTClothingOuterWinterLongMime = длинное пальто мима
     .desc = Для самых стильных и замерзающих молчунов.
+
+ent-ADTClothingOuterHoodyBlack = чёрное худи
+    .desc = Мягкое чёрное худи с капюшоном.
+
+ent-ADTClothingOuterHoodyWhite = белое худи
+    .desc = Мягкое белое худи с капюшоном.

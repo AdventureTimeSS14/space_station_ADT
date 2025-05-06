@@ -1,5 +1,5 @@
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassMagistratAirlock
   id: AirlockMagistrateGlassLocked
   suffix: Magistrate, Locked
   components:
@@ -8,8 +8,26 @@
       board: [ DoorElectronicsMagistrate ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: ADTGlassIAAAirlock
   id: AirlockIAAGlassLocked
+  suffix: IAA, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIAA ]
+
+- type: entity
+  parent: ADTMagistratAirlock
+  id: AirlockMagistrateLocked
+  suffix: Magistrate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMagistrate ]
+
+- type: entity
+  parent: ADTIAAAirlock
+  id: AirlockIAALocked
   suffix: IAA, Locked
   components:
   - type: ContainerFill
@@ -177,3 +195,84 @@
   - type: ContainerFill
     containers:
       board: [ ADTDoorElectronicsRobotics ]
+
+- type: entity
+  parent: ADTLibraryAirlock
+  id: ADTLibraryAirlockLocked
+  suffix: Library, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsLibrary ]
+
+- type: entity
+  parent: ADTBlueShieldAirlock
+  id: ADTBlueShieldAirlockLocked
+  suffix: BlueShield, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsBlueShield ]
+
+- type: entity
+  parent: ADTGlassBlueShieldAirlock
+  id: ADTGlassBlueShieldAirlockLocked
+  suffix: BlueShield, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsBlueShield ]
+
+- type: entity
+  parent: ADTGlassBlackCentcommAirlock
+  id: ADTGlassBlackCentcommAirlockLocked
+  suffix: Black Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsBlackCentralCommand ]
+
+- type: entity
+  parent: ADTBlackCentcommAirlock
+  id: ADTBlackCentcommAirlockLocked
+  suffix: Black Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsBlackCentralCommand ]
+
+- type: entity
+  parent: ADTShelterAirlock
+  id: ADTShelterAirlockLocked
+  suffix: Shelter, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsShelter ]
+
+- type: entity
+  parent: ADTPsychoAirlock
+  id: ADTPsychoAirlockLocked
+  suffix: Psycho, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsMedicalPsycho ]
+
+- type: entity
+  parent: ADTCorporateAirlock
+  id: ADTCorporateAirlockLocked
+  suffix: Corporate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsCentralCorporate ]
+
+- type: entity
+  parent: ADTGlassCorporateAirlock
+  id: ADTGlassCorporateAirlockLocked
+  suffix: Corporate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsCentralCorporate ]

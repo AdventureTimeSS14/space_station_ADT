@@ -21,7 +21,6 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitAtmos
   name: atmos MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/atmospheric.rsi
@@ -40,7 +39,6 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitClown
   name: clown MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/clown.rsi
@@ -58,7 +56,6 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitEngineering
   name: atmos MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/engineering.rsi
@@ -77,7 +74,6 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitMedical
   name: atmos MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/medical.rsi
@@ -92,7 +88,6 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitMining
   name: mining MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/mining.rsi
@@ -107,7 +102,6 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitSecurity
   name: security MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/security.rsi
@@ -122,27 +116,11 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitScience
   name: Science MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/cience.rsi
   - type: Clothing
     sprite: ADT/Clothing/Hands/Modsuit/cience.rsi
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    equipDelay: 3
-    unequipDelay: 3
-
-- type: entity
-  parent: ClothingHandsBase
-  id: ADTClothingHandsModsuitSyndicate
-  name: syndicate MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
@@ -152,7 +130,6 @@
   parent: ClothingHandsBase
   id: ADTClothingHandsModsuitSafeguard
   name: safeguard MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/hos.rsi
@@ -163,3 +140,73 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Insulated
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsModsuitBso
+  name: bso MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/bso.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/bso.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsModsuitAdvanced
+  name: advanced MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/advanced.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/advanced.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsModsuitSyndicate
+  name: syndicate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsModsuitSyndicateElite
+  name: elite syndicate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_elite.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_elite.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsModsuitSyndicateCommander
+  name: comm syndicate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_comma.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_comma.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3

@@ -1,6 +1,6 @@
 # Blueshield
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtBlueshield
   name: blueshield's jumpskirt
   description: blueshield's jumpskirt
@@ -11,7 +11,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/blueshield_suit.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckBlueshield
   name: blueshield's turtleneck skirt
   description: blueshield's turtleneck
@@ -23,7 +23,7 @@
 
 #Водолазки от prazat911.
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckAquamarine
   name: aquamarine turtleneck with skirt
   description: Too bright!
@@ -36,7 +36,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckWhite
   name: white turtleneck with skirt
   description: Warm and comfy.
@@ -49,7 +49,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckAzure
   name: azure turtleneck with skirt
   description: Brighter shade of blue.
@@ -62,7 +62,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckYellow
   name: yellow turtleneck with skirt
   description: Filled with happines.
@@ -75,7 +75,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckGreen
   name: green turtleneck with skirt
   description: Cheaper analog of CentComm turtleneck.
@@ -88,7 +88,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckBrown
   name: brown turtleneck with skirt
   description: -Ya know why i wear red? It hides blood well! -But that's brown color...
@@ -101,7 +101,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckRed
   name: red turtleneck with skirt
   description: Hides blood of clowns well!
@@ -114,7 +114,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckOrange
   name: orange turtleneck with skirt
   description: I don't want to talk about it.
@@ -127,7 +127,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckPink
   name: pink turtleneck with skirt
   description: Who would wear this?
@@ -140,7 +140,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckGrey
   name: grey turtleneck with skirt
   description: Grey style?
@@ -153,7 +153,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckBlue
   name: blue turtleneck with skirt
   description: Darker shade of azure.
@@ -166,7 +166,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckPurple
   name: purple turtleneck with skirt
   description: Feel yourself like a real scientist.
@@ -179,7 +179,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckBlack
   name: black turtleneck with skirt
   description: Favourite clothes of bookworms.
@@ -192,7 +192,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckBlackSleeveless
   name: ancient jumpsuit
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
@@ -205,7 +205,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless
   name: ancient jumpsuit
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
@@ -218,7 +218,7 @@
     price: 15
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtBrigmedicTurtleneck
   name: brigmedic turtleneck
   description: Comfortable and warm turtleneck. Especially for the guardian angel.
@@ -230,7 +230,7 @@
 
 # Luna
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformLushWhiteWeddingDress
   name: Lush white wedding dress
   description: You look so tender.. like a marshmallow!
@@ -241,7 +241,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/lush_white_wedding_dress.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformLushRoseWeddingDress
   name: Rose white wedding dress
   description: Specially for a princess!
@@ -252,7 +252,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/lush_rose_wedding_dress.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformWhiteGhoticWeddingDress
   name: White ghotic wedding dress
   description: This dress really flatters your figure. YOu will be the sexiest bride
@@ -263,7 +263,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/white_ghotic_dress.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformBlackGhoticWeddingDress
   name: Black ghotic wedding dress
   description: Morticia Addams likes. You will not find better than this sexy dress
@@ -274,7 +274,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/black_ghotic_dress.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformWhiteShortWeddingDress
   name: White short wedding dress
   description: White dress with gold sequins. For those who are tired of floor length dresses!
@@ -285,7 +285,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/white_short_wedding_dress.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformShortDressBlackGold
   name: Rose white wedding dress
   description: Specially for a princess!
@@ -296,7 +296,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/shortdressblackgold.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformRedCocktailDress
   name: Red Cocktail Dress
   description: Girl, this dress is made for this party! Blow up the dance floor!
@@ -307,7 +307,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/red_cocktail_dress.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformBlackElegantDress
   name: Black Elegant Dress
   description: Isn't it too short? Can't see my behind?
@@ -318,7 +318,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/black_elegant_dress.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOrangeBeachSuit
   name: Orange Beach Suit
   description: The mood color is orange. For the fans of oranges and a good tan.
@@ -342,7 +342,7 @@
 
 #Альтернативная одежда для ГП
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtHopWarm
   name: hop jumpskirt warm
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
@@ -353,7 +353,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/jumpskirt_hop.rsi
 
 - type: entity
-  parent: [ ClothingUniformBase, BaseFoldable ]
+  parent: [ ClothingUniformSkirtBase, BaseFoldable ]
   id: ADTClothingJumpskirtHopAlt
   name: head of personell's business suit
   description: Fancy.
@@ -380,7 +380,7 @@
 #октоберфест
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOktoberfestDirndlShort
   name: dirndl short
   description: Traditional German dress with a short skirt.
@@ -392,7 +392,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshort.rsi #спрайты от SHIONE
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOktoberfestDirndlShortGreen
   name: dirndl short green
   description: Traditional German dress with a green short skirt.
@@ -404,7 +404,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortgreen.rsi #спрайты от SHIONE
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOktoberfestDirndlShortRed
   name: dirndl short red
   description: Traditional German dress with a red short skirt.
@@ -416,7 +416,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortred.rsi #спрайты от SHIONE
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOktoberfestDirndlShortBlue
   name: dirndl short blue
   description: Traditional German dress with a blue short skirt.
@@ -428,7 +428,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlshortblue.rsi #спрайты от SHIONE
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOktoberfestDirndlBlue
   name: dirndl blue
   description: Traditional German dress with a blue skirt.
@@ -440,7 +440,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi #спрайты от SHIONE
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOktoberfestDirndlRed
   name: dirndl red
   description: Traditional German dress with a red skirt.
@@ -452,7 +452,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlred.rsi #спрайты от SHIONE
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformOktoberfestDirndlGreen
   name: dirndl green
   description: Traditional German dress with a green skirt.
@@ -464,7 +464,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlgreen.rsi #спрайты от SHIONE
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformRabbitDress
   name: rabbit black dress
   description: soo...how pick a PDA in this?
@@ -476,7 +476,7 @@
 # Med
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtCMOHike
   name: chief medical officer's hiking jumpskirt
   description: Shirt and baggy skirt. Perfect for working in and out of medical departament.
@@ -487,7 +487,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/hike_jumpskirt_cmo.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformPathologistSkirt
   name: pathologist jumpskirt
   description: A lightweight jumpskirt for a morgue worker
@@ -498,7 +498,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformPathologistSkirtAlt
   name: pathologist jumpskirt
   description: A lightweight jumpskirt for a morgue worker. A darker version.
@@ -509,7 +509,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/pathologist_alt.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpSkirtRedHat
   name: redhat jumpskirt
   description: redhat skirt
@@ -520,7 +520,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/redhat.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtCamisoleQM
   name: Quartermaster's camisole with skirt
   description: short camisole
@@ -529,3 +529,41 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/qm_camisole.rsi
+
+# Юбка деку, ага
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtDetectiveOld
+  name: detective old jumpskirt
+  description: Decy jimpskirt, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/detective_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/detective_old.rsi
+
+# ПАРИКМАХЕР
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBarber
+  name: fashionable skirt suit
+  description: One suit to rule them all.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBarberBrown
+  name: brown fashionable skirt suit
+  description: For an old-fashioned style lover.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit_brown.rsi
+

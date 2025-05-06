@@ -363,3 +363,30 @@
     color: "#c2adff"
   - type: StaticPrice
     price: -4000
+
+- type: entity
+  parent: VendingMachine
+  id: ADTVendingMachineBarberDrobe
+  name: Barbermat
+  description: A vending machine with stylish clothes for a barber.
+  components:
+  - type: VendingMachine
+    pack: ADTBarberdrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: ADT/Structures/Machines/VendingMachines/barberdrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Service"]]
+  - type: PointLight
+    radius: 1.8
+    energy: 1.6
+    color: "#cfcfcf"

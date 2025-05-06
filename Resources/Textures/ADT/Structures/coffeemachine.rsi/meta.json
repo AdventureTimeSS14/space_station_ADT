@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/obj/foodNdrink/espresso.dmi and edited by QWERTY",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "command"
+    },
+    {
+      "name": "engineer"
+    },
+    {
+      "name": "common"
+    },
+    {
+      "name": "hydroponics"
+    },
+    {
+      "name": "medicine"
+    },
+    {
+      "name": "science"
+    },
+    {
+      "name": "cargo"
+    },
+    {
+      "name": "bluespace",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "security"
+    }
+  ]
+}

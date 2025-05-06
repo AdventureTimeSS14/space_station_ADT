@@ -3,6 +3,7 @@
   name: Khachapuri recipe
   result: ADTFoodMealKhachapuri
   time: 15
+  group: Breads
   reagents:
     Egg: 12
     TableSalt: 5
@@ -10,23 +11,29 @@
   solids:
     FoodCheeseSlice: 1
     FoodBreadPlainSlice: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodSawdustSoupRecipe
   name: sawdust soup recipe
   result: ADTFoodSoupSawdust
   time: 15
+  group: Soup
   reagents:
     Water: 10
     TableSalt: 10
   solids:
     FoodBowlBig: 1
     MaterialWoodPlank1: 1
+  recipeType:
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodRelaxPillRecipe
   name: relax pill
   result: ADTPillRelax
+  group: Secret
   time: 15
   reagents:
     Water: 15
@@ -34,6 +41,8 @@
     LeavesCannabis: 3
     LeavesTobacco: 2
     GroundCannabis: 1
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: ADTFoodVulpixRecipe
@@ -45,6 +54,8 @@
     FoodCheeseSlice: 1
     FoodOnion: 1
     ADTOrganVulpkaninAnimalLiver: 1
+  recipeType:
+  - Assembler
 
 # курятинка
 
@@ -53,16 +64,20 @@
   name: baked chicken
   result: ADTFoodMeatChickenBaked
   time: 25
+  group: Savory
   solids:
     ADTChickenBody: 1
   reagents:
     BbqSauce: 5
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTRecipeBakedStuffedChicken
   name: baked stuffed chicken
   result: ADTFoodMeatChickenBakedWithVegetables
   time: 30
+  group: Savory
   solids:
     ADTChickenBody: 1
     FoodPlate: 1
@@ -73,22 +88,30 @@
     FoodMeatCutlet: 2
   reagents:
     BbqSauce: 5
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTRecipeBakedChickenLeg
   name: baked chicken leg
   result: ADTFoodMeatChickenBakedLeg
   time: 5
+  group: Savory
   solids:
     ADTFoodMeatChickenLeg: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTRecipeBakedChickenWing
   name: baked chicken wing
   result: ADTFoodMeatChickenBakedWing
   time: 5
+  group: Savory
   solids:
     ADTFoodMeatChickenWing: 1
+  recipeType:
+  - Oven
 
 # Sh4zik tea packs, Starting below
 
@@ -97,60 +120,78 @@
   name: OrangeTeapack
   result: ADTOrangeTeapack
   time: 10
+  group: Other
   solids:
     ADTEmptyTeaPack: 1
     FoodOrange: 1
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: ADTDrinkTeaPackCherry
   name: CherryTeapack
   result: ADTCherryTeapack
   time: 10
+  group: Other
   solids:
     ADTEmptyTeaPack: 1
     FoodCherry: 1
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: ADTDrinkTeaPackWatermelon
   name: WatermelonTeapack
   result: ADTWatermelonTeapack
   time: 10
+  group: Other
   solids:
     ADTEmptyTeaPack: 1
     FoodWatermelonSlice: 1
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: ADTDrinkTeaMicWatermelon
   name: WatermelonTeaMicrowave
   result: ADTDrinkWatermelonTeaGlass
   time: 10
+  group: Other
   reagents:
     ADTWatermelonpackReg: 5
     Water: 25
   solids:
     DrinkGlass: 1
+  recipeType:
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTDrinkTeaMicOrange
   name: OrangeTeaMicrowave
   result: ADTDrinkOrangeTeaGlass
   time: 10
+  group: Other
   reagents:
     ADTOrangepackReg: 5
     Water: 25
   solids:
     DrinkGlass: 1
+  recipeType:
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTDrinkTeaMicCherry
   name: CherryTeaMicrowave
   result: ADTDrinkCherryTeaGlass
   time: 10
+  group: Other
   reagents:
     ADTCherrypackReg: 5
     Water: 25
   solids:
     DrinkGlass: 1
+  recipeType:
+  - Microwave
 
 
 - type: microwaveMealRecipe
@@ -158,19 +199,371 @@
   name: salami recipe
   result: FoodMeatSalami
   time: 10
+  group: Savory
   reagents:
     TableSalt: 5
   solids:
     FoodMeat: 1
+  recipeType:
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodSoupUzbekPilafRecipe
   name: uzbek pilaf
   result: ADTFoodSoupUzbekPilaf
   time: 10
+  group: Savory
   solids:
     FoodRiceBoiled: 1
     FoodGarlic: 1
     FoodMeat: 1
     FoodCarrot: 1
     FoodOnionSlice: 2
+  recipeType:
+  - Oven
+  - Assembler
+
+
+- type: microwaveMealRecipe
+  id: ADTCoffeeBeansRoasted
+  name: roasted coffee beans recipe
+  result: ADTCoffeeBeansRoasted
+  time: 10
+  solids:
+    ADTCoffeeBeans: 1
+  recipeType:
+  - Oven
+  - Assembler
+
+ 
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaBBQRecipe
+  name: pizza bbq
+  result: ADTFoodPizzaBBQ
+  time: 30
+  reagents:
+    BbqSauce: 5
+  solids:
+    FoodDoughFlat: 1
+    FoodMeat: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaBologneseRecipe
+  name: pizza bolognese
+  result: ADTFoodPizzaBolognese
+  time: 30
+  solids:
+    FoodDoughFlat: 1
+    FoodMeatChicken: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaCaesarRecipe
+  name: pizza caesar
+  result: ADTFoodPizzaCaesar
+  time: 30
+  solids: 
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodOnionRedSlice: 2
+    FoodCabbage: 1
+    FoodMeatChicken: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaCheeseRecipe
+  name: pizza cheese
+  result: ADTFoodPizzaCheese
+  time: 30
+  solids: 
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaFourcheeseRecipe
+  name: pizza cheese
+  result: ADTFoodPizzaFourcheese
+  time: 30
+  solids: 
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodChevreSlice: 2
+    FoodTomato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaChicagoRecipe
+  name: pizza chicago
+  result: ADTFoodPizzaChicago
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodMeatChicken: 1
+    FoodTomato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaChickenRecipe
+  name: pizza chicken
+  result: ADTFoodPizzaChicken
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodMeatChicken: 1
+    FoodTomato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaMushroomchickenRecipe
+  name: pizza mushroomchicken
+  result: ADTFoodPizzaMushroomchicken
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 2
+    FoodMeat: 1
+    FoodTomato: 1
+    FoodMushroom: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaDiabloRecipe
+  name: pizza diablo
+  result: ADTFoodPizzaDiablo
+  time: 30
+  reagents:
+    Hotsauce: 5
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodMeat: 1
+    FoodTomato: 1
+    FoodChiliPepper: 2
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaSeaRecipe
+  name: pizza sea
+  result: ADTFoodPizzaSea
+  time: 30
+  reagents:
+    Mayo: 5
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    ADTFoodMeatFish: 3
+    FoodTomato: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTFoodPizzaMexicanRecipe
+  name: pizza mexico
+  result: ADTFoodPizzaMexican
+  time: 30
+  solids:     
+    FoodDoughFlat: 1
+    FoodCheeseSlice: 1
+    FoodMeat: 1
+    FoodTomato: 1
+    FoodChiliPepper: 2
+    FoodOnionRedSlice: 2
+  recipeType:
+  - Oven
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealBologneseRecipe
+  name: pasta bolognese
+  result: ADTFoodMealBolognese
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodMeat: 1
+    FoodTomato: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCheeseMeatballRecipe
+  name: pasta cheesemeatball
+  result: ADTFoodMealCheeseMeatball
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodCheeseSlice: 1
+    FoodMeatMeatball: 2
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCheeseTomatoRecipe
+  name: pasta cheesetomato
+  result: ADTFoodMealCheeseTomato
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 2
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealClothRecipe
+  name: pasta cloth
+  result: ADTFoodMealCloth
+  time: 10
+  reagents:
+    Water: 10
+    Egg: 12
+  solids:     
+    FoodDoughCottonRope: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCreamRecipe
+  name: pasta cream
+  result: ADTFoodMealCream
+  time: 10
+  reagents:
+    Cream: 5 
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodButterSlice: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealCreamMeatballRecipe
+  name: pasta creammeathball
+  result: ADTFoodMealCreamMeatball
+  time: 10
+  solids:     
+    ADTFoodMealCream: 1
+    FoodMeatMeatball: 2
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealFishRecipe
+  name: pasta fish
+  result: ADTFoodMealFish
+  time: 10
+  solids:     
+    ADTFoodMealCream: 1
+    ADTFoodMeatFish: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealInkRecipe
+  name: pasta ink
+  result: ADTFoodMealInk
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    Pen: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealInkFishRecipe
+  name: pasta inkfish
+  result: ADTFoodMealInkFish
+  time: 10
+  solids:     
+    ADTFoodMealInk: 1
+    ADTFoodMeatFish: 2
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealMushroomRecipe
+  name: pasta mushroom
+  result: ADTFoodMealMushroom
+  time: 10
+  solids:     
+    ADTFoodMealCream: 1
+    FoodMushroom: 2
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealTomatoMeatballRecipe
+  name: pasta tomatomeat
+  result: ADTFoodMealTomatoMeatball
+  time: 10
+  solids:     
+    FoodNoodlesBoiled: 1
+    FoodMeatMeatball: 2
+    FoodTomato: 2
+  recipeType:
+  - Oven
+  - Microwave
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealNigiriCarpRecipe
+  name: nigiri carp
+  result: ADTFoodMealNigiriCarp
+  time: 5
+  solids:     
+    FoodRiceBoiled: 1
+    FoodMeatFish: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealNigiriCookedRecipe
+  name: nigiri fish
+  result: ADTFoodMealNigiriCooked
+  time: 5
+  solids:     
+    FoodRiceBoiled: 1
+    ADTFoodFishCutletCooked: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealNigiriFishRecipe
+  name: nigiri fish
+  result: ADTFoodMealNigiriFish
+  time: 5
+  solids:     
+    FoodRiceBoiled: 1
+    ADTFoodFishCutlet: 1
+  recipeType:
+  - Oven
+  - Microwave

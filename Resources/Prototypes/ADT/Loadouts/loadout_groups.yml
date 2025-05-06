@@ -17,6 +17,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
+  - LawyerGreenSuit
 
 - type: loadoutGroup
   id: MagistratNeck
@@ -526,6 +527,226 @@
   - ADTNeckSalvageSpecialistDCape
   - ADTNeckSalvageSpecialistRCape
 
+
+## ДЕТЕКТИВ
+
+#Обувь
+- type: loadoutGroup
+  id: DetectiveShoes
+  name: loadout-group-security-shoes
+  loadouts:
+  - JackSecBoots
+  - JackBoots
+  - SecurityWinterBoots
+  - ADTDetectiveBootsOld
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+
+## Парикмахер
+
+# костюмы
+- type: loadoutGroup
+  id: ADTBarberJumpsuit
+  name: loadout-barber-jumpsuit-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingUniformJumpsuitBarberLoadOut
+  - ADTClothingUniformJumpsuitBarberBrownLoadOut
+  - ADTClothingUniformJumpskirtBarberLoadOut
+  - ADTClothingUniformJumpskirtBarberBrownLoadOut
+
+# фартук
+- type: loadoutGroup
+  id: ADTBarberOtherClothing
+  name: loadout-barber-other-clothing-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingOuterApronBarberLoadOut
+
+
+# Alts PDA start
+- type: loadoutGroup
+  id: ADTPassengerPDA
+  name: loadout-group-passenger-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PassengerPDA
+  - ADTVisitorPDA
+  - ADTTouristPDA
+  - ADTStudentPDA
+
+- type: loadoutGroup
+  id: ADTBartenderPDA
+  name: loadout-group-bartender-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BartenderPDA
+  - ADTMixologistPDA
+
+- type: loadoutGroup
+  id: ADTChefPDA
+  name: loadout-group-chef-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChefPDA
+  - ADTBakerPDA
+  - ADTButcherPDA
+  - ADTPizzaioloPDA
+
+- type: loadoutGroup
+  id: ADTMedicalInternPDA
+  name: loadout-group-medical-intern-id-adt
+  loadouts:
+  - MedicalInternPDA
+  - ADTPracticalNursePDA
+  - ADTResidentPDA
+
+- type: loadoutGroup
+  id: ADTAtmosPDA
+  name: loadout-group-atmos-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AtmosPDA
+  - ADTLifeSupportTechPDA
+  - ADTPlasmaScientistPDA
+
+- type: loadoutGroup
+  id: ADTCargoPDA
+  name: loadout-group-cargo-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CargoPDA
+  - ADTPostmanPDA
+  - ADTInventoryAssociatePDA
+
+- type: loadoutGroup
+  id: ADTSalvagePDA
+  name: loadout-group-salvage-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SalvagePDA
+  - ADTExcavatorPDA
+
+- type: loadoutGroup
+  id: ADTClownPDA
+  name: loadout-group-clown-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClownPDA
+  - ADTJesterPDA
+  - ADTFoolPDA
+
+- type: loadoutGroup
+  id: ADTDetectivePDA
+  name: loadout-group-detective-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectivePDA
+  - ADTInvestigatorPDA
+
+- type: loadoutGroup
+  id: ADTJanitorPDA
+  name: loadout-group-janitor-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - JanitorPDA
+  - ADTMaidPDA
+
+- type: loadoutGroup
+  id: ADTRoboticistPDALoadout
+  name: loadout-group-mechanical-assembler-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTRoboticistPDA
+  - ADTMechAssemblerPDA
+
+- type: loadoutGroup
+  id: ADTHosPDA
+  name: loadout-group-sheriff-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HoSPDA
+  - ADTSheriffPDA
+
+- type: loadoutGroup
+  id: ADTlawyerID
+  name: loadout-group-lawyer-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LawyerPDA
+  - ADTLawyerPDA
+
+- type: loadoutGroup
+  id: ADTBotanistPDA
+  name: loadout-group-botanist-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BotanistPDA
+  - ADTGardenerPDA
+  - ADTEcologistPDA
+
+- type: loadoutGroup
+  id: ADTLibrarianPDA
+  name: loadout-group-librarian-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LibrarianPDA
+  - ADTMythologistPDA
+  - ADTEthnologistPDA
+
+- type: loadoutGroup
+  id: ADTChaplainPDA
+  name: loadout-group-chaplain-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChaplainPDA
+  - ADTMonkPDA
+  - ADTExorcistPDA
+  - ADTPriestPDA
+  - ADTShepherdPDA
+  - ADTClergymanPDA
+
+- type: loadoutGroup
+  id: ADTPsychologistPDA
+  name: loadout-group-psychologist-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PsychologistPDA
+  - ADTPsychiatristPDA
+  - ADTPsychotherapistPDA
+
+- type: loadoutGroup
+  id: ADTBrigmedicPDA
+  name: loadout-brigmedic-pda-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicPDA
+  - ADTFieldDoctorPDA
+
+# Alts PDA end
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
@@ -1084,7 +1305,6 @@
   - ADTUnderwearBraLaceBlue
   - ADTUnderwearBraLaceRed
   - ADTUnderwearBraLaceBlack
-
 
 ### Носки, гольфы и чулки
 

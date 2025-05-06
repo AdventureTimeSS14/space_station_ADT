@@ -99,14 +99,36 @@
 
 - type: entity
   parent: ADTClothingHeadHelmetMiner
-  id: ADTClothingHeadHelmetMinerReinforced
-  name: Explorer's Plated Hood
+  id: ADTClothingHeadHelmetMinerReinforcedOne
+  name: reinforced explorers hood
+  description: Imbued with despair and hopelessness.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/mining_reinforced_one.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/mining_reinforced_one.rsi
+
+- type: entity
+  parent: ADTClothingHeadHelmetMiner
+  id: ADTClothingHeadHelmetMinerReinforcedTwo
+  name: partially reinforced explorers hood
+  description: Imbued with despair and hopelessness.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/mining_reinforced_two.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/mining_reinforced_two.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetMinerReinforcedFull
+  name: explorers plated hood
   description: A way to protect your head from danger as crazy as the mind of the person who came up with it.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Helmets/mining_reinforced.rsi
+    sprite: ADT/Clothing/Head/Helmets/mining_reinforced_full.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Helmets/mining_reinforced.rsi
+    sprite: ADT/Clothing/Head/Helmets/mining_reinforced_full.rsi
   - type: IngestionBlocker
   - type: Armor
     modifiers:
@@ -118,6 +140,42 @@
   - type: Tag
     tags:
     - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTCentorionHemlet
+  name: Centorion hemlet
+  description: Ancient Roman centurion's helmet with its recognisable red crest.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/centorion_hemlet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/centorion_hemlet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTLegionerHemlet
+  name: Legioner hemlet
+  description: A lightweight Roman Legion helmet that is made of cheaper materials than a centurion's helmet but is still able to protect you from a toolbox.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/legioner_hemlet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/legioner_hemlet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
 
 # USSP USSP
 

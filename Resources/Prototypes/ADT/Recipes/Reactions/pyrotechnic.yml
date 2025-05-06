@@ -1,0 +1,23 @@
+﻿- type: reaction
+  id: ADTLiquidDarkMatter
+  reactants:
+    Uranium:
+      amount: 1
+    Plasma:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    ADTLiquidDarkMatter: 3
+
+- type: reaction
+  id: ADTSingularityExplosion
+  minTemp: 473
+  impact: Low
+  quantized: true
+  reactants:
+    ADTLiquidDarkMatter:
+      amount: 30
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ADTReactionSingularity

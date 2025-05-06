@@ -14,23 +14,25 @@
   - type: Icon
     sprite: Corvax/Objects/Consumable/Drinks/alexander.rsi
     state: icon
-
+    
+#ADT - tweak start - для решения вопроса с проверками на картах в стакане "Проникновения" от Корвакса будет наш напиток и будет наш спрайт
 - type: entity
   parent: DrinkGlass
   id: DrinkBadTouchGlass
   suffix: bad touch
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: BadTouch
-          Quantity: 30
-  - type: Drink
-  - type: Icon
-    sprite: Corvax/Objects/Consumable/Drinks/badTouch.rsi
-    state: icon
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTPenetrationDrink
+              Quantity: 30
+    - type: Drink
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/penetration.rsi
+      state: icon
+#ADT - tweak end
 
 - type: entity
   parent: DrinkGlass
