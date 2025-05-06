@@ -239,3 +239,7 @@ uplink-thermal-desc = Термальный визор, что позволяет
 
 uplink-ADT-straight-razor-name = Опасная бритва
 uplink-ADT-straight-razor-desc = Очень острая и опасная бритва. Ею легко перерезать горло.
+
+# GONDOLA SHIEEET
+uplink-gondola-name = Гондола
+uplink-gondola-desc = Священное животное множества религий. Будет смешно превратить всех в такое чучело.

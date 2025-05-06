@@ -38,6 +38,22 @@
         whitelist:
           tags:
           - ADTBadge
+  - type: ItemMapper
+    sprite: ADT/Clothing/OuterClothing/Armor/armor_overlay.rsi
+    mapLayers:
+      badgebronze:
+        whitelist:
+          tags:
+          - ADTBadgeBronze
+      badgesilver:
+        whitelist:
+          tags:
+          - ADTBadgeSilver
+      badgegolden:
+        whitelist:
+          tags:
+          - ADTBadgeGolden
+  - type: Appearance
 
 - type: entity
   abstract: true
@@ -63,6 +79,22 @@
         whitelist:
           tags:
           - ADTBadge
+  - type: ItemMapper
+    sprite: ADT/Clothing/OuterClothing/Armor/armor_overlay.rsi
+    mapLayers:
+      badgebronze:
+        whitelist:
+          tags:
+          - ADTBadgeBronze
+      badgesilver:
+        whitelist:
+          tags:
+          - ADTBadgeSilver
+      badgegolden:
+        whitelist:
+          tags:
+          - ADTBadgeGolden
+  - type: Appearance
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -354,7 +386,7 @@
   parent: [ClothingOuterArmorBasic, BadgeOnClothing]
   id: ADTClothingOuterArmorMinerReinforcedOne
   name: reinforced explorer suit
-  description: This explorer suit is reinforced with goliath hides. 
+  description: This explorer suit is reinforced with goliath hides.
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
@@ -394,7 +426,7 @@
   parent: [ClothingOuterArmorBasic, BadgeOnClothing]
   id: ADTClothingOuterArmorMinerReinforcedTwo
   name: partially reinforced explorer suit
-  description: This explorer suit is reinforced with goliath hides. 
+  description: This explorer suit is reinforced with goliath hides.
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi

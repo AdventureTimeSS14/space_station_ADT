@@ -222,7 +222,19 @@
   recipeType:
   - Oven
   - Assembler
-  
+
+
+- type: microwaveMealRecipe
+  id: ADTCoffeeBeansRoasted
+  name: roasted coffee beans recipe
+  result: ADTCoffeeBeansRoasted
+  time: 10
+  solids:
+    ADTCoffeeBeans: 1
+  recipeType:
+  - Oven
+  - Assembler
+
  
 - type: microwaveMealRecipe
   id: ADTFoodPizzaBBQRecipe
@@ -236,6 +248,8 @@
     FoodMeat: 1
     FoodCheeseSlice: 1
     FoodTomato: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaBologneseRecipe
@@ -247,6 +261,8 @@
     FoodMeatChicken: 1
     FoodCheeseSlice: 1
     FoodTomato: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaCaesarRecipe
@@ -259,6 +275,8 @@
     FoodOnionRedSlice: 2
     FoodCabbage: 1
     FoodMeatChicken: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaCheeseRecipe
@@ -269,6 +287,8 @@
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     FoodTomato: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaFourcheeseRecipe
@@ -280,6 +300,8 @@
     FoodCheeseSlice: 2
     FoodChevreSlice: 2
     FoodTomato: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaChicagoRecipe
@@ -291,6 +313,8 @@
     FoodCheeseSlice: 2
     FoodMeatChicken: 1
     FoodTomato: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaChickenRecipe
@@ -302,6 +326,8 @@
     FoodCheeseSlice: 2
     FoodMeatChicken: 1
     FoodTomato: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaMushroomchickenRecipe
@@ -314,6 +340,8 @@
     FoodMeat: 1
     FoodTomato: 1
     FoodMushroom: 5
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaDiabloRecipe
@@ -328,6 +356,8 @@
     FoodMeat: 1
     FoodTomato: 1
     FoodChiliPepper: 2
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaSeaRecipe
@@ -341,6 +371,8 @@
     FoodCheeseSlice: 1
     ADTFoodMeatFish: 3
     FoodTomato: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaMexicanRecipe
@@ -354,6 +386,8 @@
     FoodTomato: 1
     FoodChiliPepper: 2
     FoodOnionRedSlice: 2
+  recipeType:
+  - Oven
 
 
 - type: microwaveMealRecipe
@@ -365,6 +399,9 @@
     FoodNoodlesBoiled: 1
     FoodMeat: 1
     FoodTomato: 1
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealCheeseMeatballRecipe
@@ -375,6 +412,9 @@
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
     FoodMeatMeatball: 2
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealCheeseTomatoRecipe
@@ -385,6 +425,9 @@
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
     FoodTomato: 2
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealClothRecipe
@@ -396,7 +439,9 @@
     Egg: 12
   solids:     
     FoodDoughCottonRope: 1
-
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealCreamRecipe
@@ -408,6 +453,9 @@
   solids:     
     FoodNoodlesBoiled: 1
     FoodButterSlice: 1
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealCreamMeatballRecipe
@@ -417,6 +465,9 @@
   solids:     
     ADTFoodMealCream: 1
     FoodMeatMeatball: 2
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealFishRecipe
@@ -426,6 +477,9 @@
   solids:     
     ADTFoodMealCream: 1
     ADTFoodMeatFish: 1
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealInkRecipe
@@ -435,7 +489,9 @@
   solids:     
     FoodNoodlesBoiled: 1
     Pen: 1
-
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealInkFishRecipe
@@ -445,6 +501,9 @@
   solids:     
     ADTFoodMealInk: 1
     ADTFoodMeatFish: 2
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealMushroomRecipe
@@ -454,6 +513,9 @@
   solids:     
     ADTFoodMealCream: 1
     FoodMushroom: 2
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealTomatoMeatballRecipe
@@ -464,6 +526,9 @@
     FoodNoodlesBoiled: 1
     FoodMeatMeatball: 2
     FoodTomato: 2
+  recipeType:
+  - Oven
+  - Microwave
 
 
 - type: microwaveMealRecipe
@@ -474,6 +539,9 @@
   solids:     
     FoodRiceBoiled: 1
     FoodMeatFish: 1
+  recipeType:
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: ADTFoodMealNigiriCookedRecipe
@@ -483,6 +551,9 @@
   solids:     
     FoodRiceBoiled: 1
     ADTFoodFishCutletCooked: 1
+  recipeType:
+  - Oven
+  - Microwave
 
 
 - type: microwaveMealRecipe
@@ -493,3 +564,6 @@
   solids:     
     FoodRiceBoiled: 1
     ADTFoodFishCutlet: 1
+  recipeType:
+  - Oven
+  - Microwave

@@ -14,7 +14,7 @@
   - type: GhostTakeoverAvailable
   - type: Grammar
     attributes:
-      gender: female
+      gender: male
       proper: true
   - type: Tag
     tags:
@@ -30,6 +30,12 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
+  - type: TTS
+    voice: kleiner
+  - type: SpeechBarks
+    data:
+      proto: Synth3
+      sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
 
 - type: entity
   name: rahima
@@ -63,6 +69,13 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
+  - type: TTS
+    voice: mossman
+  - type: SpeechBarks
+    data:
+      proto: Toriel
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-toriel.ogg
+      pitch: 0.9
 
 - type: entity
   name: ragha
@@ -80,7 +93,7 @@
   - type: GhostTakeoverAvailable
   - type: Grammar
     attributes:
-      gender: female
+      gender: male
       proper: true
   - type: Tag
     tags:
@@ -101,6 +114,13 @@
       0: Alive
       40: Critical
       100: Dead
+  - type: TTS
+    voice: twitch
+  - type: SpeechBarks
+    data:
+      proto: Flowey
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-flowey.ogg
+      pitch: 0.8
 
 - type: entity
   name: ratha
@@ -134,6 +154,12 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
+  - type: TTS
+    voice: queen_of_pain_dota_2
+  - type: SpeechBarks
+    data:
+      proto: Queen
+      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
 
 - type: entity
   name: rani-kha
@@ -151,7 +177,7 @@
   - type: GhostTakeoverAvailable
   - type: Grammar
     attributes:
-      gender: female
+      gender: male
       proper: true
   - type: Tag
     tags:
@@ -167,6 +193,13 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
+  - type: TTS
+    voice: ziggs
+  - type: SpeechBarks
+    data:
+      proto: Chujin
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-chujin.ogg
+      pitch: 0.7
 
 - type: entity
   name: ronia
@@ -200,9 +233,15 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
+  - type: TTS
+    voice: zenobianoke
+  - type: SpeechBarks
+    data:
+      proto: Noelle
+      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
 
 - type: entity
-  name: ronia
+  name: rosie
   parent: MobFox
   id: ADTMobFoxRosie
   description: The chaplain's familiar. Likes everything to eat.
@@ -236,6 +275,12 @@
   - type: PointLight
     enabled: true
     radius: 2
+  - type: TTS
+    voice: kate_smirnova_tb
+  - type: SpeechBarks
+    data:
+      proto: Ceroba
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ceroba.ogg
 
 - type: entity
   name: rebecca
@@ -272,3 +317,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 2
+  - type: TTS
+    voice: matildaweasley
+  - type: SpeechBarks
+    data:
+      proto: Toriel
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-toriel.ogg
