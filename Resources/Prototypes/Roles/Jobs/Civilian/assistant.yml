@@ -12,7 +12,7 @@
 - type: startingGear
   id: PassengerGear
   equipment:
-    id: PassengerPDA
+    # id: PassengerPDA # ADT tweak: moved to loadout
     ears: ClothingHeadsetGrey
   #storage:
     #back:

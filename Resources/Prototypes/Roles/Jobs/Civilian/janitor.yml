@@ -19,7 +19,7 @@
   id: JanitorGear
   equipment:
     shoes: ClothingShoesGaloshes
-    id: JanitorPDA
+    # id: JanitorPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
   #storage:
