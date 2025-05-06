@@ -60,7 +60,7 @@
         comboEvent:
           - !type:ComboAudioEffect
             sound:
-              collection: GenericHitв
+              collection: GenericHit
           - !type:ComboFallEffect
             dropItems: false
           - !type:ComboEffectToDowned
