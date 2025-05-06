@@ -44,6 +44,7 @@
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
   #ADT tweak start
+  # TODO: сделать компонент StaminaDamageOnLand заместо этого
   # - type: StaminaDamageOnCollide
   #   damage: 35
   #   sound: /Audio/Weapons/egloves.ogg
