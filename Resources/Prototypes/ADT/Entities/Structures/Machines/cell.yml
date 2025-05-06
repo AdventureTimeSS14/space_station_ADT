@@ -5,7 +5,7 @@
   description: Provides an intermediate step between cell server and dispatch, as well as biological synthesis through matter.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Machines/Xenobilology/cell_sequencer.rsi
+    sprite: ADT/Structures/Machines/Cytology/cell_sequencer.rsi
     layers:
     - state: base
     - state: unlit
@@ -14,7 +14,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Icon
-    sprite: ADT/Structures/Machines/Xenobilology/cell_sequencer.rsi
+    sprite: ADT/Structures/Machines/Cytology/cell_sequencer.rsi
     state: base
   - type: Fixtures
     fixtures:
@@ -93,7 +93,7 @@
   description: UWI.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Machines/Xenobilology/cellular_fusion.rsi
+    sprite: ADT/Structures/Machines/Cytology/cellular_fusion.rsi
     layers:
     - state: base
     - state: unlit
@@ -102,7 +102,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Icon
-    sprite: ADT/Structures/Machines/Xenobilology/cellular_fusion.rsi
+    sprite: ADT/Structures/Machines/Cytology/cellular_fusion.rsi
     state: base
   - type: Fixtures
     fixtures:
@@ -184,7 +184,7 @@
     board: ArtifactCrusherMachineCircuitboard
   - type: WiresPanel
   - type: Sprite
-    sprite: ADT/Structures/Machines/Xenobilology/mutagenic_injector.rsi
+    sprite: ADT/Structures/Machines/Cytology/mutagenic_injector.rsi
     offset: 0,0.5
     noRot: true
     layers:
@@ -192,12 +192,14 @@
       map: ["enum.StorageVisualLayers.Base"]
     - state: door-closed
       map: ["enum.StorageVisualLayers.Door"]
-    - state: piston
-      map: ["pistonlayer"]
-    - state: glass
-    - state: lights
+    - state: unlit
       map: ["enum.PowerDeviceVisualLayers.Powered"]
       shader: unshaded
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: panel
+  - type: Icon
+    sprite: ADT/Structures/Machines/Cytology/mutagenic_injector.rsi
+    state: icon
   - type: Fixtures
     fixtures:
       fix1:
