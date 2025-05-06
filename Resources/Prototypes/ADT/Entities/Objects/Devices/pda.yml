@@ -230,6 +230,7 @@
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
+    sprite: ADT/Objects/Devices/pda.rsi
     state: pda-investigator
   - type: Appearance
     appearanceDataInit:
