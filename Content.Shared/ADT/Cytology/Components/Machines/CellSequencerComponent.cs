@@ -11,12 +11,6 @@ public sealed partial class CellSequencerComponent : Component
     [DataField]
     public string DishSlot = "dishSlot";
 
-    [DataField]
-    public ProtoId<MaterialPrototype> RequiredMaterial = "Plasma";
-
-    [ViewVariables]
-    public int MaterialAmount;
-
     [ViewVariables]
     public List<Cell> Cells = [];
 

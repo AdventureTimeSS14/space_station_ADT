@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Content.Shared.Materials;
 using Content.Shared.Popups;
 using Content.Shared.ADT.Cytology.Components.Container;
 using Content.Shared.ADT.Cytology.Components.Machines;
@@ -14,8 +13,6 @@ public sealed class CellSequencerSystem : EntitySystem
     [Dependency] private readonly CellClientSystem _cellClient = default!;
     [Dependency] private readonly CellServerSystem _cellServer = default!;
 
-    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
-
     [Dependency] private readonly SharedCellSystem _cell = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -28,7 +25,6 @@ public sealed class CellSequencerSystem : EntitySystem
         SubscribeLocalEvent<CellSequencerComponent, EntInsertedIntoContainerMessage>(OnInsertIntoContainer);
         SubscribeLocalEvent<CellSequencerComponent, EntRemovedFromContainerMessage>(OnRemovedFromContainer);
 
-        SubscribeLocalEvent<CellSequencerComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
 
         SubscribeLocalEvent<CellSequencerComponent, CellSequencerUiSyncMessage>(OnSync);
 
@@ -48,12 +44,6 @@ public sealed class CellSequencerSystem : EntitySystem
     {
         UpdateInsideCellContainers(ent);
         UpdateInsideCells(ent);
-        UpdateUI(ent);
-    }
-
-    private void OnMaterialAmountChanged(Entity<CellSequencerComponent> ent, ref MaterialAmountChangedEvent args)
-    {
-        ent.Comp.MaterialAmount = _materialStorage.GetMaterialAmount(ent, ent.Comp.RequiredMaterial);
         UpdateUI(ent);
     }
 
@@ -127,12 +117,6 @@ public sealed class CellSequencerSystem : EntitySystem
         if (!cells.Contains(args.Cell))
             return;
 
-        if (ent.Comp.MaterialAmount < args.Cell.Cost)
-            return;
-
-        if (!_materialStorage.TrySetMaterialAmount(ent, ent.Comp.RequiredMaterial, ent.Comp.MaterialAmount - args.Cell.Cost))
-            return;
-
         foreach (var container in ent.Comp.CellContainers)
         {
             _cell.ClearCells(container.Owner);
@@ -152,7 +136,7 @@ public sealed class CellSequencerSystem : EntitySystem
         }
 
         var hasContainer = _container.HasContainer(ent, ent.Comp.DishSlot, null);
-        var state = new CellSequencerUiState(ent.Comp.Cells, serverEnt.Value.Comp.Cells, ent.Comp.MaterialAmount, hasContainer);
+        var state = new CellSequencerUiState(ent.Comp.Cells, serverEnt.Value.Comp.Cells, hasContainer);
         _userInterface.SetUiState(ent.Owner, CellSequencerUiKey.Key, state);
     }
 

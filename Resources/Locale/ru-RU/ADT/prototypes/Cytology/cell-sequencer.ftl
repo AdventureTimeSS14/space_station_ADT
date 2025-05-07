@@ -8,8 +8,6 @@ cell-sequencer-menu-cell-name-label = Название: {$name}
 cell-sequencer-menu-cell-color-label = Цвет: [color={$color}]{$color}[/color]
 cell-sequencer-menu-cell-stability-label = Стабильность: {$stability}%
 cell-sequencer-menu-cell-remote-label = Изъятый: {$remote}
-cell-sequencer-menu-cell-cost-label = Стоимость: {$cost} единиц плазмы
-cell-sequencer-menu-cell-material-label = Материал: {$material}
 cell-sequencer-menu-cell-modifiers-label = Модификатор:
 cell-sequencer-menu-cell-modifier-message = - [color={$color}]{$name}[/color]
 # Menu buttons

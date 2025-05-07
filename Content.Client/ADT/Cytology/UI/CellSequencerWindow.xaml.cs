@@ -39,8 +39,6 @@ public sealed partial class CellSequencerWindow : FancyWindow
 
         _cell = _entity.System<CellSystem>();
 
-        SetMaterialCount(0);
-
         SyncButton.OnPressed += _ => OnSync?.Invoke();
         AddButton.OnPressed += _ => OnAdd?.Invoke(SelectedCell);
         RemoveButton.OnPressed += _ =>
@@ -53,7 +51,6 @@ public sealed partial class CellSequencerWindow : FancyWindow
 
     public void UpdateState(CellSequencerUiState state)
     {
-        SetMaterialCount(state.Material);
 
         _hasContainer = state.HasContainer;
 
@@ -95,13 +92,6 @@ public sealed partial class CellSequencerWindow : FancyWindow
         _sequencerEntry = entry;
         _sequencerEntry?.SetState(false);
     }
-
-    private void SetMaterialCount(int count)
-    {
-        _material = count;
-        MaterialLabel.Text = Loc.GetString("cell-sequencer-menu-cell-material-label", ("material", _material));
-    }
-
     private void SetCellInfo(Cell? cell)
     {
         CellInfoContainer.Visible = cell is not null;
