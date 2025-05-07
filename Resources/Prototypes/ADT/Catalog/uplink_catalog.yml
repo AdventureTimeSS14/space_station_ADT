@@ -774,6 +774,20 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: ADTUplinkKravMaga
+  name: uplink-cravmaga-name
+  description: uplink-cravmaga-description
+  icon: { sprite: /Textures/ADT/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+  productEntity: ADTClothingHandsGlovesKravMagaChameleon
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
+
 ## Disruption
 - type: listing
   id: UplinkNuclearPhysicistKit
