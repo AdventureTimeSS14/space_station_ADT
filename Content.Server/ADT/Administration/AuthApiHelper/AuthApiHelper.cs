@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Content.Server.ADT.Administration;
 
-public sealed partial class GetCreationDateClass
+public sealed partial class AuthApiHelper
 {
     private static readonly HttpClient _httpClient = new HttpClient();
 

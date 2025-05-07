@@ -76,7 +76,7 @@ namespace Content.Server.GameTicking
                         try
                         {
                             // Получаем дату создания аккаунта через API визардов
-                            creationDate = await GetCreationDateClass.GetCreationDate(args.Session.UserId.ToString());
+                            creationDate = await AuthApiHelper.GetCreationDate(args.Session.UserId.ToString());
                         }
                         catch (Exception ex)
                         {
