@@ -46,6 +46,7 @@ public sealed class ZoomTweakCommand : LocalizedEntityCommands
         if (_entManager.TryGetComponent<ContentEyeComponent>(entityUidPlayer, out var contentEyeComponent))
         {
             _entManager.System<ContentEyeSystem>().SetZoom(entityUidPlayer.Value, zoom, true, contentEyeComponent);
+            _entManager.System<ContentEyeSystem>().SetMaxZoom(entityUidPlayer.Value, zoom, contentEyeComponent);
         }
         else
         {
