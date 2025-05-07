@@ -1,34 +1,11 @@
-using Content.Server.Administration;
-using Content.Server.Commands;
-using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
-using Content.Shared.Administration;
-using Content.Shared.Roles;
-using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
-using Content.Server.Administration;
-using Content.Server.Administration.Managers;
-using Content.Server.GhostKick;
-using Content.Shared.Administration;
-using Robust.Server.Player;
-using Robust.Shared.Console;
-using System.Linq;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Mind;
+using System.Numerics;
+using Content.Server.Administration;
+using Content.Server.Movement.Systems;
 using Content.Shared.Administration;
-using Content.Shared.Mind.Components;
-using Robust.Server.Player;
-using Robust.Shared.Console;
-using System.Diagnostics.CodeAnalysis;
-using Content.Server.Mind;
-using Content.Shared.Administration;
-using Content.Shared.Mind.Components;
-using Robust.Server.Player;
-using Robust.Shared.Console;
 using Content.Shared.Movement.Components;
-using Content.Client.Administration.Components;
-using Robust.Server.GameObjects;
-
+using Robust.Server.Player;
+using Robust.Shared.Console;
 
 namespace Content.Server.ADT.Administration.Commands;
 
@@ -37,16 +14,16 @@ public sealed class ZoomTweakCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
 
 
     public override string Command => "zoom_tweak";
-    public override string Description => Loc.GetString("zoom_tweak-command-description");
+    public override string Description => Loc.GetString("cmd-zoom_tweak-command-description");
 
-    public override string Help => Loc.GetString("zoom_tweak-command-help-text", ("command", Command));
+    public override string Help => Loc.GetString("cmd-zoom_tweak-command-help-text", ("command", Command));
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
+        Vector2 zoom = new(1f, 1f);
         if (args.Length != 2)
         {
             shell.WriteLine("Error: invalid arguments!");
@@ -57,10 +34,18 @@ public sealed class ZoomTweakCommand : LocalizedEntityCommands
         if (!TryParseUid(args[0], shell, _entManager, out var entityUidPlayer))
             return;
 
+        if (!float.TryParse(args[1], out var arg1))
+        {
+            shell.WriteError(LocalizationManager.GetString("cmd-parse-failure-float", ("arg", args[1])));
+            return;
+        }
+
+        if (arg1 > 0)
+            zoom = new(arg1, arg1);
+
         if (_entManager.TryGetComponent<ContentEyeComponent>(entityUidPlayer, out var contentEyeComponent))
         {
-            _entManager.System<ContentEyeSystem>().RequestZoom(player.Value, zoom, true, scalePvs, content);
-            contentEyeComponent.TargetZoom = 
+            _entManager.System<ContentEyeSystem>().SetZoom(entityUidPlayer.Value, zoom, true, contentEyeComponent);
         }
     }
 
