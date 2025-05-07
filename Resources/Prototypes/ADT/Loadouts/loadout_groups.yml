@@ -546,7 +546,7 @@
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
 
-## Парикмахер 
+## Парикмахер
 
 # костюмы
 - type: loadoutGroup
@@ -660,7 +660,7 @@
 
 - type: loadoutGroup
   id: ADTJanitorPDA
-  name: loadout-group-detective-id-adt
+  name: loadout-group-janitor-id-adt
   minLimit: 1
   maxLimit: 1
   loadouts:
