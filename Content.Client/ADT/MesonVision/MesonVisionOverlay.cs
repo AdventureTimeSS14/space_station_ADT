@@ -6,7 +6,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Content.Shared.Light.Components;
+using Robust.Shared.GameObjects;
 using Content.Shared.StepTrigger.Components;
 
 namespace Content.Client.ADT.MesonVision;
@@ -16,7 +16,7 @@ public sealed class MesonVisionOverlay : Overlay
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     private readonly SharedTransformSystem _xformSystem;
-    private readonly EntityQuery<OccluderComponent> _replacement;
+    private readonly EntityQuery<PlacementReplacementComponent> _replacement;
     private readonly EntityQuery<StepTriggerComponent> _steptrigger;
     private readonly EntityQuery<SpriteComponent> _spriteQuery;
     private readonly EntityQuery<TransformComponent> _xformQuery;
@@ -28,7 +28,7 @@ public sealed class MesonVisionOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
         _xformSystem = _entity.System<SharedTransformSystem>();
-        _replacement = _entity.GetEntityQuery<OccluderComponent>();
+        _replacement = _entity.GetEntityQuery<PlacementReplacementComponent>();
         _steptrigger = _entity.GetEntityQuery<StepTriggerComponent>();
         _spriteQuery = _entity.GetEntityQuery<SpriteComponent>();
         _xformQuery = _entity.GetEntityQuery<TransformComponent>();
