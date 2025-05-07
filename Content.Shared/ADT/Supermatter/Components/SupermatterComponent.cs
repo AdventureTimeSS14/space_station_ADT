@@ -284,7 +284,7 @@ public sealed partial class SupermatterComponent : Component
     /// Every 60 seconds, Supermatter will release lightning bolts
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan ZapTimer { get; set; } = TimeSpan.FromSeconds(60);
+    public TimeSpan ZapTimer { get; set; } = TimeSpan.FromSeconds(44);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered

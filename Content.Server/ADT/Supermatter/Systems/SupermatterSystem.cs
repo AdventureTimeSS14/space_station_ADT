@@ -336,7 +336,6 @@ public sealed partial class SupermatterSystem : EntitySystem
             if (HasComp<MobStateComponent>(target))
             {
                 EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
-                _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} has consumed {EntityManager.ToPrettyString(target):target}");
             }
 
             var targetProto = MetaData(target).EntityPrototype;

@@ -313,7 +313,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Tesla Delam
-        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterCriticalPowerPenaltyThreshold))
+        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
         {
             _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
             return DelamType.Tesla;
