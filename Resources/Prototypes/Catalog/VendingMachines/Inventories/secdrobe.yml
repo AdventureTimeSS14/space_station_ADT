@@ -30,6 +30,13 @@
     ADTClothingHeadHelmetSecCap: 2
     ADTClothingHeadHelmetSecUshanka: 2
     ADTClothingShoesKirzaBoots: 1
+    ClothingHeadHatCowboyBrown: 1
+    ADTClothingShoesJackbootsCowboyBrown: 1
+    ClothingHeadHatCowboyBlack: 1
+    ADTClothingShoesJackbootsCowboyBlack: 1
+    ClothingHeadHatCowboyWhite: 1
+    ADTClothingShoesJackbootsCowboyWhite: 1
+    ADTClothingShoesJackbootsCowboyFancy: 1
     #ADT Clothing end
   contrabandInventory:
     ClothingMaskClownSecurity: 1

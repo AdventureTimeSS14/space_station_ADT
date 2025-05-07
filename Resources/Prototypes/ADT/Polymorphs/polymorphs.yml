@@ -377,7 +377,7 @@
     entity: ADTMobGondola
     forced: true
     transferHumanoidAppearance: true
-    inventory: None
+    inventory: Drop
     revertOnDeath: false
     revertOnCrit: false
 
