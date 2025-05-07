@@ -367,6 +367,36 @@ public sealed partial class ComboEffectToUserPuller : IComboEffect
         }
     }
 }
+[Serializable]
+public sealed partial class ComboEffectToPulled : IComboEffect
+{
+    [DataField]
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        if (!entMan.TryGetComponent<PullerComponent>(user, out var puller) || puller.Pulling == null || puller.Pulling != target)
+            return;
+        foreach (var comboEvent in ComboEvents)
+        {
+            comboEvent.DoEffect(user, target, entMan);
+        }
+    }
+}
+[Serializable]
+public sealed partial class ComboEffectToStuned : IComboEffect
+{
+    [DataField]
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        if (!entMan.HasComponent<StunnedComponent>(target))
+            return;
+        foreach (var comboEvent in ComboEvents)
+        {
+            comboEvent.DoEffect(user, target, entMan);
+        }
+    }
+}
 
 /// <summary>
 /// После выполнения комбо телепортирует нападающего на цель.
