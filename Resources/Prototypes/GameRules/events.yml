@@ -171,7 +171,7 @@
     weight: 4.5  # ADT tweak 6.5 > 4.5
     earliestStart: 40
     reoccurrenceDelay: 20
-    minimumPlayers: 30 #ADT-Tweak 20 >>> 30
+    minimumPlayers: 30 #ADT-Tweak 20 >>> 3
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
@@ -212,10 +212,6 @@
     - TerrorObjective
     - MassArrestObjective
     - NinjaSurviveObjective
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ADTninjaObjectiveGroups # ADT tweak
-    maxDifficulty: 1.5
   - type: AntagSelection
     agentName: ninja-round-end-agent-name
     definitions:
