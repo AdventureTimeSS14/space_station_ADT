@@ -131,7 +131,6 @@
           - ProtectiveWideHit
           - OffensiveHit
           - ProtectiveWideHit
-          - ProtectiveHit
         comboEvent:
           - !type:ComboEffectToStuned
             comboEvents:
@@ -157,7 +156,7 @@
                   Slash: 15
             - !type:ComboStopGrabEffect
             - !type:ComboStunEffect
-              stunTime: 4
+              stunTime: 6
               dropItems: false
           - !type:ComboAudioEffect
             sound:
@@ -171,7 +170,7 @@
             - !type:ComboDamageEffect
               damage:
                 types:
-                  Slash: 10
+                  Slash: 20
             - !type:ComboEffectTeleportOnVictim
             - !type:ComboAudioEffect
               sound:
