@@ -351,7 +351,23 @@ public sealed partial class ComboEffectToDowned : IComboEffect
         }
     }
 }
-
+[Serializable]
+public sealed partial class ComboEffectToStanding : IComboEffect
+{
+    [DataField]
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var down = entMan.System<StandingStateSystem>();
+        if (!down.IsDown(target))
+        {
+            foreach (var comboEvent in ComboEvents)
+            {
+                comboEvent.DoEffect(user, target, entMan);
+            }
+        }
+    }
+}
 [Serializable]
 public sealed partial class ComboEffectToUserPuller : IComboEffect
 {

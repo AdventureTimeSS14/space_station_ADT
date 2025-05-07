@@ -102,7 +102,7 @@
     attackRate: 2
     damage:
       types:
-        Slash: 12
+        Slash: 7
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     range: 2.3
@@ -115,7 +115,7 @@
           - OffensiveWideHit
           - OffensiveWideHit
         comboEvent:
-          - !type:ComboEffectToPulled
+          - !type:ComboEffectToStanding
             comboEvents:
             - !type:ComboDamageEffect
               damage:
