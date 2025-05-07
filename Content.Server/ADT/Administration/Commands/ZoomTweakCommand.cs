@@ -17,7 +17,7 @@ public sealed class ZoomTweakCommand : LocalizedEntityCommands
 
 
     public override string Command => "zoom_tweak";
-    public override string Description => Loc.GetString("cmd-zoom_tweak-command-description");
+    public override string Description => Loc.GetString("cmd-zoom_tweak-command-description", ("component", nameof(ContentEyeComponent)));
 
     public override string Help => Loc.GetString("cmd-zoom_tweak-command-help-text", ("command", Command));
 
@@ -36,7 +36,7 @@ public sealed class ZoomTweakCommand : LocalizedEntityCommands
 
         if (!float.TryParse(args[1], out var arg1))
         {
-            shell.WriteError(LocalizationManager.GetString("cmd-parse-failure-float", ("arg", args[1])));
+            shell.WriteError(Loc.GetString("cmd-parse-failure-float", ("arg", args[1])));
             return;
         }
 
@@ -46,6 +46,11 @@ public sealed class ZoomTweakCommand : LocalizedEntityCommands
         if (_entManager.TryGetComponent<ContentEyeComponent>(entityUidPlayer, out var contentEyeComponent))
         {
             _entManager.System<ContentEyeSystem>().SetZoom(entityUidPlayer.Value, zoom, true, contentEyeComponent);
+        }
+        else
+        {
+            shell.WriteError(Loc.GetString("cmd-zoom_tweak-command-error-content-eye", ("component", nameof(ContentEyeComponent))));
+            return;
         }
     }
 
