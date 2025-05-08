@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: SDClothingBackpackSatchelSalvageAbubachir
+  suffix: Abubachir
+  name: bib-satchel-name
+  description: bib-satchel-desc
+  components:
+    - type: Sprite
+      sprite: Clothing/Back/Satchels/salvage.rsi
+    - type: StorageFill
+      contents:
+        - id: ADTGoldCross
+        - id: ClothingShoesAerostatic
+        - id: ADTClothingUniformJumpsuitRedPlaidShirt
+        - id: ClothingHeadHatStrawHat
+        - id: ADTIconPreceptGold
+        - id: ADTIconJesus
+        - id: ADTIconMaria
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
