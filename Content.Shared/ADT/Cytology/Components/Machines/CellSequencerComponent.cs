@@ -1,7 +1,5 @@
-﻿using Content.Shared.Materials;
-using Content.Shared.ADT.Cytology.Components.Container;
+﻿using Content.Shared.ADT.Cytology.Components.Container;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Cytology.Components.Machines;
 
