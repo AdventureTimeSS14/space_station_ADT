@@ -7,4 +7,4 @@ ent-ADT34Tank = т-34
     .suffix = { "СССП, Декорация" }
 
 ent-ADT34TankBattery = { ent-ADT34Tank }
-.desc = { ent-ADT34Tank.desc }
+    .desc = { ent-ADT34Tank.desc }
