@@ -222,3 +222,68 @@
   id: ADTCoffeeBonBon
   flavorType: Complex
   description: flavor-complex-ADTCoffeeBonBon
+
+- type: flavor
+  id: ADTBolognesePasta
+  flavorType: base
+  description: flavor-base-adtbolognesepasta
+
+- type: flavor
+  id: ADTCarpPasta
+  flavorType: base
+  description: flavor-base-adtcarppasta
+
+- type: flavor
+  id: ADTCheesePasta
+  flavorType: base
+  description: flavor-base-adtcheesepasta
+
+- type: flavor
+  id: ADTCheeseMeatballPasta
+  flavorType: base
+  description: flavor-base-adtcheesemeatballpasta
+
+- type: flavor
+  id: ADTCheeseTomatoPasta
+  flavorType: base
+  description: flavor-base-adtcheesetomatopasta
+
+- type: flavor
+  id: ADTClothPasta
+  flavorType: base
+  description: flavor-base-adtclothpasta
+
+- type: flavor
+  id: ADTCreamPasta
+  flavorType: base
+  description: flavor-base-adtcreampasta
+
+- type: flavor
+  id: ADTCreamMeatballPasta
+  flavorType: base
+  description: flavor-base-adtcreammeatballpasta
+
+- type: flavor
+  id: ADTInkPasta
+  flavorType: base
+  description: flavor-base-adtinkpasta
+
+- type: flavor
+  id: ADTInkFishPasta
+  flavorType: base
+  description: flavor-base-adtfishpasta
+
+- type: flavor
+  id: ADTMushroomPasta
+  flavorType: base
+  description: flavor-base-adtmushroompasta
+
+- type: flavor
+  id: ADTSalmoPasta
+  flavorType: base
+  description: flavor-base-adtsalmonpasta
+
+- type: flavor
+  id: ADTTomatoMeatballPasta
+  flavorType: base
+  description: flavor-base-adttomatomeatballpasta

@@ -7,6 +7,13 @@
   - type: Sprite
     sprite: Objects/Tools/scissors.rsi
     state: icon
+#ADT tweak start
+  - type: Item
+    sprite: Objects/Tools/scissors.rsi
+    storedSprite:
+      sprite: Objects/Tools/scissors.rsi
+      state: storage
+#ADT tweak end
   - type: MagicMirror
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key

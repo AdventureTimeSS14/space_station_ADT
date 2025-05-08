@@ -17,6 +17,11 @@
   - !type:GroupLoadoutEffect
     proto: MasterDetective
 
+- type: loadout
+  id: ADTDetectiveOldFedora
+  equipment:
+    head: ADTClothingHeadOldFedora
+
 # Jumpsuit
 - type: loadout
   id: DetectiveInvestigatorSuit
@@ -26,6 +31,17 @@
   - !type:GroupLoadoutEffect
     proto: MasterDetective
 
+- type: loadout
+  id: ADTDetectiveOldSuit
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitDetectiveOld
+
+# Jumpskirts
+- type: loadout
+  id: ADTDetectiveOldJumpskirt
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtDetectiveOld
+
 # OuterClothing
 - type: loadout
   id: DetectiveCoatInvestigator
@@ -34,3 +50,26 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterDetective
+
+- type: loadout
+  id: ADTDetectiveCoatOld
+  equipment:
+    outerClothing: ADTClothingOuterCoatDetectiveLoadoutOld
+
+# Shoes
+- type: loadout
+  id: ADTDetectiveBootsOld
+  equipment:
+    shoes: ADTClothingShoesOldDetectiveBoots
+
+# PDA
+- type: loadout
+  id: DetectivePDA
+  equipment:
+    id: DetectivePDA
+
+- type: loadout
+  id: ADTInvestigatorPDA
+  equipment:
+    id: ADTInvestigatorPDA
+

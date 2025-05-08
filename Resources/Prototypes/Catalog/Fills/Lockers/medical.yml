@@ -143,6 +143,9 @@
     # ADT-WikiBooks-Start
       - id: ADTBookSRPmed
     # ADT-WikiBooks-End
+    # ADT-Druglordupdate-Start
+      - id: ADTChemistryColdplateFlatpack
+    # ADT-Druglordupdate-End
 
 - type: entity
   id: LockerParamedicFilled
@@ -151,10 +154,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitVoidParamed
+      - id: ADTClothingModsuitBackMedical #ADT tweak
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
       - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
+      - id: ADTHighVoltageDefibrillator # ADT Tweak
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic

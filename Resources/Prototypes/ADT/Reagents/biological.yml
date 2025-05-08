@@ -90,3 +90,31 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-slimy
   slippery: false
+
+### КРОВЬ СВЯТОГО МИИШКИИ ФРЕЕЕДЕЕ!!!!
+
+- type: reagent
+  id: ADTGondolium
+  name: reagent-name-gondolium
+  group: Biological
+  desc: reagent-desc-gondolium
+  physicalDesc: reagent-physical-desc-neural
+  flavor: metallic
+  color: "#7c4a12"
+  slippery: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:Polymorph
+        prototype: ADTGondolaMorph
+        conditions:
+        - !type:ReagentThreshold
+          min: 25

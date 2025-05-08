@@ -50,7 +50,7 @@
   id: HoSGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    id: HoSPDA
+    # id: HoSPDA ADT: different PDAs in loadouts
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
     pocket1: ADTWeaponRevolverLesserUnica

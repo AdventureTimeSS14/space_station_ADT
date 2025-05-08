@@ -6,7 +6,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: ADTBlueshieldSuit
+    - id: ADTClothingModsuitBackBlueShield
     - id: MedkitCombatFilled
     - id: MedkitBruteFilled
     - id: WeaponDisabler

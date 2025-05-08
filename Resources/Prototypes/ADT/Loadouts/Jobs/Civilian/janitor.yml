@@ -48,3 +48,14 @@
     proto: ADTJanitorialMaidDress100hours
   equipment:
     jumpsuit: ClothingUniformJumpskirtElegantMaid
+
+# PDA
+- type: loadout
+  id: JanitorPDA
+  equipment:
+    id: JanitorPDA
+
+- type: loadout
+  id: ADTMaidPDA
+  equipment:
+    id: ADTMaidPDA

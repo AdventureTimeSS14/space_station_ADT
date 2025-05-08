@@ -63,6 +63,7 @@
   # ADT-Tweak-Start
   - AcousticGuitarInstrument
   - HarmonicaInstrument
+  - ADTModStorageVoucher
   # ADT-Tweak-End
 
 - type: loadoutGroup
@@ -368,6 +369,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
+  - LawyerGreenSuit # ADT-Loadouts
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -905,6 +907,8 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
+  - ADTElectricianPDA # ADT
+  - ADTMechanicPDA # ADT
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1081,6 +1085,9 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
+  - ADTLabTechPDA # ADT
+  - ADTXenoarchPDA # ADT
+  - ADTAnomalistPDA # ADT
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1236,7 +1243,10 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
-  - DetectiveInvestigatorCap # ADT-Loadout
+  # ADT-Loadout-Start
+  - DetectiveInvestigatorCap 
+  - ADTDetectiveOldFedora 
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1259,6 +1269,8 @@
   - NoirJumpsuit
   - NoirJumpskirt
   # ADT-Loadouts-Start
+  - ADTDetectiveOldSuit
+  - ADTDetectiveOldJumpskirt
   - DetectiveInvestigatorSuit
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
@@ -1272,8 +1284,11 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
-  - DetectiveCoatInvestigator # ADT-Loadout
-  - ADTArmorVestHidden # ADT-Loadout
+  # ADT-Loadouts-Start
+  - ADTDetectiveCoatOld
+  - DetectiveCoatInvestigator 
+  - ADTArmorVestHidden 
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1409,6 +1424,9 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
+  - ADTClinicianPDA # ADT
+  - ADTDoctorPDA # ADT
+  - ADTTherapistPDA # ADT
 
 - type: loadoutGroup
   id: MedicalGloves
