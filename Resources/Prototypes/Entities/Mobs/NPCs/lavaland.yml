@@ -20,6 +20,15 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: unshaded
       shader: unshaded
+  - type: Bloodstream #SD tweak
+    bloodMaxVolume: 150
+    bloodlossDamage:
+      types:
+        Bloodloss: 0
+    bloodlossHealDamage:
+      types:
+        Bloodloss: 0
+    bloodReagent: DryableBlood
   - type: Fixtures
     fixtures:
       fix1:

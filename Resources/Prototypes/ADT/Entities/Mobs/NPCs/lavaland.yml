@@ -14,7 +14,7 @@
       Alive:
         Base: legion
       Dead:
-        Base: legion_dead
+        Base: legion
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 4.0
