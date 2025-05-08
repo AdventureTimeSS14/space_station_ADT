@@ -90,13 +90,13 @@ ent-ADTSpaceSecGlassAirlock = стеклянный шлюз
 
 ent-ADTGlassChiefEngineerAirlock = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
-    .suffix = СИ
+    .suffix = Старший инженер
 ent-ADTGlassHeadOfPersonalAirlock = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
-    .suffix = ГП
+    .suffix = Глава персонала
 ent-ADTGlassHeadOfSecurityAirlock = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
-    .suffix = ГСБ
+    .suffix = Глава службы безопасности
 ent-ADTGlassChiefMedicalOfficerAirlock = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Главный врач
