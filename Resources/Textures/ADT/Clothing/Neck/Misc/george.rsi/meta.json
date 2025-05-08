@@ -13,13 +13,6 @@
         {
             "name": "equipped-NECK",
             "directions": 4
-        },
-        {
-            "name": "g_icon"
-        },
-        {
-            "name": "g_equipped-NECK",
-            "directions": 4
         }
     ]
 }
