@@ -66,13 +66,13 @@ public sealed class MesonVisionOverlay : Overlay
                 mapId,
                 eyeRot,
                 sprite.DrawDepth,
-                0.5f
+                1f
             ));
         }
 
         foreach (var entry in _entries)
         {
-            RenderFast(entry.Ent, worldHandle, entry.EyeRot, entry.Transparency ?? 0.5f, nightVision.Color);
+            RenderFast(entry.Ent, worldHandle, entry.EyeRot, entry.Transparency ?? 1f, nightVision.Color);
         }
 
         _entries.Clear();
