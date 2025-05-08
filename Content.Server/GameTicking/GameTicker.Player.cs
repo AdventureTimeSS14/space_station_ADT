@@ -13,6 +13,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.CCVar;
 using Content.Server.Discord;
+using Content.Server.ADT.Administration;
 using System.Linq;
 
 namespace Content.Server.GameTicking
@@ -71,9 +72,21 @@ namespace Content.Server.GameTicking
                     // ADT-Tweak-start
                     if (firstConnection)
                     {
+                        var creationDate = "Не удалось получить дату создания";
+                        try
+                        {
+                            // Получаем дату создания аккаунта через API визардов
+                            creationDate = await AuthApiHelper.GetCreationDate(args.Session.UserId.ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error($"Ошибка при получении даты создания аккаунта: {ex.Message}");
+                        }
+
                         _chatManager.SendAdminAnnouncementColor(
                             "\nВНИМАНИЕ!!!\n" +
-                            $"Зашёл новичок {args.Session.Name} с {firstSeenTime}.\n" +
+                            $"Зашёл НОВИЧОК {args.Session.Name} первый заход: {firstSeenTime}.\n" +
+                            $"Дата создания аккаунта: {creationDate}\n" +
                             "Администрации быть внимательней :0, у данного игрока меньше 10ч на нашем сервере.\n" +
                             "ВНИМАНИЕ!!!",
                             colorOverrid: Color.White
