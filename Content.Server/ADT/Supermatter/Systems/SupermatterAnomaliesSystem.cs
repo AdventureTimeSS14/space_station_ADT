@@ -12,6 +12,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using System.Numerics;
+using System;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
@@ -22,7 +23,7 @@ public sealed partial class SupermatterSystem
         if (sm.ResonantFrequency >= 1)
             return AnomalyMode.BeforeCascade;
 
-        if (sm.KudzuSpawned == true)
+        if (sm.Cascade == true)
             return AnomalyMode.AfterCascade;
 
         return AnomalyMode.Base;
@@ -41,6 +42,7 @@ public sealed partial class SupermatterSystem
 
         var anomalies = new List<string>();
 
+        System.Console.WriteLine("AfterCascade branch entered");
         switch (sm.PreferredAnomalyMode)
         {
             case AnomalyMode.BeforeCascade:
@@ -51,10 +53,13 @@ public sealed partial class SupermatterSystem
             case AnomalyMode.AfterCascade:
                 if (!sm.HasSpawnedPortal)
                 {
+                    System.Console.WriteLine("1");
                     for (int i = 0; i < 10; i++)
                     {
+                        System.Console.WriteLine("2");
                         anomalies.Add(sm.CascadePortalPrototype);
                     }
+                    System.Console.WriteLine("3");
                     sm.HasSpawnedPortal = true;
                 }
                 break;

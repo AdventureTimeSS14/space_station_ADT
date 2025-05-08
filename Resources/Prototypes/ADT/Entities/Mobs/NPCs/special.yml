@@ -81,3 +81,70 @@
   - type: CollectiveMindRank
     rankName: collective-mind-spitter-rank
   # ADT-CollectiveMind-Tweak-End
+
+- type: entity
+  name: burrower
+  id: ADTMobSupermatter
+  parent: SimpleSpaceMobBase
+  description: They mostly come at night. Mostly.
+  components:
+  - type: Insulated
+  - type: CombatMode
+  - type: InputMover
+  - type: MobMover
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Hands
+  - type: PointLight
+    enabled: true
+    radius: 10
+    energy: 2
+    color: "#ffe000"
+  - type: ComplexInteraction
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/supermatter.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: supermatter
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10000: Dead
+  - type: Stamina
+    critThreshold: 500
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Burn: 50
+  - type: Puller
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+  - type: NoSlip
+  - type: CollectiveMindRank
+    rankName: collective-mind-burrower-rank

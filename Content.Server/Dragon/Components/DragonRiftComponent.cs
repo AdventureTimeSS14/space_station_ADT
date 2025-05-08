@@ -36,5 +36,5 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     public float SpawnCooldown = 30f;
 
     [DataField("spawns")]
-    public List<string> SpawnPrototypes = new() { "MobCarpDragon" };
+    public List<string> SpawnPrototypes = new() { };
 }

@@ -40,7 +40,7 @@ public sealed partial class SupermatterComponent : Component
     public Color LightColorDelam = Color.FromHex("#ffe000");
 
     [DataField]
-    public bool KudzuSpawned = false;
+    public bool Cascade = false;
 
     [DataField]
     public bool SliverRemoved = false;
@@ -262,7 +262,7 @@ public sealed partial class SupermatterComponent : Component
     /// The chance for a half-life portal spawn when Supermatter getting damage from antinob.
     /// </summary>
     [DataField]
-    public float HalfLifePortalChance = 1000f;
+    public float HalfLifePortalChance = 500f;
 
     [DataField]
     public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
@@ -314,7 +314,7 @@ public sealed partial class SupermatterComponent : Component
     public float AccentMinCooldown = 2f;
 
     [DataField("restartDelay"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan RestartDelay = TimeSpan.FromSeconds(120f);
+    public TimeSpan RestartDelay = TimeSpan.FromSeconds(150f);
 
     #endregion
 

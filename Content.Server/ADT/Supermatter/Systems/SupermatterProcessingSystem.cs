@@ -290,13 +290,8 @@ public sealed partial class SupermatterSystem
         // Cascade Delam
         if (_config.GetCVar(ADTCCVars.SupermatterDoCascadeDelam) && sm.ResonantFrequency >= 1)
         {
-            if (!sm.KudzuSpawned)
-            {
-                Spawn(sm.KudzuPrototype, xform.Coordinates);
-                sm.KudzuSpawned = true;
-            }
-
             _alert.SetLevel(stationId, sm.AlertCodeCascadeId, true, true, true, false);
+            sm.Cascade = true;
             return DelamType.Cascade;
         }
 
@@ -389,6 +384,7 @@ public sealed partial class SupermatterSystem
             case DelamType.Cascade:
                 QueueDel(uid);
                 Spawn(sm.SupermatterCascadePrototype, xform.Coordinates);
+                Spawn(sm.KudzuPrototype, xform.Coordinates);
                 _roundEnd.EndRound(sm.RestartDelay);
                 break;
 
