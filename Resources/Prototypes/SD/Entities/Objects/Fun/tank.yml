@@ -1,0 +1,224 @@
+- type: entity
+  id: SDVatTank
+  parent: BaseMech
+  name: Вата-танк
+  description: ТОТАЛЬНЫЙ ВАЗЕЛИНОВЫЙ ДРИСЛОУ
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/tank.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: vattank
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/ADT/Mecha/tank.ogg
+  - type: Mech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.1
+    maxintegrity: 360
+    baseState: vattank
+    openState: vattank-open
+    brokenState: vattank
+    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.2
+    baseSprintSpeed: 2
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: AccessReader
+    access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
+  - type: Storage
+    grid:
+    - 0,0,10,4
+    clickInsert: false
+  # ADT-tweak start. Правим очки здоровья меха
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # ADT-tweak end. Правим очки здоровья меха
+
+- type: entity
+  id: SDVatTankBattery
+  parent: SDVatTank
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellAntiqueProto
+
+- type: entity
+  id: SDT34Tank
+  parent: BaseMech
+  name: Т-34
+  description: БАБАШКА РАЗЪЕБАШКА, ПААААУ
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/tank.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: t34tank
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/ADT/Mecha/tank.ogg
+  - type: Mech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.1
+    maxintegrity: 360
+    baseState: t34tank
+    openState: t34tank-open
+    brokenState: t34tank-broken
+    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.2
+    baseSprintSpeed: 2
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: AccessReader
+    access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
+  - type: Storage
+    grid:
+    - 0,0,10,4
+    clickInsert: false
+  # ADT-tweak start. Правим очки здоровья меха
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # ADT-tweak end. Правим очки здоровья меха
+
+- type: entity
+  id: SDT34TankBattery
+  parent: SDT34Tank
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellAntiqueProto
+
+- type: entity
+  id: SDTigerTank
+  parent: BaseMech
+  name: Tiger
+  description: НЮХНИ ВЯЛОГО ДЖУНДЖУРИКА, ПААААУ
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/tank.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: tigertank
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/ADT/Mecha/tank.ogg
+  - type: Mech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.1
+    maxintegrity: 360
+    baseState: tigertank
+    openState: tigertank-open
+    brokenState: tigertank-broken
+    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.2
+    baseSprintSpeed: 2
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: AccessReader
+    access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
+  - type: Storage
+    grid:
+    - 0,0,10,4
+    clickInsert: false
+  # ADT-tweak start. Правим очки здоровья меха
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # ADT-tweak end. Правим очки здоровья меха
+
+- type: entity
+  id: SDTigerTankBattery
+  parent: SDTigerTank
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellAntiqueProto
