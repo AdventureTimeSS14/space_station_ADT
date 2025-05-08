@@ -220,7 +220,7 @@
 
 # КПК Следователя
 - type: entity
-  parent: ADTBaseSecurityPDA
+  parent: DetectivePDA
   id: ADTInvestigatorPDA
   name: investigator PDA
   description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
@@ -230,6 +230,7 @@
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
+    sprite: ADT/Objects/Devices/pda.rsi
     state: pda-investigator
   - type: Appearance
     appearanceDataInit:
