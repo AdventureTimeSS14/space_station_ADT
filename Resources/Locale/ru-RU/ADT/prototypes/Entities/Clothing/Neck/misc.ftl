@@ -4,10 +4,10 @@ ent-ADTClothingNeckGoldChain = золотая цепь
 ent-ADTSpaceSecToken = жетон сотрудника SPACE SEC
     .desc = Жетон показывающий вашу принадлежность к корпорации SPACE SEC.
 
-ent-SirenaChokerWithSpike = Чокер с шипами
+ent-ADTChokerWithSpike = чокер с шипами
     .desc = Если его вывернуть задом-наперед, то это будет оружие пыток.
 
-ent-SirenaChokerWithHeart = Чокер с сердцем
+ent-ADTChokerWithHeart = чокер с сердцем
     .desc = Для послушных членов экипажа.
 
 ent-ADTClownCollarCaterpillar = клоунский воротник-гусеница

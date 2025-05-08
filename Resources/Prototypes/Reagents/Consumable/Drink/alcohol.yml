@@ -218,12 +218,12 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 5
+          min: 3
         - !type:OrganType
           type: Drask
         damage:
           types:
-          Poison: 0.5
+            Poison: 0.1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -249,10 +249,26 @@
       - !type:Drunk
         boozePower: 2
       # Start ADT tweak
+        conditions:
+        - !type:OrganType
+          type: Drask
+          shouldHave: false
+      - !type:Drunk
+        boozePower: 1
+        conditions:
+        - !type:OrganType
+          type: Drask
+          shouldHave: true
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           min: 15
+        - !type:OrganType
+          type: Drask
+          shouldHave: false
+        - !type:OrganType
+          type: Dwarf
+          shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false

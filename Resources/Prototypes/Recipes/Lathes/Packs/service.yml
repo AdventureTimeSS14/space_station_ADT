@@ -5,6 +5,7 @@
   recipes:
   - Mousetrap  # ADT Tweak
   - TrashBag  # ADT Tweak
+  - ADTPlantAnalyzer # ADT Tweak
   - Bucket
   - DrinkMug
   - DrinkMugMetal
@@ -37,6 +38,7 @@
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
   - PrinterDocMachineCircuitboard # Corvax-Printer
+  - ADTCoffeeMachineCircuitboard # ADT Tweak
 
 ## Dynamic
 
@@ -56,6 +58,8 @@
 - type: latheRecipePack
   id: ServiceBoards
   recipes:
+  - ADTElectricRangeMachineCircuitBoard #ADT Tweak
+  - ADTKitchenAssemblerMachineCircuitBoard #ADT Tweak
   - BiofabricatorMachineCircuitboard
   - FatExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard # roundstart gear being unlocked roundstart when
@@ -68,3 +72,6 @@
   - CloningConsoleComputerCircuitboard #ADT tweak
   - MedicalScannerMachineCircuitboard #ADT tweak
   - ADTAdvancedMicrowaveMachineCircuitBoard #ADT tweak
+  - ADTCoffeeMachineBluespaceCircuitboard #ADT tweak
+  - ADTAdvancedReagentGrinderMachineCircuitboard #ADT tweak
+  - ADTHydroponicsTrayAdvancedMachineCircuitboard #ADT tweak

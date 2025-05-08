@@ -69,6 +69,7 @@
     - ADTModsuitModStorage
     - ADTModsuitModMagboot
     - ADTModsuitModJetpack
+    - ADTModsuitModEmpProtection
     - ADTModsuitModNightVision
     - ADTModsuitModDrill
   technologyPrerequisites:

@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 4,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Adventure Time, justkekc, Blueshield made by Tamioki, pathologist upgraded by discord:prazat911",
+    "copyright": "Made by Adventure Time, justkekc, Blueshield made by Tamioki, pathologist upgraded and sprite barber by discord:prazat911",
     "size": {
         "x": 32,
         "y": 32
@@ -33,6 +33,15 @@
         },
         {
             "name": "guardofficer"
+        },
+        {
+            "name": "xeno_warning"
+        },
+        {
+            "name": "spiderclan"
+        },
+        {
+            "name": "barber"
         }
     ]
 }

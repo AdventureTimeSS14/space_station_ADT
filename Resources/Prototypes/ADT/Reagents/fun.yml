@@ -193,7 +193,7 @@
             min: 16
             max: 16
         probability: 0.5
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphRodMetall2
         conditions:
           - !type:OrganType
@@ -211,7 +211,7 @@
             min: 16
             max: 16
         probability: 0.5
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphCat2
         conditions:
           - !type:OrganType
@@ -239,7 +239,7 @@
             max: 16
         probability: 0.5
       - !type:Polymorph #арканы.
-        prototype: ADTPolymorphMonkey 
+        prototype: ADTPolymorphMonkey
         conditions:
           - !type:OrganType
             type: Demon
@@ -257,7 +257,7 @@
             max: 16
         probability: 0.5
       - !type:Polymorph #урсы.
-        prototype: ADTPolymorphSpaceBear 
+        prototype: ADTPolymorphSpaceBear
         conditions:
           - !type:OrganType
             type: Ursus
@@ -292,7 +292,7 @@
             min: 16
             max: 16
         probability: 0.5
-      - !type:Polymorph #животные, ради разнообразия. так же работает на "животные" расы (урсы, вульпы, таяры и т.д.) 
+      - !type:Polymorph #животные, ради разнообразия. так же работает на "животные" расы (урсы, вульпы, таяры и т.д.)
         prototype: ADTPolymorphMouse
         conditions:
           - !type:OrganType
@@ -301,7 +301,7 @@
             min: 16
             max: 16
         probability: 0.25
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphSpider2
         conditions:
           - !type:OrganType
@@ -310,7 +310,7 @@
             min: 16
             max: 16
         probability: 0.25
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphCarp
         conditions:
           - !type:OrganType
@@ -319,7 +319,7 @@
             min: 16
             max: 16
         probability: 0.25
-      - !type:Polymorph 
+      - !type:Polymorph
         prototype: ADTPolymorphLizard2
         conditions:
           - !type:OrganType
@@ -376,7 +376,7 @@
           - !type:ReagentThreshold
             min: 14
             max: 20
-        alertType: ADTAlertPolymorph 
+        alertType: ADTAlertPolymorph
         clear: true
         time: 10
       - !type:Polymorph #начало полиморфов.
@@ -451,3 +451,145 @@
         probability: 0.1
 
 #потом переделаю, как перенесу весь апдейт.
+
+# B ТЕПЕРЬ Я ПРИХОЖУ СО СВОИМИ ФОКУСАМИ (QWERTY)
+- type: reagent
+  id: ADTGenusiphine
+  name: reagent-name-genusiphine
+  group: Medicine
+  desc: reagent-desc-genusiphine
+  physicalDesc: reagent-physical-desc-enigmatic
+  flavor: tingly
+  color: "#059fb39d"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:PopupMessage #прелюдии до полиморфа.
+        conditions:
+          - !type:ReagentThreshold
+            min: 12
+            max: 20
+        type: Local
+        visualType: Small
+        messages: [ "polymorph-effect-feelings" ]
+        probability: 0.07
+      - !type:PopupMessage
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16.5
+        type: Pvs
+        visualType: Small
+        messages: [ "medicine-effect-visible-polymorph" ]
+        probability: 1
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 12
+          max: 20
+      - !type:AdjustAlert
+        conditions:
+          - !type:ReagentThreshold
+            min: 14
+            max: 20
+        alertType: ADTAlertPolymorph
+        clear: true
+        time: 10
+      - !type:Polymorph #начало полиморфов.
+        prototype: ADTLizardPolymorph # Превращение в унатха
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTHumanPolymorph # Превращение в человека
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTDwarfPolymorph  # Превращение в дворфа
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTArachnidPolymorph  # Превращение в арахнида
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTMothPolymorph  # Превращение в ниана
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTVoxPolymorph  # Превращение в опущенн- вокса
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTSkeletonPolymorph   # Превращение в скелета
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTDraskPolymorph   # Превращение в драска
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTTajaranPolymorph   # Превращение в таяра
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTFelinidPolymorph   # Превращение в фелинида
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTKoboltPolymorph   # Превращение в кобольта
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTUrsusPolymorph   # Превращение в урсуса
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTResomiPolymorph   # Превращение в резоми
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5
+      - !type:Polymorph
+        prototype: ADTShadekinPolymorph   # Превращение в сумеречника
+        conditions:
+          - !type:ReagentThreshold
+            min: 16
+            max: 16
+        probability: 0.5

@@ -93,4 +93,11 @@
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    kappa:
+      announcement: alert-level-kappa-announcement
+      sound: /Audio/ADT/Misc/kappa.ogg
+      color: Cyan
+      emergencyLightColor: "#00ffea"
+      shuttleTime: 600
+      disableSelection: true
       #ADT end

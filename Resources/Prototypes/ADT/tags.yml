@@ -2,6 +2,9 @@
   id: ADTMothFriendlyFood
 
 - type: Tag
+  id: ADTHighVoltageDefibrillator
+
+- type: Tag
   id: Patch
 
 - type: Tag
@@ -381,6 +384,9 @@
   id: ADTMedipen
 
 - type: Tag
+  id: ADTSmallSyringe
+
+- type: Tag
   id: ADTBluespaceAnomalyCore
 
 - type: Tag
@@ -548,13 +554,38 @@
   id: ADTMinerArmor
 
 - type: Tag
+  id: ADTMinerArmorOne
+
+- type: Tag
+  id: ADTMinerArmorTwo
+
+- type: Tag
   id: ADTBsoWeapon
 
 - type: Tag
   id: ADTBatonBlocker
 
 - type: Tag
+  id: ADTSmokableReagent
+
+- type: Tag
   id: ADTCartridgeMagnumLesser
 
 - type: Tag
   id: ADTSpeedLoaderMagnumLesser
+
+- type: Tag
+  id: ADTGondola
+
+- type: Tag
+  id: ADTBluespaceCoffeine
+
+- type: Tag
+  id: ADTVendModStorage
+
+- type: Tag
+  id: ADTBadgeBronze
+- type: Tag
+  id: ADTBadgeSilver
+- type: Tag
+  id: ADTBadgeGolden

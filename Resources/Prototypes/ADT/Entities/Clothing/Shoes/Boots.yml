@@ -48,6 +48,17 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
 
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesRomanSandales
+  name: Roman sandales
+  description: The old Roman sandals are still reliable and stylish.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/roman_sandals.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/roman_sandals.rsi
+
 # USSP USSP USSP USSP USSP USSP START
 
 - type: entity
@@ -79,3 +90,58 @@
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/kirzaboots.rsi
 
+# Боты деку, ага 
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ADTClothingShoesOldDetectiveBoots
+  name: old detective boots
+  description: Decy boots, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/old_detective_boots.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/old_detective_boots.rsi
+    
+# Ковбойские боты СБ
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ADTClothingShoesJackbootsCowboyBrown
+  name: brown cowboy jackboots
+  description: They got spurs that jingle and/or jangle.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
+
+- type: entity
+  parent: ADTClothingShoesJackbootsCowboyBrown
+  id: ADTClothingShoesJackbootsCowboyBlack
+  name: black cowboy jackboots
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/cowboybootsblack.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/cowboybootsblack.rsi
+
+- type: entity
+  parent: ADTClothingShoesJackbootsCowboyBrown
+  id: ADTClothingShoesJackbootsCowboyWhite
+  name: white cowboy jackboots
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/cowboybootswhite.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/cowboybootswhite.rsi
+
+- type: entity
+  parent: ADTClothingShoesJackbootsCowboyBrown
+  id: ADTClothingShoesJackbootsCowboyFancy
+  name: fancy cowboy jackboots
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi

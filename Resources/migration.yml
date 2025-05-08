@@ -638,3 +638,6 @@ VendingMachineSmartFridge: ADTSmartFridgeMedical
 
 # SpaceDream 2025-04-06
 PrinterDoc: null
+
+#ADT 2025-04-16
+DrinkBadTouchGlass: ADTDrinkPenetrationGlass

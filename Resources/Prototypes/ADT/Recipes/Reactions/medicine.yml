@@ -186,6 +186,7 @@
 
 - type: reaction
   id: ADTArazine
+  maxTemp: 213
   reactants:
     Arithrazine:
       amount: 1
@@ -214,6 +215,7 @@
 
 - type: reaction
   id: ADTAlomicine
+  maxTemp: 270
   reactants:
     Insuzine:
       amount: 1

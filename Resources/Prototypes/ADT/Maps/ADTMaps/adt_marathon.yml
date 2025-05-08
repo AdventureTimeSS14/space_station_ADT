@@ -70,7 +70,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             # juridical
-            Lawyer: [ 1, 1 ]
+            Lawyer: [ 1, 2 ]
             IAA: [ 1, 1 ]
             Magistrat: [ 1, 1 ] #ADT-Roles
             #silicon
