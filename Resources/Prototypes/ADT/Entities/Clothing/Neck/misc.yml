@@ -74,10 +74,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Misc/pins.rsi
-    state: icon
   - type: Clothing
     sprite: ADT/Clothing/Neck/Misc/pins.rsi
-    state: equipped-NECK.png
 
 - type: entity
   parent: ClothingNeckBase
@@ -135,8 +133,6 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Misc/george.rsi
-    state: icon
   - type: Clothing
     sprite: ADT/Clothing/Neck/Misc/george.rsi
-    state: equipped-NECK.png
 
