@@ -70,10 +70,11 @@ public sealed class HeatExchangerSystem : EntitySystem
             var T2 = outlet.Air.Temperature;
             var denom = (T1 * V2 + T2 * V1);
 
-            if (P1 > P2 && P1 > 0 && denom > 0)
+            if (P1 != P2 && denom > 0)
             {
                 // Calculate the number of moles to transfer to equalize the final pressure of both sides.
-                n = n1 - (n1 + n2) * T2 * V1 / denom;
+                float targetN1 = (n1 + n2) * T2 * V1 / denom;
+                n = n1 - targetN1;
             }
             else
             {
@@ -106,10 +107,21 @@ public sealed class HeatExchangerSystem : EntitySystem
         }
 
         GasMixture xfer;
+        PipeNode sourceNode;
+        PipeNode targetNode;
+
         if (n > 0)
+        {
+            sourceNode = inlet;
+            targetNode = outlet;
             xfer = inlet.Air.Remove(n);
+        }
         else
+        {
+            sourceNode = outlet;
+            targetNode = inlet;
             xfer = outlet.Air.Remove(-n);
+        }
 
         float CXfer = _atmosphereSystem.GetHeatCapacity(xfer, true);
         if (CXfer < Atmospherics.MinimumHeatCapacity)
@@ -141,7 +153,7 @@ public sealed class HeatExchangerSystem : EntitySystem
         // ΔT' = -kΔT^4, k = -ΔT'/ΔT^4
         float kR = comp.alpha * a0 * TdivQ;
         // Based on the fact that ((3t)^(-1/3))' = -(3t)^(-4/3) = -((3t)^(-1/3))^4, and ΔT' = -kΔT^4.
-        float dT2R = dTR * MathF.Pow((1f + 3f * kR * dt * dTRA * dTRA * dTRA), -1f/3f);
+        float dT2R = dTR * MathF.Pow((1f + 3f * kR * dt * dTRA * dTRA * dTRA), -1f / 3f);
         float dER = (dTR - dT2R) / TdivQ;
         _atmosphereSystem.AddHeat(xfer, -dER);
         if (hasEnv && environment != null)
@@ -160,9 +172,6 @@ public sealed class HeatExchangerSystem : EntitySystem
             _atmosphereSystem.AddHeat(environment, dE);
         }
 
-        if (n > 0)
-            _atmosphereSystem.Merge(outlet.Air, xfer);
-        else
-            _atmosphereSystem.Merge(inlet.Air, xfer);
+        _atmosphereSystem.Merge(targetNode.Air, xfer);
     }
 }

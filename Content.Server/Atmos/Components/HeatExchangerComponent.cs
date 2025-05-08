@@ -16,7 +16,7 @@ public sealed partial class HeatExchangerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("conductivity")]
-    public float G { get; set; } = 0.01f;
+    public float G { get; set; } = 1f;
 
     /// <summary>
     /// Thermal convection coefficient (J/degK/sec).
@@ -31,7 +31,7 @@ public sealed partial class HeatExchangerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("radiationCoefficient")]
-    public float alpha { get; set; } = 140f;
+    public float alpha { get; set; } = 500f;
 
     /// <summary>
     /// ADT-Tweak. Using for normal heatexchanger work.

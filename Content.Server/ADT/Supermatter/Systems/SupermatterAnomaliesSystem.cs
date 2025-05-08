@@ -42,7 +42,6 @@ public sealed partial class SupermatterSystem
 
         var anomalies = new List<string>();
 
-        System.Console.WriteLine("AfterCascade branch entered");
         switch (sm.PreferredAnomalyMode)
         {
             case AnomalyMode.BeforeCascade:
@@ -53,13 +52,10 @@ public sealed partial class SupermatterSystem
             case AnomalyMode.AfterCascade:
                 if (!sm.HasSpawnedPortal)
                 {
-                    System.Console.WriteLine("1");
                     for (int i = 0; i < 10; i++)
                     {
-                        System.Console.WriteLine("2");
                         anomalies.Add(sm.CascadePortalPrototype);
                     }
-                    System.Console.WriteLine("3");
                     sm.HasSpawnedPortal = true;
                 }
                 break;
