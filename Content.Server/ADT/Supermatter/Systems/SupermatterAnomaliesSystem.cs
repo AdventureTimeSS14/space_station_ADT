@@ -33,6 +33,8 @@ public sealed partial class SupermatterSystem
     /// </summary>
     public void GenerateAnomalies(EntityUid uid, SupermatterComponent sm)
     {
+        sm.PreferredAnomalyMode = ChooseAnomalyType(uid, sm);
+        
         var xform = Transform(uid);
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
@@ -42,12 +44,19 @@ public sealed partial class SupermatterSystem
         switch (sm.PreferredAnomalyMode)
         {
             case AnomalyMode.BeforeCascade:
-                if (_random.Prob(1 / sm.AnomalyPyroChanceSevere))
-                    anomalies.Add(sm.AnomalyPyroSpawnPrototype);
+                if (_random.Prob(1 / sm.HalfLifePortalChance))
+                    anomalies.Add(sm.HalfLifePortalPrototype);
                 break;
 
             case AnomalyMode.AfterCascade:
-                anomalies.Add(sm.AnomalyPyroSpawnPrototype);
+                if (!sm.HasSpawnedPortal)
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        anomalies.Add(sm.CascadePortalPrototype);
+                    }
+                    sm.HasSpawnedPortal = true;
+                }
                 break;
 
             case AnomalyMode.Base:

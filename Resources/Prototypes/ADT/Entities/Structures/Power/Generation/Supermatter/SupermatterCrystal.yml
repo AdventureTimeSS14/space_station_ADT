@@ -63,6 +63,11 @@
   - type: InteractionOutline
   - type: Physics
   - type: PhysicsGunBlacklist
+  - type: InteractionPopup ## wtf bro why
+    successChance: 0.2
+    interactSuccessString: petting-success-supermatter
+    interactFailureString: petting-failure-supermatter
+    interactSuccessSpawn: EffectHearts
 
 - type: entity
   parent: BaseSupermatter
@@ -410,7 +415,7 @@
   parent: BaseItem
   id: ADTSupermatterRadiation
   name: supermatterradiation
-  suffix: DO NOT SPAWN IT
+  categories: [ HideSpawnMenu ]
   components:
     - type: SupermatterRadiationEvent
 
@@ -425,6 +430,17 @@
   - type: DragonRift
     spawns:
       - MobCarpDragon
+      - MobXenoPraetorian
+      - MobXenoDrone
+      - MobXenoRavager
+      - MobXenoRunner
+      - MobXenoSpitter
+      - MobSmallPurpleSnake
+      - MobSpiderSpace
+      - MobWatcherLavaland
+      - MobWatcherIcewing
+      - MobAncientGoliath
+      - ADTMobVartigont
   - type: Transform
     anchored: true
   - type: Physics
@@ -433,9 +449,9 @@
   - type: Fixtures
   - type: Sprite
     layers:
-    - sprite: Structures/Specific/carp_rift.rsi
-      state: icon
-      color: "#569fff"
+    - sprite: ADT/Structures/Specific/supermatter-portal.rsi
+      state: HF
+      color: "#00ff15"
       shader: unshaded
   - type: InteractionOutline
   - type: Clickable
@@ -478,15 +494,15 @@
   - type: Fixtures
   - type: Sprite
     layers:
-    - sprite: Structures/Specific/carp_rift.rsi
-      state: icon
-      color: "#569fff"
+    - sprite: ADT/Structures/Specific/supermatter-portal.rsi
+      state: Yellow
+      color: "#fffb00"
       shader: unshaded
   - type: InteractionOutline
   - type: Clickable
   - type: PointLight
     enabled: true
-    color: "#15ff00"
+    color: "#fffb00"
     radius: 10.0
     energy: 5.0
     netsync: false

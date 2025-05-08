@@ -45,6 +45,9 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public bool SliverRemoved = false;
 
+    [DataField]
+    public bool HasSpawnedPortal = false;
+
     #endregion
 
     #region Prototypes
@@ -83,6 +86,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public EntProtoId AnomalyPyroSpawnPrototype = "AnomalyPyroclastic";
+    
+    [DataField]
+    public EntProtoId HalfLifePortalPrototype = "ADTSupermatterHLRift";
+
+    [DataField]
+    public EntProtoId CascadePortalPrototype = "ADTSupermatterCascadeRift";    
 
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
@@ -248,6 +257,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float AnomalyPyroChance = 2500f;
+
+    /// <summary>
+    /// The chance for a half-life portal spawn when Supermatter getting damage from antinob.
+    /// </summary>
+    [DataField]
+    public float HalfLifePortalChance = 1000f;
 
     [DataField]
     public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
