@@ -64,9 +64,10 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 1.5
-    softness: 5
+    mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+    radius: 2.5
+    netsync: false
   - type: Ringer
   - type: DeviceNetwork
     deviceNetId: Wireless

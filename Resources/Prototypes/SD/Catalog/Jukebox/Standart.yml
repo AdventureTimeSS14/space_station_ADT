@@ -1,0 +1,101 @@
+- type: jukebox
+  id: fine
+  name: Lemon Demon - Fine
+  path:
+    path: /Audio/SD/Jukebox/Fine.ogg
+
+- type: jukebox
+  id: feelgood
+  name: Gorillaz - Feel Good
+  path:
+    path: /Audio/SD/Jukebox/Gorilla-Feel-Good-Inc.ogg
+
+- type: jukebox
+  id: franticaerovics
+  name: Hotline Miami 2 - Frantic Aerobics
+  path:
+    path: /Audio/SD/Jukebox/Hotline-Miami-2-Frantic-Aerobics.ogg
+
+- type: jukebox
+  id: run
+  name: Hotline Miami 2 - Run
+  path:
+    path: /Audio/SD/Jukebox/Hotline-Miami-2-Run.ogg
+
+- type: jukebox
+  id: overdose
+  name: Katana ZERO - Overdose
+  path:
+    path: /Audio/SD/Jukebox/Overdose.ogg
+
+- type: jukebox
+  id: caramelldansen
+  name: Caramella Girls - Caramelldansen
+  path:
+    path: /Audio/SD/Jukebox/Caramelldansen.ogg
+
+- type: jukebox
+  id: blizard
+  name: Hotline Miami 2 - Blizard
+  path:
+    path: /Audio/SD/Jukebox/Blizzard.ogg
+
+- type: jukebox
+  id: paintitblack
+  name: The Roling Stones - Paint It Black
+  path:
+    path: /Audio/SD/Jukebox/Paint-It-Black.ogg
+
+- type: jukebox
+  id: billiejean
+  name: Michael Jackson - Billie Jean
+  path:
+    path: /Audio/SD/Jukebox/Michael-Jackson-Billie-Jean.ogg
+
+- type: jukebox
+  id: comeasyouare
+  name: Nirvana - Come As You Are
+  path:
+    path: /Audio/SD/Jukebox/Nirvana-Come-As-You-Are.ogg
+
+- type: jukebox
+  id: smellsliketeenspirit
+  name: Nirvana - Smells Like Teen Spirit
+  path:
+    path: /Audio/SD/Jukebox/Nirvana-Smells-Like-Teen-Spirit.ogg
+
+- type: jukebox
+  id: whereismymind
+  name: Pixies - Where Is My Mind
+  path:
+    path: /Audio/SD/Jukebox/Pixies-Where-Is-My-Mind.ogg
+
+- type: jukebox
+  id: nightcall
+  name: Kavinsky - Night Call
+  path:
+    path: /Audio/SD/Jukebox/Kavinsky-Nightcall.ogg
+
+- type: jukebox
+  id: paranoid
+  name: BLACK SABBATH - Paranoid
+  path:
+    path: /Audio/SD/Jukebox/BLACK-SABBATH.ogg
+
+- type: jukebox
+  id: disco
+  name: Surf Curse - Disco
+  path:
+    path: /Audio/SD/Jukebox/Surf-Curse-Disco.ogg
+
+- type: jukebox
+  id: freaks
+  name: Surf Curse - Freaks
+  path:
+    path: /Audio/SD/Jukebox/Surf-Curse-Freaks.ogg
+
+- type: jukebox
+  id: becauseigothigh
+  name: Afroman - Because I Got High
+  path:
+    path: /Audio/SD/Jukebox/Afroman-Because-I-Got-High.ogg
