@@ -21,6 +21,14 @@
       - ADTStationGoalBridge
       - ADTStationGoalMail
       - ADTStationGoalAmbusol
+      - ADTStationGoalStorage
+      - ADTStationGoalMedbay
+      - ADTStationGoalMech
+      - ADTStationGoalAnomaly
+      - ADTStationGoalKillbox
+      - ADTStationGoalGreenhouses
+      - ADTStationGoalOutpost
+      - ADTStationGoalSolars
       # - ADTStationGoalTransitBase
       - ADTStationGoalTransitResourses
       - ADTStationGoalTransitUpgrade
@@ -35,8 +43,10 @@
       - ADTStationGoalMultiple4
       - ADTStationGoalMultiple5
       - ADTStationGoalMultiple6
-      # - ADTStationGoalMultiple7
-      # - ADTStationGoalMultiple8
+      - ADTStationGoalMultiple7
+      - ADTStationGoalMultiple8
+      - ADTStationGoalMultiple9
+      - ADTStationGoalMultiple10
 
 - type: entity
   id: BaseStationSiliconLawNTDefault
