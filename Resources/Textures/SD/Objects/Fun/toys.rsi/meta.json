@@ -9,6 +9,10 @@
     "states": [
       {
         "name": "rubber_pig"
+
+      },
+      {
+        "name": "rk22_plush"
       }
     ]
   }
