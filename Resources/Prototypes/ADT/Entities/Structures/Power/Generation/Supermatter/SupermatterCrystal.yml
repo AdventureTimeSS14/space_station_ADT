@@ -412,7 +412,7 @@
 
 ## я заебался и не придумал название сука
 - type: entity
-  parent: BaseItem
+  parent: BaseStructure
   id: ADTSupermatterRadiation
   name: supermatterradiation
   categories: [ HideSpawnMenu ]

@@ -132,8 +132,11 @@
     - Snout
     - HeadTop
     - HeadSide
-  - type: CoveredSlot # Backmen
+  #ADT-Tweak-Start
+  - type: CoveredSlot
     slots: [eyes, mask, ears]
+  #ADT-Tweak-End
+
 
 - type: entity
   abstract: true
