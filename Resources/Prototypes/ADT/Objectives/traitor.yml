@@ -63,7 +63,7 @@
 
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseTraitorObjective
   id: ADTDoCascade
   name: Die a glorious death
@@ -77,7 +77,7 @@
     - type: CascadeCondition
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
   id: ADTStealSupermatterSliverObjective
   components:
