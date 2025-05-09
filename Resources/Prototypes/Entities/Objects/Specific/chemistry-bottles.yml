@@ -298,10 +298,9 @@
           Quantity: 30
 
 - type: entity
-  id: NocturineChemistryBottle
-  name: nocturine bottle
-  description: This will make someone fall down almost immediately. Hard to overdose on.
-  parent: [BaseChemistryBottleFilled] #, BaseSyndicateContraband] # ADT Remove cringe
+  id: ChemistryBottleNocturine
+  suffix: nocturine
+  parent: BaseChemistryBottleFilled
   components:
   - type: Label
     currentLabel: reagent-name-nocturine

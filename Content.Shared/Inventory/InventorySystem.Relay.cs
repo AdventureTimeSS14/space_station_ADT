@@ -52,7 +52,6 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, CheckMagicItemEvent>(RelayInventoryEvent); // goob edit
         SubscribeLocalEvent<InventoryComponent, StaminaDamageModifyEvent>(RelayInventoryEvent); // ADT Stunmeta fix
         SubscribeLocalEvent<InventoryComponent, InjectAttemptEvent>(RelayInventoryEvent); // ADT Injector blocking
-        SubscribeLocalEvent<InventoryComponent, TransformSpeakerVoiceEvent>(RelayInventoryEvent); // Corvax TTS
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerBarkEvent>(RelayInventoryEvent); // ADT Barks
 
         // Corvax-TTS
