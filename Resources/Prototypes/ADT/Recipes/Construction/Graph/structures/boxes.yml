@@ -23,9 +23,6 @@
               prototype: MaintenanceToolSpawner
               amount: 1
             - !type:SpawnPrototype
-              prototype: MaintenancePlantSpawner
-              amount: 1
-            - !type:SpawnPrototype
               prototype: MaintenanceFluffSpawner
               amount: 1
             - !type:DeleteEntity {}
