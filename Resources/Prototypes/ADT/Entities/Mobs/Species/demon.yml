@@ -94,5 +94,5 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
             state: jumpsuit-female
