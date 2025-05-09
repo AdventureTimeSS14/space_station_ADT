@@ -412,6 +412,7 @@ namespace Content.Server.Kitchen.EntitySystems
             {
                 // check if size of an item you're trying to put in is too big
                 // ADT-Tweak start
+                // TODO: Исправить работу рецептов микроволновых печеней не через тэги by WsWiss
                 if (TryComp<TagComponent>(args.Used, out var tagComponent))
                 {
                     var tags = tagComponent.Tags;
