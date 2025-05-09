@@ -104,3 +104,8 @@
             state: singularity_6
             scale: .9,.9
   - type: SupermatterImmune # ADT-Tweak
+  - type: InteractionPopup # ADT-Tweak
+    successChance: 0.2
+    interactSuccessString: petting-success-singularity
+    interactFailureString: petting-failure-singularity
+    interactSuccessSpawn: EffectHearts
