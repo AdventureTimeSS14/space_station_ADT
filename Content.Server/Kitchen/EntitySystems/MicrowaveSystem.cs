@@ -42,7 +42,7 @@ using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.Kitchen.Components;
+using Content.Shared.ADT.Kitchen.Components; // ADT-Tweak
 using Content.Shared.Chemistry.Components; // ADT-Tweak
 
 namespace Content.Server.Kitchen.EntitySystems
@@ -411,6 +411,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (TryComp<ItemComponent>(args.Used, out var item))
             {
                 // check if size of an item you're trying to put in is too big
+                // ADT-Tweak start
                 if (TryComp<TagComponent>(args.Used, out var tagComponent))
                 {
                     var tags = tagComponent.Tags;
@@ -426,6 +427,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         }
                     }
                 }
+                // ADT-Tweak end
                 if (_item.GetSizePrototype(item.Size) > _item.GetSizePrototype(ent.Comp.MaxItemSize))
                 {
                     if (TryComp<MicrowaveComponent>(ent, out var component))
@@ -435,7 +437,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Assembler)
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupAssembler, ("item", args.Used)), ent, args.User);
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.MedicalAssembler)
-                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupMedicalAssembler, ("item", args.Used)), ent, args.User);
+                            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupMedicalAssembler, ("item", args.Used)), ent, args.User);
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Oven)
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupRange, ("item", args.Used)), ent, args.User);
                         return;
