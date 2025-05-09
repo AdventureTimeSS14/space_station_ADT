@@ -1,6 +1,6 @@
 - type: species
   id: UrsusSpecies
-  name: species-name-Ursus
+  name: species-name-ursusspecies
   roundStart: true
   prototype: MobUrsus
   sprites: MobUrsusSprites
