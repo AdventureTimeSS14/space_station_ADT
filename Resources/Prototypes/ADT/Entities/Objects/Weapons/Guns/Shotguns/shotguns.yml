@@ -1,0 +1,26 @@
+- type: entity
+  name: sawn-off improvised shotgun
+  parent: [ BaseWeaponShotgun, BaseMinorContraband ]
+  id: ADTWeaponShotgunImprovisedSawn
+  description: Groovy! Uses .50 shotgun shells.
+  components: # needs to be super inaccurate because you don't need to wield it
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/improvised_sawn.rsi # ADT tweak
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/improvised_sawn.rsi # ADT tweak
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Guns/Shotguns/improvised_sawn.rsi # ADT tweak
+  - type: Gun
+    fireRate: 4
+    soundGunshot: # Corvax-Guns
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_sawed.ogg
+  - type: BallisticAmmoProvider
+    capacity: 1
+    proto: null
+  - type: Construction
+    graph: ImprovisedShotgunGraph
+    node: improvisedshotgunsawn
+    deconstructionTarget: null
+  - type: StaticPrice
+    price: 15
