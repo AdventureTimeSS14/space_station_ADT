@@ -21,6 +21,8 @@
     slots:
     - Snout
     hideOnToggle: true
+  - type: CoveredSlot
+    slots: [eyes, ears]
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
