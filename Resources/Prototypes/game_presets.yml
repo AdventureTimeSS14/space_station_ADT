@@ -157,13 +157,14 @@
   description: traitor-description
   showInVote: false
   rules:
-    - Traitor
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
+  - DummyNonAntagChance
+  - Traitor
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Deathmatch
@@ -186,13 +187,14 @@
   description: nukeops-description
   showInVote: false
   rules:
-    - Nukeops
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - CrewTransferScheduler #ADT tweak
+  - Nukeops
+  - DummyNonAntagChance
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - CrewTransferScheduler #ADT tweak
 
 - type: gamePreset
   id: Revolutionary
@@ -205,6 +207,7 @@
   showInVote: false
   rules:
     - Revolutionary
+    - DummyNonAntagChance
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
@@ -215,7 +218,7 @@
 - type: gamePreset
   id: Wizard
   alias:
-    - wizard
+  - wizard
   name: wizard-title
   description: wizard-description
   showInVote: false

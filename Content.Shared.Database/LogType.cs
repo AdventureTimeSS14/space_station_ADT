@@ -464,4 +464,9 @@ public enum LogType
     /// </summary>
     Grab = 100,
     /// ADT End
+
+    /// <summary>
+    /// Logs related to botany, such as planting and harvesting crops
+    /// </summary>
+    Botany = 101,
 }

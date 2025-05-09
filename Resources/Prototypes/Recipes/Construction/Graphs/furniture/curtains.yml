@@ -77,6 +77,7 @@
               amount: 2
               doAfter: 1
 
+
     - node: Curtains
       entity: HospitalCurtains
       edges:
@@ -99,6 +100,7 @@
           steps:
             - tool: Cutting
               doAfter: 1
+
 
     - node: CurtainsBlack
       entity: CurtainsBlack
@@ -146,6 +148,7 @@
             - tool: Cutting
               doAfter: 1
 
+
     - node: CurtainsCyan
       entity: CurtainsCyan
       edges:
@@ -168,6 +171,7 @@
           steps:
             - tool: Cutting
               doAfter: 1
+
 
     - node: CurtainsGreen
       entity: CurtainsGreen
@@ -192,6 +196,7 @@
             - tool: Cutting
               doAfter: 1
 
+
     - node: CurtainsOrange
       entity: CurtainsOrange
       edges:
@@ -214,6 +219,7 @@
           steps:
             - tool: Cutting
               doAfter: 1
+
 
     - node: CurtainsPink
       entity: CurtainsPink
@@ -238,6 +244,7 @@
             - tool: Cutting
               doAfter: 1
 
+
     - node: CurtainsPurple
       entity: CurtainsPurple
       edges:
@@ -261,6 +268,7 @@
             - tool: Cutting
               doAfter: 1
 
+
     - node: CurtainsRed
       entity: CurtainsRed
       edges:
@@ -283,6 +291,7 @@
           steps:
             - tool: Cutting
               doAfter: 1
+
 
     - node: CurtainsWhite
       entity: CurtainsWhite

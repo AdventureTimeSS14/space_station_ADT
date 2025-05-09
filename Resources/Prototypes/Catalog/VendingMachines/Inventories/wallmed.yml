@@ -7,7 +7,7 @@
     ADTAntibioticOintment: 2
     # ADT tweak end
     Bloodpack: 3
-    EpinephrineChemistryBottle: 3
+    ChemistryBottleEpinephrine: 3
     Syringe: 3
   contrabandInventory:
     PowerCellSmall: 2
