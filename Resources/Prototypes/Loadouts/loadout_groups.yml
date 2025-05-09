@@ -64,6 +64,7 @@
   - AcousticGuitarInstrument
   - HarmonicaInstrument
   - ADTModStorageVoucher
+  - ADTClothingGeorgeRibbonPin
   # ADT-Tweak-End
 
 - type: loadoutGroup

@@ -169,3 +169,5 @@
         amount: 2
       - id: GeigerCounter
         amount: 2
+      - id: PillCanisterPotassiumIodide
+        amount: 1

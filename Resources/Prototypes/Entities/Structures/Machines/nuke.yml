@@ -122,6 +122,7 @@
     - ADTVaultAmbience
   # ADT-Sound-Update-End
   - type: FTLSmashImmune
+  - type: SupermatterImmune # ADT-Tweak
 
 - type: entity
   parent: NuclearBomb

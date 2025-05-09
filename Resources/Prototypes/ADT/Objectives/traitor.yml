@@ -61,29 +61,29 @@
     stealGroup: ClothingHandsGlovesKravMaga
     owner: job-name-warden
 
-## закомменчено до маппинга СМа на станциях.
-#- type: entity
-#  noSpawn: true
-#  parent: BaseTraitorObjective
-#  id: ADTDoCascade
-#  name: Die a glorious death
-#  description: Die.
-#  components:
-#    - type: Objective
-#      difficulty: 5 # insane, default config max difficulty
-#      icon:
-#        sprite: ADT/Interface/anti-nob.rsi
-#        state: antinob
-#    - type: CascadeCondition
 
-#- type: entity
-#  noSpawn: true
-#  parent: BaseTraitorStealObjective
-#  id: ADTStealSupermatterSliverObjective
-#  components:
-#  - type: Objective
-#    difficulty: 2.5
-#  - type: StealCondition
-#    stealGroup: SupermatterSliver
-#    objectiveNoOwnerText: objective-condition-steal-smsliver-title
-#    descriptionText: objective-condition-steal-smsliver-description
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseTraitorObjective
+  id: ADTDoCascade
+  name: Die a glorious death
+  description: Die.
+  components:
+    - type: Objective
+      difficulty: 5 # insane, default config max difficulty
+      icon:
+        sprite: ADT/Interface/anti-nob.rsi
+        state: antinob
+    - type: CascadeCondition
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseTraitorStealObjective
+  id: ADTStealSupermatterSliverObjective
+  components:
+  - type: Objective
+    difficulty: 2.5
+  - type: StealCondition
+    stealGroup: SupermatterSliver
+    objectiveNoOwnerText: objective-condition-steal-smsliver-title
+    descriptionText: objective-condition-steal-smsliver-description
