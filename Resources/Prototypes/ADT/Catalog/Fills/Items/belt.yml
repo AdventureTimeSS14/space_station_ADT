@@ -78,8 +78,8 @@
       - id: RegenerativeMesh
       - id: Bloodpack
       - id: OmnizineChemistryBottle
-      - id: EpinephrineChemistryBottle
-      - id: EpinephrineChemistryBottle
+      - id: ChemistryBottleEpinephrine
+      - id: ChemistryBottleEpinephrine
       - id: ADTSalineChemistryBottle
       - id: BruteAutoInjector
       - id: BurnAutoInjector
