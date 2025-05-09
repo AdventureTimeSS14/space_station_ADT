@@ -1429,6 +1429,7 @@
     tags:
     - Vegetable
     - ADTAloe # ADT-Tweak
+    - ADTMedicalAssemblerStuff # ADT-Tweak: Medical Assembler recipe stuff
   - type: FoodSequenceElement
     entries:
       Taco: Aloe
@@ -1466,6 +1467,7 @@
     tags:
     - Flower # TODO add "RedFlower" or "Poppy" tag, when other color flowers will be
     - Poppy # good edit
+    - ADTMedicalAssemblerStuff #ADT-Tweak: Medical Assembler Recipe stuff
   - type: FoodSequenceElement
     entries:
       Taco: Poppy
