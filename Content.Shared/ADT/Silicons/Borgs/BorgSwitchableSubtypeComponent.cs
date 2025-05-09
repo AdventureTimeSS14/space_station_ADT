@@ -15,8 +15,11 @@ public sealed partial class BorgSwitchableSubtypeComponent : Component
     public ProtoId<BorgSubtypePrototype>? BorgSubtype;
 }
 
-[ByRefEvent]
-public readonly record struct BorgSubtypeChangedEvent(ProtoId<BorgSubtypePrototype> Subtype);
+[Serializable, NetSerializable]
+public sealed class BorgSubtypeChangedEvent(ProtoId<BorgSubtypePrototype> subtype) : EntityEventArgs
+{
+    public ProtoId<BorgSubtypePrototype> Subtype = subtype;
+}
 
 [Serializable, NetSerializable]
 public sealed class BorgSelectSubtypeMessage(ProtoId<BorgSubtypePrototype> subtype) : BoundUserInterfaceMessage

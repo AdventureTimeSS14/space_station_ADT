@@ -14,7 +14,7 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     private ISawmill _sawmill = default!;
-
+    
     protected override void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
     {
         if (!_prototypeManager.TryIndex(subtype, out var subtypePrototype))
@@ -63,7 +63,5 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
             sprite.LayerSetRSI(BorgVisualLayers.Light, resource.RSI);
             sprite.LayerSetRSI(BorgVisualLayers.LightStatus, resource.RSI);
         }
-
-        SetSubtype(ent, subtypePrototype);
     }
 }
