@@ -578,6 +578,9 @@
   id: ADTSpeedLoaderMagnumLesser
 
 - type: Tag
+  id: Dish
+
+- type: Tag
   id: ADTGondola
 
 - type: Tag
@@ -588,7 +591,9 @@
 
 - type: Tag
   id: ADTBadgeBronze
+  
 - type: Tag
   id: ADTBadgeSilver
+  
 - type: Tag
   id: ADTBadgeGolden
