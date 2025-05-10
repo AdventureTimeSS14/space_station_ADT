@@ -79,8 +79,8 @@
       roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
-        - NamesMilitaryFirstLeader
-        - NamesMilitaryLast
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary
 
 
 # ## ERT Leader
