@@ -1,5 +1,5 @@
 ﻿using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.ADT.Silicons.Borgs;
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 

@@ -30,9 +30,22 @@ public partial class ChassisSpriteSelection : Control
         var group = new ButtonGroup();
 
         MainContainer.Visible = true;
-        foreach (var borgSubtype in _prototype
-                     .EnumeratePrototypes<BorgSubtypePrototype>()
-                     .Where(s => s.ParentBorgType == parentPrototype))
+        var subtypes = _prototype
+                        .EnumeratePrototypes<BorgSubtypePrototype>()
+                        .Where(s => s.ParentBorgType == parentPrototype)
+                        .ToList();
+
+        if (subtypes.Count == 0)
+        {
+            OptionsContainer.AddChild(new Label
+            {
+                Text = Loc.GetString("borg-subtype-selection-none-available"),
+                HorizontalAlignment = HAlignment.Center
+            });
+            return;
+        }
+
+        foreach (var borgSubtype in subtypes)
         {
             var button = new Button();
             button.Group = group;
