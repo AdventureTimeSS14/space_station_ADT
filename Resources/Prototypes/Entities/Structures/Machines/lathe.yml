@@ -432,6 +432,8 @@
     - SecurityWeaponsStatic
     - ADTMagazineStaticPack # ADT-tweak
     dynamicPacks:
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives

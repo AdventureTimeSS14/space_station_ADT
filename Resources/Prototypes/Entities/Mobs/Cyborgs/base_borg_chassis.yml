@@ -259,6 +259,7 @@
     - CanPilot
     - ADTSiliconStealthWhitelist  # ADT tweak
     - ADTSiliconEmotes            # ADT tweak
+    - Unimplantable
   - type: Emoting
   - type: GuideHelp
     guides:

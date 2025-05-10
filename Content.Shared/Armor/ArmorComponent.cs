@@ -31,6 +31,12 @@ public sealed partial class ArmorComponent : Component
     [DataField]
     public float StaminaModifier = 1f;
     // ADT Stunmeta fix
+
+    /// <summary>
+    /// If true, you can examine the armor to see the protection. If false, the verb won't appear.
+    /// </summary>
+    [DataField]
+    public bool ShowArmorOnExamine = true;
 }
 
 /// <summary>
