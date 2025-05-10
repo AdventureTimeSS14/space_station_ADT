@@ -1,0 +1,1 @@
+fiber-carbon-adt = углеродные
