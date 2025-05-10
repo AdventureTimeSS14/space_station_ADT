@@ -1,1 +1,1 @@
-species-name-Ursus = Урс
+species-name-ursusspecies = Урс

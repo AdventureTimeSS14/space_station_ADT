@@ -1,6 +1,6 @@
 - type: species
   id: NovakidSpecies
-  name: species-name-novakid
+  name: species-name-novakidspecies
   roundStart: true
   prototype: MobNovakid
   sprites: MobNovakidSprites
