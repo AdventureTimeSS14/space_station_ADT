@@ -1,0 +1,8 @@
+- type: soundCollection
+  id: SwordHit
+  files:
+  - /Audio/ADT/Weapons/Melee/swordhit1.ogg
+  - /Audio/ADT/Weapons/Melee/swordhit2.ogg
+  - /Audio/ADT/Weapons/Melee/swordhit3.ogg
+  - /Audio/ADT/Weapons/Melee/swordhit4.ogg
+  - /Audio/ADT/Weapons/Melee/swordhit5.ogg

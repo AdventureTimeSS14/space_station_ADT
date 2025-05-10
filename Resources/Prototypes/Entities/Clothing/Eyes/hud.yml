@@ -176,6 +176,8 @@
     - Biological
     - Inorganic
   - type: ShowSyndicateIcons
+  - type: ThermalVisionItem # ADT tweak
+  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
@@ -194,6 +196,8 @@
   - type: ShowHungerIcons
   - type: ShowThirstIcons
   - type: ShowSyndicateIcons
+  - type: ThermalVisionItem # ADT tweak
+  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
@@ -206,6 +210,8 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: ShowSyndicateIcons
+  - type: ThermalVisionItem # ADT tweak
+  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
@@ -219,6 +225,8 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
+  - type: ThermalVisionItem # ADT tweak
+  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]

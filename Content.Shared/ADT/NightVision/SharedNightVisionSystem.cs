@@ -114,8 +114,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
         ent.Comp.State = ent.Comp.State switch
         {
-            NightVisionState.Off => NightVisionState.Half,
-            NightVisionState.Half => NightVisionState.Full,
+            NightVisionState.Off => NightVisionState.Full,
             NightVisionState.Full => NightVisionState.Off,
             _ => throw new ArgumentOutOfRangeException(),
         };
@@ -193,14 +192,5 @@ public abstract class SharedNightVisionSystem : EntitySystem
             RemCompDeferred<NightVisionComponent>(user.Value);
             RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
         }
-    }
-
-    public void SetSeeThroughContainers(Entity<NightVisionComponent?> ent, bool see)
-    {
-        if (!Resolve(ent, ref ent.Comp, false))
-            return;
-
-        ent.Comp.SeeThroughContainers = see;
-        Dirty(ent);
     }
 }

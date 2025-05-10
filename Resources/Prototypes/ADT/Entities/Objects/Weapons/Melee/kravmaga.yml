@@ -16,3 +16,12 @@
     - type: PrepareAction
   - type: StealTarget
     stealGroup: ClothingHandsGlovesKravMaga
+
+- type: entity
+  parent: ClothingHandsChameleon
+  id: ADTClothingHandsGlovesKravMagaChameleon
+  components:
+  - type: Item
+  - type: ClothingGrantComponent
+    component:
+    - type: PrepareAction

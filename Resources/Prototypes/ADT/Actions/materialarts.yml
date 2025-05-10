@@ -15,8 +15,9 @@
           damage:
             types:
               Blunt: 10
-        - !type:ComboFallEffect
-      useDelay: 6
+        - !type:ComboStunEffect
+          stunTime: 2
+      useDelay: 4
 
 - type: entity
   id: ActionLungBlock
@@ -38,7 +39,7 @@
         - !type:ComboAudioEffect
           sound:
             collection: GenericHit
-      useDelay: 3
+      useDelay: 2
 
 - type: entity
   id: ActionNeckChop
@@ -62,4 +63,4 @@
         - !type:ComboAudioEffect
             sound:
               collection: GenericHit
-      useDelay: 3
+      useDelay: 2

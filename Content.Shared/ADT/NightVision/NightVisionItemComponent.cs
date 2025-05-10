@@ -1,5 +1,3 @@
-// taken and adapted from https://github.com/RMC-14/RMC-14?ysclid=lzx00zxd6e53093995
-
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -11,12 +9,12 @@ namespace Content.Shared.ADT.NightVision;
 public sealed partial class NightVisionItemComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntProtoId ActionId = "ActionToggleNinjaNightVision";
+    public EntProtoId ActionId = "ActionToggleNightVision";
 
     [DataField, AutoNetworkedField]
     public EntityUid? Action;
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? User;
 
     [DataField, AutoNetworkedField]

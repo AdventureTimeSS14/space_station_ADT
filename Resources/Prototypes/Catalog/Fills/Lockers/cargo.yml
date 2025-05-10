@@ -22,6 +22,7 @@
       rolls: !type:ConstantNumberSelector
         value: 3
 #ADT-Tweak Start - частичный откат нерфа утилей
+    - id: ClothingEyesGlassesMeson
     - id: SeismicCharge
     - id: OreBag
       prob: 0.5

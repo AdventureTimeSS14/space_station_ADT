@@ -116,3 +116,10 @@
     Steel: 50
     Plastic: 140
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: ADTWeaponTonfa
+  result: ADTWeaponTonfa
+  materials:
+    Wood: 1500
+    Steel: 500
