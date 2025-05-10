@@ -52,3 +52,29 @@
   storage:
     back:
     - ADTPlushieSchrodinger
+
+## BigChungus - Петр - ОБЩИЙ
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutBigChungus
+  userName: Big_Chungus
+  equipment: SponsorPersonalLoadoutBigChungus
+
+- type: startingGear
+  id: SponsorPersonalLoadoutBigChungus
+  storage:
+    back:
+    - ADTPersonalizationCapsuleCommonBigChungus
+
+## BigChungus - Петр - КАПИТАН
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutBigChungus_capitan
+  userName: Big_Chungus
+  equipment: SponsorPersonalLoadoutBigChungus_capitan
+  whitelistJobs: [ Captain ]
+  # expirationDate: 2025-04-01T00:00:00Z  # После этой даты лоадаут не выдастся
+
+- type: startingGear
+  id: SponsorPersonalLoadoutBigChungus_capitan
+  storage:
+    back:
+    - ADTPersonalizationCapsuleCaptainBigChungus
