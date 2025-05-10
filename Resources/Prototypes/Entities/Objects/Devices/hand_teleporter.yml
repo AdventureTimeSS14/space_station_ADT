@@ -32,5 +32,4 @@
     allowPortalsOnDifferentMaps: true
     firstPortalPrototype: ADTPortalBlueAdmin
     secondPortalPrototype: ADTPortalRedAdmin
-    allowPortalsOnDifferentGrids: true
 ### End ADT Tweak
