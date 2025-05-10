@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseItem
+  id: ADTSignalingLoudspeak
+  name: signaling loudspeak
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TTS
+    voice: officer_enclave
+  - type: SignalingLoudspeak
+  - type: RadioMicrophone
+    broadcastChannel: Security
+  - type: RadioSpeaker
+    channels:
+    - Security
+  - type: Speech
+    speechVerb: Robotic
+  - type: Item
+    size: Normal
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: CollideOnAnchor
+  - type: Anchorable
+  - type: Rotatable
+  - type: Destructible
+    thresholds:
+    - trigger: # for nukes
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger: # regular damage trigger (replace with broken pipe)
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          GasPipeBroken:
+            min: 1
+            max: 1
+        offset: 0
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+  - type: Physics
+    canCollide: false
+    bodyType: static
+  - type: StaticPrice
+    price: 3000
+  - type: StationAiWhitelist
+  - type: Sprite
+    sprite: ADT/Objects/Misc/signaling_loudspeak.rsi
+    state: signaling-loudspeak
+    # layers:
+    # - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    #   state: pipeTrinaryConnectors
+      # map: [ "enum.PipeVisualLayers.Pipe" ]
+    # - state: gasMixerF
+    #   map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: Appearance
+  # - type: GenericVisualizer
+  #   visuals:
+  #     enum.FilterVisuals.Enabled:
+  #       enabled:
+  #         True: { state: gasMixerFOn }
+  #         False: { state: gasMixerF }

@@ -15,6 +15,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+using Robust.Shared.Random;
 
 namespace Content.Server.Dragon;
 
@@ -29,6 +30,7 @@ public sealed class DragonRiftSystem : EntitySystem
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -55,11 +57,9 @@ public sealed class DragonRiftSystem : EntitySystem
         var query = EntityQueryEnumerator<DragonRiftComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
+            // Handle full rift charge completion
             if (comp.State != DragonRiftState.Finished && comp.Accumulator >= comp.MaxAccumulator)
             {
-                // TODO: When we get autocall you can buff if the rift finishes / 3 rifts are up
-                // for now they just keep 3 rifts up.
-
                 if (comp.Dragon != null)
                     _dragon.RiftCharged(comp.Dragon.Value);
 
@@ -73,8 +73,7 @@ public sealed class DragonRiftSystem : EntitySystem
                 comp.Accumulator += frameTime;
             }
 
-            comp.SpawnAccumulator += frameTime;
-
+            // Trigger warning when rift is half-charged
             if (comp.State < DragonRiftState.AlmostFinished && comp.Accumulator > comp.MaxAccumulator / 2f)
             {
                 comp.State = DragonRiftState.AlmostFinished;
@@ -87,12 +86,17 @@ public sealed class DragonRiftSystem : EntitySystem
                 _navMap.SetBeaconEnabled(uid, true);
             }
 
-            if (comp.SpawnAccumulator > comp.SpawnCooldown)
+            // Handle mob spawning
+            comp.SpawnAccumulator += frameTime;
+            if (comp.SpawnAccumulator > comp.SpawnCooldown && comp.SpawnPrototypes.Count > 0)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
-                var ent = Spawn(comp.SpawnPrototype, xform.Coordinates);
 
-                // Update their look to match the leader.
+                // Pick a random mob prototype from the list
+                var proto = _random.Pick(comp.SpawnPrototypes);
+                var ent = Spawn(proto, xform.Coordinates);
+
+                // Copy random sprite from the dragon to the spawned mob (if any)
                 if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
                 {
                     var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
@@ -100,6 +104,7 @@ public sealed class DragonRiftSystem : EntitySystem
                     Dirty(ent, spawnedSprite);
                 }
 
+                // Set mob's follow target to the dragon
                 if (comp.Dragon != null)
                     _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
             }

@@ -1,0 +1,20 @@
+﻿- type: reagent
+  id: ADTLiquidDarkMatter
+  name: reagent-name-liquiddarkmatter
+  group: Pyrotechnic
+  desc: reagent-desc-liquiddarkmatter
+  flavor: nothing
+  color: "#782088"
+  physicalDesc: reagent-physical-desc-opaque
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.5

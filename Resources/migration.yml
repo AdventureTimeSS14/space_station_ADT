@@ -655,3 +655,6 @@ PaxChemistryBottle: ChemistryBottlePax
 MuteToxinChemistryBottle: ChemistryBottleMuteToxin
 LeadChemistryBottle: ChemistryBottleLead
 ToxinChemistryBottle: ChemistryBottleToxin
+
+#ADT 2025-04-16
+DrinkBadTouchGlass: ADTDrinkPenetrationGlass

@@ -160,30 +160,32 @@
     # ADT-WikiBooks-Start
       - id: ADTBookSRPmed
     # ADT-WikiBooks-End
+    # ADT-Druglordupdate-Start
+      - id: ADTChemistryColdplateFlatpack
+    # ADT-Druglordupdate-End
 
-
-# Хуй знает каким образом тут дубликат, но пока чделаю так
-# - type: entity
-#   parent: LockerChemistry
-#   id: LockerChemistryFilled
-#   suffix: Filled
-#   components:
-#   - type: StorageFill
-#     contents:
-#       - id: ClothingOuterHardsuitVoidParamed
-#       - id: ClothingOuterCoatParamedicWB
-#       - id: ClothingHeadHatParamedicsoft
-#       - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
-#       - id: ClothingOuterWinterPara
-#       - id: ClothingUniformJumpsuitParamedic
-#       - id: ClothingUniformJumpskirtParamedic
-#       - id: ClothingEyesHudMedical
-#       - id: ClothingHandsGlovesLatex
-#       - id: ClothingHeadsetMedical
-#       - id: ClothingMaskSterile
-#       - id: HandheldGPSBasic
-#       - id: MedkitFilled
-#         prob: 0.3
-#     # ADT-WikiBooks-Start
-#       - id: ADTBookSRPmed
-#     # ADT-WikiBooks-End
+- type: entity
+  id: LockerParamedicFilled
+  suffix: Filled
+  parent: LockerParamedic
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingModsuitBackMedical #ADT tweak
+      - id: ClothingOuterCoatParamedicWB
+      - id: ClothingHeadHatParamedicsoft
+      - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
+      - id: ADTHighVoltageDefibrillator # ADT Tweak
+      - id: ClothingOuterWinterPara
+      - id: ClothingUniformJumpsuitParamedic
+      - id: ClothingUniformJumpskirtParamedic
+      - id: ClothingEyesHudMedical
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHeadsetMedical
+      - id: ClothingMaskSterile
+      - id: HandheldGPSBasic
+      - id: MedkitFilled
+        prob: 0.3
+    # ADT-WikiBooks-Start
+      - id: ADTBookSRPmed
+    # ADT-WikiBooks-End

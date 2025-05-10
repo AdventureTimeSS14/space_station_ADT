@@ -426,3 +426,14 @@
       amount: 2
   products:
     ADTCoffeeBonBon: 3
+
+- type: reaction
+  id: ADTCoffeCooking
+  minTemp: 373
+  reactants:
+    ADTCoffeePowder:
+      amount: 1
+    Water:
+      amount: 2
+  products:
+    Coffee: 3

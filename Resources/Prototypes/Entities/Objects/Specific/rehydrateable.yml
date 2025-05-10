@@ -53,6 +53,7 @@
         hard: false
         layer:
         - LowImpassable
+  - type: BadFood # ADT tweak
 
 - type: entity
   parent: MonkeyCube
@@ -71,6 +72,17 @@
   - type: Rehydratable
     possibleSpawns:
     - MobCow
+
+### Start ADT Tweak
+- type: entity
+  parent: MonkeyCube
+  id: ADTCubeGondola
+  name: gondola cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - ADTMobGondola
+### End ADT Tweak
 
 - type: entity
   parent: MonkeyCube

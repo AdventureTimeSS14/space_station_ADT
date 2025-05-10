@@ -20,6 +20,10 @@
         amount: 2
       - id: BungoSeeds
         amount: 2
+### Start ADT Tweak
+      - id: ADTCoffeeTreeSeeds
+        amount: 2
+### End ADT Tweak
 
 - type: entity
   id: CrateHydroponicsSeedsMedicinal

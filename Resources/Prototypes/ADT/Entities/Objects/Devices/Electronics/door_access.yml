@@ -69,3 +69,51 @@
   components:
   - type: AccessReader
     access: [["Research"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsLibrary
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsBlueShield
+  suffix: BlueShield, Locked
+  components:
+  - type: AccessReader
+    access: [["BlueShield"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsBlackCentralCommand
+  suffix: Black Centcomm, Locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsShelter
+  suffix: Shelter, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"], ["Command"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsMedicalPsycho
+  suffix: Psycho, Locked
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsCentralCorporate
+  suffix: Corporate, Locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]

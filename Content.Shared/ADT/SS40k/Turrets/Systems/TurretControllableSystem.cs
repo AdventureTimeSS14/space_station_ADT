@@ -5,6 +5,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.ADT.SS40k.Turrets.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Destructible;
 
 namespace Content.Shared.ADT.SS40k.Turrets.Systems;
 
@@ -19,12 +20,18 @@ public sealed class TurretControllableSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<TurretControllableComponent, MapInitEvent>(OnStartup);//заливаем акшон для возврата(можно добавить и другие)
-        SubscribeLocalEvent<TurretControllableComponent, ComponentShutdown>(OnShutdown);//чистим\возвращаем
+        SubscribeLocalEvent<TurretControllableComponent, ComponentShutdown>(OnShutdown);//чистим\возвращаем\
+        SubscribeLocalEvent<TurretControllableComponent, DestructionEventArgs>(OnDestruction);//на случай ломания
         SubscribeLocalEvent<TurretControllableComponent, ControlReturnActionEvent>(OnReturn);//акшон возврата
         SubscribeLocalEvent<TurretControllableComponent, GettingControlledEvent>(OnGettingControlled);//сохраняем
         SubscribeLocalEvent<TurretControllableComponent, MoveInputEvent>(OnUserMoveInput);
     }
+    private void OnDestruction(EntityUid uid, TurretControllableComponent component, DestructionEventArgs args)
+    {
+        Return(uid, component);
 
+        _actionsSystem.RemoveAction(component.ControlReturnActEntity);
+    }
     public void OnGettingControlled(EntityUid uid, TurretControllableComponent component, GettingControlledEvent args)
     {
         component.User = args.User;

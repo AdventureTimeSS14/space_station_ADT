@@ -5,6 +5,7 @@
   name: olivier salad recipe
   result: ADTFoodOlivierSalad
   time: 15
+  group: Holidays
   reagents:
     Mayo: 5
   solids:
@@ -13,12 +14,15 @@
     FoodMeat: 1
     FoodCarrot: 1
     FoodEgg: 1
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: ADTFoodJelliedMeatRecipe
   name: jellied meat recipe
   result: ADTFoodJelliedMeat
   time: 20
+  group: Holidays
   reagents:
     Water: 15
     TableSalt: 5
@@ -26,12 +30,15 @@
   solids:
     FoodMeat: 1
     FoodPlateSmall: 1
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: ADTFoodHerringUnderFurcoatRecipe
   name: herring under furcoat recipe
   result: ADTFoodHerringUnderFurcoat
   time: 15
+  group: Holidays
   reagents:
     Mayo: 5
   solids:
@@ -39,11 +46,14 @@
     FoodEgg: 1
     FoodMeatFish: 1
     FoodPlateSmall: 1
+  recipeType:
+  - Assembler
 
 - type: microwaveMealRecipe
   id: ADTFoodMeatHamRecipe
   name: ham with mead recipe
   result: ADTFoodMeatHam
+  group: Holidays
   time: 25
   reagents:
     Blackpepper: 5
@@ -51,12 +61,15 @@
   solids:
     FoodMeat: 2
     FoodPlate: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodCakePuddingRecipe
   name: puding recipe
   result: ADTFoodCakePudding
   time: 10
+  group: Holidays
   reagents:
     Water: 15
     Milk: 10
@@ -65,12 +78,15 @@
     Egg: 6
   solids:
     FoodPlateSmall: 1
+  recipeType:
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodCakePuddingChristmasRecipe
   name: christmas puding recipe
   result: ADTFoodCakePuddingChristmas
   time: 10
+  group: Holidays
   reagents:
     Water: 15
     Milk: 10
@@ -80,3 +96,5 @@
   solids:
     FoodPlateSmall: 1
     ADTFoodSnackCandyStick: 2
+  recipeType:
+  - Oven

@@ -1,19 +1,3 @@
-- type: technology
-  id: ADTMedicalMODsuit
-  name: research-technology-medical-modsuit
-  icon:
-    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
-    state: medical
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ADTModsuitPlateMedical
-  technologyPrerequisites:
-    - ADTModsuitBase
-  position: 3,1
-  requiredTech:
-  - AdvancedEntertainment
 
 - type: technology
   id: ADTServiceMODsuitMODs
@@ -30,26 +14,9 @@
     - ADTModsuitModNoslip
   technologyPrerequisites:
     - ADTMedicalMODsuit
-  position: 5,2
+  position: 3,1
   requiredTech:
-  - BasicTranslation
-
-- type: technology
-  id: ADTCloning
-  name: research-technology-medical-cloning-adt
-  icon:
-    sprite: Structures/Machines/scanner.rsi
-    state: closed
-  discipline: CivilianServices
-  tier: 2
-  cost: 12000
-  recipeUnlocks:
-  - CloningPodMachineCircuitboard
-  - CloningConsoleComputerCircuitboard
-  - MedicalScannerMachineCircuitboard
-  position: 2,2
-  requiredTech:
-  - ADTMedicalMODsuit
+  - AdvancedEntertainment
 
 - type: technology
   id: ADTExoskeletons
@@ -62,7 +29,7 @@
   cost: 10000
   recipeUnlocks:
   - ADTClothingOuterExoskeletonBase
-  position: 3,5
+  position: 2,3
   requiredTech:
   - BluespaceCargoTransport
 
@@ -74,9 +41,43 @@
     state: mw
   discipline: CivilianServices
   tier: 2
-  cost: 7500
+  cost: 12500
   recipeUnlocks:
     - ADTAdvancedMicrowaveMachineCircuitBoard #Я не против расширения арсенала этой технологии, просто переименуйте её в локализации, если будете добавлять сюда чего-либо
-  position: 2,-3
+    - ADTCoffeeMachineBluespaceCircuitboard # Окей, братан. Я тебя понял :3
+    - ADTKitchenAssemblerMachineCircuitBoard
+    - ADTElectricRangeMachineCircuitBoard
+  position: 1,-2
   requiredTech:
   - MeatManipulation
+
+- type: technology
+  id: ADTHydroponicsAdvanced
+  name: research-technology-services-hydroponics-advanced
+  icon:
+    sprite: ADT/Objects/Devices/plant_analyzerT2.rsi
+    state: plantanalyzer
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+    - ADTHydroponicsTrayAdvancedMachineCircuitboard
+    - ADTAdvancedPlantAnalyzer
+  position: 1,-1
+  requiredTech:
+  - Hydroponics
+
+- type: technology
+  id: ADTReagentGrinder
+  name: research-advanced-reagent-grinder
+  icon:
+    sprite: ADT/Structures/Machines/juicer_T2.rsi
+    state: juicer0
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ADTAdvancedReagentGrinderMachineCircuitboard
+  requiredTech:
+  - MeatManipulation
+  position: 3,-2

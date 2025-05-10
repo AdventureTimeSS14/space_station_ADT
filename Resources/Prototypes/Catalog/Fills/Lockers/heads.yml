@@ -207,7 +207,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasAtmos
-    - id: ClothingOuterHardsuitEngineeringWhite
+    - id: ADTClothingModsuitBackAdvanced #ADT tweak
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
@@ -259,6 +259,7 @@
     - id: RubberStampCMO
     - id: MedTekCartridge
     # ADT tweak Start
+    - id: ADTReagentAnalyzer
     - id: ADTMobileDefibrillator
     - id: ADTBriefcaseBrownHikingCmoFilled
     - id: ADTBriefcaseMedicalFilled
@@ -326,6 +327,7 @@
     - id: ADTBookSRPrnd
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
+    - id: ADTBoxAICircuitBoard
     # ADT-WikiBooks-End
 
 # Hardsuit table, used for suit storage as well

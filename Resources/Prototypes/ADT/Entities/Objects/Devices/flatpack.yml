@@ -8,3 +8,13 @@
   components:
   - type: Flatpack
     entity: ADTBookPrinter
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTChemistryColdplateFlatpack
+  name: coldplate flatpack
+  description: A flatpack used for constructing a coldplate.
+  components:
+  - type: Flatpack
+    entity: ADTColdplateMachineCircuitboard
+

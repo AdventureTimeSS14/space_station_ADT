@@ -9,3 +9,15 @@
   storage:
     back:
     - HarmonicaInstrument
+
+- type: loadout
+  id: ADTModStorageVoucher
+  storage:
+    back:
+    - ADTModStorageVoucher
+
+- type: loadout
+  id: ADTClothingGeorgeRibbonPin
+  storage:
+    back:
+    - ADTClothingGeorgeRibbonPin
