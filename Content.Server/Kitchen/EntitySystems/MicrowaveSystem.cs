@@ -42,8 +42,7 @@ using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.Kitchen.Components; // ADT-Tweak
-using Content.Shared.Chemistry.Components; // ADT-Tweak
+using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
 
 namespace Content.Server.Kitchen.EntitySystems
 {
