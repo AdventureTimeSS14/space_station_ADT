@@ -254,6 +254,10 @@
     offsets:
       rmc-aslot-underbarrel: 0.17, -0.014
       rmc-aslot-barrel: 0.84375, 0.125
+  - type: Tag
+    tags:
+    - Sidearm
+    - ADTBsoWeapon
 # ADT TWEAK END
 
 - type: entity

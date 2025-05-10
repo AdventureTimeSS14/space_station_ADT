@@ -25,3 +25,14 @@
   id: ADTLawyerPDA # ADT юрист, так как у нас оригинальный у нас переведен как адвокат
   equipment:
     id: ADTLawyerPDA
+
+# Shoes
+- type: loadout
+  id: LaceupShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: LizardSkinShoes
+  equipment:
+    shoes: ClothingShoesGreenLizardskin

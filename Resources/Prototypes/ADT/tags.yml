@@ -5,6 +5,9 @@
   id: ADTHighVoltageDefibrillator
 
 - type: Tag
+  id: ADTMedicalAssemblerStuff
+
+- type: Tag
   id: Patch
 
 - type: Tag

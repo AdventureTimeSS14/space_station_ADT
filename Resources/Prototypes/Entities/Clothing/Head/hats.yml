@@ -933,6 +933,10 @@
     sprite: Clothing/Head/Hats/gladiator.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/gladiator.rsi
+  #ADT-Tweak-Start
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
+  #ADT-Tweak-End
 
 - type: entity
   parent: ClothingHeadBase

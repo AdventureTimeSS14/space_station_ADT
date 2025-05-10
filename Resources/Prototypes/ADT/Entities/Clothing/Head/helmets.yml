@@ -56,6 +56,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.70
   - type: GroupExamine
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
 
 - type: entity
   parent: ClothingHeadBase
@@ -74,6 +76,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: CoveredSlot
+    slots: [eyes]
 
 - type: entity
   parent: ClothingHeadBase

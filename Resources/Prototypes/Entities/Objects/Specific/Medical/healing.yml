@@ -23,6 +23,7 @@
   - type: Tag
     tags:
     - Ointment
+    - ADTMedicalAssemblerStuff # ADT-Tweak: Medical Assembler recipe stuff
   - type: Sprite
     state: ointment
   - type: Item
@@ -116,6 +117,7 @@
   - type: Tag
     tags:
     - Brutepack
+    - ADTMedicalAssemblerStuff # ADT-Tweak: Medical Assembler recipe stuff
   - type: Sprite
     state: brutepack
   - type: Healing

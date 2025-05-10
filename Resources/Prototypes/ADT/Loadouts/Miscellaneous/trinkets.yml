@@ -15,3 +15,9 @@
   storage:
     back:
     - ADTModStorageVoucher
+
+- type: loadout
+  id: ADTClothingGeorgeRibbonPin
+  storage:
+    back:
+    - ADTClothingGeorgeRibbonPin
