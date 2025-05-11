@@ -6,8 +6,10 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Content.Client.Markers;
 using Robust.Shared.GameObjects;
 using Content.Shared.StepTrigger.Components;
+using Content.Shared.Item;
 
 namespace Content.Client.ADT.MesonVision;
 
@@ -16,8 +18,10 @@ public sealed class MesonVisionOverlay : Overlay
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     private readonly SharedTransformSystem _xformSystem;
-    private readonly EntityQuery<PlacementReplacementComponent> _replacement;
-    private readonly EntityQuery<StepTriggerComponent> _steptrigger;
+    private readonly ContainerSystem _container;
+    private readonly EntityQuery<ItemComponent> _item;
+    private readonly EntityQuery<MobStateComponent> _mob;
+    private readonly EntityQuery<MarkerComponent> _marker;
     private readonly EntityQuery<SpriteComponent> _spriteQuery;
     private readonly EntityQuery<TransformComponent> _xformQuery;
 
@@ -27,9 +31,11 @@ public sealed class MesonVisionOverlay : Overlay
     public MesonVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
+        _container = _entity.System<ContainerSystem>();
         _xformSystem = _entity.System<SharedTransformSystem>();
-        _replacement = _entity.GetEntityQuery<PlacementReplacementComponent>();
-        _steptrigger = _entity.GetEntityQuery<StepTriggerComponent>();
+        _item = _entity.GetEntityQuery<ItemComponent>();
+        _mob = _entity.GetEntityQuery<MobStateComponent>();
+        _marker = _entity.GetEntityQuery<MarkerComponent>();
         _spriteQuery = _entity.GetEntityQuery<SpriteComponent>();
         _xformQuery = _entity.GetEntityQuery<TransformComponent>();
     }
@@ -52,9 +58,10 @@ public sealed class MesonVisionOverlay : Overlay
 
         foreach (var entity in _entity.GetEntities())
         {
-            if (!_replacement.HasComponent(entity) && !_steptrigger.HasComponent(entity)) continue;
-            if (!_spriteQuery.TryGetComponent(entity, out var sprite)) continue;
+            if (_mob.HasComponent(entity) || _marker.HasComponent(entity)) continue;
+            if (!_spriteQuery.TryGetComponent(entity, out var sprite) || sprite.DrawDepth > 12) continue;
             if (!_xformQuery.TryGetComponent(entity, out var xform)) continue;
+            if (_container.TryGetOuterContainer(entity, xform, out var container)) continue;
 
             if (xform.MapID != mapId) continue;
 
