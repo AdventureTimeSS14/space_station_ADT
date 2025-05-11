@@ -123,3 +123,16 @@
     sprite: ADT/Clothing/Neck/Misc/gold_cross.rsi
   - type: Clothing
     sprite: ADT/Clothing/Neck/Misc/gold_cross.rsi
+
+#09-05
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ADTClothingGeorgeRibbonPin
+  name: st. George's ribbon
+  description: The two-color ribbon combines orange and black colors, which are traditionally associated with fire and gunpowder, symbolizing the courage and heroism of the defenders of the Motherland.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/george.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/george.rsi
+

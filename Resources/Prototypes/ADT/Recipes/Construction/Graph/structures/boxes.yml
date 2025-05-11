@@ -19,4 +19,10 @@
             - !type:SpawnPrototype
               prototype: MaterialCardboard1
               amount: 3
+            - !type:SpawnPrototype
+              prototype: MaintenanceToolSpawner
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: MaintenanceFluffSpawner
+              amount: 1
             - !type:DeleteEntity {}
