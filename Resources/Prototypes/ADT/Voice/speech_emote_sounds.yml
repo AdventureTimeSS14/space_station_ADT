@@ -124,21 +124,21 @@
     Weh:
       collection: Weh
     Sneeze:
-      collection: MaleSneezes
+      collection: FemaleSneezes # ADT tweak
     Cough:
-      collection: MaleCoughs
+      collection: FemaleCoughs # ADT tweak
     MonkeyScreeches:
       collection: MonkeyScreeches
     Yawn:
-      collection: MaleYawn
+      collection: FemaleYawn # ADT tweak
     Snore:
       collection: Snores
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh
+      collection: FemaleSigh # ADT tweak
     Crying:
-      collection: MaleCry
+      collection: FemaleCry # ADT tweak
     Whistle:
       collection: Whistles
 
