@@ -1,6 +1,6 @@
 - type: species
   id: DraskSpecies
-  name: species-name-draskspecies
+  name: species-name-drask
   roundStart: true
   prototype: MobDrask
   sprites: MobDraskSprites

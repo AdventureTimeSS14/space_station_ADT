@@ -1,6 +1,6 @@
 - type: species
   id: TajaranSpecies
-  name: species-name-tajaranspecies
+  name: species-name-tajaran
   roundStart: true
   prototype: MobTajaran
   sprites: MobTajaranSprites

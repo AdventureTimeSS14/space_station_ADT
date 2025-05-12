@@ -1,6 +1,6 @@
 - type: species
   id: Resomi
-  name: species-name-resomispecies
+  name: species-name-resomi
   roundStart: true
   prototype: MobResomi
   sprites: MobResomiSprites

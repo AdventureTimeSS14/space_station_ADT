@@ -1,6 +1,6 @@
 - type: species
   id: KoboltSpecies
-  name: species-name-koboltspecies
+  name: species-name-kobolt
   roundStart: true
   prototype: MobKobolt
   sprites: MobKoboltSprites

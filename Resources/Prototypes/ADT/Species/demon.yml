@@ -1,6 +1,6 @@
 - type: species
   id: DemonSpecies
-  name: species-name-demonspecies
+  name: species-name-demon
   roundStart: true
   prototype: MobDemon
   sprites: MobDemonSprites

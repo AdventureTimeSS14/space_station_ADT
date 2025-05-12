@@ -1,6 +1,6 @@
 - type: species
   id: Shadekin
-  name: species-name-shadekinspecies
+  name: species-name-shadekin
   roundStart: true
   prototype: MobShadekin
   sprites: MobShadekinSprites
