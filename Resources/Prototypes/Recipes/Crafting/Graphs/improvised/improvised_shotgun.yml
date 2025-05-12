@@ -25,4 +25,13 @@
         amount: 3
         doAfter: 10
   - node: shotgun
+#ADT-Tweak Start Добавлена возможость обрезать самодельный дробовик до самодельного обреза
+    edges:
+      - to: improvisedshotgunsawn
+        steps:
+          - tool: Sawing
+            doAfter: 2
     entity: WeaponShotgunImprovised
+  - node: improvisedshotgunsawn
+    entity: ADTWeaponShotgunImprovisedSawn
+#ADT-Tweak End Добавлена возможость обрезать самодельный дробовик до самодельного обреза

@@ -1,0 +1,7 @@
+- type: entity
+  id: ADTAntiNobliumPaper
+  suffix: "AME scribbles"
+  parent: Paper
+  components:
+  - type: Paper
+    content: antinoblium-recipe

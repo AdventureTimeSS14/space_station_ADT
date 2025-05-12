@@ -5,7 +5,7 @@
   components:
   - type: Magic
   - type: WorldTargetAction
-    useDelay: 30
+    useDelay: 20
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -26,7 +26,7 @@
   components:
   - type: Magic
   - type: WorldTargetAction
-    useDelay: 20
+    useDelay: 10
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -47,7 +47,7 @@
   components:
   - type: Magic
   - type: WorldTargetAction
-    useDelay: 10
+    useDelay: 6
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -69,6 +69,27 @@
   - type: Magic
   - type: WorldTargetAction
     useDelay: 10
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+    icon:
+      sprite: Objects/Weapons/Guns/Basic/staves.rsi
+      state: healing
+    event: !type:ProjectileSpellEvent
+      prototype: ADTProjectileHealingBoltWeak
+      speech: action-speech-spell-healing
+
+- type: entity
+  id: ADTActionTaumaturgHealingBoltYoungling
+  name: Healing Bolt
+  description: Healing Bolt
+  components:
+  - type: Magic
+  - type: WorldTargetAction
+    useDelay: 25
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -233,3 +254,26 @@
       - id: DrinkPwrGameCan
         orGroup: DrinkCan
       speech: action-speech-spell-summon-can
+
+- type: entity
+  id: ADTTaumaturgActionSummonCheese
+  name: Summon Cheese
+  description: Summon Cheese
+  components:
+  - type: Magic
+  - type: InstantAction
+    useDelay: 600
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Consumable/Food/ingredients.rsi
+      state: cheesewheel
+    event: !type:RandomGlobalSpawnSpellEvent
+      # makeSurvivorAntagonist: true
+      spawns:
+      - id: FoodCheese
+        orGroup: CheeseSummon
+      - id: FoodChevre
+        orGroup: CheeseSummon
+      - id: FoodTofu
+        orGroup: CheeseSummon
+      speech: action-speech-spell-summon-cheese

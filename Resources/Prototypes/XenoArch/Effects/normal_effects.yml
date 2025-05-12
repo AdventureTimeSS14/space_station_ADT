@@ -676,3 +676,15 @@
     maxSpawns: 1
     spawns:
     - id: TeslaEnergyBall
+
+## ADT-Tweak
+- type: artifactEffect
+  id: ADTEffectSupermatter
+  targetDepth: 10
+  effectHint: artifact-effect-hint-destruction
+  components:
+  - type: SpawnArtifact
+    maxSpawns: 1
+    spawns:
+    - id: ADTDARKMATTER
+
