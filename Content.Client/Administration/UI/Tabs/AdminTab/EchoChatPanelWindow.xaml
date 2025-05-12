@@ -1,0 +1,27 @@
+<DefaultWindow
+    x:Class="Content.Client.Administration.UI.Tabs.AdminTab.EchoChatPanelWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Title="{Loc admin-player-actions-window-echo-chat-panel}" MinSize="425 325">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc admin-echo-chat-player}" MinWidth="100" />
+            <Control MinWidth="50" />
+            <LineEdit Name="PlayerNameLine" MinWidth="100" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc admin-echo-chat-type}" MinSize="100 0" />
+            <Control MinSize="50 0" />
+            <OptionButton Name="MessageTypeOption" MinSize="250 0" HorizontalExpand="false" />
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" VerticalExpand="True">
+            <Label Text="{Loc admin-echo-chat-message}" />
+            <TextEdit Name="MessageText" VerticalExpand="True"/>
+        </BoxContainer>
+        <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" />
+        <BoxContainer MinWidth="250" Orientation="Horizontal">
+            <Button Name="SubmitButton" Text="{Loc admin-echo-chat-submit}" HorizontalExpand="True"/>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>
