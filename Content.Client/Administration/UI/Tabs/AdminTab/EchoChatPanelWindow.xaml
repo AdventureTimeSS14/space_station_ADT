@@ -3,25 +3,37 @@
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    Title="{Loc admin-player-actions-window-echo-chat-panel}" MinSize="425 325">
+    Title="{Loc admin-player-actions-window-echo-chat-panel}" MinSize="525 325">
     <BoxContainer Orientation="Vertical">
+
+        <!-- Строка: Имя игрока -->
         <BoxContainer Orientation="Horizontal">
-            <Label Text="{Loc admin-echo-chat-player}" MinWidth="100" />
-            <Control MinWidth="50" />
-            <LineEdit Name="PlayerNameLine" MinWidth="100" HorizontalExpand="True" />
+            <Label Text="{Loc admin-echo-chat-player}" MinWidth="100" VerticalAlignment="Center" />
+            <Control HorizontalExpand="True" />
+            <LineEdit Name="PlayerNameLine" MinWidth="240" HorizontalExpand="True" />
         </BoxContainer>
+
+        <!-- Строка: Тип сообщения -->
         <BoxContainer Orientation="Horizontal">
-            <Label Text="{Loc admin-echo-chat-type}" MinSize="100 0" />
-            <Control MinSize="50 0" />
-            <OptionButton Name="MessageTypeOption" MinSize="250 0" HorizontalExpand="false" />
+            <Label Text="{Loc admin-echo-chat-type}" MinWidth="100" VerticalAlignment="Center" />
+            <Control HorizontalExpand="True" />
+            <OptionButton Name="MessageTypeOption" MinWidth="240" />
         </BoxContainer>
-        <BoxContainer Orientation="Vertical" VerticalExpand="True">
-            <Label Text="{Loc admin-echo-chat-message}" />
-            <TextEdit Name="MessageText" VerticalExpand="True"/>
-        </BoxContainer>
+
+        <!-- Панель с текстом сообщения -->
+        <PanelContainer StyleClasses="chatPanel" VerticalExpand="True" Margin="5">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="5">
+                <TextEdit Name="MessageText" VerticalExpand="True" />
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- Список игроков -->
         <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" />
+
+        <!-- Кнопка отправки -->
         <BoxContainer MinWidth="250" Orientation="Horizontal">
-            <Button Name="SubmitButton" Text="{Loc admin-echo-chat-submit}" HorizontalExpand="True"/>
+            <Button Name="SubmitButton" Text="{Loc admin-echo-chat-submit}" HorizontalExpand="True" />
         </BoxContainer>
+
     </BoxContainer>
 </DefaultWindow>
