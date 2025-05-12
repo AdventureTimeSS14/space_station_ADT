@@ -9,7 +9,7 @@ using Robust.Shared.Console;
 
 namespace Content.Server.ADT.Administration.Commands;
 
-[AdminCommand(AdminFlags.Moderator)]
+[AdminCommand(AdminFlags.Debug)]
 public sealed class ZoomTweakCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
