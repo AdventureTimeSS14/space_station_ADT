@@ -14,7 +14,6 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
     public sealed partial class EchoChatPanelWindow : DefaultWindow
     {
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-        [Dependency] private readonly ILocalizationManager _localization = default!;
 
         private int _selectedTypeId = 0;
 
@@ -24,13 +23,13 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
             IoCManager.InjectDependencies(this);
 
             // Заполняем типы сообщений
-            MessageTypeOption.AddItem(_localization.GetString("admin-echo-chat-type-speak"));
-            MessageTypeOption.AddItem(_localization.GetString("admin-echo-chat-type-emote"));
-            MessageTypeOption.AddItem(_localization.GetString("admin-echo-chat-type-whisper"));
+            MessageTypeOption.AddItem(Loc.GetString("admin-echo-chat-type-speak"));
+            MessageTypeOption.AddItem(Loc.GetString("admin-echo-chat-type-emote"));
+            MessageTypeOption.AddItem(Loc.GetString("admin-echo-chat-type-whisper"));
             MessageTypeOption.SelectId(0);
 
             // Полупрозрачный текст в поле ввода
-            MessageText.Placeholder = new Rope.Leaf(_localization.GetString("admin-echo-chat-placeholder"));
+            MessageText.Placeholder = new Rope.Leaf(Loc.GetString("admin-echo-chat-placeholder"));
 
             // Обработчики
             PlayerNameLine.OnTextChanged += _ => UpdateSubmitButton();
