@@ -29,7 +29,7 @@ public sealed partial class HeadRevolutionaryComponent : Component
     /// ADT - wizden bugfix
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public uint ConvertedCount = 0;
+    public int ConvertedCount = 0;
 }
 // ADT rerev start
 [ByRefEvent]

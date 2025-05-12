@@ -150,6 +150,19 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (!_mind.TryGetMind(ev.User.Value, out var revMindId, out _) || !_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
             return;
 
+        var headRevList = new List<EntityUid>();
+
+        var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
+        while (headRevs.MoveNext(out var ent, out _, out _))
+        {
+            headRevList.Add(ent);
+        }
+        var converted = 0;
+        foreach (var headrev in headRevList)
+        {
+            if (TryComp<HeadRevolutionaryComponent>(headrev, out var headrevcomp))
+                converted += headrevcomp.ConvertedCount;
+        }
         if (role.Value.Comp2.ConvertedCount <= 15)
         {
             _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), mind.Session);
@@ -344,10 +357,12 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
 
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(user)} converted {ToPrettyString(target)} into a Revolutionary");
-        // ADT TWEAK START
+
         if (_mind.TryGetMind(user, out var revMindId, out _) && _role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
+        {
+            comp.ConvertedCount++;
             role.Value.Comp2.ConvertedCount++;
-        // ADT TWEAK END
+        }
         if (mind?.Session != null)
             _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }
