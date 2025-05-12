@@ -3,7 +3,8 @@
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    Title="{Loc admin-player-actions-window-playtime-panel}" MinSize="500 400">
+    Title="{Loc admin-player-actions-window-playtime-panel}" MinSize="500 500">
+
     <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="10">
 
         <GridContainer Columns="2" VerticalExpand="false" Margin="0 0 0 10">
@@ -11,11 +12,13 @@
             <LineEdit Name="PlayerNameLine" MinWidth="150" HorizontalExpand="True" />
 
             <Label Text="{Loc admin-time-panel-window-role}" VerticalAlignment="Center" />
-            <OptionButton Name="RoleOption" MinWidth="150" HorizontalExpand="True" />
+            <LineEdit Name="RoleFilterInput" MinWidth="150" HorizontalExpand="True" />
 
             <Label Text="{Loc admin-time-panel-window-minutes}" VerticalAlignment="Center" />
             <LineEdit Name="MinutesInput" MinWidth="100" HorizontalExpand="True" />
         </GridContainer>
+
+        <OptionButton Name="RoleOption" MinWidth="150" Margin="0 0 0 10" />
 
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="8">
             <Button Name="AddHourButton" Text="+1h (0)" HorizontalExpand="True" />
@@ -33,4 +36,3 @@
 
     </BoxContainer>
 </DefaultWindow>
-
