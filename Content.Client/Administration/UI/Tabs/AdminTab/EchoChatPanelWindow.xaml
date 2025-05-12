@@ -3,7 +3,7 @@
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    Title="{Loc admin-player-actions-window-echo-chat-panel}" MinSize="525 325">
+    Title="{Loc admin-player-actions-window-echo-chat-panel}" MinSize="570 370">
     <BoxContainer Orientation="Vertical">
 
         <!-- Строка: Имя игрока -->
@@ -17,7 +17,7 @@
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc admin-echo-chat-type}" MinWidth="100" VerticalAlignment="Center" />
             <Control HorizontalExpand="True" />
-            <OptionButton Name="MessageTypeOption" MinWidth="240" />
+            <OptionButton Name="MessageTypeOption" MinWidth="240" MinHeight="30" HorizontalExpand="True" />
         </BoxContainer>
 
         <!-- Панель с текстом сообщения -->

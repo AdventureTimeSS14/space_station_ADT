@@ -16,6 +16,8 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
         [Dependency] private readonly ILocalizationManager _localization = default!;
 
+        private int _selectedTypeId = 0;
+
         public EchoChatPanelWindow()
         {
             RobustXamlLoader.Load(this);
@@ -36,6 +38,13 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
             PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
             SubmitButton.OnPressed += OnSubmitPressed;
 
+            MessageTypeOption.OnItemSelected += args =>
+            {
+                _selectedTypeId = args.Id;
+                Logger.Info($"Выбран тип сообщения (обновлён): {_selectedTypeId}");
+                UpdateSubmitButton();
+            };
+
             UpdateSubmitButton();
         }
 
@@ -45,6 +54,9 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
             SubmitButton.Disabled =
                 string.IsNullOrWhiteSpace(PlayerNameLine.Text) ||
                 string.IsNullOrWhiteSpace(message);
+
+            MessageTypeOption.SelectId(_selectedTypeId);
+            MessageTypeOption.UpdateDraw();
         }
 
         private void OnPlayerSelectionChanged(PlayerInfo? player)
@@ -61,7 +73,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
             if (string.IsNullOrWhiteSpace(playerName) || string.IsNullOrWhiteSpace(message))
                 return;
 
-            var type = MessageTypeOption.SelectedId switch
+            var type = _selectedTypeId switch
             {
                 0 => "speak",
                 1 => "emote",
