@@ -13,12 +13,15 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-blue
+    fiberMaterial: fibers-carbon-adt
+    fiberColor: fibers-grey
   - type: FingerprintMask
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitAtmos
   name: atmos MOD gauntlets
   components:
@@ -30,13 +33,11 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
-  - type: Insulated
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-yellow
+    fiberColor: fibers-yellow
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitClown
   name: clown MOD gauntlets
   components:
@@ -49,11 +50,10 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-yellow
+    fiberColor: fibers-colorful-adt
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitEngineering
   name: atmos MOD gauntlets
   components:
@@ -65,13 +65,11 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
-  - type: Insulated
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-yellow
+    fiberColor: fibers-brown
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitMedical
   name: atmos MOD gauntlets
   components:
@@ -83,9 +81,11 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-cyan
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitMining
   name: mining MOD gauntlets
   components:
@@ -97,9 +97,11 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-darkblack-adt
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitSecurity
   name: security MOD gauntlets
   components:
@@ -111,9 +113,11 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-black
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitScience
   name: Science MOD gauntlets
   components:
@@ -125,9 +129,11 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-purple
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitSafeguard
   name: safeguard MOD gauntlets
   components:
@@ -139,10 +145,12 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
-  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-black
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitBso
   name: bso MOD gauntlets
   components:
@@ -154,9 +162,12 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-blue
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitAdvanced
   name: advanced MOD gauntlets
   components:
@@ -168,9 +179,12 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-white
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitSyndicate
   name: syndicate MOD gauntlets
   components:
@@ -182,9 +196,11 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-bloodred-adt
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitSyndicateElite
   name: elite syndicate MOD gauntlets
   components:
@@ -196,9 +212,12 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-darkgrey-adt
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitSyndicateCommander
   name: comm syndicate MOD gauntlets
   components:
@@ -210,3 +229,6 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-bloodred-adt
