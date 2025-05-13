@@ -1,0 +1,17 @@
+- type: entity
+  noSpawn: true
+  name: Hermit
+  description: He looks shabby.
+  parent: MobHuman
+  id: ADTMobHermit
+  components:
+    - type: GhostRole
+      name: ghost-role-information-hermit-name
+      description: ghost-role-information-hermit-description
+    - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance
+    - type: Loadout
+      prototypes: [ ADTHemritEquipment ]
+    - type: Icon
+      sprite: ADT/Mobs/Lavaland/hermit.rsi
+      state: fulls

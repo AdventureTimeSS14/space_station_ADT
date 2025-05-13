@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "https://wiki.ss220.space/index.php/%D0%A4%D0%B0%D0%B9%D0%BB:Lavaland_hermit.png",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "fulls"
+        }
+    ]
+}
