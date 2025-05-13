@@ -85,7 +85,7 @@ public sealed partial class BluespaceHarvesterComponent : Component
     /// A prototype rift created when the number of allowed points is exceeded.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public EntProtoId Rift = "BluespaceHarvesterRift";
+    public EntProtoId Rift = "ADTBluespaceHarvesterRift";
 
     /// <summary>
     /// The maximum number of rifts that can appear, the lower this value,
@@ -111,25 +111,25 @@ public sealed partial class BluespaceHarvesterComponent : Component
     {
         new BluespaceHarvesterCategoryInfo()
         {
-            PrototypeId = "RandomHarvesterBiologicalLoot",
+            PrototypeId = "ADTRandomHarvesterBiologicalLoot",
             Cost = 7_500,
             Type = BluespaceHarvesterCategory.Biological,
         },
         new BluespaceHarvesterCategoryInfo()
         {
-            PrototypeId = "RandomHarvesterTechnologicalLoot",
+            PrototypeId = "ADTRandomHarvesterTechnologicalLoot",
             Cost = 7_500,
             Type = BluespaceHarvesterCategory.Technological,
         },
         new BluespaceHarvesterCategoryInfo()
         {
-            PrototypeId = "RandomHarvesterIndustrialLoot",
+            PrototypeId = "ADTRandomHarvesterIndustrialLoot",
             Cost = 7_500,
             Type = BluespaceHarvesterCategory.Industrial,
         },
         new BluespaceHarvesterCategoryInfo()
         {
-            PrototypeId = "RandomHarvesterDestructionLoot",
+            PrototypeId = "ADTRandomHarvesterDestructionLoot",
             Cost = 7_500,
             Type = BluespaceHarvesterCategory.Destruction,
         },

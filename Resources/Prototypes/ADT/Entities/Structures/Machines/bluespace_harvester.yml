@@ -10,7 +10,7 @@
   - type: BluespaceHarvester
   - type: Appearance
   - type: Construction
-    graph: MachineUnassemble
+    graph: ADTMachineUnassemble
     node: machine
     containers:
     - machine_parts
@@ -65,7 +65,7 @@
       enum.BluespaceHarvesterUiKey.Key:
         type: BluespaceHarvesterBoundUserInterface
   - type: Machine
-    board: MachineBluespaceHarvesterCircuitboard
+    board: ADTMachineBluespaceHarvesterCircuitboard
   - type: NodeContainer
     examinable: true
     nodes:

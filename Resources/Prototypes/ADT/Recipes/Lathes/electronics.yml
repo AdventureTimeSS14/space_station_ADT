@@ -87,8 +87,8 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
-  id: MachineBluespaceHarvesterCircuitboard
-  result: MachineBluespaceHarvesterCircuitboard
+  id: ADTMachineBluespaceHarvesterCircuitboard
+  result: ADTMachineBluespaceHarvesterCircuitboard
   completetime: 10
   materials:
     Steel: 100

@@ -1,6 +1,6 @@
 # Блюспейс Харвестер, чё уж
 - type: constructionGraph
-  id: MachineUnassemble
+  id: ADTMachineUnassemble
   start: start
   graph:
     - node: start

@@ -1,7 +1,7 @@
 # Единственный способ нормально проверить БСХа
 - type: entity
   parent: GeneratorRTG
-  id: GeneratorRTGDamaged100kW
+  id: ADTGeneratorRTGDamaged100kW
   name: RTG
   description: A Radioisotope Thermoelectric Generator for long term power.
   suffix: 100kW, Debug
@@ -11,7 +11,7 @@
 
 - type: entity
   parent: GeneratorRTG
-  id: GeneratorRTGDamaged1MW
+  id: ADTGeneratorRTGDamaged1MW
   name: RTG
   description: A Radioisotope Thermoelectric Generator for long term power.
   suffix: 1MW, Debug
@@ -21,7 +21,7 @@
 
 - type: entity
   parent: GeneratorRTG
-  id: GeneratorRTGDamaged100MW
+  id: ADTGeneratorRTGDamaged100MW
   name: RTG
   description: A Radioisotope Thermoelectric Generator for long term power.
   suffix: 100MW, Debug

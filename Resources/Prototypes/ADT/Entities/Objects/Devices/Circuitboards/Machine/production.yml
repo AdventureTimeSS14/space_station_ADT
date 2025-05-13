@@ -254,7 +254,7 @@
 # Блюспейс харвестер, чё уж
 
 - type: entity
-  id: MachineBluespaceHarvesterCircuitboard
+  id: ADTMachineBluespaceHarvesterCircuitboard
   parent: BaseMachineCircuitboard
   name: Bluespace Harvester board
   description: A machine board for a Bluespace Harvester
@@ -263,7 +263,7 @@
     sprite: ADT/Objects/Misc/module_bluespace.rsi
     state: bluespace
   - type: MachineBoard
-    prototype: BluespaceHarvester
+    prototype: ADTBluespaceHarvester
     stackRequirements:
       Glass: 15
       Steel: 15

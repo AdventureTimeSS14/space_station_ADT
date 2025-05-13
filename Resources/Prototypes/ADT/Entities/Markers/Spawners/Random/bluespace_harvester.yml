@@ -198,7 +198,7 @@
     offset: 0.0
     rarePrototypes:
     - RCDRecharging
-    - AccessConfigurator
+   ### - AccessConfigurator
     rareChance: 0.075
 
 - type: entity
@@ -237,7 +237,7 @@
       state: cpuboard
   - type: RandomSpawner
     prototypes:
-    - SecurityTechFabCircuitboard
+  ### - SecurityTechFabCircuitboard
     - MedicalTechFabCircuitboard
     - TelecomServerCircuitboard
     - AmmoTechFabCircuitboard
@@ -440,7 +440,7 @@
     - EmpImplanter
     - FreedomImplanter
     - DeathRattleImplanter
-    - UplinkImplanter
+  ###  - UplinkImplanter
     - DnaScramblerImplanter
     rareChance: 0.01
 
@@ -596,7 +596,7 @@
   - type: RandomSpawner
     prototypes:
     - WeaponRevolverInspector
-    - WeaponRevolverMateba
+  ###  - WeaponRevolverMateba
     - WeaponPistolMk58
     chance: 1.0
     offset: 0.0
@@ -641,7 +641,7 @@
       state: icon
   - type: RandomSpawner
     prototypes:
-    - WeaponPulseRifle
+   ### - WeaponPulseRifle
     - WeaponPulsePistol
     - WeaponLightMachineGunL6
     - WeaponSniperHristov
@@ -649,8 +649,8 @@
     offset: 0.0
     rarePrototypes:
     - WeaponPulseCarbine
-    - WeaponMinigun
-    - WeaponLauncherMultipleRocket
+   ### - WeaponMinigun
+   ### - WeaponLauncherMultipleRocket
     rareChance: 0.2
 
 - type: entity

@@ -1,5 +1,5 @@
 - type: entity
-  id: BluespaceHarvesterRift
+  id: ADTBluespaceHarvesterRift
   name: redspace rift
   description: Run! Run while you can! Just run!
   placement:
@@ -52,9 +52,9 @@
       # Spiders
       - id: MobSpiderSpace
         cost: 50
-      - id: MobGiantSpiderAngry
+      - id: ADTMobGuardSpider
         cost: 55
-      - id: MobClownSpider
+      - id: ADTMobClownSpider
         cost: 55
       # DEATH
       - id: FleshKudzu
