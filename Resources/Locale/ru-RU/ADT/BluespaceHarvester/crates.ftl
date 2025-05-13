@@ -40,8 +40,6 @@ ent-ADTCrateHarvesterBorg = { ent-ADTCrateTechnologicalSecure }
     .desc= { ent-ADTCrateTechnologicalSecure.desc }
 ent-ADTCrateHarvesterMech = { ent-ADTCrateTechnologicalSecure }
     .desc= { ent-ADTCrateTechnologicalSecure.desc }
-ent-ADTCrateHarvesterMech = { ent-ADTCrateTechnologicalSecure }
-    .desc= { ent-ADTCrateTechnologicalSecure.desc }
 
 ent-ADTCrateHarvesterInjection = { ent-ADTCrateBiologicalSecure }
     .desc= { ent-ADTCrateBiologicalSecure.desc }
