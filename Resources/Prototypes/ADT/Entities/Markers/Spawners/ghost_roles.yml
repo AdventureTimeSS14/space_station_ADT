@@ -215,7 +215,7 @@
   components:
     - type: Sprite
       layers:
-        - sprite: ADT/Markers/job.rsi
+        - sprite: ADT/Markers/jobs.rsi
           state: green
         - sprite: ADT/Mobs/Lavaland/hermit.rsi
           state: fulls
