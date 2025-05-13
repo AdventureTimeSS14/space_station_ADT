@@ -257,7 +257,7 @@ namespace Content.Server.Connection
                 }
                 else
                 {
-                    return (ConnectionDenyReason.DiscordAuth, "You are not authorized through discord!!!", null);
+                    return (ConnectionDenyReason.DiscordAuth, $"You are not authorized through discord!!! Присоединитесь к нашему дискорд серверу https://discord.com/invite/NY3KDNuH9r и авторизуйтесь здесь https://discord.com/channels/901772674865455115/1351213738774237184 Введите uid вашего аккаунта {userId.ToString}, только не показывайте его НИКОМУ КРОМЕ АДМИНИСТРАЦИИ", null);
                 }
             }
             // ADT-Tweak-End

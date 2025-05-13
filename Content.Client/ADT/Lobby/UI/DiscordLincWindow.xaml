@@ -1,0 +1,40 @@
+<DefaultWindow
+    x:Class="Content.Client.Lobby.UI.DiscordLincWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="Discord Link"
+    MinWidth="400"
+    MinHeight="180">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+        <!-- Статус -->
+        <Label Name="StatusLabel"
+               Text="Проверка привязки..."
+               StyleClasses="LabelBig"
+               HorizontalExpand="True"
+               Align="Center" />
+
+        <!-- Инструкция -->
+        <RichTextLabel Name="InstructionLabel"
+                       HorizontalExpand="True"
+                       VerticalExpand="True"
+                       Margin="0,5,0,0"
+                       MaxWidth="500" />
+
+        <!-- Кнопки -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="6">
+            <Button Name="CopyButton"
+                    Text="Скопировать инструкцию"
+                    StyleClasses="ButtonBig"
+                    HorizontalExpand="True" />
+
+            <Button Name="LinkButton"
+                    Text="Привязать Discord"
+                    StyleClasses="ButtonBig"
+                    HorizontalExpand="True"
+                    Visible="False" />
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>
+

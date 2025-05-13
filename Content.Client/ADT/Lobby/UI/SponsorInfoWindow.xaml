@@ -1,0 +1,17 @@
+<DefaultWindow
+    x:Class="Content.Client.Lobby.UI.SponsorInfoWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="Информация о спонсоре"
+    MinWidth="400"
+    MinHeight="200">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+        <!-- Инфо о спонсоре -->
+        <RichTextLabel Name="SponsorLabel"
+                       HorizontalExpand="True"
+                       VerticalExpand="True"
+                       MaxWidth="500" />
+    </BoxContainer>
+</DefaultWindow>
