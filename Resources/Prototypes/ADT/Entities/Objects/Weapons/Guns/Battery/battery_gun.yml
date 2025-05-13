@@ -35,6 +35,9 @@
     offsetSpeed: 0.3
   - type: Wieldable
     unwieldOnUse: false
+  - type: Tag
+    tags:
+    - ADTBsoWeapon
 
 - type: entity
   name: laser rifle
@@ -350,3 +353,6 @@
     size: Huge
     shape:
     - 0,0,3,1
+  - type: Tag
+    tags:
+    - ADTBsoWeapon

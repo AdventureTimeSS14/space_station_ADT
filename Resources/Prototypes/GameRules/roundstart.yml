@@ -196,8 +196,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 6          #ADT_Tweak
-      playerRatio: 15 #ADT_Tweak
+      max: 7         #ADT_Tweak 8 > 7
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
@@ -276,7 +276,7 @@
   id: Wizard
   components:
   - type: GameRule
-    minPlayers: 10
+    minPlayers: 1000 #ADT-Tweak - де факто отключаем визарда 10 > 1000
   - type: AntagSelection
     agentName: wizard-round-end-name
     selectionTime: PrePlayerSpawn

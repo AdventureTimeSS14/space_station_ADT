@@ -784,6 +784,13 @@
     fiberColor: fibers-black
   - type: FingerprintMask
 
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelAnagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_duffel.rsi
+
 #MleM
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
