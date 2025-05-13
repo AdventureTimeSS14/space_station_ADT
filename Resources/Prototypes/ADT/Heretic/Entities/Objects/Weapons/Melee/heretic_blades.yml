@@ -26,10 +26,11 @@
   parent: HereticBladeBase
   id: HereticBladeAsh
   name: ashen blade
-  suffix: Ash
+  suffix: Ash0
   components:
   - type: HereticBlade
     path: Ash
+    eventsOnPickup:
   - type: Sprite
     sprite: ADT/Heretic/Blades/blade_ash.rsi
     state: icon
