@@ -28,7 +28,8 @@
     layers:
     - state: icon
   - type: HandTeleporter
+    allowPortalsOnDifferentGrids: true
+    allowPortalsOnDifferentMaps: true
     firstPortalPrototype: ADTPortalBlueAdmin
     secondPortalPrototype: ADTPortalRedAdmin
-    allowPortalsOnDifferentGrids: true
 ### End ADT Tweak
