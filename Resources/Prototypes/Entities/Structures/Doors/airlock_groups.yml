@@ -134,6 +134,7 @@
     science: Science
     security: Security
     virology: Medical
+    #ADT-Tweak-Start
     bar: Civilian
     barber: Civilian
     bathroom: Civilian
@@ -158,3 +159,4 @@
     salvage: Cargo
     service: Civilian
     theatre: Civilian
+    #ADT-Tweak-End
