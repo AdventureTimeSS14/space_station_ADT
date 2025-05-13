@@ -85,6 +85,7 @@
     salvage:     ADT/Structures/Doors/Airlocks/Glass/salvage.rsi
     service:     ADT/Structures/Doors/Airlocks/Glass/service.rsi
     theatre:     ADT/Structures/Doors/Airlocks/Glass/theatre.rsi
+    #ADT-Tweak-End
 
 - type: AirlockGroup
   id: Windoor
