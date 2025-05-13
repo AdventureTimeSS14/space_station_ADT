@@ -16,6 +16,7 @@
     - IgnoreBalanceChecks # ADT-Economy-Tweak
     - SilentStorageUser
     - PreventAccessLogging
+    - AllowBiomeLoading
   - type: Input
     context: "aghost"
   - type: Ghost
