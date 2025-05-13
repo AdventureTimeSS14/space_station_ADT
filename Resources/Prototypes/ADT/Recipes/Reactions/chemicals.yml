@@ -12,14 +12,12 @@
   id: ADTMethanol
   minTemp: 370
   reactants:
-    Carbon:
-      amount: 1
+    Benzene:
+      amount: 2
     Hydrogen:
       amount: 2
-    Oxygen:
-      amount: 1
   products:
-    ADTMethanol: 4
+    ADTMethanol: 3
 
 - type: reaction
   id: ADTMethylamine

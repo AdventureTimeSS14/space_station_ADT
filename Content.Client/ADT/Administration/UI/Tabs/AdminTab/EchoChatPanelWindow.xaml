@@ -1,0 +1,39 @@
+<DefaultWindow
+    x:Class="Content.Client.Administration.UI.Tabs.AdminTab.EchoChatPanelWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Title="{Loc admin-player-actions-window-echo-chat-panel}" MinSize="570 370">
+    <BoxContainer Orientation="Vertical">
+
+        <!-- Строка: Имя игрока -->
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc admin-echo-chat-player}" MinWidth="100" VerticalAlignment="Center" />
+            <Control HorizontalExpand="True" />
+            <LineEdit Name="PlayerNameLine" MinWidth="240" HorizontalExpand="True" />
+        </BoxContainer>
+
+        <!-- Строка: Тип сообщения -->
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc admin-echo-chat-type}" MinWidth="100" VerticalAlignment="Center" />
+            <Control HorizontalExpand="True" />
+            <OptionButton Name="MessageTypeOption" MinWidth="240" MinHeight="30" HorizontalExpand="True" />
+        </BoxContainer>
+
+        <!-- Панель с текстом сообщения -->
+        <PanelContainer StyleClasses="chatPanel" VerticalExpand="True" Margin="5">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="5">
+                <TextEdit Name="MessageText" VerticalExpand="True" />
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- Список игроков -->
+        <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" />
+
+        <!-- Кнопка отправки -->
+        <BoxContainer MinWidth="250" Orientation="Horizontal">
+            <Button Name="SubmitButton" Text="{Loc admin-echo-chat-submit}" HorizontalExpand="True" />
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>

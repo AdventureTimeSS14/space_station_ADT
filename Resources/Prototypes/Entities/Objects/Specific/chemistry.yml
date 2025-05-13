@@ -6,6 +6,7 @@
   - type: Tag
     tags:
     - GlassBeaker
+    - ADTMedicalAssemblerStuff # ADT-Tweak: Medical Assembler recipe stuff
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker.rsi
     layers:

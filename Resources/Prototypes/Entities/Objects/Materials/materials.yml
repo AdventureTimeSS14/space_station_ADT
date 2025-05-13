@@ -133,6 +133,7 @@
           Quantity: 5
   - type: Tag
     tags:
+      - ADTMedicalAssemblerStuff # ADT-Tweak: Medical Assembler recipe stuff
       - ClothMade
       - Gauze
       - RawMaterial
