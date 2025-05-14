@@ -118,7 +118,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             SponsorInfoButton.ModulateSelfOverride = hasSponsor
-                ? Color.FromHex("#4D88FF")  // Синий
+                ? Color.FromHex("#1966ff")  // Синий
                 : Color.FromHex("#AB3232"); // Красный
 
             SponsorInfoButton.Text = hasSponsor && sponsorTier != null
