@@ -516,7 +516,7 @@ ent-ADTPlushieAnagiri = плюшевая Плейона
 
 
 ent-ADTClothingUniformJumpsuitSaintMadmanClothing = униформа Via-Deus
-    .desc = Униформа компании Via-Deus. 
+    .desc = Униформа компании Via-Deus.
     .suffix = { "Спонсорское, Saint_madman" }
 
 ent-ADTClothingOuterCoatSaintMadman = пальто Via-Deus

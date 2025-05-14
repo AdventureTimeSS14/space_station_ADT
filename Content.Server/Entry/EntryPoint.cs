@@ -135,6 +135,7 @@ namespace Content.Server.Entry
         {
             base.PostInit();
 
+            // IoCManager.Resolve<PlayerSpawnItemSystem>().Initialize();
             IoCManager.Resolve<IChatSanitizationManager>().Initialize();
             IoCManager.Resolve<IChatManager>().Initialize();
             var configManager = IoCManager.Resolve<IConfigurationManager>();
