@@ -56,7 +56,7 @@
     DrinkWineCan: 5
     ADTTeabox: 1 # ADT Tweak
   contrabandInventory:
-    EthanolChemistryBottle: 3
+    ChemistryBottleEthanol: 3
     DrinkBottleOfNothingFull: 1
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2
