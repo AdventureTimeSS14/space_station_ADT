@@ -65,6 +65,9 @@ public sealed class CoveredSlotSystem : EntitySystem
             if (!_inventory.TryGetSlotEntity(ent, slotDef.Name, out var entity))
                 continue;
 
+            if ((slotDef.SlotFlags & SlotFlags.POCKET) != 0)
+                continue;
+
             if (!TryComp<CoveredSlotComponent>(entity, out var blockComponent) || (slot & blockComponent.Slots) == 0)
                 continue;
 
