@@ -243,8 +243,6 @@
       heldPrefix: silver
     - type: PresetIdCard
       job: Quartermaster
-    - type: StealTarget
-      stealGroup: CommandIDCard
 
 - type: entity
   parent: IDCardStandard
