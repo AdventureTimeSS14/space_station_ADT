@@ -60,7 +60,7 @@
                                                             Margin="3" />
                                         <cc:UICommandButton Name="SponsorInfoButton"
                                                             Command="ui-lobby-sponsor-info"
-                                                            Text="Стать спонсором"
+                                                            Text="Уровень спонсорства: нет :("
                                                             StyleClasses="Caution"
                                                             WindowType="{x:Type lobbyUi:SponsorInfoWindow}"
                                                             MinWidth="100"

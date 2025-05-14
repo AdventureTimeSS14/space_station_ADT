@@ -72,6 +72,7 @@ namespace Content.Client.Lobby.UI
                     ShowInterfaceContainer.Visible = true;
                     MainContainer.Visible = false;
                     break;
+                // ADT-Tweak-End
             }
         }
 
@@ -111,7 +112,7 @@ namespace Content.Client.Lobby.UI
 
             SponsorInfoButton.Text = hasSponsor
                 ? "Ваш спонсорский статус"
-                : "Стать спонсором";
+                : "Уровень спонсорства: нет :(";
         }
 
         public void UpdateDiscordLincButtonColor(bool hasLincDiscord)

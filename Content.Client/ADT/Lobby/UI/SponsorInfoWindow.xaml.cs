@@ -5,6 +5,9 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
+using Robust.Client.UserInterface;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Client.Lobby.UI;
 
@@ -14,6 +17,8 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
 {
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IUriOpener _uriOpener = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     public static bool HasSponsor { get; private set; }
     private string _userName = string.Empty;
 
@@ -24,6 +29,12 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
 
         _userName = _player.LocalSession?.Name ?? "Неизвестный игрок";
         HasSponsor = _sponsorsManager.TryGetInfo(out var sponsor) && sponsor != null;
+
+        ButtonSiteBoosty.OnPressed += _ =>
+        {
+            var url = _cfg.GetCVar(CCVars.InfoLinksWebsite);
+            _uriOpener.OpenUri(url);
+        };
 
         UpdateSponsorInfo();
     }
