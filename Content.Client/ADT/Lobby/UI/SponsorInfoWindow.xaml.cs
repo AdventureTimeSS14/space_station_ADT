@@ -8,6 +8,7 @@ using Robust.Shared.Utility;
 using Robust.Client.UserInterface;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
+using Content.Shared.Corvax.Sponsors;
 
 namespace Content.Client.Lobby.UI;
 
@@ -20,6 +21,7 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
     [Dependency] private readonly IUriOpener _uriOpener = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     public static bool HasSponsor { get; private set; }
+    public SponsorInfo? SponsorInfo { get; private set; } = default!;
     private string _userName = string.Empty;
 
     public SponsorInfoWindow()
@@ -29,6 +31,9 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
 
         _userName = _player.LocalSession?.Name ?? "Неизвестный игрок";
         HasSponsor = _sponsorsManager.TryGetInfo(out var sponsor) && sponsor != null;
+        if (HasSponsor)
+            SponsorInfo = sponsor;
+
 
         ButtonSiteBoosty.OnPressed += _ =>
         {
@@ -45,25 +50,26 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
 
         if (_sponsorsManager.TryGetInfo(out var sponsor) && sponsor != null)
         {
+            SponsorInfo = sponsor;
             lines = new List<string>
             {
                 $"[color=yellow]Никнейм:[/color] {_userName}",
                 $"[color=yellow]Уровень спонсорства:[/color] {sponsor.Tier ?? 0}",
                 $"[color=yellow]Цвет OOC:[/color] {sponsor.OOCColor ?? "не задан"}",
                 $"[color=yellow]Приоритетный вход:[/color] {(sponsor.HavePriorityJoin ? "Да" : "Нет")}",
-                $"[color=yellow]Дата окончания:[/color] {sponsor.ExpireDate:dd.MM.yyyy}",
-                $"[color=yellow]Игнор времени ролей:[/color] {(sponsor.AllowJob ? "Да" : "Нет")}"
+                $"[color=yellow]Игнор времени ролей:[/color] {(sponsor.AllowJob ? "Да" : "Нет")}",
+                $"[color=yellow]Дата окончания:[/color] {sponsor.ExpireDate:dd.MM.yyyy}"
             };
         }
         else
         {
+            SponsorInfo = null;
             lines = new List<string>
             {
                 $"[color=yellow]Никнейм:[/color] {_userName}",
                 "[color=yellow]Уровень спонсорства:[/color] —",
                 "[color=yellow]Цвет OOC:[/color] —",
                 "[color=yellow]Приоритетный вход:[/color] —",
-                "[color=yellow]Дата окончания:[/color] —",
                 "[color=yellow]Игнор времени ролей:[/color] —"
             };
         }

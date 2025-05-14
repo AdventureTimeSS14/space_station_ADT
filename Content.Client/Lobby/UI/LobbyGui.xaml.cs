@@ -93,25 +93,25 @@ namespace Content.Client.Lobby.UI
         private void UpdateButtons()
         {
             // Проверяем статус спонсорки
-            var window = new SponsorInfoWindow();
-            UpdateSponsorButtonColor(SponsorInfoWindow.HasSponsor);
+            var sponsorInfoWindow = new SponsorInfoWindow();
+            UpdateSponsorButtonColor(SponsorInfoWindow.HasSponsor, sponsorInfoWindow);
 
             // Проверяем статус Discord
             var windowDiscord = new DiscordLincWindow();
             UpdateDiscordLincButtonColor(DiscordLincWindow.HasLinkedDiscord);
         }
 
-        public void UpdateSponsorButtonColor(bool hasSponsor)
+        public void UpdateSponsorButtonColor(bool hasSponsor, SponsorInfoWindow? sponsorInfoWindow)
         {
             if (SponsorInfoButton == null)
                 return;
 
             SponsorInfoButton.ModulateSelfOverride = hasSponsor
-                ? Color.FromHex("#4D88FF") // Синий
+                ? Color.FromHex("#4D88FF")  // Синий
                 : Color.FromHex("#AB3232"); // Красный
 
-            SponsorInfoButton.Text = hasSponsor
-                ? "Ваш спонсорский статус"
+            SponsorInfoButton.Text = hasSponsor && sponsorInfoWindow?.SponsorInfo != null
+                ? $"Уровень спонсорства: {sponsorInfoWindow.SponsorInfo.Tier}"
                 : "Уровень спонсорства: нет :(";
         }
 
@@ -121,7 +121,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             DiscordLincButton.ModulateSelfOverride = hasLincDiscord
-                ? Color.FromHex("#5da130") // Зелёный
+                ? Color.FromHex("#5da130")  // Зелёный
                 : Color.FromHex("#AB3232"); // Красный
 
             DiscordLincButton.Text = hasLincDiscord
