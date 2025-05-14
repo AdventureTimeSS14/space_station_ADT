@@ -80,6 +80,12 @@ public sealed class ADTCCVars
         CVarDef.Create("supermatter.do_cascade", true, CVar.SERVER);
 
     /// <summary>
+    ///     The supermatter gains +1 bolts of electricity.
+    /// </summary>
+    public static readonly CVarDef<float> SupermatterPowerMinPenaltyThreshold =
+        CVarDef.Create("supermatter.power_min_penalty_threshold", 3000f, CVar.SERVER);
+
+    /// <summary>
     ///     The cutoff on power properly doing damage, pulling shit around.
     ///     The supermatter will also spawn anomalies, and gains +2 bolts of electricity.
     /// </summary>
@@ -201,7 +207,7 @@ public sealed class ADTCCVars
     ///     Directly multiplies the amount of rads put out by the supermatter. Be VERY conservative with this.
     /// </summary>
     public static readonly CVarDef<float> SupermatterRadsModifier =
-        CVarDef.Create("supermatter.rads_modifier", 1f, CVar.SERVER);
+        CVarDef.Create("supermatter.rads_modifier", 2f, CVar.SERVER);
 
     /// <summary>
     ///     Multiplier on the overall power produced during supermatter atmospheric reactions.

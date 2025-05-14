@@ -267,6 +267,10 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
 
+    [DataField("radiationOutputFactor")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float RadiationOutputFactor = 0.03f;
+
     #endregion
 
     #region Timing
