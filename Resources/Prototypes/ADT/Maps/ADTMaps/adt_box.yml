@@ -1,14 +1,14 @@
 - type: gameMap
   id: ADT_Box
-  mapName: 'Box Station'
-  mapPath: /Maps/ADTMaps/ADTStations/adt_box.yml
+  mapName: 'Kiberiada'
+  mapPath: /Maps/ADTMaps/ADTStations/ADT_kiberiada.yml
   minPlayers: 30
   stations:
     ADT_Boxstation:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0}BOX {1}'
+          mapNameTemplate: '{0}KIA{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '-'
