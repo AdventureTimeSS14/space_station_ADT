@@ -434,6 +434,9 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  #SD Tweak start
+  - SDJanitorTacticalJanimaidHead
+  #SD Tweak end
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -446,6 +449,9 @@
   - ADTJanitorJumpsuitJanimaidmini
   - ADTJanitorJumpsuitJanimaidElegant
   # ADT-Loadouts-End
+  #SD Tweak start
+  - SDJanitorTacticalJanimaidSkirt
+  #SD Tweak end
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -455,6 +461,9 @@
   - JanitorRubberGloves
   - OrangeGloves
   - PurpleGloves
+  #SD Tweak start
+  - SDJanitorTacticalJanimaidGloves
+  #SD Tweak end
 
 - type: loadoutGroup
   id: JanitorOuterClothing

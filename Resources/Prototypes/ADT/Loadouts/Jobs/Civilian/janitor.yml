@@ -49,6 +49,42 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtElegantMaid
 
+#SD Tweak start
+
+- type: loadoutEffectGroup
+  id: SDJanitorialTacticalMaidDress150hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 540000 #150 часов
+
+- type: loadout
+  id: SDJanitorTacticalJanimaidSkirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SDJanitorialTacticalMaidDress150hours
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTacticalMaid
+
+- type: loadout
+  id: SDJanitorTacticalJanimaidHead
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SDJanitorialTacticalMaidDress150hours
+  equipment:
+    head: ClothingHeadHatTacticalMaidHeadband
+
+- type: loadout
+  id: SDJanitorTacticalJanimaidGloves
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SDJanitorialTacticalMaidDress150hours
+  equipment:
+    gloves: ClothingHandsTacticalMaidGloves
+ #SD Tweak end   
+
 # PDA
 - type: loadout
   id: JanitorPDA

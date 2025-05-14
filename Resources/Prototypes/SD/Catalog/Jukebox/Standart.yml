@@ -1,50 +1,26 @@
 - type: jukebox
-  id: fine
-  name: Lemon Demon - Fine
+  id: acrosstheuniverse
+  name: The Beatles - Across The Universe
   path:
-    path: /Audio/SD/Jukebox/Fine.ogg
+    path: /Audio/SD/Jukebox/acrosstheuni.ogg
 
 - type: jukebox
-  id: feelgood
-  name: Gorillaz - Feel Good
+  id: andiloveher
+  name: The Beatles - And I Love Her
   path:
-    path: /Audio/SD/Jukebox/Gorilla-Feel-Good-Inc.ogg
+    path: /Audio/SD/Jukebox/andiloveher.ogg
 
 - type: jukebox
-  id: franticaerovics
-  name: Hotline Miami 2 - Frantic Aerobics
+  id: avcehyegonet
+  name: НАИВ - А в цеху его нет
   path:
-    path: /Audio/SD/Jukebox/Hotline-Miami-2-Frantic-Aerobics.ogg
+    path: /Audio/SD/Jukebox/avcehyegonet.ogg
 
 - type: jukebox
-  id: run
-  name: Hotline Miami 2 - Run
+  id: becauseigothigh
+  name: Afroman - Because I Got High
   path:
-    path: /Audio/SD/Jukebox/Hotline-Miami-2-Run.ogg
-
-- type: jukebox
-  id: overdose
-  name: Katana ZERO - Overdose
-  path:
-    path: /Audio/SD/Jukebox/Overdose.ogg
-
-- type: jukebox
-  id: caramelldansen
-  name: Caramella Girls - Caramelldansen
-  path:
-    path: /Audio/SD/Jukebox/Caramelldansen.ogg
-
-- type: jukebox
-  id: blizard
-  name: Hotline Miami 2 - Blizard
-  path:
-    path: /Audio/SD/Jukebox/Blizzard.ogg
-
-- type: jukebox
-  id: paintitblack
-  name: The Roling Stones - Paint It Black
-  path:
-    path: /Audio/SD/Jukebox/Paint-It-Black.ogg
+    path: /Audio/SD/Jukebox/Afroman-Because-I-Got-High.ogg
 
 - type: jukebox
   id: billiejean
@@ -53,34 +29,64 @@
     path: /Audio/SD/Jukebox/Michael-Jackson-Billie-Jean.ogg
 
 - type: jukebox
+  id: blizard
+  name: Hotline Miami 2 - Blizard
+  path:
+    path: /Audio/SD/Jukebox/Blizzard.ogg
+
+- type: jukebox
+  id: bluemoon
+  name: Frank Sinatra - Blue Moon
+  path:
+    path: /Audio/SD/Jukebox/bluemoon.ogg
+
+- type: jukebox
+  id: bodypaint
+  name: Arctic Monkeys - Body Paint
+  path:
+    path: /Audio/SD/Jukebox/bodypaint.ogg
+
+- type: jukebox
+  id: boomboomboomboom
+  name: Vengaboys - Boom, Boom, Boom, Boom
+  path:
+    path: /Audio/SD/Jukebox/bombom.ogg
+
+- type: jukebox
+  id: breatheintheair
+  name: Pink Floyd - Breathe (In the Air)
+  path:
+    path: /Audio/SD/Jukebox/breathe.ogg
+
+- type: jukebox
+  id: californiasun
+  name: The Rivieras - California Sun
+  path:
+    path: /Audio/SD/Jukebox/califsun.ogg
+
+- type: jukebox
+  id: cancanmusic
+  name: Offenbach - Can Can Music
+  path:
+    path: /Audio/SD/Jukebox/cancanmusic.ogg
+
+- type: jukebox
+  id: caramelldansen
+  name: Caramella Girls - Caramelldansen
+  path:
+    path: /Audio/SD/Jukebox/Caramelldansen.ogg
+
+- type: jukebox
   id: comeasyouare
   name: Nirvana - Come As You Are
   path:
     path: /Audio/SD/Jukebox/Nirvana-Come-As-You-Are.ogg
 
 - type: jukebox
-  id: smellsliketeenspirit
-  name: Nirvana - Smells Like Teen Spirit
+  id: crystalsS
+  name: M.O.O.N. - Crystals
   path:
-    path: /Audio/SD/Jukebox/Nirvana-Smells-Like-Teen-Spirit.ogg
-
-- type: jukebox
-  id: whereismymind
-  name: Pixies - Where Is My Mind
-  path:
-    path: /Audio/SD/Jukebox/Pixies-Where-Is-My-Mind.ogg
-
-- type: jukebox
-  id: nightcall
-  name: Kavinsky - Night Call
-  path:
-    path: /Audio/SD/Jukebox/Kavinsky-Nightcall.ogg
-
-- type: jukebox
-  id: paranoid
-  name: BLACK SABBATH - Paranoid
-  path:
-    path: /Audio/SD/Jukebox/BLACK-SABBATH.ogg
+    path: /Audio/SD/Jukebox/crystals.ogg
 
 - type: jukebox
   id: disco
@@ -89,13 +95,199 @@
     path: /Audio/SD/Jukebox/Surf-Curse-Disco.ogg
 
 - type: jukebox
+  id: dontworrybehappy
+  name: Bobby McFerrin - Don't Worry Be Happy
+  path:
+    path: /Audio/SD/Jukebox/dontworrybehappy.ogg
+
+- type: jukebox
+  id: fairytale
+  name: Alexander Rybak - Fairytale
+  path:
+    path: /Audio/SD/Jukebox/fairytale.ogg
+
+- type: jukebox
+  id: feelgood
+  name: Gorillaz - Feel Good
+  path:
+    path: /Audio/SD/Jukebox/Gorilla-Feel-Good-Inc.ogg
+
+- type: jukebox
+  id: fine
+  name: Lemon Demon - Fine
+  path:
+    path: /Audio/SD/Jukebox/Fine.ogg
+
+- type: jukebox
+  id: franticaerovics
+  name: Hotline Miami 2 - Frantic Aerobics
+  path:
+    path: /Audio/SD/Jukebox/Hotline-Miami-2-Frantic-Aerobics.ogg
+
+- type: jukebox
   id: freaks
   name: Surf Curse - Freaks
   path:
     path: /Audio/SD/Jukebox/Surf-Curse-Freaks.ogg
 
 - type: jukebox
-  id: becauseigothigh
-  name: Afroman - Because I Got High
+  id: heartshapedbox
+  name: Nirvana - Heart-Shaped Box
   path:
-    path: /Audio/SD/Jukebox/Afroman-Because-I-Got-High.ogg
+    path: /Audio/SD/Jukebox/heartbox.ogg
+
+- type: jukebox
+  id: invisibleS
+  name: Duran Duran - INVISIBLE
+  path:
+    path: /Audio/SD/Jukebox/invisible.ogg
+
+- type: jukebox
+  id: inthewoods
+  name: Aron Wright - In the Woods
+  path:
+    path: /Audio/SD/Jukebox/inthewoods.ogg
+
+- type: jukebox
+  id: lifeonmars
+  name: David Bowie - Life On Mars?
+  path:
+    path: /Audio/SD/Jukebox/mars.ogg
+
+- type: jukebox
+  id: lightthatnevercomes
+  name: LINKIN PARK x STEVE AOKI - LIGHT THAT NEVER COMES
+  path:
+    path: /Audio/SD/Jukebox/lightthatnevercomes.ogg
+
+- type: jukebox
+  id: neverfadeaway
+  name: SAMURAI - Never Fade Away
+  path:
+    path: /Audio/SD/Jukebox/neverfadeaway.ogg
+
+- type: jukebox
+  id: newyorklove
+  name: Dean Wagg - New York Love
+  path:
+    path: /Audio/SD/Jukebox/newyorklove.ogg
+
+- type: jukebox
+  id: nightcall
+  name: Kavinsky - Night Call
+  path:
+    path: /Audio/SD/Jukebox/Kavinsky-Nightcall.ogg
+
+- type: jukebox
+  id: overdose
+  name: Katana ZERO - Overdose
+  path:
+    path: /Audio/SD/Jukebox/Overdose.ogg
+
+- type: jukebox
+  id: paintitblack
+  name: The Roling Stones - Paint It Black
+  path:
+    path: /Audio/SD/Jukebox/Paint-It-Black.ogg
+
+- type: jukebox
+  id: paranoid
+  name: BLACK SABBATH - Paranoid
+  path:
+    path: /Audio/SD/Jukebox/BLACK-SABBATH.ogg
+
+- type: jukebox
+  id: peoplearestrange
+  name: The Doors - People Are Strange
+  path:
+    path: /Audio/SD/Jukebox/pplrstrange.ogg
+
+- type: jukebox
+  id: plastinki
+  name: Дурной вкус - Пластинки
+  path:
+    path: /Audio/SD/Jukebox/plastinki.ogg
+
+- type: jukebox
+  id: rassvet
+  name: Какая разница - Рассвет
+  path:
+    path: /Audio/SD/Jukebox/rassvet.ogg
+
+- type: jukebox
+  id: run
+  name: Hotline Miami 2 - Run
+  path:
+    path: /Audio/SD/Jukebox/Hotline-Miami-2-Run.ogg
+
+- type: jukebox
+  id: sesbianlexS
+  name: Schubert - Serenade D957 No.4
+  path:
+    path: /Audio/SD/Jukebox/sesbianlex.ogg
+
+- type: jukebox
+  id: september
+  name: Earth, Wind & Fire - September
+  path:
+    path: /Audio/SD/Jukebox/september.ogg
+
+- type: jukebox
+  id: shineonyoucrazydiamond
+  name: Pink Floyd - Shine On You Crazy Diamond
+  path:
+    path: /Audio/SD/Jukebox/shineonyou.ogg
+
+- type: jukebox
+  id: smellsliketeenspirit
+  name: Nirvana - Smells Like Teen Spirit
+  path:
+    path: /Audio/SD/Jukebox/Nirvana-Smells-Like-Teen-Spirit.ogg
+
+- type: jukebox
+  id: spaceoddity
+  name: David Bowie - Space Oddity
+  path:
+    path: /Audio/SD/Jukebox/spaceoddity.ogg
+
+- type: jukebox
+  id: steponme
+  name: The Cardigans - Step On Me
+  path:
+    path: /Audio/SD/Jukebox/steponme.ogg
+
+- type: jukebox
+  id: thebidding
+  name: Tally Hall - The Bidding
+  path:
+    path: /Audio/SD/Jukebox/thebidding.ogg
+
+- type: jukebox
+  id: whereismymind
+  name: Pixies - Where Is My Mind
+  path:
+    path: /Audio/SD/Jukebox/Pixies-Where-Is-My-Mind.ogg
+
+- type: jukebox
+  id: wizardS
+  name: SS13 - Wizard
+  path:
+    path: /Audio/SD/Jukebox/wizard.ogg
+
+- type: jukebox
+  id: worldssmallestviolin
+  name: AJR - World's Smallest Violin
+  path:
+    path: /Audio/SD/Jukebox/WSV.ogg
+
+- type: jukebox
+  id: 505AM
+  name: Arctic Monkeys - 505
+  path:
+    path: /Audio/SD/Jukebox/505.ogg
+
+- type: jukebox
+  id: dirgeforplanet
+  name: Firelake - Dirge for Planet
+  path:
+    path: /Audio/SD/Jukebox/dirgeforplanet.ogg

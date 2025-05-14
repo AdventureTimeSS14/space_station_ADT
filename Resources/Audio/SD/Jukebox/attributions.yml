@@ -1,84 +1,244 @@
 - files: ["Fine.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Fine by Lemon Demon. Exported in TubeRipper"
+  copyright: "Fine by Lemon Demon."
   source: "https://youtu.be/de0kFiLuW0o"
 
 - files: ["Gorilla-Feel-Good-Inc.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Feel Good by Gorillaz. Exported in TubeRipper"
+  copyright: "Feel Good by Gorillaz."
   source: "https://www.youtube.com/watch?v=HyHNuVaZJ-k"
 
 - files: ["Hotline-Miami-2-Frantic-Aerobics.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Frantic Aerobics by El Huervo. Exported in TubeRipper"
+  copyright: "Frantic Aerobics by El Huervo."
   source: "https://www.youtube.com/watch?v=Mk9wCWo0-js"
 
 - files: ["Hotline-Miami-2-Run.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Frantic Aerobics by El Huervo. Exported in TubeRipper"
+  copyright: "Run by El Huervo."
   source: "https://www.youtube.com/watch?v=ICjD3f-8SXE"
 
 - files: ["Overdose.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "From Katana ZERO. Exported in TubeRipper"
+  copyright: "From Katana ZERO."
   source: "https://www.youtube.com/watch?v=EO2lkMIxvUU"
 
 - files: ["Caramelldansen.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Caramelldansen by Caramella Girls. Exported in TubeRipper"
+  copyright: "Caramelldansen by Caramella Girls."
   source: "https://www.youtube.com/watch?v=6-8E4Nirh9s"
 
 - files: ["Blizzard.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Blizard by El Huervo. Exported in TubeRipper"
+  copyright: "Blizard by El Huervo."
   source: "https://www.youtube.com/watch?v=6-8E4Nirh9s"
 
 - files: ["Paint-It-Black.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Paint It Black by The Roling Stones. Exported in TubeRipper"
+  copyright: "Paint It Black by The Roling Stones."
   source: "https://www.youtube.com/watch?v=O4irXQhgMqg"
 
 - files: ["Michael-Jackson-Billie-Jean.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Bllie Jean by Michael Jackson. Exported in TubeRipper"
+  copyright: "Bllie Jean by Michael Jackson."
   source: "https://www.youtube.com/watch?v=Zi_XLOBDo_Y"
 
 - files: ["Nirvana-Come-As-You-Are.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Come As You Are by Nirvana. Exported in TubeRipper"
+  copyright: "Come As You Are by Nirvana."
   source: "https://www.youtube.com/watch?v=vabnZ9-ex7o"
 
 - files: ["Nirvana-Smells-Like-Teen-Spirit.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Smells Like Teen Spirit by Nirvana. Exported in TubeRipper"
+  copyright: "Smells Like Teen Spirit by Nirvana."
   source: "https://www.youtube.com/watch?v=hTWKbfoikeg"
 
 - files: ["Pixies-Where-Is-My-Mind.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Where Is My Mind by Pixies. Exported in TubeRipper"
+  copyright: "Where Is My Mind by Pixies."
   source: "https://www.youtube.com/watch?v=OJ62RzJkYUo"
 
 - files: ["Kavinsky-Nightcall.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Nightcall by Kavinsky. Exported in TubeRipper"
+  copyright: "Nightcall by Kavinsky."
   source: "https://www.youtube.com/watch?v=MV_3Dpw-BRY"
 
 - files: ["BLACK-SABBATH.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Paranoid by BLACK SABBATH. Exported in TubeRipper"
+  copyright: "Paranoid by BLACK SABBATH."
   source: "https://www.youtube.com/watch?v=0qanF-91aJo"
 
 - files: ["Surf-Curse-Disco.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Disco by Surf Curse. Exported in TubeRipper"
+  copyright: "Disco by Surf Curse."
   source: "https://www.youtube.com/watch?v=XqXcCmFUXXk"
 
 - files: ["Surf-Curse-Freaks.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Freaks by Surf Curse. Exported in TubeRipper"
+  copyright: "Freaks by Surf Curse."
   source: "https://www.youtube.com/watch?v=NfMegACVJQw"
 
 - files: ["Afroman-Because-I-Got-High.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Because I Got High by ogafroman. Exported in TubeRipper"
+  copyright: "Because I Got High by ogafroman."
   source: "https://youtu.be/GfZRgCLE4yw?si=f-MVIi0XogcIufmr"
+
+- files: ["plastinki.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Plastinki by drynoi vkys."
+  source: "https://www.youtube.com/watch?v=ccMHSE3VEqg"
+
+- files: ["bluemoon.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Radio New Vegas - Blue Moon (Frank Sinatra)."
+  source: "https://www.youtube.com/watch?v=GD6PreqIz6o&ab_channel=iRadioNewVegas"
+
+- files: ["heartbox.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Nirvana - Heart-Shaped Box."
+  source: "https://www.youtube.com/watch?v=n6P0SitRwy8"
+
+- files: ["breathe.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Breathe(In the air) - Pink Floyd."
+  source: "https://youtu.be/stOCUPEytzg?si=fz1VFxu7DM79UPsk"
+
+- files: ["mars.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "David Bowie - Life On Mars?."
+  source: "https://youtu.be/E7taBfKJjUw?si=4gaasOhdfutx5hCz"
+
+- files: ["fairytale.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Alexander Rybak - Fairytale."
+  source: "https://youtu.be/H6vYJvRFYp0?feature=shared"
+
+- files: ["newyorklove.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "New York Love · Dean Wagg."
+  source: "https://youtu.be/vFCsLK52iZk?feature=shared"
+
+- files: ["bodypaint.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Body Paint - Arctic Monkeys."
+  source: "https://youtu.be/ixX62CQPHh0?si=ElEp7F1ZdTZ5hC4Z"
+
+- files: ["pplrstrange.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "People Are Strange · The Doors."
+  source: "https://youtu.be/N23X70m37L8?si=hrk7RviZJoKkvrYq"
+
+- files: ["andiloveher.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "The beatles - And I Love Her."
+  source: "https://youtu.be/5tc0gLSSU1M?si=jMjHb8-vGIhsimtf"
+
+- files: ["inthewoods.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Aron Wright - In the Woods."
+  source: "https://youtu.be/FV5mib31IhA?feature=shared"
+
+- files: ["WSV.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "AJR - World's Smallest Violin."
+  source: "https://youtu.be/4pjdRTKxrWI?feature=shared"
+
+- files: ["september.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Earth, Wind & Fire - September."
+  source: "https://youtu.be/Gs069dndIYk?feature=shared"
+
+- files: ["crystals.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "M.O.O.N. - 'Crystals'."
+  source: "https://youtu.be/AVblOqZBlJw?feature=shared"
+
+- files: ["califsun.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "The Rivieras - California Sun."
+  source: "https://youtu.be/HF1tyjvH9is?si=Ij2vHuXKHcH0rO_x"
+
+- files: ["505.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Arctic Monkeys - 505."
+  source: "https://www.youtube.com/watch?v=MrmPDUvKyLs"
+
+- files: ["shineonyou.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Pink Floyd - Shine On You Crazy Diamond."
+  source: "https://youtu.be/54W8kktFE_o?si=tgo-uJjLfAOVpw3g"
+
+- files: ["bombom.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Vengaboys - Boom, Boom, Boom, Boom."
+  source: "https://youtu.be/gM65SDMiXBE?feature=shared"
+
+- files: ["steponme.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "The Cardigans - Step On Me."
+  source: "https://youtu.be/MX5DhzuwLfc?si=sL71086qB7bMoUTu"
+
+- files: ["dontworrybehappy.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Bobby McFerrin - Don't Worry Be Happy."
+  source: "https://youtu.be/d-diB65scQU?feature=shared"
+
+- files: ["rassvet.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Kakaya Rznitsa - Rassvet."
+  source: "https://www.youtube.com/watch?v=Gk5Nk-XHz6w"
+
+- files: ["cancanmusic.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Offenbach - Can Can Music."
+  source: "https://youtu.be/4Diu2N8TGKA?feature=shared"
+
+- files: ["neverfadeaway.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Never Fade Away by SAMURAI."
+  source: "https://www.youtube.com/watch?v=AN1RJF55NXI"
+
+- files: ["thebidding.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Tally Hall - The Bidding."
+  source: "https://www.youtube.com/watch?v=ipYafcHd0jA"
+
+- files: ["lightthatnevercomes.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "LINKIN PARK x STEVE AOKI - LIGHT THAT NEVER COMES."
+  source: "https://youtu.be/RsKQOm_iJug?si=Zd-V930bWBUQrPvF"
+
+- files: ["invisible.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Duran Duran - INVISIBLE."
+  source: "https://www.youtube.com/watch?v=FKwVFWwA_x8"
+
+- files: ["avcehyegonet.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Naiv - a v cehy ego net."
+  source: "https://www.youtube.com/watch?v=dbw4vgFgO4s"
+
+- files: ["spaceoddity.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "David Bowie - Space Oddity."
+  source: "https://youtu.be/gGyxEinAal4?si=dfaBIhFFOTnoxX5i"
+
+- files: ["acrosstheuni.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "The Beatles - Across The Universe."
+  source: "https://youtu.be/90M60PzmxEE?si=b72vpCZ5VjBXsPhZ"
+
+- files: ["wizard.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "SS13."
+  source: "https://www.youtube.com/watch?v=jJDAV9vSmYc"
+
+- files: ["sesbianlex.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Schubert Serenade D957 No.4."
+  source: "https://www.youtube.com/watch?v=pi7WOZaD3DU"
+
+- files: ["dirgeforplanet.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Firelake - Dirge for Planet."
+  source: "https://youtu.be/WDCNlqMgnvo"
