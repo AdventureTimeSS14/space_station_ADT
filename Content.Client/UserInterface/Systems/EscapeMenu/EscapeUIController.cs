@@ -70,14 +70,6 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _changelog.ToggleWindow();
         };
 
-        // ADT ROADMAP TWEAK
-        _escapeWindow.RoadmapButton.OnPressed += _ =>
-        {
-            CloseEscapeWindow();
-            UIManager.GetUIController<RoadmapUIController>().ToggleRoadmap();
-        };
-        // ADT ROADMAP TWEAK
-
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
@@ -101,6 +93,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             CloseEscapeWindow();
             _console.ExecuteCommand("quit");
         };
+        
         // ADT-Tweak-start
         _escapeWindow.WebSiteButton.OnPressed += _ =>
         {
@@ -108,6 +101,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         };
         _escapeWindow.WebSiteButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWebsite) != "";
         // ADT-Tweak-end
+
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
             _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
