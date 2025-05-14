@@ -28,7 +28,6 @@ public sealed class BanMassCommand : LocalizedCommands
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "banmass";
 
@@ -61,8 +60,7 @@ public sealed class BanMassCommand : LocalizedCommands
         }
 
         var player = shell.Player;
-        var targets = new List<string>();
-        var allTargets = argStr.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+        var allTargets = args.Skip(2).Where(arg => !string.IsNullOrWhiteSpace(arg)).ToArray();
 
         foreach (var target in allTargets)
         {

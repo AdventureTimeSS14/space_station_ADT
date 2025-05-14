@@ -40,10 +40,13 @@ public sealed partial class SupermatterComponent : Component
     public Color LightColorDelam = Color.FromHex("#ffe000");
 
     [DataField]
-    public bool KudzuSpawned = false;
+    public bool Cascade = false;
 
     [DataField]
     public bool SliverRemoved = false;
+
+    [DataField]
+    public bool HasSpawnedPortal = false;
 
     #endregion
 
@@ -61,7 +64,13 @@ public sealed partial class SupermatterComponent : Component
     public EntProtoId SliverPrototype = "SupermatterSliver";
 
     [DataField]
-    public EntProtoId SupermatterTrashPrototype = "SupermatterTrash";
+    public EntProtoId SingularityPrototype = "Singularity";
+
+    [DataField]
+    public EntProtoId AfterExplosionRadiationPrototype = "ADTSupermatterRadiation";
+
+    [DataField]
+    public EntProtoId TeslaPrototype = "TeslaEnergyBall";
 
     [DataField]
     public EntProtoId KudzuPrototype = "SupermatterKudzu";
@@ -77,6 +86,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public EntProtoId AnomalyPyroSpawnPrototype = "AnomalyPyroclastic";
+    
+    [DataField]
+    public EntProtoId HalfLifePortalPrototype = "ADTSupermatterHLRift";
+
+    [DataField]
+    public EntProtoId CascadePortalPrototype = "ADTSupermatterCascadeRift";    
 
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
@@ -102,6 +117,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public SoundSpecifier? CurrentSoundLoop;
+
+    [DataField]
+    public SoundSpecifier Count = new SoundPathSpecifier("/Audio/ADT/Supermatter/count1.ogg");
 
     [DataField]
     public SoundSpecifier CalmAccent = new SoundCollectionSpecifier("SupermatterAccentNormal");
@@ -205,6 +223,12 @@ public sealed partial class SupermatterComponent : Component
     public float AnomalySpawnMaxRange = 10f;
 
     /// <summary>
+    /// The maximum distance from the supermatter that portal will spawn at
+    /// </summary>
+    [DataField]
+    public float PortalSpawnMaxRange = 100f;
+
+    /// <summary>
     /// The chance for a bluespace anomaly to spawn when power or damage is high
     /// </summary>
     [DataField]
@@ -233,6 +257,15 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float AnomalyPyroChance = 2500f;
+
+    /// <summary>
+    /// The chance for a half-life portal spawn when Supermatter getting damage from antinob.
+    /// </summary>
+    [DataField]
+    public float HalfLifePortalChance = 500f;
+
+    [DataField]
+    public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
 
     #endregion
 
@@ -263,6 +296,12 @@ public sealed partial class SupermatterComponent : Component
     public float DelamTimer = 30f;
 
     /// <summary>
+    /// Every 60 seconds, Supermatter will release lightning bolts
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan ZapTimer { get; set; } = TimeSpan.FromSeconds(44);
+
+    /// <summary>
     /// Last time a supermatter accent sound was triggered
     /// </summary>
     [DataField]
@@ -274,11 +313,8 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float AccentMinCooldown = 2f;
 
-    [DataField]
-    public TimeSpan ZapLast;
-
     [DataField("restartDelay"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan RestartDelay = TimeSpan.FromSeconds(60f);
+    public TimeSpan RestartDelay = TimeSpan.FromSeconds(150f);
 
     #endregion
 
@@ -357,6 +393,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public string AlertCodeYellowId = "yellow";
+
+    [DataField]
+    public string AlertCodeDeltaId = "altdelta";
 
     [DataField]
     public string AlertCodeCascadeId = "cascade";
@@ -442,7 +481,7 @@ public sealed partial class SupermatterComponent : Component
 public enum DelamType : int
 {
     Explosion = 0,
-    Singulo = 1,
+    Singularity = 1,
     Tesla = 2,
     Cascade = 3
 }
@@ -490,23 +529,23 @@ public static class SupermatterGasData
 {
     public static readonly Dictionary<Gas, SupermatterGasFact> GasData = new()
     {
-        { Gas.Oxygen,        new (1.5f,  1f,   1f, 0f, 1f)  },
-        { Gas.Nitrogen,      new(0f,   -1.5f, -1f, 0f, 1f)  },
-        { Gas.CarbonDioxide, new(0f,   0.1f,   1f, 0f, 1f)  },
-        { Gas.Plasma,        new(4f,   15f,    1f, 0f, 1f)  },
-        { Gas.Tritium,       new(30f,  10f,    1f, 0f, 3f)  },
-        { Gas.WaterVapor,    new(2f,   12f,    1f, 0f, 1f)  },
-        { Gas.Frezon,        new(3f,   -10f,  -1f, 0f, 1f)  },
-        { Gas.Ammonia,       new(0f,   0.5f,   1f, 0f, 1f)  },
-        { Gas.NitrousOxide,  new(0f,   -5f,   -1f, 0f, 6f)  },
-        { Gas.BZ,            new(1f,    6f,   -1f, 0f, 8f)  },
-        { Gas.Pluoxium,      new(4f,    0f,   -1f, 0f, 2f)  },
-        { Gas.Hydrogen,      new(8f,     6f,   1f, 0f, 1f)  },
-        { Gas.Nitrium,       new(2f,    30f,   0f, 0f, 1f)  },
-        { Gas.Healium,       new(0f,   -8f,    1f, 0f, 8f)  },
-        { Gas.HyperNoblium,  new(1f,   -14f,   1f, 0f, 1f)  },
-        { Gas.ProtoNitrate,  new(5f,    1f,   -1f, 0f, 3f)  },
-        { Gas.Zauker,        new(30f,   20f,   0f, 0f, 1f)  },
+        { Gas.Oxygen,        new(1.5f,  1f,    1f, 0f, 0f)  },
+        { Gas.Nitrogen,      new(-0.5f, -1.5f, 0.5f, 0f, 0f)  },
+        { Gas.CarbonDioxide, new(1f,   0.2f,   2f, 0f, 0f)  },
+        { Gas.Plasma,        new(5f,   5f,     1f, 0f, 1f)  },
+        { Gas.Tritium,       new(20f,  10f,    2f, 0f, 3f)  },
+        { Gas.WaterVapor,    new(2f,    4f,    1f, 0f, 1f)  },
+        { Gas.Frezon,        new(-2f,   -10f,  -1f, 0f, 2f)  },
+        { Gas.Ammonia,       new(1f,   0.5f,   1f, 0f, 1f)  },
+        { Gas.NitrousOxide,  new(0.5f, -2f,    0.5f, 0f, 6f)  },
+        { Gas.BZ,            new(2f,    -1f,   -2f, 0f, 8f)  },
+        { Gas.Pluoxium,      new(2f,    8f,   1f, 0f, 2f)  },
+        { Gas.Hydrogen,      new(3.5f,   5f,   1f, 0f, 0f)  },
+        { Gas.Nitrium,       new(2f,    8f,    2f, 0f, 1f)  },
+        { Gas.Healium,       new(-2f,   -1f,    2f, 0f, 8f)  },
+        { Gas.HyperNoblium,  new(0f,    0f,    1f, 0f, 1f)  },
+        { Gas.ProtoNitrate,  new(5f,    1f,    1f, 0f, 3f)  },
+        { Gas.Zauker,        new(30f,   15f,   2f, 0f, 1f)  },
         { Gas.Halon,         new(0f,    0f,    0f, 0f, 0f)  },
         { Gas.Helium,        new(0f,    0f,    0f, 0f, 0f)  },
         { Gas.AntiNoblium,   new(0f,    0f,    0f, 10f, 0f) }
@@ -587,4 +626,12 @@ public sealed partial class SupermatterSpriteUpdateEvent(NetEntity uid, string s
 {
     public NetEntity Entity = uid;
     public string State = state;
+}
+
+[Serializable, NetSerializable]
+public enum AnomalyMode : byte
+{
+    Base = 0,
+    BeforeCascade = 1,
+    AfterCascade = 2
 }

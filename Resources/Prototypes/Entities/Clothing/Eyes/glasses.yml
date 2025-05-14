@@ -65,6 +65,9 @@
   - type: EyeProtection
   - type: IdentityBlocker
     coverage: EYES
+  - type: ClothingGrantComponent #ADT-Tweak
+    component:
+    - type: SupermatterHallucinationImmune
 
 - type: entity
   parent: ClothingEyesBase

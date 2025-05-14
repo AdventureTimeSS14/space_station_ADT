@@ -115,12 +115,51 @@
   description: spellbook-omnitool-description
   productEntity: ADTToolDebugDespawning
   cost:
-    WizCoin: 1
+    WizCoin: 0
   categories:
   - ADTSpellbookTaumaturgUtility
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 10
+
+- type: listing
+  id: ADTTaumaturgSpellbookHealingStaff
+  name: spellbook-healingstaff-name
+  description: spellbook-healingstaff-description
+  productEntity: ADTWeaponStaffHealingDespawning
+  cost:
+    WizCoin: 0
+  categories:
+  - ADTSpellbookTaumaturgUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: ADTTaumaturgSpellbookBlade
+  name: spellbook-blade-name
+  description: spellbook-blade-description
+  productEntity: ADTTaumaturgBlade
+  cost:
+    WizCoin: 5
+  categories:
+  - ADTSpellbookTaumaturgUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ADTTaumaturgSpellbookYounglingBook
+  name: spellbook-yongling-name
+  description: spellbook-yongling-description
+  productEntity: ADTTaumaturgGrimoireYoungling
+  cost:
+    WizCoin: 1
+  categories:
+  - ADTSpellbookTaumaturgUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: ADTTaumaturgSpellbookJaunt
@@ -198,6 +237,115 @@
     WizCoin: 1
   categories:
   - ADTSpellbookTaumaturgEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+#Заклинания из книги ученика
+# Defencive
+- type: listing
+  id: ADTTaumaturgSpellbookRepulseYoungling
+  name: spellbook-repulse-name
+  description: spellbook-repulse-desc
+  productAction: ActionRepulse
+  cost:
+    WizCoin: 2
+  categories:
+  - ADTSpellbookTaumaturgDefensiveYoungling
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ADTTaumaturgSpellbookSmokeYoungling
+  name: spellbook-smoke-name
+  description: spellbook-smoke-desc
+  productAction: ActionSmoke
+  cost:
+    WizCoin: 1
+  categories:
+  - ADTSpellbookTaumaturgDefensiveYoungling
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Utility
+- type: listing
+  id: ADTTaumaturgSpellbookHealingBoltYoungling
+  name: spellbook-healing-bolt-name
+  description: spellbook-healing-bolt-desc
+  productAction: ADTActionTaumaturgHealingBoltYoungling
+  # productUpgradeId: SpellbookFireballUpgrade
+  cost:
+    WizCoin: 2
+  categories:
+  - ADTSpellbookTaumaturgUtilityYoungling
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ADTTaumaturgSpellbookToolYoungling
+  name: spellbook-omnitool-name
+  description: spellbook-omnitool-description
+  productEntity: ADTToolDebugDespawning
+  cost:
+    WizCoin: 0
+  categories:
+  - ADTSpellbookTaumaturgUtilityYoungling
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 10
+
+- type: listing
+  id: ADTTaumaturgSpellbookHealingStaffYoungling
+  name: spellbook-healingstaff-name
+  description: spellbook-healingstaff-description
+  productEntity: ADTWeaponStaffHealingDespawning
+  cost:
+    WizCoin: 1
+  categories:
+  - ADTSpellbookTaumaturgUtilityYoungling
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: ADTTaumaturgSpellbookVoidApplauseYoungling
+  name: spellbook-voidapplause-name
+  description: spellbook-voidapplause-desc
+  productAction: ActionVoidApplause
+  cost:
+    WizCoin: 1
+  categories:
+  - ADTSpellbookTaumaturgUtilityYoungling
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: ADTTaumaturgSpellbookItemRecallSwapYoungling
+  name: spellbook-item-recall-name
+  description: spellbook-item-recall-description
+  productAction: ActionItemRecall
+  cost:
+    WizCoin: 1
+  categories:
+  - ADTSpellbookTaumaturgUtilityYoungling
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Event
+- type: listing
+  id: ADTTaumaturgSpellbookSummonCheeseYoungling
+  name: spellbook-event-summon-cheese-name
+  description: spellbook-event-summon-cheese-description
+  productAction: ADTTaumaturgActionSummonCheese
+  cost:
+    WizCoin: 1
+  categories:
+  - ADTSpellbookTaumaturgEventsYoungling
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

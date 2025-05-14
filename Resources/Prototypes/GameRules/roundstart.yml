@@ -39,6 +39,15 @@
       prob: 0.5
 
 - type: entity
+  parent: BaseGameRule
+  id: DummyNonAntagChance
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: DummyNonAntag
+      prob: 0.3
+
+- type: entity
   id: DeathMatch31
   parent: BaseGameRule
   components:
@@ -124,7 +133,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
+        - NamesNukieFirstCommander
         - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
@@ -141,7 +150,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-agent
+        - NamesNukieFirstAgent
         - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
@@ -160,7 +169,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-operator
+        - NamesNukieFirstOperator
         - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
@@ -196,8 +205,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 6          #ADT_Tweak
-      playerRatio: 15 #ADT_Tweak
+      max: 7         #ADT_Tweak 8 > 7
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
@@ -276,7 +285,7 @@
   id: Wizard
   components:
   - type: GameRule
-    minPlayers: 10
+    minPlayers: 1000 #ADT-Tweak - де факто отключаем визарда 10 > 1000
   - type: AntagSelection
     agentName: wizard-round-end-name
     selectionTime: PrePlayerSpawn
@@ -341,6 +350,22 @@
       # Corvax
       mindRoles:
       - MindRoleInitialInfected
+
+# This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
+# Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
+- type: entity
+  id: DummyNonAntag
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
+    removeUponFailedSpawn: false
+    definitions:
+    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev ]
+      max: 2
+      playerRatio: 30
 
 # event schedulers
 
@@ -427,3 +452,5 @@
     - id: BloodbathPuddleMessVariationPass
       prob: 0.01
       orGroup: puddleMess
+    - id: SmugglerStashVariationPass
+      prob: 0.90

@@ -307,7 +307,7 @@
 - type: emote
   id: Spit
   name: chat-emote-name-spit
-  icon: Interface/Emotes/sigh.png
+  icon: ADT/Interface/Emotes/spit.png
   category: Vocal
   whitelist:
     components:
