@@ -1,5 +1,4 @@
-﻿using Content.Client.ADT.Roadmap; // ADT ROADMAP TWEAK
-using Content.Client.Gameplay;
+﻿using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Client.UserInterface.Systems.Info;
@@ -93,7 +92,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             CloseEscapeWindow();
             _console.ExecuteCommand("quit");
         };
-        
+
         // ADT-Tweak-start
         _escapeWindow.WebSiteButton.OnPressed += _ =>
         {
