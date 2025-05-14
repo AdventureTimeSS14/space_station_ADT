@@ -1,6 +1,8 @@
-using Content.Server.ADT.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+using Robust.Shared.Configuration;
+using Content.Shared.ADT.CCVar;
+using Content.Server.ADT.Administration;
 
 namespace Content.Server.Administration.Commands;
 
@@ -19,6 +21,8 @@ public sealed class ResolveDiscordNameCommand : IConsoleCommand
             shell.WriteLine(Help);
             return;
         }
+        var cfg = IoCManager.Resolve<IConfigurationManager>();
+        var botToken = cfg.GetCVar(ADTCCVars.DiscordTokenBot);
 
         if (!ulong.TryParse(args[0], out var discordId))
         {
@@ -29,7 +33,7 @@ public sealed class ResolveDiscordNameCommand : IConsoleCommand
         string? username;
         try
         {
-            username = await AuthApiHelper.GetAccountDiscord(discordId);
+            username = await AuthApiHelper.GetAccountDiscord(discordId, botToken);
         }
         catch (Exception e)
         {
