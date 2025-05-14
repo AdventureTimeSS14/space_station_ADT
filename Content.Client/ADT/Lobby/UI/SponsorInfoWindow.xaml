@@ -6,7 +6,6 @@
     Title="Информация о вашем статусе спонсора"
     MinWidth="490"
     MinHeight="250"
-    MaxWidth="520"
     MaxHeight="300">
 
     <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">

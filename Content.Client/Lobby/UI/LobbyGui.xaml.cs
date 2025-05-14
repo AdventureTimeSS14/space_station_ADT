@@ -40,7 +40,7 @@ namespace Content.Client.Lobby.UI
             DiscordLincButton.OnPressed += _ =>
             {
                 var window = new DiscordLincWindow();
-                UpdateSponsorButtonColor(DiscordLincWindow.HasLinkedDiscord); // Покраска при открытии
+                UpdateDiscordLincButtonColor(DiscordLincWindow.HasLinkedDiscord); // Покраска при открытии
             };
             // === Покраска при инициализации ===
             UpdateSponsorButtonColor(SponsorInfoWindow.HasSponsor);
