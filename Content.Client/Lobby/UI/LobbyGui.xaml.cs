@@ -6,6 +6,8 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 using Content.Client.Corvax.Sponsors;
+using Robust.Shared.Configuration;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Client.Lobby.UI
 {
@@ -14,7 +16,9 @@ namespace Content.Client.Lobby.UI
     {
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
         private float _updateTimer;
+        private bool _panelUpdate = false;
 
         public LobbyGui()
         {
@@ -37,7 +41,17 @@ namespace Content.Client.Lobby.UI
                 SwitchState(LobbyGuiState.Default);
             };
 
-            UpdateButtons();
+            if (_cfg.GetCVar(ADTCCVars.ShowLobbyPanelEnable))
+            {
+                LobbyPanelLeftTop.Visible = true;
+                _panelUpdate = true;
+                UpdateButtons();
+            }
+            else
+            {
+                _panelUpdate = false;
+                LobbyPanelLeftTop.Visible = false;
+            }
             // ADT-Tweak-End
         }
 
@@ -79,9 +93,12 @@ namespace Content.Client.Lobby.UI
                 // ADT-Tweak-End
             }
         }
-
+        // ADT-Tweak-Start: Обновление кнопок
         protected override void FrameUpdate(FrameEventArgs args)
         {
+            if (!_panelUpdate)
+                return;
+
             base.FrameUpdate(args);
 
             // Обновляем раз в 5 секунд
@@ -92,7 +109,7 @@ namespace Content.Client.Lobby.UI
                 UpdateButtons();
             }
         }
-
+        // ADT-Tweak-End
         // ADT-Tweak-Start: Покраска кнопок в зависимости от спонсорки и привязки к Discord
         private void UpdateButtons()
         {

@@ -233,5 +233,12 @@ public sealed class ADTCCVars
         CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
 
     #endregion
+
+    /// <summary>
+    /// Включает или отключает отображение дополнительной лобби-панели в пользовательском интерфейсе.
+    /// При значении true панель отображается, при false - скрывается.
+    /// </summary>
+    public static readonly CVarDef<bool> ShowLobbyPanelEnable =
+        CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
 }
 
