@@ -14,7 +14,21 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/tank.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9, -1.3, 0.9, 1.3"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Physics
+    bodyType: Dynamic
   - type: Mech
+    startingEquipment: ["ADTMechGunSRM8","ADTMechGunUltraAC2"]
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
         Blunt: 0.1
@@ -89,6 +103,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/tank.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9, -1.3, 0.9, 1.3"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Physics
+    bodyType: Dynamic
   - type: Mech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
@@ -164,6 +191,19 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/ADT/Mecha/tank.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9, -1.3, 0.9, 1.3"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Physics
+    bodyType: Dynamic
   - type: Mech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
