@@ -32,43 +32,9 @@ namespace Content.Client.Lobby.UI
             ShowInterface.OnPressed += _ => {
                 SwitchState(LobbyGuiState.Default);
             };
-            SponsorInfoButton.OnPressed += _ =>
-            {
-                var window = new SponsorInfoWindow();
-                UpdateSponsorButtonColor(SponsorInfoWindow.HasSponsor); // Покраска при открытии
-            };
-            DiscordLincButton.OnPressed += _ =>
-            {
-                var window = new DiscordLincWindow();
-                UpdateDiscordLincButtonColor(DiscordLincWindow.HasLinkedDiscord); // Покраска при открытии
-            };
-            // === Покраска при инициализации ===
-            UpdateSponsorButtonColor(SponsorInfoWindow.HasSponsor);
-            UpdateDiscordLincButtonColor(DiscordLincWindow.HasLinkedDiscord);
             // ADT-Tweak-End
         }
 
-        // ADT-Tweak-Start: Покраска кнопок в зависимости от спонсорки и привязки к Discord
-        public void UpdateSponsorButtonColor(bool hasSponsor)
-        {
-            if (SponsorInfoButton == null)
-                return;
-
-            SponsorInfoButton.ModulateSelfOverride = hasSponsor
-                ? Color.FromHex("#4D88FF") // Синий
-                : Color.FromHex("#CC3A3A"); // Красный
-        }
-
-        public void UpdateDiscordLincButtonColor(bool hasLincDiscord)
-        {
-            if (DiscordLincButton == null)
-                return;
-
-            DiscordLincButton.ModulateSelfOverride = hasLincDiscord
-                ? Color.FromHex("#66FF66") // Зелёный
-                : Color.FromHex("#CC3A3A"); // Красный
-        }
-        // ADT-Tweak-end
         public void SwitchState(LobbyGuiState state)
         {
             DefaultState.Visible = false;
