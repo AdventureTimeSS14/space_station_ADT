@@ -36,6 +36,8 @@ namespace Content.Client.Lobby.UI
             ShowInterface.OnPressed += _ => {
                 SwitchState(LobbyGuiState.Default);
             };
+
+            UpdateButtons();
             // ADT-Tweak-End
         }
 

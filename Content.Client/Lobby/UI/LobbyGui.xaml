@@ -55,6 +55,7 @@
                                                             Command="ui-lobby-discord-linc"
                                                             Text="Привязать Discord"
                                                             StyleClasses="Caution"
+                                                            Visible="True"
                                                             WindowType="{x:Type lobbyUi:DiscordLincWindow}"
                                                             MinWidth="100"
                                                             Margin="3" />
@@ -62,6 +63,7 @@
                                                             Command="ui-lobby-sponsor-info"
                                                             Text="Уровень спонсорства: нет :("
                                                             StyleClasses="Caution"
+                                                            Visible="True"
                                                             WindowType="{x:Type lobbyUi:SponsorInfoWindow}"
                                                             MinWidth="100"
                                                             Margin="3" />
