@@ -240,5 +240,14 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<bool> ShowLobbyPanelEnable =
         CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// Хранит токен бота Discord для авторизации при взаимодействии с Discord API.
+    /// Этот токен используется для выполнения операций от имени бота, таких как получение информации о пользователях.
+    /// Токен должен быть передан в строковом формате.
+    /// </summary>
+    public static readonly CVarDef<string> DiscordTokenBot =
+        CVarDef.Create("discord.token_bot", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
 }
 

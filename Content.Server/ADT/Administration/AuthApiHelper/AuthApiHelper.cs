@@ -1,12 +1,15 @@
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Content.Shared.ADT.CCVar;
+using Robust.Shared.Configuration;
 
 
 namespace Content.Server.ADT.Administration;
 
 public sealed partial class AuthApiHelper
 {
+    [Dependency] private static readonly IConfigurationManager _cfg = default!;
     private static readonly HttpClient _httpClient = new HttpClient();
 
     public static async Task<string> GetCreationDate(string uuid)
@@ -65,7 +68,7 @@ public sealed partial class AuthApiHelper
 
     public static async Task<string?> GetAccountDiscord(ulong userId)
     {
-        var botToken = Environment.GetEnvironmentVariable("DISCORD_BOT_TOKEN");
+        var botToken = _cfg.GetCVar(ADTCCVars.DiscordTokenBot);
 
         if (string.IsNullOrWhiteSpace(botToken))
             throw new InvalidOperationException("DISCORD_BOT_TOKEN not set.");
