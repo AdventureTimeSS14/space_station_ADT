@@ -30,3 +30,121 @@
     whitelist:
       components:
       - Clumsy
+
+- type: entity
+  name: spitter
+  parent: MobXeno
+  id: ADTMobVartigont
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Aliens/vartigont.rsi
+    offset: 0,0.3
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      25: 0.7
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: EmitterBolt
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 2
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot: /Audio/Effects/Lightning/lightningshock.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 235
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  # ADT-CollectiveMind-Tweak-Start
+  - type: CollectiveMindRank
+    rankName: collective-mind-spitter-rank
+  # ADT-CollectiveMind-Tweak-End
+
+- type: entity
+  name: burrower
+  id: ADTMobSupermatter
+  parent: SimpleSpaceMobBase
+  description: They mostly come at night. Mostly.
+  components:
+  - type: Insulated
+  - type: CombatMode
+  - type: InputMover
+  - type: MobMover
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Hands
+  - type: PointLight
+    enabled: true
+    radius: 10
+    energy: 2
+    color: "#ffe000"
+  - type: ComplexInteraction
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/supermatter.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: supermatter
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10000: Dead
+  - type: Stamina
+    critThreshold: 500
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Burn: 50
+  - type: Puller
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+  - type: NoSlip
+  - type: CollectiveMindRank
+    rankName: collective-mind-burrower-rank

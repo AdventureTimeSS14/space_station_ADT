@@ -105,3 +105,65 @@
   name: Scruq - horn
   path:
     path: /Audio/ADT/Lobby/horn.ogg
+
+# START 9 МАЯ
+# - type: jukebox
+#   id: may_day-pobedy
+#   name: 9 Мая - День Победы
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/day-pobedy.ogg
+
+# - type: jukebox
+#   id: may_desyatiy-nash-desantniy-batalon
+#   name: 9 Мая - Десятый наш десантный батальон
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/desyatiy-nash-desantniy-batalon.ogg
+
+# - type: jukebox
+#   id: may_katyusha
+#   name: 9 Мая - Катюша
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/katyusha.ogg
+
+# - type: jukebox
+#   id: may_mayskiy-vals
+#   name: 9 Мая - Майский Вальс
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/mayskiy-vals.ogg
+
+# - type: jukebox
+#   id: may_proshchanie-slavyanki
+#   name: 9 Мая - Прощание Славянки
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/proshchanie-slavyanki.ogg
+
+# - type: jukebox
+#   id: may_smuglyanka
+#   name: 9 Мая - Смуглянка
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/smuglyanka.ogg
+
+# - type: jukebox
+#   id: may_svyashchennaya-voyna
+#   name: 9 Мая - Священная Война
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/svyashchennaya-voyna.ogg
+
+# - type: jukebox
+#   id: may_tanki
+#   name: 9 Мая - 3 Танкиста
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/tanki.ogg
+
+# - type: jukebox
+#   id: may_tyomnaya-noch
+#   name: 9 Мая - Тёмная Ночь
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/tyomnaya-noch.ogg
+
+# - type: jukebox
+#   id: may_zhuravli
+#   name: 9 Мая - Журавли
+#   path:
+#     path: /Audio/ADT/Jukebox/9May/zhuravli.ogg
+# END

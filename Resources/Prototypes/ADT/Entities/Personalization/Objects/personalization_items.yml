@@ -2012,4 +2012,16 @@
         - id: ADTClothingShoesBootsMagKringe
         - id: ADTClothingUniformJumpsuitKringeClothing
         - id: ADTWhistleKringe
+
+#Couatl
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieAzil
+  name: Plushie Azil
+  description: Plushie Azil
+  suffix: Personal, Couatl
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_azil
 #SPONSOR-ITEMS-END
