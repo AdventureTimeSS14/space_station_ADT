@@ -50,7 +50,7 @@
                                 </controls:StripeBack>
                                 <!-- ADT-Tweak-Start: Новая панель с двумя кнопками -->
                                 <controls:StripeBack Margin="3 0 0 0">
-                                    <BoxContainer Orientation="Horizontal" SeparationOverride="3" Margin="1">
+                                    <BoxContainer Orientation="Horizontal" SeparationOverride="3" Margin="1" Visible="True">
                                         <cc:UICommandButton Name="DiscordLincButton"
                                                             Command="ui-lobby-discord-linc"
                                                             Text="Привязать Discord"

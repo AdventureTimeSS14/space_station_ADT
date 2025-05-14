@@ -97,17 +97,21 @@ namespace Content.Client.Lobby.UI
         private void UpdateButtons()
         {
             // Проверяем статус спонсорки
-            var sponsorInfoWindow = new SponsorInfoWindow();
+            var sponsorInfoWindow = new SponsorInfoWindow(  );
             var hasSponsor = _sponsorsManager?.TryGetInfo(out _) ?? false;
             UpdateSponsorButtonColor(hasSponsor, sponsorInfoWindow);
+            SponsorInfoButton.Visible = true;
 
             // Проверяем статус Discord
             var windowDiscord = new DiscordLincWindow();
             UpdateDiscordLincButtonColor(DiscordLincWindow.HasLinkedDiscord);
+            DiscordLincButton.Visible = true;
+
         }
 
         public void UpdateSponsorButtonColor(bool hasSponsor, SponsorInfoWindow? sponsorInfoWindow)
         {
+            SponsorInfoButton.Visible = true;
             if (SponsorInfoButton == null)
                 return;
 
@@ -122,6 +126,7 @@ namespace Content.Client.Lobby.UI
 
         public void UpdateDiscordLincButtonColor(bool hasLincDiscord)
         {
+            DiscordLincButton.Visible = true;
             if (DiscordLincButton == null)
                 return;
 
