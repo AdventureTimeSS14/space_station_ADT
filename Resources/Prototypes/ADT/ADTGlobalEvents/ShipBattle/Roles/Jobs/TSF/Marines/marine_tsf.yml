@@ -41,23 +41,24 @@
 - type: startingGear
   id: ADTBattleShipMarineTSFGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTSecurity
-    back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHelmetERTSecurity
-    eyes: ClothingEyesGlassesSecurity
+    jumpsuit: ADTShipBattleClothingUniformMarineTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSF
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    # head: ADTShipBattleClothingHeadHatExOfficerTSF
+    # eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
-    id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: ADTBaseUplinkBOBERT
+    outerClothing: ADTShipBattleClothingOuterHardsuitMarineTSF
+    id: ADTShipBattleDogtagMarineTSF
+    ears: ADTShipBattleClothingHeadsetMarineTSF
+    belt: ADTShipBattleClothingBeltWarbelt
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
   storage:
     back:
     - BoxSurvivalEngineering
-    - BoxZiptie
     - CrowbarRed
-    - PinpointerNuclear
-    - FlashlightSeclite
     - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitMarineTSF

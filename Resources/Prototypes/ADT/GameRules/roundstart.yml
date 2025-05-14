@@ -19,17 +19,17 @@
 
 - type: entity
   parent: BaseHereticRule
-  id: Heretic
+  id: HereticGameRule
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 25
   - type: AntagSelection
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 3
-      playerRatio: 20
+      max: 4
+      playerRatio: 15
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
@@ -62,7 +62,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 25
     delay:
       min: 30
       max: 60
@@ -86,3 +86,98 @@
     sets:
     - groups: ChangelingObjectiveGroups
     maxDifficulty: 5
+
+#Облегченное число агентов
+- type: entity
+  parent: BaseTraitorRule
+  id: TraitorLightGameRule
+  components:
+  - type: GameRule
+    minPlayers: 5
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 4          
+      playerRatio: 15 
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+
+#Пары из антагов
+- type: entity
+  parent: BaseTraitorRule
+  id: TraitorDuoGameRule
+  components:
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 2       
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+
+- type: entity
+  parent: BaseGameRule
+  id: ChangelingDuoGameRule
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 30
+      max: 60
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 2
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        tags:
+        - ChangelingBlacklist
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleChangeling
+      components:
+      - type: Changeling
+    agentName: ling-round-end-name
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
+
+- type: entity
+  parent: BaseHereticRule
+  id: HereticDuoGameRule
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagSelection
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 2
+      playerRatio: 15
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+      startingGear: HereticGear # see Roles/Antags/heretic.yml

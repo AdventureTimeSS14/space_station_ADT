@@ -49,6 +49,15 @@
         Base: goliath
       Dead:
         Base: goliath_dead
+  - type: Bloodstream #SD tweak
+    bloodMaxVolume: 150
+    bloodlossDamage:
+      types:
+        Bloodloss: 0
+    bloodlossHealDamage:
+      types:
+        Bloodloss: 0
+    bloodReagent: DryableBlood
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.00
@@ -92,7 +101,7 @@
     - id: MaterialGoliathHide1
       amount: 1 # ADT tweak 3>>1
     # ADT tweak start
-    - id: MaterialBones1 
+    - id: MaterialBones1
       maxAmount: 5
     # ADT tweak end
   - type: Fauna # ADT tweak

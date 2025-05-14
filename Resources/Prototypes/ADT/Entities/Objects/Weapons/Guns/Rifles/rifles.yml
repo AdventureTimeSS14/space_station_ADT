@@ -87,6 +87,11 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.25, -0.125
+      rmc-aslot-rail: 0, 0
+      rmc-aslot-barrel: 0.96875, 0
 
 - type: entity
   name: TAR-60SF
@@ -105,6 +110,11 @@
     sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
   - type: Gun
     fireRate: 5.5
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-underbarrel: 0.34375, -0.125
+      rmc-aslot-rail: 0.03125, -0.09375
+      rmc-aslot-barrel: 0.96875, 0
 
 - type: entity
   name: xC67

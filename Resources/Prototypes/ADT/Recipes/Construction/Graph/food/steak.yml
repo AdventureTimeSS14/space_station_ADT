@@ -57,3 +57,19 @@
       - minTemperature: 340
   - node: fish cutlet
     entity: ADTFoodFishCutletCooked
+
+# bearfoot steak
+- type: constructionGraph
+  id: BearfootSteak
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bearfoot steak
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 345
+  - node: bearfoot steak
+    entity: FoodMeatGondolaCooked

@@ -1380,6 +1380,17 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/whitesweaterheart_suit.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingRomanShirt
+  name: Roman Shirt
+  description: The usual tunic of a Roman civilian, putting it on you want to start drinking wine and going to pubs.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/roman_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/roman_shirt.rsi
+
 # USSP USSP USSP USSP USSP USSP USSP USSP USSP START
 
 - type: entity
@@ -1487,3 +1498,79 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
+
+# Dutch jumpsuit
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDutch
+  name: dutch suit
+  description: A dapper dutch suit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dutch_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dutch_suit.rsi
+
+
+# И ещё один комбез для детектива 
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDetectiveOld
+  name: detective old jumpsuit 
+  description: Decy jumpsuit, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/detective_old.rsi
+
+# Со старой сборки комбезик, да
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldDark
+  name: old dark jumpsuit 
+  description: Old dark jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/old_dark.rsi
+
+# Парикмахер
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBarber
+  name: fashion suit
+  description: One suit to rule them all.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBarberBrown
+  name: brown fashion suit
+  description: For an old-fashioned style lover.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/barber_fancy_suit_brown.rsi
+
+# Зеленый костюм АВД
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitGreenSuitLawyer
+  name: lawyer green suit
+  description: lawyer green suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lawyer_green_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/lawyer_green_suit.rsi

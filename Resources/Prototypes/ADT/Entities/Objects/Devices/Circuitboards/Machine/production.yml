@@ -77,3 +77,176 @@
         amount: 1
         defaultPrototype: Beaker
 #End of DeltaV
+
+
+###  КОФЕ БРЕЙК ДА?!
+- type: entity
+  id: ADTCoffeeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: coffee machine machine board
+  description: A machine printed circuit board for a soda dispenser.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTCoffeeMachineEmpty
+      stackRequirements:
+        Steel: 5
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker
+
+
+- type: entity
+  id: ADTCoffeeMachineBluespaceCircuitboard
+  parent: BaseMachineCircuitboard
+  name: coffee machine bluespace machine board
+  description: A machine printed circuit board for a soda dispenser.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTCoffeeMachineBluespace
+      stackRequirements:
+        Steel: 5
+        MatterBin: 3
+        Plasma: 5
+        Capacitor: 3
+        Glass: 5
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker
+
+### немного обновления наркоты
+- type: entity
+  id: ADTColdplateMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: coldplate machine board
+  description: A machine printed circuit board for a coldplate.
+  components:
+    - type: MachineBoard
+      prototype: ADTChemistryColdplate
+      stackRequirements:
+        Capacitor: 2
+        Glass: 1
+
+#Corvax Next Advanced Service Machinery Start
+- type: entity
+  id: ADTHydroponicsTrayAdvancedMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced hydroponics tray machine board
+  description: A machine printed circuit board for a advanced hydroponics tray.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTHydroponicsTrayAdvanced
+      stackRequirements:
+        Glass: 5
+        Cable: 4
+        Plasma: 5
+      tagRequirements:
+        GlassBeaker:
+          amount: 3
+          defaultPrototype: Beaker
+
+- type: entity
+  id: ADTAdvancedReagentGrinderMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced reagent grinder machine board
+  description: A machine printed circuit board for a reagent grinder.
+  components:
+    - type: MachineBoard
+      prototype: ADTAdvancedKitchenReagentGrinder
+      stackRequirements:
+        MatterBin: 2
+        Manipulator: 4
+        Plasma: 5
+      tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker
+#Corvax Next Advanced Service Machinery End
+
+# Taken from Frontier Station
+- type: entity
+  id: ADTMedicalAssemblerMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: medical assembler machine board
+  description: A machine printed circuit board for a medical assembler.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: ADTMedicalAssembler
+      stackRequirements:
+        Manipulator: 1
+        Capacitor: 1
+        Steel: 5
+        Glass: 2
+        Cable: 4
+      tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker
+
+- type: entity
+  id: ADTElectricRangeMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: electric range machine board
+  description: A machine printed circuit board for an electric range.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTKitchenElectricRange
+      stackRequirements:
+        Steel: 5
+        Glass: 2
+        Cable: 4
+      tagRequirements:
+        Igniter:
+          amount: 1
+          defaultPrototype: Igniter
+
+- type: entity
+  id: ADTSyndicateElectricRangeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: syndicate electric range machine board
+  description: A machine printed circuit board for an syndicate electric range.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTSyndicateKitchenElectricRange
+      stackRequirements:
+        Steel: 5
+        Glass: 2
+        Cable: 4
+      tagRequirements:
+        Igniter:
+          amount: 1
+          defaultPrototype: Igniter
+
+- type: entity
+  id: ADTKitchenAssemblerMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: kitchen assembler machine board
+  description: A machine printed circuit board for a Food-O-Mat, suitable for a kitchen.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTKitchenAssembler
+      stackRequirements:
+        Manipulator: 2
+        Glass: 2
+        Cable: 2
+      tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker
+
+#End of Frontier Station

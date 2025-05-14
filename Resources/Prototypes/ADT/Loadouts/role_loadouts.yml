@@ -6,6 +6,7 @@
   - MagistratNeck
   - MagistratJumpsuit
   - CommonBackpack
+  - LawyerShoes
   - Glasses
   - Survival
   - Trinkets
@@ -51,6 +52,7 @@
   - RobohandsGloves
   - ScientistShoes
   - Glasses
+  - ADTRoboticistPDALoadout
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -183,6 +185,7 @@
   - SurvivalSecurity
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - ADTBrigmedicPDA
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -215,3 +218,21 @@
   groups:
   - SurvivalExtended
   - GroupPocketTankDouble
+
+- type: roleLoadout
+  id: JobADTBarber
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - CommonBackpack
+  - Glasses
+  - ADTBarberJumpsuit
+  - ADTBarberOtherClothing
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

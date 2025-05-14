@@ -1,6 +1,6 @@
 #Спонсорское, KonnorSmith
 
-#WIZARD
+#Тауматург
 - type: storeCategory
   id: ADTSpellbookTaumaturgOffensive
   name: store-caregory-spellbook-offensive
@@ -32,5 +32,34 @@
     - ADTSpellbookTaumaturgDefensive
     - ADTSpellbookTaumaturgUtility
     - ADTSpellbookTaumaturgEvents
+    currencyWhitelist:
+    - WizCoin
+
+#Тауматург - ученик
+- type: storeCategory
+  id: ADTSpellbookTaumaturgDefensiveYoungling
+  name: store-caregory-spellbook-defensive
+  priority: 0
+
+- type: storeCategory
+  id: ADTSpellbookTaumaturgUtilityYoungling
+  name: store-caregory-spellbook-utility
+  priority: 1
+
+- type: storeCategory
+  id: ADTSpellbookTaumaturgEventsYoungling
+  name: store-caregory-spellbook-events
+  priority: 2
+
+- type: entity
+  id: ADTStorePresetSpellbookTaumaturgYoungling
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-spellbook
+    categories:
+    - ADTSpellbookTaumaturgDefensiveYoungling
+    - ADTSpellbookTaumaturgUtilityYoungling
+    - ADTSpellbookTaumaturgEventsYoungling
     currencyWhitelist:
     - WizCoin

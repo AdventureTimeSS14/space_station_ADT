@@ -64,9 +64,10 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 1.5
-    softness: 5
+    mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+    radius: 2.5
+    netsync: false
   - type: Ringer
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -123,6 +124,25 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
+
+- type: entity
+  parent: BasePDA
+  id: BaseWidePDA
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay_wide"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay_wide"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
 
 - type: entity
   parent: BasePDA
@@ -534,7 +554,7 @@
     state: pda-bartender
 
 - type: entity
-  parent: BasePDA
+  parent: BaseWidePDA
   id: LibrarianPDA
   name: librarian PDA
   description: Smells like books.
@@ -1541,7 +1561,7 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: BasePDA
+  parent: BaseWidePDA
   id: WizardPDA
   name: wizard PDA
   description: You hear faint whispers coming from it.

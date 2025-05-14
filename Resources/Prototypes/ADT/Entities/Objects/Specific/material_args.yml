@@ -45,6 +45,7 @@
           availableMoves:
             - actionsNeeds:
                 - Grab
+                - Disarm # SD-Tweak
                 - Hit
               comboEvent:
                 - !type:ComboPopupEffect
@@ -60,6 +61,7 @@
                     collection: GenericHit
             - actionsNeeds:
                 - Hit
+                - Disarm
                 - Hit
               comboEvent:
                 - !type:ComboMoreDamageToDownedEffect
@@ -72,9 +74,6 @@
                   damage:
                     types:
                       Blunt: 15
-                - !type:ComboStunEffect
-                  stunTime: 2
-                  dropItems: false
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit

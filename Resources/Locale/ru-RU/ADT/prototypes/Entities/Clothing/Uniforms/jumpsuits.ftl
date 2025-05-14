@@ -1,16 +1,17 @@
-ent-ADTClothingUniformsJumpsuitWhiteDiplomatSuitL = Белый костюм дипломата
-    .desc = Специально сделанный белый костюм дипломата NanoTrasen.
+ent-ADTClothingUniformsJumpsuitWhiteDiplomatSuitL = белый костюм дипломата
+    .desc = Специально изготовленный белый костюм дипломата NanoTrasen.
+
 ent-ADTClothingUniformPathologistSuit = костюм патологоанатома
-    .desc = Лёгкий комбинезон для работника морга.
+    .desc = Лёгкий комбинезон работника морга.
 
 ent-ADTClothingUniformPathologistSuitAlt = чёрный костюм патологоанатома
-    .desc = Лёгкий комбинезон для работника морга. Более угрюмая версия.
+    .desc = Лёгкий комбинезон работника морга. Более угрюмая версия.
 
 ent-ADTClothingUniformJumpsuitBlueshield = костюм офицера "Синего Щита"
-    .desc = Военные штаны и белая рубашка с погонами Офицера "Синего Щита", уже очень скоро она будет окроплена кроваво-алой кровью врагов НТ, перепутавших его с охранником продуктового магазина 21-го века.
+    .desc = Военные штаны и белая рубашка с погонами Офицера "Синего Щита", уже очень скоро она будет окроплена кроваво-алой кровью врагов NT, перепутавших его с охранником продуктового магазина 21-го века.
 
 ent-ADTClothingUniformJumpsuitTurtleneckBlueshield = водолазка офицера "Синего Щита"
-    .desc = Белая удобная водолазка Офицера"Синего Щита" с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
+    .desc = Белая удобная водолазка Офицера "Синего Щита" с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
 
 ent-ADTClothingUniformJumpsuitAnarchyTshirt = черная футболка с символикой анархизма
     .desc = "Анархия-мама сынов своих любит, Анархия-мама не продаст, Свинцовым дождём врага приголубит, Анархия-мама - за нас!"
@@ -22,10 +23,10 @@ ent-ADTClothingUniformJumpsuitDenim = джинсовый комбинезон
     .desc = Классический джинсовый полукомбинезон на лямках. Производства компании "Modeling Agency Dar-Vaxed".
 
 ent-ADTClothingUniformJumpsuitCamouflageTshirt = камуфляжная футболка
-    .desc = Обычные футболка и брюки зеленой камуфляжной расцветки.
+    .desc = Обычная футболка и брюки зеленой камуфляжной расцветки.
 
 ent-ADTClothingUniformJumpsuitCamouflageTshirtDesert = пустынная камуфляжная футболка
-    .desc = Обычные футболка и брюки пустынной камуфляжной расцветки. Верните себе 2003 год!
+    .desc = Обычная футболка и брюки пустынной камуфляжной расцветки. Верните себе 2003 год!
 
 ent-ADTClothingUniformJumpsuitSerious = серьезная форма
     .desc = Серая футболка, черные джинсы - выглядит серьезно, грубо и круто!
@@ -67,7 +68,7 @@ ent-ADTClothingUniformJumpsuitOldGreySuit = старый серый костюм
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitOldBrownSuit = старый коричневый костюм
-    .desc = Тщательно ухоженная белая рубашка с коричневым пиджаком. Возможно он был ярко-коричневым, пока не выцвел. Производство компании  "Modeling Agency Dar-Vaxed"
+    .desc = Тщательно ухоженная белая рубашка с коричневым пиджаком. Возможно он был ярко-коричневым, пока не выцвел. Производство компании "Modeling Agency Dar-Vaxed".
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitSweatshirtBright = свитшот яркой личности
@@ -135,30 +136,30 @@ ent-ADTClothingUniformJumpsuitTurtleneckPink = розовая водолазка
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitTurtleneckBlackSleeveless = чёрная водолазка
-    .desc = Практичная и удобная водолазка чёрного цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed".
+    .desc = Практичная и удобная водолазка чёрного цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless = белая водолазка
-    .desc = Практичная и удобная водолазка белого цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed"..
+    .desc = Практичная и удобная водолазка белого цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless = чёрно-белая водолазка
-    .desc = Практичная и удобная водолазка чёрно-белого цвета. На лейбле можно заметить "Modeling Agency Dar-Vaxed"..
+    .desc = Практичная и удобная водолазка чёрно-белого цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
     .suffix = { "" }
 
-ent-ADTCEJumpsuitWarm = водолазка старшего инженера
-    .desc = Это комбинезон повышенной заметности, который выдается тем инженерам, которые достаточно безумны и живучи, чтобы достичь звания главного инженера. Имеет слабую защиту от радиации.
+ent-ADTCEJumpsuitWarm = водолазка Старшего инженера
+    .desc = Это комбинезон повышенной заметности, который выдается тем инженерам, которые достаточно безумны и живучи, чтобы достичь звания Старшего инженера. Имеет слабую защиту от радиации.
     .suffix = {""}
 
-ent-ADTCMOJumpsuitWarm = водолазка главного врача
-    .desc = Это комбинезон, носимый теми, у кого есть опыт работы на должности главного врача. Он обеспечивает слабую биологическую защиту.
+ent-ADTCMOJumpsuitWarm = водолазка Главного врача
+    .desc = Это комбинезон, носимый теми, у кого есть опыт работы на должности Главного врача. Он обеспечивает слабую биологическую защиту.
     .suffix = {""}
 
-ent-ADTClothingUniformJumpsuitHopWarm = водолазка главы персонала
+ent-ADTClothingUniformJumpsuitHopWarm = водолазка Главы персонала
     .desc = Довольно безвкусная и невзрачная. Идеально подходит для того, чтобы исчезнуть с лица Вселенной.
     .suffix = {""}
 
-ent-ADTQMJumpsuitWarm = водолазка квартирмейстера
+ent-ADTQMJumpsuitWarm = водолазка Квартирмейстера
     .desc = Строгая водолазка, предназначенная для суровых условий работы в области снабжения.
     .suffix = {""}
 
@@ -168,13 +169,13 @@ ent-ADTHOSJumpsuitWarm = { ent-ClothingUniformJumpsuitHoSAlt }
 ent-ADTRDJumpsuitWarm = { ent-ClothingUniformJumpsuitResearchDirector }
     .desc = { ent-ClothingUniformJumpsuitResearchDirector.desc }
 
-ent-ADTCapJumpsuitWarm = водолазка капитана
+ent-ADTCapJumpsuitWarm = водолазка Капитана
     .desc = Самая главная водолазка на станции.
 
-ent-ClothingUniformJumpsuitBlueshieldTurtleneck = водолазка офицера синего щита
+ent-ClothingUniformJumpsuitBlueshieldTurtleneck = водолазка Офицера "Синего щита"
     .desc = Белая удобная водолазка Офицера Синего Щита с пришитыми золотыми погонами и ярким именным бейджиком. К сожалению, если вы её наденете, это не будет значить, что вам дадут отпуск.
 
-ent-ADTClothingUniformJumpsuitBrigmedicTurtleneck = водолазка бригмедика
+ent-ADTClothingUniformJumpsuitBrigmedicTurtleneck = водолазка Бригмедика
     .desc = Комфортная и тёплая водолазка. Специально для боевого медика.
 
 ent-ADTSpaceSecUniformCadet = комбинезон кадета SPACE SEC
@@ -441,4 +442,27 @@ ent-ADTInfantrymanTUSSPUniform = униформа космодесантника
     .suffix = { "СССП" }
 
 ent-ADTClothingUniformJumpsuitExplorer = комбинезон исследователя
-    .desc = Стандартный комбинезон шахтёра НТ. От него пахнет... Пеплом?
+    .desc = Стандартный комбинезон шахтёра NanoTrasen. От него пахнет... Пеплом?
+
+
+ent-ADTClothingUniformJumpsuitDutch = голландский костюм
+    .desc = Элегантный голландский костюм.
+
+ent-ADTClothingUniformJumpsuitDetectiveOld = старая рубашка с брюками, галстуком и подтяжками
+    .desc = Носящий это точно хочет показать, что он ценит старые принципы и поведения. Всё это явно потрёпанно, но хозяин этих вещей точно любит их.
+
+ent-ADTClothingUniformJumpsuitOldDark = старый комбинезон учёного
+    .desc = Кажется это комбинезон заигравшегося творца.
+
+ent-ADTClothingUniformJumpsuitBarber = модный костюм
+    .desc = Один костюм, чтобы править ими всеми.
+    
+ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный костюм
+    .desc = Для любителей старомодного стиля.
+
+
+ent-ADTClothingRomanShirt = красная римская туника
+    .desc = Обычная туника римского гражданского. Надевая её, вам хочется начать распивать вино и ходить по кабакам.
+
+ent-ADTClothingUniformJumpsuitGreenSuitLawyer = костюм члена "клуба ревизоров"
+    .desc = Светло-зеленый костюм с золотыми элементами. Знаковый элемент "клуба ревизоров" - неформальной группы юристов, работающих в интересах NT и отметившихся выдающимся стажем работы и особыми заслугами в профессиональной среде.

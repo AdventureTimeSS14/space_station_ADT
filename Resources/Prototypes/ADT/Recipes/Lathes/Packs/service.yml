@@ -87,3 +87,8 @@
   - Fork
   - BarSpoon
   - Urn
+
+- type: latheRecipePack
+  id: ADTServiceHydroponics
+  recipes:
+  - ADTAdvancedPlantAnalyzer  

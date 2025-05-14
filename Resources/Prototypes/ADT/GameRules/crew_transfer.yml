@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseGameRule
+  id: CrewTransferScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 6300 # 105 min
+    minMaxEventTiming:
+      min: 1800 # 30 min
+      max: 1800 # 30 min
+    scheduledGameRules: !type:NestedSelector
+      tableId: CrewTransferEventsTable
+
+- type: entity
+  parent: BaseGameRule
+  id: CrewTransferStart
+  components:
+  - type: GameRule
+  - type: CrewTransferScheduler
+
+- type: entityTable
+  id: CrewTransferEventsTable
+  table: !type:AllSelector
+    children:
+    - id: CrewTransferStart

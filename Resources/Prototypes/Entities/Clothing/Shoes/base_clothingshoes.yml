@@ -31,6 +31,8 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/ADT/Entities/sneakers_land.ogg
+  - type: CoveredSlot
+    slots: [socks]
   # ADT End
 
 - type: entity

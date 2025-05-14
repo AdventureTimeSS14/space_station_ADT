@@ -1,0 +1,4 @@
+- type: reagent
+  id: DryableBlood
+  parent: Blood
+  color: "#75211b"

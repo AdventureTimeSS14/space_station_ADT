@@ -232,7 +232,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             return;
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
+        if (card.JobTitle == null) // ADT tweak
+            _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card); // ADT tweak
 
         if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);

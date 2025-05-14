@@ -1,0 +1,29 @@
+- type: cargoProduct
+  id: ADTAtmosphericsHydrogen
+  icon:
+    sprite: ADT/Structures/Storage/canister.rsi
+    state: h2
+  product: ADTHydrogenCanister
+  cost: 4000
+  category: cargoproduct-category-name-atmospherics
+  group: market
+
+- type: cargoProduct
+  id: ADTTegCenter
+  icon:
+    sprite: Structures/Power/Generation/teg.rsi
+    state: teg
+  product: TegCenter
+  cost: 30000
+  category: cargoproduct-category-name-atmospherics
+  group: market
+
+- type: cargoProduct
+  id: ADTTegCirculator
+  icon:
+    sprite: Structures/Power/Generation/teg.rsi
+    state: circ-0
+  product: TegCirculator
+  cost: 10000
+  category: cargoproduct-category-name-atmospherics
+  group: market

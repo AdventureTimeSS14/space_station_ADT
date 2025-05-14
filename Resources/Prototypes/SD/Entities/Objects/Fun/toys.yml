@@ -47,3 +47,58 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+
+- type: entity
+  parent: BasePlushie
+  id: RK22Plush
+  name: Плюшевый РК-22
+  description: Обычно он металлический, однако в данном случае сделали исключение, теперь РК-22 полностью плюшевый! Надпись на  бирке "Сделано в самых равных условиях".
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: SD/Objects/Fun/toys.rsi
+    state: rk22_plush
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Cargo/ping.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 110
+    soundHit:
+      path: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Cargo/ping.ogg
+
+
+- type: entity
+  parent: BasePlushie
+  id: SDPlushieAmetist
+  name: Ametist plushie
+  description: wow.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Fun/toys.rsi
+    state: plush_ametist
+
+- type: entity
+  parent: BasePlushie
+  id: SDPlushieDirk
+  name: Dirk plushie
+  description: wow.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Fun/toys.rsi
+    state: plush_dirk
+  - type: AmbientSound
+    enabled: true
+    volume: -6
+    range: 7
+    sound:
+      path: /Audio/Items/Toys/beatdownDirk.ogg

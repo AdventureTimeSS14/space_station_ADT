@@ -8,7 +8,9 @@ public abstract partial class SharedPuddleSystem
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Water = "Water";
 
-    public static readonly string[] EvaporationReagents = [Water];
+    private const string DryableBlood = "DryableBlood";
+
+    public static readonly string[] EvaporationReagents = [Water, DryableBlood];
 
     public bool CanFullyEvaporate(Solution solution)
     {

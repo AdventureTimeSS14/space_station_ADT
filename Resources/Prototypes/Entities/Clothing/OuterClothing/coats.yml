@@ -102,7 +102,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband, BadgeOnClothingWithContainer]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -111,7 +111,7 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
-   #ADT-Tweak-Start
+  # ADT tweak start
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -122,7 +122,7 @@
         showEnts: False
         occludes: True
         ent: null
-   #ADT-Tweak-End
+  # ADT tweak end
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -420,6 +420,18 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+  # ADT tweak start
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  # ADT tweak end
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -441,7 +453,7 @@
         Caustic: 0.75
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabSeniorResearcher
   name: senior researcher lab coat
   description: A suit that protects against minor chemical spills. Has a purple collar and wrist trims.
@@ -456,7 +468,12 @@
         Caustic: 0.75
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorResearcher]
+  id: ClothingOuterCoatLabSeniorResearcherOpened
+  name: senior researcher lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabSeniorPhysician
   name: senior physician lab coat
   description: A suit that protects against minor chemical spills. Has light blue sleeves and an orange waist trim.
@@ -471,6 +488,11 @@
         Caustic: 0.75
 
 - type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorPhysician]
+  id: ClothingOuterCoatLabSeniorPhysicianOpened
+  name: senior physician lab coat
+
+- type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatSpaceAsshole
   name: the coat of space asshole
@@ -482,7 +504,7 @@
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatExpensive
   name: expensive coat
   description: Very fluffy pink coat, made out of very expensive fur (clearly).
@@ -491,3 +513,8 @@
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatExpensive]
+  id: ClothingOuterCoatExpensiveOpened
+  name: expensive coat
