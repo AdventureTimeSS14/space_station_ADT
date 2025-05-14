@@ -94,10 +94,10 @@ namespace Content.Client.Lobby.UI
                    "[color=green]https://discord.com/channels/901772674865455115/1351213738774237184[/color]";
         }
 
-        // Заглушка, замени на реальную проверку
+        // Заглушка
         private bool CheckDiscordLinkStatus()
         {
-            return false; // или true
+            return false; // true
         }
     }
 }
