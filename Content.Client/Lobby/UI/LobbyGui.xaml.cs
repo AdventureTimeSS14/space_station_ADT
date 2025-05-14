@@ -97,21 +97,23 @@ namespace Content.Client.Lobby.UI
         private void UpdateButtons()
         {
             // Проверяем статус спонсорки
-            var sponsorInfoWindow = new SponsorInfoWindow(  );
-            var hasSponsor = _sponsorsManager?.TryGetInfo(out _) ?? false;
-            UpdateSponsorButtonColor(hasSponsor, sponsorInfoWindow);
+            if (_sponsorsManager?.TryGetInfo(out var sponsorInfo) == true && sponsorInfo != null)
+            {
+                UpdateSponsorButtonColor(true, sponsorInfo.Tier);
+            }
+            else
+            {
+                UpdateSponsorButtonColor(false, null);
+            }
             SponsorInfoButton.Visible = true;
 
             // Проверяем статус Discord
-            var windowDiscord = new DiscordLincWindow();
             UpdateDiscordLincButtonColor(DiscordLincWindow.HasLinkedDiscord);
             DiscordLincButton.Visible = true;
-
         }
 
-        public void UpdateSponsorButtonColor(bool hasSponsor, SponsorInfoWindow? sponsorInfoWindow)
+        public void UpdateSponsorButtonColor(bool hasSponsor, int? sponsorTier)
         {
-            SponsorInfoButton.Visible = true;
             if (SponsorInfoButton == null)
                 return;
 
@@ -119,14 +121,13 @@ namespace Content.Client.Lobby.UI
                 ? Color.FromHex("#4D88FF")  // Синий
                 : Color.FromHex("#AB3232"); // Красный
 
-            SponsorInfoButton.Text = hasSponsor && sponsorInfoWindow?.SponsorInfo != null
-                ? $"Уровень спонсорства: {sponsorInfoWindow.SponsorInfo.Tier}"
+            SponsorInfoButton.Text = hasSponsor && sponsorTier != null
+                ? $"Уровень спонсорства: {sponsorTier}"
                 : "Уровень спонсорства: нет :(";
         }
 
         public void UpdateDiscordLincButtonColor(bool hasLincDiscord)
         {
-            DiscordLincButton.Visible = true;
             if (DiscordLincButton == null)
                 return;
 
