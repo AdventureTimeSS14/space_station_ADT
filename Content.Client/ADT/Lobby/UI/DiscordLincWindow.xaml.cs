@@ -91,7 +91,7 @@ namespace Content.Client.Lobby.UI
         private string GetInstructionText()
         {
             return $"Введите ваш UID: [color=green]{_uid}[/color] в канале Discord:\n" +
-                   "[color=blue]https://discord.com/channels/901772674865455115/1351213738774237184[/color]";
+                   "[color=green]https://discord.com/channels/901772674865455115/1351213738774237184[/color]";
         }
 
         // Заглушка, замени на реальную проверку

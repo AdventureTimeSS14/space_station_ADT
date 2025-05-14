@@ -41,7 +41,7 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
                 $"[color=yellow]Цвет OOC:[/color] {sponsor.OOCColor ?? "не задан"}",
                 $"[color=yellow]Приоритетный вход:[/color] {(sponsor.HavePriorityJoin ? "Да" : "Нет")}",
                 $"[color=yellow]Дата окончания:[/color] {sponsor.ExpireDate:dd.MM.yyyy}",
-                $"[color=yellow]Разрешены профессии:[/color] {(sponsor.AllowJob ? "Да" : "Нет")}"
+                $"[color=yellow]Игнор времени ролей:[/color] {(sponsor.AllowJob ? "Да" : "Нет")}"
             };
         }
         else
@@ -53,7 +53,7 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
                 "[color=yellow]Цвет OOC:[/color] —",
                 "[color=yellow]Приоритетный вход:[/color] —",
                 "[color=yellow]Дата окончания:[/color] —",
-                "[color=yellow]Разрешены профессии:[/color] —"
+                "[color=yellow]Игнор времени ролей:[/color] —"
             };
         }
 

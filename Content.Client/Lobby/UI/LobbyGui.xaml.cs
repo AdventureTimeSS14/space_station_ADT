@@ -120,7 +120,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             DiscordLincButton.ModulateSelfOverride = hasLincDiscord
-                ? Color.FromHex("#66FF66") // Зелёный
+                ? Color.FromHex("#5da130") // Зелёный
                 : Color.FromHex("#AB3232"); // Красный
 
             DiscordLincButton.Text = hasLincDiscord
