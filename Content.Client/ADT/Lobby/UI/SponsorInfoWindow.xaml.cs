@@ -20,7 +20,7 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IUriOpener _uriOpener = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    public static bool HasSponsor { get; private set; }
+    public bool HasSponsor { get; private set; }
     public SponsorInfo? SponsorInfo { get; private set; } = default!;
     private string _userName = string.Empty;
 

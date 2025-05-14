@@ -5,6 +5,7 @@ using Robust.Client.Console;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
+using Content.Client.Corvax.Sponsors;
 
 namespace Content.Client.Lobby.UI
 {
@@ -12,6 +13,7 @@ namespace Content.Client.Lobby.UI
     public sealed partial class LobbyGui : UIScreen
     {
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
+        [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
         private float _updateTimer;
 
         public LobbyGui()
@@ -94,7 +96,8 @@ namespace Content.Client.Lobby.UI
         {
             // Проверяем статус спонсорки
             var sponsorInfoWindow = new SponsorInfoWindow();
-            UpdateSponsorButtonColor(SponsorInfoWindow.HasSponsor, sponsorInfoWindow);
+            var hasSponsor = _sponsorsManager?.TryGetInfo(out _) ?? false;
+            UpdateSponsorButtonColor(hasSponsor, sponsorInfoWindow);
 
             // Проверяем статус Discord
             var windowDiscord = new DiscordLincWindow();
