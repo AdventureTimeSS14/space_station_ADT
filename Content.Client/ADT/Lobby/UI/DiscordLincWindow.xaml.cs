@@ -17,9 +17,9 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly IClipboardManager _clipboard = default!;
         [Dependency] private readonly IPlayerManager _player = default!;
         [Dependency] private readonly IClientNetManager _net = default!;
+        public static bool HasLinkedDiscord { get; private set; }
 
         private string _uid = string.Empty;
-        private bool _isLinked = false;
 
         public DiscordLincWindow()
         {
@@ -49,7 +49,7 @@ namespace Content.Client.Lobby.UI
 
             LinkButton.OnPressed += _ =>
             {
-                _isLinked = true;
+                HasLinkedDiscord = true;
                 UpdateStatus();
             };
         }
@@ -72,7 +72,7 @@ namespace Content.Client.Lobby.UI
 
         private void UpdateStatus()
         {
-            if (_isLinked)
+            if (HasLinkedDiscord)
             {
                 StatusLabel.Text = "Ваш аккаунт уже привязан к Discord.";
                 LinkButton.Visible = false;
