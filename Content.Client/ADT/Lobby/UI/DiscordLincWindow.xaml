@@ -7,7 +7,8 @@
     MinWidth="501"
     MinHeight="250"
     MaxWidth="650"
-    MaxHeight="300">
+    MaxHeight="300"
+    Resizable="False">
 
     <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
         <!-- Статус -->

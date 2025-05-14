@@ -9,6 +9,7 @@ using Robust.Client.UserInterface;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Content.Shared.Corvax.Sponsors;
+using Robust.Client.Graphics;
 
 namespace Content.Client.Lobby.UI;
 
@@ -35,6 +36,8 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
             SponsorInfo = sponsor;
 
 
+        // Покрасим кнопку "Стать спонсором"
+        ButtonSiteBoosty.ModulateSelfOverride = Color.FromHex("#a68202");
         ButtonSiteBoosty.OnPressed += _ =>
         {
             var url = _cfg.GetCVar(CCVars.InfoLinksWebsite);
@@ -53,11 +56,11 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
             SponsorInfo = sponsor;
             lines = new List<string>
             {
-                $"[color=yellow]Никнейм:[/color] {_userName}",
                 $"[color=yellow]Уровень спонсорства:[/color] {sponsor.Tier ?? 0}",
-                $"[color=yellow]Цвет OOC:[/color] {sponsor.OOCColor ?? "не задан"}",
+                $"[color=yellow]Цвет OOC:[/color] {sponsor.OOCColor ?? "не задано"}",
                 $"[color=yellow]Приоритетный вход:[/color] {(sponsor.HavePriorityJoin ? "Да" : "Нет")}",
                 $"[color=yellow]Игнор времени ролей:[/color] {(sponsor.AllowJob ? "Да" : "Нет")}",
+                "[color=gray]────────────────────────[/color]",
                 $"[color=yellow]Дата окончания:[/color] {sponsor.ExpireDate:dd.MM.yyyy}"
             };
         }
@@ -66,11 +69,10 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
             SponsorInfo = null;
             lines = new List<string>
             {
-                $"[color=yellow]Никнейм:[/color] {_userName}",
-                "[color=yellow]Уровень спонсорства:[/color] —",
-                "[color=yellow]Цвет OOC:[/color] —",
-                "[color=yellow]Приоритетный вход:[/color] —",
-                "[color=yellow]Игнор времени ролей:[/color] —"
+                "[color=yellow]Уровень спонсорства:[/color] Нет доступа",
+                "[color=yellow]Цвет OOC:[/color] Не задано",
+                "[color=yellow]Приоритетный вход:[/color] Нет",
+                "[color=yellow]Игнор времени ролей:[/color] Нет"
             };
         }
 

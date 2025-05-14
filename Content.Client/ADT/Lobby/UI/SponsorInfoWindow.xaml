@@ -6,7 +6,8 @@
     Title="Информация о вашем статусе спонсора"
     MinWidth="490"
     MinHeight="250"
-    MaxHeight="300">
+    MaxHeight="300"
+    Resizable="False">
 
     <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
         <!-- Инфо о спонсоре -->
@@ -18,6 +19,7 @@
         <Button Name="ButtonSiteBoosty"
                 Text="Стать спонсором"
                 HorizontalAlignment="Center"
-                Margin="0,10,0,0" />
+                Margin="0,10,0,0"
+                StyleClasses="ButtonBig" />
     </BoxContainer>
 </DefaultWindow>
