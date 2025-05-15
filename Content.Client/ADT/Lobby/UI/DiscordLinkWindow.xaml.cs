@@ -67,7 +67,7 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
         if (_isLinked)
         {
             var uid = _player.LocalSession?.UserId.ToString() ?? "UNKNOWN";
-            var icName = _player.LocalPlayer?.Name ?? "Неизвестно";
+            var icName = _player.LocalSession?.Name ?? "Неизвестно";
 
             var message = new FormattedMessage();
             message.AddMarkupOrThrow(
