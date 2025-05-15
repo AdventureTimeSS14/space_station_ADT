@@ -42,7 +42,7 @@
     - ClothingHandsGlovesColorGray
 
 - type: loadout
-  id: BlueGloves
+  id: ADTBlueGloves
   storage:
     back:
     - ClothingHandsGlovesColorBlue
