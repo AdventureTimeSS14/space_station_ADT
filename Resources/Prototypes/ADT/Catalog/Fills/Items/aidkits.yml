@@ -1,4 +1,6 @@
 - type: entity
+  name: first aid kit of the emergency response team medic 
+  description: The first-aid kit of the rapid response team medic includes advanced medical supplies, filaments and grafts for rapid treatment. However, in order to save money, there are few advanced drugs.
   parent: MedkitAdvanced
   id: ADTMedkitAdvancedERT
   components:
