@@ -59,19 +59,6 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         ClientUpdateTyping();
     }
 
-    // Corvax-TypingIndicator-Start
-    public void ClientChangedChatFocus(bool isFocused)
-    {
-        // don't update it if player don't want to show typing
-        if (!_cfg.GetCVar(CCVars.ChatShowTypingIndicator))
-            return;
-
-        // client submitted text - hide typing indicator
-        _isClientChatFocused = isFocused;
-        ClientUpdateTyping();
-    }
-    // Corvax-TypingIndicator-End
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
