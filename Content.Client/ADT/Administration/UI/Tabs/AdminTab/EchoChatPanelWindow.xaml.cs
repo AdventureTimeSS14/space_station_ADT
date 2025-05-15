@@ -10,6 +10,7 @@ using Robust.Shared.Utility;
 namespace Content.Client.Administration.UI.Tabs.AdminTab
 {
     [GenerateTypedNameReferences]
+    [UsedImplicitly]
     public sealed partial class EchoChatPanelWindow : DefaultWindow
     {
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;

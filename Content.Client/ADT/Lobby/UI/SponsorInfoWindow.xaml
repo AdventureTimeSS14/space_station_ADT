@@ -3,7 +3,7 @@
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
-    Title="Информация о вашем статусе спонсора"
+    Title="{Loc 'ui-lobby-sponsor-status'}"
     MinWidth="490"
     MinHeight="250"
     MaxHeight="300"
@@ -17,7 +17,7 @@
 
         <!-- Кнопка перехода на Boosty -->
         <Button Name="ButtonSiteBoosty"
-                Text="Стать спонсором"
+                Text="{Loc 'ui-lobby-sponsor-get-sponsor'}"
                 HorizontalAlignment="Center"
                 Margin="0,10,0,0"
                 StyleClasses="ButtonBig" />

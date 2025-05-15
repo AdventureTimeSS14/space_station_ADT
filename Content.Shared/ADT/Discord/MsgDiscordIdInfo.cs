@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.ADT.Discord;
 
 /// <summary>
-/// Сервер отправляет Discord ID клиенту
+/// Сервер отправляет Discord ID и UserName клиенту
 /// </summary>
 public sealed class MsgDiscordIdInfo : NetMessage
 {

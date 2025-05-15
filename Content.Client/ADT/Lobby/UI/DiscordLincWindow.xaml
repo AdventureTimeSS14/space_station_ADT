@@ -2,7 +2,7 @@
     x:Class="Content.Client.Lobby.UI.DiscordLincWindow"
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Привязка Discord"
+    Title="{Loc 'ui-lobby-discord-linc-title'}"
     MinWidth="500"
     MinHeight="270"
     MaxWidth="650"
@@ -28,17 +28,17 @@
 
             <BoxContainer Orientation="Horizontal" SeparationOverride="6" HorizontalExpand="True">
                 <Button Name="CopyUidButton"
-                        Text="Скопировать UID"
+                        Text="{Loc 'ui-lobby-discord-linc-copy-button-uid'}"
                         StyleClasses="Button"
                         HorizontalExpand="True" />
 
                 <Button Name="OpenDiscordButton"
-                        Text="Открыть канал Discord"
+                        Text="{Loc 'ui-lobby-discord-linc-open-channel'}"
                         StyleClasses="Button"
                         HorizontalExpand="True" />
 
                 <Button Name="CopyInstructionButton"
-                        Text="Скопировать инструкцию"
+                        Text="{Loc 'ui-lobby-discord-linc-copy-button-instruction'}"
                         StyleClasses="Button"
                         HorizontalExpand="True" />
             </BoxContainer>

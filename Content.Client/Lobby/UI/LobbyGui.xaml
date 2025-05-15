@@ -53,7 +53,7 @@
                                     <BoxContainer Orientation="Horizontal" SeparationOverride="3" Margin="1" Visible="True">
                                         <cc:UICommandButton Name="DiscordLincButton"
                                                             Command="ui-lobby-discord-linc"
-                                                            Text="Привязать Discord"
+                                                            Text="{Loc 'ui-lobby-discord-linc-button-main'}"
                                                             StyleClasses="Caution"
                                                             Visible="True"
                                                             WindowType="{x:Type lobbyUi:DiscordLincWindow}"
@@ -61,7 +61,7 @@
                                                             Margin="3" />
                                         <cc:UICommandButton Name="SponsorInfoButton"
                                                             Command="ui-lobby-sponsor-info"
-                                                            Text="Уровень спонсорства: нет :("
+                                                            Text="{Loc 'ui-lobby-sponsor-button-main-level'}"
                                                             StyleClasses="Caution"
                                                             Visible="True"
                                                             WindowType="{x:Type lobbyUi:SponsorInfoWindow}"
