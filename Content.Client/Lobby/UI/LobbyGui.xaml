@@ -51,7 +51,7 @@
                                 <!-- ADT-Tweak-Start: Новая панель с двумя кнопками -->
                                 <controls:StripeBack Name="LobbyPanelLeftTop" Margin="3 0 0 0" Visible="False">
                                     <BoxContainer Orientation="Horizontal" SeparationOverride="3" Margin="1" Visible="True">
-                                        <cc:UICommandButton Name="DiscordLincButton"
+                                        <cc:UICommandButton Name="DiscordLinkButton"
                                                             Command="ui-lobby-discord-linc"
                                                             Text="{Loc 'ui-lobby-discord-linc-button-main'}"
                                                             StyleClasses="Caution"

@@ -135,7 +135,7 @@ namespace Content.Client.Lobby.UI
             {
                 UpdateDiscordLincButtonColor(false);
             }
-            DiscordLincButton.Visible = true;
+            DiscordLinkButton.Visible = true;
         }
 
         public void UpdateSponsorButtonColor(bool hasSponsor, int? sponsorTier)
@@ -154,14 +154,14 @@ namespace Content.Client.Lobby.UI
 
         public void UpdateDiscordLincButtonColor(bool hasLincDiscord)
         {
-            if (DiscordLincButton == null)
+            if (DiscordLinkButton == null)
                 return;
 
-            DiscordLincButton.ModulateSelfOverride = hasLincDiscord
+            DiscordLinkButton.ModulateSelfOverride = hasLincDiscord
                 ? Color.FromHex("#5da130")  // Зелёный
                 : Color.FromHex("#AB3232"); // Красный
 
-            DiscordLincButton.Text = hasLincDiscord
+            DiscordLinkButton.Text = hasLincDiscord
                 ? "Discord привязан"
                 : "Привязать Discord";
         }
