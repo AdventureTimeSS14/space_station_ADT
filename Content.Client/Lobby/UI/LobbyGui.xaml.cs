@@ -43,7 +43,7 @@ namespace Content.Client.Lobby.UI
                 SwitchState(LobbyGuiState.Default);
             };
 
-            if (_cfg.GetCVar(ADTCCVars.ShowLobbyPanelEnable))
+            if (_cfg.GetCVar(ADTCCVars.ExtraLobbyPanelEnabled))
             {
                 LobbyPanelLeftTop.Visible = true;
                 _panelUpdate = true;

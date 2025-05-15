@@ -238,7 +238,7 @@ public sealed class ADTCCVars
     /// Включает или отключает отображение дополнительной лобби-панели в пользовательском интерфейсе.
     /// При значении true панель отображается, при false - скрывается.
     /// </summary>
-    public static readonly CVarDef<bool> ShowLobbyPanelEnable =
+    public static readonly CVarDef<bool> ExtraLobbyPanelEnabled =
         CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
