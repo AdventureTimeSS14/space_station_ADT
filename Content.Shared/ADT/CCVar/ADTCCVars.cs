@@ -242,6 +242,12 @@ public sealed class ADTCCVars
         CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
+    /// Ссылка на канал привязки аккаунта сски к дискорду
+    /// </summary>
+    public static readonly CVarDef<string> DiscordLinkChannel =
+        CVarDef.Create("discord.link_channel", string.Empty, CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
     /// Хранит токен бота Discord для авторизации при взаимодействии с Discord API.
     /// Этот токен используется для выполнения операций от имени бота, таких как получение информации о пользователях.
     /// Токен должен быть передан в строковом формате.
