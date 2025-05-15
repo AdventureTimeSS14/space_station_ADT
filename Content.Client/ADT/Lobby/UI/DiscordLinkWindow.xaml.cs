@@ -76,12 +76,16 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
             var uid = _player.LocalSession?.UserId.ToString() ?? UnknownString;
             var icName = _player.LocalSession?.Name ?? UnknownString;
 
+            var lines = new List<string>
+            {
+                Loc.GetString("ui-lobby-discord-link-success-line1"),
+                Loc.GetString("ui-lobby-discord-link-success-line2", ("username", _discordUsername ?? "UNKNOWN"), ("discordId", _discordId ?? "UNKNOWN")),
+                Loc.GetString("ui-lobby-discord-link-success-line3", ("uid", uid)),
+                Loc.GetString("ui-lobby-discord-link-success-line4", ("icName", icName))
+            };
+
             var message = new FormattedMessage();
-            message.AddMarkupOrThrow(Loc.GetString("ui-lobby-discord-link-success",
-                ("username", _discordUsername ?? "UNKNOWN"),
-                ("discordId", _discordId ?? "UNKNOWN"),
-                ("uid", uid),
-                ("icName", icName)));
+            message.AddMarkupOrThrow(string.Join("\n", lines));
             SuccessRichText.SetMessage(message);
 
             InstructionContainer.Visible = false;
@@ -89,9 +93,16 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
         }
         else
         {
+            var instructionLines = new List<string>
+            {
+                Loc.GetString("ui-lobby-discord-link-instructions-line1"),
+                Loc.GetString("ui-lobby-discord-link-instructions-line2"),
+                Loc.GetString("ui-lobby-discord-link-instructions-line3", ("channelLink", _channelLink)),
+                Loc.GetString("ui-lobby-discord-link-instructions-line4")
+            };
+
             var instructionMessage = new FormattedMessage();
-            instructionMessage.AddMarkupOrThrow(
-                Loc.GetString("ui-lobby-discord-link-instructions", ("channelLink", _channelLink)));
+            instructionMessage.AddMarkupOrThrow(string.Join("\n", instructionLines));
             InstructionText.SetMessage(instructionMessage);
 
             InstructionContainer.Visible = true;

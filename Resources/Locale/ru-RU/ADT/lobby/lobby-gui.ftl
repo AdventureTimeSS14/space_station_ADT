@@ -13,16 +13,6 @@ ui-lobby-sponsor-get-sponsor = Стать спонсором
 ui-lobby-discord-menu-link = Discord привязан
 ui-lobby-discord-menu-make-link = Привязать Discord
 ui-lobby-discord-menu-error = Статус неизвестен
-ui-lobby-discord-link-instructions =
-    [color=white]Чтобы привязать Discord:[/color]
-    1. Скопируйте ваш UID.
-    2. Перейдите в канал Discord: [color=yellow]{ $channelLink }[/color].
-    3. В Discord нажмите кнопку `Привязать аккаунт` и введите ваш UID.
-ui-lobby-discord-link-success =
-    [color=green]✓ Вы успешно привязали Discord![/color]
-    Имя: [color=lightblue]{ $username }[/color] ([color=gray]{ $discordId }[/color])
-    UID: [color=yellow]{ $uid }[/color]
-    Никнейм: [color=orange]{ $icName }[/color]
 ui-lobby-sponsor-menu-unknown = Неизвестный игрок
 ui-sponsor-info-tier = [color=yellow]Уровень спонсорства:[/color] { $tier }
 ui-sponsor-info-ooc-color = [color=yellow]Цвет OOC:[/color] { $oocColor }
@@ -34,3 +24,13 @@ ui-sponsor-info-tier-none = [color=yellow]Уровень спонсорства:
 ui-sponsor-info-ooc-color-none = [color=yellow]Цвет OOC:[/color] Не задано
 ui-sponsor-info-priority-none = [color=yellow]Приоритетный вход:[/color] Нет
 ui-sponsor-info-allow-job-none = [color=yellow]Игнор времени ролей:[/color] Нет
+
+ui-lobby-discord-link-success-line1 = [color=green]✓ Вы успешно привязали Discord![/color]
+ui-lobby-discord-link-success-line2 = Имя: [color=lightblue]{ $username }[/color] ([color=gray]{ $discordId }[/color])
+ui-lobby-discord-link-success-line3 = UID: [color=yellow]{ $uid }[/color]
+ui-lobby-discord-link-success-line4 = Никнейм: [color=orange]{ $icName }[/color]
+
+ui-lobby-discord-link-instructions-line1 = [color=white]Чтобы привязать Discord:[/color]
+ui-lobby-discord-link-instructions-line2 = 1. Скопируйте ваш UID.
+ui-lobby-discord-link-instructions-line3 = 2. Перейдите в канал Discord: [color=yellow]{ $channelLink }[/color].
+ui-lobby-discord-link-instructions-line4 = 3. В Discord нажмите кнопку `Привязать аккаунт` и введите ваш UID.
