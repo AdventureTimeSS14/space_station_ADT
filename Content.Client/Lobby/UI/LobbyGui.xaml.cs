@@ -127,14 +127,7 @@ namespace Content.Client.Lobby.UI
             SponsorInfoButton.Visible = true;
 
             // Проверяем статус Discord
-            if (_discordIdManager?.TryGetDiscordId(out var discordId) == true && discordId != null)
-            {
-                UpdateDiscordLincButtonColor(true);
-            }
-            else
-            {
-                UpdateDiscordLincButtonColor(false);
-            }
+            UpdateDiscordLinkButtonColor(_discordIdManager?.TryGetDiscordId(out _));
             DiscordLinkButton.Visible = true;
         }
 
@@ -152,18 +145,20 @@ namespace Content.Client.Lobby.UI
                 : "Уровень спонсорства: нет :(";
         }
 
-        public void UpdateDiscordLincButtonColor(bool hasLincDiscord)
+        public void UpdateDiscordLinkButtonColor(bool? isLinked)
         {
             if (DiscordLinkButton == null)
                 return;
 
-            DiscordLinkButton.ModulateSelfOverride = hasLincDiscord
-                ? Color.FromHex("#5da130")  // Зелёный
-                : Color.FromHex("#AB3232"); // Красный
+            var (color, text) = isLinked switch
+            {
+                true  => (Color.FromHex("#5DA130"), "Discord привязан"),  // Зелёный
+                false => (Color.FromHex("#AB3232"), "Привязать Discord"), // Красный
+                null  => (Color.FromHex("#FFA500"), "Статус неизвестен")  // Оранжевый
+            };
 
-            DiscordLinkButton.Text = hasLincDiscord
-                ? "Discord привязан"
-                : "Привязать Discord";
+            DiscordLinkButton.ModulateSelfOverride = color;
+            DiscordLinkButton.Text = text;
         }
         // ADT-Tweak-end
 
