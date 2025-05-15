@@ -34,7 +34,7 @@
   - ADTBlackGloves
   - ADTGrayGloves
   - PurpleGloves
-  - BlueGloves
+  - ADTBlueGloves
 
 - type: loadoutGroup
   id: LawyerShoes
