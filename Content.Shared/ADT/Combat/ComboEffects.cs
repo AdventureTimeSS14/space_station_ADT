@@ -52,7 +52,7 @@ public sealed partial class ComboStaminaDamageEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var stun = entMan.System<StaminaSystem>();
+        var stun = entMan.System<SharedStaminaSystem>();
         stun.TakeStaminaDamage(target, StaminaDamage);
     }
 }
@@ -235,7 +235,7 @@ public sealed partial class ComboMoreStaminaDamageToDownedEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var down = entMan.System<StandingStateSystem>();
-        var stun = entMan.System<StaminaSystem>();
+        var stun = entMan.System<SharedStaminaSystem>();
 
         if (down.IsDown(target))
         {

@@ -94,7 +94,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;

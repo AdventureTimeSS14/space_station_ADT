@@ -21,8 +21,8 @@ public sealed partial class MarkingPicker : Control
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-	private ISharedSponsorsManager? _sponsorsManager; // Corvax-Sponsors
-	
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+
     private readonly SpriteSystem _sprite;
 
     public Action<MarkingSet>? OnMarkingAdded;

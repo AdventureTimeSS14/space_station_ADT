@@ -14,10 +14,10 @@ public sealed partial class SingleMarkingPicker : BoxContainer
 {
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-	private ISharedSponsorsManager? _sponsorsManager; // Corvax-Sponsors
-	
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+
     private readonly SpriteSystem _sprite;
-    
+
     /// <summary>
     ///     What happens if a marking is selected.
     ///     It will send the 'slot' (marking index)

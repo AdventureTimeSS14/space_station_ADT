@@ -109,6 +109,7 @@
     - BypassInteractionRangeChecks
   - type: PointLight
     radius: 6
+    castShadows: false
     enabled: false
   - type: LanguageSpeaker
     languages:
