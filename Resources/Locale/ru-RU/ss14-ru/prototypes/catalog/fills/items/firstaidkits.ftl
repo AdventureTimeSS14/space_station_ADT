@@ -25,3 +25,6 @@ ent-MedkitCombatFilled = { ent-MedkitCombat }
 ent-StimkitFilled = { ent-Medkit }
     .suffix = Стимпак, Заполненная
     .desc = { ent-Medkit.desc }
+ent-MedkitRadiationFilled = аптечка медика отряда быстрого реагирования
+    .suffix = Заполненная
+    .desc = Аптечка медика отряда быстрого реагирования включает в себя продвинутые медикоменты, нити и трансплантаты для быстрого лечения. Однако, в целях экономии продвинутых препаратов немного.
