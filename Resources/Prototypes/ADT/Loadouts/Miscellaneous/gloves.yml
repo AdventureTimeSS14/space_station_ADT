@@ -6,7 +6,7 @@
     - ClothingHandsGlovesColorLightBrown
 
 - type: loadout
-  id: RedGloves
+  id: ADTRedGloves
   storage:
     back:
     - ClothingHandsGlovesColorRed
