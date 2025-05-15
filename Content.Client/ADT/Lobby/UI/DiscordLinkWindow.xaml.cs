@@ -13,8 +13,6 @@ namespace Content.Client.Lobby.UI;
 [UsedImplicitly]
 public sealed partial class DiscordLinkWindow : DefaultWindow
 {
-    public static bool HasLinkedDiscord { get; private set; }
-
     [Dependency] private readonly IClipboardManager _clipboard = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly DiscordIdManager _discordIdManager = default!;
@@ -66,8 +64,6 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
 
     private void UpdateStatus()
     {
-        HasLinkedDiscord = _isLinked;
-
         if (_isLinked)
         {
             var uid = _player.LocalSession?.UserId.ToString() ?? "UNKNOWN";
