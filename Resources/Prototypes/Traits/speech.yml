@@ -17,6 +17,7 @@
     - type: NyaAccent # ADT-Tweak
     - type: ReplacementAccent
       accent: dwarf
+    - type: GrowlingAccent # Corvax-Vulps
 
 # 1 Cost
 

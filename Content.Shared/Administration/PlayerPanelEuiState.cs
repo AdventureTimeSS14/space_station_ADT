@@ -5,7 +5,8 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Administration;
 
 [Serializable, NetSerializable]
-public sealed class PlayerPanelEuiState(NetUserId guid,
+public sealed class PlayerPanelEuiState(
+    NetUserId guid,
     string username,
     TimeSpan playtime,
     int? totalNotes,
@@ -52,7 +53,5 @@ public sealed class PlayerPanelDeleteMessage : EuiMessageBase;
 [Serializable, NetSerializable]
 public sealed class PlayerPanelRejuvenationMessage: EuiMessageBase;
 
-// ADT-Tweak-Start
 [Serializable, NetSerializable]
 public sealed class PlayerPanelFollowMessage: EuiMessageBase;
-// ADT-Tweak-End

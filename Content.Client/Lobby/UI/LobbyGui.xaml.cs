@@ -33,6 +33,9 @@ namespace Content.Client.Lobby.UI
                 SwitchState(LobbyGuiState.Default);
             };
             // ADT-Tweak-End
+
+            CollapseButton.OnPressed += _ => TogglePanel(false);
+            ExpandButton.OnPressed += _ => TogglePanel(true);
         }
 
         public void SwitchState(LobbyGuiState state)
@@ -72,6 +75,12 @@ namespace Content.Client.Lobby.UI
                     break;
                 // ADT-Tweak-End
             }
+        }
+
+        private void TogglePanel(bool value)
+        {
+            RightSide.Visible = value;
+            ExpandPanel.Visible = !value;
         }
 
         public enum LobbyGuiState : byte
