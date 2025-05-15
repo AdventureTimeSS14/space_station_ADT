@@ -129,6 +129,7 @@
   cost: 8000
   recipeUnlocks:
   - Truncheon
+  - GrenadeStinger
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
