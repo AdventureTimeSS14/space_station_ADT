@@ -1,4 +1,3 @@
-using System.IO;
 using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
@@ -14,22 +13,29 @@ public sealed class MsgDiscordIdInfo : NetMessage
 
     public NetUserId UserId;
     public string? DiscordId;
+    public string? DiscordUsername;
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
-        var guid = buffer.ReadGuid();              // читаем как Guid
-        UserId = new NetUserId(guid);              // оборачиваем в NetUserId
+        var guid = buffer.ReadGuid();
+        UserId = new NetUserId(guid);
+
         var hasId = buffer.ReadBoolean();
         DiscordId = hasId ? buffer.ReadString() : null;
+
+        var hasUsername = buffer.ReadBoolean();
+        DiscordUsername = hasUsername ? buffer.ReadString() : null;
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
     {
-        buffer.Write(UserId.UserId);               // извлекаем Guid из NetUserId
+        buffer.Write(UserId.UserId);
         buffer.Write(DiscordId != null);
         if (DiscordId != null)
-        {
             buffer.Write(DiscordId);
-        }
+
+        buffer.Write(DiscordUsername != null);
+        if (DiscordUsername != null)
+            buffer.Write(DiscordUsername);
     }
 }

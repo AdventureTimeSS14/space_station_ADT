@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ADT.Discord;
 using Robust.Shared.Network;
-using Robust.Client.Player; // если нужен
 
 namespace Content.Client.ADT.Discord;
 
@@ -19,11 +18,20 @@ public sealed class DiscordIdManager
     private void OnDiscordIdInfo(MsgDiscordIdInfo msg)
     {
         _discordId = msg.DiscordId;
+        _discordUsername = msg.DiscordUsername;
     }
 
     public bool TryGetDiscordId([NotNullWhen(true)] out string? discordId)
     {
         discordId = _discordId;
         return _discordId != null;
+    }
+
+    private string? _discordUsername;
+
+    public bool TryGetDiscordUsername([NotNullWhen(true)] out string? username)
+    {
+        username = _discordUsername;
+        return _discordUsername != null;
     }
 }

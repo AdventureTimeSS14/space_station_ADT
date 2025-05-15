@@ -1,8 +1,8 @@
-using Content.Shared.Administration;
-using Robust.Shared.Console;
-using Robust.Shared.Configuration;
-using Content.Shared.ADT.CCVar;
 using Content.Server.ADT.Administration;
+using Content.Shared.Administration;
+using Content.Shared.ADT.CCVar;
+using Robust.Shared.Configuration;
+using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands;
 

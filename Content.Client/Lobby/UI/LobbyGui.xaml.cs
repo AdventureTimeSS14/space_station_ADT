@@ -8,6 +8,7 @@ using Robust.Shared.Timing;
 using Content.Client.Corvax.Sponsors;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
+using Content.Client.ADT.Discord;
 
 namespace Content.Client.Lobby.UI
 {
@@ -16,6 +17,7 @@ namespace Content.Client.Lobby.UI
     {
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
         [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
+        [Dependency] private readonly DiscordIdManager _discordIdManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         private float _updateTimer;
         private bool _panelUpdate = false;
@@ -125,7 +127,14 @@ namespace Content.Client.Lobby.UI
             SponsorInfoButton.Visible = true;
 
             // Проверяем статус Discord
-            UpdateDiscordLincButtonColor(DiscordLincWindow.HasLinkedDiscord);
+            if (_discordIdManager?.TryGetDiscordId(out var discordId) == true && discordId != null)
+            {
+                UpdateDiscordLincButtonColor(true);
+            }
+            else
+            {
+                UpdateDiscordLincButtonColor(false);
+            }
             DiscordLincButton.Visible = true;
         }
 

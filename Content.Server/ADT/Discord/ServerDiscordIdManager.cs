@@ -1,35 +1,14 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
+using Content.Server.ADT.Administration;
 using Content.Server.Database;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Discord;
-using Robust.Server.Player;
-using Robust.Shared.Network;
-using Robust.Shared.Utility;
-using System.Threading.Tasks;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
-using System.Text.Json.Nodes;
-using Content.Server.Corvax.Sponsors;
-using Content.Server.Administration.Managers;
-using Content.Server.Chat.Managers;
-using Content.Server.Connection.IPIntel;
-using Content.Server.Database;
-using Content.Server.GameTicking;
-using Content.Server.Preferences.Managers;
-using Content.Shared.CCVar;
-using Content.Shared.Corvax.CCCVars;
-using Content.Shared.GameTicking;
-using Content.Shared.Players.PlayTimeTracking;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
-using Content.Shared.ADT.CCVar;
-using Serilog;
 
 namespace Content.Server.ADT.Discord;
 
@@ -76,10 +55,27 @@ public sealed class ServerDiscordIdManager : EntitySystem
         var discordId = await LoadDiscordId(userId);
         _cachedDiscordIds[userId] = discordId;
 
+        string? discordUsername = null;
+
+        if (discordId != null && ulong.TryParse(discordId, out var discordUlong))
+        {
+            try
+            {
+                var cfg = IoCManager.Resolve<IConfigurationManager>();
+                var botToken = cfg.GetCVar(ADTCCVars.DiscordTokenBot);
+                discordUsername = await AuthApiHelper.GetAccountDiscord(discordUlong, botToken);
+            }
+            catch (Exception ex)
+            {
+                _sawmill.Error($"Failed to fetch Discord username for {discordId}: {ex}");
+            }
+        }
+
         var msg = new MsgDiscordIdInfo
         {
             UserId = userId,
-            DiscordId = discordId
+            DiscordId = discordId,
+            DiscordUsername = discordUsername
         };
 
         _net.ServerSendMessage(msg, session.Channel);

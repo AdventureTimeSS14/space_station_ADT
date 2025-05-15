@@ -2,7 +2,6 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-
 namespace Content.Server.ADT.Administration;
 
 public sealed partial class AuthApiHelper

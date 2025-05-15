@@ -2,41 +2,55 @@
     x:Class="Content.Client.Lobby.UI.DiscordLincWindow"
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
-    Title="Discord Link"
-    MinWidth="501"
-    MinHeight="250"
+    Title="Привязка Discord"
+    MinWidth="500"
+    MinHeight="270"
     MaxWidth="650"
     MaxHeight="300"
     Resizable="False">
 
-    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+    <BoxContainer Orientation="Vertical" SeparationOverride="10" Margin="10">
+
         <!-- Статус -->
-        <Label Name="StatusLabel"
-               Text="Проверка привязки..."
-               StyleClasses="LabelBig"
-               HorizontalExpand="True"
-               Align="Center" />
-
-        <!-- Инструкция -->
-        <RichTextLabel Name="InstructionLabel"
+        <RichTextLabel Name="StatusLabel"
                        HorizontalExpand="True"
-                       VerticalExpand="True"
-                       Margin="0,5,0,0" />
+                       VerticalExpand="False" />
 
-        <!-- Кнопки -->
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="6">
-            <Button Name="CopyButton"
-                    Text="Скопировать инструкцию"
-                    StyleClasses="ButtonBig"
-                    HorizontalExpand="True" />
+        <!-- Если не привязан -->
+        <BoxContainer Name="InstructionContainer"
+                      Orientation="Vertical"
+                      SeparationOverride="6"
+                      Visible="false">
 
-            <Button Name="LinkButton"
-                    Text="Привязать Discord"
-                    StyleClasses="ButtonBig"
-                    HorizontalExpand="True"
-                    Visible="False" />
+            <RichTextLabel Name="InstructionText"
+                           HorizontalExpand="True"
+                           VerticalExpand="True" />
+
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6" HorizontalExpand="True">
+                <Button Name="CopyUidButton"
+                        Text="Скопировать UID"
+                        StyleClasses="Button"
+                        HorizontalExpand="True" />
+
+                <Button Name="OpenDiscordButton"
+                        Text="Открыть канал Discord"
+                        StyleClasses="Button"
+                        HorizontalExpand="True" />
+
+                <Button Name="CopyInstructionButton"
+                        Text="Скопировать инструкцию"
+                        StyleClasses="Button"
+                        HorizontalExpand="True" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Если привязан -->
+        <BoxContainer Name="SuccessContainer"
+                      Orientation="Vertical"
+                      SeparationOverride="6"
+                      Visible="false"
+                      HorizontalExpand="True">
+            <RichTextLabel Name="SuccessRichText" HorizontalExpand="True" />
         </BoxContainer>
     </BoxContainer>
 </DefaultWindow>
-
