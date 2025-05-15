@@ -26,7 +26,7 @@ ui-sponsor-info-priority-none = [color=yellow]Приоритетный вход:
 ui-sponsor-info-allow-job-none = [color=yellow]Игнор времени ролей:[/color] Нет
 
 ui-lobby-discord-link-success-line1 = [color=green]✓ Вы успешно привязали Discord![/color]
-ui-lobby-discord-link-success-line2 = Имя: [color=lightblue]{ $username }[/color] ([color=gray]{ $discordId }[/color])
+ui-lobby-discord-link-success-line2 = Discord: [color=lightblue]{ $username }[/color] ([color=gray]{ $discordId }[/color])
 ui-lobby-discord-link-success-line3 = UID: [color=yellow]{ $uid }[/color]
 ui-lobby-discord-link-success-line4 = Никнейм: [color=orange]{ $icName }[/color]
 
