@@ -29,13 +29,12 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        _userName = _player.LocalSession?.Name ?? "Неизвестный игрок";
+        _userName = _player.LocalSession?.Name ?? Loc.GetString("ui-lobby-sponsor-menu-unknown");
         HasSponsor = _sponsorsManager.TryGetInfo(out var sponsor) && sponsor != null;
         if (HasSponsor)
             SponsorInfo = sponsor;
 
-
-        // Покрасим кнопку "Стать спонсором"
+        // Красим кнопку "Стать спонсором"
         ButtonSiteBoosty.ModulateSelfOverride = Color.FromHex("#a68202");
         ButtonSiteBoosty.OnPressed += _ =>
         {
@@ -55,12 +54,12 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
             SponsorInfo = sponsor;
             lines = new List<string>
             {
-                $"[color=yellow]Уровень спонсорства:[/color] {sponsor.Tier ?? 0}",
-                $"[color=yellow]Цвет OOC:[/color] {sponsor.OOCColor ?? "не задано"}",
-                $"[color=yellow]Приоритетный вход:[/color] {(sponsor.HavePriorityJoin ? "Да" : "Нет")}",
-                $"[color=yellow]Игнор времени ролей:[/color] {(sponsor.AllowJob ? "Да" : "Нет")}",
-                "[color=gray]────────────────────────[/color]",
-                $"[color=yellow]Дата окончания:[/color] {sponsor.ExpireDate:dd.MM.yyyy}"
+                Loc.GetString("ui-sponsor-info-tier", ("tier", sponsor.Tier ?? 0)),
+                Loc.GetString("ui-sponsor-info-ooc-color", ("oocColor", sponsor.OOCColor ?? "не задано")),
+                Loc.GetString("ui-sponsor-info-priority", ("priority", sponsor.HavePriorityJoin ? "Да" : "Нет")),
+                Loc.GetString("ui-sponsor-info-allow-job", ("allowJob", sponsor.AllowJob ? "Да" : "Нет")),
+                Loc.GetString("ui-sponsor-info-separator"),
+                Loc.GetString("ui-sponsor-info-expire-date", ("date", sponsor.ExpireDate.ToString("dd.MM.yyyy")))
             };
         }
         else
@@ -68,10 +67,10 @@ public sealed partial class SponsorInfoWindow : DefaultWindow
             SponsorInfo = null;
             lines = new List<string>
             {
-                "[color=yellow]Уровень спонсорства:[/color] Нет доступа",
-                "[color=yellow]Цвет OOC:[/color] Не задано",
-                "[color=yellow]Приоритетный вход:[/color] Нет",
-                "[color=yellow]Игнор времени ролей:[/color] Нет"
+                Loc.GetString("ui-sponsor-info-tier-none"),
+                Loc.GetString("ui-sponsor-info-ooc-color-none"),
+                Loc.GetString("ui-sponsor-info-priority-none"),
+                Loc.GetString("ui-sponsor-info-allow-job-none")
             };
         }
 

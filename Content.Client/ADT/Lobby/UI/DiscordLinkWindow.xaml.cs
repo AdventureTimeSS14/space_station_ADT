@@ -77,12 +77,11 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
             var icName = _player.LocalSession?.Name ?? UnknownString;
 
             var message = new FormattedMessage();
-            message.AddMarkupOrThrow(
-                $"[color=green]✓ Вы успешно привязали Discord![/color]\n" +
-                $"Имя: [color=lightblue]{_discordUsername}[/color] ([color=gray]{_discordId}[/color])\n" +
-                $"UID: [color=yellow]{uid}[/color]\n" +
-                $"Никнейм: [color=orange]{icName}[/color]");
-
+            message.AddMarkupOrThrow(Loc.GetString("ui-lobby-discord-link-success",
+                ("username", _discordUsername ?? "UNKNOWN"),
+                ("discordId", _discordId ?? "UNKNOWN"),
+                ("uid", uid),
+                ("icName", icName)));
             SuccessRichText.SetMessage(message);
 
             InstructionContainer.Visible = false;
@@ -92,11 +91,7 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
         {
             var instructionMessage = new FormattedMessage();
             instructionMessage.AddMarkupOrThrow(
-                "[color=white]Чтобы привязать Discord:[/color]\n" +
-                "1. Скопируйте ваш UID.\n" +
-                $"2. Перейдите в канал Discord: [color=yellow]{_channelLink}[/color].\n" +
-                "3. В Discord нажмите кнопку `Привязать аккаунт` и введите ваш UID.");
-
+                Loc.GetString("ui-lobby-discord-link-instructions", ("channelLink", _channelLink)));
             InstructionText.SetMessage(instructionMessage);
 
             InstructionContainer.Visible = true;

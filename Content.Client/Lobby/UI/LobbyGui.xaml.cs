@@ -147,11 +147,11 @@ namespace Content.Client.Lobby.UI
 
             SponsorInfoButton.ModulateSelfOverride = hasSponsor
                 ? ColorBlue  // Синий
-                : ColorRed; // Красный
+                : ColorRed;  // Красный
 
             SponsorInfoButton.Text = hasSponsor && sponsorTier != null
-                ? $"Уровень спонсорства: {sponsorTier}"
-                : "Уровень спонсорства: нет :(";
+                ? Loc.GetString("ui-lobby-sponsor-button-level", ("sponsorTier", sponsorTier))
+                : Loc.GetString("ui-lobby-sponsor-button-main-level");
         }
 
         public void UpdateDiscordLinkButtonColor(bool? isLinked)
@@ -161,9 +161,9 @@ namespace Content.Client.Lobby.UI
 
             var (color, text) = isLinked switch
             {
-                true  => (ColorGreen, "Discord привязан"),  // Зелёный
-                false => (ColorRed, "Привязать Discord"),   // Красный
-                null  => (ColorOrange, "Статус неизвестен") // Оранжевый
+                true  => (ColorGreen, Loc.GetString("ui-lobby-discord-menu-link")),    // Зелёный
+                false => (ColorRed, Loc.GetString("ui-lobby-discord-menu-make-link")), // Красный
+                null  => (ColorOrange, Loc.GetString("ui-lobby-discord-menu-error"))   // Оранжевый
             };
 
             DiscordLinkButton.ModulateSelfOverride = color;
