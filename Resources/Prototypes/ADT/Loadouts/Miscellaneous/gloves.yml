@@ -30,7 +30,7 @@
     - ClothingHandsGlovesColorWhite
 
 - type: loadout
-  id: BlackGloves
+  id: ADTBlackGloves
   storage:
     back:
     - ClothingHandsGlovesColorBlack
