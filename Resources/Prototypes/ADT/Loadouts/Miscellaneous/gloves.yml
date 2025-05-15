@@ -12,7 +12,7 @@
     - ClothingHandsGlovesColorRed
 
 - type: loadout
-  id: TealGloves
+  id: ADTTealGloves
   storage:
     back:
     - ClothingHandsGlovesColorTeal
