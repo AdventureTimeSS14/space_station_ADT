@@ -44,6 +44,7 @@ loadout-group-chef-outerclothing = Шеф-повар, верхняя одежд�
 loadout-group-librarian-jumpsuit = Библиотекарь, комбинезон
 loadout-group-lawyer-jumpsuit = Адвокат, комбинезон
 loadout-group-lawyer-shoes = Юристы, обувь
+loadout-group-lawyer-gloves = Юристы, перчатки
 loadout-group-lawyer-neck = Адвокат, шея
 loadout-group-chaplain-head = Священник, голова
 loadout-group-chaplain-mask = Священник, маска

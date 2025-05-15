@@ -1,0 +1,48 @@
+# Gloves
+- type: loadout
+  id: LightBrownGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorLightBrown
+
+- type: loadout
+  id: RedGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorRed
+
+- type: loadout
+  id: TealGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorTeal
+
+- type: loadout
+  id: GreenGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorGreen
+
+- type: loadout
+  id: WhiteGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorWhite
+
+- type: loadout
+  id: BlackGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: GrayGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorGray
+
+- type: loadout
+  id: BlueGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorBlue
