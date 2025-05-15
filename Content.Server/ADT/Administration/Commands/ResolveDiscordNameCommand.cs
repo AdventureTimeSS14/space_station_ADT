@@ -21,6 +21,7 @@ public sealed class ResolveDiscordNameCommand : IConsoleCommand
             shell.WriteLine(Help);
             return;
         }
+
         var cfg = IoCManager.Resolve<IConfigurationManager>();
         var botToken = cfg.GetCVar(ADTCCVars.DiscordTokenBot);
 
