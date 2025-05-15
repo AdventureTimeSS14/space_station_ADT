@@ -1,5 +1,5 @@
 <DefaultWindow
-    x:Class="Content.Client.Lobby.UI.DiscordLincWindow"
+    x:Class="Content.Client.Lobby.UI.DiscordLinkWindow"
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="{Loc 'ui-lobby-discord-linc-title'}"

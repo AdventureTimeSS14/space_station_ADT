@@ -11,7 +11,7 @@ namespace Content.Client.Lobby.UI;
 
 [GenerateTypedNameReferences]
 [UsedImplicitly]
-public sealed partial class DiscordLincWindow : DefaultWindow
+public sealed partial class DiscordLinkWindow : DefaultWindow
 {
     public static bool HasLinkedDiscord { get; private set; }
 
@@ -24,7 +24,7 @@ public sealed partial class DiscordLincWindow : DefaultWindow
     private string? _discordUsername;
     private bool _isLinked = false;
 
-    public DiscordLincWindow()
+    public DiscordLinkWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);

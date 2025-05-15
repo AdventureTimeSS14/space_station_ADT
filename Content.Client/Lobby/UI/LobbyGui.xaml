@@ -56,7 +56,7 @@
                                                             Text="{Loc 'ui-lobby-discord-linc-button-main'}"
                                                             StyleClasses="Caution"
                                                             Visible="True"
-                                                            WindowType="{x:Type lobbyUi:DiscordLincWindow}"
+                                                            WindowType="{x:Type lobbyUi:DiscordLinkWindow}"
                                                             MinWidth="100"
                                                             Margin="3" />
                                         <cc:UICommandButton Name="SponsorInfoButton"
