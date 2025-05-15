@@ -116,7 +116,7 @@ namespace Content.Client.Lobby.UI
         private void UpdateButtons()
         {
             // Проверяем статус спонсорки
-            if (_sponsorsManager?.TryGetInfo(out var sponsorInfo) == true && sponsorInfo != null)
+            if (_sponsorsManager?.TryGetInfo(out var sponsorInfo) == true)
             {
                 UpdateSponsorButtonColor(true, sponsorInfo.Tier);
             }
