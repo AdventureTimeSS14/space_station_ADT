@@ -21,6 +21,13 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         private float _updateTimer;
         private bool _panelUpdate = false;
+        // Цвета для кнопок (ADT-Const-Start)
+        private static readonly Color ColorBlue = Color.FromHex("#1966ff");   // Синий
+        private static readonly Color ColorRed = Color.FromHex("#AB3232"); // Красный
+
+        private static readonly Color ColorGreen = Color.FromHex("#5DA130");   // Зелёный
+        private static readonly Color ColorOrange = Color.FromHex("#FFA500");  // Оранжевый
+        // (ADT-Const-End)
 
         public LobbyGui()
         {
@@ -36,10 +43,12 @@ namespace Content.Client.Lobby.UI
             LeaveButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
             OptionsButton.OnPressed += _ => UserInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
             // ADT-Tweak-Start
-            HideInterface.OnPressed += _ => {
+            HideInterface.OnPressed += _ =>
+            {
                 SwitchState(LobbyGuiState.ScreenSaver);
             };
-            ShowInterface.OnPressed += _ => {
+            ShowInterface.OnPressed += _ =>
+            {
                 SwitchState(LobbyGuiState.Default);
             };
 
@@ -137,8 +146,8 @@ namespace Content.Client.Lobby.UI
                 return;
 
             SponsorInfoButton.ModulateSelfOverride = hasSponsor
-                ? Color.FromHex("#1966ff")  // Синий
-                : Color.FromHex("#AB3232"); // Красный
+                ? ColorBlue  // Синий
+                : ColorRed; // Красный
 
             SponsorInfoButton.Text = hasSponsor && sponsorTier != null
                 ? $"Уровень спонсорства: {sponsorTier}"
@@ -152,9 +161,9 @@ namespace Content.Client.Lobby.UI
 
             var (color, text) = isLinked switch
             {
-                true  => (Color.FromHex("#5DA130"), "Discord привязан"),  // Зелёный
-                false => (Color.FromHex("#AB3232"), "Привязать Discord"), // Красный
-                null  => (Color.FromHex("#FFA500"), "Статус неизвестен")  // Оранжевый
+                true  => (ColorGreen, "Discord привязан"),  // Зелёный
+                false => (ColorRed, "Привязать Discord"),   // Красный
+                null  => (ColorOrange, "Статус неизвестен") // Оранжевый
             };
 
             DiscordLinkButton.ModulateSelfOverride = color;
