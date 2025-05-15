@@ -1,6 +1,6 @@
 # Gloves
 - type: loadout
-  id: LightBrownGloves
+  id: ADTLightBrownGloves
   storage:
     back:
     - ClothingHandsGlovesColorLightBrown
