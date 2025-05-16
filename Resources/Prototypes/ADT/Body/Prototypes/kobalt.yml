@@ -15,7 +15,7 @@
       organs:
         heart: ADTOrganReptilianHeart #как у reptilian
         lungs: OrganHumanLungs #как у reptilian
-        stomach: OrganKoboltStomach
+        stomach: ADTOrganKoboltStomach #как у reptilian
         liver: OrganAnimalLiver #как у reptilian
         kidneys: OrganHumanKidneys #как у reptilian
       connections:

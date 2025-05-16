@@ -1,9 +1,9 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  id: PartVulpkanin
+  id: ADTPartVulpkanin
   parent: BaseItem
-  name: "Вульпканин части тела"
+  name: "vulpkanin body part"
   abstract: true
   components:
     - type: Damageable
@@ -15,9 +15,9 @@
           ents: []
 
 - type: entity
-  id: TorsoVulpkanin
-  name: "тело вульпканина"
-  parent: PartVulpkanin
+  id: ADTTorsoVulpkanin
+  name: "vulpkanin body"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -30,9 +30,9 @@
       partType: Torso
 
 - type: entity
-  id: HeadVulpkanin
-  name: "голова вульпканина"
-  parent: PartVulpkanin
+  id: ADTHeadVulpkanin
+  name: "vulpkanin head"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -56,9 +56,9 @@
         - Head
 
 - type: entity
-  id: LeftArmVulpkanin
-  name: "левая рука вульпканина"
-  parent: PartVulpkanin
+  id: ADTLeftArmVulpkanin
+  name: "left vulpkanin arm"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -72,9 +72,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightArmVulpkanin
-  name: "правая рука вульпканина"
-  parent: PartVulpkanin
+  id: ADTRightArmVulpkanin
+  name: "right vulpkanin arm"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -88,9 +88,9 @@
       symmetry: Right
 
 - type: entity
-  id: LeftHandVulpkanin
-  name: "левая кисть вульпканина"
-  parent: PartVulpkanin
+  id: ADTLeftHandVulpkanin
+  name: "left vulpkanin hand"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -104,9 +104,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightHandVulpkanin
-  name: "правая кисть вульпканина"
-  parent: PartVulpkanin
+  id: ADTRightHandVulpkanin
+  name: "right vulpkanin hand"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -120,9 +120,9 @@
       symmetry: Right
 
 - type: entity
-  id: TailVulpkanin
-  name: "хвост вульпканина"
-  parent: PartVulpkanin
+  id: ADTTailVulpkanin
+  name: "vulpkanin tail"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -135,9 +135,9 @@
       partType: Tail
 
 - type: entity
-  id: LeftLegVulpkanin
-  name: "левая нога вульпканина"
-  parent: PartVulpkanin
+  id: ADTLeftLegVulpkanin
+  name: "left vulpkanin leg"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -154,9 +154,9 @@
       sprintSpeed: 4.6
 
 - type: entity
-  id: RightLegVulpkanin
-  name: "правая нога вульпканина"
-  parent: PartVulpkanin
+  id: ADTRightLegVulpkanin
+  name: "righ vulpkanin leg"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -173,9 +173,9 @@
       sprintSpeed: 4.6
 
 - type: entity
-  id: LeftFootVulpkanin
-  name: "левая ступня вульпканина"
-  parent: PartVulpkanin
+  id: ADTLeftFootVulpkanin
+  name: "left vulpkanin foot"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false
@@ -189,9 +189,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightFootVulpkanin
-  name: "правая ступня вульпканина"
-  parent: PartVulpkanin
+  id: ADTRightFootVulpkanin
+  name: "right vulpkanin foot"
+  parent: ADTPartVulpkanin
   components:
     - type: Sprite
       netsync: false

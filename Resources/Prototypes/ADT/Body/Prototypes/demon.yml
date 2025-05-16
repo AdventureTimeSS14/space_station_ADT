@@ -13,9 +13,9 @@
     torso:
       part: TorsoDemon
       organs:
-        heart: OrganDemonHeart
+        heart: ADTOrganDemonHeart
         lungs: OrganHumanLungs
-        stomach: OrganDemonStomach
+        stomach: ADTOrganDemonStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
       connections:

@@ -176,7 +176,7 @@
 - type: entity
   id: ADTRightFootDrask
   name: "right drask foot"
-  parent: ADTPartDrask
+  parent: ADT
   components:
   - type: Sprite
     netsync: false
