@@ -105,17 +105,21 @@ public sealed partial class HumanoidAppearanceComponent : Component
     ///     Which markings the humanoid defaults to when nudity is toggled off.
     /// </summary>
     [DataField]
-    public ProtoId<MarkingPrototype>? UndergarmentTop = new ProtoId<MarkingPrototype>("UndergarmentTopTanktop");
+    public ProtoId<MarkingPrototype>? UndergarmentTop; // ADT-Tweak
 
     [DataField]
-    public ProtoId<MarkingPrototype>? UndergarmentBottom = new ProtoId<MarkingPrototype>("UndergarmentBottomBoxers");
+    public ProtoId<MarkingPrototype>? UndergarmentBottom; // ADT-Tweak
+
     // ADT Barks start
+
     /// <summary>
     ///     Current voice. Used for correct cloning.
     /// </summary>
+
     [DataField("bark")]
     public BarkData Bark = new();
     // ADT Barks end
+
     //ADT tweak - allow markings to support shaders
     [DataField("shader")]
     public string? Shader { get; private set; } = null;
