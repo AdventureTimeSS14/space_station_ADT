@@ -31,6 +31,11 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
+            // ADT-Tweak-Start
+            if (!comp.Enabled)
+                return;
+            // ADT-Tweak-End
+
             if (_actorQuery.HasComp(uid) || !PhysicsQuery.TryComp(uid, out var physics))
                 continue;
 

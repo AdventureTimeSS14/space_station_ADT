@@ -13,8 +13,8 @@
     requiredLegs: 2
   - type: HumanoidAppearance
     species: Vox
-    undergarmentTop: UndergarmentTopTanktopVox
-    undergarmentBottom: UndergarmentBottomBoxersVox
+    # undergarmentTop: UndergarmentTopTanktopVox # ADT-No-More-Useless-Feature
+    # undergarmentBottom: UndergarmentBottomBoxersVox # ADT-No-More-Useless-Feature
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
@@ -86,8 +86,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    # - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] # ADT-No-More-Useless-Feature
+    # - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] # ADT-No-More-Useless-Feature
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
@@ -189,8 +189,8 @@
   components:
   - type: HumanoidAppearance
     species: Vox
-    undergarmentTop: UndergarmentTopTanktopVox
-    undergarmentBottom: UndergarmentBottomBoxersVox
+    # undergarmentTop: UndergarmentTopTanktopVox # ADT-No-More-Useless-Feature
+    # undergarmentBottom: UndergarmentBottomBoxersVox # ADT-No-More-Useless-Feature
   - type: Body
     prototype: Vox
   - type: Inventory
