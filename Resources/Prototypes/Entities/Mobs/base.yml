@@ -50,6 +50,7 @@
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
+  - type: CellContainer
   # ADT tweak end
 
 - type: entity
