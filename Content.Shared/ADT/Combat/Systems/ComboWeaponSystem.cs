@@ -1,13 +1,9 @@
 using System.Linq;
 using Content.Shared.CombatMode;
-using Content.Shared.Actions;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.ADT.Grab;
-using Content.Shared.Actions.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Humanoid;
-using Content.Shared.ADT.Crawling;
 using Content.Shared._RMC14.Weapons.Common;
 using Robust.Shared.Timing;
 
@@ -15,10 +11,11 @@ namespace Content.Shared.ADT.Combat;
 
 public sealed class SharedWeaponComboSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedComboSystem _comboSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -95,6 +92,7 @@ public sealed class SharedWeaponComboSystem : EntitySystem
             _pullingSystem.TryStopPull(target, pulled, user);
         return true;
     }
+
     //дубликат в связи с тем, что не дотнет не даёт использовать метод из combosystem
     public bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)
     {
