@@ -22,11 +22,13 @@ using Robust.Shared.Physics.Components;
 using Content.Shared.Mobs;
 using Content.Server.Singularity.Events;
 using Content.Shared.ADT.Silicon.Components;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.Poltergeist;
 
 public sealed partial class PoltergeistSystem : EntitySystem
 {
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
@@ -163,10 +165,10 @@ public sealed partial class PoltergeistSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
+        if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        _euiManager.OpenEui(new RestInPeaceEui(uid, this), mind.Session);
+        _euiManager.OpenEui(new RestInPeaceEui(uid, this), session);
     }
 
     private void OnSinguloConsumeAttempt(EntityUid uid, PoltergeistComponent component, ref EventHorizonAttemptConsumeEntityEvent args)

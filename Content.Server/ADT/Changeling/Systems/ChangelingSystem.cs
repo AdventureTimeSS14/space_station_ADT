@@ -87,6 +87,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     #endregion
 
     public static DamageSpecifier AbsorbGeneticDmg = new DamageSpecifier()

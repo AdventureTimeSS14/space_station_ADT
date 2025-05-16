@@ -19,10 +19,10 @@ public sealed class CommandBudgetSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, CommandBudgetPinPaperComponent component, MapInitEvent args)
     {
-        if (!TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? account))
-            return;
+        // if (!TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? account))
+        //     return;
 
-        var pin = account.BankAccount.AccountPin;
-        _paper.SetContent((uid, EnsureComp<PaperComponent>(uid)) ,Loc. GetString("command-budget-pin-message", ("pin", pin)));
+        // var pin = account.BankAccount.AccountPin;
+        // _paper.SetContent((uid, EnsureComp<PaperComponent>(uid)) ,Loc. GetString("command-budget-pin-message", ("pin", pin)));
     }
 }

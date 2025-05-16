@@ -146,7 +146,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         }
 
         //ADT rerev start
-        if (mind == null || mind.Session == null || ev.User == null)
+        if (mind == null || mind.UserId == null || ev.User == null || !_player.TryGetSessionById(mind.UserId, out var session))
             return;
 
         if (!_mind.TryGetMind(ev.User.Value, out var revMindId, out _) || !_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
@@ -154,7 +154,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (role.Value.Comp2.ConvertedCount <= 15)
         {
-            _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), mind.Session);
+            _euiMan.OpenEui(new AcceptRevolutionEui(ev.User.Value, ev.Target, comp, this), session);
             return;
         }
         //ADT rerev end
@@ -175,8 +175,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             _role.MindAddRole(mindId, "MindRoleRevolutionary");
         }
 
-        if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var session))
-            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+        if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var briefsession)) //ADT tweak
+            _antag.SendBriefing(briefsession, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound); //ADT tweak
     }
 
     //TODO: Enemies of the revolution
@@ -350,8 +350,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (_mind.TryGetMind(user, out var revMindId, out _) && _role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
             role.Value.Comp2.ConvertedCount++;
         // ADT TWEAK END
-        if (mind?.Session != null)
-            _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+        if (mind?.UserId != null && _player.TryGetSessionById(mind?.UserId, out var session))
+            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }
     //ADT rerev end
 }

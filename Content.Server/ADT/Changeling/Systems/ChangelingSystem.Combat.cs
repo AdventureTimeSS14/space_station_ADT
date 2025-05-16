@@ -91,9 +91,9 @@ public sealed partial class ChangelingSystem
 
             if (!_mindSystem.TryGetMind(ent, out var mindId, out var mind))
                 continue;
-            if (mind.Session == null)
+            if (mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
                 continue;
-            _audioSystem.PlayGlobal(component.SoundResonant, mind.Session);
+            _audioSystem.PlayGlobal(component.SoundResonant, session);
         }
     }
 

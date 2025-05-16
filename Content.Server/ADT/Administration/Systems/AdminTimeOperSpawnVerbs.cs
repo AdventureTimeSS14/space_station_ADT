@@ -8,6 +8,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server.GameTicking;
 
 
 // ADT Content: Time Patrol "ОБВА" by 🐾 Schrödinger's Code 🐾
@@ -24,6 +25,7 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
+    [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private void AddAdminTimeOperSpawnVerbs(GetVerbsEvent<Verb> args)

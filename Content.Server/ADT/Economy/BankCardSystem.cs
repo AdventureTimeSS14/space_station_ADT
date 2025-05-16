@@ -19,11 +19,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo;
-
 namespace Content.Server.ADT.Economy;
 
 public sealed class BankCardSystem : EntitySystem
 {
+    [Dependency] private readonly SharedCargoSystem _sharescargo = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
@@ -96,21 +96,21 @@ public sealed class BankCardSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, BankCardComponent component, MapInitEvent args)
     {
-        if (component.CommandBudgetCard &&
-            TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? acc))
-        {
-            component.AccountId = acc.BankAccount.AccountId;
-            return;
-        }
+        // if (component.CommandBudgetCard &&
+        //     TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? acc))
+        // {
+        //     component.AccountId = acc.BankAccount.AccountId;
+        //     return;
+        // }
 
-        if (component.AccountId.HasValue)
-        {
-            CreateAccount(component.AccountId.Value, component.StartingBalance);
-            return;
-        }
+        // if (component.AccountId.HasValue)
+        // {
+        //     CreateAccount(component.AccountId.Value, component.StartingBalance);
+        //     return;
+        // }
 
-        var account = CreateAccount(default, component.StartingBalance);
-        component.AccountId = account.AccountId;
+        // var account = CreateAccount(default, component.StartingBalance);
+        // component.AccountId = account.AccountId;
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
@@ -204,24 +204,24 @@ public sealed class BankCardSystem : EntitySystem
 
     public bool TryChangeBalance(int accountId, int amount)
     {
-        if (!TryGetAccount(accountId, out var account) || account.Balance + amount < 0)
-            return false;
+        // if (!TryGetAccount(accountId, out var account) || account.Balance + amount < 0)
+        //     return false;
 
-        if (account.CommandBudgetAccount)
-        {
-            while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
-            {
-                if (acc.BankAccount.AccountId != accountId)
-                    continue;
+        // if (account.CommandBudgetAccount)
+        // {
+        //     while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
+        //     {
+        //         if (acc.BankAccount.AccountId != accountId)
+        //             continue;
 
-                _cargo.UpdateBankAccount((uid, acc), amount);
-                return true;
-            }
-        }
+        //         _cargo.UpdateBankAccount((uid, acc), amount);
+        //         return true;
+        //     }
+        // }
 
-        account.Balance += amount;
-        if (account.CartridgeUid != null)
-            _bankCartridge.UpdateUiState(account.CartridgeUid.Value);
+        // account.Balance += amount;
+        // if (account.CartridgeUid != null)
+        //     _bankCartridge.UpdateUiState(account.CartridgeUid.Value);
 
         return true;
     }

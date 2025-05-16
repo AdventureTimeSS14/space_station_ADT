@@ -883,7 +883,7 @@
       state: generic_panel_open
   - type: CargoOrderConsole
     removeLimitAccess: [ "Quartermaster" ]
-  - type: BankClient
+  # - type: BankClient
   - type: StationAiWhitelist #ADT-Tweak
   - type: ActiveRadio
     channels:

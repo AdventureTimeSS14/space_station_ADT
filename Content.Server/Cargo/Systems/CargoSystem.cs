@@ -80,9 +80,9 @@ public sealed partial class CargoSystem : SharedCargoSystem
     //ADT-Economy-Start
     private void OnInit(EntityUid uid, StationBankAccountComponent component, ComponentInit args)
     {
-        component.BankAccount = _bankCard.CreateAccount(default, 2000);
-        component.BankAccount.CommandBudgetAccount = true;
-        component.BankAccount.Name = Loc.GetString("command-budget");
+        // component.BankAccount = _bankCard.CreateAccount(default, 2000);
+        // component.BankAccount.CommandBudgetAccount = true;
+        // component.BankAccount.Name = Loc.GetString("command-budget");
     }
     //ADT-Economy-End
 

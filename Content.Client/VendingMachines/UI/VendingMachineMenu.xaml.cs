@@ -21,12 +21,15 @@ namespace Content.Client.VendingMachines.UI
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
         private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
-        public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
+        private readonly Dictionary<EntProtoId, (ListContainerButton Button, VendingMachineItem Item)> _listItems = new();
+        private readonly Dictionary<EntProtoId, uint> _amounts = new();
         public Action<VendingMachineWithdrawMessage>? OnWithdraw; //ADT-Economy
         // ADT vending eject count start
         public event Action<VendingMachineInventoryEntry, VendingMachineItem>? OnItemCountSelected;
         public double PriceMultiplier = 1;
         // ADT vending eject count end
+        private bool _enabled;
+        public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
         public VendingMachineMenu()
         {
             MinSize = new Vector2(250, 150); // Corvax-Resize

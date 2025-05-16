@@ -116,17 +116,13 @@
   - type: Tag
     tags:
     - GhostOnlyWarp
+    - ADTVaultAmbience #ADT tweak
   - type: WarpPoint
     follow: true
     location: nuclear bomb
     blacklist:
       tags:
       - GhostOnlyWarp
-  # ADT-Sound-Update-Start
-  - type: Tag
-    tags:
-    - ADTVaultAmbience
-  # ADT-Sound-Update-End
   - type: FTLSmashImmune
   - type: SupermatterImmune # ADT-Tweak
 

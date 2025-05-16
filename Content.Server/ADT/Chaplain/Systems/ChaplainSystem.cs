@@ -38,6 +38,7 @@ using Content.Shared.Humanoid;
 using Content.Server.EUI;
 using Content.Shared.Mind;
 using Content.Server.Chaplain;
+using Robust.Server.Player;
 
 namespace Content.Server.Bible;
 
@@ -59,7 +60,7 @@ public sealed class ChaplainSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly EuiManager _euiManager = null!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-
+    [Dependency] private readonly IPlayerManager _player = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -89,7 +90,7 @@ public sealed class ChaplainSystem : EntitySystem
                 comp.Accumulator = 0f;
                 continue;
             }
-                
+
 
             comp.Accumulator += frameTime;
 
@@ -216,8 +217,8 @@ public sealed class ChaplainSystem : EntitySystem
 
         args.Handled = true;
         var target = args.Args.Target.Value;
-        if (_mindSystem.TryGetMind(target, out var mindId, out var mind) && mind.Session != null)
-            _euiManager.OpenEui(new AcceptReligionEui(uid, target, component, this), mind.Session);
+        if (_mindSystem.TryGetMind(target, out var mindId, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+            _euiManager.OpenEui(new AcceptReligionEui(uid, target, component, this), session);
     }
 
     public void MakeBeliever(EntityUid uid, EntityUid target, ChaplainComponent component)

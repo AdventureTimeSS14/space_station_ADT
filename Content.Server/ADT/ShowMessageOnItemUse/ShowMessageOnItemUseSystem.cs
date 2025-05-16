@@ -9,13 +9,14 @@ using Content.Shared.Mind.Components;
 using Content.Server.Electrocution;
 using Content.Shared.Movement.Components;
 using Content.Server.Flash;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.ShowMessageOnItemUse;
 
 public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
 {
     [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
@@ -29,7 +30,7 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
     private void ItemUsed(EntityUid uid, MindFlushComponent component, UseInHandEvent args)
     {
         if (TryComp<LimitedChargesComponent>(uid, out var charges))
-            if (_charges.IsEmpty(uid, charges))
+            if (_charges.IsEmpty(uid))
                 return;
 
         var transform = EntityManager.GetComponent<TransformComponent>(uid);
@@ -44,7 +45,7 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
                 continue;
             if (TryComp<MindContainerComponent>(entity, out var mindContainer))
             {
-                if (_mind.TryGetSession(mindContainer.Mind, out var session))
+                if (_player.TryGetSessionByEntity(entity, out var session))
                 {
                     _euiManager.OpenEui(new AdtAmnesiaEui(), session);
                     Console.WriteLine($"entity {entity} mind was flushed.");

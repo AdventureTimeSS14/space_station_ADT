@@ -282,6 +282,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         return child;
     }
 
+    ///ADT tweak start
     /// <summary>
     /// Polymorphs the target entity into an exact copy of the given PolymorphHumanoidData
     /// </summary>
@@ -338,11 +339,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         // goob edit end
         // visual effect spawn
-        if (configuration.EffectProto != null)
-            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
+        // if (configuration.EffectProto != null)
+        //     SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
 
         return child;
     }
+    ///ADT tweak end
     // ADT-Changeling-Tweak-Start
     /// <summary>
     /// Sends the given entity to a pauses map

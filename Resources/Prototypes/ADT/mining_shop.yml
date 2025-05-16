@@ -81,7 +81,7 @@
   - id: ADTModsuitModDrill
     price: 1000
   - id: ADTModsuitModStorageLarge
-    price: 500 
+    price: 500
 #  - id: ADTClothingOuterArmorMinerHeavy
 #    price: 3600
 #  - id: ADTClothingOuterArmorMinerLight
@@ -126,8 +126,6 @@
   - id: PKAUpgradeRange
     price: 500
   - id: PKAUpgradeFireRate
-    price: 500
-  - id: PKAUpgradeLight
     price: 500
 
 - type: miningShopSection
