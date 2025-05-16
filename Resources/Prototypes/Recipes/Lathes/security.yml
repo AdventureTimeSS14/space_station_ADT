@@ -108,16 +108,6 @@
     Plastic: 250
     Gold: 100
 
-# ADT tweak start
-- type: latheRecipe
-  id: GrenadeStinger
-  result: GrenadeStinger
-  completetime: 4
-  materials:
-    Steel: 400
-    Plastic: 300
-# ADT tweak end
-
 - type: latheRecipe
   id: ClothingBackpackElectropack
   result: ClothingBackpackElectropack
