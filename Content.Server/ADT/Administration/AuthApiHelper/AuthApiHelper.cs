@@ -2,7 +2,6 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-
 namespace Content.Server.ADT.Administration;
 
 public sealed partial class AuthApiHelper
@@ -61,5 +60,35 @@ public sealed partial class AuthApiHelper
             Logger.Warning($"Unexpected error for UUID {uuid}: {ex.Message}");
             return "Ошибка системы";
         }
+    }
+
+    public static async Task<string?> GetAccountDiscord(ulong userId, string discordTokenBot)
+    {
+        var botToken = discordTokenBot;
+
+        if (string.IsNullOrWhiteSpace(botToken))
+            throw new InvalidOperationException("DISCORD_BOT_TOKEN not set.");
+
+        using var client = new HttpClient();
+        client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bot", botToken);
+
+        var response = await client.GetAsync($"https://discord.com/api/v10/users/{userId}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return null;
+        }
+
+        var json = await response.Content.ReadAsStringAsync();
+        using var doc = JsonDocument.Parse(json);
+        var root = doc.RootElement;
+
+        var username = root.GetProperty("username").GetString();
+        var discriminator = root.TryGetProperty("discriminator", out var discProp)
+            ? discProp.GetString()
+            : null;
+
+        return discriminator != null ? $"{username}#{discriminator}" : username;
     }
 }
