@@ -10,7 +10,7 @@ using Content.Client.Markers;
 using Robust.Shared.GameObjects;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Item;
-
+using DrawDepthTag = Robust.Shared.GameObjects.DrawDepth;
 namespace Content.Client.ADT.MesonVision;
 
 public sealed class MesonVisionOverlay : Overlay
@@ -59,7 +59,7 @@ public sealed class MesonVisionOverlay : Overlay
         foreach (var entity in _entity.GetEntities())
         {
             if (_mob.HasComponent(entity) || _marker.HasComponent(entity)) continue;
-            if (!_spriteQuery.TryGetComponent(entity, out var sprite) || sprite.DrawDepth > 12) continue;
+            if (!_spriteQuery.TryGetComponent(entity, out var sprite) || sprite.DrawDepth < -2 || sprite.DrawDepth > 7 || sprite.DrawDepth == 0) continue;
             if (!_xformQuery.TryGetComponent(entity, out var xform)) continue;
             if (_container.TryGetOuterContainer(entity, xform, out var container)) continue;
 
