@@ -5,13 +5,16 @@
   description: A coffee machine for a coffee break... Oh yeah? You want a break?
   suffix: Filled, Common
   components:
+  - type: SpamEmitSoundRequirePower
   - type: SpamEmitSound
     minInterval: 90
     maxInterval: 240
     sound:
       path: /Audio/ADT/Ambience/Objects/coffeewarm.ogg
       params:
-        variation: 0.125
+        volume: -8
+        maxDistance: 10
+        variation: 0.05
   - type: Rotatable
   - type: Sprite
     sprite: ADT/Structures/coffeemachine.rsi
