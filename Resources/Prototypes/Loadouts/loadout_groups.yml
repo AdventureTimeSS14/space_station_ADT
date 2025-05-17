@@ -64,6 +64,7 @@
   - AcousticGuitarInstrument
   - HarmonicaInstrument
   - ADTModStorageVoucher
+  - ADTClothingGeorgeRibbonPin
   # ADT-Tweak-End
 
 - type: loadoutGroup
@@ -369,6 +370,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
+  - LawyerGreenSuit # ADT-Loadouts
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -1133,6 +1135,7 @@
   - ADTSecurityOfficerNeckBadgeSilver
   - ADTSecurityOfficerNeckBadgeGold
   # ADT-Loadout-End
+  - HeadofSecurityShoulderMantle # Corvax-Loadouts
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing

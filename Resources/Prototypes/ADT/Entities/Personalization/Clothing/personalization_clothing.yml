@@ -40,6 +40,8 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
+  - type: CoveredSlot
+    slots: [underweart]
 ##Sponsor Shoes
 - type: entity
   abstract: true
@@ -781,6 +783,13 @@
   - type: Fiber
     fiberColor: fibers-black
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelAnagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_duffel.rsi
 
 #MleM
 - type: entity

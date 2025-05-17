@@ -15,8 +15,9 @@
   - type: StealTarget
     stealGroup: HandTeleporter
 
+### Start ADT Tweak
 - type: entity
-  id: HandTeleporterAdmeme
+  id: HandTeleporterAdmemeClassic
   suffix: Admeme
   parent: BaseItem
   name: interdimensional teleporter
@@ -26,7 +27,9 @@
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
     layers:
     - state: icon
-      color: green
   - type: HandTeleporter
-    firstPortalPrototype: PortalGatewayBlue
-    secondPortalPrototype: PortalGatewayOrange
+    allowPortalsOnDifferentGrids: true
+    allowPortalsOnDifferentMaps: true
+    firstPortalPrototype: ADTPortalBlueAdmin
+    secondPortalPrototype: ADTPortalRedAdmin
+### End ADT Tweak

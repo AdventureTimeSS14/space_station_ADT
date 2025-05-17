@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: ClothingNeckBase #Выведено из сборки, заменено на жетоны трех видов достоинства
-  id: ADTClothingNeckSecBadge 
+  id: ADTClothingNeckSecBadge
   name: sec badge
   description: sec badge
   components:
@@ -57,6 +57,7 @@
     - type: Tag
       tags:
       - ADTBadge
+      - ADTBadgeBronze
 
 - type: entity
   parent: ClothingNeckBase
@@ -70,6 +71,7 @@
     - type: Tag
       tags:
       - ADTBadge
+      - ADTBadgeSilver
 
 - type: entity
   parent: ClothingNeckBase
@@ -83,3 +85,4 @@
     - type: Tag
       tags:
       - ADTBadge
+      - ADTBadgeGolden

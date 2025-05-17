@@ -124,21 +124,21 @@
     Weh:
       collection: Weh
     Sneeze:
-      collection: MaleSneezes
+      collection: FemaleSneezes
     Cough:
-      collection: MaleCoughs
+      collection: FemaleCoughs
     MonkeyScreeches:
       collection: MonkeyScreeches
     Yawn:
-      collection: MaleYawn
+      collection: FemaleYawn
     Snore:
       collection: Snores
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh
+      collection: FemaleSigh
     Crying:
-      collection: MaleCry
+      collection: FemaleCry
     Whistle:
       collection: Whistles
 

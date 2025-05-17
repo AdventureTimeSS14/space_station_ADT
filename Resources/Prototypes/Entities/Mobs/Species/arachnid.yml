@@ -149,7 +149,7 @@
   - type: HumanoidAppearance
     species: Arachnid
   - type: Inventory
-    speciesId: arachnid 
+    speciesId: arachnid
   # Start ADT tweak
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
     scale: 1.07, 1.07 # ADT tweak
@@ -163,9 +163,9 @@
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       # ADT tweak start
-      - map: [ "underwearb" ] #Sirena
-      - map: [ "underweart" ] #Sirena
-      - map: [ "socks" ] #Sirena
+      - map: [ "underwearb" ]
+      - map: [ "underweart" ]
+      - map: [ "socks" ]
       # ADT tweak end
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]

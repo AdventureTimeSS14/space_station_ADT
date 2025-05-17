@@ -1,0 +1,139 @@
+- type: entity
+  parent: [ReagentDispenserBase, BaseMachinePowered]
+  id: ADTCoffeeMachine
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You want a break?
+  suffix: Filled, Common
+  components:
+  - type: SpamEmitSoundRequirePower
+  - type: SpamEmitSound
+    minInterval: 90
+    maxInterval: 240
+    sound:
+      path: /Audio/ADT/Ambience/Objects/coffeewarm.ogg
+      params:
+        volume: -8
+        maxDistance: 10
+        variation: 0.05
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/coffeemachine.rsi
+    drawdepth: SmallObjects
+    state: common
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+      - ChemDispensable
+    pack: CoffeeMachineInventory
+  - type: Transform
+    noRot: false
+  - type: GuideHelp
+    guides:
+    - Drinks
+  - type: Machine
+    board: ADTCoffeeMachineCircuitboard
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineSec
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You need a coffee break?
+  suffix: Filled, Security
+  components:
+  - type: Sprite
+    state: security
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineRND
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You need a coffee break?
+  suffix: Filled, Reaserch
+  components:
+  - type: Sprite
+    state: science
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineMed
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You need a coffee break?
+  suffix: Filled, Medicine
+  components:
+  - type: Sprite
+    state: medicine
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineBotanic
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You need a coffee break?
+  suffix: Filled, Hydroponic
+  components:
+  - type: Sprite
+    state: hydroponics
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineEngineer
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You need a coffee break?
+  suffix: Filled, Engineer
+  components:
+  - type: Sprite
+    state: engineer
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineCargo
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You need a coffee break?
+  suffix: Filled, Cargo
+  components:
+  - type: Sprite
+    state: cargo
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineCommand
+  name: coffee machine
+  description: A coffee machine for a coffee break... Oh yeah? You need a coffee break?
+  suffix: Filled, Command
+  components:
+  - type: Sprite
+    state: command
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+      - ChemDispensable
+    pack: CoffeeMachineCommandInventory
+
+- type: entity
+  parent: ADTCoffeeMachine
+  name: bluespace coffee machine
+  id: ADTCoffeeMachineBluespace
+  suffix: Filled, Bluespace
+  components:
+  - type: Sprite
+    state: bluespace
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - ADTBluespaceCoffeine
+    pack: CoffeeMachineBluespaceInventory
+  - type: Machine
+    board: ADTCoffeeMachineBluespaceCircuitboard
+
+- type: entity
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineEmpty
+  suffix: Empty, Common
+  components:
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+      - ChemDispensable
+    pack: EmptyInventory
