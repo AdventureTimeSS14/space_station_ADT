@@ -2,53 +2,71 @@
     xmlns="https://spacestation14.io"
     xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
     Title="Mini Command Console"
-    MinSize="800 400">
+    MinSize="800 550">
+    <!--Resizable="False"-->
 
-    <!-- Внешний корпус мини-компьютера -->
-    <PanelContainer StyleClasses="AngleRect" Margin="10" VerticalExpand="True" HorizontalExpand="True">
+    <PanelContainer Margin="10" VerticalExpand="True" HorizontalExpand="True">
         <BoxContainer Orientation="Vertical" SeparationOverride="5" Margin="10" HorizontalExpand="True" VerticalExpand="True">
 
-            <!-- Панель с названием / логотипом -->
-            <PanelContainer StyleClasses="WindowTitleBackground" HorizontalExpand="True" MinHeight="30">
-                <Label Text="🖥 Mini Command Console" Align="Center" StyleClasses="LabelHeadingBigger" />
-            </PanelContainer>
+            <!-- Заголовок названия -->
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinHeight="70">
+                <Label Text="💻 Mini Command Console" Align="Center" StyleClasses="StatusFieldTitle"/>
+            </BoxContainer>
 
-            <!-- "Экран" консоли -->
-            <PanelContainer StyleClasses="PdaBackground" VerticalExpand="True" HorizontalExpand="True">
+            <!-- Основной экран -->
+            <PanelContainer VerticalExpand="True" HorizontalExpand="True">
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
 
-                    <!-- Поле ввода команды -->
-                    <PanelContainer StyleClasses="ItemBackground" Margin="0 0 0 5">
-                        <TextEdit Name="CommandInput"
-                                  HorizontalExpand="True"
-                                  VerticalExpand="False"
-                                  MinHeight="100"
-                                  StyleClasses="ChatInput" />
+                    <!-- Строка "загрузки" -->
+                    <Label Text="> Booting Mini Command Console..." FontColorOverride="lime" Margin="0 0 0 5" />
+
+                    <!-- Индикаторы -->
+                    <PanelContainer Margin="0 0 0 5">
+                        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                            <Label Text="● Power" FontColorOverride="lime" Margin="5" />
+                            <Label Text="● Net" FontColorOverride="aqua" Margin="5" />
+                            <Label Text="● HDD" FontColorOverride="orange" Margin="5" />
+                        </BoxContainer>
                     </PanelContainer>
 
-                    <!-- Кнопка запуска -->
+                    <!-- Поле ввода -->
+                    <PanelContainer Name="InputPanel" Margin="0 0 0 5">
+                        <TextEdit Name="CommandInput"
+                                HorizontalExpand="True"
+                                VerticalExpand="False"
+                                MinHeight="100" />
+                    </PanelContainer>
+
+                    <!-- Разделитель -->
+                    <PanelContainer MinHeight="3" Margin="0 5" />
+
+                    <!-- Кнопка -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 5">
                         <Button Name="ExecuteButton"
                                 Text="▶ Execute"
                                 ToolTip="Execute command chain"
-                                StyleClasses="OpenBoth" />
+                                Modulate="lightgreen"
+                                Margin="5" />
                     </BoxContainer>
 
-                    <!-- Вывод текста -->
-                    <PanelContainer StyleClasses="ItemBackground" VerticalExpand="True" HorizontalExpand="True">
+                    <!-- Вывод -->
+                    <PanelContainer Name="OutputPanel" VerticalExpand="True" HorizontalExpand="True">
                         <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
                             <RichTextLabel Name="OutputLabel"
-                                           HorizontalExpand="True"
-                                           VerticalExpand="True"
-                                           StyleClasses="Label" />
+                                        HorizontalExpand="True"
+                                        VerticalExpand="True"
+                                        Modulate="lime" />
                         </ScrollContainer>
                     </PanelContainer>
+
+                    <!-- Декоративная линия -->
+                    <PanelContainer MinHeight="1" Margin="0 5" />
 
                 </BoxContainer>
             </PanelContainer>
 
-            <!-- Нижняя декоративная панель -->
-            <PanelContainer StyleClasses="WindowTitleBackground" HorizontalExpand="True" MinHeight="20">
+            <!-- Нижняя панель -->
+            <PanelContainer HorizontalExpand="True" MinHeight="20">
                 <Label Text="CMD OS v1.0" Align="Right" FontColorOverride="gray" Margin="0 0 5 0" />
             </PanelContainer>
 
