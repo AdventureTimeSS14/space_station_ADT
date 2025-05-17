@@ -234,7 +234,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (HasComp<UnremoveableComponent>(item))
         {
             if (HasComp<SupermatterIgnoreComponent>(target) || HasComp<SupermatterIgnoreComponent>(item))
-                break;
+                return;
 
             if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, target);
@@ -278,7 +278,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             EntityManager.QueueDeleteEntity(item);
 
             if (HasComp<SupermatterIgnoreComponent>(target) || HasComp<SupermatterIgnoreComponent>(item))
-                break;
+                return;
 
             if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, item);
@@ -352,9 +352,9 @@ public sealed partial class SupermatterSystem : EntitySystem
             sm.MatterPower += targetPhysics.Mass;
             _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} collided with {EntityManager.ToPrettyString(uid):uid} at {Transform(uid).Coordinates:coordinates}");
 
-            if (targetPhysics.BodyType == HasComp<SupermatterIgnoreComponent>(target))
-                break;
-                
+            if (HasComp<SupermatterIgnoreComponent>(target))
+                return;
+
             if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, target);
         }
