@@ -17,13 +17,30 @@
     virology:    Structures/Doors/Airlocks/Standard/virology.rsi
     #ADT-Tweak-Start
     bar:         ADT/Structures/Doors/Airlocks/Standard/bar.rsi
+    barber:      ADT/Structures/Doors/Airlocks/Standard/barber.rsi
     bathroom:    ADT/Structures/Doors/Airlocks/Standard/bathroom.rsi
+    blueshield:  ADT/Structures/Doors/Airlocks/Standard/blueshield.rsi
+    capitan:     ADT/Structures/Doors/Airlocks/Standard/cap.rsi
+    chiefengineer: ADT/Structures/Doors/Airlocks/Standard/ce.rsi
     chaplain:    ADT/Structures/Doors/Airlocks/Standard/chaplain.rsi
+    cmo:         ADT/Structures/Doors/Airlocks/Standard/cmo.rsi
+    headofpersonal: ADT/Structures/Doors/Airlocks/Standard/hop.rsi
+    headofsecurity: ADT/Structures/Doors/Airlocks/Standard/hos.rsi
+    iaa:         ADT/Structures/Doors/Airlocks/Standard/iaa.rsi
+    janitor:     ADT/Structures/Doors/Airlocks/Standard/janitor.rsi
     kitchen:     ADT/Structures/Doors/Airlocks/Standard/kitchen.rsi
+    lawyer:      ADT/Structures/Doors/Airlocks/Standard/lawyer.rsi
+    library:     ADT/Structures/Doors/Airlocks/Standard/library.rsi
+    magistart:   ADT/Structures/Doors/Airlocks/Standard/magistrat.rsi
     morgue:      ADT/Structures/Doors/Airlocks/Standard/morgue.rsi
+    psychologist: ADT/Structures/Doors/Airlocks/Standard/psycho.rsi
+    quartermaster: ADT/Structures/Doors/Airlocks/Standard/qm.rsi
+    researchdirector: ADT/Structures/Doors/Airlocks/Standard/rd.rsi
     robotics:    ADT/Structures/Doors/Airlocks/Standard/robotics.rsi
     salvage:     ADT/Structures/Doors/Airlocks/Standard/salvage.rsi
+    service:     ADT/Structures/Doors/Airlocks/Standard/service.rsi
     theatre:     ADT/Structures/Doors/Airlocks/Standard/theatre.rsi
+
     #ADT-Tweak-End
 
 - type: AirlockGroup
@@ -45,11 +62,28 @@
     virology:    Structures/Doors/Airlocks/Glass/virology.rsi
     #ADT-Tweak-Start
     bar:         ADT/Structures/Doors/Airlocks/Glass/bar.rsi
+    barber:      ADT/Structures/Doors/Airlocks/Glass/barber.rsi
     bathroom:    ADT/Structures/Doors/Airlocks/Glass/bathroom.rsi
+    blueshield:  ADT/Structures/Doors/Airlocks/Glass/blueshield.rsi
+    capitan:     ADT/Structures/Doors/Airlocks/Glass/cap.rsi
+    chiefengineer: ADT/Structures/Doors/Airlocks/Glass/ce.rsi
     chaplain:    ADT/Structures/Doors/Airlocks/Glass/chaplain.rsi
+    cmo:         ADT/Structures/Doors/Airlocks/Glass/cmo.rsi
+    headofpersonal: ADT/Structures/Doors/Airlocks/Glass/hop.rsi
+    headofsecurity: ADT/Structures/Doors/Airlocks/Glass/hos.rsi
+    iaa:         ADT/Structures/Doors/Airlocks/Glass/iaa.rsi
+    janitor:     ADT/Structures/Doors/Airlocks/Glass/janitor.rsi
     kitchen:     ADT/Structures/Doors/Airlocks/Glass/kitchen.rsi
+    lawyer:      ADT/Structures/Doors/Airlocks/Glass/lawyer.rsi
+    library:     ADT/Structures/Doors/Airlocks/Glass/library.rsi
+    magistart:   ADT/Structures/Doors/Airlocks/Glass/magistrat.rsi
+    morgue:      ADT/Structures/Doors/Airlocks/Glass/morgue.rsi
+    psychologist: ADT/Structures/Doors/Airlocks/Glass/psycho.rsi
+    quartermaster: ADT/Structures/Doors/Airlocks/Glass/qm.rsi
+    researchdirector: ADT/Structures/Doors/Airlocks/Glass/rd.rsi
     robotics:    ADT/Structures/Doors/Airlocks/Glass/robotics.rsi
     salvage:     ADT/Structures/Doors/Airlocks/Glass/salvage.rsi
+    service:     ADT/Structures/Doors/Airlocks/Glass/service.rsi
     theatre:     ADT/Structures/Doors/Airlocks/Glass/theatre.rsi
     #ADT-Tweak-End
 
@@ -103,11 +137,27 @@
     virology: Medical
     #ADT-Tweak-Start
     bar: Civilian
+    barber: Civilian
     bathroom: Civilian
+    blueshield: Command
+    capitan: Command
+    chiefengineer: Command
     chaplain: Civilian
+    cmo: Command
+    headofpersonal: Command
+    headofsecurity: Command
+    iaa: Juridical
+    janitor: Civilian
     kitchen: Civilian
+    lawyer: Juridical
+    library: Civilian
+    magistart: Juridical
     morgue: Medical
+    psychologist: Medical
+    quartermaster: Command
+    researchdirector: Command
     robotics: Science
     salvage: Cargo
+    service: Civilian
     theatre: Civilian
     #ADT-Tweak-End
