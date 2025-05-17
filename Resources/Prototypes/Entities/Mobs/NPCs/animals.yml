@@ -1,4 +1,4 @@
-- type: entityProtoId
+- type: entity
   name: bat
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
   id: MobBat
