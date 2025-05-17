@@ -13,3 +13,13 @@ public sealed class OpenURLEvent : EntityEventArgs
         URL = url;
     }
 }
+[Serializable, NetSerializable]
+public sealed class OpenURLMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public enum HyperLinkUiKey : byte
+{
+    Key
+}

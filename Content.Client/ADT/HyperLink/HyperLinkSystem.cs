@@ -7,7 +7,7 @@ namespace Content.Client.HyperLink;
 
 public sealed class HyperLinkSystem : EntitySystem
 {
-    public override void Initialize() 
+    public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<OpenURLEvent>(OnOpenURL);
