@@ -4,8 +4,6 @@
   id: ADTbureaucratCane
   description: The same cane that stood for the legal protection of legendary personalities... Like John Station...?
   components:
-  - type: Item
-    size: Large
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/battlecane.rsi
     layers:
@@ -50,7 +48,7 @@
   - type: UseDelay
   - type: Item
     heldPrefix: off
-    size: Normal
+    size: Large
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance
