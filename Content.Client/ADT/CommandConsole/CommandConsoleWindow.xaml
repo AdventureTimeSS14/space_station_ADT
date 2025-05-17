@@ -4,17 +4,53 @@
     Title="Mini Command Console"
     MinSize="800 400">
 
-    <PanelContainer VerticalExpand="True" HorizontalExpand="True" HorizontalAlignment="Stretch"
-                    StyleClasses="PdaBackground" Margin="5">
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+    <!-- Внешний корпус мини-компьютера -->
+    <PanelContainer StyleClasses="AngleRect" Margin="10" VerticalExpand="True" HorizontalExpand="True">
+        <BoxContainer Orientation="Vertical" SeparationOverride="5" Margin="10" HorizontalExpand="True" VerticalExpand="True">
 
-            <TextEdit Name="CommandInput" HorizontalExpand="True" VerticalExpand="False" Margin="0 0 0 5" MinHeight="100"/>
+            <!-- Панель с названием / логотипом -->
+            <PanelContainer StyleClasses="WindowTitleBackground" HorizontalExpand="True" MinHeight="30">
+                <Label Text="🖥 Mini Command Console" Align="Center" StyleClasses="LabelHeadingBigger" />
+            </PanelContainer>
 
-            <Button Name="ExecuteButton" Text="Execute" ToolTip="Execute command chain" StyleClasses="OpenBoth" />
+            <!-- "Экран" консоли -->
+            <PanelContainer StyleClasses="PdaBackground" VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
 
-            <ScrollContainer HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 0">
-                <RichTextLabel Name="OutputLabel" HorizontalExpand="True" VerticalExpand="True" />
-            </ScrollContainer>
+                    <!-- Поле ввода команды -->
+                    <PanelContainer StyleClasses="ItemBackground" Margin="0 0 0 5">
+                        <TextEdit Name="CommandInput"
+                                  HorizontalExpand="True"
+                                  VerticalExpand="False"
+                                  MinHeight="100"
+                                  StyleClasses="ChatInput" />
+                    </PanelContainer>
+
+                    <!-- Кнопка запуска -->
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 5">
+                        <Button Name="ExecuteButton"
+                                Text="▶ Execute"
+                                ToolTip="Execute command chain"
+                                StyleClasses="OpenBoth" />
+                    </BoxContainer>
+
+                    <!-- Вывод текста -->
+                    <PanelContainer StyleClasses="ItemBackground" VerticalExpand="True" HorizontalExpand="True">
+                        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                            <RichTextLabel Name="OutputLabel"
+                                           HorizontalExpand="True"
+                                           VerticalExpand="True"
+                                           StyleClasses="Label" />
+                        </ScrollContainer>
+                    </PanelContainer>
+
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- Нижняя декоративная панель -->
+            <PanelContainer StyleClasses="WindowTitleBackground" HorizontalExpand="True" MinHeight="20">
+                <Label Text="CMD OS v1.0" Align="Right" FontColorOverride="gray" Margin="0 0 5 0" />
+            </PanelContainer>
 
         </BoxContainer>
     </PanelContainer>
