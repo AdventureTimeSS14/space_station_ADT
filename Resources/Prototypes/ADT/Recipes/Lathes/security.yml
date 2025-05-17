@@ -116,3 +116,11 @@
     Steel: 50
     Plastic: 140
 
+- type: latheRecipe
+  id: GrenadeStinger
+  result: GrenadeStinger
+  completetime: 4
+  materials:
+    Steel: 800
+    Plastic: 600
+

@@ -164,6 +164,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - LawyerGloves # ADT tweak
   - LawyerShoes # ADT tweak
   - Glasses
   - ADTlawyerID # ADT tweak
