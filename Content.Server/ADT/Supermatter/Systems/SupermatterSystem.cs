@@ -207,7 +207,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<SharpComponent>(args.Used))
         {
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 30f, new SupermatterDoAfterEvent(), args.Target)
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 30f, new SupermatterTamperDoAfterEvent(), args.Target)
             {
                 BreakOnDamage = true,
                 BreakOnHandChange = false,
@@ -221,7 +221,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<SupermatterNobliumCoreComponent>(args.Used))
         {
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 15f, new SupermatterDoAfterEvent(), args.Target)
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 15f, new SupermatterCoreDoAfterEvent(), args.Target)
             {
                 BreakOnDamage = true,
                 BreakOnHandChange = false,
