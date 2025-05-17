@@ -79,6 +79,7 @@
   - AmmoTechFabCircuitboard
   # - SecurityTechFabCircuitboard
   - MedicalTechFabCircuitboard
+  - ADTTonfaBlueprint
 
 - type: thiefBackpackSet
   id: ADTCluwneRev

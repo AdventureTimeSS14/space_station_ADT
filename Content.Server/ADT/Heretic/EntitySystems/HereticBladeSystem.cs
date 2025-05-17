@@ -9,6 +9,7 @@ using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
@@ -17,6 +18,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Shared.ADT.Combat;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -43,6 +45,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HereticBladeComponent, PickupAttemptEvent>(OnPickUp);
     }
 
     public void ApplySpecialEffect(EntityUid performer, EntityUid target)
@@ -167,6 +170,17 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
                 _damage.SetDamage(args.User, dmg, new() { DamageDict = orig });
             }
+        }
+    }
+    private void OnPickUp(Entity<HereticBladeComponent> ent, ref PickupAttemptEvent args)
+    {
+        if (!TryComp<HereticComponent>(args.User, out var hereticComp) || hereticComp.CurrentPath != ent.Comp.Path)
+        {
+            foreach (var comboEvent in ent.Comp.EventsOnPickup)
+            {
+                comboEvent.DoEffect(args.Item, args.User, EntityManager);
+            }
+            args.Cancel();
         }
     }
 }

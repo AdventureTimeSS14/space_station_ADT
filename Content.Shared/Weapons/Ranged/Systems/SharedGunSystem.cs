@@ -261,7 +261,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             return;
         }
-        
+
         ///ADT-Personal-Gun block start
         if (TryComp<DNAGunLockerComponent>(gunUid, out var dnaGunComp) && !dnaGunComp.IsEmagged)
         {
@@ -423,11 +423,12 @@ public abstract partial class SharedGunSystem : EntitySystem
                 gun.BurstShotsCount = 0;
             }
         }
-
-        // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
-        Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
         var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value); // ADT TWEAK
-        RaiseLocalEvent(gunUid, ref shotEv);
+        RaiseLocalEvent(gunUid, ref shotEv); //ADT tweak
+        // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
+        Shoot(gunUid, gun, ev.Ammo, fromCoordinates, shotEv.ToCoordinates, out var userImpulse, user, throwItems: attemptEv.ThrowItems); //ADTR tweaked
+        // var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value); // ADT TWEAK
+        // RaiseLocalEvent(gunUid, ref shotEv); //ADT tweak
 
         if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
         {

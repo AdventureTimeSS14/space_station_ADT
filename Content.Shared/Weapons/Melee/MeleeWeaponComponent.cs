@@ -85,7 +85,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// Multiplies damage by this amount for single-target attacks.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public FixedPoint2 ClickDamageModifier = FixedPoint2.New(1);
+    public FixedPoint2 ClickDamageModifier = FixedPoint2.New(1.2); //ADT tweak
 
     // TODO: Temporarily 1.5 until interactionoutline is adjusted to use melee, then probably drop to 1.2
     /// <summary>

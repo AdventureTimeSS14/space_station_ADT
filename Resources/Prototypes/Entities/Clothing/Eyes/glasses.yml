@@ -59,10 +59,12 @@
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Glasses/meson.rsi
+    sprite: ADT/Clothing/Eyes/Glasses/meson.rsi #ADT tweak
   - type: Clothing
-    sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: EyeProtection
+    sprite: ADT/Clothing/Eyes/Glasses/meson.rsi #ADT tweak
+  - type: MesonVisionItem #ADT tweak
+  - type: ItemToggle #ADT tweak
+  # - type: EyeProtection #ADT tweak
   - type: IdentityBlocker
     coverage: EYES
   - type: ClothingGrantComponent #ADT-Tweak
@@ -242,6 +244,8 @@
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
+  - type: ThermalVisionItem # ADT tweak
+  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: ClothingEyesBase
@@ -268,8 +272,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
-  - type: NightVisionItem # RMC Night vision
-  - type: ItemToggle  # RMC Night vision
+  - type: NightVisionItem # ADT tweak
+  - type: ItemToggle  # ADT tweak
+  - type: ThermalVisionItem # ADT tweak
   - type: Appearance
   - type: GenericVisualizer
     visuals:

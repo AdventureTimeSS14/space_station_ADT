@@ -408,7 +408,6 @@
                     Blunt: 5
           - actionsNeeds:
               - Disarm
-              - Disarm
               - Grab
             comboEvent:
               - !type:ComboMoreDamageToDownedEffect

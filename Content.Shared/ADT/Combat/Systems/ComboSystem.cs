@@ -14,9 +14,8 @@ namespace Content.Shared.ADT.Combat;
 
 public abstract class SharedComboSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -85,6 +84,7 @@ public abstract class SharedComboSystem : EntitySystem
             comboEvent.DoEffect(user, target, EntityManager);
         }
     }
+
     private bool TryDoCombo(EntityUid user, EntityUid target, ComboComponent comp)
     {
         var mainList = comp.CurrestActions;
@@ -105,6 +105,7 @@ public abstract class SharedComboSystem : EntitySystem
             _pullingSystem.TryStopPull(target, pulled, user);
         return true;
     }
+
     public static bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)
     {
         if (subList.Count == 0)
@@ -128,6 +129,7 @@ public abstract class SharedComboSystem : EntitySystem
 
         return false;
     }
+
     private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
     {
         var userCoords = uid.ToCoordinates();
@@ -146,6 +148,7 @@ public abstract class SharedComboSystem : EntitySystem
 
         TryDoCombo(uid, comp.Target, comp);
     }
+
     private void OnCombatToggled(EntityUid uid, ComboComponent comp, ToggleCombatActionEvent args)
     {
         if (!TryComp<CombatModeComponent>(uid, out var combat))

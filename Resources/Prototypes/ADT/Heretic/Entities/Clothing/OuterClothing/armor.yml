@@ -23,3 +23,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodHeretic
     slot: head
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.75
+      Choke: 1.5

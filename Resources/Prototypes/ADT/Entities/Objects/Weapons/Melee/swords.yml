@@ -94,16 +94,94 @@
     - Katana
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
-    state: icon
+    layers:
+    - state: icon-on
+      map: [ "enum.ComboWeaponState.State" ]
   - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 2
     damage:
       types:
-        Slash: 35
+        Slash: 7
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
+    range: 2.3
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
+  - type: ComboWeapon
+    availableMoves:
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveWideHit
+        comboEvent:
+          - !type:ComboEffectToStanding
+            comboEvents:
+            - !type:ComboDamageEffect
+              damage:
+                types:
+                  Slash: 10
+            - !type:ComboFallEffect
+            - !type:ComboSpawnEffect
+              spawnOnTarget: ADTByondCut
+            - !type:ComboAudioEffect
+              sound:
+                path: /Audio/ADT/Entities/Objects/Weapons/Melee/cut.ogg
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveHit
+          - ProtectiveWideHit
+        comboEvent:
+          - !type:ComboEffectToStuned
+            comboEvents:
+            - !type:ComboDamageEffect
+              damage:
+                types:
+                  Slash: 25
+            - !type:ComboTrowTargetEffect
+              thrownSpeed: 13
+          - !type:ComboAudioEffect
+            sound:
+              collection: SwordHit
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveHit
+          - ProtectiveHit
+        comboEvent:
+          - !type:ComboEffectToPulled
+            comboEvents:
+            - !type:ComboDamageEffect
+              damage:
+                types:
+                  Slash: 15
+            - !type:ComboStopGrabEffect
+            - !type:ComboStunEffect
+              stunTime: 6
+              dropItems: false
+          - !type:ComboAudioEffect
+            sound:
+              collection: SwordHit
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveWideHit
+        comboEvent:
+          - !type:ComboEffectToDowned
+            comboEvents:
+            - !type:ComboDamageEffect
+              damage:
+                types:
+                  Slash: 20
+            - !type:ComboEffectTeleportOnVictim
+            - !type:ComboAudioEffect
+              sound:
+                collection: SwordHit
+  - type: GenericVisualizer
+    visuals:
+      enum.ComboWeaponState.State:
+        enum.ComboWeaponState.State:
+          True: {state: icon-on}
+          False: {state: icon}
+  - type: Appearance
 
 - type: entity
   parent: BaseItem
@@ -414,61 +492,3 @@
   - type: Construction
     graph: ADTBSword
     node: ADTBoneCompSword
-    
-- type: entity
-  id: ADTStraightRazor
-  name: straight razor
-  description: It's easy to slit a throat with it.
-  parent: BaseItem
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Tools/straight_razor.rsi
-    layers:
-    - state: straight-razor
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: SwitchableWeapon
-    openSound: "/Audio/Items/unsheath.ogg"
-    closeSound: "/Audio/Items/sheath.ogg"
-    damageOpen:
-      types:
-        Slash: 17
-    damageFolded:
-      types:
-        Blunt: 3
-    sizeOpened: Small
-    sizeClosed: Small
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 17
-  - type: Item
-    size: Small
-    sprite: ADT/Objects/Tools/straight_razor.rsi
-  - type: UseDelay
-    delay: 1.0
-  - type: DisarmMalus
-    malus: 0
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
-          True: {state: straight-razor-blade}
-          False: {state: straight-razor}
-
-- type: entity
-  name: gladius
-  parent: BaseSword
-  id: ADTGladius
-  description: The old sword of the Roman Empire, it is still good for campaigns against the barbarians on the technical corridors
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/gladius.rsi
-  - type: MeleeWeapon
-    attackRate: 0.75
-    damage:
-      types:
-        Slash: 20
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Item

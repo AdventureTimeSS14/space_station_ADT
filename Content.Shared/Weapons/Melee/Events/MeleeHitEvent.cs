@@ -66,14 +66,17 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// Examining melee weapons calls this event, but with <see cref="IsHit"/> set to false.
     /// </remarks>
     public bool IsHit = true;
+    public bool Iswide = false; //ADT tweak
 
-    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, Vector2? direction)
+    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, Vector2? direction,
+     bool iswide = false) //ADT tweak
     {
         HitEntities = hitEntities;
         User = user;
         Weapon = weapon;
         BaseDamage = baseDamage;
         Direction = direction;
+        Iswide = iswide; //ADT tweak
     }
 }
 
