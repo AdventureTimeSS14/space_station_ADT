@@ -102,7 +102,7 @@
   - type: StaticPrice
     price: 100
   - type: RadiationBlocker
-    resistance: 1.5
+    resistance: 2.222 # ADT tweak
 
 - type: entity
   parent: UraniumWindow

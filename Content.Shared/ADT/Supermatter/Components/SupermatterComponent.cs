@@ -267,6 +267,10 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
 
+    [DataField("radiationOutputFactor")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float RadiationOutputFactor = 0.03f;
+
     #endregion
 
     #region Timing
@@ -617,7 +621,12 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class SupermatterCoreDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SupermatterTamperDoAfterEvent : SimpleDoAfterEvent
 {
 }
 

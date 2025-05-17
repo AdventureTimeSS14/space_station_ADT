@@ -140,7 +140,7 @@ public sealed partial class SupermatterSystem
         {
             rad.Intensity =
                 _config.GetCVar(ADTCCVars.SupermatterRadsBase) +
-                (sm.Power * Math.Max(0, 1f + transmissionBonus / 10f) * 0.003f + integrityRadModificator)
+                ((sm.Power * Math.Max(0, 1f + transmissionBonus / 10f)* sm.RadiationOutputFactor) * 0.003f + integrityRadModificator)
                 * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);
 
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
@@ -304,6 +304,7 @@ public sealed partial class SupermatterSystem
             var moles = absorbedGas.TotalMoles;
 
             if (moles >= _config.GetCVar(ADTCCVars.SupermatterMolePenaltyThreshold))
+                _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
                 return DelamType.Singularity;
         }
 

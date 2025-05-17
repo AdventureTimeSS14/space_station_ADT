@@ -429,6 +429,7 @@
     damage:
       types:
         Piercing: 0
+  - type: SupermatterIgnore
 
 - type: entity
   name: glockroach
