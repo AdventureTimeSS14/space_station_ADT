@@ -1,4 +1,4 @@
-- type: entity
+- type: entityProtoId
   name: bat
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
   id: MobBat
@@ -424,9 +424,7 @@
     damage:
       types:
         Piercing: 0
-  - type: Tag ## ADT-Tweak
-    tags:
-      - SupermatterIgnore
+  - type: SupermatterIgnore
 
 - type: entity
   name: glockroach

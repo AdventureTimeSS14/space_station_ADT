@@ -47,6 +47,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
@@ -81,8 +82,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-
-    private static readonly ProtoId<TagPrototype> IgnoredTag = "ADTSupermatterIgnore";
 
     public override void Initialize()
     {
@@ -176,7 +175,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (HasComp<SupermatterImmuneComponent>(target) || HasComp<GodmodeComponent>(target))
             return;
 
-        if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
+        if (!sm.HasBeenPowered && HasComp<SupermatterIgnoreComponent>(target))
             LogFirstPower(uid, sm, target);
 
         var power = 200f;
@@ -202,9 +201,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
         // Ability to cut Sliver Supermatter if the object in your hand is sharp
-        if (!sm.HasBeenPowered)
-            sm.HasBeenPowered = true;
-
         if (sm.SliverRemoved)
             return;
 
@@ -232,9 +228,15 @@ public sealed partial class SupermatterSystem : EntitySystem
         HasComp<GodmodeComponent>(item))
             return;
 
+        if (!sm.HasBeenPowered)
+            sm.HasBeenPowered = true;
+
         if (HasComp<UnremoveableComponent>(item))
         {
-            if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
+            if (HasComp<SupermatterIgnoreComponent>(target) || HasComp<SupermatterIgnoreComponent>(item))
+                break;
+
+            if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, target);
 
             var power = 200f;
@@ -262,9 +264,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         }
         else
         {
-            if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
-                LogFirstPower(uid, sm, item);
-
             if (TryComp<PhysicsComponent>(item, out var physics))
                 sm.MatterPower += physics.Mass;
 
@@ -277,6 +276,12 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} with {EntityManager.ToPrettyString(item):item} and destroyed it at {Transform(uid).Coordinates:coordinates}");
             EntityManager.QueueDeleteEntity(item);
+
+            if (HasComp<SupermatterIgnoreComponent>(target) || HasComp<SupermatterIgnoreComponent>(item))
+                break;
+
+            if (!sm.HasBeenPowered)
+                LogFirstPower(uid, sm, item);
         }
 
         args.Handled = true;
@@ -298,8 +303,6 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         Spawn(sm.SliverPrototype, _transform.GetMapCoordinates(args.User));
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
-
-        sm.DelamTimer /= 2;
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)
@@ -332,9 +335,6 @@ public sealed partial class SupermatterSystem : EntitySystem
             _container.IsEntityInContainer(uid))
             return;
 
-        if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
-            LogFirstPower(uid, sm, target);
-
         if (!HasComp<ProjectileComponent>(target))
         {
             if (HasComp<MobStateComponent>(target))
@@ -351,6 +351,12 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             sm.MatterPower += targetPhysics.Mass;
             _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} collided with {EntityManager.ToPrettyString(uid):uid} at {Transform(uid).Coordinates:coordinates}");
+
+            if (targetPhysics.BodyType == HasComp<SupermatterIgnoreComponent>(target))
+                break;
+                
+            if (!sm.HasBeenPowered)
+                LogFirstPower(uid, sm, target);
         }
 
         // Prevent spam or excess power production
