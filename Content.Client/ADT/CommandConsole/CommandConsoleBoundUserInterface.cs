@@ -1,33 +1,37 @@
 using JetBrains.Annotations;
+using Robust.Client.UserInterface;
 
-namespace Content.Client.ADT.CommandConsole;
-
-[UsedImplicitly]
-public sealed class CommandConsoleBoundUserInterface : BoundUserInterface
+namespace Content.Client.ADT.CommandConsole
 {
-    private CommandConsoleWindow? _window;
-    private EntityUid _owner;
-
-    public CommandConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    [UsedImplicitly]
+    public sealed class CommandConsoleBoundUserInterface : BoundUserInterface
     {
-        IoCManager.InjectDependencies(this);
-        _owner = owner;
-    }
+        private CommandConsoleWindow? _window;
+        private readonly EntityUid _owner;
 
-    protected override void Open()
-    {
-        base.Open();
+        public CommandConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+        {
+            IoCManager.InjectDependencies(this);
+            _owner = owner;
+        }
 
-        _window = new CommandConsoleWindow(this, _owner);
+        protected override void Open()
+        {
+            base.Open();
 
-        _window.OpenCentered();
-    }
+            _window = new CommandConsoleWindow(this, _owner);
+            _window.OpenCentered();
+        }
 
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-        // _window?.Dispose();
-        _window?.Close();
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            if (disposing)
+            {
+                _window?.Close();
+                _window = null;
+            }
+        }
     }
 }
-
