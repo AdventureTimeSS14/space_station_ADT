@@ -82,7 +82,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    private static readonly ProtoId<TagPrototype> IgnoredTag = "SupermatterIgnore";
+    private static readonly ProtoId<TagPrototype> IgnoredTag = "ADTSupermatterIgnore";
 
     public override void Initialize()
     {
