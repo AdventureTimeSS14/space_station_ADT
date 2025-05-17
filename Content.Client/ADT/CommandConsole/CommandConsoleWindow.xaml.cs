@@ -46,10 +46,12 @@ namespace Content.Client.ADT.CommandConsole
                 var currentOutput = OutputLabel.Text;
                 OutputLabel.Text = currentOutput + output + "\n";
 
+                // После выполнения команд обновляем состояние _commandManager в компоненте
+                UpdateComponentState();
+
                 CommandInput.TextRope = new Rope.Leaf("");
             };
 
-            // Задаём чёрный фон вручную
             InputPanel.PanelOverride = new StyleBoxFlat
             {
                 BackgroundColor = Color.Black
@@ -76,6 +78,13 @@ namespace Content.Client.ADT.CommandConsole
                     var output = _commandManager.Execute(trimmed);
                     result += $"> {trimmed}\n";
                     result += output + "\n";
+
+                    if (_commandManager.ExitRequested)
+                    {
+                        // Логика закрытия консоли, если надо
+                        Close();
+                        break;
+                    }
                 }
             }
 
@@ -99,15 +108,69 @@ namespace Content.Client.ADT.CommandConsole
             if (_owner != null && _entMan.TryGetComponent(_owner.Value, out CommandConsoleComponent? comp))
             {
                 comp.Input = Rope.Collapse(CommandInput.TextRope);
+
+                // Сохраняем путь из менеджера команд в компонент
+                comp.CurrentPath = _commandManager.CurrentPath;
+
+                if (comp.RootDirectory.Children.Count == 0)
+                {
+                    InitializeFileSystem(comp.RootDirectory);
+                }
+            }
+        }
+
+        private void UpdateComponentState()
+        {
+            if (_owner != null && _entMan.TryGetComponent(_owner.Value, out CommandConsoleComponent? comp))
+            {
+                // Обновляем путь из менеджера команд
+                comp.CurrentPath = _commandManager.CurrentPath;
             }
         }
 
         private void LoadProgress()
         {
-            if (_owner != null && _entMan.TryGetComponent(_owner.Value, out CommandConsoleComponent? comp) && !string.IsNullOrEmpty(comp.Input))
+            if (_owner != null && _entMan.TryGetComponent(_owner.Value, out CommandConsoleComponent? comp))
             {
-                CommandInput.TextRope = new Rope.Leaf(comp.Input);
+                if (!string.IsNullOrEmpty(comp.Input))
+                {
+                    CommandInput.TextRope = new Rope.Leaf(comp.Input);
+                }
+
+                if (comp.RootDirectory.Children.Count == 0)
+                {
+                    InitializeFileSystem(comp.RootDirectory);
+                }
+
+                // Устанавливаем состояние менеджера команд
+                _commandManager.SetState(comp.RootDirectory, comp.CurrentPath ?? "/");
             }
         }
+
+        private void InitializeFileSystem(Directory root)
+        {
+            var etc = new Directory { Name = "etc" };
+            var home = new Directory { Name = "home" };
+            var usr = new Directory { Name = "usr" };
+            var var = new Directory { Name = "var" };
+            var bin = new Directory { Name = "bin" };
+            var readme = new File { Name = "readme.txt", Content = "Welcome to Mini Command Console OS." };
+
+            root.Add(etc);
+            root.Add(home);
+            root.Add(usr);
+            root.Add(var);
+            root.Add(bin);
+            root.Add(readme);
+        }
+
+        // private void UpdateComponentState()
+        // {
+        //     if (_owner != null && _entMan.TryGetComponent(_owner.Value, out CommandConsoleComponent? comp))
+        //     {
+        //         // Обновляем путь из менеджера команд
+        //         comp.CurrentPath = _commandManager.Pwd(Array.Empty<string>());
+        //     }
+        // }
     }
 }

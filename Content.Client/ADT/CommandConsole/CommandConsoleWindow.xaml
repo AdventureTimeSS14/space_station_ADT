@@ -47,7 +47,7 @@
                         <TextEdit Name="CommandInput"
                                 HorizontalExpand="True"
                                 VerticalExpand="False"
-                                MinHeight="100" />
+                                MinHeight="30" />
                     </PanelContainer>
 
                     <!-- Разделитель -->
@@ -61,16 +61,18 @@
                                 Modulate="lightgreen"
                                 Margin="5" />
                     </BoxContainer>
+
+                    <!--
                         <PanelContainer MinHeight="2" HorizontalExpand="True" Margin="0 0 0 2" Modulate="gray">
                             <Label Text="╔═════════════════════════════════════╗" Align="Center" FontColorOverride="darkgray"/>
                         </PanelContainer>
-                                                <!-- Глитч-декор -->
                         <PanelContainer Margin="0 4">
                             <Label Text="▄▄▄████ SYSTEM MONITOR ████▄▄▄" FontColorOverride="darkgray" Align="Center"/>
                         </PanelContainer>
                         <PanelContainer MinHeight="2" HorizontalExpand="True" Margin="0 2 0 0" Modulate="gray">
                             <Label Text="╚═════════════════════════════════════╝" Align="Center" FontColorOverride="darkgray"/>
                         </PanelContainer>
+                    -->
 
                     <!-- Область вывода с рамками -->
                     <PanelContainer Name="OutputPanel" VerticalExpand="True" HorizontalExpand="True" Margin="0 0 0 5">
