@@ -10,7 +10,9 @@
 
             <!-- Заголовок -->
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinHeight="70">
-                <Label Text="💻 Mini Command Console" Align="Center" StyleClasses="StatusFieldTitle"/>
+                <Label Text="🖥 SYSTEM CORE INTERFACE :: v1.04"
+                        Align="Center"
+                        StyleClasses="LabelHeading font-larger" />
             </BoxContainer>
 
             <!-- Основной экран -->
@@ -62,11 +64,10 @@
                         <PanelContainer MinHeight="2" HorizontalExpand="True" Margin="0 0 0 2" Modulate="gray">
                             <Label Text="╔═════════════════════════════════════╗" Align="Center" FontColorOverride="darkgray"/>
                         </PanelContainer>
-
-                                            <!-- Глитч-декор -->
-                    <PanelContainer Margin="0 4">
-                        <Label Text="▄▄▄████ SYSTEM MONITOR ████▄▄▄" FontColorOverride="darkgray" Align="Center"/>
-                    </PanelContainer>
+                                                <!-- Глитч-декор -->
+                        <PanelContainer Margin="0 4">
+                            <Label Text="▄▄▄████ SYSTEM MONITOR ████▄▄▄" FontColorOverride="darkgray" Align="Center"/>
+                        </PanelContainer>
                         <PanelContainer MinHeight="2" HorizontalExpand="True" Margin="0 2 0 0" Modulate="gray">
                             <Label Text="╚═════════════════════════════════════╝" Align="Center" FontColorOverride="darkgray"/>
                         </PanelContainer>
