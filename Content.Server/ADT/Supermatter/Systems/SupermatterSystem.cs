@@ -316,7 +316,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
     }
 
-    private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterInsertCoreDoAfterEvent args)
+    private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterCoreDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
@@ -330,7 +330,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         _popup.PopupClient(Loc.GetString("supermatter-inert-end"), uid, args.User);
     }
 
-    private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
+    private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterTamperDoAfterEvent args)
     {
         string message;
         var global = false;
