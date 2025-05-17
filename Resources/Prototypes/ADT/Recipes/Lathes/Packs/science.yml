@@ -53,6 +53,7 @@
   - IPCTranslatorImplanter
   - BorgTranslatorImplanter
   - DwarfTranslatorImplanter
+  - SindarinTranslatorImplanter # SD-tweak
   - UrsTranslator
   - ArkaneTranslator
   - NianTranslator
@@ -61,6 +62,7 @@
   - CintaTajTranslator
   - DwarfTranslator
   - IPCTranslator
+  - SindarinTranslator # SD-tweak
 
 - type: latheRecipePack
   id: ADTPhantomPack

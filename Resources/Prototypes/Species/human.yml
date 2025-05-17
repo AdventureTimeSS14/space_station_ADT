@@ -13,6 +13,10 @@
   - GalacticCommon
   - SolCommon
   # ADT end
+  # SD start
+  uniqueLanguages:
+  - Sindarin
+  # SD end
 
 
 # The lack of a layer means that

@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseTranslatorImplant
+  id: SindarinTranslatorImplant
+  name: translator implant
+  # description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    languages:
+      Sindarin: Speak

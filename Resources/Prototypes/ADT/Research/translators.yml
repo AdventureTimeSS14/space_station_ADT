@@ -28,6 +28,7 @@
   - CintaTajTranslator
   - IPCTranslator
   - DwarfTranslator
+  - SindarinTranslator # SD-tweak
   position: 3,2
   requiredTech:
   - ADTServiceMODsuitMODs
@@ -65,6 +66,7 @@
   - IPCTranslatorImplanter
   - BorgTranslatorImplanter
   - DwarfTranslatorImplanter
+  - SindarinTranslatorImplanter # SD-tweak
   position: 4,2
   requiredTech:
   - BasicTranslation

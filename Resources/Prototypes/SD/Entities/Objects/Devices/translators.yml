@@ -1,0 +1,12 @@
+- type: entity
+  id: SindarinTranslator
+  parent: [ Translator ]
+  name: Sindarin translator
+  description: "Translates speech."
+  components:
+  - type: HandheldTranslator
+    languages:
+      GalacticCommon: Speak
+      Sindarin: Speak
+  - type: StaticPrice
+    price: 1500

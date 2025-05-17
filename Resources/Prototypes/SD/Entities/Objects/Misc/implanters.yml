@@ -1,0 +1,7 @@
+- type: entity
+  id: SindarinTranslatorImplanter
+  name: Sindarin Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: SindarinTranslatorImplant
