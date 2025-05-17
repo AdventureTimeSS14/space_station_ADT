@@ -46,7 +46,6 @@ namespace Content.Client.ADT.CommandConsole
                 var currentOutput = OutputLabel.Text;
                 OutputLabel.Text = currentOutput + output + "\n";
 
-                // После выполнения команд обновляем состояние _commandManager в компоненте
                 UpdateComponentState();
 
                 CommandInput.TextRope = new Rope.Leaf("");
@@ -76,12 +75,11 @@ namespace Content.Client.ADT.CommandConsole
                 if (!string.IsNullOrEmpty(trimmed))
                 {
                     var output = _commandManager.Execute(trimmed);
-                    result += $"> {trimmed}\n";
+                    result += $"{_commandManager.CurrentPath}> {trimmed}\n";
                     result += output + "\n";
 
                     if (_commandManager.ExitRequested)
                     {
-                        // Логика закрытия консоли, если надо
                         Close();
                         break;
                     }
@@ -95,6 +93,28 @@ namespace Content.Client.ADT.CommandConsole
         {
             base.Opened();
             LoadProgress();
+
+            // ASCII приветствие
+            var firstContent =
+@"Nanotrasen Command Console v1.42
+(c) 2562 Nanotrasen Systems. All Rights Reserved.
+
+Initializing secure terminal session for station: NSS Exodus
+Security clearance level: GENERAL ACCESS
+
+Booting Mini Command Console OS...
+[ OK ] System Kernel Loaded
+[ OK ] Virtual File System Initialized
+[ OK ] Networking Stack Initialized
+[ OK ] User Session Created
+
+> Type 'help' to get started.";
+
+            var formatted = new FormattedMessage();
+            formatted.AddText(firstContent + "\n");
+            OutputLabel.SetMessage(formatted);
+
+            UpdateComponentState();
         }
 
         public override void Close()
@@ -109,7 +129,6 @@ namespace Content.Client.ADT.CommandConsole
             {
                 comp.Input = Rope.Collapse(CommandInput.TextRope);
 
-                // Сохраняем путь из менеджера команд в компонент
                 comp.CurrentPath = _commandManager.CurrentPath;
 
                 if (comp.RootDirectory.Children.Count == 0)
@@ -142,7 +161,6 @@ namespace Content.Client.ADT.CommandConsole
                     InitializeFileSystem(comp.RootDirectory);
                 }
 
-                // Устанавливаем состояние менеджера команд
                 _commandManager.SetState(comp.RootDirectory, comp.CurrentPath ?? "/");
             }
         }
@@ -152,25 +170,94 @@ namespace Content.Client.ADT.CommandConsole
             var etc = new Directory { Name = "etc" };
             var home = new Directory { Name = "home" };
             var usr = new Directory { Name = "usr" };
-            var var = new Directory { Name = "var" };
+            var varDir = new Directory { Name = "var" };
             var bin = new Directory { Name = "bin" };
-            var readme = new File { Name = "readme.txt", Content = "Welcome to Mini Command Console OS." };
+            var lib = new Directory { Name = "lib" };
+            var tmp = new Directory { Name = "tmp" };
+            var dev = new Directory { Name = "dev" };
+            var proc = new Directory { Name = "proc" };
+
+            // Файлы в /etc
+            var passwd = new File
+            {
+                Name = "passwd",
+                Content =
+                @"root:x:0:0:root:/root:/bin/bash
+                user:x:1000:1000:User,,,:/home/user:/bin/bash"
+            };
+            var hosts = new File
+            {
+                Name = "hosts",
+                Content =
+                @"127.0.0.1   localhost
+                ::1         localhost
+                192.168.1.10  mymachine.local"
+            };
+
+            // Папка и файлы в /home
+            var userDir = new Directory { Name = "user" };
+            var readmeUser = new File { Name = "readme.txt", Content = "Welcome to your home directory, user!" };
+            var notes = new File { Name = "notes.txt", Content = "Don't forget to check your mail." };
+            userDir.Add(readmeUser);
+            userDir.Add(notes);
+
+            // Папки и файлы в /usr
+            var binUsr = new Directory { Name = "bin" };
+            var libUsr = new Directory { Name = "lib" };
+            var local = new Directory { Name = "local" };
+            var localBin = new Directory { Name = "bin" };
+            var localReadme = new File { Name = "README", Content = "Local user-installed software directory." };
+            localBin.Add(new File { Name = "myapp", Content = "Executable binary placeholder" });
+            local.Add(localBin);
+            local.Add(localReadme);
+
+            binUsr.Add(new File { Name = "bash", Content = "Bash shell executable placeholder" });
+            binUsr.Add(new File { Name = "ls", Content = "List directory contents executable placeholder" });
+            libUsr.Add(new File { Name = "libc.so", Content = "Standard C library placeholder" });
+
+            usr.Add(binUsr);
+            usr.Add(libUsr);
+            usr.Add(local);
+
+            // Файлы в /var
+            var log = new Directory { Name = "log" };
+            var syslog = new File { Name = "syslog", Content = "[INFO] System started\n[WARNING] Low disk space\n" };
+            log.Add(syslog);
+            var spool = new Directory { Name = "spool" };
+
+            varDir.Add(log);
+            varDir.Add(spool);
+
+            // Файлы в /bin
+            bin.Add(new File { Name = "cat", Content = "Concatenate files executable placeholder" });
+            bin.Add(new File { Name = "echo", Content = "Echo arguments executable placeholder" });
+            bin.Add(new File { Name = "mkdir", Content = "Make directories executable placeholder" });
+
+            // /lib — библиотеки
+            lib.Add(new File { Name = "libm.so", Content = "Math library placeholder" });
+            lib.Add(new File { Name = "libpthread.so", Content = "POSIX threads library placeholder" });
+
+            // /tmp — временные файлы (пусто)
+
+            // /dev — устройства (пусто, обычно специальные файлы)
+
+            // /proc — виртуальная файловая система (пусто)
+
+            // Файл в корне
+            var motd = new File { Name = "motd", Content = "Welcome to Mini Command Console OS!\nHave a nice day!" };
 
             root.Add(etc);
             root.Add(home);
             root.Add(usr);
-            root.Add(var);
+            root.Add(varDir);
             root.Add(bin);
-            root.Add(readme);
-        }
+            root.Add(lib);
+            root.Add(tmp);
+            root.Add(dev);
+            root.Add(proc);
+            root.Add(motd);
 
-        // private void UpdateComponentState()
-        // {
-        //     if (_owner != null && _entMan.TryGetComponent(_owner.Value, out CommandConsoleComponent? comp))
-        //     {
-        //         // Обновляем путь из менеджера команд
-        //         comp.CurrentPath = _commandManager.Pwd(Array.Empty<string>());
-        //     }
-        // }
+            home.Add(userDir);
+        }
     }
 }
