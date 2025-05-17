@@ -40,8 +40,6 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <Label Text="> Booting Mini Command Console..." FontColorOverride="lime" Margin="0 0 0 5" />
-
                     <!-- Поле ввода -->
                     <PanelContainer Name="InputPanel" Margin="0 0 0 5">
                         <TextEdit Name="CommandInput"
@@ -91,9 +89,9 @@
             <!-- Нижняя панель -->
             <PanelContainer HorizontalExpand="True" MinHeight="30" Margin="5 0 5 0">
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
-                    <Label Text="⌘ CMD_OS v1.04" FontColorOverride="gray"/>
-                    <Label Text="🔧 Maintained by Schrödinger Systems" FontColorOverride="gray"/>
-                    <Label Text="💾 AUTO-SAVE: ON" FontColorOverride="green" HorizontalExpand="True"/>
+                    <Label Text="⌨ CMD_OS v1.04" FontColorOverride="gray"/>
+                    <Label Text="📚 Maintained by Schrödinger Systems" FontColorOverride="gray"/>
+                    <Label Text="📦 AUTO-SAVE: ON" FontColorOverride="green" HorizontalExpand="True"/>
                 </BoxContainer>
             </PanelContainer>
 

@@ -55,6 +55,8 @@ namespace Content.Client.ADT.CommandConsole
                 BackgroundColor = Color.Black
             };
 
+            CommandInput.Placeholder = new Rope.Leaf("> Booting Mini Command Console...");
+
             OutputPanel.PanelOverride = new StyleBoxFlat
             {
                 BackgroundColor = Color.Black
