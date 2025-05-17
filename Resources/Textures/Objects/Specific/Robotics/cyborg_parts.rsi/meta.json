@@ -245,6 +245,54 @@
         },
         {
             "name": "service_r_leg+o"
+        },
+        {
+            "name": "kerfusNT_head+o"
+        },
+        {
+            "name": "kerfusNT_torso"
+        },
+        {
+            "name": "kerfusNT_head"
+        },
+        {
+            "name": "kerfusNT_torso+o"
+        },
+        {
+            "name": "security_chest"
+        },
+        {
+            "name": "security_r_leg+o"
+        },
+        {
+            "name": "security_head"
+        },
+        {
+            "name": "security_l_leg+o"
+        },
+        {
+            "name": "security_r_arm+o"
+        },
+        {
+            "name": "security_r_arm"
+        },
+        {
+            "name": "security_l_arm+o"
+        },
+        {
+            "name": "security_chest+o"
+        },
+        {
+            "name": "security_head+o"
+        },
+        {
+            "name": "security_r_leg"
+        },
+        {
+            "name": "security_l_arm"
+        },
+        {
+            "name": "security_l_leg"
         }
     ]
 }
