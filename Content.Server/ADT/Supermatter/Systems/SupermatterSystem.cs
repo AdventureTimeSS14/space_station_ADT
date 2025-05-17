@@ -46,6 +46,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Tag;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
@@ -79,6 +80,9 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> IgnoredTag = "SupermatterIgnore";
 
     public override void Initialize()
     {
@@ -172,7 +176,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (HasComp<SupermatterImmuneComponent>(target) || HasComp<GodmodeComponent>(target))
             return;
 
-        if (!sm.HasBeenPowered)
+        if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
             LogFirstPower(uid, sm, target);
 
         var power = 200f;
@@ -230,7 +234,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<UnremoveableComponent>(item))
         {
-            if (!sm.HasBeenPowered)
+            if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
                 LogFirstPower(uid, sm, target);
 
             var power = 200f;
@@ -258,7 +262,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         }
         else
         {
-            if (!sm.HasBeenPowered)
+            if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
                 LogFirstPower(uid, sm, item);
 
             if (TryComp<PhysicsComponent>(item, out var physics))
@@ -328,7 +332,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             _container.IsEntityInContainer(uid))
             return;
 
-        if (!sm.HasBeenPowered)
+        if (!sm.HasBeenPowered && !_tag.HasTag(ent.Value, IgnoredTag))
             LogFirstPower(uid, sm, target);
 
         if (!HasComp<ProjectileComponent>(target))

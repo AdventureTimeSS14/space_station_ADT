@@ -424,6 +424,9 @@
     damage:
       types:
         Piercing: 0
+  - type: Tag ## ADT-Tweak
+    tags:
+      - SupermatterIgnore
 
 - type: entity
   name: glockroach
