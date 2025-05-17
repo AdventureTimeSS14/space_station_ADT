@@ -1134,8 +1134,8 @@
   - ADTSecurityOfficerNeckBadgeBronze
   - ADTSecurityOfficerNeckBadgeSilver
   - ADTSecurityOfficerNeckBadgeGold
-  # ADT-Loadout-End
   # - HeadofSecurityShoulderMantle # Corvax-Loadouts
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
