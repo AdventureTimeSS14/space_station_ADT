@@ -42,7 +42,7 @@ namespace Content.Shared.ADT.CommandConsole
 
         public bool ExitRequested { get; private set; } = false;
 
-        public string CurrentPath => _currentPath; // Публичное свойство
+        public string CurrentPath => _currentPath;
 
         public string Execute(string input)
         {
