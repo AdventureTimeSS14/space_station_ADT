@@ -212,7 +212,8 @@ Booting Mini Command Console OS...
         }
 
         // Изначальная файловая система. TODO:
-        // Перенести бы в компонент чтобы можно было создавать свою
+        // Перенести бы в компонент,
+        // чтобы можно было хадать свою файловую систему в прототипе
         private void InitializeFileSystem(Directory root)
         {
             var etc = new Directory { Name = "etc" };
@@ -228,14 +229,14 @@ Booting Mini Command Console OS...
             // Файлы в /etc
             var passwd = new File
             {
-                Name = "passwd",
+                Name = "passwd.txt",
                 Content =
                 @"root:x:0:0:root:/root:/bin/bash
                 user:x:1000:1000:User,,,:/home/user:/bin/bash"
             };
             var hosts = new File
             {
-                Name = "hosts",
+                Name = "hosts.txt",
                 Content =
                 @"127.0.0.1   localhost
                 ::1         localhost
@@ -254,13 +255,13 @@ Booting Mini Command Console OS...
             var libUsr = new Directory { Name = "lib" };
             var local = new Directory { Name = "local" };
             var localBin = new Directory { Name = "bin" };
-            var localReadme = new File { Name = "README", Content = "Local user-installed software directory." };
-            localBin.Add(new File { Name = "myapp", Content = "Executable binary placeholder" });
+            var localReadme = new File { Name = "README.txt", Content = "Local user-installed software directory." };
+            localBin.Add(new File { Name = "myapp.elf", Content = "Executable binary placeholder" });
             local.Add(localBin);
             local.Add(localReadme);
 
-            binUsr.Add(new File { Name = "bash", Content = "Bash shell executable placeholder" });
-            binUsr.Add(new File { Name = "ls", Content = "List directory contents executable placeholder" });
+            binUsr.Add(new File { Name = "bash.elf", Content = "Bash shell executable placeholder" });
+            binUsr.Add(new File { Name = "ls.elf", Content = "List directory contents executable placeholder" });
             libUsr.Add(new File { Name = "libc.so", Content = "Standard C library placeholder" });
 
             usr.Add(binUsr);
@@ -269,7 +270,7 @@ Booting Mini Command Console OS...
 
             // Файлы в /var
             var log = new Directory { Name = "log" };
-            var syslog = new File { Name = "syslog", Content = "[INFO] System started\n[WARNING] Low disk space\n" };
+            var syslog = new File { Name = "syslog.log", Content = "[INFO] System started\n[WARNING] Low disk space\n" };
             log.Add(syslog);
             var spool = new Directory { Name = "spool" };
 
@@ -277,9 +278,9 @@ Booting Mini Command Console OS...
             varDir.Add(spool);
 
             // Файлы в /bin
-            bin.Add(new File { Name = "cat", Content = "Concatenate files executable placeholder" });
-            bin.Add(new File { Name = "echo", Content = "Echo arguments executable placeholder" });
-            bin.Add(new File { Name = "mkdir", Content = "Make directories executable placeholder" });
+            bin.Add(new File { Name = "cat.elf", Content = "Concatenate files executable placeholder" });
+            bin.Add(new File { Name = "echo.elf", Content = "Echo arguments executable placeholder" });
+            bin.Add(new File { Name = "mkdir.elf", Content = "Make directories executable placeholder" });
 
             // /lib — библиотеки
             lib.Add(new File { Name = "libm.so", Content = "Math library placeholder" });
@@ -292,7 +293,7 @@ Booting Mini Command Console OS...
             // /proc — виртуальная файловая система (пусто)
 
             // Файл в корне
-            var motd = new File { Name = "motd", Content = "Welcome to Mini Command Console OS!\nHave a nice day!" };
+            var motd = new File { Name = "motd.elf", Content = "Welcome to Mini Command Console OS!\nHave a nice day!" };
 
             root.Add(etc);
             root.Add(home);
