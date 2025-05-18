@@ -283,7 +283,9 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
   - type: RTGHeat ## ADT-Tweak start
-    # Если вдруг нужно настроить под себя - смотрите RTGHeatComponent для подробной настройки
+    heatPerSecond: 0.1
+    heatInterval: 1
+    maxTemperature: 373.15
     ## ADT Tweak end
 
 # TODO: need radioactive fallout when destroyed
@@ -330,7 +332,9 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-    - type: RadiationEvent ## ADT-Tweak start's
+    - type: RadiationSource ## ADT-Tweak start's
+      intensity: 2
+    - type: RadiationEvent
       initialIntensity: 2  # Изначальное кол-во радиации
       decayDelay: 3600 # Время, после которого начнёт спадать радиация       
       decayRate: 0.1 # По сколько снимать радиации, за указанное ниже время        

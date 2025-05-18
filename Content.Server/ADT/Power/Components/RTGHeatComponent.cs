@@ -11,19 +11,19 @@ public sealed partial class RTGHeatComponent : Component
     /// Нагрев за секунду
     /// </summary>
     [DataField("heatPerSecond")]
-    public float HeatPerSecond = 0.1f;
+    public float HeatPerSecond;
 
     /// <summary>
     /// Интервал между нагревом
     /// </summary>
     [DataField("heatInterval")]
-    public float HeatInterval = 1f;
+    public float HeatInterval;
 
     /// <summary>
     /// Максимальная температура нагрева.
     /// </summary>
     [DataField("maxTemperature")]
-    public float MaxTemperature = 373.15f;
+    public float MaxTemperature;
 
     public float TimeSinceLastHeat = 0f;
 }

@@ -417,6 +417,8 @@
   name: supermatterradiation
   categories: [ HideSpawnMenu ]
   components:
+    - type: RadiationSource
+      intensity: 30
     - type: RadiationEvent
       initialIntensity: 30 
       decayDelay: 10       
