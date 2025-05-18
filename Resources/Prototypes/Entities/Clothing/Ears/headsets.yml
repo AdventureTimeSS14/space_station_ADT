@@ -72,7 +72,7 @@
     containers:
       key_slots:
       - EncryptionKeyCargo
-      - EncryptionKeyCommand
+#      - EncryptionKeyCommand # Ganimed-MRP, test merge
       - EncryptionKeyCommon
 
 - type: entity

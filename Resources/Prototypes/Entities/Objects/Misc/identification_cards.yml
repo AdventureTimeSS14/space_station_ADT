@@ -243,8 +243,8 @@
       heldPrefix: silver
     - type: PresetIdCard
       job: Quartermaster
-    - type: StealTarget
-      stealGroup: CommandIDCard
+#    - type: StealTarget # Ganimed-MRP, test merge
+#      stealGroup: CommandIDCard # Ganimed-MRP, test merge
 
 - type: entity
   parent: IDCardStandard
