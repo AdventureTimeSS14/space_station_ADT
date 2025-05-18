@@ -62,6 +62,9 @@
       - reactantPrototype: Plasma
         powerGenerationEfficiency: 1
         reactantBreakdownRate: 0.0001
+      - reactantPrototype: BZ
+        powerGenerationEfficiency: 1.2
+        reactantBreakdownRate: 0.00005
   - type: RadiationReceiver
   - type: PowerSupplier
   - type: Anchorable
