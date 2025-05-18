@@ -62,3 +62,4 @@
       - sprite: ADT/Objects/Misc/cores.rsi
         state: hnob_core
   - type: SupermatterNobliumCore
+  - type: SupermatterImmune
