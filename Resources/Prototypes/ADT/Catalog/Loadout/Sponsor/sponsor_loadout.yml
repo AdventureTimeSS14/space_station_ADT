@@ -35,4 +35,4 @@
 - type: startingGear
   id: PremiumSponsorLoadoutTier4
   equipment:
-    neck: ClothingNeckScarfStripedSyndieRed
+    pocket1: ADTSponsorTier3Grimoire

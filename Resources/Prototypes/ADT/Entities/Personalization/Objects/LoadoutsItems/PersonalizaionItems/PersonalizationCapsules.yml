@@ -1,0 +1,34 @@
+- type: entity
+  name: pyotr base schmot capsule
+  parent: BaseItem
+  id: ADTPersonalizationCapsuleCommonBigChungus
+  description: Tastes like cardboard
+  suffix: Personalization, Big Chungus
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: chocolatebar
+  - type: Item
+    heldPrefix: chocolatebar
+    size: Tiny
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketChocolateTrash
+      - id: ADTBriefcaseBrownPyotr
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: pyotr captain schmot capsule
+  parent: ADTPersonalizationCapsuleCommonBigChungus
+  id: ADTPersonalizationCapsuleCaptainBigChungus
+  description: Tastes like cardboard
+  suffix: Personalization, Big Chungus
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketChocolateTrash
+      - id: ADTBriefcaseBrownPyotr
+      - id: ADTClothingBeltPyotrSheath
+    sound:
+      path: /Audio/Effects/unwrap.ogg
