@@ -18,7 +18,8 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
     {
         if (!TryComp<PhysicsComponent>(args.User, out var physics) || physics.LinearVelocity.LengthSquared() < 1)
             return;
-        var offset = new Vector2(_random.NextFloat(-physics.LinearVelocity.X, physics.LinearVelocity.X), _random.NextFloat(-physics.LinearVelocity.Y, physics.LinearVelocity.Y));
+        var offset = new Vector2(_random.NextFloat(-physics.LinearVelocity.X * ent.Comp.Modifyer, physics.LinearVelocity.X * ent.Comp.Modifyer),
+        _random.NextFloat(-physics.LinearVelocity.Y * ent.Comp.Modifyer, physics.LinearVelocity.Y * ent.Comp.Modifyer));
         var toCoordinates = args.ToCoordinates.Offset(offset);
 
         args.ToCoordinates = toCoordinates;

@@ -11,7 +11,6 @@ namespace Content.Shared.ADT.Combat;
 
 public sealed class SharedWeaponComboSystem : EntitySystem
 {
-    [Dependency] private readonly SharedComboSystem _comboSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
