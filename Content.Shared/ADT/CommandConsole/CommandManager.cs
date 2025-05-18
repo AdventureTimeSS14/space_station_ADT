@@ -286,7 +286,7 @@ namespace Content.Shared.ADT.CommandConsole
 
         private string Clear(string[] args)
         {
-            return ""; // Признак очистки, UI обрабатывает
+            return ""; // TODO: Доделать команду очистки консоли
         }
 
         private string Time(string[] args)
