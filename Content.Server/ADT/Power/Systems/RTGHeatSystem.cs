@@ -1,45 +1,45 @@
-using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
-using Content.Shared.Atmos;
-using Content.Server.ADT.Power.Components;
+using Content.Server.Atmos.Components;
+using Content.Server.Temperature.Components;
+using Robust.Shared.Timing;
+using Robust.Shared.Map;
+using Robust.Shared.Physics.Components;
+using Content.Shared.ADT.Power.Components;
 
 namespace Content.Server.ADT.Power.Systems;
 
 /// <summary>
-/// Просто система нагрева атмосферы вокруг ентити.
-/// Греет до указанной температуры.
+/// Система, нагревающая газ в окружающем тайле.
 /// </summary>
 public sealed class RTGHeatSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RTGHeatComponent>();
-
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<RTGHeatComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var heatComp, out var xform))
         {
-            comp.TimeSinceLastHeat += frameTime;
+            heatComp.TimeSinceLastHeat += frameTime;
 
-            if (comp.TimeSinceLastHeat >= comp.HeatInterval)
-            {
-                var atmos = _atmosphere.GetContainingMixture(uid, false, true);
-                if (atmos == null)
-                    continue;
+            if (heatComp.TimeSinceLastHeat < heatComp.HeatInterval)
+                continue;
 
-                if (atmos.Temperature >= comp.MaxTemperature)
-                    continue;
+            heatComp.TimeSinceLastHeat = 0f;
 
-                var delta = comp.HeatPerSecond;
-                if (atmos.Temperature + delta > comp.MaxTemperature)
-                    delta = comp.MaxTemperature - atmos.Temperature;
+            var atmosphere = _atmosphere.GetTileMixture(uid, true);
 
-                atmos.Temperature += delta;
+            if (atmosphere == null)
+                continue;
 
-                comp.TimeSinceLastHeat = 0f;
-            }
+            if (atmosphere.Temperature >= heatComp.MaxTemperature)
+                continue;
+
+            var newTemp = MathF.Min(atmosphere.Temperature + heatComp.HeatPerSecond * heatComp.HeatInterval, heatComp.MaxTemperature);
+            atmosphere.Temperature = newTemp;
         }
     }
 }

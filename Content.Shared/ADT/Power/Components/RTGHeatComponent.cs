@@ -2,7 +2,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Power.Components;
+namespace Content.Shared.ADT.Power.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RTGHeatComponent : Component

@@ -282,10 +282,10 @@
                 max: 1
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  #- type: RTGHeat ## ADT-Tweak start
-  #  heatPerSecond: 0.1
-  #  heatInterval: 1
-  #  maxTemperature: 373.15
+  - type: RTGHeat ## ADT-Tweak start
+    heatPerSecond: 0.1
+    heatInterval: 1
+    maxTemperature: 373.15
     ## ADT Tweak end
 
 # TODO: need radioactive fallout when destroyed
