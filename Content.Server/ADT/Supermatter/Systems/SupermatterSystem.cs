@@ -35,6 +35,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.ADT.Supermatter;
+using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -321,29 +322,14 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        sm.HasBeenPowered = false;
-
         var message = Loc.GetString("supermatter-announcement-setinert");
         SendSupermatterAnnouncement(uid, sm, message, global: false);
 
-        Spawn(sm.SliverPrototype, _transform.GetMapCoordinates(args.User));
-        _popup.PopupClient(Loc.GetString("supermatter-inert-end"), uid, args.User);
-    }
-
-    private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterTamperDoAfterEvent args)
-    {
-        string message;
-        var global = false;
-
-        if (args.Cancelled)
-            return;
-
         sm.HasBeenPowered = false;
 
-        message = Loc.GetString("supermatter-announcement-setinert");
-        SendSupermatterAnnouncement(uid, sm, message, global);
+        if (TryComp<RadiationSourceComponent>(uid, out var rad))
+            rad.Intensity = 1;
 
-        Spawn(sm.SliverPrototype, _transform.GetMapCoordinates(args.User));
         _popup.PopupClient(Loc.GetString("supermatter-inert-end"), uid, args.User);
     }
 
@@ -394,7 +380,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             sm.MatterPower += targetPhysics.Mass;
             _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} collided with {EntityManager.ToPrettyString(uid):uid} at {Transform(uid).Coordinates:coordinates}");
 
-            if (!sm.HasBeenPowered || !HasComp<SupermatterIgnoreComponent>(target))
+            if (!sm.HasBeenPowered && !HasComp<SupermatterIgnoreComponent>(target))
                 LogFirstPower(uid, sm, target);
         }
 

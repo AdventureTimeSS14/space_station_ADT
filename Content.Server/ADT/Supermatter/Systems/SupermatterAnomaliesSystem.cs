@@ -34,8 +34,11 @@ public sealed partial class SupermatterSystem
     /// </summary>
     public void GenerateAnomalies(EntityUid uid, SupermatterComponent sm)
     {
+        if (!sm.HasBeenPowered)
+            return;
+
         sm.PreferredAnomalyMode = ChooseAnomalyType(uid, sm);
-        
+
         var xform = Transform(uid);
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
