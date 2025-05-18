@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "core"
+      "name": "p_core"
     },
     {
       "name": "radiation",

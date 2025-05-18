@@ -7,6 +7,9 @@ namespace Content.Shared.ADT.Radiation;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RadiationEventComponent : Component
 {
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+
     /// <summary>
     /// Количество изначальной радиации
     /// </summary>
