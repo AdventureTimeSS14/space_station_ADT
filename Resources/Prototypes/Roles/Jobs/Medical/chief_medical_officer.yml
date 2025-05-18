@@ -21,7 +21,7 @@
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true # Ganimed-MRP
   access:
   - Medical
   - Command
@@ -31,8 +31,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+#  - !type:AddImplantSpecial # Ganimed-MRP
+#    implants: [ MindShieldImplant ] # Ganimed-MRP
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
