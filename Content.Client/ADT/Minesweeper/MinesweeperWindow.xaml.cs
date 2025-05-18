@@ -21,6 +21,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     private GridContainer _mineGrid = default!;
 
+    private bool _minesPlaced = false;
+
     public MinesweeperWindow()
     {
         RobustXamlLoader.Load(this);
@@ -35,7 +37,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
         MineContainer.AddChild(_mineGrid);
 
         GenerateGrid();
-        PlaceMines();
     }
 
     private void GenerateGrid()
@@ -59,15 +60,22 @@ public sealed partial class MinesweeperWindow : FancyWindow
         }
     }
 
-    private void PlaceMines()
+    private void PlaceMinesExceptFirstClick(int safeX, int safeY)
     {
         int placed = 0;
         while (placed < MineCount)
         {
             int x = _rand.Next(GridSize);
             int y = _rand.Next(GridSize);
+
+            // Пропускаем клетки вокруг первого клика (3x3 зона)
+            if (x >= safeX - 1 && x <= safeX + 1 &&
+                y >= safeY - 1 && y <= safeY + 1)
+                continue;
+
             if (_mines[x, y])
                 continue;
+
             _mines[x, y] = true;
             placed++;
         }
@@ -75,6 +83,12 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     private void OnTileClicked(int x, int y)
     {
+        if (!_minesPlaced)
+        {
+            PlaceMinesExceptFirstClick(x, y);
+            _minesPlaced = true;
+        }
+
         if (_revealed[x, y])
             return;
 
