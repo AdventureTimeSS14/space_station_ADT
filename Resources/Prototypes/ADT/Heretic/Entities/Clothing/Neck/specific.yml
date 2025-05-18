@@ -23,6 +23,6 @@
       state: icon
     - type: Clothing
       sprite: ADT/Heretic/eldritch_medalion.rsi
-    - type: ThermalVisionItem # ADT tweak
-    - type: ItemToggle  # ADT tweak
+    - type: ThermalVisionItem
+    - type: ItemToggle
 
