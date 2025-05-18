@@ -1,7 +1,7 @@
 - type: species
   id: KoboltSpecies
   name: species-name-kobolt
-  roundStart: true
+  roundStart: false  # Ganimed-MRP
   prototype: MobKobolt
   sprites: MobKoboltSprites
   defaultSkinTone: "#34a223"
