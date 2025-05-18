@@ -7,11 +7,14 @@ namespace Content.Shared.ADT.CommandConsole
 {
     public sealed class CommandManager
     {
+        [Dependency] private readonly IEntityManager _entityManager = default!;
         private readonly Dictionary<string, Func<string[], string>> _commands = new();
 
         private Directory _rootDirectory = new() { Name = "" };
         private Directory? _currentDirectory;
         private string _currentPath = "/";
+        private EntityUid? _deviceUid;
+        private RogueGameSession? _rogueSession;
 
         public CommandManager()
         {
@@ -29,6 +32,7 @@ namespace Content.Shared.ADT.CommandConsole
             RegisterCommand("rm", Rm);
             RegisterCommand("write", Write);
             RegisterCommand("run", Run);
+            RegisterCommand("run_rogue", RunRogue);
         }
 
         public void RegisterCommand(string name, Func<string[], string> handler)
@@ -140,6 +144,23 @@ namespace Content.Shared.ADT.CommandConsole
         }
 
         private string Run(string[] args) { return ""; } // Просто заглушка
+
+        private string RunRogue(string[] args)
+        {
+            if (_rogueSession == null || _rogueSession.IsOver)
+            {
+                _rogueSession = new RogueGameSession();
+                return _rogueSession.Start() + "\nType WASD to move, or 'exit' to quit.";
+            }
+
+            if (args.Length == 0)
+            {
+                return "Game is already running. Enter a move (WASD) or 'exit'.";
+            }
+
+            var input = args[0];
+            return _rogueSession.ProcessInput(input);
+        }
 
         private string Write(string[] args)
         {
