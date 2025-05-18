@@ -282,6 +282,7 @@
                 max: 1
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: RTGHeat ## ADT-Tweak
 
 # TODO: need radioactive fallout when destroyed
 
