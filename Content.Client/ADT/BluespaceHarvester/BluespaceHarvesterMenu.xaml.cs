@@ -26,7 +26,6 @@ public sealed partial class BluespaceHarvesterMenu : FancyWindow
             _owner.SendTargetLevel(level);
         };
 
-        // EntityView.SetEntity(_owner.Owner);
     }
 
     public void UpdateState(BluespaceHarvesterBoundUserInterfaceState state)

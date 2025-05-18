@@ -256,6 +256,16 @@
 
 # Destructionl Loot
 - type: entity
+  id: ADTCrateHarvesterDarkmatter
+  parent: ADTCrateLimitedSecure
+  description: You've got a bad feeling about this.
+  suffix: Bluespace Harvester, Darkmatter, DO NOT MAP
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: ADTDARKMATTER
+
+- type: entity
   id: ADTCrateHarvesterTurretSyndicate
   parent: ADTCrateLimitedSecure
   suffix: Bluespace Harvester, Behonker
