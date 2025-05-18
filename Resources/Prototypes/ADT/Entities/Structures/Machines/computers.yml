@@ -88,4 +88,10 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: CommandConsole
+  - type: DeviceNetwork
+    prefix: NT-Computer
+  - type: DeviceLinkSource
+    ports:
+      - Output
+  - type: StationAiWhitelist
 

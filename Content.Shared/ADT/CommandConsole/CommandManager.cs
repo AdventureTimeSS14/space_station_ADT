@@ -25,6 +25,7 @@ namespace Content.Shared.ADT.CommandConsole
             RegisterCommand("touch", Touch);
             RegisterCommand("cat", Cat);
             RegisterCommand("pwd", Pwd);
+            RegisterCommand("rm", Rm);
         }
 
         public void RegisterCommand(string name, Func<string[], string> handler)
@@ -132,6 +133,31 @@ namespace Content.Shared.ADT.CommandConsole
 
             _currentDirectory.Add(new Directory { Name = name });
             return $"Directory '{name}' created.";
+        }
+
+        private string Rm(string[] args)
+        {
+            if (args.Length == 0)
+                return "Usage: rm [-r] <name>";
+
+            if (_currentDirectory == null)
+                return "No current directory.";
+
+            bool recursive = args[0] == "-r";
+            string name = recursive ? args.ElementAtOrDefault(1) ?? "" : args[0];
+
+            if (string.IsNullOrWhiteSpace(name))
+                return "Usage: rm [-r] <name>";
+
+            var node = _currentDirectory.Get(name);
+            if (node == null)
+                return $"'{name}' not found.";
+
+            if (node is Directory dir && dir.Children.Any() && !recursive)
+                return $"Directory '{name}' is not empty. Use 'rm -r {name}' to remove recursively.";
+
+            _currentDirectory.Children.Remove(node);
+            return $"'{name}' deleted.";
         }
 
         private string Touch(string[] args)

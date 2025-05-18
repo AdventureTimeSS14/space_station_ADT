@@ -107,17 +107,28 @@ namespace Content.Client.ADT.CommandConsole
             foreach (var line in lines)
             {
                 var trimmed = line.Trim();
-                if (!string.IsNullOrEmpty(trimmed))
+
+                if (string.IsNullOrEmpty(trimmed))
                 {
-                    var output = _commandManager.Execute(trimmed);
+                    result += $"{_commandManager.CurrentPath}> \n";
+                    continue;
+                }
+
+                var output = _commandManager.Execute(trimmed);
+                if (!string.IsNullOrEmpty(output))
+                {
                     result += $"{_commandManager.CurrentPath}> {trimmed}\n";
                     result += output + "\n";
+                }
+                else
+                {
+                    result += $"{_commandManager.CurrentPath}> \n";
+                }
 
-                    if (_commandManager.ExitRequested)
-                    {
-                        Close();
-                        break;
-                    }
+                if (_commandManager.ExitRequested)
+                {
+                    Close();
+                    break;
                 }
             }
 
@@ -200,6 +211,8 @@ Booting Mini Command Console OS...
             }
         }
 
+        // Изначальная файловая система. TODO:
+        // Перенести бы в компонент чтобы можно было создавать свою
         private void InitializeFileSystem(Directory root)
         {
             var etc = new Directory { Name = "etc" };
