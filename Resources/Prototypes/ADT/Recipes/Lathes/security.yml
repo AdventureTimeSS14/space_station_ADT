@@ -116,6 +116,13 @@
     Steel: 50
     Plastic: 140
 
+  parent: BaseAmmoRecipe
+  id: ADTWeaponTonfa
+  result: ADTWeaponTonfa
+  materials:
+    Wood: 1500
+    Steel: 500
+
 - type: latheRecipe
   id: GrenadeStinger
   result: GrenadeStinger
@@ -123,4 +130,3 @@
   materials:
     Steel: 800
     Plastic: 600
-
