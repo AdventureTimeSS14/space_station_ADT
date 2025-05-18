@@ -118,6 +118,7 @@
       interfaces:
         enum.EftposKey.Key:
           type: EftposBui
+    - type: Anchorable
     - type: Clothing
       quickEquip: false
       slots:

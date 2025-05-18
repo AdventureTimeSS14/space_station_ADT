@@ -22,7 +22,9 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleSpeakerOpacity, SpeechBubbleSpeakerOpacitySlider);
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleBackgroundOpacity, SpeechBubbleBackgroundOpacitySlider);
 
-        Control.AddOptionCheckBox(CCVars.AccessibilityClientCensorNudity, CensorNudityCheckBox);
+        // ADT-No-More-Useless-Feature-Start
+        // Control.AddOptionCheckBox(CCVars.AccessibilityClientCensorNudity, CensorNudityCheckBox);
+        // ADT-No-More-Useless-Feature-Start
 
         // ADT Settings start
         Control.AddOptionCheckBox(ADTCCVars.CenterRadialMenu, CenterRadialMenu);

@@ -77,9 +77,9 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
-      - id: OmnizineChemistryBottle
-      - id: EpinephrineChemistryBottle
-      - id: EpinephrineChemistryBottle
+      - id: ChemistryBottleOmnizine
+      - id: ChemistryBottleEpinephrine
+      - id: ChemistryBottleEpinephrine
       - id: ADTSalineChemistryBottle
       - id: BruteAutoInjector
       - id: BurnAutoInjector
