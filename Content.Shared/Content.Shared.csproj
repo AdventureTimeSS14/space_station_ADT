@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!-- Work around https://github.com/dotnet/project-system/issues/4314 -->
-    <TargetFramework>$(TargetFramework)</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <LangVersion>12</LangVersion>
     <IsPackable>false</IsPackable>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <WarningsAsErrors>nullable</WarningsAsErrors>
     <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
