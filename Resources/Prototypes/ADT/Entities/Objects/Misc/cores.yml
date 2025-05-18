@@ -20,7 +20,6 @@
   components:
   - type: Item
     sprite: ADT/Objects/Misc/cores.rsi
-    state: radiation
     size: Normal
   - type: Sprite
     layers:

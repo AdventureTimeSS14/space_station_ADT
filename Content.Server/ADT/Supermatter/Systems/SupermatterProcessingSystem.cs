@@ -164,7 +164,7 @@ public sealed partial class SupermatterSystem
         _atmosphere.Merge(mix, gasReleased);
 
         var powerReduction = (float)Math.Pow(sm.Power / 500, 3);
-        sm.PowerLoss = Math.Min(powerReduction * sm.PowerlossInhibitor, sm.Power * 0.83f * sm.PowerlossInhibitor);
+        sm.PowerLoss = Math.Min(powerReduction * sm.PowerlossInhibitor, sm.Power * 0.43f * sm.PowerlossInhibitor);
         sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
 
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))

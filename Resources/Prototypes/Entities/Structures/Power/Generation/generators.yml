@@ -256,6 +256,11 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/buzzing.ogg
+  - type: RTGHeat ## ADT-Tweak start
+    heatPerSecond: 0.1
+    heatInterval: 1
+    maxTemperature: 373.15
+    ## ADT Tweak end
   - type: GuideHelp
     guides:
     - RTG
@@ -282,12 +287,6 @@
                 max: 1
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  - type: RTGHeat ## ADT-Tweak start
-    heatPerSecond: 0.1
-    heatInterval: 1
-    maxTemperature: 373.15
-    ## ADT Tweak end
-
 # TODO: need radioactive fallout when destroyed
 
 - type: entity
@@ -307,6 +306,14 @@
   - type: PowerMonitoringDevice
     sprite: Structures/Power/Generation/rtg.rsi
     state: rtg_damaged
+  - type: RadiationSource ## ADT-Tweak start's
+    intensity: 2
+  - type: RadiationEvent
+    initialIntensity: 2  # Изначальное кол-во радиации
+    decayDelay: 3600 # Время, после которого начнёт спадать радиация       
+    decayRate: 0.1 # По сколько снимать радиации, за указанное ниже время        
+    decayRateInterval: 60 # Интервал между уменьшением радиации.
+      ## ADT-Tweak end's
   - type: Destructible
     thresholds:
     - trigger:
@@ -332,11 +339,3 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-    - type: RadiationSource ## ADT-Tweak start's
-      intensity: 2
-    - type: RadiationEvent
-      initialIntensity: 2  # Изначальное кол-во радиации
-      decayDelay: 3600 # Время, после которого начнёт спадать радиация       
-      decayRate: 0.1 # По сколько снимать радиации, за указанное ниже время        
-      decayRateInterval: 60 # Интервал между уменьшением радиации.
-      ## ADT-Tweak end's
