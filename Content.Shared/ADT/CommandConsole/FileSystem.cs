@@ -42,3 +42,36 @@ public sealed partial class Directory : FileNode
         Children.Add(node);
     }
 }
+
+public static class FileSystem
+{
+    public static Directory RootDirectory { get; set; } = new() { Name = "" };
+
+    public static FileNode? ResolvePath(string path, Directory currentDirectory)
+    {
+        if (string.IsNullOrWhiteSpace(path))
+            return null;
+
+        var parts = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
+        Directory? current = path.StartsWith("/") ? RootDirectory : currentDirectory;
+
+        foreach (var part in parts.SkipLast(1))
+        {
+            if (current?.Get(part) is Directory next)
+            {
+                current = next;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        return current?.Get(parts.Last());
+    }
+
+    public static File? ResolvePathToFile(string path, Directory currentDirectory)
+    {
+        return ResolvePath(path, currentDirectory) as File;
+    }
+}

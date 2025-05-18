@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Content.Shared.ADT.CommandConsole
 {
@@ -26,6 +27,8 @@ namespace Content.Shared.ADT.CommandConsole
             RegisterCommand("cat", Cat);
             RegisterCommand("pwd", Pwd);
             RegisterCommand("rm", Rm);
+            RegisterCommand("write", Write);
+            RegisterCommand("run", Run);
         }
 
         public void RegisterCommand(string name, Func<string[], string> handler)
@@ -46,6 +49,25 @@ namespace Content.Shared.ADT.CommandConsole
             var cmd = parts[0];
             var args = parts.Skip(1).ToArray();
 
+            // Обработка команды run script.sh
+            if (cmd == "run" && args.Length > 0)
+            {
+                var path = args[0];
+
+                if (_currentDirectory == null)
+                    return "No current directory.";
+                var file = FileSystem.ResolvePathToFile(path, _currentDirectory!);
+
+                if (file == null)
+                    return $"File '{path}' not found.";
+
+                if (!file.Name.EndsWith(".sh"))
+                    return $"Cannot execute '{file.Name}': not a script file. Please use <name>.sh file.";
+
+                return ExecuteScript(file.Content);
+            }
+
+
             if (_commands.TryGetValue(cmd, out var handler))
             {
                 var result = handler(args);
@@ -61,6 +83,27 @@ namespace Content.Shared.ADT.CommandConsole
             }
         }
 
+        private string ExecuteScript(string scriptContent)
+        {
+            var result = new StringBuilder();
+            var lines = scriptContent.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var line in lines)
+            {
+                var trimmed = line.Trim();
+                if (string.IsNullOrWhiteSpace(trimmed))
+                    continue;
+
+                var output = Execute(trimmed);
+                if (!string.IsNullOrEmpty(output))
+                    result.AppendLine(output);
+
+                if (ExitRequested)
+                    break;
+            }
+
+            return result.ToString();
+        }
         public void SetState(Directory root, string currentPath)
         {
             _rootDirectory = root;
@@ -94,6 +137,38 @@ namespace Content.Shared.ADT.CommandConsole
         {
             if (_currentDirectory == null) return "No directory loaded.";
             return string.Join('\n', _currentDirectory.Children.Select(c => c.Name));
+        }
+
+        private string Run(string[] args) { return ""; } // Просто заглушка
+
+        private string Write(string[] args)
+        {
+            if (args.Length < 2)
+                return "Usage: write <file> <content>";
+
+            if (_currentDirectory == null)
+                return "No current directory.";
+
+            var name = args[0];
+            var content = string.Join(' ', args.Skip(1));
+
+            var node = _currentDirectory.Get(name);
+
+            if (node is File file)
+            {
+                file.Content = content;
+                return $"File '{name}' updated.";
+            }
+            else if (node == null)
+            {
+                var newFile = new File { Name = name, Content = content };
+                _currentDirectory.Add(newFile);
+                return $"File '{name}' created and written.";
+            }
+            else
+            {
+                return $"'{name}' is not a file.";
+            }
         }
 
         private string Cd(string[] args)
