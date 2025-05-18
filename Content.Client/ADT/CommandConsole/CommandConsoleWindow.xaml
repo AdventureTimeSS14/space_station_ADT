@@ -43,23 +43,22 @@
                     </PanelContainer>
 
                     <!-- Поле ввода -->
-                    <PanelContainer Name="InputPanel" Margin="0 0 0 5">
+                    <PanelContainer Name="InputPanel" Margin="0 0 0 4">
                         <TextEdit Name="CommandInput"
                                 HorizontalExpand="True"
                                 VerticalExpand="False"
-                                MinHeight="30" />
+                                MinHeight="35" />
                     </PanelContainer>
 
                     <!-- Разделитель -->
-                    <PanelContainer MinHeight="1" Margin="0 5" />
+                    <PanelContainer MinHeight="1" Margin="0 0" />
 
                     <!-- Кнопка -->
-                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 5">
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
                         <Button Name="ExecuteButton"
                                 Text="▶ Execute"
                                 ToolTip="Execute command chain"
-                                Modulate="lightgreen"
-                                Margin="5" />
+                                Modulate="lightgreen"/>
                     </BoxContainer>
 
                     <!--
