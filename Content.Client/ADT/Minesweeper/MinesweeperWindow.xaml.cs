@@ -4,28 +4,80 @@ using Robust.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Controls;
 using System.Numerics;
 using Content.Client.Stylesheets;
-
+using System.Collections.Generic;
 
 namespace Content.Client.ADT.Minesweeper;
 
 [GenerateTypedNameReferences]
 public sealed partial class MinesweeperWindow : FancyWindow
 {
-    private const int GridSize = 10;
-    private const int MineCount = 15;
+    private int GridSize = 10;
+    private int MineCount = 15;
 
-    private readonly Button[,] _buttons = new Button[GridSize, GridSize];
-    private readonly bool[,] _mines = new bool[GridSize, GridSize];
-    private readonly bool[,] _revealed = new bool[GridSize, GridSize];
+    private Button[,] _buttons = new Button[1,1];
+    private bool[,] _mines = new bool[1,1];
+    private bool[,] _revealed = new bool[1,1];
+    private bool[,] _flags = new bool[1,1];
     private readonly Random _rand = new();
 
     private GridContainer _mineGrid = default!;
 
     private bool _minesPlaced = false;
+    private bool _flagMode = false;
+
+    // Список сложностей для выбора
+    private readonly List<(string name, int size, int mines)> _difficulties = new()
+    {
+        ("Легко", 8, 10),
+        ("Средне", 10, 15),
+        ("Сложно", 15, 35)
+    };
 
     public MinesweeperWindow()
     {
         RobustXamlLoader.Load(this);
+
+        ToggleFlagButton.OnPressed += _ => ToggleFlagMode();
+        NewGameButton.OnPressed += _ => NewGame();
+
+        InitializeDifficultyOptions();
+
+        NewGame();
+    }
+
+    private void InitializeDifficultyOptions()
+    {
+        DifficultySelect.Clear();
+
+        for (int i = 0; i < _difficulties.Count; i++)
+        {
+            DifficultySelect.AddItem(_difficulties[i].name, i); // id - индекс
+        }
+
+        DifficultySelect.OnItemSelected += args =>
+        {
+            int index = (int)args.Id;
+            var selected = _difficulties[index];
+            GridSize = selected.size;
+            MineCount = selected.mines;
+            NewGame();
+        };
+
+        DifficultySelect.SelectId(1); // Выбираем "Средне" по умолчанию (индекс 1)
+    }
+
+    private void NewGame()
+    {
+        _minesPlaced = false;
+        _flagMode = false;
+        ToggleFlagButton.Text = "Режим: Открыть";
+
+        _buttons = new Button[GridSize, GridSize];
+        _mines = new bool[GridSize, GridSize];
+        _revealed = new bool[GridSize, GridSize];
+        _flags = new bool[GridSize, GridSize];
+
+        MineContainer.RemoveAllChildren();
 
         _mineGrid = new GridContainer
         {
@@ -48,7 +100,11 @@ public sealed partial class MinesweeperWindow : FancyWindow
                 var button = new Button
                 {
                     MinSize = new Vector2(32, 32),
+                    MaxSize = new Vector2(32, 32),
                     StyleClasses = { StyleBase.ButtonSquare },
+                    Text = "",
+                    Disabled = false,
+                    Modulate = Color.White
                 };
 
                 int localX = x, localY = y;
@@ -68,7 +124,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
             int x = _rand.Next(GridSize);
             int y = _rand.Next(GridSize);
 
-            // Пропускаем клетки вокруг первого клика (3x3 зона)
             if (x >= safeX - 1 && x <= safeX + 1 &&
                 y >= safeY - 1 && y <= safeY + 1)
                 continue;
@@ -89,7 +144,17 @@ public sealed partial class MinesweeperWindow : FancyWindow
             _minesPlaced = true;
         }
 
-        if (_revealed[x, y])
+        if (_flagMode)
+        {
+            if (!_revealed[x, y])
+            {
+                _flags[x, y] = !_flags[x, y];
+                _buttons[x, y].Text = _flags[x, y] ? "🏳" : "";
+            }
+            return;
+        }
+
+        if (_revealed[x, y] || _flags[x, y])
             return;
 
         _revealed[x, y] = true;
@@ -105,6 +170,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         int count = CountAdjacentMines(x, y);
         _buttons[x, y].Text = count > 0 ? count.ToString() : "";
         _buttons[x, y].Disabled = true;
+        _buttons[x, y].Modulate = Color.White;
 
         if (count == 0)
         {
@@ -151,5 +217,11 @@ public sealed partial class MinesweeperWindow : FancyWindow
                 count++;
         }
         return count;
+    }
+
+    private void ToggleFlagMode()
+    {
+        _flagMode = !_flagMode;
+        ToggleFlagButton.Text = _flagMode ? "Режим: Флажок" : "Режим: Открыть";
     }
 }
