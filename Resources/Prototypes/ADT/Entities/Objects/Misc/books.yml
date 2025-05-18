@@ -366,8 +366,8 @@
 #Суперматерия
 - type: entity
   parent: BaseGuidebook
-  id: ADTBookAtmosSuppermatter
-  name: "Newton's Guide to Atmos: Suppermatter"
+  id: ADTBookAtmosSupermatter
+  name: "Newton's Guide to Atmos: Supermatter"
   description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
   components:
   - type: Sprite
@@ -377,7 +377,7 @@
       color: "#3ec78e"
     - state: decor_wingette
       color: "#28a15a"
-    - state: suppermatter
+    - state: supermatter
     - state: icon_corner
       color: gold
   - type: Tag
