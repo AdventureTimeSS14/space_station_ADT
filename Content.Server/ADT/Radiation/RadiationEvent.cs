@@ -18,7 +18,7 @@ public sealed partial class RadiationEvent : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<SupermatterRadiationEventComponent>();
+        var query = EntityQueryEnumerator<RadiationEventComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -61,7 +61,7 @@ public sealed partial class RadiationEvent : EntitySystem
             {
                 radiation.Intensity = 0f;
                 radiation.Enabled = false;
-                RemCompDeferred<SupermatterRadiationEventComponent>(uid);
+                RemCompDeferred<RadiationEventComponent>(uid);
             }
         }
     }

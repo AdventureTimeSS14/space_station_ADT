@@ -282,7 +282,9 @@
                 max: 1
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  - type: RTGHeat ## ADT-Tweak
+  - type: RTGHeat ## ADT-Tweak start
+    # Если вдруг нужно настроить под себя - смотрите RTGHeatComponent для подробной настройки
+    ## ADT Tweak end
 
 # TODO: need radioactive fallout when destroyed
 

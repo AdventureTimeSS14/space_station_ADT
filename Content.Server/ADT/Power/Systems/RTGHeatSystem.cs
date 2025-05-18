@@ -1,11 +1,13 @@
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Server.ADT.Power.Components;
 
 namespace Content.Server.ADT.Power.Systems;
 
 /// <summary>
 /// Просто система нагрева атмосферы вокруг ентити.
+/// Греет до указанной температуры.
 /// </summary>
 public sealed class RTGHeatSystem : EntitySystem
 {
@@ -15,7 +17,7 @@ public sealed class RTGHeatSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RTGComponent>();
+        var query = EntityQueryEnumerator<RTGHeatComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -27,9 +29,14 @@ public sealed class RTGHeatSystem : EntitySystem
                 if (atmos == null)
                     continue;
 
-                atmos.Temperature += comp.HeatPerSecond;
+                if (atmos.Temperature >= comp.MaxTemperature)
+                    continue;
 
-                _atmosphere.Invalidate(atmos);
+                var delta = comp.HeatPerSecond;
+                if (atmos.Temperature + delta > comp.MaxTemperature)
+                    delta = comp.MaxTemperature - atmos.Temperature;
+
+                atmos.Temperature += delta;
 
                 comp.TimeSinceLastHeat = 0f;
             }

@@ -2,7 +2,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.Power.Components;
+namespace Content.Server.ADT.Power.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RTGHeatComponent : Component
@@ -18,6 +18,12 @@ public sealed partial class RTGHeatComponent : Component
     /// </summary>
     [DataField("heatInterval")]
     public float HeatInterval = 1f;
+
+    /// <summary>
+    /// Максимальная температура нагрева.
+    /// </summary>
+    [DataField("maxTemperature")]
+    public float MaxTemperature = 373.15f;
 
     public float TimeSinceLastHeat = 0f;
 }
