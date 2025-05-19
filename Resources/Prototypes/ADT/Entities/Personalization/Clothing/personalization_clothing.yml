@@ -89,6 +89,13 @@
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+##Sponsor Backpack
+- type: entity
+  parent: ClothingBackpack
+  id: ADTSponsorClothingBackpack
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 ##Sponsor Glasses
 - type: entity
   abstract: true
@@ -115,6 +122,43 @@
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+##SponsorHardsuitHelmetwHair
+- type: entity
+  abstract: true
+  id: ADTSponsorClothingHeadHardsuitBasewHair
+  name: base hardsuit helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BreathMask
+  - type: Sprite
+    state: icon
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    quickEquip: false
+    slots: [ HEAD ]
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.25
+  - type: GroupExamine
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: InjectorsBlocker
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
 
 #кепка Мендозы
 - type: entity
@@ -1042,3 +1086,140 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+
+
+
+
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ADTClothingOuterHardsuitShizik
+  name: ShizikHardsuit
+  description: A lightweight hardsuit designed for industrial EVA in zero gravity.
+  suffix: Personal, shizik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/shizik-clothing/shizik-hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/shizik-clothing/shizik-hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.7
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Radiation: 0.3 #salv is supposed to have radiation hazards in the future
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitShizik
+  - type: Tag
+    tags:
+    - Hardsuit
+    - HardsuitSpatio
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-light
+        shader: unshaded
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: PointLight
+    enabled: false
+    color: "#FF9833FF"
+    radius: 5
+    energy: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+
+- type: entity
+  parent: ADTSponsorClothingHeadHardsuitBasewHair
+  id: ADTClothingHeadHelmetHardsuitShizik
+  name: spationaut hardsuit helmet
+  categories: [ HideSpawnMenu ]
+  description: A sturdy helmet designed for complex industrial operations in space.
+  suffix: Personal, shizik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/shizik-clothing/shizik-helmet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/shizik-clothing/shizik-helmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.72
+    lowPressureMultiplier: 1000
+
+- type: entity
+  parent: ADTSponsorClothingBackpack
+  id: ADTClothingBackpackShizikBackpack
+  suffix: Personal, shizik
+  name: shizik backpack
+  description: Just a backpack?
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/shizik-clothing/shizik-backpack.rsi
+  - type: StorageFill
+    contents:
+    - id: ADTClothingOuterHardsuitShizik
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: ADTClothingShoesBootsMagShizik
+    - id: ADTShizikPicture
+    - id: ADTShizikSurvivalKnife
+
+- type: entity
+  parent: ClothingShoesBootsMagBase
+  id: ADTClothingShoesBootsMagShizik
+  name: shizik magboots
+  description: shizik magboots
+  suffix: Personal, shizik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/shizik-clothing/shizik-magboots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/shizik-clothing/shizik-magboots.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  name: shiziksurvivalknife
+  parent: SurvivalKnife
+  id: ADTShizikSurvivalKnife
+  description: Just a knife
+  suffix: Personal, shizik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/shizik-clothing/shizik-knife.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Personalization/shizik-clothing/shizik-knife.rsi
+    storedSprite:
+      state: storage
+      sprite: ADT/Personalization/shizik-clothing/shizik-knife.rsi
+
+- type: entity
+  name: picture
+  parent: BaseItem
+  id: ADTShizikPicture
+  description: damn..
+  suffix: Personal, shizik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/shizik-clothing/shizik-painting.rsi
+    state: icon
+

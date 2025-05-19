@@ -85,7 +85,6 @@
     sprite: ADT/Clothing/Head/Helmets/mining.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Helmets/mining.rsi
-  - type: IngestionBlocker
   - type: Armor
     modifiers:
       coefficients:
