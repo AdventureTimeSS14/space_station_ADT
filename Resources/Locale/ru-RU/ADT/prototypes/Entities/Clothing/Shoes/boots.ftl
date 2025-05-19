@@ -37,3 +37,11 @@ ent-ADTClothingShoesRomanSandales = римские сандали
 ent-ADTClothingShoesOldDetectiveBoots = старые ботинки из грубой кожи
     .desc = Носящий это точно хочет показать, что он ценит старые принципы и поведения. Их внешний вид явно показывает, что хозяин не сильно волнуется о потрёпанности вещей, но точно ценит их историю.
 
+ent-ADTClothingShoesJackbootsCowboyBrown = подкованные коричневые ковбойские ботинки
+    .desc = На них шпоры, которые звенят и/или бренчат. Теперь для службы безопасности.
+ent-ADTClothingShoesJackbootsCowboyBlack = подкованные чёрные ковбойские ботинки
+    .desc = { ent-ADTClothingShoesJackbootsCowboyBrown.desc }
+ent-ADTClothingShoesJackbootsCowboyWhite = подкованные белые ковбойские ботинки
+    .desc = { ent-ADTClothingShoesJackbootsCowboyBrown.desc }
+ent-ADTClothingShoesJackbootsCowboyFancy = подкованные модные ковбойские ботинки
+    .desc = { ent-ADTClothingShoesJackbootsCowboyBrown.desc }

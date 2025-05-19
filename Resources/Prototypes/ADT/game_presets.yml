@@ -7,18 +7,19 @@
   minPlayers: 25
   description: heretic-title
   rules:
-    - Heretic
+    - HereticGameRule
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - CrewTransferScheduler
+
 - type: gamePreset
   id: Changeling
   alias:
     - changeling
   name: changelings-title
-  minPlayers: 20
+  minPlayers: 25
   showInVote: false
   description: changelings-description
   rules:
@@ -28,3 +29,41 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - CrewTransferScheduler
+
+#Облегченная версия предателей
+
+- type: gamePreset
+  id: TraitorLight
+  alias:
+    - traitorlight
+    - tatorlight
+  name: traitorlight-title
+  description: traitorlight-description
+  showInVote: false
+  rules:
+    - TraitorLightGameRule
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - CrewTransferScheduler #ADT tweak
+
+#Версия всего понемногу
+- type: gamePreset
+  id: AntagTrio
+  alias:
+    - antagtrio
+  name: antagtrio-title
+  description: antagtrio-description
+  showInVote: false
+  rules:
+    - TraitorDuoGameRule
+    - ChangelingDuoGameRule
+    - HereticDuoGameRule
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - CrewTransferScheduler #ADT tweak

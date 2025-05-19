@@ -17,6 +17,7 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Flash.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -41,6 +42,7 @@ public sealed partial class ComboDamageEffect : IComboEffect
         damageable.TryChangeDamage(target, Damage);
     }
 }
+
 /// <summary>
 /// наносит цели урон про стамине. StaminaDamage надо указывать целым числом
 /// </summary>
@@ -56,6 +58,7 @@ public sealed partial class ComboStaminaDamageEffect : IComboEffect
         stun.TakeStaminaDamage(target, StaminaDamage);
     }
 }
+
 /// <summary>
 /// спавнит на месте цели или пользователя прототип. SpawnOnUser и SpawnOnTarget отвечат за спавн прототипа на юзере и таргете соответственно
 /// </summary>
@@ -72,9 +75,10 @@ public sealed partial class ComboSpawnEffect : IComboEffect
         if (SpawnOnTarget != null)
             entMan.SpawnAtPosition(SpawnOnTarget, target.ToCoordinates());
         if (SpawnOnUser != null)
-            entMan.SpawnAtPosition(SpawnOnUser, target.ToCoordinates());
+            entMan.SpawnAtPosition(SpawnOnUser, user.ToCoordinates());
     }
 }
+
 /// <summary>
 /// кидает человека на пол. DropItems отвечает за то, будут ли вещи из рук выпадать true - выпадает, false - не выпадает
 /// </summary>
@@ -92,10 +96,10 @@ public sealed partial class ComboFallEffect : IComboEffect
         down.Down(target, dropHeldItems: DropItems);
     }
 }
+
 /// <summary>
 /// добавочный урон по тем, кто лежит на земле. IgnoreResistances отвечает за то, будут ли резисты учитываться при нанесения урона
 /// </summary>
-
 [Serializable, NetSerializable]
 public sealed partial class ComboMoreDamageToDownedEffect : IComboEffect
 {
@@ -113,6 +117,7 @@ public sealed partial class ComboMoreDamageToDownedEffect : IComboEffect
         }
     }
 }
+
 /// <summary>
 /// кидачет человека в стан после комбо. Fall отвечает за падение человека, StunTime - время стана, DropItems - выпадают ли вещи при падении
 /// </summary>
@@ -134,6 +139,7 @@ public sealed partial class ComboStunEffect : IComboEffect
         down.TryParalyze(target, TimeSpan.FromSeconds(StunTime), false, status, dropItems: DropItems, down: Fall);
     }
 }
+
 /// <summary>
 /// вызывает попаут на таргете. LocaleText - текст. Желательно использоваль локаль, а так же есть параметры для локали target и user
 /// </summary>
@@ -146,9 +152,10 @@ public sealed partial class ComboPopupEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var popup = entMan.System<SharedPopupSystem>();
-        popup.PopupEntity(Loc.GetString(LocaleText, ("user", Identity.Entity(user, entMan)), ("target", target)), target, PopupType.LargeCaution);
+        popup.PopupPredicted(Loc.GetString(LocaleText, ("user", Identity.Entity(user, entMan)), ("target", target)), target, target, PopupType.LargeCaution);
     }
 }
+
 /// <summary>
 /// выбрасывает что угодно из активной руки таргета
 /// </summary>
@@ -163,6 +170,7 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
         hands.DoDrop(target, hand.ActiveHand);
     }
 }
+
 /// <summary>
 /// перебрасывает вещи из рук в руки
 /// </summary>
@@ -181,6 +189,7 @@ public sealed partial class ComboHamdsRetakeEffect : IComboEffect
         hands.TryDropIntoContainer(user, target, targetHand.ActiveHand.Container);
     }
 }
+
 /// <summary>
 /// играет любой звук после комбо. Sound - звук, что очевидно
 /// </summary>
@@ -193,7 +202,7 @@ public sealed partial class ComboAudioEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var audio = entMan.System<SharedAudioSystem>();
-        audio.PlayPvs(Sound, user);
+        audio.PlayPredicted(Sound, user, user);
     }
 }
 
@@ -226,7 +235,6 @@ public sealed partial class ComboSlowdownEffect : IComboEffect
 /// <summary>
 /// добавочный урон по тем, кто лежит на земле. IgnoreResistances отвечает за то, будут ли резисты учитываться при нанесения урона
 /// </summary>
-
 [Serializable, NetSerializable]
 public sealed partial class ComboMoreStaminaDamageToDownedEffect : IComboEffect
 {
@@ -277,6 +285,7 @@ public sealed partial class ComboStopGrabEffect : IComboEffect
         pull.TryStopPull(target, pulled, user);
     }
 }
+
 [Serializable]
 public sealed partial class ComboStopTargetGrabEffect : IComboEffect
 {
@@ -292,6 +301,7 @@ public sealed partial class ComboStopTargetGrabEffect : IComboEffect
         pull.TryStopPull(user, pulled, target);
     }
 }
+
 [Serializable]
 public sealed partial class ComboTrowTargetEffect : IComboEffect
 {
@@ -307,6 +317,7 @@ public sealed partial class ComboTrowTargetEffect : IComboEffect
         pull.Throw(target, user, dir, ThrownSpeed);
     }
 }
+
 [Serializable]
 public sealed partial class ComboTrowOnUserEffect : IComboEffect
 {
@@ -323,12 +334,11 @@ public sealed partial class ComboTrowOnUserEffect : IComboEffect
     }
 }
 
-
 [Serializable]
 public sealed partial class ComboEffectToDowned : IComboEffect
 {
     [DataField]
-    public List<IComboEffect> ComboEvents = new List<IComboEffect>{};
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var down = entMan.System<StandingStateSystem>();
@@ -342,10 +352,27 @@ public sealed partial class ComboEffectToDowned : IComboEffect
     }
 }
 [Serializable]
+public sealed partial class ComboEffectToStanding : IComboEffect
+{
+    [DataField]
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var down = entMan.System<StandingStateSystem>();
+        if (!down.IsDown(target))
+        {
+            foreach (var comboEvent in ComboEvents)
+            {
+                comboEvent.DoEffect(user, target, entMan);
+            }
+        }
+    }
+}
+[Serializable]
 public sealed partial class ComboEffectToUserPuller : IComboEffect
 {
     [DataField]
-    public List<IComboEffect> ComboEvents = new List<IComboEffect>{};
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         if (!entMan.TryGetComponent<PullerComponent>(target, out var puller) || puller.Pulling == null || puller.Pulling != user)
@@ -356,3 +383,66 @@ public sealed partial class ComboEffectToUserPuller : IComboEffect
         }
     }
 }
+[Serializable]
+public sealed partial class ComboEffectToPulled : IComboEffect
+{
+    [DataField]
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        if (!entMan.TryGetComponent<PullerComponent>(user, out var puller) || puller.Pulling == null || puller.Pulling != target)
+            return;
+        foreach (var comboEvent in ComboEvents)
+        {
+            comboEvent.DoEffect(user, target, entMan);
+        }
+    }
+}
+[Serializable]
+public sealed partial class ComboEffectToStuned : IComboEffect
+{
+    [DataField]
+    public List<IComboEffect> ComboEvents = new List<IComboEffect> { };
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        if (!entMan.HasComponent<StunnedComponent>(target))
+            return;
+        foreach (var comboEvent in ComboEvents)
+        {
+            comboEvent.DoEffect(user, target, entMan);
+        }
+    }
+}
+
+/// <summary>
+/// После выполнения комбо телепортирует нападающего на цель.
+/// </summary>
+public sealed partial class ComboEffectTeleportOnVictim : IComboEffect
+{
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var transform = entMan.System<SharedTransformSystem>();
+
+        if (entMan.HasComponent<MobStateComponent>(target))
+        {
+            transform.SetCoordinates(user, transform.GetMoverCoordinates(target));
+        }
+    }
+}
+
+/// <summary>
+/// Меняет местами нападающего и цель.
+/// </summary>
+public sealed partial class ComboEffectSwapPostion : IComboEffect
+{
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var transform = entMan.System<SharedTransformSystem>();
+
+        if (entMan.HasComponent<MobStateComponent>(target))
+        {
+            transform.SwapPositions(user, target);
+        }
+    }
+}
+

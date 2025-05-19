@@ -6,6 +6,8 @@
     mode: SnapgridCenter
   components:
   - type: DragonRift
+    spawns:
+      - MobCarpDragon
   - type: Transform
     anchored: true
   - type: Physics

@@ -22,6 +22,7 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: NukeDisk
+  - type: SupermatterImmune #ADT-Tweak
 
 - type: entity
   name: nuclear authentication disk
