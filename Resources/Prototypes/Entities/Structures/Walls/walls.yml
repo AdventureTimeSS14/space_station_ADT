@@ -137,8 +137,8 @@
     fx: EffectRCDDeconstruct8
   # ADT tweak start
   - type: RadiationBlocker 
-    resistance: 40
-  # ADT tweal end
+    resistance: 10
+  # ADT tweak end
   - type: Destructible
     thresholds:
     - trigger:
@@ -300,8 +300,8 @@
     node: goldWall
   # ADT tweak start
   - type: RadiationBlocker 
-    resistance: 10
-  # ADT tweal end
+    resistance: 1
+  # ADT tweak end
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -406,7 +406,7 @@
     key: walls
     base: plasma
   - type: RadiationBlocker
-    resistance: 10 # ADT tweak
+    resistance: 2.5 # ADT tweak
 
 - type: entity
   parent: BaseWall
@@ -643,7 +643,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 1
 
 - type: entity
   parent: WallReinforced
@@ -938,7 +938,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 1
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
@@ -1155,7 +1155,7 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
-    resistance: 20 # ADT tweak
+    resistance: 4 # ADT-Tweak         
 
 - type: entity
   parent: BaseWall

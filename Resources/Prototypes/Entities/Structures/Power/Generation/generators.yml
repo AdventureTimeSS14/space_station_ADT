@@ -306,14 +306,12 @@
   - type: PowerMonitoringDevice
     sprite: Structures/Power/Generation/rtg.rsi
     state: rtg_damaged
-  - type: RadiationSource ## ADT-Tweak start's
-    intensity: 2
-  - type: RadiationEvent
+  - type: RadiationEvent ## ADT-Tweak start
     initialIntensity: 2  # Изначальное кол-во радиации
     decayDelay: 3600 # Время, после которого начнёт спадать радиация       
     decayRate: 0.1 # По сколько снимать радиации, за указанное ниже время        
-    decayRateInterval: 60 # Интервал между уменьшением радиации.
-      ## ADT-Tweak end's
+    decayRateInterval: 60 # Интервал между уменьшением радиации
+      ## ADT-Tweak end
   - type: Destructible
     thresholds:
     - trigger:
