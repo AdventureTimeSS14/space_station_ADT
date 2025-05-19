@@ -43,7 +43,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
     private void ApplyDifficultyTheme(Color color)
     {
         // Меняем цвет кнопок
-        NewGameButton.ModulateSelfOverride = color;
+        // NewGameButton.ModulateSelfOverride = color;
 
         // Меняем цвет выпадающего списка
         DifficultySelect.ModulateSelfOverride = color;
@@ -58,7 +58,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         ToggleFlagButton.OnPressed += _ => ToggleFlagMode();
         NewGameButton.OnPressed += _ => NewGame();
 
-        NewGameButton.ModulateSelfOverride = Color.FromHex("#32cd32");
+        NewGameButton.ModulateSelfOverride = Color.FromHex("#008000");
         ToggleFlagButton.ModulateSelfOverride = Color.FromHex("#004EFF");
 
         InitializeDifficultyOptions();
