@@ -20,6 +20,12 @@ public sealed class MinesweeperBoundUserInterface : BoundUserInterface
 
         _window = new MinesweeperWindow();
 
+        // TODO: Запись рекордов
+        // if (EntMan.TryGetComponent<MinesweeperComponent>(_owner, out var minesweeper) && EntMan.TryGetComponent<MetaDataComponent>(_owner, out var metaData))
+        // {
+        //     _window.LoadRecords(minesweeper.Records, _owner, minesweeper, this);
+        // }
+
         _window.OpenCentered();
     }
 

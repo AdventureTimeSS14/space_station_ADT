@@ -56,8 +56,8 @@
       <!-- Нижняя статусная панель -->
       <PanelContainer HorizontalExpand="True" MinHeight="25" Margin="5 0 5 0">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
-          <Label Text="⌨ MINESWEEPER_OS v1.00" FontColorOverride="gray"/>
-          <Label Text="📚 Powered by NanoTraisen Systems" FontColorOverride="gray"/>
+          <Label Text="⌨ MINESWEEPER_OS v1.04" FontColorOverride="gray"/>
+          <Label Text="📚 Powered by Schrödinger.inc Systems" FontColorOverride="gray"/>
           <Label Text="📦 Auto-Save: Enabled" FontColorOverride="green" HorizontalExpand="True"/>
         </BoxContainer>
       </PanelContainer>
@@ -65,3 +65,14 @@
     </BoxContainer>
   </PanelContainer>
 </controls1:FancyWindow>
+
+<!-- TODO: ЗАПИСЬ РЕКОРДОВ ПОТОМ МБ БУДЕТ
+<PanelContainer MinHeight="2" Margin="0 4"/>
+<Label Text="> RECORDS" FontColorOverride="orange"/>
+<Label Name="RecordListLabel"
+    FontColorOverride="lightgray"
+    HorizontalExpand="True"
+    VerticalExpand="True"
+    ClipText="True"
+    MouseFilter="Ignore"/>
+-->

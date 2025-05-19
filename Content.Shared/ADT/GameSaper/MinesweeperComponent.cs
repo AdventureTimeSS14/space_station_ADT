@@ -1,13 +1,47 @@
-using Robust.Shared.Utility;
-
 namespace Content.Shared.ADT.Minesweeper;
 
 /// <summary>
-/// This is used for...
+/// Component Minesweeper
 /// </summary>
 [RegisterComponent]
 public sealed partial class MinesweeperComponent : Component
 {
-    [DataField]
-    public string? Input;
+    // [DataField]
+    // public string? Input;
+
+    // [DataField, AutoNetworkedField]
+    // public List<MinesweeperRecord> Records = new();
+
+    // [ViewVariables]
+    // [DataField]
+    // public string? LastOpenedBy;
 }
+
+
+// TODO: Доделать запись рекордов
+// [Serializable, NetSerializable]
+// public sealed class MinesweeperRecord
+// {
+//     public string Difficulty = "";
+//     public float TimeSeconds = 0f;
+//     public string EntityName = "";
+
+//     public override string ToString()
+//     {
+//         var time = TimeSpan.FromSeconds(TimeSeconds);
+//         return $"{EntityName} — {Difficulty} — {time:mm\\:ss}";
+//     }
+// }
+
+// [Serializable, NetSerializable]
+// public sealed class MinesweeperWinMessage : BoundUserInterfaceMessage
+// {
+//     public string Difficulty { get; }
+//     public float TimeSeconds { get; }
+
+//     public MinesweeperWinMessage(string difficulty, float timeSeconds)
+//     {
+//         Difficulty = difficulty;
+//         TimeSeconds = timeSeconds;
+//     }
+// }
