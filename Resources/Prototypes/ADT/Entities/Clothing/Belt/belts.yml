@@ -508,7 +508,7 @@
     whitelist:
       tags:
         - Document
-        - Stamp
+        - ADTStamp
         - Pen
         - Folder
   - type: Clothing
