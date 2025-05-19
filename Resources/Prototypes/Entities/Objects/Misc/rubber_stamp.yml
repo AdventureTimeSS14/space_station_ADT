@@ -23,7 +23,7 @@
     stealGroup: Stamp
   - type: Tag
     tags:
-    - Stamp
+    - ADTStamp
 
 - type: entity
   name: alternate rubber stamp
