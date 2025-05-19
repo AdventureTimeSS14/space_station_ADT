@@ -26,7 +26,6 @@ public sealed class MinesweeperBoundUserInterface : BoundUserInterface
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
-        // _window?.Dispose();
         _window?.Close();
     }
 }

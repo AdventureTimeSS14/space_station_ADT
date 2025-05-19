@@ -60,6 +60,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
             var selected = _difficulties[index];
             GridSize = selected.size;
             MineCount = selected.mines;
+            DifficultySelect.SelectId(index);
             NewGame();
         };
 
