@@ -40,6 +40,8 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
+  - type: CoveredSlot
+    slots: [underweart]
 ##Sponsor Shoes
 - type: entity
   abstract: true
@@ -826,6 +828,13 @@
     fiberColor: fibers-black
   - type: FingerprintMask
 
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ADTClothingBackpackDuffelAnagiri
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/anagiri_duffel.rsi
+
 #MleM
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -1087,9 +1096,32 @@
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
 
+#antillion
+- type: entity
+  parent: ClothingHeadBandMerc
+  id: ADTClothingHeadBandMercAntillion
+  name: mercenary bandana
+  description: mercenary bandana
+  suffix: Personal, antillion
 
+- type: entity
+  parent: ClothingEyesGlassesMercenary
+  id: ADTClothingEyesGlassesMercenaryAntillion
+  name: mercenary glasses
+  description: Glasses made for combat, to protect the eyes from bright blinding flashes.
+  suffix: Personal, antillion
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: IdentityBlocker
+    coverage: EYES
 
-
+##Shizik
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -1222,4 +1254,3 @@
   - type: Sprite
     sprite: ADT/Personalization/shizik-clothing/shizik-painting.rsi
     state: icon
-

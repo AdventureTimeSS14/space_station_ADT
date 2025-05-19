@@ -19,7 +19,7 @@
     icon: Interface/Actions/actions_ai.rsi/mass_scanner.png
     iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
     keywords: [ "AI", "console", "interface" ]
-    priority: -6
+    priority: -9
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
 
 - type: entity
@@ -55,7 +55,7 @@
     icon: ADT/Interface/Actions/action_ai.rsi/comms_console.png
     iconOn: ADT/Interface/Actions/action_ai.rsi/comms_console.png
     keywords: [ "AI", "console", "interface" ]
-    priority: -4
+    priority: -6
     event: !type:ToggleIntrinsicUIEvent { key: enum.CommunicationsConsoleUiKey.Key }
 
 - type: entity
@@ -67,5 +67,5 @@
     icon: ADT/Interface/Actions/action_ai.rsi/atmos_alerts.png
     iconOn: ADT/Interface/Actions/action_ai.rsi/atmos_alerts.png
     keywords: [ "AI", "console", "interface" ]
-    priority: -4
+    priority: -5
     event: !type:ToggleIntrinsicUIEvent { key: enum.AtmosAlertsComputerUiKey.Key }

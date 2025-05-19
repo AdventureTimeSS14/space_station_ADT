@@ -52,29 +52,21 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
             [new() { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#006600") }]
         );
 
-        if (_station.GetStations().FirstOrDefault() is { } station)
-        {
-            SendToFax(station, printout);
-        }
+        SendToFax(printout);
 
         base.Added(uid, component, gameRule, args);
     }
 
-    private bool SendToFax(EntityUid station, FaxPrintout printout)
+    private void SendToFax(FaxPrintout printout)
     {
-        var wasSent = false;
         var query = EntityQueryEnumerator<FaxMachineComponent>();
-
-        while (query.MoveNext(out var uid, out var fax))
+        while (query.MoveNext(out var faxUid, out var fax))
         {
-            if (_station.GetOwningStation(uid) != station)
+            if (!fax.ReceiveStationGoal)
                 continue;
 
-            _fax.Receive(uid, printout, null, fax);
-            wasSent = true;
-            break;
+            _fax.Receive(faxUid, printout, null, fax);
         }
-        return wasSent;
     }
 
     private string GetSightingText(int id, string baseEvent)

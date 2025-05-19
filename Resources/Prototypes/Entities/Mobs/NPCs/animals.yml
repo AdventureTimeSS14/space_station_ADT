@@ -54,6 +54,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
@@ -404,6 +406,9 @@
     tags:
     - Trash
     - VimPilot
+  # ADT-Tweak
+  - type: MobCollision
+    enabled: false
   # - type: Destructible
   #   thresholds:
   #   - trigger:
@@ -1798,6 +1803,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: Tag
     tags:
