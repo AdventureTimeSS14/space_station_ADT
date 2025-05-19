@@ -7,49 +7,91 @@
     MinSize="900 700"
     x:Class="Content.Client.ADT.Minesweeper.MinesweeperWindow">
 
-  <PanelContainer Margin="10" VerticalExpand="True" HorizontalExpand="True">
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="10">
+  <PanelContainer StyleClasses="BackgroundPanel" VerticalExpand="True" HorizontalExpand="True">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="15" Margin="15">
 
-      <!-- Заголовок -->
-      <Label Text="💣 SYSTEM MODULE :: MINESWEEPER"
-             Align="Center"
-             StyleClasses="LabelHeading font-larger"
-             Margin="0,0,0,10"
-             FontColorOverride="lime"/>
+      <!-- Заголовок с анимированным эффектом -->
+      <PanelContainer StyleClasses="HeaderPanel" HorizontalExpand="True" Margin="0 0 0 15">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Center">
+          <Label Text="💣" FontColorOverride="red" Margin="0 0 5 0" StyleClasses="font-largest"/>
+          <Label Text="SYSTEM MODULE :: MINESWEEPER PRO"
+                 StyleClasses="LabelHeading font-largest"
+                 FontColorOverride="gold"
+                 VerticalAlignment="Center"/>
+          <Label Text="💣" FontColorOverride="red" Margin="5 0 0 0" StyleClasses="font-largest"/>
+        </BoxContainer>
+      </PanelContainer>
 
-      <!-- Игровое поле и боковая панель -->
-      <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="10">
+      <!-- Основное содержимое -->
+      <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="20">
 
-        <!-- Поле мин -->
+        <!-- Игровое поле -->
         <PanelContainer Name="MineContainer"
-                        HorizontalExpand="True"
-                        VerticalExpand="True"
-                        Margin="5"/>
-                        <!-- Modulate="black" -->
+                       StyleClasses="GameFieldPanel"
+                       HorizontalExpand="True"
+                       VerticalExpand="True"
+                       Margin="0 0 10 0"/>
 
-        <!-- Панель управления -->
-        <BoxContainer Orientation="Vertical" MinWidth="180" SeparationOverride="8" Margin="5">
+        <!-- Боковая панель -->
+        <BoxContainer Orientation="Vertical"
+              MinWidth="350"
+              MaxWidth="350"
+              MinHeight="400"
+              VerticalExpand="True"
+              SeparationOverride="12">
 
-          <Label Text="> CONTROLS" FontColorOverride="orange" Margin="0 0 0 8"/>
-          <Button Name="ToggleFlagButton"
-                  Text="● Mode: Reveal"
-                  MinSize="160, 40"
-                  Modulate="lightblue"/>
-          <Button Name="NewGameButton"
-                  Text="● New Game"
-                  MinSize="160, 40"
-                  Modulate="lightgreen"/>
-          <OptionButton Name="DifficultySelect"
-                        MinSize="160, 40"
-                        Modulate="lightyellow"/>
-          <PanelContainer MinHeight="2" Margin="0 4"/>
+          <!-- Панель управления -->
+          <PanelContainer StyleClasses="ControlPanel" Margin="0 0 0 10">
+            <BoxContainer Orientation="Vertical" SeparationOverride="10">
+              <Label Text="CONTROLS" StyleClasses="PanelHeader" FontColorOverride="cyan"/>
 
-          <Label Text="> STATUS" FontColorOverride="orange" Margin="0 0 0 4"/>
-          <Label Name="GameStatusLabel"
-                 Text="Ready..."
-                 FontColorOverride="lime"
-                 Margin="0 2"/>
+              <Button Name="ToggleFlagButton"
+                     StyleClasses="ActionButton"
+                     Text="🏳 Toggle Flag Mode"
+                     MinSize="300, 45"
+                     MaxSize="300, 45"/>
 
+              <Button Name="NewGameButton"
+                     StyleClasses="PrimaryActionButton"
+                     Text="● New Game"
+                     MinSize="300, 45"
+                     MaxSize="300, 45"/>
+
+              <OptionButton Name="DifficultySelect"
+                          StyleClasses="OptionButton"
+                          MinSize="300, 45"
+                          MaxSize="300, 45"/>
+            </BoxContainer>
+          </PanelContainer>
+
+          <!-- Статус игры -->
+          <PanelContainer StyleClasses="StatusPanel">
+            <BoxContainer Orientation="Vertical" SeparationOverride="8">
+              <Label Text="GAME STATUS" StyleClasses="PanelHeader" FontColorOverride="lime"/>
+
+              <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="State:" FontColorOverride="silver" MinWidth="80"/>
+                <Label Name="GameStatusLabel"
+                       Text="Ready..."
+                       FontColorOverride="lime"
+                       HorizontalExpand="True"/>
+              </BoxContainer>
+
+              <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="Mines:" FontColorOverride="silver" MinWidth="80"/>
+                <Label Name="MinesCountLabel"
+                       Text="0/10"
+                       FontColorOverride="orange"/>
+              </BoxContainer>
+
+              <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="Time:" FontColorOverride="silver" MinWidth="80"/>
+                <Label Name="TimerLabel"
+                       Text="00:00"
+                       FontColorOverride="yellow"/>
+              </BoxContainer>
+            </BoxContainer>
+          </PanelContainer>
         </BoxContainer>
       </BoxContainer>
 
@@ -65,6 +107,7 @@
     </BoxContainer>
   </PanelContainer>
 </controls1:FancyWindow>
+
 
 <!-- TODO: ЗАПИСЬ РЕКОРДОВ ПОТОМ МБ БУДЕТ
 <PanelContainer MinHeight="2" Margin="0 4"/>

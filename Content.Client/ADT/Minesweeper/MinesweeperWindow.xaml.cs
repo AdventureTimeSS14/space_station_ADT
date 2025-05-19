@@ -32,13 +32,24 @@ public sealed partial class MinesweeperWindow : FancyWindow
     // private List<MinesweeperRecord> _records = new();
 
     // Список сложностей для выбора
-    private readonly List<(string name, int size, int mines)> _difficulties = new()
+    private readonly List<(string name, int size, int mines, Color color)> _difficulties = new()
     {
-        ("Debug", 4, 1),
-        ("Легко", 8, 10),
-        ("Средне", 10, 15),
-        ("Сложно", 15, 35)
+        ("Debug", 4, 1, Color.FromHex("#FF00FF")),    // Фиолетовый для дебага
+        ("Легко", 8, 10, Color.FromHex("#32cd32")),   // Зеленый для легкого
+        ("Средне", 10, 15, Color.FromHex("#e28b00")), // Оранжевый для среднего
+        ("Сложно", 15, 35, Color.FromHex("#cc0000"))  // Красный для сложного
     };
+
+    private void ApplyDifficultyTheme(Color color)
+    {
+        // Меняем цвет кнопок
+        NewGameButton.ModulateSelfOverride = color;
+
+        // Меняем цвет выпадающего списка
+        DifficultySelect.ModulateSelfOverride = color;
+
+        // DifficultySelect.ModulateSelfOverride = color.Darken(0.2f);
+    }
 
     public MinesweeperWindow()
     {
@@ -46,6 +57,9 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
         ToggleFlagButton.OnPressed += _ => ToggleFlagMode();
         NewGameButton.OnPressed += _ => NewGame();
+
+        NewGameButton.ModulateSelfOverride = Color.FromHex("#32cd32");
+        ToggleFlagButton.ModulateSelfOverride = Color.FromHex("#004EFF");
 
         InitializeDifficultyOptions();
 
@@ -57,13 +71,14 @@ public sealed partial class MinesweeperWindow : FancyWindow
         base.Opened();
     }
 
+
     private void InitializeDifficultyOptions()
     {
         DifficultySelect.Clear();
 
         for (int i = 0; i < _difficulties.Count; i++)
         {
-            DifficultySelect.AddItem(_difficulties[i].name, i); // id - индекс
+            DifficultySelect.AddItem(_difficulties[i].name, i);
         }
 
         DifficultySelect.OnItemSelected += args =>
@@ -72,11 +87,17 @@ public sealed partial class MinesweeperWindow : FancyWindow
             var selected = _difficulties[index];
             GridSize = selected.size;
             MineCount = selected.mines;
+
+            // Применяем цветовую тему
+            ApplyDifficultyTheme(selected.color);
+
             DifficultySelect.SelectId(index);
             NewGame();
         };
 
-        DifficultySelect.SelectId(1); // Выбираем "Средне" по умолчанию (индекс 1)
+        // Устанавливаем среднюю сложность и ее цвет по умолчанию
+        DifficultySelect.SelectId(1);
+        ApplyDifficultyTheme(_difficulties[1].color);
     }
 
     private void NewGame()
@@ -249,7 +270,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
     private void ToggleFlagMode()
     {
         _flagMode = !_flagMode;
-        ToggleFlagButton.Text = _flagMode ? "Режим: Флажок" : "Режим: Открыть";
+        ToggleFlagButton.Text = _flagMode ? "Режим: Флажок 🏳" : "Режим: Открыть";
+        ToggleFlagButton.ModulateSelfOverride = _flagMode ? Color.FromHex("#b07d2b") : Color.FromHex("#004EFF");
     }
 
     private void CheckWinCondition()
@@ -267,7 +289,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         // _stopwatch.Stop
         _gameEnd = true;
         RevealAllMines();
-        GameStatusLabel.Text = "✓ Победа! Все мины разминированы.";
+        GameStatusLabel.Text = "✓ Победа! \nВсе мины разминированы.";
 
         // TODO: Доделать запись результатов
         // var nameUser = _comp?.LastOpenedBy ?? "Unknow";
