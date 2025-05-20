@@ -117,7 +117,7 @@
       GalacticCommon: Speak
       RootSpeak: Speak
       DionaCollectiveMind: Speak
-  - type: SizeAttributeWhitelist # Frontier
+  - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.08
     short: true

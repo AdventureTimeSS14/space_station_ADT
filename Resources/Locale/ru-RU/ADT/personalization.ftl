@@ -299,6 +299,10 @@ ent-ADTPlushieAzil = Азил-Мобарид
     .desc = Плюшевая игрушка бордового унатха в форме старшего инженера. При взгляде на неё Вас внезапно охватывает чувство ненависти к воксам, сотрудникам НИО и вопросам про свет. Интересно, к чему бы это?
     .suffix = { "Именное, Couatl" }
 
+ent-ADTPlushieGiPatter = Джи-Паттер
+    .desc = Игрушка синего унатха в униформе инженера. На бирке красуется текст "Issersenders kes siklezzers", что в переводе с Синта'Унати значит "Подарок для непонимающего".
+    .suffix = { "Именное, kugooergooer" }
+
 ent-ADTClothingOuterBolperCoat = плащ Волпера
     .desc = +5 процентов к крутости.
     .suffix = { "Именное, Bolper" }
@@ -569,3 +573,11 @@ ent-ADTClothingHeadHelmetHardsuitKringe = шлем скафандра иссле
 ent-ADTClothingBackpackDuffelKringeStuff = комплект вещей исследователя
     .desc = Вещмешок с полным комплектом вещей исследователя - скафандром, комбинезоном, ботинками, перчатками и свистком.
     .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingHeadBandMercAntillion = бандана наёмника
+    .desc = Защитного цвета бандана, пропитанная потом и запахом джунглей.
+    .suffix = { "Именное, antillion" }
+
+ent-ADTClothingEyesGlassesMercenaryAntillion = очки наёмника
+    .desc = Очки, созданные для ведения боя, для защиты глаз от ярких ослепляющих вспышек.
+    .suffix = { "Именное, antillion" }

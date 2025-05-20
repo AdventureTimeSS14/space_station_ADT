@@ -67,6 +67,7 @@
         toggleAction: ActionStationAiCommunications
       enum.AtmosAlertsComputerUiKey.Key:
         toggleAction: ActionStationAiAtmosphericAlerts
+  - type: AtmosAlertsComputer
     # ADT End
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
