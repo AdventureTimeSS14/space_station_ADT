@@ -1,0 +1,18 @@
+
+- type: entity
+  parent: ClothingNeckBase
+  id: SDClothingNeckAdamCloak
+  name: Adam-cloak
+  description: I-am-Adam-the-first-of-new humanity.
+  suffix: Именное, LlJyT
+  components:
+  - type: Sprite
+    sprite: SD/Entities/Clothing/Neck/AdamCloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.8
+        Heat: 0.9
+  - type: Insulated

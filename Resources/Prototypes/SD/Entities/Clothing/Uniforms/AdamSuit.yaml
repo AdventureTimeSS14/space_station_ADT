@@ -1,0 +1,13 @@
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SDClothingUniformJumpsuitAdamTunic
+  name: Adam-Tunic
+  description: Find-your-true-form!
+  suffix: Именное, LlJyT
+  components:
+  - type: Sprite
+    sprite: SD/Entities/Clothing/Uniforms/AdamTunic.rsi
+  - type: Clothing
+    sprite: SD/Entities/Clothing/Uniforms/AdamTunic.rsi
+
