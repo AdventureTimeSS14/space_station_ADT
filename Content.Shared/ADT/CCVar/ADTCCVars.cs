@@ -189,7 +189,7 @@ public sealed class ADTCCVars
     ///     Scales powerloss inhibition down until this amount of moles is reached.
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 20f, CVar.SERVER);
+        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 12f, CVar.SERVER);
 
     /// <summary>
     ///     Bonus powerloss inhibition boost if this amount of moles is reached.
