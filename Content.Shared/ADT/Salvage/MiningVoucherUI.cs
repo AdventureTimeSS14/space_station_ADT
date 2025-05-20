@@ -25,7 +25,7 @@ public enum MiningVoucherTypeDrop : byte
 }
 
 [Serializable, NetSerializable]
-public enum MiningVoucherTypeDroPlace : byte
+public enum MiningVoucherTypeDropPlace : byte
 {
     Default,
     ThisPlace

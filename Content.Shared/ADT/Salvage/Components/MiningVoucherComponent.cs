@@ -43,6 +43,6 @@ public sealed partial class MiningVoucherComponent : Component
     public MiningVoucherTypeDrop TypeDrop = MiningVoucherTypeDrop.Default;
 
     [DataField]
-    public MiningVoucherTypeDroPlace TypeDropPlace = MiningVoucherTypeDroPlace.Default;
+    public MiningVoucherTypeDropPlace TypeDropPlace = MiningVoucherTypeDropPlace.Default;
 
 }

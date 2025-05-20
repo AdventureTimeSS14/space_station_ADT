@@ -36,7 +36,7 @@ public sealed class MiningVoucherSystem : EntitySystem
 
     private void OnMapInit(Entity<MiningVoucherComponent> ent, ref MapInitEvent args)
     {
-        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDroPlace.ThisPlace)
+        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDropPlace.ThisPlace)
         {
             if (ent.Comp.Selected is { } index)
             {
@@ -47,7 +47,7 @@ public sealed class MiningVoucherSystem : EntitySystem
 
     private void OnAfterInteract(Entity<MiningVoucherComponent> ent, ref AfterInteractEvent args)
     {
-        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDroPlace.ThisPlace)
+        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDropPlace.ThisPlace)
             return;
 
         if (args.Target is not {} target)
@@ -92,7 +92,7 @@ public sealed class MiningVoucherSystem : EntitySystem
         ent.Comp.Selected = index;
         Dirty(ent);
 
-        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDroPlace.ThisPlace)
+        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDropPlace.ThisPlace)
         {
             Redeem(ent, index, user);
         }
