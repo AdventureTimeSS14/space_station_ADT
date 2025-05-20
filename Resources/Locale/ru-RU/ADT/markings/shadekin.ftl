@@ -1,6 +1,6 @@
 marking-ADTShadekinTongue = Язык сумеречника
-marking-ADTShadekinTongue-reptilian_tongue = Язык
+marking-ADTShadekinTongue-shadekin_tongue = Язык
 marking-ADTShadekinTongueFast = Язык сумеречника (Быстрый)
-marking-ADTShadekinTongueFast-reptilian_tongue_fast = Язык
+marking-ADTShadekinTongueFast-shadekin_tongue_fast = Язык
 marking-ADTShadekinTongueSlow = Язык сумеречника (медленный)
-marking-ADTShadekinTongueSlow-reptilian_tongue_slow = Язык
+marking-ADTShadekinTongueSlow-shadekin_tongue_slow = Язык

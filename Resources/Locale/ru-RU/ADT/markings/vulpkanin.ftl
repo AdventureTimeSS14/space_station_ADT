@@ -1,6 +1,6 @@
 marking-ADTVulpkaninTongue = Язык собаки
-marking-ADTVulpkaninTongue-moth_tongue = Язык
+marking-ADTVulpkaninTongue-vulpkanin_breath_tongue = Язык
 marking-ADTVulpkaninTongueFast = Язык собаки (Быстрый)
-marking-ADTVulpkaninTongueFast-moth_tongue_fast = Язык
+marking-ADTVulpkaninTongueFast-vulpkanin_breath_tongue_fast = Язык
 marking-ADTVulpkaninTongueSlow = Язык собаки (медленный)
-marking-ADTVulpkaninTongueSlow-moth_tongue_slow = Язык
+marking-ADTVulpkaninTongueSlow-vulpkanin_breath_tongue_slow = Язык
