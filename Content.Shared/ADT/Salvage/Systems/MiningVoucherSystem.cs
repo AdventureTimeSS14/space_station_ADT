@@ -104,11 +104,11 @@ public sealed class MiningVoucherSystem : EntitySystem
             return;
 
         var kit = _proto.Index(ent.Comp.Kits[index]);
+        var xform = Transform(ent);
 
         switch (ent.Comp.TypeDrop)
         {
             case MiningVoucherTypeDrop.Default:
-                var xform = Transform(ent);
                 foreach (var id in kit.Content)
                 {
                     SpawnNextToOrDrop(id, ent, xform);
@@ -116,8 +116,7 @@ public sealed class MiningVoucherSystem : EntitySystem
                 break;
 
             case MiningVoucherTypeDrop.Rocket:
-                var userXform = Transform(user);
-                _droppod.CreateDroppod(userXform.Coordinates, kit.Content);
+                _droppod.CreateDroppod(xform.Coordinates, kit.Content);
                 break;
         }
 
