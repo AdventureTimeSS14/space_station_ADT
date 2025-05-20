@@ -107,6 +107,7 @@
       shuttleTime: 1200
     kappa:
       announcement: alert-level-kappa-announcement
+      selectable: false
       sound: /Audio/ADT/Misc/kappa.ogg
       color: Cyan
       emergencyLightColor: "#00ffea"
