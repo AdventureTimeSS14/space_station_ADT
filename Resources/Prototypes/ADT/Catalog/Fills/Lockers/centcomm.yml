@@ -10,7 +10,7 @@
     - id: MedkitCombatFilled
     - id: MedkitBruteFilled
     - id: WeaponDisabler
-    - id: ADTBaseWeaponCaseNTBS
+    # - id: ADTBaseWeaponCaseNTBS
     # - id: ADTUnderwearBoxBlueshield
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
@@ -32,7 +32,7 @@
     - id: MedkitCombatFilled
     - id: MedkitBruteFilled
     - id: WeaponDisabler
-    - id: ADTBaseWeaponCaseNTBS
+    # - id: ADTBaseWeaponCaseNTBS
     # - id: ADTUnderwearBoxBlueshield
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
