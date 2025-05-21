@@ -1,0 +1,48 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: reartint aka ReArtInt",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "arachnid"
+        },
+        {
+            "name": "cischi"
+        },
+        {
+            "name": "felinid"
+        },
+        {
+            "name": "human"
+        },
+        {
+            "name": "kidan"
+        },
+        {
+            "name": "moth"
+        },
+        {
+            "name": "murine"
+        },
+        {
+            "name": "sareng"
+        },
+        {
+            "name": "slime"
+        },
+        {
+            "name": "tayaran"
+        },
+        {
+            "name": "unath"
+        },
+        {
+            "name": "vulpkanin"
+        }
+    ]
+}
+

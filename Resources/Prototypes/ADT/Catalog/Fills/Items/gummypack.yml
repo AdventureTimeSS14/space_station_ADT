@@ -1,0 +1,31 @@
+- type: entity
+  parent: ADTFoodPackGummies
+  id: ADTFoodPackGummiesFilled
+  name: pack of gummies
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackGummyArachnid
+      orGroup: ADTGummies1
+    - id: ADTFoodSnackGummyCischi
+      orGroup: ADTGummies1
+    - id: ADTFoodSnackGummyFelinid
+      orGroup: ADTGummies1
+    - id: ADTFoodSnackGummyHuman
+      orGroup: ADTGummies1
+    - id: ADTFoodSnackGummyKidan
+      orGroup: ADTGummies2
+    - id: ADTFoodSnackGummyMoth
+      orGroup: ADTGummies2
+    - id: ADTFoodSnackGummyMurine
+      orGroup: ADTGummies2
+    - id: ADTFoodSnackGummySareng
+      orGroup: ADTGummies2
+    - id: ADTFoodSnackGummySlime
+      orGroup: ADTGummies3
+    - id: ADTFoodSnackGummyTayaran
+      orGroup: ADTGummies3
+    - id: ADTFoodSnackGummyUnath
+      orGroup: ADTGummies3
+    - id: ADTFoodSnackGummyVulpkanin
+      orGroup: ADTGummies3

@@ -1,0 +1,175 @@
+- type: entity
+  name: base gummy
+  parent: FoodSnackBase
+  abstract: true
+  id: ADTFoodSnackGummyBase
+  description: Gummy?? Yummie!
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummySlime
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,0
+    heldPrefix: gummy
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5 # Room for extra condiments
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ADTGummy
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: slime gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummySlime
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummySlime
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: slime
+
+- type: entity
+  name: arachnid gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyArachnid
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyArachnid
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: arachnid
+
+- type: entity
+  name: cischi gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyCischi
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyCischi
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: cischi
+
+- type: entity
+  name: felinid gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyFelinid
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyFelinid
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: felinid
+
+- type: entity
+  name: human gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyHuman
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyHuman
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: human
+
+- type: entity
+  name: kidan gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyKidan
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyKidan
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: kidan
+
+- type: entity
+  name: moth gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyMoth
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyMoth
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: moth
+
+- type: entity
+  name: murine gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyMurine
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyMurine
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: murine
+
+- type: entity
+  name: sareng gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummySareng
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummySareng
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: sareng
+
+- type: entity
+  name: tayaran gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyTayaran
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyTayaran
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: tayaran
+
+- type: entity
+  name: unath gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyUnath
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyUnath
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: unath
+
+- type: entity
+  name: vulpkanin gummy
+  parent: ADTFoodSnackGummyBase
+  id: ADTFoodSnackGummyVulpkanin
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTSnackGummyVulpkanin
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/Candies/gummies.rsi
+    state: vulpkanin
