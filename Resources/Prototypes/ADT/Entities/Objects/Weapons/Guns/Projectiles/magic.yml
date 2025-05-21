@@ -13,17 +13,17 @@
   - type: Projectile
     damage:
       types: # хилит, но слабее.
-        Blunt: -20
-        Slash: -20
-        Piercing: -20
-        Heat: -20
-        Shock: -20
-        Cold: -20
-        Caustic: -20
-        Asphyxiation: -20
-        Bloodloss: -20
-        Poison: -20
-        Radiation: -20
+        Blunt: -15
+        Slash: -15
+        Piercing: -15
+        Heat: -15
+        Shock: -15
+        Cold: -15
+        Caustic: -15
+        Asphyxiation: -15
+        Bloodloss: -15
+        Poison: -15
+        Radiation: -15
     ignoreResistances: true
 
 - type: entity
@@ -33,11 +33,13 @@
   description: Nooo, I don't wanna be furry!
   categories: [ HideSpawnMenu ]
   components:
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: ADTWizardForcedVulpkanin
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Body
+
 
 - type: entity
   id: ADTProjectileMagicArrow

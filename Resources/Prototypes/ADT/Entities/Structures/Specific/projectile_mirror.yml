@@ -20,7 +20,7 @@
   - type: AccessReader
     access: [["Atmospherics"], ["Engineering"], ["Research"]]
   - type: Gun
-    projectileSpeed: 5
+    projectileSpeed: 10
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: Appearance

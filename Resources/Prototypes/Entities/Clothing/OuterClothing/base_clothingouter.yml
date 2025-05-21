@@ -145,7 +145,7 @@
     slots: OUTERCLOTHING
   #ADT-Tweak-Start
   - type: CoveredSlot
-    slots: [innerclothing, feet, underwearb, underweart, socks]
+    slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
   #ADT-Tweak-End
 
 - type: entity

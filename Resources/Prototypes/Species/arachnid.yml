@@ -38,8 +38,8 @@
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    # UndergarmentTop: MobHumanoidAnyMarking # ADT-No-More-Useless-Feature
+    # UndergarmentBottom: MobHumanoidAnyMarking # ADT-No-More-Useless-Feature
     Chest: MobArachnidTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking

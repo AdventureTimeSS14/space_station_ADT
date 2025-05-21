@@ -52,8 +52,8 @@
       - 0 # Hydrogen
       - 0 # Nitrium
       - 0 # Healium
-      - 5 # Hyper-Noblium
-      temperature: 293.15
+      - 20 # Hyper-Noblium
+      temperature: 73.123
   - type: Sprite
     sprite: ADT/Objects/Tanks/hypernob.rsi
   - type: Item

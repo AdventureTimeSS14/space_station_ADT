@@ -20,6 +20,26 @@
   - LawyerGreenSuit
 
 - type: loadoutGroup
+  id: LawyerShoes
+  name: loadout-group-lawyer-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteShoes
+  - BrownShoes
+  - BlackShoes
+  - LaceupShoes
+  - LizardSkinShoes
+  # ADT tweak start
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
+  # ADT tweak end
+
+- type: loadoutGroup
   id: MagistratNeck
   name: loadout-group-lawyer-neck
   minLimit: 0

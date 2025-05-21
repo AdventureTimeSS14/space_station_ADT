@@ -16,6 +16,7 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
+using Content.Server.ADT.Hallucinations;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
@@ -33,6 +34,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.ADT.Supermatter;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -76,7 +78,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-
+    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
 
     public override void Initialize()
     {
@@ -97,9 +99,25 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityManager.EntityQueryEnumerator<SupermatterComponent>();
+        _zapAccumulator += TimeSpan.FromSeconds(frameTime);
+        var shouldZap = false;
+
+        if (_zapAccumulator.TotalSeconds >= 60)
+        {
+            _zapAccumulator -= TimeSpan.FromSeconds(60);
+            shouldZap = true;
+        }
+
+        var query = EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var uid, out var sm))
+        {
             AnnounceCoreDamage(uid, sm);
+
+            if (shouldZap && EntityManager.EntityExists(uid))
+            {
+                SupermatterZap(uid, sm, frameTime);
+            }
+        }
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent sm, MapInitEvent args)
@@ -124,6 +142,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         ProcessAtmos(uid, sm, args.dt);
         HandleDamage(uid, sm);
+        SupermatterZap(uid, sm, args.dt);
 
         if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
             HandleDelamination(uid, sm);
@@ -136,7 +155,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
         {
-            SupermatterZap(uid, sm);
+            SupermatterZap(uid, sm, args.dt);
             GenerateAnomalies(uid, sm);
         }
     }
@@ -180,7 +199,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     {
         // Ability to cut Sliver Supermatter if the object in your hand is sharp
         if (!sm.HasBeenPowered)
-              sm.HasBeenPowered = true;
+            sm.HasBeenPowered = true;
 
         if (sm.SliverRemoved)
             return;
@@ -198,7 +217,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             _doAfter.TryStartDoAfter(doAfterArgs);
             _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), uid, args.User);
         }
-            
+
         var target = args.User;
         var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
@@ -207,8 +226,8 @@ public sealed partial class SupermatterSystem : EntitySystem
         HasComp<GhostComponent>(target) ||
         HasComp<SupermatterImmuneComponent>(item) ||
         HasComp<GodmodeComponent>(item))
-        return;
-            
+            return;
+
         if (HasComp<UnremoveableComponent>(item))
         {
             if (!sm.HasBeenPowered)
@@ -224,8 +243,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             sm.MatterPower += power;
 
-            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);// Перевод
-            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);                           // Перевод
+            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable", ("target", target), ("sm", uid), ("item", item)), uid, othersFilter, true, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("supermatter-collide-insert-unremoveable-user", ("sm", uid), ("item", item)), uid, target, PopupType.LargeCaution);
             _audio.PlayPvs(sm.DustSound, uid);
 
             // Prevent spam or excess power production
@@ -317,13 +336,12 @@ public sealed partial class SupermatterSystem : EntitySystem
             if (HasComp<MobStateComponent>(target))
             {
                 EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
-                _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} has consumed {EntityManager.ToPrettyString(target):target}");
             }
 
             var targetProto = MetaData(target).EntityPrototype;
             if (targetProto != null && targetProto.ID != sm.CollisionResultPrototype)
             {
-                _popup.PopupEntity(Loc.GetString("supermatter-collide-mob", ("sm", uid), ("target", target)), uid, PopupType.LargeCaution); // перевод
+                _popup.PopupEntity(Loc.GetString("supermatter-collide-mob", ("sm", uid), ("target", target)), uid, PopupType.LargeCaution);
                 _audio.PlayPvs(sm.DustSound, uid);
             }
 
