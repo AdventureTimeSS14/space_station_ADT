@@ -2,7 +2,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Construction;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Kitchen.Components;
@@ -17,6 +16,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Database;
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
@@ -42,7 +42,7 @@ using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.Kitchen.Components; // ADT-Tweak
+using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -73,6 +73,9 @@ namespace Content.Server.Kitchen.EntitySystems
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string MalfunctionSpark = "Spark";
+
+        private static readonly ProtoId<TagPrototype> MetalTag = "Metal";
+        private static readonly ProtoId<TagPrototype> PlasticTag = "Plastic";
 
         public override void Initialize()
         {
@@ -410,6 +413,24 @@ namespace Content.Server.Kitchen.EntitySystems
             if (TryComp<ItemComponent>(args.Used, out var item))
             {
                 // check if size of an item you're trying to put in is too big
+                // ADT-Tweak start
+                // TODO: Исправить работу рецептов микроволновых печеней не через тэги by WsWiss
+                if (TryComp<TagComponent>(args.Used, out var tagComponent))
+                {
+                    var tags = tagComponent.Tags;
+                    if (!tags.Contains("ADTMedicalAssemblerStuff"))
+                    {
+                        if (TryComp<MicrowaveComponent>(ent, out var component))
+                        {
+                            if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.MedicalAssembler)
+                            {
+                                _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-using-transfer-fail"), ent, args.User);
+                                return;
+                            }
+                        }
+                    }
+                }
+                // ADT-Tweak end
                 if (_item.GetSizePrototype(item.Size) > _item.GetSizePrototype(ent.Comp.MaxItemSize))
                 {
                     if (TryComp<MicrowaveComponent>(ent, out var component))
@@ -420,7 +441,7 @@ namespace Content.Server.Kitchen.EntitySystems
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupAssembler, ("item", args.Used)), ent, args.User);
                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.MedicalAssembler)
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupMedicalAssembler, ("item", args.Used)), ent, args.User);
-                         if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Oven)
+                        if (component.ValidRecipeTypes == (int)MicrowaveRecipeType.Oven)
                             _popupSystem.PopupEntity(Loc.GetString(ent.Comp.TooBigPopupRange, ("item", args.Used)), ent, args.User);
                         return;
 
@@ -575,12 +596,12 @@ namespace Content.Server.Kitchen.EntitySystems
                     return;
                 }
 
-                if (_tag.HasTag(item, "Metal"))// ADT-Tweak: add && !component.DisableMetalMalfunctions
+                if (_tag.HasTag(item, MetalTag))
                 {
                     malfunctioning = true;
                 }
 
-                if (_tag.HasTag(item, "Plastic"))// ADT-Tweak: add && !component.DisableRuiningPlastic
+                if (_tag.HasTag(item, PlasticTag))
                 {
                     var junk = Spawn(component.BadRecipeEntityId, Transform(uid).Coordinates);
                     _container.Insert(junk, component.Storage);
@@ -700,7 +721,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             //cook only as many of those portions as time allows
-            return (recipe, (int) Math.Min(portions, component.CurrentCookTimerTime / recipe.CookTime));
+            return (recipe, (int)Math.Min(portions, component.CurrentCookTimerTime / recipe.CookTime));
         }
 
         public override void Update(float frameTime)

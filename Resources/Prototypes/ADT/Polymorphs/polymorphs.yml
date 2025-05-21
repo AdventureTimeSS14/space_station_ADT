@@ -370,3 +370,168 @@
     revertOnCrit: true
     revertOnDeath: true
     duration: 30
+
+- type: polymorph
+  id: ADTGondolaMorph
+  configuration:
+    entity: ADTMobGondola
+    forced: true
+    transferHumanoidAppearance: true
+    inventory: Drop
+    revertOnDeath: false
+    revertOnCrit: false
+
+### А теперь полиморфы в разные расы
+- type: polymorph
+  id: ADTLizardPolymorph
+  configuration:
+    entity: MobReptilian
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTHumanPolymorph
+  configuration:
+    entity: MobHuman
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTDwarfPolymorph
+  configuration:
+    entity: MobDwarf
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTArachnidPolymorph
+  configuration:
+    entity: MobArachnid
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTMothPolymorph
+  configuration:
+    entity: MobMoth
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTVoxPolymorph
+  configuration:
+    entity: MobVox
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTSkeletonPolymorph
+  configuration:
+    entity: MobSkeletonPerson
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTDraskPolymorph
+  configuration:
+    entity: MobDrask
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTTajaranPolymorph
+  configuration:
+    entity: MobTajaran
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTFelinidPolymorph
+  configuration:
+    entity: MobFelinid
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTKoboltPolymorph
+  configuration:
+    entity: MobKobolt
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTUrsusPolymorph
+  configuration:
+    entity: MobUrsus
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTResomiPolymorph
+  configuration:
+    entity: MobResomi
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTShadekinPolymorph
+  configuration:
+    entity: MobShadekin
+    forced: true
+    transferName: true
+    inventory: Transfer
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false

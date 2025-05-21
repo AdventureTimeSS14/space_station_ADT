@@ -157,6 +157,7 @@
   description: traitor-description
   showInVote: false
   rules:
+    - DummyNonAntagChance
     - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
@@ -187,6 +188,7 @@
   showInVote: false
   rules:
     - Nukeops
+    - DummyNonAntagChance
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
@@ -204,6 +206,7 @@
   description: rev-description
   showInVote: false
   rules:
+    - DummyNonAntagChance
     - Revolutionary
     - SubGamemodesRule
     - BasicStationEventScheduler
@@ -221,11 +224,13 @@
   showInVote: false
   rules:
   - Wizard
+  - DummyNonAntagChance
   - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
 
 - type: gamePreset
   id: Zombie

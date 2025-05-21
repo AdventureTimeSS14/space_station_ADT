@@ -20,6 +20,10 @@
       collection: FootstepHeavy
       params:
         volume: -9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
 
 - type: entity
   parent: ADTClothingModsuitShoesBase
@@ -107,6 +111,8 @@
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Modsuit/mining.rsi
     state: icon
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3

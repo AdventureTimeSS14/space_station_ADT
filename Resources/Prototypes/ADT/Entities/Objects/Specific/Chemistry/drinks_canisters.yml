@@ -530,3 +530,31 @@
   - type: Drink
   - type: Label
     currentLabel: reagent-name-whiskey
+
+- type: entity
+  parent: DrinkBottlePlasticBaseFull
+  id: DrinkCoffeeBluespaceJug
+  name: bluespace coffee jug
+  description: Wake up juice, of the heated kind.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: Coffee
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Coffee
+        Quantity: 1
+  - type: Unremoveable
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-coffee
+  - type: Tag
+    tags:
+      - ADTBluespaceCoffeine

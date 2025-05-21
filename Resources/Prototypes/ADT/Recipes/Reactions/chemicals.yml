@@ -9,41 +9,15 @@
     ADTCopperNitride: 3
 
 - type: reaction
-  id: ADTLiquidDarkMatter
-  reactants:
-    Uranium:
-      amount: 1
-    Plasma:
-      amount: 1
-    Carbon:
-      amount: 1
-  products:
-    ADTLiquidDarkMatter: 3
-
-- type: reaction
-  id: ADTSingularityExplosion
-  minTemp: 473
-  impact: Low
-  quantized: true
-  reactants:
-    ADTLiquidDarkMatter:
-      amount: 30
-  effects:
-  - !type:CreateEntityReactionEffect
-    entity: ReactionSingularity
-
-- type: reaction
   id: ADTMethanol
   minTemp: 370
   reactants:
-    Carbon:
-      amount: 1
+    Benzene:
+      amount: 2
     Hydrogen:
       amount: 2
-    Oxygen:
-      amount: 1
   products:
-    ADTMethanol: 4
+    ADTMethanol: 3
 
 - type: reaction
   id: ADTMethylamine

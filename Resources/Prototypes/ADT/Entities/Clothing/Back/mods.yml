@@ -110,6 +110,7 @@
       - ADTModsuitModLight
       - ADTModsuitModRadiationProtection
       - ADTModsuitModTray
+      - ADTModsuitModIsulation
   - type: Construction
     graph: ADTModsuitAtmospheric
     node: adtmodsuitatmospheric
@@ -156,6 +157,7 @@
       - ADTModsuitModLight
       - ADTModsuitModRadiationProtection
       - ADTModsuitModMagboot
+      - ADTModsuitModIsulation
   - type: Construction
     graph: ADTModsuitEngineering
     node: adtmodsuitengineering
@@ -291,6 +293,7 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
+      - ADTModsuitModIsulation
   - type: MeleeWeapon
     damage:
       types:
@@ -319,6 +322,7 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
+      - ADTModsuitModIsulation
 
 # СИ
 - type: entity
@@ -343,6 +347,7 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModEmpProtection
+      - ADTModsuitModIsulation
   - type: Construction
     graph: ADTModsuitScience
     node: adtmodsuitscience
@@ -374,6 +379,7 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+      - ADTModsuitModIsulation
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -432,6 +438,7 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+      - ADTModsuitModIsulation
 
 - type: entity
   parent: ADTClothingModsuitBackSyndicate
@@ -457,3 +464,4 @@
       - ADTModsuitModWelding
       - ADTModsuitModLight
       - ADTModsuitModJetpack
+      - ADTModsuitModIsulation

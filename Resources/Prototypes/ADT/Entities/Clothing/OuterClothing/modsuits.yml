@@ -38,6 +38,8 @@
         type: StorageBoundUserInterface
   - type: FireProtection
     reduction: 0.25
+  - type: CoveredSlot
+    slots: [innerclothing, underwearb, underweart, socks]
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase

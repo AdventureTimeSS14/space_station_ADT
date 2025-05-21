@@ -82,3 +82,32 @@
       Min: 1
       Max: 4
       PotencyDivisor: 25
+
+- type: seed
+  id: ADTCoffeeTree
+  name: seeds-coffeetree-name
+  noun: seeds-noun-seeds
+  displayName: seeds-coffeetree-display-name
+  plantRsi: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi
+  packetPrototype: ADTCoffeeTreeSeeds
+  productPrototypes:
+    - ADTCoffeeBeans
+  harvestRepeat: Repeat
+  lifespan: 75
+  maturation: 8
+  production: 15
+  yield: 3
+  potency: 15
+  growthStages: 2
+  waterConsumption: 0.40
+  idealLight: 9
+  idealHeat: 298
+  chemicals:
+    Theobromine:
+      Min: 5
+      Max: 15
+      PotencyDivisor: 15
+    Nutriment:
+      Min: 3
+      Max: 8
+      PotencyDivisor: 15

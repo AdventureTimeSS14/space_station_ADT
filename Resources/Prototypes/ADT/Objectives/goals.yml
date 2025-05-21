@@ -65,6 +65,14 @@
   id: ADTStationGoalMultiple8
   text: adt-station-goal-multiple
 
+- type: stationGoal
+  id: ADTStationGoalMultiple9
+  text: adt-station-goal-multiple
+
+- type: stationGoal
+  id: ADTStationGoalMultiple10
+  text: adt-station-goal-multiple
+
 # Одна крупная цель смены
 - type: stationGoal
   id: ADTStationGoalTransportShuttle
@@ -104,3 +112,34 @@
   - PillRomerol
   - PillRomerol
 
+- type: stationGoal
+  id: ADTStationGoalStorage
+  text: adt-station-goal-storage
+
+- type: stationGoal
+  id: ADTStationGoalMedbay
+  text: adt-station-goal-medbay
+
+- type: stationGoal
+  id: ADTStationGoalMech
+  text: adt-station-goal-mech
+
+- type: stationGoal
+  id: ADTStationGoalAnomaly
+  text: adt-station-goal-anomaly
+
+- type: stationGoal
+  id: ADTStationGoalKillbox
+  text: adt-station-goal-killbox
+
+- type: stationGoal
+  id: ADTStationGoalGreenhouses
+  text: adt-station-goal-greenhouses
+
+- type: stationGoal
+  id: ADTStationGoalOutpost
+  text: adt-station-goal-miningoutpost
+
+- type: stationGoal
+  id: ADTStationGoalSolars
+  text: adt-station-goal-solars

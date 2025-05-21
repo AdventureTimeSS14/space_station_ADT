@@ -46,3 +46,8 @@ set-mind-swap-command-target-has-no-mind-message = У одной из указа
 # Команда: adjstationjob
 cmd-adjstationjob-desc = Изменить манифест рабочих мест на станции.
 cmd-adjstationjob-help = Использование: adjstationjob <station id> <job id> <amount>
+
+# Команда: zoom_tweak
+cmd-zoom_tweak-command-description = Указанному игроку или uid меняет компонент { $component } устанавливая значения zoom.
+cmd-zoom_tweak-command-help-text = Использование: { $command } <Username/Uid> <int-Zoom>
+cmd-zoom_tweak-command-error-content-eye = У указанной сущности отсутствует { $component }.
