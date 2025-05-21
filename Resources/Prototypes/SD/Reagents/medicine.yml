@@ -1,0 +1,24 @@
+- type: reagent
+  id: SDBloodDrunkerAdrenaline
+  name: reagent-name-blooddrunker
+  group: Medicine
+  desc: reagent-desc-blooddrunker
+  physicalDesc: reagent-physical-desc-blooddrunker
+  flavor: medicine
+  color: "#7d3333"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 20
+        refresh: true
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            Blunt: -2
+            Heat: -2
+      - !type:ModifyBloodLevel
+        amount: 6

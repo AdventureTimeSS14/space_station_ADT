@@ -13,6 +13,16 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Damage.Components;
+using Robust.Shared.GameObjects;
+using Content.Shared.HunterEye;
+using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.ADT.Fauna;
 
 namespace Content.Shared.Weapons.Ranged.Upgrades;
 
@@ -24,6 +34,9 @@ public sealed class GunUpgradeSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly DamageableSystem? _damageable;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -42,6 +55,10 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<GunUpgradeComponentsComponent, GunShotEvent>(OnDamageGunShotComps);
         SubscribeLocalEvent<GunUpgradeVampirismComponent, GunShotEvent>(OnVampirismGunShot);
         SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
+        SubscribeLocalEvent<GunUpgradeReagentAddComponent, GunShotEvent>(OnReagentAddGunShot);
+        SubscribeLocalEvent<ProjectileReagentAddComponent, ProjectileHitEvent>(OnReagentAddProjectileHit);
+        SubscribeLocalEvent<GunUpgradeBloodDrunkerComponent, GunShotEvent>(OnBloodDrunkerGunShot);
+        SubscribeLocalEvent<ProjectileBloodDrunkerComponent, ProjectileHitEvent>(OnBloodDrunkerProjectileHit);
     }
 
     private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
@@ -138,6 +155,59 @@ public sealed class GunUpgradeSystem : EntitySystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
         _damage.TryChangeDamage(args.Shooter, ent.Comp.DamageOnHit);
+    }
+
+    private void OnReagentAddGunShot(Entity<GunUpgradeReagentAddComponent> ent, ref GunShotEvent args)
+    {
+        foreach (var (ammo, _) in args.Ammo)
+        {
+            if (TryComp<ProjectileComponent>(ammo, out var proj))
+            {
+                var comp = EnsureComp<ProjectileReagentAddComponent>(ammo.Value);
+                comp.ReagentOnHit = ent.Comp.ReagentOnHit;
+                comp.ReagentCount = ent.Comp.ReagentCount;
+            }
+        }
+    }
+
+    private void OnReagentAddProjectileHit(Entity<ProjectileReagentAddComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (!HasComp<MobStateComponent>(args.Target))
+            return;
+
+        if (args.Shooter.HasValue && TryComp<SolutionContainerManagerComponent>(args.Shooter.Value, out var container))
+        {
+            if (_solutionContainers.TryGetSolution(args.Shooter.Value, "chemicals", out var solution))
+            {
+                var reagent = new ReagentQuantity(ent.Comp.ReagentOnHit, ent.Comp.ReagentCount);
+                _solutionContainers.TryAddReagent(solution.Value, reagent, out var acceptedAmount);
+            }
+        }
+    }
+
+    private void OnBloodDrunkerGunShot(Entity<GunUpgradeBloodDrunkerComponent> ent, ref GunShotEvent args)
+    {
+        foreach (var (ammo, _) in args.Ammo)
+        {
+            if (TryComp<ProjectileComponent>(ammo, out var proj))
+            {
+                var comp = EnsureComp<ProjectileBloodDrunkerComponent>(ammo.Value);
+            }
+        }
+    }
+
+    private void OnBloodDrunkerProjectileHit(Entity<ProjectileBloodDrunkerComponent> ent , ref ProjectileHitEvent args)
+    {
+
+        if (!HasComp<FaunaComponent>(args.Target))
+            return;
+
+        if (args.Shooter.HasValue && TryComp<MobStateComponent>(args.Shooter.Value, out var comp))
+        {
+            _statusEffect.TryAddStatusEffect<IgnoreSlowOnDamageComponent>(args.Shooter.Value, "Adrenaline", TimeSpan.FromSeconds(10), true);
+            _statusEffect.TryAddStatusEffect<HunterEyeDamageReductionComponent>(args.Shooter.Value, "SDHunterEye", TimeSpan.FromSeconds(1), true);
+            _statusEffect.TryRemoveStatusEffect(args.Shooter.Value, "Stun");
+        }
     }
 
     public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableGunComponent> ent)

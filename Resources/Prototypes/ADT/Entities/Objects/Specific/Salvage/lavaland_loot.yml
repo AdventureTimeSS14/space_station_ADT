@@ -44,3 +44,16 @@
         Slash: -1.5
         Piercing: -1.5
         Blunt: -1.5
+
+- type: entity
+  id: SDBloodDrunkerModule
+  parent: BasePKAUpgrade
+  name: strange core
+  components:
+  - type: Sprite
+    sprite: /Textures/SD/Objects/Specific/Salvage/Artefacts/hunter_eye.rsi
+    state: hunter-eye
+  - type: GunUpgrade
+    tags: [ GunUpgradeReloadSpeed ]
+    examineText: gun-upgrade-examine-text-blooddrunker
+  - type: GunUpgradeBloodDrunker

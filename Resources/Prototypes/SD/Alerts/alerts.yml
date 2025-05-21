@@ -1,0 +1,7 @@
+- type: alert
+  id: SDHunterEye
+  icons:
+  - sprite: /Textures/SD/Objects/Specific/Salvage/Artefacts/hunter_eye.rsi
+    state: hunter-eye
+  name: alerts-huntereye-name
+  description: alerts-huntereye-desc
