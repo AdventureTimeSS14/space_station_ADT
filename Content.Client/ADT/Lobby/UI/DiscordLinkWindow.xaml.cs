@@ -83,7 +83,6 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
     private void UpdateStatus()
     {
         CheckLinkDiscord();
-        Logger.Warning("Test UPDATE");
 
         if (_isLinked)
         {
