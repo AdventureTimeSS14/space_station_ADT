@@ -95,9 +95,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75 # ADT tweak 0.7 > 0.75
-        Slash: 0.75 # ADT tweak 0.7 > 0.75
-        Piercing: 0.4 # ADT tweak 0.7 > 0.4
+        Blunt: 0.6 # ADT tweak 0.7 > 0.6
+        Slash: 0.6 # ADT tweak 0.7 > 0.6
+        Piercing: 0.6 # ADT tweak 0.7 > 0.6
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
