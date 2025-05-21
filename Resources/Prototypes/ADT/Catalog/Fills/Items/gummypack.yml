@@ -29,3 +29,27 @@
       orGroup: ADTGummies3
     - id: ADTFoodSnackGummyVulpkanin
       orGroup: ADTGummies3
+    - id: ADTFoodSnackGummyArachnid
+      orGroup: ADTGummies4
+    - id: ADTFoodSnackGummyCischi
+      orGroup: ADTGummies4
+    - id: ADTFoodSnackGummyFelinid
+      orGroup: ADTGummies4
+    - id: ADTFoodSnackGummyHuman
+      orGroup: ADTGummies4
+    - id: ADTFoodSnackGummyKidan
+      orGroup: ADTGummies5
+    - id: ADTFoodSnackGummyMoth
+      orGroup: ADTGummies5
+    - id: ADTFoodSnackGummyMurine
+      orGroup: ADTGummies5
+    - id: ADTFoodSnackGummySareng
+      orGroup: ADTGummies5
+    - id: ADTFoodSnackGummySlime
+      orGroup: ADTGummies6
+    - id: ADTFoodSnackGummyTayaran
+      orGroup: ADTGummies6
+    - id: ADTFoodSnackGummyUnath
+      orGroup: ADTGummies6
+    - id: ADTFoodSnackGummyVulpkanin
+      orGroup: ADTGummies6

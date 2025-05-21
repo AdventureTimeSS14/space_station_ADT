@@ -1,3 +1,3 @@
-ent-ADTFoodPackGummiesFilled = { end-ADTFoodPackGummies }
-    .desc = { end-ADTFoodPackGummies.desc }
+ent-ADTFoodPackGummiesFilled = пачка желейных конфет
+    .desc = Внутри сокрыто поистине сокровище.
     .suffix = Заполненный
