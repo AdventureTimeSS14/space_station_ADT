@@ -1,10 +1,10 @@
 using Content.Shared.ADT.Salvage.Systems;
-using Content.Shared.ADT.Salvage;
 using Content.Shared.Thief;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Salvage.Components;
 
@@ -45,4 +45,24 @@ public sealed partial class MiningVoucherComponent : Component
     [DataField]
     public MiningVoucherTypeDropPlace TypeDropPlace = MiningVoucherTypeDropPlace.Default;
 
+}
+
+[Serializable, NetSerializable]
+public enum MiningVoucherUiKey : byte
+{
+    Key
+}
+
+[Serializable, NetSerializable]
+public enum MiningVoucherTypeDrop : byte
+{
+    Default,
+    Rocket
+}
+
+[Serializable, NetSerializable]
+public enum MiningVoucherTypeDropPlace : byte
+{
+    Default,
+    ThisPlace
 }

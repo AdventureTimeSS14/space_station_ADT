@@ -10,23 +10,3 @@ public sealed class MiningVoucherSelectMessage(int index) : BoundUserInterfaceMe
 {
     public readonly int Index = index;
 }
-
-[Serializable, NetSerializable]
-public enum MiningVoucherUiKey : byte
-{
-    Key
-}
-
-[Serializable, NetSerializable]
-public enum MiningVoucherTypeDrop : byte
-{
-    Default,
-    Rocket
-}
-
-[Serializable, NetSerializable]
-public enum MiningVoucherTypeDropPlace : byte
-{
-    Default,
-    ThisPlace
-}
