@@ -32,7 +32,7 @@ public sealed partial class CCVars
     ///     Link to wiki to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksWiki =
-        CVarDef.Create("infolinks.wiki", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.wiki", "https://wiki.sd.qeqk.ru", CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Link to Patreon. Not shown in the launcher currently.
