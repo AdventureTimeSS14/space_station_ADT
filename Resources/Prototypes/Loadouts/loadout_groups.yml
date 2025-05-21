@@ -1174,6 +1174,7 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
+  - SDWardenArmoredWinterCoatOld # SD-Edit
 
 - type: loadoutGroup
   id: SecurityHead

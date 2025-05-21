@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  id: SDClothingOuterWinterWardenOld
+  name: зимняя бронекуртка смотрителя
+  description: Прочная, утилитарная зимняя куртка, предназначенная для защиты смотрителя от любых угроз, связанных с бригом и переохлаждением. Эта выглядит помятой.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+  - type: Clothing
+    sprite: SD/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
