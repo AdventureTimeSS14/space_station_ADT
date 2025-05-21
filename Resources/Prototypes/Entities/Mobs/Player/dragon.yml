@@ -173,6 +173,10 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
+  - type: ThermalVision #ADT tweak start
+    color: Purple
+  - type: MesonVision
+    color: Purple #ADT tweak end
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank

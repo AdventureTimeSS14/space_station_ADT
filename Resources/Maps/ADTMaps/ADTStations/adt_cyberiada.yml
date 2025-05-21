@@ -20713,9 +20713,9 @@ entities:
     - type: Transform
       pos: -0.5,-7.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
   - uid: 784
     components:
     - type: Transform
@@ -99802,33 +99802,33 @@ entities:
     - type: Transform
       pos: -12.5,-9.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
   - uid: 13537
     components:
     - type: Transform
       pos: -12.5,-8.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
   - uid: 13538
     components:
     - type: Transform
       pos: -12.5,-7.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
+    # - type: DeviceNetwork
+    #   configurators:
+    #   - invalid
   - uid: 13539
     components:
     - type: Transform
       pos: 11.5,-9.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 22857
       - 22858
@@ -99888,8 +99888,8 @@ entities:
       pos: 11.5,-8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 22857
       - 22858
@@ -99899,8 +99899,8 @@ entities:
       pos: 11.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 22857
       - 22858
@@ -100500,8 +100500,8 @@ entities:
       pos: 3.5,-58.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 252
       - 204
@@ -100672,8 +100672,8 @@ entities:
       pos: 22.5,10.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 19621
       - 19638
@@ -100685,8 +100685,8 @@ entities:
       pos: 29.5,9.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 19668
       - 19682
@@ -100696,8 +100696,8 @@ entities:
       pos: 29.5,11.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 19668
       - 19682
@@ -125753,8 +125753,8 @@ entities:
       pos: 30.5,9.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 19668
       - 19682
@@ -126429,8 +126429,8 @@ entities:
       pos: -2.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
     - type: AtmosPipeColor
       color: '#0000FFFF'
   - uid: 17101
@@ -126439,8 +126439,8 @@ entities:
       pos: 1.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
     - type: AtmosPipeColor
       color: '#0000FFFF'
   - uid: 17102
@@ -127372,8 +127372,8 @@ entities:
       pos: 30.5,10.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 19668
       - 19682
@@ -128082,8 +128082,8 @@ entities:
       pos: -3.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
     - type: AtmosPipeColor
       color: '#FF0000FF'
   - uid: 17286
@@ -128093,8 +128093,8 @@ entities:
       pos: 2.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
     - type: AtmosPipeColor
       color: '#FF0000FF'
   - uid: 17287
@@ -128586,8 +128586,8 @@ entities:
       pos: 4.5,-61.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 252
     - type: AtmosPipeColor
@@ -140236,10 +140236,10 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -41.5,-49.5
       parent: 2
-    - type: UserInterface
-      actors:
-        enum.StrippingUiKey.Key:
-        - invalid
+    # - type: UserInterface
+    #   actors:
+    #     enum.StrippingUiKey.Key:
+    #     - invalid
     - type: ContainerContainer
       containers:
         jumpsuit: !type:ContainerSlot

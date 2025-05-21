@@ -1051,3 +1051,28 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+
+#antillion
+- type: entity
+  parent: ClothingHeadBandMerc
+  id: ADTClothingHeadBandMercAntillion
+  name: mercenary bandana
+  description: mercenary bandana
+  suffix: Personal, antillion
+
+- type: entity
+  parent: ClothingEyesGlassesMercenary
+  id: ADTClothingEyesGlassesMercenaryAntillion
+  name: mercenary glasses
+  description: Glasses made for combat, to protect the eyes from bright blinding flashes.
+  suffix: Personal, antillion
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: IdentityBlocker
+    coverage: EYES
