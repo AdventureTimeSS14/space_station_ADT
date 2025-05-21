@@ -14,6 +14,7 @@ store-category-implants = Импланты
 store-category-job = Работа
 store-category-pointless = Безделушки
 store-discounted-items = Скидки
+store-category-contractor = Контракт
 # Revenant
 store-category-abilities = Способности
 # Wizard

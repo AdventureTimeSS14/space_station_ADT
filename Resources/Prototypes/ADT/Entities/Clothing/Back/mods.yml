@@ -465,3 +465,29 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
+
+- type: entity
+  parent: ADTClothingModsuitBackSyndicate
+  id: ADTClothingModsuitBackSyndicateContractor
+  name: syndicate contractor MOD control unit
+  description: So vrilliant!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/syndicate_contractor.rsi
+    state: icon
+  - type: ModSuit
+    backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    maxComplexity: 20
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominal_contract.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSyndicateContractor
+      gloves: ADTClothingHandsModsuitSyndicateContractor
+      outerClothing: ADTClothingOuterModsuitBodySyndicateContractor
+      shoes: ADTClothingModsuitShoesSyndicateContractor
+    startingModules:
+      - ADTModsuitModStorageSyndie
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModIsulation

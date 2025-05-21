@@ -88,3 +88,15 @@
     gloves: ClothingHandsGlovesCombat
     pocket1: BaseUplinkRadio40TC
     id: SyndiPDA
+
+- type: startingGear
+  id: SyndicateContractorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ADTClothingModsuitBackSyndicateContractor
+    shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    pocket1: BaseUplinkRadioContractor0TC
+    id: SyndiPDA
+    pocket2: ADTcontractorBaton

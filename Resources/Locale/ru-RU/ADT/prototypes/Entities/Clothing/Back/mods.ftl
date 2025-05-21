@@ -40,7 +40,10 @@ ent-ADTClothingModsuitBackSyndicateElite = элитный МОД синдика�
 ent-ADTClothingModsuitBackSyndicateCommander = МОД "Меркурий"
     .desc = Сильно улучшенная версия обычного МОДа синдиката, что выполшена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.
 
-# Понятие не имею где прописать части мода. Пропишу тут
+ent-ADTClothingModsuitBackSyndicateContractor = МОД контратника
+    .desc = Верх технологичности Триглава. Для агентов Waffle.Co . Полагается встроенный модуль выпечки вафель. Все права защищены.
+
+# Понятия не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
 
@@ -60,6 +63,8 @@ ent-ADTClothingHeadHelmetModsuitBso = шлем МОДа офицера сине�
 ent-ADTClothingHeadHelmetModsuitAdvanced = продвинутый шлем МОДа
 ent-ADTClothingHeadHelmetModsuitSyndicateElite = элитный шлем МОДа
 ent-ADTClothingHeadHelmetModsuitSyndicateCommander = шлем МОДа "Меркурий"
+ent-ADTClothingHeadHelmetModsuitSyndicateContractor = шлем МОДа контрактника
+    .desc = Выглядит угрожающе.
 
 # Оболочка
 ent-ADTClothingOuterModsuitBodyBase = Базовая оболочка МОДа
@@ -77,6 +82,8 @@ ent-ADTClothingOuterModsuitBodyAdvanced = оболочка продвинуто�
 ent-ADTClothingOuterModsuitBodyBso = оболочка МОДа офицера синего щита
 ent-ADTClothingOuterModsuitBodySyndicateElite = элитная оболочка МОДа
 ent-ADTClothingOuterModsuitBodySyndicateCommander = оболочка МОДа "Меркурий"
+ent-ADTClothingOuterModsuitBodySyndicateContractor = нагрудник МОДа контрактника
+    .desc = Довольно легкий и прочный, материал так просто не определить.
 
 # Ботинки
 ent-ADTClothingModsuitShoesBase = Базовые ботинки МОДа
@@ -94,6 +101,8 @@ ent-ADTClothingModsuitBso = ботинки МОДа офицера синего 
 ent-ADTClothingModsuitShoesAdvanced = ботинки продвинутого МОДа
 ent-ADTClothingModsuitShoesSyndicateElite = ботинки элитного МОДа
 ent-ADTClothingModsuitShoesSyndicateCommander = ботинки МОДа "Меркурий"
+ent-ADTClothingModsuitShoesSyndicateContractor = поножи МОДа контрактника
+    .desc = Удобные кроксы.
 
 # Перчатки
 ent-ADTClothingHandsModsuitBase = Базовые перчатки МОДа
@@ -110,3 +119,5 @@ ent-ADTClothingHandsModsuitSafeguard = перчатки МОДа "Диктато
 ent-ADTClothingHandsModsuitAdvanced = перчатки продвинутого МОДа
 ent-ADTClothingHandsModsuitSyndicateElite = перчатки элитного МОДа
 ent-ADTClothingHandsModsuitSyndicateCommander = перчатки МОДа "Меркурий"
+ent-ADTClothingHandsModsuitSyndicateContractor = перчатки МОДа контрактника
+    .desc = Гладкие на ощупь.

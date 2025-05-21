@@ -1,0 +1,47 @@
+- type: entity
+  name: ContractorBaton
+  parent: BaseItem
+  id: ADTcontractorBaton
+  description: Big, dangerous contractor baton. Can be stored in pockets when turned off.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/contractor_baton.rsi
+    layers:
+    - state: contractor_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
+    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
+    damageOpen:
+      types:
+        Blunt: 0
+    damageFolded:
+      types:
+        Blunt: 0
+    staminaDamageFolded: 0
+    staminaDamageOpen: 50
+    sizeOpened: Normal
+    sizeClosed: Small
+  - type: StaminaDamageOnHit
+    damage: 0
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/ADT/Entities/Objects/Weapons/Melee/contractorbatonhit.ogg
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/contractor_baton.rsi
+  - type: UseDelay
+    delay: 1
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: contractor_on}
+          False: {state: contractor_off}

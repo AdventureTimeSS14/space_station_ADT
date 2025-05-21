@@ -155,3 +155,18 @@
   - type: Store
     balance:
       Telecrystal: 99999
+
+- type: entity
+  parent: BaseUplinkRadio
+  id: BaseUplinkRadioContractor0TC
+  suffix: 0 TC
+  components:
+  - type: Store
+    categories:
+    - UplinkContractor
+    balance:
+      Telecrystal: 0
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: svo

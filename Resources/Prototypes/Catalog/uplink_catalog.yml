@@ -572,6 +572,7 @@
     Telecrystal: 5 # ADT-Tweak 6>4
   categories:
   - UplinkChemicals
+  - UplinkContractor # SD
 
 - type: listing
   id: UplinkHypoDart
@@ -633,6 +634,7 @@
     Telecrystal: 5 # ADT-Tweak 6>4
   categories:
   - UplinkChemicals
+  - UplinkContractor # SD
 
 - type: listing
   id: UplinkCombatMedkit
@@ -884,6 +886,7 @@
     Telecrystal: 4
   categories:
   - UplinkDisruption
+  - UplinkContractor
 
 - type: listing
   id: UplinkEmag
@@ -897,6 +900,7 @@
     Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkDisruption
+  - UplinkContractor
 
 - type: listing
   id: UplinkRadioJammer
@@ -947,6 +951,7 @@
     Telecrystal: 1
   categories:
   - UplinkDisruption
+  - UplinkContractor
 
 - type: listing
   id: UplinkSlipocalypseClusterSoap
@@ -1305,6 +1310,7 @@
     Telecrystal: 4 # ADT-Tweak 5>4
   categories:
     - UplinkImplants
+    - UplinkContractor
 
 - type: listing
   id: UplinkScramImplanter
@@ -1468,6 +1474,7 @@
     Telecrystal: 4
   categories:
   - UplinkImplants
+  - UplinkContractor
 
 
 # Wearables
@@ -1531,6 +1538,7 @@
     Telecrystal: 3 # ADT-Tweak 4>3
   categories:
     - UplinkWearables
+    - UplinkContractor
 
 - type: listing
   id: UplinkClothingNoSlipsShoes

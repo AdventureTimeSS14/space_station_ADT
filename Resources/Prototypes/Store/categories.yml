@@ -117,3 +117,9 @@
   id: RevenantInstantEffects
   name: store-category-inst-effects
   priority: 2
+
+  # SD contractor
+- type: storeCategory
+  id: UplinkContractor
+  name: store-category-contractor
+  priority: 1
