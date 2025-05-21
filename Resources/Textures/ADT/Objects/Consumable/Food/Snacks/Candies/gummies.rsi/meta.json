@@ -42,6 +42,14 @@
         },
         {
             "name": "vulpkanin"
+        },
+        {
+            "name": "gummy-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "gummy-inhand-right",
+            "directions": 4
         }
     ]
 }
