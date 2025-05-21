@@ -355,7 +355,7 @@
         Blunt: 0.6 # ADT tweak 0.5 > 0.6
         Slash: 0.6
         Piercing: 0.5 # ADT tweak 0.6 > 0.5
-        Heat: 0.65 # ADT tweak 1 > 0.75
+        Heat: 0.65 # ADT tweak 1 > 0.65
         Caustic: 0.7
     staminaModifier: 0.7  # ADT tweak
   - type: ClothingSpeedModifier
