@@ -25,7 +25,14 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     private bool _minesPlaced = false;
     private bool _flagMode = false;
+
+
+    private EntityUid _uid = default!;
     private MinesweeperComponent _comp = default!;
+    private BoundUserInterface _boundUserInterface = default!;
+
+
+
     // private float _elapsedTime = 0f;
     private bool _gameEnd = false;
     private Stopwatch _stopwatch = new();
@@ -177,7 +184,12 @@ public sealed partial class MinesweeperWindow : FancyWindow
         }
     }
 
-    private void OnTileClicked(int x, int y)
+    // public void UpdateName(string? userName)
+    // {
+    //     _comp.LastOpenedBy = userName;
+    // }
+
+    public void OnTileClicked(int x, int y)
     {
         if (_gameEnd) return;
 
@@ -307,13 +319,12 @@ public sealed partial class MinesweeperWindow : FancyWindow
         // UpdateRecordsDisplay();
     }
 
-    // public void LoadRecords(List<MinesweeperRecord> records, EntityUid uid, MinesweeperComponent component, BoundUserInterface boundUserInterface)
-    // {
-    //     _records = records;
-    //     _boundUserInterface = boundUserInterface;
-    //     _uid = uid;
-    //     _comp = component;
-    // }
+    public void LoadRecords(EntityUid uid, MinesweeperComponent component, BoundUserInterface boundUserInterface)
+    {
+        _uid = uid;
+        _comp = component;
+        _boundUserInterface = boundUserInterface;
+    }
 
     // private void UpdateRecordsDisplay()
     // {

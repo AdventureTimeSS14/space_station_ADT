@@ -1,20 +1,19 @@
+using Robust.Shared.Serialization;
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.ADT.Minesweeper;
 
 /// <summary>
 /// Component Minesweeper
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MinesweeperComponent : Component
 {
     // [DataField]
     // public string? Input;
 
-    // [DataField, AutoNetworkedField]
-    // public List<MinesweeperRecord> Records = new();
-
-    // [ViewVariables]
-    // [DataField]
-    // public string? LastOpenedBy;
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public string? LastOpenedBy;
 }
 
 
@@ -45,3 +44,14 @@ public sealed partial class MinesweeperComponent : Component
 //         TimeSeconds = timeSeconds;
 //     }
 // }
+
+[Serializable, NetSerializable]
+public sealed class OnWinMessage : BoundUserInterfaceMessage
+{
+    public string? UserName;
+
+    public OnWinMessage(string? userName)
+    {
+        UserName = userName;
+    }
+}
