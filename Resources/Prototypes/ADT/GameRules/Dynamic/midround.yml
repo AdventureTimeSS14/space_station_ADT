@@ -115,7 +115,7 @@
     nameLoc: dynamic-gamerule-ninja-title
     weight: 4
     cost: 7
-    highImpact: trueё
+    highImpact: true
 
 # Revenant Spawn
 - type: entity
