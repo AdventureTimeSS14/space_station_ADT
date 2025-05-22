@@ -51,8 +51,8 @@
     weight: 4
     cost: 5
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -72,8 +72,8 @@
     cost: 7
     highImpact: true
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     maxOccurrences: 1
     duration: null
@@ -97,7 +97,7 @@
 
 # Dragon Spawn
 - type: entity
-  parent: BaseGameRule
+  parent: DragonSpawn
   id: DragonDynamicMidround
   components:
   - type: DynamicRuleset
@@ -105,89 +105,21 @@
     weight: 4
     cost: 7
     highImpact: true
-  - type: StationEvent
-    weight: 6.5
-    earliestStart: 30
-    minimumPlayers: 20
-    duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: MobDragon
-  - type: DragonRule
-  - type: AntagObjectives
-    objectives:
-    - CarpRiftsObjective
-    - DragonSurviveObjective
-  - type: AntagSelection
-    agentName: dragon-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDragon
-      min: 1
-      max: 1
-      pickPlayer: false
-      mindComponents:
-      - type: DragonRole
-        prototype: Dragon
 
 # Space Ninja Spawn
 - type: entity
-  parent: BaseGameRule
+  parent: NinjaSpawn
   id: NinjaDynamicMidround
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-ninja-title
     weight: 4
     cost: 7
-    highImpact: true
-  - type: StationEvent
-    weight: 6
-    duration: null
-    earliestStart: 30
-    minimumPlayers: 30
-  - type: SpaceSpawnRule
-  - type: AntagLoadProfileRule
-  - type: AntagObjectives
-    objectives:
-    - StealResearchObjective
-    - DoorjackObjective
-    - SpiderChargeObjective
-    - TerrorObjective
-    - MassArrestObjective
-    - NinjaSurviveObjective
-  - type: AntagSelection
-    agentName: ninja-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSpaceNinja
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SpaceNinjaGear
-      roleLoadout:
-      - RoleSurvivalEVA
-      briefing:
-        text: ninja-role-greeting
-        color: Green
-        sound: /Audio/Misc/ninja_greeting.ogg
-      components:
-      - type: SpaceNinja
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      - type: AutoImplant
-        implants:
-        - DeathAcidifierImplant
-      - type: RandomMetadata
-        nameSegments:
-        - names_ninja_title
-        - names_ninja
-      mindComponents:
-      - type: NinjaRole
-        prototype: SpaceNinja
+    highImpact: trueё
 
 # Revenant Spawn
 - type: entity
-  parent: BaseGameRule
+  parent: RevenantSpawn
   id: RevenantDynamicMidround
   components:
   - type: DynamicRuleset
@@ -200,52 +132,26 @@
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
-  - type: RandomSpawnRule
-    prototype: MobRevenant
 
 # Zombie Outbreak
-- type: entity
-  id: ZombiesDynamicMidround
-  parent: BaseGameRule
-  components:
-  - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-midround-zombies-title
-    weight: 2
-    cost: 10
-    highImpact: true
-  - type: StationEvent
-    earliestStart: 90
-    minimumPlayers: 40
-    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
-    duration: 1
-  - type: ZombieRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ InitialInfected ]
-      max: 3
-      playerRatio: 10
-      blacklist:
-        components:
-        - ZombieImmune
-        - AntagImmune
-      briefing:
-        text: zombie-patientzero-role-greeting
-        color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
-      components:
-      - type: PendingZombie #less time to prepare than normal
-        minInitialInfectedGrace: 300
-        maxInitialInfectedGrace: 450
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
-      - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+# - type: entity
+#   id: ZombiesDynamicMidround
+#   parent: ZombieOutbreak
+#   components:
+#   - type: DynamicRuleset
+#     nameLoc: dynamic-gamerule-midround-zombies-title
+#     weight: 2
+#     cost: 10
+#     highImpact: true
+#   - type: StationEvent
+#     earliestStart: 90
+#     minimumPlayers: 40
+#     weight: 1
+#     duration: 1
 
 # Lone Operative Spawn
 - type: entity
-  parent: BaseNukeopsRule
+  parent: LoneOpsSpawn
   id: NukeopsDynamicMidround
   components:
   - type: DynamicRuleset
@@ -258,49 +164,14 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-  - type: RuleGrids
-  - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
-  - type: NukeopsRule
-    warDeclarationMinOps: 1 # challenge mode
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointNukeopsCommander
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SyndicateLoneOperativeGearFull
-      roleLoadout:
-      - RoleSurvivalNukie
 
 # Rat King Spawn
 - type: entity
   id: RatKingDynamicMidround
-  parent: BaseStationEventShortDelay
+  parent: KingRatMigration
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-ratking-title
     weight: 4
     cost: 5
     highImpact: true
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
-    weight: 6
-    duration: 50
-    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    - id: MobMouseCancer
-      prob: 0.001
-    specialEntries:
-    - id: SpawnPointGhostRatKing
-      prob: 0.001

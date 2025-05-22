@@ -31,7 +31,7 @@
   - RatKingDynamicMidround # rat king spawn (M)
   - DragonDynamicMidround # space dragon spawn (M)
   - RevenantDynamicMidround # revenant spawn (M)
-  - ZombiesDynamicMidround # zombie outbreak (M) удалить, если будет бесить
+  # - ZombiesDynamicMidround # zombie outbreak (M) удалить, если будет бесить
   # blob todo (M)
   # spider infestation todo (M)
   # xenos todo (M)
