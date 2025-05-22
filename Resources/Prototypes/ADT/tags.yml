@@ -587,6 +587,9 @@
   id: ADTVendModStorage
 
 - type: Tag
+  id: ADTStamp
+
+- type: Tag
   id: ADTBadgeBronze
 - type: Tag
   id: ADTBadgeSilver

@@ -21,6 +21,11 @@
     size: Tiny
   - type: StealTarget
     stealGroup: Stamp
+    # ADT-Tweak start
+  - type: Tag
+    tags:
+    - ADTStamp
+    # ADT-Tweak end
 
 - type: entity
   name: alternate rubber stamp
