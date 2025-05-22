@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag.Components;
 
-[RegisterComponent, Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))]
+[RegisterComponent, /*Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))*/] //ADT tweak
 public sealed partial class AntagSelectionComponent : Component
 {
     /// <summary>
