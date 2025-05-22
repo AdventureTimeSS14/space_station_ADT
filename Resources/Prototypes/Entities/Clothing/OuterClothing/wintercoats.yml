@@ -390,6 +390,10 @@
         showEnts: False
         occludes: True
         ent: null
+      toggleable-clothing: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   # ADT tweak end
 ##########################################################
 
@@ -768,6 +772,10 @@
         showEnts: False
         occludes: True
         ent: null
+      toggleable-clothing: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   # ADT tweak end
 ################################################################
 
@@ -832,6 +840,22 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
+  # ADT tweak start
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      toggleable-clothing: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  # ADT tweak end
 ##############################################################
 
 - type: entity
