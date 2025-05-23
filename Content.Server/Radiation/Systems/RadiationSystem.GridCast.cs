@@ -7,7 +7,6 @@ using Content.Shared.Singularity.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -145,14 +144,6 @@ public partial class RadiationSystem
         if (rads < 0.01)
             return null;
 
-        // check if receiver is too far away
-        if (dist > GridcastMaxDistance)
-            return null;
-
-        // will it even reach destination considering distance penalty
-        var rads = source.Intensity - source.Slope * dist;
-        if (rads < MinIntensity)
-
         // create a new radiation ray from source to destination
         // at first we assume that it doesn't hit any radiation blockers
         // and has only distance penalty
@@ -196,7 +187,6 @@ public partial class RadiationSystem
 
         return ray;
     }
-
 /// <summary>
 /// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
 /// </summary>
@@ -258,7 +248,6 @@ public partial class RadiationSystem
             entry = exit;
         }
     }
-
     private RadiationRay Gridcast(
         Entity<MapGridComponent, TransformComponent> grid,
         ref RadiationRay ray,
@@ -279,7 +268,6 @@ public partial class RadiationSystem
         // TODO Grid overlap. This currently assumes the grid is always parented directly to the map (local matrix == world matrix).
         // If ever grids are allowed to overlap, this might no longer be true. In that case, this should precompute and cache
         // inverse world matrices.
-
         var srcLocal = sourceTrs.ParentUid == grid.Owner
             ? sourceTrs.LocalPosition
             : Vector2.Transform(ray.Source, grid.Comp2.InvLocalMatrix);
