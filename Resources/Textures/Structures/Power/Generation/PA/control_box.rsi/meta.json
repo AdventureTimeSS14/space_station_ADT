@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/a0fc71b279ceb41c8c5387b08e60d2cc4f15bef8",
+  "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/a0fc71b279ceb41c8c5387b08e60d2cc4f15bef8, resprite by buhoj_med",
   "size": {
     "x": 32,
     "y": 32
@@ -32,13 +32,7 @@
     },
     {
       "name": "unlitp3",
-      "directions": 4,
-      "delays": [
-        [0.5, 0.5],
-        [0.5, 0.5],
-        [0.5, 0.5],
-        [0.5, 0.5]
-      ]
+      "directions": 4
     },
     {
       "name": "wired",
