@@ -43,28 +43,18 @@ public sealed partial class JukeboxMenu : FancyWindow
 
         MusicList.OnItemSelected += args =>
         {
-            var metadata = MusicList[args.ItemIndex].Metadata;
-            Logger.Debug($"Выбрана песня: {metadata}");
-            if (metadata is ProtoId<JukeboxPrototype> songId)
+            if (MusicList[args.ItemIndex].Metadata is ProtoId<JukeboxPrototype> songId)
             {
                 OnSongSelected?.Invoke(songId);
             }
         };
 
-        PlayButton.OnPressed += args =>
-        {
-            OnPlayPressed?.Invoke(!_playState);
-        };
-
-        StopButton.OnPressed += args =>
-        {
-            OnStopPressed?.Invoke();
-        };
-        PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
+        PlayButton.OnPressed += _ => OnPlayPressed?.Invoke(!_playState);
+        StopButton.OnPressed += _ => OnStopPressed?.Invoke();
+        PlaybackSlider.OnReleased += _ => SetTime?.Invoke(PlaybackSlider.Value);
+        SearchBar.OnTextChanged += _ => FilterSongs();
 
         SetPlayPauseButton(_audioSystem.IsPlaying(_audio), force: true);
-
-        SearchBar.OnTextChanged += OnSearchTextChanged;
     }
 
     public JukeboxMenu(AudioSystem audioSystem)
@@ -88,14 +78,24 @@ public sealed partial class JukeboxMenu : FancyWindow
     /// </summary>
     public void Populate(IEnumerable<JukeboxPrototype> jukeboxProtos)
     {
-        MusicList.Clear();
         _allSongs.Clear();
-
-        foreach (var entry in jukeboxProtos)
+        foreach (var proto in jukeboxProtos)
         {
-            var songName = entry.Name;
-            _allSongs.Add((entry.Name, entry.ID));
-            MusicList.AddItem(entry.Name, metadata: entry.ID);
+            _allSongs.Add((proto.Name, proto.ID));
+        }
+        FilterSongs();
+    }
+
+    private void FilterSongs()
+    {
+        MusicList.Clear();
+        var filter = SearchBar.Text.Trim().ToLowerInvariant();
+        foreach (var song in _allSongs)
+        {
+            if (string.IsNullOrEmpty(filter) || song.Name.ToLowerInvariant().Contains(filter))
+            {
+                MusicList.AddItem(song.Name, metadata: song.Id);
+            }
         }
     }
 
