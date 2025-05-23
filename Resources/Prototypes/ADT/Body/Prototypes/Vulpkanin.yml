@@ -13,10 +13,10 @@
     torso:
       part: ADTTorsoVulpkanin
       organs:
-        heart: OrganVulpkaninHeart
+        heart: ADTOrganVulpkaninHeart
         lungs: OrganHumanLungs
         stomach: OrganVulpkaninStomach
-        liver: ADTOrganVulpkaninAnimalLiver  #Печень вульпы
+        liver: ADTOrganVulpkaninLiver  #Печень вульпы
         kidneys: OrganHumanKidneys
       connections:
         - right arm

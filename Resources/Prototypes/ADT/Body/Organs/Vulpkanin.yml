@@ -10,7 +10,7 @@
           maxVol: 50.0
 
 - type: entity
-  id: ADTOrganVulpkaninAnimalLiver
+  id: ADTOrganVulpkaninLiver
   parent: BaseAnimalOrgan
   name: liver
   #categories: [ HideSpawnMenu ]
