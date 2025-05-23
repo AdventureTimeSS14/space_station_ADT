@@ -1,5 +1,6 @@
+using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos;
 using Content.Server.Temperature.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Map;
@@ -31,14 +32,15 @@ public sealed class RTGHeatSystem : EntitySystem
         var query = EntityQueryEnumerator<RTGHeatComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var heatComp, out var xform))
         {
-            if (!_atmosphere.TryGetTileMixture(uid, xform, true, out var atmosphere))
+            var atmos = _atmosphere.GetContainingMixture(uid, false, true);
+            if (atmos == null)
                 continue;
 
-            if (atmosphere.Temperature >= heatComp.MaxTemperature)
+            if (atmos.Temperature >= heatComp.MaxTemperature)
                 continue;
 
-            atmosphere.Temperature = MathF.Min(
-                atmosphere.Temperature + heatComp.HeatPerSecond * UpdateInterval,
+            atmos.Temperature = MathF.Min(
+                atmos.Temperature + heatComp.HeatPerSecond * UpdateInterval,
                 heatComp.MaxTemperature);
         }
     }
