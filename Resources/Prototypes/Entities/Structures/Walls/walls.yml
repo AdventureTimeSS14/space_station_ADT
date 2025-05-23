@@ -48,8 +48,8 @@
   - type: Airtight
   - type: StaticPrice
     price: 75
-###  - type: RadiationBlocker #ADT
-###    resistance: 2 #ADT
+###  - type: RadiationBlocker # ADT-Tweak
+###    resistance: 2 # ADT-Tweak
   - type: BlockWeather
   - type: SunShadowCast
 
@@ -136,7 +136,7 @@
     delay: 8
     fx: EffectRCDDeconstruct8
   # ADT tweak start
-  - type: RadiationBlocker 
+  - type: RadiationBlocker
     resistance: 10
   # ADT tweak end
   - type: Destructible
@@ -643,7 +643,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 1
+    resistance: 1 #ADT-Tweak
 
 - type: entity
   parent: WallReinforced
@@ -938,7 +938,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 1
+    resistance: 1 # ADT-Tweak
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon

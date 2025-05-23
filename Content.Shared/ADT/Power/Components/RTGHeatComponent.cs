@@ -24,6 +24,4 @@ public sealed partial class RTGHeatComponent : Component
     /// </summary>
     [DataField("maxTemperature")]
     public float MaxTemperature;
-
-    public float TimeSinceLastHeat = 0f;
 }

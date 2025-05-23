@@ -16,7 +16,7 @@ public partial class RadiationSystem
 {
     private List<Entity<MapGridComponent>> _grids = new();
 
-    private readonly record struct SourceData( 
+    private readonly record struct SourceData(
         float Intensity,
         Entity<RadiationSourceComponent, TransformComponent> Entity,
         Vector2 WorldPosition)
@@ -136,7 +136,7 @@ public partial class RadiationSystem
 
         var mapId = destTrs.MapID;
 
-        // get direction from rad source to destination and its distance 
+        // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
         var dist = Math.Max(dir.Length(),0.5f);
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
@@ -144,6 +144,14 @@ public partial class RadiationSystem
         var rads = source.Intensity / (dist );
         if (rads < 0.01)
             return null;
+
+        // check if receiver is too far away
+        if (dist > GridcastMaxDistance)
+            return null;
+
+        // will it even reach destination considering distance penalty
+        var rads = source.Intensity - source.Slope * dist;
+        if (rads < MinIntensity)
 
         // create a new radiation ray from source to destination
         // at first we assume that it doesn't hit any radiation blockers

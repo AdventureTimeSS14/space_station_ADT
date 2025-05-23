@@ -14,32 +14,32 @@ namespace Content.Server.ADT.Power.Systems;
 public sealed class RTGHeatSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private float _accumulator = 0f;
+    private const float UpdateInterval = 1.0f;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        _accumulator += frameTime;
+        if (_accumulator < UpdateInterval)
+            return;
+
+        _accumulator -= UpdateInterval;
+
         var query = EntityQueryEnumerator<RTGHeatComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var heatComp, out var xform))
         {
-            heatComp.TimeSinceLastHeat += frameTime;
-
-            if (heatComp.TimeSinceLastHeat < heatComp.HeatInterval)
-                continue;
-
-            heatComp.TimeSinceLastHeat = 0f;
-
-            var atmosphere = _atmosphere.GetTileMixture(uid, true);
-
-            if (atmosphere == null)
+            if (!_atmosphere.TryGetTileMixture(uid, xform, true, out var atmosphere))
                 continue;
 
             if (atmosphere.Temperature >= heatComp.MaxTemperature)
                 continue;
 
-            var newTemp = MathF.Min(atmosphere.Temperature + heatComp.HeatPerSecond * heatComp.HeatInterval, heatComp.MaxTemperature);
-            atmosphere.Temperature = newTemp;
+            atmosphere.Temperature = MathF.Min(
+                atmosphere.Temperature + heatComp.HeatPerSecond * UpdateInterval,
+                heatComp.MaxTemperature);
         }
     }
 }
