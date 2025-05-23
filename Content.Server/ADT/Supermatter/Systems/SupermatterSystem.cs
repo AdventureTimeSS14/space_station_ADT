@@ -379,9 +379,6 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             sm.MatterPower += targetPhysics.Mass;
             _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} collided with {EntityManager.ToPrettyString(uid):uid} at {Transform(uid).Coordinates:coordinates}");
-
-            if (!sm.HasBeenPowered && !HasComp<SupermatterIgnoreComponent>(target))
-                LogFirstPower(uid, sm, target);
         }
 
         // Prevent spam or excess power production
@@ -397,6 +394,9 @@ public sealed partial class SupermatterSystem : EntitySystem
             sm.Power++;
 
         sm.MatterPower += HasComp<MobStateComponent>(target) ? 200 : 0;
+
+        if (!HasComp<SupermatterIgnoreComponent>(target) && !sm.HasBeenPowered)
+            LogFirstPower(uid, sm, target);
     }
 
     private void LogFirstPower(EntityUid uid, SupermatterComponent sm, EntityUid target)
