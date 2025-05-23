@@ -48,6 +48,28 @@
                                                 StyleClasses="ButtonBig" MinWidth="137" />
                                     </BoxContainer>
                                 </controls:StripeBack>
+                                <!-- ADT-Tweak-Start: Новая панель с двумя кнопками -->
+                                <controls:StripeBack Name="LobbyPanelLeftTop" Margin="1 -10 0 0" Visible="False">
+                                    <BoxContainer Orientation="Horizontal" SeparationOverride="3" Margin="1" Visible="True">
+                                        <cc:UICommandButton Name="DiscordLinkButton"
+                                                            Command="ui-lobby-discord-linc"
+                                                            Text="{Loc 'ui-lobby-discord-linc-button-main'}"
+                                                            StyleClasses="Caution"
+                                                            Visible="True"
+                                                            WindowType="{x:Type lobbyUi:DiscordLinkWindow}"
+                                                            MinWidth="100"
+                                                            Margin="3" />
+                                        <cc:UICommandButton Name="SponsorInfoButton"
+                                                            Command="ui-lobby-sponsor-info"
+                                                            Text="{Loc 'ui-lobby-sponsor-button-main-level'}"
+                                                            StyleClasses="Caution"
+                                                            Visible="True"
+                                                            WindowType="{x:Type lobbyUi:SponsorInfoWindow}"
+                                                            MinWidth="100"
+                                                            Margin="3" />
+                                    </BoxContainer>
+                                </controls:StripeBack>
+                                <!-- ADT-Tweak-End -->
                             </BoxContainer>
                         </PanelContainer>
                         <!-- Voting Popups -->

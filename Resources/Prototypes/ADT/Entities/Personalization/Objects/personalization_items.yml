@@ -2024,4 +2024,55 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_azil
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+#kugooergooer
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieGiPatter
+  name: Plushie GiPatter
+  description: Plushie GiPatter
+  suffix: Personal, kugooergooer
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_gipatter
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
 #SPONSOR-ITEMS-END

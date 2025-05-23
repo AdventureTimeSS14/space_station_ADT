@@ -104,7 +104,7 @@
     activatedDamage:
       types:
         Slash: 20
-        Heat: 10
+        Heat: 15
         Structural: 20
   - type: MeleeRequiresWield
   - type: HeldSpeedModifier #slowdown is what balances this compared to a dsword

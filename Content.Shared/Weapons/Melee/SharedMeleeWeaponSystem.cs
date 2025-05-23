@@ -105,7 +105,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (gun.NextFire > component.NextAttack)
         {
             component.NextAttack = gun.NextFire;
-            Dirty(uid, component);
+            DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
         }
     }
 
@@ -129,7 +129,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         component.NextAttack = minimum;
-        Dirty(uid, component);
+        DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
     }
 
     private void OnGetBonusMeleeDamage(EntityUid uid, BonusMeleeDamageComponent component, ref GetMeleeDamageEvent args)
@@ -169,7 +169,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         weapon.Attacking = false;
-        Dirty(weaponUid, weapon);
+        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.Attacking));
     }
 
     private void OnLightAttack(LightAttackEvent msg, EntitySessionEventArgs args)
@@ -197,7 +197,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
         }
 
-        AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
+        AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession, iswide: true);
     }
 
     private void OnDisarmAttack(DisarmAttackEvent msg, EntitySessionEventArgs args)
@@ -361,7 +361,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     /// Called when a windup is finished and an attack is tried.
     /// </summary>
     /// <returns>True if attack successful</returns>
-    private bool AttemptAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, AttackEvent attack, ICommonSession? session)
+    private bool AttemptAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, AttackEvent attack, ICommonSession? session, bool iswide = false)
     {
         var curTime = Timing.CurTime;
 
@@ -419,7 +419,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             swings++;
         }
 
-        Dirty(weaponUid, weapon);
+        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
 
         // Do this AFTER attack so it doesn't spam every tick
         var ev = new AttemptMeleeEvent(user); //ADT tweaked
@@ -469,6 +469,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         RaiseLocalEvent(user, ref attackEv);
 
         weapon.Attacking = true;
+        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.Attacking));
         return true;
     }
 
@@ -654,7 +655,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Sawmill.Debug($"Melee damage is {damage.Total} out of {component.Damage.Total}");
 
         // Raise event before doing damage so we can cancel damage if the event is handled
-        var hitEvent = new MeleeHitEvent(targets, user, meleeUid, damage, direction);
+        var hitEvent = new MeleeHitEvent(targets, user, meleeUid, damage, direction, iswide: true);
         RaiseLocalEvent(meleeUid, hitEvent);
 
         if (hitEvent.Handled)
@@ -876,15 +877,21 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 //Setting deactivated damage to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedDamage ??= meleeWeapon.Damage;
                 meleeWeapon.Damage = itemToggleMelee.ActivatedDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.Damage));
             }
 
-            meleeWeapon.HitSound = itemToggleMelee.ActivatedSoundOnHit;
+            if (meleeWeapon.HitSound?.Equals(itemToggleMelee.ActivatedSoundOnHit) != true)
+            {
+                meleeWeapon.HitSound = itemToggleMelee.ActivatedSoundOnHit;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.HitSound));
+            }
 
             if (itemToggleMelee.ActivatedSoundOnHitNoDamage != null)
             {
                 //Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedSoundOnHitNoDamage ??= meleeWeapon.NoDamageSound;
                 meleeWeapon.NoDamageSound = itemToggleMelee.ActivatedSoundOnHitNoDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.NoDamageSound));
             }
 
             if (itemToggleMelee.ActivatedSoundOnSwing != null)
@@ -892,28 +899,41 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 //Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedSoundOnSwing ??= meleeWeapon.SwingSound;
                 meleeWeapon.SwingSound = itemToggleMelee.ActivatedSoundOnSwing;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.SwingSound));
             }
 
             if (itemToggleMelee.DeactivatedSecret)
+            {
                 meleeWeapon.Hidden = false;
+            }
         }
         else
         {
             if (itemToggleMelee.DeactivatedDamage != null)
+            {
                 meleeWeapon.Damage = itemToggleMelee.DeactivatedDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.Damage));
+            }
 
             meleeWeapon.HitSound = itemToggleMelee.DeactivatedSoundOnHit;
+            DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.HitSound));
 
             if (itemToggleMelee.DeactivatedSoundOnHitNoDamage != null)
+            {
                 meleeWeapon.NoDamageSound = itemToggleMelee.DeactivatedSoundOnHitNoDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.NoDamageSound));
+            }
 
             if (itemToggleMelee.DeactivatedSoundOnSwing != null)
+            {
                 meleeWeapon.SwingSound = itemToggleMelee.DeactivatedSoundOnSwing;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.SwingSound));
+            }
 
             if (itemToggleMelee.DeactivatedSecret)
+            {
                 meleeWeapon.Hidden = true;
+            }
         }
-
-        Dirty(uid, meleeWeapon);
     }
 }

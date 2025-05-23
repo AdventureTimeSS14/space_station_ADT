@@ -35,6 +35,7 @@ using Content.Shared.Chat;
 using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
+using Content.Server.ADT.Discord;
 
 namespace Content.Server.IoC
 {
@@ -69,6 +70,7 @@ namespace Content.Server.IoC
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<UserDbDataManager>();
             IoCManager.Register<SponsorsManager>(); // Corvax-Sponsors
+            IoCManager.Register<ServerDiscordIdManager>(); // ADT Discord
             IoCManager.Register<JoinQueueManager>(); // Corvax-Queue
             IoCManager.Register<TTSManager>(); // Corvax-TTS
             IoCManager.Register<DiscordAuthManager>(); // Corvax-DiscordAuth

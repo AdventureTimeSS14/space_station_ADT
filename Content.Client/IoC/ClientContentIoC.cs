@@ -29,6 +29,7 @@ using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Client.ADT.Export;
+using Content.Client.ADT.Discord;
 
 namespace Content.Client.IoC
 {
@@ -39,6 +40,7 @@ namespace Content.Client.IoC
             var collection = IoCManager.Instance!;
 
             collection.Register<IParallaxManager, ParallaxManager>();
+            collection.Register<DiscordIdManager>(); // ADT Discord
             collection.Register<IChatManager, ChatManager>();
             collection.Register<ISharedChatManager, ChatManager>();
             collection.Register<IClientPreferencesManager, ClientPreferencesManager>();
