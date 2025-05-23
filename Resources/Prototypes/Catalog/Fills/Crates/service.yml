@@ -144,6 +144,7 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
+    - id: ADTBureaucraticBelt #ADT-Tweak
 
 - type: entity
   id: CrateServiceFaxMachine
