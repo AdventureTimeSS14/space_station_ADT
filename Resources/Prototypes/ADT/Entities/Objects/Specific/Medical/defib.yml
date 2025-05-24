@@ -84,18 +84,12 @@
         Asphyxiation: -45
     doAfterDuration: 2
     zapDelay: 2
-    powerOnSound:
-      path: /Audio/ADT/Items/Defib/highvolt-defib_safety_on.ogg
-    powerOffSound:
-      path: /Audio/ADT/Items/Defib/highvolt-defib_safety_off.ogg
     chargeSound:
       path: /Audio/ADT/Items/Defib/highvolt-defib_charge.ogg
     zapSound:
       path: /Audio/ADT/Items/Defib/highvolt-defib_zap.ogg
     readySound:
       path: /Audio/ADT/Items/Defib/highvolt-defib_ready.ogg
-    lowChargeSound:
-      path: /Audio/ADT/Items/Defib/highvolt-defib_low_charge.ogg
     zapDamage: 15
     writheDuration: 10
 

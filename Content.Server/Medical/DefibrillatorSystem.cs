@@ -25,7 +25,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Atmos.Miasma;
-using Content.Shared.Clumsy; //ADT-Tweak
 using Content.Shared.Changeling.Components;
 using Robust.Server.Containers;
 using System.Linq;
@@ -38,7 +37,6 @@ namespace Content.Server.Medical;
 /// </summary>
 public sealed class DefibrillatorSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!; //ADT-Tweak
     [Dependency] private readonly ChatSystem _chatManager = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -50,7 +48,6 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //ADT-Tweak
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -60,32 +57,9 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<DefibrillatorComponent, UseInHandEvent>(OnUseInHand); //ADT-Tweak
-        SubscribeLocalEvent<DefibrillatorComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty); //ADT-Tweak
         SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
     }
-
-    //ADT-Tweak
-    private void OnUseInHand(EntityUid uid, DefibrillatorComponent component, UseInHandEvent args)
-    {
-        if (args.Handled || !TryComp(uid, out UseDelayComponent? useDelay) || _useDelay.IsDelayed((uid, useDelay)))
-            return;
-
-        if (!TryToggle(uid, component, args.User))
-            return;
-
-        args.Handled = true;
-        _useDelay.TryResetDelay((uid, useDelay));
-    }
-
-    private void OnPowerCellSlotEmpty(EntityUid uid, DefibrillatorComponent component, ref PowerCellSlotEmptyEvent args)
-    {
-        if (!TerminatingOrDeleted(uid))
-            TryDisable(uid, component);
-    }
-    //End ADT-Tweak
-
     private void OnAfterInteract(EntityUid uid, DefibrillatorComponent component, AfterInteractEvent args)
     {
         if (args.Handled || args.Target is not { } target)
@@ -109,52 +83,6 @@ public sealed class DefibrillatorSystem : EntitySystem
         Zap(uid, target, args.User, component);
     }
 
-    //ADT-Tweak
-    public bool TryToggle(EntityUid uid, DefibrillatorComponent? component = null, EntityUid? user = null)
-    {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        return component.Enabled
-            ? TryDisable(uid, component)
-            : TryEnable(uid, component, user);
-    }
-
-    public bool TryEnable(EntityUid uid, DefibrillatorComponent? component = null, EntityUid? user = null)
-    {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (component.Enabled)
-            return false;
-
-        if (!_powerCell.HasActivatableCharge(uid))
-            return false;
-
-
-        component.LowChargeState = false;
-        component.Enabled = true;
-        _appearance.SetData(uid, ToggleVisuals.Toggled, true);
-        _audio.PlayPvs(component.PowerOnSound, uid);
-        return true;
-    }
-
-    public bool TryDisable(EntityUid uid, DefibrillatorComponent? component = null) //ADT-Tweak
-    {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (!component.Enabled) //ADT-Tweak
-            return false;
-
-        component.Enabled = false;
-        _appearance.SetData(uid, ToggleVisuals.Toggled, false);
-
-        _audio.PlayPvs(component.PowerOffSound, uid);
-        return true;
-    }
-    //End ADT-Tweak
-
     /// <summary>
     ///     Checks if you can actually defib a target.
     /// </summary>
@@ -168,19 +96,19 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <returns>
     ///     Returns true if the target is valid to be defibed, false otherwise.
     /// </returns>
-    public bool CanZap(EntityUid uid, EntityUid target, EntityUid? user = null, DefibrillatorComponent? component = null)
+    public bool CanZap(EntityUid uid, EntityUid target, EntityUid? user = null, DefibrillatorComponent? component = null, bool targetCanBeAlive = false)
     {
         if (!Resolve(uid, ref component))
             return false;
 
-        if (!component.Enabled)
+        if (!_toggle.IsActivated(uid))
         {
             if (user != null)
                 _popup.PopupEntity(Loc.GetString("defibrillator-not-on"), uid, user.Value);
             return false;
         }
 
-        if (_timing.CurTime < component.NextZapTime) //ADT-Tweak
+        if (!TryComp(uid, out UseDelayComponent? useDelay) || _useDelay.IsDelayed((uid, useDelay), component.DelayId))
             return false;
 
         if (!TryComp<MobStateComponent>(target, out var mobState))
@@ -189,7 +117,10 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user))
             return false;
 
-        if (_mobState.IsAlive(target, mobState))    //ADT-Tweak
+        if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
+            return false;
+
+        if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
         return true;
@@ -211,12 +142,9 @@ public sealed class DefibrillatorSystem : EntitySystem
             return false;
 
         if (!CanZap(uid, target, user, component))
-        {
             return false;
-        }
 
         _audio.PlayPvs(component.ChargeSound, uid);
-
         return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.DoAfterDuration, new DefibrillatorZapDoAfterEvent(),
             uid, target, uid)
         {
@@ -228,25 +156,40 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <summary>
     ///     Tries to defibrillate the target with the given defibrillator.
     /// </summary>
-    public void Zap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null, MobStateComponent? mob = null, MobThresholdsComponent? thresholds = null)
+    public void Zap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null)
     {
-        if (!Resolve(uid, ref component) || !Resolve(target, ref mob, ref thresholds, false))   //ADT-Tweak
+        if (!Resolve(uid, ref component))
             return;
 
-        // ADT-Tweak: clowns zap themselves
-        if (HasComp<ClumsyComponent>(user) && user != target)
-        {
-            Zap(uid, user, user, component);
-            return;
-        }
         if (!_powerCell.TryUseActivatableCharge(uid, user: user))
             return;
-        //End ADT-Tweak
+        var selfEvent = new SelfBeforeDefibrillatorZapsEvent(user, uid, target);
+        RaiseLocalEvent(user, selfEvent);
+
+        target = selfEvent.DefibTarget;
+
+        // Ensure thet new target is still valid.
+        if (selfEvent.Cancelled || !CanZap(uid, target, user, component, true))
+            return;
+
+        var targetEvent = new TargetBeforeDefibrillatorZapsEvent(user, uid, target);
+        RaiseLocalEvent(target, targetEvent);
+
+        target = targetEvent.DefibTarget;
+
+        if (targetEvent.Cancelled || !CanZap(uid, target, user, component, true))
+            return;
+
+        if (!TryComp<MobStateComponent>(target, out var mob) ||
+            !TryComp<MobThresholdsComponent>(target, out var thresholds))
+            return;
 
         _audio.PlayPvs(component.ZapSound, uid);
         _electrocution.TryDoElectrocution(target, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
-        component.NextZapTime = _timing.CurTime + component.ZapDelay;
-        _appearance.SetData(uid, DefibrillatorVisuals.Ready, false);
+        if (!TryComp<UseDelayComponent>(uid, out var useDelay))
+            return;
+        _useDelay.SetLength((uid, useDelay), component.ZapDelay, component.DelayId);
+        _useDelay.TryResetDelay((uid, useDelay), id: component.DelayId);
 
         ICommonSession? session = null;
 
@@ -323,45 +266,12 @@ public sealed class DefibrillatorSystem : EntitySystem
             : component.SuccessSound;
         _audio.PlayPvs(sound, uid);
 
+        // if we don't have enough power left for another shot, turn it off
+        if (!_powerCell.HasActivatableCharge(uid))
+            _toggle.TryDeactivate(uid);
+
         // TODO clean up this clown show above
         var ev = new TargetDefibrillatedEvent(user, (uid, component));
         RaiseLocalEvent(target, ref ev);
     }
-
-    //ADT-Tweak: Ready-Toggle sound FX
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<DefibrillatorComponent>();
-        while (query.MoveNext(out var uid, out var defib))
-        {
-            if (defib.NextZapTime == null || _timing.CurTime < defib.NextZapTime)
-                continue;
-
-            if (_powerCell.HasActivatableCharge(uid) && defib.LowChargeState != false)
-            {
-                defib.LowChargeState = false;
-            }
-
-            if (!_powerCell.HasActivatableCharge(uid) && defib.LowChargeState != true)
-            {
-
-                defib.Enabled = false;
-                _appearance.SetData(uid, ToggleVisuals.Toggled, false);
-                _audio.PlayPvs(defib.LowChargeSound, uid);
-                defib.LowChargeState = true;
-                continue;
-            }
-
-            if (defib.LowChargeState != true)
-            {
-                _audio.PlayPvs(defib.ReadySound, uid);
-            }
-            _appearance.SetData(uid, DefibrillatorVisuals.Ready, true);
-            defib.NextZapTime = null;
-
-        }
-    }
-    //End ADT-Tweak
 }
