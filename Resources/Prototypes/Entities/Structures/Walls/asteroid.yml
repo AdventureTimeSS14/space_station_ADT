@@ -111,22 +111,24 @@
   description: An ore vein rich with coal.
   suffix: Coal
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreCoal
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_coal
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_coal #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_coal #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockCoalCrab
@@ -142,22 +144,24 @@
   description: An ore vein rich with gold.
   suffix: Gold
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreGold
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_gold #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_gold #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockGoldCrab
@@ -173,22 +177,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockPlasma
@@ -196,21 +202,24 @@
   description: An ore vein rich with plasma.
   suffix: Plasma
   components:
-  - type: OreVein
-    currentOre: OrePlasma
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+    - type: Sprite
+      layers:
+        - state: rock_phoron #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockQuartz
@@ -218,22 +227,24 @@
   description: An ore vein rich with quartz.
   suffix: Quartz
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSpaceQuartz
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSpaceQuartz
+    - type: Sprite
+      layers:
+        - state: rock_quartz #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_quartz #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockQuartzCrab
@@ -249,22 +260,24 @@
   description: An ore vein rich with silver.
   suffix: Silver
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSilver
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_silver #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_silver #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockSilverCrab
@@ -281,22 +294,24 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockTinCrab
@@ -312,22 +327,24 @@
   description: An ore vein rich with uranium.
   suffix: Uranium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreUranium
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_uranium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_uranium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockUraniumCrab
@@ -343,22 +360,24 @@
   description: An ore vein rich with bananium.
   suffix: Bananium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreBananium
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananium
+    - type: Sprite
+      layers:
+        - state: rock_bananium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_bananium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockSalt
@@ -366,22 +385,24 @@
   description: An ore vein rich with salt.
   suffix: Salt
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_salt #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_salt #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: AsteroidRockArtifactFragment
@@ -389,22 +410,24 @@
   description: A rock wall. What's that sticking out of it?
   suffix: Artifact Fragment
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreArtifactFragment
-  - type: Sprite
-    layers:
-    - state: rock_asteroid
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_asteroid_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_asteroid_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_asteroid_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_asteroid_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreArtifactFragment
+    - type: Sprite
+      layers:
+        - state: rock_artifact_fragment #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_artifact_fragment #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   parent: [ BaseRockGibtonite, AsteroidRock ]
@@ -481,22 +504,24 @@
   description: An ore vein rich with coal.
   suffix: Coal
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreCoal
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_coal
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_coal #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_coal #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockGold
@@ -504,22 +529,24 @@
   description: An ore vein rich with gold.
   suffix: Gold
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreGold
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_gold #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_gold #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockPlasma
@@ -527,22 +554,24 @@
   description: An ore vein rich with plasma.
   suffix: Plasma
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OrePlasma
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+    - type: Sprite
+      layers:
+        - state: rock_phoron #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockQuartz
@@ -550,22 +579,24 @@
   description: An ore vein rich with quartz.
   suffix: Quartz
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSpaceQuartz
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSpaceQuartz
+    - type: Sprite
+      layers:
+        - state: rock_quartz #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_quartz #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockSilver
@@ -573,22 +604,24 @@
   description: An ore vein rich with silver.
   suffix: Silver
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSilver
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_silver #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_silver #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockIron
@@ -596,22 +629,24 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockUranium
@@ -619,22 +654,24 @@
   description: An ore vein rich with uranium.
   suffix: Uranium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreUranium
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_uranium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_uranium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockBananium
@@ -642,22 +679,24 @@
   description: An ore vein rich with bananium.
   suffix: Bananium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreBananium
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananium
+    - type: Sprite
+      layers:
+        - state: rock_bananium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_bananium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockSalt
@@ -665,22 +704,24 @@
   description: An ore vein rich with salt.
   suffix: Salt
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_salt #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_salt #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: IronRockArtifactFragment
@@ -693,6 +734,8 @@
     currentOre: OreArtifactFragment
   - type: Sprite
     layers:
+    - state: rock_artifact_fragment #ADT tweak
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
     - state: ironrock
     - map: [ "enum.EdgeLayer.South" ]
       state: ironrock_south
@@ -702,8 +745,8 @@
       state: ironrock_north
     - map: [ "enum.EdgeLayer.West" ]
       state: ironrock_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    # - state: rock_artifact_fragment #ADT tweak
+    #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   parent: [ BaseRockGibtonite, IronRock ]
@@ -730,22 +773,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: ironrock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: ironrock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: ironrock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: ironrock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: ironrock_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 # Rocks and ore veins
 - type: entity
@@ -812,17 +857,19 @@
     currentOre: OreCoal
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_coal
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_coal #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_coal #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockGold
@@ -842,17 +889,19 @@
     currentOre: OreGold
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_gold #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_gold #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockDiamond
@@ -860,22 +909,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockPlasma
@@ -895,17 +946,19 @@
     currentOre: OrePlasma
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_phoron #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_phoron #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockQuartz
@@ -925,17 +978,19 @@
     currentOre: OreSpaceQuartz
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_quartz #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_quartz #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSilver
@@ -955,17 +1010,19 @@
     currentOre: OreSilver
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_silver #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_silver #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 # Yes I know it drops steel but we may get smelting at some point
 - type: entity
@@ -974,29 +1031,31 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: EntityRemap
-    mask:
-      AsteroidRock: AsteroidRockTin
-      WallRockBasalt: WallRockBasaltTin
-      WallRockChromite: WallRockChromiteTin
-      WallRockSand: WallRockSandTin
-      WallRockSnow: WallRockSnowTin
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: EntityRemap
+      mask:
+        AsteroidRock: AsteroidRockTin
+        WallRockBasalt: WallRockBasaltTin
+        WallRockChromite: WallRockChromiteTin
+        WallRockSand: WallRockSandTin
+        WallRockSnow: WallRockSnowTin
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockUranium
@@ -1016,17 +1075,19 @@
     currentOre: OreUranium
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_uranium #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_uranium #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 
 - type: entity
@@ -1047,17 +1108,19 @@
     currentOre: OreBananium
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_bananium #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_bananium #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockArtifactFragment
@@ -1077,17 +1140,19 @@
     currentOre: OreArtifactFragment
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_artifact_fragment #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_artifact_fragment #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSalt
@@ -1107,17 +1172,19 @@
     currentOre: OreSalt
   - type: Sprite
     layers:
-    - state: rock
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock_salt #ADT tweak
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      # - state: rock_salt #ADT tweak
+      #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 # Basalt variants
 - type: entity
@@ -1147,22 +1214,24 @@
   description: An ore vein rich with coal.
   suffix: Coal
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreCoal
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_coal
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_coal #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_coal #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltGold
@@ -1170,22 +1239,24 @@
   description: An ore vein rich with gold.
   suffix: Gold
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreGold
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_gold #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_gold #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltDiamond
@@ -1193,22 +1264,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltPlasma
@@ -1216,22 +1289,24 @@
   description: An ore vein rich with plasma.
   suffix: Plasma
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OrePlasma
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+    - type: Sprite
+      layers:
+        - state: rock_phoron #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltQuartz
@@ -1239,22 +1314,24 @@
   description: An ore vein rich with quartz.
   suffix: Quartz
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSpaceQuartz
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSpaceQuartz
+    - type: Sprite
+      layers:
+        - state: rock_quartz #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_quartz #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltSilver
@@ -1262,22 +1339,24 @@
   description: An ore vein rich with silver.
   suffix: Silver
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSilver
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_silver #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_silver #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltTin
@@ -1285,22 +1364,24 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltUranium
@@ -1308,23 +1389,24 @@
   description: An ore vein rich with uranium.
   suffix: Uranium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreUranium
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
-
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_uranium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_uranium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltBananium
@@ -1332,22 +1414,24 @@
   description: An ore vein rich with bananium.
   suffix: Bananium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreBananium
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananium
+    - type: Sprite
+      layers:
+        - state: rock_bananium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_bananium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltArtifactFragment
@@ -1355,22 +1439,24 @@
   description: A rock wall. What's that sticking out of it?
   suffix: Artifact Fragment
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreArtifactFragment
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreArtifactFragment
+    - type: Sprite
+      layers:
+        - state: rock_artifact_fragment #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_artifact_fragment #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockBasaltSalt
@@ -1378,22 +1464,24 @@
   description: An ore vein rich with salt.
   suffix: Salt
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-    - state: rock_wall
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_wall_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_wall_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_wall_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_wall_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_salt #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        # - state: rock_salt #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 # Snow variants
 - type: entity
@@ -1423,22 +1511,24 @@
   description: An ore vein rich with coal.
   suffix: Coal
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreCoal
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_coal
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_coal #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_coal #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowGold
@@ -1446,22 +1536,24 @@
   description: An ore vein rich with gold.
   suffix: Gold
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreGold
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_gold #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_gold #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowDiamond
@@ -1469,22 +1561,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowPlasma
@@ -1492,22 +1586,24 @@
   description: An ore vein rich with plasma.
   suffix: Plasma
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OrePlasma
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+    - type: Sprite
+      layers:
+        - state: rock_phoron #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowQuartz
@@ -1515,22 +1611,24 @@
   description: An ore vein rich with quartz.
   suffix: Quartz
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSpaceQuartz
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSpaceQuartz
+    - type: Sprite
+      layers:
+        - state: rock_quartz #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_quartz #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowSilver
@@ -1538,22 +1636,24 @@
   description: An ore vein rich with silver.
   suffix: Silver
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSilver
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_silver #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_silver #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowTin
@@ -1561,22 +1661,24 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowUranium
@@ -1584,22 +1686,24 @@
   description: An ore vein rich with uranium.
   suffix: Uranium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreUranium
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_uranium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_uranium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 
 - type: entity
@@ -1608,22 +1712,24 @@
   description: An ore vein rich with bananium.
   suffix: Bananium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreBananium
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananium
+    - type: Sprite
+      layers:
+        - state: rock_bananium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_bananium ADT tweak
+          # map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowArtifactFragment
@@ -1631,22 +1737,24 @@
   description: A rock wall. What's that sticking out of it?
   suffix: Artifact Fragment
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreArtifactFragment
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreArtifactFragment
+    - type: Sprite
+      layers:
+        - state: rock_artifact_fragment #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_artifact_fragment #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSnowSalt
@@ -1654,22 +1762,24 @@
   description: An ore vein rich with salt.
   suffix: Salt
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-    - state: rock_snow
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_snow_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_snow_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_snow_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_snow_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_salt #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        # - state: rock_salt #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 # Sand variants
 - type: entity
@@ -1699,22 +1809,24 @@
   description: An ore vein rich with coal.
   suffix: Coal
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreCoal
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_coal
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_coal #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_coal #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandGold
@@ -1722,22 +1834,24 @@
   description: An ore vein rich with gold.
   suffix: Gold
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreGold
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_gold #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_gold #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandDiamond
@@ -1745,22 +1859,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandPlasma
@@ -1768,22 +1884,24 @@
   description: An ore vein rich with plasma.
   suffix: Plasma
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OrePlasma
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+    - type: Sprite
+      layers:
+        - state: rock_phoron #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandQuartz
@@ -1791,22 +1909,24 @@
   description: An ore vein rich with quartz.
   suffix: Quartz
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSpaceQuartz
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSpaceQuartz
+    - type: Sprite
+      layers:
+        - state: rock_quartz #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_quartz #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandSilver
@@ -1814,22 +1934,24 @@
   description: An ore vein rich with silver.
   suffix: Silver
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSilver
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_silver #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_silver #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandTin
@@ -1837,22 +1959,24 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandUranium
@@ -1860,22 +1984,24 @@
   description: An ore vein rich with uranium.
   suffix: Uranium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreUranium
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_uranium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_uranium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandBananium
@@ -1883,22 +2009,24 @@
   description: An ore vein rich with bananium.
   suffix: Bananium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreBananium
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananium
+    - type: Sprite
+      layers:
+        - state: rock_bananium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_bananium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandArtifactFragment
@@ -1906,22 +2034,24 @@
   description: A rock wall. What's that sticking out of it?
   suffix: Artifact Fragment
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreArtifactFragment
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreArtifactFragment
+    - type: Sprite
+      layers:
+        - state: rock_artifact_fragment #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_artifact_fragment #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockSandSalt
@@ -1929,22 +2059,24 @@
   description: An ore vein rich with salt.
   suffix: Salt
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-    - state: rock_sand
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_sand_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_sand_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_sand_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_sand_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_salt #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        # - state: rock_salt #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 # Chromite variants
 - type: entity
@@ -1974,22 +2106,24 @@
   description: An ore vein rich with coal.
   suffix: Coal
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreCoal
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_coal
-    map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_coal #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_coal #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteGold
@@ -1997,22 +2131,24 @@
   description: An ore vein rich with gold.
   suffix: Gold
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreGold
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_gold #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_gold #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteDiamond
@@ -2020,22 +2156,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromitePlasma
@@ -2043,22 +2181,24 @@
   description: An ore vein rich with plasma.
   suffix: Plasma
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OrePlasma
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+    - type: Sprite
+      layers:
+        - state: rock_phoron #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteQuartz
@@ -2066,22 +2206,24 @@
   description: An ore vein rich with quartz.
   suffix: Quartz
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSpaceQuartz
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSpaceQuartz
+    - type: Sprite
+      layers:
+        - state: rock_quartz #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_quartz #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteSilver
@@ -2089,22 +2231,24 @@
   description: An ore vein rich with silver.
   suffix: Silver
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSilver
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_silver #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_silver #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteTin
@@ -2112,22 +2256,24 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteUranium
@@ -2135,22 +2281,24 @@
   description: An ore vein rich with uranium.
   suffix: Uranium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreUranium
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_uranium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_uranium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 
 - type: entity
@@ -2159,22 +2307,24 @@
   description: An ore vein rich with bananium.
   suffix: Bananium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreBananium
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananium
+    - type: Sprite
+      layers:
+        - state: rock_bananium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_bananium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteArtifactFragment
@@ -2182,22 +2332,24 @@
   description: A rock wall. What's that sticking out of it?
   suffix: Artifact Fragment
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreArtifactFragment
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreArtifactFragment
+    - type: Sprite
+      layers:
+        - state: rock_artifact_fragment #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_artifact_fragment #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockChromiteSalt
@@ -2205,22 +2357,24 @@
   description: An ore vein rich with salt.
   suffix: Salt
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-    - state: rock_chromite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_chromite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_chromite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_chromite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_chromite_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_salt #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        # - state: rock_salt #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 # Andesite variants
 - type: entity
@@ -2250,22 +2404,24 @@
   description: An ore vein rich with coal.
   suffix: Coal
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreCoal
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_coal
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_coal #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_coal #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteGold
@@ -2273,22 +2429,24 @@
   description: An ore vein rich with gold.
   suffix: Gold
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreGold
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_gold
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_gold #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_gold #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteDiamond
@@ -2296,22 +2454,24 @@
   description: An ore vein rich with diamonds.
   suffix: Diamond
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreDiamond
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_diamond
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreDiamond
+    - type: Sprite
+      layers:
+        - state: rock_diamond #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_diamond #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesitePlasma
@@ -2319,22 +2479,24 @@
   description: An ore vein rich with plasma.
   suffix: Plasma
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OrePlasma
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_phoron
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+    - type: Sprite
+      layers:
+        - state: rock_phoron #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteQuartz
@@ -2342,22 +2504,24 @@
   description: An ore vein rich with quartz.
   suffix: Quartz
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSpaceQuartz
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_quartz
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSpaceQuartz
+    - type: Sprite
+      layers:
+        - state: rock_quartz #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_quartz #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteSilver
@@ -2365,22 +2529,24 @@
   description: An ore vein rich with silver.
   suffix: Silver
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSilver
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_silver
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_silver #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_silver #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteTin
@@ -2388,22 +2554,24 @@
   description: An ore vein rich with iron.
   suffix: Iron
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSteel
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_tin
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_tin #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_tin #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteUranium
@@ -2411,22 +2579,24 @@
   description: An ore vein rich with uranium.
   suffix: Uranium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreUranium
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_uranium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_uranium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_uranium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 
 - type: entity
@@ -2435,22 +2605,24 @@
   description: An ore vein rich with bananium.
   suffix: Bananium
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreBananium
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_bananium
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananium
+    - type: Sprite
+      layers:
+        - state: rock_bananium #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_bananium #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteArtifactFragment
@@ -2458,22 +2630,24 @@
   description: A rock wall. What's that sticking out of it?
   suffix: Artifact Fragment
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreArtifactFragment
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_artifact_fragment
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreArtifactFragment
+    - type: Sprite
+      layers:
+        - state: rock_artifact_fragment #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_artifact_fragment #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: WallRockAndesiteSalt
@@ -2481,19 +2655,21 @@
   description: An ore vein rich with salt.
   suffix: Salt
   components:
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-    - state: rock_andesite
-    - map: [ "enum.EdgeLayer.South" ]
-      state: rock_andesite_south
-    - map: [ "enum.EdgeLayer.East" ]
-      state: rock_andesite_east
-    - map: [ "enum.EdgeLayer.North" ]
-      state: rock_andesite_north
-    - map: [ "enum.EdgeLayer.West" ]
-      state: rock_andesite_west
-    - state: rock_salt
-      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_salt #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        # - state: rock_salt #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak

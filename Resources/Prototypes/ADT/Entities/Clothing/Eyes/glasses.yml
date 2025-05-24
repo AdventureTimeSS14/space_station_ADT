@@ -114,8 +114,8 @@
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
-  - type: NightVisionItem # RMC Night vision
-  - type: ItemToggle  # RMC Night vision
+  - type: NightVisionItem
+  - type: ItemToggle
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -134,8 +134,8 @@
     sprite: ADT/Clothing/Eyes/Glasses/mgd_pnvhud.rsi
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/mgd_pnvhud.rsi
-  - type: NightVisionItem # RMC Night vision
-  - type: ItemToggle  # RMC Night vision
+  - type: NightVisionItem
+  - type: ItemToggle
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -143,6 +143,18 @@
         icon:
           True: { state: icon }
           False: { state: icon }
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTClothingEyesWelding
+  name: welding glasses
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/welding.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/welding.rsi
+  - type: Appearance
+  - type: EyeProtection
 
 - type: entity
   parent: ClothingEyesBase

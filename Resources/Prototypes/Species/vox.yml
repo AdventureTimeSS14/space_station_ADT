@@ -43,8 +43,8 @@
     Snout: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    # UndergarmentTop: MobHumanoidAnyMarking # ADT-No-More-Useless-Feature
+    # UndergarmentBottom: MobHumanoidAnyMarking # ADT-No-More-Useless-Feature
     Chest: MobVoxTorso
     Eyes: MobVoxEyes
     LArm: MobVoxLArm

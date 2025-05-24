@@ -464,6 +464,7 @@
   - ScientistGloves
   - ResearchDirectorShoes
   - Glasses
+  - ADTRnDPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopRD
   - ADTBottomRD
@@ -632,6 +633,7 @@
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
   - MedicalEyewear
+  - ADTCMOPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopCMO
   - ADTBottomCMO

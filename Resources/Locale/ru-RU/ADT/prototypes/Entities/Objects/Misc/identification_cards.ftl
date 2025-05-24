@@ -166,3 +166,12 @@ ent-ADTShepherdIDCard = ID карта пастора
 
 ent-ADTClergymanIDCard = ID карта священнослужителя
     .desc = ID карта священнослужителя.
+
+ent-ADTRDIDCard = ID карта директора исследований
+    .desc = ID карта директора исследований.
+
+ent-ADTCMOIDCard = ID карта старшего медицинского офицера
+    .desc = ID карта старшего медицинского офицера.
+
+ent-ADTTraumatologistIDCard = ID карта травматолога
+    .desc = ID карта травматолога.
