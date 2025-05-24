@@ -56,3 +56,43 @@
     shuttleWhitelist:
       components:
       - MiningShuttleGuest
+
+
+- type: entity
+  parent: BaseComputer
+  id: MinesweeperComputer
+  name: Minesweeper Arcade
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer
+    - map: [ "computerLayerKeyboard" ]
+      state: generic_keyboard
+    - map: [ "computerLayerScreen" ]
+      state: command
+    - map: [ "computerLayerKeys" ]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Tag
+    tags:
+    - EmagImmune
+  - type: Computer
+    board: MinesweeperCircuitboard
+  - type: ActivatableUI
+    key: enum.MinesweeperUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MinesweeperUiKey.Key:
+        type: MinesweeperBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Minesweeper
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: MinesweeperCircuitboard
+  components:
+  - type: ComputerBoard
+    prototype: MinesweeperComputer
