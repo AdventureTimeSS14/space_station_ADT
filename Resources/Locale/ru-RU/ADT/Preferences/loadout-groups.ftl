@@ -43,7 +43,9 @@ loadout-group-atmospheric-technician-neck = Атмосферный техник,
 loadout-group-atmospheric-technician-gasmask = Атмосферный техник, противогаз
 loadout-group-atmospheric-technician-head = Атмосферный техник, голова
 loadout-group-atmos-id-adt = Атмосферный техник, ID
+
 # Science
+loadout-group-reserch-director-id-adt = Научный руководитель, ID
 loadout-group-senior-researcher-head = Доцент, голова
 loadout-group-senior-researcher-jumpsuit = Доцент, комбинезон
 loadout-group-senior-researcher-gloves = Доцент, перчатки
@@ -53,6 +55,7 @@ loadout-group-roboticist-jumpsuit = Робототехник, комбинезо
 loadout-group-roboticist-outerclothing = Робототехник, верхняя одежда
 loadout-group-roboticist-gloves = Робототехник, перчатки
 loadout-group-mechanical-assembler-id-adt = Робототехник, ID
+
 # Security
 loadout-group-sheriff-id-adt = Глава службы безопасности, ID
 loadout-group-senior-officer-jumpsuit = Офицер-инструктор, комбинезон
@@ -64,6 +67,7 @@ loadout-guardofficer-jumpsuit-adt = Надзиратель, комбинезон
 loadout-group-detective-id-adt = Детектив, ID
 loadout-security-officer-neck-adt = Офицер СБ, шея
 loadout-security-cadet-neck-adt = Кадет СБ, шея
+
 # Brigmedic
 loadout-brigmedic-jumpsuit-adt = Бригмедик, комбинезон
 loadout-brigmedic-head-adt = Бригмедик, голова
@@ -74,7 +78,9 @@ loadout-brigmedic-glasses-adt = Бригмедик, очки
 loadout-brigmedic-pda-adt = Бригмедик, ID
 loadout-brigmedic-belt-adt = Бригмедик, поясы
 loadout-brigmedic-outerwear-adt = Бригмедик, верхняя одежда
+
 # Medical
+loadout-group-chief-medical-officer-id-adt = Главный врач, ID
 loadout-group-senior-physician-head = Ведущий врач, голова
 loadout-group-senior-physician-jumpsuit = Ведущий врач, комбинезон
 loadout-group-senior-physician-outerclothing = Ведущий врач, верхняя одежда

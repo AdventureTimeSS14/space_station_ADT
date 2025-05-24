@@ -23,9 +23,10 @@
     contents:
     - id: SmokingPipeFilledTobacco
     - id: FlippoEngravedLighter
-  - type: ExplosionResistance
-    damageCoefficient: 1 #its a coat. it doesnt do shit
-   #ADT-Tweak-Start
+# ADT tweak start
+#  - type: ExplosionResistance
+#    damageCoefficient: 1 #its a coat. it doesnt do shit / im say its do shit
+# ADT tweak end
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -78,13 +79,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
+        Blunt: 0.55 # ADT tweak 0.7 > 0.55
+        Slash: 0.55 # ADT tweak 0.7 > 0.55
+        Piercing: 0.6 # ADT tweak 0.7 > 0.6
         Heat: 0.7
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.8 # ADT tweak 0.9 > 0.8
 
 - type: entity
   abstract: true
@@ -94,15 +95,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
+        Blunt: 0.6 # ADT tweak 0.7 > 0.6
+        Slash: 0.6 # ADT tweak 0.7 > 0.6
+        Piercing: 0.6 # ADT tweak 0.7 > 0.6
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband, BadgeOnClothingWithContainer]
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -339,7 +340,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband]
+  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
@@ -348,6 +349,18 @@
     sprite: Clothing/OuterClothing/Coats/warden.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/warden.rsi
+  # ADT tweak start
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  # ADT tweak end
 
 - type: entity
   parent: ClothingOuterStorageBase

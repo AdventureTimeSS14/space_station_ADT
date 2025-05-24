@@ -11,8 +11,8 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.7
-          Slash: 0.7
+          Blunt: 0.75 # ADT tweak 0.7 > 0.75
+          Slash: 0.75 # ADT tweak 0.7 > 0.75
           Piercing: 0.4
           Heat: 0.7
     #ADT-Tweak-Start
@@ -38,13 +38,13 @@
       sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
     - type: Clothing
       sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.6
-          Heat: 0.9
+#    - type: Armor ADT tweak start
+#      modifiers:
+#        coefficients:
+#          Blunt: 0.8
+#          Slash: 0.8
+#          Piercing: 0.6
+#          Heat: 0.9 ADT tweak end
 
 - type: entity
   parent: ClothingOuterCoatWarden
@@ -59,10 +59,22 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.8
-          Slash: 0.8
+          Blunt: 0.75 # ADT tweak 0.8 > 0.75
+          Slash: 0.75 # ADT tweak 0.8 > 0.75
           Piercing: 0.4
-          Heat: 0.8
+          Heat: 0.7
+    #ADT-Tweak-Start
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        badge: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+    #ADT-Tweak-End
 
 - type: entity
   parent: [ClothingOuterStorageBase, BadgeOnClothingWithContainer] #ADT-Tweak
