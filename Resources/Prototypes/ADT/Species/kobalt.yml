@@ -37,6 +37,7 @@
     Head: MobKoboltHead
     Snout: MobHumanoidAnyMarking #как у reptilian
     Chest: MobKoboltTorso
+    SnoutOverlay: MobHumanoidAnyMarking #как у reptilian
     HeadTop: MobHumanoidAnyMarking #как у reptilian
     HeadSide: MobHumanoidAnyMarking #как у reptilian
     Tail: MobHumanoidAnyMarking #как у reptilian
@@ -64,6 +65,9 @@
       points: 1
       required: true
       defaultMarkings: [ LizardTailSmooth ]
+    SnoutOverlay:
+      points: 1
+      required: false
     Snout:
       points: 1
       required: true

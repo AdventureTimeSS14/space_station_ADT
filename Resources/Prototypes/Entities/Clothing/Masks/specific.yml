@@ -23,6 +23,7 @@
     - type: HideLayerClothing
       slots:
       - Snout
+      - SnoutOverlay # ADT Tweak
 # Corvax-HiddenDesc-Start
     - type: HiddenDescription
       entries:
@@ -50,6 +51,7 @@
     - type: HideLayerClothing
       slots:
       - Snout
+      - SnoutOverlay # ADT Tweak
     - type: UserInterface
       interfaces:
         enum.ChameleonUiKey.Key:
@@ -121,6 +123,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
   - type: IngestionBlocker
   - type: StaticPrice
     price: 5000
