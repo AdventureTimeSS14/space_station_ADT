@@ -4,19 +4,19 @@
   root: torso
   slots:
     head:
-      part: HeadVulpkanin
+      part: ADTHeadVulpkanin
       connections:
         - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoVulpkanin
+      part: ADTTorsoVulpkanin
       organs:
-        heart: OrganVulpkaninHeart
+        heart: ADTOrganVulpkaninHeart
         lungs: OrganHumanLungs
-        stomach: OrganVulpkaninStomach
-        liver: ADTOrganVulpkaninAnimalLiver  #Печень вульпы
+        stomach: ADTOrganVulpkaninStomach
+        liver: ADTOrganVulpkaninLiver  #Печень вульпы
         kidneys: OrganHumanKidneys
       connections:
         - right arm
@@ -25,29 +25,29 @@
         - right leg
         - tail
     right arm:
-      part: RightArmVulpkanin
+      part: ADTRightArmVulpkanin
       connections:
         - right hand
     left arm:
-      part: LeftArmVulpkanin
+      part: ADTLeftArmVulpkanin
       connections:
         - left hand
     right hand:
-      part: RightHandVulpkanin
+      part: ADTRightHandVulpkanin
     left hand:
-      part: LeftHandVulpkanin
+      part: ADTLeftHandVulpkanin
     right leg:
-      part: RightLegVulpkanin
+      part: ADTRightLegVulpkanin
       connections:
         - right foot
     left leg:
-      part: LeftLegVulpkanin
+      part: ADTLeftLegVulpkanin
       connections:
         - left foot
     right foot:
-      part: RightFootVulpkanin
+      part: ADTRightFootVulpkanin
     left foot:
-      part: LeftFootVulpkanin
+      part: ADTLeftFootVulpkanin
     tail:
-      part: TailVulpkanin
+      part: ADTTailVulpkanin
 

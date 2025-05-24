@@ -1,5 +1,5 @@
 - type: entity
-  id: OrganVulpkaninStomach
+  id: ADTOrganVulpkaninStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
   components:
@@ -10,7 +10,7 @@
           maxVol: 50.0
 
 - type: entity
-  id: ADTOrganVulpkaninAnimalLiver
+  id: ADTOrganVulpkaninLiver
   parent: BaseAnimalOrgan
   name: liver
   #categories: [ HideSpawnMenu ]
@@ -26,7 +26,7 @@
       rateModifier: 0.1
 
 - type: entity
-  id: OrganVulpkaninHeart
+  id: ADTOrganVulpkaninHeart
   parent: OrganAnimalHeart
   components:
   - type: Metabolizer

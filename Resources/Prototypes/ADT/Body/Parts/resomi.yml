@@ -1,5 +1,5 @@
 - type: entity
-  id: PartResomi
+  id: ADTPartResomi
   parent: BaseItem
   name: "resomi body part"
   abstract: true
@@ -16,9 +16,9 @@
       - Trash
 
 - type: entity
-  id: TorsoResomi
+  id: ADTTorsoResomi
   name: "resomi torso"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -31,9 +31,9 @@
     partType: Torso
 
 - type: entity
-  id: HeadResomi
+  id: ADTHeadResomi
   name: "resomi head"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -54,9 +54,9 @@
       - Head
 
 - type: entity
-  id: LeftArmResomi
+  id: ADTLeftArmResomi
   name: "left resomi arm"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -70,9 +70,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightArmResomi
+  id: ADTRightArmResomi
   name: "right resomi arm"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -86,9 +86,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftHandResomi
+  id: ADTLeftHandResomi
   name: "left resomi hand"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -102,9 +102,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightHandResomi
+  id: ADTRightHandResomi
   name: "right resomi hand"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -118,9 +118,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftLegResomi
+  id: ADTLeftLegResomi
   name: "left resomi leg"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -135,9 +135,9 @@
   - type: MovementBodyPart
 
 - type: entity
-  id: RightLegResomi
+  id: ADTRightLegResomi
   name: "right resomi leg"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -152,9 +152,9 @@
   - type: MovementBodyPart
 
 - type: entity
-  id: LeftFootResomi
+  id: ADTLeftFootResomi
   name: "left resomi foot"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false
@@ -168,9 +168,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightFootResomi
+  id: ADTRightFootResomi
   name: "right resomi foot"
-  parent: PartResomi
+  parent: ADTPartResomi
   components:
   - type: Sprite
     netsync: false

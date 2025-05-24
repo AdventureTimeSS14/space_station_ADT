@@ -1,3 +1,3 @@
-ent-OrganVulpkaninHeart = сердце вульпканина
+ent-ADTOrganVulpkaninHeart = сердце вульпканина
     .desc = { ent-OrganAnimalHeart.desc }
-    .suffix = { "Вульпа" }
+    .suffix = { "Вульпканин" }

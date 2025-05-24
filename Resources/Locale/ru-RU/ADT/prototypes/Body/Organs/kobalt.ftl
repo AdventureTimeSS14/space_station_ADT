@@ -1,3 +1,3 @@
-ent-OrganKoboltStomach = { ent-OrganAnimalStomach }
+ent-ADTOrganKoboltStomach = { ent-OrganAnimalStomach }
     .desc = { ent-OrganAnimalStomach.desc }
     .suffix = { "Кобольд" }

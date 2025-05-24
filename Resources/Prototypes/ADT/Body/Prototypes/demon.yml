@@ -4,18 +4,18 @@
   root: torso
   slots:
     head:
-      part: HeadDemon
+      part: ADTHeadDemon
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoDemon
+      part: ADTTorsoDemon
       organs:
-        heart: OrganDemonHeart
+        heart: ADTOrganDemonHeart
         lungs: OrganHumanLungs
-        stomach: OrganDemonStomach
+        stomach: ADTOrganDemonStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
       connections:
@@ -24,26 +24,26 @@
       - left leg
       - right leg
     right arm:
-      part: RightArmDemon
+      part: ADTRightArmDemon
       connections:
       - right hand
     left arm:
-      part: LeftArmDemon
+      part: ADTLeftArmDemon
       connections:
       - left hand
     right hand:
-      part: RightHandDemon
+      part: ADTRightHandDemon
     left hand:
-      part: LeftHandDemon
+      part: ADTLeftHandDemon
     right leg:
-      part: RightLegDemon
+      part: ADTRightLegDemon
       connections:
       - right foot
     left leg:
-      part: LeftLegDemon
+      part: ADTLeftLegDemon
       connections:
       - left foot
     right foot:
-      part: RightFootDemon
+      part: ADTRightFootDemon
     left foot:
-      part: LeftFootDemon
+      part: ADTLeftFootDemon
