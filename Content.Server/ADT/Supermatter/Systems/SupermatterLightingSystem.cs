@@ -31,11 +31,17 @@ public sealed partial class SupermatterSystem
 
             var power = sm.Power;
             var integrity = GetIntegrity(sm);
-            var zapRange = Math.Clamp(power / 1000, 2, 7);
-            int zapCount = 1 + (int)(power / 2000);
+            var zapRange = Math.Clamp(power / 1000, 3, 7);
+            int zapCount = 1;
 
             if (_random.Prob(0.2f))
                 zapCount++;
+
+            if (power >= _config.GetCVar(ADTCCVars.SupermatterPowerMinPenaltyThreshold))
+            {
+                var powerZapCount = Math.Clamp(power / 3000, 1, 2);
+                zapCount = (int)(zapCount + powerZapCount);
+            }
 
             if (integrity < 50)
             {

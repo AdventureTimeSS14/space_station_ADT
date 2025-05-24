@@ -8,10 +8,14 @@
   },
   "states": [
     {
-      "name": "core"
+      "name": "p_core"
     },
     {
       "name": "radiation",
+      "delays": [[0.2, 0.2, 0.2]]
+    },
+    {
+      "name": "hnob_core",
       "delays": [[0.2, 0.2, 0.2]]
     }
   ]
