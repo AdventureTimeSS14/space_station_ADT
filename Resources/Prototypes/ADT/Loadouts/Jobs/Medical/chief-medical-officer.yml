@@ -17,3 +17,14 @@
   id: ADTCMOHighBoots
   equipment:
     shoes: ADTClothingShoesHighboots
+
+- type: loadout
+  id: CMOPDA
+  equipment:
+    id: CMOPDA
+
+
+- type: loadout
+  id: ADTCMOPDA
+  equipment:
+    id: ADTCMOPDA
