@@ -280,6 +280,42 @@
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: tiger_head
 
+- type: marking
+  id: ADTVulpkaninDamage1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-1
+
+- type: marking
+  id: ADTVulpkaninDamage2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-2
+
+- type: marking
+  id: ADTVulpkaninDamage3
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-3
+
+- type: marking
+  id: ADTVulpkaninDamage4
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-4
+
 #Start-customization-Uma-ADT
 - type: marking
   id: ADTVulpkanin_skullBreast

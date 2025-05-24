@@ -34,7 +34,9 @@ research-technology-practice-ammunition = Учебные боеприпасы
 research-technology-concentrated-laser-weaponry = Концентрированное лазерное оружие
 research-technology-wave-particle-harnessing = Применение волновых частиц
 research-technology-advanced-riot-control = Продвинутое противодействие беспорядкам
-research-technology-portable-microfusion-weaponry = Оружейный портативный микросинтез
+##ADT-Tweak start
+research-technology-portable-microfusion-weaponry = Оружейный портативный микросинтез 
+##ADT-Tweak end
 research-technology-experimental-battery-ammo = Экспериментальные батарейные боеприпасы
 research-technology-basic-shuttle-armament = Базовое корабельное вооружение
 research-technology-advanced-shuttle-weapon = Продвинутое корабельное оружие
