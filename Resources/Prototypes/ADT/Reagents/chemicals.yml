@@ -45,13 +45,13 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 10
+            Poison: 3.5
       - !type:GenericStatusEffect
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
         - !type:ReagentThreshold
-          min: 5
+          min: 7
       - !type:PopupMessage
         visualType: MediumCaution
         type: Local
@@ -62,7 +62,7 @@
         - norepinephricacid-effect-blindness
         conditions:
         - !type:ReagentThreshold
-          min: 5
+          min: 7
 
 - type: reagent
   id: ADTPlutoniumReactant
