@@ -15,7 +15,7 @@
       organs:
         heart: ADTOrganVulpkaninHeart
         lungs: OrganHumanLungs
-        stomach: OrganVulpkaninStomach
+        stomach: ADTOrganVulpkaninStomach
         liver: ADTOrganVulpkaninLiver  #Печень вульпы
         kidneys: OrganHumanKidneys
       connections:
