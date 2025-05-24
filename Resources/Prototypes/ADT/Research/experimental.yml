@@ -18,3 +18,18 @@
   position: 0,-1
   requiredTech:
   - MagnetsTech
+
+- type: technology
+  id: ADTBluespaceMining
+  name: research-technology-bluespace-mining
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: ansible_crystal
+  discipline: Experimental
+  tier: 2
+  cost: 40000
+  recipeUnlocks:
+  - ADTMachineBluespaceHarvesterCircuitboard
+  position: 4,-3
+  requiredTech:
+  - BasicAnomalousResearch
