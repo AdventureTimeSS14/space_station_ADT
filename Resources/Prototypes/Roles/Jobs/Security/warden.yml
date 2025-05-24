@@ -4,9 +4,12 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 198000 #55 hrs # ADT-RoleTime
+      time: 36000 #10 hrs
   # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true

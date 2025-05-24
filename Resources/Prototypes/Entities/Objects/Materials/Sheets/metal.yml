@@ -71,9 +71,6 @@
   - type: Item
     heldPrefix: steel
   - type: Appearance
-  - type: FloorTile
-    outputs:
-    - Plating
   - type: Extractable
     grindableSolutionName: steel
   - type: SolutionContainerManager
@@ -255,3 +252,12 @@
   - type: Stack
     stackType: Plasteel
     count: 1
+
+- type: entity
+  parent: SheetPlasteel
+  id: SheetPlasteelLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0

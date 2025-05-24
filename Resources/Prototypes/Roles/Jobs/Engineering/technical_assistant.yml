@@ -5,7 +5,11 @@
   playTimeTracker: JobTechnicalAssistant
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 14400 # ADT-PlaytimeRequirement = 4 hrs
+      time: 3600 #1 hr
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 18000 #5 hrs
+      inverted: true # stop playing intern if you're good at engineering!
 # ADT-Tweak
     # - !type:DepartmentTimeRequirement
     #   department: Engineering
