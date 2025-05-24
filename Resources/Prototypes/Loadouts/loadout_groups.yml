@@ -1256,8 +1256,8 @@
   - DetectiveFedora
   - DetectiveFedoraGrey
   # ADT-Loadout-Start
-  - DetectiveInvestigatorCap 
-  - ADTDetectiveOldFedora 
+  - DetectiveInvestigatorCap
+  - ADTDetectiveOldFedora
   # ADT-Loadout-End
 
 - type: loadoutGroup
@@ -1298,8 +1298,8 @@
   - DetectiveCoatGrey
   # ADT-Loadouts-Start
   - ADTDetectiveCoatOld
-  - DetectiveCoatInvestigator 
-  - ADTArmorVestHidden 
+  - DetectiveCoatInvestigator
+  - ADTArmorVestHidden
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1439,6 +1439,7 @@
   - ADTClinicianPDA # ADT
   - ADTDoctorPDA # ADT
   - ADTTherapistPDA # ADT
+  - ADTTraumatologistPDA # ADT
 
 - type: loadoutGroup
   id: MedicalGloves
