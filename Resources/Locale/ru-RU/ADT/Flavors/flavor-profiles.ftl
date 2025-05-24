@@ -63,3 +63,16 @@ flavor-base-adtfishpasta = как референс
 flavor-base-adtmushroompasta = как паста и грибы
 flavor-base-adtsalmonpasta = как рыба с лапшой
 flavor-base-adttomatomeatballpasta = замечательно и мясисто
+
+flavor-complex-adtsnackgummyslime = как сладковатая голубика. Но как вы могли съесть такого милаху?
+flavor-complex-adtsnackgummyarachnid = как черничное мороженое. Кажется, или эта паутина застряла между зубов?...
+flavor-complex-adtsnackgummycischi = как кисловатый крыжовник. Вам показалось, или он отдает молоком?..
+flavor-complex-adtsnackgummyfelinid = как черничный пудинг. Вы будто захотели мяукнуть, или это просто ваше воображение..
+flavor-complex-adtsnackgummyhuman = как мягкое манго. Кажется, отдает повседневностью.
+flavor-complex-adtsnackgummykidan = как мякоть граната. Может стоит пойти за работу?
+flavor-complex-adtsnackgummymoth = как клубничный смузи. Очень освежает и будто бы.. окрыляет?
+flavor-complex-adtsnackgummymurine = как банановый тортик. Кажется, ещё и запахло сыром?
+flavor-complex-adtsnackgummysareng = как вишнёвый пирог. Возможно, вы стали увереннее в себе, или вам кажется..
+flavor-complex-adtsnackgummytayaran = как виноградное варенье. Может, стоит запить молочком?
+flavor-complex-adtsnackgummyunath = как лаймовый фреш. Чувствуется, как тело наливается силой.
+flavor-complex-adtsnackgummyvulpkanin = как персиковая мякоть. Кажется, вы способны проработать еще долгое время.

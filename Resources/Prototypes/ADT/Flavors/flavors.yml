@@ -287,3 +287,67 @@
   id: ADTTomatoMeatballPasta
   flavorType: base
   description: flavor-base-adttomatomeatballpasta
+
+# Закуски начало
+## Желешки начало
+- type: flavor
+  id: ADTSnackGummySlime
+  flavorType: complex
+  description: flavor-complex-adtsnackgummyslime
+
+- type: flavor
+  id: ADTSnackGummyArachnid
+  flavorType: complex
+  description: flavor-complex-adtsnackgummyarachnid
+
+- type: flavor
+  id: ADTSnackGummyCischi
+  flavorType: complex
+  description: flavor-complex-adtsnackgummycischi
+
+- type: flavor
+  id: ADTSnackGummyFelinid
+  flavorType: complex
+  description: flavor-complex-adtsnackgummyfelinid
+
+- type: flavor
+  id: ADTSnackGummyHuman
+  flavorType: complex
+  description: flavor-complex-adtsnackgummyhuman
+
+- type: flavor
+  id: ADTSnackGummyKidan
+  flavorType: complex
+  description: flavor-complex-adtsnackgummykidan
+
+- type: flavor
+  id: ADTSnackGummyMoth
+  flavorType: complex
+  description: flavor-complex-adtsnackgummymoth
+
+- type: flavor
+  id: ADTSnackGummyMurine
+  flavorType: complex
+  description: flavor-complex-adtsnackgummymurine
+
+- type: flavor
+  id: ADTSnackGummySareng
+  flavorType: complex
+  description: flavor-complex-adtsnackgummysareng
+
+- type: flavor
+  id: ADTSnackGummyTayaran
+  flavorType: complex
+  description: flavor-complex-adtsnackgummytayaran
+
+- type: flavor
+  id: ADTSnackGummyUnath
+  flavorType: complex
+  description: flavor-complex-adtsnackgummyunath
+
+- type: flavor
+  id: ADTSnackGummyVulpkanin
+  flavorType: complex
+  description: flavor-complex-adtsnackgummyvulpkanin
+## Желешки конец
+# Закуски конец

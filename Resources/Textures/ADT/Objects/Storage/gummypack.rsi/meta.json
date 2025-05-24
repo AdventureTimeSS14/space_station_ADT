@@ -1,0 +1,43 @@
+﻿{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord: reartint aka ReArtInt",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "gummy1"
+    },
+    {
+      "name": "gummy2"
+    },
+    {
+      "name": "gummy3"
+    },
+    {
+      "name": "gummy4"
+    },
+    {
+      "name": "gummy5"
+    },
+    {
+      "name": "gummy6"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

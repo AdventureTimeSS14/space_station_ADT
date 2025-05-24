@@ -595,3 +595,6 @@
   id: ADTBadgeSilver
 - type: Tag
   id: ADTBadgeGolden
+
+- type: Tag
+  id: ADTGummy
