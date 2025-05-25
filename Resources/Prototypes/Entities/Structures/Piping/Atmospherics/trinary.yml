@@ -197,7 +197,7 @@
       - MixingAndFiltering
     - type: VentCrawlerTube # ADT tweak start
       containerId: VentCrawlerTube
-    - type: VentCrawlerJunctio
+    - type: VentCrawlerJunction
       degrees:
         - 0
         - -90

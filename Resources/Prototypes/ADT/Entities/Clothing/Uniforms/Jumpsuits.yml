@@ -1576,7 +1576,6 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/lawyer_green_suit.rsi
 
 # акробатические
-
 - type: entity
   parent: ClothingUniformJumpsuitAtmos
   id: ClothingUniformJumpsuitAtmosSyndie
