@@ -63,3 +63,5 @@ flavor-base-adtfishpasta = как референс
 flavor-base-adtmushroompasta = как паста и грибы
 flavor-base-adtsalmonpasta = как рыба с лапшой
 flavor-base-adttomatomeatballpasta = замечательно и мясисто
+
+flavor-base-adtstrawberryflavor = клубнично
