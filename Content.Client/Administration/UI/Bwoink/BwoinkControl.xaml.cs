@@ -28,6 +28,7 @@ namespace Content.Client.Administration.UI.Bwoink
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         public AdminAHelpUIHandler AHelpHelper = default!;
 
+        private const int TagCount = 4; // ADT-Tweak. Система тегов в АХелп
         private PlayerInfo? _currentPlayer;
         private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
 
@@ -82,7 +83,7 @@ namespace Content.Client.Administration.UI.Bwoink
                 // ADT-Tweak start. Система тегов в АХелп
                 if (AHelpHelper.TryGetChannel(info.SessionId, out var playerPanel))
                 {
-                    if (playerPanel.LastTagId >= 0 && playerPanel.LastTagId < 4)
+                    if (playerPanel.LastTagId >= 0 && playerPanel.LastTagId < TagCount)
                     {
                         var tagNames = new[]
                         {
