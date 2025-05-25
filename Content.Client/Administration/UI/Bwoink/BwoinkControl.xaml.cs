@@ -28,7 +28,7 @@ namespace Content.Client.Administration.UI.Bwoink
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         public AdminAHelpUIHandler AHelpHelper = default!;
 
-        private const int TagCount = 4; // ADT-Tweak. Система тегов в АХелп
+        public const int TagCount = 4; // ADT-Tweak. Система тегов в АХелп
         private PlayerInfo? _currentPlayer;
         private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
 
