@@ -79,6 +79,16 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasFilter
@@ -126,6 +136,16 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasTrinaryBase
@@ -175,6 +195,16 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunctio
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasMixer
@@ -218,6 +248,16 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasPipeBase
@@ -281,3 +321,13 @@
       - PneumaticValve
       - Pumps
       - Valves
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
