@@ -1,0 +1,9 @@
+- type: loadout
+  id: RnDPDA
+  equipment:
+    id: RnDPDA
+
+- type: loadout
+  id: ADTRDPDA
+  equipment:
+    id: ADTRDPDA
