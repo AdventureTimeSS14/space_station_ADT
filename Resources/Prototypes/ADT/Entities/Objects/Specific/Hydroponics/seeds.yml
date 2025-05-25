@@ -45,7 +45,7 @@
 # Пакет семян клубники
 - type: entity
   parent: SeedBase
-  name: packet of coffee tree seeds
+  name: packet of strawberry bush seeds.
   id: ADTStrawberrySeeds
   components:
     - type: Seed
