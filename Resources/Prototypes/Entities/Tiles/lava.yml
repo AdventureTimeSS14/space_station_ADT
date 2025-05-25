@@ -27,7 +27,7 @@
   - type: Clickable
   - type: Sprite
     sprite: Tiles/Planet/lava.rsi
-    drawdepth: BelowFloor
+    drawdepth: Walls #ADT tweak для мезонов
     layers:
       - state: lava
         shader: unshaded
