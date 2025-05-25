@@ -32,26 +32,7 @@ namespace Content.Client.Administration.UI.Bwoink
         {
             RobustXamlLoader.Load(this);
 
-            // ADT-Tweak start. Система тегов в АХелп
-            if (isUserAHelp)
-            {
-                TypeTag.AddItem(Loc.GetString("ahelp-user-type-tag-1"));
-                TypeTag.AddItem(Loc.GetString("ahelp-user-type-tag-2"));
-                TypeTag.AddItem(Loc.GetString("ahelp-user-type-tag-3"));
-                TypeTag.AddItem(Loc.GetString("ahelp-user-type-tag-4"));
-
-                TypeTag.OnItemSelected += type_tag =>
-                {
-                    SelectedTypeTagId = type_tag.Id;
-                    UpdateOptionButtons();
-                };
-            }
-            else
-            {
-                TypeTag.Visible = false; // Костыль. Скрываем теги в административном интерфейсе
-                AHelpUserTagName.Visible = false; // Костыль. Скрываем текст в административном интерфейсе
-            }
-            // ADT-Tweak end
+            InitializeAHelpPanel(isUserAHelp); // ADT-Tweak start. Система тегов в АХелп
 
             var msg = new FormattedMessage();
             msg.PushColor(Color.LightGray);
@@ -72,6 +53,28 @@ namespace Content.Client.Administration.UI.Bwoink
         }
 
         // ADT-Tweak start. Система тегов в АХелп
+        private void InitializeAHelpPanel(bool isAHelp)
+        {
+            if (isAHelp)
+            {
+                for (int i = 1; i <= BwoinkControl.TagCount; i++)
+                {
+                    TypeTag.AddItem(Loc.GetString($"ahelp-user-type-tag-{i}"));
+                }
+
+                TypeTag.OnItemSelected += type_tag =>
+                {
+                    SelectedTypeTagId = type_tag.Id;
+                    UpdateOptionButtons();
+                };
+            }
+            else
+            {
+                TypeTag.Visible = false; // Костыль. Скрываем теги в административном интерфейсе
+                AHelpUserTagName.Visible = false; // Костыль. Скрываем текст в административном интерфейсе
+            }
+        }
+
         private void UpdateOptionButtons()
         {
             TypeTag.SelectId(SelectedTypeTagId);
