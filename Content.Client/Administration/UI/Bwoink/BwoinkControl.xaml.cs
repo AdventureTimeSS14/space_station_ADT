@@ -79,6 +79,24 @@ namespace Content.Client.Administration.UI.Bwoink
                 if (info.OverallPlaytime <= TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.NewPlayerThreshold)))
                     sb.Append(new Rune(0x23F2)); // ⏲
 
+                // ADT-Tweak start. Система тегов в АХелп
+                if (AHelpHelper.TryGetChannel(info.SessionId, out var playerPanel))
+                {
+                    if (playerPanel.LastTagId >= 0 && playerPanel.LastTagId < 4)
+                    {
+                        var tagNames = new[]
+                        {
+                            Loc.GetString("ahelp-user-type-tag-1"),
+                            Loc.GetString("ahelp-user-type-tag-2"),
+                            Loc.GetString("ahelp-user-type-tag-3"),
+                            Loc.GetString("ahelp-user-type-tag-4")
+                        };
+
+                        sb.Append($" [{tagNames[playerPanel.LastTagId]}]");
+                    }
+                }
+                // ADT-Tweak end.
+
                 sb.AppendFormat("\"{0}\"", text);
 
                 return sb.ToString();
