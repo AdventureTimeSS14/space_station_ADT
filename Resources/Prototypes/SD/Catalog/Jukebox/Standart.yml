@@ -291,3 +291,15 @@
   name: Firelake - Dirge for Planet
   path:
     path: /Audio/SD/Jukebox/dirgeforplanet.ogg
+
+- type: jukebox
+  id: television
+  name: Rex Orange County - Television / So Far So Good
+  path:
+    path: /Audio/SD/Jukebox/television.ogg
+
+- type: jukebox
+  id: tpbreathe
+  name: The Prodigy - Breathe
+  path:
+    path: /Audio/SD/Jukebox/tpbreathe.ogg

@@ -242,3 +242,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "Firelake - Dirge for Planet."
   source: "https://youtu.be/WDCNlqMgnvo"
+
+- files: ["television.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Rex Orange County - Television / So Far So Good."
+  source: "https://youtu.be/NZc__Hhi4L8?si=kEn7fKZwc-H7btHa"
+
+- files: ["tpbreathe.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "The Prodigy - Breathe."
+  source: "https://youtu.be/rmHDhAohJlQ?si=IDL3MvdmZbSfZs76"
