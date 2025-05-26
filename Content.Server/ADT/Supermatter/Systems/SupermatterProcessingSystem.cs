@@ -212,7 +212,7 @@ public sealed partial class SupermatterSystem
         var totalDamage = 0f;
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(ADTCCVars.SupermatterHeatPenaltyThreshold);
 
-        var tempDamage = Math.Max(Math.Clamp(moles / 100f, .1f, .5f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
+        var tempDamage = Math.Max(Math.Clamp(moles / 50f, .1f, .5f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
             sm.MoleHeatPenaltyThreshold / 150f * sm.DamageIncreaseMultiplier;
         totalDamage += tempDamage;
 
