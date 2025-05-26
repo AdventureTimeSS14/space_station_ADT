@@ -1,13 +1,13 @@
 - type: entity
   id: SDVatTank
   parent: BaseMech
-  name: Вата-танк
-  description: ТОТАЛЬНЫЙ ВАЗЕЛИНОВЫЙ ДРИСЛОУ
+  name: vata tank
+  description: fucking niggers kill yourself
   components:
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Specific/Mech/tank.rsi
+    sprite: SD/Entities/Fun/tank.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: vattank
@@ -90,13 +90,13 @@
 - type: entity
   id: SDT34Tank
   parent: BaseMech
-  name: Т-34
-  description: БАБАШКА РАЗЪЕБАШКА, ПААААУ
+  name: T-34
+  description: fucking niggers kill yourself
   components:
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Specific/Mech/tank.rsi
+    sprite: SD/Entities/Fun/tank.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: t34tank
@@ -179,12 +179,12 @@
   id: SDTigerTank
   parent: BaseMech
   name: Tiger
-  description: НЮХНИ ВЯЛОГО ДЖУНДЖУРИКА, ПААААУ
+  description: fucking niggers kill yourself
   components:
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Specific/Mech/tank.rsi
+    sprite: SD/Entities/Fun/tank.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: tigertank
