@@ -16,8 +16,8 @@ namespace Content.Client.Administration.UI.Bwoink
     public sealed partial class BwoinkPanel : BoxContainer
     {
         // ADT-Tweak start. Система тегов в АХелп
-        public int SelectedTypeTagId = 0;
-        public int LastTagId { get; private set; } = -1;
+        public int SelectedTypeTagId = 0; // Переменная для хранение выбранного тега
+        public int LastTagId { get; private set; } = -1; // Переменная для хранения последнего выбора тега
         // ADT-Tweak end.
         private readonly Action<string> _messageSender;
 
@@ -53,15 +53,18 @@ namespace Content.Client.Administration.UI.Bwoink
         }
 
         // ADT-Tweak start. Система тегов в АХелп
+        // Функция для проверки на то, какой интерфейс АХелпа открыт(игрока, админа)
         private void InitializeAHelpPanel(bool isAHelp)
         {
             if (isAHelp)
             {
+                // Перебор и добавление тегов в список
                 for (int i = 1; i <= BwoinkControl.TagCount; i++)
                 {
                     TypeTag.AddItem(Loc.GetString($"ahelp-user-type-tag-{i}"));
                 }
 
+                // Обработчик выбора тега
                 TypeTag.OnItemSelected += type_tag =>
                 {
                     SelectedTypeTagId = type_tag.Id;
@@ -75,6 +78,7 @@ namespace Content.Client.Administration.UI.Bwoink
             }
         }
 
+        // Функция для визуального обновления выбора кнопки тега
         private void UpdateOptionButtons()
         {
             TypeTag.SelectId(SelectedTypeTagId);
@@ -89,11 +93,13 @@ namespace Content.Client.Administration.UI.Bwoink
             // ADT-Tweak start. Система тегов в АХелп
             var uiController = IoCManager.Resolve<IUserInterfaceManager>().GetUIController<AHelpUIController>();
 
+            // Добавление [Tag:X] к отправленному сообщению от ИГРОКА, если сообщение из ПОЛЬЗОВАТЕЛЬСКОГО АХелпа
             if (uiController.UIHelper is AdminAHelpUIHandler adminAhelp)
             {
                 _messageSender.Invoke(args.Text);
             }
-            else {
+            else
+            {
                 _messageSender.Invoke($"[Tag:{SelectedTypeTagId}] {args.Text}");
             }
             // ADT-Tweak end.
