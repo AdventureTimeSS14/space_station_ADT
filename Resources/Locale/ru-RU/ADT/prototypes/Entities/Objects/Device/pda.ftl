@@ -102,8 +102,8 @@ ent-ADTMaidPDA = КПК горничной
 ent-ADTMechAssemblerPDA = КПК механосборщика
     .desc = Почему это всё ещё не робот?!
 
-ent-ADTSheriffPDA = КПК шерифа
-    .desc = Стоять ковбой.
+# ent-ADTSheriffPDA = КПК шерифа
+#    .desc = Стоять ковбой.
 
 ent-ADTLawyerPDA = КПК юриста
     .desc = КПК юриста.
