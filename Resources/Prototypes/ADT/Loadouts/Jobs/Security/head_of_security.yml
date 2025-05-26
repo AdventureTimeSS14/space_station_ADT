@@ -12,7 +12,7 @@
   equipment:
     id: HoSPDA
 
-- type: loadout
-  id: ADTSheriffPDA
-  equipment:
-    id: ADTSheriffPDA
+#- type: loadout # Ganimed-MRP
+#  id: ADTSheriffPDA
+#  equipment:
+#    id: ADTSheriffPDA
