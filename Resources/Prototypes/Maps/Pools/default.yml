@@ -22,15 +22,18 @@
   - ADT_Bagel
   - ADT_Box
   - ADT_Cluster
-  - ADT_Cluster_Legacy
+  # - ADT_Cluster_Legacy
   - ADT_Gemini
-  - ADT_Fland
+  # - ADT_Fland
   - ADT_Marathon
-  - ADT_Meta
-  - ADT_Saltern
-  - ADT_Packed
-  - ADT_Aspid
-  - ADT_Kerberos
+  # - ADT_Meta
+  # - ADT_Saltern
+  # - ADT_Packed
+  # - ADT_Aspid
+
+# SD maps Актуальные
+
+  - SD_Radiance
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
