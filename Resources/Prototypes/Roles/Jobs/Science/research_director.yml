@@ -32,7 +32,7 @@
 - type: startingGear
   id: ResearchDirectorGear
   equipment:
-    id: RnDPDA
+ ###id: RnDPDA
     ears: ClothingHeadsetRD
   storage:
     back:
