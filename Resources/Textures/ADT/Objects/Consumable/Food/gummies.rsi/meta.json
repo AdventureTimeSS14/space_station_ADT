@@ -11,13 +11,22 @@
             "name": "arachnid"
         },
         {
+            "name": "arkana"
+        },
+        {
             "name": "cischi"
+        },
+        {
+            "name": "drask"
         },
         {
             "name": "felinid"
         },
         {
             "name": "human"
+        },
+        {
+            "name": "ipc"
         },
         {
             "name": "kidan"
@@ -29,16 +38,47 @@
             "name": "murine"
         },
         {
+            "name": "novakid"
+        },
+        {
+            "name": "resomi"
+        },
+        {
             "name": "sareng"
         },
         {
+            "name": "shadekin"
+        },
+        {
             "name": "slime"
+        },
+        {
+            "name": "slime-golden",
+            "delays": [
+                [
+                    5.0,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07
+                ]
+            ]
         },
         {
             "name": "tayaran"
         },
         {
             "name": "unath"
+        },
+        {
+            "name": "ursus"
+        },
+        {
+            "name": "vox"
         },
         {
             "name": "vulpkanin"

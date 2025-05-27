@@ -1,3 +1,3 @@
-ent-ADTFoodPackGummiesFilled = пачка желейных конфет
-    .desc = Внутри сокрыто поистине сокровище.
+ent-ADTFoodPackGummiesFilled = желейные конфеты "Space Gummy"
+    .desc = Внутри поистине сокрыто сокровище.
     .suffix = Заполненный
