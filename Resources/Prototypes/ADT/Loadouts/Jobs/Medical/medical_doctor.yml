@@ -13,3 +13,8 @@
   id: ADTTherapistPDA
   equipment:
     id: ADTTherapistPDA
+
+- type: loadout
+  id: ADTTraumatologistPDA
+  equipment:
+    id: ADTTraumatologistPDA
