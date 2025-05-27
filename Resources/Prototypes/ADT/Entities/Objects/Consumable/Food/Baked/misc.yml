@@ -185,7 +185,7 @@
     - ADTMothFriendlyFood
     - ADTCandies
 
-# Кулич все таки не торт 
+# Кулич все таки не торт
 
 - type: entity
   name: kulich small
@@ -279,6 +279,34 @@
   - type: FlavorProfile
     flavors:
       - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+  - type: Item
+    size: Small
+
+- type: entity
+  name: berried delight
+  parent: FoodBakedBase
+  id: ADTFoodBerriedDelight
+  description: immaculate dessert
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/berried_delight.rsi
+    state: berried_delight
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - ADTStrawberryFlavor
   - type: SolutionContainerManager
     solutions:
       food:

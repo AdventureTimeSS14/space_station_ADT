@@ -135,3 +135,29 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 15
+
+- type: entity
+  name: chesnechka
+  parent: FoodBowlBase
+  id: ADTFoodSoupChesnechka
+  description: Traditional czech soup. Smells like onions and garlic.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - food
+      - onion
+      - garlic
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/czech_cuisine/chesnechka.rsi
+    layers:
+    - state: bowl
+    - state: chesnok_soup
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 5
