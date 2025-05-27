@@ -22,3 +22,11 @@ bwoink-system-player-banned = был забанен за: { $banReason }
 
 admin-ahelp-admin-only = Только администратор
 admin-ahelp-admin-only-tooltip = Если этот флажок установлен, сообщение не будет видно игроку, но будет видно другим администраторам и будет передано в Discord.
+
+# ADT-Tweak. Система тегов в АХелп
+ahelp-user-tag-title = Причина обращения:
+ahelp-user-type-tag-1 = Другое
+ahelp-user-type-tag-2 = Жалоба
+ahelp-user-type-tag-3 = Вопрос
+ahelp-user-type-tag-4 = Набегатор
+# ADT-Tweak end.
