@@ -30,7 +30,10 @@
   - ADT_Saltern
   - ADT_Packed
   - ADT_Aspid
-  - ADT_Kerberos
+
+# SD maps Актуальные
+
+  - SD_Radiance
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
