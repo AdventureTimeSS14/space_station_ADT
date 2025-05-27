@@ -239,7 +239,7 @@ public sealed class ADTCCVars
     /// При значении true панель отображается, при false - скрывается.
     /// </summary>
     public static readonly CVarDef<bool> ExtraLobbyPanelEnabled =
-        CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("ui.show_lobby_panel", false, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     /// Ссылка на канал привязки аккаунта сски к дискорду
