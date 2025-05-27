@@ -17,6 +17,8 @@ using Content.Shared.Mobs.Systems;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo;
 
 namespace Content.Server.ADT.Economy;
 

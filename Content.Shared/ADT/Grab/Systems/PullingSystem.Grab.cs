@@ -56,7 +56,7 @@ public abstract partial class PullingSystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly ThrownItemSystem _thrown = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
 
     private void InitializeGrab()
@@ -194,7 +194,7 @@ public abstract partial class PullingSystem
             return;
         if (args.DisarmerUid != comp.Pulling)
             return;
-        args.Cancel();
+        args.Cancelled = true;
     }
     private void HandlePullableGrabStageChanged(EntityUid uid, PullableComponent puller, ref GrabStageChangedEvent args)
     {
