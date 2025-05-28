@@ -3,7 +3,7 @@ using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
-using Content.Shared.Singularity.Components;
+using Content.Shared.Singularity.Components; // ADT-Tweak
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
@@ -137,12 +137,15 @@ public partial class RadiationSystem
 
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
+
+        // ADT-Tweak start
         var dist = Math.Max(dir.Length(),0.5f);
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
             dist = Math.Max(dist - horizon.Radius, 0.5f);
         var rads = source.Intensity / (dist );
         if (rads < 0.01)
             return null;
+        // ADT-Tweak end
 
         // create a new radiation ray from source to destination
         // at first we assume that it doesn't hit any radiation blockers
@@ -187,13 +190,15 @@ public partial class RadiationSystem
 
         return ray;
     }
-/// <summary>
-/// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
-/// </summary>
-/// <param name="sourceGridPos">source of the ray, in grid space</param>
-/// <param name="destGridPos"></param>
-/// <returns></returns>
-    private static IEnumerable<(Vector2i cell, float distInCell)> AdvancedGridRaycast(Vector2 sourceGridPos,Vector2 destGridPos)
+    
+    /// ADT-Tweak start    
+    /// <summary>
+    /// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
+    /// </summary>
+    /// <param name="sourceGridPos">source of the ray, in grid space</param>
+    /// <param name="destGridPos"></param>
+    /// <returns></returns>
+    private static IEnumerable<(Vector2i cell, float distInCell)> AdvancedGridRaycast(Vector2 sourceGridPos, Vector2 destGridPos)
     {
         var delta = destGridPos - sourceGridPos;
 
@@ -248,6 +253,8 @@ public partial class RadiationSystem
             entry = exit;
         }
     }
+    // ADT-Tweak end
+
     private RadiationRay Gridcast(
         Entity<MapGridComponent, TransformComponent> grid,
         ref RadiationRay ray,
@@ -262,6 +269,8 @@ public partial class RadiationSystem
         if (!_resistanceQuery.TryGetComponent(gridUid, out var resistance))
             return ray;
         var resistanceMap = resistance.ResistancePerTile;
+
+        // ADT-Tweak start
 
         // get coordinate of source and destination in grid coordinates
 
@@ -304,6 +313,7 @@ public partial class RadiationSystem
                     break;
                 }
             }
+        // ADT-Tweak end
         }
 
 
