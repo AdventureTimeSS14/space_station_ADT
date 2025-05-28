@@ -89,6 +89,7 @@
       normalBodyTemperature: 400
       thermalRegulationTemperatureThreshold: 125
     - type: ComplexInteraction
+    - type: MobCollision
 
 - type: entity
   parent: ADTPlayerSiliconBase

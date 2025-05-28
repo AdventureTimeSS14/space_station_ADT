@@ -114,6 +114,14 @@ marking-ADTVulpkaninold = Вульпканин, Скулы
 marking-ADTVulpkaninold-old = Скулы
 marking-ADTVulpkaninEyeGlow = Светящиеся глаза
 marking-ADTVulpkaninEyeGlow-eyesglow = Светящиеся глаза
+marking-ADTVulpkaninDamage1 = Шрам 1
+marking-ADTVulpkaninDamage1-damage-1 = Шрам
+marking-ADTVulpkaninDamage2 = Шрам 2
+marking-ADTVulpkaninDamage2-damage-2 = Шрам
+marking-ADTVulpkaninDamage3 = Мешки под глазами
+marking-ADTVulpkaninDamage3-damage-3 = Мешки под глазами
+marking-ADTVulpkaninDamage4 = Ожог
+marking-ADTVulpkaninDamage4-damage-4 = Ожог
 
 marking-ADTVulpEar-vulp = Вульпканин, уши (основа)
 marking-ADTVulpEar-vulp-inner = Вульпканин, уши (inner)
