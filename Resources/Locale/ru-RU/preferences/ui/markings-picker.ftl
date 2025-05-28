@@ -21,7 +21,6 @@ markings-category-Head = Голова
 markings-category-HeadTop = Голова (верх)
 markings-category-HeadSide = Голова (бок)
 markings-category-Snout = Морда
-markings-category-SnoutOverlay = Морда (Наложение)
 markings-category-Chest = Грудь
 markings-category-Arms = Руки
 markings-category-Legs = Ноги

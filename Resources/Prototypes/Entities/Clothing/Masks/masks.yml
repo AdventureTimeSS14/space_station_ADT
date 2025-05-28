@@ -709,10 +709,12 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+### Start ADT Tweak
   - type: HideLayerClothing
     slots:
     - Snout
-    - SnoutOverlay # ADT Tweak
+    - SnoutOverlay
+### End ADT Tweak
 
 # Entity tables
 - type: entityTable
