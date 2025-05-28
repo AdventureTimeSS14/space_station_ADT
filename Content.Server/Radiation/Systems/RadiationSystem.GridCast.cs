@@ -347,8 +347,10 @@ public partial class RadiationSystem
 
             if (_blockerQuery.TryComp(xform.ParentUid, out var blocker))
             {
-                var ratio =blocker.RadResistance>2? 1 / (blocker.RadResistance/2):1;
+                // ADT-Tweak start
+                var ratio =blocker.RadResistance>2? 1 / (blocker.RadResistance/2):1; 
                 rads *= ratio;
+                // ADT-Tweak end
                 if (rads < 0)
                     return 0;
             }
