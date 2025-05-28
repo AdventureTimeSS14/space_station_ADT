@@ -51,7 +51,7 @@
   - type: StaticPrice
     price: 100
   - type: RadiationBlocker
-    resistance: 2
+    resistance: 2.5 # ADT tweak
 
 - type: entity
   id: PlasmaWindowDirectional
@@ -107,7 +107,7 @@
   - type: StaticPrice
     price: 50
   - type: RadiationBlocker
-    resistance: 1
+    resistance: 1.5 # ADT tweak
 
 - type: entity
   parent: PlasmaWindow
