@@ -26,7 +26,7 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField("enabled")]
     public bool Enabled;
-
+    /// Start ADT Tweak
     [DataField("speechMode")]
     public InGameICChatType SpeechMode = InGameICChatType.Whisper;
 
@@ -35,4 +35,5 @@ public sealed partial class RadioSpeakerComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier SoundOnReceive = new SoundPathSpecifier("/Audio/ADT/Effects/silence.ogg");
+    /// End ADT Tweak
 }

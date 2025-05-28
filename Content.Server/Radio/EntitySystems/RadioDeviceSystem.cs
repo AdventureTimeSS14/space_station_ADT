@@ -213,11 +213,12 @@ public sealed class RadioDeviceSystem : EntitySystem
     {
         if (uid == args.RadioSource)
             return;
-
+        /// Start ADT Tweak
         if (component.SoundOnReceive != null)
         {
             _audio.PlayPvs(component.SoundOnReceive, uid);
         }
+        /// End ADT Tweak
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
         RaiseLocalEvent(args.MessageSource, nameEv);
 
@@ -226,6 +227,7 @@ public sealed class RadioDeviceSystem : EntitySystem
             ("originalName", nameEv.VoiceName));
 
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
+        /// Start ADT Tweak
         _chat.TrySendInGameICMessage(
             uid,
             args.Message,
@@ -235,6 +237,7 @@ public sealed class RadioDeviceSystem : EntitySystem
             checkRadioPrefix: false,
             language: args.Language
         );
+        /// End ADT Tweak
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)
