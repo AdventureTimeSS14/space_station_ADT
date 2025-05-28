@@ -39,8 +39,8 @@
   id: ADTOldRadioMicrophone
   components:
   - type: RadioMicrophone
+    listenRange: 1
     broadcastChannel: ADTOldBroadcast
-    ListenRange: 1
   - type: Sprite
     sprite: Objects/Fun/Instruments/microphone.rsi
     state: icon
