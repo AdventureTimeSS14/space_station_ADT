@@ -583,7 +583,7 @@ namespace Content.Server.GameTicking
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
                     // This is as opposed to ply?.Name which doesn't.
-                    PlayerOOCName = contentPlayerData?.Name ?? "(IMPOSSIBLE: REGISTERED MIND WITH NO OWNER)",
+                    PlayerOOCName = mind.Incognito ? Loc.GetString("game-ticker-unknown-role") : contentPlayerData?.Name ?? Loc.GetString("game-ticker-unknown-role"), // Ganimed edit
                     // Character name takes precedence over current entity name
                     PlayerICName = playerIcName,
                     PlayerGuid = userId,
