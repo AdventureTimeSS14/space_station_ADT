@@ -1,0 +1,74 @@
+- type: entity
+  id: RandomHumanoidSpawnerUSSPSoldier
+  name: USSP soldier
+  suffix: USSP, soldier
+  components:
+    - type: Sprite
+      sprite: _Ganimed/Objects/Misc/mobs_gear_sprite/USSPsoldier_sprite
+      state: icon
+    - type: RandomHumanoidSpawner
+      settings: USSP1 
+
+- type: randomHumanoidSettings
+  id: USSP1
+  randomizeName: false
+  components:
+    - type: Loadout
+      prototypes: [ USSPGearSoldier ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstUSSPMilitary
+      - NamesLastUSSPMilitary
+    - type: AutoImplant
+      implants:
+      - NeoRusskiyaTranslatorImplant      
+
+- type: entity
+  id: RandomHumanoidSpawnerUSSPofficer
+  name: USSP soldier
+  suffix: USSP, officer
+  components:
+    - type: Sprite
+      sprite: _Ganimed/Objects/Misc/mobs_gear_sprite/USSPofficer_sprite
+      state: icon
+    - type: RandomHumanoidSpawner
+      settings: USSP2  
+
+- type: randomHumanoidSettings
+  id: USSP2
+  randomizeName: false
+  components:
+    - type: Loadout
+      prototypes: [ USSPGearOfficer ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstUSSPMilitaryLeader
+      - NamesLastUSSPMilitary
+    - type: AutoImplant
+      implants:
+      - NeoRusskiyaTranslatorImplant   
+      
+- type: entity
+  id: RandomHumanoidSpawnerUSSPMedic
+  name: USSP medic
+  suffix: USSP, medic
+  components:
+    - type: Sprite
+      sprite: _Ganimed/Objects/Misc/mobs_gear_sprite/USSPmedic_sprite
+      state: icon
+    - type: RandomHumanoidSpawner
+      settings: USSP3
+    - type: AutoImplant
+      implants:
+      - NeoRusskiyaTranslatorImplant
+
+- type: randomHumanoidSettings
+  id: USSP3
+  randomizeName: false
+  components:
+    - type: Loadout
+      prototypes: [ USSPGearMedic ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstUSSPMilitary
+      - NamesLastUSSPMilitary      

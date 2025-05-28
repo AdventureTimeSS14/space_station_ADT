@@ -152,3 +152,36 @@
     whitelist:
       tags:
         - ShellShotgun
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltMedicalMarine
+  name: medical belt
+  description: Can hold various medical equipment.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/medicalbelt.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Belt/medicalbelt.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,4
+    whitelist:
+      tags:
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - Flashlight
+        - DiscreteHealthAnalyzer
+        - SecBeltEquip #ради жгута
+      components:
+        - Hypospray
+        - Injector
+        - Pill

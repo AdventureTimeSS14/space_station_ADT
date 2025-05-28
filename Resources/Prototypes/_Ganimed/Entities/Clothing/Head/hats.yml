@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretUSSP
+  name: ussp army beret 
+  description: It's military beret, it belongs to the USSP
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/ussp_beret.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/ussp_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon

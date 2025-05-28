@@ -1,0 +1,128 @@
+- type: entity
+  parent: BasePDA
+  id: SoldierUSSPPDA
+  name: USSP PDA
+  description: The same red as the banner of the Revolution.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-ussp"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - MedTekCartridge
+  - type: Appearance
+    appearanceDataInit:
+        enum.PdaVisuals.PdaType:
+          !type:String
+          pda-ussp
+  - type: Pda
+    id: SoldierUSSPIDCard
+    penSlot:
+      startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Icon
+    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    state: pda-ussp
+  - type: PdaBorderColor
+    borderColor: "#AD2424"
+    accentHColor: "#FFD800"
+
+- type: entity
+  parent: BasePDA
+  id: OfficerUSSPPDA
+  name: USSP PDA
+  description: The same red as the banner of the Revolution.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-ussp"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - MedTekCartridge
+  - type: Appearance
+    appearanceDataInit:
+        enum.PdaVisuals.PdaType:
+          !type:String
+          pda-ussp
+  - type: Pda
+    id: OfficerUSSPIDCard
+    penSlot:
+      startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Icon
+    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    state: pda-ussp
+  - type: PdaBorderColor
+    borderColor: "#AD2424"
+    accentHColor: "#FFD800"
+
+- type: entity
+  parent: BasePDA
+  id: MedicUSSPPDA
+  name: USSP PDA
+  description: The same red as the banner of the Revolution.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-ussp"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - MedTekCartridge
+  - type: Appearance
+    appearanceDataInit:
+        enum.PdaVisuals.PdaType:
+          !type:String
+          pda-ussp
+  - type: Pda
+    id: MedicalUSSPIDCard
+    penSlot:
+      startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Icon
+    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    state: pda-ussp
+  - type: PdaBorderColor
+    borderColor: "#AD2424"
+    accentHColor: "#FFD800"

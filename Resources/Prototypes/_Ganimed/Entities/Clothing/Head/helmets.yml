@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
+  id: ClothingHeadHelmetMercMedic
+  name: mercenary medic helmet
+  description: The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the jungle.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Helmets/merc_medic_helmets.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Helmets/merc_medic_helmets.rsi

@@ -1,0 +1,7 @@
+- type: entity
+  id: NeoRusskiyaTranslatorImplanter
+  name: NeoRusskiy Translator implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: NeoRusskiyaTranslatorImplant
