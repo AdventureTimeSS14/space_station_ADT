@@ -141,7 +141,7 @@
   description: spellbook-blade-description
   productEntity: ADTTaumaturgBlade
   cost:
-    WizCoin: 5
+    WizCoin: 3
   categories:
   - ADTSpellbookTaumaturgUtility
   conditions:
