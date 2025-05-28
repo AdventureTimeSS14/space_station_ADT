@@ -59,6 +59,12 @@
   id: ADTMagazineRifleBibisSoftBig # Магазин пулемёта
 
 - type: Tag
+  id: ADTBroadcastMicrophone # ADT Радио Апдейт
+
+- type: Tag
+  id: ADTOldRadio  # ADT Радио Апдейт
+
+- type: Tag
   id: ADTBorgUse
 
 - type: Tag

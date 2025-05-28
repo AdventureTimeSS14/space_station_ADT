@@ -80,9 +80,9 @@ ent-ADTClothingOuterCoatLeathOvercoatOpened = кожаный плащ
 
 ent-ADTClothingOuterBikerJacket = косуха
     .desc = Плохой до мозга костей!
- 
- 
- 
+
+
+
 ent-ADTClothingOuterDutch = голландская куртка
     .desc = За те долгие ночи на пляже Таити.
 
@@ -100,3 +100,6 @@ ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
 ent-ADTClothingOuterCoatXCoat = икс-ключительное облачение
     .desc = Кажется, это облачение заигравшегося творца.
 
+ent-ADTClothingOuterCoatRadioDemon = фрак радио демона
+    .desc = А теперь... Не переключайтесь.
+    .suffix = {"Хеллоуин"}

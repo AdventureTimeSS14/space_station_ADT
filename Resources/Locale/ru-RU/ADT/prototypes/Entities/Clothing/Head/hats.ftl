@@ -137,3 +137,7 @@ ent-ADTClothingHeadRomanticHat = широкая красно-белая шляп
 
 ent-ADTClothingHeadOldFedora = старая федора
     .desc = Носящий её точно хочет показать, что он ценит старые принципы и поведения. Забавно, что при столь сильной потёртости она так и не утеряла форму.
+
+ent-ADTClothingHeadDemonicHornsDeer = демонические рожки оленя
+    .suffix = Хеллоуин
+    .desc = Рога радио демона. Бррр...
