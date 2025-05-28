@@ -68,9 +68,11 @@
       points: 1
       required: true
       defaultMarkings: [ LizardTailSmooth ]
+### Start ADT Tweak
     SnoutOverlay: # ADT Tweak
       points: 1
       required: false
+### End ADT Tweak
     Snout:
       points: 1
       required: true
