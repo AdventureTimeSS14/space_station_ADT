@@ -7,4 +7,10 @@
     <RichTextLabel Name="TypingIndicator" Access="Public" />
     <HistoryLineEdit Name="SenderLineEdit" />
     <RichTextLabel Name="RelayedToDiscordLabel" Access="Public" Visible="False" />
+    <!-- ADT-Tweak start. Система тегов в АХелп -->
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SizeFlagsStretchRatio="2">
+        <Label Name="AHelpUserTagName" Text="{Loc ahelp-user-tag-title}" />
+        <OptionButton Name="TypeTag" HorizontalExpand="True" />
+    </BoxContainer>
+    <!-- ADT-Tweak end -->
 </BoxContainer>
