@@ -298,10 +298,12 @@ public sealed partial class MinesweeperWindow : FancyWindow
         //     _comp.Dirty();
 
         // Победа
-        // _stopwatch.Stop
         _gameEnd = true;
         RevealAllMines();
         GameStatusLabel.Text = "✓ Победа! \nВсе мины разминированы.";
+
+
+
 
         // TODO: Доделать запись результатов
         // var nameUser = _comp?.LastOpenedBy ?? "Unknow";
