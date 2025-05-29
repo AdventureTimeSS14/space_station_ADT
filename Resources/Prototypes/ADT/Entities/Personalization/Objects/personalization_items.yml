@@ -2075,4 +2075,44 @@
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
+#BLAD
+- type: entity
+  name: Cutter
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponCutterBLAD
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  suffix: Personal, BLAD
+  components:
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,2,0
+      - 0,1,0,1
+    - type: MaterialStorage
+      storageLimit: 0
+      materialWhiteList: [RawUranium, RawPlasma, Plasma, Uranium]
+      canEjectStoredMaterials: false
+    - type: BatteryRecharge
+      multiplier: 1.25
+    - type: Sprite
+      sprite: ADT/Personalization/cutter_blad.rsi
+      state: icon
+    - type: Gun
+      fireRate: 0.8
+      soundGunshot:
+        path: /Audio/Weapons/plasma_cutter.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: ADTBulletCutter
+      fireCost: 100
+    - type: BatteryWeaponFireModes
+      fireModes:
+      - proto: ADTBulletCutterWeak
+        fireCost: 100
+      - proto: ADTBulletLaserGreenWeak
+        fireCost: 150
+    - type: Battery
+      maxCharge: 2500
+      startingCharge: 2500
+    - type: Appearance
+
 #SPONSOR-ITEMS-END

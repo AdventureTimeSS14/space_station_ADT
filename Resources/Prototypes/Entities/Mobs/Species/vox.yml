@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseMobSpeciesOrganicUnRotting
+  parent: ADTBaseMobSpeciesOrganicUnRotting # ADT tweak from BaseMobSpeciesOrganic
   id: BaseMobVox
   abstract: true
   components:
