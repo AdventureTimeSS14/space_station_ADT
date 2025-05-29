@@ -591,7 +591,18 @@
 
 - type: Tag
   id: ADTBadgeBronze
+
 - type: Tag
   id: ADTBadgeSilver
+
 - type: Tag
   id: ADTBadgeGolden
+
+- type: Tag
+  id: ADTBudgetInsuls
+
+- type: Tag
+  id: ADTTemplarHelmet
+
+- type: Tag
+  id: ADTBible

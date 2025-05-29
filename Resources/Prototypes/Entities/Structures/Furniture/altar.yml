@@ -27,7 +27,6 @@
     snapCardinals: true
   - type: Climbable
   - type: Clickable
-  - type: Altar
 
 - type: entity
   id: AltarNanotrasen
@@ -65,8 +64,9 @@
             max: 3
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StealTarget
-    stealGroup: AltarNanotrasen
+  - type: Construction
+    graph: AltarsGraph
+    node: NanotrasenAltarNode
 
 - type: entity
   id: AltarChaos
@@ -79,6 +79,13 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: chaos
+  - type: PointLight
+    radius: 1.5
+    energy: 1
+    color: "#fbb1b1"
+  - type: Construction
+    graph: AltarsGraph
+    node: ChaosAltarNode
 
 - type: entity
   id: AltarDruid
@@ -91,6 +98,9 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
+  - type: Construction
+    graph: AltarsGraph
+    node: DruidAltarNode
 
 - type: entity
   id: AltarToolbox
@@ -103,6 +113,9 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
+  - type: Construction
+    graph: AltarsGraph
+    node: ToolAltarNode
 
 - type: entity
   id: AltarSpaceChristian
@@ -122,6 +135,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: AltarsGraph
+    node: SpaceChristianAltarNode
 
 - type: entity
   id: AltarSatana
@@ -141,6 +157,9 @@
     radius: 1.5
     energy: 1
     color: "#ff6347"
+  - type: Construction
+    graph: AltarsGraph
+    node: NarsiAltarNode
 
 - type: entity
   id: AltarTechnology
@@ -160,6 +179,9 @@
     radius: 1.5
     energy: 1
     color: "#e0ffff"
+  - type: Construction
+    graph: AltarsGraph
+    node: TechnologyAltarNode
 
 - type: entity
   id: AltarConvertFestival
@@ -172,33 +194,6 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
     state: festival
-  - type: Damageable
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 15
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroyHeavy
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MaterialWoodPlank:
-            min: 1
-            max: 5
-          MaterialCloth1:
-            min: 1
-            max: 3
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Tag
     tags:
     - Wooden
@@ -221,6 +216,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: AltarsGraph
+    node: MaintsAltarNode
 
 - type: entity
   id: AltarConvertBlue
@@ -278,6 +276,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: AltarsGraph
+    node: AltarConvertNode
 
 - type: entity
   id: AltarConvertOrange
@@ -369,28 +370,9 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/heaven.rsi
     state: full
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 125
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+  - type: Construction
+    graph: AltarsGraph
+    node: HeavenAltarNode
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -405,7 +387,9 @@
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-
+  - type: Construction
+    graph: AltarsGraph
+    node: FangedAltarNode
 
 - type: entity
   id: AltarBananium
@@ -417,5 +401,5 @@
     sprite: Structures/Furniture/Altars/Cults/bananium.rsi
     state: full
   - type: Construction
-    graph: BananiumAltarGraph
-    node: bananiumAltar
+    graph: AltarsGraph
+    node: BananiumAltarNode

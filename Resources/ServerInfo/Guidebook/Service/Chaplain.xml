@@ -1,0 +1,89 @@
+<Document>
+
+# Священник
+
+Есть что-то в бескрайней бесконечности космоса, что заставляет людей молиться... Особенно если их выбрасывают в него без скафандра.
+
+Как священник, вы должны проповедовать любую безумную религию, которую придумали в этом раунде, через гарнитуру, радио или свои похождения. Однако, помимо вашего кабинета и крематория с моргом рядом у вас нет доступа к другим помещениям.
+
+<Box>
+
+<GuideEntityEmbed Entity="Bible"/>
+
+<GuideEntityEmbed Entity="ADTEctoSword"/>
+
+</Box>
+
+## Религии:
+
+Вы можете распространять любые известные вам современные религии или даже придумать свою собственную! Главное, чтобы она не противоречила NanoTrasen и её ценностям, иначе вас арестуют.
+
+Если у вас ещё нет алтаря, постройте его и найдите подношение, чтобы разместить на нём:
+
+<Box>
+
+<GuideEntityEmbed Entity="AltarBananium"/>
+
+<GuideEntityEmbed Entity="AltarChaos"/>
+
+<GuideEntityEmbed Entity="AltarDruid"/>
+
+</Box>
+
+<Box>
+
+<GuideEntityEmbed Entity="AltarFangs"/>
+
+<GuideEntityEmbed Entity="AltarHeaven"/>
+
+<GuideEntityEmbed Entity="AltarConvertMaint"/>
+
+</Box>
+
+<Box>
+
+<GuideEntityEmbed Entity="AltarNanotrasen"/>
+
+<GuideEntityEmbed Entity="AltarSpaceChristian"/>
+
+<GuideEntityEmbed Entity="AltarTechnology"/>
+
+</Box>
+
+<Box>
+
+<GuideEntityEmbed Entity="AltarToolbox"/>
+
+</Box>
+
+## Святые книги
+
+Глядя в наборы по умолчанию священника, вы могли увидеть выбор святых книг. Всего книг для священника - 5 святых книг культуры человека, 3 святых книг культуры ксено-рас и 1 самописная святая книга для любой вашей религии. Вы можете отыгрывать что мирного буддиста, что посланника Брахмы.
+
+<Box>
+
+<GuideEntityEmbed Entity="Bible"/>
+
+<GuideEntityEmbed Entity="ADTBibleQuaran"/>
+
+<GuideEntityEmbed Entity="ADTBibleTanakh"/>
+
+<GuideEntityEmbed Entity="ADTBibleVedas"/>
+
+<GuideEntityEmbed Entity="ADTBibleTripitaka"/>
+
+</Box>
+
+<Box>
+
+<GuideEntityEmbed Entity="ADTBibleTajaran"/>
+
+<GuideEntityEmbed Entity="ADTBibleUnathi"/>
+
+<GuideEntityEmbed Entity="ADTBibleMoth"/>
+
+<GuideEntityEmbed Entity="ADTBibleLeatherCodex"/>
+
+</Box>
+
+</Document>
