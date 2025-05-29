@@ -11,7 +11,7 @@ namespace Content.Shared.DocumentPrinter;
 
 public sealed class DocumentPrinterSystem : EntitySystem
 {
-    const int TIME_YEAR_SPACE_STATION_ADT = 544;
+    const int TIME_YEAR_SPACE_STATION_ADT = 570;
 
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
