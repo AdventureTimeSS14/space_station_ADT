@@ -8,6 +8,7 @@
     FoodSnackSus: 1 # ADT-tweak 3 > 1
     FoodSnackSemki: 1 # ADT-tweak 3 > 1
     # ADT-tweak-start
+    ADTFoodPackGummiesFilled: 2
     ADTFoodSnackChocolateBarTwoPack: 1
     ADTFoodSnackChocolateBarCoconutPack: 1
     ADTFoodSnackChocolateBarChocoPack: 2
