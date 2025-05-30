@@ -1,6 +1,6 @@
 - type: entity
   name: morph
-  parent: MobCombat
+  parent: BaseSimpleMob
   id: ADTBaseMobMorph
   description: It looks terrifying.
   components:
@@ -14,6 +14,9 @@
       state: alive
   - type: CombatMode
   - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -47,3 +50,93 @@
       GalacticCommon: Speak
       MorphCollectiveMind: Speak
   - type: VentCrawler
+  - type: Hunger
+    baseDecayRate: 0 # не голодни
+    starvingSlowdownModifier: 1
+    thresholds:
+      Overfed: 500
+      Okay: 300
+      Peckish: 200
+      Starving: 100
+      Dead: 0
+  - type: Morph
+    damageOnTouch:
+      types:
+        Blunt: 16
+        Slash: 14
+    devourWhitelist:
+      components:
+        - Item
+        - MobState
+      tags:
+        - Structure
+  - type: ThermalVision
+    color: "#064700"
+  - type: NightVision
+  - type: Hands
+  - type: MindContainer
+  - type: ChameleonProjector #да, прекрасно знаю, что могла бы просто переписать систему визардов, но ну к чёрту, лучше уж костыли
+  # ПОТОМУ НЕ ДЕЛАЙТЕ РУЧНЫХ МОРФОВ
+    whitelist:
+      components:
+      - Anchorable
+      - Item
+      - MobState
+      tags:
+      - Bot # for funny bot moments
+    blacklist:
+      components:
+      - ChameleonDisguise # no becoming kleiner
+      - Pda # PDAs currently make you invisible /!\
+    disguiseProto: ChameleonDisguise
+  - type: UserInterface
+    interfaces:
+      enum.MimicryKey.Key:
+        type: MimicryMenuBoundUserInterface
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1
+    useSound:
+      path: /Audio/Machines/airlock_creaking.ogg
+
+#нужен для работы размножения
+- type: entity
+  parent: ADTBaseMobMorph
+  id: ADTMorphGhostRole
+  components:
+  - type: GhostRole
+    name: ghost-role-information-morph-name
+    description: ghost-role-information-morph-description
+    rules: ghost-role-information-morph-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: ActionMorphDevour
+  name: "[color=red]Devour[/color]"
+  description: Attempt to break a structure with your jaws or swallow a creature.
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
+    event: !type:MorphDevourActionEvent
+    priority: 1
+
+- type: entity
+  id: ActionMorphRemember
+  name: "[color=red]Remember[/color]"
+  description: Remember enrity to mimicry in future
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
+    event: !type:MorphMimicryRememberActionEvent
+    priority: 2
+
+- type: entity
+  id: ActionMorphReplication
+  name: "[color=red]Remember[/color]"
+  description: Remember enrity to mimicry in future
+  components:
+  - type: InstantAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: reproduce }
+    event: !type:MorphReproduceActionEvent
+    priority: 2

@@ -12,7 +12,8 @@
       components:
       - Anchorable
       - Item
-      tags: 
+      - MobState
+      tags:
       - Bot # for funny bot moments
     blacklist:
       components:

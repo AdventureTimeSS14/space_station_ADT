@@ -13,6 +13,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Toolshed.TypeParsers;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Polymorph.Systems;
@@ -79,7 +80,14 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
+        // _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector); //ADT tweak
+        //ADT tweak start
+        //в связи с тем, что морф у нас работает через эту систему, надо чтобы удаляло только нужны экшены, а не вообще все
+        if (!TryComp<ChameleonProjectorComponent>(ent.Comp.Projector, out var proj) || proj.NoRotActionEntity == null || proj.AnchorActionEntity == null)
+            return;
+        _actions.RemoveProvidedAction(ent.Comp.User, ent.Comp.Projector, proj.NoRotActionEntity.Value);
+        _actions.RemoveProvidedAction(ent.Comp.User, ent.Comp.Projector, proj.AnchorActionEntity.Value);
+        //ADT tweak end
     }
 
     #endregion
