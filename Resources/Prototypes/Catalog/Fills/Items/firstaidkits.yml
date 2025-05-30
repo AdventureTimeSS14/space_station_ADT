@@ -100,8 +100,10 @@
     contents:
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: SyringeEphedrine
-      - id: SyringeSaline
+      # - id: SyringeEphedrine
+      - id: ADTStimulantAutoInjector
+      # - id: SyringeSaline
+      - id: ADTHemostasisAutoInjector
       - id: BruteAutoInjector
       - id: BurnAutoInjector
 
