@@ -223,6 +223,7 @@
   - type: StunOnCollide
     stunAmount: 5
     knockdownAmount: 5
+  - type: ProjectileIgnoreCrawling
 
 - type: entity
   name : disabler bolt

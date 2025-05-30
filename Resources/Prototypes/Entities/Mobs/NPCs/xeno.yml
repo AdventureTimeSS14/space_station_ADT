@@ -433,6 +433,8 @@
   - type: CollectiveMindRank
     rankName: collective-mind-spitter-rank
   # ADT-CollectiveMind-Tweak-End
+  # ADT-Fix-Crawling start
+  - type : ProjectileIgnoreCrawling
 
 - type: entity
   name: space adder
