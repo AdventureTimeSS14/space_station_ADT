@@ -100,6 +100,6 @@ ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
 ent-ADTClothingOuterCoatXCoat = икс-ключительное облачение
     .desc = Кажется, это облачение заигравшегося творца.
 
-ent-ADTClothingOuterCoatRadioDemon = фрак радио демона
+ent-ADTClothingOuterCoatRadioDemon = фрак радио-демона
     .desc = А теперь... Не переключайтесь.
     .suffix = {"Хеллоуин"}
