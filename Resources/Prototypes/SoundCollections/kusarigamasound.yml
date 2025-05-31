@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: KusarigamaSound
+  files:
+  - /Audio/Weapons/blood1.ogg
+  - /Audio/Weapons/blood2.ogg
+  - /Audio/Weapons/blood3.ogg
