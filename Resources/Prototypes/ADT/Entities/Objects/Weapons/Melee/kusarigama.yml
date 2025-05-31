@@ -1,0 +1,77 @@
+- type: entity
+  name: Кусаригама
+  parent: BaseItem
+  id: SDWeaponKusarigama
+  description: Fight with your shadow.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/kusarigama.rsi
+    layers:
+    - state: icon-of
+      map: [ "enum.ComboWeaponState.State" ]
+  - type: Execution
+    doAfterDuration: 2.0
+  - type: MeleeWeapon
+    wideAnimationRotation: 60
+    angle: 40
+    attackRate: 2
+    damage:
+      types:
+        Blunt: 5
+        Slash: 5
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/kusarigama.rsi
+    size: Normal
+  - type: DisarmMalus
+  - type: ComboWeapon
+    availableMoves:
+    
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - ProtectiveWideHit
+          - OffensiveHit
+          - OffensiveWideHit
+        comboEvent:
+          - !type:ComboDamageEffect
+            damage:
+              types:
+                Blunt: 20
+                Slash: 20
+          - !type:ComboAudioEffect
+            sound:
+              collection: KusarigamaSound
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboDamageEffect
+            damage:
+              types:
+                Blunt: 15
+          - !type:ComboDropFromHandsEffect
+          - !type:ComboAudioEffect
+            sound:
+              collection: KusarigamaSound
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboEffectToDowned
+            comboEvents:
+            - !type:ComboStopGrabEffect
+            - !type:ComboAudioEffect
+              sound:
+                collection: KusarigamaSound
+            - !type:ComboFallEffect
+              dropItems: false
+  - type: GenericVisualizer
+    visuals:
+      enum.ComboWeaponState.State:
+        enum.ComboWeaponState.State:
+          True: {state: icon-of}
+          False: {state: icon-prot}
+  - type: Appearance

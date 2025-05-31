@@ -23,7 +23,7 @@ public sealed partial class FishingRodComponent : Component
     [DataField]
     public SpriteSpecifier RopeSprite =
         new SpriteSpecifier.Rsi(new ResPath("ADT/Objects/Specific/Fishing/fishing_lure.rsi"), "rope");
-
+        
     [DataField, ViewVariables]
     public Vector2 RopeUserOffset = new (0f, 0f);
 
