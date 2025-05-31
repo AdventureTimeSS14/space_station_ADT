@@ -1,0 +1,48 @@
+# Gloves
+- type: loadout
+  id: ADTLightBrownGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorLightBrown
+
+- type: loadout
+  id: ADTRedGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorRed
+
+- type: loadout
+  id: ADTTealGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorTeal
+
+- type: loadout
+  id: ADTGreenGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorGreen
+
+- type: loadout
+  id: ADTWhiteGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorWhite
+
+- type: loadout
+  id: ADTBlackGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: ADTGrayGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorGray
+
+- type: loadout
+  id: ADTBlueGloves
+  storage:
+    back:
+    - ClothingHandsGlovesColorBlue

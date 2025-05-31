@@ -28,6 +28,14 @@ ent-ADTLexorinChemistryBottle = бутылочка лексорина
     .desc = "Маленькая бутылочка"
 ent-ADTLicoxideChemistryBottle = бутылочка ликоксида
     .desc = "Маленькая бутылочка"
+ent-ADTLacerinolChemistryBottle = бутылочка лацеринола
+    .desc = "Маленькая бутылочка"
+ent-ADTBruizineChemistryBottle = бутылочка бруизина
+    .desc = "Маленькая бутылочка"
+ent-ADTPuncturaseChemistryBottle = бутылочка пунктураза
+    .desc = "Маленькая бутылочка"
+ent-ADTDyloveneChemistryBottle = бутылочка диловена
+    .desc = "Маленькая бутылочка"
 
 ent-ADTDyloveneBiomicineBottle = бутылочка диловена и биомицина
     .desc = Пластиковая бутылочка, содержащая смесь биомицина и диловена. Использовать в крайних случаях отравления.
