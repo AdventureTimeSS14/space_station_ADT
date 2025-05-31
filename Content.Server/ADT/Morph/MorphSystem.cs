@@ -132,9 +132,6 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnInit(EntityUid uid, MorphComponent component, MapInitEvent args)
     {
-        component.Container = сontainer.EnsureContainer<Container>(uid, component.ContainerId);
-        component.Container = сontainer.EnsureContainer<Container>(uid, component.MimicryContainerId);
-
         _actions.AddAction(uid, ref component.DevourActionEntity, component.DevourAction);
         _actions.AddAction(uid, ref component.MemoryActionEntity, component.MemoryAction);
         _actions.AddAction(uid, ref component.ReplicationActionEntity, component.ReplicationAction);
@@ -196,10 +193,20 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnMimicryRememberAction(EntityUid uid, MorphComponent component, MorphMimicryRememberActionEvent args)
     {
+        // Инциализируем контейнер мимикрии
+        component.Container = сontainer.EnsureContainer<Container>(uid, component.MimicryContainerId);
+
         if (!TryComp<UserInterfaceComponent>(uid, out var uic))
             return;
         _ui.OpenUi((uid, uic), MimicryKey.Key, uid);
         _chameleon.TryReveal(uid);
+
+        // Проверка метаданных цели
+        if (!TryComp<MetaDataComponent>(args.Target, out var meta))
+        {
+            _popupSystem.PopupClient(Loc.GetString("on-mimicry-remember-action-false"), uid, uid);
+            return;
+        }
         //отвечает за запоминание энтити для мимикрии.
         //гуманоидов запоминает отдельно т.к. их невозможно показать путём хамелеона
         //короче мне лень эту хреноетнь выписывать. Кто будет её чинить - мои соболезнования вам
@@ -237,6 +244,9 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnDevourAction(EntityUid uid, MorphComponent component, MorphDevourActionEvent args)
     {
+        // Инциализируем контейнер морфика
+        component.Container = сontainer.EnsureContainer<Container>(uid, component.ContainerId);
+
         //делаю отдельный код т.к. уже готовая система дракона совсем не подходити
         if (_whitelistSystem.IsWhitelistFailOrNull(component.DevourWhitelist, args.Target))
             return;
