@@ -1,0 +1,48 @@
+ent-ClothingBeltMilitaryWebbingCMO = пояс главного врача
+    .desc = Медицинский нагрудник с глубокими карманами, предназначенный для использования парамедиками и медицинскими работниками.
+ent-ClothingBeltMilitaryWebbingCMOFilled = { ent-ClothingBeltMilitaryWebbingCMO }
+    .desc = { ent-ClothingBeltMilitaryWebbingCMO }
+    .suffix = Заполненный
+
+ent-ClothingBeltMilitaryWebbingCorpsman = пояс бригмедика
+    .desc = Медицинский нагрудник с глубокими карманами, предназначенный для использования парамедиками и медицинскими работниками.
+ent-ClothingBeltMilitaryWebbingCorpsmanFilled = { ent-ClothingBeltMilitaryWebbingCorpsman }
+    .desc = { ent-ClothingBeltMilitaryWebbingCorpsman }
+    .suffix = Заполненный
+
+ent-ClothingBeltPouchMedical = медицинский подсумок
+    .desc = Тактический подсумок для хранения медикаментов.
+ent-ClothingBeltPouchMedicalERTFilled = { ent-ClothingBeltPouchMedical }
+    .suffix = Заполненный, ОБР
+    .desc = { ent-ClothingBeltPouchMedical.desc }
+ent-ClothingBeltPouchMedicalCBURNFilled = { ent-ClothingBeltPouchMedical }
+    .suffix = Заполненный, РХБЗЗ
+    .desc = { ent-ClothingBeltPouchMedical.desc }
+
+ent-ClothingBeltPouchUtility = универсальный подсумок
+    .desc = Тактический подсумок для хранения различной мелочёвки.
+
+ent-ClothingBeltPouchFlare = подсумок с сигнальным пистолетом
+    .desc = Тактический подсумок с сигнальным пистолетом и снарядами к нему.
+
+ent-ClothingBeltAmmo = разгрузка для магазинов
+    .desc = Удобная разгрузка под любые ваши магазины, идеально подходит для затяжных перестрелок.
+
+ent-ClothingBeltTacticalHolster = тактическая кобура
+    .desc = Удобная универсальная кобура, закрепленная на широком эластичном ремне. Довольно вместительна и имеет возможность подгонки под размер оружия. К кобуре прикрелпена пара небольших подсумков, а также маленькая петля. При желании можно передвинуть кобуру под левую руку если это требуется пользователю.
+
+ent-ClothingBeltRevolverHolster = кобура для револьвера
+    .desc = Немного потрёпанная кожанная кобура, подходящая ко множеству не слишком громоздких револьверов. На ремне, с противположный от кобуры распологяется два маленьких подмсумка. При желании можно передвинуть кобуру под левую руку если это требуется пользователю.
+
+ent-ClothingBeltShellShotgun = бандольер для патронов 12х70
+    .desc = Тактический бандольер для хранения ваших тактических патронов 12х70. Вы ведь умейте их быстро выхватывать и заряжать да?
+
+ent-ClothingBeltMedicalMarine = медицинская разгрузка
+    .desc = Военная разгрузка с глубокими карманам, предназначенная для оказания медицинской помощи прямо на передовой.
+
+ent-ClothingBeltMedicalFilledSurgical = { ent-ClothingBeltMedical }
+    .suffix = Заполненный, хирургические инструменты
+    .desc = { ent-ClothingBeltMedical.desc }
+ent-ClothingBeltMedicalFilledMedication = { ent-ClothingBeltMedical }
+    .suffix = Заполненный, медикаменты
+    .desc = { ent-ClothingBeltMedical.desc }

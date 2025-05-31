@@ -1,4 +1,92 @@
 - type: entity
+  parent: ClothingBeltMedical
+  id: ClothingBeltMilitaryWebbingCMO
+  name: chief medical officer's chest rig
+  description: A medical chest rig with deep pockets, for use by paramedics and health professionals.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/cmowebbing.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Belt/cmowebbing.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,1
+
+- type: entity
+  parent: [ ClothingBeltMedical, ClothingBeltSecurity ]
+  id: ClothingBeltMilitaryWebbingCorpsman
+  name: corpsman chest rig
+  description: Combat medical carrier with multiple sterile pockets and pouches.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/corpsman.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Belt/corpsman.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - SecBeltEquip
+        - CigPack
+        - Taser
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - Ammo
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+#  - type: StorageFill
+#    contents:
+#      - id: Brutepack
+#      - id: Ointment
+#      - id: Gauze
+#      - id: Bloodpack
+#      - id: Tourniquet
+#      - id: EmergencyMedipen
+#      - id: Zipties
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ClothingBeltWhiteSheath
+  name: white sabre sheath
+  description: Style, shine, everything for the best sabers in the universe.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/white_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Belt/white_sheath.rsi
+
+- type: entity
+  parent: ClothingBeltSecurityWebbingFilled
+  id: ClothingBeltOfficerBlackWebbing
+  name: bridge officer webbing
+  description: It's a fairly comfortable and ergonomic webbing.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/bridge_officer_webbing.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Belt/bridge_officer_webbing.rsi
+
+- type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltAmmo
   name: ammo belt

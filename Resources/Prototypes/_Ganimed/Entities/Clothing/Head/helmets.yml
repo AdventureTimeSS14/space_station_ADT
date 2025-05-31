@@ -8,3 +8,23 @@
     sprite: _Ganimed/Clothing/Head/Helmets/merc_medic_helmets.rsi
   - type: Clothing
     sprite: _Ganimed/Clothing/Head/Helmets/merc_medic_helmets.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseRestrictedContraband ]
+  id: ClothingHeadHelmetPilot
+  name: pilot helmet
+  description: The.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Helmets/pilothelmet.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Helmets/pilothelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

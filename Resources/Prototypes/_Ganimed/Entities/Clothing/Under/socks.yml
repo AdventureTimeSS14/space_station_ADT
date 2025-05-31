@@ -1,0 +1,249 @@
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingSocksWhite
+  name: socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingSocksBlack
+  name: socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingSocksBlue
+  name: socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingSocksBrown
+  name: socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingSocksGreen
+  name: socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingSocksRed
+  name: socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingSocksYellow
+  name: socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/socks.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+          color: "#EBE216"
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsBee
+  name: bee stockings
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/bee.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/bee.rsii
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+        
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsCentCom
+  name: Centcom stockings
+  description: Forces your feet to act according to standard operating procedures.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/Centcom.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/Centcom.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsDark
+  name: Dark stockings
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/dark.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/dark.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsFishnets
+  name: Fishnets stockings
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/fishnets.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/fishnets.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsHOS
+  name: HOS stockings
+  description: Turns you into a femboy...
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/safno.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/safno.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsWhite
+  name: White stockings
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/white.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/white.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+        
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsSky
+  name: Light striped stockings
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/sky.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/sky.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderStockingsCat
+  name: Cat stockings
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/cat.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/cat.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET 
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderlongSocksDark
+  name: Dark long socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/longSocks/Dark.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/Dark.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ClothingUnderlongSocksWhite
+  name: White long socks
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Socks/longSocks/White.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Socks/stockings/White.rsi
+    clothingVisuals:
+      socks:
+        - state: equipped-FEET

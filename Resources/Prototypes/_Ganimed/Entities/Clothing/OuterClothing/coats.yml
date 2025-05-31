@@ -1,0 +1,149 @@
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: ClothingOuterWinterSeniorPhysician
+  name: зимняя куртка ведущего врача
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorphysican.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorphysican.rsi 
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.75
+        Caustic: 0.75
+    priceMultiplier: 0.15
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterSci
+
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: ClothingOuterWinterSeniorResearcher
+  name: зимняя куртка ведущего учёного
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorresearcher.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorresearcher.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.85
+    priceMultiplier: 0.15
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterSci
+
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: ClothingOuterWinterSeniorEngineer
+  name: зимняя куртка ведущего инженера
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorengineer.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorengineer.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.8
+    priceMultiplier: 0.15
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterEngineer
+
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: ClothingOuterWinterSeniorOfficer
+  name: зимняя куртка инструктора службы безопастности
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorofficer.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/WinterCoats/wintercoatseniorofficer.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.9
+    priceMultiplier: 0.15
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterSec
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatDetectiveOriginal
+  name: original detective trenchcoat
+  description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/original_detective.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/original_detective.rsi
+  - type: StorageFill
+    contents:
+    - id: SmokingPipeFilledTobacco
+  - type: Armor #same as regular sec armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+#       Stun: 0.9
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRoboOriginal
+  name: roboticist lab coat
+  description: A lab coat with black accents. Sure helps to further differentiate you from the masses. Comes with red shoulder pads.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/original_labcoat_robo.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/original_labcoat_robo.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+        
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRedCoat
+  name: red old-fashioned coat
+  description: An outdated and worn-out piece of fashion. It still maintains some of it's charm and you almost feel an urge to smile.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/red_coat.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/red_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatBlueCoat
+  name: blue high-fashioned coat
+  description: A premium-quality piece of fashion. Maintains high degree of it's charm and you almost feel an urge to smile. Also, comes packed with some armor!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/blue_coat.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/blue_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.75
+        Piercing: 0.80
+        Heat: 0.85
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ClothingOuterCoatLabCoroner
+  name: coroner lab coat
+  description: A slightly sturdier than usual lab coat made not for the laboratories, but for the wet basements.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/labcoat_coroner.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Coats/labcoat_coroner.rsi
