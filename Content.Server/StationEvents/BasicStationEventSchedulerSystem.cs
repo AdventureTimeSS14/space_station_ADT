@@ -11,6 +11,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
+using Content.Server.Chat.Managers;
+using Robust.Shared.Timing;
 
 namespace Content.Server.StationEvents
 {
@@ -21,6 +23,8 @@ namespace Content.Server.StationEvents
     [UsedImplicitly]
     public sealed class BasicStationEventSchedulerSystem : GameRuleSystem<BasicStationEventSchedulerComponent>
     {
+        [Dependency] private readonly IChatManager _chatManager = default!; //ADT tweak
+        [Dependency] private readonly IGameTiming _timing = default!; //ADT tweak
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EventManagerSystem _event = default!;
 
@@ -29,6 +33,7 @@ namespace Content.Server.StationEvents
         {
             // A little starting variance so schedulers dont all proc at once.
             component.TimeUntilNextEvent = RobustRandom.NextFloat(component.MinimumTimeUntilFirstEvent, component.MinimumTimeUntilFirstEvent + 120);
+            _chatManager.SendAdminAnnouncement(Loc.GetString("gamerule-time-till-new-event", ("time", _timing.CurTime))); //ADT tweak
         }
 
         protected override void Ended(EntityUid uid, BasicStationEventSchedulerComponent component, GameRuleComponent gameRule,
@@ -49,7 +54,10 @@ namespace Content.Server.StationEvents
             while (query.MoveNext(out var uid, out var eventScheduler, out var gameRule))
             {
                 if (!GameTicker.IsGameRuleActive(uid, gameRule))
+                {
+                    if (_timing.CurTime <= TimeSpan.FromSeconds(1)) _chatManager.SendAdminAnnouncement(Loc.GetString("gamerule-cheduler-event-not-toggled")); //ADT tweak
                     continue;
+                }
 
                 if (eventScheduler.TimeUntilNextEvent > 0)
                 {
@@ -68,6 +76,7 @@ namespace Content.Server.StationEvents
         private void ResetTimer(BasicStationEventSchedulerComponent component)
         {
             component.TimeUntilNextEvent = component.MinMaxEventTiming.Next(_random);
+            _chatManager.SendAdminAnnouncement(Loc.GetString("gamerule-time-till-new-event", ("time", component.TimeUntilNextEvent))); //ADT tweak
         }
     }
 
