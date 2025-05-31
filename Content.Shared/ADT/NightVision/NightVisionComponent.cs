@@ -20,9 +20,6 @@ public sealed partial class NightVisionComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Innate;
-
-    [DataField, AutoNetworkedField]
-    public Color Color = Color.FromHex("#FF4500");
 }
 
 [Serializable, NetSerializable]

@@ -49,3 +49,12 @@
     showName: false
     font: Specialelite
     fontSize: 14
+
+- type: language
+  id: MorphCollectiveMind
+  priority: 0
+  uiColor: "#41cf09"
+  speech: !type:CollectiveMind
+    color: "#0cff0c"
+    showRank: false
+    showName: true
