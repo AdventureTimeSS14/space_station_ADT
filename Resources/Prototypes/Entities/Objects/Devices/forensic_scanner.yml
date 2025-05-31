@@ -5,7 +5,7 @@
   description: A handheld device that can scan objects for fingerprints and fibers.
   components:
   - type: Sprite
-    sprite: Objects/Devices/forensic_scanner.rsi
+    sprite: _Ganimed/Objects/Devices/forensic_scanner.rsi #Ganimed-resprite
     state: forensicnew
   - type: Item
     size: Small

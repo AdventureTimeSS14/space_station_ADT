@@ -10,16 +10,16 @@
   - type: StaticPrice
     price: 750
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: _Ganimed/Structures/Storage/tanks.rsi
     layers:
       - state: fueltank-2
-      - state: fueltank-2-1
+      - state: generictank-1-1 # Ganimed-Tweak
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 3
-    fillBaseName: fueltank-2-
+    maxFillLevels: 5
+    fillBaseName: generictank-1- # Ganimed-Tweak
   - type: ExaminableSolution
     solution: tank
   - type: ReagentTank
@@ -56,15 +56,15 @@
   - type: StaticPrice
     price: 2500
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: _Ganimed/Structures/Storage/tanks.rsi
     layers:
       - state: highfueltank-2
-      - state: highfueltank-2-1
+      - state: highgenerictank-2-1 # Ganimed-Tweak
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: SolutionContainerVisuals
     maxFillLevels: 7
-    fillBaseName: highfueltank-2-
+    fillBaseName: highgenerictank-2-
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -74,7 +74,7 @@
         maxVol: 5000
   - type: Explosive
     explosionType: Default
-    totalIntensity: 60 #ADT-Tweak
+    totalIntensity: 120
 
 # Water
 
@@ -85,22 +85,19 @@
   description: A water tank. It's used to store high amounts of water.
   suffix: Empty
   components:
-  - type: Tag # goob edit
-    tags:
-    - WaterTank
   - type: StaticPrice
     price: 500
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: _Ganimed/Structures/Storage/tanks.rsi
     layers:
       - state: watertank-2
-      - state: watertank-2-1
+      - state: generictank-1-1 # Ganimed-Tweak
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 5
-    fillBaseName: watertank-2-
+    fillBaseName: generictank-1-
   - type: ExaminableSolution
     solution: tank
 
@@ -123,7 +120,7 @@
   description: Seems like a good place to stand and waste time. It has a stock of paper cups on the side.
   components:
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: _Ganimed/Structures/Storage/tanks.rsi
     layers:
       - state: watercooler-2
       - state: watercooler-2-1
@@ -175,16 +172,16 @@
   - type: StaticPrice
     price: 2500
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: _Ganimed/Structures/Storage/tanks.rsi
     layers:
       - state: highwatertank-2
-      - state: highwatertank-2-1
+      - state: highgenerictank-2-1 # Ganimed-Tweak
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 7
-    fillBaseName: highwatertank-2-
+    fillBaseName: highgenerictank-2- # Ganimed-Tweak
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -207,15 +204,15 @@
     - type: StaticPrice
       price: 500
     - type: Sprite
-      sprite: Structures/Storage/tanks.rsi
+      sprite: _Ganimed/Structures/Storage/tanks.rsi
       layers:
         - state: generictank-1
-        - state: generictank-1-1 # Corvax-Resprite
+        - state: generictank-1-1 # Ganimed-Tweak
           map: ["enum.SolutionContainerLayers.Fill"]
           visible: false
     - type: Appearance
     - type: SolutionContainerVisuals
       maxFillLevels: 5
-      fillBaseName: generictank-1- # Corvax-Resprite
+      fillBaseName: generictank-1- # Ganimed-Tweak
     - type: ExaminableSolution
       solution: tank
