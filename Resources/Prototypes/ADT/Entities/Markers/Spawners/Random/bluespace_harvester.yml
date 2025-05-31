@@ -388,8 +388,17 @@
     - MechHamtrBattery
     - MechHonkerBattery
     - MechRipley
+    - ADTMechClarkeBattery
+    - ADTMechOdysseusBattery
+    - ADTMechGygaxBattery
+    - ADTMechpaddyBattery
+    - ADTMechRipleyMk2Battery
     chance: 1.0
     offset: 0.0
+    rarePrototypes:
+    - ADTMechMauler
+    - ADTMechErtGygax
+    rareChance: 0.01
 
 # Biological
 - type: entity
