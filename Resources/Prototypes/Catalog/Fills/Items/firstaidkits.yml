@@ -101,9 +101,9 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       # - id: SyringeEphedrine
-      - id: ADTStimulantAutoInjector
+      - id: ADTStimulantAutoInjector #Дезоко и диловен
       # - id: SyringeSaline
-      - id: ADTHemostasisAutoInjector
+      - id: ADTHemostasisAutoInjector #Пополняет кровь
       - id: BruteAutoInjector
       - id: BurnAutoInjector
 
