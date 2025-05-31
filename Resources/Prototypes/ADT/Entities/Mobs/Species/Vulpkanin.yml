@@ -29,6 +29,8 @@
       damageModifierSet: ADTVulpkanin
     - type: HumanoidAppearance
       species: VulpkaninSpecies
+      hideLayersOnEquip:
+      - SnoutOverlay
     - type: Body
       prototype: VulpkaninBody
       requiredLegs: 2
@@ -166,6 +168,8 @@
   components:
     - type: HumanoidAppearance
       species: VulpkaninSpecies
+      hideLayersOnEquip:
+      - SnoutOverlay
     - type: Sprite
       netsync: false
       noRot: true

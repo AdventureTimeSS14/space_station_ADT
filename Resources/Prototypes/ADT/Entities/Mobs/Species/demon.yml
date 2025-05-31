@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: DemonSpecies
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -89,6 +91,8 @@
   components:
   - type: HumanoidAppearance
     species: DemonSpecies
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

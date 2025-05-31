@@ -11,6 +11,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - SnoutOverlay # ADT Tweak
     # undergarmentBottom: UndergarmentBottomBoxersReptilian # ADT-No-More-Useless-Feature
   - type: Hunger
   - type: Puller
@@ -166,6 +167,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - SnoutOverlay # ADT Tweak
     # undergarmentBottom: UndergarmentBottomBoxersReptilian # ADT-No-More-Useless-Feature
   - type: Inventory
     speciesId: reptilian

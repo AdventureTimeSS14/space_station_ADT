@@ -40,6 +40,7 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
+    SnoutOverlay: MobHumanoidAnyMarking
     Chest: MobDemonTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -61,6 +62,9 @@
       points: 1
       required: false
     FacialHair:
+      points: 1
+      required: false
+    SnoutOverlay:
       points: 1
       required: false
     HeadTop:
