@@ -30,10 +30,14 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             return;
 
         var other = args.OtherEntity;
+        if (HasComp<ProjectileIgnoreCrawlingComponent>(other)) // ADT-Tweak
+            return;
+
         if (TryComp(other, out ProjectileComponent? projectile))
         {
             // ADT Crawling abuse fix start
-            if (TryComp<TargetedProjectileComponent>(other, out var targeted) && targeted.TargetCoords != null)
+            if (TryComp<TargetedProjectileComponent>(other, out var targeted) &&
+                targeted.TargetCoords != null)
             {
                 foreach (var item in _lookup.GetEntitiesInRange(targeted.TargetCoords.Value, 0.5f))
                 {
@@ -41,6 +45,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
                         return;
                 }
                 // ADT Crawling abuse fix end
+
                 // ADT ALW Tweak
                 var weapon = projectile.Weapon;
                 var alwTarget = targeted.Target;
@@ -48,6 +53,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
                     return;
             }
             // ADT ALW Tweak
+
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)
