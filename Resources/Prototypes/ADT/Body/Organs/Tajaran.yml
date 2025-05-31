@@ -1,5 +1,5 @@
 ﻿- type: entity
-  id: OrganTajaranStomach
+  id: ADTOrganTajaranStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
   components:
@@ -9,7 +9,7 @@
         maxVol: 50
 
 - type: entity
-  id: OrganTajaranHeart
+  id: ADTOrganTajaranHeart
   parent: OrganAnimalHeart
   components:
   - type: Metabolizer

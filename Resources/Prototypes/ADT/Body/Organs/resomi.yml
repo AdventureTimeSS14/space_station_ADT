@@ -1,5 +1,5 @@
 - type: entity
-  id: OrganResomiLungs
+  id: ADTOrganResomiLungs
   parent: OrganHumanLungs
   name: lungs
   description: "An advanced pair of avian lungs. Filters oxygen by way of moving air constantly through air sacs."

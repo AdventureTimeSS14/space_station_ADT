@@ -1,9 +1,9 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  id: PartUrsus
+  id: ADTPartUrsus
   parent: BaseItem
-  name: "Урс части тела"
+  name: "ursus body part"
   abstract: true
   components:
     - type: Damageable
@@ -15,9 +15,9 @@
           ents: []
 
 - type: entity
-  id: TorsoUrsus
-  name: "тело урса"
-  parent: PartUrsus
+  id: ADTTorsoUrsus
+  name: "ursus body"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -30,9 +30,9 @@
       partType: Torso
 
 - type: entity
-  id: HeadUrsus
-  name: "голова урса"
-  parent: PartUrsus
+  id: ADTHeadUrsus
+  name: "ursus head"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -56,9 +56,9 @@
         - Head
 
 - type: entity
-  id: LeftArmUrsus
-  name: "левая рука урса"
-  parent: PartUrsus
+  id: ADTLeftArmUrsus
+  name: "left ursus arm"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -72,9 +72,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightArmUrsus
-  name: "правая рука урса"
-  parent: PartUrsus
+  id: ADTRightArmUrsus
+  name: "right ursus arm"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -88,9 +88,9 @@
       symmetry: Right
 
 - type: entity
-  id: LeftHandUrsus
-  name: "левая кисть урса"
-  parent: PartUrsus
+  id: ADTLeftHandUrsus
+  name: "left ursus hand"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -104,9 +104,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightHandUrsus
-  name: "правая кисть урса"
-  parent: PartUrsus
+  id: ADTRightHandUrsus
+  name: "righ ursus hand"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -120,9 +120,9 @@
       symmetry: Right
 
 - type: entity
-  id: LeftLegUrsus
-  name: "левая нога урса"
-  parent: PartUrsus
+  id: ADTLeftLegUrsus
+  name: "left ursus leg"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -139,9 +139,9 @@
       sprintSpeed: 4.3
 
 - type: entity
-  id: RightLegUrsus
-  name: "правая нога урса"
-  parent: PartUrsus
+  id: ADTRightLegUrsus
+  name: "right ursus leg"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -158,9 +158,9 @@
       sprintSpeed: 4.3
 
 - type: entity
-  id: LeftFootUrsus
-  name: "левая ступня урса"
-  parent: PartUrsus
+  id: ADTLeftFootUrsus
+  name: "left ursus foot"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false
@@ -174,9 +174,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightFootUrsus
-  name: "правая ступня урса"
-  parent: PartUrsus
+  id: ADTRightFootUrsus
+  name: "right ursus foot"
+  parent: ADTPartUrsus
   components:
     - type: Sprite
       netsync: false

@@ -28,7 +28,7 @@
     FoodPlate: 1
     FoodMeat: 1
     FoodApple: 1
-    HeadVulpkanin: 1
+    ADTHeadVulpkanin: 1 # ADT tweak
   #ADT-Tweak Start
   recipeType:
   - Oven

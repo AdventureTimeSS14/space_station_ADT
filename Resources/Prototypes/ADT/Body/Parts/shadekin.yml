@@ -1,7 +1,7 @@
 - type: entity
-  id: PartShadekin
+  id: ADTPartShadekin
   parent: BaseItem
-  name: Shadekin body part
+  name: "shadekin body part"
   abstract: true
   components:
   - type: Sprite
@@ -18,9 +18,9 @@
         ents: []
 
 - type: entity
-  id: TorsoShadekin
-  name: Shadekin torso
-  parent: PartShadekin
+  id: ADTTorsoShadekin
+  name: "shadekin torso"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: torso_m
@@ -30,9 +30,9 @@
     partType: Torso
 
 - type: entity
-  id: HeadShadekin
-  name: Shadekin head
-  parent: PartShadekin
+  id: ADTHeadShadekin
+  name: "shadekin head"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: head_m
@@ -49,9 +49,9 @@
   - type: GhostOnMove
 
 - type: entity
-  id: LeftArmShadekin
-  name: left Shadekin arm
-  parent: PartShadekin
+  id: ADTLeftArmShadekin
+  name: "left shadekin arm"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: l_arm
@@ -62,9 +62,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightArmShadekin
-  name: right Shadekin arm
-  parent: PartShadekin
+  id: ADTRightArmShadekin
+  name: "right shadekin arm"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: r_arm
@@ -75,9 +75,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftHandShadekin
-  name: left Shadekin hand
-  parent: PartShadekin
+  id: ADTLeftHandShadekin
+  name: "left shadekin hand"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: l_hand
@@ -88,9 +88,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightHandShadekin
-  name: right Shadekin hand
-  parent: PartShadekin
+  id: ADTRightHandShadekin
+  name: "right shadekin hand"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: r_hand
@@ -101,9 +101,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftLegShadekin
-  name: left Shadekin leg
-  parent: PartShadekin
+  id: ADTLeftLegShadekin
+  name: "left shadekin leg"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: l_leg
@@ -115,9 +115,9 @@
   - type: MovementBodyPart
 
 - type: entity
-  id: RightLegShadekin
-  name: right Shadekin leg
-  parent: PartShadekin
+  id: ADTRightLegShadekin
+  name: "right shadekin leg"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: r_leg
@@ -129,9 +129,9 @@
   - type: MovementBodyPart
 
 - type: entity
-  id: LeftFootShadekin
-  name: left Shadekin foot
-  parent: PartShadekin
+  id: ADTLeftFootShadekin
+  name: "left shadekin foot"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: l_foot
@@ -142,9 +142,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightFootShadekin
-  name: right Shadekin foot
-  parent: PartShadekin
+  id: ADTRightFootShadekin
+  name: "right shadekin foot"
+  parent: ADTPartShadekin
   components:
   - type: Sprite
     state: r_foot

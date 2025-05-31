@@ -1,4 +1,3 @@
-# Оставлю пока так
 ent-ADTPartDrask = часть тела Драска
     .desc = { ent-BaseItem.desc }
 ent-ADTTorsoDrask = торс Драска
@@ -9,9 +8,9 @@ ent-ADTLeftArmDrask = левая рука Драска
     .desc = { ent-ADTPartDrask.desc }
 ent-ADTRightArmDrask = правая рука Драска
     .desc = { ent-ADTPartDrask.desc }
-ent-ADTLeftHandDrask = левая рука Драска
+ent-ADTLeftHandDrask = левая кисть Драска
     .desc = { ent-ADTPartDrask.desc }
-ent-ADTRightHandDrask = правая рука Драска
+ent-ADTRightHandDrask = правая кисть Драска
     .desc = { ent-ADTPartDrask.desc }
 ent-ADTLeftLegDrask = левая нога Драска
     .desc = { ent-ADTPartDrask.desc }

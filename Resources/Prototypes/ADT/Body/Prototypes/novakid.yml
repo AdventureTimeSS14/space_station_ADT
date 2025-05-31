@@ -4,18 +4,18 @@
   root: torso
   slots:
     head:
-      part: HeadNovakid
+      part: ADTHeadNovakid
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoNovakid
+      part: ADTTorsoNovakid
       organs:
-        heart: OrganNovakidHeart
-        lungs: OrganNovakidLungs
-        stomach: OrganNovakidStomach
+        heart: ADTOrganNovakidHeart
+        lungs: ADTOrganNovakidLungs
+        stomach: ADTOrganNovakidStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
       connections:
@@ -24,26 +24,26 @@
       - left leg
       - right leg
     right arm:
-      part: RightArmNovakid
+      part: ADTRightArmNovakid
       connections:
       - right hand
     left arm:
-      part: LeftArmNovakid
+      part: ADTLeftArmNovakid
       connections:
       - left hand
     right hand:
-      part: RightHandNovakid
+      part: ADTRightHandNovakid
     left hand:
-      part: LeftHandNovakid
+      part: ADTLeftHandNovakid
     right leg:
-      part: RightLegNovakid
+      part: ADTRightLegNovakid
       connections:
       - right foot
     left leg:
-      part: LeftLegNovakid
+      part: ADTLeftLegNovakid
       connections:
       - left foot
     right foot:
-      part: RightFootNovakid
+      part: ADTRightFootNovakid
     left foot:
-      part: LeftFootNovakid
+      part: ADTLeftFootNovakid

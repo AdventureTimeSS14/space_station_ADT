@@ -1,7 +1,7 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  id: PartNovakid
+  id: ADTPartNovakid
   parent: BaseItem
   name: "novakid body part"
   abstract: true
@@ -15,9 +15,9 @@
         ents: []
 
 - type: entity
-  id: TorsoNovakid
+  id: ADTTorsoNovakid
   name: "novakid torso"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -30,9 +30,9 @@
     partType: Torso
 
 - type: entity
-  id: HeadNovakid
+  id: ADTHeadNovakid
   name: "novakid head"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -56,9 +56,9 @@
       - Head
 
 - type: entity
-  id: LeftArmNovakid
+  id: ADTLeftArmNovakid
   name: "left novakid arm"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -72,9 +72,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightArmNovakid
+  id: ADTRightArmNovakid
   name: "right novakid arm"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -88,9 +88,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftHandNovakid
+  id: ADTLeftHandNovakid
   name: "left novakid hand"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -104,9 +104,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightHandNovakid
+  id: ADTRightHandNovakid
   name: "right novakid hand"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -120,9 +120,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftLegNovakid
+  id: ADTLeftLegNovakid
   name: "left novakid leg"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -139,9 +139,9 @@
     sprintSpeed : 4.5
 
 - type: entity
-  id: RightLegNovakid
+  id: ADTRightLegNovakid
   name: "right novakid leg"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -158,9 +158,9 @@
     sprintSpeed : 4.5
 
 - type: entity
-  id: LeftFootNovakid
+  id: ADTLeftFootNovakid
   name: "left novakid foot"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
@@ -174,9 +174,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightFootNovakid
+  id: ADTRightFootNovakid
   name: "right novakid foot"
-  parent: PartNovakid
+  parent: ADTPartNovakid
   components:
   - type: Sprite
     netsync: false
