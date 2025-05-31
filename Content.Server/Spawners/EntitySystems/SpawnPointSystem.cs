@@ -43,6 +43,12 @@ public sealed class SpawnPointSystem : EntitySystem
             {
                 possiblePositions.Add(xform.Coordinates);
             }
+            // aDT-tweak-test
+            if (_gameTicker.CurrentPreset?.ID == "ShipVsShipTest")
+                if (spawnPoint.SpawnType == SpawnPointType.Job &&
+                (args.Job == null || spawnPoint.Job == args.Job))
+                    possiblePositions.Add(xform.Coordinates);
+            // aDT-tweak-end
         }
 
         if (possiblePositions.Count == 0)
