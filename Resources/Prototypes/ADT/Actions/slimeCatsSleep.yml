@@ -1,0 +1,13 @@
+- type: entity
+  id: ADTActionSlimeCatsSleep
+  name: action-slimecat-sleep
+  description: action-slimecat-sleep-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: ADT/Mobs/slug-cat.rsi
+      state: creek-rest
+    itemIconStyle: BigAction
+    event: !type:SharedSlimeCatSleepActionEvent
+    useDelay: 1
