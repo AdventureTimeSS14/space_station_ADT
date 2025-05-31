@@ -4,6 +4,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.Salvage.Components;
 
@@ -17,8 +18,8 @@ public sealed partial class MiningVoucherComponent : Component
     /// <summary>
     /// Vendor must match this whitelist to be redeemed.
     /// </summary>
-    [DataField(required: true)]
-    public EntityWhitelist VendorWhitelist;
+    [DataField]
+    public EntityWhitelist? VendorWhitelist;
 
     /// <summary>
     /// The kits that can be selected.
@@ -37,4 +38,31 @@ public sealed partial class MiningVoucherComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? RedeemSound = new SoundPathSpecifier("/Audio/Machines/twobeep.ogg");
+
+    [DataField]
+    public MiningVoucherTypeDrop TypeDrop = MiningVoucherTypeDrop.Default;
+
+    [DataField]
+    public MiningVoucherTypeDropPlace TypeDropPlace = MiningVoucherTypeDropPlace.Default;
+
+}
+
+[Serializable, NetSerializable]
+public enum MiningVoucherUiKey : byte
+{
+    Key
+}
+
+[Serializable, NetSerializable]
+public enum MiningVoucherTypeDrop : byte
+{
+    Default,
+    Rocket
+}
+
+[Serializable, NetSerializable]
+public enum MiningVoucherTypeDropPlace : byte
+{
+    Default,
+    ThisPlace
 }
