@@ -37,3 +37,7 @@ ent-ADTClothingEyesGlassesMedChem = химико-медицинские очки
 
 ent-ADTClothingEyesGlassesMonocle = монокль
     .desc = Устаревший оптический прибор для коррекции зрения или демонстрации высокомерия.
+
+ent-ADTRadioDemonMonocle = монокль демона
+    .suffix = Хеллоуин
+    .desc = Оо да, он заставляет тебя улыбнуться.

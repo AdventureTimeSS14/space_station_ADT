@@ -21,4 +21,8 @@ ent-ADTEmpressOfLightShoes = туфли Императрицы света
 
 ent-ADTClothingShoesShaleBrealVulp = сланцы
    .suffix = "Бить вульп, Conjurer"
-   .desc = "Божественные сланцы отшлёпавшие ни одну вульпу."
+   .desc = "Божественные сланцы отшлёпавшие не одну вульпу."
+
+ent-ADTRadioDemonShoes = демонические туфли
+   .suffix = Хеллоуин
+   .desc = Туфли имеют вставки для чечётки.

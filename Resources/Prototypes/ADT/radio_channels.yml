@@ -61,3 +61,11 @@
   frequency: 1304
   color: "#7ecc8e"
   longRange: true
+
+- type: radioChannel
+  id: ADTOldBroadcast
+  name: chat-radio-broadcast
+  keycode: 'р'
+  frequency: 1604
+  color: "#723817"
+  longRange: true
