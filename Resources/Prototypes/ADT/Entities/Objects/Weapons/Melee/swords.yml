@@ -95,7 +95,7 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
     layers:
-    - state: icon-on
+    - state: icon-of
       map: [ "enum.ComboWeaponState.State" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
