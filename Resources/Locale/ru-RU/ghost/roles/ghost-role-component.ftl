@@ -162,8 +162,8 @@ ghost-role-information-behonker-description = Вы - антагонист, не�
 ghost-role-information-hellspawn-name = Адское отродье
 ghost-role-information-hellspawn-description = Несите смерть всем, кто не повинуется великой богине Нар'Си.
 ghost-role-information-Death-Squad-name = Оперативник Эскадрона смерти
-ghost-role-information-Death-Squad-description = Один из лучших агентов внутренних дел Nanotrasen. Ожидайте приказов от Центкома или представителя Центкома.
-ghost-role-information-Death-Squad-rules = Вы обязаны подчиняться приказам своего командира, так как вы фактически - [color={role-type-familiar-color}][bold]{role-type-familiar-name}[/bold][/color].
+ghost-role-information-Death-Squad-description = Один из лучших оперативников Nanotrasen. Ожидайте приказов от Департамента специальных операций или Центкома.
+ghost-role-information-Death-Squad-rules = Вы обязаны подчиняться приказам своего командира, так как вы фактически - [color={role-type-familiar-color}][bold]{role-type-familiar-name}[/bold][/color]. Ведите себя достойно элитному оперативнику NanoTrasen.
 ghost-role-information-SyndiCat-name = СиндиКот
 ghost-role-information-SyndiCat-description = Вы - верный дрессированный питомец ядерных оперативников с микробомбой. Служите своему хозяину до самой смерти!
 ghost-role-information-SyndiCat-rules = Вы [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color], в команде с агентом, который вас призвал.

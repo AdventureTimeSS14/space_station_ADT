@@ -1013,19 +1013,23 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.1
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.1 #best armor in the game
+      coefficients: 
+        Blunt: 0.1
         Slash: 0.1
         Piercing: 0.1
         Heat: 0.1
         Radiation: 0.1
         Caustic: 0.1
+    staminaModifier: 0.1  
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
+  - type: DNALocker
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
   # ADT-Tweak-start

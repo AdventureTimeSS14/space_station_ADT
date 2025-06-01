@@ -437,7 +437,7 @@
         Heat: 0.95
 
 - type: entity
-  parent: ClothingMaskGasERT
+  parent: [ ClothingMaskGasERT, ShowSecurityIcons]
   id: ClothingMaskGasDeathSquad
   name: death squad gas mask
   description: A unique gas mask for the NT's most elite squad.
@@ -453,6 +453,11 @@
         Slash: 0.80
         Piercing: 0.90
         Heat: 0.90
+  - type: ShowHealthBars
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+
 
 - type: entity
   parent: ClothingMaskBase
