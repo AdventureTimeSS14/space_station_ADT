@@ -25,6 +25,11 @@ public sealed class PaperOrigamiSystem : EntitySystem
             sprite.LayerSetVisible(2, false); // Слой штампа скрыт
             sprite.LayerSetVisible(3, false); // Слой оригами скрыт
         }
+        else
+        {
+            Logger.Error($"SpriteComponent отсутствует для сущности {uid}. PaperOrigami визуализация не инициализирована.");
+            return;
+        }
     }
 
     public void ChangeAppearanceSprite(EntityUid uid, PaperOrigamiComponent component, ref AppearanceChangeEvent args)
