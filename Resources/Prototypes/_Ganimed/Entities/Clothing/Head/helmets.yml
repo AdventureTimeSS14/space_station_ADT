@@ -10,7 +10,7 @@
     sprite: _Ganimed/Clothing/Head/Helmets/merc_medic_helmets.rsi
 
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseRestrictedContraband ]
+  parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetPilot
   name: pilot helmet
   description: The.

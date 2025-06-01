@@ -166,6 +166,11 @@
         whitelist:
           tags:
           - Sidearm
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+        ent: null
+
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -220,6 +225,10 @@
           #tags:
             #- WeaponRevolverPirate
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+        ent: null
 
 - type: entity
   parent: ClothingBeltStorageBase
