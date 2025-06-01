@@ -63,7 +63,7 @@
             - !type:ComboFallEffect
               dropItems: false
             - !type:ComboTrowTargetEffect
-              thrownSpeed: 2
+              thrownSpeed: 7
       - actionsNeeds:
           - ProtectiveWideHit
           - OffensiveWideHit
