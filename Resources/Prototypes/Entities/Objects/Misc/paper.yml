@@ -3,7 +3,7 @@
   id: BasePaper
   abstract: true
   components:
-  - type: PaperOrigami
+  - type: PaperOrigami # ADT-Tweak. Оригами из бумаги
   - type: Tag
     tags:
     - Document
