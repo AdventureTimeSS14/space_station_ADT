@@ -41,6 +41,10 @@
         - Borg
         - ADTSeniorResearcher # ADT tweak
 # Corvax-HiddenDesc-End
+# Goobstation
+  - type: Tag
+    tags:
+    - Telecrystal
 
 - type: entity
   parent: Telecrystal
