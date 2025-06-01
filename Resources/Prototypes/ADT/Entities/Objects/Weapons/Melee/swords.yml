@@ -179,8 +179,8 @@
     visuals:
       enum.ComboWeaponState.State:
         enum.ComboWeaponState.State:
-          True: {state: icon-on}
-          False: {state: icon}
+          True: {state: icon-of}
+          False: {state: icon-prot}
   - type: Appearance
 
 - type: entity
