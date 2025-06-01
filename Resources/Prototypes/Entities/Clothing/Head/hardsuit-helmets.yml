@@ -860,6 +860,9 @@
         Radiation: 0.80
         Caustic: 0.95
   - type: SupermatterImmune  # ADT-Tweak
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 10
 
 #MISC. HARDSUITS
 #Clown Hardsuit

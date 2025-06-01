@@ -1027,6 +1027,8 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+  - type: Icon
+    state: pda-dso
 
 - type: entity
   parent: BasePDA

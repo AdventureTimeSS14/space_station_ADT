@@ -14,34 +14,61 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm, RadioImplantCentcomm, FreedomImplant, DeathAcidifierImplant ]
 
 - type: startingGear
   id: DeathSquadGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitDeathSquad
-    back: ClothingBackpackDeathSquad
+    back: ClothingDeathSquadronBackpack
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesGlassesThermal
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagAdv
     id: DeathsquadPDA
-    pocket1: EnergySword
-    pocket2: EnergyShield
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket1: EnergySwordDouble
+    pocket2: DoubleEmergencyOxygenTankFilled
+    belt: ClothingBeltAssault
   storage:
     back:
-    - WeaponPulsePistol
+    - ADTWeaponRifleTAR60SF
+    - ADTMagazineRifleAR12
+    - ADTMagazineRifleAR12
+    - ADTMagazineRifleAR12
+    - ADTMagazineRifleAR12
+    - MagazineBoxRifleBig
     - WeaponRevolverMatebaAP
     - SpeedLoaderMagnumAP
     - SpeedLoaderMagnumAP
     - BoxFlashbang
     - ToolDebug # spanish army knife
     - WelderExperimental
-    - Hypospray
-    - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
-    - FreedomImplanter
+    - C4
+    - C4
+    - JawsOfLife
+    - BoxMRE
+    - ADTAttachmentVerticalGrip
+    - ADTAttachmentAntiLyingWarrior
+    - ADTAttachmentMagneticHarness
+    - DefibrillatorCompact
+    - PowerCellHyper
+    - HandheldCrewMonitor
+    - PinpointerNuclear
+    - HandheldGPSBasic
+    - HandHeldMassScanner
+    - ADTCqcManual
+    belt:
+    - ADTCombatHypospray
+    - WeaponTaser
+    - ADTCrisisAutoInjector
+    - Handcuffs
+    - Handcuffs
+    - ChemistryBottleOmnizine
+    - ChemistryBottleOmnizine
+    - ChemistryBottleEphedrine
+    - ChemistryBottleEphedrine
   inhand:
   - WeaponPulseRifle
+
