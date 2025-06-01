@@ -3,6 +3,7 @@
   id: BasePaper
   abstract: true
   components:
+  - type: PaperOrigami
   - type: Tag
     tags:
     - Document
@@ -67,6 +68,11 @@
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
+    # ADT-Tweak start. Оригами для бумаги
+    - state: paperairplane
+      map: ["enum.PaperOrigamiState.State"]
+      visible: false
+    # ADT-Tweak end.
   - type: Paper
   - type: PaperLabelType
   - type: ActivatableUI
