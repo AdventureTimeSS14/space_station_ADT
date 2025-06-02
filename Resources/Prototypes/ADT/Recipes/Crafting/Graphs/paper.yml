@@ -8,27 +8,27 @@
         - to: CompletePaperMaskBlank
           steps:
             - tag: Paper
-              name: "Бумагу"
+              name: "бумагу"
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "Бумагу"
+              name: "бумагу"
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "Бумагу"
+              name: "бумагу"
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "Бумагу"
+              name: "бумагу"
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "Бумагу"
+              name: "бумагу"
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
@@ -159,3 +159,54 @@
         - to: CompletePaperMaskBlank
           steps:
             - tool: Drawing
+
+- type: constructionGraph
+  id: PaperCrane
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - tag: Paper
+        name: "бумагу"
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+  - node: done
+    entity: ADTPaperCrane
+
+- type: constructionGraph
+  id: PaperShip
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - tag: Paper
+        name: "бумагу"
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 4
+  - node: done
+    entity: ADTPaperShip
+
+- type: constructionGraph
+  id: PaperAirplane
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - tag: Paper
+        name: "бумагу"
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 3
+  - node: done
+    entity: ADTPaperAirplane

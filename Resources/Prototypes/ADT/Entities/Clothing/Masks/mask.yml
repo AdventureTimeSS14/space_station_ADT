@@ -492,6 +492,8 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Mask/papermask_blank.rsi
+  - type: Item
+    size: Tiny
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_blank.rsi
   - type: IdentityBlocker
