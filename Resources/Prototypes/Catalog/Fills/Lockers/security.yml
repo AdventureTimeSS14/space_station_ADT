@@ -170,7 +170,7 @@
       - id: ADTBookSRPsec
       - id: ADTBookPCDsec
     # ADT-WikiBooks-End
-      - id: ClothingBeltRevolverHolster #Ganimed-edit
+#      - id: ClothingBeltRevolverHolster #Ganimed-edit
 
 - type: entity
   id: ClosetBombFilled
