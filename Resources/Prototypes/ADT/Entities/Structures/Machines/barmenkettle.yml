@@ -19,6 +19,17 @@
     whitelist:
       components:
       - FitsInDispenser
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
   - type: PlaceableSurface
     placeCentered: true
     positionOffset: 0, 0.25

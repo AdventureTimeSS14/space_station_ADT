@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Silicons.Borgs;
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
@@ -17,34 +18,42 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSubtypeChangedEvent>(OnSubtypeChanged);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, AfterAutoHandleStateEvent>(AfterStateHandler);
     }
-    private void OnSubtypeChanged(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSubtypeChangedEvent args)
+
+    private void OnComponentStartup(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentStartup args)
     {
-        SetAppearanceFromSubtype(ent, args.Subtype);
+        UpdateVisuals(ent);
+    }
+
+    private void AfterStateHandler(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        UpdateVisuals(ent);
     }
 
     protected override void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
     {
-        if (!_prototypeManager.TryIndex(subtype, out var subtypePrototype))
+        if (!_prototypeManager.TryIndex(subtype, out var subtypePrototype)
+            || !_prototypeManager.TryIndex(subtypePrototype.ParentBorgType, out var borgType)
+            || !TryComp(ent, out SpriteComponent? sprite))
             return;
-
-        if (!_prototypeManager.TryIndex(subtypePrototype.ParentBorgType, out var borgType))
-            return;
-
-        if (!TryComp(ent, out SpriteComponent? sprite))
-            return;
-
-        if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
-            hasPlayer = false;
 
         var rsiPath = SpriteSpecifierSerializer.TextureRoot / subtypePrototype.Sprite;
 
         if (_resourceCache.TryGetResource<RSIResource>(rsiPath, out var resource))
         {
-            sprite.LayerSetState(BorgVisualLayers.Body, borgType.SpriteBodyState);
-            sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? borgType.SpriteHasMindState : borgType.SpriteNoMindState);
-            sprite.LayerSetState(BorgVisualLayers.LightStatus, borgType.SpriteToggleLightState);
+            subtypePrototype.SpriteBodyState = borgType.SpriteBodyState;
+            subtypePrototype.SpriteToggleLightState = borgType.SpriteToggleLightState;
+            subtypePrototype.SpriteHasMindState = borgType.SpriteHasMindState;
+            subtypePrototype.SpriteNoMindState = borgType.SpriteNoMindState;
+
+            if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
+                hasPlayer = false;
+
+            sprite.LayerSetState(BorgVisualLayers.Body, subtypePrototype.SpriteBodyState);
+            sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? subtypePrototype.SpriteHasMindState : subtypePrototype.SpriteNoMindState);
+            sprite.LayerSetState(BorgVisualLayers.LightStatus, subtypePrototype.SpriteToggleLightState);
 
             sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
             sprite.LayerSetRSI(BorgVisualLayers.Light.GetHashCode(), resource.RSI);

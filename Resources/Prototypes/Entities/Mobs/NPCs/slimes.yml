@@ -123,6 +123,7 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: SupermatterIgnore # ADT-Tweak
   # ADT tweak end
 
 - type: entity
