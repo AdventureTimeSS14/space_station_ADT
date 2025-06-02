@@ -168,7 +168,7 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 4.5  # ADT tweak 6.5 > 4.5
+    weight: 6.5
     earliestStart: 40
     reoccurrenceDelay: 20
     minimumPlayers: 30 #ADT-Tweak 20 >>> 30
@@ -197,7 +197,7 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 4.5 # ADT tweak 6 > 4.5
+    weight: 5.5 # ADT tweak 6 > 5.5
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20
