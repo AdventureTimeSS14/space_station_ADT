@@ -72,6 +72,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Tools.Components;
+using Content.Server.Popups;
 
 namespace Content.Server.ADT.Morph;
 
@@ -115,6 +116,7 @@ public sealed class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphComponent, MorphReproduceActionEvent>(OnReproduceAction);
         SubscribeLocalEvent<MorphComponent, MorphMimicryRememberActionEvent>(OnMimicryRememberAction);
         SubscribeLocalEvent<MorphComponent, MorphVentOpenActionEvent>(OnOpenVentAction);
+
         SubscribeLocalEvent<MorphAmbushComponent, MoveEvent>(OnAmbushMove);
         SubscribeLocalEvent<MorphAmbushComponent, MeleeHitEvent>(OnAmbushAttack);
         SubscribeLocalEvent<MorphAmbushComponent, InteractHandEvent>(OnAmbusInteract);
@@ -215,13 +217,15 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         else
         {
+            _popupSystem.PopupClient(Loc.GetString("morphs-into-ambush"), uid);
             EnsureComp<MorphAmbushComponent>(uid);
             if (chamel.Disguised != null) EnsureComp<MorphAmbushComponent>(chamel.Disguised.Value);
         }
     }
     private void OnAmbushMove(EntityUid uid, MorphAmbushComponent component, MoveEvent args)
     {
-        AmbushBreak(uid);
+        if (args.OldPosition != args.NewPosition)
+            AmbushBreak(uid);
     }
     private void OnAmbushAttack(Entity<MorphAmbushComponent> ent, ref MeleeHitEvent args)
     {
@@ -231,6 +235,7 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     public void AmbushBreak(EntityUid uid)
     {
+        _popupSystem.PopupCursor(Loc.GetString("morphs-out-of-ambush"), uid);
         RemCompDeferred<MorphAmbushComponent>(uid);
         if (TryComp<ChameleonProjectorComponent>(uid, out var chamel) && chamel.Disguised != null)
             RemCompDeferred<MorphAmbushComponent>(chamel.Disguised.Value);
