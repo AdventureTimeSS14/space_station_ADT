@@ -1,6 +1,6 @@
 using Content.Shared.ADT.Silicons.Borgs;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.ADT.Silicons.Borgs.Components;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
@@ -13,8 +13,6 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-
-    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -52,7 +50,7 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
 
             if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
                 hasPlayer = false;
-                
+
             sprite.LayerSetState(BorgVisualLayers.Body, subtypePrototype.SpriteBodyState);
             sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? subtypePrototype.SpriteHasMindState : subtypePrototype.SpriteNoMindState);
             sprite.LayerSetState(BorgVisualLayers.LightStatus, subtypePrototype.SpriteToggleLightState);
