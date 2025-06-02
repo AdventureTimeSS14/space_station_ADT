@@ -13,55 +13,53 @@ public sealed partial class BorgSwitchableSubtypeSystem : SharedBorgSwitchableSu
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+
     private ISawmill _sawmill = default!;
-    
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, AfterAutoHandleStateEvent>(AfterStateHandler);
+    }
+
+    private void OnComponentStartup(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentStartup args)
+    {
+        UpdateVisuals(ent);
+    }
+
+    private void AfterStateHandler(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        UpdateVisuals(ent);
+    }
+
     protected override void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
     {
-        if (!_prototypeManager.TryIndex(subtype, out var subtypePrototype))
-        {
-            _sawmill.Warning($"Failed to find BorgSubtypePrototype with ID {subtype}");
+        if (!_prototypeManager.TryIndex(subtype, out var subtypePrototype)
+            || !_prototypeManager.TryIndex(subtypePrototype.ParentBorgType, out var borgType)
+            || !TryComp(ent, out SpriteComponent? sprite))
             return;
-        }
-
-        if (!_prototypeManager.TryIndex(subtypePrototype.ParentBorgType, out var borgType))
-        {
-            _sawmill.Warning($"Failed to find parent BorgTypePrototype with ID {subtypePrototype.ParentBorgType}");
-            return;
-        }
-
-        if (!TryComp(ent, out SpriteComponent? sprite))
-        {
-            _sawmill.Warning($"Entity {ent} lacks a SpriteComponent, cannot update appearance");
-            return;
-        }
-
-        if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
-            hasPlayer = false;
 
         var rsiPath = SpriteSpecifierSerializer.TextureRoot / subtypePrototype.Sprite;
 
         if (_resourceCache.TryGetResource<RSIResource>(rsiPath, out var resource))
         {
-            var bodyState = string.IsNullOrEmpty(borgType.SpriteBodyState)
-                ? borgType.SpriteBodyState
-                : borgType.SpriteBodyState;
-            var toggleLightState = string.IsNullOrEmpty(borgType.SpriteToggleLightState)
-                ? borgType.SpriteToggleLightState
-                : borgType.SpriteToggleLightState;
-            var hasMindState = string.IsNullOrEmpty(borgType.SpriteHasMindState)
-                ? borgType.SpriteHasMindState
-                : borgType.SpriteHasMindState;
-            var noMindState = string.IsNullOrEmpty(borgType.SpriteNoMindState)
-                ? borgType.SpriteNoMindState
-                : borgType.SpriteNoMindState;
+            subtypePrototype.SpriteBodyState = borgType.SpriteBodyState;
+            subtypePrototype.SpriteToggleLightState = borgType.SpriteToggleLightState;
+            subtypePrototype.SpriteHasMindState = borgType.SpriteHasMindState;
+            subtypePrototype.SpriteNoMindState = borgType.SpriteNoMindState;
 
-            sprite.LayerSetState(BorgVisualLayers.Body, bodyState);
-            sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? hasMindState : noMindState);
-            sprite.LayerSetState(BorgVisualLayers.LightStatus, toggleLightState);
+            if (!_appearance.TryGetData<bool>(ent, BorgVisuals.HasPlayer, out var hasPlayer))
+                hasPlayer = false;
+                
+            sprite.LayerSetState(BorgVisualLayers.Body, subtypePrototype.SpriteBodyState);
+            sprite.LayerSetState(BorgVisualLayers.Light, hasPlayer ? subtypePrototype.SpriteHasMindState : subtypePrototype.SpriteNoMindState);
+            sprite.LayerSetState(BorgVisualLayers.LightStatus, subtypePrototype.SpriteToggleLightState);
 
-            sprite.LayerSetRSI(BorgVisualLayers.Body, resource.RSI);
-            sprite.LayerSetRSI(BorgVisualLayers.Light, resource.RSI);
-            sprite.LayerSetRSI(BorgVisualLayers.LightStatus, resource.RSI);
+            sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
+            sprite.LayerSetRSI(BorgVisualLayers.Light.GetHashCode(), resource.RSI);
+            sprite.LayerSetRSI(BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI);
         }
     }
 }
