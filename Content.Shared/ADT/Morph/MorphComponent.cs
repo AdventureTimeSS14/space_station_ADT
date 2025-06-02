@@ -61,6 +61,12 @@ public sealed partial class MorphComponent : Component
     public int DetectableCount = 6;
 
     /// <summary>
+    ///     количество еды, нужное для открытия вентиляции
+    /// </summary>
+    [DataField]
+    public int OpenVentFoodReq = 5;
+
+    /// <summary>
     ///     количество еды, нужное для размножения
     /// </summary>
     [DataField]
@@ -105,7 +111,15 @@ public sealed partial class MorphComponent : Component
     [DataField("replicationAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? ReplicationAction = "ActionMorphReplication";
     public EntityUid? ReplicationActionEntity;
-
+    [DataField("mimicryAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? MimicryAction = "ActionMorphMimicry";
+    public EntityUid? MimicryActionEntity;
+    [DataField("ambushAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? AmbushAction = "ActionMorphAmbush";
+    public EntityUid? AmbushActionEntity;
+    [DataField("openVentAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? VentOpenAction = "ActionMorphVentOpen";
+    public EntityUid? VentOpenActionEntity;
     // public List<HumanoidAppearanceComponent> ApperanceList = new();
     //нужен для работы мимикрии под гуманойдов, больше ничего
     //бла-бла-бла, это надо если хотите делать морф под гуманоидов не костылями
@@ -125,7 +139,19 @@ public sealed partial class MorphMimicryRememberActionEvent : EntityTargetAction
 public sealed partial class MorphReproduceActionEvent : InstantActionEvent
 {
 }
-[Serializable, NetSerializable] public sealed partial class EventMimicryActivate : BoundUserInterfaceMessage // triggers the logic
+public sealed partial class MorphOpenRadialMenuEvent : InstantActionEvent
+{
+}
+public sealed partial class MorphDevourActionEvent : EntityTargetActionEvent
+{
+}
+public sealed partial class MorphAmbushActionEvent : InstantActionEvent
+{
+}
+public sealed partial class MorphVentOpenActionEvent : EntityTargetActionEvent
+{
+}
+[Serializable, NetSerializable] public sealed partial class EventMimicryActivate : BoundUserInterfaceMessage
 {
     public NetEntity? Target { get; set; }
 }

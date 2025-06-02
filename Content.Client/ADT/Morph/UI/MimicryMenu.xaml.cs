@@ -46,6 +46,7 @@ public sealed partial class MimicryMenu : RadialMenu
             {
                 SetSize = new Vector2(64, 64),
                 ToolTip = _ent.TryGetComponent<MetaDataComponent>(morphable, out var md) ? md.EntityName : "Unknown",
+                NetEntity = md != null ? md.NetEntity : NetEntity.Invalid,
             };
 
             var texture = new SpriteView(morphable, _ent)

@@ -61,28 +61,17 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Polymorph.Components;
-using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
-using Content.Shared.Verbs;
-using Content.Shared.Whitelist;
-using Robust.Shared.Containers;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Inventory;
 using Content.Shared.Polymorph.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules;
-using Content.Server.Station.Systems;
-using Content.Server.StationEvents.Components;
-using Content.Shared.Database;
-using Content.Shared.GameTicking.Components;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
+using Content.Server.Stunnable;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Tools.Components;
 
 namespace Content.Server.ADT.Morph;
 
@@ -106,6 +95,8 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly WeldableSystem _weldable = default!;
     public ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     public ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     public override void Initialize()
@@ -118,10 +109,16 @@ public sealed class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MorphComponent, InteractHandEvent>(OnInteract);
 
+        SubscribeLocalEvent<MorphComponent, MorphOpenRadialMenuEvent>(OnMimicryRadialMenu);
         SubscribeLocalEvent<MorphComponent, EventMimicryActivate>(OnMimicryActivate);
         SubscribeLocalEvent<MorphComponent, MorphDevourActionEvent>(OnDevourAction);
         SubscribeLocalEvent<MorphComponent, MorphReproduceActionEvent>(OnReproduceAction);
         SubscribeLocalEvent<MorphComponent, MorphMimicryRememberActionEvent>(OnMimicryRememberAction);
+        SubscribeLocalEvent<MorphComponent, MorphVentOpenActionEvent>(OnOpenVentAction);
+        SubscribeLocalEvent<MorphAmbushComponent, MoveEvent>(OnAmbushMove);
+        SubscribeLocalEvent<MorphAmbushComponent, MeleeHitEvent>(OnAmbushAttack);
+        SubscribeLocalEvent<MorphAmbushComponent, InteractHandEvent>(OnAmbusInteract);
+        SubscribeLocalEvent<MorphComponent, MorphAmbushActionEvent>(OnAmbushAction);
 
         SubscribeLocalEvent<MorphComponent, MorphDevourDoAfterEvent>(OnDoDevourAfter);
     }
@@ -135,6 +132,9 @@ public sealed class MorphSystem : SharedMorphSystem
         _actions.AddAction(uid, ref component.DevourActionEntity, component.DevourAction);
         _actions.AddAction(uid, ref component.MemoryActionEntity, component.MemoryAction);
         _actions.AddAction(uid, ref component.ReplicationActionEntity, component.ReplicationAction);
+        _actions.AddAction(uid, ref component.MimicryActionEntity, component.MimicryAction);
+        _actions.AddAction(uid, ref component.AmbushActionEntity, component.AmbushAction);
+        _actions.AddAction(uid, ref component.VentOpenActionEntity, component.VentOpenAction);
         //эти строки можно использовать для морфа гуманоидов
         // component.NullspacedHumanoid.Item1 = Spawn("MorphHumanoidDummy", MapCoordinates.Nullspace);
         // component.NullspacedHumanoid.Item2 = AddComp<HumanoidAppearanceComponent>(component.NullspacedHumanoid.Item1);
@@ -158,6 +158,7 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnAttack(Entity<MorphComponent> ent, ref MeleeHitEvent args)
     {
+        _chameleon.TryReveal(ent.Owner);
         if (!TryComp<HandsComponent>(args.HitEntities[0], out var hands))
             return;
         if (!TryComp<HungerComponent>(ent, out var hunger))
@@ -169,9 +170,21 @@ public sealed class MorphSystem : SharedMorphSystem
             _hunger.ModifyHunger(ent, -ent.Comp.EatWeaponHungerReq, hunger);
         }
     }
+
     private void OnInteract(Entity<MorphComponent> ent, ref InteractHandEvent args)
     {
         _chameleon.TryReveal(ent.Owner);
+    }
+
+    private void OnOpenVentAction(EntityUid uid, MorphComponent comp, MorphVentOpenActionEvent args)
+    {
+        if (!TryComp<HungerComponent>(uid, out var hunger))
+            return;
+        if (comp.OpenVentFoodReq > _hunger.GetHunger(hunger))
+            return;
+        if (!TryComp<WeldableComponent>(args.Target, out var weldableComponent) || !weldableComponent.IsWelded)
+            return;
+        _weldable.SetWeldedState(args.Target, false, weldableComponent);
     }
 
     private void OnExamined(EntityUid uid, MorphComponent comp, ExaminedEvent args)
@@ -183,15 +196,52 @@ public sealed class MorphSystem : SharedMorphSystem
         var hungerCount = _hunger.GetHunger(hunger);
         args.PushMarkup($"[color=yellow]{Loc.GetString("comp-morph-examined-hunger", ("hunger", hungerCount))}[/color]");
     }
-    private void OnMimicryActivate(Entity<MorphComponent> ent, ref EventMimicryActivate args)
+    private void OnMimicryActivate(EntityUid uid, MorphComponent component, EventMimicryActivate args)
     {
-        if (!TryComp<ChameleonProjectorComponent>(ent, out var chamel))
+        if (!TryComp<ChameleonProjectorComponent>(uid, out var chamel))
             return;
         var targ = GetEntity(args.Target);
         if (targ != null)
-            MimicryNonHumanoid((ent.Owner, chamel), targ.Value);
+            MimicryNonHumanoid((uid, chamel), targ.Value);
     }
-    private void OnMimicryRememberAction(EntityUid uid, MorphComponent component, MorphMimicryRememberActionEvent args)
+    private void OnAmbushAction(EntityUid uid, MorphComponent component, MorphAmbushActionEvent args)
+    {
+        if (!TryComp<ChameleonProjectorComponent>(uid, out var chamel))
+            return;
+        if (TryComp<MorphAmbushComponent>(uid, out var ambush))
+        {
+            AmbushBreak(uid);
+            if (chamel.Disguised != null) AmbushBreak(chamel.Disguised.Value);
+        }
+        else
+        {
+            EnsureComp<MorphAmbushComponent>(uid);
+            if (chamel.Disguised != null) EnsureComp<MorphAmbushComponent>(chamel.Disguised.Value);
+        }
+    }
+    private void OnAmbushMove(EntityUid uid, MorphAmbushComponent component, MoveEvent args)
+    {
+        AmbushBreak(uid);
+    }
+    private void OnAmbushAttack(Entity<MorphAmbushComponent> ent, ref MeleeHitEvent args)
+    {
+        _stun.TryKnockdown(args.HitEntities[0], TimeSpan.FromSeconds(ent.Comp.StunTime), false);
+        _damageable.TryChangeDamage(args.HitEntities[0], ent.Comp.DamageOnTouch);
+        AmbushBreak(ent);
+    }
+    public void AmbushBreak(EntityUid uid)
+    {
+        RemCompDeferred<MorphAmbushComponent>(uid);
+        if (TryComp<ChameleonProjectorComponent>(uid, out var chamel) && chamel.Disguised != null)
+            RemCompDeferred<MorphAmbushComponent>(chamel.Disguised.Value);
+    }
+    private void OnAmbusInteract(Entity<MorphAmbushComponent> ent, ref InteractHandEvent args)
+    {
+        _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(ent.Comp.StunTimeInteract), false);
+        _damageable.TryChangeDamage(args.User, ent.Comp.DamageOnTouch);
+        AmbushBreak(ent);
+    }
+    private void OnMimicryRadialMenu(EntityUid uid, MorphComponent component, MorphOpenRadialMenuEvent args)
     {
         // Инциализируем контейнер мимикрии
         component.Container = сontainer.EnsureContainer<Container>(uid, component.MimicryContainerId);
@@ -200,13 +250,9 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         _ui.OpenUi((uid, uic), MimicryKey.Key, uid);
         _chameleon.TryReveal(uid);
-
-        // Проверка метаданных цели
-        if (!TryComp<MetaDataComponent>(args.Target, out var meta))
-        {
-            _popupSystem.PopupClient(Loc.GetString("on-mimicry-remember-action-false"), uid, uid);
-            return;
-        }
+    }
+    private void OnMimicryRememberAction(EntityUid uid, MorphComponent component, MorphMimicryRememberActionEvent args)
+    {
         //отвечает за запоминание энтити для мимикрии.
         //гуманоидов запоминает отдельно т.к. их невозможно показать путём хамелеона
         //короче мне лень эту хреноетнь выписывать. Кто будет её чинить - мои соболезнования вам
@@ -225,11 +271,8 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         else
         {
-            //спавним в нуллспейсе для рендера в радиальном гуи и костылей
-            var prototypeId = MetaData(args.Target).EntityPrototype?.ID;
-            var ent = Spawn(prototypeId, MapCoordinates.Nullspace);
-            if (component.MemoryObjects.Count() > 5) { component.MemoryObjects.RemoveAt(0); QueueDel(component.MemoryObjects[0]); }
-            component.MemoryObjects.Add(ent);
+            if (component.MemoryObjects.Count() > 5) { component.MemoryObjects.RemoveAt(0); }
+            component.MemoryObjects.Add(args.Target);
         }
         Dirty(uid, component);
     }
@@ -240,6 +283,8 @@ public sealed class MorphSystem : SharedMorphSystem
     // }
     public void MimicryNonHumanoid(Entity<ChameleonProjectorComponent> morph, EntityUid toChameleon)
     {
+        if (!Exists(toChameleon) || Deleted(toChameleon))
+            return;
         _chameleon.Disguise(morph, morph, toChameleon);
     }
     private void OnDevourAction(EntityUid uid, MorphComponent component, MorphDevourActionEvent args)
