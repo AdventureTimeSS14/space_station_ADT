@@ -1,3 +1,4 @@
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Content.Shared.ADT.PaperOrigami;
 using Content.Shared.ADT.PaperOrigami.Components;
@@ -31,6 +32,15 @@ public sealed class PaperOrigamiSystem : EntitySystem
 
         if (!TryComp<AppearanceComponent>(uid, out var appearance))
             return;
+
+        if (TryComp<TagComponent>(uid, out var tagComponent))
+        {
+            var tags = tagComponent.Tags;
+            if (tags.Contains("ADTDoNotMakeOrigami"))
+            {
+                return;
+            }
+        }
 
         Verb makePaperOrigamiAirplane = new()
         {

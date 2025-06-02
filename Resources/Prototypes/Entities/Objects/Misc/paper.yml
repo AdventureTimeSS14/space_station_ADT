@@ -156,10 +156,23 @@
     - Document
     - Trash
     - Paper
+    - ADTDoNotMakeOrigami # ADT-Tweak. Оригами из бумаги
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
     - state: scrap
+    # ADT-Tweak start. Костыль, чтобы не писало ошибки об отсутствии слоя
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+    - state: paperairplane
+      map: ["enum.PaperOrigamiState.State"]
+      visible: false
+    # ADT-Tweak end.
 
 - type: entity
   name: office paper
