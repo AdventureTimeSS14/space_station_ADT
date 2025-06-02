@@ -1,0 +1,123 @@
+- type: entity
+  id: ADTDecorationTankETP145
+  name: ETP-145
+  description: Heavy as a really heavy thing.
+  suffix: USSP
+  components:
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/tank.rsi
+    state: etp145
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 5000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Climbable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 9000
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 10
+                max: 30
+
+# Взято с SD
+- type: entity
+  id: ADT34Tank
+  parent: BaseMech
+  name: Т-34
+  description: Desc
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/Structures/Decoration/tank_34.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: t34tank
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/ADT/Misc/tank.ogg
+  - type: Mech
+    modifiers:
+      coefficients: #Коэффициент для тяжелобронированных мехов
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 0.1
+    maxintegrity: 360
+    baseState: t34tank
+    openState: t34tank-open
+    brokenState: t34tank-broken
+    mechToPilotDamageMultiplier: 0.0 #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - ADTMechEquipmentGeneral
+      - ADTMechEquipmentSec
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.2
+    baseSprintSpeed: 2
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: AccessReader
+    access: [ ["CentralCommand"] ]
+  - type: Storage
+    grid:
+    - 0,0,10,4
+    clickInsert: false
+  # ADT-tweak start. Правим очки здоровья меха
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # ADT-tweak end. Правим очки здоровья меха
+
+- type: entity
+  id: ADT34TankBattery
+  parent: ADT34Tank
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellAntiqueProto

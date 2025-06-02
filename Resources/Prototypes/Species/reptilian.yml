@@ -37,8 +37,8 @@
   sprites:
     Head: MobReptilianHead
     Snout: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    # UndergarmentTop: MobHumanoidAnyMarking # ADT-No-More-Useless-Feature
+    # UndergarmentBottom: MobHumanoidAnyMarking # ADT-No-More-Useless-Feature
     Chest: MobReptilianTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking

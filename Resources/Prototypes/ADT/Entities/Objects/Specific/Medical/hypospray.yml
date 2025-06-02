@@ -39,6 +39,7 @@
   - type: Tag
     tags:
     - ADTMedipen
+    - ADTMedicalAssemblerStuff
 
 - type: entity
   name: hemostasis auto-injector

@@ -32,7 +32,7 @@
 - type: startingGear
   id: ResearchDirectorGear
   equipment:
-    id: RnDPDA
+ #id: RnDPDA # ADT Tweak
     ears: ClothingHeadsetRD
   storage:
     back:

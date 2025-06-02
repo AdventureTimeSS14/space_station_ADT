@@ -54,6 +54,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
@@ -404,6 +406,9 @@
     tags:
     - Trash
     - VimPilot
+  # ADT-Tweak
+  - type: MobCollision
+    enabled: false
   # - type: Destructible
   #   thresholds:
   #   - trigger:
@@ -424,6 +429,7 @@
     damage:
       types:
         Piercing: 0
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: glockroach
@@ -593,6 +599,7 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: SupermatterIgnore # ADT-Tweak
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -1798,6 +1805,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: Tag
     tags:
@@ -1853,6 +1862,7 @@
     languages:
       Mouse: Speak
       GalacticCommon: Understand
+  - type: SupermatterIgnore # ADT-Tweak
 # ADT-Tweak-end
 
 - type: entity
@@ -2082,6 +2092,7 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: frog
@@ -2457,6 +2468,7 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: SupermatterIgnore # ADT-Tweak
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive

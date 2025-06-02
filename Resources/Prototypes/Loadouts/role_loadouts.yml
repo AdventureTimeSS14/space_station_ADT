@@ -164,6 +164,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - LawyerShoes # ADT tweak
   - Glasses
   - ADTlawyerID # ADT tweak
   # ADT underwear tweak start
@@ -461,6 +462,7 @@
   - ScientistGloves
   - ResearchDirectorShoes
   - Glasses
+  - ADTRnDPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopRD
   - ADTBottomRD
@@ -629,6 +631,7 @@
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
   - Glasses
+  - ADTCMOPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopCMO
   - ADTBottomCMO

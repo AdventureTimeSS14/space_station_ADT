@@ -236,7 +236,7 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     noRot: true
   - type: RandomMetadata
-    descriptionSegments: [ATVDescriptions]
+    descriptionSegments: [DescriptionsATV]
   - type: MovementSpeedModifier
     acceleration: 1
     friction: 1
@@ -265,6 +265,23 @@
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
             volume: -3
+      bag:
+        name: stored bag
+        whitelist:
+          components:
+            - Storage
+        priority: 2
+        insertSound:
+          path: /Audio/Items/belt_equip.ogg
+          params:
+            volume: -3
+  - type: ItemMapper
+    mapLayers:
+      bag:
+        whitelist:
+          components:
+            - Storage
+    sprite: Objects/Vehicles/atv.rsi
 
 - type: entity
   id: ADTVehicleSyndicateSegway

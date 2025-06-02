@@ -1,0 +1,25 @@
+<DefaultWindow
+    x:Class="Content.Client.Lobby.UI.SponsorInfoWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="{Loc 'ui-lobby-sponsor-status'}"
+    MinWidth="490"
+    MinHeight="250"
+    MaxHeight="300"
+    Resizable="False">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+        <!-- Инфо о спонсоре -->
+        <RichTextLabel Name="SponsorLabel"
+               HorizontalExpand="True"
+               VerticalExpand="True" />
+
+        <!-- Кнопка перехода на Boosty -->
+        <Button Name="ButtonSiteBoosty"
+                Text="{Loc 'ui-lobby-sponsor-get-sponsor'}"
+                HorizontalAlignment="Center"
+                Margin="0,10,0,0"
+                StyleClasses="ButtonBig" />
+    </BoxContainer>
+</DefaultWindow>

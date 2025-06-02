@@ -1,10 +1,10 @@
-﻿- type: shader
+- type: shader
   id: DisplacedStencilDraw
   kind: source
   path: "/Textures/Shaders/displacement.swsl"
-  stencil:
-    ref: 1
-    op: Keep
-    func: NotEqual
+  # stencil: #ADT-Tweak - фикс того, что ПНВ делают невидимым одежду
+  #   ref: 1
+  #   op: Keep
+  #   func: NotEqual
   params:
     displacementSize: 127
