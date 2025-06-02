@@ -20,3 +20,7 @@ ent-ADTCrateNecropolisCultRobe = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisVampirismCrystal = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Кристалл вампиризма
+
+ent-ADTCrateNecropolisVehicleLavabike = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Лавацикл

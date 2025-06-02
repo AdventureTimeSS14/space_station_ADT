@@ -52,3 +52,12 @@
   - type: StorageFill
     contents:
       - id: ADTKatanacursedShard
+
+- type: entity
+  id: ADTCrateNecropolisVehicleLavabike
+  parent: ADTCrateNecropolis
+  suffix: Lavabike
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTVehicleLavabike
