@@ -1,53 +1,37 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Content.Shared.ADT.Silicons.Borgs.Components;
 
 namespace Content.Shared.ADT.Silicons.Borgs;
 
 public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 {
+    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
+
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSelectSubtypeMessage>(OnSubtypeSelection);
+    }
+
+    private void OnMapInit(Entity<BorgSwitchableSubtypeComponent> ent, ref MapInitEvent args)
+    {
+        UpdateVisuals(ent);
     }
 
     private void OnComponentInit(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentInit args)
     {
+        UpdateVisuals(ent);
+    }
+
+    protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype) { }
+
+    protected void UpdateVisuals(Entity<BorgSwitchableSubtypeComponent> ent)
+    {
         if (ent.Comp.BorgSubtype == null)
             return;
-
         SetAppearanceFromSubtype(ent, ent.Comp.BorgSubtype.Value);
     }
-    private void OnSubtypeSelection(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSelectSubtypeMessage args)
-    {
-        SetSubtype(ent, args.Subtype);
-    }
-
-    protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
-    {
-    }
-
-    public void SetSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
-    {
-        ent.Comp.BorgSubtype = subtype;
-        var ev = new BorgSubtypeChangedEvent(subtype);
-        RaiseLocalEvent(ent, ref ev);
-    }
-}
-
-[ByRefEvent]
-public readonly record struct BorgSubtypeChangedEvent(ProtoId<BorgSubtypePrototype> Subtype);
-
-[Serializable, NetSerializable]
-public sealed class BorgSelectSubtypeMessage(ProtoId<BorgSubtypePrototype> subtype) : BoundUserInterfaceMessage
-{
-    public ProtoId<BorgSubtypePrototype> Subtype = subtype;
-}
-
-[Serializable, NetSerializable]
-public enum BorgSwitchableSubtypeUiKey : byte
-{
-    Key
 }
