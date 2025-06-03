@@ -4,6 +4,7 @@
   id: ADTGodSpawn # НЕ МЕНЯТЬ ID ПРОТОТИПА
   suffix: "Админ бог"
   components:
+  - type: AdminGod
   - type: NpcFactionMember
     factions:
     - Passive
