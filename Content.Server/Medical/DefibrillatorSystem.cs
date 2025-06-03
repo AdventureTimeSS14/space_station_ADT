@@ -53,13 +53,13 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
+
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
     }
-
     private void OnAfterInteract(EntityUid uid, DefibrillatorComponent component, AfterInteractEvent args)
     {
         if (args.Handled || args.Target is not { } target)
@@ -163,7 +163,6 @@ public sealed class DefibrillatorSystem : EntitySystem
 
         if (!_powerCell.TryUseActivatableCharge(uid, user: user))
             return;
-
         var selfEvent = new SelfBeforeDefibrillatorZapsEvent(user, uid, target);
         RaiseLocalEvent(user, selfEvent);
 

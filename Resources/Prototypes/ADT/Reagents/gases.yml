@@ -117,6 +117,16 @@
         ratios:
           CarbonDioxide: 1.0
           Pluoxium: -1.0
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Vox
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison:
+              15
 
 - type: reagent
   id: Hydrogen
@@ -141,40 +151,21 @@
     Gas:
       effects:
       - !type:MovespeedModifier
-        conditions:
-          - !type:ReagentThreshold
-            reagent: Nitrium
-            min: 3
-        statusLifetime: 0.5
-        walkSpeedModifier: 1.5
-        sprintSpeedModifier: 2.5
+        walkSpeedModifier: 1.35
+        sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-            min: 10
         key: Stun
-        time: 1
+        time: 3
         type: Remove
       - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-            min: 15
         key: KnockedDown
-        time: 5
-        type: Remove
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-            min: 15
-        key: ForcedSleep
-        component: ForcedSleeping
-        time: 15
+        time: 3
         type: Remove
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             reagent: Nitrium
-            min: 20
+            min: 10
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -197,10 +188,10 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 2
+          min: 1
         key: ForcedSleep
         component: ForcedSleeping
-        time: 3
+        refresh: false
         type: Add
       - !type:HealthChange
         conditions:
@@ -211,9 +202,12 @@
         ignoreResistances: true
         damage:
           groups:
-            Brute: -1.25
-            Burn: -1.25
-            Toxin: -1.5
+            Brute: -1.5
+            Burn: -2
+          types:
+            Asphyxiation: -0.5
+            Poison: -0.5
+
 
 - type: reagent
   id: Hyper-Noblium

@@ -1,0 +1,16 @@
+ent-ADTPortalGatewayBlueAdmin = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }
+ent-ADTPortalGatewayOrangeAdmin = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }
+ent-ADTPortalBlueAdmin = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }
+ent-ADTPortalRedAdmin = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }
+ent-ADTShadowPortal = теневой разлом
+    .desc = Выглядит нестабильно.
+ent-ADTPortalInvisible = невидимый портал
+    .desc = А как ты вообще меня заметил?
+ent-ADTPortalShadowAnomaly = { ent-BaseAnomaly }
+    .desc = { ent-BaseAnomaly.desc }
+ent-ADTPortalSingularity = гравитационная сингулярность
+    .desc = Чарующий водоворот тьмы, который затягивает в себя всё. Если она приближается к вам — бегите.

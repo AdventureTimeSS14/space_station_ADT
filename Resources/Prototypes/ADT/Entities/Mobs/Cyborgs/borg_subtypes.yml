@@ -1,0 +1,105 @@
+#Generic
+- type: entity
+  id: ADTOldBorgChassisGeneric
+  parent: BorgChassisGeneric
+  name: old cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: old_generic
+
+#Engineer
+- type: entity
+  id: ADTTreadBorgChassisEngineer
+  parent: BorgChassisEngineer
+  name: engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: tread_engineer
+
+#Medical
+- type: entity
+  id: ADTQualifiedDoctorChassis
+  parent: BorgChassisMedical
+  name: qualified medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: qualified_doctor
+
+#Security
+- type: entity
+  id: ADTEggSecurityChassis
+  parent: ADTBorgChassisSec
+  name: egg security cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: security
+  - type: BorgSwitchableSubtype
+    borgSubtype: egg_security
+
+- type: entity
+  id: ADTTreadSecurityChassis
+  parent: ADTBorgChassisSec
+  name: tread security cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: security
+  - type: BorgSwitchableSubtype
+    borgSubtype: tread_security
+
+#Service
+- type: entity
+  id: ADTBartenderServiceChassis
+  parent: BorgChassisService
+  name: bartender service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: bartender_service
+
+- type: entity
+  id: ADTFemaleServiceChassis
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: female_service
+
+- type: entity
+  id: ADTBroBotServiceChassis
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: brobot_service
+
+- type: entity
+  id: ADTKerfusServiceChassis
+  parent: BorgChassisService
+  name: kerfus cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: kerfus_service
+
+#Janitor
+- type: entity
+  id: ADTKerfusJanitorChassis
+  parent: BorgChassisJanitor
+  name: kerfus cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: kerfus_janitor

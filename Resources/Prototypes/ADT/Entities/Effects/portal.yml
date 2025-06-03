@@ -1,0 +1,90 @@
+- type: entity
+  abstract: true
+  parent: BasePortal
+  id: ADTBasePortalInterMap
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: [ PortalRed, ADTBasePortalInterMap ]
+  id: ADTPortalRedAdmin
+
+- type: entity
+  parent: [ PortalBlue, ADTBasePortalInterMap ]
+  id: ADTPortalBlueAdmin
+
+- type: entity
+  parent: [ PortalGatewayOrange, ADTBasePortalInterMap ]
+  id: ADTPortalGatewayOrangeAdmin
+
+- type: entity
+  parent: [ PortalGatewayBlue, ADTBasePortalInterMap ]
+  id: ADTPortalGatewayBlueAdmin
+
+- type: entity
+  parent: [ ShadowPortal, ADTBasePortalInterMap ]
+  id: ADTShadowPortal
+
+- type: entity
+  id: ADTPortalInvisible
+  name: invisible portal
+  description: This one looks more like a nullspace portal.
+  components:
+  - type: Transform
+    anchored: True
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    color: "#00000026"
+    sprite: /Textures/Effects/portal.rsi
+    layers:
+    - state: portal-artifact
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  id: ADTPortalShadowAnomaly
+  parent: [ BasePortal, ADTBasePortalInterMap ]
+  description: This one looks more like a nullspace portal.
+  components:
+  - type: Sprite
+    sprite: /Textures/Structures/Specific/Anomalies/shadow_anom.rsi
+    state: anom
+
+- type: entity
+  id: ADTPortalSingularity
+  parent: [ BasePortal, ADTBasePortalInterMap ]
+  description: This one looks more like a nullspace portal.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Singularity/singularity_1.rsi
+    shader: unshaded
+    layers:
+    - map: [ "VisualLevel" ]
+      state: singularity_1
+  - type: GravityWell
+    maxRange: 1
+    baseRadialAcceleration: 75
+    baseTangentialAcceleration: -3
+    gravPulsePeriod: 0.03
+  - type: SingularityDistortion
+    intensity: 50
+    falloffPower: 1.5
+  - type: AmbientSound
+    volume: -4
+    range: 7
+    sound:
+      path: /Audio/Effects/singularity.ogg

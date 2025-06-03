@@ -1,0 +1,14 @@
+- type: loadout
+  id: BotanistPDA
+  equipment:
+    id: BotanistPDA
+
+- type: loadout
+  id: ADTGardenerPDA
+  equipment:
+    id: ADTGardenerPDA
+
+- type: loadout
+  id: ADTEcologistPDA
+  equipment:
+    id: ADTEcologistPDA

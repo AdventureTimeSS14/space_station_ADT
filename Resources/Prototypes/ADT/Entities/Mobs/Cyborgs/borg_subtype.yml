@@ -1,0 +1,110 @@
+# Default subtypes
+- type: borgSubtype
+  parentBorgType: generic
+  id: default_generic
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisGeneric
+
+- type: borgSubtype
+  parentBorgType: mining
+  id: default_mining
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisMining
+
+- type: borgSubtype
+  parentBorgType: engineering
+  id: default_engineering
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisEngineer
+
+- type: borgSubtype
+  parentBorgType: janitor
+  id: default_janitor
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisJanitor
+
+- type: borgSubtype
+  parentBorgType: medical
+  id: default_medical
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisMedical
+
+- type: borgSubtype
+  parentBorgType: service
+  id: default_service
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisService
+
+- type: borgSubtype
+  parentBorgType: security
+  id: default_security
+  sprite: Mobs/Silicon/chassis.rsi
+  dummyPrototype: ADTBorgChassisSec
+
+#Custom subtypes
+
+#Generic
+- type: borgSubtype
+  parentBorgType: generic
+  id: old_generic
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Generic/old_generic.rsi
+  dummyPrototype: ADTOldBorgChassisGeneric
+
+#Engineer
+- type: borgSubtype
+  parentBorgType: engineering
+  id: tread_engineer
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Engineering/tread_engineer.rsi
+  dummyPrototype: ADTTreadBorgChassisEngineer
+
+#Medical
+- type: borgSubtype
+  parentBorgType: medical
+  id: qualified_doctor
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Medical/qualified_doctor.rsi
+  dummyPrototype: ADTQualifiedDoctorChassis
+
+#Security
+- type: borgSubtype
+  parentBorgType: security
+  id: egg_security
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Security/egg_security.rsi
+  dummyPrototype: ADTEggSecurityChassis
+
+- type: borgSubtype
+  parentBorgType: security
+  id: tread_security
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Security/tread_security.rsi
+  dummyPrototype: ADTTreadSecurityChassis
+
+#Service
+- type: borgSubtype
+  parentBorgType: service
+  id: bartender_service
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Service/bartender_service.rsi
+  dummyPrototype: ADTBartenderServiceChassis
+
+- type: borgSubtype
+  parentBorgType: service
+  id: brobot_service
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Service/brobot_service.rsi
+  dummyPrototype: ADTBroBotServiceChassis
+
+- type: borgSubtype
+  parentBorgType: service
+  id: female_service
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Service/female_service.rsi
+  dummyPrototype: ADTFemaleServiceChassis
+
+- type: borgSubtype
+  parentBorgType: service
+  id: kerfus_service
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Service/cyborg_kerfus.rsi
+  dummyPrototype: ADTKerfusServiceChassis
+
+#Janitor
+- type: borgSubtype
+  parentBorgType: janitor
+  id: kerfus_janitor
+  sprite: ADT/Mobs/Silicon/Borgs/Borg_subtype/Janitor/cyborg_maid_kerfus.rsi
+  dummyPrototype: ADTKerfusJanitorChassis

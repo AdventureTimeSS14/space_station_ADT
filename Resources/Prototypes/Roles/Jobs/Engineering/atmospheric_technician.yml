@@ -25,7 +25,7 @@
   id: AtmosphericTechnicianGear
   equipment:
     eyes: ClothingEyesGlassesMeson
-    id: AtmosPDA
+    #id: AtmosPDA # ADT: different PDAs in loadouts
 # ADT-Tweak-start по причине того, что ассистент и остальной состав ИО спавнится с двумя поясами, если их выбрать в лоудауте
     # belt: ClothingBeltUtilityEngineering
 # ADT-Tweak-end

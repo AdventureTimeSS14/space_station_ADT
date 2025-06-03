@@ -1,0 +1,56 @@
+<DefaultWindow
+    x:Class="Content.Client.Lobby.UI.DiscordLinkWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="{Loc 'ui-lobby-discord-linc-title'}"
+    MinWidth="500"
+    MinHeight="270"
+    MaxWidth="650"
+    MaxHeight="300"
+    Resizable="False">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="10" Margin="10">
+
+        <!-- Статус -->
+        <RichTextLabel Name="StatusLabel"
+                       HorizontalExpand="True"
+                       VerticalExpand="False" />
+
+        <!-- Если не привязан -->
+        <BoxContainer Name="InstructionContainer"
+                      Orientation="Vertical"
+                      SeparationOverride="6"
+                      Visible="false">
+
+            <RichTextLabel Name="InstructionText"
+                           HorizontalExpand="True"
+                           VerticalExpand="True" />
+
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6" HorizontalExpand="True">
+                <Button Name="CopyUidButton"
+                        Text="{Loc 'ui-lobby-discord-linc-copy-button-uid'}"
+                        StyleClasses="Button"
+                        HorizontalExpand="True" />
+
+                <Button Name="OpenDiscordButton"
+                        Text="{Loc 'ui-lobby-discord-linc-open-channel'}"
+                        StyleClasses="Button"
+                        HorizontalExpand="True" />
+
+                <Button Name="CopyInstructionButton"
+                        Text="{Loc 'ui-lobby-discord-linc-copy-button-instruction'}"
+                        StyleClasses="Button"
+                        HorizontalExpand="True" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Если привязан -->
+        <BoxContainer Name="SuccessContainer"
+                      Orientation="Vertical"
+                      SeparationOverride="6"
+                      Visible="false"
+                      HorizontalExpand="True">
+            <RichTextLabel Name="SuccessRichText" HorizontalExpand="True" />
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>
