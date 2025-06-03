@@ -24,3 +24,11 @@ ent-ADTCrateNecropolisVampirismCrystal = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisVehicleLavabike = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Лавацикл
+
+ent-ADTCrateNecropolisCursedKatana = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Осколок проклятой катаны
+
+ent-ADTCrateNecropolisTrapAncientGoliath = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Ловушка, Древний Голиаф

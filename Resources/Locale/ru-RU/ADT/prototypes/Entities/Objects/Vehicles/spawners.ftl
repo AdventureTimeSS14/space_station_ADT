@@ -22,6 +22,6 @@ ent-ADTSpawnVehicleWheelchairFolded = кресло-каталка
     .desc = Спавнер
     .suffix = Спавнер, сложенная
 
-ent-ADTSpawnVehicleLavabike = лавабайк
+ent-ADTSpawnVehicleLavabike = лавацикл
     .desc = Спавнер
     .suffix = Спавнер

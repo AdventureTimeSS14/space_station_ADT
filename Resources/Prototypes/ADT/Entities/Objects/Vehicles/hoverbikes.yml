@@ -76,3 +76,4 @@
     northOverride: -0.1
     southOverride: 0.1
   - type: UnpoweredFlashlight
+  - type: AshStormImmune

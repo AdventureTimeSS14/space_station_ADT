@@ -10,6 +10,7 @@
       - sprite: ADT/Structures/Storage/Crates/necropolechest.rsi
         state: icon
   - type: RandomSpawner
+    rareChance: 0.4 #Tweak 0.4
     offset: 0
     prototypes:
       - ADTCrateNecropolisHeart
@@ -18,6 +19,7 @@
       - ADTCrateNecropolisVehicleLavabike
     rarePrototypes:
       - ADTCrateNecropolisVavilon
-      - ADTKatanacursedShard
+      - ADTCrateNecropolisCursedKatana #krisa, why here was shard but not crate with shard???
       - ADTCrateNecropolisVampirismCrystal
+      - ADTCrateNecropolisTrapAncientGoliath
     chance: 1

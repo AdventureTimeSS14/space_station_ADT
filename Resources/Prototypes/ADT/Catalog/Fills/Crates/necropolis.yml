@@ -61,3 +61,12 @@
   - type: StorageFill
     contents:
       - id: ADTVehicleLavabike
+
+- type: entity
+  id: ADTCrateNecropolisTrapAncientGoliath
+  parent: ADTCrateNecropolis
+  suffix: AncientGoliath
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobAncientGoliath
