@@ -1,27 +1,59 @@
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg" /></p>
+<p align="center">
+  <img alt="Space Station 14" width="650" src="https://github.com/CrimeMoot/Ganimed14/blob/master/Resources/Textures/_Ganimed/Logo/logo-ganimed.png" />
+</p>
 
-# Adventure Time: Space Station 14
+<div align="center">
 
-Space Station 14 это ремейк SS13, который работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
+  [![Discord](https://img.shields.io/discord/1203769510599856138?label=Join%20our%20Discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.com/invite/nCn5F3kNyH)
+  [![Wiki](https://img.shields.io/badge/Wiki-Explore%20Our%20Wiki-blue?style=for-the-badge)](https://wiki.backmen.ru/)
+  [![Steam](https://img.shields.io/badge/Steam-Play%20on%20Steam-blue?style=for-the-badge)](https://store.steampowered.com/app/1255460/Space_Station_14/)
+  [![Client](https://img.shields.io/badge/Download-Client-blue?style=for-the-badge)](https://spacestation14.io/about/nightlies/)
+  [![GitHub](https://img.shields.io/github/stars/crimemoot/ganimed14?style=for-the-badge&logo=github)](https://github.com/CrimeMoot/Ganimed14)
 
-Adventure Time - это проект русскоязычного сервера по Space Station 14, целью которого является полный перевод игры на русский язык, поддержка актуальных изменений из основного репозитория, а так же добавление собственных изменений по необходимости.
+</div>
 
-## Ссылки
-[Наш Discord](https://discord.gg/NY3KDNuH9r) | [Наша вики](https://wiki.adventurestation.space/Заглавная_страница) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
+<p align="center">
+  <img src="https://img.shields.io/github/commit-activity/y/crimemoot/ganimed14?style=flat-square" alt="GitHub commit activity">
+  <img src="https://img.shields.io/github/issues/crimemoot/ganimed14?style=flat-square" alt="GitHub Issues">
+  <img src="https://img.shields.io/github/issues-pr-closed/crimemoot/ganimed14?style=flat-square" alt="GitHub Closed PRs">
+</p>
 
-## Документация
-На официальном сайте предоставлена [документация](https://docs.spacestation14.io/), содержащая всю необходимую информацию о контенте SS14, движке, геймдизайне и многом другом. Там также предостаточно информации для начинающих разработчиков.
+---
 
-## Контрибьют
-Мы приветствуем взносы от любого желающего. Присоединяйтесь к нашему Discord, если хотите помочь. У нас есть список [задач](https://github.com/AdventureTimeSS14/space_station_ADT/issues), которые нужно решить, и каждый может их взять на себя. Не стесняйтесь просить о помощи!
-Просто убедитесь, что ваши изменения и запросы на принятие изменений соответствуют [руководству по участию](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
+## 🚀 О проекте
 
-## Сборка
-1. Клонируйте этот репозиторий локально.
-2. Запустите RUN_THIS.py для инициализации подмодулей и загрузки движка.
-3. Скомпилируйте проект с помощью команды dotnet build. 
+**Space Station 14** — это захватывающая ролевая игра, вдохновлённая культовой Space Station 13. 
+Погрузитесь в атмосферу космической станции, где каждое ваше действие может привести к неожиданным последствиям. 
+Наш проект предлагает:
 
-[Более подробные инструкции по запуску проекта.](https://docs.spacestation14.com/en/general-development/setup.html)
+- Уникальный геймплей, поддерживаемый целым рядом сообществ.
+- Интенсивное взаимодействие игроков в замкнутом пространстве станции.
+- Постоянное развитие благодаря движку [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанному на C#.
+
+---
+
+<p align="center">
+  <b>✨ Активность проекта</b>
+</p>
+<p align="center">
+  <i>Следите за динамикой проекта и вовлечённостью сообщества:</i>
+</p>
+
+<div align="center">
+
+![Активность PR](https://repobeats.axiom.co/api/embed/4ebb037939c72b15a842f7e154f3cba94e4bfa1a.svg "Repobeats analytics image")
+
+</div>
+
+---
+
+## 🌐 Участники проекта
+
+Этот проект невозможен без усилий нашего сообщества. Вот те, кто внёс наибольший вклад:
+
+[![Участники](https://contrib.rocks/image?repo=crimemoot/ganimed14)](https://github.com/crimemoot/ganimed14/graphs/contributors)
+
+---
 
 ## Лицензия
 Содержимое, добавленное в этот репозиторий после коммита ec1ea3b4a902ba253994b19f228af277dbd34f4e (`2 августа 2024 08:50:00 UTC`), распространяется по лицензии GNU Affero General Public License версии 3.0, если не указано иное. См. [LICENSE-AGPLv3](https://github.com/AdventureTimeSS14/space_station_ADT/blob/master/LICENSE-AGPLv3.txt).
