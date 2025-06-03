@@ -34,6 +34,7 @@
         - Basalt8
         - Basalt9
 
+      # Cvetochki huyochki
     - !type:BiomeDecalLayer
       allowedTiles:
         - FloorBasalt
@@ -69,6 +70,18 @@
         - ADTywflowers2
         - ADTywflowers3
         - ADTywflowers4
+
+# Cactusi chto bi ih zhrat'
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        frequency: 1.2
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - ADTLavalandCactusSpawner
 
     - !type:BiomeEntityLayer
       threshold: 0.95
