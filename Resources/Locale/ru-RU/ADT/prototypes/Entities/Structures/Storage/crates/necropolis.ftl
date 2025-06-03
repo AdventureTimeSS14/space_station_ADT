@@ -32,3 +32,7 @@ ent-ADTCrateNecropolisCursedKatana = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisTrapAncientGoliath = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Ловушка, Древний Голиаф
+
+ent-ADTCrateNecropolisMjollnir = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Мьелльнир

@@ -70,3 +70,12 @@
   - type: StorageFill
     contents:
       - id: MobAncientGoliath
+
+- type: entity
+  id: ADTCrateNecropolisMjollnir
+  parent: ADTCrateNecropolis
+  suffix: Mjollnir
+  components:
+  - type: StorageFill
+    contents:
+      - id: Mjollnir
