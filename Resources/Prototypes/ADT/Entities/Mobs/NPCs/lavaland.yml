@@ -246,6 +246,12 @@
         reagents:
         - ReagentId: NorepinephricAcid
           Quantity: 100
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 2
   - type: MeleeChemicalInjector
     transferAmount: 12
     solution: melee
@@ -302,7 +308,13 @@
       melee:
         reagents:
         - ReagentId: Licoxide
-          Quantity: 100
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 2
   - type: MeleeChemicalInjector
     transferAmount: 7
     solution: melee
