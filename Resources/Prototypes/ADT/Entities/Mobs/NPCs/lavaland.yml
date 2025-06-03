@@ -203,10 +203,10 @@
   id: ADTMobNightmareSpider
   components:
   - type: Sprite
+    sprite: ADT/Mobs/Animals/spiders.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nightmare_spider
-      sprite: ADT/Mobs/Animals/spiders.rsi
   - type: DamageStateVisuals
     states:
       Alive:
@@ -266,10 +266,10 @@
   id: ADTMobShockSpider
   components:
   - type: Sprite
+    sprite: ADT/Mobs/Animals/spiders.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: ice_spider
-      sprite: ADT/Mobs/Animals/spiders.rsi
   - type: DamageStateVisuals
     states:
       Alive:
