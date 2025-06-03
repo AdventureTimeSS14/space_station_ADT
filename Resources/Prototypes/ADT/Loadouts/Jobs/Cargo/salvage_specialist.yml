@@ -60,7 +60,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 108000 #50 часов
+      time: 180000 #50 часов
 
 - type: loadout
   id: ADTNeckSalvageSpecialistCCape
