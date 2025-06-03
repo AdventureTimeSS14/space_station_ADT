@@ -100,7 +100,7 @@
       visible: false
       map: [ "empty-icon" ]
   - type: UpgradeableGun
-    maxUpgradeCount: 1 # Tweak 1 > 2
+    maxUpgradeCount: 2 # Tweak 1 > 2
     whitelist:
       tags:
       - PKAUpgrade
