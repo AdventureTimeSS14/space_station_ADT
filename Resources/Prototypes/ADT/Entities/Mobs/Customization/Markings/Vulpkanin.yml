@@ -280,6 +280,42 @@
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: tiger_head
 
+- type: marking
+  id: ADTVulpkaninDamage1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-1
+
+- type: marking
+  id: ADTVulpkaninDamage2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-2
+
+- type: marking
+  id: ADTVulpkaninDamage3
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-3
+
+- type: marking
+  id: ADTVulpkaninDamage4
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: damage-4
+
 #Start-customization-Uma-ADT
 - type: marking
   id: ADTVulpkanin_skullBreast
@@ -680,7 +716,7 @@
   id: ADTVulpTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin, Human]
+  speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp
@@ -699,7 +735,7 @@
       state: vulp-tip
 
 - type: marking
-  id: ADTVulpTailWag
+  id: ADTVulpTailAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]
@@ -710,7 +746,7 @@
       state: vulp_wag-tip #fade
 
 - type: marking
-  id: ADTVulpTailWagTip
+  id: ADTVulpTailTipAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]
@@ -776,7 +812,7 @@
       state: fox-tip
 
 - type: marking
-  id: ADTVulpTailFoxWag
+  id: ADTVulpTailFoxAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]
@@ -787,7 +823,7 @@
       state: fox_wag-fade
 
 - type: marking
-  id: ADTVulpTailFoxWagTip
+  id: ADTVulpTailFoxTipAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]
@@ -807,7 +843,7 @@
       state: coyote
 
 - type: marking
-  id: ADTVulpTailCoyoteWag
+  id: ADTVulpTailCoyoteAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]
@@ -816,7 +852,7 @@
       state: coyote_wag
 
 - type: marking
-  id: ADTVulpTailCorgiWag
+  id: ADTVulpTailCorgiAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]
@@ -881,7 +917,7 @@
       state: fluffy
 
 - type: marking
-  id: ADTVulpTailDalmatianWag
+  id: ADTVulpTailDalmatianAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [VulpkaninSpecies]

@@ -20,8 +20,8 @@
   - type: Mech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов 
-        Blunt: 0.1
-        Slash: 0.1
+        Blunt: 0.25
+        Slash: 0.25
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0
@@ -52,7 +52,7 @@
   - type: MechOverload
     damage:
       types:
-        Heat: 20
+        Heat: 16
   - type: AccessReader
     access: [ ["Command"], ["Research"], ["Security"],["CentralCommand"] ]
   - type: Storage
@@ -175,14 +175,14 @@
   - type: Mech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.25
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.3
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
-    maxintegrity: 360
+    maxintegrity: 350
     baseState: durand
     openState: durand-open
     brokenState: durand-broken
@@ -337,9 +337,9 @@
   - type: Mech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.25
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.3
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
@@ -508,15 +508,15 @@
   - type: Mech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.25
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.3
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 450
+    maxintegrity: 385
     baseState: marauder
     openState: marauder-open
     brokenState: marauder-broken
@@ -551,7 +551,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -588,8 +588,8 @@
   - type: Mech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.05
-        Slash: 0.05
+        Blunt: 0.15
+        Slash: 0.15
         Piercing: 0.15
         Heat: 0.15
         Radiation: 0
@@ -659,15 +659,15 @@
   - type: Mech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов 
-        Blunt: 0.1
-        Slash: 0.1
+        Blunt: 0.25
+        Slash: 0.25
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
         Structural: 0.5
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
-    maxintegrity: 360
+    maxintegrity: 350
     baseState: ntgygax
     openState: ntgygax-open
     brokenState: ntgygax-broken
@@ -731,15 +731,15 @@
   - type: Mech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов 
-        Blunt: 0.1
-        Slash: 0.1
+        Blunt: 0.25
+        Slash: 0.25
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
         Structural: 0.5
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
-    maxintegrity: 360
+    maxintegrity: 350
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
@@ -804,15 +804,15 @@
   - type: Mech
     modifiers:
       coefficients: #Коэффициент для тяжелобронированных мехов
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.25
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.3
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
         Structural: 0.25
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
-    maxintegrity: 450
+    maxintegrity: 385
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
@@ -850,7 +850,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -891,8 +891,8 @@
   - type: Mech
     modifiers:
       coefficients: #коэффициенты для легкобронированных мехов 
-        Blunt: 0.1
-        Slash: 0.1
+        Blunt: 0.25
+        Slash: 0.25
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0

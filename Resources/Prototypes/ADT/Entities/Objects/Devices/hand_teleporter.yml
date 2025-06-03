@@ -1,0 +1,84 @@
+- type: entity
+  id: HandTeleporterAdmemeGateway
+  suffix: Admeme
+  parent: BaseItem
+  name: interdimensional teleporter
+  description: Allows you to open stable portal gates that are not limited by distance.
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+      color: "#585858"
+  - type: HandTeleporter
+    firstPortalPrototype: ADTPortalGatewayBlueAdmin
+    secondPortalPrototype: ADTPortalGatewayOrangeAdmin
+    allowPortalsOnDifferentGrids: true
+
+- type: entity
+  id: HandTeleporterAdmemeShadow
+  suffix: Admeme
+  parent: BaseItem
+  name: shadow teleporter
+  description: Allows you to open stable portal gates that are not limited by distance.
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+      color: "#4c09e9e8"
+  - type: HandTeleporter
+    firstPortalPrototype: ADTShadowPortal
+    secondPortalPrototype: ADTShadowPortal
+    allowPortalsOnDifferentGrids: true
+
+- type: entity
+  id: HandTeleporterAdmemeInvisible
+  suffix: Admeme
+  parent: BaseItem
+  name: Invisible teleporter
+  description: Allows you to open stable portal gates that are not limited by distance.
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+      color: "#7e7e7e88"
+  - type: HandTeleporter
+    firstPortalPrototype: ADTPortalInvisible
+    secondPortalPrototype: ADTPortalInvisible
+    allowPortalsOnDifferentGrids: true
+
+- type: entity
+  id: HandTeleporterAdmemeShadowAnomaly
+  suffix: Admeme
+  parent: BaseItem
+  name: shadow anomaly teleporter
+  description: Allows you to open stable portal gates that are not limited by distance.
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+      color: "#7e11a8"
+  - type: HandTeleporter
+    firstPortalPrototype: ADTPortalShadowAnomaly
+    secondPortalPrototype: ADTPortalShadowAnomaly
+    allowPortalsOnDifferentGrids: true
+
+- type: entity
+  id: HandTeleporterAdmemeSingularity
+  suffix: Admeme
+  parent: BaseItem
+  name: singularity teleporter
+  description: Allows you to open stable portal gates that are not limited by distance.
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+      color: "#3f0c53"
+  - type: HandTeleporter
+    firstPortalPrototype: ADTPortalSingularity
+    secondPortalPrototype: ADTPortalSingularity
+    allowPortalsOnDifferentGrids: true

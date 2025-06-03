@@ -1,0 +1,14 @@
+- type: loadout
+  id: LibrarianPDA
+  equipment:
+    id: LibrarianPDA
+
+- type: loadout
+  id: ADTMythologistPDA
+  equipment:
+    id: ADTMythologistPDA
+
+- type: loadout
+  id: ADTEthnologistPDA
+  equipment:
+    id: ADTEthnologistPDA

@@ -625,7 +625,7 @@
   id: UplinkNocturineChemistryBottle
   name: uplink-nocturine-chemistry-bottle-name
   description: uplink-nocturine-chemistry-bottle-desc
-  productEntity: NocturineChemistryBottle
+  productEntity: ChemistryBottleNocturine
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 3 # ADT-Tweak 4>3
@@ -1644,19 +1644,21 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkHardsuitSyndieElite
-  name: uplink-hardsuit-syndieelite-name
-  description: uplink-hardsuit-syndieelite-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 7
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkWearables
+#ADT tweak start
+# - type: listing
+#   id: UplinkHardsuitSyndieElite
+#   name: uplink-hardsuit-syndieelite-name
+#   description: uplink-hardsuit-syndieelite-desc
+#   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+#   discountCategory: rareDiscounts
+#   discountDownTo:
+#     Telecrystal: 7
+#   cost:
+#     Telecrystal: 12
+#   categories:
+#   - UplinkWearables
+#ADT tweak end
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -2157,3 +2159,16 @@
     whitelist:
     - Chef
     - Mime
+
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDeception

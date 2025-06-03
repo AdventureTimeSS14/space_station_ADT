@@ -30,3 +30,14 @@
       seedId: ADTmandarin
     - type: Sprite
       sprite: ADT/Objects/Specific/Hydroponics/mandarin.rsi
+
+# Пакет семян кофе
+- type: entity
+  parent: SeedBase
+  name: packet of coffee tree seeds
+  id: ADTCoffeeTreeSeeds
+  components:
+    - type: Seed
+      seedId: ADTCoffeeTree
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi

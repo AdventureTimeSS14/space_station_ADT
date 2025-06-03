@@ -44,7 +44,7 @@
     contents:
       - id: ADTMorphineBottle
       - id: ADTDyloveneBiomicineBottle
-      - id: EpinephrineChemistryBottle
+      - id: ChemistryBottleEpinephrine
       - id: ADTOmnizineBottle
 
 - type: entity

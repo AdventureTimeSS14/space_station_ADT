@@ -26,9 +26,9 @@ public enum SlotFlags
     LEGS = 1 << 13,
     FEET = 1 << 14,
     SUITSTORAGE = 1 << 15, // ADT-Slot-Start
-    UNDERWEART = 1 << 10,
-    UNDERWEARB = 1 << 10,
-    SOCKS = 1 << 10, // ADT-Slot-End
+    UNDERWEART = 1 << 16,
+    UNDERWEARB = 1 << 17,
+    SOCKS = 1 << 18, // ADT-Slot-End
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET

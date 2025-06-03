@@ -83,6 +83,12 @@
         key: Jitter
         time: 3.0
         type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 1.5
+        type: Add
+        refresh: false
       - !type:HealthChange
         damage:
           types:
@@ -898,6 +904,12 @@
           factor: 6
         - !type:ModifyBloodLevel
           amount: 6
+          # Start ADT tweak
+          conditions:
+          - !type:OrganType
+            type: Drask
+            shouldHave: false
+          # End ADT tweak
 
 - type: reagent
   id: Siderlac

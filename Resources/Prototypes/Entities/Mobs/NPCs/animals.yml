@@ -54,6 +54,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
@@ -250,7 +252,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEgg
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
@@ -259,6 +261,9 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: HTN # ADT tweak
+    rootTask: # ADT tweak
+      task: RuminantCompound # ADT tweak
 
 - type: entity
   parent: MobChicken
@@ -312,7 +317,7 @@
 
 - type: entity
   id: FoodEggChickenFertilized
-  parent: FoodEgg
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Chicken
   components:
   - type: Timer
@@ -401,6 +406,9 @@
     tags:
     - Trash
     - VimPilot
+  # ADT-Tweak
+  - type: MobCollision
+    enabled: false
   # - type: Destructible
   #   thresholds:
   #   - trigger:
@@ -421,6 +429,7 @@
     damage:
       types:
         Piercing: 0
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: glockroach
@@ -590,6 +599,7 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: SupermatterIgnore # ADT-Tweak
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -688,7 +698,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEgg
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
@@ -697,6 +707,9 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: HTN # ADT tweak
+    rootTask: # ADT tweak
+      task: RuminantCompound # ADT tweak
 
 - type: entity
   name: white duck #Quack
@@ -738,7 +751,7 @@
 
 - type: entity
   id: FoodEggDuckFertilized
-  parent: FoodEgg
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Duck
   components:
     - type: Timer
@@ -1792,6 +1805,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: Tag
     tags:
@@ -1847,6 +1862,7 @@
     languages:
       Mouse: Speak
       GalacticCommon: Understand
+  - type: SupermatterIgnore # ADT-Tweak
 # ADT-Tweak-end
 
 - type: entity
@@ -2076,6 +2092,7 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: frog
@@ -2451,6 +2468,7 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: SupermatterIgnore # ADT-Tweak
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive

@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by .redlis (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "gauze_lowerleg_l_digi",
+            "directions": 4
+        },
+        {
+            "name": "gauze_lowerleg_r_digi",
+            "directions": 4
+        },
+        {
+            "name": "gauze_upperleg_l_digi",
+            "directions": 4
+        },
+        {
+            "name": "gauze_upperleg_r_digi",
+            "directions": 4
+        }
+    ]
+}

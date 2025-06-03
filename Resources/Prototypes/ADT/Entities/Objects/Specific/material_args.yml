@@ -60,6 +60,7 @@
                     collection: GenericHit
             - actionsNeeds:
                 - Hit
+                - Disarm
                 - Hit
               comboEvent:
                 - !type:ComboMoreDamageToDownedEffect
