@@ -106,6 +106,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     {
         base.Initialize();
 
+        InitializeHaunting();
+        InitializeVessels();
+        InitializeControlAbilities();
+        InitializeHarmAbilities();
+        InitializeHelpAbilities();
+
         // Startup
         SubscribeLocalEvent<PhantomComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PhantomComponent, ComponentStartup>(OnStartup);
