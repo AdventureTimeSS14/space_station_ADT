@@ -1,0 +1,90 @@
+- type: entity
+  save: false
+  name: Urist McAegi
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAegi
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: HumanoidAppearance
+    species: Aegi
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - HeadTop
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2.5
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Aegi
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    scale: 1, 1.1
+  - type: Body
+    prototype: Aegi
+    requiredLegs: 2
+  - type: Stamina
+    critThreshold: 120
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1.35
+    weightlessFriction: 1
+    weightlessModifier: 1.2
+  - type: Temperature
+    heatDamageThreshold: 330
+    coldDamageThreshold: 250
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.03
+    heatDamage:
+      types:
+        Heat: 1.2
+  #Start ADT tweak
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.15
+    short: true
+    shortscale: 0.85
+  #End ADT tweak
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAegiDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Aegi
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

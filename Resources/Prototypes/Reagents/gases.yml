@@ -40,7 +40,29 @@
         conditions:
         - !type:OrganType
           type: Plant
-      # Convert Oxygen into CO2.
+      # Start SD tweak
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Aegi
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Aegi
+        ratios:
+          CarbonDioxide: 1.0
+          Oxygen: -1.5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Aegi
+          shouldHave: true
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation: -1.0
+      # End SD tweak
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType

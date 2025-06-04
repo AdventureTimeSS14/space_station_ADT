@@ -79,6 +79,20 @@
         conditions:
         - !type:OrganType
           type: Human
+      # Start SD tweak
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Aegi
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Aegi
+        ratios:
+          CarbonDioxide: 0.8
+          Pluoxium: -1.0
+      # End SD tweak
       - !type:Oxygenate
         factor: 8
         conditions:

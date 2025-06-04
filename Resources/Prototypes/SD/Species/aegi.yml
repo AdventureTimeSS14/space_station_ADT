@@ -1,0 +1,83 @@
+- type: species
+  id: Aegi
+  name: species-name-aegi
+  roundStart: true
+  prototype: MobHuman
+  sprites: MobAegiSprites
+  markingLimits: MobAegiMarkingLimits
+  dollPrototype: MobAegiDummy
+  skinColoration: HumanToned
+  description: "/ServerInfo/SD/SpeciesDescriptions/Aegi.xml"
+  pros:
+    - Слегка быстрее перемещаются без гравитации из-за развитого вестибулярного аппарата.
+    - Имеют повышенную выносливость.
+    - Лучше переносят холод, но не жару.
+    - Получают на 30% меньше урона радиацией.
+    - Получают на 10% меньше урона холодом.
+  special:
+    - Имеют нестандартные возрастные рамки (Молодые 40–100, Зрелые 101-180, Старые 181–250).
+  cons:
+    - Получают на 5% больше урона ушибами.
+    - Получают на 5% больше урона уколами.
+    - Получают на 5% больше урона ожогами.
+    - Получают на 20% больше урона удушьем.
+  defaultLanguages:
+    - GalacticCommon
+    - Sindarin
+  minAge: 40
+  maxAge: 250
+  oldAge: 181
+  youngAge: 100
+  uniqueLanguages:
+    - Sindarin
+
+- type: speciesBaseSprites
+  id: MobAegiSprites
+  sprites:
+    Special: MobHumanoidAnyMarking
+    Head: MobHumanHead
+    Hair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHumanTorso
+    Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
+    LArm: MobHumanLArm
+    RArm: MobHumanRArm
+    LHand: MobHumanLHand
+    RHand: MobHumanRHand
+    LLeg: MobHumanLLeg
+    RLeg: MobHumanRLeg
+    LFoot: MobHumanLFoot
+    RFoot: MobHumanRFoot
+
+- type: markingPoints
+  id: MobAegiMarkingLimits
+  points:
+    Special:
+      points: 0
+      required: false
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Snout:
+      points: 0
+      required: false
+    Tail:
+      points: 0
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ HumanLongEars ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
