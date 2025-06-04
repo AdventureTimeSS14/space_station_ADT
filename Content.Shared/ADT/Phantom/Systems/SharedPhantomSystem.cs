@@ -10,11 +10,6 @@ public abstract class SharedPhantomSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     /// <summary>
     /// Select phantom style (abilities pack)
     /// </summary>
