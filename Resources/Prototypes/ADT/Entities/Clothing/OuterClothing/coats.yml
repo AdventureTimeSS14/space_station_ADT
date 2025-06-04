@@ -425,6 +425,8 @@
     sprite: ADT/Clothing/OuterClothing/Coats/explorer_bomber.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/explorer_bomber.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
