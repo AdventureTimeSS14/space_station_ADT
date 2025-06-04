@@ -1,5 +1,8 @@
+using Content.Shared.Movement.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
+using Robust.Shared.Timing;
 using System;
 using System.Reflection;
 
@@ -11,6 +14,31 @@ namespace Content.Server.ADT.Projectile.Systems;
 public sealed class ComponentCopierSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ProjectileComponent, ComponentStartup>(OnProjectileStartup);
+    }
+
+    /// <summary>
+    /// При старте Projectile, копируем IgnoreCrawlingComponent, если он есть у владельца.
+    /// </summary>
+    private void OnProjectileStartup(EntityUid uid, ProjectileComponent component, ComponentStartup args)
+    {
+        if (!_entityManager.TryGetComponent(component.Shooter, out TransformComponent? shooterXform))
+            return;
+
+        var shooter = component.Shooter;
+
+        if (!_entityManager.EntityExists(shooter))
+            return;
+
+        // Копируем IgnoreCrawlingComponent, если есть
+        CopyComponent<IgnoreCrawlingComponent>(shooter, uid);
+    }
 
     /// <summary>
     /// Копирует компонент типа T с сущности source на target.
