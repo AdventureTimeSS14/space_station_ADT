@@ -2,7 +2,7 @@ ent-ADTFoodCactusBerry = водяница
     .desc = Эта ягода хранит в себе последние осколки жизни Лаваленда.
 
 ent-ADTLavaCactusOne = лава-кактус
-    .desc = Кактус, что научился синтезировать воду из лавы и других грунтовых примесей планеты.
+    .desc = Кактус, что научился синтезировать воду из всех доступных источников.
     .suffix = Структура
 ent-ADTLavaCactusTwo = { ent-ADTLavaCactusOne }
     .desc = { ent-ADTLavaCactusOne.desc }
@@ -28,4 +28,4 @@ ent-ADTLavaCactusFourEmpty = { ent-ADTLavaCactusOne }
     .suffix = { ent-ADTLavaCactusOneEmpty.suffix }
 
 ent-ADTLavalandCactusSpawner = спавнер лава-кактусов
-    .desc = это самый обычный спавнер, не обращайте на него внимания, он вам не навредит, он вас не обидит, он вас не съест(к моему сожалению).
+    .desc = это самый обычный спавнер, не обращайте на него внимания, он вам не навредит, он вас не обидит, он вас не съест (к моему сожалению).

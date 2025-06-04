@@ -34,4 +34,4 @@ ghost-role-information-taxibot-name = таксибот
 ghost-role-information-taxibot-description = Развозите экипаж станции с ветерком!
 
 ent-ADTVehicleLavabike = лавацикл
-    .desc = Этот монстр поможет вам покорить лаваленд. Очень безопасный.
+    .desc = Этот монстр поможет вам покорить Лаваленд. Очень безопасный.
