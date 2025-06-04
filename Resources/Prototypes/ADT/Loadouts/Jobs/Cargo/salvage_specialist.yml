@@ -54,13 +54,13 @@
       time: 1080000 #300 часов
 
 - type: loadoutEffectGroup
-  id: ADTSalvageSpecialistBomber50hour
+  id: ADTSalvageSpecialistEBomber5hour
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 180000 #50 часов
+      time: 18000 #5 часов
 
 - type: loadout
   id: ADTNeckSalvageSpecialistCCape
@@ -143,6 +143,6 @@
   id: ADTNeckSalvageSpecialistEBomber
   effects:
   - !type:GroupLoadoutEffect
-   proto: ADTSalvageSpecialistBomber50hour
+   proto: ADTSalvageSpecialistEBomber5hour
   equipment:
     outerClothing: ADTClothingOuterExplorerBomber
