@@ -26,7 +26,7 @@
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.5
+        Structural: 1.0
     maxintegrity: 300
     baseState: gygax
     openState: gygax-open
@@ -41,10 +41,10 @@
       - ADTMechEquipmentSec
   - type: MeleeWeapon
     hidden: true
-    attackRate: 1.2
+    attackRate: 1.0
     damage:
       types:
-        Blunt: 30 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 60
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
@@ -98,7 +98,7 @@
         Heat: 0.75
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.75
+        Structural: 1.0
     # ADT end
     maxintegrity: 340
     baseState: clarke
@@ -118,7 +118,7 @@
     damage:
       types:
         Blunt: 15 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
-        Structural: 15
+        Structural: 30
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.0
     baseSprintSpeed: 3.6
@@ -181,7 +181,7 @@
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.25
+        Structural: 1.0
     maxintegrity: 350
     baseState: durand
     openState: durand-open
@@ -196,11 +196,11 @@
       - ADTMechEquipmentSec
   - type: MeleeWeapon
     hidden: true
-    attackRate: 1.2
+    attackRate: 1.0
     damage:
       types:
-        Blunt: 50 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
-        Structural: 100
+        Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 75
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 2.7
@@ -266,7 +266,7 @@
         Heat: 0.75
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.75
+        Structural: 1.0
     # ADT end
     maxintegrity: 285
     baseState: odysseus
@@ -343,7 +343,7 @@
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.25
+        Structural: 1.0
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 420
     baseState: phazon
@@ -361,7 +361,7 @@
     attackRate: 1.2
     damage:
       types:
-        Blunt: 30 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
         Structural: 60
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
@@ -429,7 +429,7 @@
         Heat: 0.75
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.75
+        Structural: 1.0
     # ADT end
     maxintegrity: 315
     baseState: ripleymkii
@@ -449,6 +449,7 @@
     damage:
       types:
         Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 20 #ADT tweak 0 to 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.875
     baseSprintSpeed: 3.375
@@ -514,7 +515,7 @@
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.25
+        Structural: 1.0
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 385
     baseState: marauder
@@ -530,11 +531,11 @@
       - ADTMechEquipmentSec
   - type: MeleeWeapon
     hidden: true
-    attackRate: 1.5
+    attackRate: 1.2
     damage:
       types:
-        Blunt: 50 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
-        Structural: 100
+        Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 75
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3.6
@@ -594,7 +595,7 @@
         Heat: 0.15
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.15
+        Structural: 1.0
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 600
     baseState: seraph
@@ -665,7 +666,7 @@
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.5
+        Structural: 1.0
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 350
     baseState: ntgygax
@@ -737,7 +738,7 @@
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.5
+        Structural: 1.0
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 350
     baseState: darkgygax
@@ -810,7 +811,7 @@
         Heat: 0.25
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.25
+        Structural: 1.0
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 385
     baseState: mauler
@@ -826,11 +827,11 @@
     maxEquipmentAmount: 5
   - type: MeleeWeapon
     hidden: true
-    attackRate: 1.5
+    attackRate: 1.2
     damage:
       types:
-        Blunt: 50 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
-        Structural: 100
+        Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 75
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3.6
@@ -897,7 +898,7 @@
         Heat: 0.5
         Radiation: 0
         Caustic: 0.1
-        Structural: 0.5
+        Structural: 1.0
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 300
     baseState: paddy
@@ -912,11 +913,11 @@
       - ADTMechEquipmentSec
   - type: MeleeWeapon
     hidden: true
-    attackRate: 1.2
+    attackRate: 1.0
     damage:
       types:
-        Blunt: 40 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
-        Structural: 15
+        Blunt: 25 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 25
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 4.1
