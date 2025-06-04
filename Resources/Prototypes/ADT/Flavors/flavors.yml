@@ -287,3 +287,111 @@
   id: ADTTomatoMeatballPasta
   flavorType: base
   description: flavor-base-adttomatomeatballpasta
+
+# Желешки начало
+- type: flavor
+  id: ADTGummySlime
+  flavorType: complex
+  description: flavor-complex-adtgummyslime
+
+- type: flavor
+  id: ADTGummyArachnid
+  flavorType: complex
+  description: flavor-complex-adtgummyarachnid
+
+- type: flavor
+  id: ADTGummyArkana
+  flavorType: complex
+  description: flavor-complex-adtgummyarkana
+
+- type: flavor
+  id: ADTGummyCischi
+  flavorType: complex
+  description: flavor-complex-adtgummycischi
+
+- type: flavor
+  id: ADTGummyDrask
+  flavorType: complex
+  description: flavor-complex-adtgummydrask
+
+- type: flavor
+  id: ADTGummyFelinid
+  flavorType: complex
+  description: flavor-complex-adtgummyfelinid
+
+- type: flavor
+  id: ADTGummyHuman
+  flavorType: complex
+  description: flavor-complex-adtgummyhuman
+
+- type: flavor
+  id: ADTGummyIPC
+  flavorType: complex
+  description: flavor-complex-adtgummyipc
+
+- type: flavor
+  id: ADTGummyKidan
+  flavorType: complex
+  description: flavor-complex-adtgummykidan
+
+- type: flavor
+  id: ADTGummyMoth
+  flavorType: complex
+  description: flavor-complex-adtgummymoth
+
+- type: flavor
+  id: ADTGummyMurine
+  flavorType: complex
+  description: flavor-complex-adtgummymurine
+
+- type: flavor
+  id: ADTGummyNovakid
+  flavorType: complex
+  description: flavor-complex-adtgummynovakid
+
+- type: flavor
+  id: ADTGummyResomi
+  flavorType: complex
+  description: flavor-complex-adtgummyresomi
+
+- type: flavor
+  id: ADTGummySareng
+  flavorType: complex
+  description: flavor-complex-adtgummysareng
+
+- type: flavor
+  id: ADTGummyShadekin
+  flavorType: complex
+  description: flavor-complex-adtgummyshadekin
+
+- type: flavor
+  id: ADTGummyTayaran
+  flavorType: complex
+  description: flavor-complex-adtgummytayaran
+
+- type: flavor
+  id: ADTGummyUnath
+  flavorType: complex
+  description: flavor-complex-adtgummyunath
+
+- type: flavor
+  id: ADTGummyUrsus
+  flavorType: complex
+  description: flavor-complex-adtgummyursus
+
+- type: flavor
+  id: ADTGummyVox
+  flavorType: complex
+  description: flavor-complex-adtgummyvox
+
+- type: flavor
+  id: ADTGummyVulpkanin
+  flavorType: complex
+  description: flavor-complex-adtgummyvulpkanin
+
+- type: flavor
+  id: ADTGummySlimeGolden
+  flavorType: complex
+  description: flavor-complex-adtgummyslimegolden
+
+# Желешки конец

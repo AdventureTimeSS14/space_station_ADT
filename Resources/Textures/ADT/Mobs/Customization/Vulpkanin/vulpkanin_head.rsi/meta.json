@@ -58,9 +58,25 @@
         {
             "name": "tiger_face",
             "directions": 4
-        },
+        }, 
         {
             "name": "tiger_head",
+            "directions": 4
+        },
+        {
+            "name": "damage-1",
+            "directions": 4
+        },
+        {
+            "name": "damage-2",
+            "directions": 4
+        },
+        {
+            "name": "damage-3",
+            "directions": 4
+        },
+        {
+            "name": "damage-4",
             "directions": 4
         },
         {
