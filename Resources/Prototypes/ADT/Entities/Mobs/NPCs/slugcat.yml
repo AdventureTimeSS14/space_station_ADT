@@ -4,12 +4,16 @@
   id: ADTMobSlugCatCreek
   description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
   components:
+  - type: SlimecatsSleepAction
   - type: Sprite
     drawdepth: SmallMobs
     sprite: ADT/Mobs/slug-cat.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: creek
+    - map: ["enum.StateSlimcatVisual.Sleep"]
+      visible: false
+      state: creek-rest
     - map: [ "mask" ]
   - type: Fixtures
     fixtures:
@@ -116,6 +120,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: holy
+    - map: ["enum.StateSlimcatVisual.Sleep"]
+      visible: false
+      state: holy-rest
   - type: DamageStateVisuals
     states:
       Alive:
@@ -136,6 +143,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: monk
+    - map: ["enum.StateSlimcatVisual.Sleep"]
+      visible: false
+      state: monk-rest
   - type: DamageStateVisuals
     states:
       Alive:
@@ -155,6 +165,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: sonfariel
+    - map: ["enum.StateSlimcatVisual.Sleep"]
+      visible: false
+      state: sonfariel-rest
   - type: DamageStateVisuals
     states:
       Alive:
@@ -174,6 +187,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: spear-master
+    - map: ["enum.StateSlimcatVisual.Sleep"]
+      visible: false
+      state: spear-master-rest
   - type: DamageStateVisuals
     states:
       Alive:
@@ -193,6 +209,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: technician
+    - map: ["enum.StateSlimcatVisual.Sleep"]
+      visible: false
+      state: technician-rest
   - type: DamageStateVisuals
     states:
       Alive:
