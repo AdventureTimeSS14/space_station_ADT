@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "icon",
+      "name": "icon-prot",
       "delays": [
         [
           0.2,
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "name": "icon-on",
+      "name": "icon-of",
       "delays": [
         [
           0.2,
