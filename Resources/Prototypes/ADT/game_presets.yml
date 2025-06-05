@@ -45,7 +45,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -64,6 +64,6 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
