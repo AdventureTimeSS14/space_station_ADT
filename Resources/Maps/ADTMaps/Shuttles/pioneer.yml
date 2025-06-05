@@ -476,8 +476,8 @@ entities:
 - proto: ActionToggleInternals
   entities:
   - uid: 65
-    mapInit: true
-    paused: true
+    # mapInit: true
+    # paused: true
     components:
     - type: Transform
       parent: 64

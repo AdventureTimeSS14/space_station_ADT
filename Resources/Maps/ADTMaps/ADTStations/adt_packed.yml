@@ -6335,8 +6335,8 @@ entities:
     - type: SpreaderGrid
     - type: SupermatterSpreaderGrid
   - uid: 13582
-    mapInit: true
-    paused: true
+    # mapInit: true
+    # paused: true
     components:
     - type: MetaData
       name: solution - food
@@ -6354,8 +6354,8 @@ entities:
       containerName: food
       container: 13581
   - uid: 13584
-    mapInit: true
-    paused: true
+    # mapInit: true
+    # paused: true
     components:
     - type: MetaData
       name: solution - food
@@ -34450,8 +34450,8 @@ entities:
       pos: 74.46565,-6.1472054
       parent: 2
   - uid: 13583
-    mapInit: true
-    paused: true
+    # mapInit: true
+    # paused: true
     components:
     - type: Transform
       parent: 13579
@@ -35087,8 +35087,8 @@ entities:
 - proto: ClothingUniformJumpsuitOperative
   entities:
   - uid: 13581
-    mapInit: true
-    paused: true
+    # mapInit: true
+    # paused: true
     components:
     - type: Transform
       parent: 13579
