@@ -8118,3 +8118,25 @@ Entries:
           25 до 75 единиц., type: Tweak}
     time: '2025-06-04T00:10:55Z'
     id: 1025
+  - author: QWERTY
+    changes:
+      - {message: 'Добавлена трость тринадцатого совета! Она имеет режим для битвы,
+          которая может шокировать любого. Данная трость будет появляться у АВД прямо
+          в руках в каждой смены', type: Add}
+    time: '2025-06-05T07:43:30Z'
+    id: 1026
+  - author: Отдел маппинга ВП
+    changes:
+      - {message: Добавлены все изменения карт за период с 5 мая по 5 июня, type: Tweak}
+      - {message: Обновлен Аспид, type: Tweak}
+      - {message: Обновлен Багель, type: Tweak}
+      - {message: Обновлен Кластер Легаси, type: Tweak}
+      - {message: Обновлена Кибериада, type: Tweak}
+      - {message: Обновлена Джемини, type: Tweak}
+      - {message: Обновлен Керберос, type: Tweak}
+      - {message: Обновлен Кило, type: Tweak}
+      - {message: Обновлена Мета, type: Tweak}
+      - {message: Обновлен Пэкед, type: Tweak}
+      - {message: Обновлены шаттл "Пионер" утилизаторов и челнок на Лавалэнд, type: Tweak}
+    time: '2025-06-05T07:54:47Z'
+    id: 1027
