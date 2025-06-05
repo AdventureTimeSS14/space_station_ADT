@@ -600,3 +600,8 @@
 
 - type: Tag
   id: ADTGummy
+
+ # Mobs?
+
+- type: Tag
+  id: ADTProjectileIgnoreCrawling
