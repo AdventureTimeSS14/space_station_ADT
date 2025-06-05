@@ -14,6 +14,7 @@ public sealed record PlayerInfo(
     bool Antag,
     SponsorInfo? Sponsor,
     RoleTypePrototype RoleProto,
+    LocId? Subtype,
     int SortWeight,
     NetEntity? NetEntity,
     NetUserId SessionId,

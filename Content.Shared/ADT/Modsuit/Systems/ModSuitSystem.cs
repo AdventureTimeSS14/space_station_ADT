@@ -553,9 +553,9 @@ public sealed class ModSuitSystem : EntitySystem
         {
             if (!_mindSystem.TryGetMind(user, out var _, out var mind))
                 return;
-            if (mind.Session == null)
-                return;
-            _audioSystem.PlayGlobal(comp.FullyEnabledSound, mind.Session);
+            // if (mind.Session == null)
+            //     return;
+            // _audioSystem.PlayGlobal(comp.FullyEnabledSound, mind.Session);
         }
         if (!TryComp<PowerCellDrawComponent>(modSuit.Owner, out var celldraw))
             return;
