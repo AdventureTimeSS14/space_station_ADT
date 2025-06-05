@@ -1,0 +1,19 @@
+- type: entity
+  name: lavaland cactus spawn
+  suffix: Plants
+  id: ADTLavalandCactusSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/spaceshroom.rsi
+          state: structure
+    - type: RandomSpawner
+      prototypes:
+        - ADTLavaCactusOne
+        - ADTLavaCactusTwo
+        - ADTLavaCactusThree
+        - ADTLavaCactusFour
+      chance: 0.6
+      offset: 0.0

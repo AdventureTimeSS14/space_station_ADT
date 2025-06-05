@@ -1,0 +1,220 @@
+#Yagoda
+
+- type: entity
+  name: cactusberry
+  parent: BaseItem
+  id: ADTFoodCactusBerry
+  description: This berry looks very watery
+  components:
+  - type: Item
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - fruity
+      - jelly
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cactusberry.rsi
+    state: cactus_fruit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Water
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 15
+  - type: StaticPrice
+    price: 150
+  - type: Tag
+    tags:
+    - Fruit
+
+# Cactus s yagodoi i ego raznovidnosti
+- type: entity
+  name: lavacactus
+  parent: BaseStructure
+  id: ADTLavaCactusOne
+  suffix: Structure
+  description: A cluster of wild cactuses, thats grow on lavaland and give some live to other ones
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus1
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+    - type: InteractionOutline
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: LavaCactusOneGather
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Wood
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTLavaCactusOne
+  id: ADTLavaCactusTwo
+  components:
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: LavaCactusTwoGather
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus2
+
+- type: entity
+  parent: ADTLavaCactusOne
+  id: ADTLavaCactusThree
+  components:
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: LavaCactusThreeGather
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus3
+
+- type: entity
+  parent: ADTLavaCactusOne
+  id: ADTLavaCactusFour
+  components:
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: LavaCactusFourGather
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus4
+
+# Cactus bez yagodi i ego vidi
+- type: entity
+  name: lavacactus
+  parent: BaseStructure
+  id: ADTLavaCactusOneEmpty
+  suffix: Structure
+  description: A cluster of wild cactuses, thats grow on lavaland and give some live to other ones
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus1p
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+    - type: InteractionOutline
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Wood
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTLavaCactusOneEmpty
+  id: ADTLavaCactusTwoEmpty
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus2p
+
+- type: entity
+  parent: ADTLavaCactusOneEmpty
+  id: ADTLavaCactusThreeEmpty
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus3p
+
+- type: entity
+  parent: ADTLavaCactusOneEmpty
+  id: ADTLavaCactusFourEmpty
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Specific/lavacactus.rsi
+      state: cactus4p
+
+# Drop s kaktusa s yagodami i ego vidov
+- type: entityLootTable
+  id: LavaCactusOneGather
+  entries:
+  - id: ADTFoodCactusBerry
+    amount: 1
+    maxAmount: 1
+  - id: ADTLavaCactusOneEmpty
+    amount: 1
+    maxAmount: 1
+
+- type: entityLootTable
+  id: LavaCactusTwoGather
+  entries:
+  - id: ADTFoodCactusBerry
+    amount: 1
+    maxAmount: 1
+  - id: ADTLavaCactusTwoEmpty
+    amount: 1
+    maxAmount: 1
+
+- type: entityLootTable
+  id: LavaCactusThreeGather
+  entries:
+  - id: ADTFoodCactusBerry
+    amount: 1
+    maxAmount: 1
+  - id: ADTLavaCactusThreeEmpty
+    amount: 1
+    maxAmount: 1
+
+- type: entityLootTable
+  id: LavaCactusFourGather
+  entries:
+  - id: ADTFoodCactusBerry
+    amount: 1
+    maxAmount: 1
+  - id: ADTLavaCactusFourEmpty
+    amount: 1
+    maxAmount: 1

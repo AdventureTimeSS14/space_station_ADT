@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise https://github.com/ss220-space/Paradise/tree/master220",
+    "states": [
+        {
+            "name": "ice_spider",
+            "directions": 4
+        },
+        {
+            "name": "ice_spider_dead"
+        },
+        {
+            "name": "nightmare_spider",
+            "directions": 4
+        },
+        {
+            "name": "nightmare_spider_dead"
+        }
+    ] 
+}

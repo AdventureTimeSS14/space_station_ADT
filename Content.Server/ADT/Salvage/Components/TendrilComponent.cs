@@ -22,7 +22,7 @@ public sealed partial class TendrilComponent : Component
     public float ChasmDelay = 5f;
 
     [DataField]
-    public int ChasmRadius = 2;
+    public int ChasmRadius = 4;
 
     [DataField(required: true)]
     public List<EntProtoId> Spawns;

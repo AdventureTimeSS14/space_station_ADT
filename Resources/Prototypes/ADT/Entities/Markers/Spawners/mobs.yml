@@ -21,13 +21,15 @@
       - state: green
       - state: ai
   - type: RandomSpawner
-    rareChance: 0.6
+    rareChance: 0.4 #Tweak 0.6 > 0.4
     prototypes:
 #      - ADTAbominationHypertrophied
 #      - ADTAbominationBloated
       - MobWatcherLavaland
       - MobGoliath
       - ADTMobLegion
+      - ADTMobNightmareSpider
+      - ADTMobShockSpider
     rarePrototypes:
       - MobAncientGoliath
       - ADTRandomTendrilSpawner

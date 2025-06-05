@@ -1,0 +1,233 @@
+- type: decal
+  id: ADTfernybush1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: fernybush_1
+
+- type: decal
+  id: ADTfernybush2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: fernybush_2
+
+- type: decal
+  id: ADTfernybush3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: fernybush_3
+
+- type: decal
+  id: ADTfirstbush1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: firstbush_1
+
+- type: decal
+  id: ADTfirstbush2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: firstbush_2
+
+- type: decal
+  id: ADTfirstbush3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: firstbush_3
+
+- type: decal
+  id: ADTfirstbush4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: firstbush_4
+
+- type: decal
+  id: ADTfullgrass1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: fullgrass_1
+
+- type: decal
+  id: ADTfullgrass2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: fullgrass_2
+
+- type: decal
+  id: ADTfullgrass3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: fullgrass_3
+
+- type: decal
+  id: ADTgenericbush1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: genericbush_1
+
+- type: decal
+  id: ADTgenericbush2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: genericbush_2
+
+- type: decal
+  id: ADTgenericbush3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: genericbush_3
+
+- type: decal
+  id: ADTgenericbush4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: genericbush_4
+
+- type: decal
+  id: ADTgrassybush1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: grassybush_1
+
+- type: decal
+  id: ADTgrassybush2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: grassybush_2
+
+- type: decal
+  id: ADTgrassybush3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: grassybush_3
+
+- type: decal
+  id: ADTgrassybush4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: grassybush_4
+
+- type: decal
+  id: ADThellbush
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: hell_bush
+
+- type: decal
+  id: ADTsparsegrass1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: sparsegrass_1
+
+- type: decal
+  id: ADTsparsegrass2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: sparsegrass_2
+
+- type: decal
+  id: ADTsparsegrass3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: sparsegrass_3
+
+- type: decal
+  id: ADTywflowers1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: ywflowers_1
+
+- type: decal
+  id: ADTywflowers2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: ywflowers_2
+
+- type: decal
+  id: ADTywflowers3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: ywflowers_3
+
+- type: decal
+  id: ADTywflowers4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Flora/hell_flora.rsi
+    state: ywflowers_4
