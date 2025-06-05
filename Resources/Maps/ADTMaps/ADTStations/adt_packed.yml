@@ -6335,8 +6335,6 @@ entities:
     - type: SpreaderGrid
     - type: SupermatterSpreaderGrid
   - uid: 13582
-    # mapInit: true
-    # paused: true
     components:
     - type: MetaData
       name: solution - food
@@ -6354,8 +6352,6 @@ entities:
       containerName: food
       container: 13581
   - uid: 13584
-    # mapInit: true
-    # paused: true
     components:
     - type: MetaData
       name: solution - food
@@ -8771,7 +8767,7 @@ entities:
       pos: 42.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11175.774
+      secondsUntilStateChange: -11237.726
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8967,7 +8963,7 @@ entities:
       pos: 24.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4924.5522
+      secondsUntilStateChange: -4986.504
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34450,8 +34446,6 @@ entities:
       pos: 74.46565,-6.1472054
       parent: 2
   - uid: 13583
-    # mapInit: true
-    # paused: true
     components:
     - type: Transform
       parent: 13579
@@ -34459,8 +34453,6 @@ entities:
       solutions: null
       containers:
       - food
-    - type: EmitSoundOnCollide
-      nextSound: -79372.3777704
     - type: Physics
       canCollide: False
     - type: ContainerContainer
@@ -35087,8 +35079,6 @@ entities:
 - proto: ClothingUniformJumpsuitOperative
   entities:
   - uid: 13581
-    # mapInit: true
-    # paused: true
     components:
     - type: Transform
       parent: 13579
@@ -35096,8 +35086,6 @@ entities:
       solutions: null
       containers:
       - food
-    - type: EmitSoundOnCollide
-      nextSound: -79372.3777704
     - type: Physics
       canCollide: False
     - type: ContainerContainer
@@ -41781,7 +41769,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -37387.562
+      secondsUntilStateChange: -37449.516
       state: Closing
   - uid: 6232
     components:
@@ -59634,7 +59622,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -37887.73
+      secondsUntilStateChange: -37949.684
       state: Closing
   - uid: 8874
     components:
@@ -70486,6 +70474,13 @@ entities:
     components:
     - type: Transform
       pos: 25.5,7.5
+      parent: 2
+- proto: SpawnPointMusician
+  entities:
+  - uid: 13693
+    components:
+    - type: Transform
+      pos: 21.5,-11.5
       parent: 2
 - proto: SpawnPointObserver
   entities:
