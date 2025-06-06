@@ -83,6 +83,23 @@
     proto: SDJanitorialTacticalMaidDress150hours
   equipment:
     gloves: ClothingHandsTacticalMaidGloves
+
+- type: loadout
+  id: SDJanitorTacticalJanimaidBelt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SDJanitorialTacticalMaidDress150hours
+  equipment:
+    belt: SDClothingBeltTacticalMaidFilled
+
+- type: loadout
+  id: SDJanitorTacticalJanimaidShoes
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SDJanitorialTacticalMaidDress150hours
+  equipment:
+    shoes: SDClothingShoesTacticalGaloshes
+
  #SD Tweak end   
 
 # PDA

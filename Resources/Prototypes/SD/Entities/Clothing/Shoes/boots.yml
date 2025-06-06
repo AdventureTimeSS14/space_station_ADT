@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesGaloshes
+  id: SDClothingShoesTacticalGaloshes
+  name: tactical galoshes
+  description: idi nahui.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Shoes/tacticalmaid.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Shoes/tacticalmaid.rsi

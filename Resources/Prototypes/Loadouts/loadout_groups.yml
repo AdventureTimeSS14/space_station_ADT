@@ -474,6 +474,20 @@
   - JanitorWintercoat
 
 - type: loadoutGroup
+  id: JanitorShoes
+  name: loadout-group-janitor-shoes
+  loadouts:
+  - JanitorGaloshes
+  - SDJanitorTacticalJanimaidShoes
+
+- type: loadoutGroup
+  id: JanitorBelt
+  name: loadout-group-janitor-belt
+  loadouts:
+  - JanitorBeltie
+  - SDJanitorTacticalJanimaidBelt
+
+- type: loadoutGroup
   id: JanitorPlunger
   name: loadout-group-janitor-plunger
   minLimit: 0

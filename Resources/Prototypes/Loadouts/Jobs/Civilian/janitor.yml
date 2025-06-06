@@ -46,6 +46,16 @@
   equipment:
     outerClothing: ClothingOuterWinterJani
 
+# SD Tweak
+- type: loadout
+  id: JanitorBeltie
+  equipment:
+    belt: ClothingBeltJanitorFilled
+
+- type: loadout
+  id: JanitorGaloshes
+  equipment:
+    shoes: ClothingShoesGaloshes
 # Misc
 - type: loadout
   id: JanitorGoldenPlunger
