@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseItem
+  id: ADTHoloCigar
+  name: holo-cigar
+  description: Become the man who sold the world.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/holocigar.rsi
+    state: icon
+    scale: 0.8, 0.8
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
+    heldPrefix: unlit
+  - type: Appearance
+  - type: BurnStateVisuals
+  - type: HoloCigar
+  - type: StaticPrice
+    price: 300
+  - type: ClothingGrantComponent
+    component:
+    - type: TheManWhoSoldTheWorld

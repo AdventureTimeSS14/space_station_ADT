@@ -9,6 +9,7 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/white_footwraps.rsi #спрайты от floppo4ka
+    slots: [FEET, gloves]
   - type: Construction
     graph: ADTFootWrapsWhite
     node: WrapsWhite
@@ -27,6 +28,7 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/black_footwraps.rsi #спрайты от floppo4ka
+    slots: [FEET, gloves]
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
@@ -42,6 +44,7 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/blackhigh_footwraps.rsi #спрайты от floppo4ka
+    slots: [FEET, gloves]
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
@@ -57,6 +60,7 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/whitehigh_footwraps.rsi #спрайты от floppo4ka
+    slots: [FEET, gloves]
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
@@ -72,6 +76,7 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/brown_footwraps.rsi #спрайты от floppo4ka
+    slots: [FEET, gloves]
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
@@ -87,6 +92,7 @@
     state: icon
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Specific/brownhigh_footwraps.rsi #спрайты от floppo4ka
+    slots: [FEET, gloves]
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
