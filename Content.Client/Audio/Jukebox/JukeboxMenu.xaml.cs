@@ -27,6 +27,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     /// True if playing, false if paused.
     /// </summary>
     public event Action<bool>? OnPlayPressed;
+    public event Action? OnLoopPressed;
     public event Action? OnStopPressed;
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
@@ -50,6 +51,7 @@ public sealed partial class JukeboxMenu : FancyWindow
         };
 
         PlayButton.OnPressed += _ => OnPlayPressed?.Invoke(!_playState);
+        LoopButton.OnPressed += _ => OnLoopPressed?.Invoke();
         StopButton.OnPressed += _ => OnStopPressed?.Invoke();
         PlaybackSlider.OnReleased += _ => SetTime?.Invoke(PlaybackSlider.Value);
         SearchBar.OnTextChanged += _ => FilterSongs();
@@ -71,6 +73,11 @@ public sealed partial class JukeboxMenu : FancyWindow
     {
         SetTime?.Invoke(PlaybackSlider.Value);
         _lockTimer = 0.5f;
+    }
+
+    public void SetLoopButton(bool loop)
+    {
+        LoopButton.Text = Loc.GetString(loop ? "jukebox-menu-buttonloop-on" : "jukebox-menu-buttonloop-off");
     }
 
     /// <summary>

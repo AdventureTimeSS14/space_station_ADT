@@ -36,6 +36,11 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             }
         };
 
+        _menu.OnLoopPressed += () =>
+        {
+            SendMessage(new JukeboxToggleLoopMessage());
+        };
+
         _menu.OnStopPressed += () =>
         {
             SendMessage(new JukeboxStopMessage());
@@ -57,11 +62,12 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             return;
 
         _menu.SetAudioStream(jukebox.AudioStream);
+        _menu.SetLoopButton(jukebox.Loop);
 
         if (_protoManager.TryIndex(jukebox.SelectedSongId, out var songProto))
         {
             var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
-            _menu.SetSelectedSong(songProto.Name, (float) length.TotalSeconds);
+            _menu.SetSelectedSong(songProto.Name, (float)length.TotalSeconds);
         }
         else
         {
