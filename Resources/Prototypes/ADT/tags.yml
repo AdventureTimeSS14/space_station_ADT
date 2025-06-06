@@ -512,6 +512,9 @@
   id: ADTTeaPack
 
 - type: Tag
+  id: ADTYupiPack
+
+- type: Tag
   id: ADTFullRiotShitmadeShield
 
 - type: Tag
