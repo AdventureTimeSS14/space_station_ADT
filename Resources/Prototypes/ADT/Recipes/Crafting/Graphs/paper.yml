@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: PaperMask
+  id: ADTPaperMask
   start: start
   graph:
 
@@ -161,7 +161,7 @@
             - tool: Drawing
 
 - type: constructionGraph
-  id: PaperCrane
+  id: ADTPaperCrane
   start: start
   graph:
   - node: start
@@ -178,7 +178,7 @@
     entity: ADTPaperCrane
 
 - type: constructionGraph
-  id: PaperShip
+  id: ADTPaperShip
   start: start
   graph:
   - node: start
@@ -193,20 +193,3 @@
         doAfter: 4
   - node: done
     entity: ADTPaperShip
-
-- type: constructionGraph
-  id: PaperAirplane
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: done
-      steps:
-      - tag: Paper
-        name: "бумагу"
-        icon:
-          sprite: Objects/Misc/bureaucracy.rsi
-          state: paper
-        doAfter: 3
-  - node: done
-    entity: ADTPaperAirplane

@@ -98,7 +98,7 @@
 
 - type: entity
   parent: BaseItem
-  id: BaseOrigami
+  id: ADTBaseOrigami
   abstract: true
   components:
   - type: Appearance
@@ -152,7 +152,7 @@
 
 - type: entity
   id: ADTPaperCrane
-  parent: BaseOrigami
+  parent: ADTBaseOrigami
   name: paper crane
   description: A paper crane.
   components:
@@ -166,7 +166,7 @@
 
 - type: entity
   id: ADTPaperShip
-  parent: BaseOrigami
+  parent: ADTBaseOrigami
   name: paper ship
   description: A paper ship.
   components:
@@ -176,39 +176,4 @@
     - state: ship
   - type: Construction
     graph: PaperShip
-    node: done
-
-- type: entity
-  id: ADTPaperAirplane
-  parent: BaseOrigami
-  name: paper airplane
-  description: A paper airplane.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Misc/papers.rsi
-    layers:
-    - state: airplane
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeCircle
-          radius: 0.2
-        density: 5
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
-  - type: ThrowingAngle
-    angle: -90
-  - type: LandAtCursor
-  - type: Construction
-    graph: PaperAirplane
     node: done

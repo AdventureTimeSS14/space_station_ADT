@@ -1,7 +1,7 @@
 - type: construction
   name: paper mask
-  id: PaperMask
-  graph: PaperMask
+  id: ADTPaperMask
+  graph: ADTPaperMask
   startNode: start
   targetNode: CompletePaperMaskHeart
   category: construction-category-clothing
@@ -13,8 +13,8 @@
 
 - type: construction
   name: paper crane
-  id: PaperCrane
-  graph: PaperCrane
+  id: ADTPaperCrane
+  graph: ADTPaperCrane
   startNode: start
   targetNode: done
   category: construction-category-misc
@@ -26,8 +26,8 @@
 
 - type: construction
   name: paper ship
-  id: PaperShip
-  graph: PaperShip
+  id: ADTPaperShip
+  graph: ADTPaperShip
   startNode: start
   targetNode: done
   category: construction-category-misc
@@ -37,15 +37,3 @@
     sprite: ADT/Objects/Misc/papers.rsi
     state: ship
 
-- type: construction
-  name: paper airplane
-  id: PaperAirplane
-  graph: PaperAirplane
-  startNode: start
-  targetNode: done
-  category: construction-category-misc
-  objectType: Item
-  description: A paper airplane.
-  icon:
-    sprite: ADT/Objects/Misc/papers.rsi
-    state: airplane
