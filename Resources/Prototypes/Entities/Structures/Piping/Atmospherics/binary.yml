@@ -88,6 +88,12 @@
   - type: GuideHelp
     guides:
     - Pumps
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -153,6 +159,12 @@
     - type: GuideHelp
       guides:
       - Pumps
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -190,6 +202,12 @@
     - type: GuideHelp
       guides:
       - PassiveGate
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -246,6 +264,12 @@
     - type: GuideHelp
       guides:
       - ManualValve
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -313,6 +337,12 @@
   - type: GuideHelp
     guides:
     - SignalValve
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -350,6 +380,14 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasVentPump
