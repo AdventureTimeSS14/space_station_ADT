@@ -29,25 +29,13 @@ public sealed class PhantomVesselsUIController : UIController//, IOnStateChanged
 
     private PhantomVesselsMenu? _menu;
 
-    public override void Initialize()
-    {
-
-        EntityManager.EventBus.SubscribeEvent<RequestPhantomVesselMenuEvent>(EventSource.Network, this, OnRequestMenu);
-        EntityManager.EventBus.SubscribeEvent<PopulatePhantomVesselMenuEvent>(EventSource.Network, this, OnPopulateRequest);
-
-    }
-
-    private void OnRequestMenu(RequestPhantomVesselMenuEvent ev)
-    {
-        ToggleStylesMenu(ev);
-    }
-
-    private void OnPopulateRequest(PopulatePhantomVesselMenuEvent ev)
+    public void Populate(PopulatePhantomVesselMenuEvent ev)
     {
         if (_menu != null)
             _menu.Populate(new RequestPhantomVesselMenuEvent(ev.Uid, ev.Vessels));
     }
-    private void ToggleStylesMenu(RequestPhantomVesselMenuEvent ev)
+
+    public void ToggleMenu(RequestPhantomVesselMenuEvent ev)
     {
         if (_menu == null)
         {
@@ -85,7 +73,7 @@ public sealed class PhantomVesselsUIController : UIController//, IOnStateChanged
         if (_menu == null)
             return;
 
-        _menu.Dispose();
+        _menu.Close();
         _menu = null;
     }
 

@@ -9,6 +9,7 @@ using Robust.Client.Player;
 using Content.Shared.Bible.Components;
 
 namespace Content.Client.ADT.Phantom;
+
 public sealed class ShowHauntedIconsSystem : EquipmentHudSystem<ShowHauntedIconsComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -24,8 +25,6 @@ public sealed class ShowHauntedIconsSystem : EquipmentHudSystem<ShowHauntedIcons
     private void OnGetStatusIconsEvent(EntityUid uid, PhantomHolderComponent haunted, ref GetStatusIconsEvent args)
     {
         var ent = _player.LocalEntity;
-        if (ent == null)
-            return;
 
         if (HasComp<ShowAntagIconsComponent>(ent) ||
             HasComp<PhantomComponent>(ent) ||

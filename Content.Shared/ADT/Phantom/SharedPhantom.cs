@@ -76,7 +76,7 @@ public sealed partial class GhostHealActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class PuppeterActionEvent : InstantActionEvent
+public sealed partial class PhantomOathActionEvent : InstantActionEvent
 {
 }
 
@@ -175,10 +175,10 @@ public sealed partial class EctoplasmHitscanHitEvent : EntityEventArgs
 #endregion
 
 #region Radial Menu
-    /// <summary>
-    /// This event carries list of style prototypes and entity - the source of request. This class is a part of code which is responsible for using RadialUiController.
-    /// </summary>
-    [Serializable, NetSerializable]
+/// <summary>
+/// This event carries list of style prototypes and entity - the source of request. This class is a part of code which is responsible for using RadialUiController.
+/// </summary>
+[Serializable, NetSerializable]
 public sealed partial class RequestPhantomStyleMenuEvent : EntityEventArgs
 {
     public readonly List<string> Prototypes = new();

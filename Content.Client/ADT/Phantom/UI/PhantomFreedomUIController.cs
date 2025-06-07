@@ -5,6 +5,7 @@ using Robust.Client.UserInterface.Controllers;
 using Content.Client.ADT.Phantom.UI;
 using Content.Shared.ADT.Phantom;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.UserInterface.Systems.Phantom;
 
@@ -12,24 +13,11 @@ namespace Content.Client.UserInterface.Systems.Phantom;
 public sealed class PhantomFreedomUIController : UIController//, IOnStateChanged<GameplayState>
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     private PhantomFreedomMenu? _menu;
 
-    public override void Initialize()
-    {
-
-        EntityManager.EventBus.SubscribeEvent<RequestPhantomFreedomMenuEvent>(EventSource.Network, this, OnRequestMenu);
-    }
-
-    private void OnRequestMenu(RequestPhantomFreedomMenuEvent ev)
-    {
-        ToggleStylesMenu(ev);
-    }
-
-    private void ToggleStylesMenu(RequestPhantomFreedomMenuEvent ev)
+    public void ToggleMenu(List<EntProtoId> prototypes)
     {
         if (_menu == null)
         {
@@ -38,7 +26,7 @@ public sealed class PhantomFreedomUIController : UIController//, IOnStateChanged
             _menu.OnClose += OnWindowClosed;
             _menu.OnOpen += OnWindowOpen;
             _menu.OnSelectFreedom += OnSelectFreedom;
-            _menu.Populate(ev);
+            _menu.Populate(prototypes);
 
             _menu.OpenCentered();
         }
@@ -66,7 +54,7 @@ public sealed class PhantomFreedomUIController : UIController//, IOnStateChanged
         if (_menu == null)
             return;
 
-        _menu.Dispose();
+        _menu.Close();
         _menu = null;
     }
 

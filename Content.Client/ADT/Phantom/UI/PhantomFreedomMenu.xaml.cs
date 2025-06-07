@@ -33,11 +33,11 @@ public sealed partial class PhantomFreedomMenu : RadialMenu
         _spriteSystem = _entManager.System<SpriteSystem>();
     }
 
-    public void Populate(RequestPhantomFreedomMenuEvent args)
+    public void Populate(List<EntProtoId> prototypes)
     {
         var parent = FindControl<RadialContainer>("Main");
 
-        foreach (var protoId in args.Prototypes)
+        foreach (var protoId in prototypes)
         {
             var proto = _proto.Index(protoId);
 
