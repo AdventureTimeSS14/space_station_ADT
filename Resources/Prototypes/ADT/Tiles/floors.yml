@@ -46,3 +46,48 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorDigitalRed
+  name: adt-tiles-digital-red-floor
+  sprite: /Textures/ADT/Tiles/digitalred.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorDigitalBlue
+  name: adt-tiles-digital-blue-floor
+  sprite: /Textures/ADT/Tiles/digitalblue.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorDigitalOff
+  name: adt-tiles-digital-off-floor
+  sprite: /Textures/ADT/Tiles/digitaloff.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  #canCrowbar: true
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000

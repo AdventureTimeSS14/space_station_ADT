@@ -341,6 +341,14 @@
   - type: IdCard
     jobTitle: job-name-therapist
 
+- type: entity
+  parent: MedicalIDCard
+  id: ADTTraumatologistIDCard
+  name: traumatologist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-traumatologist
+
 # Atmospheric Technician
 
 - type: entity
@@ -517,8 +525,6 @@
   - type: IdCard
     jobTitle: job-name-ecologist
 
-
-
 - type: entity
   parent: LibrarianIDCard
   id: ADTMythologistIDCard
@@ -604,3 +610,23 @@
   components:
   - type: IdCard
     jobTitle: job-name-field-doctor
+
+# reserch director
+
+- type: entity
+  parent: RDIDCard
+  id: ADTRDIDCard
+  name: reserch director ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-real-reserch-director
+
+# chief medical officer
+
+- type: entity
+  parent: CMOIDCard
+  id: ADTCMOIDCard
+  name: chief medical officer ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-real-chief-medical-officer

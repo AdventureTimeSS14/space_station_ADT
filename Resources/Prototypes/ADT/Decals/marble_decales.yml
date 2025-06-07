@@ -1,8 +1,6 @@
 - type: decal
   id: ADTmarBox
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_box
@@ -10,8 +8,6 @@
 - type: decal
   id: ADTmarbleCornerNw
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_corner_nw
@@ -19,8 +15,6 @@
 - type: decal
   id: ADTmarbleCornerNe
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_corner_ne
@@ -28,8 +22,6 @@
 - type: decal
   id: ADTmarbleCornerSe
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_corner_se
@@ -37,8 +29,6 @@
 - type: decal
   id: ADTmarbleCornerSw
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_corner_sw
@@ -46,8 +36,6 @@
 - type: decal
   id: ADTmarbleEndE
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_end_e
@@ -55,8 +43,6 @@
 - type: decal
   id: ADTmarbleEndS
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_end_s
@@ -64,8 +50,6 @@
 - type: decal
   id: ADTmarbleEndN
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_end_n
@@ -73,8 +57,6 @@
 - type: decal
   id: ADTmarbleEndW
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_end_w
@@ -82,8 +64,6 @@
 - type: decal
   id: ADTmarbleInnerNe
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_inner_ne
@@ -91,8 +71,6 @@
 - type: decal
   id: ADTmarbleInnerNw
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_inner_nw
@@ -100,8 +78,6 @@
 - type: decal
   id: ADTmarbleInnerSe
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_inner_se
@@ -109,8 +85,6 @@
 - type: decal
   id: ADTmarbleInnerSw
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_inner_sw
@@ -118,8 +92,6 @@
 - type: decal
   id: ADTmarbleLineE
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_line_e
@@ -127,8 +99,6 @@
 - type: decal
   id: ADTmarbleLineS
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_line_s
@@ -136,8 +106,6 @@
 - type: decal
   id: ADTmarbleLineW
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_line_w
@@ -145,8 +113,6 @@
 - type: decal
   id: ADTmarbleLineN
   tags: ["marble"]
-  snapCardinals: true
-  defaultSnap: false
   sprite:
     sprite: ADT/Decals/marble/marble_decals.rsi
     state: marble_line_n

@@ -21,6 +21,7 @@
       species:
       - Resomi
       - Vox
+      - Shadekin
   # ADT RESTRICT End
   weight: 10
   startingGear: HoSGear

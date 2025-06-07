@@ -463,6 +463,14 @@
   - type: Pda
     id: ADTTherapistIDCard
 
+- type: entity
+  parent: MedicalPDA
+  id: ADTTraumatologistPDA
+  name: traumatologist PDA
+  components:
+  - type: Pda
+    id: ADTTraumatologistIDCard
+
 # Atmospherics Technician
 
 - type: entity
@@ -726,3 +734,22 @@
   - type: Pda
     id: ADTFieldDoctorIDCard
 
+# reserch director
+
+- type: entity
+  parent: RnDPDA
+  id: ADTRDPDA
+  name: reserch director PDA
+  components:
+  - type: Pda
+    id: ADTRDIDCard
+
+# chief medical officer
+
+- type: entity
+  parent: CMOPDA
+  id: ADTCMOPDA
+  name: chief medical officer PDA
+  components:
+  - type: Pda
+    id: ADTCMOIDCard
