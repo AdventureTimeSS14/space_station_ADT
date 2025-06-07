@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: Moth
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -154,6 +156,8 @@
   components:
   - type: HumanoidAppearance
     species: Moth
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Inventory
     speciesId: moth
     femaleDisplacements:

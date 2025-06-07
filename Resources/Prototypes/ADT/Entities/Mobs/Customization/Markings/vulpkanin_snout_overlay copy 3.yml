@@ -1,0 +1,26 @@
+- type: marking
+  id: ADTVulpkaninTongue
+  bodyPart: SnoutOverlay
+  markingCategory: SnoutOverlay
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_snout_overlay.rsi
+      state: vulpkanin_breath_tongue
+
+- type: marking
+  id: ADTVulpkaninTongueFast
+  bodyPart: SnoutOverlay
+  markingCategory: SnoutOverlay
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_snout_overlay.rsi
+      state: vulpkanin_breath_tongue_fast
+
+- type: marking
+  id: ADTVulpkaninTongueSlow
+  bodyPart: SnoutOverlay
+  markingCategory: SnoutOverlay
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: /Textures/ADT/Mobs/Customization/Vulpkanin/vulpkanin_snout_overlay.rsi
+      state: vulpkanin_breath_tongue_slow

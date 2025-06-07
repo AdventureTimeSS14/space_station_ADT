@@ -47,6 +47,7 @@
   id: MobShadekinSprites
   sprites:
     Head: MobShadekinHead
+    SnoutOverlay: MobHumanoidAnyMarking
     Snout: MobShadekinAnyMarking
     HeadTop: MobShadekinAnyMarking
     HeadSide: MobShadekinAnyMarking
@@ -76,6 +77,9 @@
       points: 1
       required: true
       defaultMarkings: [TailShadekin]
+    SnoutOverlay:
+      points: 1
+      required: false
     HeadTop:
       points: 1
       required: true
