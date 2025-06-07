@@ -1,0 +1,102 @@
+<controls1:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:robust="clr-namespace:Robust.Client.UserInterface.Controls"
+    Title="▌ M I N I - C O M M A N D  ∷  C О N S О L Е ▐"
+    MinSize="900 800">
+
+    <PanelContainer Margin="10" VerticalExpand="True" HorizontalExpand="True">
+        <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="10" HorizontalExpand="True" VerticalExpand="True">
+
+            <!-- Заголовок -->
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinHeight="70">
+                <Label Text="🖥 SYSTEM CORE INTERFACE :: v1.04"
+                        Align="Center"
+                        StyleClasses="LabelHeading font-larger" />
+            </BoxContainer>
+
+            <!-- Основной экран -->
+            <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
+
+                    <!-- Строки статуса -->
+                    <Label Text="> SYSTEM STATUS: ONLINE ⚡" FontColorOverride="lime" Margin="0 0 0 4" />
+                    <Label Text="> CONNECTION: SECURE 🔒" FontColorOverride="aqua" Margin="0 0 0 4" />
+                    <Label Text="> DEVICE: SYNCED ☑" FontColorOverride="orange" Margin="0 0 0 6" />
+
+                    <!-- Декоративные индикаторы -->
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 8">
+                        <Label Text="⬤ CPU" FontColorOverride="lime" Margin="6"/>
+                        <Label Text="⬤ RAM" FontColorOverride="green" Margin="6"/>
+                        <Label Text="⬤ SSD" FontColorOverride="cyan" Margin="6"/>
+                        <Label Text="⬤ NET" FontColorOverride="yellow" Margin="6"/>
+                    </BoxContainer>
+
+                    <!-- Индикаторы загрузки -->
+
+                    <PanelContainer Margin="0 0 0 5">
+                        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                            <Label Text="● Power" FontColorOverride="lime" Margin="5" />
+                            <Label Text="● Net" FontColorOverride="aqua" Margin="5" />
+                            <Label Text="● HDD" FontColorOverride="orange" Margin="5" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Поле ввода -->
+                    <PanelContainer Name="InputPanel" Margin="0 0 0 4">
+                        <TextEdit Name="CommandInput"
+                                HorizontalExpand="True"
+                                VerticalExpand="False"
+                                MinHeight="35" />
+                    </PanelContainer>
+
+                    <!-- Разделитель -->
+                    <PanelContainer MinHeight="1" Margin="0 0" />
+
+                    <!-- Кнопка -->
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
+                        <Button Name="ExecuteButton"
+                                Text="▶ Execute"
+                                ToolTip="Execute command chain"
+                                Modulate="lightgreen"/>
+                    </BoxContainer>
+
+                    <!--
+                        <PanelContainer MinHeight="2" HorizontalExpand="True" Margin="0 0 0 2" Modulate="gray">
+                            <Label Text="╔═════════════════════════════════════╗" Align="Center" FontColorOverride="darkgray"/>
+                        </PanelContainer>
+                        <PanelContainer Margin="0 4">
+                            <Label Text="▄▄▄████ SYSTEM MONITOR ████▄▄▄" FontColorOverride="darkgray" Align="Center"/>
+                        </PanelContainer>
+                        <PanelContainer MinHeight="2" HorizontalExpand="True" Margin="0 2 0 0" Modulate="gray">
+                            <Label Text="╚═════════════════════════════════════╝" Align="Center" FontColorOverride="darkgray"/>
+                        </PanelContainer>
+                    -->
+
+                    <!-- Область вывода с рамками -->
+                    <PanelContainer Name="OutputPanel" VerticalExpand="True" HorizontalExpand="True" Margin="0 0 0 5">
+
+                        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" Margin="5 0">
+                            <RichTextLabel Name="OutputLabel"
+                                           HorizontalExpand="True"
+                                           VerticalExpand="True"
+                                           Modulate="lightgreen" />
+                        </ScrollContainer>
+
+                    </PanelContainer>
+
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- Нижняя панель -->
+            <PanelContainer HorizontalExpand="True" MinHeight="30" Margin="5 0 5 0">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
+                    <Label Text="⌨ CMD_OS v1.04" FontColorOverride="gray"/>
+                    <Label Text="📚 Maintained by Schrödinger Systems" FontColorOverride="gray"/>
+                    <Label Text="📦 AUTO-SAVE: ON" FontColorOverride="green" HorizontalExpand="True"/>
+                </BoxContainer>
+            </PanelContainer>
+
+        </BoxContainer>
+    </PanelContainer>
+</controls1:FancyWindow>
