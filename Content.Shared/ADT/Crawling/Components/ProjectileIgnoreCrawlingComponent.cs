@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Projectiles;
+namespace Content.Shared.ADT.Crawling.Components;
 
 [RegisterComponent]
 public sealed partial class ProjectileIgnoreCrawlingComponent : Component
