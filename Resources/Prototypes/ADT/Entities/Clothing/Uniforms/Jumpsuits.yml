@@ -1499,6 +1499,20 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/explorer.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformsJumpsuitWhiteAdminGod
+  name: white-god-suit-namе
+  description: white-god-suit-desc
+  suffix: Неснимаемый
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_admin_god_suit.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_admin_god_suit.rsi
+    equippedState: equipped-INNERCLOTHING
+  - type: Unremoveable
 # Dutch jumpsuit
 
 - type: entity

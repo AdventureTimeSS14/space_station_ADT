@@ -91,6 +91,24 @@
 
 - type: entity
   parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootCloudGod
+  name: god shoes
+  description: Elegant shoes on a high heels. Made by company "Modeling Agency Dar-Vaxed".
+  suffix: Неснимаемый
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/cloudGod.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Objects/Misc/cloudGod.rsi
+    equippedState: equipped-FEET
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
   id: ADTClothingShoesShaleBrealVulp
   name: shale shoes
   description: Very stylish pair of boots, made from fine leather.

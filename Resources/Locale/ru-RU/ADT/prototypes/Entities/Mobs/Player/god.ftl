@@ -11,3 +11,6 @@ ent-MobForgottenGodAnnounce = { ent-MobForgottenGodBase }
     .desc = { ent-MobForgottenGodBase.desc }
 
 forgotten-has-risen = Целостность пространства и времени нарушена... Из бездонной червоточины Нечто пробралось в наш мир.
+
+ent-ADTGodSpawn = Бог
+    .desc = Создатель всего.

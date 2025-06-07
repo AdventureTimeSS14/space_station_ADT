@@ -442,6 +442,10 @@ ent-ADTInfantrymanTUSSPUniform = униформа космодесантника
     .suffix = { "СССП" }
 
 ent-ADTClothingUniformJumpsuitExplorer = комбинезон исследователя
+    .desc = Стандартный комбинезон шахтёра НТ. От него пахнет... Пеплом?
+
+ent-ADTClothingUniformsJumpsuitWhiteAdminGod = белая мантия
+    .desc = Белая мантия сделанная из облаков
     .desc = Стандартный комбинезон шахтёра NanoTrasen. От него пахнет... Пеплом?
 
 

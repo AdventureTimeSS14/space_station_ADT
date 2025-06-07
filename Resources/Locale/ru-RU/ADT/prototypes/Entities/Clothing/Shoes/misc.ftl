@@ -19,6 +19,9 @@ ent-ADTEmpressOfLightShoes = туфли Императрицы света
     .suffix = Хеллоуин
     .desc = Величественные туфельки.
 
+ent-ADTClothingFootCloudGod = облако
+    .desc = Мягкое облако
+
 ent-ADTClothingShoesShaleBrealVulp = сланцы
    .suffix = "Бить вульп, Conjurer"
    .desc = "Божественные сланцы отшлёпавшие ни одну вульпу."
