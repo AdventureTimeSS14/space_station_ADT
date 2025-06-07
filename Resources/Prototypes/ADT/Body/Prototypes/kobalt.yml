@@ -4,18 +4,18 @@
   root: torso
   slots:
     head:
-      part: HeadKobolt
+      part: ADTHeadKobolt
       connections:
       - torso
       organs:
         brain: OrganHumanBrain #как у reptilian
         eyes: OrganHumanEyes #как у reptilian
     torso:
-      part: TorsoKobolt
+      part: ADTTorsoKobolt
       organs:
         heart: ADTOrganReptilianHeart #как у reptilian
         lungs: OrganHumanLungs #как у reptilian
-        stomach: OrganKoboltStomach
+        stomach: ADTOrganKoboltStomach #как у reptilian
         liver: OrganAnimalLiver #как у reptilian
         kidneys: OrganHumanKidneys #как у reptilian
       connections:
@@ -24,26 +24,26 @@
       - right leg
       - left leg
     right arm:
-      part: RightArmKobolt
+      part: ADTRightArmKobolt
       connections:
       - right hand
     left arm:
-      part: LeftArmKobolt
+      part: ADTLeftArmKobolt
       connections:
       - left hand
     right hand:
-      part: RightHandKobolt
+      part: ADTRightHandKobolt
     left hand:
-      part: LeftHandKobolt
+      part: ADTLeftHandKobolt
     right leg:
-      part: RightLegKobolt
+      part: ADTRightLegKobolt
       connections:
       - right foot
     left leg:
-      part: LeftLegKobolt
+      part: ADTLeftLegKobolt
       connections:
       - left foot
     right foot:
-      part: RightFootKobolt
+      part: ADTRightFootKobolt
     left foot:
-      part: LeftFootKobolt
+      part: ADTLeftFootKobolt

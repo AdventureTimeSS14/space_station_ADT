@@ -9,15 +9,15 @@
       - torso
       organs:
         brain: OrganHumanBrain
-        eyes: OrganDraskEyes
-        heart: OrganDraskHeart
+        eyes: ADTOrganDraskEyes
+        heart: ADTOrganDraskHeart
     torso:
       part: ADTTorsoDrask
       organs:
-        lungs: OrganDraskLungs
-        stomach: OrganDraskInnards
+        lungs: ADTOrganDraskLungs
+        stomach: ADTOrganDraskInnards
         liver: ADTOrganDraskLiver
-        kidneys: OrganDraskKidneys
+        kidneys: ADTOrganDraskKidneys
       connections:
       - right arm
       - left arm

@@ -1,7 +1,7 @@
 # Simple Station
 
 - type: entity
-  id: BaseIPCOrgan
+  id: ADTBaseIPCOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -20,8 +20,8 @@
           Quantity: 10
 
 - type: entity
-  id: OrganIPCBrain
-  parent: BaseIPCOrgan
+  id: ADTOrganIPCBrain
+  parent: ADTBaseIPCOrgan
   name: positronic brain
   description: "The source of as much controversy as the existence of the soul."
   components:
@@ -38,8 +38,8 @@
   - type: Brain
 
 - type: entity
-  id: OrganIPCEyes
-  parent: BaseIPCOrgan
+  id: ADTOrganIPCEyes
+  parent: ADTBaseIPCOrgan
   name: robotic eyes
   description: "01001001 00100000 01110011 01100101 01100101 00100000 01111001 01101111 01110101 00100001"
   components:
@@ -50,8 +50,8 @@
   - type: Organ
 
 - type: entity
-  id: OrganIPCTongue
-  parent: BaseIPCOrgan
+  id: ADTOrganIPCTongue
+  parent: ADTBaseIPCOrgan
   name: vocal modulator
   description: "A vocal modulator, used to produce speech."
   components:
@@ -60,8 +60,8 @@
   - type: Organ
 
 - type: entity
-  id: OrganIPCEars
-  parent: BaseIPCOrgan
+  id: ADTOrganIPCEars
+  parent: ADTBaseIPCOrgan
   name: "sonic receptors"
   description:
   components:
@@ -70,8 +70,8 @@
   - type: Organ
 
 - type: entity
-  id: OrganIPCPump
-  parent: BaseIPCOrgan
+  id: ADTOrganIPCPump
+  parent: ADTBaseIPCOrgan
   name: micro pump
   description: "A micro pump, used to circulate coolant."
   components:

@@ -4,14 +4,14 @@
   root: torso
   slots:
     head:
-      part: HeadUrsus
+      part: ADTHeadUrsus
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoHuman
+      part: ADTTorsoUrsus
       connections:
       - right_arm
       - left_arm
@@ -24,26 +24,26 @@
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
     right_arm:
-      part: RightArmUrsus
+      part: ADTRightArmUrsus
       connections:
       - right_hand
     left_arm:
-      part: LeftArmUrsus
+      part: ADTLeftArmUrsus
       connections:
       - left_hand
     right_hand:
-      part: RightHandUrsus
+      part: ADTRightHandUrsus
     left_hand:
-      part: LeftHandUrsus
+      part: ADTLeftHandUrsus
     right_leg:
-      part: RightLegUrsus
+      part: ADTRightLegUrsus
       connections:
       - right_foot
     left_leg:
-      part: LeftLegUrsus
+      part: ADTLeftLegUrsus
       connections:
       - left_foot
     right_foot:
-      part: RightFootUrsus
+      part: ADTRightFootUrsus
     left_foot:
-      part: LeftFootUrsus
+      part: ADTLeftFootUrsus
