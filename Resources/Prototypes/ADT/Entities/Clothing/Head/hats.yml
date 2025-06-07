@@ -689,3 +689,20 @@
     sprite: ADT/Clothing/Head/Hats/old_fedora.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/old_fedora.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadDemonicHornsDeer
+  name: demonic deer horns
+  description: A horns of radio demon. Essh...
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/demonic_deer_horns.rsi
+    color: "#4e4e4e"
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/demonic_deer_horns.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#4e4e4e"

@@ -1,0 +1,9 @@
+- type: speechVerb
+  id: ADTRadioBroadcasting
+  name: chat-speech-verb-name-radio
+  speechVerbStrings:
+  - chat-speech-verb-radio-1
+  - chat-speech-verb-radio-2
+  - chat-speech-verb-radio-3
+  - chat-speech-verb-radio-4
+  - chat-speech-verb-radio-5
