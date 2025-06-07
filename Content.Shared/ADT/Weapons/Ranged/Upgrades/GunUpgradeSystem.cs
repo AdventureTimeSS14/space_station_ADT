@@ -13,6 +13,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
+using Content.Shared.ADT.Crawling.Components;
 
 namespace Content.Shared.Weapons.Ranged.Upgrades;
 
@@ -42,6 +43,8 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<GunUpgradeComponentsComponent, GunShotEvent>(OnDamageGunShotComps);
         SubscribeLocalEvent<GunUpgradeVampirismComponent, GunShotEvent>(OnVampirismGunShot);
         SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
+
+        SubscribeLocalEvent<ProjectileIgnoreCrawlingComponent, GunShotEvent>(OnTransferIgnoreCrawling);
     }
 
     private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
@@ -130,6 +133,19 @@ public sealed class GunUpgradeSystem : EntitySystem
                 var comp = EnsureComp<ProjectileVampirismComponent>(ammo.Value);
                 comp.DamageOnHit = ent.Comp.DamageOnHit;
             }
+        }
+    }
+    private void OnTransferIgnoreCrawling(Entity<ProjectileIgnoreCrawlingComponent> ent, ref GunShotEvent args)
+    {
+        if (!HasComp<ProjectileIgnoreCrawlingComponent>(args.User))
+            return;
+
+        foreach (var (ammo, _) in args.Ammo)
+        {
+            if (!HasComp<ProjectileComponent>(ammo))
+                continue;
+
+            EnsureComp<ProjectileIgnoreCrawlingComponent>(ammo.Value);
         }
     }
 

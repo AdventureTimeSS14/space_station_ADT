@@ -464,13 +464,6 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid gunUid, EntityUid? user = null, float speed = 20f)
     {
-        // ADT-Tweak start
-        if (HasComp<ProjectileIgnoreCrawlingComponent>(gunUid))
-        {
-            EnsureComp<ProjectileIgnoreCrawlingComponent>(uid);
-        }
-        // ADT-Tweak end
-
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
 
