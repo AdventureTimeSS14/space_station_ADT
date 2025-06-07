@@ -27,7 +27,6 @@
   parentBorgType: medical
   id: default_medical
   sprite: Mobs/Silicon/chassis.rsi
-
   dummyPrototype: BorgChassisMedical
 
 - type: borgSubtype
