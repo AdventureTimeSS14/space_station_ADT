@@ -599,6 +599,15 @@
   id: ADTBadgeGolden
 
 - type: Tag
+  id: ADTBudgetInsuls
+
+- type: Tag
+  id: ADTTemplarHelmet
+
+- type: Tag
+  id: ADTBible
+  
+- type: Tag
   id: ADTGummy
 
 - type: Tag
