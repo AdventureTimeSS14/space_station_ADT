@@ -161,7 +161,7 @@
     layers:
     - state: crane
   - type: Construction
-    graph: PaperCrane
+    graph: ADTPaperCrane
     node: done
 
 - type: entity
@@ -175,5 +175,5 @@
     layers:
     - state: ship
   - type: Construction
-    graph: PaperShip
+    graph: ADTPaperShip
     node: done
