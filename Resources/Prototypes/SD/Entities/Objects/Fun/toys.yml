@@ -78,7 +78,7 @@
 
 
 - type: entity
-  parent: BasePlushie
+  parent: PlushieSlime
   id: SDPlushieAmetist
   name: Ametist plushie
   description: wow.
@@ -102,3 +102,13 @@
     range: 7
     sound:
       path: /Audio/Items/Toys/beatdownDirk.ogg
+
+- type: entity
+  parent: RK22Plush
+  id: SDPlushieZHETS
+  name: ZHETS plushie
+  description: wow.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Fun/toys.rsi
+    state: plush_ZHETS

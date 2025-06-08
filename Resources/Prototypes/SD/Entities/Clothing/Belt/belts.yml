@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingBeltJanitor
+  id: SDClothingBeltTacticalMaid
+  name: janibelt
+  description: A belt used to hold most janitorial supplies.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Belt/tacticalmaid.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Belt/tacticalmaid.rsi
+
+- type: entity
+  parent: ClothingBeltJanitorFilled
+  id: SDClothingBeltTacticalMaidFilled
+  name: janibelt
+  description: A belt used to hold most janitorial supplies.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Belt/tacticalmaid.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Belt/tacticalmaid.rsi

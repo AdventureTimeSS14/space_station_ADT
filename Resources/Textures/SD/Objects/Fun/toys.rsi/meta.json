@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "rubber_pig by Moryachok136, Dirk&Ametist by SWG",
+    "copyright": "rubber_pig by Moryachok136, Dirk&Ametist by SWG,ZHETS by AshotSotov",
     "size": {
       "x": 32,
       "y": 32
@@ -18,6 +18,9 @@
         },
         {
             "name": "plush_dirk"
+        },
+        {
+            "name": "plush_ZHETS"
         }
     ]
   }

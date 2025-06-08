@@ -1,0 +1,9 @@
+ent-SDClothingBeltTacticalMaid = пояс тактической горничной
+    .desc = Теперь вы точно эталон тактикула, да.
+ent-SDClothingBeltTacticalMaidFilled = пояс тактической горничной
+    .desc = Теперь вы точно эталон тактикула, да.
+    .suffix = Заполненный
+ent-SDClothingShoesTacticalGaloshes = галоши тактической горничной
+    .desc = Знаете, а ведь эти черные галоши с красной ленточкой выглядят... будто бы делались специально под тебя, да! Улыбнись!
+loadout-group-janitor-belt = Уборщик, пояс
+loadout-group-janitor-shoes = Уборщик, обувь

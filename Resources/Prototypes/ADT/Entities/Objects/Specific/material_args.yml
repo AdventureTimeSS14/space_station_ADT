@@ -196,8 +196,12 @@
                 - !type:ComboPopupEffect
                   localeText: combo-backhit-end
                 - !type:ComboStopGrabEffect
+                - !type:ComboFallEffect
+                  dropItems: false
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 50
                 - !type:ComboStunEffect
-                  stunTime: 4
+                  stunTime: 1
                   dropItems: false
                 - !type:ComboSpeechEffect
                   speech: speech-carp-backhit
