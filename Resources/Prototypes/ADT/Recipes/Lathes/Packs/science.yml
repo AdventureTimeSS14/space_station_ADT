@@ -76,3 +76,8 @@
   - PsiShield
   - PhantomHud
   - EctoShield
+
+- type: latheRecipePack
+  id: ADTBluespaceHarvesterPack
+  recipes:
+  - ADTMachineBluespaceHarvesterCircuitboard

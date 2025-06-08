@@ -80,6 +80,12 @@ public sealed class ADTCCVars
         CVarDef.Create("supermatter.do_cascade", true, CVar.SERVER);
 
     /// <summary>
+    ///     The supermatter gains +1 bolts of electricity.
+    /// </summary>
+    public static readonly CVarDef<float> SupermatterPowerMinPenaltyThreshold =
+        CVarDef.Create("supermatter.power_min_penalty_threshold", 3000f, CVar.SERVER);
+
+    /// <summary>
     ///     The cutoff on power properly doing damage, pulling shit around.
     ///     The supermatter will also spawn anomalies, and gains +2 bolts of electricity.
     /// </summary>
@@ -183,7 +189,7 @@ public sealed class ADTCCVars
     ///     Scales powerloss inhibition down until this amount of moles is reached.
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 20f, CVar.SERVER);
+        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 12f, CVar.SERVER);
 
     /// <summary>
     ///     Bonus powerloss inhibition boost if this amount of moles is reached.
@@ -239,7 +245,7 @@ public sealed class ADTCCVars
     /// При значении true панель отображается, при false - скрывается.
     /// </summary>
     public static readonly CVarDef<bool> ExtraLobbyPanelEnabled =
-        CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("ui.show_lobby_panel", false, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     /// Ссылка на канал привязки аккаунта сски к дискорду

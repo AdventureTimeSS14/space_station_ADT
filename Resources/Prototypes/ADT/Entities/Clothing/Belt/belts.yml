@@ -407,6 +407,14 @@
                   types:
                     Blunt: 5
           - actionsNeeds:
+              - Hit
+              - Grab
+              - Disarm
+            comboEvent:
+              - !type:ComboFlashEffect
+                duration: 5
+                slowDown: 3
+          - actionsNeeds:
               - Disarm
               - Grab
             comboEvent:
@@ -416,14 +424,6 @@
                     Blunt: 10
               - !type:ComboMoreStaminaDamageToDownedEffect
                 damage: 45
-          - actionsNeeds:
-              - Disarm
-              - Grab
-              - Hit
-            comboEvent:
-              - !type:ComboFlashEffect
-                duration: 5
-                slowDown: 3
           - actionsNeeds:
               - Disarm
               - Hit
