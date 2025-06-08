@@ -219,7 +219,8 @@ public sealed class MorphSystem : SharedMorphSystem
         {
             _popupSystem.PopupClient(Loc.GetString("morphs-into-ambush"), uid);
             EnsureComp<MorphAmbushComponent>(uid);
-            if (chamel.Disguised != null) EnsureComp<MorphAmbushComponent>(chamel.Disguised.Value);
+            if (TryComp<ChameleonDisguisedComponent>(uid, out var disgui))
+                EnsureComp<MorphAmbushComponent>(disgui.Disguise);
         }
     }
     private void OnAmbushMove(EntityUid uid, MorphAmbushComponent component, MoveEvent args)
@@ -229,7 +230,7 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnAmbushAttack(Entity<MorphAmbushComponent> ent, ref MeleeHitEvent args)
     {
-        _stun.TryKnockdown(args.HitEntities[0], TimeSpan.FromSeconds(ent.Comp.StunTime), false);
+        _stun.TryStun(args.HitEntities[0], TimeSpan.FromSeconds(ent.Comp.StunTime), false);
         _damageable.TryChangeDamage(args.HitEntities[0], ent.Comp.DamageOnTouch);
         AmbushBreak(ent);
     }
@@ -240,11 +241,11 @@ public sealed class MorphSystem : SharedMorphSystem
         if (TryComp<ChameleonProjectorComponent>(uid, out var chamel) && chamel.Disguised != null)
             RemCompDeferred<MorphAmbushComponent>(chamel.Disguised.Value);
     }
-    private void OnAmbusInteract(Entity<MorphAmbushComponent> ent, ref InteractHandEvent args)
+    private void OnAmbusInteract(EntityUid uid, MorphAmbushComponent component, InteractHandEvent args)
     {
-        _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(ent.Comp.StunTimeInteract), false);
-        _damageable.TryChangeDamage(args.User, ent.Comp.DamageOnTouch);
-        AmbushBreak(ent);
+        _stun.TryStun(args.User, TimeSpan.FromSeconds(component.StunTimeInteract), false);
+        _damageable.TryChangeDamage(args.User, component.DamageOnTouch);
+        AmbushBreak(uid);
     }
     private void OnMimicryRadialMenu(EntityUid uid, MorphComponent component, MorphOpenRadialMenuEvent args)
     {

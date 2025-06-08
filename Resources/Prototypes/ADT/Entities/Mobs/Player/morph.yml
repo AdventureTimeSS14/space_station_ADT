@@ -36,8 +36,8 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Blunt: 16
-        Slash: 14
+        Blunt: 11
+        Slash: 9
   - type: TypingIndicator
   - type: Tag
     tags:
