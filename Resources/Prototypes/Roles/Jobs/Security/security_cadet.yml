@@ -12,6 +12,7 @@
       species:
       - Resomi
       - Vox
+      - Shadekin
     # ADT RESTRICT End
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
