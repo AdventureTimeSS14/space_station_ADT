@@ -8,7 +8,7 @@
       steps:
 
       - tag: ADTHardsuitSalvage
-        name: salvage hardsuit
+        name: шахтёрский МОД
         icon:
           sprite: "Clothing/OuterClothing/Hardsuits/salvage.rsi"
           state: "icon"
