@@ -266,11 +266,10 @@
   - PurpleGloves
 
 - type: loadoutGroup
-  id: ADTSeniorResearcherOuterClothing
-  name: loadout-group-senior-researcher-outerclothing
-  minLimit: 0
+  id: ADTSeniorResearcherShoes
+  name: loadout-group-senior-researcher-shoes
   loadouts:
-  - SeniorResearcherLabCoat
+  - PurpleShoes
 
 # BLUESHIELD
 
