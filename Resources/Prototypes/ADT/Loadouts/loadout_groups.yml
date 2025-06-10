@@ -265,12 +265,6 @@
   # - NitrileGloves # ADT-Tweak (почему у НРа их нет (тем более они медицинские), а у доцента - есть?)
   - PurpleGloves
 
-- type: loadoutGroup
-  id: ADTSeniorResearcherShoes
-  name: loadout-group-senior-researcher-shoes
-  loadouts:
-  - PurpleShoes
-
 # BLUESHIELD
 
 - type: loadoutGroup
