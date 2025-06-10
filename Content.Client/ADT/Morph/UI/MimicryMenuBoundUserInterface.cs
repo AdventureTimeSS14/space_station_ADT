@@ -16,7 +16,17 @@ public sealed partial class MimicryMenuBoundUserInterface : BoundUserInterface
     {
         IoCManager.InjectDependencies(this);
     }
-
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            if (_menu != null)
+            {
+                _menu.SendActivateMessageAction -= SendMessage;
+            }
+        }
+        base.Dispose(disposing);
+    }
     protected override void Open()
     {
         base.Open();

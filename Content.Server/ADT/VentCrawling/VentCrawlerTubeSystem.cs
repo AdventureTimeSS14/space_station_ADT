@@ -23,7 +23,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedVentCrawableSystem _ventCrawableSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly VentCrawlerTubeSystem _VentCrawlerTubeSystem = default!;
+
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
@@ -210,8 +210,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-equiptment"), uid);
             return true;
         }
-        if (_hands.TryGetHand(uid, "body_part_slot_right hand", out var rhand) && !rhand.IsEmpty)
-        {
+        if (_hands.TryGetHand(uid, "right", out var rhand) && !rhand.IsEmpty){
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
             return true;
         }

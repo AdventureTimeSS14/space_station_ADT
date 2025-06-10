@@ -14,7 +14,9 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     private bool _showAll;
-    private bool _showVentPipe; //ADT tweak
+    // ADT-Tweak-Start
+     private bool _showVentPipe; //ADT tweak
+    // ADT-Tweak-End
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ShowAll
@@ -34,21 +36,23 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         }
     }
 
-    //ADT tweak start
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool ShowVentPipe
-    {
-        get => _showVentPipe;
-        set
-        {
-            if (_showVentPipe == value)
-                return;
-            _showVentPipe = value;
+    // ADT-Tweak-Start
+     //ADT tweak start
+     [ViewVariables(VVAccess.ReadWrite)]
+     public bool ShowVentPipe
+     {
+         get => _showVentPipe;
+         set
+         {
+             if (_showVentPipe == value)
+                 return;
+             _showVentPipe = value;
 
-            UpdateAll();
-        }
-    }
-    //ADT tweak end
+             UpdateAll();
+         }
+     }
+     //ADT tweak end
+    // ADT-Tweak-End
     public override void Initialize()
     {
         base.Initialize();
@@ -80,8 +84,8 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
-        var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //ADT tweak - Ventcrawler
-        var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //ADT tweak - Ventcrawler
+         var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //ADT tweak - Ventcrawler
+         var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //ADT tweak - Ventcrawler
 
         // set visibility & color of each layer
         foreach (var layer in args.Sprite.AllLayers)

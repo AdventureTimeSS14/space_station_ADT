@@ -34,9 +34,10 @@ public sealed partial class MorphAmbushComponent : Component
     [DataField]
     public DamageSpecifier DamageOnTouch = new()
     {
-        DamageDict = new ()
+        DamageDict = new()
         {
-            { "Brute", 40 },
+            { "Blunt", 20 },
+            { "Slash", 20 },
         }
     };
 }

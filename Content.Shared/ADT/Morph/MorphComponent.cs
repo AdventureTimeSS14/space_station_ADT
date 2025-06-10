@@ -19,10 +19,10 @@ namespace Content.Shared.ADT.Morph;
 public sealed partial class MorphComponent : Component
 {
     /// <summary>
-    ///     Контейнер для вкуснятины разного рода
+    ///     Container for various consumable items
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public Container Container = default!;
+     [ViewVariables(VVAccess.ReadOnly)]
+     public Container Container = default!;
     public string ContainerId = "morphContainer";
 
     /// <summary>

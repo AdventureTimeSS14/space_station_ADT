@@ -34,11 +34,19 @@ public sealed partial class MimicryMenu : RadialMenu
     {
         var main = FindControl<RadialContainer>("Main");
         if (main == null) return;
+        main.RemoveAllChildren();
 
         var player = _player.LocalEntity;
+        if (player == null)
+            return;
+        if (player == null)
+            return;
 
         if (!_ent.TryGetComponent<MorphComponent>(player, out var morph))
             return;
+
+
+        main.RemoveAllChildren();
 
         foreach (var morphable in morph.MemoryObjects)
         {
