@@ -141,6 +141,7 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
+  - ADTWeaponIonCarbine # ADT Tweak - при создании простейших мехов доступен карабин
   - RipleyHarness
   - RipleyLArm
   - RipleyRArm

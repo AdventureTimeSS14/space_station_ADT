@@ -48,3 +48,132 @@
     sprite: ADT/Objects/Misc/dv-clipboard.rsi
   - type: Clothing
     sprite: ADT/Objects/Misc/dv-clipboard.rsi
+
+- type: entity
+  id: ADTPaperPack
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  name: paper pack
+  description: A paper package that contains ten A4 sheets. The bureaucrat's delight.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: pack-closed
+      map: ["closeLayer"]
+    - state: pack-open
+      map: ["openLayer"]
+      visible: false
+    - state: pack-one
+      map: ["pack-one"]
+      visible: false
+    - state: pack-full
+      map: ["pack-full"]
+      visible: false
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Item
+    sprite: ADT/Objects/Misc/bureaucracy.rsi
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,4,1
+    whitelist:
+      tags:
+      - Paper
+  - type: StorageFill
+    contents:
+    - id: Paper
+      amount: 10
+  - type: ItemCounter
+    count:
+      tags: [Paper]
+    composite: true
+    layerStates:
+    - pack-one
+    - pack-full
+  - type: Appearance
+  - type: StaticPrice
+    price: 120
+
+- type: entity
+  parent: BaseItem
+  id: ADTBaseOrigami
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Food
+    solution: food
+    delay: 7
+    forceFeedDelay: 7
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Item
+    size: Tiny
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/paper_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/paper_drop.ogg
+
+- type: entity
+  id: ADTPaperCrane
+  parent: ADTBaseOrigami
+  name: paper crane
+  description: A paper crane.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/papers.rsi
+    layers:
+    - state: crane
+  - type: Construction
+    graph: ADTPaperCrane
+    node: done
+
+- type: entity
+  id: ADTPaperShip
+  parent: ADTBaseOrigami
+  name: paper ship
+  description: A paper ship.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/papers.rsi
+    layers:
+    - state: ship
+  - type: Construction
+    graph: ADTPaperShip
+    node: done
