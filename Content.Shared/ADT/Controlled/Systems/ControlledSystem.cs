@@ -12,6 +12,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Popups;
 
 namespace Content.Shared.ADT.Controlled;
 
@@ -25,7 +26,8 @@ public sealed partial class SharedControlledSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -78,8 +80,12 @@ public sealed partial class SharedControlledSystem : EntitySystem
         if (!_mind.TryGetMind(uid, out var uidMindId, out var uidMind))
             return;
         var observer = Spawn("PseudoEntity", Transform(target).Coordinates);
+        _metaData.SetEntityName(observer, Name(target));
+
         if (_mind.TryGetMind(target, out var targetMindId, out var targetMind))
             _mind.TransferTo(targetMindId, observer);
+
+        _popup.PopupEntity(Loc.GetString("phantom-takeover-popup-target"), observer, observer, PopupType.LargeCaution);
 
         #region Parenting pseudoentity
         var targetXform = Transform(target);

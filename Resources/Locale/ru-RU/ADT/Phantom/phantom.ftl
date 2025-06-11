@@ -108,6 +108,8 @@ radio-faker-message-wrap = [color={ $color }]{ $channel } [bold]{ $name }[/bold]
 
 radio-faker-sent-popup = Вы отправили ложное сообщение для { $target }.
 
+phantom-takeover-popup-target = Вы потеряли контроль над своим телом!
+
 # Alerts
 
 alerts-vessels-name = Сосуды
