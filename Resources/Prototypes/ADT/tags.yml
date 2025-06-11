@@ -591,7 +591,15 @@
 
 - type: Tag
   id: ADTBadgeBronze
+
 - type: Tag
   id: ADTBadgeSilver
+
 - type: Tag
   id: ADTBadgeGolden
+
+- type: Tag
+  id: ADTGummy
+
+- type: Tag
+  id: ADTDoNotMakeOrigami

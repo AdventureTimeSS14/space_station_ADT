@@ -8,3 +8,6 @@ tiles-lattice-right-lower = угловая решётка, право-низ
 adt-tiles-flesh-floor = мясной пол, планета
 
 adt-tiles-digital-floor = цифровой пол 
+adt-tiles-digital-off-floor = выключенный цифровой пол 
+adt-tiles-digital-red-floor = красный цифровой пол 
+adt-tiles-digital-blue-floor = синий цифровой пол 

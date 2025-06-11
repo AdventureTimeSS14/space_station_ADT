@@ -83,15 +83,15 @@
   categories:
   - ADTUplinkMechWeapon
 
-- type: listing
-  id: UplinkMechGunMHAR21
-  name: uplink-syndimech-weapon-madeuce-name
-  description: uplink-syndimech-weapon-madeuce-desc
-  productEntity: ADTMechGunMHAR21
-  cost:
-    Telecrystal: 12
-  categories:
-  - ADTUplinkMechWeapon
+# - type: listing
+#   id: UplinkMechGunMHAR21
+#   name: uplink-syndimech-weapon-madeuce-name
+#   description: uplink-syndimech-weapon-madeuce-desc
+#   productEntity: ADTMechGunMHAR21
+#   cost:
+#     Telecrystal: 12
+#   categories:
+#   - ADTUplinkMechWeapon
 
 
 - type: listing
@@ -303,15 +303,15 @@
   categories:
   - ADTUplinkERTMechWeapon
 
-- type: listing
-  id: UplinkERTMechGunMHAR21
-  name: uplink-syndimech-weapon-madeuce-name
-  description: uplink-syndimech-weapon-madeuce-desc
-  productEntity: ADTMechGunMHAR21
-  cost:
-    Productunit: 6
-  categories:
-  - ADTUplinkERTMechWeapon
+# - type: listing
+#   id: UplinkERTMechGunMHAR21
+#   name: uplink-syndimech-weapon-madeuce-name
+#   description: uplink-syndimech-weapon-madeuce-desc
+#   productEntity: ADTMechGunMHAR21
+#   cost:
+#     Productunit: 6
+#   categories:
+#   - ADTUplinkERTMechWeapon
 
 - type: listing
   id: UplinkERTMechGunHeavyPulseRifle

@@ -100,8 +100,12 @@
     contents:
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: SyringeEphedrine
-      - id: SyringeSaline
+      # ADT Tweak start
+      # - id: SyringeEphedrine
+      - id: ADTStimulantAutoInjector #Дезоко и диловен
+      # - id: SyringeSaline
+      - id: ADTHemostasisAutoInjector #Пополняет кровь
+      # ADT Tweak End
       - id: BruteAutoInjector
       - id: BurnAutoInjector
 
