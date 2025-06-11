@@ -28,7 +28,6 @@ public sealed partial class PhantomSystem
         SubscribeLocalEvent<PhantomComponent, FreedomFinaleActionEvent>(OnRequestFreedomMenu);
 
         SubscribeNetworkEvent<RequestPhantomVesselMenuEvent>(OnRequestVesselMenu);
-        SubscribeNetworkEvent<PopulatePhantomVesselMenuEvent>(OnPopulateVessels);
     }
 
     private void OnRequestStyleMenu(EntityUid uid, PhantomComponent component, OpenPhantomStylesMenuActionEvent args)
@@ -41,8 +40,10 @@ public sealed partial class PhantomSystem
 
         args.Handled = true;
 
-        _ui.GetUIController<PhantomStylesUIController>()
-            .ToggleStylesMenu();
+        var controller = _ui.GetUIController<PhantomRadialUIController>();
+
+        controller.OpenMenu();
+        controller.PopulateStyles();
     }
 
     private void OnRequestFreedomMenu(EntityUid uid, PhantomComponent component, FreedomFinaleActionEvent args)
@@ -80,21 +81,20 @@ public sealed partial class PhantomSystem
         }
 
         prototypes.Sort();
-        _ui.GetUIController<PhantomFreedomUIController>()
-            .ToggleMenu(prototypes);
+
+        var controller = _ui.GetUIController<PhantomRadialUIController>();
+
+        controller.OpenMenu();
+        controller.PopulateFreedom(prototypes);
 
         args.Handled = true;
     }
 
     private void OnRequestVesselMenu(RequestPhantomVesselMenuEvent ev)
     {
-        _ui.GetUIController<PhantomVesselsUIController>()
-            .ToggleMenu(ev);
-    }
+        var controller = _ui.GetUIController<PhantomRadialUIController>();
 
-    private void OnPopulateVessels(PopulatePhantomVesselMenuEvent ev)
-    {
-        _ui.GetUIController<PhantomVesselsUIController>()
-            .Populate(ev);
+        controller.OpenMenu();
+        controller.PopulateVessels(ev.Vessels);
     }
 }
