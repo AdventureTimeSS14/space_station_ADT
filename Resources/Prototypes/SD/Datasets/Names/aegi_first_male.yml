@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: names_aegi_first_male
+  values:
+    prefix: names_aegi_first_male-
+    count: 26

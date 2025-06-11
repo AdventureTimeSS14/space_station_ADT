@@ -46,7 +46,7 @@
     prototype: Aegi
     requiredLegs: 2
   - type: Stamina
-    critThreshold: 120
+    critThreshold: 110
   - type: MovementSpeedModifier
     weightlessAcceleration: 1.35
     weightlessFriction: 1

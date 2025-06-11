@@ -1,8 +1,9 @@
 - type: damageModifierSet
   id: Aegi
   coefficients:
-    Blunt: 1.05
-    Piercing: 1.05
+    Blunt: 1.1
+    Piercing: 1.1
+    Slash: 1.1
     Heat: 1.05
     Cold: 0.9
     Radiation: 0.7

@@ -48,6 +48,7 @@
     - SlimePerson
     - Dwarf
     - IPC
+    - Aegi # SD tweak
     - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
@@ -149,6 +150,7 @@
     - Resomi
     - Dwarf
     - IPC
+    - Aegi # SD tweak
     - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
@@ -262,6 +264,7 @@
     - Resomi
     - Dwarf
     - IPC
+    - Aegi # SD tweak
     - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
@@ -374,7 +377,9 @@
     - Resomi
     - Dwarf
     - IPC
+    - Aegi # SD tweak
     - DraskSpecies # ADT-Tweak-end
+
   parent: ADTERTLeader
   components:
     - type: GhostRole
@@ -484,6 +489,7 @@
     - SlimePerson
     - Dwarf
     - IPC
+    - Aegi # SD tweak
     - DraskSpecies # ADT-Tweak-end
   components:
     - type: GhostRole
@@ -592,6 +598,7 @@
     - SlimePerson
     - Dwarf
     - IPC
+    - Aegi # SD tweak
     - DraskSpecies # ADT-Tweak-end
   id: ADTCmndCBURNAgent
   components:

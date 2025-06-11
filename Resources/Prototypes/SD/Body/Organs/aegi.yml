@@ -191,9 +191,9 @@
   - type: Sprite
     state: heart-on
   - type: Metabolizer
-    updateInterval: 1.25
-    maxReagents: 4
-    metabolizerTypes: [ Human ]
+    updateInterval: 1.5
+    maxReagents: 3
+    metabolizerTypes: [ Aegi ]
     groups:
     - id: Medicine
     - id: Poison

@@ -2,11 +2,15 @@
   id: Aegi
   name: species-name-aegi
   roundStart: true
-  prototype: MobHuman
+  prototype: MobAegi
   sprites: MobAegiSprites
   markingLimits: MobAegiMarkingLimits
   dollPrototype: MobAegiDummy
   skinColoration: HumanToned
+  maleFirstNames: names_aegi_first_male
+  femaleFirstNames: names_aegi_first_female
+  maleLastNames: names_aegi_last
+  femaleLastNames: names_aegi_last
   description: "/ServerInfo/SD/SpeciesDescriptions/Aegi.xml"
   pros:
     - Слегка быстрее перемещаются без гравитации из-за развитого вестибулярного аппарата.
@@ -17,9 +21,10 @@
   special:
     - Имеют нестандартные возрастные рамки (Молодые 40–100, Зрелые 101-180, Старые 181–250).
   cons:
-    - Получают на 5% больше урона ушибами.
-    - Получают на 5% больше урона уколами.
     - Получают на 5% больше урона ожогами.
+    - Получают на 10% больше урона уколами.
+    - Получают на 10% больше урона ушибами.
+    - Получают на 10% больше урона порезами.
     - Получают на 20% больше урона удушьем.
   defaultLanguages:
     - GalacticCommon
