@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.ADT.MindShield;
 using Content.Server.Body.Components;
 using Content.Server.Light.Components;
 using Content.Server.Power.Components;
@@ -84,6 +85,8 @@ public sealed partial class PhantomSystem
                 }
                 else
                 {
+                    MindShieldMalfunctioningSystem.StartMalfunction(target, 15f);
+
                     _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
                     _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), target, target, PopupType.SmallCaution);
                 }
