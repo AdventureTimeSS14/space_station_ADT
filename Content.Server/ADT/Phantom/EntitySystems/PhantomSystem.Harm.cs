@@ -55,11 +55,12 @@ public sealed partial class PhantomSystem
         {
             if (TryComp<StatusEffectsComponent>(target, out var status) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeHaunted, true, status))
             {
-                if (!component.BreakdownOn)
+                if (!component.Toggleables.Contains("Breakdown"))
                 {
                     UpdateEctoplasmSpawn(uid);
                     _sharedStun.TryParalyze(target, timeHaunted, true);
                     _status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", timeHaunted, false, status);
+                    component.Toggleables.Add("Breakdown");
                 }
                 else
                 {
@@ -67,8 +68,8 @@ public sealed partial class PhantomSystem
 
                     _status.TryRemoveStatusEffect(target, "SlowedDown");
                     _status.TryRemoveStatusEffect(target, "SeeingStatic");
+                    component.Toggleables.Remove("Breakdown");
                 }
-                component.BreakdownOn = !component.BreakdownOn;
             }
 
             if (HasComp<MindShieldComponent>(target))
@@ -95,7 +96,7 @@ public sealed partial class PhantomSystem
         }
         else
         {
-            if (component.BreakdownOn)
+            if (component.Toggleables.Contains("Breakdown"))
             {
                 var selfMessageActive = Loc.GetString("phantom-breakdown-fail-active");
                 _popup.PopupEntity(selfMessageActive, uid, uid);

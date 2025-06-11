@@ -23,20 +23,10 @@ public sealed partial class PhantomComponent : Component
     [AutoNetworkedField]
     public EntityUid? PhantomHauntActionEntity;
 
-    public EntProtoId PhantomStopHauntAction = "ActionPhantomStopHaunt";
-
-    [AutoNetworkedField]
-    public EntityUid? PhantomStopHauntActionEntity;
-
     public EntProtoId PhantomMakeVesselAction = "ActionPhantomMakeVessel";
 
     [AutoNetworkedField]
     public EntityUid? PhantomMakeVesselActionEntity;
-
-    public EntProtoId PhantomSelectVesselAction = "ActionPhantomCycleVessels";
-
-    [AutoNetworkedField]
-    public EntityUid? PhantomSelectVesselActionEntity;
 
     public EntProtoId PhantomHauntVesselAction = "ActionPhantomHauntVessel";
 
@@ -61,75 +51,14 @@ public sealed partial class PhantomComponent : Component
     public bool IsCorporeal = false;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool ParalysisOn = false;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool BreakdownOn = false;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool StarvationOn = false;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool ClawsOn = false;
+    public List<string> Toggleables = new();
 
     public EntityUid Claws = new();
 
     #endregion
 
     #region Sounds
-    public SoundSpecifier HauntSound = new SoundCollectionSpecifier("PhantomHaunt")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
     public SoundSpecifier SpeechSound = new SoundCollectionSpecifier("PhantomSpeech")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier GhostKissSound = new SoundCollectionSpecifier("PhantomGhostKiss")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-
-    public SoundSpecifier BreakdownSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/breakdown.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier BlindingSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/blinding.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier PuppeterSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/puppeter.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier InjurySound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/injury.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier NightmareSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/tyrany-nightmare.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-
-    public SoundSpecifier ThirstSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/thirst.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier ParalysisSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/blinding.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier OathSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/oath.ogg")
     {
         Params = AudioParams.Default.WithVolume(-3f),
     };
@@ -138,75 +67,6 @@ public sealed partial class PhantomComponent : Component
     {
         Params = AudioParams.Default.WithVolume(-3f),
     };
-
-    public SoundSpecifier TyranySound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/tyrany-nightmare.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-
-    public SoundSpecifier RepairSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/repair.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier RecoverySound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/recovery.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier PortalSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/portal.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier HelpinghandSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/helping-hand-accept.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-
-    public SoundSpecifier DeathmatchSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/freedom-deathmatch.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier HelpSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/freedom-help.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier OblibionSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/freedom-oblivion.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-
-    public SoundSpecifier NightmareSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/nightmare.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier TyranySong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/tyrany.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier OblivionSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/oblivion.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier DeathmatchSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/deathmatch.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
-    public SoundSpecifier HelpSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/help.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(-3f),
-    };
-
 
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/helping-hand-accept.ogg");
     #endregion
@@ -222,6 +82,7 @@ public sealed partial class PhantomComponent : Component
     public ProtoId<AlertPrototype> HauntedAlert = "PhantomStopHaunt";
 
     #endregion
+
     /// <summary>
     /// The total amount of Essence the phantom has. Functions
     /// as health and is regenerated.

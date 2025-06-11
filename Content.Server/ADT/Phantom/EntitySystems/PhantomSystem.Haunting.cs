@@ -20,7 +20,6 @@ public sealed partial class PhantomSystem
     private void InitializeHaunting()
     {
         SubscribeLocalEvent<PhantomComponent, MakeHolderActionEvent>(OnMakeHolder);
-        SubscribeLocalEvent<PhantomComponent, StopHauntingActionEvent>(OnStopHaunting);
         SubscribeLocalEvent<PhantomComponent, UpdateCanMoveEvent>(OnTryMove);
         SubscribeLocalEvent<PhantomComponent, StopHauntAlertEvent>(OnStopHauntAlertClick);
 
@@ -49,18 +48,6 @@ public sealed partial class PhantomSystem
             StopHaunt(uid, component.Holder, component);
             Haunt(uid, target);
         }
-
-        args.Handled = true;
-    }
-
-    private void OnStopHaunting(EntityUid uid, PhantomComponent component, StopHauntingActionEvent args)
-    {
-        if (args.Handled)
-            return;
-        if (!component.CanHaunt)
-            return;
-
-        StopHaunt(uid, component.Holder, component);
 
         args.Handled = true;
     }
@@ -267,29 +254,23 @@ public sealed partial class PhantomSystem
     /// <param name="component">Phantom component</param>
     public void HauntedStopEffects(EntityUid haunted, PhantomComponent component)
     {
-        if (component.ParalysisOn)
+        if (component.Toggleables.Contains("Paralysis"))
         {
             _status.TryRemoveStatusEffect(haunted, "KnockedDown");
             _status.TryRemoveStatusEffect(haunted, "Stun");
-            component.ParalysisOn = false;
         }
-        if (component.BreakdownOn)
+        if (component.Toggleables.Contains("Breakdown"))
         {
             _status.TryRemoveStatusEffect(haunted, "SlowedDown");
             _status.TryRemoveStatusEffect(haunted, "SeeingStatic");
-            component.BreakdownOn = false;
         }
-        if (component.StarvationOn)
-        {
-            _status.TryRemoveStatusEffect(haunted, "ADTStarvation");
-            component.StarvationOn = false;
-        }
-        if (component.ClawsOn)
+        if (component.Toggleables.Contains("Claws"))
         {
             QueueDel(component.Claws);
             component.Claws = new();
-            component.ClawsOn = false;
         }
+
+        component.Toggleables.Clear();
     }
 
     /// <summary>

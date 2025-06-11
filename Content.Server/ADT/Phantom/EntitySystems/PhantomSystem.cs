@@ -60,6 +60,7 @@ using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.Revenant.Components;
 using Content.Server.Singularity.Events;
 using Content.Shared.ADT.MindShield;
+using Robust.Shared.Audio;
 
 namespace Content.Server.ADT.Phantom.EntitySystems;
 
@@ -102,6 +103,17 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     #endregion
+
+    public static SoundSpecifier NightmareSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/tyrany-nightmare.ogg");
+    public static SoundSpecifier TyranySound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/tyrany-nightmare.ogg");
+    public static SoundSpecifier DeathmatchSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/freedom-deathmatch.ogg");
+    public static SoundSpecifier OblibionSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/freedom-oblivion.ogg");
+    public static SoundSpecifier NightmareSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/nightmare.ogg");
+    public static SoundSpecifier TyranySong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/tyrany.ogg");
+    public static SoundSpecifier OblivionSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/oblivion.ogg");
+    public static SoundSpecifier DeathmatchSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/deathmatch.ogg");
+    public static SoundSpecifier HelpSong = new SoundPathSpecifier("/Audio/ADT/Phantom/Music/help.ogg");
+    public static SoundSpecifier HelpSound = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/freedom-help.ogg");
 
     public override void Initialize()
     {
@@ -882,8 +894,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
 
         _alertLevel.SetLevel(stationUid.Value, "delta", false, true, true, true);
-        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-nightmare-announcement"), Loc.GetString("phantom-announcer"), true, component.NightmareSound, Color.DarkCyan);
-        _audio.PlayGlobal(component.NightmareSong, Filter.Broadcast(), true);
+        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-nightmare-announcement"), Loc.GetString("phantom-announcer"), true, NightmareSound, Color.DarkCyan);
+        _audio.PlayGlobal(NightmareSong, Filter.Broadcast(), true);
         EnsureComp<PhantomPuppetComponent>(target);
         component.CanHaunt = false;
         component.NightmareStarted = true;
@@ -907,8 +919,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         RaiseLocalEvent(uid, ref ev);
 
         _alertLevel.SetLevel(stationUid.Value, "delta", false, false, true, true);
-        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-tyrany-announcement"), Loc.GetString("phantom-announcer"), true, component.TyranySound, Color.DarkCyan);
-        _audio.PlayGlobal(component.TyranySong, Filter.Broadcast(), true);
+        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-tyrany-announcement"), Loc.GetString("phantom-announcer"), true, TyranySound, Color.DarkCyan);
+        _audio.PlayGlobal(TyranySong, Filter.Broadcast(), true);
 
         if (TryComp<FixturesComponent>(uid, out var fixtures) && fixtures.FixtureCount >= 1)
         {
@@ -988,7 +1000,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             if (_mindSystem.TryGetMind(vessel, out _, out var mind) && mind.Session != null)
             {
                 _euiManager.OpenEui(new PhantomAmnesiaEui(), mind.Session);
-                _audio.PlayGlobal(component.OblibionSound, mind.Session);
+                _audio.PlayGlobal(OblibionSound, mind.Session);
             }
 
             if (HasComp<PhantomPuppetComponent>(vessel))
@@ -1003,7 +1015,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
             _euiManager.OpenEui(new PhantomAmnesiaEui(), selfMind.Session);
-            _audio.PlayGlobal(component.OblivionSong, selfMind.Session);
+            _audio.PlayGlobal(OblivionSong, selfMind.Session);
         }
     }
 
@@ -1042,10 +1054,11 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 //_mindSystem.TryAddObjective(mindId, mind, "NotYet");
             }
         }
-        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-deathmatch-announcement"), Loc.GetString("phantom-announcer"), true, component.TyranySound, Color.DarkCyan);
-        _audio.PlayGlobal(component.DeathmatchSound, Filter.Broadcast(), true);
 
-        _audio.PlayGlobal(component.DeathmatchSong, Filter.Broadcast(), true);
+        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-deathmatch-announcement"), Loc.GetString("phantom-announcer"), true, TyranySound, Color.DarkCyan);
+        _audio.PlayGlobal(DeathmatchSound, Filter.Broadcast(), true);
+
+        _audio.PlayGlobal(DeathmatchSong, Filter.Broadcast(), true);
         var human = Spawn("ADTPhantomReincarnationAnim", Transform(uid).Coordinates);
         if (_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) && selfMind.Session != null)
         {
@@ -1076,7 +1089,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-blessing-announcement"), colorOverride: Color.Gold, playSound: false);
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-blessing-second-announcement"), colorOverride: Color.Gold, playSound: false, sender: Loc.GetString("phantom-blessing-second-announcer"));
-        _audio.PlayGlobal(component.HelpSound, Filter.Broadcast(), true);
+        _audio.PlayGlobal(HelpSound, Filter.Broadcast(), true);
 
         var human = Spawn("ADTPhantomReincarnationAnim", Transform(uid).Coordinates);
         if (_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) && selfMind.Session != null)
@@ -1085,7 +1098,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             var ev = new PhantomReincarnatedEvent();
             RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
-            _audio.PlayGlobal(component.HelpSong, selfMind.Session);
+            _audio.PlayGlobal(HelpSong, selfMind.Session);
         }
     }
     #endregion

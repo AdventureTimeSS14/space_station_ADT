@@ -13,6 +13,7 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -367,7 +368,7 @@ public sealed partial class PhantomSystem
         ChangeEssenceAmount(uid, 0, component);
 
         if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-            _audio.PlayGlobal(component.GhostKissSound, mind.Session);
+            _audio.PlayGlobal(new SoundCollectionSpecifier("PhantomGhostKiss"), mind.Session);
 
         PopulateVesselMenu(uid);
 

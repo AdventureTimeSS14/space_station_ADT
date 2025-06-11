@@ -83,37 +83,37 @@ public sealed partial class PhantomSystem
         if (!TryUseAbility(uid, args, target))
             return;
 
-        if (IsHolder(target, component))
+        if (IsHolder(target, component) && !HasComp<MindShieldMalfunctioningComponent>(target))
         {
-            if (!component.ParalysisOn)
+            if (!component.Toggleables.Contains("Paralysis"))
             {
                 UpdateEctoplasmSpawn(uid);
                 var timeHaunted = TimeSpan.FromHours(1);
                 _sharedStun.TryParalyze(target, timeHaunted, false);
+                component.Toggleables.Add("Paralysis");
             }
             else
             {
                 _status.TryRemoveStatusEffect(target, "KnockedDown");
                 _status.TryRemoveStatusEffect(target, "Stun");
+                component.Toggleables.Remove("Paralysis");
 
                 args.Handled = true;
             }
-            component.ParalysisOn = !component.ParalysisOn;
         }
         else
         {
-            if (component.ParalysisOn)
+            if (component.Toggleables.Contains("Paralysis"))
             {
                 var selfMessage = Loc.GetString("phantom-paralysis-fail-active");
                 _popup.PopupEntity(selfMessage, uid, uid);
+                return;
             }
-            else
-            {
-                UpdateEctoplasmSpawn(uid);
-                var time = TimeSpan.FromSeconds(args.Duration);
-                if (_sharedStun.TryParalyze(target, time, false))
-                    args.Handled = true;
-            }
+
+            UpdateEctoplasmSpawn(uid);
+            var time = TimeSpan.FromSeconds(args.Duration);
+            if (_sharedStun.TryParalyze(target, time, false))
+                args.Handled = true;
         }
     }
 

@@ -140,7 +140,7 @@ public sealed partial class PhantomSystem
         if (!TryComp(target, out InventoryComponent? inventory))
             return;
 
-        if (!component.ClawsOn)
+        if (!component.Toggleables.Contains("Claws"))
         {
             var claws = Spawn("ADTGhostClaws", Transform(target).Coordinates);
             EnsureComp<UnremoveableComponent>(claws);
@@ -152,6 +152,7 @@ public sealed partial class PhantomSystem
             var selfMessage = Loc.GetString("phantom-claws-appear-self");
             _popup.PopupEntity(message, target, Filter.PvsExcept(target), true, PopupType.MediumCaution);
             _popup.PopupEntity(selfMessage, target, target, PopupType.MediumCaution);
+            component.Toggleables.Add("Claws");
         }
         else
         {
@@ -162,8 +163,8 @@ public sealed partial class PhantomSystem
             _popup.PopupEntity(selfMessage, target, target, PopupType.MediumCaution);
 
             component.Claws = new();
+            component.Toggleables.Remove("Claws");
         }
-        component.ClawsOn = !component.ClawsOn;
     }
 
     private void OnPortal(EntityUid uid, PhantomComponent component, PhantomPortalActionEvent args)
@@ -181,7 +182,7 @@ public sealed partial class PhantomSystem
             _visibility.SetLayer((portal, EnsureComp<VisibilityComponent>(portal)), (int)VisibilityFlags.PhantomVessel);
             _visibility.RefreshVisibility(portal);
             component.Portal1 = portal;
-            _audio.PlayPvs(component.PortalSound, portal);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/portal.ogg"), portal);
             UpdateEctoplasmSpawn(uid);
             args.Handled = true;
             return;
@@ -206,7 +207,7 @@ public sealed partial class PhantomSystem
             component.Portal2 = portal;
             firstPortalComp.LinkedPortal = portal;
             secondPortalComp.LinkedPortal = component.Portal1;
-            _audio.PlayPvs(component.PortalSound, portal);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/portal.ogg"), portal);
             UpdateEctoplasmSpawn(uid);
             args.Handled = true;
             return;
