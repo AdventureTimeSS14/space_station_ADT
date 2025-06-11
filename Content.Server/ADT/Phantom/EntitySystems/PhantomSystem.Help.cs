@@ -8,6 +8,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
@@ -32,7 +33,7 @@ public sealed partial class PhantomSystem
 
         var target = args.Target;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         bool success = false;
@@ -78,7 +79,7 @@ public sealed partial class PhantomSystem
         if (success)
         {
             if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                _audio.PlayGlobal(component.RepairSound, mind.Session);
+                _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/repair.ogg"), mind.Session);
             var selfMessage = Loc.GetString("phantom-repair-self", ("name", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
             UpdateEctoplasmSpawn(uid);
@@ -100,17 +101,14 @@ public sealed partial class PhantomSystem
 
         var target = component.Holder;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         UpdateEctoplasmSpawn(uid);
         args.Handled = true;
 
-        if (_playerManager.TryGetSessionByEntity(uid, out var userSession))
-            _audio.PlayGlobal(component.RecoverySound, userSession);
-
         if (_playerManager.TryGetSessionByEntity(target, out var targetSession))
-            _audio.PlayGlobal(component.RecoverySound, targetSession);
+            _audio.PlayGlobal(args.Sound, targetSession);
 
 
         var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), component.RegenerateBruteHealAmount);
@@ -133,7 +131,7 @@ public sealed partial class PhantomSystem
 
         var target = component.Holder;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         UpdateEctoplasmSpawn(uid);
@@ -241,7 +239,7 @@ public sealed partial class PhantomSystem
 
         var target = component.Holder;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         if (!_playerManager.TryGetSessionByEntity(target, out var session))

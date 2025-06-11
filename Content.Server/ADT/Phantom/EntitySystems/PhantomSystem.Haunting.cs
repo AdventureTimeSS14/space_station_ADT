@@ -9,6 +9,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
 using Content.Shared.Polymorph;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 
@@ -38,7 +39,7 @@ public sealed partial class PhantomSystem
 
         var target = args.Target;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         if (!component.HasHaunted)
@@ -215,7 +216,7 @@ public sealed partial class PhantomSystem
             _popup.PopupEntity(targetMessage, target, target);
 
             if (_playerManager.TryGetSessionByEntity(uid, out var session))
-                _audio.PlayGlobal(component.HauntSound, session);
+                _audio.PlayGlobal(new SoundCollectionSpecifier("PhantomHaunt"), session);
         }
 
         Dirty(target, holderComp);

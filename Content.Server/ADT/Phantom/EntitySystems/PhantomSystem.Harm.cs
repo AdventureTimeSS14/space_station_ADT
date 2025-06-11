@@ -17,6 +17,7 @@ using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -40,7 +41,7 @@ public sealed partial class PhantomSystem
 
         var target = args.Target;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         var time = TimeSpan.FromSeconds(2);
@@ -139,7 +140,7 @@ public sealed partial class PhantomSystem
             {
                 UpdateEctoplasmSpawn(uid);
                 args.Handled = true;
-                _audio.PlayPvs(component.BreakdownSound, target);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/breakdown.ogg"), target);
             }
             else
             {
@@ -156,7 +157,7 @@ public sealed partial class PhantomSystem
 
         var target = args.Target;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         if (!TryComp<BloodstreamComponent>(target, out var bloodstream) ||
@@ -179,10 +180,8 @@ public sealed partial class PhantomSystem
         UpdateEctoplasmSpawn(uid);
         args.Handled = true;
 
-        if (_playerManager.TryGetSessionByEntity(uid, out var userSession))
-            _audio.PlayGlobal(component.BlindingSound, userSession);
         if (_playerManager.TryGetSessionByEntity(uid, out var targetSession))
-            _audio.PlayGlobal(component.BlindingSound, targetSession);
+            _audio.PlayGlobal(args.Sound, targetSession);
 
         _bloodstreamSystem.TryModifyBleedAmount(target, component.BlindingBleed, bloodstream);
         _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, "TemporaryBlindness", component.BlindingTime, true);
@@ -207,7 +206,7 @@ public sealed partial class PhantomSystem
         }
         var target = component.Holder;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
@@ -233,11 +232,8 @@ public sealed partial class PhantomSystem
 
         args.Handled = true;
 
-        if (_playerManager.TryGetSessionByEntity(uid, out var userSession))
-            _audio.PlayGlobal(component.PuppeterSound, userSession);
-
         if (_playerManager.TryGetSessionByEntity(uid, out var targetSession))
-            _audio.PlayGlobal(component.PuppeterSound, targetSession);
+            _audio.PlayGlobal(args.Sound, targetSession);
 
         UpdateEctoplasmSpawn(uid);
         _controlled.TryStartControlling(uid, target, 30f, 10, "Phantom");
@@ -248,21 +244,21 @@ public sealed partial class PhantomSystem
         if (args.Handled)
             return;
 
+        if (!TryUseAbility(uid, args, null))
+            return;
+
         UpdateEctoplasmSpawn(uid);
         args.Handled = true;
-
-        if (_playerManager.TryGetSessionByEntity(uid, out var userSession))
-            _audio.PlayGlobal(component.InjurySound, userSession);
 
         foreach (var mob in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 12f))
         {
             if (HasComp<VesselComponent>(mob) ||
                 !HasComp<HumanoidAppearanceComponent>(mob) ||
-                !TryUseAbility(uid, mob))
+                !CheckProtection(uid, mob))
                 continue;
 
             if (_playerManager.TryGetSessionByEntity(mob, out var targetSession))
-                _audio.PlayGlobal(component.InjurySound, targetSession);
+                _audio.PlayGlobal(args.Sound, targetSession);
 
             var stunTime = TimeSpan.FromSeconds(2);
             var list = _proto.EnumeratePrototypes<DamageGroupPrototype>().ToList();

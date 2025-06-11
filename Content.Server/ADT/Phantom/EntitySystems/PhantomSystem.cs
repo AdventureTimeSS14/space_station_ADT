@@ -59,6 +59,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.Revenant.Components;
 using Content.Server.Singularity.Events;
+using Content.Shared.ADT.MindShield;
 
 namespace Content.Server.ADT.Phantom.EntitySystems;
 
@@ -498,7 +499,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         var allowedVessels = new List<EntityUid>();
         foreach (var vessel in component.Vessels)
         {
-            if (!CheckAltars(vessel, component) && TryUseAbility(uid, vessel))
+            if (!CheckAltars(vessel, component) && CheckProtection(uid, vessel))
                 allowedVessels.Add(vessel);
         }
         if (allowedVessels.Count < 1)
@@ -597,6 +598,44 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         return false;
     }
 
+    public bool TryUseAbility(EntityUid uid, IPhantomAbility args, EntityUid? target = null)
+    {
+        if (target.HasValue)
+        {
+            switch (args.MsAllowance)
+            {
+                case IPhantomAbility.MindshieldAllowance.Any:
+                    break;
+                case IPhantomAbility.MindshieldAllowance.Malfunctioning:
+                    if (HasComp<MindShieldComponent>(target.Value) && !HasComp<MindShieldMalfunctioningComponent>(target.Value))
+                    {
+                        var selfMessage = Loc.GetString("phantom-ability-fail-mindshield", ("target", Identity.Entity(target.Value, EntityManager)));
+                        _popup.PopupEntity(selfMessage, uid, uid);
+                        return false;
+                    }
+                    break;
+                case IPhantomAbility.MindshieldAllowance.NoMindshield:
+                    if (HasComp<MindShieldComponent>(target.Value))
+                    {
+                        var selfMessage = Loc.GetString("phantom-ability-fail-mindshield", ("target", Identity.Entity(target.Value, EntityManager)));
+                        _popup.PopupEntity(selfMessage, uid, uid);
+                        return false;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (!CheckProtection(uid, target))
+            return false;
+
+        if (_playerManager.TryGetSessionByEntity(uid, out var session))
+            _audio.PlayGlobal(args.Sound, session);
+
+        return true;
+    }
+
     /// <summary>
     /// All checks that shows if phantom able to use this ability
     /// </summary>
@@ -604,7 +643,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     /// <param name="trgt">Target uid (nullable)</param>
     /// <param name="comp">Phantom component</param>
     /// <returns>Is phantom able to use this ability</returns>
-    private bool TryUseAbility(EntityUid uid, EntityUid? trgt = null)
+    private bool CheckProtection(EntityUid uid, EntityUid? trgt = null)
     {
         if (trgt == null)
         {
@@ -711,7 +750,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (!TryUseAbility(uid, target))
+        if (!CheckProtection(uid, target))
             return;
 
         var stationUid = _entitySystems.GetEntitySystem<StationSystem>().GetOwningStation(uid);

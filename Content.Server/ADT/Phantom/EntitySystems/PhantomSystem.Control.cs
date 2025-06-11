@@ -80,14 +80,7 @@ public sealed partial class PhantomSystem
 
         var target = args.Target;
 
-        if (HasComp<MindShieldComponent>(target))
-        {
-            var selfMessage = Loc.GetString("phantom-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
-            _popup.PopupEntity(selfMessage, uid, uid);
-            return;
-        }
-
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         if (IsHolder(target, component))
@@ -97,9 +90,6 @@ public sealed partial class PhantomSystem
                 UpdateEctoplasmSpawn(uid);
                 var timeHaunted = TimeSpan.FromHours(1);
                 _sharedStun.TryParalyze(target, timeHaunted, false);
-
-                if (_playerManager.TryGetSessionByEntity(uid, out var session))
-                    _audio.PlayGlobal(component.ParalysisSound, session);
             }
             else
             {
@@ -120,14 +110,9 @@ public sealed partial class PhantomSystem
             else
             {
                 UpdateEctoplasmSpawn(uid);
-                var time = TimeSpan.FromSeconds(10);
+                var time = TimeSpan.FromSeconds(args.Duration);
                 if (_sharedStun.TryParalyze(target, time, false))
-                {
-                    if (_playerManager.TryGetSessionByEntity(uid, out var session))
-                        _audio.PlayGlobal(component.ParalysisSound, session);
-
                     args.Handled = true;
-                }
             }
         }
     }
@@ -145,7 +130,7 @@ public sealed partial class PhantomSystem
         }
         var target = component.Holder;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         if (!HasComp<HumanoidAppearanceComponent>(target))

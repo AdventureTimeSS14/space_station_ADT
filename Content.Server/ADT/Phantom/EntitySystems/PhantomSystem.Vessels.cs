@@ -128,7 +128,7 @@ public sealed partial class PhantomSystem
             return;
         }
 
-        if (!TryUseAbility(uid, target))
+        if (!CheckProtection(uid, target))
             return;
 
         if (!comp.HasHaunted)
@@ -154,19 +154,12 @@ public sealed partial class PhantomSystem
 
         var target = component.Holder;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
             var selfMessage = Loc.GetString("phantom-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
-            _popup.PopupEntity(selfMessage, uid, uid);
-            return;
-        }
-
-        if (HasComp<MindShieldComponent>(target))
-        {
-            var selfMessage = Loc.GetString("phantom-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
             return;
         }
