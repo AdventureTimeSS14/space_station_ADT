@@ -121,7 +121,6 @@ public sealed partial class PhantomRadialMenu : RadialMenu
             button.OnPressed += args => OnSelectVessel?.Invoke(vessel);
 
             face.Scale *= 2f;
-            button.AddChild(face);
             Main.AddChild(button);
         }
     }
