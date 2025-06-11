@@ -8,13 +8,13 @@ ent-ADTRandomHumanoidSpawnerERTLeaderEVARiot = ОБР лидер
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
 
-ent-ADTRandomHumanoidSpawnerERTJanitor = ОБР уборщик
+ent-ADTRandomHumanoidSpawnerERTJanitor = ОБР ученый
     .suffix = Базовый
     .desc = { "" }
-ent-ADTRandomHumanoidSpawnerERTJanitorEVA = ОБР уборщик
+ent-ADTRandomHumanoidSpawnerERTJanitorEVA = ОБР ученый
     .suffix = Броня EVA, против ЯО
     .desc = { ent-RandomHumanoidSpawnerERTLeader.desc }
-ent-ADTRandomHumanoidSpawnerERTJanitorEVARiot = ОБР уборщик
+ent-ADTRandomHumanoidSpawnerERTJanitorEVARiot = ОБР ученый
     .suffix = Броня EVA riot, против бунтов
     .desc = { ent-RandomHumanoidSpawnerERTLeaderEVA.desc }
 

@@ -3,7 +3,7 @@
   mapName: 'Radiance Station'
   mapPath: /Maps/SDMaps/SDStations/sd_Radiance.yml
   maxRandomOffset: 0
-  minPlayers: 50
+  minPlayers: 30
   stations:
     ADT_Kerberos:
       stationProto: StandardNanotrasenStation
@@ -69,7 +69,7 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента 1
         # - type: StationGoal
         #   goals:
         #   - Shuttle

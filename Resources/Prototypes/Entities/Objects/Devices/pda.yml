@@ -1018,17 +1018,39 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: CentcomPDA
+  parent: BaseSecurityPDA
   id: DeathsquadPDA
+  name: Dso-pda-name
   suffix: Death Squad
+  description: Dso-pda-desc
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-  - type: Tag #  Ignore Chameleon tags
-    tags:
-    - DoorBumpOpener
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-dso
+  - type: PdaBorderColor
+    borderColor: "#00842e"
   - type: Icon
     state: pda-dso
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: BasePDA
