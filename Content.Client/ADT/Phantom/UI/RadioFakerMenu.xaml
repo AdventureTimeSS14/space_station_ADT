@@ -1,0 +1,14 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+               Title="Нашептать"
+               SetSize="600 300"
+               MaxSize="900 850">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal" Margin="2 4">
+            <OptionButton Name="ChannelButton" HorizontalExpand="True" Margin="2 0" SizeFlagsStretchRatio="1" />
+            <LineEdit Name="NameEdit" HorizontalExpand="True" Margin="2 0" SizeFlagsStretchRatio="3" />
+        </BoxContainer>
+        <LineEdit Name="TextEdit" HorizontalExpand="True" VerticalExpand="True" Margin="4" />
+        <Button Name="SendButton" HorizontalExpand="True" Text="Отправить" Margin="4" />
+    </BoxContainer>
+</ui:FancyWindow>

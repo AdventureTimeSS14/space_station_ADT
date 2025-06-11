@@ -1,3 +1,4 @@
+using Content.Shared.ADT.MindShield;
 using Content.Shared.ADT.Phantom;
 using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.DoAfter;
@@ -5,6 +6,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Radio;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
@@ -15,62 +17,43 @@ public sealed partial class PhantomSystem
 {
     private void InitializeControlAbilities()
     {
-        SubscribeLocalEvent<PhantomComponent, StarvationActionEvent>(OnStarvation);
+        SubscribeLocalEvent<PhantomComponent, RadioFakerActionEvent>(OnFaker);
         SubscribeLocalEvent<PhantomComponent, ParalysisActionEvent>(OnParalysis);
         SubscribeLocalEvent<PhantomComponent, PhantomOathActionEvent>(OnOath);
         SubscribeLocalEvent<PhantomComponent, PsychoEpidemicActionEvent>(OnPsychoEpidemic);
 
         SubscribeLocalEvent<PhantomComponent, PuppeterDoAfterEvent>(PuppeterDoAfter);
+        SubscribeNetworkEvent<SendRadioFakerMessageEvent>(OnFakerSend);
     }
 
-    private void OnStarvation(EntityUid uid, PhantomComponent component, StarvationActionEvent args)
+    private void OnFaker(EntityUid uid, PhantomComponent component, RadioFakerActionEvent args)
     {
         if (args.Handled)
             return;
 
         var target = args.Target;
 
-        if (!TryUseAbility(uid, target))
+        if (!TryUseAbility(uid, args, target))
             return;
 
-        if (IsHolder(target, component))
+        if (!_playerManager.TryGetSessionByEntity(uid, out var session))
+            return;
+
+        List<string> channels = new()
         {
-            if (!component.StarvationOn)
-            {
-                UpdateEctoplasmSpawn(uid);
-                var timeHaunted = TimeSpan.FromHours(1);
-                _status.TryAddStatusEffect<HungerEffectComponent>(target, "ADTStarvation", timeHaunted, false);
-                if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                    _audio.PlayGlobal(component.InjurySound, mind.Session);
-            }
-            else
-            {
-                args.Handled = true;
+            "Common",
+            "Supply",
+            "Engineering",
+            "Medical",
+            "Science",
+            "Security",
+            "Service",
+            "Command",
+            "ADTLawyerChannel"
+        };
 
-                _status.TryRemoveStatusEffect(target, "ADTStarvation");
-            }
-
-            component.StarvationOn = !component.StarvationOn;
-        }
-        else
-        {
-            if (component.StarvationOn)
-            {
-                var selfMessage = Loc.GetString("phantom-starvation-fail-active");
-                _popup.PopupEntity(selfMessage, uid, uid);
-                return;
-            }
-            else
-            {
-                args.Handled = true;
-
-                UpdateEctoplasmSpawn(uid);
-                var time = TimeSpan.FromSeconds(15);
-                _status.TryAddStatusEffect<HungerEffectComponent>(target, "ADTStarvation", time, false);
-                if (_playerManager.TryGetSessionByEntity(uid, out var session))
-                    _audio.PlayGlobal(component.InjurySound, session);
-            }
-        }
+        var ev = new OpenRadioFakerMenuEvent(GetNetEntity(uid), GetNetEntity(target), channels);
+        RaiseNetworkEvent(ev, uid);
     }
 
     private void OnParalysis(EntityUid uid, PhantomComponent component, ParalysisActionEvent args)
@@ -222,5 +205,31 @@ public sealed partial class PhantomSystem
             return;
 
         _euiManager.OpenEui(new AcceptPhantomPowersEui(target, this, component), session);
+    }
+
+    private void OnFakerSend(SendRadioFakerMessageEvent ev)
+    {
+        var uid = GetEntity(ev.User);
+        var target = GetEntity(ev.Target);
+        if (!_playerManager.TryGetSessionByEntity(target, out var session))
+            return;
+
+        if (HasComp<MindShieldComponent>(target) && !HasComp<MindShieldMalfunctioningComponent>(target))
+        {
+            var selfMessage = Loc.GetString("phantom-ability-fail-mindshield", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
+
+        var channel = _proto.Index<RadioChannelPrototype>(ev.Channel);
+
+        var wrappedMessage = Loc.GetString("radio-faker-message-wrap",
+            ("color", channel.Color),
+            ("channel", $"\\[{channel.LocalizedName}\\]"),
+            ("name", ev.Sender),
+            ("message", ev.Message));
+
+        _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Radio, ev.Message, wrappedMessage, EntityUid.Invalid, false, session.Channel);
+        _popup.PopupEntity(Loc.GetString("radio-faker-sent-popup", ("target", ("target", Identity.Entity(target, EntityManager)))), uid, uid);
     }
 }

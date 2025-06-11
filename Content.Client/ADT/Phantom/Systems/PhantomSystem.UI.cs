@@ -28,6 +28,7 @@ public sealed partial class PhantomSystem
         SubscribeLocalEvent<PhantomComponent, FreedomFinaleActionEvent>(OnRequestFreedomMenu);
 
         SubscribeNetworkEvent<RequestPhantomVesselMenuEvent>(OnRequestVesselMenu);
+        SubscribeNetworkEvent<OpenRadioFakerMenuEvent>(OnFakerOpen);
     }
 
     private void OnRequestStyleMenu(EntityUid uid, PhantomComponent component, OpenPhantomStylesMenuActionEvent args)
@@ -96,5 +97,11 @@ public sealed partial class PhantomSystem
 
         controller.OpenMenu();
         controller.PopulateVessels(ev.Vessels);
+    }
+
+    private void OnFakerOpen(OpenRadioFakerMenuEvent ev)
+    {
+        _ui.GetUIController<RadioFakerUIController>()
+            .OpenMenu(ev.User, ev.Target, ev.Channels);
     }
 }

@@ -61,9 +61,13 @@ public sealed partial class BreakdownActionEvent : EntityTargetActionEvent, IPha
     public float MalfDuration = 5f;
 }
 
-public sealed partial class StarvationActionEvent : EntityTargetActionEvent
+public sealed partial class RadioFakerActionEvent : EntityTargetActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
 
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
 public sealed partial class RepairActionEvent : EntityTargetActionEvent, IPhantomAbility
@@ -259,7 +263,7 @@ public sealed partial class EctoplasmHitscanHitEvent : EntityEventArgs
 }
 #endregion
 
-#region Radial Menu
+#region UI
 /// <summary>
 /// This event carries list of style prototypes and entity - the source of request. This class is a part of code which is responsible for using RadialUiController.
 /// </summary>
@@ -354,6 +358,40 @@ public sealed partial class PopulatePhantomVesselMenuEvent : EntityEventArgs
     {
         Uid = uid;
         Vessels = vessels;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class OpenRadioFakerMenuEvent : EntityEventArgs
+{
+    public readonly List<string> Channels = new();
+    public NetEntity User;
+    public NetEntity Target;
+
+    public OpenRadioFakerMenuEvent(NetEntity user, NetEntity target, List<string> channels)
+    {
+        User = user;
+        Channels = channels;
+        Target = target;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SendRadioFakerMessageEvent : EntityEventArgs
+{
+    public NetEntity User;
+    public NetEntity Target;
+    public string Message;
+    public string Sender;
+    public string Channel;
+
+    public SendRadioFakerMessageEvent(NetEntity user, NetEntity target, string message, string sender, string channel)
+    {
+        User = user;
+        Target = target;
+        Message = message;
+        Sender = sender;
+        Channel = channel;
     }
 }
 

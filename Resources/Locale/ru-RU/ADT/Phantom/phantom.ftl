@@ -104,6 +104,10 @@ phantom-fail-mindshield = Имплант защиты разума {CAPITALIZE($
 
 phantom-vessel-removed = {CAPITALIZE($target)} больше не является сосудом.
 
+radio-faker-message-wrap = [color={ $color }]{ $channel } [bold]{ $name }[/bold] говорит, "{ $message }"[/color]
+
+radio-faker-sent-popup = Вы отправили ложное сообщение для { $target }.
+
 # Alerts
 
 alerts-vessels-name = Сосуды
@@ -135,7 +139,7 @@ phantom-oblivion-window-accept-button = Ок
 # Announcements
 phantom-announcer = Фантома
 phantom-nightmare-announcement =
-    Да настигнет вашу прогнившую реальность неописуемый ужас. Пусть придет беда в ваши мерзкие дома так же быстро, как их покинула надежда на лучшее будущее. Рвите и кромсайте их, мои слуги! Ибо настал час кошмаров! 
+    Да настигнет вашу прогнившую реальность неописуемый ужас. Пусть придет беда в ваши мерзкие дома так же быстро, как их покинула надежда на лучшее будущее. Рвите и кромсайте их, мои слуги! Ибо настал час кошмаров!
 phantom-tyrany-announcement =
     Больше нет нуждны скрываться... Узрите же лик вашего Хозяина! Падите ниц, моля о пощаде и тогда, возможно, вы познаете милосердие... Или сгиньте в пустоте как те, что были до вас!
 phantom-deathmatch-announcement =
