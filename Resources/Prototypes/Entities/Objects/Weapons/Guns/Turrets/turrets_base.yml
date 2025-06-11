@@ -76,6 +76,7 @@
   - type: NoRotateOnMove
   - type: Input
     context: "human"
+  - type: ProjectileIgnoreCrawling # ADT-Tweak
 
 - type: entity
   parent: BaseWeaponTurret
