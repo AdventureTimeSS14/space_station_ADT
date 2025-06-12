@@ -7,6 +7,9 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Server.ADT.Atmos.EntityDamage.Pipes
 {
+    /// <summary>
+    /// Система которая отвечает за ломание труб при избыточном давлении внутри.
+    /// </summary>
     public sealed class OverpressurePipeDamageSystem : EntitySystem
     {
         [Dependency] private readonly DamageableSystem _damage = default!;
@@ -14,7 +17,7 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Pipes
 
         public void HandleOverpressure(PipeNode pipe, GasMixture netAir)
         {
-            // Checks pressure in pipe.
+            // Проверяем наличие давления в трубе.
             if (netAir == null ||
                 !EntityManager.TryGetComponent(pipe.Owner, out OverpressurePipeDamageComponent? comp) ||
                 comp.LimitPressure <= 0)
@@ -22,17 +25,18 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Pipes
 
             float pressure = netAir.Pressure;
             float limit = comp.LimitPressure;
-
             float over = pressure - limit;
+
             if (over <= 0) return;
 
-            // If the pressure is bigger than our limit pressure (check component), then with a 50% chance we get damage
+            // Наносим урон с случайным шансом, чтобы труба не ломалась моментально.
             float chance = EntityManager.TryGetComponent(pipe.Owner, out DamageableComponent? dmg)
                 ? Math.Clamp(0.5f + (float)dmg.TotalDamage * 0.5f, 0f, 1f)
                 : 0.5f;
 
             if (_random.Prob(1 - chance)) return;
 
+            // Чем больше давление - тем больше урона.
             int dmgAmt = (int)(10f * MathF.Exp(over / limit));
             if (dmgAmt <= 0) return;
 
