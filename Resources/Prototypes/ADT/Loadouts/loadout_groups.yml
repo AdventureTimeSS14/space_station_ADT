@@ -20,6 +20,23 @@
   - LawyerGreenSuit
 
 - type: loadoutGroup
+  id: ADTLawyerGloves
+  name: loadout-group-lawyer-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTLightBrownGloves
+  - OrangeGloves
+  - ADTRedGloves
+  - ADTTealGloves
+  - ADTGreenGloves
+  - ADTWhiteGloves
+  - ADTBlackGloves
+  - ADTGrayGloves
+  - PurpleGloves
+  - ADTBlueGloves
+
+- type: loadoutGroup
   id: LawyerShoes
   name: loadout-group-lawyer-shoes
   minLimit: 1
