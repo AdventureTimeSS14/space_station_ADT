@@ -110,7 +110,7 @@
       Dead:
         Base: dead
   - type: MovementAlwaysTouching
-
+  - type: AntiRottingContainer
 #нужен для работы размножения
 - type: entity
   parent: ADTBaseMobMorph
