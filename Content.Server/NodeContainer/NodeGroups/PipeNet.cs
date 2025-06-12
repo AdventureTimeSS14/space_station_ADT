@@ -47,20 +47,13 @@ namespace Content.Server.NodeContainer.NodeGroups
 
         public void Update()
         {
-             _atmosphereSystem?.React(Air, this);
+            _atmosphereSystem?.React(Air, this);
 
-        //     // ADT-Tweak start
-        //     var overpressurePipeDamageSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
-        //     if (overpressurePipeDamageSystem != null)
-        //     {
-        //         foreach (var node in Nodes)
-        //         {
-        //             if (node is PipeNode pipe)
-        //                 overpressurePipeDamageSystem.HandleOverpressure(pipe, Air);
-        //         }
-        //     }
-        //     // ADT-Tweak end
-         }
+            // ADT-Tweak start
+            var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
+            overpressureSystem?.Update(this);
+            // ADT-Tweak end
+        }
 
         public override void LoadNodes(List<Node> groupNodes)
         {
@@ -68,7 +61,7 @@ namespace Content.Server.NodeContainer.NodeGroups
 
             foreach (var node in groupNodes)
             {
-                var pipeNode =(PipeNode)node;
+                var pipeNode = (PipeNode) node;
                 Air.Volume += pipeNode.Volume;
             }
         }

@@ -6,7 +6,7 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Components
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class OverpressurePipeDamageComponent : Component
-    {        
+    {
         /// <summary>
         /// Лимит давления газа в трубе.
         /// </summary>
