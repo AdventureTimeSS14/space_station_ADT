@@ -100,3 +100,6 @@ ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
 ent-ADTClothingOuterCoatXCoat = икс-ключительное облачение
     .desc = Кажется, это облачение заигравшегося творца.
 
+
+ent-ADTClothingOuterExplorerBomber = бомбер исследователя
+    .desc = Вперёд навстречу новым исследованиям и приключениям!.. Как жаль, что на Лаваленде многие приключения ведут к смерти... От него пахнет... Пеплом?
