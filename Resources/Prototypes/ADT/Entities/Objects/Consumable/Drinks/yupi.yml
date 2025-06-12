@@ -18,7 +18,6 @@
   - type: Item
     sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
     size: Small
-    state: box
   - type: Appearance
   - type: StaticPrice
     price: 0
