@@ -2,7 +2,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Atmos.EntityDamage.Components
+namespace Content.Shared.ADT.Atmos.EntityDamage.Components
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class OverpressurePipeDamageComponent : Component

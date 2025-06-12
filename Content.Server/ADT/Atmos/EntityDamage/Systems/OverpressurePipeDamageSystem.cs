@@ -2,7 +2,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.NodeGroups;
-using Content.Server.ADT.Atmos.EntityDamage.Components;
+using Content.Shared.ADT.Atmos.EntityDamage.Components;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
 
@@ -48,7 +48,8 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
 
             // Чем больше давление - тем больше урона.
             int dmgAmt = (int)(10f * MathF.Exp(over / limit));
-            if (dmgAmt <= 0) return;
+            if (dmgAmt <= 0)
+                return;
 
             _damage.TryChangeDamage(pipe.Owner, new DamageSpecifier { DamageDict = { ["Structural"] = dmgAmt } });
         }
