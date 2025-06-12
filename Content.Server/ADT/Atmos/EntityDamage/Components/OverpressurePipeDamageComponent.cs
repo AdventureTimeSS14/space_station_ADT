@@ -2,13 +2,13 @@ using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.ADT.Atmos.EntityDamage.Pipes
+namespace Content.Server.ADT.Atmos.EntityDamage.Components
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class OverpressurePipeDamageComponent : Component
     {        
         /// <summary>
-        /// Our limit pressure that we can have in pipe.  
+        /// Лимит давления газа в трубе.
         /// </summary>
         [DataField]
         public float LimitPressure = 0f;

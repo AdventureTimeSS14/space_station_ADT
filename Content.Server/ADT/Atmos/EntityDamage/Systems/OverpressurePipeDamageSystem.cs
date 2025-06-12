@@ -5,7 +5,7 @@ using Content.Shared.ADT.Atmos.EntityDamage.Pipes;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
 
-namespace Content.Server.ADT.Atmos.EntityDamage.Pipes
+namespace Content.Server.ADT.Atmos.EntityDamage.Systems
 {
     /// <summary>
     /// Система которая отвечает за ломание труб при избыточном давлении внутри.
