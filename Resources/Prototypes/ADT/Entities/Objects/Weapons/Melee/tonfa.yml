@@ -23,26 +23,6 @@
   - type: ComboWeapon
     availableMoves:
       - actionsNeeds:
-          - ProtectiveWideHit
-          - OffensiveWideHit
-        comboEvent:
-          - !type:ComboStaminaDamageEffect
-            staminaDamage: 40
-          - !type:ComboAudioEffect
-            sound:
-              collection: GenericHit
-      - actionsNeeds:
-          - ProtectiveWideHit
-          - OffensiveHit
-        comboEvent:
-          - !type:ComboDamageEffect
-            damage:
-              types:
-                Blunt: 10
-          - !type:ComboAudioEffect
-            sound:
-              collection: GenericHit
-      - actionsNeeds:
           - OffensiveWideHit
           - OffensiveWideHit
           - OffensiveHit
@@ -62,12 +42,13 @@
         comboEvent:
           - !type:ComboEffectToDowned
             comboEvents:
-            - !type:ComboStopGrabEffect
+            - !type:ComboSlowdownEffect
+              time: 10
             - !type:ComboAudioEffect
               sound:
                 collection: GenericHit
-            - !type:ComboFallEffect
-              dropItems: false
+          - !type:ComboFallEffect
+            dropItems: false
       - actionsNeeds:
           - OffensiveWideHit
           - OffensiveWideHit
@@ -75,14 +56,34 @@
         comboEvent:
           - !type:ComboEffectToUserPuller
             comboEvents:
-            - !type:ComboSlowdownEffect
-              time: 10
+            - !type:ComboStopTargetGrabEffect
             - !type:ComboAudioEffect
               sound:
                 collection: GenericHit
             - !type:ComboFallEffect
               dropItems: false
-          - !type:ComboStopTargetGrabEffect
+            - !type:ComboTrowTargetEffect
+              thrownSpeed: 7
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveWideHit
+        comboEvent:
+          - !type:ComboStaminaDamageEffect
+            staminaDamage: 40
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
+      - actionsNeeds:
+          - ProtectiveHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboDamageEffect
+            damage:
+              types:
+                Blunt: 10
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
   - type: GenericVisualizer
     visuals:
       enum.ComboWeaponState.State:

@@ -1007,6 +1007,7 @@
   - BrownShoes
   - ScienceWinterBoots
   # ADT tweak start
+  - PurpleShoes
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1065,6 +1066,7 @@
   - BlackShoes
   - ScienceWinterBoots
   # ADT tweak start
+  - PurpleShoes
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1134,8 +1136,8 @@
   - ADTSecurityOfficerNeckBadgeBronze
   - ADTSecurityOfficerNeckBadgeSilver
   - ADTSecurityOfficerNeckBadgeGold
+  # - HeadofSecurityShoulderMantle # Corvax-Loadouts
   # ADT-Loadout-End
-  - HeadofSecurityShoulderMantle # Corvax-Loadouts
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
