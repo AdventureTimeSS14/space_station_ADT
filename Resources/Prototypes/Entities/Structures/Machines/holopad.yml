@@ -13,7 +13,16 @@
           !type:PhysShapeCircle
           radius: 0.25
         mask:
-        - SubfloorMask
+        - Impassable
+        - HighImpassable
+        - MidImpassable
+        hard: false #ADT tweak
+      fix2:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        mask:
+        - MachineLayer
         layer:
         - LowImpassable
         hard: false

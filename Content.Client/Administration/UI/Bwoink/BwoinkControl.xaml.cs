@@ -13,8 +13,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Network;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Client.Administration.UI.Logs;
-using Content.Client.Eui;
 
 namespace Content.Client.Administration.UI.Bwoink
 {
@@ -29,6 +27,18 @@ namespace Content.Client.Administration.UI.Bwoink
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         public AdminAHelpUIHandler AHelpHelper = default!;
+
+        // ADT-Tweak start. Система тегов в АХелп
+        public const int TagCount = 4; // Переменная количества тегов в списке
+
+        private readonly string[] _tagNames = {
+            Loc.GetString("ahelp-user-type-tag-1"),
+            Loc.GetString("ahelp-user-type-tag-2"),
+            Loc.GetString("ahelp-user-type-tag-3"),
+            Loc.GetString("ahelp-user-type-tag-4")
+        }; // Массив с локализацией названий тегов в списке
+
+        // ADT-Tweak end. Система тегов в АХелп
 
         private PlayerInfo? _currentPlayer;
         private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
@@ -46,6 +56,8 @@ namespace Content.Client.Administration.UI.Bwoink
 
             _adminManager.AdminStatusUpdated += UpdateButtons;
             UpdateButtons();
+
+            AdminOnly.OnToggled += args => PlaySound.Disabled = args.Pressed;
 
             ChannelSelector.OnSelectionChanged += sel =>
             {
@@ -78,6 +90,17 @@ namespace Content.Client.Administration.UI.Bwoink
 
                 if (info.OverallPlaytime <= TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.NewPlayerThreshold)))
                     sb.Append(new Rune(0x23F2)); // ⏲
+
+                // ADT-Tweak start. Система тегов в АХелп
+                if (AHelpHelper.TryGetChannel(info.SessionId, out var playerPanel))
+                {
+                    // Проверка диапазона тегов и добавление тега возле именри персонажа
+                    if (playerPanel.LastTagId >= 0 && playerPanel.LastTagId < TagCount)
+                    {
+                        sb.Append($" [{_tagNames[playerPanel.LastTagId]}]");
+                    }
+                }
+                // ADT-Tweak end.
 
                 sb.AppendFormat("\"{0}\"", text);
 
@@ -181,11 +204,11 @@ namespace Content.Client.Administration.UI.Bwoink
                     _console.ExecuteCommand($"respawn \"{_currentPlayer.Username}\"");
             };
 
-            // ADT-Tweak-Start
+            // ADT-Tweak start
             Logs.OnPressed += _ =>
             {
                 if (_currentPlayer is not null)
-                _console.ExecuteCommand($"adminlogs \"{_currentPlayer.Username}\"");
+                    _console.ExecuteCommand($"adminlogs \"{_currentPlayer.Username}\"");
             };
 
             Playerpanel.OnPressed += _ =>
@@ -193,7 +216,7 @@ namespace Content.Client.Administration.UI.Bwoink
                 if (_currentPlayer is not null)
                     _console.ExecuteCommand($"playerpanel \"{_currentPlayer.Username}\"");
             };
-            // ADT-Tweak-End
+            // ADT-Tweak end
         }
 
         public void OnBwoink(NetUserId channel)
@@ -242,13 +265,11 @@ namespace Content.Client.Administration.UI.Bwoink
             Follow.Visible = _adminManager.CanCommand("follow");
             Follow.Disabled = !Follow.Visible || disabled;
 
-            // ADT-Tweak-Start
             Logs.Visible = _adminManager.HasFlag(AdminFlags.Logs);
             Logs.Disabled = !Logs.Visible || disabled;
 
             Playerpanel.Visible = _adminManager.HasFlag(AdminFlags.Ban);
             Playerpanel.Disabled = !Playerpanel.Visible || disabled;
-            // ADT-Tweak-End
         }
 
         private string FormatTabTitle(ItemList.Item li, PlayerInfo? pl = default)

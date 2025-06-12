@@ -150,11 +150,6 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
 
         StealDNA(uid, component);
-        _store.TryAddStore(uid,
-                            new HashSet<ProtoId<CurrencyPrototype>> { "EvolutionPoints" },
-                            new HashSet<ProtoId<StoreCategoryPrototype>> { "ChangelingAbilities" },
-                            new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoints", 10 } },
-                            false, false);
     }
 
     private void OnMapInit(EntityUid uid, ChangelingComponent component, MapInitEvent args)
@@ -182,7 +177,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnShop(EntityUid uid, ChangelingComponent component, ChangelingEvolutionMenuActionEvent args)
     {
-        _store.OnInternalShop(uid);
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+        _store.ToggleUi(uid, uid, store);
     }
 
     public void OnTransform(EntityUid uid, ChangelingComponent component, ChangelingTransformActionEvent args)

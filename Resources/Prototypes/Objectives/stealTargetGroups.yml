@@ -131,6 +131,13 @@
     state: datadisk_base
 
 - type: stealTargetGroup
+  id: Mail
+  name: steal-target-groups-mail
+  sprite:
+    sprite: Objects/Specific/Cargo/mail.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: IDCard
   name: steal-target-groups-id-cards
   sprite:
@@ -174,12 +181,14 @@
     sprite: Clothing/Head/Hats/warden.rsi
     state: icon
 
-- type: stealTargetGroup
-  id: ClothingOuterHardsuitVoidParamed
-  name: steal-target-groups-clothing-outer-hardsuit-void-paramed
-  sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-    state: icon
+#ADT tweak start
+# - type: stealTargetGroup
+#   id: ClothingOuterHardsuitVoidParamed
+#   name: steal-target-groups-clothing-outer-hardsuit-void-paramed
+#   sprite:
+#     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#     state: icon
+#ADT tweak end
 
 - type: stealTargetGroup
   id: MedicalTechFabCircuitboard

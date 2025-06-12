@@ -35,7 +35,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      85: Critical
       140: Dead
   - type: Damageable
     damageContainer: Biological

@@ -42,3 +42,29 @@
   id: ADTUplinkMechAmmo
   name: uplink-syndimech-ammo
   priority: 4
+
+# ERT Mechs
+- type: storeCategory
+  id: ADTUplinkERTMechMechs
+  name: uplink-syndimech-mechs
+  priority: 1
+
+- type: storeCategory
+  id: ADTUplinkERTMechWeapon
+  name: uplink-syndimech-weapon
+  priority: 2
+
+- type: storeCategory
+  id: ADTUplinkERTMechEquipment
+  name: uplink-syndimech-equipment
+  priority: 3
+
+- type: storeCategory
+  id: ADTUplinkERTMechAmmo
+  name: uplink-syndimech-ammo
+  priority: 4
+
+- type: storeCategory
+  id: ADTUplinkERTRevolutionalMechWeapon
+  name: uplink-syndimech-weapon
+  priority: 2

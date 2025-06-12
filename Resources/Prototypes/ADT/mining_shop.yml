@@ -35,9 +35,9 @@
   name: Передвижение
   entries:
   - id: FultonBeacon
-    price: 600
+    price: 1000
   - id: Fulton
-    price: 1150
+    price: 1750
   - id: ADTJaunter
     price: 900
   - id: WeaponGrapplingGun
@@ -62,24 +62,26 @@
   id: EquipmentWearable
   name: Снаряжение
   entries:
-  - id: ADTClothingOuterArmorMiner
-    price: 1000
   - id: ClothingMaskGasExplorer
-    price: 250
+    price: 175
   - id: ClothingBeltSalvageWebbing
     price: 500
   - id: OreBag
     price: 350
   - id: ADTAdvancedOreBag
-    price: 750
-  - id: OreBagOfHolding
-    price: 3000
+    price: 850
+#  - id: OreBagOfHolding
+#    price: 3000
   - id: ADTClothingOuterArmorMiner
     price: 1000
   - id: ADTClothingModsuitBackMining
-    price: 3000
-  - id: ADTClothingOuterArmorMinerHeavy
-    price: 3600
+    price: 1800
+  - id: ADTModsuitModDrill
+    price: 1000
+  - id: ADTModsuitModStorageLarge
+    price: 500 
+#  - id: ADTClothingOuterArmorMinerHeavy
+#    price: 3600
 #  - id: ADTClothingOuterArmorMinerLight
 #    price: 4000
   - id: ADTClothingJumpBoots
@@ -103,13 +105,13 @@
   - id: ADTWeaponCutter
     price: 1000
   - id: ADTShelterCapsule
-    price: 400
+    price: 500
   - id: PowerCellHigh
     price: 650
   - id: Binoculars
     price: 450
   - id: ADTShelterCapsuleLuxury
-    price: 3000
+    price: 3500
   - id: ADTShelterCapsuleBar
     price: 10000
 
@@ -118,18 +120,18 @@
   name: Улучшения
   entries:
   - id: PKAUpgradeDamage
-    price: 500
+    price: 750
   - id: PKAUpgradeRange
-    price: 500
+    price: 350
   - id: PKAUpgradeFireRate
     price: 500
-  - id: PKAUpgradeLight
-    price: 500
+#  - id: PKAUpgradeLight #Fix That and then we will uncoment this
+#    price: 500
 
 - type: miningShopSection
   id: Fun
   name: Безделушки
-  entries: 
+  entries:
   - id: PlushieLizard
     price: 220 # CURSE
   - id: SpaceCash5000

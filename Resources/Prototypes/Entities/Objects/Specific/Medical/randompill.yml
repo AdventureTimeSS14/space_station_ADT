@@ -104,6 +104,8 @@
   - type: RandomFillSolution
     solution: food
     weightedRandomId: RandomFillStrangePill
+  - type: Pill # ADT tweak
+    random: true # ADT tweak
 # RandomSprite does not work with pill component
   # - type: Sprite
   #   sprite: Objects/Specific/Chemistry/pills.rsi

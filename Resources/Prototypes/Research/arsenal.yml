@@ -58,7 +58,8 @@
   recipeUnlocks:
   - WeaponLaserCarbine
   # Start ADT tweak
-  - ADTWeaponIonRifle
+  # - ADTWeaponIonRifle
+  # - ADTWeaponIonCarbine
   - ADTBorgModuleHarm #ADT secborg
   - ADTMechGunImmolatorLaser
   position: 2,-1
@@ -128,6 +129,7 @@
   cost: 8000
   recipeUnlocks:
   - Truncheon
+  - ADTGrenadeStinger # ADT tweak
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG

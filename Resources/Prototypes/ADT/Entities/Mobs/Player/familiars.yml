@@ -1,0 +1,325 @@
+- type: entity
+  name: rafael
+  parent: ADTMobPigeon
+  id: ADTMobPigeonRafael
+  description: The chaplain's familiar. Likes Bread.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rafael-name
+    description: ghost-role-information-rafael-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: TTS
+    voice: kleiner
+  - type: SpeechBarks
+    data:
+      proto: Synth3
+      sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
+
+- type: entity
+  name: rahima
+  parent: MobGoat
+  id: ADTMobGoatRahima
+  description: The chaplain's familiar. Likes oast.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rahima-name
+    description: ghost-role-information-rahima-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: TTS
+    voice: mossman
+  - type: SpeechBarks
+    data:
+      proto: Toriel
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-toriel.ogg
+      pitch: 0.9
+
+- type: entity
+  name: ragha
+  parent: MobMonkey
+  id: ADTMobMonkeyRagha
+  description: The chaplain's familiar. Likes oast.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ragha-name
+    description: ghost-role-information-ragha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      100: Dead
+  - type: TTS
+    voice: twitch
+  - type: SpeechBarks
+    data:
+      proto: Flowey
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-flowey.ogg
+      pitch: 0.8
+
+- type: entity
+  name: ratha
+  parent: ADTModTurtle
+  id: ADTModTurtleRatha
+  description: The chaplain's familiar. Likes seaweed.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ratha-name
+    description: ghost-role-information-ratha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: TTS
+    voice: queen_of_pain_dota_2
+  - type: SpeechBarks
+    data:
+      proto: Queen
+      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
+
+- type: entity
+  name: rani-kha
+  parent: ADTModAntlion
+  id: ADTModAntlionRanikha
+  description: The chaplain's familiar. Likes meat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ranikha-name
+    description: ghost-role-information-ranikha-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: TTS
+    voice: ziggs
+  - type: SpeechBarks
+    data:
+      proto: Chujin
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-chujin.ogg
+      pitch: 0.7
+
+- type: entity
+  name: ronia
+  parent: ADTMobDragonPet
+  id: ADTMobDragonPetRonia
+  description: The chaplain's familiar. Likes everything to eat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-ronia-name
+    description: ghost-role-information-ronia-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: TTS
+    voice: zenobianoke
+  - type: SpeechBarks
+    data:
+      proto: Noelle
+      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
+
+- type: entity
+  name: rosie
+  parent: MobFox
+  id: ADTMobFoxRosie
+  description: The chaplain's familiar. Likes everything to eat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rosie-name
+    description: ghost-role-information-rosie-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: PointLight
+    enabled: true
+    radius: 2
+  - type: TTS
+    voice: kate_smirnova_tb
+  - type: SpeechBarks
+    data:
+      proto: Ceroba
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ceroba.ogg
+
+- type: entity
+  name: rebecca
+  parent: MobSloth
+  id: ADTMobSlothRebecca
+  description: The chaplain's familiar. Likes everything to eat.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-rebecca-name
+    description: ghost-role-information-rebecca-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 2
+  - type: TTS
+    voice: matildaweasley
+  - type: SpeechBarks
+    data:
+      proto: Toriel
+      sound: /Audio/ADT/Voice/Vocal-Barks/undertale-toriel.ogg

@@ -38,9 +38,9 @@
     requireAnchored: false
     joinSystem: true
   - type: DoAfter
-  - type: Repairable
-    fuelCost: 25
-    doAfterDelay: 10
+  - type: Repairable 
+    fuelCost: 75 # ADT-tweak 25 to 75
+    doAfterDelay: 30 # ADT-tweak 10 to 30
   - type: UserInterface
     interfaces:
       enum.MechUiKey.Key:
@@ -48,6 +48,7 @@
       enum.StorageUiKey.Key: # ADT edit
         type: StorageBoundUserInterface
   - type: MeleeWeapon
+    range: 1.0 # ADT-tweak 1.5 to 1.0
     hidden: true
     attackRate: 0.75
     damage:
@@ -92,8 +93,8 @@
       storagebase: !type:Container #ADT edit
         ents: []
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
+    damageModifierSet: ADTMechDamageModifierSet  # ADT tweak mech rebalance
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -139,14 +140,17 @@
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
-    # ADT start
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Shock: 0.9
-        Structural: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 1.0
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
@@ -155,7 +159,7 @@
     baseState: ripley
     openState: ripley-open
     brokenState: ripley-broken
-    mechToPilotDamageMultiplier: 0.75
+    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -165,9 +169,10 @@
     damage:
       types:
         Blunt: 14 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+        Structural: 20 #ADT tweak 0 to 20
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.25
-    baseSprintSpeed: 3.6
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
   - type: Storage #ADT edit
     grid:
     - 0,0,9,2
@@ -203,10 +208,22 @@
       params:
         variation: 0.17
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 1.0
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
+    # ADT end
     baseState: honker
     openState: honker-open
     brokenState: honker-broken
-    mechToPilotDamageMultiplier: 0.5
+    mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
       - HumanoidAppearance
@@ -215,6 +232,9 @@
       tags:
       - ADTMechEquipmentGeneral
       - ADTMechEquipmentClown
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.875
+    baseSprintSpeed: 3.375
     # ADT End
 
 - type: entity
@@ -244,6 +264,18 @@
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 1.0
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
+    # ADT end
     baseState: hamtr
     openState: hamtr-open
     brokenState: hamtr-broken
@@ -309,6 +341,18 @@
       params:
         volume: -10
   - type: Mech
+    # ADT start - данные коэффициенты применять для небронированных гражданских мехов
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0
+        Caustic: 0.1
+        Structural: 1.0
+    maxintegrity: 285   # ADT-tweak. Правим очки здоровья меха
+    # ADT end
     baseState: vim
     openState: vim-open
     brokenState: vim-broken

@@ -14,6 +14,14 @@
     - type: MindShield
     - type: AntagImmune
 
+- type: randomHumanoidSettings
+  id: EventHumanoidCentcomm
+  parent: EventHumanoidMindShielded
+  components:
+  - type: AutoImplant
+    implants:
+    - DeathRattleImplantCentcomm
+
 ## Death Squad
 
 - type: entity
@@ -33,7 +41,7 @@
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   randomizeName: false
   speciesBlacklist: # ADT-Tweak-start
     - Diona
@@ -526,7 +534,7 @@
     - IPC
     - DraskSpecies # ADT-Tweak-end
   id: CBURNAgent
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   components:
     - type: Loadout
       prototypes: [ADTCBURNGear] # ADT tweak
@@ -600,7 +608,7 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ corvax_names_death_commando ] # Corvax-Localization
+      nameSegments: [ NamesDeathCommando ]
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 
@@ -642,8 +650,8 @@
       settings: Cluwne
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
 
 - type: randomHumanoidSettings
   id: Cluwne

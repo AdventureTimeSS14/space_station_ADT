@@ -346,6 +346,9 @@
     attributes:
       proper: true
       gender: male
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Dog
   - type: Tag
     tags:
     - CannotSuicide
@@ -452,6 +455,9 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalWalter
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Dog
   # ADT tweak start
   - type: LanguageSpeaker
     languages:
@@ -901,6 +907,7 @@
       proper: true
       gender: male
   # ADT tweak start
+  - type: OfferItem
   - type: LanguageSpeaker
     languages:
       Monkey: Speak

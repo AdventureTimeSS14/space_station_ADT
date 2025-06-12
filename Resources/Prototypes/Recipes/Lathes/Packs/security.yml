@@ -68,6 +68,7 @@
   id: SecurityEquipment
   recipes:
   - ClothingBackpackElectropack
+  - ADTGrenadeStinger # ADT tweak
   - HoloprojectorSecurity
   - PortableRecharger
   - PowerCageHigh
@@ -132,9 +133,14 @@
   recipes:
   - Truncheon
   - WeaponAdvancedLaser
-  - WeaponDisabler
-  - WeaponDisablerSMG
   - WeaponLaserCannon
   - WeaponLaserCarbine
   - WeaponXrayCannon
   - ADTWeaponIonRifle  #ADT tweak
+  - ADTWeaponIonCarbine #ADT tweak
+  
+- type: latheRecipePack
+  id: SecurityDisablers
+  recipes:
+  - WeaponDisabler
+  - WeaponDisablerSMG

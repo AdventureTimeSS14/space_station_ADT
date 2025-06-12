@@ -21,6 +21,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.CCVar;
 using Content.Server.Discord;
+using Content.Server.ADT.Chat;
 
 namespace Content.Server.Chat.Managers;
 
@@ -154,6 +155,32 @@ internal sealed partial class ChatManager : IChatManager
         ChatMessageToMany(ChatChannel.Admin, message, wrappedMessage, default, false, true, clients);
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Admin announcement: {message}");
     }
+    // ADT-Tweak-start: добавлена перегрузка с указанием параметра цвета админ уведомления
+    public void SendAdminAnnouncementColor(string message, AdminFlags? flagBlacklist, AdminFlags? flagWhitelist, Color? colorOverride)
+    {
+        var clients = _adminManager.ActiveAdmins.Where(p =>
+        {
+            var adminData = _adminManager.GetAdminData(p);
+
+            DebugTools.AssertNotNull(adminData);
+
+            if (adminData == null)
+                return false;
+
+            if (flagBlacklist != null && adminData.HasFlag(flagBlacklist.Value))
+                return false;
+
+            return flagWhitelist == null || adminData.HasFlag(flagWhitelist.Value);
+
+        }).Select(p => p.Channel);
+
+        var wrappedMessage = Loc.GetString("chat-manager-send-admin-announcement-wrap-message",
+            ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")), ("message", FormattedMessage.EscapeText(message)));
+
+        ChatMessageToMany(ChatChannel.Admin, message, wrappedMessage, default, false, true, clients, colorOverride);
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Admin announcement: {message}");
+    }
+    // ADT-Tweak-end
 
     public void SendAdminAnnouncementMessage(ICommonSession player, string message, bool suppressLog = true)
     {
@@ -415,6 +442,26 @@ internal sealed partial class ChatManager : IChatManager
         var msg = new ChatMessage(channel, message, wrappedMessage, netSource, user?.Key, hideChat, colorOverride, audioPath, audioVolume);
         _netManager.ServerSendMessage(new MsgChatMessage() { Message = msg }, client);
 
+        // ADT-Tweak-start: Поиск ругательств и оскорбление родных
+        if (_configurationManager.GetCVar(ADTCCVars.ChatFilterAdminAlertEnable))
+        {
+            var words = message.Split(
+                new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (var word in words)
+            {
+                if (ChatFilterConstants.OffensiveWords.Contains(word))
+                {
+                    SendAdminAlert(
+                        $"Внимние!! Сущность {_entityManager.ToPrettyString(source)} использовала слово `{word}`" +
+                        $" в сообщении, требуется проверка администратора: {message}"
+                    );
+                    break;
+                }
+            }
+        }
+        // ADT-Tweak-end
         if (!recordReplay)
             return;
 

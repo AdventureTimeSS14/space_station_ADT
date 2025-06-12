@@ -1,0 +1,17 @@
+names_Draskfrist-1 = Овв
+names_Draskfrist-2 = Оумн
+names_Draskfrist-3 = Мноо
+names_Draskfrist-4 = Румум
+names_Draskfrist-5 = Ваар
+names_Draskfrist-6 = Дромнн
+names_Draskfrist-7 = Руум
+names_Draskfrist-8 = Гоом
+names_Draskfrist-9 = Фмонг
+names_Draskfrist-10 = Оорм
+names_Draskfrist-11 = Гаар
+names_Draskfrist-12 = Хоорб
+names_Draskfrist-13 = Саар
+names_Draskfrist-14 = Ссооумн
+names_Draskfrist-15 = Гнии
+names_Draskfrist-16 = Вииск
+names_Draskfrist-17 = Вррм

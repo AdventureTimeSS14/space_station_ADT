@@ -231,7 +231,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligoheadl
 
 - type: marking
@@ -246,7 +246,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligoheadr
 
 - type: marking
@@ -261,7 +261,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligoheadjaw
 
 - type: marking
@@ -276,7 +276,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligochestf
 
 - type: marking
@@ -291,7 +291,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligochestspots
 
 - type: marking
@@ -306,7 +306,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligoarmr
 
 - type: marking
@@ -321,7 +321,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligoarml
 
 - type: marking
@@ -336,7 +336,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligohandr
 
 - type: marking
@@ -351,7 +351,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligohandl
 
 - type: marking
@@ -366,7 +366,7 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligolegr
 
 - type: marking
@@ -381,5 +381,61 @@
         !type:SimpleColoring
         color: "#FFE5D6"
   sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi 
+  - sprite: ADT/Mobs/Customization/Frontier/markingsbundle1.rsi
     state: vitiligolegl
+
+# Пирсинг
+
+- type: marking
+  id: HumanPiercingEarL
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human, Felinid]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_ear_l
+
+- type: marking
+  id: HumanPiercingEarR
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human, Felinid]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_ear_r
+
+- type: marking
+  id: HumanPiercingNavel
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Felinid, DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_navel
+
+- type: marking
+  id: HumanPiercingNippleL
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Felinid, DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_nipple_l
+
+- type: marking
+  id: HumanPiercingNippleR
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Felinid, DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_nipple_r
+
+- type: marking
+  id: HumanPiercingNipple
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Felinid, DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/custom.rsi
+    state: piercing_nipple

@@ -1,0 +1,16 @@
+- type: loadoutEffectGroup
+  id: ADTClothingCaptainShoulder10hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 36000 #10 часов
+
+- type: loadout
+  id: ADTClothingCaptainShoulderNeck
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTClothingCaptainShoulder10hour
+  equipment:
+    neck: ADTClothingCaptainShoulder

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by 0uch, taken from MOLOT-BlueMoon-Station at commit https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/commit/005f6a3cf842a4f50c2f365457ec608dfca2a4b6. If the author is specified incorrectly, you can contact us: https://discord.gg/MraaYU9ZE3",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

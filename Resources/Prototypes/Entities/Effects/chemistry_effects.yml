@@ -31,6 +31,7 @@
       solutionArea:
         maxVol: 600
         canReact: false
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   parent: BaseFoam
@@ -47,6 +48,15 @@
   - type: Tag
     tags:
     - HideContextMenu
+
+- type: entity
+  parent: Smoke
+  id: WizardSmoke
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Smoke
+    spreadAmount: 5
 
 - type: entity
   parent: BaseFoam

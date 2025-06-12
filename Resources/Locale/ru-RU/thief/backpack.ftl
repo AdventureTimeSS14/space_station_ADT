@@ -1,4 +1,4 @@
-thief-backpack-window-title = Ящик воровских инструментов
+thief-backpack-window-title = Воровские инструменты
 thief-backpack-window-description =
     Внутри находятся ваши орудия труда, которые растворятся, когда вы будете готовы.
     Выберите { $maxCount } { $maxCount ->
@@ -34,7 +34,7 @@ thief-backpack-category-syndie-name = Набор Синдиката
 thief-backpack-category-syndie-description =
     Побрякушки из забытого прошлого или украденные у нерадивого агента?
     Вы нашли кое-какую связь. Виски, эхо...
-    В комплект входят: Емаг, сигареты Interdyne,
+    В комплект входят: Емаг, взломщик доступов, сигареты Interdyne,
     кодовое слово Синдиката, зажигалка, глушитель связи,
     и несколько странных красных кристаллов.
 thief-backpack-category-sleeper-name = Набор сони

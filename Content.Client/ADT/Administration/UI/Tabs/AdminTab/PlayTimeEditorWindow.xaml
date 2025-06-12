@@ -1,0 +1,45 @@
+<DefaultWindow
+    x:Class="Content.Client.Administration.UI.Tabs.AdminTab.PlayTimeEditorWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Title="{Loc admin-player-actions-window-playtime-panel}" MinSize="500 500">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="10">
+
+        <GridContainer Columns="2" VerticalExpand="false" Margin="0 0 0 10">
+            <!-- Поле ввода ника игрока -->
+            <Label Text="{Loc admin-time-panel-window-player}" VerticalAlignment="Center" />
+            <LineEdit Name="PlayerNameLine" MinWidth="150" HorizontalExpand="True" />
+
+            <!-- Фильтр поиска роли -->
+            <Label Text="{Loc admin-time-panel-window-role}" VerticalAlignment="Center" />
+            <LineEdit Name="RoleFilterInput" MinWidth="150" HorizontalExpand="True" />
+
+            <!-- Поле ввода минут -->
+            <Label Text="{Loc admin-time-panel-window-minutes}" VerticalAlignment="Center" />
+            <LineEdit Name="MinutesInput" MinWidth="100" HorizontalExpand="True" />
+        </GridContainer>
+
+        <!-- Опция выбора роли -->
+        <OptionButton Name="RoleOption" MinWidth="150" Margin="0 0 0 10" />
+
+        <!-- Кнопки для добавления времени -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="8">
+            <Button Name="AddHourButton" Text="+1h (0)" HorizontalExpand="True" />
+            <Button Name="AddDayButton" Text="+1d (0)" HorizontalExpand="True" />
+            <Button Name="AddWeekButton" Text="+1w (0)" HorizontalExpand="True" />
+            <Button Name="AddMonthButton" Text="+1M (0)" HorizontalExpand="True" />
+        </BoxContainer>
+
+        <!-- Фильтр игроков -->
+        <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" Margin="0 10 0 10" />
+
+        <!-- Две кнопки для добавления времени, на роль и общего -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
+            <Button Name="ApplyRoleButton" Text="{Loc admin-time-panel-window-add-to-role}" HorizontalExpand="True" />
+            <Button Name="ApplyTotalButton" Text="{Loc admin-time-panel-window-add-to-overall}" HorizontalExpand="True" />
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>

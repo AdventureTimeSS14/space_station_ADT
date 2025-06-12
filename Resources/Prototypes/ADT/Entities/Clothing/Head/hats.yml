@@ -405,6 +405,8 @@
         Heat: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.95
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
 
 - type: entity
   parent: ClothingHeadBase
@@ -674,3 +676,16 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.025
     coolingCoefficient: 0.5
+
+# И ещё одна федора для дека, ага
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadOldFedora
+  name: old fedora
+  description: Decy fedora, ok da?
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/old_fedora.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/old_fedora.rsi

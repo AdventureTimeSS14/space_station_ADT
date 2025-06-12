@@ -49,101 +49,131 @@
   - type: Clothing
     sprite: ADT/Objects/Misc/dv-clipboard.rsi
 
-#Валентинки
 - type: entity
-  name: valentine paper red
-  parent: Paper
-  id: ADTPaperValentineRed
-  description: "A page of the captain's journal. In luxurious lavender."
+  id: ADTPaperPack
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  name: paper pack
+  description: A paper package that contains ten A4 sheets. The bureaucrat's delight.
   components:
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: ADT/Objects/Misc/bureaucracy.rsi
     layers:
-    - state: paper-valentine-red
-    - state: paper-valentine-red_words
-      map: ["enum.PaperVisualLayers.Writing"]
+    - state: pack-closed
+      map: ["closeLayer"]
+    - state: pack-open
+      map: ["openLayer"]
       visible: false
-    - state: paper_stamp-generic
-      map: ["enum.PaperVisualLayers.Stamp"]
+    - state: pack-one
+      map: ["pack-one"]
       visible: false
-
-- type: entity
-  name: valentine paper white
-  parent: Paper
-  id: ADTPaperValentineWhite
-  description: "A page of the captain's journal. In luxurious lavender."
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    layers:
-    - state: paper-valentine-white
-    - state: paper-valentine-white_words
-      map: ["enum.PaperVisualLayers.Writing"]
+    - state: pack-full
+      map: ["pack-full"]
       visible: false
-    - state: paper_stamp-generic
-      map: ["enum.PaperVisualLayers.Stamp"]
-      visible: false
-
-- type: entity
-  name: valentine red paper box
-  id: ADTBoxValentineRed
-  parent: BoxFolderBase
-  description: "A page of the captain's journal. In luxurious lavender."
-  suffix: Valentine Day
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    layers:
-    - state: folder-valentine-red
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
   - type: Item
-    sprite: Objects/Misc/bureaucracy.rsi
-    size: Tiny
-    shape: null
+    sprite: ADT/Objects/Misc/bureaucracy.rsi
+    size: Small
   - type: Storage
-    maxItemSize: Tiny
     grid:
-    - 0,0,0,0
+    - 0,0,4,1
     whitelist:
       tags:
-        - Document
-  - type: ItemMapper
-    mapLayers:
-      folder-valentine-red-overlay-paper:
-        whitelist:
-          tags:
-          - Document
+      - Paper
   - type: StorageFill
     contents:
-      - id: ADTPaperValentineWhite
+    - id: Paper
+      amount: 10
+  - type: ItemCounter
+    count:
+      tags: [Paper]
+    composite: true
+    layerStates:
+    - pack-one
+    - pack-full
+  - type: Appearance
+  - type: StaticPrice
+    price: 120
 
 - type: entity
-  name: valentine white paper box
-  id: ADTBoxValentineWhite
-  parent: BoxFolderBase
-  description: "A page of the captain's journal. In luxurious lavender."
-  suffix: Valentine Day
+  parent: BaseItem
+  id: ADTBaseOrigami
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Food
+    solution: food
+    delay: 7
+    forceFeedDelay: 7
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Item
+    size: Tiny
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/paper_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/paper_drop.ogg
+
+- type: entity
+  id: ADTPaperCrane
+  parent: ADTBaseOrigami
+  name: paper crane
+  description: A paper crane.
   components:
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: ADT/Objects/Misc/papers.rsi
     layers:
-    - state: folder-valentine-white
-  - type: Item
-    sprite: Objects/Misc/bureaucracy.rsi
-    size: Tiny
-    shape: null
-  - type: Storage
-    maxItemSize: Tiny
-    grid:
-    - 0,0,0,0
-    whitelist:
-      tags:
-        - Document
-  - type: ItemMapper
-    mapLayers:
-      folder-valentine-white-overlay-paper:
-        whitelist:
-          tags:
-          - Document
-  - type: StorageFill
-    contents:
-      - id: ADTPaperValentineRed
+    - state: crane
+  - type: Construction
+    graph: ADTPaperCrane
+    node: done
+
+- type: entity
+  id: ADTPaperShip
+  parent: ADTBaseOrigami
+  name: paper ship
+  description: A paper ship.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/papers.rsi
+    layers:
+    - state: ship
+  - type: Construction
+    graph: ADTPaperShip
+    node: done

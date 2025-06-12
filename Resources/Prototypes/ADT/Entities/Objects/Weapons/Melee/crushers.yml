@@ -123,7 +123,6 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_hammer-inhands.rsi
   - type: MeleeThrowOnHit
     speed: 5
-    lifetime: 0.5
   - type: FlipOnHit
   - type: GunRequiresWield
   - type: Wieldable

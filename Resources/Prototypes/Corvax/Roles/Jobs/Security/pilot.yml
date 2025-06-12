@@ -12,6 +12,7 @@
     inverted: true
     species:
     - Resomi
+    - Vox
   # ADT RESTRICT End
   startingGear: PilotGear
   icon: "JobIconPilot"
@@ -39,6 +40,5 @@
     pocket1: WeaponPistolMk58
   storage:
     back:
-    # - BoxSurvivalSecurity #ADT_Tweaks - заменяем на аварийник по лодауту
     - Flash
     - MagazinePistol

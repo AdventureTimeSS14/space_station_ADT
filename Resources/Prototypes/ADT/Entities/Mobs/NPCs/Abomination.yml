@@ -104,8 +104,6 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 2.5
   - type: MeleeThrowOnHit
-    lifetime: 0.5
-    enabled: true
   - type: MeleeWeapon
     altDisarm: false
     angle: 0

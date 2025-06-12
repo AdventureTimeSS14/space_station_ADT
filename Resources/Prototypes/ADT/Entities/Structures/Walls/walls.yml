@@ -116,6 +116,7 @@
   - type: Icon
     sprite: ADT/Structures/Walls/digital_wall.rsi
   - type: IconSmooth
+    key: walls
     base: digital
   - type: Destructible
     thresholds:
@@ -125,6 +126,34 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTDigitalWall
+  id: ADTDigitalRedWall
+  name: red digital wall
+  description: What do you even know about the matrix?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_red_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_red_wall.rsi
+  - type: IconSmooth
+    key: walls
+    base: digital
+
+- type: entity
+  parent: ADTDigitalWall
+  id: ADTDigitalBlueWall
+  name: blue digital wall
+  description: What do you even know about the matrix?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_blue_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_blue_wall.rsi
+  - type: IconSmooth
+    key: walls
+    base: digital
 
 
 ##Indestructible Rocks
@@ -321,4 +350,35 @@
   - type: Icon
     sprite: ADT/Structures/Walls/digital_wall.rsi
   - type: IconSmooth
+    key: walls
+    base: digital
+
+- type: entity
+  parent: BaseWall
+  id: ADTDigitalRedWallIndestructible
+  name: red digital wall
+  description: What do you even know about the matrix?
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_red_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_red_wall.rsi
+  - type: IconSmooth
+    key: walls
+    base: digital
+
+- type: entity
+  parent: BaseWall
+  id: ADTDigitalBlueWallIndestructible
+  name: blue digital wall
+  description: What do you even know about the matrix?
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/digital_blue_wall.rsi
+  - type: Icon
+    sprite: ADT/Structures/Walls/digital_blue_wall.rsi
+  - type: IconSmooth
+    key: walls
     base: digital

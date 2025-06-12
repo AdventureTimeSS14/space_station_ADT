@@ -295,6 +295,14 @@ ent-ADTPlushiePochita = плюшевая Почита
     .desc = Плюшевая игрушка-собака с торчащим из головы лезвием бензопилы.
     .suffix = { "Именное" }
 
+ent-ADTPlushieAzil = Азил-Мобарид
+    .desc = Плюшевая игрушка бордового унатха в форме старшего инженера. При взгляде на неё Вас внезапно охватывает чувство ненависти к воксам, сотрудникам НИО и вопросам про свет. Интересно, к чему бы это?
+    .suffix = { "Именное, Couatl" }
+
+ent-ADTPlushieGiPatter = Джи-Паттер
+    .desc = Игрушка синего унатха в униформе инженера. На бирке красуется текст "Issersenders kes siklezzers", что в переводе с Синта'Унати значит "Подарок для непонимающего".
+    .suffix = { "Именное, kugooergooer" }
+
 ent-ADTClothingOuterBolperCoat = плащ Волпера
     .desc = +5 процентов к крутости.
     .suffix = { "Именное, Bolper" }
@@ -458,6 +466,10 @@ ent-ADTClothingHandsAnagiriGloves = потертые боевые перчатк
     .desc = Обычные черные боевые перчатки, явно повидавшие многое. Из-за множества потертостей и старости они уже утратили свои защитные качества. На правом запястье закреплен жетон, на котором владельцем перчаток тщательно затерта буква кроваво-красного цвета.
     .suffix = { "Спонсорское, Anagiri" }
 
+ent-ADTClothingBackpackDuffelAnagiri = потертый подозрительный вещмешок
+    .desc = Весьма подозрительный на вид вещмешок, чьи лучшие дни уже явно прошли - слишком много потертостей и следов бывших передряг на нем. На одной из сторон - следы, будто кто-то старательно стирал эмблему, которую более не желал видеть на сумке.
+    .suffix = { "Спонсорское, Anagiri" }
+
 ent-ADTClothingOuterCoatOktyabrina = темно-красное пальто
     .desc = Тщательно сшитое женское пальто темно-красного цвета, сделанное на заказ и тщательно подогнанное по фигуре владелицы.
     .suffix = { "Именное, MleM" }
@@ -513,3 +525,63 @@ ent-ADTPlushieDionaIneedPizza486 = плюшевая диона в шляпке
 ent-ADTPlushieAnagiri = плюшевая Плейона
     .desc = Вы видите этого ниана? Вы помните её имя?
     .suffix = { "Спонсорское, Anagiri" }
+
+
+ent-ADTClothingUniformJumpsuitSaintMadmanClothing = униформа Via-Deus
+    .desc = Униформа компании Via-Deus. 
+    .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ADTClothingOuterCoatSaintMadman = пальто Via-Deus
+    .desc = Черно-красное пальто компании Via-Deus.
+    .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ADTClothingOuterCoatViaDeus = торжественное пальто Via-Deus
+    .desc = Пальто для важных персон VD.
+    .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ClothingHeadHatSaintMadmanthingy = монокль
+    .desc = Выглядит довольно элитно.
+    .suffix = { "Спонсорское, Saint_madman" }
+
+ent-ADTWhistleKringe = "Молящиеся руки"
+    .desc = Свисток из неизвестного материала в виде молящихся рук.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingUniformJumpsuitKringeClothing = комбинезон исследователя
+    .desc = Темный комбинезон, потрепанный временем и приключениями.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingShoesBootsMagKringe = магнитные ботинки исследователя
+    .desc = Ботинки, которые не раз были поджарены и порваны.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTActionToggleMagbootsKringe = Переключить магнитные сапоги
+    .desc = Включает или выключает магнитные сапоги.
+
+ent-ADTClothingHandsKringeGloves = перчатки исследователя
+    .desc = Грубые кожаные перчатки с изоляционным слоем.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingOuterHardsuitKringe = скафандр исследователя
+    .desc = Скафандр из чёрного материала неизвестного происхождения, на вид подходит только для учёных малой пробы.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingHeadHelmetHardsuitKringe = шлем скафандра исследователя
+    .desc = Шлем из чёрного материала неизвестного происхождения.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingBackpackDuffelKringeStuff = комплект вещей исследователя
+    .desc = Вещмешок с полным комплектом вещей исследователя - скафандром, комбинезоном, ботинками, перчатками и свистком.
+    .suffix = { "Спонсорское, kringe" }
+
+ent-ADTClothingHeadBandMercAntillion = бандана наёмника
+    .desc = Защитного цвета бандана, пропитанная потом и запахом джунглей.
+    .suffix = { "Именное, antillion" }
+
+ent-ADTClothingEyesGlassesMercenaryAntillion = очки наёмника
+    .desc = Очки, созданные для ведения боя, для защиты глаз от ярких ослепляющих вспышек.
+    .suffix = { "Именное, antillion" }
+
+ent-ADTWeaponCutterBLAD = прототип X9
+    .desc = Попытка модификации плазменного резака в более многофункциональный инструмент с возможностью потреблять уран. И...кажется он протекает.
+    .suffix = { "Именное, BLAD" }

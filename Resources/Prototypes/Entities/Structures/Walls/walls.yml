@@ -21,6 +21,7 @@
   - type: Tag
     tags:
     - Wall
+  - type: IsRoof
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -47,9 +48,10 @@
   - type: Airtight
   - type: StaticPrice
     price: 75
-  - type: RadiationBlocker
-    resistance: 2
+###  - type: RadiationBlocker # ADT-Tweak
+###    resistance: 2 # ADT-Tweak
   - type: BlockWeather
+  - type: SunShadowCast
 
 - type: entity
   parent: BaseWall
@@ -79,7 +81,7 @@
         acts: [ "Destruction" ]
   - type: CanBuildWallOnTopRPD # ADT-RPD
   - type: IconSmooth
-    key: bricks
+    key: walls
     base: brick
 
 - type: entity
@@ -133,6 +135,10 @@
     cost: 6
     delay: 8
     fx: EffectRCDDeconstruct8
+  # ADT tweak start
+  - type: RadiationBlocker
+    resistance: 10
+  # ADT tweak end
   - type: Destructible
     thresholds:
     - trigger:
@@ -292,6 +298,10 @@
   - type: Construction
     graph: Girder
     node: goldWall
+  # ADT tweak start
+  - type: RadiationBlocker 
+    resistance: 1
+  # ADT tweak end
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -396,7 +406,7 @@
     key: walls
     base: plasma
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 2.5 # ADT tweak
 
 - type: entity
   parent: BaseWall
@@ -633,7 +643,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 1 #ADT-Tweak
 
 - type: entity
   parent: WallReinforced
@@ -847,8 +857,8 @@
     damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
-  - type: Reflect
-    reflectProb: 1
+  - type: Reflect 
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -928,7 +938,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 1 # ADT-Tweak
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
@@ -953,7 +963,7 @@
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
 
 - type: entity
   parent: BaseWall
@@ -997,8 +1007,8 @@
   - type: IconSmooth
     key: walls
     base: state
-  - type: Reflect
-    reflectProb: 1
+  - type: Reflect #ADT_Tweak - без рикошетов
+    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
 
 - type: entity
   parent: BaseWall
@@ -1145,7 +1155,7 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
-    resistance: 6
+    resistance: 4 # ADT-Tweak         
 
 - type: entity
   parent: BaseWall

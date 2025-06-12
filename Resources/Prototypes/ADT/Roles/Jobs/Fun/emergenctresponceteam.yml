@@ -51,6 +51,7 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
+    - ADTertMechUplink
 
 - type: job
   id: ERTLeader
@@ -92,6 +93,7 @@
     - CrowbarRed
     - PinpointerNuclear
     - SpaceCash500
+    - ADTertRevolutionaryMechUplink
 
 #engie
 
@@ -330,7 +332,7 @@
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
-    - MedkitAdvancedFilled
+    - ADTMedkitAdvancedERT
     - CrowbarRed
     - PinpointerNuclear
     - FlashlightSeclite
@@ -357,7 +359,7 @@
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
-    - MedkitAdvancedFilled
+    - ADTMedkitAdvancedERT
     - CrowbarRed
     - PinpointerNuclear
     - FlashlightSeclite
@@ -399,7 +401,7 @@
   storage:
     back:
     - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
-    - MedkitAdvancedFilled
+    - ADTMedkitAdvancedERT
     - CrowbarRed
     - PinpointerNuclear
     - SpaceCash500

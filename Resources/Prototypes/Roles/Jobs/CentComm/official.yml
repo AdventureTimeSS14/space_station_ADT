@@ -12,7 +12,8 @@
   - AllAccess
   access:
   - CentralCommand
-  special: # Start ADT Tweak 
+  # Start ADT Tweak
+  special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   # End ADT Tweak

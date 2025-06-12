@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Original made By RedTerror, modified by Discord: Unlumy",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "hydrotrayT2"
+        }
+    ]
+}

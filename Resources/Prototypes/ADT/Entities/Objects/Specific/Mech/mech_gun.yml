@@ -96,10 +96,10 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    fireRate: 4
+    fireRate: 2.5
   - type: HitscanMechAmmoProvider
     proto: RedLaser
-    fireCost: 15
+    fireCost: 10
   # - type: Battery
   #   maxCharge: 30
   #   startingCharge: 30
@@ -114,12 +114,12 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    fireRate: 2.5
+    fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 30
+    fireCost: 20
   # - type: Battery
   #   maxCharge: 60
   #   startingCharge: 60
@@ -142,7 +142,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanMechAmmoProvider
     proto: Pulse
-    fireCost: 100
+    fireCost: 20
   # - type: Battery
   #   maxCharge: 200
   #   startingCharge: 200
@@ -165,7 +165,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: BatteryMechAmmoProvider
     proto: BulletDisabler
-    fireCost: 30
+    fireCost: 10
 
 - type: entity
   name: MKI Tesla Cannon
@@ -188,7 +188,7 @@
         variation: 0.2
   - type: BatteryMechAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 100
+    fireCost: 50
 #Огнестрельное
 
 - type: entity
@@ -201,7 +201,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_scatter
   - type: Gun
-    fireRate: 3
+    fireRate: 2
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -211,8 +211,8 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: ShellShotgun
-    shots: 12
-    capacity: 12
+    shots: 20
+    capacity: 20
     ammoType: shotgun
   - type: UIFragment
     ui: !type:MechGunUi
@@ -229,7 +229,11 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_uac2
   - type: Gun
-    fireRate: 9
+    fireRate: 7
+    minAngle: 1
+    maxAngle: 16
+    angleIncrease: 2
+    angleDecay: 24
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -238,12 +242,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    shots: 30
-    capacity: 30
+    shots: 60
+    capacity: 60
     proto: BulletPistol
     reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 1
 
 - type: entity
   name: FNX-99 "Hades" Carbine
@@ -255,7 +261,11 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_carbine
   - type: Gun
-    fireRate: 7
+    fireRate: 5
+    minAngle: 4
+    maxAngle: 20
+    angleIncrease: 4
+    angleDecay: 24
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -265,8 +275,8 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: BulletPistolIncendiary
-    shots: 45
-    capacity: 45
+    shots: 60
+    capacity: 60
     ammoType: lightrifleincendiary
     reloadTime: 5
   - type: UIFragment
@@ -282,7 +292,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_carbine
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -292,11 +302,12 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
     proto: BulletAntiMateriel
-    shots: 7
-    capacity: 7
+    shots: 12
+    capacity: 12
     ammoType: sniper
   - type: UIFragment
     ui: !type:MechGunUi
+  - type: RunAndGunBlocker
 
 - type: entity
   name: SGL-6 Grenade Launcher
@@ -308,7 +319,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_grenadelnchr
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -324,6 +335,7 @@
     reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
+  - type: RunAndGunBlocker
 
 - type: entity
   name: SRM-8 Missile Rack
@@ -344,13 +356,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    proto: ADT40mmGrenadeHEAT
-    shots: 4
-    capacity: 4
+    proto: ADT40mmGrenadeBlast
+    shots: 9
+    capacity: 9
     ammoType: granade
-    reloadTime: 5
+    reloadTime: 8
   - type: UIFragment
     ui: !type:MechGunUi
+  - type: RunAndGunBlocker
 
 - type: entity
   name: BRM-6 Missile Rack
@@ -378,6 +391,7 @@
     reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
+  - type: RunAndGunBlocker
 
 # #Медиган
 

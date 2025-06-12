@@ -31,6 +31,7 @@
   hostile:
   - PetsNT
   - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Passive
@@ -43,6 +44,8 @@
   - Zombie
   - Xeno
   - AllHostile
+  - Wizard
+  - Dragon
 
 - type: npcFaction
   id: SimpleHostile
@@ -57,6 +60,7 @@
   - AllHostile
   - Wizard
   - Heretic # goob edit - heretics
+  - Dragon
 
 - type: npcFaction
   id: SimpleNeutral
@@ -89,6 +93,7 @@
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
+  - Dragon
 
 - type: npcFaction
   id: Zombie
@@ -104,6 +109,7 @@
   - AllHostile
   - Wizard
   - Heretic # goob edit - heretics
+  - Dragon
 
 - type: npcFaction
   id: Revolutionary
@@ -139,7 +145,11 @@
   hostile:
   - NanoTrasen
   - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
   - SimpleHostile
+  - SimpleNeutral
   - Syndicate
   - Xeno
   - Zombie

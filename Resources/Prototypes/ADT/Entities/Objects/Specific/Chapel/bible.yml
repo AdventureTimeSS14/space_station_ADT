@@ -1,0 +1,168 @@
+- type: entity
+  parent: Bible
+  name: quaran
+  description: New Interstellar Version 2342. Got updated after bible.
+  id: ADTBibleQuaran
+  components:
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRahima
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/quaran.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/quaran.rsi
+
+- type: entity
+  parent: Bible
+  name: tanakh
+  description:  New Interstellar Version 2345. Got updated after quaran.
+  id: ADTBibleTanakh
+  components:
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRafael
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/tanakh.rsi
+
+- type: entity
+  parent: Bible
+  name: tripitaka
+  description:  New Interstellar Version 2347. Got updated after tanakh.
+  id: ADTBibleTripitaka
+  components:
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRatha
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/tripitaka.rsi
+
+- type: entity
+  parent: Bible
+  name: vedas
+  description:  New Interstellar Version 2350. Got updated after tripitaka.
+  id: ADTBibleVedas
+  components:
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRagha
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/vedas.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/vedas.rsi
+
+- type: entity
+  parent: Bible
+  name: sche-zara
+  description: An unathi religion scroll. New Interstellar Version 2355.
+  id: ADTBibleUnathi
+  components:
+  - type: Bible
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRanikha
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/scroll.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/scroll.rsi
+
+- type: entity
+  parent: Bible
+  name: Dras'nori
+  description: An tajaran religion smooth stone tablet. New Interstellar Version 2355. Stone made of polyurethane foams.
+  id: ADTBibleTajaran
+  components:
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRonia
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/unatablet.rsi
+
+- type: entity
+  parent: Bible
+  name: scripture of weaver woman
+  description: An moth religion thready scroll.. New Interstellar Version 2355.
+  id: ADTBibleMoth
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-unscroll-verb
+    foldVerbText: fold-scroll-verb
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        unfoldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        foldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+        icon:
+          True: {visible: true}
+          False: {visible: false}
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRosie
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/mothbible.rsi
+    layers:
+    - state: book
+      map: [ "unfoldedLayer" ]
+    - state: book_folded
+      map: [ "foldedLayer" ]
+    - state: icon
+      map: [ "icon" ]
+  - type: FoldableClothing
+    foldedHeldPrefix: unfolded
+  - type: RandomSprite
+    available:
+      - icon:
+          icon: ""
+          icon2: ""
+          icon3: ""
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/mothbible.rsi
+
+- type: entity
+  parent: Bible
+  name: leather codex
+  description: New Interstellar blessed book for chapels of any religion.
+  id: ADTBibleLeatherCodex
+  components:
+  - type: Summonable
+    specialItem: ADTSpawnPointGhostRebecca
+    respawnTime: 300
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Specific/Chapel/leathercodex.rsi
+  - type: Paper
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0

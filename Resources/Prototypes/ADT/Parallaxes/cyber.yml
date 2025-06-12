@@ -1,0 +1,111 @@
+- type: parallax
+  id: Cyber
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/Cyber/digital1.png"
+      slowness: 0.4
+      scale: 2,2
+      scrolling: "0, -0.4"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/Cyber/digital2.png"
+      slowness: 0.6
+      scale: 2,2
+      scrolling: "0, -0.8"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/Cyber/digital3.png"
+      slowness: 0.8
+      scale: 2,2
+      scrolling: "0, -1.2"
+      shader: "unshaded"
+  layersLQUseHQ: false
+
+- type: parallax
+  id: CyberRed
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberRed/digital1.png"
+      slowness: 0.4
+      scale: 2,2
+      scrolling: "0, -0.4"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberRed/digital2.png"
+      slowness: 0.6
+      scale: 2,2
+      scrolling: "0, -0.8"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberRed/digital3.png"
+      slowness: 0.8
+      scale: 2,2
+      scrolling: "0, -1.2"
+      shader: "unshaded"
+  layersLQUseHQ: false
+
+- type: parallax
+  id: CyberBlue
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberBlue/digital1.png"
+      slowness: 0.4
+      scale: 2,2
+      scrolling: "0, -0.4"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberBlue/digital2.png"
+      slowness: 0.6
+      scale: 2,2
+      scrolling: "0, -0.8"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberBlue/digital3.png"
+      slowness: 0.8
+      scale: 2,2
+      scrolling: "0, -1.2"
+      shader: "unshaded"
+  layersLQUseHQ: false
+   
+- type: parallax
+  id: CyberRedTwo
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberRedTwo/digital1.png"
+      slowness: 0.4
+      scale: 2,2
+      scrolling: "0, -0.4"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberRedTwo/digital2.png"
+      slowness: 0.6
+      scale: 2,2
+      scrolling: "0, -0.8"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/CyberRedTwo/digital3.png"
+      slowness: 0.8
+      scale: 2,2
+      scrolling: "0, -1.2"
+      shader: "unshaded"
+  layersLQUseHQ: false

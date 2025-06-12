@@ -1,3 +1,5 @@
+# If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+
 - type: trait
   id: Blindness
   name: trait-blindness-name
@@ -25,6 +27,20 @@
     - type: PermanentBlindness
       blindness: 4
   cost: -2  # ADT Quirks
+  quirk: true  # ADT Quirks
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Quirks  # ADT Quirks
+  components:
+    - type: Uncloneable
+  cost: -1  # ADT Quirks
+  speciesBlacklist:
+  - IPC
+  - Vox
+  - NovakidSpecies
   quirk: true  # ADT Quirks
 
 - type: trait

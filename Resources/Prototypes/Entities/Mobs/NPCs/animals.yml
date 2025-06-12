@@ -54,6 +54,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
@@ -115,6 +117,17 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -122,6 +135,7 @@
     - Bee
     - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -238,8 +252,8 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEgg
-  - type: ExamineableHunger
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -247,6 +261,9 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: HTN # ADT tweak
+    rootTask: # ADT tweak
+      task: RuminantCompound # ADT tweak
 
 - type: entity
   parent: MobChicken
@@ -300,7 +317,7 @@
 
 - type: entity
   id: FoodEggChickenFertilized
-  parent: FoodEgg
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Chicken
   components:
   - type: Timer
@@ -389,6 +406,9 @@
     tags:
     - Trash
     - VimPilot
+  # ADT-Tweak
+  - type: MobCollision
+    enabled: false
   # - type: Destructible
   #   thresholds:
   #   - trigger:
@@ -409,6 +429,7 @@
     damage:
       types:
         Piercing: 0
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: glockroach
@@ -456,7 +477,7 @@
     description: ghost-role-information-mothroach-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: Fixtures
     fixtures:
       fix1:
@@ -578,6 +599,7 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: SupermatterIgnore # ADT-Tweak
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -676,8 +698,8 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEgg
-  - type: ExamineableHunger
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -685,6 +707,9 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: HTN # ADT tweak
+    rootTask: # ADT tweak
+      task: RuminantCompound # ADT tweak
 
 - type: entity
   name: white duck #Quack
@@ -726,7 +751,7 @@
 
 - type: entity
   id: FoodEggDuckFertilized
-  parent: FoodEgg
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Duck
   components:
     - type: Timer
@@ -784,7 +809,24 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -851,7 +893,7 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
-  - type: ExamineableHunger
+  - type: ExaminableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1016,7 +1058,7 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
-  - type: ExamineableHunger
+  - type: ExaminableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -1060,6 +1102,12 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+      # Start ADT tweak
+  - type: LanguageSpeaker
+    languages:
+      Goat: Speak
+      GalacticCommon: Understand
+      # End ADT tweak
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1305,8 +1353,8 @@
       state: body-overlay-2
       visible: false
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "id" ]
+    - map: [ "outerClothing" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "clownedon" ]
@@ -1649,7 +1697,7 @@
     description: ghost-role-information-mouse-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -1757,6 +1805,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: Tag
     tags:
@@ -1812,6 +1862,7 @@
     languages:
       Mouse: Speak
       GalacticCommon: Understand
+  - type: SupermatterIgnore # ADT-Tweak
 # ADT-Tweak-end
 
 - type: entity
@@ -2041,6 +2092,7 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: frog
@@ -2416,6 +2468,7 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: SupermatterIgnore # ADT-Tweak
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive
@@ -2774,6 +2827,7 @@
   - type: Physics
   - type: Speech
     speechVerb: Canine
+    speechSounds: Dog
   - type: Fixtures
     fixtures:
       fix1:

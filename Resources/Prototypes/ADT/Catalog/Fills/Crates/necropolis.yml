@@ -43,3 +43,39 @@
   - type: StorageFill
     contents:
       - id: ADTVampirismCrystal
+
+- type: entity
+  id: ADTCrateNecropolisCursedKatana
+  parent: ADTCrateNecropolis
+  suffix: Vavilon
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTKatanacursedShard
+
+- type: entity
+  id: ADTCrateNecropolisVehicleLavabike
+  parent: ADTCrateNecropolis
+  suffix: Lavabike
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTVehicleLavabike
+
+- type: entity
+  id: ADTCrateNecropolisTrapAncientGoliath
+  parent: ADTCrateNecropolis
+  suffix: AncientGoliath
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobAncientGoliath
+
+- type: entity
+  id: ADTCrateNecropolisMjollnir
+  parent: ADTCrateNecropolis
+  suffix: Mjollnir
+  components:
+  - type: StorageFill
+    contents:
+      - id: Mjollnir

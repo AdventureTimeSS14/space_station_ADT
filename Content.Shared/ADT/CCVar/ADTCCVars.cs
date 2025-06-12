@@ -80,6 +80,12 @@ public sealed class ADTCCVars
         CVarDef.Create("supermatter.do_cascade", true, CVar.SERVER);
 
     /// <summary>
+    ///     The supermatter gains +1 bolts of electricity.
+    /// </summary>
+    public static readonly CVarDef<float> SupermatterPowerMinPenaltyThreshold =
+        CVarDef.Create("supermatter.power_min_penalty_threshold", 3000f, CVar.SERVER);
+
+    /// <summary>
     ///     The cutoff on power properly doing damage, pulling shit around.
     ///     The supermatter will also spawn anomalies, and gains +2 bolts of electricity.
     /// </summary>
@@ -183,7 +189,7 @@ public sealed class ADTCCVars
     ///     Scales powerloss inhibition down until this amount of moles is reached.
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 20f, CVar.SERVER);
+        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 12f, CVar.SERVER);
 
     /// <summary>
     ///     Bonus powerloss inhibition boost if this amount of moles is reached.
@@ -222,5 +228,38 @@ public sealed class ADTCCVars
         CVarDef.Create("supermatter.yell_timer", 60f, CVar.SERVER);
 
     #endregion
+
+    #region Admin
+
+    /// <summary>
+    /// Включает или отключает уведомления администраторов о сообщениях,
+    /// содержащих оскорбительные выражения в адрес родственников.
+    /// </summary>
+    public static readonly CVarDef<bool> ChatFilterAdminAlertEnable =
+        CVarDef.Create("admin.chat_filter_admina_alert", false, CVar.SERVER | CVar.ARCHIVE);
+
+    #endregion
+
+    /// <summary>
+    /// Включает или отключает отображение дополнительной лобби-панели в пользовательском интерфейсе.
+    /// При значении true панель отображается, при false - скрывается.
+    /// </summary>
+    public static readonly CVarDef<bool> ExtraLobbyPanelEnabled =
+        CVarDef.Create("ui.show_lobby_panel", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// Ссылка на канал привязки аккаунта сски к дискорду
+    /// </summary>
+    public static readonly CVarDef<string> DiscordLinkChannel =
+        CVarDef.Create("discord.link_channel", string.Empty, CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Хранит токен бота Discord для авторизации при взаимодействии с Discord API.
+    /// Этот токен используется для выполнения операций от имени бота, таких как получение информации о пользователях.
+    /// Токен должен быть передан в строковом формате.
+    /// </summary>
+    public static readonly CVarDef<string> DiscordTokenBot =
+        CVarDef.Create("discord.token_bot", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
 }
 

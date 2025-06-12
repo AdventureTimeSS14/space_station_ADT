@@ -147,7 +147,7 @@
   abstract: true
   components:
     - type: StationCentcomm
-      map: "/Maps/centcomm.yml"
+      map: "/Maps/ADTMaps/ADTStations/adt_centcomm.yml" #ADT_Centcomm
 
 - type: entity
   id: BaseStationEvacuation
@@ -186,6 +186,12 @@
   abstract: true
   components:
     - type: StationNews
+
+- type: entity
+  id: BaseStationDeliveries
+  abstract: true
+  components:
+  - type: CargoDeliveryData
 
 - type: entity
   id: BaseStationAllEventsEligible

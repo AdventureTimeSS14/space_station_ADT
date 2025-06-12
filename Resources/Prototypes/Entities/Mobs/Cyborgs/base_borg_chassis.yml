@@ -73,6 +73,13 @@
       # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
       enum.BorgSwitchableTypeUiKey.SelectBorgType:
         type: BorgSelectTypeUserInterface
+    # Start ADT Tweak
+      enum.BorgInfoUiKey.BorgInfo:
+        type: BorgInfoBoundUserInterface
+  - type: CrewManifestViewer
+    ownerKey: enum.BorgInfoUiKey.BorgInfo
+  - type: BorgInfo
+    # End ADT Tweak
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -153,6 +160,11 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+    screamAction: null
+  - type: DamagedSiliconAccent
 # ADT borgs start
   - type: FootstepModifier
     footstepSoundCollection:
@@ -160,11 +172,6 @@
       params:
         variation: 0.07
         volume: -5
-#ADT borgs end
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSilicon
-# Start ADT Tweak
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -252,6 +259,7 @@
     - CanPilot
     - ADTSiliconStealthWhitelist  # ADT tweak
     - ADTSiliconEmotes            # ADT tweak
+    - Unimplantable
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -304,7 +312,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - names_borg
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -312,6 +320,8 @@
     enabled: false
     groups:
     - AllAccess
+    tags:
+    - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons

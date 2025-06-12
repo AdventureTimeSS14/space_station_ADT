@@ -1,19 +1,59 @@
 - type: constructionGraph
-  id: ADTReinforcedMinerArmor
+  id: ADTReinforcedMinerArmorOne
   start: start
   graph:
   - node: start
     edges:
-    - to: ADTReinforcedMinerArmor
+    - to: ADTReinforcedMinerArmorOne
       steps:
       - tag: ADTMinerArmor
         icon:
           sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
           state: icon
         name: miner armor
-        doAfter: 6
+        doAfter: 2
       - material: GoliathHide
-        amount: 6
-        doAfter: 6
-  - node: ADTReinforcedMinerArmor
-    entity: ADTClothingOuterArmorMinerReinforced
+        amount: 2
+        doAfter: 2
+  - node: ADTReinforcedMinerArmorOne
+    entity: ADTClothingOuterArmorMinerReinforcedOne
+
+- type: constructionGraph
+  id: ADTReinforcedMinerArmorTwo
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTReinforcedMinerArmorTwo
+      steps:
+      - tag: ADTMinerArmorOne
+        icon:
+          sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
+          state: icon
+        name: reinforced explorer suit
+        doAfter: 2
+      - material: GoliathHide
+        amount: 2
+        doAfter: 2
+  - node: ADTReinforcedMinerArmorTwo
+    entity: ADTClothingOuterArmorMinerReinforcedTwo
+
+- type: constructionGraph
+  id: ADTReinforcedMinerArmorFull
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTReinforcedMinerArmorFull
+      steps:
+      - tag: ADTMinerArmorTwo
+        icon:
+          sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
+          state: icon
+        name: reinforced explorer suit
+        doAfter: 2
+      - material: GoliathHide
+        amount: 2
+        doAfter: 2
+  - node: ADTReinforcedMinerArmorFull
+    entity: ADTClothingOuterArmorMinerReinforcedFull

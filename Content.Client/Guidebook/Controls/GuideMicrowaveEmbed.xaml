@@ -1,0 +1,51 @@
+<PanelContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Margin="5 5 5 5">
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BorderThickness="1" BorderColor="#777777"/>
+    </PanelContainer.PanelOverride>
+
+    <BoxContainer Orientation="Vertical">
+        <PanelContainer HorizontalExpand="True">
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+                <BoxContainer Name="IconContainer"/>
+                <RichTextLabel Name="ResultName"/>
+            </BoxContainer>
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#393c3f"/>
+            </PanelContainer.PanelOverride>
+        </PanelContainer>
+
+        <GridContainer Columns="2" Margin="10">
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BorderThickness="1" BorderColor="#777777"/>
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                     <PanelContainer HorizontalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#393c3f"/>
+                        </PanelContainer.PanelOverride>
+                        <RichTextLabel Text="{Loc 'guidebook-microwave-ingredients-header'}" HorizontalAlignment="Center"/>
+                    </PanelContainer>
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat Padding="10"/>
+                    </PanelContainer.PanelOverride>
+                    <GridContainer Columns="3" Name="IngredientsGrid" HorizontalAlignment="Center"/>
+                </PanelContainer>
+                </BoxContainer>
+            </PanelContainer>
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Text="{Loc 'guidebook-microwave-cook-time-header'}" HorizontalAlignment="Center"/>
+                <BoxContainer Name="Machines" HorizontalAlignment="Center" Margin = "10"/><!-- Frontier: show entities that can cook a recipe. -->
+                <RichTextLabel Name="CookTimeLabelMachine" HorizontalAlignment="Center"/>
+                <RichTextLabel Name="CookTimeLabelTime" HorizontalAlignment="Center"/>
+            </BoxContainer>
+        </GridContainer>
+
+        <BoxContainer Margin="10">
+            <RichTextLabel Name="ResultDescription" HorizontalAlignment="Left"/>
+        </BoxContainer>
+    </BoxContainer>
+</PanelContainer>

@@ -49,6 +49,4 @@
     pocket2: BookSpaceLaw
   inhand:
     - BriefcaseIAAFilled
-  # storage: #Заменяем на аварийник по лодауту
-  #   back:
-  #   - BoxSurvival
+    - ADTbureaucratCane # ADT-Tweak

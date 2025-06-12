@@ -21,6 +21,16 @@
     BoxCandleSmall: 2
     Urn: 5
     Bible: 1
+      # Start ADT tweak
+    ADTBibleQuaran: 1
+    ADTBibleTanakh: 1
+    ADTBibleTripitaka: 1
+    ADTBibleVedas: 1
+    ADTBibleTajaran: 1
+    ADTBibleUnathi: 1
+    ADTBibleMoth: 1
+    ADTBibleLeatherCodex: 1
+      # End ADT tweak
   contrabandInventory:
     FoodBakedBunHotX: 2
     DrinkWineBottleFull: 1

@@ -89,6 +89,7 @@
     contents:
     - id: ClothingUniformJumpskirtPerformer
     - id: ClothingShoesBootsPerformer
+    - id: ClothingHeadPerformerWig
     - id: ClothingOuterSuitMonkey
     - id: ClothingHeadHatAnimalMonkey
     - id: ClothingNeckCloakMoth
@@ -130,8 +131,12 @@
   components:
   - type: StorageFill
     contents:
-    - id: Paper
-      amount: 15
+    # ADT tweak start
+    #- id: Paper
+    #  amount: 15
+    - id: ADTPaperPack
+      amount: 2
+    # ADT tweak end
     - id: Pen
       amount: 2
     - id: BoxFolderClipboard
@@ -143,6 +148,7 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
+    - id: ADTBureaucraticBelt #ADT-Tweak
 
 - type: entity
   id: CrateServiceFaxMachine

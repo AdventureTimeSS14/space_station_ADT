@@ -89,6 +89,8 @@
     sprite: Objects/Tools/universal_access_configurator.rsi
   - type: AccessOverrider
     accessLevels:
+    - BasicSilicon
+    - Borg
     - CentralCommand # ADT-Roles
     - EmergencyShuttleRepealAll
     - Captain
@@ -111,6 +113,7 @@
     - Cargo
     - Research
     - Service
+    - StationAi
     - Maintenance
     - External
     - Janitor

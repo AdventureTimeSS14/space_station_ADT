@@ -1,0 +1,115 @@
+## Если кто-то сюда решил залезть за примером использования компонентов, смотреть ADTTrinaryProjectileMirror и ADTBinaryProjectileMirror
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ADTBaseProjectileMirror
+  parent: BaseMachine
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 1
+    color: "#6dfff3"
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Lock
+    locked: false
+  - type: LockedAnchorable
+  - type: AccessReader
+    access: [["Atmospherics"], ["Engineering"], ["Research"]]
+  - type: Gun
+    projectileSpeed: 10
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Appearance
+  - type: Transform
+    noRot: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 5
+              max: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ProjectileMirror
+    whitelist:
+      tags:
+      - EmitterBolt
+      components:
+      - AnomalousParticle
+
+- type: entity
+  parent: ADTBaseProjectileMirror
+  id: ADTTrinaryProjectileMirror
+  name: projectileMirror
+  description: Write here something cool again lol
+  suffix: Trinary
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: trinary
+  - type: ProjectileMirror
+    trinaryReflection: true #Ставим, только если хотим получить отражатель с 3 входами и 1 выходом.
+    trinaryMirrorDirection: North #Собственно, сторона, с которой будет всё выходить. Важно при создании спрайта.
+    exitSide: #Блокируем возможность отражения у выхода снарядов.
+     - East
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Construction
+    graph: ADTTrinaryProjectileMirrorGraph
+    node: adttrinaryprojectilemirror
+
+- type: entity
+  parent: ADTBaseProjectileMirror
+  id: ADTBinaryProjectileMirror
+  name: projectileMirror
+  description: Write here something cool 
+  suffix: Binary
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: binary
+  - type: ProjectileMirror 
+    exitSide: # Если у мы просто оставляем компонент, то отражатель автоматом стает отражать всё на 90°.
+    - East
+    - North
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Construction
+    graph: ADTBinaryProjectileMirrorGraph
+    node: adtbinaryprojectilemirror
+
+- type: entity
+  parent: ADTBaseProjectileMirror
+  id: ADTTBinaryProjectileMirror
+  name: projectileMirror
+  description: Write here something cool 
+  suffix: Binary, Two sides 
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/projectilemirror.rsi
+    state: tbinary
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Construction
+    graph: ADTTBinaryProjectileMirrorGraph
+    node: adttbinaryprojectilemirror
