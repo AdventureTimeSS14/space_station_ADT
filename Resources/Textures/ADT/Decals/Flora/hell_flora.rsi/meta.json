@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise https://github.com/ss220-space/Paradise/tree/master220",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "firstbush_1"
+    },
+    {
+      "name": "firstbush_2"
+    },
+    {
+      "name": "firstbush_3"
+    },
+    {
+      "name": "firstbush_4"
+    },
+    {
+      "name": "grassybush_1"
+    },
+    {
+      "name": "grassybush_2"
+    },
+    {
+      "name": "grassybush_3"
+    },
+    {
+      "name": "grassybush_4"
+    },
+    {
+      "name": "fernybush_1"
+    },
+    {
+      "name": "fernybush_2"
+    },
+    {
+      "name": "fernybush_3"
+    },
+    {
+      "name": "genericbush_1"
+    },
+    {
+      "name": "genericbush_2"
+    },
+    {
+      "name": "genericbush_3"
+    },
+    {
+      "name": "genericbush_4"
+    },
+    {
+      "name": "ywflowers_1"
+    },
+    {
+      "name": "ywflowers_2"
+    },
+    {
+      "name": "ywflowers_3"
+    },
+    {
+      "name": "ywflowers_4"
+    },
+    {
+      "name": "sparsegrass_1"
+    },
+    {
+      "name": "sparsegrass_2"
+    },
+    {
+      "name": "sparsegrass_3"
+    },
+    {
+      "name": "fullgrass_1"
+    },
+    {
+      "name": "fullgrass_2"
+    },
+    {
+      "name": "fullgrass_3"
+    },
+    {
+      "name": "hell_bush"
+    }
+  ]
+}
