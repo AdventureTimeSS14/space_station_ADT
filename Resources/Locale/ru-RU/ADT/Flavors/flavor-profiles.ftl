@@ -64,6 +64,10 @@ flavor-base-adtmushroompasta = как паста и грибы
 flavor-base-adtsalmonpasta = как рыба с лапшой
 flavor-base-adttomatomeatballpasta = замечательно и мясисто
 
+flavor-complex-adtorangeteareg = как горячий апельсиновый чай
+flavor-complex-adtcherryteareg = как горячий вишнёвый чай
+flavor-complex-adtwatermelonteareg = как горячий арбузный чай
+
 flavor-complex-adtgummyslime = как сладковатая голубика. Но как вы могли съесть такого милаху?
 flavor-complex-adtgummyarachnid = как черничное мороженое. Кажется, или эта паутина застряла между зубов?...
 flavor-complex-adtgummyarkana = как арбузное пюре. Чувствуется приятное покалывание вашего языка.

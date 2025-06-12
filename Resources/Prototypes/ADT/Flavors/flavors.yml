@@ -288,6 +288,21 @@
   flavorType: base
   description: flavor-base-adttomatomeatballpasta
 
+- type: flavor
+  id: ADTOrangeTeaReg
+  flavorType: complex
+  description: flavor-complex-adtorangeteareg
+
+- type: flavor
+  id: ADTCherryTeaReg
+  flavorType: complex
+  description: flavor-complex-adtcherryteareg
+
+- type: flavor
+  id: ADTWatermelonTeaReg
+  flavorType: complex
+  description: flavor-complex-adtwatermelonteareg
+
 # Желешки начало
 - type: flavor
   id: ADTGummySlime
@@ -396,6 +411,7 @@
 
 # Желешки конец
 
+# Юппи начало
 - type: flavor
   id: ADTYupiDryApple
   flavorType: complex
@@ -495,3 +511,5 @@
   id: ADTYupiWatermelon
   flavorType: complex
   description: flavor-complex-adtyupiwatermelon
+
+# Юппи конец

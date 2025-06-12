@@ -188,7 +188,7 @@
   parent: BaseDrink
   desc: reagent-desc-orangetea
   physicalDesc: reagent-physical-desc-orangetea
-  flavor: sweet
+  flavor: ADTOrangeTeaReg
   color: "#FF8C00"
   metabolisms:
     Drink:
@@ -207,7 +207,7 @@
   parent: BaseDrink
   desc: reagent-desc-cherrytea
   physicalDesc: reagent-physical-desc-cherrytea
-  flavor: sweet
+  flavor: ADTCherryTeaReg
   color: "#FFB6C1"
   metabolisms:
     Drink:
@@ -226,7 +226,7 @@
   parent: BaseDrink
   desc: reagent-desc-watermelontea
   physicalDesc: reagent-physical-desc-watermelontea
-  flavor: sweet
+  flavor: ADTWatermelonTeaReg
   color: "#F08080"
   metabolisms:
     Drink:
