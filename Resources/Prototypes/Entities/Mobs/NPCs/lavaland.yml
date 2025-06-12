@@ -77,7 +77,6 @@
       path: /Audio/Animals/lizard_happy.ogg
   - type: Fauna # ADT-Tweak start
   - type: AshStormImmune
-  - type : ProjectileIgnoreCrawling
   # ADT-Tweak end
   
 - type: entity
