@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.VentCrawler.Tube.Components;
+using Content.Shared.ADT.VentCrawling.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
@@ -16,8 +16,11 @@ public sealed class SharedVentTubeSystem : EntitySystem
         var oppositeDirection = nextDirection.GetOpposite();
 
         var xform = Transform(target);
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+        if (xform.GridUid == null)
             return null;
+
+        if (!TryComp<MapGridComponent>(xform.GridUid.Value, out var grid))
+             return null;
 
         if (xform.GridUid == null)
             return null;

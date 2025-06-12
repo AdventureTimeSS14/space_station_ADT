@@ -109,6 +109,7 @@
         Base: alive
       Dead:
         Base: dead
+  - type: MovementAlwaysTouching
 
 #нужен для работы размножения
 - type: entity
@@ -116,9 +117,9 @@
   id: ADTMorphGhostRole
   components:
   - type: GhostRole
-    name: ghost-role-information-morph-name
-    description: ghost-role-information-morph-description
-    rules: ghost-role-information-morph-rules
+    name: ghost-role-information-morph-cloned-name
+    description: ghost-role-information-morph-cloned-description
+    rules: ghost-role-information-morph-cloned-rules
   - type: GhostTakeoverAvailable
 
 - type: entity

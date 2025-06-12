@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Construction.Completions;
 using Content.Server.Popups;
-using Content.Shared.VentCrawler.Tube.Components;
 using Content.Shared.ADT.VentCrawling.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Destructible;
@@ -81,10 +80,10 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
     private void TryEnter(EntityUid uid, EntityUid user, VentCrawlerComponent crawler)
     {
         if (TryComp<WeldableComponent>(uid, out var weldableComponent) && weldableComponent.IsWelded)
-            {
-                _popup.PopupEntity(Loc.GetString("entity-storage-component-welded-shut-message"), user);
-                return;
-            }
+        {
+            _popup.PopupEntity(Loc.GetString("entity-storage-component-welded-shut-message"), user);
+            return;
+        }
 
         if (!crawler.AllowInventory && IsHoldingItems(user))
             return;
@@ -176,8 +175,8 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         {
             if (query.TryGetComponent(entity, out var holder))
             {
-                var Exitev = new VentCrawlingExitEvent();
-                RaiseLocalEvent(entity, ref Exitev);
+                var exitEv = new VentCrawlingExitEvent();
+                RaiseLocalEvent(entity, ref exitEv);
             }
         }
     }
@@ -205,7 +204,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
 
     private bool IsHoldingItems (EntityUid uid)
     {
-        if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var suit) || _inventory.TryGetSlotEntity(uid, "back", out var backpack))
+        if (_inventory.TryGetSlotEntity(uid, "outerClothing", out _) || _inventory.TryGetSlotEntity(uid, "back", out _))
         {
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-equiptment"), uid);
             return true;
@@ -214,7 +213,7 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
             return true;
         }
-        if (_hands.TryGetHand(uid, "body_part_slot_left hand", out var lhand) && !lhand.IsEmpty)
+        if (_hands.TryGetHand(uid, "left", out var lhand) && !lhand.IsEmpty)
         {
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
             return true;

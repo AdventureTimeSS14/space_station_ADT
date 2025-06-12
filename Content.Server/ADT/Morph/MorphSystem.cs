@@ -1,18 +1,12 @@
 using Content.Shared.Actions;
-using Content.Shared.Alert;
-using Content.Shared.Inventory.Events;
-using Content.Shared.Rounding;
-using Content.Shared.Toggleable;
-using Robust.Shared.Timing;
-using Content.Server.Body.Components;
-using Content.Shared.ADT.Morph;
-using Content.Shared.Actions;
-using Content.Shared.Alert;
-using Content.Shared.Inventory.Events;
-using Content.Shared.Rounding;
-using Content.Shared.Toggleable;
-using Robust.Shared.Timing;
-using Content.Shared.ADT.Eye.Blinding;
+ using Content.Shared.Alert;
+ using Content.Shared.Inventory.Events;
+ using Content.Shared.Rounding;
+ using Content.Shared.Toggleable;
+ using Robust.Shared.Timing;
+ using Content.Server.Body.Components;
+ using Content.Shared.ADT.Morph;
+ using Content.Shared.ADT.Eye.Blinding;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Mobs.Systems;
@@ -70,8 +64,7 @@ using Content.Server.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Tools.Components;
 using Content.Server.Popups;
-using System.Linq;
-using Content.Server.Atmos.EntitySystems;
+ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -167,10 +160,6 @@ public sealed class MorphSystem : SharedMorphSystem
         _actions.AddAction(uid, ref component.MimicryActionEntity, component.MimicryAction);
         _actions.AddAction(uid, ref component.AmbushActionEntity, component.AmbushAction);
         _actions.AddAction(uid, ref component.VentOpenActionEntity, component.VentOpenAction);
-        //эти строки можно использовать для морфа гуманоидов
-        // component.NullspacedHumanoid.Item1 = Spawn("MorphHumanoidDummy", MapCoordinates.Nullspace);
-        // component.NullspacedHumanoid.Item2 = AddComp<HumanoidAppearanceComponent>(component.NullspacedHumanoid.Item1);
-        // AddComp<RandomHumanoidAppearanceComponent>(component.NullspacedHumanoid.Item1);
     }
     private void OnAttacked(Entity<MorphComponent> ent, ref AttackedEvent args)
     {

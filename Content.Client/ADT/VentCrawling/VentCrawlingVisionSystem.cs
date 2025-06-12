@@ -22,8 +22,11 @@ public sealed class VentCrawlingSystem : EntitySystem
 
         var ventCrawlerQuery = GetEntityQuery<VentCrawlerComponent>();
 
-        if (!ventCrawlerQuery.TryGetComponent(player, out var playerVentCrawlerComponent))
+        if (player == null || !ventCrawlerQuery.TryGetComponent(player, out var playerVentCrawlerComponent))
+        {
+            _subFloorHideSystem.ShowVentPipe = false;
             return;
+        }
 
         _subFloorHideSystem.ShowVentPipe = playerVentCrawlerComponent.InTube;
     }

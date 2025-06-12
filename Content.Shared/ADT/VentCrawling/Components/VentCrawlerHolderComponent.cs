@@ -20,7 +20,8 @@ public sealed partial class VentCrawlerHolderComponent : Component
     [ViewVariables]
     public float TimeLeft { get; set; }
 
-    public bool IsMoving = false;
+    [ViewVariables]
+    public bool IsMoving { get; set; } = false;
 
     [ViewVariables]
     public EntityUid? PreviousTube { get; set; }

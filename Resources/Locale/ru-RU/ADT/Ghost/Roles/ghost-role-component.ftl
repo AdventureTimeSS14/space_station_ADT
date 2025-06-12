@@ -48,8 +48,14 @@ ghost-role-information-rebecca-description = Слушайтесь священн
 ghost-role-information-rosie-name = Рози, фамильяр священника
 ghost-role-information-rosie-description = Слушайтесь священника и повинуйтесь ему. Ешьте мясо. Будьте самой светлой из всех питомцев станции.
 
+ghost-role-information-morph-cloned-name = Морф
+ghost-role-information-morph-cloned-description = Вы - потомок другого морфа. Размножайтесь и кушайте живых сушеств.
+ghost-role-information-morph-cloned-rules =
+    Вы [color=red][bold]Командный антагонист[/bold][/color]. Ваши намерения ясны, и они несут вред станции и её экипажу.
+    Вы [bold]должны слушаться и помогать[/bold] остальным морфам в выполнении своей задачи и пожирать всех живых организмов на станции.
+
 ghost-role-information-morph-name = Морф
-ghost-role-information-morph-description = Вы - потомок другого морфа. Размножайтесь и кушайте живых сушеств.
+ghost-role-information-morph-description = Вы - начало нового рода. Размножайтесь и кушайте живых сушеств.
 ghost-role-information-morph-rules =
     Вы [color=red][bold]Командный антагонист[/bold][/color]. Ваши намерения ясны, и они несут вред станции и её экипажу.
     Вы [bold]должны слушаться и помогать[/bold] остальным морфам в выполнении своей задачи и пожирать всех живых организмов на станции.

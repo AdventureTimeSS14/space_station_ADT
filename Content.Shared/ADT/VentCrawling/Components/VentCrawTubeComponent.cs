@@ -1,6 +1,6 @@
 using Robust.Shared.Containers;
 
-namespace Content.Shared.VentCrawler.Tube.Components;
+namespace Content.Shared.ADT.VentCrawling.Components;
 
 /// <summary>
 /// A component representing a vent that you can crawl through
