@@ -40,8 +40,6 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !pair.IsTestPrototype(p))
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
-                    .Where(p => !p.ID.Contains("ADTAlwaysPoweredShuttle")) // Ganimed edit
-                    .Where(p => !p.ID.Contains("ImmovableRod")) // Ganimed edit
                     .Select(p => p.ID)
                     .ToList();
 
@@ -105,8 +103,6 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !pair.IsTestPrototype(p))
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
-                    .Where(p => !p.ID.Contains("ADTAlwaysPoweredShuttle")) // Ganimed edit
-                    .Where(p => !p.ID.Contains("ImmovableRod")) // Ganimed edit
                     .Select(p => p.ID)
                     .ToList();
                 foreach (var protoId in protoIds)
