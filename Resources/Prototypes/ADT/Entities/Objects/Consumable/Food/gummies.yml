@@ -1,0 +1,292 @@
+- type: entity
+  name: base gummy
+  parent: FoodBase
+  abstract: true
+  id: ADTFoodGummyBase
+  description: Gummy?? Yummie!
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummySlime
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,0
+    heldPrefix: gummy
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ADTGummy
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: slime gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummySlime
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummySlime
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: slime
+
+- type: entity
+  name: arachnid gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyArachnid
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyArachnid
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: arachnid
+
+- type: entity
+  name: arkana gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyArkana
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyArkana
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: arkana
+
+- type: entity
+  name: cischi gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyCischi
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyCischi
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: cischi
+
+- type: entity
+  name: drask gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyDrask
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyDrask
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: drask
+
+- type: entity
+  name: felinid gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyFelinid
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyFelinid
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: felinid
+
+- type: entity
+  name: human gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyHuman
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyHuman
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: human
+
+- type: entity
+  name: ipc gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyIPC
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyIPC
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: ipc
+
+- type: entity
+  name: kidan gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyKidan
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyKidan
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: kidan
+
+- type: entity
+  name: moth gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyMoth
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyMoth
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: moth
+
+- type: entity
+  name: murine gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyMurine
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyMurine
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: murine
+
+- type: entity
+  name: novakid gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyNovakid
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyNovakid
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: novakid
+
+- type: entity
+  name: resomy gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyResomi
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyResomi
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: resomi
+
+- type: entity
+  name: sareng gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummySareng
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummySareng
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: sareng
+
+- type: entity
+  name: shadekin gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyShadekin
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyShadekin
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: shadekin
+
+- type: entity
+  name: tayaran gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyTayaran
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyTayaran
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: tayaran
+
+- type: entity
+  name: unath gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyUnath
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyUnath
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: unath
+
+- type: entity
+  name: ursus gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyUrsus
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyUrsus
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: ursus
+
+- type: entity
+  name: vox gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyVox
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyVox
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: vox
+
+- type: entity
+  name: vulpkanin gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummyVulpkanin
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummyVulpkanin
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: vulpkanin
+
+- type: entity
+  name: vulpkanin gummy
+  parent: ADTFoodGummyBase
+  id: ADTFoodGummySlimeGolden
+  components:
+  - type: FlavorProfile
+    flavors:
+    - ADTGummySlimeGolden
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/gummies.rsi
+    state: slime-golden
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 10

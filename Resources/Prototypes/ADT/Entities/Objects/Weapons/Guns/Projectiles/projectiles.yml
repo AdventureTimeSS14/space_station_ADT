@@ -349,3 +349,73 @@
       types:
         Blunt: 15
         Structural: 20
+
+- type: entity
+  name: Laser bolt
+  id: ADTBulletLaserGreenWeak
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_ss.rsi
+    layers:
+    - state: greenlaser
+      shader: unshaded
+  - type: Physics
+  - type: Ammo
+  - type: Projectile
+    impactEffect: ADTBulletImpactEffectLaserGreen
+    damage:
+      types:
+        Heat: 5
+        Radiation: 2
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  id: ADTBulletCutterWeak
+  name: cutter bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Reflective
+    reflective:
+      - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_ss.rsi
+    layers:
+    - state: greenlaser
+      shader: unshaded
+  - type: GatheringProjectile
+    amount: 20
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 6
+  - type: TimedDespawn
+    lifetime: 0.12
+  - type: PointLight
+    radius: 2
+    color: green
+    energy: 1

@@ -20,6 +20,23 @@
   - LawyerGreenSuit
 
 - type: loadoutGroup
+  id: ADTLawyerGloves
+  name: loadout-group-lawyer-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTLightBrownGloves
+  - OrangeGloves
+  - ADTRedGloves
+  - ADTTealGloves
+  - ADTGreenGloves
+  - ADTWhiteGloves
+  - ADTBlackGloves
+  - ADTGrayGloves
+  - PurpleGloves
+  - ADTBlueGloves
+
+- type: loadoutGroup
   id: LawyerShoes
   name: loadout-group-lawyer-shoes
   minLimit: 1
@@ -766,6 +783,24 @@
   - BrigmedicPDA
   - ADTFieldDoctorPDA
 
+- type: loadoutGroup
+  id: ADTRnDPDA
+  name: loadout-group-reserch-director-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - RnDPDA
+  - ADTRDPDA
+
+- type: loadoutGroup
+  id: ADTCMOPDA
+  name: loadout-group-chief-medical-officer-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CMOPDA
+  - ADTCMOPDA
+
 # Alts PDA end
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
@@ -789,6 +824,8 @@
   - ADTUnderwearPantiesLaceBlue
   - ADTUnderwearPantiesLaceRed
   - ADTUnderwearPantiesLaceBlack
+  - ADTUnderwearMonokiniWhite
+  - ADTUnderwearMonokiniBlack
 
 - type: loadoutGroup
   id: ADTTop
@@ -807,6 +844,8 @@
   - ADTUnderwearBraLaceBlue
   - ADTUnderwearBraLaceRed
   - ADTUnderwearBraLaceBlack
+  - ADTUnderwearTopMonokiniWhite
+  - ADTUnderwearTopMonokiniBlack
 
 - type: loadoutGroup
   id: ADTSocks
