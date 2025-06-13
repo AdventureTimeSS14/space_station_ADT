@@ -1,14 +1,16 @@
 <ui:FancyWindow xmlns="https://spacestation14.io"
                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                Title="Нашептать"
-               SetSize="600 300"
+               SetSize="600 200"
                MaxSize="900 850">
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Horizontal" Margin="2 4">
             <OptionButton Name="ChannelButton" HorizontalExpand="True" Margin="2 0" SizeFlagsStretchRatio="1" />
-            <LineEdit Name="NameEdit" HorizontalExpand="True" Margin="2 0" SizeFlagsStretchRatio="3" />
+            <LineEdit Name="NameEdit" PlaceHolder="Имя" HorizontalExpand="True" Margin="2 0" SizeFlagsStretchRatio="3" />
         </BoxContainer>
-        <LineEdit Name="TextEdit" HorizontalExpand="True" VerticalExpand="True" Margin="4" />
+        <PanelContainer StyleClasses="PdaBorderRect" Margin="4" HorizontalExpand="True" VerticalExpand="True" >
+            <TextEdit Name="MessageEdit" HorizontalExpand="True" VerticalExpand="True" />
+        </PanelContainer>
         <Button Name="SendButton" HorizontalExpand="True" Text="Отправить" Margin="4" />
     </BoxContainer>
 </ui:FancyWindow>
