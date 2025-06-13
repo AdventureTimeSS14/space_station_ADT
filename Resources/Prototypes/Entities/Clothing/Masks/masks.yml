@@ -18,7 +18,7 @@
     - GasMask # goob edit
     - Mask # goob edit
   - type: HideLayerClothing
-    slots:
+    slots: # ADT Tweak. layers: -> slots:
     - Snout
     - SnoutOverlay # ADT Tweak
     hideOnToggle: true
