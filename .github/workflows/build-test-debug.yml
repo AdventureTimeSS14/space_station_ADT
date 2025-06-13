@@ -48,6 +48,7 @@ jobs:
 
     - name: Build Project
       run: dotnet build --configuration Release --no-restore /p:WarningsAsErrors=nullable /m
+      run: dotnet build --configuration Release --no-restore /p:WarningsAsErrors=nullable /m
 
     - name: Run Content.Tests
       run: dotnet test --no-build --configuration Release Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
