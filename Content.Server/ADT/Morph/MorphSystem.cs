@@ -1,100 +1,39 @@
 using Content.Shared.Actions;
- using Content.Shared.Alert;
- using Content.Shared.Inventory.Events;
- using Content.Shared.Rounding;
- using Content.Shared.Toggleable;
- using Robust.Shared.Timing;
- using Content.Server.Body.Components;
- using Content.Shared.ADT.Morph;
- using Content.Shared.ADT.Eye.Blinding;
+using Robust.Shared.Timing;
+using Content.Shared.ADT.Morph;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.DoAfter;
-using Content.Shared.Power.Generator;
-using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Devour;
-using Content.Shared.Devour.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Shared.Weapons.Marker;
 using Content.Shared.Damage;
-using Content.Shared.Projectiles;
-using Robust.Shared.Physics.Events;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
 using System.Linq;
-using Content.Shared.Access.Systems;
-using Content.Shared.CCVar;
 using Content.Shared.Examine;
-using Content.Shared.Localizations;
-using Content.Shared.Roles;
-using Robust.Shared.Map;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible;
 using Content.Server.Humanoid;
 using Content.Shared.Polymorph.Components;
-using Content.Shared.Hands;
 using Content.Shared.Interaction;
-using Content.Shared.Item;
-using Content.Shared.Storage.Components;
-using Robust.Shared.Network;
-using Robust.Shared.Serialization.Manager;
-using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Inventory;
 using Content.Shared.Polymorph.Systems;
-using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Tools.Components;
-using Content.Server.Popups;
- using Content.Server.Atmos.EntitySystems;
-using Content.Server.Mech.Components;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
-using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
-using Content.Shared.Interaction;
-using Content.Shared.Mech;
-using Content.Shared.Mech.Components;
-using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Movement.Events;
-using Content.Shared.Popups;
-using Content.Shared.Tools.Components;
-using Content.Shared.Verbs;
-using Content.Shared.Wires;
-using Content.Server.Body.Systems;
-using Content.Shared.Tools.Systems;
-using Robust.Server.Containers;
-using Robust.Server.GameObjects;
-using Robust.Shared.Containers;
-using Robust.Shared.Player;
-using Content.Shared.Whitelist;
-using Content.Server.Emp;
-using Robust.Server.Audio;
-using Content.Shared.Access.Systems;
-using Content.Shared.Access.Components;
 using Content.Shared.Movement.Components;
-using Content.Shared.ADT.Mech;
-using Content.Shared.Mech.Equipment.Components;
 
 namespace Content.Server.ADT.Morph;
 
@@ -103,9 +42,7 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] protected readonly ChatSystem ChatSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedContainerSystem container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -239,7 +176,7 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         else
         {
-            _popupSystem.PopupClient(Loc.GetString("morphs-into-ambush"), uid);
+            _popupSystem.PopupCursor(Loc.GetString("morphs-into-ambush"), uid);
             EnsureComp<MorphAmbushComponent>(uid);
             if (TryComp<ChameleonDisguisedComponent>(uid, out var disgui))
                 EnsureComp<MorphAmbushComponent>(disgui.Disguise);
@@ -288,6 +225,8 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnMimicryRememberAction(EntityUid uid, MorphComponent component, MorphMimicryRememberActionEvent args)
     {
+        if (!TryComp<ChameleonProjectorComponent>(uid, out var chamel))
+            return;
         //отвечает за запоминание энтити для мимикрии.
         //гуманоидов запоминает отдельно т.к. их невозможно показать путём хамелеона
         //короче мне лень эту хреноетнь выписывать. Кто будет её чинить - мои соболезнования вам
@@ -306,6 +245,11 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         else
         {
+            if (_chameleon.IsInvalid(chamel, args.Target))
+            {
+                _popupSystem.PopupCursor(Loc.GetString("morph-unable-to-remember"), uid);
+                return;
+            }
             if (component.MemoryObjects.Count() > 5) { component.MemoryObjects.RemoveAt(0); }
             component.MemoryObjects.Add(args.Target);
         }
