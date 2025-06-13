@@ -123,3 +123,11 @@
   materials:
     Wood: 1500
     Steel: 500
+
+- type: latheRecipe
+  id: ADTGrenadeStinger
+  result: GrenadeStinger
+  completetime: 4
+  materials:
+    Steel: 800
+    Plastic: 600

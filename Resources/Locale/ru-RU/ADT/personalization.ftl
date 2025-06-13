@@ -581,3 +581,7 @@ ent-ADTClothingHeadBandMercAntillion = бандана наёмника
 ent-ADTClothingEyesGlassesMercenaryAntillion = очки наёмника
     .desc = Очки, созданные для ведения боя, для защиты глаз от ярких ослепляющих вспышек.
     .suffix = { "Именное, antillion" }
+
+ent-ADTWeaponCutterBLAD = прототип X9
+    .desc = Попытка модификации плазменного резака в более многофункциональный инструмент с возможностью потреблять уран. И...кажется он протекает.
+    .suffix = { "Именное, BLAD" }

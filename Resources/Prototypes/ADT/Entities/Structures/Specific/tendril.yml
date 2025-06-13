@@ -138,3 +138,25 @@
   - type: Tendril
     spawns:
     - MobWatcherMagmawing
+
+- type: entity
+  id: ADTTendrilShockSpider
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Magma Watcher
+  components:
+  - type: Tendril
+    spawns:
+    - ADTMobShockSpider
+
+- type: entity
+  id: ADTTendrilNightmareSpider
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Magma Watcher
+  components:
+  - type: Tendril
+    spawns:
+    - ADTMobNightmareSpider

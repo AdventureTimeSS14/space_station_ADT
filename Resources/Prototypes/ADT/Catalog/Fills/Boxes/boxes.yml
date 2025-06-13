@@ -804,3 +804,259 @@
       amount: 1
     - id: ADTFoodSnackMinichoco5
       amount: 1
+
+- type: entity
+  parent: ADTFoodPackGummies
+  id: ADTFoodPackGummiesFilled
+  name: pack of gummies
+  components:
+  - type: StaticPrice
+    price: 48
+  - type: StorageFill
+    contents:
+    - id: ADTFoodGummyArachnid
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyCischi
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyDrask
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyFelinid
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyHuman
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyIPC
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyKidan
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyMoth
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyMurine
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyNovakid
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyResomi
+      orGroup: ADTGummies1
+    - id: ADTFoodGummySareng
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyShadekin
+      orGroup: ADTGummies1
+    - id: ADTFoodGummySlime
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyTayaran
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyUnath
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyUrsus
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyVox
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyVulpkanin
+      orGroup: ADTGummies1
+    - id: ADTFoodGummySlimeGolden
+      prob: 0.02
+      orGroup: ADTGummies1
+    - id: ADTFoodGummyArachnid
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyCischi
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyDrask
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyFelinid
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyHuman
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyIPC
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyKidan
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyMoth
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyMurine
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyNovakid
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyResomi
+      orGroup: ADTGummies2
+    - id: ADTFoodGummySareng
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyShadekin
+      orGroup: ADTGummies2
+    - id: ADTFoodGummySlime
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyTayaran
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyUnath
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyUrsus
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyVox
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyVulpkanin
+      orGroup: ADTGummies2
+    - id: ADTFoodGummySlimeGolden
+      prob: 0.02
+      orGroup: ADTGummies2
+    - id: ADTFoodGummyArachnid
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyCischi
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyDrask
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyFelinid
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyHuman
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyIPC
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyKidan
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyMoth
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyMurine
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyNovakid
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyResomi
+      orGroup: ADTGummies3
+    - id: ADTFoodGummySareng
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyShadekin
+      orGroup: ADTGummies3
+    - id: ADTFoodGummySlime
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyTayaran
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyUnath
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyUrsus
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyVox
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyVulpkanin
+      orGroup: ADTGummies3
+    - id: ADTFoodGummySlimeGolden
+      prob: 0.02
+      orGroup: ADTGummies3
+    - id: ADTFoodGummyArachnid
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyCischi
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyDrask
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyFelinid
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyHuman
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyIPC
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyKidan
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyMoth
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyMurine
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyNovakid
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyResomi
+      orGroup: ADTGummies4
+    - id: ADTFoodGummySareng
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyShadekin
+      orGroup: ADTGummies4
+    - id: ADTFoodGummySlime
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyTayaran
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyUnath
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyUrsus
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyVox
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyVulpkanin
+      orGroup: ADTGummies4
+    - id: ADTFoodGummySlimeGolden
+      prob: 0.02
+      orGroup: ADTGummies4
+    - id: ADTFoodGummyArachnid
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyCischi
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyDrask
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyFelinid
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyHuman
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyIPC
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyKidan
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyMoth
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyMurine
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyNovakid
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyResomi
+      orGroup: ADTGummies5
+    - id: ADTFoodGummySareng
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyShadekin
+      orGroup: ADTGummies5
+    - id: ADTFoodGummySlime
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyTayaran
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyUnath
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyUrsus
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyVox
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyVulpkanin
+      orGroup: ADTGummies5
+    - id: ADTFoodGummySlimeGolden
+      prob: 0.02
+      orGroup: ADTGummies5
+    - id: ADTFoodGummyArachnid
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyCischi
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyDrask
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyFelinid
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyHuman
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyIPC
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyKidan
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyMoth
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyMurine
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyNovakid
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyResomi
+      orGroup: ADTGummies6
+    - id: ADTFoodGummySareng
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyShadekin
+      orGroup: ADTGummies6
+    - id: ADTFoodGummySlime
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyTayaran
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyUnath
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyUrsus
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyVox
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyVulpkanin
+      orGroup: ADTGummies6
+    - id: ADTFoodGummySlimeGolden
+      prob: 0.02
+      orGroup: ADTGummies6

@@ -3,6 +3,7 @@
   id: BasePaper
   abstract: true
   components:
+  - type: PaperOrigami # ADT-Tweak. Оригами из бумаги
   - type: Tag
     tags:
     - Document
@@ -67,6 +68,11 @@
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
+    # ADT-Tweak start. Оригами для бумаги
+    - state: paperairplane
+      map: ["enum.PaperOrigamiState.State"]
+      visible: false
+    # ADT-Tweak end.
   - type: Paper
   - type: PaperLabelType
   - type: ActivatableUI
@@ -150,10 +156,23 @@
     - Document
     - Trash
     - Paper
+    - ADTDoNotMakeOrigami # ADT-Tweak. Оригами из бумаги
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
     - state: scrap
+    # ADT-Tweak start. Костыль, чтобы не писало ошибки об отсутствии слоя
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+    - state: paperairplane
+      map: ["enum.PaperOrigamiState.State"]
+      visible: false
+    # ADT-Tweak end.
 
 - type: entity
   name: office paper
@@ -350,7 +369,19 @@
     layers:
     # Changing it here is fine - if the PaperStatus key is actually added,
     #  something happened, so that ought to override this either way.
+    - state: paper
     - state: paper_words
+    # ADT-Tweak start. Костыль, чтобы не писало ошибки об отсутствии слоя
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cccccc"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+    - state: paperairplane
+      map: ["enum.PaperOrigamiState.State"]
+      visible: false
+    # ADT-Tweak end.
 
 - type: entity
   parent: Paper
