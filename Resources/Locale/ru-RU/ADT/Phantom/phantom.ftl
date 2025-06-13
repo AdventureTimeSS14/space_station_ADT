@@ -138,6 +138,8 @@ phantom-oblivion-window-title = Амнезия
 phantom-oblivion-window-prompt-text-part = Вы забыли всё, связанное с пребыванием Фантома на станции. Ничего не было, и не должно было.
 phantom-oblivion-window-accept-button = Ок
 
+radio-faker-text-placeholder = Сообщение
+
 # Announcements
 phantom-announcer = Фантома
 phantom-nightmare-announcement =
