@@ -443,9 +443,9 @@
   description: flavor-complex-adtyupidrypeach
 
 - type: flavor
-  id: ADTYupiDryPenapple
+  id: ADTYupiDryPineapple
   flavorType: complex
-  description: flavor-complex-adtyupidrypenapple
+  description: flavor-complex-adtyupidrypineapple
 
 - type: flavor
   id: ADTYupiDryRaspberry
@@ -493,9 +493,9 @@
   description: flavor-complex-adtyupipeach
 
 - type: flavor
-  id: ADTYupiPenapple
+  id: ADTYupiPineapple
   flavorType: complex
-  description: flavor-complex-adtyupipenapple
+  description: flavor-complex-adtyupipineapple
 
 - type: flavor
   id: ADTYupiRaspberry

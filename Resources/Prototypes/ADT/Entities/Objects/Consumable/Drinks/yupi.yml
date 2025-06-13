@@ -1,28 +1,4 @@
 - type: entity
-  parent: BoxCardboard
-  id: ADTDrinksPackYupi
-  name: pack of yupi's
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
-    drawdepth: SmallObjects
-    state: box
-  - type: Storage
-    grid:
-    - 0,0,2,1
-    maxItemSize: Tiny
-    whitelist:
-      tags:
-      - ADTYupiPack
-    hideStackVisualsWhenClosed: false
-  - type: Item
-    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
-    size: Small
-  - type: Appearance
-  - type: StaticPrice
-    price: 0
-
-- type: entity
   parent: BaseFoodCondiment
   id: ADTBaseYupiPacket
   name: yupi packet
@@ -170,21 +146,21 @@
 
 - type: entity
   parent: ADTBaseYupiPacket
-  id: ADTYupiPacketPenapple
-  name: penapple yupi packet
-  description: A yupi packet with penapple taste.
+  id: ADTYupiPacketPineapple
+  name: pineapple yupi packet
+  description: A yupi packet with pineapple taste.
   components:
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 5
         reagents:
-        - ReagentId: ADTYupiDryPenapple
+        - ReagentId: ADTYupiDryPineapple
           Quantity: 5
   - type: Sprite
-    state: packet-penapple
+    state: packet-pineapple
   - type: Icon
-    state: packet-penapple
+    state: packet-pineapple
   - type: Appearance
 
 - type: entity

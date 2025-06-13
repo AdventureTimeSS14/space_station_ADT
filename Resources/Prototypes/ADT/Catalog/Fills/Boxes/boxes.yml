@@ -1062,6 +1062,30 @@
       orGroup: ADTGummies6
 
 - type: entity
+  parent: BoxCardboard
+  id: ADTDrinksPackYupi
+  name: pack of yupi's
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
+    drawdepth: SmallObjects
+    state: box
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Tiny
+    whitelist:
+      tags:
+      - ADTYupiPack
+    hideStackVisualsWhenClosed: false
+  - type: Item
+    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
+    size: Small
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+
+- type: entity
   parent: ADTDrinksPackYupi
   id: ADTDrinksPackYupiFilled
   name: pack of yupi's
@@ -1082,7 +1106,7 @@
       orGroup: ADTYupi1
     - id: ADTYupiPacketPeach
       orGroup: ADTYupi1
-    - id: ADTYupiPacketPenapple
+    - id: ADTYupiPacketPineapple
       orGroup: ADTYupi1
     - id: ADTYupiPacketRaspberry
       orGroup: ADTYupi1
@@ -1102,7 +1126,7 @@
       orGroup: ADTYupi4
     - id: ADTYupiPacketPeach
       orGroup: ADTYupi4
-    - id: ADTYupiPacketPenapple
+    - id: ADTYupiPacketPineapple
       orGroup: ADTYupi5
     - id: ADTYupiPacketRaspberry
       orGroup: ADTYupi5

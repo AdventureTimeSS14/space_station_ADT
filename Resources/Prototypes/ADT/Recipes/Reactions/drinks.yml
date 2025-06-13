@@ -499,14 +499,14 @@
     ADTYupiPeach: 6
 
 - type: reaction
-  id: ADTYupiReactionPenapple
+  id: ADTYupiReactionPineapple
   reactants:
-    ADTYupiDryPenapple:
+    ADTYupiDryPineapple:
       amount: 1
     Water:
       amount: 5
   products:
-    ADTYupiPenapple: 6
+    ADTYupiPineapple: 6
 
 - type: reaction
   id: ADTYupiReactionRaspberry

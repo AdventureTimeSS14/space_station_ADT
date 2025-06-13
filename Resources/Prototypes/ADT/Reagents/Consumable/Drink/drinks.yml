@@ -431,12 +431,12 @@
   color: "#fece2b"
 
 - type: reagent
-  id: ADTYupiDryPenapple
-  name: reagent-name-yupidrypenapple
+  id: ADTYupiDryPineapple
+  name: reagent-name-yupidrypineapple
   parent: ADTYupiDryApple
-  desc: reagent-desc-yupidrypenapple
+  desc: reagent-desc-yupidrypineapple
   physicalDesc: reagent-physical-desc-powdery
-  flavor: ADTYupiDryPenapple
+  flavor: ADTYupiDryPineapple
   color: "#ffed69"
 
 - type: reagent
@@ -521,12 +521,12 @@
   color: "#fece2b"
 
 - type: reagent
-  id: ADTYupiPenapple
-  name: reagent-name-yupipenapple
+  id: ADTYupiPineapple
+  name: reagent-name-yupipineapple
   parent: BaseJuice
-  desc: reagent-desc-yupipenapple
+  desc: reagent-desc-yupipineapple
   physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: ADTYupiPenapple
+  flavor: ADTYupiPineapple
   color: "#ffed69"
 
 - type: reagent
