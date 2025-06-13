@@ -5,7 +5,7 @@
     sprite: ADT/Interface/Actions/actions_phantom.rsi
     state: fant_disarm
   lvl1:
-  - "ActionPhantomStarvation"
+  - "ActionPhantomFaker"
   lvl2:
   - "ActionPhantomParalysis"
   lvl3:
@@ -41,7 +41,7 @@
   lvl1:
   - "ActionPhantomRepair"
   lvl2:
-  - "ActionPhantomHeal"  
+  - "ActionPhantomHeal"
   lvl3:
   - "ActionPhantomPortal"
   lvl4:
