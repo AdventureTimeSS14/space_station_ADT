@@ -499,7 +499,7 @@
     slots:
     - Snout
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskBlank
 
 - type: entity
@@ -511,7 +511,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_neutral.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskNeutral
 
 - type: entity
@@ -523,7 +523,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_eyes.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskEyes
 
 - type: entity
@@ -535,7 +535,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_sleeping.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskSleeping
 
 - type: entity
@@ -547,7 +547,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_heart.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskHeart
 
 - type: entity
@@ -559,7 +559,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_core.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskCore
 
 - type: entity
@@ -571,7 +571,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_plus.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskPlus
 
 - type: entity
@@ -583,7 +583,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_square.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskSquare
 
 - type: entity
@@ -595,7 +595,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_bullseye.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskBullseye
 
 - type: entity
@@ -607,7 +607,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_vertical.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskVertical
 
 - type: entity
@@ -619,7 +619,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_horizontal.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskHorizontal
 
 - type: entity
@@ -631,7 +631,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_x.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskX
 
 - type: entity
@@ -643,7 +643,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_bugeyes.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskBugeyes
 
 - type: entity
@@ -655,7 +655,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_double.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskDouble
 
 - type: entity
@@ -667,7 +667,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_mark.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskMark
 
 - type: entity
@@ -679,7 +679,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_sad.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskSad
 
 - type: entity
@@ -691,7 +691,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_shadekin.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskShadekin
 
 - type: entity
@@ -703,5 +703,5 @@
   - type: Clothing
     sprite: ADT/Clothing/Mask/papermask_black.rsi
   - type: Construction
-    graph: PaperMask
+    graph: ADTPaperMask
     node: CompletePaperMaskBlack

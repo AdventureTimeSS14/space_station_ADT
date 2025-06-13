@@ -182,6 +182,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - SnoutOverlay # ADT Tweak
   #ADT-Tweak-Start
   - type: InjectorsBlocker
   - type: CoveredSlot

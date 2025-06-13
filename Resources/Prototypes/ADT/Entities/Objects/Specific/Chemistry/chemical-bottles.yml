@@ -448,3 +448,55 @@
         reagents:
         - ReagentId: Saline
           Quantity: 30
+
+- type: entity
+  id: ADTLacerinolChemistryBottle
+  name: lacerinol bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lacerinol
+          Quantity: 30
+
+- type: entity
+  id: ADTBruizineChemistryBottle
+  name: bruizine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bruizine
+          Quantity: 30
+
+- type: entity
+  id: ADTPuncturaseChemistryBottle
+  name: puncturase bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Puncturase
+          Quantity: 30
+
+- type: entity
+  id: ADTDyloveneChemistryBottle
+  name: dylovene bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dylovene
+          Quantity: 30

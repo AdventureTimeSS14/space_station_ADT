@@ -347,6 +347,8 @@
 - type: Tag
   id: ADTMechEquipmentClown
 
+# MECH END /\/\/\/\/\/\/\
+
 - type: Tag
   id: ADTBadge
 
@@ -445,6 +447,8 @@
 - type: Tag
   id: ADTTreeSilverMishura
 
+  # ADT NEW YEAR END /\/\/\/\/\/\/\/\/\/\/\/\
+
 - type: Tag
   id: ADTPillExperimental
 
@@ -510,6 +514,9 @@
 
 - type: Tag
   id: ADTTeaPack
+
+- type: Tag
+  id: ADTYupiPack
 
 - type: Tag
   id: ADTFullRiotShitmadeShield
@@ -609,3 +616,11 @@
   
 - type: Tag
   id: ADTGummy
+
+- type: Tag
+  id: ADTLavabikeKeys
+
+- type: Tag
+  id: ADTDoNotMakeOrigami
+
+

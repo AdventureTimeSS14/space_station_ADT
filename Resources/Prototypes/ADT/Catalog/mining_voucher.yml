@@ -18,7 +18,7 @@
     state: extraction_pack
   content:
   - Fulton
-  - Fulton
+# - Fulton [NERF]
   - FultonBeacon
 # TODO: 30 marker beacons
 
@@ -33,6 +33,8 @@
   - ClothingBeltSalvageWebbing
   - ADTShelterCapsule
   - Flare
+  - Flare
+  - Flare #Small Buff
 
 # TODO: resonator
 #- type: thiefBackpackSet
@@ -46,7 +48,7 @@
 #  - Resonator
 #  - FireExtinguisherMini
 
-# TODO: bluespace shelter capsule so this isnt a scam [DONE, left this for Ratty to make everything clear]
+# TODO: bluespace shelter capsule so this isnt a scam [DONE, left this commented part for Ratty to make everything clear]
 #- type: thiefBackpackSet
 #  id: MiningSurvival
 #  name: mining-voucher-survival-name
