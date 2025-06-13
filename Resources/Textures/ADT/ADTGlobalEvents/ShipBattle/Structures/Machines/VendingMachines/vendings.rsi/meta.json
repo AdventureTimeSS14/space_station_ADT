@@ -296,7 +296,7 @@
             ]
         },
         {
-            "name": "eject_tsf",
+            "name": "eject_uniform_tsf",
             "delays": [
                 [
                     0.1,
@@ -391,7 +391,7 @@
             ]
         },
         {
-            "name": "screen_add_kmt",
+            "name": "screen_med_kmt",
             "delays": [
                 [
                     0.2,
