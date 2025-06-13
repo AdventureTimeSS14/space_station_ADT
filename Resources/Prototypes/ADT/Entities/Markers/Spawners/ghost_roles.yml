@@ -213,12 +213,12 @@
   id: ADTMobHermitSpawner
   parent: MarkerBase
   components:
-    - type: Sprite
-      layers:
-        - sprite: ADT/Markers/jobs.rsi
-          state: green
-        - sprite: ADT/Mobs/Lavaland/hermit.rsi
-          state: fulls
-    - type: ConditionalSpawner
-      prototypes:
-        - ADTMobHermit
+  - type: Sprite
+    layers:
+      - sprite: ADT/Markers/jobs.rsi
+        state: green
+      - sprite: ADT/Mobs/Demons/creature.rsi
+        state: icon
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobHermit
