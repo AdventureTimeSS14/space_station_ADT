@@ -24,7 +24,7 @@ namespace Content.Server.NodeContainer.NodeGroups
         [ViewVariables] public GasMixture Air { get; set; } = new() {Temperature = Atmospherics.T20C};
 
         [ViewVariables] private AtmosphereSystem? _atmosphereSystem;
-        [ViewVariables] private IEntityManager? _entMan;
+        [ViewVariables] private IEntityManager? _entMan; // ADT-Tweak
 
         public EntityUid? Grid { get; private set; }
 
@@ -40,7 +40,7 @@ namespace Content.Server.NodeContainer.NodeGroups
                 return;
             }
 
-            _entMan = entMan;
+            _entMan = entMan; // ADT-Tweak
             _atmosphereSystem = entMan.EntitySysManager.GetEntitySystem<AtmosphereSystem>();
             _atmosphereSystem.AddPipeNet(Grid.Value, this);
         }
