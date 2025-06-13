@@ -261,3 +261,11 @@ ui-options-colorblind-friendly = Режим для дальтоников
 ui-options-reduced-motion = Снижение интенсивности визуальных эффектов
 ui-options-chat-window-opacity = Прозрачность окна чата
 ui-options-screen-shake-intensity = Интенсивность дрожания экрана
+
+## Ganimed - StackChat
+
+ui-options-chatstack = Автоматически объединять сообщения в чате:
+ui-options-chatstack-count = { $count ->
+    [1] Последнее сообщение
+   *[other] Последние {$count} сообщения
+}

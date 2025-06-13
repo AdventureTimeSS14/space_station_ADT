@@ -44,7 +44,7 @@
       solution: beaker
     - type: Appearance
     - type: SolutionContainerVisuals
-      maxFillLevels: 8 # ADT-Changes
+      maxFillLevels: 6
       fillBaseName: jug
       inHandsMaxFillLevels: 5
       inHandsFillBaseName: -fill-

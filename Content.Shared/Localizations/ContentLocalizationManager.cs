@@ -155,7 +155,8 @@ namespace Content.Shared.Localizations
         {
             time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
-            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours));
+            var minutes = time.Minutes;
+            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
         }
 
         public static string FormatPlaytimeMinutes(TimeSpan time)
