@@ -1,0 +1,193 @@
+- type: entity
+  name: morph
+  parent: BaseSimpleMob
+  id: ADTBaseMobMorph
+  description: It looks terrifying.
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/Mobs/Aliens/morph.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: CombatMode
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 3
+  - type: Butcherable
+    spawned:
+      - id: FoodMeat
+        amount: 2
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 11
+        Slash: 9
+  - type: TypingIndicator
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Speech
+    speechVerb: LargeMob
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      MorphCollectiveMind: Speak
+  - type: VentCrawler
+  - type: Hunger
+    baseDecayRate: 0 # не голодни
+    starvingSlowdownModifier: 1
+    thresholds:
+      Overfed: 500
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+  - type: Morph
+    damageOnTouch:
+      types:
+        Blunt: 16
+        Slash: 14
+    devourWhitelist:
+      components:
+        - Item
+        - MobState
+      tags:
+        - Structure
+  - type: ThermalVision
+    color: "#064700"
+  - type: NightVision
+  - type: Hands
+  - type: MindContainer
+  - type: ChameleonProjector #да, прекрасно знаю, что могла бы просто переписать систему визардов, но ну к чёрту, лучше уж костыли
+  # ПОТОМУ НЕ ДЕЛАЙТЕ РУЧНЫХ МОРФОВ
+    whitelist:
+      components:
+      - Anchorable
+      - Item
+      - MobState
+      tags:
+      - Bot # for funny bot moments
+    blacklist:
+      components:
+      - ChameleonDisguise # no becoming kleiner
+      - Pda # PDAs currently make you invisible /!\
+    disguiseProto: ChameleonDisguise
+  - type: UserInterface
+    interfaces:
+      enum.MimicryKey.Key:
+        type: MimicryMenuBoundUserInterface
+  - type: Prying
+    pryPowered: true
+    force: true
+    useSound:
+      path: /Audio/Machines/airlock_creaking.ogg
+  - type: Body
+    prototype: Animal
+  - type: Puller
+    needsHands: false
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: MovementAlwaysTouching
+  - type: AntiRottingContainer
+  - type: Destructible #мини-костыль
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 4000
+      behaviors:
+      - !type:GibBehavior { }
+
+#нужен для работы размножения
+- type: entity
+  parent: ADTBaseMobMorph
+  id: ADTMorphGhostRole
+  components:
+  - type: GhostRole
+    name: ghost-role-information-morph-cloned-name
+    description: ghost-role-information-morph-cloned-description
+    rules: ghost-role-information-morph-cloned-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: ActionMorphDevour
+  name: "[color=red]Devour[/color]"
+  description: Attempt to break a structure with your jaws or swallow a creature.
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
+    event: !type:MorphDevourActionEvent
+    priority: 1
+
+- type: entity
+  id: ActionMorphRemember
+  name: "[color=red]Remember[/color]"
+  description: Remember enrity to mimicry in future
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
+    event: !type:MorphMimicryRememberActionEvent
+    priority: 2
+
+- type: entity
+  id: ActionMorphReplication
+  name: "[color=red]Reproduce[/color]"
+  description: Create absolute copy of you.
+  components:
+  - type: InstantAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: reproduce }
+    event: !type:MorphReproduceActionEvent
+    priority: 3
+    useDelay: 60
+
+- type: entity
+  id: ActionMorphMimicry
+  name: "[color=red]Mimicry[/color]"
+  description: Transform to an remembered entiry
+  components:
+  - type: InstantAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: mimicry }
+    event: !type:MorphOpenRadialMenuEvent
+    priority: 4
+
+- type: entity
+  id: ActionMorphAmbush
+  name: "[color=red]Ambush[/color]"
+  description: Get ready to attack
+  components:
+  - type: InstantAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: ambush }
+    event: !type:MorphAmbushActionEvent
+    priority: 5
+
+- type: entity
+  id: ActionMorphVentOpen
+  name: "[color=red]Axid[/color]"
+  description: Open vent for a price
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
+    event: !type:MorphVentOpenActionEvent
+    priority: 6
