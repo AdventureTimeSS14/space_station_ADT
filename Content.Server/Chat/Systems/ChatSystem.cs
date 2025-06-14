@@ -34,6 +34,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Robust.Shared.Timing; // Ganime edit
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.Interaction;
@@ -67,6 +68,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
+    [Dependency] private readonly IGameTiming _gameTiming = default!; // Ganimed edit
 
 
     public const int VoiceRange = 10; // how far voice goes in world units
@@ -641,7 +643,13 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
 
         if (checkEmote)
-            TryEmoteChatInput(source, action);
+            {
+            // ganimed edit start
+            TryEmoteChatInput(source, action, out var consumed);
+            if (consumed)
+                return;
+            // ganimed edit end
+            }
         SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, wrappedMessage, source, range, author, ignoreLanguage: true);  // ADT Languages
         if (!hideLog)
             if (name != Name(source))

@@ -211,6 +211,7 @@
       Female: FemaleHuman
       Unsexed: MaleHuman
   - type: Emoting
+    chatEmoteCooldown: 1.0 # Ganimed edit
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
   - type: Grammar

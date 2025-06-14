@@ -484,7 +484,7 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 64
-- proto: ADTPoweredShuttleLight
+- proto: AlwaysPoweredWallLight
   entities:
   - uid: 3
     components:
