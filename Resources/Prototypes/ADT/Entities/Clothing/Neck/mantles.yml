@@ -36,11 +36,11 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: Magboots
-    activeWalkModifier: 0.7
-    activeSprintModifier: 0.65
-    changeClothingVisuals: true
-    slot: neck
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.75
+  - type: StaticPrice
+    price: 2000
   - type: Appearance
   - type: GenericVisualizer
     visuals:

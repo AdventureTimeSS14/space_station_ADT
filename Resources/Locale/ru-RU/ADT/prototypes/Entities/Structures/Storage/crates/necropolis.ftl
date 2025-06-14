@@ -51,7 +51,7 @@ ent-ADTCrateNecropolisStaffHealingWeak = { ent-ADTCrateNecropolis }
 
 ent-ADTCrateNecropolisNeckMantleMag = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Магма-нтия, Лаваленд
+    .suffix = Магнимантия, Лаваленд
 
 ent-ADTCrateNecropolisDragonPet = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
