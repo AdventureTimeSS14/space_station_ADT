@@ -17,10 +17,19 @@
       - ADTCrateNecropolisCultRobe
       - ADTCrateNecropolisCultArmor
       - ADTCrateNecropolisVehicleLavabike
+      - ADTCrateNecropolisRGBStaff
+      - ADTCrateNecropolisNeckMantleMag
+      - ADTCrateNecropolisDragonPet
+      - ADTCrateNecropolisHereticBladeBlade
+      - ADTCrateNecropolisBones
     rarePrototypes:
       - ADTCrateNecropolisVavilon
       - ADTCrateNecropolisCursedKatana #krisa, why there was shard but not crate with shard???
       - ADTCrateNecropolisVampirismCrystal
       - ADTCrateNecropolisTrapAncientGoliath
       - ADTCrateNecropolisMjollnir
+      - ADTCrateNecropolisStaffHealingWeak
+      - ADTCrateNecropolisMimicry
+      - ADTCrateNecropolisHyperEutacticBlade
+      - ADTCrateNecropolisBorgDerelict
     chance: 1

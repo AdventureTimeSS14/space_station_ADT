@@ -36,3 +36,39 @@ ent-ADTCrateNecropolisTrapAncientGoliath = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisMjollnir = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Мьелльнир, Лаваленд
+
+ent-ADTCrateNecropolisRGBStaff = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = RGB посох, Лаваленд
+
+ent-ADTCrateNecropolisMimicry = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Мимикрия, Лаваленд
+
+ent-ADTCrateNecropolisStaffHealingWeak = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Посох исцеления, Лаваленд
+
+ent-ADTCrateNecropolisNeckMantleMag = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Магнимантия, Лаваленд
+
+ent-ADTCrateNecropolisDragonPet = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Дракончики, Лаваленд
+
+ent-ADTCrateNecropolisHyperEutacticBlade = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Гипермеч, Лаваленд
+
+ent-ADTCrateNecropolisBorgDerelict = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Борг, Лаваленд
+
+ent-ADTCrateNecropolisBrass = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Клинок клинков, Лаваленд
+
+ent-ADTCrateNecropolisBones = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Костяная ловушка, Лаваленд
