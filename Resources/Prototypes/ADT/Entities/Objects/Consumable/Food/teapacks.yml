@@ -1,80 +1,104 @@
 - type: entity
-  name: ADTOrangeTeapack
-  parent: DrinkBase
-  id: ADTOrangeTeapack
-  description: its teapack with orange tea.
+  parent: BaseFoodCondiment
+  id: ADTBaseTeapack
+  abstract: true
   components:
-  - type: Tag
-    tags:
-    - ADTTeaPack
-  - type: FlavorProfile
-    flavors:
-      - bitter
-      - metallic
-  - type: Sprite
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
-    state: teapack
+  - type: Item
+    size: Tiny
+  - type: Drink
+    solution: food
+  - type: Openable
+    sound:
+      collection: packetOpenSounds
+  - type: InjectableSolution
+    solution: food
   - type: SolutionContainerManager
     solutions:
-      drink:
+      food:
+        maxVol: 5
+  - type: SolutionTransfer
+    maxTransferAmount: 5
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+  - type: Tag
+    tags:
+      - ADTTeaPack
+
+- type: entity
+  parent: ADTBaseTeapack
+  id: ADTOrangeTeapack
+  name: ADTOrangeTeapack
+  description: its teapack with orange tea.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
         maxVol: 5
         reagents:
         - ReagentId: ADTOrangepackReg
           Quantity: 5
-  - type: Item
-    size: Tiny
-
-- type: entity
-  name: ADTCherryTeapack
-  parent: DrinkBase
-  id: ADTCherryTeapack
-  description: its teapack with cherry tea.
-  components:
-  - type: Tag
-    tags:
-    - ADTTeaPack
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
+    state: teapack
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/orangetea.rsi
+    state: teapack
+  - type: Appearance
   - type: FlavorProfile
     flavors:
       - bitter
       - metallic
-  - type: Sprite
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
-    state: teapack
+
+- type: entity
+  parent: ADTBaseTeapack
+  id: ADTCherryTeapack
+  name: ADTCherryTeapack
+  description: its teapack with cherry tea.
+  components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      food:
         maxVol: 5
         reagents:
         - ReagentId: ADTCherrypackReg
           Quantity: 5
-  - type: Item
-    size: Tiny
-
-- type: entity
-  name: ADTWatermelonTeapack
-  parent: DrinkBase
-  id: ADTWatermelonTeapack
-  description: its teapack with watermelon tea.
-  components:
-  - type: Tag
-    tags:
-    - ADTTeaPack
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
+    state: teapack
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/cherrytea.rsi
+    state: teapack
+  - type: Appearance
   - type: FlavorProfile
     flavors:
       - bitter
       - metallic
-  - type: Sprite
-    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
-    state: teapack
+
+- type: entity
+  parent: ADTBaseTeapack
+  id: ADTWatermelonTeapack
+  name: ADTWatermelonTeapack
+  description: its teapack with watermelon tea.
+  components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      food:
         maxVol: 5
         reagents:
         - ReagentId: ADTWatermelonpackReg
           Quantity: 5
-  - type: Item
-    size: Tiny
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
+    state: teapack
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/watermelontea.rsi
+    state: teapack
+  - type: Appearance
+  - type: FlavorProfile
+    flavors:
+      - bitter
+      - metallic
 
 - type: entity
   parent: BaseItem

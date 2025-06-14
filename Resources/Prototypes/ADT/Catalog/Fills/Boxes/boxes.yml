@@ -805,6 +805,30 @@
     - id: ADTFoodSnackMinichoco5
       amount: 1
 
+# ~~Gaylord~~ Alasor from Hazbin Hotel
+- type: entity
+  id: ADTBoxRadioDemon
+  parent: ADTBoxNightmareClown
+  name: radio demon suit
+  description: radio demon suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: alastor
+  - type: StorageFill
+    contents:
+    - id: ADTClothingHeadDemonicHornsDeer
+      amount: 1
+    - id: ADTClothingOuterCoatRadioDemon
+      amount: 1
+    - id: ADTClothingJumpsuitRadioDemonSuit
+      amount: 1
+    - id: ADTRadioDemonShoes
+      amount: 1
+    - id: ADTRadioDemonMonocle
+      amount: 1
+
 - type: entity
   parent: ADTFoodPackGummies
   id: ADTFoodPackGummiesFilled
@@ -1060,3 +1084,77 @@
     - id: ADTFoodGummySlimeGolden
       prob: 0.02
       orGroup: ADTGummies6
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTDrinksPackYupi
+  name: pack of yupi's
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
+    drawdepth: SmallObjects
+    state: box
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Tiny
+    whitelist:
+      tags:
+      - ADTYupiPack
+    hideStackVisualsWhenClosed: false
+  - type: Item
+    sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
+    size: Small
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: ADTDrinksPackYupi
+  id: ADTDrinksPackYupiFilled
+  name: pack of yupi's
+  components:
+  - type: StaticPrice
+    price: 48
+  - type: StorageFill
+    contents:
+    - id: ADTYupiPacketApple
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketBerries
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketCherry
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketMango
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketOrange
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketPeach
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketPineapple
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketRaspberry
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketStrawberry
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketWatermelon
+      orGroup: ADTYupi1
+    - id: ADTYupiPacketApple
+      orGroup: ADTYupi2
+    - id: ADTYupiPacketBerries
+      orGroup: ADTYupi2
+    - id: ADTYupiPacketCherry
+      orGroup: ADTYupi3
+    - id: ADTYupiPacketMango
+      orGroup: ADTYupi3
+    - id: ADTYupiPacketOrange
+      orGroup: ADTYupi4
+    - id: ADTYupiPacketPeach
+      orGroup: ADTYupi4
+    - id: ADTYupiPacketPineapple
+      orGroup: ADTYupi5
+    - id: ADTYupiPacketRaspberry
+      orGroup: ADTYupi5
+    - id: ADTYupiPacketStrawberry
+      orGroup: ADTYupi6
+    - id: ADTYupiPacketWatermelon
+      orGroup: ADTYupi6
