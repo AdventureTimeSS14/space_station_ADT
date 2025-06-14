@@ -111,6 +111,14 @@
         Base: dead
   - type: MovementAlwaysTouching
   - type: AntiRottingContainer
+  - type: Destructible #мини-костыль
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 4000
+      behaviors:
+      - !type:GibBehavior { }
 
 #нужен для работы размножения
 - type: entity
