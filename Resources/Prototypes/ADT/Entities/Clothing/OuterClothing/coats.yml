@@ -400,7 +400,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/detective_old.rsi
 
-# Просто штука со старой сбокри, чё уж 
+# Просто штука со старой сбокри, чё уж
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -413,3 +413,34 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/x_coat.rsi
 
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatRadioDemon
+  name: demonic coat
+  description: And now... Stay tuned.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/radiodemoncoat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/radiodemoncoat.rsi
+
+# Бомбер шахтёрам/утилям 
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterExplorerBomber
+  name: explorer bomber
+  description: explorer bomber
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/explorer_bomber.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/explorer_bomber.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90

@@ -4,6 +4,9 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
 using Robust.Shared.Utility;
+using Robust.Shared.Random;
+using Robust.Shared.GameObjects;
+using Content.Server.ADT.Atmos.EntityDamage.Systems; //ADT-Tweak
 
 namespace Content.Server.NodeContainer.NodeGroups
 {
@@ -21,6 +24,7 @@ namespace Content.Server.NodeContainer.NodeGroups
         [ViewVariables] public GasMixture Air { get; set; } = new() {Temperature = Atmospherics.T20C};
 
         [ViewVariables] private AtmosphereSystem? _atmosphereSystem;
+        [ViewVariables] private IEntityManager? _entMan; // ADT-Tweak
 
         public EntityUid? Grid { get; private set; }
 
@@ -36,6 +40,7 @@ namespace Content.Server.NodeContainer.NodeGroups
                 return;
             }
 
+            _entMan = entMan; // ADT-Tweak
             _atmosphereSystem = entMan.EntitySysManager.GetEntitySystem<AtmosphereSystem>();
             _atmosphereSystem.AddPipeNet(Grid.Value, this);
         }
@@ -43,6 +48,11 @@ namespace Content.Server.NodeContainer.NodeGroups
         public void Update()
         {
             _atmosphereSystem?.React(Air, this);
+
+            // ADT-Tweak start
+            var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
+            overpressureSystem?.Update(this);
+            // ADT-Tweak end
         }
 
         public override void LoadNodes(List<Node> groupNodes)

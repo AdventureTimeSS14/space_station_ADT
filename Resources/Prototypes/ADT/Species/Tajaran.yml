@@ -36,6 +36,7 @@
   id: MobTajaranSprites
   sprites:
     Head: MobTajaranHead
+    SnoutOverlay: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Chest: MobTajaranTorso
@@ -55,6 +56,9 @@
   onlyWhitelisted: true
   points:
     Hair:
+      points: 1
+      required: false
+    SnoutOverlay:
       points: 1
       required: false
     FacialHair:
