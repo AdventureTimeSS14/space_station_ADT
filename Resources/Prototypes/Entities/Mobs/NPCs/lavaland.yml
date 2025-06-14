@@ -45,8 +45,6 @@
       50: Dead
   - type: Butcherable
     spawned:
-    - id: DiamondOre1
-      amount: 1
     - id: MaterialBones1 #ADT tweak
       maxAmount: 3 #ADT tweak
   - type: MovementSpeedModifier

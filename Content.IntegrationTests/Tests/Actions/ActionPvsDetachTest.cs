@@ -60,7 +60,6 @@ public sealed class ActionPvsDetachTest
             }
         });
         await pair.RunTicksSync(5);
-        
         Assert.That(sys.GetActions(ent).Count(), Is.EqualTo(initActions));
         Assert.That(cSys.GetActions(cEnt).Count(), Is.EqualTo(initActions));
 
