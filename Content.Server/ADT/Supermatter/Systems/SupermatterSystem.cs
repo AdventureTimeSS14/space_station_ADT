@@ -315,6 +315,10 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         Spawn(sm.SliverPrototype, _transform.GetMapCoordinates(args.User));
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
+
+        var item = args.Used;
+
+        EntityManager.QueueDeleteEntity(item);
     }
 
     private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterCoreDoAfterEvent args)
@@ -331,6 +335,10 @@ public sealed partial class SupermatterSystem : EntitySystem
             rad.Intensity = 1;
 
         _popup.PopupClient(Loc.GetString("supermatter-inert-end"), uid, args.User);
+
+        var item = args.Used;
+
+        EntityManager.QueueDeleteEntity(item);
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)
