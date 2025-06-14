@@ -35,11 +35,11 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
+    - map: [ "id" ]  #Ganimed-Tweak
     - map: [ "outerClothing" ]  #Ganimed-Tweak    
     - map: [ "belt" ]  #Ganimed-Tweak
-    - map: [ "id" ]  #Ganimed-Tweak
-    - map: [ "back" ]
     - map: [ "neck" ]
+    - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -355,11 +355,11 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
-    - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
-    - map: [ "back" ]
+    - map: [ "belt" ]
     - map: [ "neck" ]
+    - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
