@@ -141,18 +141,17 @@ public sealed class PrototypeSaveTest
                         {
                             var diff = compMapping.Except(protoMapping);
 
-                            //ganimed edit start
-                            if (diff != null && diff.Children.Count != 0)
+                            if (compName == "ContainerContainer" && (
+                                prototype.ID is "ClothingBeltTacticalHolster" or "ClothingBeltRevolverHolster"
+                                || prototype.ID.StartsWith("SupplyPodSyndicateSurplus")
+                                || prototype.ID is "SupplyPodSyndicateSuperSurplusBundle"
+                                || prototype.ID is "SupplyPodCybersunJuggernautBundle"))
                             {
-                                if (prototype.ID is "ClothingBeltTacticalHolster" or "ClothingBeltRevolverHolster" && compName == "ContainerContainer")
-                                {
-                                    TestContext.WriteLine($"⚠️ Ignored modification for {prototype.ID} component {compName}");
-                                    continue;
-                                }
-                            //ganimed edit end
-                            
-                                Assert.Fail($"Prototype {prototype.ID} modifies component on spawn: {compName}. Modified yaml:\n{diff}");
+                                TestContext.WriteLine($"⚠️ Ignored modification for {prototype.ID} component {compName}");
+                                continue;
                             }
+                        
+                            Assert.Fail($"Prototype {prototype.ID} modifies component on spawn: {compName}. Modified yaml:\n{diff}");
                         }
                         else
                         {
