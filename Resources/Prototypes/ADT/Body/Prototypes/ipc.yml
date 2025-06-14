@@ -6,42 +6,42 @@
   root: torso
   slots:
     head:
-      part: HeadIPC
+      part: ADTHeadIPC
       connections:
       - torso
       organs:
-        eyes: OrganIPCEyes
+        eyes: ADTOrganIPCEyes
     torso:
-      part: TorsoIPC
+      part: ADTTorsoIPC
       connections:
       - right arm
       - left arm
       - left leg
       - right leg
       organs:
-        brain: OrganIPCBrain
-        heart: OrganIPCPump
+        brain: ADTOrganIPCBrain
+        heart: ADTOrganIPCPump
     right arm:
-      part: RightArmIPC
+      part: ADTRightArmIPC
       connections:
       - right hand
     left arm:
-      part: LeftArmIPC
+      part: ADTLeftArmIPC
       connections:
       - left hand
     right hand:
-      part: RightHandIPC
+      part: ADTRightHandIPC
     left hand:
-      part: LeftHandIPC
+      part: ADTLeftHandIPC
     right leg:
-      part: RightLegIPC
+      part: ADTRightLegIPC
       connections:
       - right foot
     left leg:
-      part: LeftLegIPC
+      part: ADTLeftLegIPC
       connections:
       - left foot
     right foot:
-      part: RightFootIPC
+      part: ADTRightFootIPC
     left foot:
-      part: LeftFootIPC
+      part: ADTLeftFootIPC

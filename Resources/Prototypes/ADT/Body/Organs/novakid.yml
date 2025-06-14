@@ -1,5 +1,5 @@
 - type: entity
-  id: OrganNovakidStomach
+  id: ADTOrganNovakidStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
   components:
@@ -13,7 +13,7 @@
       metabolizerTypes: [ Novakid ]
 
 - type: entity
-  id: OrganNovakidLungs
+  id: ADTOrganNovakidLungs
   parent: OrganHumanLungs
   suffix: "novakid"
   components:
@@ -21,7 +21,7 @@
     metabolizerTypes: [ Novakid ]
 
 - type: entity
-  id: OrganNovakidHeart
+  id: ADTOrganNovakidHeart
   parent: OrganAnimalHeart
   suffix: "novakid"
   components:
