@@ -48,6 +48,7 @@ ghost-role-information-rebecca-description = Слушайтесь священн
 ghost-role-information-rosie-name = Рози, фамильяр священника
 ghost-role-information-rosie-description = Слушайтесь священника и повинуйтесь ему. Ешьте мясо. Будьте самой светлой из всех питомцев станции.
 
+
 ghost-role-information-morph-cloned-name = Морф
 ghost-role-information-morph-cloned-description = Вы - потомок другого морфа. Размножайтесь и кушайте живых сушеств.
 ghost-role-information-morph-cloned-rules =
@@ -59,3 +60,6 @@ ghost-role-information-morph-description = Вы - начало нового ро
 ghost-role-information-morph-rules =
     Вы [color=red][bold]Командный антагонист[/bold][/color]. Ваши намерения ясны, и они несут вред станции и её экипажу.
     Вы [bold]должны слушаться и помогать[/bold] остальным морфам в выполнении своей задачи и пожирать всех живых организмов на станции.
+
+ghost-role-information-hermit-name = Отшельник
+ghost-role-information-hermit-description = Вы застряли в этой безбожной тюрьме дольше, чем вы можете себе представить. Каждый день вы с трудом выживаете, и среди ужасных условий вашего импровизированного убежища, все, чего вы можете пожелать, - это ощущение мягкой травы между пальцами ног и свежий воздух Земли. Эти мысли рассеивает очередное воспоминание о том, как ты сюда попал...
