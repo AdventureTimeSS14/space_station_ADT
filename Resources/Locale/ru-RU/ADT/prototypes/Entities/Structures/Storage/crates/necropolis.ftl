@@ -59,7 +59,7 @@ ent-ADTCrateNecropolisDragonPet = { ent-ADTCrateNecropolis }
 
 ent-ADTCrateNecropolisHyperEutacticBlade = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Гипер меч, Лаваленд
+    .suffix = Гипермеч, Лаваленд
 
 ent-ADTCrateNecropolisBorgDerelict = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
