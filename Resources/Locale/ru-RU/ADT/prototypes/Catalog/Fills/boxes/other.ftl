@@ -9,3 +9,7 @@ ent-ADTFoodBoxEclairs = коробка с эклерами
 ent-ADTFoodPackGummiesFilled = желейные конфеты "Space Gummy"
     .desc = Внутри поистине скрыто сокровище.
     .suffix = Заполненный
+
+ent-ADTDrinksPackYupiFilled = растворимые напитки "Юппи"
+    .desc = Картонная коробка с пакетиками растворимых напитков. Стакан и вода продаются отдельно.
+    .suffix = Заполненный
