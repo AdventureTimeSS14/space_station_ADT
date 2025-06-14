@@ -20,7 +20,8 @@
       - ADTCrateNecropolisRGBStaff
       - ADTCrateNecropolisNeckMantleMag
       - ADTCrateNecropolisDragonPet
-      - ADTCrateNecropolisBrass
+      - ADTCrateNecropolisHereticBladeBlade
+      - ADTCrateNecropolisBones
     rarePrototypes:
       - ADTCrateNecropolisVavilon
       - ADTCrateNecropolisCursedKatana #krisa, why there was shard but not crate with shard???

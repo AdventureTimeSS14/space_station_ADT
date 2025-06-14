@@ -151,12 +151,21 @@
       - id: PlayerBorgDerelictGhostRole
 
 - type: entity
-  id: ADTCrateNecropolisBrass
+  id: ADTCrateNecropolisHereticBladeBlade
   parent: ADTCrateNecropolis
   suffix: Brass
   components:
   - type: StorageFill
     contents:
-      - id: SheetBrass
-      - id: SheetBrass
-      - id: SheetBrass
+      - id: HereticBladeBlade
+
+- type: entity
+  id: ADTCrateNecropolisBones
+  parent: ADTCrateNecropolis
+  suffix: Brass
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMobCarpPirate
+      - id: ADTMobCarpPirate
+      - id: MaterialBones

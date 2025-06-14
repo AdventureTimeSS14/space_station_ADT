@@ -67,4 +67,8 @@ ent-ADTCrateNecropolisBorgDerelict = { ent-ADTCrateNecropolis }
 
 ent-ADTCrateNecropolisBrass = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Латунь, Лаваленд
+    .suffix = Клинок клинков, Лаваленд
+
+ent-ADTCrateNecropolisBones = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Костяная ловушка, Лаваленд
