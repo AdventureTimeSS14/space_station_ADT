@@ -79,3 +79,33 @@
   - type: StorageFill
     contents:
       - id: Mjollnir
+
+- type: entity
+  id: ADTCrateNecropolisRGBStaff
+  parent: ADTCrateNecropolis
+  suffix: RGBStaff
+  components:
+  - type: StorageFill
+    contents:
+      - id: RGBStaff
+
+- type: entity
+  id: ADTCrateNecropolisMimicry
+  parent: ADTCrateNecropolis
+  suffix: Mimicry
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponSworldMimicry
+      - id: ADTClothingFootMimicry
+      - id: ADTClothingEyesGlassesMimicry
+      - id: ADTClothingUniformMimicry
+
+- type: entity
+  id: ADTCrateNecropolisStaffHealingWeak
+  parent: ADTCrateNecropolis
+  suffix: HealingStaff
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponStaffHealingWeak
+

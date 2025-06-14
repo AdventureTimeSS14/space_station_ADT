@@ -17,10 +17,13 @@
       - ADTCrateNecropolisCultRobe
       - ADTCrateNecropolisCultArmor
       - ADTCrateNecropolisVehicleLavabike
+      - ADTCrateNecropolisRGBStaff
     rarePrototypes:
       - ADTCrateNecropolisVavilon
       - ADTCrateNecropolisCursedKatana #krisa, why there was shard but not crate with shard???
       - ADTCrateNecropolisVampirismCrystal
       - ADTCrateNecropolisTrapAncientGoliath
       - ADTCrateNecropolisMjollnir
+      - ADTCrateNecropolisStaffHealingWeak
+      - ADTCrateNecropolisMimicry
     chance: 1

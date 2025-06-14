@@ -36,3 +36,15 @@ ent-ADTCrateNecropolisTrapAncientGoliath = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisMjollnir = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Мьелльнир, Лаваленд
+
+ent-ADTCrateNecropolisRGBStaff = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = RGB посох, Лаваленд
+
+ent-ADTCrateNecropolisMimicry = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Мимикрия, Лаваленд
+
+ent-ADTCrateNecropolisStaffHealingWeak = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Посох исцеления, Лаваленд
