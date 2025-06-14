@@ -1575,7 +1575,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/lawyer_green_suit.rsi
 
-# Костюм гейлорда
+# Костюм демонического лорда
 
 - type: entity
   parent: ClothingUniformBase
