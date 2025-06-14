@@ -315,7 +315,7 @@
 
 - type: entity
   parent:
-  - MobSiliconBase
+#  - MobSiliconBase
   - ShowMedicalIcons
   - StripableInventoryBase
   id: MobMedibot
