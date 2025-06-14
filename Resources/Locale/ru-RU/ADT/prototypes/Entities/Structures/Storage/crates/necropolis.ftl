@@ -48,3 +48,23 @@ ent-ADTCrateNecropolisMimicry = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisStaffHealingWeak = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Посох исцеления, Лаваленд
+
+ent-ADTCrateNecropolisNeckMantleMag = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Магма-нтия, Лаваленд
+
+ent-ADTCrateNecropolisDragonPet = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Дракончики, Лаваленд
+
+ent-ADTCrateNecropolisHyperEutacticBlade = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Гипер меч, Лаваленд
+
+ent-ADTCrateNecropolisBorgDerelict = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Борг, Лаваленд
+
+ent-ADTCrateNecropolisBrass = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Латунь, Лаваленд
