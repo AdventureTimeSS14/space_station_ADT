@@ -70,6 +70,8 @@ namespace Content.Shared.Verbs
         // adt-tweak-start
         public static readonly VerbCategory AdminRoom =
             new("verb-categories-adminroom", "/Textures/Interface/VerbIcons/eject.svg.192dpi.png", iconsOnly: true) { Columns = 3 };
+
+        public static readonly VerbCategory PaperOrigami = new("verb-categories-paper-origami-title", null);
         // adt-tweak-end
         public static readonly VerbCategory SetTransferAmount =
             new("verb-categories-transfer", "/Textures/Interface/VerbIcons/spill.svg.192dpi.png");

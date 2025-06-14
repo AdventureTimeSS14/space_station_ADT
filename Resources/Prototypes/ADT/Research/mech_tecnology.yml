@@ -8,6 +8,7 @@
   tier: 2
   cost: 15000
   recipeUnlocks:
+  - ADTWeaponIonRifle #При создании боевых мехов открываются ионные винтовки
   - ADTGygaxHarness
   - ADTGygaxLArm
   - ADTGygaxRArm

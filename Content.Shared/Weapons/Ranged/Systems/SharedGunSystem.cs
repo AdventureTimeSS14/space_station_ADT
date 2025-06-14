@@ -37,6 +37,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.DNAGunLocker;
 using Content.Shared.Electrocution;
+using Content.Shared.ADT.Crawling.Components;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -476,6 +477,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         projectile.Weapon = gunUid;
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
+
+        // ADT-Tweak start
+        if (user != null && HasComp<ProjectileIgnoreCrawlingComponent>(user.Value))
+        {
+            EnsureComp<ProjectileIgnoreCrawlingComponent>(uid);
+        }
+        // ADT-Tweak end
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
