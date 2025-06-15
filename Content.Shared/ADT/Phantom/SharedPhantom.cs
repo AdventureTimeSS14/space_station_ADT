@@ -5,91 +5,180 @@ using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Alert;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.Phantom;
 
+[ImplicitDataDefinitionForInheritors]
+public partial interface IPhantomAbility
+{
+    public MindshieldAllowance MsAllowance { get; set; }
+
+    public SoundSpecifier? Sound { get; set; }
+
+    public enum MindshieldAllowance
+    {
+        Any,
+        Malfunctioning,
+        NoMindshield
+    }
+}
+
 #region EntityTarget Actions
-public sealed partial class MakeHolderActionEvent : EntityTargetActionEvent
+public sealed partial class MakeHolderActionEvent : EntityTargetActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class ParalysisActionEvent : EntityTargetActionEvent
+public sealed partial class ParalysisActionEvent : EntityTargetActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.NoMindshield;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; } = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/blinding.ogg");
+
+    [DataField]
+    public float Duration = 10f;
 }
 
-public sealed partial class BreakdownActionEvent : EntityTargetActionEvent
+public sealed partial class BreakdownActionEvent : EntityTargetActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
+
+    [DataField]
+    public float StunDuration = 10f;
+
+    [DataField]
+    public float MalfDuration = 5f;
 }
 
-public sealed partial class StarvationActionEvent : EntityTargetActionEvent
+public sealed partial class RadioFakerActionEvent : EntityTargetActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class RepairActionEvent : EntityTargetActionEvent
+public sealed partial class RepairActionEvent : EntityTargetActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class BloodBlindingActionEvent : EntityTargetActionEvent
+public sealed partial class BloodBlindingActionEvent : EntityTargetActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; } = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/blinding.ogg");
 }
 #endregion
 
 #region Instant Actions
-public sealed partial class StopHauntingActionEvent : InstantActionEvent
+public sealed partial class MakeVesselActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.NoMindshield;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; } = new SoundCollectionSpecifier("PhantomGhostKiss");
 }
 
-public sealed partial class MakeVesselActionEvent : InstantActionEvent
+
+public sealed partial class HauntVesselActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-
-public sealed partial class CycleVesselActionEvent : InstantActionEvent
+public sealed partial class OpenPhantomStylesMenuActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class HauntVesselActionEvent : InstantActionEvent
+public sealed partial class GhostClawsActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.NoMindshield;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class MaterializeActionEvent : InstantActionEvent
+public sealed partial class GhostInjuryActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.NoMindshield;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; } = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/injury.ogg");
 }
 
-public sealed partial class OpenPhantomStylesMenuActionEvent : InstantActionEvent
+public sealed partial class GhostHealActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; } = new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/recovery.ogg");
 }
 
-public sealed partial class ShieldBreakActionEvent : InstantActionEvent
+public sealed partial class PhantomOathActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.NoMindshield;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class GhostClawsActionEvent : InstantActionEvent
+public sealed partial class PhantomPortalActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.Any;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class GhostInjuryActionEvent : InstantActionEvent
+public sealed partial class PhantomHelpingHelpActionEvent : InstantActionEvent, IPhantomAbility
 {
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.NoMindshield;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
-public sealed partial class GhostHealActionEvent : InstantActionEvent
+public sealed partial class PhantomControlActionEvent : InstantActionEvent, IPhantomAbility
 {
-}
+    [DataField]
+    public IPhantomAbility.MindshieldAllowance MsAllowance { get; set; } = IPhantomAbility.MindshieldAllowance.NoMindshield;
 
-public sealed partial class PuppeterActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class PhantomPortalActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class PhantomHelpingHelpActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class PhantomControlActionEvent : InstantActionEvent
-{
+    [DataField]
+    public SoundSpecifier? Sound { get; set; }
 }
 
 public sealed partial class PsychoEpidemicActionEvent : InstantActionEvent
@@ -174,11 +263,11 @@ public sealed partial class EctoplasmHitscanHitEvent : EntityEventArgs
 }
 #endregion
 
-#region Radial Menu
-    /// <summary>
-    /// This event carries list of style prototypes and entity - the source of request. This class is a part of code which is responsible for using RadialUiController.
-    /// </summary>
-    [Serializable, NetSerializable]
+#region UI
+/// <summary>
+/// This event carries list of style prototypes and entity - the source of request. This class is a part of code which is responsible for using RadialUiController.
+/// </summary>
+[Serializable, NetSerializable]
 public sealed partial class RequestPhantomStyleMenuEvent : EntityEventArgs
 {
     public readonly List<string> Prototypes = new();
@@ -269,6 +358,40 @@ public sealed partial class PopulatePhantomVesselMenuEvent : EntityEventArgs
     {
         Uid = uid;
         Vessels = vessels;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class OpenRadioFakerMenuEvent : EntityEventArgs
+{
+    public readonly List<string> Channels = new();
+    public NetEntity User;
+    public NetEntity Target;
+
+    public OpenRadioFakerMenuEvent(NetEntity user, NetEntity target, List<string> channels)
+    {
+        User = user;
+        Channels = channels;
+        Target = target;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SendRadioFakerMessageEvent : EntityEventArgs
+{
+    public NetEntity User;
+    public NetEntity Target;
+    public string Message;
+    public string Sender;
+    public string Channel;
+
+    public SendRadioFakerMessageEvent(NetEntity user, NetEntity target, string message, string sender, string channel)
+    {
+        User = user;
+        Target = target;
+        Message = message;
+        Sender = sender;
+        Channel = channel;
     }
 }
 
