@@ -14,6 +14,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared.Inventory;
+using Content.Shared.PDA;
+using Content.Shared.Access.Components;
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Language;  // ADT Languages
 
@@ -31,11 +34,14 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
+    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Ganimed edit
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
 
     private EntityQuery<TelecomExemptComponent> _exemptQuery;
+
+    private const string NoIdIconPath = "/Textures/Interface/Misc/job_icons.rsi/NoId.png"; // Ganimed edit
 
     public override void Initialize()
     {
@@ -100,6 +106,16 @@ public sealed class RadioSystem : EntitySystem
         var name = evt.VoiceName;
         name = FormattedMessage.EscapeText(name);
 
+        // Ganimed edit START
+        var tag = Loc.GetString(
+            "radio-icon-tag",
+            ("path", GetIdCardSprite(messageSource)),
+            ("scale", "2")
+        );
+
+        var formattedName = $"{tag} {name}";
+        // Ganimed edit END
+
         SpeechVerbPrototype speech;
         if (evt.SpeechVerb != null && _prototype.TryIndex(evt.SpeechVerb, out var evntProto))
             speech = evntProto;
@@ -151,7 +167,7 @@ public sealed class RadioSystem : EntitySystem
             ("defaultFont", speech.FontId), // ADT Languages
             ("defaultSize", speech.FontSize),   // ADT Languages
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
+            ("name", formattedName), // Ganimed edit
             ("message", content));
 
         // ADT Languages start
@@ -163,7 +179,7 @@ public sealed class RadioSystem : EntitySystem
             ("defaultFont", speech.FontId),
             ("defaultSize", speech.FontSize),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
+            ("name", formattedName), // Ganimed edit
             ("message", languageEncodedContent));
         // ADT Languages end
 
@@ -236,7 +252,47 @@ public sealed class RadioSystem : EntitySystem
         _messages.Remove(message);
     }
 
-    /// <inheritdoc cref="TelecomServerComponent"/>
+    // Ganimed edit START
+
+    private string GetIdCardSprite(EntityUid senderUid)
+    {
+
+        var protoId = GetIdCard(senderUid)?.JobIcon;
+        var sprite = NoIdIconPath;
+
+        if (_prototype.TryIndex(protoId, out var prototype))
+        {
+            switch (prototype.Icon)
+            {
+                case SpriteSpecifier.Texture tex:
+                    sprite = tex.TexturePath.CanonPath;
+                    break;
+                case SpriteSpecifier.Rsi rsi:
+                    sprite = rsi.RsiPath.CanonPath + "/" + rsi.RsiState + ".png";
+                    break;
+            }
+        }
+
+        return sprite;
+    }
+    private IdCardComponent? GetIdCard(EntityUid senderUid)
+    {
+        if (!_inventorySystem.TryGetSlotEntity(senderUid, "id", out var idUid))
+            return null;
+
+        if (EntityManager.TryGetComponent(idUid, out PdaComponent? pda) && pda.ContainedId is not null)
+        {
+            if (TryComp<IdCardComponent>(pda.ContainedId, out var idComp))
+                return idComp;
+        }
+        else if (EntityManager.TryGetComponent(idUid, out IdCardComponent? id))
+        {
+            return id;
+        }
+
+        return null;
+    }
+    // Ganimed edit END
     private bool HasActiveServer(MapId mapId, string channelId)
     {
         var servers = EntityQuery<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
