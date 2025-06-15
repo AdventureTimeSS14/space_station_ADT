@@ -1,7 +1,7 @@
 # Simple Station
 
 - type: entity
-  id: PartIPC
+  id: ADTPartIPC
   parent: BaseItem
   name: "ipc body part"
   abstract: true
@@ -15,9 +15,9 @@
         ents: []
 
 - type: entity
-  id: TorsoIPC
+  id: ADTTorsoIPC
   name: "ipc torso"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -30,9 +30,9 @@
     partType: Torso
 
 - type: entity
-  id: HeadIPC
+  id: ADTHeadIPC
   name: "ipc head"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -56,9 +56,9 @@
       - Head
 
 - type: entity
-  id: LeftArmIPC
+  id: ADTLeftArmIPC
   name: "left ipc arm"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -72,9 +72,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightArmIPC
+  id: ADTRightArmIPC
   name: "right ipc arm"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -88,9 +88,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftHandIPC
+  id: ADTLeftHandIPC
   name: "left ipc hand"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -104,9 +104,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightHandIPC
+  id: ADTRightHandIPC
   name: "right ipc hand"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -120,9 +120,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftLegIPC
+  id: ADTLeftLegIPC
   name: "left ipc leg"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -137,9 +137,9 @@
   - type: MovementBodyPart
 
 - type: entity
-  id: RightLegIPC
+  id: ADTRightLegIPC
   name: "right ipc leg"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -154,9 +154,9 @@
   - type: MovementBodyPart
 
 - type: entity
-  id: LeftFootIPC
+  id: ADTLeftFootIPC
   name: "left ipc foot"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false
@@ -170,9 +170,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightFootIPC
+  id: ADTRightFootIPC
   name: "right ipc foot"
-  parent: PartIPC
+  parent: ADTPartIPC
   components:
   - type: Sprite
     netsync: false

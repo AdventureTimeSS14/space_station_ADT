@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
     "copyright": "Made by discord: prazat911 для Времени Приключений MRP",
     "size": {
@@ -15,6 +15,9 @@
         },
         {
             "name": "harry"
+        },
+        {
+            "name": "alastor"
         },
         {
             "name": "jasonvoorhees"
@@ -79,7 +82,7 @@
         {
             "name": "empress_of_light"
         },
-        {      
+        {
             "name": "redhat"
         },
         {

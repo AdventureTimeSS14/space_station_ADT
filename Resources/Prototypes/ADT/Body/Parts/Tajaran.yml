@@ -1,9 +1,9 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  id: PartTajaran
+  id: ADTPartTajaran
   parent: BaseItem
-  name: "Таяр части тела"
+  name: "tajaran body part"
   abstract: true
   components:
     - type: Damageable
@@ -15,9 +15,9 @@
           ents: []
 
 - type: entity
-  id: TorsoTajaran
-  name: "тело таяра"
-  parent: PartTajaran
+  id: ADTTorsoTajaran
+  name: "tajaran body"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -30,9 +30,9 @@
       partType: Torso
 
 - type: entity
-  id: HeadTajaran
-  name: "голова таяра"
-  parent: PartTajaran
+  id: ADTHeadTajaran
+  name: "tajaran head"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -56,9 +56,9 @@
         - Head
 
 - type: entity
-  id: LeftArmTajaran
-  name: "левая рука таяра"
-  parent: PartTajaran
+  id: ADTLeftArmTajaran
+  name: "left tajaran arm"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -72,9 +72,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightArmTajaran
-  name: "правая рука таяра"
-  parent: PartTajaran
+  id: ADTRightArmTajaran
+  name: "right tajaran arm"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -88,9 +88,9 @@
       symmetry: Right
 
 - type: entity
-  id: LeftHandTajaran
-  name: "левая кисть таяра"
-  parent: PartTajaran
+  id: ADTLeftHandTajaran
+  name: "left tajaran hand"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -104,9 +104,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightHandTajaran
-  name: "правая кисть таяра"
-  parent: PartTajaran
+  id: ADTRightHandTajaran
+  name: "right tajaran hand"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -120,9 +120,9 @@
       symmetry: Right
 
 - type: entity
-  id: TailTajaran
-  name: "хвост таяра"
-  parent: PartTajaran
+  id: ADTTailTajaran
+  name: "tajaran tail"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -135,9 +135,9 @@
       partType: Tail
 
 - type: entity
-  id: LeftLegTajaran
-  name: "левая нога таяра"
-  parent: PartTajaran
+  id: ADTLeftLegTajaran
+  name: "left tajaran leg"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -154,9 +154,9 @@
       sprintSpeed: 4.6
 
 - type: entity
-  id: RightLegTajaran
-  name: "правая нога таяра"
-  parent: PartTajaran
+  id: ADTRightLegTajaran
+  name: "right tajaran leg"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -173,9 +173,9 @@
       sprintSpeed: 4.6
 
 - type: entity
-  id: LeftFootTajaran
-  name: "левая ступня таяра"
-  parent: PartTajaran
+  id: ADTLeftFootTajaran
+  name: "left tajaran foot"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
@@ -189,9 +189,9 @@
       symmetry: Left
 
 - type: entity
-  id: RightFootTajaran
-  name: "правая ступня таяра"
-  parent: PartTajaran
+  id: ADTRightFootTajaran
+  name: "right tajaran foot"
+  parent: ADTPartTajaran
   components:
     - type: Sprite
       netsync: false
