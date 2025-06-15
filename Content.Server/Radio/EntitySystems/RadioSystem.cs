@@ -129,7 +129,8 @@ public sealed class RadioSystem : EntitySystem
         // ganimed edit start
         int radioFontSize = speech.FontSize;
         if (TryComp<WearingHeadsetComponent>(messageSource, out var wearingHeadset) &&
-            TryComp<HeadsetComponent>(wearingHeadset.Headset, out var headsetComp))
+            TryComp<HeadsetComponent>(wearingHeadset.Headset, out var headsetComp) &&
+            headsetComp.RadioBoostEnabled)
         {
             radioFontSize += headsetComp.RadioTextIncrease ?? 0;
         }
