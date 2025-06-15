@@ -1,6 +1,6 @@
-ent-OrganDemonStomach = { ent-OrganAnimalStomach }
+ent-ADTOrganDemonStomach = желудок арканы
     .desc = { ent-OrganAnimalHeart.desc }
     .suffix = { "Аркана" }
-ent-OrganDemonHeart = сердце арканы
+ent-ADTOrganDemonHeart = сердце арканы
     .desc = { ent-OrganAnimalHeart.desc }
     .suffix = { "Аркана" }
