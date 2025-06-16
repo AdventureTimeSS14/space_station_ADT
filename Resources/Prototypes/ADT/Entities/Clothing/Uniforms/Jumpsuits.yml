@@ -1595,3 +1595,16 @@
     component:
     - type: VentCrawler
       allowInventory: true
+
+# Костюм демонического лорда
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitRadioDemonSuit
+  name: radio demon suit
+  description: A smile is a valuable tool, my dear. It inspires your friends, keeps your enemies guessing, and ensures that, no matter what comes your way, YOU'RE the one in control.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/radiodemonsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/radiodemonsuit.rsi
