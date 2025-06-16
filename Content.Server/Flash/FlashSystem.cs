@@ -173,9 +173,16 @@ namespace Content.Server.Flash
             var mapPosition = _transform.GetMapCoordinates(transform);
             var statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
             var damagedByFlashingQuery = GetEntityQuery<DamagedByFlashingComponent>();
+            
 
             foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, range))
             {
+                if (range <= 0f)
+                {
+                    Logger.Warning($"[FlashSystem] FlashArea called with non-positive range: {range}. Ignored.");
+                    return;
+                }
+                
                 if (!_random.Prob(probability))
                     continue;
 
