@@ -6,6 +6,8 @@ using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Content.Shared.Silicons.Borgs.Components; // Ganimed edit
+using Content.Shared.Silicons.StationAi; // Ganimed edit
 using Content.Shared.Speech;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -42,6 +44,8 @@ public sealed class RadioSystem : EntitySystem
     private EntityQuery<TelecomExemptComponent> _exemptQuery;
 
     private const string NoIdIconPath = "/Textures/Interface/Misc/job_icons.rsi/NoId.png"; // Ganimed edit
+    private const string StationAiIconPath = "/Textures/Interface/Misc/job_icons.rsi/StationAi.png"; // Ganimed edit
+    private const string BorgIconPath = "/Textures/Interface/Misc/job_icons.rsi/Borg.png"; // Ganimed edit
 
     public override void Initialize()
     {
@@ -110,7 +114,7 @@ public sealed class RadioSystem : EntitySystem
         var tag = Loc.GetString(
             "radio-icon-tag",
             ("path", GetIdCardSprite(messageSource)),
-            ("scale", "2")
+            ("scale", "3")
         );
 
         var formattedName = $"{tag} {name}";
@@ -257,6 +261,11 @@ public sealed class RadioSystem : EntitySystem
 
     private string GetIdCardSprite(EntityUid senderUid)
     {
+        if (HasComp<BorgChassisComponent>(senderUid))
+            return BorgIconPath;
+
+        if (HasComp<StationAiHeldComponent>(senderUid))
+            return StationAiIconPath;
 
         var protoId = GetIdCard(senderUid)?.JobIcon;
         var sprite = NoIdIconPath;
