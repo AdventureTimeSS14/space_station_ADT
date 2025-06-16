@@ -20,9 +20,6 @@ public sealed class SharedVentTubeSystem : EntitySystem
             return null;
 
         if (!TryComp<MapGridComponent>(xform.GridUid.Value, out var grid))
-             return null;
-
-        if (xform.GridUid == null)
             return null;
 
         var position = xform.Coordinates;

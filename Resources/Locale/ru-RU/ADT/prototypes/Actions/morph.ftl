@@ -5,7 +5,7 @@ ent-ADTMorphGhostRole = морф
     .desc = Страшная масса зелёной плоти. Она выглядит молодой.
 
 ent-ActionMorphDevour = "[color=red]Поглощение[/color]"
-    .desc = Скушайте живое существо или предмет.
+    .desc = Поглотите живое существо или предмет.
 
 ent-ActionMorphRemember = "[color=green]Запоминание[/color]"
     .desc = Запомните любой объект, чтобы использовть его форму в будущем.

@@ -15,9 +15,6 @@ public sealed class VentCrawlingSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var player = _player.LocalPlayer?.ControlledEntity;
 
         var ventCrawlerQuery = GetEntityQuery<VentCrawlerComponent>();

@@ -14,9 +14,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     private bool _showAll;
-    // ADT-Tweak-Start
      private bool _showVentPipe; //ADT tweak
-    // ADT-Tweak-End
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ShowAll
@@ -37,7 +35,6 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     }
 
     // ADT-Tweak-Start
-     //ADT tweak start
      [ViewVariables(VVAccess.ReadWrite)]
      public bool ShowVentPipe
      {
@@ -51,7 +48,6 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
              UpdateAll();
          }
      }
-     //ADT tweak end
     // ADT-Tweak-End
     public override void Initialize()
     {
