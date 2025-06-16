@@ -32,7 +32,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         SubscribeLocalEvent<HeadsetComponent, EmpPulseEvent>(OnEmpPulse);
 
-        SubscribeLocalEvent<HeadsetComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs); // Ganimed edit 
         SubscribeLocalEvent<HeadsetComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs); // Ganimed edit 
     }
 
@@ -130,33 +129,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     }
 
     // Ganimed edit start
-    private void OnGetVerbs(EntityUid uid, HeadsetComponent comp, GetVerbsEvent<InteractionVerb> args)
-    {
-        if (!args.CanAccess || !args.CanInteract)
-            return;
-
-        if (comp.RadioTextIncrease <= 0)
-            return;
-
-        var verb = new InteractionVerb
-        {
-            Act = () =>
-            {
-                comp.RadioBoostEnabled = !comp.RadioBoostEnabled;
-
-                var msg = comp.RadioBoostEnabled
-                    ? Loc.GetString("headset-radio-fontboost-on")
-                    : Loc.GetString("headset-radio-fontboost-off");
-
-                _popup.PopupEntity(msg, args.User, PopupType.Small);
-            },
-            Text = comp.RadioBoostEnabled
-                ? Loc.GetString("headset-radio-fontboost-disable")
-                : Loc.GetString("headset-radio-fontboost-enable")
-        };
-
-        args.Verbs.Add(verb);
-    }
 
     private void OnGetAltVerbs(EntityUid uid, HeadsetComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
