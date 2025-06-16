@@ -44,7 +44,7 @@ public sealed class TraitorRuleTest
 
         await server.WaitPost(() =>
         {
-            server.RemoveSystem<Content.Server.Voting.Managers.VoteManager>();
+            server.ResolveDependency<IEntitySystemManager>().RemoveSystem<Content.Server.Voting.Managers.VoteManager>();
         });
 
         var minPlayers = 1;
