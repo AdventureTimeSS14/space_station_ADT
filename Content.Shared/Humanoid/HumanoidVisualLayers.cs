@@ -15,6 +15,7 @@ namespace Content.Shared.Humanoid
         Chest,
         Head,
         Snout,
+        SnoutOverlay, // for animated tongue for ADT
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         Eyes,

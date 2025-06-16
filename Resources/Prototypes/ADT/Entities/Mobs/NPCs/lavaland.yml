@@ -246,7 +246,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 20
+        Piercing: 5
+        Poison: 15
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -265,6 +266,7 @@
   - type: TimedDespawn
     lifetime: 35
   - type: AshStormImmune
+  - type: Fauna
 
 
 - type: entity
@@ -335,4 +337,5 @@
   - type: TimedDespawn
     lifetime: 35
   - type: AshStormImmune
+  - type: Fauna
 
