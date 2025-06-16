@@ -55,3 +55,6 @@ ent-ADTDigitalRedWallIndestructible = красная цифровая стена
 ent-ADTDigitalBlueWallIndestructible = синяя цифровая стена
     .desc = { ent-ADTDigitalBlueWall.desc }
     .suffix = Неразрушимый
+
+ent-ADTRadiationUraniumWall = урановая стена
+    .desc = Вам кажется или эта стена, сделанная из чистого урана, светится?
