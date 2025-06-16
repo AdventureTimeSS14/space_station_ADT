@@ -144,7 +144,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (!TryComp<WeldableComponent>(args.Target, out var weldableComponent) || !weldableComponent.IsWelded)
             return;
-        _hunger.ModifyHunger(uid, comp.OpenVentFoodReq, hunger);
+        _hunger.ModifyHunger(uid, -comp.OpenVentFoodReq, hunger);
         _weldable.SetWeldedState(args.Target, false, weldableComponent);
     }
 
@@ -353,7 +353,7 @@ public sealed class MorphSystem : SharedMorphSystem
         var damage_burn = new DamageSpecifier(_proto.Index(BurnDamageGroup), -health.Value / 2);
         _damageable.TryChangeDamage(uid, damage_brute);
         _damageable.TryChangeDamage(uid, damage_burn);
-        _hunger.ModifyHunger(uid, (float)health.Value /2, hunger);
+        _hunger.ModifyHunger(uid, (float)health.Value / 3.5f, hunger);
         _audioSystem.PlayPvs(component.SoundDevour, uid);
         container.Insert(args.Target.Value, component.Container);
     }
