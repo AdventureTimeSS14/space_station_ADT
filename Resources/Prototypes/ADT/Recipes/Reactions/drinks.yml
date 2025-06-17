@@ -437,3 +437,103 @@
       amount: 2
   products:
     Coffee: 3
+
+- type: reaction
+  id: ADTYupiReactionApple
+  reactants:
+    ADTYupiDryApple:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiApple: 6
+
+- type: reaction
+  id: ADTYupiReactionBerries
+  reactants:
+    ADTYupiDryBerries:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiBerries: 6
+
+- type: reaction
+  id: ADTYupiReactionCherry
+  reactants:
+    ADTYupiDryCherry:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiCherry: 6
+
+- type: reaction
+  id: ADTYupiReactionMango
+  reactants:
+    ADTYupiDryMango:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiMango: 6
+
+- type: reaction
+  id: ADTYupiReactionOrange
+  reactants:
+    ADTYupiDryOrange:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiOrange: 6
+
+- type: reaction
+  id: ADTYupiReactionPeach
+  reactants:
+    ADTYupiDryPeach:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiPeach: 6
+
+- type: reaction
+  id: ADTYupiReactionPineapple
+  reactants:
+    ADTYupiDryPineapple:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiPineapple: 6
+
+- type: reaction
+  id: ADTYupiReactionRaspberry
+  reactants:
+    ADTYupiDryRaspberry:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiRaspberry: 6
+
+- type: reaction
+  id: ADTYupiReactionStrawberry
+  reactants:
+    ADTYupiDryStrawberry:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiStrawberry: 6
+
+- type: reaction
+  id: ADTYupiReactionWatermelon
+  reactants:
+    ADTYupiDryWatermelon:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    ADTYupiWatermelon: 6

@@ -10,9 +10,3 @@ public sealed class MiningVoucherSelectMessage(int index) : BoundUserInterfaceMe
 {
     public readonly int Index = index;
 }
-
-[Serializable, NetSerializable]
-public enum MiningVoucherUiKey : byte
-{
-    Key
-}

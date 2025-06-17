@@ -31,6 +31,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: ProjectileIgnoreCrawling # ADT-Tweak
 
 - type: entity
   id: MobGoliath
