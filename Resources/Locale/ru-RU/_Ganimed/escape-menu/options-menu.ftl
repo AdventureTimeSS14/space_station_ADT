@@ -1,1 +1,0 @@
-radio-icon-tag = [radicon path="{$path}" scale={$scale}]
