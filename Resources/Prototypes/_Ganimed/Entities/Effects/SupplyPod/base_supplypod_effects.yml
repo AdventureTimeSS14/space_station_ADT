@@ -56,8 +56,6 @@
     intervalSeconds: 2
   - type: TimedDespawn
     lifetime: 2.1
-  - type: SpawnOnDespawn
-    prototype: SmallExplosionInstant
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Ganimed/Weapons/mortar_long_whistle.ogg
