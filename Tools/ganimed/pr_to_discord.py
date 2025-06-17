@@ -46,20 +46,60 @@ def extract_changelog(text):
 
     if grouped_output and grouped_output[-1] == "":
         grouped_output.pop()
-
     return "\n".join(grouped_output)
 
-def create_embed(changelog, author_name, author_avatar, branch):
-    embed = {
-        "title": f"⭐ Обновление",
-        "description": f"\u200b\n{changelog}",
-        "color": DEFAULT_COLOR,
-        "footer": {
-            "text": f"🆑 {author_name}, {datetime.utcnow().strftime('%d.%m.%Y %H:%M UTC')}",
-            "icon_url": author_avatar
+def split_changelog_by_items(changelog, chunk_size=4096):
+    parts = []
+    current = ""
+
+    items = changelog.split("\n\n")
+    for item in items:
+        item = item.strip()
+        if not item:
+            continue
+        item_text = item + "\n\n"
+
+        if len(item_text) > chunk_size:
+            start = 0
+            while start < len(item_text):
+                end = start + chunk_size
+                chunk = item_text[start:end]
+                if len(current) + len(chunk) > chunk_size:
+                    if current:
+                        parts.append(current)
+                    current = ""
+                current += chunk
+                start = end
+        else:
+            if len(current) + len(item_text) > chunk_size:
+                if current:
+                    parts.append(current)
+                current = ""
+            current += item_text
+
+    if current:
+        parts.append(current)
+
+    return parts
+
+def create_embeds(changelog, author_name, author_avatar, branch):
+    chunks = split_changelog_by_items(changelog)
+    embeds = []
+
+    for i, part in enumerate(chunks):
+        embed = {
+            "description": f"\u200b\n{part}",
+            "color": DEFAULT_COLOR,
+            "footer": {
+                "text": f"🆑 {author_name}, {datetime.utcnow().strftime('%d.%m.%Y %H:%M UTC')}",
+                "icon_url": author_avatar
+            }
         }
-    }
-    return embed
+        if i == 0:
+            embed["title"] = "⭐ Обновление"
+        embeds.append(embed)
+
+    return embeds
 
 def main():
     event_path = os.environ.get("GITHUB_EVENT_PATH")
@@ -83,20 +123,21 @@ def main():
     branch = pr.get("base", {}).get("ref", "master")
 
     changelog = extract_changelog(body)
-
     if not changelog:
         print("No valid changelog found. Skipping PR.")
         return
 
-    embed = create_embed(changelog, author, avatar_url, branch)
+    embeds = create_embeds(changelog, author, avatar_url, branch)
 
     headers = {"Content-Type": "application/json"}
-    payload = {"embeds": [embed]}
-    response = requests.post(webhook_url, headers=headers, data=json.dumps(payload))
-    if response.status_code >= 400:
-        print(f"❌ Failed to send webhook: {response.status_code} - {response.text}")
-    else:
-        print("✅ Webhook sent successfully.")
+
+    for embed in embeds:
+        payload = {"embeds": [embed]}
+        response = requests.post(webhook_url, headers=headers, data=json.dumps(payload))
+        if response.status_code >= 400:
+            print(f"❌ Failed to send webhook: {response.status_code} - {response.text}")
+            return
+    print("✅ Webhook sent successfully.")
 
 if __name__ == "__main__":
     main()
