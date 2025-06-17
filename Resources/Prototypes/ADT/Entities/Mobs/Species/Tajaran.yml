@@ -7,6 +7,8 @@
   components:
     - type: HumanoidAppearance
       species: TajaranSpecies
+      hideLayersOnEquip:
+      - SnoutOverlay
     - type: Body
       prototype: Tajaran
       requiredLegs: 2
@@ -115,6 +117,8 @@
   components:
     - type: HumanoidAppearance
       species: TajaranSpecies
+      hideLayersOnEquip:
+      - SnoutOverlay
     - type: Sprite
       netsync: false
       noRot: true
