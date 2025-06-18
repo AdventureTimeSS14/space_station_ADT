@@ -616,13 +616,39 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterCoreDoAfterEvent : SimpleDoAfterEvent
+public sealed class SupermatterTamperDoAfterEvent : DoAfterEvent
 {
+    public NetEntity Item;
+
+    public SupermatterTamperDoAfterEvent(NetEntity item)
+    {
+        Item = item;
+    }
+
+    public SupermatterTamperDoAfterEvent() {}
+
+    public override DoAfterEvent Clone()
+    {
+        return new SupermatterTamperDoAfterEvent(Item);
+    }
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterTamperDoAfterEvent : SimpleDoAfterEvent
+public sealed class SupermatterCoreDoAfterEvent : DoAfterEvent
 {
+    public NetEntity Item;
+
+    public SupermatterCoreDoAfterEvent(NetEntity item)
+    {
+        Item = item;
+    }
+
+    public SupermatterCoreDoAfterEvent() {}
+
+    public override DoAfterEvent Clone()
+    {
+        return new SupermatterCoreDoAfterEvent(Item);
+    }
 }
 
 [Serializable, NetSerializable]

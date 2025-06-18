@@ -49,7 +49,6 @@ public sealed partial class SupermatterSystem
         return sm.HasBeenPowered;
     }
 
-    
     /// <summary>
     /// The logic of supermatter working with gases.
     /// </summary>
@@ -122,7 +121,7 @@ public sealed partial class SupermatterSystem
             }
 
             // Same scaling as before, but now if SM Power > 7000 - stop this shit pls.
-            else if (co2 > h2 && sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold))
+            else if (co2 > h2 && sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
             {
                 var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
                 sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
