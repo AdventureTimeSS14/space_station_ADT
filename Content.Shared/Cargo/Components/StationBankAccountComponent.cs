@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Economy;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -74,6 +75,18 @@ public sealed partial class StationBankAccountComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan IncomeDelay = TimeSpan.FromSeconds(50);
+
+    //ADT-Economy-Start
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int Balance
+    {
+        get => BankAccount.Balance;
+        set => BankAccount.Balance = value;
+    }
+
+    [ViewVariables]
+    public BankAccount BankAccount = default!;
+    //ADT-Economy-End
 }
 
 /// <summary>

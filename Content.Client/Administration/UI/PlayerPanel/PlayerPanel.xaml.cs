@@ -17,10 +17,10 @@ public sealed partial class PlayerPanel : FancyWindow
     public event Action<NetUserId?>? OnOpenNotes;
     public event Action<NetUserId?>? OnOpenBans;
     public event Action<NetUserId?>? OnAhelp;
-    public event Action<NetUserId?>? OnFollow; // ADT-Tweak
     public event Action<string?>? OnKick;
     public event Action<NetUserId?>? OnOpenBanPanel;
     public event Action<NetUserId?, bool>? OnWhitelistToggle;
+    public event Action? OnFollow;
     public event Action? OnFreezeAndMuteToggle;
     public event Action? OnFreeze;
     public event Action? OnLogs;
@@ -42,12 +42,12 @@ public sealed partial class PlayerPanel : FancyWindow
             NotesButton.OnPressed += _ => OnOpenNotes?.Invoke(TargetPlayer);
             ShowBansButton.OnPressed += _ => OnOpenBans?.Invoke(TargetPlayer);
             AhelpButton.OnPressed += _ => OnAhelp?.Invoke(TargetPlayer);
-            FollowButton.OnPressed += _ => OnFollow?.Invoke(TargetPlayer); // ADT-Tweak
             WhitelistToggle.OnPressed += _ =>
             {
                 OnWhitelistToggle?.Invoke(TargetPlayer, _isWhitelisted);
                 SetWhitelisted(!_isWhitelisted);
             };
+            FollowButton.OnPressed += _ => OnFollow?.Invoke();
             FreezeButton.OnPressed += _ => OnFreeze?.Invoke();
             FreezeAndMuteToggleButton.OnPressed += _ => OnFreezeAndMuteToggle?.Invoke();
             LogsButton.OnPressed += _ => OnLogs?.Invoke();

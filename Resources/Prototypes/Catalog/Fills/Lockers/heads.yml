@@ -21,10 +21,10 @@
     - id: ClothingHandsKnuckleDustersQM
     - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
-    # ADT-Economy-Start
-    - id: ADTCommandBudgetCard
-    - id: ADTCommandBudgetPinPaper
-    # ADT-Economy-End
+    # # ADT-Economy-Start
+    # - id: ADTCommandBudgetCard
+    # - id: ADTCommandBudgetPinPaper
+    # # ADT-Economy-End
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPcrg

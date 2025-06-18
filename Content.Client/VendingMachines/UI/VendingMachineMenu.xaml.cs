@@ -10,7 +10,6 @@ using Robust.Client.UserInterface;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.IdentityManagement;
 using Robust.Client.Graphics;
-using Robust.Shared.Utility;
 
 namespace Content.Client.VendingMachines.UI
 {
@@ -183,36 +182,6 @@ namespace Content.Client.VendingMachines.UI
             VendingContents.PopulateList(listData);
 
             SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
-        }
-
-        /// <summary>
-        /// Updates text entries for vending data in place without modifying the list controls.
-        /// </summary>
-        public void UpdateAmounts(List<VendingMachineInventoryEntry> cachedInventory, bool enabled)
-        {
-            _enabled = enabled;
-
-            foreach (var proto in _dummies.Keys)
-            {
-                if (!_listItems.TryGetValue(proto, out var button))
-                    continue;
-
-                var dummy = _dummies[proto];
-                if (!cachedInventory.TryFirstOrDefault(o => o.ID == proto, out var entry))
-                    continue;
-                var amount = entry.Amount;
-                // Could be better? Problem is all inventory entries get squashed.
-                var text = GetItemText(dummy, amount);
-
-                button.Item.SetText(text);
-                button.Button.Disabled = !enabled || amount == 0;
-            }
-        }
-
-        private string GetItemText(EntityUid dummy, uint amount)
-        {
-            var itemName = Identity.Name(dummy, _entityManager);
-            return $"{itemName} [{amount}]";
         }
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
