@@ -1309,7 +1309,7 @@
     prototypes: [ BoxingKangarooGear ]
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Passive #ADT_Tweak - чтобы кенгуру-боксер атаковал только в ответ
 
 - type: entity
   name: genetic ancestor
