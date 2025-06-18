@@ -191,7 +191,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <param name="uid">The entity that will be transformed</param>
     /// <param name="configuration">Polymorph data</param>
     /// <returns></returns>
-    public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
+        public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
         // if it's already morphed, don't allow it again with this condition active.
         if (!configuration.AllowRepeatedMorphs && HasComp<PolymorphedEntityComponent>(uid))
@@ -274,10 +274,18 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             _humanoid.CloneAppearance(uid, child);
         }
-    // ADT-Changeling-Tweak-Start
+
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
-        SendToPausedMap(uid, targetTransformComp);
+        SendToPausedMap(uid, targetTransformComp); // ADT-Tweak
+
+        // Raise an event to inform anything that wants to know about the entity swap
+        var ev = new PolymorphedEvent(uid, child, false);
+        RaiseLocalEvent(uid, ref ev);
+
+        // visual effect spawn
+        if (configuration.EffectProto != null)
+            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
 
         return child;
     }
@@ -337,9 +345,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 _follow.StartFollowingEntity(f, child);
             }
         // goob edit end
-        // visual effect spawn
-        if (configuration.EffectProto != null)
-            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
 
         return child;
     }

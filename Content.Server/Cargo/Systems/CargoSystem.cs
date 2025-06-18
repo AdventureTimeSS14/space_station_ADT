@@ -20,8 +20,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.GameTicking; //ADT-Economy
-using Content.Server.ADT.Economy; //ADT-Economy
+// using Content.Server.GameTicking; //ADT-Economy
+// using Content.Server.ADT.Economy; //ADT-Economy
 
 namespace Content.Server.Cargo.Systems;
 
@@ -46,8 +46,8 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly GameTicker _ticker = default!; //ADT-Economy
-    [Dependency] private readonly BankCardSystem _bankCard = default!; //ADT-Economy
+    // [Dependency] private readonly GameTicker _ticker = default!; //ADT-Economy
+    // [Dependency] private readonly BankCardSystem _bankCard = default!; //ADT-Economy
 
 
     private EntityQuery<TransformComponent> _xformQuery;
@@ -74,17 +74,17 @@ public sealed partial class CargoSystem : SharedCargoSystem
         InitializeBounty();
         InitializeFunds();
 
-        SubscribeLocalEvent<StationBankAccountComponent, ComponentInit>(OnInit); //ADT-Economy
+        // SubscribeLocalEvent<StationBankAccountComponent, ComponentInit>(OnInit); //ADT-Economy
     }
 
-    //ADT-Economy-Start
-    private void OnInit(EntityUid uid, StationBankAccountComponent component, ComponentInit args)
-    {
-        component.BankAccount = _bankCard.CreateAccount(default, 2000);
-        component.BankAccount.CommandBudgetAccount = true;
-        component.BankAccount.Name = Loc.GetString("command-budget");
-    }
-    //ADT-Economy-End
+    // //ADT-Economy-Start
+    // private void OnInit(EntityUid uid, StationBankAccountComponent component, ComponentInit args)
+    // {
+    //     component.BankAccount = _bankCard.CreateAccount(default, 2000);
+    //     component.BankAccount.CommandBudgetAccount = true;
+    //     component.BankAccount.Name = Loc.GetString("command-budget");
+    // }
+    // //ADT-Economy-End
 
     public override void Update(float frameTime)
     {

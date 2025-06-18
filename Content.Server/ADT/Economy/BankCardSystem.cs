@@ -207,17 +207,17 @@ public sealed class BankCardSystem : EntitySystem
         if (!TryGetAccount(accountId, out var account) || account.Balance + amount < 0)
             return false;
 
-        if (account.CommandBudgetAccount)
-        {
-            while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
-            {
-                if (acc.BankAccount.AccountId != accountId)
-                    continue;
+        // if (account.CommandBudgetAccount)
+        // {
+        //     while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
+        //     {
+        //         if (acc.BankAccount.AccountId != accountId)
+        //             continue;
 
-                _cargo.UpdateBankAccount((uid, acc), amount);
-                return true;
-            }
-        }
+        //         _cargo.UpdateBankAccount((uid, acc), amount);
+        //         return true;
+        //     }
+        // }
 
         account.Balance += amount;
         if (account.CartridgeUid != null)
