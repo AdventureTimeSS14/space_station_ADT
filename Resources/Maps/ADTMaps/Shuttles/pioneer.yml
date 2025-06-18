@@ -475,8 +475,8 @@ entities:
 - proto: ActionToggleInternals
   entities:
   - uid: 65
-    mapInit: true
-    paused: true
+    # mapInit: true
+    # paused: true
     components:
     - type: Transform
       parent: 64
@@ -966,8 +966,8 @@ entities:
       pos: 0.5,-2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 6
 - proto: GasVentScrubber
@@ -979,8 +979,8 @@ entities:
       pos: 2.5,-4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 6
   - uid: 82
@@ -989,8 +989,8 @@ entities:
       pos: 2.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      # configurators:
+      # - invalid
       deviceLists:
       - 6
 - proto: GeneratorWallmountAPU
