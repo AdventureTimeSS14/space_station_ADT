@@ -1486,6 +1486,7 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  - ADTParamedicBeret # ADT tweak
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1493,6 +1494,7 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - ADTClothingJumpsuitParamedicField # ADT tweak
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
