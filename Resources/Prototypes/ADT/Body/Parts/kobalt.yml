@@ -1,13 +1,13 @@
 - type: entity
   id: ADTPartKobolt
-  parent: PartReptilian
+  parent: [PartReptilian, BasePart]
   name: "kobolt body part"
   abstract: true
 
 - type: entity
   id: ADTTorsoKobolt
   name: "kobolt torso"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseTorso]
   components:
   - type: Sprite
     netsync: false
@@ -20,7 +20,7 @@
 - type: entity
   id: ADTHeadKobolt
   name: "kobolt head"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseHead]
   components:
   - type: Sprite
     netsync: false
@@ -38,7 +38,7 @@
 - type: entity
   id: ADTLeftArmKobolt
   name: "left kobolt arm"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseLeftArm]
   components:
   - type: Sprite
     netsync: false
@@ -51,7 +51,7 @@
 - type: entity
   id: ADTRightArmKobolt
   name: "right kobolt arm"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseRightArm]
   components:
   - type: Sprite
     netsync: false
@@ -64,7 +64,7 @@
 - type: entity
   id: ADTLeftHandKobolt
   name: "left kobolt hand"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseLeftHand]
   components:
   - type: Sprite
     netsync: false
@@ -77,7 +77,7 @@
 - type: entity
   id: ADTRightHandKobolt
   name: "right kobolt hand"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseRightHand]
   components:
   - type: Sprite
     netsync: false
@@ -90,7 +90,7 @@
 - type: entity
   id: ADTLeftLegKobolt
   name: "left kobolt leg"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseLeftLeg]
   components:
   - type: Sprite
     netsync: false
@@ -106,7 +106,7 @@
 - type: entity
   id: ADTRightLegKobolt
   name: "right kobolt leg"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseRightLeg]
   components:
   - type: Sprite
     netsync: false
@@ -122,7 +122,7 @@
 - type: entity
   id: ADTLeftFootKobolt
   name: "left kobolt foot"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseLeftFoot]
   components:
   - type: Sprite
     netsync: false
@@ -135,7 +135,7 @@
 - type: entity
   id: ADTRightFootKobolt
   name: "right kobolt foot"
-  parent: ADTPartKobolt
+  parent: [ADTPartKobolt, BaseRightFoot]
   components:
   - type: Sprite
     netsync: false
