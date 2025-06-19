@@ -27,3 +27,35 @@
   - type: Tag
     tags:
     - Flower
+
+- type: entity
+  name: strawberry
+  parent: ProduceSliceBase
+  id: ADTFoodStrawberry
+  description: berry - the symbol of summer.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/strawberry.rsi
+    state: produce
+  - type: FlavorProfile
+    flavors:
+      - ADTStrawberryFlavor
+  - type: Produce
+    seedId: ADTStrawberry
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTJuiceStrawberry
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
