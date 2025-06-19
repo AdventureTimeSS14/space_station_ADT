@@ -2115,4 +2115,16 @@
       startingCharge: 2500
     - type: Appearance
 
+#MagmaShow
+- type: entity
+  name: double stun baton
+  parent: [ Stunbaton, BaseSecurityContraband ]
+  id: StarlightDoubleStunbatonMagmaShow
+  suffix: Personal, MagmaShow
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/doublestunbaton.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
 #SPONSOR-ITEMS-END
