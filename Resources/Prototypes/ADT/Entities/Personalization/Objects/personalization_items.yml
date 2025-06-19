@@ -2126,5 +2126,5 @@
     sprite: _Starlight/Objects/Weapons/Melee/doublestunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleableVisuals.Layer" ]
+      map: [ "enum.ToggleVisuals.Layer" ]
 #SPONSOR-ITEMS-END
