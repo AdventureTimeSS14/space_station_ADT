@@ -62,9 +62,9 @@
   productEntity: FireAxeFlaming
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 7
   cost:
-    Telecrystal: 8
+    Telecrystal: 10
   categories:
   - UplinkWeaponry
 
