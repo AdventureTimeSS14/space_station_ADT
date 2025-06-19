@@ -456,7 +456,7 @@ ent-ADTClothingUniformJumpsuitOldDark = старый комбинезон учё
 
 ent-ADTClothingUniformJumpsuitBarber = модный костюм
     .desc = Один костюм, чтобы править ими всеми.
-    
+
 ent-ADTClothingUniformJumpsuitBarberBrown = коричневый модный костюм
     .desc = Для любителей старомодного стиля.
 
@@ -466,3 +466,10 @@ ent-ADTClothingRomanShirt = красная римская туника
 
 ent-ADTClothingUniformJumpsuitGreenSuitLawyer = костюм члена "клуба ревизоров"
     .desc = Светло-зеленый костюм с золотыми элементами. Знаковый элемент "клуба ревизоров" - неформальной группы юристов, работающих в интересах NT и отметившихся выдающимся стажем работы и особыми заслугами в профессиональной среде.
+
+ent-ADTClothingJumpsuitRadioDemonSuit = костюм радио-демона
+    .desc = Улыбка — это ценный инструмент, дорогая! Она вдохновляет твоих друзей, держит врагов в неведении и гарантирует, что, что бы ни случилось, ты - у руля.
+    .suffix = { "Хеллоуин" }
+
+ent-ADTClothingJumpsuitParamedicFieldSuit = полевой комбинезон парамедика
+    .desc = одежда, созданная с расчетом на полное удобство носителя

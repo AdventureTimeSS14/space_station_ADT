@@ -12,7 +12,7 @@ ent-ADTClothingHeadHatHoodRedhat = капюшон красной шапочки
     .suffix = Хеллоуин
     .desc = Бабушка, почему у тебя такие большие глаза? Чтобы лучше видеть мелких
 
-ent-ADTClothingHeadHelmetMiner = шахтёрский каплюшон
+ent-ADTClothingHeadHelmetMiner = шахтёрский капюшон 
     .desc = Пропитан отчаянием и безнадежностью.
 
 ent-ADTClothingHeadHelmetMinerReinforcedOne = частично усиленный капюшон исследователя 

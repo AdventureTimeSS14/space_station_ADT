@@ -32,3 +32,18 @@
   license: "CC-BY-SA-3.0"
   copyright: "Adventure Time MRP Server"
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["digitalred.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["digitalblue.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["digitaloff.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"

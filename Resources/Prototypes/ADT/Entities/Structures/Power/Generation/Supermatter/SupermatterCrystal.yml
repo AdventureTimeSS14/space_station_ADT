@@ -417,7 +417,13 @@
   name: supermatterradiation
   categories: [ HideSpawnMenu ]
   components:
-    - type: SupermatterRadiationEvent
+    - type: RadiationSource
+      intensity: 30
+    - type: RadiationEvent
+      initialIntensity: 30 
+      decayDelay: 10       
+      decayRate: 1         
+      decayRateInterval: 5
 
 ## Portals
 - type: entity

@@ -68,6 +68,10 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: fill
+#ADT_Tweak Start - стопки становятся очень мелкими
+  - type: Item
+    size: Tiny
+#ADT_Tweak End
 
 - type: entity
   parent: DrinkGlassBase

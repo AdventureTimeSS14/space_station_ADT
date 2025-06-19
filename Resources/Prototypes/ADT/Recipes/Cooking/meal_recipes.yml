@@ -53,7 +53,7 @@
     FoodPlateSmall: 1
     FoodCheeseSlice: 1
     FoodOnion: 1
-    ADTOrganVulpkaninAnimalLiver: 1
+    ADTOrganVulpkaninLiver: 1
   recipeType:
   - Assembler
 

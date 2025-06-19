@@ -1,7 +1,7 @@
 # TODO: Add descriptions (many)
 # TODO BODY: Part damage
 - type: entity
-  id: PartDemon
+  id: ADTPartDemon
   parent: BaseItem
   name: "demon body part"
   abstract: true
@@ -18,9 +18,9 @@
       - Trash
 
 - type: entity
-  id: TorsoDemon
+  id: ADTTorsoDemon
   name: "demon torso"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -33,9 +33,9 @@
     partType: Torso
 
 - type: entity
-  id: HeadDemon
+  id: ADTHeadDemon
   name: "demon head"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -59,9 +59,9 @@
       - Head
 
 - type: entity
-  id: LeftArmDemon
+  id: ADTLeftArmDemon
   name: "left demon arm"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -75,9 +75,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightArmDemon
+  id: ADTRightArmDemon
   name: "right demon arm"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -91,9 +91,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftHandDemon
+  id: ADTLeftHandDemon
   name: "left demon hand"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -107,9 +107,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightHandDemon
+  id: ADTRightHandDemon
   name: "right demon hand"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -123,9 +123,9 @@
     symmetry: Right
 
 - type: entity
-  id: LeftLegDemon
+  id: ADTLeftLegDemon
   name: "left demon leg"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -142,9 +142,9 @@
     sprintSpeed : 4.5
 
 - type: entity
-  id: RightLegDemon
+  id: ADTRightLegDemon
   name: "right demon leg"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -161,9 +161,9 @@
     sprintSpeed : 4.5
 
 - type: entity
-  id: LeftFootDemon
+  id: ADTLeftFootDemon
   name: "left demon foot"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false
@@ -177,9 +177,9 @@
     symmetry: Left
 
 - type: entity
-  id: RightFootDemon
+  id: ADTRightFootDemon
   name: "right demon foot"
-  parent: PartDemon
+  parent: ADTPartDemon
   components:
   - type: Sprite
     netsync: false

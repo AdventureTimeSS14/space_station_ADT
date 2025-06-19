@@ -1,3 +1,10 @@
+#Shoes
+
+- type: loadout
+  id: PurpleShoes
+  equipment:
+    shoes: ClothingShoesColorPurple
+
 # PDA
 - type: loadout
   id: ADTLabTechPDA

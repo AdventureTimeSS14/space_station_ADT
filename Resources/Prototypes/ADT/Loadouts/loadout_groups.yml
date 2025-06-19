@@ -20,6 +20,23 @@
   - LawyerGreenSuit
 
 - type: loadoutGroup
+  id: ADTLawyerGloves
+  name: loadout-group-lawyer-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTLightBrownGloves
+  - OrangeGloves
+  - ADTRedGloves
+  - ADTTealGloves
+  - ADTGreenGloves
+  - ADTWhiteGloves
+  - ADTBlackGloves
+  - ADTGrayGloves
+  - PurpleGloves
+  - ADTBlueGloves
+
+- type: loadoutGroup
   id: LawyerShoes
   name: loadout-group-lawyer-shoes
   minLimit: 1
@@ -380,6 +397,16 @@
   loadouts:
   - ADTBeltUtility
   - ADTBeltUtilityWebbing
+
+- type: loadoutGroup
+  id: ADTEngineeringGlasses
+  name: loadout-group-engineering-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTEyeWeldingOldStyle
+  - ADTEyeWelding
+  - ADTEyeMeson
 
 # BRIGMEDIC
 
