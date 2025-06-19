@@ -8,3 +8,22 @@
   id: ADTMechanicPDA
   equipment:
     id: ADTMechanicPDA
+
+# Glasses
+- type: loadout
+  id: ADTEyeWeldingOldStyle
+  equipment:
+    eyes: ADTClothingEyesWeldingOldStyle
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonoredEngineer
+
+- type: loadout
+  id: ADTEyeWelding
+  equipment:
+    eyes: ADTClothingEyesWelding
+
+- type: loadout
+  id: ADTEyeMeson
+  equipment:
+    eyes: ClothingEyesGlassesMeson
