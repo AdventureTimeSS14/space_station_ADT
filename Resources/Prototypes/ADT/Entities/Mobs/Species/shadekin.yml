@@ -8,6 +8,8 @@
   - type: OnGhostAttemtpDamage # При суициде будет нормально наносится урон не удушением а кровотечением.
   - type: HumanoidAppearance
     species: Shadekin
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Hunger
   - type: Thirst
   - type: Butcherable
@@ -300,6 +302,8 @@
   components:
   - type: HumanoidAppearance
     species: Shadekin
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Sprite
     scale: 0.95, 0.95
     layers:

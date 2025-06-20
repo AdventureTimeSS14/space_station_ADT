@@ -21,7 +21,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      100: Dead # Tweak 75 > 100
   - type: MeleeWeapon
     damage:
       types:
@@ -92,7 +92,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      5: Dead
+      10: Dead #Tweak 5 > 10
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -194,3 +194,148 @@
   weights:
     ActionAncientGoliathTentacle: 0.5
     ActionGoliathTentacle: 0.5
+
+# SPIDERS
+
+- type: entity
+  name: Nightmare Spider
+  parent: ADTMobBaseSpider
+  id: ADTMobNightmareSpider
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: nightmare_spider
+      sprite: ADT/Mobs/Animals/spiders.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: nightmare_spider
+    noMovementLayers:
+      movement:
+        state: nightmare_spider
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: nightmare_spider
+      Dead:
+        Base: nightmare_spider_dead
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        15
+      AggroVisionRadius: !type:Single
+        15
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      215: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.0
+    baseSprintSpeed : 1.3
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      70: 0.8
+      125: 0.65
+      180: 0.5
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5
+        Poison: 15
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: NorepinephricAcid
+          Quantity: 100
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 2
+  - type: MeleeChemicalInjector
+    transferAmount: 12
+    solution: melee
+  - type: TimedDespawn
+    lifetime: 35
+  - type: AshStormImmune
+  - type: Fauna
+
+
+- type: entity
+  name: Shock Spider
+  parent: ADTMobBaseSpider
+  id: ADTMobShockSpider
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: ice_spider
+      sprite: ADT/Mobs/Animals/spiders.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ice_spider
+    noMovementLayers:
+      movement:
+        state: ice_spider
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ice_spider
+      Dead:
+        Base: ice_spider_dead
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        15
+      AggroVisionRadius: !type:Single
+        15
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      215: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.0
+    baseSprintSpeed : 1.3
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      70: 0.8
+      125: 0.65
+      180: 0.5
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 20
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Licoxide
+          Quantity: 35
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 2
+  - type: MeleeChemicalInjector
+    transferAmount: 7
+    solution: melee
+  - type: TimedDespawn
+    lifetime: 35
+  - type: AshStormImmune
+  - type: Fauna
+

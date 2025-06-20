@@ -9,10 +9,10 @@ ent-ADTTagillaSledgehammerToy = кувалда Тагиллы
 ent-ADTKatanacursed = проклятая катана
     .desc = Древняя поделка, сделанная из не столь древней пластали.
 
-ent-ADTKatanacursedShard = странный осколов
-    .desc = Небольшая коробка, содержащая гипопену. Упаковка распадается при вскрытии, не оставляя улик.
+ent-ADTKatanacursedShard = странный осколок
+    .desc = Осколок, который испускает из себя недобрую энергию...
 
-ent-ADTStraightRazor = Опасная бритва
+ent-ADTStraightRazor = опасная бритва
     .desc = Ею легко перерезать горло.
     
 ent-ADTGladius = гладиус

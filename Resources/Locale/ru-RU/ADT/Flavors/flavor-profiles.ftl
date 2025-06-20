@@ -63,3 +63,53 @@ flavor-base-adtfishpasta = как референс
 flavor-base-adtmushroompasta = как паста и грибы
 flavor-base-adtsalmonpasta = как рыба с лапшой
 flavor-base-adttomatomeatballpasta = замечательно и мясисто
+
+
+flavor-base-adtstrawberryflavor = клубнично
+
+flavor-complex-adtorangeteareg = как горячий апельсиновый чай
+flavor-complex-adtcherryteareg = как горячий вишнёвый чай
+flavor-complex-adtwatermelonteareg = как горячий арбузный чай
+
+flavor-complex-adtgummyslime = как сладковатая голубика. Но как вы могли съесть такого милаху?
+flavor-complex-adtgummyarachnid = как черничное мороженое. Кажется, или эта паутина застряла между зубов?...
+flavor-complex-adtgummyarkana = как арбузное пюре. Чувствуется приятное покалывание вашего языка.
+flavor-complex-adtgummycischi = как кисловатый крыжовник. Вам показалось, или он отдает молоком?..
+flavor-complex-adtgummydrask = как ежевичный сироп. После одного кусочка язык будто леденеет.
+flavor-complex-adtgummyfelinid = как черничный пудинг. Вы будто захотели мяукнуть, или это просто ваше воображение..
+flavor-complex-adtgummyhuman = как мягкое манго. Кажется, отдает повседневностью.
+flavor-complex-adtgummyipc = как лист металла. Может, так себя ощущают во время дефицита железа...
+flavor-complex-adtgummykidan = как мякоть граната. Может стоит пойти за работу?
+flavor-complex-adtgummymoth = как клубничный смузи. Очень освежает и будто бы.. окрыляет?
+flavor-complex-adtgummymurine = как банановый тортик. Кажется, ещё и запахло сыром?
+flavor-complex-adtgummynovakid = как абрикосовый джем. Ваш язык будто начинает пылать, стоит желе только попасть на него..
+flavor-complex-adtgummyresomi = как ананасовая пицца. Вы на мгновение почувствовали себя ребенком. Это эффект желе?..
+flavor-complex-adtgummysareng = как вишнёвый пирог. Возможно, вы стали увереннее в себе, или вам кажется..
+flavor-complex-adtgummyshadekin = как сливочный крем. Ваши мысли начинают путаться от одного кусочка..
+flavor-complex-adtgummyslimegolden = как золотистый имбирь. Неизвестно, откуда вы это знаете, да и какая разница, если вкус просто божественен!
+flavor-complex-adtgummytayaran = как виноградное варенье. Может, стоит запить молочком?
+flavor-complex-adtgummyunath = как лаймовый фреш. Чувствуется, как тело наливается силой.
+flavor-complex-adtgummyursus = как медовые соты. Вы слышите пчелиное жужжание на стороне, или это лишь наваждение..
+flavor-complex-adtgummyvox = как лимонный сок. Вам кажется, что вкус не сочетается с цветом желе. Может, так и задуманно?
+flavor-complex-adtgummyvulpkanin = как персиковая мякоть. Кажется, вы способны проработать еще долгое время.
+
+flavor-complex-adtyupidryapple = как концентрированное кисло-сладкое яблоко
+flavor-complex-adtyupidryberries = как концентрированные кисло-сладкие лесные ягоды
+flavor-complex-adtyupidrycherry = как концентрированная кисло-сладкая вишня
+flavor-complex-adtyupidrymango = как концентрированное кисло-сладкое манго
+flavor-complex-adtyupidryorange = как концентрированный кисло-сладкий апельсин
+flavor-complex-adtyupidrypeach = как концентрированный кисло-сладкий персик
+flavor-complex-adtyupidrypineapple = как концентрированный кисло-сладкий ананас
+flavor-complex-adtyupidryraspberry = как концентрированная кисло-сладкая малина
+flavor-complex-adtyupidrystrawberry = как концентрированная кисло-сладкая клубника
+flavor-complex-adtyupidrywatermelon = как концентрированный кисло-сладкий арбуз
+flavor-complex-adtyupiapple = как химозный яблочный сок и беззаботное детство
+flavor-complex-adtyupiberries = как химозный ягодный сок и беззаботное детство
+flavor-complex-adtyupicherry = как химозный вишнёвый сок и беззаботное детство
+flavor-complex-adtyupimango = как химозный манговый сок и беззаботное детство
+flavor-complex-adtyupiorange = как химозный апельсиновый сок и беззаботное детство
+flavor-complex-adtyupipeach = как химозный персиковый сок и беззаботное детство
+flavor-complex-adtyupipineapple = как химозный ананасовый сок и беззаботное детство
+flavor-complex-adtyupiraspberry = как химозный малиновый сок и беззаботное детство
+flavor-complex-adtyupistrawberry = как химозный клубничный сок и беззаботное детство
+flavor-complex-adtyupiwatermelon = как химозный арбузный сок и беззаботное детство

@@ -399,12 +399,12 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2.0 #ADT_Tweak 1.5 to 2.0
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 100
+    fireCost: 50 #ADT_Tweak 100 to 50
   - type: Tag
     tags:
     - TurretCompatibleWeapon
@@ -461,7 +461,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: XrayLaser
-    fireCost: 100
+    fireCost: 75 #ADT_Tweak 100 to 75
   - type: MagazineVisuals
     magState: mag
     steps: 5

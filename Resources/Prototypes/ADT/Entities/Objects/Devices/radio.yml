@@ -1,0 +1,52 @@
+- type: entity
+  name: radio
+  description: A radio, connected to some radio channel.
+  parent: BaseItem
+  id: ADTOldRadio
+  components:
+  - type: RadioSpeaker
+    speechMode: Speak
+    soundOnReceive:
+      path: /Audio/ADT/Effects/static.ogg
+      params:
+        volume: -6
+        maxDistance: 10
+        variation: 0.05
+    channels:
+    - ADTOldBroadcast
+  - type: Speech
+    speechVerb: ADTRadioBroadcasting
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio-off
+    - state: old-radio
+    state: old-radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: old-radio
+  - type: Construction
+    graph: BroadcastRadio
+    node: oldRadio
+  - type: Tag
+    tags:
+    - ADTOldRadio
+
+- type: entity
+  name: radio microphone
+  description: A microphone for all aspiring radio hosts.
+  parent: BaseItem
+  id: ADTOldRadioMicrophone
+  components:
+  - type: RadioMicrophone
+    listenRange: 1
+    broadcastChannel: ADTOldBroadcast
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/microphone.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: Objects/Fun/Instruments/microphone.rsi
+  - type: Tag
+    tags:
+    - ADTBroadcastMicrophone

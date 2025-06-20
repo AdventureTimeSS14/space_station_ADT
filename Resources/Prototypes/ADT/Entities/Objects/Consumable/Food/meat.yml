@@ -551,3 +551,32 @@
   - type: Construction
     graph: BearfootSteak
     node: bearfoot steak
+
+- type: entity
+  name: utopenci
+  parent: FoodMeatBase
+  id: ADTFoodMeatUtopenci
+  description: Traditional Czech sausages, stuffed with onion and mustard.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/czech_cuisine/utopenci.rsi
+    state: utopenci
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - onion
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 8

@@ -57,7 +57,7 @@
         Blunt: 0.4
         Slash: 0.4
         Piercing: 0.7
-        Heat: 0.9
+        Heat: 0.8 # ADT tweak 0.9 > 0.8
         Caustic: 0.9
     staminaModifier: 0.65  # ADT-Tweak
   - type: ExplosionResistance
@@ -97,9 +97,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.8 # ADT tweak 0.9 > 0.8
+        Slash: 0.8 # ADT tweak 0.9 > 0.8
+        Piercing: 0.75 # ADT tweak 0.9 > 0.75
         Heat: 0.4 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
   - type: Reflect
     reflectProb: 1

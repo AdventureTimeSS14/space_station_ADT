@@ -780,8 +780,10 @@
   id: SalvageSpecialistOuterClothing
   name: loadout-group-salvage-specialist-outerclothing
   minLimit: 0
+  maxLimit: 1 #ADT tweak
   loadouts:
   - SalvageSpecialistWintercoat
+  - ADTNeckSalvageSpecialistEBomber # ADT tweak
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -1007,6 +1009,7 @@
   - BrownShoes
   - ScienceWinterBoots
   # ADT tweak start
+  - PurpleShoes
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1065,6 +1068,7 @@
   - BlackShoes
   - ScienceWinterBoots
   # ADT tweak start
+  - PurpleShoes
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1134,8 +1138,8 @@
   - ADTSecurityOfficerNeckBadgeBronze
   - ADTSecurityOfficerNeckBadgeSilver
   - ADTSecurityOfficerNeckBadgeGold
+  # - HeadofSecurityShoulderMantle # Corvax-Loadouts
   # ADT-Loadout-End
-  - HeadofSecurityShoulderMantle # Corvax-Loadouts
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1246,8 +1250,8 @@
   - DetectiveFedora
   - DetectiveFedoraGrey
   # ADT-Loadout-Start
-  - DetectiveInvestigatorCap 
-  - ADTDetectiveOldFedora 
+  - DetectiveInvestigatorCap
+  - ADTDetectiveOldFedora
   # ADT-Loadout-End
 
 - type: loadoutGroup
@@ -1288,8 +1292,8 @@
   - DetectiveCoatGrey
   # ADT-Loadouts-Start
   - ADTDetectiveCoatOld
-  - DetectiveCoatInvestigator 
-  - ADTArmorVestHidden 
+  - DetectiveCoatInvestigator
+  - ADTArmorVestHidden
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1429,6 +1433,7 @@
   - ADTClinicianPDA # ADT
   - ADTDoctorPDA # ADT
   - ADTTherapistPDA # ADT
+  - ADTTraumatologistPDA # ADT
 
 - type: loadoutGroup
   id: MedicalGloves
@@ -1481,6 +1486,7 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  - ADTParamedicBeret # ADT tweak
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1488,6 +1494,7 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - ADTClothingJumpsuitParamedicField # ADT tweak
 
 - type: loadoutGroup
   id: ParamedicOuterClothing

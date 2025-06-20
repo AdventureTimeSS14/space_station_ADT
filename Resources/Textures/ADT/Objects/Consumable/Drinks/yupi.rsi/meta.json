@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by orange6775 (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "box"
+        },
+        {
+            "name": "packet-apple"
+        },
+        {
+            "name": "packet-berries"
+        },
+        {
+            "name": "packet-cherry"
+        },
+        {
+            "name": "packet-mango"
+        },
+        {
+            "name": "packet-orange"
+        },
+        {
+            "name": "packet-peach"
+        },
+        {
+            "name": "packet-pineapple"
+        },
+        {
+            "name": "packet-raspberry"
+        },
+        {
+            "name": "packet-strawberry"
+        },
+        {
+            "name": "packet-watermelon"
+        }
+    ]
+}

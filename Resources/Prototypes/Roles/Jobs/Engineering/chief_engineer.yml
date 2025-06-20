@@ -47,7 +47,7 @@
   id: ChiefEngineerGear
   equipment:
     id: CEPDA
-    eyes: ClothingEyesGlassesMeson
+    # eyes: ClothingEyesGlassesMeson #ADT-Tweak - заменено на выбор
     ears: ClothingHeadsetCE
 # ADT-Tweak-start по причине того, что ассистент и остальной состав ИО спавнится с двумя поясами, если их выбрать в лоудауте
     # belt: ClothingBeltUtilityEngineering
