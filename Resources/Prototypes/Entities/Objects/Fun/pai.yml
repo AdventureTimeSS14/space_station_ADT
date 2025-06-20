@@ -19,6 +19,21 @@
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
         requireInputValidation: false
+  # ADT-Tweak-start      
+  - type: Destructible
+    thresholds:
+    - trigger:
+      !type:DamageTrigger 
+      damage: 250
+    behaviors:
+    - !type:SpawnEntitiesBehavior
+      spawn:
+        ScrapPAI:
+          min: 1
+          max: 1 
+    - !type:DoActsBehavior
+    acts: [ "Destruction" ]
+  # ADT-Tweak-end        
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
