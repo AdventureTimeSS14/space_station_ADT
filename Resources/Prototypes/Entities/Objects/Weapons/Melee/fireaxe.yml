@@ -65,9 +65,11 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon
+    # ADT-Add-Start
     layers:
     - state: icon
       map: [ "enum.ComboWeaponState.State" ]
+    # ADT-Add-End
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     quickEquip: false
