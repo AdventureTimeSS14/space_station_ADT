@@ -196,19 +196,19 @@
   - type: Destructible
     thresholds:
     - trigger:
-      !type:DamageTrigger 
-      damage: 75
-    behaviors:
-    - !type:SpawnEntitiesBehavior 
-      spawn:
-        Potato:
-          min: 1
-          max: 1  
-    - !type:DoActsBehavior
-      acts: [ "Destruction" ]
-    - !type:PlaySoundBehavior
-      sound:
-        collection: MetalSlam
+        !type:DamageTrigger 
+        damage: 75
+      behaviors:
+      - !type:SpawnEntitiesBehavior 
+        spawn:
+          Potato:
+            min: 1
+            max: 1  
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
   # ADT-Tweak-end       
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
