@@ -28,9 +28,9 @@
     behaviors:      
     - !type:SpawnEntitiesBehavior
       spawn:
-        SheetSteel10:
+        SheetSteel1:
           min: 1
-          max: 1                         
+          max: 5                         
     - !type:DoActsBehavior
       acts: [ "Destruction" ]
     - !type:PlaySoundBehavior
@@ -135,9 +135,9 @@
     behaviors:      
     - !type:SpawnEntitiesBehavior
       spawn:
-        SheetSteel10:
+        SheetSteel1:
           min: 1
-          max: 1                         
+          max: 5                         
     - !type:DoActsBehavior
       acts: [ "Destruction" ]
     - !type:PlaySoundBehavior
