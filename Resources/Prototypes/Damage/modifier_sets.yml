@@ -128,9 +128,9 @@
     Shock: 0
     Structural: 0.5
   flatReductions:
-    Blunt: 5
-    Slash: 5
-    Piercing: 5
+    Blunt: 6.5 #ADT_Tweak 5 > 6.5
+    Slash: 6.5 #ADT_Tweak 5 > 6.5
+    Piercing: 5 
     Heat: 5
     Structural: 10
 

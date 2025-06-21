@@ -567,3 +567,48 @@
   recipeType:
   - Oven
   - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealChesnechkaRecipe
+  name: chesnechka soup
+  result: ADTFoodSoupChesnechka
+  time: 10
+  reagents:
+    Water: 10
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodGarlic: 1
+    FoodOnionSlice: 1
+    FoodBowlBig: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealUtopenciRecipe
+  name: utopenci
+  result: ADTFoodMeatUtopenci
+  time: 10
+  reagents:
+    Water: 10
+    Vinegar: 10
+    Mustard: 10
+  solids:
+    FoodMeatCutlet: 1
+    FoodOnionSlice: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealBerriedDelightRecipe
+  name: berried delight
+  result: ADTFoodBerriedDelight
+  time: 10
+  reagents:
+    Cream: 10
+  solids:
+    ADTFoodStrawberry: 2
+    FoodBakedCookieOatmeal: 2
+  recipeType:
+  - Oven

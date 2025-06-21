@@ -20,15 +20,15 @@
   name: ПКА
   entries:
   - id: WeaponProtoKineticAccelerator
-    price: 550
+    price: 750
   - id: ADTWeaponProtoKineticPistol
-    price: 1250
+    price: 1750
   - id: ADTWeaponProtoKineticShotgun
-    price: 1850
+    price: 2350
   - id: ADTWeaponProtoKineticRepeater
-    price: 1650
+    price: 2150
   - id: ADTWeaponProtoKineticRailgun
-    price: 1700
+    price: 2100
 
 - type: miningShopSection
   id: Motion
@@ -74,18 +74,18 @@
 #    price: 3000
   - id: ADTClothingOuterArmorMiner
     price: 1000
-  - id: ADTClothingModsuitBackMining
-    price: 1800
-  - id: ADTModsuitModDrill
-    price: 1000
-  - id: ADTModsuitModStorageLarge
-    price: 500 
 #  - id: ADTClothingOuterArmorMinerHeavy
 #    price: 3600
 #  - id: ADTClothingOuterArmorMinerLight
 #    price: 4000
   - id: ADTClothingJumpBoots
+    price: 1500
+  - id: ADTClothingModsuitBackMining
     price: 2500
+  - id: ADTModsuitModDrill
+    price: 1000
+  - id: ADTModsuitModStorageLarge
+    price: 500 
 
 
 - type: miningShopSection
@@ -95,13 +95,13 @@
   - id: Flare
     price: 75
   - id: Pickaxe
-    price: 150
+    price: 125
   - id: MiningDrill
-    price: 400
+    price: 425
   - id: SeismicCharge
-    price: 250
+    price: 200
   - id: FireExtinguisherMini
-    price: 250
+    price: 150
   - id: ADTWeaponCutter
     price: 1000
   - id: ADTShelterCapsule
@@ -141,7 +141,7 @@
   - id: DrinkAbsintheBottleFull
     price: 150
   - id: BoxMRE
-    price: 250
+    price: 350
   - id: ADTFunPokerBox
     price: 500
   - id: ChessBoard

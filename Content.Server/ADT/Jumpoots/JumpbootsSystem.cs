@@ -15,6 +15,7 @@ using Robust.Server.GameObjects;
 using Content.Shared.Throwing;
 using Content.Shared.Inventory.Events;
 using Content.Server.Actions;
+using Content.Shared.Buckle.Components;
 
 namespace Content.Server.Clothing.EntitySystems;
 
@@ -40,6 +41,7 @@ public sealed partial class JumpbootsSystem : SharedJumpbootsSystem
     [Dependency] private readonly GunSystem _gunSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -67,6 +69,9 @@ public sealed partial class JumpbootsSystem : SharedJumpbootsSystem
     private void OnJump(EntityUid uid, JumpbootsComponent component, JumpbootsActionEvent args)
     {
         if (args.Handled)
+            return;
+
+        if (TryComp<BuckleComponent>(args.Performer, out var buckle) && buckle.Buckled)
             return;
 
         var transform = Transform(uid);
