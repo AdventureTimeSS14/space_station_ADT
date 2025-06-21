@@ -106,6 +106,12 @@
   path:
     path: /Audio/ADT/Lobby/horn.ogg
 
+- type: jukebox
+  id: SpaceAsshole
+  name: Space Asshole - Chris Remo
+  path:
+    path: /Audio/Lobby/space_asshole.ogg
+
 # START 9 МАЯ
 # - type: jukebox
 #   id: may_day-pobedy
