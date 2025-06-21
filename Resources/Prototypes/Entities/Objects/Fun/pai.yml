@@ -33,9 +33,9 @@
               max: 5                         
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
       - trigger:        
           !type:DamageTrigger 
           damage: 75
