@@ -65,11 +65,11 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon
-    # ADT-Add-Start
+    # ADT-Tweak-Start
     layers:
     - state: icon
       map: [ "enum.ComboWeaponState.State" ]
-    # ADT-Add-End
+    # ADT-Tweak-End
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     quickEquip: false
@@ -91,7 +91,7 @@
         - Scientist
         - Borg
 # Corvax-HiddenDesc-End
-# ADT-Add-Start
+# ADT-Tweak-Start
   - type: Item
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
   - type: ComboWeapon
@@ -128,4 +128,4 @@
           True: {state: icon}
           False: {state: icon-prot}
   - type: Appearance
-# ADT-Add-End
+# ADT-Tweak-End
