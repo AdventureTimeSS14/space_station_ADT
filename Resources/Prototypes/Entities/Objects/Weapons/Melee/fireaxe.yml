@@ -63,7 +63,7 @@
   - type: IgniteOnMeleeHit
     fireStacks: 2 #ADT_Tweak - 1 to 2
   - type: Sprite
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    sprite: ADT/Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon
     # ADT-Tweak-Start
     layers:
@@ -71,7 +71,7 @@
       map: [ "enum.ComboWeaponState.State" ]
     # ADT-Tweak-End
   - type: Clothing
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    sprite: ADT/Objects/Weapons/Melee/fireaxeflaming.rsi
     quickEquip: false
     slots:
     - back
@@ -93,7 +93,7 @@
 # Corvax-HiddenDesc-End
 # ADT-Tweak-Start
   - type: Item
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    sprite: ADT/Objects/Weapons/Melee/fireaxeflaming.rsi
   - type: ComboWeapon
     availableMoves:
       - actionsNeeds:
