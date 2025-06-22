@@ -3,8 +3,10 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems; // Ganimed edit
 using Content.Shared.Popups;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Events; // Ganimed edit
 using Robust.Shared.Timing;
 
 namespace Content.Shared.CombatMode;
@@ -24,7 +26,18 @@ public abstract class SharedCombatModeSystem : EntitySystem
         SubscribeLocalEvent<CombatModeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CombatModeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CombatModeComponent, ToggleCombatActionEvent>(OnActionPerform);
+        SubscribeLocalEvent<CombatModeComponent, AttemptMobCollideEvent>(OnCollide); // Ganimed edit
     }
+
+    // Ganimed edit start
+    private void OnCollide(EntityUid uid, CombatModeComponent component, ref AttemptMobCollideEvent args)
+    {
+        if (!component.IsInCombatMode)
+        {
+            args.Cancelled = true;
+        }
+    }
+    // Ganimed edit end
 
     private void OnMapInit(EntityUid uid, CombatModeComponent component, MapInitEvent args)
     {
