@@ -342,7 +342,7 @@
       storagebase: !type:Container
   - type: StorageFill
     contents:
-    - id: ADTFunCardsBoxFull54
+    - id: CardBoxBlack
       amount: 1
     - id: d6Dice
       amount: 2
