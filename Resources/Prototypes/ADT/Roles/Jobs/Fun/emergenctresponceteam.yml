@@ -375,7 +375,7 @@
     jumpsuit: ADTClothingUniformJumpsuitCMOHike
     back: ClothingBackpackERTMedical
     shoes: ADTClothingShoesHighboots
-    head: ClothingHeadHelmetERTMedic
+    head: ClothingHeadHatBeretCmo
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
     outerClothing: ClothingOuterVestArmorMedSec

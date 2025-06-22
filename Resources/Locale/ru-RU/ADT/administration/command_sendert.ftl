@@ -12,58 +12,63 @@ send-ert-erttype-error-path = Неизвестный путь к шаттлу и
 sent-ert-map-name = Сектор патруля
 
 # ERT type: default
-ert-send-default-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-default-announcer = Центральное командование
+ert-send-universal-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
+ert-send-universal-announcer = Департамент специальных операций
 
 # ERT type: default-rev
-ert-send-default-rev-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-default-rev-announcer = Центральное командование
+ert-send-securityriot-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
+ert-send-securityriot-announcer = Департамент специальных операций
 
 # ERT type: security
 ert-send-security-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-security-announcer = Центральное командование
+ert-send-security-announcer = Департамент специальных операций
 
 # ERT type: engineer
-ert-send-engineer-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-engineer-announcer = Центральное командование
+ert-send-engi-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
+ert-send-engi-announcer = Департамент специальных операций
 
 # ERT type: medical
 ert-send-medical-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-medical-announcer = Центральное командование
+ert-send-medical-announcer = Департамент специальных операций
 
 # ERT type: janitor
-ert-send-janitor-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-janitor-announcer = Центральное командование
+ert-send-scientist-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
+ert-send-scientist-announcer = Департамент специальных операций
 
 # ERT type: chaplain
 ert-send-chaplain-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-chaplain-announcer = Центральное командование
+ert-send-chaplain-announcer = Департамент специальных операций
 
-# ERT type: cbun
-ert-send-cbun-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
-ert-send-cbun-announcer = Центральное командование
+# ERT type: cburn
+ert-send-cburn-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос одобрен. Отряд будет подготовлен и отправлен в кротчайшие сроки.
+ert-send-cburn-announcer = Департамент специальных операций
 
 # ERT type: deathsquad
-ert-send-deathsquad-announcement = Приказ Центрального командования. Экипаж станции должен оставаться на своих местах. Ожидайте шаттл эвакуации.
-ert-send-deathsquad-announcer = Центральное командование
+ert-send-deathsquad-announcement = Приказ Департамента специальных операций NanoTrasen. Экипаж станции должен собраться в зале эвакуации для получения дальнейших инструкций.
+ert-send-deathsquad-announcer = Департамент специальных операций
 
 # ERT type: denial
 ert-send-denial-announcement = Внимание! Мы получили запрос на отряд быстрого реагирования. Запрос отклонён. Попытайтесь решить проблемы своими силами.
 ert-send-denial-announcer = Центральное командование
 
+# ERT type: mjolnir
+ert-send-mjolnir-announcement = В сектор прибывает штаб департамента специальных операций - крейсер Mjolnir. Ожидайте дальнейших указаний от представителей власти.
+ert-send-mjolnir-announcer = Департамент специальных операций
+
 # Hints
 send-ert-hint-type = Тип ОБР
 
-send-ert-hint-type-default = Стандартный отряд сдерживания вражеских сил
-send-ert-hint-type-default-rev = Стандартный отряд поддержания порядка
-send-ert-hint-type-security = Отряд СБ ОБР
-send-ert-hint-type-engineer = Отряд инженеров ОБР
-send-ert-hint-type-medical = Отряд медиков ОБР
-send-ert-hint-type-janitor = Отряд уборщиков ОБР
-send-ert-hint-type-chaplain = Отряд священников ОБР
-send-ert-hint-type-cbrn = Отряд РХБЗЗ
-send-ert-hint-type-deathsquad = Отряд Эскадрона смерти
+send-ert-hint-type-universal = Стандартный отряд для устранения различных угроз на станции
+send-ert-hint-type-securityriot = Стандартный отряд устранения беспорядков
+send-ert-hint-type-security = Специализированный отряд для боевых действий
+send-ert-hint-type-engi = Специализированный отряд для ремонтных работ
+send-ert-hint-type-medical = Специализированный отряд для оказания медицинской помощи
+send-ert-hint-type-scientist = Специализированный отряд для изучения и удержания аномальных обьектов
+send-ert-hint-type-chaplain = Отряд священников (в отпуске)
+send-ert-hint-type-cburn = Отряд РХБЗЗ против различных заражений и биологических угроз
+send-ert-hint-type-deathsquad = Эскадрон смерти...
 send-ert-hint-type-denial = Отказ в вызове ОБР
+send-ert-hint-type-mjolnir = Спавнер штаба ДСО (Ивенты?)
 
 send-ert-hint-isannounce = Объявляют себя?
 
