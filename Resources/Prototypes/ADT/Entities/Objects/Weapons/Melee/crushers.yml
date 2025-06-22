@@ -10,9 +10,9 @@
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_spear.rsi
     state: icon
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
+  # - type: UseDelayOnShoot
+  # - type: UseDelay
+  #  delay: 0.9
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -26,6 +26,13 @@
     capacity: 1
     count: 1
   - type: DisarmMalus
+  - type: UpgradeableMelee
+    whitelist:
+      tags:
+      - MeleeUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
 
 - type: entity
   parent: [WeaponKineticBase, BaseSecurityCargoContraband]

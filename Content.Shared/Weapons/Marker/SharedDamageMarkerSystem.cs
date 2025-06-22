@@ -7,6 +7,18 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
+using Content.Shared.ADT.Fauna;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.HunterEye;
+using Content.Shared.Weapons.Melee.Upgrades.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Weapons.Melee.Upgrades;
+using Content.Shared.Weapons.Melee.Upgrades.Components;
+using Robust.Shared.Log;
+using System.Linq;
 
 namespace Content.Shared.Weapons.Marker;
 
@@ -17,6 +29,8 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly MeleeUpgradeSystem _meleeUpgrade = default!;
 
     public override void Initialize()
     {
@@ -37,6 +51,19 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech))
         {
             _damageable.TryChangeDamage(args.User, leech.Leech, true, false, origin: args.Used);
+        }
+
+    if (TryComp<UpgradeableMeleeComponent>(args.Used, out var upgradeableComp))
+        {
+            var upgrades = _meleeUpgrade.GetCurrentUpgrades((args.Used, upgradeableComp));
+            var hasBloodDrunkerUpgrade = upgrades.Any(upgrade => HasComp<MeleeBloodDrunkerUpgradeComponent>(upgrade));
+
+            if (hasBloodDrunkerUpgrade && TryComp<MobStateComponent>(args.User, out var comp))
+            {
+                _statusEffect.TryAddStatusEffect<IgnoreSlowOnDamageComponent>(args.User, "Adrenaline", TimeSpan.FromSeconds(10), true);
+                _statusEffect.TryAddStatusEffect<HunterEyeDamageReductionComponent>(args.User, "SDHunterEye", TimeSpan.FromSeconds(1), true);
+                _statusEffect.TryRemoveStatusEffect(args.User, "Stun");
+            }
         }
     }
 

@@ -1,0 +1,11 @@
+- type: Tag
+  id: MeleeUpgrade
+
+- type: Tag
+  id: BloodDrunkerUpgrade
+
+- type: Tag
+  id: LegionSkullUpgrade
+
+- type: Tag
+  id: GoliathTentacleUpgrade

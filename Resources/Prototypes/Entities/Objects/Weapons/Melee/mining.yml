@@ -111,25 +111,32 @@
     sprite: Objects/Weapons/Melee/crusher.rsi
     state: icon
   - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
+  # - type: UseDelayOnShoot
+  # - type: UseDelay
+  #  delay: 0.9
   # - type: LeechOnMarker ADT tweak
   #   leech:
   #     groups:
   #       Brute: -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-    fireRate: 1
+    fireRate: 0.5
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1 # ADT tweak 0.5 -> 1
+    rechargeCooldown: 0.2
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletCharge
     capacity: 1
     count: 1
+  - type: UpgradeableMelee
+    whitelist:
+      tags:
+      - MeleeUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
   - type: MeleeWeapon
     attackRate: 1 #ADT tweak 1.5 -> 1
     angle: 0 #ADT tweak

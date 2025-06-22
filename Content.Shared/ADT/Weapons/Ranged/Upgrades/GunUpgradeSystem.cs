@@ -36,7 +36,6 @@ public sealed class GunUpgradeSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly DamageableSystem? _damageable;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -57,8 +56,6 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
         SubscribeLocalEvent<GunUpgradeReagentAddComponent, GunShotEvent>(OnReagentAddGunShot);
         SubscribeLocalEvent<ProjectileReagentAddComponent, ProjectileHitEvent>(OnReagentAddProjectileHit);
-        SubscribeLocalEvent<GunUpgradeBloodDrunkerComponent, GunShotEvent>(OnBloodDrunkerGunShot);
-        SubscribeLocalEvent<ProjectileBloodDrunkerComponent, ProjectileHitEvent>(OnBloodDrunkerProjectileHit);
     }
 
     private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
@@ -98,8 +95,6 @@ public sealed class GunUpgradeSystem : EntitySystem
 
         if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Used))
             return;
-
-
 
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
         _gun.RefreshModifiers(ent.Owner);
@@ -182,31 +177,6 @@ public sealed class GunUpgradeSystem : EntitySystem
                 var reagent = new ReagentQuantity(ent.Comp.ReagentOnHit, ent.Comp.ReagentCount);
                 _solutionContainers.TryAddReagent(solution.Value, reagent, out var acceptedAmount);
             }
-        }
-    }
-
-    private void OnBloodDrunkerGunShot(Entity<GunUpgradeBloodDrunkerComponent> ent, ref GunShotEvent args)
-    {
-        foreach (var (ammo, _) in args.Ammo)
-        {
-            if (TryComp<ProjectileComponent>(ammo, out var proj))
-            {
-                var comp = EnsureComp<ProjectileBloodDrunkerComponent>(ammo.Value);
-            }
-        }
-    }
-
-    private void OnBloodDrunkerProjectileHit(Entity<ProjectileBloodDrunkerComponent> ent , ref ProjectileHitEvent args)
-    {
-
-        if (!HasComp<FaunaComponent>(args.Target))
-            return;
-
-        if (args.Shooter.HasValue && TryComp<MobStateComponent>(args.Shooter.Value, out var comp))
-        {
-            _statusEffect.TryAddStatusEffect<IgnoreSlowOnDamageComponent>(args.Shooter.Value, "Adrenaline", TimeSpan.FromSeconds(10), true);
-            _statusEffect.TryAddStatusEffect<HunterEyeDamageReductionComponent>(args.Shooter.Value, "SDHunterEye", TimeSpan.FromSeconds(1), true);
-            _statusEffect.TryRemoveStatusEffect(args.Shooter.Value, "Stun");
         }
     }
 
