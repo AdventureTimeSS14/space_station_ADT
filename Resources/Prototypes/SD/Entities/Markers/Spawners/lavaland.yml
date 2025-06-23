@@ -1,0 +1,14 @@
+- type: entity
+  id: RandomGoliathLootSpawner
+  name: random goliath loot spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: ADT/Mobs/Aliens/Lavaland/goliath.rsi
+      state: goliath
+  - type: RandomSpawner
+    rareChance: 0.3
+    rarePrototypes:
+    - MeleeGoliathTentacleUpgrade

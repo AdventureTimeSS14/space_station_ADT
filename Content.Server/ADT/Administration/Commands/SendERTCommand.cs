@@ -40,7 +40,7 @@ public sealed class SendERTCommand : IConsoleCommand
     {
         #region Setup vars
         string audioPath = "";
-        string defaultGridPath = "/Maps/ADTMaps/Shuttles/ERT", defaultAudioPath = "/Audio/Corvax/Adminbuse";
+        string defaultGridPath = "/Maps/SDMaps/SDShuttles/ERT", defaultAudioPath = "/Audio/Corvax/Adminbuse";
         string alertLevelCode = "gamma";
         int volume = 0;
         bool isLoadGrid = false, isAnnounce = true, isPlayAudio = true, isSetAlertLevel = true, playAuidoFromAnnouncement = false;
@@ -77,12 +77,12 @@ public sealed class SendERTCommand : IConsoleCommand
         #region ERT type check
         switch (args[0].ToLower())
         {
-            case "default":
+            case "universal":
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
                 break;
 
-            case "default-rev":
+            case "securityriot":
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
                 break;
@@ -92,7 +92,7 @@ public sealed class SendERTCommand : IConsoleCommand
                 isLoadGrid = true;
                 break;
 
-            case "engineer":
+            case "engi":
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
                 break;
@@ -102,7 +102,7 @@ public sealed class SendERTCommand : IConsoleCommand
                 isLoadGrid = true;
                 break;
 
-            case "janitor":
+            case "scientist":
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
                 break;
@@ -112,14 +112,19 @@ public sealed class SendERTCommand : IConsoleCommand
                 isLoadGrid = true;
                 break;
 
-            case "cbun":
+            case "cburn":
                 audioPath = $"{defaultAudioPath}/yesert.ogg";
                 isLoadGrid = true;
                 break;
 
             case "deathsquad":
-                //alertLevelCode = "epsilon";
+                alertLevelCode = "epsilon";
                 announceColor = Color.White;
+                isLoadGrid = true;
+                break;
+
+            case "mjolnir":
+                announceColor = Color.Purple;
                 isLoadGrid = true;
                 break;
 
@@ -191,16 +196,16 @@ public sealed class SendERTCommand : IConsoleCommand
         {
             var type = new CompletionOption[]
             {
-                new("Default", Loc.GetString("send-ert-hint-type-default")),
-                new("Default-rev", Loc.GetString("send-ert-hint-type-default-rev")),
-                new("Security", Loc.GetString("send-ert-hint-type-security")),
-                new("Engineer", Loc.GetString("send-ert-hint-type-engineer")),
-                new("Medical", Loc.GetString("send-ert-hint-type-medical")),
-                new("Janitor", Loc.GetString("send-ert-hint-type-janitor")),
-                new("Chaplain", Loc.GetString("send-ert-hint-type-chaplain")),
-                new("CBUN", Loc.GetString("send-ert-hint-type-cbrn")),
-                new("DeathSquad", Loc.GetString("send-ert-hint-type-deathsquad")),
-                new("Denial", Loc.GetString("send-ert-hint-type-denial")),
+                new("universal", Loc.GetString("send-ert-hint-type-default")),
+                new("securityriot", Loc.GetString("send-ert-hint-type-default-rev")),
+                new("security", Loc.GetString("send-ert-hint-type-security")),
+                new("engi", Loc.GetString("send-ert-hint-type-engineer")),
+                new("medical", Loc.GetString("send-ert-hint-type-medical")),
+                new("scientist", Loc.GetString("send-ert-hint-type-chaplain")),
+                new("cburn", Loc.GetString("send-ert-hint-type-cbrn")),
+                new("deathsquad", Loc.GetString("send-ert-hint-type-deathsquad")),
+                new("denial", Loc.GetString("send-ert-hint-type-denial")),
+                new("mjolnir", Loc.GetString("send-ert-hint-type-mjolnir")),
             };
             return CompletionResult.FromHintOptions(type, Loc.GetString("send-ert-hint-type"));
         }
@@ -224,7 +229,7 @@ public sealed class SendERTCommand : IConsoleCommand
         ╔════════════════════════════════════╗
         ║   Schrödinger's Cat Code   🐾      ║
         ║   /\_/\\                           ║
-        ║  ( o.o )  Meow!                    ║
+        ║  ( o.o )  Meow! тут был Шут        ║
         ║   > ^ <                            ║
         ╚════════════════════════════════════╝
 

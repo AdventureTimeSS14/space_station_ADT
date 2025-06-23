@@ -6,11 +6,12 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared._RMC14.Weapons.Ranged;
+using Content.Shared.Weapons.Melee.Upgrades;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(RMCSelectiveFireSystem))] // ADT TWEAK
+[Access(typeof(SharedGunSystem), typeof(RMCSelectiveFireSystem), typeof(MeleeUpgradeSystem))] // ADT TWEAK/SD TWEAK
 public sealed partial class GunComponent : Component
 {
     #region Sound

@@ -1,0 +1,18 @@
+- type: entity
+  id: BaseMeleeUpgrade
+  parent: BaseItem
+  name: Crusher Modkit
+  description: A modkit for a Crusher.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/upgrade.rsi
+  - type: Item
+    size: Small
+  - type: MeleeUpgrade
+  # Первый тэг, это уникальное айди для модуля. Оно используется при проверке есть ли модуль в оружии или нет. Если есть, то второй раз модуль с такимже тэгом нельзя вставить.
+  - type: StaticPrice
+    price: 750
+  - type: Tag
+    tags:
+    - MeleeUpgrade

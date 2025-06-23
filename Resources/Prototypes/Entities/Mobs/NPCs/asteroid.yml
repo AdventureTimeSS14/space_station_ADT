@@ -104,6 +104,8 @@
     - id: MaterialBones1
       maxAmount: 5
     # ADT tweak end
+    - id: RandomGoliathLootSpawner
+      amount: 1
   - type: Fauna # ADT tweak
   - type: AshStormImmune # ADT tweak
 
