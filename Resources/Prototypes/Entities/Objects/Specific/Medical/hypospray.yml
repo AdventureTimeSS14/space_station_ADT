@@ -8,10 +8,10 @@
     sprite: Objects/Specific/Medical/hypospray.rsi
     layers:
       - state: hypo
-        map: ["enum.SolutionContainerLayers.Base"]
-      - state: hypo_fill1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+      #   map: ["enum.SolutionContainerLayers.Base"] # ADT-Tweak
+      # - state: hypo_fill1
+      #   map: ["enum.SolutionContainerLayers.Fill"]
+      #   visible: false
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
   - type: SolutionContainerManager
@@ -34,10 +34,10 @@
   - type: StealTarget
     stealGroup: Hypospray
   - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: hypo_fill
-    solutionName: hypospray
+  # - type: SolutionContainerVisuals # ADT-Tweak
+  #   maxFillLevels: 6
+  #   fillBaseName: hypo_fill
+  #   solutionName: hypospray
 
 - type: entity
   name: gorlex hypospray
@@ -49,10 +49,10 @@
     sprite: Objects/Specific/Medical/syndihypo.rsi
     layers:
       - state: hypo
-        map: ["enum.SolutionContainerLayers.Base"]
-      - state: hypo_fill1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+      #   map: ["enum.SolutionContainerLayers.Base"] # ADT-Tweak
+      # - state: hypo_fill1
+      #   map: ["enum.SolutionContainerLayers.Fill"]
+      #   visible: false
   - type: Item
     sprite: Objects/Specific/Medical/syndihypo.rsi
   - type: SolutionContainerManager
@@ -68,10 +68,10 @@
   - type: UseDelay
     delay: 0.5
   - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 4
-    fillBaseName: hypo_fill
-    solutionName: hypospray
+  # - type: SolutionContainerVisuals # ADT-Tweak
+  #   maxFillLevels: 4
+  #   fillBaseName: hypo_fill
+  #   solutionName: hypospray
 
 - type: entity
   name: borghypo

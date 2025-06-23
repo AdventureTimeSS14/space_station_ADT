@@ -35,27 +35,6 @@
             "name": "envelope_torn_overlay"
         },
         {
-            "name": "folder-base"
-        },
-        {
-            "name": "folder-colormap"
-        },
-        {
-            "name": "folder-white"
-        },
-        {
-            "name": "folder-centcom"
-        },
-        {
-            "name": "folder-overlay-paper"
-        },
-        {
-            "name": "folder-sec-doc"
-        },
-        {
-            "name": "folder-stamp-inverse"
-        },
-        {
             "name": "label_cart"
         },
         {
@@ -253,19 +232,10 @@
             "name": "paper_stamp-wizard"
         },
         {
-            "name": "folder-valentine-red-overlay-paper"
-        },
-        {
             "name": "paper-valentine-red_words"
         },
         {
-            "name": "folder-valentine-white-overlay-paper"
-        },
-        {
             "name": "paper-valentine-white_words"
-        },
-        {
-            "name": "folder-valentine-red"
         },
         {
             "name": "paper_stamp-dv"
@@ -275,9 +245,6 @@
         },
         {
             "name": "paper-valentine-red"
-        },
-        {
-            "name": "folder-valentine-white"
         }
     ]
 }

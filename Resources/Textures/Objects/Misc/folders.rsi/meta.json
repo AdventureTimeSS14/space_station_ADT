@@ -27,6 +27,18 @@
         },
         {
             "name": "folder-stamp-inverse"
+        },
+        {
+            "name": "folder-valentine-white"
+        },
+        {
+            "name": "folder-valentine-red"
+        },
+        {
+            "name": "folder-valentine-white-overlay-paper"
+        },
+        {
+            "name": "folder-valentine-red-overlay-paper"
         }
     ]
 }

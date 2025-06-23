@@ -150,8 +150,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_sci
-    stateDoorOpen: bio_sci_open
+    stateBaseClosed: generic3
+    stateDoorOpen: color_white-pink_open
     stateDoorClosed: bio_sci_door
 
 # Virology variant
