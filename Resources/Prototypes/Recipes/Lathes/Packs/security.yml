@@ -68,6 +68,7 @@
   id: SecurityEquipment
   recipes:
   - ClothingBackpackElectropack
+  - ADTGrenadeStinger # ADT tweak
   - HoloprojectorSecurity
   - PortableRecharger
   - PowerCageHigh

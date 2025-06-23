@@ -1,0 +1,10 @@
+- type: thiefBackpackSet
+  id: WeaponSaberRevBlueshield
+  name: blueshield-voucher-saber-rev-name
+  description: blueshield-voucher-saber-rev-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Saber_revolvers/energy.rsi
+    state: base
+  content:
+  - ADTBaseWeaponCaseNTBS
+

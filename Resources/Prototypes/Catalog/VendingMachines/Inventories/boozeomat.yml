@@ -12,6 +12,7 @@
     DrinkIceBucket: 2
     BarSpoon: 3
     CustomDrinkJug: 2 #to allow for custom drinks in the soda/booze dispensers
+    ADTTeabox: 1 # ADT Tweak
     DrinkCampariBottleFull: 5 # Corvax
     DrinkAbsintheBottleFull: 2
     DrinkAleBottleFull: 5
@@ -54,7 +55,6 @@
     DrinkSakeBottleFull: 3
     DrinkBeerCan: 5
     DrinkWineCan: 5
-    ADTTeabox: 1 # ADT Tweak
   contrabandInventory:
     ChemistryBottleEthanol: 3
     DrinkBottleOfNothingFull: 1

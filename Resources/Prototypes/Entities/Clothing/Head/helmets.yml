@@ -13,6 +13,7 @@
     slots:
     - HeadTop
     - HeadSide
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingHeadHelmetBase

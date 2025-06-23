@@ -32,8 +32,24 @@
           !type:DamageTrigger
           damage: 500
         behaviors:
+        # ADT-Tweak-start
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            ScrapFirelock1:
+              min: 1
+              max: 1  
+            ScrapFirelock2:
+              min: 1
+              max: 1 
+            ScrapFirelock3:
+              min: 1
+              max: 1                       
         - !type:DoActsBehavior
-          acts: ["Destruction"]
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam  
+        # ADT-Tweak-end     
     - type: Sprite
       sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
       snapCardinals: true

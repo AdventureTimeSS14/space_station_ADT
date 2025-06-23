@@ -1,0 +1,79 @@
+- type: entity
+  parent: [ ADTVehicleATV, FlyingMobBase ]
+  id: ADTVehicleLavabike
+  name: lavabike
+  description: This monster will help you to conquer lavaland. Very safe.
+  components:
+  - type: MovementIgnoreGravity
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: AmbientSound
+    sound: /Audio/Effects/shuttle_thruster.ogg
+    range: 8
+    volume: 5
+    enabled: false
+  - type: Strap
+    buckleOffset: "0.1, -0.05"
+    #maxBuckleDistance: 1
+  - type: MovementSpeedModifier
+    acceleration: 1.2
+    friction: 1.5
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 8
+  - type: Sprite
+    sprite: ADT/Objects/Vehicles/lavabike.rsi
+    layers:
+    - state: hull
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: engine
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: lights
+      shader: unshaded
+    noRot: true
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ADTLavabikeKeys
+        startingItem: ADTVehicleLavabikeKey
+        priority: 1
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -5
+      bag:
+        name: stored bag
+        whitelist:
+          components:
+            - Storage
+        priority: 2
+        insertSound:
+          path: /Audio/Items/belt_equip.ogg
+          params:
+            volume: -3
+  - type: ItemMapper
+    mapLayers:
+      bag:
+        whitelist:
+          components:
+            - Storage
+    sprite: ADT/Objects/Vehicles/lavabike.rsi
+  - type: Appearance
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 2.5
+  - type: Icon
+    sprite: ADT/Objects/Vehicles/lavabike.rsi
+    state: vehicle
+  - type: Vehicle
+    southOver: true
+    northOver: true
+    northOverride: -0.1
+    southOverride: 0.1
+  - type: UnpoweredFlashlight
+  - type: AshStormImmune

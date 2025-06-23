@@ -207,3 +207,18 @@
       - state: green
       - sprite: Mobs/Pets/fox.rsi
         state: fox
+        
+- type: entity
+  name: Hermit spawner
+  id: ADTMobHermitSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Markers/jobs.rsi
+        state: green
+      - sprite: ADT/Mobs/Demons/creature.rsi
+        state: icon
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobHermit

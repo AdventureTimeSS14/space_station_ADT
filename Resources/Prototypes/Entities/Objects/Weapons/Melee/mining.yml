@@ -103,6 +103,19 @@
     color: "#ffeead"
     enabled: false
     radius: 4
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/crusher.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Prying 
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
@@ -225,3 +238,16 @@
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Prying 
+    useSound:
+      path: /Audio/Items/crowbar.ogg
