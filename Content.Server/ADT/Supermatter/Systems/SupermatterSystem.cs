@@ -208,13 +208,14 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<SharpComponent>(args.Used))
         {
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 30f, new SupermatterTamperDoAfterEvent(args.Used.ToNetEntity()), args.Target)
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 30f, new SupermatterTamperDoAfterEvent(), args.Target)
             {
                 BreakOnDamage = true,
                 BreakOnHandChange = false,
                 BreakOnWeightlessMove = false,
                 NeedHand = true,
                 RequireCanInteract = true,
+                Used = args.Used,
             };
             _doAfter.TryStartDoAfter(doAfterArgs);
             _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), uid, args.User);
@@ -222,20 +223,21 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<SupermatterNobliumCoreComponent>(args.Used))
         {
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 15f, new SupermatterCoreDoAfterEvent(args.Used.ToNetEntity()), args.Target)
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 15f, new SupermatterCoreDoAfterEvent(), args.Target)
             {
                 BreakOnDamage = true,
                 BreakOnHandChange = false,
                 BreakOnWeightlessMove = false,
                 NeedHand = true,
                 RequireCanInteract = true,
+                Used = args.Used,
             };
             _doAfter.TryStartDoAfter(doAfterArgs);
             _popup.PopupClient(Loc.GetString("supermatter-inert-begin"), uid, args.User);
         }
 
-        var item = args.Used;
         var target = args.User;
+        var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
 
         if (args.Handled ||
@@ -305,8 +307,10 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterTamperDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || !args.Used.HasValue)
             return;
+
+        QueueDel(args.Used.Value);
 
         sm.Damage += sm.DamageDelaminationPoint / 10;
 
@@ -315,15 +319,14 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         Spawn(sm.SliverPrototype, _transform.GetMapCoordinates(args.User));
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
-
-        var item = args.Item.ToEntity();
-        EntityManager.QueueDeleteEntity(item);
     }
 
     private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterCoreDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || !args.Used.HasValue)
             return;
+
+        QueueDel(args.Used.Value);
 
         var message = Loc.GetString("supermatter-announcement-setinert");
         SendSupermatterAnnouncement(uid, sm, message, global: false);
@@ -334,9 +337,6 @@ public sealed partial class SupermatterSystem : EntitySystem
             rad.Intensity = 1;
 
         _popup.PopupClient(Loc.GetString("supermatter-inert-end"), uid, args.User);
-
-        var item = args.Item.ToEntity();
-        EntityManager.QueueDeleteEntity(item);
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)

@@ -7,6 +7,9 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Mobs.Components;
+using Robust.Shared.Network;
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared.ADT.Supermatter.Components;
 
@@ -47,7 +50,6 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public bool HasSpawnedPortal = false;
-
     #endregion
 
     #region Prototypes
@@ -266,6 +268,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
+
+    [DataField]
+    public bool Used = false;
 
     #endregion
 
@@ -616,39 +621,13 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class SupermatterTamperDoAfterEvent : DoAfterEvent
+public sealed partial class SupermatterCoreDoAfterEvent : SimpleDoAfterEvent
 {
-    public NetEntity Item;
-
-    public SupermatterTamperDoAfterEvent(NetEntity item)
-    {
-        Item = item;
-    }
-
-    public SupermatterTamperDoAfterEvent() {}
-
-    public override DoAfterEvent Clone()
-    {
-        return new SupermatterTamperDoAfterEvent(Item);
-    }
 }
 
 [Serializable, NetSerializable]
-public sealed class SupermatterCoreDoAfterEvent : DoAfterEvent
+public sealed partial class SupermatterTamperDoAfterEvent : SimpleDoAfterEvent
 {
-    public NetEntity Item;
-
-    public SupermatterCoreDoAfterEvent(NetEntity item)
-    {
-        Item = item;
-    }
-
-    public SupermatterCoreDoAfterEvent() {}
-
-    public override DoAfterEvent Clone()
-    {
-        return new SupermatterCoreDoAfterEvent(Item);
-    }
 }
 
 [Serializable, NetSerializable]
