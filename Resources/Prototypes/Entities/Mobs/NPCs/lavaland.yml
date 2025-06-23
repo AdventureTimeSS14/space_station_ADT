@@ -84,9 +84,10 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
-  - type: Fauna # ADT tweak
-  - type: AshStormImmune # ADT tweak
-
+  - type: Fauna # ADT-Tweak start
+  - type: AshStormImmune
+  # ADT-Tweak end
+  
 - type: entity
   id: MobWatcherLavaland
   parent: MobWatcherBase

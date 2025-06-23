@@ -36,6 +36,7 @@
     state: blank_medipen
   - type: Item
     sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    size: Tiny
   - type: Tag
     tags:
     - ADTMedipen

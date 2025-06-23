@@ -1513,12 +1513,12 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/dutch_suit.rsi
 
 
-# И ещё один комбез для детектива 
+# И ещё один комбез для детектива
 
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitDetectiveOld
-  name: detective old jumpsuit 
+  name: detective old jumpsuit
   description: Decy jumpsuit, ok da?
   components:
   - type: Sprite
@@ -1531,7 +1531,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitOldDark
-  name: old dark jumpsuit 
+  name: old dark jumpsuit
   description: Old dark jumpsuit
   components:
   - type: Sprite
@@ -1574,3 +1574,29 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/lawyer_green_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/lawyer_green_suit.rsi
+
+# Костюм демонического лорда
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitRadioDemonSuit
+  name: radio demon suit
+  description: A smile is a valuable tool, my dear. It inspires your friends, keeps your enemies guessing, and ensures that, no matter what comes your way, YOU'RE the one in control.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/radiodemonsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/radiodemonsuit.rsi
+
+# Полевой комбез парамедика 
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitParamedicFieldSuit
+  name: paramedic field suit
+  description: Clothing designed with the wearers complete comfort in mind.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/paramedic_field_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/paramedic_field_suit.rsi

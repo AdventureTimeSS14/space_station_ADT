@@ -158,6 +158,18 @@
 
 - type: entity
   parent: ClothingEyesBase
+  id: ADTClothingEyesWeldingOldStyle
+  name: welding glasses
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/welding_old.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/welding_old.rsi
+  - type: Appearance
+  - type: EyeProtection
+
+- type: entity
+  parent: ClothingEyesBase
   id: ADTClothingEyesGlassesMedChem
   name: chemical and medical goggles
   description: Goggles are similar to chemical goggles, but have a built-in medical visor.
@@ -182,6 +194,27 @@
     sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ADTRadioDemonMonocle
+  name: demonic monocle
+  description: Yeah, thats one makes you smile.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
+    color: "#4e4e4e"
+  - type: Clothing
+    sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
+    clothingVisuals:
+      eyes:
+      - state: equipped-EYES
+        color: "#4e4e4e"
   - type: Tag
     tags:
     - WhitelistChameleon

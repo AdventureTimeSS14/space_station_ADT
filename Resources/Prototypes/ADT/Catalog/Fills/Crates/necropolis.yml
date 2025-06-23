@@ -24,6 +24,7 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterArmorCult
+      - id: MirrorShield
 
 - type: entity
   id: ADTCrateNecropolisCultRobe
@@ -52,3 +53,119 @@
   - type: StorageFill
     contents:
       - id: ADTKatanacursedShard
+
+- type: entity
+  id: ADTCrateNecropolisVehicleLavabike
+  parent: ADTCrateNecropolis
+  suffix: Lavabike
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTVehicleLavabike
+
+- type: entity
+  id: ADTCrateNecropolisTrapAncientGoliath
+  parent: ADTCrateNecropolis
+  suffix: AncientGoliath
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobAncientGoliath
+
+- type: entity
+  id: ADTCrateNecropolisMjollnir
+  parent: ADTCrateNecropolis
+  suffix: Mjollnir
+  components:
+  - type: StorageFill
+    contents:
+      - id: Mjollnir
+
+- type: entity
+  id: ADTCrateNecropolisRGBStaff
+  parent: ADTCrateNecropolis
+  suffix: RGBStaff
+  components:
+  - type: StorageFill
+    contents:
+      - id: RGBStaff
+
+- type: entity
+  id: ADTCrateNecropolisStaffHealingWeak
+  parent: ADTCrateNecropolis
+  suffix: HealingStaff
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponStaffHealingWeak
+
+- type: entity
+  id: ADTCrateNecropolisNeckMantleMag
+  parent: ADTCrateNecropolis
+  suffix: MantleMag
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingNeckMantleMag
+
+
+- type: entity
+  id: ADTCrateNecropolisMimicry
+  parent: ADTCrateNecropolis
+  suffix: Mimicry
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponSworldMimicry
+      - id: ADTClothingFootMimicry
+      - id: ADTClothingEyesGlassesMimicry
+      - id: ADTClothingUniformMimicry
+
+- type: entity
+  id: ADTCrateNecropolisDragonPet
+  parent: ADTCrateNecropolis
+  suffix: DragonPet
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMobDragonPet
+      - id: ADTMobDragonPet
+      - id: ADTMobDragonPet
+
+- type: entity
+  id: ADTCrateNecropolisHyperEutacticBlade
+  parent: ADTCrateNecropolis
+  suffix: HyperEutacticBlade
+  components:
+  - type: StorageFill
+    contents:
+      - id: HyperEutacticBlade
+
+- type: entity
+  id: ADTCrateNecropolisBorgDerelict
+  parent: ADTCrateNecropolis
+  suffix: BorgDerelict
+  components:
+  - type: StorageFill
+    contents:
+      - id: PlayerBorgDerelictGhostRole
+
+- type: entity
+  id: ADTCrateNecropolisHereticBladeBlade
+  parent: ADTCrateNecropolis
+  suffix: Brass
+  components:
+  - type: StorageFill
+    contents:
+      - id: HereticBladeBlade
+
+- type: entity
+  id: ADTCrateNecropolisBones
+  parent: ADTCrateNecropolis
+  suffix: Brass
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMobCarpPirate
+      - id: ADTMobCarpPirate
+      - id: MaterialBones

@@ -188,7 +188,7 @@
   parent: BaseDrink
   desc: reagent-desc-orangetea
   physicalDesc: reagent-physical-desc-orangetea
-  flavor: sweet
+  flavor: ADTOrangeTeaReg
   color: "#FF8C00"
   metabolisms:
     Drink:
@@ -207,7 +207,7 @@
   parent: BaseDrink
   desc: reagent-desc-cherrytea
   physicalDesc: reagent-physical-desc-cherrytea
-  flavor: sweet
+  flavor: ADTCherryTeaReg
   color: "#FFB6C1"
   metabolisms:
     Drink:
@@ -226,7 +226,7 @@
   parent: BaseDrink
   desc: reagent-desc-watermelontea
   physicalDesc: reagent-physical-desc-watermelontea
-  flavor: sweet
+  flavor: ADTWatermelonTeaReg
   color: "#F08080"
   metabolisms:
     Drink:
@@ -368,3 +368,204 @@
         visualType: Medium
         messages: [ "generic-reagent-effect-disgusting" ]
         probability: 0.3
+
+- type: reagent
+  id: ADTJuiceStrawberry
+  name: reagent-name-strawberryjuice
+  parent: BaseDrink
+  desc: reagent-desc-strawberryjuice
+  physicalDesc: reagent-physical-desc-strawberryjuice
+  flavor: ADTStrawberryFlavor
+  color: "#cf554c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.1
+
+- type: reagent
+  id: ADTYupiDryApple
+  slippery: false
+  name: reagent-name-yupidryapple
+  parent: BaseDrink
+  desc: reagent-desc-yupidryapple
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryApple
+  color: "#e7191e"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -3
+  recognizable: true
+
+- type: reagent
+  id: ADTYupiDryBerries
+  name: reagent-name-yupidryberries
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidryberries
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryBerries
+  color: "#600a72"
+
+- type: reagent
+  id: ADTYupiDryCherry
+  name: reagent-name-yupidrycherry
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidrycherry
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryCherry
+  color: "#a92337"
+
+- type: reagent
+  id: ADTYupiDryMango
+  name: reagent-name-yupidrymango
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidrymango
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryMango
+  color: "#ffc736"
+
+- type: reagent
+  id: ADTYupiDryOrange
+  name: reagent-name-yupidryorange
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidryorange
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryOrange
+  color: "#ffa600"
+
+- type: reagent
+  id: ADTYupiDryPeach
+  name: reagent-name-yupidrypeach
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidrypeach
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryPeach
+  color: "#fece2b"
+
+- type: reagent
+  id: ADTYupiDryPineapple
+  name: reagent-name-yupidrypineapple
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidrypineapple
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryPineapple
+  color: "#ffed69"
+
+- type: reagent
+  id: ADTYupiDryRaspberry
+  name: reagent-name-yupidryraspberry
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidryraspberry
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryRaspberry
+  color: "#9d2050"
+
+- type: reagent
+  id: ADTYupiDryStrawberry
+  name: reagent-name-yupidrystrawberry
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidrystrawberry
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryStrawberry
+  color: "#ef302e"
+
+- type: reagent
+  id: ADTYupiDryWatermelon
+  name: reagent-name-yupidrywatermelon
+  parent: ADTYupiDryApple
+  desc: reagent-desc-yupidrywatermelon
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: ADTYupiDryWatermelon
+  color: "#e04b4f"
+
+- type: reagent
+  id: ADTYupiApple
+  name: reagent-name-yupiapple
+  parent: BaseJuice
+  desc: reagent-desc-yupiapple
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiApple
+  color: "#e7191e"
+
+- type: reagent
+  id: ADTYupiBerries
+  name: reagent-name-yupiberries
+  parent: BaseJuice
+  desc: reagent-desc-yupiberries
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiBerries
+  color: "#600a72"
+
+- type: reagent
+  id: ADTYupiCherry
+  name: reagent-name-yupicherry
+  parent: BaseJuice
+  desc: reagent-desc-yupicherry
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiCherry
+  color: "#a92337"
+
+- type: reagent
+  id: ADTYupiMango
+  name: reagent-name-yupimango
+  parent: BaseJuice
+  desc: reagent-desc-yupimango
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiMango
+  color: "#ffc736"
+
+- type: reagent
+  id: ADTYupiOrange
+  name: reagent-name-yupiorange
+  parent: BaseJuice
+  desc: reagent-desc-yupiorange
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiOrange
+  color: "#ffa600"
+
+- type: reagent
+  id: ADTYupiPeach
+  name: reagent-name-yupipeach
+  parent: BaseJuice
+  desc: reagent-desc-yupipeach
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiPeach
+  color: "#fece2b"
+
+- type: reagent
+  id: ADTYupiPineapple
+  name: reagent-name-yupipineapple
+  parent: BaseJuice
+  desc: reagent-desc-yupipineapple
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiPineapple
+  color: "#ffed69"
+
+- type: reagent
+  id: ADTYupiRaspberry
+  name: reagent-name-yupiraspberry
+  parent: BaseJuice
+  desc: reagent-desc-yupiraspberry
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiRaspberry
+  color: "#9d2050"
+
+- type: reagent
+  id: ADTYupiStrawberry
+  name: reagent-name-yupistrawberry
+  parent: BaseJuice
+  desc: reagent-desc-yupistrawberry
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiStrawberry
+  color: "#ef302e"
+
+- type: reagent
+  id: ADTYupiWatermelon
+  name: reagent-name-yupiwatermelon
+  parent: BaseJuice
+  desc: reagent-desc-yupiwatermelon
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: ADTYupiWatermelon
+  color: "#e04b4f"

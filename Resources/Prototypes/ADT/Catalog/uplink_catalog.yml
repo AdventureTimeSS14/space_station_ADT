@@ -55,6 +55,19 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: ADTUplinkFireAxeFlaming
+  name: uplink-fire-axe-flaming-name
+  description: uplink-fire-axe-flaming-desc
+  productEntity: FireAxeFlaming
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 7
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
+
 #UplinkAttachments
 - type: listing
   id: ADTUplinkWeaponAttachmentsBundle

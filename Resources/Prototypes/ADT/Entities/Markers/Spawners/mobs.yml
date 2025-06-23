@@ -21,16 +21,172 @@
       - state: green
       - state: ai
   - type: RandomSpawner
-    rareChance: 0.6
+    rareChance: 0.4 #Tweak 0.6 > 0.4
     prototypes:
 #      - ADTAbominationHypertrophied
 #      - ADTAbominationBloated
       - MobWatcherLavaland
       - MobGoliath
       - ADTMobLegion
+      - ADTMobNightmareSpider
+      - ADTMobShockSpider
     rarePrototypes:
       - MobAncientGoliath
       - ADTRandomTendrilSpawner
 #      - ADTAbominationDeath
   - type: TimedDespawn
     lifetime: 1
+
+- type: entity
+  name: Abomination Hypertrophied Spawner
+  id: ADTSpawnMobAbominationHypertrophied
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Abomination/hypertrophied.rsi
+        state: running
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTAbominationHypertrophied
+
+- type: entity
+  name: Abomination Death Spawner
+  id: ADTSpawnMobAbominationDeath
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Abomination/death.rsi
+        state: running
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTAbominationDeath
+
+- type: entity
+  name: Abomination Bloated Spawner
+  id: ADTSpawnMobAbominationBloated
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Abomination/bloated.rsi
+        state: running
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTAbominationBloated
+
+- type: entity
+  name: Creature Spawner
+  id: ADTSpawnMobCreature
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Demons/creature.rsi
+        state: creature
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobCreature
+
+- type: entity
+  name: Legion Spawner
+  id: ADTSpawnLegion
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Aliens/Lavaland/legion.rsi
+        state: legion
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobLegion
+
+- type: entity
+  name: legion skull Spawner
+  id: ADTSpawnLegionSkull
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Aliens/Lavaland/legion.rsi
+        state: legion_skull
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobLegionSkull
+
+- type: entity
+  name: Ancient Goliath Spawner
+  id: ADTSpawnAncientGoliath
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Aliens/Asteroid/goliath.rsi
+        state: goliath
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAncientGoliath
+
+- type: entity
+  name: Blood Miner Spawner
+  id: ADTSpawnBloodMiner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
+        state: alive_1
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobBloodMiner
+
+- type: entity
+  name: Blood Miner Buffed Spawner
+  id: ADTSpawnBloodMinerBuffed
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Aliens/Lavaland/bloodminer.rsi
+        state: alive_2
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobBloodMinerBuffed
+
+- type: entity
+  name: Drake Spawner
+  id: ADTSpawnDrake
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Aliens/Lavaland/drake.rsi
+        state: dragon
+  - type: ConditionalSpawner
+    prototypes:
+      - MobDrake
+
+- type: entity
+  name: Abomination Spawner
+  id: ADTSpawnAbomination
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Demons/abomination.rsi
+        state: abomination
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAbomination

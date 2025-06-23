@@ -114,7 +114,7 @@
   - ADTSeniorResearcherGloves # ADT-Tweak-senior
   - ScientistBackpack
   - ADTSeniorResearcherOuterClothing # ADT-Tweak-senior
-  - ScientistShoes
+  - ScientistShoes  
   - Survival
   - Trinkets
   # ADT tweak start
@@ -133,6 +133,7 @@
   - ADTSeniorEngineerJumpsuit # ADT-Tweak-senior
   - StationEngineerOuterClothing
   - StationEngineerBackpack
+  - ADTEngineeringGlasses
   - ADTEngineeringBelt
   - StationEngineerShoes
   - SurvivalExtended
