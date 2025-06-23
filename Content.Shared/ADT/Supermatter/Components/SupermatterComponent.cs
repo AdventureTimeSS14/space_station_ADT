@@ -268,10 +268,6 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
-
-    [DataField]
-    public bool Used = false;
-
     #endregion
 
     #region Timing
