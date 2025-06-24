@@ -717,6 +717,8 @@
     sprite: ADT/Clothing/Head/Hats/drink_cap.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/drink_cap.rsi
+  - type: StaticPrice
+    price: 120
   - type: Drink
   - type: SolutionContainerManager
     solutions:
