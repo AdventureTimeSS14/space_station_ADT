@@ -218,3 +218,16 @@
   icon:
     sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
     state: unlit-icon
+
+- type: construction
+  name: voice mask
+  id: VoiceMaskGraph
+  graph: VoiceMaskGraph
+  startNode: start
+  targetNode: voicemask
+  category: construction-category-clothing
+  objectType: Item
+  description: Masking your voice.
+  icon:
+    sprite: ADT/Clothing/Mask/gas_voice.rsi
+    state: icon

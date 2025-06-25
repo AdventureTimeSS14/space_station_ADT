@@ -18,6 +18,7 @@
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
     event: !type:MorphMimicryRememberActionEvent
     priority: 2
+    checkCanAccess: false
 
 - type: entity
   id: ActionMorphReplication
@@ -49,6 +50,7 @@
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: ambush }
     event: !type:MorphAmbushActionEvent
     priority: 5
+    useDelay: 25
 
 - type: entity
   id: ActionMorphVentOpen

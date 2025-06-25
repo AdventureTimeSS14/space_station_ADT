@@ -19,11 +19,6 @@ namespace Content.Shared.ADT.Morph;
 public sealed partial class MorphAmbushComponent : Component
 {
     /// <summary>
-    /// время стана после простого удара
-    /// </summary>
-    [DataField]
-    public int StunTime = 4;
-    /// <summary>
     /// время стана после касания, но не удара
     /// </summary>
     [DataField]

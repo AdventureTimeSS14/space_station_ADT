@@ -34,6 +34,7 @@ using Content.Shared.Tools.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Components;
+using Content.Shared.Standing;
 
 namespace Content.Server.ADT.Morph;
 
@@ -58,6 +59,8 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly WeldableSystem _weldable = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+
     public ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     public ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     public override void Initialize()
@@ -189,14 +192,18 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnAmbushAttack(Entity<MorphAmbushComponent> ent, ref MeleeHitEvent args)
     {
-        _stun.TryParalyze(args.HitEntities[0], TimeSpan.FromSeconds(ent.Comp.StunTime), false);
-        _damageable.TryChangeDamage(args.HitEntities[0], ent.Comp.DamageOnTouch);
+        _standing.Down(args.HitEntities[0]);
         AmbushBreak(ent);
     }
     public void AmbushBreak(EntityUid uid)
     {
         _popupSystem.PopupCursor(Loc.GetString("morphs-out-of-ambush"), uid);
         RemCompDeferred<MorphAmbushComponent>(uid);
+        if (TryComp<MorphComponent>(uid, out var morph))
+        {
+            _chameleon.TryReveal(uid);
+            _actions.StartUseDelay(morph.AmbushActionEntity);
+        }
         if (TryComp<ChameleonProjectorComponent>(uid, out var chamel) && chamel.Disguised != null)
             RemCompDeferred<MorphAmbushComponent>(chamel.Disguised.Value);
         if (TryComp<InputMoverComponent>(uid, out var input))
@@ -278,7 +285,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         args.Handled = true;
         var target = args.Target;
-
+        AmbushBreak(uid);
         if (TryComp(target, out MobStateComponent? targetState))
         {
             switch (targetState.CurrentState)

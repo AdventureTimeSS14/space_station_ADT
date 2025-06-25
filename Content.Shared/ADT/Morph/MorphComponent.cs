@@ -21,8 +21,8 @@ public sealed partial class MorphComponent : Component
     /// <summary>
     ///     Container for various consumable items
     /// </summary>
-     [ViewVariables(VVAccess.ReadOnly)]
-     public Container Container = default!;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public Container Container = default!;
     public string ContainerId = "morphContainer";
 
     /// <summary>
