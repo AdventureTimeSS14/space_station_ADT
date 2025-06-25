@@ -268,17 +268,6 @@
       enabled: true
     - type: Physics
       bodyType: Static
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.1,0.5,0.1,0.255"
-          density: 190
-          mask:
-          - TabletopMachineMask
-          layer:
-          - TabletopMachineLayer
     - type: Damageable
       damageContainer: Inorganic
     - type: Destructible
