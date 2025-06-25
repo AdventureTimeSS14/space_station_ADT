@@ -46,7 +46,6 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     SnoutOverlay: MobHumanoidAnyMarking # ADT Tweak
-    Tail: MobHumanoidAnyMarking
     Eyes: MobMothEyes
     LArm: MobMothLArm
     RArm: MobMothRArm
