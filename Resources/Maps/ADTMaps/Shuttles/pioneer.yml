@@ -24,7 +24,6 @@ entities:
     - type: MetaData
       name: NT - Pioner
     - type: Transform
-      pos: 60.031265,60.03125
       parent: invalid
     - type: MapGrid
       chunks:
@@ -484,6 +483,13 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 64
+- proto: ADTComputerShuttleSalvage
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
 - proto: ADTPoweredShuttleLight
   entities:
   - uid: 3
@@ -532,12 +538,18 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,-3.5
       parent: 1
+    - type: AccessReader
+      access:
+      - - Salvage
   - uid: 9
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,-2.5
       parent: 1
+    - type: AccessReader
+      access:
+      - - Salvage
 - proto: APCBasic
   entities:
   - uid: 10
@@ -820,13 +832,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
-      parent: 1
-- proto: ComputerShuttleSalvage
-  entities:
-  - uid: 2
-    components:
-    - type: Transform
-      pos: 0.5,0.5
       parent: 1
 - proto: CrateGenericSteel
   entities:
@@ -1383,19 +1388,5 @@ entities:
     components:
     - type: Transform
       pos: 1.4084396,-5.0608253
-      parent: 1
-- proto: WindoorSecureSalvageLocked
-  entities:
-  - uid: 140
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-2.5
-      parent: 1
-  - uid: 141
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-3.5
       parent: 1
 ...

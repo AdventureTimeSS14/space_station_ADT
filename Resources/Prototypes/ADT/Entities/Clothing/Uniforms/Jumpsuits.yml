@@ -1608,3 +1608,16 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/radiodemonsuit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/radiodemonsuit.rsi
+
+# Полевой комбез парамедика 
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitParamedicFieldSuit
+  name: paramedic field suit
+  description: Clothing designed with the wearers complete comfort in mind.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/paramedic_field_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/paramedic_field_suit.rsi

@@ -288,6 +288,12 @@
   flavorType: base
   description: flavor-base-adttomatomeatballpasta
 
+# клубника от Пушнидзе
+- type: flavor
+  id: ADTStrawberryFlavor
+  flavorType: base
+  description: flavor-base-adtstrawberryflavor
+
 - type: flavor
   id: ADTOrangeTeaReg
   flavorType: complex

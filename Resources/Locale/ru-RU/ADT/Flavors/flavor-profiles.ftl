@@ -64,6 +64,9 @@ flavor-base-adtmushroompasta = как паста и грибы
 flavor-base-adtsalmonpasta = как рыба с лапшой
 flavor-base-adttomatomeatballpasta = замечательно и мясисто
 
+
+flavor-base-adtstrawberryflavor = клубнично
+
 flavor-complex-adtorangeteareg = как горячий апельсиновый чай
 flavor-complex-adtcherryteareg = как горячий вишнёвый чай
 flavor-complex-adtwatermelonteareg = как горячий арбузный чай
