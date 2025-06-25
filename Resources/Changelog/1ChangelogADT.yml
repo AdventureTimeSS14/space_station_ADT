@@ -8340,3 +8340,44 @@ Entries:
           и высокой вероятности грифа с тяжелыми последствиями, type: Remove}
     time: '2025-06-19T00:19:22Z'
     id: 1049
+  - author: Петр
+    changes:
+      - {message: Добавлен именной предмет, type: Add}
+    time: '2025-06-19T00:53:19Z'
+    id: 1050
+  - author: Pushnidze
+    changes:
+      - {message: 'утопенцы, рецепт приготовления', type: Add}
+      - {message: 'чеснечка, рецепт приготовления', type: Add}
+      - {message: '"Ягодное наслаждение", рецепт приготовления', type: Add}
+      - {message: новая культура для ботаники - клубника, type: Add}
+      - {message: именной предмет, type: Add}
+    time: '2025-06-19T11:41:59Z'
+    id: 1051
+  - author: (Archeron)
+    changes:
+      - {message: 'Респрайт семян (Клубника, Мандарины)', type: Tweak}
+    time: '2025-06-19T21:19:59Z'
+    id: 1052
+  - author: (Archeron)
+    changes:
+      - {message: Какие-то космические ублюдки проникли на производственный цех музыкальных
+          автоматов и добавили в них свою песню. (Space Ashole), type: Add}
+    time: '2025-06-21T17:14:37Z'
+    id: 1053
+  - author: RedLis
+    changes:
+      - {message: Откат оповещения при победе революции, type: Remove}
+    time: '2025-06-21T17:15:26Z'
+    id: 1054
+  - author: Spidern
+    changes:
+      - {message: 'Добавлено выпадение лома при разрушении обычных шлюзов, интеркомов
+          и пожарных шлюзов(вместе со звуком)', type: Add}
+    time: '2025-06-21T19:08:49Z'
+    id: 1055
+  - author: Us3rn4me228
+    changes:
+      - {message: Пожарный топор Синдиката теперь комбо-милишка., type: Tweak}
+    time: '2025-06-21T20:22:25Z'
+    id: 1056
