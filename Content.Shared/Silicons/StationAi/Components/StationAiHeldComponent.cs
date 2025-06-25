@@ -7,3 +7,11 @@ namespace Content.Shared.Silicons.StationAi;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StationAiHeldComponent : Component;
+
+// Corvax-Next-AiRemoteControl-Start
+public sealed partial class StationAiHeldComponent : Component
+{
+    [DataField]
+    public EntityUid? CurrentConnectedEntity;
+}
+// Corvax-Next-AiRemoteControl-End
