@@ -710,7 +710,7 @@
 - type: entity
   name: drink helmet
   parent: ClothingHeadBase
-  id: ADTClothingHeadDrinkHat
+  id: ADTClothingHeadDrinkCap
   description: A red cap with cans attached to the sides, from which a straw extends. The label on the cans has been erased, but you can read the composition - “contains one hundred times the daily allowance of sugar” and “now contains 33% MORE PURE radiation”.
   components:
   - type: Sprite
