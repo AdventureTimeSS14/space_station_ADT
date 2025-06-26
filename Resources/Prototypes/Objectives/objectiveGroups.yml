@@ -15,7 +15,7 @@
     CMOHyposprayStealObjective: 1
     CMOCrewMonitorStealObjective: 1
     #NukeDiskStealObjective: 1 #Corvax
-    RDHardsuitStealObjective: 1
+    RDHardsuitStealObjective: 0.5
     MagbootsStealObjective: 1
     CorgiMeatStealObjective: 1
     ClipboardStealObjective: 1

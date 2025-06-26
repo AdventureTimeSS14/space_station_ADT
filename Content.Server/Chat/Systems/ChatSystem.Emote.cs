@@ -1,6 +1,7 @@
 using System.Collections.Frozen;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Emoting; // Ganimed edit
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -160,14 +161,29 @@ public partial class ChatSystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="textInput"></param>
-    private void TryEmoteChatInput(EntityUid uid, string textInput)
+    private void TryEmoteChatInput(EntityUid uid, string textInput, out bool consumed) // ganimed edit
     {
+        consumed = false; // ganimed edit
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emote))
             return;
 
         if (!AllowedToUseEmote(uid, emote))
             return;
+
+        // ganimed edit start
+        if (TryComp<EmotingComponent>(uid, out var comp))
+        {
+            var currentTime = _gameTiming.CurTime;
+            if (currentTime - comp.LastChatEmoteTime < comp.ChatEmoteCooldown)
+            {
+                consumed = true;
+                return;
+            }
+
+            comp.LastChatEmoteTime = currentTime;
+        }
+        // ganimed edit end
 
         InvokeEmoteEvent(uid, emote);
         return;

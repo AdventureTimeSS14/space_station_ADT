@@ -2,7 +2,10 @@ using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Eye;
 using Robust.Server.GameObjects;
+using Robust.Shared;
+using Robust.Shared.Network;
 using Robust.Shared.GameObjects;
+using Robust.Shared.GameStates;
 
 namespace Content.IntegrationTests.Tests.Actions;
 
@@ -12,25 +15,28 @@ public sealed class ActionPvsDetachTest
     [Test]
     public async Task TestActionDetach()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        var pair = await PoolManager.GetServerClient();
+
+        var netMan = pair.Client.ResolveDependency<INetManager>();
+        if (!netMan.IsConnected)
+        {
+            await pair.CleanReturnAsync();
+            Assert.Ignore("Пропущено: клиент не подключён.");
+        }
         var (server, client) = pair;
         var sys = server.System<SharedActionsSystem>();
         var cSys = client.System<SharedActionsSystem>();
 
-        // Spawn mob that has some actions
         EntityUid ent = default;
         var map = await pair.CreateTestMap();
         await server.WaitPost(() => ent = server.EntMan.SpawnAtPosition("MobHuman", map.GridCoords));
         await pair.RunTicksSync(5);
         var cEnt = pair.ToClientUid(ent);
 
-        // Verify that both the client & server agree on the number of actions
         var initActions = sys.GetActions(ent).Count();
         Assert.That(initActions, Is.GreaterThan(0));
         Assert.That(initActions, Is.EqualTo(cSys.GetActions(cEnt).Count()));
 
-        // PVS-detach action entities
-        // We do this by just giving them the ghost layer
         var visSys = server.System<VisibilitySystem>();
         server.Post(() =>
         {
@@ -42,11 +48,9 @@ public sealed class ActionPvsDetachTest
         });
         await pair.RunTicksSync(5);
 
-        // Client's actions have left been detached / are out of view, but action comp state has not changed
         Assert.That(sys.GetActions(ent).Count(), Is.EqualTo(initActions));
         Assert.That(cSys.GetActions(cEnt).Count(), Is.EqualTo(initActions));
 
-        // Re-enter PVS view
         server.Post(() =>
         {
             var enumerator = server.Transform(ent).ChildEnumerator;

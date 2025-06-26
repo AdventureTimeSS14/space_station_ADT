@@ -20,7 +20,7 @@
     state: icon
   requiredTags:
     GlassShard: 1
-    Eyes: 1
+    Flare: 1
   output:
     ClothingNeckAmberFocus: 1
 
@@ -44,7 +44,7 @@
     sprite: ADT/Heretic/book.rsi
     state: icon-on
   requiredTags:
-    Eyes: 1
+    Meat: 1
     Book: 1
     Pen: 1
   output:

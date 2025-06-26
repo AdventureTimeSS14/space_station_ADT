@@ -34,5 +34,5 @@ zzzz-fmt-power-joules =
     }
 # Used internally by the PLAYTIME() function.
 # ADT change
-zzzz-fmt-playtime = { $hours }ч.
+zzzz-fmt-playtime = { $hours }ч. { $minutes }м.
 zzzz-fmt-playtime-minutes = { $minutes }м.

@@ -1,3 +1,5 @@
+using Content.Shared.ADT.Crawling; // Ganimed edit
+using Content.Shared.Standing; // Ganimed edit
 using Content.Shared.Bed.Sleep;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
@@ -14,8 +16,8 @@ public sealed class NarcolepsySystem : EntitySystem
 
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // Ganimed edit
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<NarcolepsyComponent, ComponentStartup>(SetupNarcolepsy);
@@ -56,8 +58,9 @@ public sealed class NarcolepsySystem : EntitySystem
             // Make sure the sleep time doesn't cut into the time to next incident.
             narcolepsy.NextIncidentTime += duration;
 
-            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey,
-                TimeSpan.FromSeconds(duration), false);
+            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(duration), false); // Ganimed edit
+
+            _standing.Down(uid, dropHeldItems: false); // Ganimed edit
         }
     }
 }

@@ -1,0 +1,63 @@
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ClothingModsuitShoesCMO
+  name: Chief medical officer MOD boots
+  suffix: Ganimed
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/cmo.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/cmo.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ClothingModsuitShoesRD
+  name: Research director MOD boots
+  suffix: Ganimed
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/rd.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/rd.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ClothingModsuitShoesMagnate
+  name: Magnate MOD boots
+  suffix: Ganimed
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/captain.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/captain.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ClothingModsuitShoesCorporate
+  name: Corporate MOD boots
+  suffix: Ganimed
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/corporate.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/Shoes/Modsuit/corporate.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg

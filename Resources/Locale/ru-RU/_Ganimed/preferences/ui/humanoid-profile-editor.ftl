@@ -1,1 +1,1 @@
-trait-category-invisible = Инкогнито
+trait-category-sposnor = Спонсорские трейты

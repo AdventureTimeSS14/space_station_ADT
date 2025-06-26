@@ -130,89 +130,85 @@
         - Radio
         - Knife
 
-#- type: entity
-#  parent: ClothingBeltStorageBase
-#  id: ClothingBeltTacticalHolster
-#  name: pistol holster belt
-#  description: Can hold various pistol equipment.
-#  components:
-#  - type: Sprite
-#    sprite: _Ganimed/Clothing/Belt/pistolbelt.rsi
-#  - type: Clothing
-#    sprite: _Ganimed/Clothing/Belt/pistolbelt.rsi
-#  - type: Appearance
-#  - type: Foldable #рп реализация кобуры для правшей и левшей
-#    canFoldInsideContainer: true #без этого кобура нормально работает только в одном состоянии
-#    unfoldVerbText: holster-unfold-verb-text
-#    foldVerbText: holster-fold-verb-text
-#  - type: FoldableClothing
-#    foldedEquippedPrefix: reflected
-#  - type: Storage # вайтлиста нет, ограничения сделаны по максимальному размеру и сетке инвентаря
-#    grid:
-#    - 0,0,0,1
-#    - 2,0,2,1
-#    - 4,0,4,1
-#    - 6,0,6,1
-#    maxItemSize: Small
-#  - type: ItemSlots
-#    slots:
-#      item:
-#        name: Sidearm
-#        insertVerbText: holster-insert-verb-text
-#        ejectVerbText: holster-eject-verb-text
-#        #insertSound: /..
-#        ejectSound: /Audio/_Ganimed/Items/holster_eject.ogg
-#        priority: 2
-#        whitelist:
-#          tags:
-#          - Sidearm
-#  - type: ContainerContainer
-#    containers:
-#      item: !type:ContainerSlot
-#        ent: null
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltTacticalHolster
+  name: pistol holster belt
+  description: Can hold various pistol equipment.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/pistolbelt.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Belt/pistolbelt.rsi
+  - type: Appearance
+  - type: Foldable #рп реализация кобуры для правшей и левшей
+    canFoldInsideContainer: true #без этого кобура нормально работает только в одном состоянии
+    unfoldVerbText: holster-unfold-verb-text
+    foldVerbText: holster-fold-verb-text
+  - type: FoldableClothing
+    foldedEquippedPrefix: reflected
+  - type: Storage # вайтлиста нет, ограничения сделаны по максимальному размеру и сетке инвентаря
+    grid:
+    - 0,0,0,1
+    - 2,0,2,1
+    - 4,0,4,1
+    - 6,0,6,1
+    maxItemSize: Small
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sidearm
+        insertVerbText: holster-insert-verb-text
+        ejectVerbText: holster-eject-verb-text
+        #insertSound: /..
+        ejectSound: /Audio/_Ganimed/Items/holster_eject.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Sidearm
 
 
-#- type: entity
-#  parent: ClothingBeltStorageBase
-#  id: ClothingBeltRevolverHolster
-#  name: revolver holster belt
-#  description: Can hold various revolver equipment.
-#  components:
-#  - type: Sprite
-#    sprite: _Ganimed/Clothing/Belt/revolverbelt.rsi
-#  - type: Clothing
-#    sprite: _Ganimed/Clothing/Belt/revolverbelt.rsi
-#  - type: Foldable #рп реализация кобуры для правшей и левшей
-#    canFoldInsideContainer: true #без этого кобура нормально работает только в одном состоянии
-#    unfoldVerbText: holster-unfold-verb-text
-#    foldVerbText: holster-fold-verb-text
-#  - type: FoldableClothing
-#    foldedEquippedPrefix: reflected
-#    foldedHeldPrefix: reflected
-#  - type: Storage
-#    grid:
-#    - 0,0,1,1
-#    - 3,0,4,1
-#    maxItemSize: Small
-#  - type: ItemSlots
-#    slots:
-#      item:
-#        name: Sidearm
-#        insertVerbText: holster-insert-verb-text
-#        ejectVerbText: holster-eject-verb-text
-#        #insertSound: /..
-#        ejectSound: /Audio/_Ganimed/Items/holster_eject.ogg
-#        priority: 2
-#        whitelist:
-#          components:
-#            - RevolverAmmoProvider
-#  - type: ItemMapper #в данный момент реализован только один спрайт в кобуре, для отображения других револьверов требуются изменения в их прототипах и тегах. Скорее всего это будет реализовано в другом PR.
-#    mapLayers:
-#      filled-inspector:
-#        whitelist:
-#          components: #tags
-#            - RevolverAmmoProvider #WeaponRevolverInspector
-      #filled-mateba: #будет реализовано позже, спрайты уже есть в meta.json и тут
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltRevolverHolster
+  name: revolver holster belt
+  description: Can hold various revolver equipment.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/revolverbelt.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Belt/revolverbelt.rsi
+  - type: Foldable #рп реализация кобуры для правшей и левшей
+    canFoldInsideContainer: true #без этого кобура нормально работает только в одном состоянии
+    unfoldVerbText: holster-unfold-verb-text
+    foldVerbText: holster-fold-verb-text
+  - type: FoldableClothing
+    foldedEquippedPrefix: reflected
+    foldedHeldPrefix: reflected
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    - 3,0,4,1
+    maxItemSize: Small
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sidearm
+        insertVerbText: holster-insert-verb-text
+        ejectVerbText: holster-eject-verb-text
+        #insertSound: /..
+        ejectSound: /Audio/_Ganimed/Items/holster_eject.ogg
+        priority: 2
+        whitelist:
+          components:
+            - RevolverAmmoProvider
+  - type: ItemMapper #в данный момент реализован только один спрайт в кобуре, для отображения других револьверов требуются изменения в их прототипах и тегах. Скорее всего это будет реализовано в другом PR.
+    mapLayers:
+      filled-inspector:
+        whitelist:
+          components: #tags
+            - RevolverAmmoProvider #WeaponRevolverInspector
+    #filled-mateba: #будет реализовано позже, спрайты уже есть в meta.json и тут
         #whitelist:
           #tags:
             #- WeaponRevolverMateba
@@ -224,11 +220,6 @@
         #whitelist:
           #tags:
             #- WeaponRevolverPirate
-#  - type: Appearance
-#  - type: ContainerContainer
-#    containers:
-#      item: !type:ContainerSlot
-#       ent: null
 
 - type: entity
   parent: ClothingBeltStorageBase

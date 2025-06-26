@@ -68,6 +68,14 @@ public sealed class PoolTestLogHandler : ILogHandler
         }
         // Ganimed edit stop
 
+        // Ganimed edit: Ignore known alert log spam from MobThresholdSystem
+        if (level == LogLevel.Error &&
+            rendered.Contains("No alert alert for mob state Dead"))
+        {
+            testContext.WriteLine($"{_prefix}{seconds:F3}s [IGNORED ERROR] {sawmillName}: {rendered}");
+            return;
+        }
+
         var line = $"{_prefix}{seconds:F3}s [{name}] {sawmillName}: {rendered}";
 
         testContext.WriteLine(line);

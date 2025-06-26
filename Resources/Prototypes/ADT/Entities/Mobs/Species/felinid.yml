@@ -62,10 +62,10 @@
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
+      - map: [ "id" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
@@ -223,10 +223,10 @@
           sprite: Objects/Misc/handcuffs.rsi
           state: body-overlay-2
           visible: false
-        - map: [ "id" ]
         - map: [ "gloves" ]
         - map: [ "shoes" ]
         - map: [ "ears" ]
+        - map: [ "id" ]
         - map: [ "outerClothing" ]
         - map: [ "eyes" ]
         - map: [ "belt" ]

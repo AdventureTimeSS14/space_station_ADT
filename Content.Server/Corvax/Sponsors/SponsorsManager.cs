@@ -35,13 +35,20 @@ public sealed class SponsorsManager
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("sponsors");
-        _cfg.OnValueChanged(CCCVars.SponsorsApiUrl, s => _apiUrl = s, true);
+
+        _cfg.OnValueChanged(CCCVars.SponsorsApiUrl, s =>
+        {
+            _apiUrl = s;
+            _sawmill.Info($"[CVar Updated] SponsorsApiUrl = '{_apiUrl}'");
+        }, true);
 
         _netMgr.RegisterNetMessage<MsgSponsorInfo>();
 
         _netMgr.Connecting += OnConnecting;
         _netMgr.Connected += OnConnected;
         _netMgr.Disconnect += OnDisconnect;
+
+        _sawmill.Info($"[Init] Sponsor API URL (from CVar): '{_apiUrl}'");
     }
 
     public bool TryGetInfo(NetUserId userId, [NotNullWhen(true)] out SponsorInfo? sponsor)
@@ -54,19 +61,18 @@ public sealed class SponsorsManager
         var info = await LoadSponsorInfo(e.UserId);
         if (info?.Tier == null || info.ExpireDate <= DateTime.Now)
         {
-            _cachedSponsors.Remove(e.UserId); // Remove from cache if sponsor expired
+            _cachedSponsors.Remove(e.UserId);
             return;
         }
 
         DebugTools.Assert(!_cachedSponsors.ContainsKey(e.UserId), "Cached data was found on client connect");
-
         _cachedSponsors[e.UserId] = info;
     }
 
     private void OnConnected(object? sender, NetChannelArgs e)
     {
         var info = _cachedSponsors.TryGetValue(e.Channel.UserId, out var sponsor) ? sponsor : null;
-        var msg = new MsgSponsorInfo() { Info = info };
+        var msg = new MsgSponsorInfo { Info = info };
         _netMgr.ServerSendMessage(msg, e.Channel);
     }
 
@@ -79,33 +85,46 @@ public sealed class SponsorsManager
     {
         if (!string.IsNullOrEmpty(_apiUrl))
         {
-            try // ADT TWEAK
+            try
             {
-                var url = $"{_apiUrl}/sponsors/{userId.ToString()}";
+                var url = $"{_apiUrl}/sponsors/{userId}";
+                _sawmill.Info($"[Fetch] Trying to fetch sponsor info from: {url}");
+
                 var response = await _httpClient.GetAsync(url);
 
                 if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    _sawmill.Warning($"[Fetch] Sponsor not found for: {userId}");
                     return null;
+                }
 
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     var errorText = await response.Content.ReadAsStringAsync();
                     _sawmill.Error(
-                        "Failed to get player sponsor OOC color from API: [{StatusCode}] {Response}",
+                        "Failed to get sponsor info from API: [{StatusCode}] {Response}",
                         response.StatusCode,
                         errorText);
                     return null;
                 }
 
-                return await response.Content.ReadFromJsonAsync<SponsorInfo>();
+                var data = await response.Content.ReadFromJsonAsync<SponsorInfo>();
+                _sawmill.Info($"[Fetch] Received sponsor info for {userId}: {data?.CharacterName ?? "NULL"}");
+                return data;
             }
-            catch (HttpRequestException) // ADT TWEAK
+            catch (HttpRequestException e)
             {
-                _sawmill.Error("No internet connection or network error while fetching sponsor info.");
+                _sawmill.Error($"[Fetch] HttpRequestException: {e.Message}");
+                return null;
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"[Fetch] Unexpected exception: {e}");
                 return null;
             }
         }
 
+        _sawmill.Warning("[Fetch] Sponsor API URL is empty!");
         return null;
     }
     // ADT-Tweak-start: add round start sponsor loadouts
@@ -129,9 +148,7 @@ public sealed class SponsorsManager
 
         // Получаем sponsorData юсера
         if (!TryGetInfo(userId, out var sponsorData))
-        {
             return false;
-        }
 
         // Попытка найти персональный набор
         if (_playerManager.TryGetSessionById(userId, out var session))

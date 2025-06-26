@@ -1,0 +1,99 @@
+# гв
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ClothingModsuitBackCMO
+  name: Chief medical officer MOD control unit
+  suffix: Ganimed
+  description: An advanced version of DeForest Medical Corporation's medical suit, designed for quick rescue of bodies from the most dangerous environments.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Back/Modsuit/cmo.rsi
+    state: icon
+  - type: ModSuit
+    clothingPrototypes:
+      head: ClothingHeadHelmetModsuitCMO
+      gloves: ClothingHandsModsuitCMO
+      outerClothing: ClothingOuterModsuitBodyCMO
+      shoes: ClothingModsuitShoesCMO
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModLight
+
+# нр
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ClothingModsuitBackRD
+  name: Research director MOD control unit
+  suffix: Ganimed
+  description: A private military EOD suit by Aussec Armory, intended for explosive research. Bulky, but expansive.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Back/Modsuit/rd.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ClothingHeadHelmetModsuitRD
+      gloves: ClothingHandsModsuitRD
+      outerClothing: ClothingOuterModsuitBodyRD
+      shoes: ClothingModsuitShoesRD
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModWelding
+      - ADTModsuitModLight
+      - ADTModsuitModRadiationProtection
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+    - HighRiskItem
+
+# капитан
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ClothingModsuitBackMagnate
+  name: Magnate MOD control unit
+  suffix: Ganimed
+  description: A fancy, very protective suit for Nanotrasen's captains. Shock, fire and acid-proof while also having a large capacity and high speed.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Back/Modsuit/captain.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ClothingHeadHelmetModsuitMagnate
+      gloves: ClothingHandsModsuitMagnate
+      outerClothing: ClothingOuterModsuitBodyMagnate
+      shoes: ClothingModsuitShoesMagnate
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModLight
+
+# ЦК
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ClothingModsuitBackCorporate
+  name: Corporate MOD control unit
+  suffix: Ganimed
+  description: A fancy, high-tech suit for Nanotrasen's high ranking officers.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Back/Modsuit/corporate.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ClothingHeadHelmetModsuitCorporate
+      gloves: ClothingHandsModsuitCorporate
+      outerClothing: ClothingOuterModsuitBodyCorporate
+      shoes: ClothingModsuitShoesCorporate
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModRadiationProtection
+      - ADTModsuitModIsulation
+      - ADTModsuitModWelding

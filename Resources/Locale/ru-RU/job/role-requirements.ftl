@@ -8,12 +8,12 @@ role-timer-locked = Закрыто (наведите курсор для под�
 role-timer-department-unknown = Неизвестный отдел
 role-ban = Вам заблокировали эту роль.
 # ADT changes start
-role-timer-department-insufficient = Требуется ещё [color=yellow]{ $time }[/color] игры за [color={ $departmentColor }]{ $department }[/color]. {role-timer-role-minutes}
-role-timer-department-too-high = Требуется на [color=yellow]{ $time }[/color] игры за [color={ $departmentColor }]{ $department }[/color]. {role-timer-role-minutes} (Вы пытаетесь играть за роль для новичков?)
-role-timer-overall-insufficient = Требуется ещё [color=yellow]{ $time }[/color] общего игрового времени. {role-timer-role-minutes}
-role-timer-overall-too-high = Требуется на [color=yellow]{ $time }[/color] меньше общего игрового времени. {role-timer-role-minutes} (Вы пытаетесь играть за роль для новичков?)
-role-timer-role-too-high = Требуется на [color=yellow]{ $time }[/color] меньше игры в качестве [color={ $departmentColor }]{ $job }[/color] для этой роли. {role-timer-role-minutes} (Вы пытаетесь играть за роль для новичков?)
-role-timer-role-insufficient = Требуется ещё [color=yellow]{ $time }[/color] игры в качестве [color={ $departmentColor }]{ $job }[/color] для этой роли. {role-timer-role-minutes}
+role-timer-department-insufficient = Требуется ещё [color=yellow]{ $time }[/color] игры за [color={ $departmentColor }]{ $department }[/color] ({role-timer-role-minutes}).
+role-timer-department-too-high = Требуется на [color=yellow]{ $time }[/color] игры за [color={ $departmentColor }]{ $department }[/color] ({role-timer-role-minutes}). (Вы пытаетесь играть за роль для новичков?)
+role-timer-overall-insufficient = Требуется ещё [color=yellow]{ $time }[/color] общего игрового времени ({role-timer-role-minutes}).
+role-timer-overall-too-high = Требуется на [color=yellow]{ $time }[/color] меньше общего игрового времени ({role-timer-role-minutes}). (Вы пытаетесь играть за роль для новичков?)
+role-timer-role-too-high = Требуется на [color=yellow]{ $time }[/color] меньше игры в качестве [color={ $departmentColor }]{ $job }[/color] для этой роли ({role-timer-role-minutes}). (Вы пытаетесь играть за роль для новичков?)
+role-timer-role-insufficient = Требуется ещё [color=yellow]{ $time }[/color] игры в качестве [color={ $departmentColor }]{ $job }[/color] для этой роли ({role-timer-role-minutes}).
 # ADT changes end
 # ADT Timer for minutes:
-role-timer-role-minutes = Точное время в минутах: [color=yellow]{ $timeminutes }[/color]
+role-timer-role-minutes = Ровно [color=yellow]{ $timeminutes }[/color]

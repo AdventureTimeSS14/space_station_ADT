@@ -57,7 +57,10 @@ public sealed partial class FlashReactionEffect : EntityEffect
         var range = 1f;
 
         if (args is EntityEffectReagentArgs reagentArgs)
-            range = MathF.Min((float)(reagentArgs.Quantity * RangePerUnit), MaxRange);
+            range = MathF.Max(0.1f, MathF.Min((float)(reagentArgs.Quantity * RangePerUnit), MaxRange));
+
+        if (range <= 0)
+            return;
 
         args.EntityManager.System<FlashSystem>().FlashArea(
             args.TargetEntity,

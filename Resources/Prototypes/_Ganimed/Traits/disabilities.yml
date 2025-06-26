@@ -2,6 +2,7 @@
   id: Incognito
   name: trait-incognito-name
   description: trait-incognito-desc
-  category: invisible
+  category: sponsor
+  sponsorOnly: true
   components:
     - type: SetIncognito

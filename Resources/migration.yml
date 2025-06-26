@@ -661,3 +661,7 @@ DrinkBadTouchGlass: ADTDrinkPenetrationGlass
 
 #Ganimed 2025-06-01
 ADTIconAdventureTime: null
+
+#Ganimed 2025-06-14
+ADTPoweredShuttleLight: AlwaysPoweredWallLight
+ADTPoweredShuttleLightLED: AlwaysPoweredWallLight

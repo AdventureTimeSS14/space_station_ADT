@@ -114,7 +114,7 @@ public abstract class SharedDeliverySystem : EntitySystem
             GrantSpesoReward(ent.AsNullable());
 
         _popup.PopupPredicted(Loc.GetString("delivery-unlocked-self", ("delivery", deliveryName)),
-            Loc.GetString("delivery-unlocked-others", ("delivery", deliveryName), ("recipient", Identity.Name(user, EntityManager)), ("possadj", user)), user, user);
+            Loc.GetString("delivery-unlocked-others", ("delivery", deliveryName), ("recipient", user), ("possadj", user)), user, user); // Ganimed edit
         return true;
     }
 
@@ -140,7 +140,7 @@ public abstract class SharedDeliverySystem : EntitySystem
         DirtyField(ent.Owner, ent.Comp, nameof(DeliveryComponent.IsOpened));
 
         _popup.PopupPredicted(Loc.GetString("delivery-opened-self", ("delivery", deliveryName)),
-            Loc.GetString("delivery-opened-others", ("delivery", deliveryName), ("recipient", Identity.Name(user, EntityManager)), ("possadj", user)), user, user);
+            Loc.GetString("delivery-opened-others", ("delivery", deliveryName), ("recipient", user), ("possadj", user)), user, user); // Ganimed edit
 
         if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
             return;

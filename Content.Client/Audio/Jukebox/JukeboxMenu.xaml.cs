@@ -30,6 +30,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action? OnStopPressed;
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
+    public event Action<float>? SetVolume; // Ganimed edit
 
     private EntityUid? _audio;
 
@@ -61,6 +62,9 @@ public sealed partial class JukeboxMenu : FancyWindow
             OnStopPressed?.Invoke();
         };
         PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
+        VolumeSlider.OnReleased += VolumeSliderKeyUp; // Ganimed edit
+
+        VolumeSlider.MaxValue = 100f; // Ganimed edit
 
         SetPlayPauseButton(_audioSystem.IsPlaying(_audio), force: true);
     }
@@ -81,6 +85,12 @@ public sealed partial class JukeboxMenu : FancyWindow
         _lockTimer = 0.5f;
     }
 
+    private void VolumeSliderKeyUp(Slider args) // Ganimed edit
+    {
+        SetVolume?.Invoke(VolumeSlider.Value);
+        _lockTimer = 0.5f;
+    }
+
     /// <summary>
     /// Re-populates the list of jukebox prototypes available.
     /// </summary>
@@ -92,6 +102,8 @@ public sealed partial class JukeboxMenu : FancyWindow
         {
             MusicList.AddItem(entry.Name, metadata: entry.ID);
         }
+
+        MusicList.SortItemsByText();
     }
 
     public void SetPlayPauseButton(bool playing, bool force = false)
@@ -116,6 +128,10 @@ public sealed partial class JukeboxMenu : FancyWindow
         PlaybackSlider.MaxValue = length;
         PlaybackSlider.SetValueWithoutEvent(0);
     }
+    public void SetVolumeSlider(float volume) // Ganimed edit
+    {
+        VolumeSlider.Value = volume;
+    }
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
@@ -127,6 +143,7 @@ public sealed partial class JukeboxMenu : FancyWindow
         }
 
         PlaybackSlider.Disabled = _lockTimer > 0f;
+        VolumeSlider.Disabled = _lockTimer > 0f; // Ganimed edit
 
         if (_entManager.TryGetComponent(_audio, out AudioComponent? audio))
         {
@@ -137,7 +154,12 @@ public sealed partial class JukeboxMenu : FancyWindow
             DurationLabel.Text = $"00:00 / 00:00";
         }
 
+        VolumeNumberLabel.Text = $"{VolumeSlider.Value.ToString("0.##")} %"; // Ganimed edit
+
         if (PlaybackSlider.Grabbed)
+            return;
+
+        if (VolumeSlider.Grabbed) // Ganimed edit
             return;
 
         if (audio != null || _entManager.TryGetComponent(_audio, out audio))

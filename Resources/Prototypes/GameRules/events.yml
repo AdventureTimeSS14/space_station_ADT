@@ -607,12 +607,12 @@
     weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
+#    startAnnouncement: station-event-communication-interception # ganimed testmerge: no sleeper agents announcement
+#    startAudio:
+#      path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
-  - type: AlertLevelInterceptionRule
+#  - type: AlertLevelInterceptionRule # ganimed testmerge: no sleeper agents announcement
   - type: AntagSelection
     definitions:
     - prefRoles: [ TraitorSleeper ]
@@ -650,6 +650,9 @@
     weight: 8
     reoccurrenceDelay: 20
     duration: 1
+    startAnnouncement: station-event-ion-storm-start-announcement # Ganimed edit
+    startAudio:
+      path: /Audio/Corvax/Adminbuse/i-storm1.ogg
   - type: IonStormRule
 
 - type: entity

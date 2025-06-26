@@ -9,13 +9,13 @@ using Robust.Client.UserInterface.Controllers;
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem> // ADT - now this class is partial
+public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
     [Dependency] private readonly IEntityNetworkManager _net = default!;
+
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
     private GhostGui? Gui => UIManager.GetActiveUIWidgetOrNull<GhostGui>();
-
 
     public override void Initialize()
     {
@@ -29,13 +29,11 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
     private void OnScreenLoad()
     {
         LoadGui();
-        LoadGhostbarGui();  // ADT ghostbar
     }
 
     private void OnScreenUnload()
     {
         UnloadGui();
-        UnloadGhostbarGui();    // ADT ghostbar
     }
 
     public void OnSystemLoaded(GhostSystem system)
