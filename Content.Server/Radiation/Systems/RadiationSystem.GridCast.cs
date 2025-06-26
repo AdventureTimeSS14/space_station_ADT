@@ -297,7 +297,7 @@ public partial class RadiationSystem
         {
             if (resistanceMap.TryGetValue(point, out var resData))
             {
-                var passRatioFromRadResistance = (1 / (resData > 2 ? (resData / 2) : 1));
+                var passRatioFromRadResistance = (1 / (resData > 1 ? (resData / 2) : 1));
 
                 var passthroughRatio = MathF.Pow(passRatioFromRadResistance, dist);
                 ray.Rads *= passthroughRatio;

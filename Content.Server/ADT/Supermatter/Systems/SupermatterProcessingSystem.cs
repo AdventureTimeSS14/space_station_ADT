@@ -49,7 +49,6 @@ public sealed partial class SupermatterSystem
         return sm.HasBeenPowered;
     }
 
-    
     /// <summary>
     /// The logic of supermatter working with gases.
     /// </summary>
@@ -109,18 +108,38 @@ public sealed partial class SupermatterSystem
         sm.DynamicHeatResistance = Math.Max(heatResistance, 1);
         sm.MoleHeatPenaltyThreshold = (float)Math.Max(moles / _config.GetCVar(ADTCCVars.SupermatterMoleHeatPenalty), 0.25);
 
-        if (moles > _config.GetCVar(ADTCCVars.SupermatterPowerlossInhibitionMoleThreshold) &&
-            gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(ADTCCVars.SupermatterPowerlossInhibitionGasThreshold))
+        if (moles > _config.GetCVar(ADTCCVars.SupermatterPowerlossInhibitionMoleThreshold))
         {
-            var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
-            sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
+            var h2 = gasComposition.GetMoles(Gas.Hydrogen);
+            var co2 = gasComposition.GetMoles(Gas.CarbonDioxide);
+
+            // Old CO2 powerloss scaling
+            if (h2 > co2)
+            {
+                var hydrogenpowerloss = Math.Clamp(gasComposition.GetMoles(Gas.Hydrogen) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
+                sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + hydrogenpowerloss, 0f, 1f);
+            }
+
+            // Same scaling as before, but now if SM Power > 7000 - stop this shit pls.
+            else if (co2 > h2 && sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
+            {
+                var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
+                sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
+            }
+
+            else
+                sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
         }
         else
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
 
         sm.PowerlossInhibitor = Math.Clamp(
-            1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(ADTCCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
-            0f, 1f);
+        1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(ADTCCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
+        0f, 1f);
+
+        // Oh no! It's cascade time.
+        var antinobProportion = gasComposition.GetMoles(Gas.AntiNoblium);
+        sm.ResonantFrequency = antinobProportion > 0 ? 1 : 0;
 
         if (sm.MatterPower != 0)
         {
@@ -160,7 +179,7 @@ public sealed partial class SupermatterSystem
             Gas.Oxygen,
             Math.Max((energy + gasReleased.Temperature * sm.HeatModifier - Atmospherics.T0C) / _config.GetCVar(ADTCCVars.SupermatterOxygenReleaseModifier), 0f));
 
-//        mix.Temperature = gasReleased.Temperature;
+//       mix.Temperature = gasReleased.Temperature;
         _atmosphere.Merge(mix, gasReleased);
 
         var powerReduction = (float)Math.Pow(sm.Power / 500, 3);
@@ -169,9 +188,6 @@ public sealed partial class SupermatterSystem
 
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))
             gravityWell.MaxRange = Math.Clamp(sm.Power / 850f, 0.5f, 3f);
-
-        var SupermatterResonantFrequency = SupermatterGasData.GetResonantFrequency(gasComposition);
-        sm.ResonantFrequency = SupermatterResonantFrequency;
     }
 
     /// <summary>
