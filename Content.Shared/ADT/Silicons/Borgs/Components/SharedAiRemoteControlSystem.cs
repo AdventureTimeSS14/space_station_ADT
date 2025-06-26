@@ -1,4 +1,3 @@
-
 using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
