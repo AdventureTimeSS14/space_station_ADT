@@ -22,4 +22,5 @@
       whitelist:
         tags:
           - ADTSteelSheet
+    - type: OreSiloClient
 
