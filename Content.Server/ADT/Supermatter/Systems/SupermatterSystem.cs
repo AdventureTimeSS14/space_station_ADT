@@ -215,6 +215,7 @@ public sealed partial class SupermatterSystem : EntitySystem
                 BreakOnWeightlessMove = false,
                 NeedHand = true,
                 RequireCanInteract = true,
+                Used = args.Used,
             };
             _doAfter.TryStartDoAfter(doAfterArgs);
             _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), uid, args.User);
@@ -229,6 +230,7 @@ public sealed partial class SupermatterSystem : EntitySystem
                 BreakOnWeightlessMove = false,
                 NeedHand = true,
                 RequireCanInteract = true,
+                Used = args.Used,
             };
             _doAfter.TryStartDoAfter(doAfterArgs);
             _popup.PopupClient(Loc.GetString("supermatter-inert-begin"), uid, args.User);
@@ -305,8 +307,10 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterTamperDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || !args.Used.HasValue)
             return;
+
+        QueueDel(args.Used.Value);
 
         sm.Damage += sm.DamageDelaminationPoint / 10;
 
@@ -319,8 +323,10 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnInsertCore(EntityUid uid, SupermatterComponent sm, ref SupermatterCoreDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || !args.Used.HasValue)
             return;
+
+        QueueDel(args.Used.Value);
 
         var message = Loc.GetString("supermatter-announcement-setinert");
         SendSupermatterAnnouncement(uid, sm, message, global: false);

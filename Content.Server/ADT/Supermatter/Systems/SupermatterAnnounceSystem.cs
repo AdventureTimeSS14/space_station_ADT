@@ -25,7 +25,7 @@ public sealed partial class SupermatterSystem
     /// </summary>
     public void AnnounceCoreDamage(EntityUid uid, SupermatterComponent sm)
     {
-        if (sm.Damage == 0)
+        if (sm.Damage == 0 || !sm.HasBeenPowered)
             return;
 
         string message;

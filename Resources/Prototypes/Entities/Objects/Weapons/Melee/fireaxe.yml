@@ -38,6 +38,7 @@
     quickEquip: false
     slots:
     - back
+    - suitStorage #ADT_Tweak - чтобы вешать на спину
   - type: Tool
     qualities:
       - Prying
@@ -60,15 +61,21 @@
   - type: MeleeWeapon
     wideAnimationRotation: 90
   - type: IgniteOnMeleeHit
-    fireStacks: 1
+    fireStacks: 2 #ADT_Tweak - 1 to 2
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon
+    # ADT-Tweak-Start
+    layers:
+    - state: icon
+      map: [ "enum.ComboWeaponState.State" ]
+    # ADT-Tweak-End
   - type: Clothing
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     quickEquip: false
     slots:
     - back
+    - suitStorage #ADT_Tweak - чтобы вешать на спину
 # Corvax-HiddenDesc-Start
   - type: HiddenDescription
     entries:
@@ -84,3 +91,41 @@
         - Scientist
         - Borg
 # Corvax-HiddenDesc-End
+# ADT-Tweak-Start
+  - type: Item
+    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+  - type: ComboWeapon
+    availableMoves:
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboEffectToStanding
+            comboEvents:
+            - !type:ComboFallEffect
+            # replace it with firestack-to-stamina damage combo effect later
+            - !type:ComboAudioEffect
+              sound:
+                path: /Audio/Effects/hit_kick.ogg
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveWideHit
+        comboEvent:
+          - !type:ComboEffectToUserPuller
+            comboEvents:
+            - !type:ComboStopTargetGrabEffect
+            - !type:ComboAudioEffect
+              sound:
+                path: /Audio/Effects/hit_kick.ogg
+            - !type:ComboTrowTargetEffect
+              thrownSpeed: 8
+            - !type:ComboSlowdownEffect
+              time: 3
+  - type: GenericVisualizer
+    visuals:
+      enum.ComboWeaponState.State:
+        enum.ComboWeaponState.State:
+          True: {state: icon}
+          False: {state: icon-prot}
+  - type: Appearance
+# ADT-Tweak-End
