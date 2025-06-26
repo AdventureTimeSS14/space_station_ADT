@@ -7,3 +7,7 @@ ent-ADTSpawnMobPossumPoppy = спавнер опоссум Поппи
 ent-ADTSpawnMobCarpPirate = спавнер костлявой рыбы
     .desc = { ent-MarkerBase.desc }
     .suffix = Пират
+
+ent-ADTMobHermitSpawner = спавнер отшельника
+    .desc = { ent-MarkerBase.desc }
+    .suffix = Пират

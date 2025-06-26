@@ -14,6 +14,7 @@
         - BasaltThree
         - BasaltFour
         - BasaltFive
+
     - !type:BiomeDecalLayer
       allowedTiles:
         - FloorBasalt
@@ -32,6 +33,56 @@
         - Basalt7
         - Basalt8
         - Basalt9
+
+      # Cvetochki huyochki
+    - !type:BiomeDecalLayer
+      allowedTiles:
+        - FloorBasalt
+      threshold: 0.9
+      divisions: 2
+      noise:
+        seed: 5
+        frequency: 0.75
+      decals:
+        - ADTfernybush1
+        - ADTfernybush2
+        - ADTfernybush3
+        - ADTfirstbush1
+        - ADTfirstbush2
+        - ADTfirstbush3
+        - ADTfirstbush4
+        - ADTfullgrass1
+        - ADTfullgrass2
+        - ADTfullgrass3
+        - ADTgenericbush1
+        - ADTgenericbush2
+        - ADTgenericbush3
+        - ADTgenericbush4
+        - ADTgrassybush1
+        - ADTgrassybush2
+        - ADTgrassybush3
+        - ADTgrassybush4
+        - ADThellbush
+        - ADTsparsegrass1
+        - ADTsparsegrass2
+        - ADTsparsegrass3
+        - ADTywflowers1
+        - ADTywflowers2
+        - ADTywflowers3
+        - ADTywflowers4
+
+# Cactusi chto bi ih zhrat'
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        frequency: 1.2
+      allowedTiles:
+        - FloorBasalt
+      entities:
+        - ADTLavalandCactusSpawner
+
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:
@@ -44,6 +95,7 @@
         - FloraRockSolid
         - FloraRockSolid
         - FloraRockSolid
+
     - !type:BiomeEntityLayer
       threshold: 0.97
       noise:
@@ -54,6 +106,7 @@
         - FloorBasalt
       entities:
         - ADTSpawnMobPRandomLavaland
+
     - !type:BiomeEntityLayer
       threshold: 0.995
       noise:
@@ -65,6 +118,7 @@
         - FloorBasalt
       entities:
         - LavaDungeonRoomMarker
+
     - !type:BiomeEntityLayer
       threshold: 0.2
       noise:
@@ -78,6 +132,7 @@
         - FloorBasalt
       entities:
         - FloorLavaEntity
+
     #undertale lore
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -92,6 +147,7 @@
         gain: 0.4
       entities:
       - FloorChasmEntity
+
     # Rock formations
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -110,6 +166,7 @@
         - WallRockBasalt
     - !type:BiomeDummyLayer
       id: Loot
+
     - !type:BiomeEntityLayer
       threshold: 0.95
       noise:
@@ -130,6 +187,7 @@
         - FloraTreeSnow
         - FloraTreeSnow
         - FloraTreeSnow
+
     # Fill basalt
     - !type:BiomeTileLayer
       threshold: -1

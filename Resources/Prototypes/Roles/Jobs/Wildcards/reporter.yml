@@ -17,9 +17,13 @@
     id: ReporterPDA
     ears: ClothingHeadsetService
   # ADT start
+    pocket1: ADTOldRadioMicrophone
   storage:
     back:
     - ADTTapeRecorder
     - ADTCassetteTape
     - ADTCassetteTape
+    - ADTOldRadio
+    - ADTOldRadio
+    - ADTOldRadio
   # ADT end

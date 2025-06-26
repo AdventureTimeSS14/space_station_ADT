@@ -7,6 +7,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Droppods.EntitySystems;
 
 namespace Content.Shared.ADT.Salvage.Systems;
 
@@ -19,24 +20,40 @@ public sealed class MiningVoucherSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly DroppodSystem _droppod = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MiningVoucherComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<MiningVoucherComponent, MapInitEvent>(OnMapInit);
         Subs.BuiEvents<MiningVoucherComponent>(MiningVoucherUiKey.Key, subs =>
         {
             subs.Event<MiningVoucherSelectMessage>(OnSelect);
         });
     }
 
+    private void OnMapInit(Entity<MiningVoucherComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDropPlace.ThisPlace)
+        {
+            if (ent.Comp.Selected is { } index)
+            {
+                Redeem(ent, index, ent);
+            }
+        }
+    }
+
     private void OnAfterInteract(Entity<MiningVoucherComponent> ent, ref AfterInteractEvent args)
     {
+        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDropPlace.ThisPlace)
+            return;
+
         if (args.Target is not {} target)
             return;
 
-        if (_whitelist.IsWhitelistFail(ent.Comp.VendorWhitelist, target))
+        if (ent.Comp.VendorWhitelist != null && _whitelist.IsWhitelistFail(ent.Comp.VendorWhitelist, target))
             return;
 
         var user = args.User;
@@ -74,6 +91,11 @@ public sealed class MiningVoucherSystem : EntitySystem
 
         ent.Comp.Selected = index;
         Dirty(ent);
+
+        if (ent.Comp.TypeDropPlace == MiningVoucherTypeDropPlace.ThisPlace)
+        {
+            Redeem(ent, index, user);
+        }
     }
 
     public void Redeem(Entity<MiningVoucherComponent> ent, int index, EntityUid user)
@@ -83,9 +105,19 @@ public sealed class MiningVoucherSystem : EntitySystem
 
         var kit = _proto.Index(ent.Comp.Kits[index]);
         var xform = Transform(ent);
-        foreach (var id in kit.Content)
+
+        switch (ent.Comp.TypeDrop)
         {
-            SpawnNextToOrDrop(id, ent, xform);
+            case MiningVoucherTypeDrop.Default:
+                foreach (var id in kit.Content)
+                {
+                    SpawnNextToOrDrop(id, ent, xform);
+                }
+                break;
+
+            case MiningVoucherTypeDrop.Rocket:
+                _droppod.CreateDroppod(xform.Coordinates, kit.Content);
+                break;
         }
 
         QueueDel(ent);

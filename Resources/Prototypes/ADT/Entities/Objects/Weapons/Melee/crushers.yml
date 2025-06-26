@@ -95,6 +95,23 @@
       types:
         Blunt: 10
         Slash: 15
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Prying 
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    color: "#ffeead"
+    enabled: false
 
 - type: entity
   parent: WeaponKineticBase
@@ -138,6 +155,15 @@
       types:
         Blunt: 10
         Slash: 15
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_hammer.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    color: "#ffeead"
+    enabled: false
 
 - type: entity
   parent: WeaponKineticBase
@@ -181,6 +207,23 @@
       types:
         Blunt: 10
         Slash: 15
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Prying 
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    color: "#ffeead"
+    enabled: false
 
 - type: entity
   parent: WeaponKineticBase
@@ -215,3 +258,20 @@
       types:
         Blunt: 10
         Slash: 15
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_machete.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Prying 
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    color: "#ffeead"
+    enabled: false

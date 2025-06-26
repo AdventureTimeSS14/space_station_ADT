@@ -59,6 +59,12 @@
   id: ADTMagazineRifleBibisSoftBig # Магазин пулемёта
 
 - type: Tag
+  id: ADTBroadcastMicrophone # ADT Радио Апдейт
+
+- type: Tag
+  id: ADTOldRadio  # ADT Радио Апдейт
+
+- type: Tag
   id: ADTBorgUse
 
 - type: Tag
@@ -347,6 +353,8 @@
 - type: Tag
   id: ADTMechEquipmentClown
 
+# MECH END /\/\/\/\/\/\/\
+
 - type: Tag
   id: ADTBadge
 
@@ -445,6 +453,8 @@
 - type: Tag
   id: ADTTreeSilverMishura
 
+  # ADT NEW YEAR END /\/\/\/\/\/\/\/\/\/\/\/\
+
 - type: Tag
   id: ADTPillExperimental
 
@@ -510,6 +520,9 @@
 
 - type: Tag
   id: ADTTeaPack
+
+- type: Tag
+  id: ADTYupiPack
 
 - type: Tag
   id: ADTFullRiotShitmadeShield
@@ -602,4 +615,9 @@
   id: ADTGummy
 
 - type: Tag
+  id: ADTLavabikeKeys
+
+- type: Tag
   id: ADTDoNotMakeOrigami
+
+

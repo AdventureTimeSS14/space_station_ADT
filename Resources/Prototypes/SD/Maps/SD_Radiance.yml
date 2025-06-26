@@ -1,7 +1,7 @@
 - type: gameMap
   id: SD_Radiance
   mapName: 'Radiance Station'
-  mapPath: /Maps/SDMaps/SDStations/sd_Radiance.yml
+  mapPath: /Maps/SDMaps/SDStations/SD_Radiance.yml
   maxRandomOffset: 0
   minPlayers: 0
   stations:

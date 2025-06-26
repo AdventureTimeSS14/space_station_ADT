@@ -45,6 +45,7 @@
     Chest: MobMothTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    SnoutOverlay: MobHumanoidAnyMarking # ADT Tweak
     Eyes: MobMothEyes
     LArm: MobMothLArm
     RArm: MobMothRArm
@@ -75,6 +76,11 @@
       points: 1
       required: true
       defaultMarkings: [ MothWingsDefault ]
+### Start ADT Tweak
+    SnoutOverlay:
+      points: 1
+      required: false
+### End ADT Tweak
     Snout:
       points: 2
       required: false
