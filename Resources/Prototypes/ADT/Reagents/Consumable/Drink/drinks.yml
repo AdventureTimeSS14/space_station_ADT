@@ -370,6 +370,20 @@
         probability: 0.3
 
 - type: reagent
+  id: ADTJuiceStrawberry
+  name: reagent-name-strawberryjuice
+  parent: BaseDrink
+  desc: reagent-desc-strawberryjuice
+  physicalDesc: reagent-physical-desc-strawberryjuice
+  flavor: ADTStrawberryFlavor
+  color: "#cf554c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.1
+
+- type: reagent
   id: ADTYupiDryApple
   slippery: false
   name: reagent-name-yupidryapple

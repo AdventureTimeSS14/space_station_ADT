@@ -48,8 +48,8 @@
   - type: Airtight
   - type: StaticPrice
     price: 75
-###  - type: RadiationBlocker # ADT-Tweak
-###    resistance: 2 # ADT-Tweak
+  - type: RadiationBlocker # ADT-Tweak
+    resistance: 2 # ADT-Tweak
   - type: BlockWeather
   - type: SunShadowCast
 
@@ -300,7 +300,7 @@
     node: goldWall
   # ADT tweak start
   - type: RadiationBlocker 
-    resistance: 1
+    resistance: 5
   # ADT tweak end
   - type: RCDDeconstructable
     cost: 6
@@ -406,7 +406,7 @@
     key: walls
     base: plasma
   - type: RadiationBlocker
-    resistance: 2.5 # ADT tweak
+    resistance: 5 # ADT tweak
 
 - type: entity
   parent: BaseWall
@@ -643,7 +643,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 1 #ADT-Tweak
+    resistance: 4 #ADT-Tweak
 
 - type: entity
   parent: WallReinforced
@@ -938,7 +938,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 1 # ADT-Tweak
+    resistance: 2 # ADT-Tweak
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
@@ -1155,7 +1155,7 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
-    resistance: 4 # ADT-Tweak         
+    resistance: 5 # ADT-Tweak         
 
 - type: entity
   parent: BaseWall

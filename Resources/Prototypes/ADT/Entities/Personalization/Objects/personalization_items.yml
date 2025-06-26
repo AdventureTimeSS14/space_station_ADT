@@ -22,6 +22,53 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_evgeniy
 
+- type: entity
+  name: TP-17
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolTP17
+  description: Standard issue sidearm for civilian protection.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/tp17.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Personalization/tp17.rsi
+  - type: Gun
+    minAngle: 4
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 1
+    fireRate: 3.2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/tp17_shot.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Weapons/Guns/Cock/tp17-bolt-cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/ADT/Weapons/Guns/MagIn/tp17-load.ogg
+        ejectSound: /Audio/ADT/Weapons/Guns/MagOut/tp17-unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+
 # Conjurer
 - type: entity
   parent: BasePlushie
@@ -2115,4 +2162,16 @@
       startingCharge: 2500
     - type: Appearance
 
+#MagmaShow
+- type: entity
+  name: double stun baton
+  parent: [ Stunbaton, BaseSecurityContraband ]
+  id: StarlightDoubleStunbatonMagmaShow
+  suffix: Personal, MagmaShow
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/doublestunbaton.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
 #SPONSOR-ITEMS-END
