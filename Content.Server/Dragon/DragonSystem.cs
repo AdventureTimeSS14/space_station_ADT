@@ -99,13 +99,6 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            // Delete it, naughty dragon!
-            // if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
-            // {
-            //     Roar(uid, comp);
-            //     QueueDel(uid);
-            // }
-
             // ADT-Tweak start
             // TODO: сделать анимированную смерть, где дракон лопается, после чего трупы разлетяться в разные стороны.
             if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
