@@ -19,6 +19,8 @@
     - 0,0,0,0
   - type: Item
     sprite: ADT/Objects/Specific/Service/RingBox.rsi
+    shape:
+    - 0,0,0,0
     size: Small
     heldPrefix: box
   - type: StorageFill
