@@ -15,7 +15,7 @@
         icon:
           sprite: Objects/Devices/voice.rsi
           state: voice
-        name: modular receiver
+        name: voive trigger
       - material: Cable
         amount: 15
       - material: Cloth
