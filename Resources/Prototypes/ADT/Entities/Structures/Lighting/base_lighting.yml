@@ -26,9 +26,9 @@
   - type: PoweredLight
     hasLampOnSpawn: ADTLightTubeWarm
   - type: PointLight
-    radius: 10
+    radius: 8
     energy: 0.5
-    softness: 0.9
+    softness: 1.5
     color: "#ebbe9d"
   - type: DamageOnInteract
     damage:
