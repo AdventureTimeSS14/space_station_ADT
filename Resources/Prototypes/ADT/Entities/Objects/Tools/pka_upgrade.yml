@@ -96,12 +96,12 @@
   - type: GunUpgrade
     tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-light
-  - type: GunComponentUpgrate
-    components:
-    - type: UnpoweredFlashlight
-    - type: PointLight
-      color: "#ffeead"
-      enabled: false
-      radius: 4
+#  - type: GunComponentUpgrate
+#    components:
+#    - type: UnpoweredFlashlight
+#    - type: PointLight
+#      color: "#ffeead"
+#      enabled: false
+#      radius: 4
   - type: GunUpgradeSpeed
     coefficient: 1
