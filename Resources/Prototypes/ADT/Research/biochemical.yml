@@ -106,6 +106,7 @@
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
   - BorgModuleDefibrillator
+  - BorgModuleAdvancedChemical
   position: 3,-1
   requiredTech:
   - ADTMedicalMODsuit

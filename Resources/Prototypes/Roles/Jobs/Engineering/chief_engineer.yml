@@ -6,12 +6,6 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      #ADT tweak start
-    - !type:SpeciesRequirement
-      inverted: true
-      species:
-      - Vox
-      #ADT tweak end
       time: 9000 #2.5 hrs
     - !type:RoleTimeRequirement
       role: JobStationEngineer
@@ -19,6 +13,12 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 36000 #10 hrs
+      #ADT tweak start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Vox
+      #ADT tweak end
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
