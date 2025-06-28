@@ -23,16 +23,8 @@ marking-Raccoon-head = Енотовая морда
 marking-ManeHead = Грива
 marking-Muzzleinears = Морда с внутренними ушами
 
-marking-TailFluffy = Пушистый хвост
 marking-TailM = Обычный хвост
-marking-TailRing = Хвост с кольцами
-marking-TailSkeleton = Скелет хвоста
-marking-TailTip = Кончик хвоста
 marking-TailFluffySkeleton = Пушистый скелетный хвост
-
-marking-TailWingler1 = Хвост с кольцами (тип 1)
-marking-TailWingler2 = Хвост с кольцами (тип 2)
-marking-TailWingler3 = Хвост с кольцами (тип 3)
 
 marking-TailFluffyAnimated = Анимированный пушистый хвост
 marking-TailWingler1Animated = Анимированный хвост с кольцами (тип 1)
@@ -44,7 +36,4 @@ marking-TailMAnimated = Анимированный обычный хвост
 marking-TailRingAnimated = Анимированный хвост с кольцами
 marking-TailSkeletonAnimated = Анимированный скелет хвоста
 
-marking-Belly1 = Живот (тип 1)
-marking-Belly2 = Живот (тип 2)
-marking-Belly3 = Живот (тип 3)
 marking-Chest = Грудь
