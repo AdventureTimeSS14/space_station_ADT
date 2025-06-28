@@ -69,7 +69,6 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Boxer: [ 2, 2 ]
-            Reporter: [ 2, 2 ]
             # juridical
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]

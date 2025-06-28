@@ -21,8 +21,9 @@
           - None
   - type: TimedDespawn
     lifetime: 15.0
+  - type: SupermatterIgnore
 
-      # Base
+  # Base
 - type: entity
   parent: BaseMob
   id: ADTBaseLingHallucination
@@ -45,6 +46,7 @@
           - None
   - type: Visibility
     layer: 505
+  - type: SupermatterIgnore
 
       # Ling ents
 - type: entity

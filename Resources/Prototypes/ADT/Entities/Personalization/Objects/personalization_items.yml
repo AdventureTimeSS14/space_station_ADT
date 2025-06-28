@@ -22,6 +22,53 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_evgeniy
 
+- type: entity
+  name: TP-17
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolTP17
+  description: Standard issue sidearm for civilian protection.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/tp17.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Personalization/tp17.rsi
+  - type: Gun
+    minAngle: 4
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 1
+    fireRate: 3.2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/tp17_shot.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Weapons/Guns/Cock/tp17-bolt-cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/ADT/Weapons/Guns/MagIn/tp17-load.ogg
+        ejectSound: /Audio/ADT/Weapons/Guns/MagOut/tp17-unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+
 # Conjurer
 - type: entity
   parent: BasePlushie
@@ -2075,4 +2122,95 @@
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
+#BLAD
+- type: entity
+  name: Cutter
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponCutterBLAD
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  suffix: Personal, BLAD
+  components:
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,2,0
+      - 0,1,0,1
+    - type: MaterialStorage
+      storageLimit: 0
+      materialWhiteList: [RawUranium, RawPlasma, Plasma, Uranium]
+      canEjectStoredMaterials: false
+    - type: BatteryRecharge
+      multiplier: 1.25
+    - type: Sprite
+      sprite: ADT/Personalization/cutter_blad.rsi
+      state: icon
+    - type: Gun
+      fireRate: 0.8
+      soundGunshot:
+        path: /Audio/Weapons/plasma_cutter.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: ADTBulletCutter
+      fireCost: 100
+    - type: BatteryWeaponFireModes
+      fireModes:
+      - proto: ADTBulletCutterWeak
+        fireCost: 100
+      - proto: ADTBulletLaserGreenWeak
+        fireCost: 150
+    - type: Battery
+      maxCharge: 2500
+      startingCharge: 2500
+    - type: Appearance
+
+#MagmaShow
+- type: entity
+  name: double stun baton
+  parent: [ Stunbaton, BaseSecurityContraband ]
+  id: StarlightDoubleStunbatonMagmaShow
+  suffix: Personal, MagmaShow
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/doublestunbaton.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+
+#KonnorSmith
+- type: entity
+  name: fireaxe
+  parent: [FireAxe, BaseEngineeringContraband]
+  id: ADTFireAxeKori
+  description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
+  suffix: Personal, KonnorSmith
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kori_axe.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    damage:
+      types:
+        # axes are kinda like sharp hammers, you know?
+        Blunt: 5
+        Slash: 12.5
+        Structural: 10
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 12.5
+        Structural: 40
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,3
+  - type: Clothing
+    sprite: ADT/Personalization/kori_axe.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage #ADT_Tweak - чтобы вешать на спину
 #SPONSOR-ITEMS-END

@@ -1,0 +1,118 @@
+﻿- type: decal
+  id: ADTTileMiniTileDarkBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_box
+
+- type: decal
+  id: ADTTileMiniTileDarkCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_corner_ne
+
+- type: decal
+  id: ADTTileMiniTileDarkCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_corner_se
+
+- type: decal
+  id: ADTTileMiniTileDarkCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_corner_nw
+
+- type: decal
+  id: ADTTileMiniTileDarkCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_corner_sw
+
+- type: decal
+  id: ADTTileMiniTileDarkInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_inner_ne
+
+- type: decal
+  id: ADTTileMiniTileDarkInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_inner_se
+
+- type: decal
+  id: ADTTileMiniTileDarkInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_inner_nw
+
+- type: decal
+  id: ADTTileMiniTileDarkInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_inner_sw
+
+- type: decal
+  id: ADTTileMiniTileDarkEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_end_n
+
+- type: decal
+  id: ADTTileMiniTileDarkEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_end_e
+
+- type: decal
+  id: ADTTileMiniTileDarkEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_end_s
+
+- type: decal
+  id: ADTTileMiniTileDarkEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_end_w
+
+- type: decal
+  id: ADTTileMiniTileDarkLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_line_n
+
+- type: decal
+  id: ADTTileMiniTileDarkLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_line_e
+
+- type: decal
+  id: ADTTileMiniTileDarkLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_line_s
+
+- type: decal
+  id: ADTTileMiniTileDarkLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_minibricktile.rsi
+    state: dark_line_w

@@ -149,3 +149,15 @@ ent-ADTShepherdPDA = КПК пастора
 
 ent-ADTClergymanPDA = КПК священнослужителя
     .desc = КПК священнослужителя.
+
+ent-ADTNocardClearPDA = { ent-ClearPDA }
+    .desc = { ent-ClearPDA.desc }
+
+ent-ADTRDPDA = КПК директора исследований
+    .desc = КПК директора исследований.
+
+ent-ADTCMOPDA = КПК старшего медицинского офицера
+    .desc = КПК старшего медицинского офицера.
+
+ent-ADTTraumatologistPDA = КПК травматолога
+    .desc = КПК травматолога.

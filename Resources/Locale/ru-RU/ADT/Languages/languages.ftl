@@ -7,6 +7,9 @@ language-GalacticCommon-description = Обычно используется дл
 language-Bubblish-name = Пузырчатый
 language-Bubblish-description = Язык слаймолюдов. Это смесь булькающих звуков и хлюпов. Человеку очень трудно говорить без механической помощи.
 
+language-Elysian-name = Элизиан
+language-Elysian-description = Язык, на котором говорят жители Империи Элизиум. Отдаёт величием и чистотой.
+
 language-RootSpeak-name = Песнь корней
 language-RootSpeak-description = Странный шелестящий язык, на котором говорят дионы.
 

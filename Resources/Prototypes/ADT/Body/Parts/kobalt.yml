@@ -1,13 +1,13 @@
 - type: entity
-  id: PartKobolt
-  parent: PartReptilian
+  id: ADTPartKobolt
+  parent: [PartReptilian, BasePart]
   name: "kobolt body part"
   abstract: true
 
 - type: entity
-  id: TorsoKobolt
+  id: ADTTorsoKobolt
   name: "kobolt torso"
-  parent: TorsoReptilian
+  parent: [ADTPartKobolt, BaseTorso]
   components:
   - type: Sprite
     netsync: false
@@ -18,9 +18,9 @@
     state: "torso_m"
 
 - type: entity
-  id: HeadKobolt
+  id: ADTHeadKobolt
   name: "kobolt head"
-  parent: HeadReptilian
+  parent: [ADTPartKobolt, BaseHead]
   components:
   - type: Sprite
     netsync: false
@@ -36,9 +36,9 @@
   - type: GhostOnMove
 
 - type: entity
-  id: LeftArmKobolt
+  id: ADTLeftArmKobolt
   name: "left kobolt arm"
-  parent: [PartKobolt, BaseLeftArm]
+  parent: [ADTPartKobolt, BaseLeftArm]
   components:
   - type: Sprite
     netsync: false
@@ -49,9 +49,9 @@
     state: "l_arm"
 
 - type: entity
-  id: RightArmKobolt
+  id: ADTRightArmKobolt
   name: "right kobolt arm"
-  parent: [PartKobolt, BaseRightArm]
+  parent: [ADTPartKobolt, BaseRightArm]
   components:
   - type: Sprite
     netsync: false
@@ -62,9 +62,9 @@
     state: "r_arm"
 
 - type: entity
-  id: LeftHandKobolt
+  id: ADTLeftHandKobolt
   name: "left kobolt hand"
-  parent: [PartKobolt, BaseLeftHand]
+  parent: [ADTPartKobolt, BaseLeftHand]
   components:
   - type: Sprite
     netsync: false
@@ -75,9 +75,9 @@
     state: "l_hand"
 
 - type: entity
-  id: RightHandKobolt
+  id: ADTRightHandKobolt
   name: "right kobolt hand"
-  parent: [PartKobolt, BaseRightHand]
+  parent: [ADTPartKobolt, BaseRightHand]
   components:
   - type: Sprite
     netsync: false
@@ -88,9 +88,9 @@
     state: "r_hand"
 
 - type: entity
-  id: LeftLegKobolt
+  id: ADTLeftLegKobolt
   name: "left kobolt leg"
-  parent: [PartKobolt, BaseLeftLeg]
+  parent: [ADTPartKobolt, BaseLeftLeg]
   components:
   - type: Sprite
     netsync: false
@@ -104,9 +104,9 @@
     baseSprintSpeed : 4.5
 
 - type: entity
-  id: RightLegKobolt
+  id: ADTRightLegKobolt
   name: "right kobolt leg"
-  parent: [PartKobolt, BaseRightLeg]
+  parent: [ADTPartKobolt, BaseRightLeg]
   components:
   - type: Sprite
     netsync: false
@@ -120,9 +120,9 @@
     baseSprintSpeed : 4.5
 
 - type: entity
-  id: LeftFootKobolt
+  id: ADTLeftFootKobolt
   name: "left kobolt foot"
-  parent: [PartKobolt, BaseLeftFoot]
+  parent: [ADTPartKobolt, BaseLeftFoot]
   components:
   - type: Sprite
     netsync: false
@@ -133,9 +133,9 @@
     state: "l_foot"
 
 - type: entity
-  id: RightFootKobolt
+  id: ADTRightFootKobolt
   name: "right kobolt foot"
-  parent: [PartKobolt, BaseRightFoot]
+  parent: [ADTPartKobolt, BaseRightFoot]
   components:
   - type: Sprite
     netsync: false

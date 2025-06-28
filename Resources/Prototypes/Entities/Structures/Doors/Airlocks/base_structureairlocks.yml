@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
@@ -146,6 +146,16 @@
         !type:DamageTrigger
         damage: 500
       behaviors:
+      # ADT-Tweak-start
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapAirlock1:
+            min: 2
+            max: 2
+          ScrapAirlock2:
+            min: 1
+            max: 1   
+      # ADT-Tweak-end      
       - !type:DoActsBehavior
         acts: ["Destruction"]
       # TODO this should go to the broken node first
@@ -226,8 +236,8 @@
     node: glassAirlock
   - type: PaintableAirlock
     group: Glass
-  - type: RadiationBlocker
-    resistance: 2
+###  - type: RadiationBlocker #ADT 
+###    resistance: 2 #ADT
   - type: Tag
     tags:
       - GlassAirlock

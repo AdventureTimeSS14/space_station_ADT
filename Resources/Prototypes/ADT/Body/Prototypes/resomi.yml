@@ -4,14 +4,14 @@
   root: torso
   slots:
     head:
-      part: HeadResomi
+      part: ADTHeadResomi
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoResomi
+      part: ADTTorsoResomi
       connections:
       - right arm
       - left arm
@@ -20,31 +20,31 @@
       - head
       organs:
         heart: OrganHumanHeart
-        lungs: OrganResomiLungs
+        lungs: ADTOrganResomiLungs
         stomach: OrganAnimalStomach
         liver:  OrganAnimalLiver
         kidneys: OrganAnimalKidneys
     right arm:
-      part: RightArmResomi
+      part: ADTRightArmResomi
       connections:
       - right hand
     left arm:
-      part: LeftArmResomi
+      part: ADTLeftArmResomi
       connections:
       - left hand
     right hand:
-      part: RightHandResomi
+      part: ADTRightHandResomi
     left hand:
-      part: LeftHandResomi
+      part: ADTLeftHandResomi
     right leg:
-      part: RightLegResomi
+      part: ADTRightLegResomi
       connections:
       - right foot
     left leg:
-      part: LeftLegResomi
+      part: ADTLeftLegResomi
       connections:
       - left foot
     right foot:
-      part: RightFootResomi
+      part: ADTRightFootResomi
     left foot:
-      part: LeftFootResomi
+      part: ADTLeftFootResomi
