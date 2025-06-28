@@ -83,6 +83,6 @@
   - type: LightBulb
     color: "#ffa647"
     lightEnergy: 0.9
-    lightRadius: 8
+    lightRadius: 10
     lightSoftness: 1.5
     PowerUse: 10

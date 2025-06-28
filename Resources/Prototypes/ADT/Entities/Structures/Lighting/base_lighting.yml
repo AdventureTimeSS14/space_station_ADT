@@ -26,7 +26,7 @@
   - type: PoweredLight
     hasLampOnSpawn: ADTLightTubeWarm
   - type: PointLight
-    radius: 8
+    radius: 10
     energy: 0.9
     softness: 1.5
     color: "#ffa647"
