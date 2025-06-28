@@ -78,11 +78,11 @@
   parent: BaseLightTube
   name: warm light tube
   id: ADTLightTubeWarm
-  description: A warm light bulb for a more cozy atmosphere.
+  description: "A warm light bulb for a more cozy atmosphere."
   components:
   - type: LightBulb
-    color: "#ebbe9d"
-    lightEnergy: 0.5
+    color: "#ffa647"
+    lightEnergy: 0.9
     lightRadius: 8
     lightSoftness: 1.5
     PowerUse: 10
