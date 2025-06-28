@@ -447,7 +447,7 @@
 
 
 - type: marking
-  id: Belly2
+  id: Belly6
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Tajaran]
@@ -465,7 +465,7 @@
       state: chest
 
 - type: marking
-  id: Belly1
+  id: Belly5
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Tajaran]
@@ -474,7 +474,7 @@
       state: belly1
 
 - type: marking
-  id: Belly3
+  id: Belly7
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Tajaran]

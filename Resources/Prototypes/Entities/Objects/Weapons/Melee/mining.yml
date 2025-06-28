@@ -235,14 +235,6 @@
   # - type: Tag ADT crusher reskin
   #   tags:
   #     - Pickaxe
-  - type: Item
-    size: Ginormous
-    sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi
-  - type: Clothing
-    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
-    quickEquip: false
-    slots:
-    - suitStorage
   - type: Tool
     qualities:
       - Slicing

@@ -113,20 +113,16 @@
       Nuke: !type:ContainerSlot
   - type: StealTarget
     stealGroup: NuclearBomb
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: nuclear bomb
     blacklist:
       tags:
       - GhostOnlyWarp
-  # ADT-Sound-Update-Start
   - type: Tag
     tags:
-    - ADTVaultAmbience
-  # ADT-Sound-Update-End
+    - ADTVaultAmbience  # ADT-Sound-Update
+    - GhostOnlyWarp
   - type: FTLSmashImmune
   - type: SupermatterImmune # ADT-Tweak
 
