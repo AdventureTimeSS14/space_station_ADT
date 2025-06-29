@@ -201,13 +201,13 @@
       tags:
       - LavaDungeon
 
-# - type: entity
-#   id: BloodMinerDungeMarker
-#   parent: BaseRoomMarker
-#   name: blood miner dunge spawer
-#   components:
-#   - type: RoomFill
-#     clearExisting: true
-#     roomWhitelist:
-#       tags:
-#       - LavaDungeonBloodMiner
+- type: entity
+  id: BloodMinerDungeMarker
+  parent: BaseRoomMarker
+  name: blood miner dunge spawer
+  components:
+  - type: RoomFill
+    clearExisting: true
+    roomWhitelist:
+      tags:
+      - LavaDungeonBloodMiner
