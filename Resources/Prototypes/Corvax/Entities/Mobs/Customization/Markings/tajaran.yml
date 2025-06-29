@@ -1,9 +1,3 @@
-- type: humanoidBaseSprite
-  id: MobTajaranEyes
-  baseSprite:
-    sprite: Corvax/Mobs/Customization/Tajaran/tajaran_eyes.rsi
-    state: eyes
-
 - type: marking
   id: Patch
   markingCategory: Overlay
@@ -437,7 +431,7 @@
       state: muzzleinears
 
 - type: marking
-  id: TailFluffy
+  id: TailFluffy2
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -492,7 +486,7 @@
       state: tail_m
 
 - type: marking
-  id: TailRing
+  id: TailRing2
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Tajaran]
@@ -503,7 +497,7 @@
       state: tail_ring
 
 - type: marking
-  id: TailSkeleton
+  id: TailSkeleton2
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -514,7 +508,7 @@
       state: tail_skeleton
 
 - type: marking
-  id: TailTip
+  id: TailTip2
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -525,7 +519,7 @@
       state: tail_tip
 
 - type: marking
-  id: TailFluffySkeleton
+  id: TailFluffySkeleton2
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -537,7 +531,7 @@
 
 
 - type: marking
-  id: TailWingler1
+  id: TailWingler4
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -548,7 +542,7 @@
       state: wingler_1
 
 - type: marking
-  id: TailWingler2
+  id: TailWingler5
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -559,7 +553,7 @@
       state: wingler_2
 
 - type: marking
-  id: TailWingler3
+  id: TailWingler6
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -571,7 +565,7 @@
 
 # Animated
 - type: marking
-  id: TailFluffyAnimated
+  id: TailFluffyAnimated1
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -580,7 +574,7 @@
       state: tail_fluffy_wagging
 
 - type: marking
-  id: TailWingler1Animated
+  id: TailWingler1Animated1
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -591,7 +585,7 @@
       state: wingler_1_wagging
 
 - type: marking
-  id: TailWingler2Animated
+  id: TailWingler2Animated1
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -602,7 +596,7 @@
       state: wingler_2_wagging
 
 - type: marking
-  id: TailWingler3Animated
+  id: TailWingler3Animated1
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -613,7 +607,7 @@
       state: wingler_3_wagging
 
 - type: marking
-  id: TailFluffySkeletonAnimated
+  id: TailFluffySkeletonAnimated1
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -624,7 +618,7 @@
       state: tail_skeleton_wagging
 
 - type: marking
-  id: TailTipAnimated
+  id: TailTipAnimated1
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -645,7 +639,7 @@
       state: tail_m_wagging
 
 - type: marking
-  id: TailRingAnimated
+  id: TailRingAnimated1
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -656,7 +650,7 @@
       state: tail_ring_wagging
 
 - type: marking
-  id: TailSkeletonAnimated
+  id: TailSkeletonAnimated1
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
