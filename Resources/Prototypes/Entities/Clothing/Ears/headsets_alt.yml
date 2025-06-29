@@ -41,7 +41,7 @@
   - type: Clothing
     sprite: Clothing/Ears/Headsets/centcom.rsi
   - type: Headset # ganimed edit
-    radioTextIncrease: 6
+    radioTextIncrease: 3
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband]
@@ -57,7 +57,7 @@
   - type: Clothing
     sprite: Clothing/Ears/Headsets/command.rsi
   - type: Headset # ganimed edit
-    radioTextIncrease: 4
+    radioTextIncrease: 3
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband]
