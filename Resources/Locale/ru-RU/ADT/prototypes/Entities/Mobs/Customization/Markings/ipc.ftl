@@ -45,10 +45,10 @@ marking-ADTScreenBigsmile = Большая улыбка
 marking-ADTScreenBoredom = Скучно
 marking-ADTScreenClown = Клоун
 marking-ADTScreenCreeper = Подрыватель
-marking-ADTScreenDealmaker = Неудавшийся сделка
+marking-ADTScreenDealmaker = Неудавшаяся сделка
 marking-ADTScreenMime = Мим
 marking-ADTScreenMonkey = Мартышка
-marking-ADTScreenMrgutsy = Мр. храбрец
+marking-ADTScreenMrgutsy = Мр. Храбрец
 marking-ADTScreenNerd = Ботан
 marking-ADTScreenNya = :3
 marking-ADTScreenOko = Око
@@ -70,6 +70,7 @@ marking-RobotAntennaDuality = Двойная
 marking-RobotAntennaHoloaura = Голоаура
 marking-RobotAntennaWireless = Беспроводная
 marking-RobotAntennaSmallEye = Малый глаз
+
 marking-ADTRobotAntennaCat = Кошачьи ушки
 marking-ADTRobotAntennaTvAlt = ТВ антенна
 
