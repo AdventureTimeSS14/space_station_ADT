@@ -209,6 +209,8 @@
   cost: 10000
   recipeUnlocks:
   - DeviceDesynchronizer
+  requiredTech:
+  - ADTBluespaceMining
   # ADT Research Console Rework start
-  position: 6,0
+  position: 5,-3
   # ADT Research Console Rework end

@@ -125,8 +125,8 @@
     price: 350
   - id: PKAUpgradeFireRate
     price: 500
-  - id: PKAUpgradeLight #Fix That and then we will uncoment this
-    price: 500
+#  - id: PKAUpgradeLight #Fix That and then we will uncoment this
+#    price: 500
 
 - type: miningShopSection
   id: Fun

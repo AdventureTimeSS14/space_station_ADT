@@ -208,10 +208,6 @@
             "name": "icons-disabler"
         },
         {
-            "name": "base-module-inhand-right",
-            "directions": 4
-        },
-        {
             "name": "base-module-inhand-left",
             "directions": 4
         },
