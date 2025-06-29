@@ -17,7 +17,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Corvax.Sponsors;
 
-public sealed class SponsorsManager
+public sealed class SponsorsManager : ISponsorsManager // Ganimed-Sponsors
 {
     [Dependency] private readonly IServerNetManager _netMgr = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -48,6 +48,8 @@ public sealed class SponsorsManager
         _netMgr.Connected += OnConnected;
         _netMgr.Disconnect += OnDisconnect;
 
+        IoCManager.Register<ISponsorsManager, SponsorsManager>(true); // Ganimed-Sponsors
+
         _sawmill.Info($"[Init] Sponsor API URL (from CVar): '{_apiUrl}'");
     }
 
@@ -55,6 +57,14 @@ public sealed class SponsorsManager
     {
         return _cachedSponsors.TryGetValue(userId, out sponsor);
     }
+
+    // Ganimed-Sponsors start
+    bool ISponsorsManager.TryGetInfo([NotNullWhen(true)] out SponsorInfo? info)
+    {
+        info = null;
+        return false;
+    }
+    // Ganimed-Sponsors end
 
     private async Task OnConnecting(NetConnectingArgs e)
     {
@@ -131,20 +141,6 @@ public sealed class SponsorsManager
     public bool TryGetSpawnEquipment(NetUserId userId, string? jobPrototype, [NotNullWhen(true)] out string? spawnEquipment)
     {
         spawnEquipment = null;
-
-        // // ТЕСТОВЫЕ ДАННЫЕ - НАЧАЛО (удалить в мастере) (ИМИТАЦИЯ СПОНСОРКИ)
-        // var sponsorData = new SponsorInfo
-        // {
-        //     CharacterName = "TestSponsor",
-        //     Tier = 4,
-        //     OOCColor = "#FF0000",
-        //     HavePriorityJoin = true,
-        //     ExtraSlots = 2,
-        //     AllowedMarkings = new[] { "marking1", "marking2" },
-        //     ExpireDate = DateTime.Now.AddDays(30),
-        //     AllowJob = true
-        // };
-        // // ТЕСТОВЫЕ ДАННЫЕ - КОНЕЦ
 
         // Получаем sponsorData юсера
         if (!TryGetInfo(userId, out var sponsorData))
