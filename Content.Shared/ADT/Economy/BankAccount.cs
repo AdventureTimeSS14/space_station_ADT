@@ -7,8 +7,6 @@ namespace Content.Shared.ADT.Economy;
 
 public sealed class BankAccount
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-
     public readonly int AccountId;
     public readonly int AccountPin;
     public int Balance;
@@ -18,11 +16,11 @@ public sealed class BankAccount
     public ProtoId<CargoAccountPrototype>? AccountPrototype;
     public EntityUid? CartridgeUid;
 
-    public BankAccount(int accountId, int balance)
+    public BankAccount(int accountId, int balance, IRobustRandom random)
     {
         AccountId = accountId;
         Balance = balance;
-        AccountPin = _random.Next(1000, 10000);
+        AccountPin = random.Next(1000, 10000);
     }
 }
 
