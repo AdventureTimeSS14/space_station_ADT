@@ -40,11 +40,5 @@ public sealed partial class PhantomStylePrototype : IPrototype
 
     [DataField("lvl5")]
     public List<string> Lvl5Actions = new();
-
-    [DataField("lvl6")]
-    public List<string> Lvl6Actions = new();
-
-    [DataField("lvl7")]
-    public List<string> Lvl7Actions = new();
     #endregion
 }

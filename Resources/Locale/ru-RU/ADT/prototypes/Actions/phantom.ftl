@@ -22,8 +22,8 @@ action-phantom-breakdown-desc = Повредите выбранный элект
 action-phantom-injury = Волна боли
 action-phantom-injury-desc = Нанесите всем гуманоидам в небольшом радиусе 40 единиц случайного урона. [color=#f605fa]Сосуды[/color] не получат урона.
 
-action-phantom-starvation = Жажда
-action-phantom-starvation-desc = Заставьте цель испытать пятикратный голод и жажду. Если цель является [color=#05eafa]одержимой[/color], длительность эффекта длится до ручного отключения.
+action-phantom-faker = Нашептать
+action-phantom-faker-desc = Нашепчите цели чужим голосом из рации.
 
 action-phantom-heal = Восстановление
 action-phantom-heal-desc = Вылечите [color=#05eafa]одержимого[/color] от большинства физических и механических травм.
