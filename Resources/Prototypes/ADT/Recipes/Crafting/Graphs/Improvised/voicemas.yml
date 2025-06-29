@@ -11,11 +11,16 @@
           sprite: Objects/Misc/module.rsi
           state: cell_con
         name: Intercom Electronics
+      - tag: GasMask
+        icon:
+          sprite: Clothing/Mask/gas.rsi
+          state: icon
+        name: gas mask
       - tag: VoiceTrigger
         icon:
           sprite: Objects/Devices/voice.rsi
           state: voice
-        name: voive trigger
+        name: voice trigger
       - material: Cable
         amount: 15
       - material: Cloth
