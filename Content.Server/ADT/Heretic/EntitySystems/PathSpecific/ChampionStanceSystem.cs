@@ -12,7 +12,6 @@ public sealed partial class ChampionStanceSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChampionStanceComponent, DamageModifyEvent>(OnDamageModify);
-        SubscribeLocalEvent<ChampionStanceComponent, StaminaDamageModifyEvent>(OnTakeStaminaDamage);
 
         // if anyone is reading through and does not have EE newmed you can remove these handlers
     }
@@ -31,13 +30,5 @@ public sealed partial class ChampionStanceSystem : EntitySystem
             return;
 
         args.Damage = args.OriginalDamage / 2f;
-    }
-
-    private void OnTakeStaminaDamage(Entity<ChampionStanceComponent> ent, ref StaminaDamageModifyEvent args)
-    {
-        if (!Condition(ent))
-            return;
-
-        args.Damage /= 2.5f;
     }
 }

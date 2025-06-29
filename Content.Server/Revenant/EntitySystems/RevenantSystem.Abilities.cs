@@ -66,6 +66,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
 
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
@@ -404,9 +405,9 @@ public sealed partial class RevenantSystem
         {
             _status.TryAddStatusEffect<TemporaryBlindnessComponent>(ent, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(3), true);
             _hallucinations.StartHallucinations(ent, "ADTHallucinations", component.HysteriaDuration, true, component.HysteriaProto);
-            if (!_mind.TryGetMind(ent, out var mindId, out var mind) || mind.Session == null)
+            if (!_mind.TryGetMind(ent, out var mindId, out var mind) || !_player.TryGetSessionById(mind.UserId, out var session))
                 continue;
-            _audio.PlayGlobal(component.HysteriaSound, Filter.SinglePlayer(mind.Session), false);
+            _audio.PlayGlobal(component.HysteriaSound, Filter.SinglePlayer(session), false);
         }
     }
 

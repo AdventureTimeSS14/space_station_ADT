@@ -6,7 +6,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
-    state: hypo
+    layers:
+      - state: hypo
+      #   map: ["enum.SolutionContainerLayers.Base"] # ADT-Tweak
+      # - state: hypo_fill1
+      #   map: ["enum.SolutionContainerLayers.Fill"]
+      #   visible: false
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
   - type: SolutionContainerManager
@@ -28,6 +33,11 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: Hypospray
+  - type: Appearance
+  # - type: SolutionContainerVisuals # ADT-Tweak
+  #   maxFillLevels: 6
+  #   fillBaseName: hypo_fill
+  #   solutionName: hypospray
 
 - type: entity
   name: gorlex hypospray
@@ -37,7 +47,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/syndihypo.rsi
-    state: hypo
+    layers:
+      - state: hypo
+      #   map: ["enum.SolutionContainerLayers.Base"] # ADT-Tweak
+      # - state: hypo_fill1
+      #   map: ["enum.SolutionContainerLayers.Fill"]
+      #   visible: false
   - type: Item
     sprite: Objects/Specific/Medical/syndihypo.rsi
   - type: SolutionContainerManager
@@ -52,6 +67,11 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  # - type: SolutionContainerVisuals # ADT-Tweak
+  #   maxFillLevels: 4
+  #   fillBaseName: hypo_fill
+  #   solutionName: hypospray
 
 - type: entity
   name: borghypo
@@ -169,8 +189,8 @@
           Quantity: 12
         - ReagentId: TranexamicAcid
           Quantity: 3
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -211,8 +231,8 @@
           Quantity: 10
         - ReagentId: Epinephrine
           Quantity: 5
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -258,8 +278,8 @@
           Quantity: 15
         - ReagentId: TranexamicAcid
           Quantity: 5
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -305,8 +325,8 @@
           Quantity: 10
         - ReagentId: Leporazine
           Quantity: 10
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -352,8 +372,8 @@
           Quantity: 15
         - ReagentId: Bicaridine
           Quantity: 5
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -399,8 +419,8 @@
           Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -446,8 +466,8 @@
           Quantity: 10
         - ReagentId: Dermaline
           Quantity: 10
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -492,9 +512,9 @@
         - ReagentId: Saline
           Quantity: 10
         - ReagentId: DexalinPlus
-          Quantity: 10
-  - type: Tag
+          Quantity: 20
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -541,8 +561,8 @@
             Quantity: 10
           - ReagentId: Barozine
             Quantity: 20
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -590,8 +610,8 @@
     injectOnly: true
   - type: StaticPrice
     price: 500
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -634,8 +654,8 @@
     emptySpriteName: microstimpen_empty
   - type: StaticPrice
     price: 100
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -683,8 +703,8 @@
     injectOnly: true
   - type: StaticPrice
     price: 500
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END
@@ -777,8 +797,8 @@
     transferAmount: 1
     onlyAffectsMobs: false
     injectOnly: true
-  - type: Tag
     #ADT Tweak Start
+  - type: Tag
     tags:
     - ADTMedipen
     # ADT Tweak END

@@ -148,12 +148,13 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesSecurity
-        prob: 0.3
-      - id: ADTClothingHeadHatDetGadgetv2
+      - id: ClothingEyesGlassesNoir
+      - id: ClothingHeadHatDetGadget
+      - id: ADTClothingHeadHatDetGadgetv2 #ADT tweak
       - id: ClothingNeckTieDet
       - id: ClothingOuterVestDetective
-      - id: ClothingOuterCoatDetective
+      - id: ClothingOuterCoatDetectiveLoadout
+      - id: FlippoEngravedLighter
       - id: FlashlightSeclite
       - id: ForensicScanner
       - id: LogProbeCartridge

@@ -19,7 +19,7 @@ using Content.Server.EUI;
 using Content.Shared.Throwing;
 using Content.Shared.Item;
 using Robust.Shared.Physics.Components;
-using Content.Shared.Mobs;
+using Robust.Shared.Player;
 using Content.Server.Singularity.Events;
 using Content.Shared.ADT.Silicon.Components;
 
@@ -39,6 +39,7 @@ public sealed partial class PoltergeistSystem : EntitySystem
     [Dependency] private readonly EuiManager _euiManager = null!;
     [Dependency] private readonly BatterySystem _batterySystem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -163,10 +164,10 @@ public sealed partial class PoltergeistSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
+        if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind) || !_player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        _euiManager.OpenEui(new RestInPeaceEui(uid, this), mind.Session);
+        _euiManager.OpenEui(new RestInPeaceEui(uid, this), session);
     }
 
     private void OnSinguloConsumeAttempt(EntityUid uid, PoltergeistComponent component, ref EventHorizonAttemptConsumeEntityEvent args)

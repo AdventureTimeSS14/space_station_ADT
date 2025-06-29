@@ -47,6 +47,7 @@ research-technology-alternative-research = Альтернативные иссл
 research-technology-magnets-tech = Локализованный магнетизм
 research-technology-advanced-parts = Продвинутые компоненты
 research-technology-anomaly-harnessing = Применение ядер аномалий
+research-technology-bluespace-time-manipulation = Блюспейс манипулирование временем
 research-technology-abnormal-artifact-manipulation = Продвинутая работа с артефактами
 research-technology-gravity-manipulation = Манипулирование гравитацией
 research-technology-quantum-leaping = Квантовые скачки
