@@ -10,3 +10,19 @@
   - type: Icon
     sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
     state: gitoctocat
+
+- type: entity
+  id: ADTAltarClockwork
+  parent: AltarNanotrasen
+  name: clockwork altar
+  description: And the heart going to beat like a clockwork machine and the brass arm lay on your shoulder.s
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: ratvar
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: ratvar
+  - type: Construction
+    graph: AltarsGraph
+    node: RatvarAltarNode
