@@ -372,3 +372,165 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_l
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenPoxui
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_poxui
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenAbsolutepoxui
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_absolute_poxui
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenAwesome
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_awesome
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenBestfriend
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_best_friend
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenBigsmile
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_bigsmile
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenBoredom
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_boredom
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenClown
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_clown
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCreeper
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_creeper
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenDealmaker
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_dealmaker
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenMime
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_mime
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenMonkey
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_monkey
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenMrgutsy
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_mr_gutsy
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenNerd
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_nerd
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenNya
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_nya
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenOko
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_oko
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenRock
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_rock
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenSkull
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_skull
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenTenna
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_tenna
