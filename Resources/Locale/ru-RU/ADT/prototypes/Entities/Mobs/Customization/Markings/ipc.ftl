@@ -70,7 +70,6 @@ marking-RobotAntennaDuality = Двойная
 marking-RobotAntennaHoloaura = Голоаура
 marking-RobotAntennaWireless = Беспроводная
 marking-RobotAntennaSmallEye = Малый глаз
-
 marking-ADTRobotAntennaCat = Кошачьи ушки
 marking-ADTRobotAntennaTvAlt = ТВ антенна
 
