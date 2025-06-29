@@ -12,6 +12,15 @@
         },
         {
             "name": "soil-trash"
+        },
+        {
+            "name": "soil-ball"
+        },
+        {
+            "name": "soil-small"
+        },
+        {
+            "name": "soil-normal"
         }
     ]
 }
