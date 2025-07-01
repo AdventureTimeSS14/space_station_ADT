@@ -21,6 +21,7 @@
     ADTPlantAnalyzer: 1
     ADTSoilPacked: 2
     # ADT tweak End
+    BotanicDNADisk: 20
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Joint: 1
