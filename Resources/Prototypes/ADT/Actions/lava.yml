@@ -8,7 +8,8 @@
   - type: InstantAction
     icon:
       sprite: ADT/Objects/Specific/Lavaland/loot.rsi
-      state: cursed_heart 
+      state: cursed_heart
+    checkCanInteract: false
     checkConsciousness: false # Позволяет использовать сердце в крите, порт импрувмента отсюда: https://github.com/Rxup/space-station-14/pull/1351
     itemIconStyle: BigAction
     event: !type:PumpHeartActionEvent

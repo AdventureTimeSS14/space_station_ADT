@@ -10,3 +10,14 @@
     sprite: ADT/Objects/Specific/Fishing/makeshift_rod.rsi
     state: icon
   objectType: Item
+
+- type: construction
+  name: radio
+  id: ADTOldRadio
+  graph: BroadcastRadio
+  startNode: start
+  targetNode: oldRadio
+  category: construction-category-tools
+  description: A radio, connected to some radio channel.
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  objectType: Item

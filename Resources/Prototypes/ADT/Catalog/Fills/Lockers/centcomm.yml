@@ -10,7 +10,6 @@
     - id: MedkitCombatFilled
     - id: MedkitBruteFilled
     - id: WeaponDisabler
-    - id: ADTBaseWeaponCaseNTBS
     # - id: ADTUnderwearBoxBlueshield
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
@@ -20,7 +19,7 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
-    - id: ADTCqcManualWeak
+    # - id: ADTCqcManualWeak
 
 - type: entity
   id: ADTLockerBlueshieldFilled
@@ -32,7 +31,6 @@
     - id: MedkitCombatFilled
     - id: MedkitBruteFilled
     - id: WeaponDisabler
-    - id: ADTBaseWeaponCaseNTBS
     # - id: ADTUnderwearBoxBlueshield
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
@@ -42,4 +40,4 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
-    - id: ADTCqcManualWeak
+    # - id: ADTCqcManualWeak

@@ -44,3 +44,8 @@ voucher-mod-duffelbag-description =
 voucher-mod-satchel-name = Сумочный модуль МОДа
 voucher-mod-satchel-description =
     Модуль хранилища для МОДа, что полностью идентичен по размерам сумке.
+
+blueshield-voucher-saber-rev-name = набор с энергетическим мечом-револьвером
+blueshield-voucher-saber-rev-description =
+    Стандартное вооружение офицеров "Синий Щит".
+    Включает в себя энергетический меч-револьвер, а также 3 дополнительных для него батареи.

@@ -27,3 +27,8 @@
   id: ADTParamedicBeltEMTBag
   equipment:
     belt: ADTClothingBeltMedicalBagEMTFilled
+
+- type: loadout
+  id: ADTClothingJumpsuitParamedicField
+  equipment:
+    jumpsuit: ADTClothingJumpsuitParamedicFieldSuit

@@ -398,6 +398,16 @@
   - ADTBeltUtility
   - ADTBeltUtilityWebbing
 
+- type: loadoutGroup
+  id: ADTEngineeringGlasses
+  name: loadout-group-engineering-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTEyeWeldingOldStyle
+  - ADTEyeWelding
+  - ADTEyeMeson
+
 # BRIGMEDIC
 
 #suit --- y

@@ -1,5 +1,5 @@
 - type: entity
-  id: OrganDraskEyes
+  id: ADTOrganDraskEyes
   parent: BaseHumanOrgan
   suffix: "drask"
   name: eyes
@@ -15,7 +15,7 @@
     - Eyes
 
 - type: entity
-  id: OrganDraskLungs
+  id: ADTOrganDraskLungs
   parent: BaseHumanOrgan
   suffix: "drask"
   name: lungs
@@ -54,7 +54,7 @@
     - Lungs
 
 - type: entity
-  id: OrganDraskHeart
+  id: ADTOrganDraskHeart
   parent: BaseHumanOrgan
   suffix: "drask"
   name: heart
@@ -77,7 +77,7 @@
     - Heart
 
 - type: entity
-  id: OrganDraskInnards
+  id: ADTOrganDraskInnards
   parent: BaseHumanOrgan
   suffix: "drask"
   name: innards
@@ -109,7 +109,7 @@
     - Stomach
 
 - type: entity
-  id: OrganDraskKidneys
+  id: ADTOrganDraskKidneys
   parent: BaseHumanOrgan
   suffix: "drask"
   name: kidneys

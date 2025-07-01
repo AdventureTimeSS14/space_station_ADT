@@ -53,7 +53,7 @@
     FoodPlateSmall: 1
     FoodCheeseSlice: 1
     FoodOnion: 1
-    ADTOrganVulpkaninAnimalLiver: 1
+    ADTOrganVulpkaninLiver: 1
   recipeType:
   - Assembler
 
@@ -235,7 +235,7 @@
   - Oven
   - Assembler
 
- 
+
 - type: microwaveMealRecipe
   id: ADTFoodPizzaBBQRecipe
   name: pizza bbq
@@ -269,7 +269,7 @@
   name: pizza caesar
   result: ADTFoodPizzaCaesar
   time: 30
-  solids: 
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     FoodOnionRedSlice: 2
@@ -283,7 +283,7 @@
   name: pizza cheese
   result: ADTFoodPizzaCheese
   time: 30
-  solids: 
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     FoodTomato: 1
@@ -295,7 +295,7 @@
   name: pizza cheese
   result: ADTFoodPizzaFourcheese
   time: 30
-  solids: 
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 2
     FoodChevreSlice: 2
@@ -308,7 +308,7 @@
   name: pizza chicago
   result: ADTFoodPizzaChicago
   time: 30
-  solids:     
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 2
     FoodMeatChicken: 1
@@ -321,7 +321,7 @@
   name: pizza chicken
   result: ADTFoodPizzaChicken
   time: 30
-  solids:     
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 2
     FoodMeatChicken: 1
@@ -334,7 +334,7 @@
   name: pizza mushroomchicken
   result: ADTFoodPizzaMushroomchicken
   time: 30
-  solids:     
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 2
     FoodMeat: 1
@@ -350,7 +350,7 @@
   time: 30
   reagents:
     Hotsauce: 5
-  solids:     
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     FoodMeat: 1
@@ -366,7 +366,7 @@
   time: 30
   reagents:
     Mayo: 5
-  solids:     
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     ADTFoodMeatFish: 3
@@ -379,7 +379,7 @@
   name: pizza mexico
   result: ADTFoodPizzaMexican
   time: 30
-  solids:     
+  solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     FoodMeat: 1
@@ -395,7 +395,7 @@
   name: pasta bolognese
   result: ADTFoodMealBolognese
   time: 10
-  solids:     
+  solids:
     FoodNoodlesBoiled: 1
     FoodMeat: 1
     FoodTomato: 1
@@ -408,7 +408,7 @@
   name: pasta cheesemeatball
   result: ADTFoodMealCheeseMeatball
   time: 10
-  solids:     
+  solids:
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
     FoodMeatMeatball: 2
@@ -421,7 +421,7 @@
   name: pasta cheesetomato
   result: ADTFoodMealCheeseTomato
   time: 10
-  solids:     
+  solids:
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
     FoodTomato: 2
@@ -437,7 +437,7 @@
   reagents:
     Water: 10
     Egg: 12
-  solids:     
+  solids:
     FoodDoughCottonRope: 1
   recipeType:
   - Oven
@@ -449,8 +449,8 @@
   result: ADTFoodMealCream
   time: 10
   reagents:
-    Cream: 5 
-  solids:     
+    Cream: 5
+  solids:
     FoodNoodlesBoiled: 1
     FoodButterSlice: 1
   recipeType:
@@ -462,7 +462,7 @@
   name: pasta creammeathball
   result: ADTFoodMealCreamMeatball
   time: 10
-  solids:     
+  solids:
     ADTFoodMealCream: 1
     FoodMeatMeatball: 2
   recipeType:
@@ -474,7 +474,7 @@
   name: pasta fish
   result: ADTFoodMealFish
   time: 10
-  solids:     
+  solids:
     ADTFoodMealCream: 1
     ADTFoodMeatFish: 1
   recipeType:
@@ -486,7 +486,7 @@
   name: pasta ink
   result: ADTFoodMealInk
   time: 10
-  solids:     
+  solids:
     FoodNoodlesBoiled: 1
     Pen: 1
   recipeType:
@@ -498,7 +498,7 @@
   name: pasta inkfish
   result: ADTFoodMealInkFish
   time: 10
-  solids:     
+  solids:
     ADTFoodMealInk: 1
     ADTFoodMeatFish: 2
   recipeType:
@@ -510,7 +510,7 @@
   name: pasta mushroom
   result: ADTFoodMealMushroom
   time: 10
-  solids:     
+  solids:
     ADTFoodMealCream: 1
     FoodMushroom: 2
   recipeType:
@@ -522,7 +522,7 @@
   name: pasta tomatomeat
   result: ADTFoodMealTomatoMeatball
   time: 10
-  solids:     
+  solids:
     FoodNoodlesBoiled: 1
     FoodMeatMeatball: 2
     FoodTomato: 2
@@ -536,7 +536,7 @@
   name: nigiri carp
   result: ADTFoodMealNigiriCarp
   time: 5
-  solids:     
+  solids:
     FoodRiceBoiled: 1
     FoodMeatFish: 1
   recipeType:
@@ -548,7 +548,7 @@
   name: nigiri fish
   result: ADTFoodMealNigiriCooked
   time: 5
-  solids:     
+  solids:
     FoodRiceBoiled: 1
     ADTFoodFishCutletCooked: 1
   recipeType:
@@ -561,9 +561,54 @@
   name: nigiri fish
   result: ADTFoodMealNigiriFish
   time: 5
-  solids:     
+  solids:
     FoodRiceBoiled: 1
     ADTFoodFishCutlet: 1
   recipeType:
   - Oven
   - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealChesnechkaRecipe
+  name: chesnechka soup
+  result: ADTFoodSoupChesnechka
+  time: 10
+  reagents:
+    Water: 10
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodGarlic: 1
+    FoodOnionSlice: 1
+    FoodBowlBig: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealUtopenciRecipe
+  name: utopenci
+  result: ADTFoodMeatUtopenci
+  time: 10
+  reagents:
+    Water: 10
+    Vinegar: 10
+    Mustard: 10
+  solids:
+    FoodMeatCutlet: 1
+    FoodOnionSlice: 1
+  recipeType:
+  - Oven
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTFoodMealBerriedDelightRecipe
+  name: berried delight
+  result: ADTFoodBerriedDelight
+  time: 10
+  reagents:
+    Cream: 10
+  solids:
+    ADTFoodStrawberry: 2
+    FoodBakedCookieOatmeal: 2
+  recipeType:
+  - Oven
