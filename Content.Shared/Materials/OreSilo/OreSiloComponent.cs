@@ -23,7 +23,7 @@ public sealed partial class OreSiloComponent : Component
     /// Default value should be big enough to span a single large department.
     /// </remarks>
     [DataField, AutoNetworkedField]
-    public float Range = 20f;
+    public float Range = 200f; //ADT tweak 20 - 200
 }
 
 [Serializable, NetSerializable]
