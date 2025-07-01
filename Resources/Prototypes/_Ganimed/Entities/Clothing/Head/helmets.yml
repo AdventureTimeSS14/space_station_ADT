@@ -28,3 +28,24 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+    
+- type: entity
+  parent: [ClothingHeadBase, BaseMajorContraband]
+  id: ClothingHeadHelmetCultWhite
+  name: white cult helmet
+  description: A robust, evil-looking cult helmet.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Helmets/white_cult
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Helmets/white_cult
+  - type: IngestionBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.9
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
