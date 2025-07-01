@@ -7,6 +7,9 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Mobs.Components;
+using Robust.Shared.Network;
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared.ADT.Supermatter.Components;
 
@@ -47,7 +50,6 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public bool HasSpawnedPortal = false;
-
     #endregion
 
     #region Prototypes
@@ -266,7 +268,6 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public AnomalyMode PreferredAnomalyMode = AnomalyMode.Base;
-
     #endregion
 
     #region Timing
@@ -514,12 +515,11 @@ public struct SupermatterGasFact
     /// </summary>
     public float HeatResistance;
 
-    public SupermatterGasFact(float transmitModifier, float heatPenalty, float powerMixRatio, float resonantFrequency, float heatResistance)
+    public SupermatterGasFact(float transmitModifier, float heatPenalty, float powerMixRatio, float heatResistance)
     {
         TransmitModifier = transmitModifier;
         HeatPenalty = heatPenalty;
         PowerMixRatio = powerMixRatio;
-        ResonantFrequency = resonantFrequency;
         HeatResistance = heatResistance;
     }
 }
@@ -529,26 +529,26 @@ public static class SupermatterGasData
 {
     public static readonly Dictionary<Gas, SupermatterGasFact> GasData = new()
     {
-        { Gas.Oxygen,        new(1.5f,  1f,    1f, 0f, 0f)  },
-        { Gas.Nitrogen,      new(-0.5f, -1.5f, 0.5f, 0f, 0f)  },
-        { Gas.CarbonDioxide, new(1f,   0.2f,   2f, 0f, 0f)  },
-        { Gas.Plasma,        new(5f,   5f,     1f, 0f, 1f)  },
-        { Gas.Tritium,       new(20f,  10f,    2f, 0f, 3f)  },
-        { Gas.WaterVapor,    new(2f,    4f,    1f, 0f, 1f)  },
-        { Gas.Frezon,        new(-2f,   -10f,  -1f, 0f, 2f)  },
-        { Gas.Ammonia,       new(1f,   0.5f,   1f, 0f, 1f)  },
-        { Gas.NitrousOxide,  new(0.5f, -2f,    0.5f, 0f, 6f)  },
-        { Gas.BZ,            new(2f,    -1f,   -2f, 0f, 8f)  },
-        { Gas.Pluoxium,      new(2f,    8f,   1f, 0f, 2f)  },
-        { Gas.Hydrogen,      new(3.5f,   5f,   1f, 0f, 0f)  },
-        { Gas.Nitrium,       new(2f,    8f,    2f, 0f, 1f)  },
-        { Gas.Healium,       new(-2f,   -1f,    2f, 0f, 8f)  },
-        { Gas.HyperNoblium,  new(0f,    0f,    1f, 0f, 1f)  },
-        { Gas.ProtoNitrate,  new(5f,    1f,    1f, 0f, 3f)  },
-        { Gas.Zauker,        new(30f,   15f,   2f, 0f, 1f)  },
-        { Gas.Halon,         new(0f,    0f,    0f, 0f, 0f)  },
-        { Gas.Helium,        new(0f,    0f,    0f, 0f, 0f)  },
-        { Gas.AntiNoblium,   new(0f,    0f,    0f, 10f, 0f) }
+        { Gas.Oxygen,        new(1.5f,   1f,    1f,   0f)  },
+        { Gas.Nitrogen,      new(-0.5f, -1.5f,  0.5f, 0f)  },
+        { Gas.CarbonDioxide, new(1f,     0.4f,  2f,   0f)  },
+        { Gas.Plasma,        new(5f,     5f,    1f,   1f)  },
+        { Gas.Tritium,       new(20f,    10f,   2f,   3f)  },
+        { Gas.WaterVapor,    new(2f,     4f,    1f,   1f)  },
+        { Gas.Frezon,        new(-2f,   -10f,  -1f,   2f)  },
+        { Gas.Ammonia,       new(1f,     0.5f,  1f,   1f)  },
+        { Gas.NitrousOxide,  new(0.5f,  -2f,    0.5f, 6f)  },
+        { Gas.BZ,            new(2f,    -1f,   -2f,   8f)  },
+        { Gas.Pluoxium,      new(2f,     8f,    1f,   2f)  },
+        { Gas.Hydrogen,      new(3.5f,   1.4f,  3f,   0f)  },
+        { Gas.Nitrium,       new(2f,     8f,    2f,   1f)  },
+        { Gas.Healium,       new(-2f,   -1f,    2f,   8f)  },
+        { Gas.HyperNoblium,  new(0f,     0f,    1f,   1f)  },
+        { Gas.ProtoNitrate,  new(5f,     1f,    1f,   3f)  },
+        { Gas.Zauker,        new(30f,    15f,   2f,   1f)  },
+        { Gas.Halon,         new(0f,     0f,    0f,   0f)  },
+        { Gas.Helium,        new(0f,     0f,    0f,   0f)  },
+        { Gas.AntiNoblium,   new(0f,     0f,    0f,   0f)  }
     };
 
     public static float CalculateGasMixModifier(GasMixture mix, Func<SupermatterGasFact, float> getModifier)
