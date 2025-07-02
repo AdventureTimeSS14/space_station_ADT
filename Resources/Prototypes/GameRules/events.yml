@@ -350,7 +350,7 @@
       params:
         volume: -4
     endAnnouncement: station-event-gas-leak-end-announcement
-    weight: 8
+    weight: 7 # Ganimed-tweak (weight decreased from 8 to 7)
     endAudio:
       path: /Audio/Announcements/gasleak_end.ogg # Corvax-Announcements
       params:
