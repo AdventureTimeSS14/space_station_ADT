@@ -158,8 +158,8 @@
 
 - type: entity
   parent: ClothingEyesBase
-  id: ADTClothingEyesWeldingOldStyle
-  name: welding glasses
+  id: ADTClothingEyesGlassesEngineeringWelding
+  name: engineering goggles
   components:
   - type: Sprite
     sprite: ADT/Clothing/Eyes/Glasses/welding_old.rsi
