@@ -32,7 +32,7 @@ ent-ADTClothingEyesNightVisionMGD = ПНВ компании MG&D
 ent-ADTClothingEyesWelding = сварочные очки
     .desc = Стандартные тёмные очки, что защищают глаза от яркого света сварки.
 
-ent-ADTClothingEyesGlassesEngineeringWelding = инженерные очки
+ent-ADTClothingEyesWeldingOldStyle = инженерные очки
     .desc = Защитные очки с зелёным затемнением, выпускавшиеся на производстве, которое позже переключилось на мезонные сканеры. Старая школа инженерии.
 
 ent-ADTClothingEyesGlassesMedChem = химико-медицинские очки
