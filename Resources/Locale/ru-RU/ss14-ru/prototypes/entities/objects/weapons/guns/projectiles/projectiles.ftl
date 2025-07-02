@@ -94,3 +94,7 @@ ent-BulletLaserSpreadNarrow = узкий лазерный залп
     .desc = { ent-BulletLaser.desc }
 ent-BulletDisablerSmgSpread = оглушающий лазерный залп
     .desc = { ent-BulletDisablerSmg.desc }
+ent-BoltTempgunCold = охлаждённый снаряд
+    .desc = { ent-BulletDisablerSmg.desc }
+ent-BoltTempgunHot = нагретый снаряд 
+    .desc = { ent-BulletDisablerSmg.desc }
