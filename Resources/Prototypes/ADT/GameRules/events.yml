@@ -70,6 +70,5 @@
     duration: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Nonstation/voxbase.yml
-    preloadedGrid: Spacebus
    
 
