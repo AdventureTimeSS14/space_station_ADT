@@ -158,7 +158,7 @@
 
 - type: entity
   parent: ClothingEyesBase
-  id: ADTClothingEyesGlassesEngineeringWelding
+  id: ADTClothingEyesWeldingOldStyle
   name: engineering goggles
   components:
   - type: Sprite
