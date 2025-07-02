@@ -16701,7 +16701,7 @@ entities:
     - type: Transform
       pos: -13.713502,6.5177207
       parent: 2
-- proto: CentcomComputerComms
+- proto: CentcommComputerComms
   entities:
   - uid: 7268
     components:
