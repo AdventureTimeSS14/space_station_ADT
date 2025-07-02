@@ -13,7 +13,7 @@
 - type: loadout
   id: ADTEyeWeldingOldStyle
   equipment:
-    eyes: ADTClothingEyesGlassesEngineeringWelding
+    eyes: ADTClothingEyesWeldingOldStyle
   effects:
   - !type:GroupLoadoutEffect
     proto: HonoredEngineer
