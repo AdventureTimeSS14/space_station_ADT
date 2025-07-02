@@ -262,6 +262,3 @@ ghost-role-information-gingerbread-description =
     Распространяйте паточную вкуснятину и хорошее настроение.
 ghost-role-information-wizard-name = Маг
 ghost-role-information-wizard-desc = ВЫ МАГ! Покажите станции, из чего сделана ваша магия.
-ghost-role-information-vox_raider-name = Вокс-налётчик
-ghost-role-information-vox_raider-description = Вы на задании стаи. Совершите ограбление станции, не нарушив нерушимый кодекс воксов
-ghost-role-information-vox_raider-rules = Вы [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color], в команде с другими воксами-налётчиками. Вместо убийств, попробуйте воспользоваться нелетальными средствами
