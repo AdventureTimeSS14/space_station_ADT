@@ -781,14 +781,21 @@ namespace Content.Shared.Preferences
                 if (!protoManager.TryIndex(traitProto.Category, out var category))
                     continue;
 
-                var existing = groups.GetOrNew(category.ID);
-                existing += traitProto.Cost;
+                // Ganimed edit trait points start
+                if (category.MaxTraitPoints < 0)
+                {
+                    result.Add(trait);
+                    continue;
+                }
 
-                // Too expensive.
-                if (existing > category.MaxTraitPoints)
+                var total = groups.GetOrNew(category.ID);
+                var newTotal = total + traitProto.Cost;
+                // Ganimed edit trait points end
+
+                if (newTotal > category.MaxTraitPoints) // Ganimed edit trait points
                     continue;
 
-                groups[category.ID] = existing;
+                groups[category.ID] = newTotal; // Ganimed edit trait points
                 result.Add(trait);
             }
 
