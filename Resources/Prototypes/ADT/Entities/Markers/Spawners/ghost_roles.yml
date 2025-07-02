@@ -234,7 +234,7 @@
     description: ghost-role-information-vox_raider-description
     rules: ghost-role-information-vox_raider-rules
     raffle:
-    settings: default
+      settings: default
   - type: GhostRoleMobSpawner
     prototype: ADTMobVoxRaider
   - type: Sprite

@@ -874,7 +874,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - vox_raider
+      - Syndicate
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
