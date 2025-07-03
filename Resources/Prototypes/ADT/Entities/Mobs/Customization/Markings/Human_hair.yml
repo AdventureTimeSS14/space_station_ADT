@@ -1,4 +1,4 @@
-- type: marking
+- type: marking 
   id: ADTHumanBeardBeardchin
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -352,6 +352,7 @@
   id: ADTHumanHairLongPompadour
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: longPompadour
@@ -384,6 +385,7 @@
   id: ADTHumanHairPlateau
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] 
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: plateau
@@ -400,6 +402,7 @@
   id: ADTHumanHairSaggedMohawk
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] 
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: saggedMohawk
@@ -408,6 +411,7 @@
   id: ADTHumanHairSharpMohawk
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] 
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: sharpMohawk
@@ -456,6 +460,7 @@
   id: ADTHumanHairStar
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: star
@@ -464,6 +469,7 @@
   id: ADTHumanHairStarFro
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: starFro
@@ -480,6 +486,7 @@
   id: ADTHumanHairUnkemptScientist
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies]  
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: unkemptScientist
