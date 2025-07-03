@@ -157,7 +157,7 @@
     quartermaster: Command
     researchdirector: Command
     robotics: Science
-    salvage: Cargo
     service: Civilian
     theatre: Civilian
+    salvage: Cargo
     #ADT-Tweak-End

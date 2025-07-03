@@ -1282,7 +1282,7 @@ entities:
     - type: Transform
       pos: -0.5,8.5
       parent: 1
-- proto: CentcomComputerComms
+- proto: CentcommComputerComms
   entities:
   - uid: 172
     components:

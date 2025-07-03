@@ -689,7 +689,7 @@ entities:
     - type: Transform
       pos: -2.5,0.5
       parent: 1
-- proto: CentcomComputerComms
+- proto: CentcommComputerComms
   entities:
   - uid: 97
     components:

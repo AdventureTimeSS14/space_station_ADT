@@ -39,10 +39,10 @@
   - GroupSpeciesBreathTool
 
 # Silicons
-#- type: roleLoadout
-#  id: JobBorg
-#  nameDataset: roleloadout doesn't support both so need to update that first.
-#  canCustomizeName: true
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -245,6 +245,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -265,6 +266,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -634,7 +636,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
   - ADTCMOPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopCMO
@@ -659,7 +661,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -676,8 +678,8 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
+  - MedicalEyewear
   - ADTMedicalBelt # ADT tweak
-  - Glasses
   - ADTMedicalInternPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
@@ -724,7 +726,7 @@
   # ADT tweak End
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

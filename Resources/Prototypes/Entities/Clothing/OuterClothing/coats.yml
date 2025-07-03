@@ -79,9 +79,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.55 # ADT tweak 0.7 > 0.55
-        Slash: 0.55 # ADT tweak 0.7 > 0.55
-        Piercing: 0.6 # ADT tweak 0.7 > 0.6
+        Blunt: 0.55 # ADT tweak 0.65 > 0.55
+        Slash: 0.55 # ADT tweak 0.65 > 0.55
+        Piercing: 0.6
         Heat: 0.7
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
@@ -95,10 +95,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 # ADT tweak 0.7 > 0.6
-        Slash: 0.6 # ADT tweak 0.7 > 0.6
+        Blunt: 0.6 # ADT tweak 0.65 > 0.6
+        Slash: 0.6 # ADT tweak 0.65 > 0.6
         Piercing: 0.6 # ADT tweak 0.7 > 0.6
         Heat: 0.7
+        Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
 

@@ -5,10 +5,11 @@ using Content.Shared.Charges.Systems;
 using Content.Shared.Flash;
 using Content.Shared.StatusEffect;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Mind.Components;
+using Content.Shared.Mind;
 using Content.Server.Electrocution;
 using Content.Shared.Movement.Components;
 using Content.Server.Flash;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.ShowMessageOnItemUse;
 
@@ -20,6 +21,7 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
     [Dependency] private readonly FlashSystem _flashSystem = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -29,7 +31,7 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
     private void ItemUsed(EntityUid uid, MindFlushComponent component, UseInHandEvent args)
     {
         if (TryComp<LimitedChargesComponent>(uid, out var charges))
-            if (_charges.IsEmpty(uid, charges))
+            if (_charges.IsEmpty((uid, charges)))
                 return;
 
         var transform = EntityManager.GetComponent<TransformComponent>(uid);
@@ -42,9 +44,9 @@ public sealed partial class ShowMessageOnItemUseSystem : EntitySystem
                 continue;
             if (entity == args.User)
                 continue;
-            if (TryComp<MindContainerComponent>(entity, out var mindContainer))
+            if (TryComp<MindComponent>(entity, out var mind))
             {
-                if (_mind.TryGetSession(mindContainer.Mind, out var session))
+                if (_player.TryGetSessionById(mind.UserId, out var session))
                 {
                     _euiManager.OpenEui(new AdtAmnesiaEui(), session);
                     Console.WriteLine($"entity {entity} mind was flushed.");

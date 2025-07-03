@@ -16,6 +16,12 @@
     # undergarmentTop: UndergarmentTopTanktopVox # ADT-No-More-Useless-Feature
     # undergarmentBottom: UndergarmentBottomBoxersVox # ADT-No-More-Useless-Feature
     #- type: VoxAccent # Not yet coded
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hair
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
@@ -47,7 +53,7 @@
     damage:
       types:
         Heat: -0.07
-        Poison: -0.2
+        Poison: -0.2 # needs to be less than the PendingZombieComponent does or they never become zombies by the disease.
       groups:
         Brute: -0.07
   # ADT-Tweak Start
@@ -191,6 +197,12 @@
     species: Vox
     # undergarmentTop: UndergarmentTopTanktopVox # ADT-No-More-Useless-Feature
     # undergarmentBottom: UndergarmentBottomBoxersVox # ADT-No-More-Useless-Feature
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hair
   - type: Body
     prototype: Vox
   - type: Inventory
