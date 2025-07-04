@@ -1,0 +1,72 @@
+# Boxes
+- type: entity
+  parent: BaseItem
+  id: ADTMagazineBox8mmMauser
+  name: ammunition box (8 mm Mauser)
+  description: Box 8 mm Mauser ammo
+  suffix: World War I, Germany
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgeRifle8mmMauser
+    proto: ADTCartridgeRifle8mmMauser
+    capacity: 50
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/WorldWar1/Objects/Weapons/Guns/Ammunition/Boxes/8mmMauser.rsi
+    layers:
+    - state: base
+  # - type: MagazineVisuals
+  #   magState: mag
+  #   steps: 4
+  #   zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: ADTMagazineBox8mmMauser
+  id: ADTMagazineBox8mmMauserIncendiary
+  name: ammunition box (8 mm Mauser incendiary)
+  description: Box 8 mm Mauser ammo
+  suffix: World War I, Germany
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeRifle8mmMauserIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+    - state: incendiary
+
+- type: entity
+  parent: ADTMagazineBox8mmMauser
+  id: ADTMagazineBox8mmLebel
+  name: ammunition box (8 mm Lebel)
+  description: Box 8 mm Lebel
+  suffix: World War I, France
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ADTCartridgeRifle8mmLebel
+    proto: ADTCartridgeRifle8mmLebel
+    capacity: 50
+
+- type: entity
+  parent: ADTMagazineBox8mmLebel
+  id: ADTMagazineBox8mmLebelIncendiary
+  name: ammunition box (8 mm Lebel incendiary)
+  description: Box 8 mm Lebel ammo
+  suffix: World War I, France
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeRifle8mmLebelIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+    - state: incendiary
