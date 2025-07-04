@@ -384,6 +384,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.25
       movementVisibilityRate: 0.25
+    - type: SupermatterIgnore # ADT tweak
 
 - type: entity
   id: MobCobraSpaceSalvage
@@ -528,6 +529,7 @@
         visualType: Large
         messages: [ "snail-hurt-by-salt-popup" ]
         probability: 0.66
+  - type: SupermatterIgnore # ADT tweak
 
 - type: entity
   parent: MobSnail
