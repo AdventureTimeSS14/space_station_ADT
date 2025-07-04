@@ -1,14 +1,14 @@
 - type: stack
   id: ADTGroundCannabisWhite
-  name: ground rainbow cannabis
-  icon: { sprite: /Textures/Objects/Specific/Hydroponics/rainbow_cannabis.rsi, state: powderpile_rainbow }
+  name: ground cannabis white
+  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   spawn: ADTGroundCannabisWhite
   maxCount:
 
 - type: stack
   id: ADTLeavesCannabisWhiteDried
-  name: dried tobacco leaves
-  icon: { sprite: /Textures/Objects/Specific/Hydroponics/tobacco.rsi, state: dried }
+  name: dried cannabis white leaves
+  icon: { sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi, state: dried }
   spawn: ADTLeavesCannabisWhiteDried
   maxCount: 5
 

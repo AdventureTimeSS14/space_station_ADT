@@ -2859,6 +2859,20 @@
   #ADT-Tweak End
 
 - type: microwaveMealRecipe
+  id: RecipeDriedCannabisWhite
+  name: dried cannabis white leaves recipe
+  result: ADTLeavesCannabisWhiteDried
+  time: 10
+  group: Other #ADT-Tweak
+  solids:
+    ADTLeavesCannabisWhite: 1
+  #ADT-Tweak Start
+  recipeType:
+  - Oven
+  - Microwave
+  #ADT-Tweak End
+
+- type: microwaveMealRecipe
   id: RecipeTrashBakedBananaPeel
   name: baked banana peel recipe
   result: TrashBakedBananaPeel
