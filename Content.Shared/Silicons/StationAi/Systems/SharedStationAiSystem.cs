@@ -29,6 +29,8 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.GameTicking;
+using Content.Shared.ADT.Silicons.Borgs;
+using Content.Shared.Emoting;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -236,6 +238,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         // Otherwise try to take from them
         if (_slots.CanEject(args.Args.Target.Value, args.User, targetHolder.Slot))
         {
+            // Corvax-Next-AiRemoteControl-Start
+            if (ent.Comp.Slot.Item != null
+                && TryComp<StationAiHeldComponent>(ent.Comp.Slot.Item, out var stationAiHeldComp))
+                if (stationAiHeldComp.CurrentConnectedEntity != null)
+                    _remoteSystem.ReturnMindIntoAi(stationAiHeldComp.CurrentConnectedEntity.Value);
+            // Corvax-Next-AiRemoteControl-End
+
             if (!_slots.TryInsert(ent.Owner, ent.Comp.Slot, targetHolder.Slot.Item!.Value, args.User, excludeUserAudio: true))
             {
                 return;
@@ -281,6 +290,12 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             intelliComp.NextWarningAllowed = _timing.CurTime + intelliComp.WarningDelay;
             AnnounceIntellicardUsage(held, intelliComp.WarningSound);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (TryComp<StationAiHeldComponent>(held, out var heldComp))
+            if (heldComp.CurrentConnectedEntity != null)
+                AnnounceIntellicardUsage(heldComp.CurrentConnectedEntity.Value, intelliComp.WarningSound);
+        // Corvax-Next-AiRemoteControl-End
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
         {
