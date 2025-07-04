@@ -1104,7 +1104,9 @@
     hideStackVisualsWhenClosed: false
   - type: Item
     sprite: ADT/Objects/Consumable/Drinks/yupi.rsi
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Appearance
   - type: StaticPrice
     price: 0
