@@ -1,13 +1,13 @@
 - type: stack
   id: ADTGroundCannabisWhite
-  name: ground white cannabis
+  name: ground cannabis white
   icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   spawn: ADTGroundCannabisWhite
   maxCount:
 
 - type: stack
   id: ADTLeavesCannabisWhiteDried
-  name: dried white cannabis leaves
+  name: dried cannabis white leaves
   icon: { sprite: ADT/Objects/Specific/Hydroponics/cannabiswhite.rsi, state: dried }
   spawn: ADTLeavesCannabisWhiteDried
   maxCount: 5
