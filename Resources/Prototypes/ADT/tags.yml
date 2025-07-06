@@ -173,6 +173,51 @@
   id: ADTModsuitAssembledPart
 
 - type: Tag
+  id: ADTJumpSuitSacrifice
+
+- type: Tag
+  id: ADTGasmaskSacrifice
+
+- type: Tag
+  id: ADTShoesSacrifice
+
+- type: Tag
+  id: ADTToolboxBlueSacrifice
+
+- type: Tag
+  id: ADTPenguinToy
+
+- type: Tag
+  id: ADTGoldOre
+
+- type: Tag
+  id: ADTSteelOre
+
+- type: Tag
+  id: ADTQuarzOre
+
+- type: Tag
+  id: ADTUraniumOre
+
+- type: Tag
+  id: ADTSilverOre
+
+- type: Tag
+  id: ADTCoalOre
+
+- type: Tag
+  id: ADTToolboxRedSacrifice
+
+- type: Tag
+  id: ADTAppleSacrifice
+
+- type: Tag
+  id: ADTrobeSacrifice
+
+- type: Tag
+  id: ADTMelonacrifice
+
+- type: Tag
   id: ADTModsuitPlateAtmospheric
 
 - type: Tag
@@ -619,7 +664,7 @@
 
 - type: Tag
   id: ADTBible
-  
+
 - type: Tag
   id: ADTGummy
 

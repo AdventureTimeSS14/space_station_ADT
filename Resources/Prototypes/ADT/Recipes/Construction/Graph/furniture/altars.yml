@@ -124,6 +124,13 @@
         - material: Brass
           amount: 3
           doAfter: 3
+      - to: CoderAltarNode
+        completed:
+        - !type:SnapToGrid
+          southRotation: true
+        steps:
+        - tag: ADTPenguinToy
+          doAfter: 3
 #Nullrod Altars
   - node: BananiumAltarNode
     entity: AltarBananium
@@ -265,6 +272,18 @@
       - !type:SpawnPrototype
         prototype: SheetBrass
         amount: 3
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: CoderAltarNode
+    entity: ADTAltarOctoCat
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: PlushiePenguin
+        amount: 1
       steps:
       - tool: Prying
         doAfter: 1

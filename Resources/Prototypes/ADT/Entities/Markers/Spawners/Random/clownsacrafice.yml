@@ -1,0 +1,87 @@
+- type: entityTable
+  id: ADTClownJumpsuitChances
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 90
+      children:
+      - id: ClothingUniformJumpsuitClown
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTClownJumpsuitCluwneSpawn
+
+- type: entity
+  parent: MarkerBase
+  id: ADTClownJumpsuitSacrafice
+  name: Clownn jumpsuit with Cluwne chance
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ADTClownJumpsuitChances
+      prob: 1
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entityTable
+  id: ADTClownShoesChances
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 90
+      children:
+      - id: ClothingShoesClown
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTClownShoesCluwneSpawn
+
+- type: entity
+  parent: MarkerBase
+  id: ADTClownShoesSacrafice
+  name: Clownn shoes with Cluwne chance
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ADTClownShoesChances
+      prob: 1
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entityTable
+  id: ADTClownMaskChances
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 90
+      children:
+      - id: ClothingMaskClown
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTClownMaskCluwneSpawn
+
+- type: entity
+  parent: MarkerBase
+  id: ADTClownMaskSacrafice
+  name: Clownn mask with Cluwne chance
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ADTClownMaskChances
+      prob: 1
+  - type: TimedDespawn
+    lifetime: 3
+

@@ -55,3 +55,14 @@
     sprite: ADT/Objects/Fun/toys.rsi
     state: plushie_git
   - type: Rotatable
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDamn
+  name: blyat plushie
+  description: what kind of dumbass put it "hilarious" here?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_damn
+  - type: Rotatable

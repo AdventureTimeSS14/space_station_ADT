@@ -45,3 +45,7 @@ ent-ADTClothingShoesJackbootsCowboyWhite = подкованные белые к�
     .desc = { ent-ADTClothingShoesJackbootsCowboyBrown.desc }
 ent-ADTClothingShoesJackbootsCowboyFancy = подкованные модные ковбойские ботинки
     .desc = { ent-ADTClothingShoesJackbootsCowboyBrown.desc }
+
+ent-ADTClownShoesCluwneSpawn = клоунские туфли
+    .desc = Стандартные клоунские туфли. Чертовски огромные!
+    .suffix = Спавн клувня

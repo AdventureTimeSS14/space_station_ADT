@@ -983,6 +983,9 @@
   components:
   - type: Sprite
     state: plushie_penguin
+  - type: Tag
+    tags:
+    - ADTPenguinToy
 
 - type: entity
   parent: BasePlushie

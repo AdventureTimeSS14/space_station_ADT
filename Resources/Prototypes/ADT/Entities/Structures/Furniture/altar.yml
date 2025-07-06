@@ -10,6 +10,16 @@
   - type: Icon
     sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
     state: gitoctocat
+  - type: Construction
+    graph: AltarsGraph
+    node: CoderAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTCoderKeyboard
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 3
 
 - type: entity
   id: ADTAltarClockwork
@@ -26,3 +36,16 @@
   - type: Construction
     graph: AltarsGraph
     node: RatvarAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTBrassWhip
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 3
+      - requiredTag: ADTSteelSheet
+        requiredAmount: 10
+        resultProto: SheetBrass10
+        effectProto: ADTWeaponArcRedCrash
+        powerCost: 1
+        soundPath: /Audio/Magic/blink.ogg
