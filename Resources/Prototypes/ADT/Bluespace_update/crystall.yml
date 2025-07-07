@@ -1,0 +1,261 @@
+#TAGS
+- type: Tag
+  id: BSCrystal
+
+
+#ORE
+- type: entity
+  parent: OreBase
+  id: BSore
+  suffix: Full
+  name: Блюспейс руда
+  description: Камень с жилками блюспейс руды
+  components:
+  - type: Stack
+    stackType: BSore
+  - type: Sprite
+    sprite: ADT/Bluespace_crystall/BS_ore.rsi
+    layers:
+    - state: BS_ore
+      map: [ "base" ]
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawBSore: 800
+  - type: Extractable
+    grindableSolutionName: BSore
+  - type: Item
+    heldPrefix: BSore
+
+- type: material
+  id: RawBSore
+  stackEntity: BSore1
+  name: Блюспейс руда
+  unit: materials-unit-chunk
+  icon: { sprite: ADT/Bluespace_crystall/BS_ore.rsi, state: BS_ore }
+  color: "#a8ccd7"
+  price: 0.075
+
+
+- type: stack
+  id: BSore
+  icon: { sprite: ADT/Bluespace_crystall/BS_ore.rsi, state: BS_ore }
+  spawn: BSore1
+  maxCount: 30
+
+- type: entity
+  parent: BSore
+  id: BSore1
+  name: Блюспейс руда
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+#Ore veins and drop
+#drop
+- type: ore
+  id: OreBS
+  oreEntity: BSore1
+  minOreYield: 1
+  maxOreYield: 2
+#obj and rare
+
+- type: entity
+  id: MeteorRockBS
+  parent: MeteorRock
+  description: 
+  suffix: BS
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBS
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_bsore
+
+- type: entity
+  id: AsteroidRockBS
+  parent: AsteroidRock
+  description: 
+  suffix: BS
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBS
+    - type: Sprite
+      layers:
+        - state: rock_bsore #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        # - state: rock_phoron #ADT tweak
+        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+
+
+
+
+
+
+
+
+
+
+
+  #BS CRYSTAL
+- type: entity
+  parent: [MaterialBase,BaseItem]
+  id: MaterialBScrystal
+  name: Блюспейс кристалл
+  description: Просто блюспейс кристалл, который не был совмещен с плазмой и бриллиантом.Имеет ограниченный функционал,но умеет при определенной манипуляции над кристаллом искажать пространство,расширяя ,например, его внутри маленьких предметов, а так же перемещать в блюспейс скачки шаттлы
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      BScrystal: 100
+  - type: Tag
+    tags:
+    - BSCrystal
+  - type: Sprite
+    sprite: ADT/Bluespace_crystall/crystall.rsi
+    layers:
+    - state: crystall
+      map: [ "base" ]
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 1500
+  - type: Appearance
+  - type: Stack
+    stackType: BScrystal
+    baseLayer: base
+    layerStates:
+    - crystall
+    - crystall_2
+    - crystall_3
+  - type: Item
+    size: Small
+    heldPrefix: crystal
+    sprite: ADT/Bluespace_crystall/crystall.rsi
+    shape:
+    - 0,0,2,2
+
+- type: entity
+  parent: MaterialBScrystal
+  id: MaterialBScrystal1
+  name: Блюспейс кристалл
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  id: BScrystal
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi, state: crystall }
+  spawn: MaterialBScrystal1
+  maxCount: 10
+
+- type: material
+  id: BScrystal
+  stackEntity: MaterialBScrystal1
+  name: materials-bluespacecrystal
+  unit: materials-unit-piece
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi, state: crystall }
+  color: "#1d55c4"
+  price: 50 
+
+
+  #BS CRYSTAL ARTIF.
+- type: entity
+  parent: [MaterialBase,BaseItem]
+  id: MaterialBScrystalArt
+  name: Артефактный блюспейс кристалл
+  description: Кристалл обьедененный с плазмой и бриллиантом, способный манипулировать позицией обьекта в пространстве, но становится очень нестабильным если сломать его
+  suffix: Full
+  components:
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+    EmbedOnThrow: false
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: BsCrystalTeleport
+  - type: Sprite
+    sprite: ADT/Bluespace_crystall/crystall_art.rsi
+    layers:
+    - state: crystall
+      map: [ "base" ]
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 1500
+  - type: Appearance
+  - type: Stack
+    stackType: BScrystalArt
+    baseLayer: base
+    layerStates:
+    - crystall
+    - crystall_2
+    - crystall_3
+  - type: Item
+    size: Small
+    heldPrefix: crystal
+    sprite: ADT/Bluespace_crystall/crystall_art.rsi
+    shape:
+    - 0,0,2,2
+
+- type: entity
+  parent: MaterialBScrystalArt
+  id: MaterialBScrystalArt1
+  name: Артефактный блюспейс кристалл
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  id: BScrystalArt
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi, state: crystall }
+  spawn: MaterialBScrystalArt1
+  maxCount: 10
+
+- type: material
+  id: BScrystalArt
+  stackEntity: MaterialBScrystalArt1
+  unit: materials-unit-piece
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall_art.rsi, state: crystall }
+  color: "#1d55c4"
+  price: 50 
+
+
+
+#latheRecipe
+- type: latheRecipe
+  id: SheetBScrystal
+  result: MaterialBScrystal1
+  miningPoints: 40
+  completetime: 2
+  materials:
+    RawBSore: 100
+#lathRecipePack
+- type: latheRecipePack
+  id: BScrystalSmelting
+  recipes:
+  - SheetBScrystal

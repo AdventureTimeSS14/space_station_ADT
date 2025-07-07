@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by firemix_",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "crystall"
+        },
+        {
+            "name": "crystall_2"
+        },
+        {
+            "name": "crystall_3"
+        },
+        {
+            "name": "crystall-inhand-right",
+            "directions": 4 
+        },
+        {
+            "name": "crystall-inhand-left",
+            "directions": 4
+        }
+    ]
+}

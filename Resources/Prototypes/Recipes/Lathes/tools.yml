@@ -130,6 +130,7 @@
   materials:
     Steel: 500
     Plastic: 250
+    BScrystal: 300
 
 - type: latheRecipe
   parent: BaseBigToolRecipe
@@ -185,6 +186,7 @@
   materials:
     Steel: 800
     Plasma: 200
+    BScrystal: 300
 
 - type: latheRecipe
   parent: BaseToolRecipe

@@ -1,0 +1,59 @@
+- type: entity
+  id: MobBSCrab
+  parent: BaseMobAsteroid
+  name: Блюспейс краб
+  description: Краб , сделанный на половину из пепла штормов лаваленда, на четверть из плоти, на четверть из блюспейса.Агрессивно настроен на вид.
+  components:
+  - type: Sprite
+    sprite: ADT/Bluespace_crystall/BS_crab.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bs_crab-alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bs_crab-alive
+      Dead:
+        Base: bs_crab-dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Dead 
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        5
+      AggroVisionRadius: !type:Single
+        11
+  - type: Butcherable
+    spawned:
+    - id: BSore1
+  - type: Fauna
+  - type: AshStormImmune
+  - type: Gun
+    fireRate: 0.66
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes:
+    - SemiAuto
+    soundGunshot: null
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 1
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: MaterialBScrystalArt1
+    capacity: 1
+    count: 1

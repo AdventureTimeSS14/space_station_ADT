@@ -33,6 +33,7 @@
     rarePrototypes:
       - MobAncientGoliath
       - ADTRandomTendrilSpawner
+      - MobBSCrab
 #      - ADTAbominationDeath
   - type: TimedDespawn
     lifetime: 1

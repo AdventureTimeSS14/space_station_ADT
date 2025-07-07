@@ -131,6 +131,7 @@
     Silver: 750
     Plasma: 1500
     Uranium: 150
+    BScrystal: 500
 
 - type: latheRecipe
   parent: ClothingBackpackHolding
