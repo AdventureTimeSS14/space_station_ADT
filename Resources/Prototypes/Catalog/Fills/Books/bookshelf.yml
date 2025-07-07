@@ -60,6 +60,7 @@
         - id: BookMBS1
         - id: BookMBS2
         - id: BookImplants
+        - id: ADTBookAboutJail
     # Corvax-Lore-End
 
 - type: entityTable

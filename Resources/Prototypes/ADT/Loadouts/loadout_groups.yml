@@ -811,6 +811,16 @@
   - CMOPDA
   - ADTCMOPDA
 
+- type: loadoutGroup
+  id: ADTQMPDA
+  name: loadout-group-quartermaster-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterPDAloadout
+  - ADTintendantPDAloadout
+
+
 # Alts PDA end
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.

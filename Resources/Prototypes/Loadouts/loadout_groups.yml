@@ -719,6 +719,14 @@
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+
+- type: loadoutGroup
+  id: QuartermasterID
+  name: loadout-group-quartermaster-id
+  minLimit: 0
+  loadouts:
+  - QuartermasterPDA
+  - ADTintendantPDA
   # ADT tweak end
 
 - type: loadoutGroup
