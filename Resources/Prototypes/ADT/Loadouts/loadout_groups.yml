@@ -813,7 +813,7 @@
 
 - type: loadoutGroup
   id: ADTQMPDA
-  name: loadout-group-quartermaster-id-adt
+  name: loadout-group-quartermaster-id
   minLimit: 1
   maxLimit: 1
   loadouts:
