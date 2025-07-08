@@ -5,10 +5,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Server.GameObjects;
 using Content.Shared.Interaction.Events;
-using Content.Server.ADT.Bs_crystal;
+using Content.Server.ADT.BlueSpaceCrystalTeleport;
 
 
-namespace Content.Server.ADT.Bs_crystal;
+namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 [RegisterComponent]
 public sealed partial class BsCrystalTeleportComponent : Component
 {
