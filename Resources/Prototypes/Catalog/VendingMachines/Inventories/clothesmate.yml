@@ -31,9 +31,10 @@
 # ADT сумки конец
     ADTClothingHeadHatBeretBlackCivilian: 2 # ADT Кастомный чёрный берет
     ClothingBackpackSatchelLeather: 2
+# ADT обмотки/плащи начало
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
-# ADT обмотки/плащи/носки конец
+# ADT обмотки/плащи конец
     ADTClothingSandals: 2
     ClothingRandomSpawner: 8
     ClothingHeadHatBeret: 4
