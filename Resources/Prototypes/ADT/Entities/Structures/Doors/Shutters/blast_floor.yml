@@ -20,23 +20,25 @@
   - type: Tag
     tags:
       - Catwalk
-#  - type: Construction add craft later
-#    graph: BlastDoor
-#    node: blastdoor
-#    containers:
-#    - board
+  - type: Construction
+    graph: BlastFloor
+    node: blastfloor
+    containers:
+    - board
   - type: Door
     openDrawDepth: FloorTiles
     closedDrawDepth: FloorTiles
     bumpOpen: false
     clickOpen: false
-    canCrush: false
     closeTimeOne: 0.4
     closeTimeTwo: 0.4
     openTimeOne: 0.4
     openTimeTwo: 0.4
     openingAnimationTime: 1.0
     closingAnimationTime: 1.0
+    crushDamage:
+      types:
+        Blunt: 15
     openSound:
       path: /Audio/Machines/blastdoor.ogg
     closeSound:
@@ -105,6 +107,8 @@
     containers:
       board: !type:Container
   - type: Airtight
+  - type: Weldable
+    time: 3
 
 - type: entity
   id: FloorBlastDoorOpen
@@ -160,6 +164,6 @@
   - type: Transform
     noRot: true
     anchored: true
-#  - type: Construction
-#    graph: BlastFloor
-#    node: frame1
+  - type: Construction
+    graph: BlastFloor
+    node: frame1
