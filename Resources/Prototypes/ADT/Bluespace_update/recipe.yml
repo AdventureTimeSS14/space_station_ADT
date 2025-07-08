@@ -5,16 +5,14 @@
     sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi
     state: crystall
   discipline: Experimental
-  tier: 3
+  tier: 2
   cost: 15000
   recipeUnlocks:
   - MaterialBScrystalArt
-  technologyPrerequisites:
-  - BasicAnomalousResearch
   # ADT Research Console Rework start
-  position: 3,-5
+  position: 2,-1
   requiredTech:
-  - AdvancedAnomalyResearch
+  - AlternativeResearch
   # ADT Research Console Rework end
 
 - type: latheRecipePack
