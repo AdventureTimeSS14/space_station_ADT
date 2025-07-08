@@ -19,6 +19,12 @@ ent-ADTClothingUniformJumpsuitAnarchyTshirt = черная футболка с �
 ent-ADTClothingUniformJumpsuitDenimPants = джинсовые штаны
     .desc = Брюки из джинсовой ткани.
 
+ent-ADTClothingUniformJumpsuitBlackPants = чёрные брюки
+    .desc = Обычные брюки чёрного цвета.
+
+ent-ADTClothingUniformJumpsuitWhitePants = белые брюки
+    .desc = Обычные брюки белого цвета.
+
 ent-ADTClothingUniformJumpsuitDenim = джинсовый комбинезон
     .desc = Классический джинсовый полукомбинезон на лямках. Производства компании "Modeling Agency Dar-Vaxed".
 
@@ -45,6 +51,10 @@ ent-ADTClothingUniformJumpsuitPurpleShirt = фиолетовая рубашка
 
 ent-ADTClothingUniformJumpsuitRedShirt = красная рубашка
     .desc = Обычная красная повседневная рубашка. Производство компании "Modeling Agency Dar-Vaxed".
+    .suffix = { "" }
+
+ent-ADTClothingUniformJumpsuitWhiteShirt = белая рубашка
+    .desc = Обычная белая повседневная рубашка. Производство компании "Modeling Agency Dar-Vaxed".
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitFancyShirt = причудливая рубашка

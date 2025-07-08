@@ -303,6 +303,32 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlackPants
+  name: black pants
+  description: black pants
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_pants.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitWhitePants
+  name: white pants
+  description: white pants
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_pants.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitDenim
   name: denim jumpsuit
   description: denim jumpsuit
@@ -402,6 +428,19 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitWhiteShirt
+  name: white shirt
+  description: An usual white shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi #спрайты от prazat911, респрайт от orange6775
   - type: StaticPrice
     price: 45
 

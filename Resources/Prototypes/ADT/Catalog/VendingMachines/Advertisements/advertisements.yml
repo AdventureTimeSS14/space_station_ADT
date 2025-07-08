@@ -1,0 +1,29 @@
+- type: localizedDataset
+  id: PatholodrobeAds
+  values:
+    prefix: advertisement-patholog-
+    count: 3
+
+- type: localizedDataset
+  id: PillAds
+  values:
+    prefix: advertisement-pill-
+    count: 4
+
+- type: localizedDataset
+  id: ADTCiviMedAds
+  values:
+    prefix: advertisement-civimed-
+    count: 9
+
+- type: localizedDataset
+  id: IceCreammatAds
+  values:
+    prefix: advertisement-icecreammat-
+    count: 6
+
+- type: localizedDataset
+  id: PantsMateAds
+  values:
+    prefix: advertisement-pantsmate-
+    count: 6

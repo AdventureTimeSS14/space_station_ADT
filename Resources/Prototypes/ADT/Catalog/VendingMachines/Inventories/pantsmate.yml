@@ -1,0 +1,94 @@
+- type: vendingMachineInventory
+  id: ADTUnderwearClothesMateInventory
+  startingInventory:
+    # Наборы одежды
+    ADTClothingUnderwearTopBraLace: 2 # Кружевной лифчик
+    ADTClothingUnderwearBottomPantiesLace: 2 # Кружевные трусики
+    ADTClothingUnderwearSocksLaceThigh: 2 # Кружевные чулки
+    ADTClothingUnderwearTopBraLaceRed: 2 # Красный кружевной лифчик
+    ADTClothingUnderwearBottomPantiesLaceRed: 2 # Красные кружевные трусики
+    ADTClothingUnderwearTopBraLaceBlack: 2 # Черный кружевной лифчик
+    ADTClothingUnderwearBottomPantiesLaceBlack: 2 # Черные кружевные трусики
+    ADTClothingUnderwearTopMonokiniBlack: 2 # верх черного монокини
+    ADTClothingUnderwearBottomMonokiniBlack: 2 # низ черного монокини
+    ADTClothingUnderwearTopMonokiniWhite: 2 # верх белого монокини
+    ADTClothingUnderwearBottomMonokiniWhite: 2 # низ белого монокини
+    ADTClothingUnderwearTopBraComfyWhite: 4 # Белый комфортный лифчик
+    ADTClothingUnderwearBottomPantiesComfyWhite: 4 # Белые комфортные трусики
+    ADTClothingUnderwearTopBraWhite: 4 # Лифчик
+    ADTClothingUnderwearBottomBriefsWhite: 3 # Брифы
+    # Top
+    ADTClothingUnderwearTopBraSportsBlack: 2 # Спортивный черный топик
+    ADTClothingUnderwearTopBraPea: 2 # Топик в горошек
+    # Bottom
+    ADTClothingUnderwearBottomBriefsMoth: 2 # Брифы "Моль"
+    ADTClothingUnderwearBottomBoxersWhite: 3 # Трусы
+    ADTClothingUnderwearBottomBoxersAmerica: 2 # Трусы "Америка"
+    ADTClothingUnderwearBottomBoxersBoom: 2 # Трусы с монстром
+    # Socks
+    ADTClothingUnderwearSocksShort: 2 # Короткие носки
+    ADTClothingUnderwearSocksNormal: 2 # Носки
+    ADTClothingUnderwearSocksHigh: 2 # Высокие носки
+    ADTClothingUnderwearSocksThigh: 2 # Высокие чулки
+    ADTClothingUnderwearSocksBlack: 2 # Чёрные носки
+    ADTClothingUnderwearSocksKneeBlack: 2 # Чёрные гольфы
+    ADTClothingUnderwearSocksThighBlack: 2 # Чёрные чулки
+    ADTClothingUnderwearSocksComfyBlue: 2 # Синие носки
+    ADTClothingUnderwearSocksKneeComfyBlue: 2 # Синие чулки
+    ADTClothingUnderwearSocksThighBlue: 2 # Синие чулки
+    ADTClothingUnderwearSocksComfyGrey: 2 # Серые носки
+    ADTClothingUnderwearSocksKneeComfyGrey: 2 # Серые чулки
+    ADTClothingUnderwearSocksThighGrey: 2 # Серые чулки
+    ADTClothingUnderwearSocksComfyRed: 2 # Красные носки
+    ADTClothingUnderwearSocksKneeComfyRed: 2 # Красные чулки
+    ADTClothingUnderwearSocksThighRed: 2 # Красные чулки
+    ADTClothingUnderwearSocksComfyViolet: 2 # Фиолетовые носки
+    ADTClothingUnderwearSocksKneeComfyViolet: 2 # Фиолетовые чулки
+    ADTClothingUnderwearSocksThighPurple: 2 # Фиолетовые чулки
+    ADTClothingUnderwearSocksAzure: 2 # Лазурные носки
+    ADTClothingUnderwearSocksKneeAzure: 2 # Лазурные гольфы
+    ADTClothingUnderwearSocksThighAzure: 2 # Лазурные чулки
+    ADTClothingUnderwearSocksCyan: 2 # Голубые носки
+    ADTClothingUnderwearSocksKneeCyan: 2 # Голубые гольфы
+    ADTClothingUnderwearSocksThighCyan: 2 # Голубые чулки
+    ADTClothingUnderwearSocksGreen: 2 # Зелёные носки
+    ADTClothingUnderwearSocksKneeGreen: 2 # Зелёные гольфы
+    ADTClothingUnderwearSocksThighGreen: 2 # Зелёные чулки
+    ADTClothingUnderwearSocksHotpink: 2 # Ярко-розовые носки
+    ADTClothingUnderwearSocksKneeHotpink: 2 # Ярко-розовые гольфы
+    ADTClothingUnderwearSocksThighHotpink: 2 # Ярко-розовые чулки
+    ADTClothingUnderwearSocksOrange: 2 # Оранжевые носки
+    ADTClothingUnderwearSocksKneeOrange: 2 # Оранжевые гольфы
+    ADTClothingUnderwearSocksThighOrange: 2 # Оранжевые чулки
+    ADTClothingUnderwearSocksYellow: 2 # Жёлтые носки
+    ADTClothingUnderwearSocksKneeYellow: 2 # Жёлтые гольфы
+    ADTClothingUnderwearSocksThighYellow: 2 # Жёлтые чулки
+    ADTClothingUnderwearSocksPink: 2 # Розовые носки
+    ADTClothingUnderwearSocksKneePink: 2 # Розовые гольфы
+    ADTClothingUnderwearSocksHomelander: 2 # Носки патриота
+    ADTClothingUnderwearSocksKneeHomelander: 2 # Гольфы патриота
+    ADTClothingUnderwearSocksThighHomelander: 2 # Чулки патриота
+    ADTClothingUnderwearSocksKneeCreepy: 2 # Страшные гольфы
+    ADTClothingUnderwearSocksThighCreepy: 2 # Страшные чулки
+    ADTClothingUnderwearSocksBee: 2 # Носочки с пчёлами
+    ClothingUnderSocksBee: 2 # Носочки с пчёлами
+    ADTClothingUnderwearSocksFurr: 2 # Пушистые носки
+    ADTClothingUnderwearSocksKneeFurr: 2 # Пушистые гольфы
+    ADTClothingUnderwearSocksThighFurr: 2 # Пушистые чулки
+    ADTClothingUnderwearSocksKneeFishnet: 2 # Сетчатые гольфы
+    ADTClothingUnderwearSocksFullFishnet: 2 # Сетчатые колготки
+    ADTClothingUnderwearSocksThighFishnet: 2 # Сетчатые чулки
+    ADTClothingUnderwearSocksKneeThin: 2 # Прозрачные носки
+    ADTClothingUnderwearSocksThighThin: 2 # Прозрачные гольфы
+    ADTClothingUnderwearSocksThighPantyhose: 2 # Прозрачные колготки
+    ADTClothingUnderwearSocksStockingsBlack: 2 # Темные чулки
+    ADTClothingUnderwearSocksStockingsWhite: 2 # Белые чулки
+    ADTClothingUnderwearSocksRabbit: 2 # Носки с кроликами
+    ClothingUnderSocksCoder: 1 # носки для программистов
+  emaggedInventory:
+    ADTClothingUnderwearSocksSyndieRed: 1 # красные носки синдиката
+    ADTClothingUnderwearSocksKneeSyndieRed: 1 # красные гольфы синдиката
+    ADTClothingUnderwearSocksThighSyndieRed: 1 # красные чулки синдиката
+    ADTClothingUnderwearSocksSyndieGreen: 1 # зелёные носки синдиката
+    ADTClothingUnderwearSocksKneeSyndieGreen: 1 # зелёные гольфы синдиката
+    ADTClothingUnderwearSocksThighSyndieGreen: 1 # зелёные чулки синдиката

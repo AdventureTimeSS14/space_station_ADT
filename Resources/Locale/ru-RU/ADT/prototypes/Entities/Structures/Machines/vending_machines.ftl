@@ -1,6 +1,9 @@
 ent-ADTVendingMachinePrazatClothing = СтильноМат
     .desc = Особый вид автомата с одеждой, выдающий нестандартную одежду. Одобрен бюро по контролю за стилем NanoTrasen.
 
+ent-ADTVendingMachineUnderwearClothing = БельеМат
+    .desc = Торговый автомат с различным нижним бельём, купальниками и носками.
+
 ent-ADTVendingMachineTSFArmoury = оружейная ТСФ
     .desc = Связанный с удаленным хранилищем шкаф, используемый для выдачи оружия и экипировки бойцов ТСФ.
     .suffix = { "ТСФ" }
