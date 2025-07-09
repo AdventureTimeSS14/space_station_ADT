@@ -192,7 +192,6 @@
   components:
   - type: EmbeddableProjectile
     offset: -0.15,0.0
-    EmbedOnThrow: false
   - type: ThrowingAngle
     angle: 225
   - type: LandAtCursor
@@ -209,11 +208,6 @@
   - type: Appearance
   - type: Stack
     stackType: BScrystalArt
-    baseLayer: base
-    layerStates:
-    - crystall
-    - crystall_2
-    - crystall_3
   - type: Item
     size: Small
     heldPrefix: crystal
@@ -232,7 +226,7 @@
 
 - type: stack
   id: BScrystalArt
-  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi, state: crystall }
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall_art.rsi, state: crystall }
   spawn: MaterialBScrystalArt1
   maxCount: 10
 

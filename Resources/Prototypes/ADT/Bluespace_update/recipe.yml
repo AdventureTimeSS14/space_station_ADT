@@ -2,7 +2,7 @@
   id: CrystalManipulation
   name: research-technology-crystal-manipulation
   icon:
-    sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi
+    sprite: /Textures/ADT/Bluespace_crystall/crystall_art.rsi
     state: crystall
   discipline: Experimental
   tier: 2
@@ -10,7 +10,7 @@
   recipeUnlocks:
   - MaterialBScrystalArt
   # ADT Research Console Rework start
-  position: 2,-1
+  position: 2,-2
   requiredTech:
   - AlternativeResearch
   # ADT Research Console Rework end
