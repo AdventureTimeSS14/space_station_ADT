@@ -21,7 +21,7 @@ public sealed partial class DiscordLinkWindow : DefaultWindow
     [Dependency] private readonly DiscordIdManager _discordIdManager = default!;
     [Dependency] private readonly IUriOpener _uriOpener = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    private readonly string _defaultChannelLink = "https://discord.com/channels/901772674865455115/1351213738774237184";
+    private readonly string _defaultChannelLink = "https://discord.com/channels/1146501723624570961/1384983236454645860";
     private string? _discordId;
     private string? _discordUsername;
     private string _channelLink = "";
