@@ -1,5 +1,5 @@
 ent-FloorBlastDoor = герметичный люк
-    .desc = Елезаметный гермозатвор, вмонтированный в пол.
+    .desc = Еле заметный гермозатвор, вмонтированный в пол.
 ent-FloorBlastDoorOpen = { ent-FloorBlastDoor }
     .suffix = Открытый
     .desc = { ent-FloorBlastDoor.desc }
