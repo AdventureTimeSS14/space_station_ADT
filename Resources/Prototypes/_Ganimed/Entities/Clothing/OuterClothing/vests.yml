@@ -24,8 +24,8 @@
         Shock: 0.9
         Radiation: 0.7
         Caustic: 0.9
-#       Stun: 0.9
-# - type: ExplosionResistance
-#   damageCoefficient: 0.8
-# - type: Insulated
-#   Coefficient: 0.9
+    staminaModifier: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Insulated
+    coefficient: 0.9

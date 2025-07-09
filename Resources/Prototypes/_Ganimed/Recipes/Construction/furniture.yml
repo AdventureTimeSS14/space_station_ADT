@@ -8,7 +8,7 @@
   category: construction-category-furniture
   description: A shower, complete with bluespace water.
   icon:
-    sprite: _Backmen/Structures/Furniture/shower.rsi
+    sprite: _Ganimed/Structures/Furniture/shower.rsi
     state: shower
     objectType: Structure
   placementMode: SnapgridCenter

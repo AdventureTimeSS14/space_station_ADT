@@ -1,0 +1,26 @@
+- type: entity
+  name: reliable container
+  parent: BaseBeakerMetallic
+  description: "Advanced container for storing medical products."
+  id: ReliableContainer
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Specific/Chemistry/kit.rsi
+    layers:
+      - state: kit
+      - state: fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: _Ganimed/Objects/Specific/Chemistry/kit.rsi
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 70
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100

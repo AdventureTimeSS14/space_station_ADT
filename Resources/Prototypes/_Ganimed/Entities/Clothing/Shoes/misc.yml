@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesStylishMonochrome
+  name: stylish shoes
+  description: Sleek white and black shoes that somehow fit anyone, regardless of size and shape.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Shoes/shoes_alt.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Shoes/shoes_alt.rsi

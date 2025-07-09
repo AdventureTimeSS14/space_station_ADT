@@ -25,17 +25,6 @@
   - type: Sprite
     sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_cult.rsi
 
-# Orange
-- type: entity
-  parent: BaseSupplyPod
-  id: SupplyPodCapsuleOrange
-  suffix: Empty, orange
-  components:
-  - type: Sprite
-    sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_orange.rsi
-  - type: Construction
-    node: SupplyPodOrange
-
 # Honk
 - type: entity
   parent: BaseSupplyPod

@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterArmorBasicOriginal
+  name: shell armor vest
+  description: A military-standard armored vest that provides good protection against most types of weapons.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Armor/original_security_vest.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Armor/original_security_vest.rsi
+
+- type: entity
+  parent: ClothingOuterArmorCaptainCarapace
+  id: ClothingOuterArmorCaptainCarapaceWhite
+  name: captain's white carapace
+  description: An armored chestplate that provides protection while offering mobility and flexibility. Issued only to the best crewmembers of the station. White color symbolizes cleanliness and order.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Armor/white_captain_carapace.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Armor/white_captain_carapace.rsi

@@ -85,7 +85,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterVestUSSPKZS1
     suitstorage: WeaponRifleABZ
-    id: MedicUSSPPDA
+    id: USSPMedicPDA
     ears: ADTClothingHeadsetUSSP
     belt: ClothingBeltMedicalMarine
     pocket1: MagazinePistolCaselessRifle

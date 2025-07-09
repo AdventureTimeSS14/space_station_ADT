@@ -4,8 +4,8 @@
   suffix: USSP, soldier
   components:
     - type: Sprite
-      sprite: _Ganimed/Objects/Misc/mobs_gear_sprite/USSPsoldier_sprite
-      state: icon
+      sprite: _Ganimed/Markers/jobs.rsi
+      state: ussp_soldier
     - type: RandomHumanoidSpawner
       settings: USSP1 
 
@@ -24,13 +24,13 @@
       - NeoRusskiyaTranslatorImplant      
 
 - type: entity
-  id: RandomHumanoidSpawnerUSSPofficer
-  name: USSP soldier
+  id: RandomHumanoidSpawnerUSSPOfficer
+  name: USSP officer
   suffix: USSP, officer
   components:
     - type: Sprite
-      sprite: _Ganimed/Objects/Misc/mobs_gear_sprite/USSPofficer_sprite
-      state: icon
+      sprite: _Ganimed/Markers/jobs.rsi
+      state: ussp_officer
     - type: RandomHumanoidSpawner
       settings: USSP2  
 
@@ -54,8 +54,8 @@
   suffix: USSP, medic
   components:
     - type: Sprite
-      sprite: _Ganimed/Objects/Misc/mobs_gear_sprite/USSPmedic_sprite
-      state: icon
+      sprite: _Ganimed/Markers/jobs.rsi
+      state: ussp_medic
     - type: RandomHumanoidSpawner
       settings: USSP3
     - type: AutoImplant

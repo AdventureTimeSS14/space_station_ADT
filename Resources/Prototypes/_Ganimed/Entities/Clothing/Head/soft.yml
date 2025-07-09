@@ -19,18 +19,12 @@
   id: ClothingHeadHatCargoPostalsoftFlipped
   name: postal cap flipped
   description: "It's a baseball hat painted in postal of Cargo colours. Flipped."
-  components:
-  - type: Tag
-    tags:
-    - ClothMade
-    - HamsterWearable
-    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatPilotkaSec
-  name: пилотка СБ
-  description: Пилотка сотрудников СБ НТ, в основном используется силами космической обороны. Имеет двойную окантовку и кокарду НТ.
+  id: ClothingHeadHatFlightCapSec
+  name: security flight cap
+  description: Side cap of Nanotrasen Security Service personnel, also used by its space defense forces. It has a double brim and the NT insignia.
   components:
   - type: Sprite
     sprite: _Ganimed/Clothing/Head/Soft/secflightcap.rsi

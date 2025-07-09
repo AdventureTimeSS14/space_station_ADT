@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "atmos.png, bartender.png, bar_pen.png, cargo.png, chemistry.png, engineering.png, fountain_black.png, green.png, hearts.png, hydroponics.png, janitor.png, medical1.png, medical2.png, military.png, mime.png, pink.png, chaplain.png, purple.png, rainbow.png, reporter.png, scientist_fountain.png, scientist1.png, security_fountain1.png, security1.png, security2.png, star.png, violet.png, yellow.png by thedusteffin; medical3.png, scientist2.png, security_fountain2.png, security3.png by barnaulcommunist for Enterprise Server private use. pen-inhand-left.png, pen-inhand-right.png taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432. See repository CLA for more info.",
+  "copyright": "atmos.png, bartender.png, bar_pen.png, cargo.png, chemistry.png, engineering.png, fountain_black.png, green.png, hearts.png, hydroponics.png, janitor.png, medical1.png, medical2.png, military.png, mime.png, pink.png, chaplain.png, purple.png, rainbow.png, reporter.png, scientist_fountain.png, scientist1.png, security_fountain1.png, security1.png, security2.png, star.png, violet.png, yellow.png by thedusteffin (Discord); medical3.png, scientist2.png, security_fountain2.png, security3.png by barnaulcommunist (Discord) for Ganimed/Enterprise Server. pen-inhand-left.png, pen-inhand-right.png taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432.",
   "size": {
     "x": 32,
     "y": 32

@@ -2,7 +2,7 @@
   parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesGlassesBrigmedic
   name: medical-security sunglasses
-  description: Alas.
+  description: Protective sunglasses equipped with integrated medical and security HUDs.
   components:
   - type: Sprite
     sprite: _Ganimed/Clothing/Eyes/Glasses/brigmedicglasses.rsi
@@ -71,8 +71,8 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesHudSecEng
-  name: охранные очки полевого инженера
-  description: Модель HUD представляет собой комбинацию оптического мезонного сканера и датчика безопасности. Защищает глаза.
+  name: field engineering goggles
+  description: This HUD model is a synthesis of an optical meson scanner with security sensors. Provides good eye protection.
   components:
   - type: Sprite
     sprite: _Ganimed/Clothing/Eyes/Glasses/secenggoggles.rsi

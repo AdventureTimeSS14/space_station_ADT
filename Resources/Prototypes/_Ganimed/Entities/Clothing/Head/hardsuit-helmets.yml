@@ -1,0 +1,60 @@
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitHop
+  categories: [ HideSpawnMenu ]
+  name: blue officer hardsuit helmet
+  description: A helmet to stand out from the crowd. Let them know that you are the one in control.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hardsuits/hop.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hardsuits/hop.rsi
+  - type: PointLight
+    color: "#7b9bf2"
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+
+#- type: entity
+#  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+#  id: ClothingHeadHelmetHardsuitMiningLuxuryAlt
+#  categories: [ HideSpawnMenu ]
+#  name: luxury quartermaster's hardsuit helmet
+#  description: A refurbished mining hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra.
+#  components:
+#  - type: Sprite
+#    sprite: _Ganimed/Clothing/Head/Hardsuits/qm.rsi
+#  - type: Clothing
+#    sprite: _Ganimed/Clothing/Head/Hardsuits/qm.rsi
+#  - type: PointLight
+#    radius: 7
+#    energy: 3
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.525
+#    lowPressureMultiplier: 1000
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitTSFWhite
+  categories: [ HideSpawnMenu ]
+  name: white TSF hardsuit helmet
+  description: Armored hardsuit helmet for military needs.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hardsuits/tsfwhite.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hardsuits/tsfwhite.rsi
+  - type: PointLight
+    color: "#76f1fb"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+    staminaModifier: 0.95

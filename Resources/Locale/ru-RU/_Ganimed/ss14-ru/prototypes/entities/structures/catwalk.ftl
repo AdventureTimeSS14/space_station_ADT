@@ -1,0 +1,14 @@
+ent-FloorHardCatwalkIron = укреплённый стальной мостик
+    .desc = Мостик, который хорошо впишется в пространство технических помещений, также поможет в прокладывании проводки.
+ent-FloorHardCatwalkWhiteIron = укреплённый светлый мостик
+    .desc = { ent-FloorHardCatwalkIron.desc }
+ent-FloorHardCatwalkMaint = укреплённый технический мостик
+    .desc = { ent-FloorHardCatwalkIron.desc }
+ent-FloorHardCatwalkTitanium = укреплённый титановый мостик
+    .desc = { ent-FloorHardCatwalkIron.desc }
+ent-FloorHardCatwalkFlatwhite = укреплённый белый мостик
+    .desc = { ent-FloorHardCatwalkIron.desc }
+ent-FloorHardCatwalkSmothIron = укреплённый гладкий мостик
+    .desc = { ent-FloorHardCatwalkIron.desc }
+ent-FloorHardCatwalkDarkIron = укреплённый тёмный мостик
+    .desc = { ent-FloorHardCatwalkIron.desc }

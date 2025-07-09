@@ -28,17 +28,3 @@
               doAfter: 2
             - tool: Screwing
               doAfter: 1
-
-    - node: SupplyPodOrange
-      entity: SupplyPodCapsuleOrange
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: OrangeSeeds
-              amount: 3
-            - !type:EmptyAllContainers
-            - !type:DeleteEntity {}
-          steps:
-            - tool: Cutting
-              doAfter: 3

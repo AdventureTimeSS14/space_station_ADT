@@ -1,0 +1,99 @@
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+  id: ClothingOuterHardsuitHop
+  name: officer's blue hardsuit
+  description: A hardened alloy is used to protect the wearer from various kinds of revolutions and any political turbulences. Not too easy to wear, but status wins it all.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Hardsuits/hop.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Hardsuits/hop.rsi
+  - type: PressureProtection
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.85
+    staminaModifier: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitHop
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HighRiskItem
+
+#- type: entity
+#  parent: ClothingOuterHardsuitBase
+#  id: ClothingOuterHardsuitMiningLuxuryAlt
+#  name: luxury quartermaster's hardsuit
+#  description: A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move.
+#  components:
+#  - type: Sprite
+#    sprite: _Ganimed/Clothing/OuterClothing/Hardsuits/qm.rsi
+#  - type: Clothing
+#    sprite: _Ganimed/Clothing/OuterClothing/Hardsuits/qm.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.5
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.5
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.9
+#        Slash: 0.8
+#        Piercing: 0.8
+#        Radiation: 0.5
+#        Caustic: 0.8
+#    staminaModifier: 0.9
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.85
+#    sprintModifier: 0.9
+#  - type: ToggleableClothing
+#    clothingPrototype: ClothingHeadHelmetHardsuitMiningLuxuryAlt
+#  - type: HeldSpeedModifier
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitTSFWhite
+  name: white TSF hardsuit
+  description: A spacesuit used by the TSF navy for the especially cold environments.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Hardsuits/tsfwhite.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Hardsuits/tsfwhite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Caustic: 0.5
+        Heat: 0.6
+        Cold: 0.6
+        Radiation: 0.4
+    staminaModifier: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitTSFWhite
+  - type: HeldSpeedModifier

@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "USSP and TSF icons made by AltMapper (Github)",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "TSF"
+        },
+        {
+            "name": "USSPSoldier"
+        },
+        {
+            "name": "USSPOfficer"
+        },
+        {
+            "name": "USSPMedical"
+        }
+    ]
+}

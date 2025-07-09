@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by AltMapper (Github) for the Enterprise",
+  "copyright": "Made by AltMapper (GitHub) for Ganimed/Enterprise server.",
   "size": {
     "x": 32,
     "y": 32
@@ -17,7 +17,16 @@
       "name": "idusspsoldier"
     },
     {
+      "name": "idtsf"
+    },
+    {
       "name": "red"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "black"
     },
     {
       "name": "red-inhand-left",
@@ -25,6 +34,14 @@
     },
     {
       "name": "red-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-right",
       "directions": 4
     }
   ]

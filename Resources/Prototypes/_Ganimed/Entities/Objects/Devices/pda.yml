@@ -1,11 +1,50 @@
 - type: entity
   parent: BasePDA
-  id: SoldierUSSPPDA
+  id: TSFPDA
+  name: TSF PDA
+  description: Shouldn't we just go and kill the xenos?
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-tsf"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Appearance
+    appearanceDataInit:
+        enum.PdaVisuals.PdaType:
+          !type:String
+          pda-tsf
+  - type: Pda
+    id: TSFIDCard
+    penSlot:
+      startingItem: BlackFountainPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Icon
+    sprite: _Ganimed/Objects/Devices/pda.rsi
+    state: pda-tsf
+  - type: PdaBorderColor
+    borderColor: "#38507D"
+    accentVColor: "#38507D"
+
+- type: entity
+  parent: BasePDA
+  id: USSPSoldierPDA
   name: USSP PDA
   description: The same red as the banner of the Revolution.
   components:
   - type: Sprite
-    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    sprite: _Ganimed/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-ussp"
@@ -20,14 +59,14 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-    - MedTekCartridge
+    - NotekeeperCartridge
   - type: Appearance
     appearanceDataInit:
         enum.PdaVisuals.PdaType:
           !type:String
           pda-ussp
   - type: Pda
-    id: SoldierUSSPIDCard
+    id: USSPSoldierIDCard
     penSlot:
       startingItem: Pen
       priority: -1
@@ -35,7 +74,7 @@
         tags:
         - Write
   - type: Icon
-    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    sprite: _Ganimed/Objects/Devices/pda.rsi
     state: pda-ussp
   - type: PdaBorderColor
     borderColor: "#AD2424"
@@ -43,12 +82,12 @@
 
 - type: entity
   parent: BasePDA
-  id: OfficerUSSPPDA
+  id: USSPOfficerPDA
   name: USSP PDA
   description: The same red as the banner of the Revolution.
   components:
   - type: Sprite
-    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    sprite: _Ganimed/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-ussp"
@@ -63,14 +102,16 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
+    - NotekeeperCartridge
     - MedTekCartridge
+    - AstroNavCartridge
   - type: Appearance
     appearanceDataInit:
         enum.PdaVisuals.PdaType:
           !type:String
           pda-ussp
   - type: Pda
-    id: OfficerUSSPIDCard
+    id: USSPOfficerIDCard
     penSlot:
       startingItem: Pen
       priority: -1
@@ -78,7 +119,7 @@
         tags:
         - Write
   - type: Icon
-    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    sprite: _Ganimed/Objects/Devices/pda.rsi
     state: pda-ussp
   - type: PdaBorderColor
     borderColor: "#AD2424"
@@ -86,12 +127,12 @@
 
 - type: entity
   parent: BasePDA
-  id: MedicUSSPPDA
+  id: USSPMedicPDA
   name: USSP PDA
   description: The same red as the banner of the Revolution.
   components:
   - type: Sprite
-    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    sprite: _Ganimed/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-ussp"
@@ -113,7 +154,7 @@
           !type:String
           pda-ussp
   - type: Pda
-    id: MedicalUSSPIDCard
+    id: USSPMedicalIDCard
     penSlot:
       startingItem: Pen
       priority: -1
@@ -121,7 +162,7 @@
         tags:
         - Write
   - type: Icon
-    sprite: _Ganimed/Objects/Devices/ussp_pda.rsi
+    sprite: _Ganimed/Objects/Devices/pda.rsi
     state: pda-ussp
   - type: PdaBorderColor
     borderColor: "#AD2424"

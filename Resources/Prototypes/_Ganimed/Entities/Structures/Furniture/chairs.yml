@@ -1,0 +1,25 @@
+- type: entity
+  name: passenger seat
+  id: ChairPassengerSeat
+  parent: ChairBase
+  description: The passenger seat of a prestigious ship.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Structures/Furniture/chairs.rsi
+    state: passenger
+  - type: Construction
+    graph: Seat
+    node: chairPilotSeat
+
+- type: entity
+  name: comfy chair
+  id: ChairComfyDark
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Structures/Furniture/chairs.rsi
+    state: dark-comfy
+  - type: Construction
+    graph: Seat
+    node: chairComfy

@@ -12,7 +12,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackOfficerBlack
   name: command officer's backpack
-  description: Backpack used by command officials who
+  description: This dark backpack is used by command officials. It looks brand new.
   components:
   - type: Sprite
     sprite: _Ganimed/Clothing/Back/Backpacks/bridge_officer_backpack.rsi
