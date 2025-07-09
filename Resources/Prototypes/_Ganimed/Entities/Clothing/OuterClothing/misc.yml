@@ -19,3 +19,14 @@
     sprite: _Ganimed/Clothing/OuterClothing/Misc/witch_hunter_robe.rsi
   - type: Clothing
     sprite: _Ganimed/Clothing/OuterClothing/Misc/witch_hunter_robe.rsi
+    
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterRobesCultWhite
+  name: white cult robes
+  description: There's no cult without classic red/crimson cult robes. Wait, they're white...
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/white_cultrobes.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/white_cultrobes.rsi

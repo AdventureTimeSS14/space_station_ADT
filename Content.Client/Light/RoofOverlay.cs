@@ -76,12 +76,12 @@ public sealed class RoofOverlay : Overlay
         worldHandle.RenderInRenderTarget(target,
             () =>
             {
+                var invMatrix = target.GetWorldToLocalMatrix(eye, scale);
+
                 foreach (var grid in _grids)
                 {
                     if (!_entManager.TryGetComponent(grid.Owner, out RoofComponent? roof))
                         continue;
-
-                    var invMatrix = target.GetWorldToLocalMatrix(eye, scale);
 
                     var gridMatrix = _xformSystem.GetWorldMatrix(grid.Owner);
                     var matty = Matrix3x2.Multiply(gridMatrix, invMatrix);

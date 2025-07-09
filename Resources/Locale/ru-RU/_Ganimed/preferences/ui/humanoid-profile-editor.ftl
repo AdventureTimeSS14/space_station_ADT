@@ -1,1 +1,1 @@
-trait-category-sposnor = Спонсорские трейты
+trait-category-account= Аккаунт

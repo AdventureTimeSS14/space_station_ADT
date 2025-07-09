@@ -1,7 +1,0 @@
-- type: latheRecipe
-  id: BotanicDNADisk
-  result: BotanicDNADisk
-  completetime: 4
-  materials:
-    Steel: 500
-    Plastic: 100

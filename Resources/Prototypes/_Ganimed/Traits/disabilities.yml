@@ -2,7 +2,6 @@
   id: Incognito
   name: trait-incognito-name
   description: trait-incognito-desc
-  category: sponsor
-  sponsorOnly: true
+  category: account
   components:
     - type: SetIncognito
