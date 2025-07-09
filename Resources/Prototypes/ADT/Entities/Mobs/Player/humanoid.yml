@@ -865,3 +865,34 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ADTPirateFirstmateGear]
+
+
+- type: entity
+  name: Vox Raider
+  parent: MobVox
+  id: ADTMobVoxRaider
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ADTRoleMobVoxRaiderGear]
+
+- type: startingGear
+  id: ADTRoleMobVoxRaiderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    back: ClothingBackpackSatchel
+    ears: ClothingHeadsetFreelance
+    shoes: ADTClothingFootWrapsBlack
+    id: PiratePDA
+    pocket1: PlushieVox
+    outerClothing: ADTHardsuitRaidercommon
+    suitstorage: NitrogenTankFilled
+  storage:
+    back:
+    - BoxSurvivalNitrogen
+    - ChemistryBottleNocturine
+    - ChemistryBottleNocturine

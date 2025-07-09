@@ -57,3 +57,18 @@
     weight: 3
     reoccurrenceDelay: 30
   - type: CentComRandomEvent
+
+- type: entity
+  id: VoxRaidersEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 40
+    weight: 2
+    minimumPlayers: 30
+    reoccurrenceDelay: 30
+    duration: 1
+  - type: LoadMapRule
+    mapPath: /Maps/ADTMaps/Nonstation/voxbase.yml
+   
+
