@@ -662,7 +662,7 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
-      - BScrystalSmelting
+      - BScrystalSmelting #ADT Tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
