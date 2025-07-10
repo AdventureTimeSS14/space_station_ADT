@@ -55,6 +55,3 @@
         solution: soil
   - type: Appearance
   - type: PlantHolderVisuals
-  - type: Construction
-    graph: ADTSoil
-    node: complete

@@ -11,10 +11,8 @@
     size: Normal
   - type: SpawnItemsOnUse
     items:
-      - id: ADTSoilBall
-      - id: ADTSoilBall
-      - id: ADTSoilBall
       - id: ADTSoilTrash
+      - id: hydroponicsSoil
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -30,76 +28,3 @@
   - type: Item
     sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
     heldPrefix: packet
-
-- type: entity
-  parent: BaseItem
-  id: ADTSoilBall
-  name: soil ball
-  description: A shiny soil ball.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
-    state: soil-ball
-  - type: Item
-    sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
-  - type: Tag
-    tags:
-    - ADTSoilBall
-
-- type: entity
-  name: soil
-  id: ADThydroponicsSoilSmall
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.1"
-        density: 190
-        hard: false
-        mask:
-        - FullTileMask
-        layer:
-        - FullTileMask
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Sprite
-    sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
-    state: soil-small
-    noRot: true
-  - type: Transform
-    anchored: true
-  - type: Appearance
-  - type: Construction
-    graph: ADTSoil
-    node: soilsmall
-
-- type: entity
-  name: soil
-  parent: ADThydroponicsSoilSmall
-  id: ADThydroponicsSoilNormal
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
-    state: soil-normal
-  - type: Construction
-    graph: ADTSoil
-    node: soilnormal
