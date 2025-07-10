@@ -23,7 +23,7 @@
     stackRequirements:
       MatterBin: 3
       Glass: 1
-      BScrystal: 3
+      BScrystal: 3 #ADT Tweak
     tagRequirements:
       Igniter:
         amount: 1
