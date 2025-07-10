@@ -42,6 +42,9 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+  - type: Construction
+    graph: ADTGlassesMedHUD
+    node: glassesMed
   - type: ShowHealthIcons
     damageContainers:
     - Biological
