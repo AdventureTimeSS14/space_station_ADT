@@ -357,7 +357,7 @@
       - Sheet
       - RawMaterial
       - Ingot
-      - BSCrystal
+      - BSCrystal #ADT Tweak
   - type: GuideHelp
     guides:
     - Robotics
