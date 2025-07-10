@@ -43,7 +43,9 @@
     hideStackVisualsWhenClosed: false
   - type: Item
     sprite: ADT/Objects/Storage/gummypack.rsi
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Appearance
   - type: StaticPrice
     price: 0
