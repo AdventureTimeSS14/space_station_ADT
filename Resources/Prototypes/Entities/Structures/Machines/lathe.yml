@@ -689,7 +689,7 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
-    - BScrystalSmelting 
+    - BScrystalSmelting #ADT Tweak
 
 - type: entity
   parent: BaseLathe
