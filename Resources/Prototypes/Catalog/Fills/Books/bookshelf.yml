@@ -60,8 +60,8 @@
         - id: BookMBS1
         - id: BookMBS2
         - id: BookImplants
-        - id: ADTBookAboutJail
     # Corvax-Lore-End
+        - id: ADTBookAboutJail # ADT-Tweak
 
 - type: entityTable
   id: RandomHandwrittenBookTable

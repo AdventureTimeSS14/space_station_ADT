@@ -163,4 +163,4 @@ ent-ADTTraumatologistPDA = КПК травматолога
     .desc = КПК травматолога.
 
 ent-ADTintendantPDA = КПК интенданта
-    .desc = КПК главы каргонии
+    .desc = КПК главы Каргонии

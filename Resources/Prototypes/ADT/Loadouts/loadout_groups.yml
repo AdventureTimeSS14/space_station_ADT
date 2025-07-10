@@ -812,7 +812,7 @@
   - ADTCMOPDA
 
 - type: loadoutGroup
-  id: ADTQMPDA
+  id: ADTQuartermasterPDA
   name: loadout-group-quartermaster-id
   minLimit: 1
   maxLimit: 1
