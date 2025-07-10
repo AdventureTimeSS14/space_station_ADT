@@ -5,13 +5,10 @@ using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Robust.Shared.Containers;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
-using Content.Shared.Humanoid;
 
 namespace Content.Shared.ADT.Morph;
 
@@ -44,10 +41,15 @@ public sealed partial class MorphComponent : Component
     public string MorphSpawnProto = "ADTMorphGhostRole";
 
     /// <summary>
-    ///     шанс скушать оружие ударом по морфу/морфом
+    ///     шанс скушать оружие ударом морфа
     /// </summary>
     [DataField]
-    public float EatWeaponChance = 0.5f;
+    public float EatWeaponChanceOnHit = 0.2f;
+    /// <summary>
+    ///     шанс скушать оружие ударом по морфу
+    /// </summary>
+    [DataField]
+    public float EatWeaponChanceOnHited = 0.5f;
     /// <summary>
     ///     количество еды, нужное чтобы скушать оруже
     /// </summary>
@@ -70,7 +72,7 @@ public sealed partial class MorphComponent : Component
     ///     количество еды, нужное для размножения
     /// </summary>
     [DataField]
-    public int ReplicationFoodReq = 150;
+    public int ReplicationFoodReq = 200;
     /// <summary>
     /// Звук обеда
     /// </summary>

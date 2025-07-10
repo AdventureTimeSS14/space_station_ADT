@@ -29,7 +29,7 @@
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: reproduce }
     event: !type:MorphReproduceActionEvent
     priority: 3
-    useDelay: 60
+    useDelay: 200
 
 - type: entity
   id: ActionMorphMimicry

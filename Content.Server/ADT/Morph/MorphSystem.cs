@@ -35,6 +35,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
+using Content.Server.Body.Components;
 
 namespace Content.Server.ADT.Morph;
 
@@ -69,7 +70,7 @@ public sealed class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphComponent, MeleeHitEvent>(OnAttack);
 
         SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<MorphComponent, DestructionEventArgs>(OnDestroy);
+        SubscribeLocalEvent<MorphComponent, BeingGibbedEvent>(OnDestroy);
         SubscribeLocalEvent<MorphComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MorphComponent, InteractHandEvent>(OnInteract);
 
@@ -88,7 +89,7 @@ public sealed class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphComponent, MorphDevourDoAfterEvent>(OnDoDevourAfter);
     }
 
-    private void OnDestroy(EntityUid uid, MorphComponent component, ref DestructionEventArgs args)
+    private void OnDestroy(EntityUid uid, MorphComponent component, ref BeingGibbedEvent args)
     {
         container.EmptyContainer(component.Container);
     }
@@ -110,7 +111,7 @@ public sealed class MorphSystem : SharedMorphSystem
             _damageable.TryChangeDamage(args.User, ent.Comp.DamageOnTouch);
             _hunger.ModifyHunger(ent, ent.Comp.EatWeaponHungerReq, hunger);
         }
-        else if (_random.Prob(ent.Comp.EatWeaponChance) && _hunger.GetHunger(hunger) >= ent.Comp.EatWeaponHungerReq)
+        else if (_random.Prob(ent.Comp.EatWeaponChanceOnHited) && _hunger.GetHunger(hunger) >= ent.Comp.EatWeaponHungerReq)
         {
             container.Insert(args.Used, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
@@ -124,7 +125,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (!TryComp<HungerComponent>(ent, out var hunger))
             return;
-        if (_hands.TryGetActiveItem((args.HitEntities[0], hands), out var item) && _random.Prob(ent.Comp.EatWeaponChance))
+        if (_hands.TryGetActiveItem((args.HitEntities[0], hands), out var item) && _random.Prob(ent.Comp.EatWeaponChanceOnHit))
         {
             container.Insert(item.Value, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
@@ -334,6 +335,7 @@ public sealed class MorphSystem : SharedMorphSystem
                 ChatSystem.DispatchFilteredAnnouncement(Filter.Broadcast(), Loc.GetString("morphs-announcement"), playSound: false, colorOverride: Color.Gold);
                 _audioSystem.PlayGlobal(component.SoundReplication, Filter.Broadcast(), true);
             }
+            _actions.StartUseDelay(component.ReplicationActionEntity);
         }
     }
     private void OnDoDevourAfter(EntityUid uid, MorphComponent component, MorphDevourDoAfterEvent args)
