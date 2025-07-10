@@ -1225,7 +1225,7 @@
       stackRequirements:
         Capacitor: 2
         Steel: 5
-        BScrystalArt: 5
+        BScrystalArt: 5 #ADT Tweak
 
 - type: entity
   id: MailTeleporterMachineCircuitboard
