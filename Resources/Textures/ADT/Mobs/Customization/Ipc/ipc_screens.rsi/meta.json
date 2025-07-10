@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1, resprite by discrod:prazat911",
+  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1, resprite by discrod:prazat911, ipc_screen_poxui, ipc_screen_absolute_poxui,  ipc_screen_awesome, ipc_screen_best_friend,  ipc_screen_bigsmile, ipc_screen_boredom, ipc_screen_clown, ipc_screen_creeper, ipc_screen_dealmaker, ipc_screen_mime, ipc_screen_monkey, ipc_screen_mr_gutsy, ipc_screen_nerd, ipc_screen_nya, ipc_screen_oko, ipc_screen_rock, ipc_screen_skull, ipc_screen_tenna created by prazat911 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -1357,6 +1357,176 @@
     },
     {
       "name": "ipc_screen_l",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_poxui",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_absolute_poxui",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_awesome",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_nya",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_bigsmile",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_best_friend",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_clown",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_creeper",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_dealmaker",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_mime",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_monkey",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_mr_gutsy",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_nerd",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_boredom",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_oko",
+      "directions": 4,
+      "delays": [
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_rock",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_skull",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_tenna",
       "directions": 4
     }
   ]
