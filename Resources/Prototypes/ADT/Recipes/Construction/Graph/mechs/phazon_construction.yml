@@ -35,7 +35,7 @@
           data: 4
 
       - tag: ADTPhazonCentralControlModule
-        name: phazon central control module
+        name: construction-graph-tag-phazon-central-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -52,7 +52,7 @@
           data: 6
 
       - tag: ADTPhazonPeripheralsControlModule
-        name: phazon peripherals control module
+        name: construction-graph-tag-phazon-peripherals-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -89,7 +89,7 @@
           data: 10
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-tag-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
