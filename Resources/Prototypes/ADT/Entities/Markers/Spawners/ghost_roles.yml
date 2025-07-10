@@ -222,3 +222,22 @@
   - type: ConditionalSpawner
     prototypes:
       - ADTMobHermit
+
+- type: entity
+  id: ADTSpawnPointVoxRaider
+  name: voxraider spawn point
+  suffix: voxraider
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-vox_raider-name
+    description: ghost-role-information-vox_raider-description
+    rules: ghost-role-information-vox_raider-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobVoxRaider
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green

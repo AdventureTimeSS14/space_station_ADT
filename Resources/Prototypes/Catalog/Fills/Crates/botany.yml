@@ -107,3 +107,4 @@
   - type: StorageFill
     contents:
     - id: HydroponicsTrayFlatpack
+    - id: ADTStrawberrySeeds # ADT Tweak
