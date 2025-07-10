@@ -226,7 +226,7 @@
     - ADTXenoTranslatorPack
     - ADTPhantomPack
     #ADT-tweak-end
-    - BluespaceCrystalTech
+    - BluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
