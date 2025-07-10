@@ -1,9 +1,0 @@
-Rain = дождь
-ashfall = пепельная буря
-ashfall_heavy = сильная пепельная буря
-sandstorm_heavy = сильная песчаная буря
-ashfall_light = слабая песчаная буря
-storm = ливень
-snowfall_heavy = сильная метель
-sandstorm = песчаная буря
-snowfall_light = снегопад
