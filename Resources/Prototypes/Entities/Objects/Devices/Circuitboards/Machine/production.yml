@@ -163,7 +163,7 @@
     prototype: CircuitImprinterHyperConvection
     stackRequirements:
       MatterBin: 2
-      BScrystal: 3
+      BScrystal: 3 #ADT Tweak
     tagRequirements:
       GlassBeaker:
         amount: 2
