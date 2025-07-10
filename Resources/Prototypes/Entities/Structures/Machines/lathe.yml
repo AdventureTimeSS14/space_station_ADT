@@ -298,7 +298,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - BSCrystal
+        - BSCrystal #ADT Tweak
   - type: RequireProjectileTarget
 
 - type: entity
