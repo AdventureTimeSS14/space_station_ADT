@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: BlastFloor
+  id: ADTBlastFloor
   start: start
   graph:
     - node: start
@@ -14,7 +14,7 @@
               doAfter: 3
 
     - node: frame1
-      entity: BlastFloorFrame
+      entity: ADTBlastFloorFrame
       actions:
         - !type:SnapToGrid {}
         - !type:SetAnchor {}
@@ -76,7 +76,7 @@
 
     - node: frame4
       edges:
-        - to: blastfloor
+        - to: adtblastfloor
           conditions:
             - !type:EntityAnchored {}
           steps:
@@ -97,8 +97,8 @@
             - tool: Prying
               doAfter: 3
 
-    - node: blastfloor
-      entity: FloorBlastDoorOpen
+    - node: adtblastfloor
+      entity: ADTFloorBlastDoorOpen
       edges:
         - to: frame4
           conditions:

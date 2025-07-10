@@ -1,5 +1,5 @@
 - type: entity
-  id: FloorBlastDoor
+  id: ADTFloorBlastDoor
   name: blast floor
   description: Barely visible blast door embedded in the floor.
   placement:
@@ -21,8 +21,8 @@
     tags:
       - Catwalk
   - type: Construction
-    graph: BlastFloor
-    node: blastfloor
+    graph: ADTBlastFloor
+    node: adtblastfloor
     containers:
     - board
   - type: Door
@@ -112,8 +112,8 @@
     time: 3
 
 - type: entity
-  id: FloorBlastDoorOpen
-  parent: FloorBlastDoor
+  id: ADTFloorBlastDoorOpen
+  parent: ADTFloorBlastDoor
   suffix: Open
   components:
   - type: Door
@@ -122,7 +122,7 @@
     airBlocked: false
 
 - type: entity
-  id: BlastFloorFrame
+  id: ADTBlastFloorFrame
   parent: BaseStructureDynamic
   name: blast floor frame
   description: This one says 'BLAST DONGER'.
@@ -166,5 +166,5 @@
     noRot: true
     anchored: true
   - type: Construction
-    graph: BlastFloor
+    graph: ADTBlastFloor
     node: frame1

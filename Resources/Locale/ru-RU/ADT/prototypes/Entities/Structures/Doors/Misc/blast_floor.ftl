@@ -1,7 +1,7 @@
-ent-FloorBlastDoor = герметичный люк
+ent-ADTFloorBlastDoor = герметичный люк
     .desc = Еле заметный гермозатвор, вмонтированный в пол.
-ent-FloorBlastDoorOpen = { ent-FloorBlastDoor }
+ent-ADTFloorBlastDoorOpen = { ent-ADTFloorBlastDoor }
     .suffix = Открытый
-    .desc = { ent-FloorBlastDoor.desc }
-ent-BlastFloorFrame = каркас герметичного люка
+    .desc = { ent-ADTFloorBlastDoor.desc }
+ent-ADTBlastFloorFrame = каркас герметичного люка
     .desc = Имеется надпись "ОПАСНОСТЬ ВЗРЫВА".

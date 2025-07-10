@@ -88,10 +88,10 @@
 
 - type: construction
   name: blast floor
-  id: BlastFloor
-  graph: BlastFloor
+  id: ADTBlastFloor
+  graph: ADTBlastFloor
   startNode: start
-  targetNode: blastfloor
+  targetNode: adtblastfloor
   category: construction-category-structures
   description: Barely visible blast door embedded in the floor.
   icon:
