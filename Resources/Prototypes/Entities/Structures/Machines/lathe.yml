@@ -192,7 +192,7 @@
         - RawMaterial
         - Ingot
         - PhantomEctoplasm
-        - BSCrystal
+        - BSCrystal #ADT Tweak
   - type: Lathe
     idleState: icon
     runningState: building
