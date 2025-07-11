@@ -1,1 +1,1 @@
-ent-ADTSofaBlackLeftSideRecipe = левая сторона дивана
+construction-name-sofa-left-side = левая сторона дивана
