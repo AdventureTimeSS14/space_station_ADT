@@ -164,7 +164,7 @@
     Glass: 300
     Silver: 300
     Plasma: 600
-    BScrystal: 400
+    ADTBScrystal: 400 #ADTTweak
 
 #Кларк
 - type: latheRecipe
@@ -390,7 +390,7 @@
     Steel: 1000
     Glass: 1500
     Gold: 1000
-    BScrystal: 500
+    ADTBScrystal: 500 #ADT Tweak
 
 - type: latheRecipe
   id: ADTPhazonPeripheralsElectronics

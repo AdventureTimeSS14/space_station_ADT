@@ -53,7 +53,7 @@
     Plastic: 500
     Plasma: 150
     Silver: 50
-    BScrystal: 200
+    ADTBScrystal: 200 #ADT Tweak
 
 - type: latheRecipe
   id: SyringeBluespace
@@ -65,7 +65,7 @@
     Glass: 250
     Plasma: 100
     Silver: 50
-    BScrystal: 100
+    ADTBScrystal: 100 #ADT Tweak
 - type: latheRecipe
   id: PillCanister
   result: PillCanister

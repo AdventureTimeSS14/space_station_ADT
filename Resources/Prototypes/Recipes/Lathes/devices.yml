@@ -131,7 +131,7 @@
     Silver: 750
     Plasma: 1500
     Uranium: 150
-    BScrystal: 500 # ADT Tweak
+    ADTBScrystal: 500 # ADT Tweak
 
 - type: latheRecipe
   parent: ClothingBackpackHolding

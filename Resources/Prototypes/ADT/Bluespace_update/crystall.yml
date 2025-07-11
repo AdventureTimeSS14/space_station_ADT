@@ -1,15 +1,15 @@
 #TAGS
 - type: Tag
-  id: BSCrystal
+  id: ADTBSCrystal
 
 
 #ORE
 - type: entity
   parent: OreBase
-  id: BSore
+  id: ADTBSore
   suffix: Full
-  name: Блюспейс руда
-  description: Камень с жилками блюспейс руды
+  name: Bluespace ore
+  description: rock wirh pieces of bluespace ore
   components:
   - type: Stack
     stackType: BSore
@@ -28,9 +28,9 @@
     heldPrefix: BSore
 
 - type: material
-  id: RawBSore
-  stackEntity: BSore1
-  name: Блюспейс руда
+  id: ADTRawBSore
+  stackEntity: ADTBSore1
+  name: Bluespace ore
   unit: materials-unit-chunk
   icon: { sprite: ADT/Bluespace_crystall/BS_ore.rsi, state: BS_ore }
   color: "#a8ccd7"
@@ -38,15 +38,15 @@
 
 
 - type: stack
-  id: BSore
+  id: ADTBSore
   icon: { sprite: ADT/Bluespace_crystall/BS_ore.rsi, state: BS_ore }
   spawn: BSore1
   maxCount: 30
 
 - type: entity
-  parent: BSore
-  id: BSore1
-  name: Блюспейс руда
+  parent: ADTBSore
+  id: ADTBSore1
+  name: Bluespace ore
   suffix: 1
   components:
   - type: Stack
@@ -55,21 +55,104 @@
 #Ore veins and drop
 #drop
 - type: ore
-  id: OreBS
-  oreEntity: BSore1
+  id: ADTOreBS
+  oreEntity: ADTBSore1
   minOreYield: 1
   maxOreYield: 2
 #obj and rare
 
+
+#ore/crab spawn for anomaly
 - type: entity
-  id: MeteorRockBS
+  id: ADTWallSpawnAsteroidBS
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTAsteroidRockBS
+
+- type: entity
+  id: ADTWallSpawnAsteroidBSCrab
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTMobBSCrab
+#crab
+
+- type: entity
+  id: ADTMobSpawnBSCrab
+  parent: MobSpawnCrabQuartz
+  name: mobspawner BS crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Effects/mobspawn.rsi
+    state: crab_BS
+  - type: SpawnOnDespawn
+    prototype: ADTMobBSCrab
+
+- type: entity
+  id: ADTAnomalyRockBS
+  parent: AnomalyRockBase
+  suffix: Rock, BS
+  components:
+  - type: Sprite
+    color: "#3363c4"
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#3363c4"
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 8
+        maxAmount: 15
+        minRange: 4.5
+        maxRange: 7.5
+      spawns:
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidBS
+      - ADTWallSpawnAsteroidBSCrab
+    - settings:
+        spawnOnPulse: true
+        maxAmount: 3
+        minRange: 2.5
+        maxRange: 4.5
+      spawns:
+      - CrystalBlue
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 40
+        minRange: 5
+        maxRange: 15
+      spawns:
+      - CrystalBlue
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidBSCrab
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 6
+        maxAmount: 10
+        maxRange: 5
+      spawns:
+      - ADTMobSpawnBSCrab
+
+
+
+- type: entity
+  id: ADTMeteorRockBS
   parent: MeteorRock
   description: 
   suffix: BS
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreBS
+      currentOre: ADTOreBS
     - type: Sprite
       layers:
         - state: rock_asteroid
@@ -84,14 +167,14 @@
         - state: rock_bsore
 
 - type: entity
-  id: AsteroidRockBS
+  id: ADTAsteroidRockBS
   parent: AsteroidRock
   description: 
   suffix: BS
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreBS
+      currentOre: ADTOreBS
     - type: Sprite
       layers:
         - state: rock_bsore #ADT tweak
@@ -108,8 +191,134 @@
         # - state: rock_phoron #ADT tweak
         #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
+- type: entity
+  id: ADTWallRockBS
+  parent: WallRock
+  description: An ore vein rich with bluespace ore.
+  suffix: BS
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreBS
+    - type: Sprite
+      layers:
+        - state: rock_bsore #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
 
+- type: entity
+  id: ADTWallRockBasaltBS
+  parent: WallRockBasalt
+  description: An ore vein rich with bluespace ore.
+  suffix: BS
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreBS
+    - type: Sprite
+      layers:
+        - state: rock_bsore #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
 
+- type: entity
+  id: ADTWallRockChromiteBS
+  parent: WallRockChromite
+  description: An ore vein rich with bluespace ore.
+  suffix: BS
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreBS
+    - type: Sprite
+      layers:
+        - state: rock_bsore #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+
+- type: entity
+  id: ADTWallRockSandBS
+  parent: WallRockSand
+  description: An ore vein rich with bluespace ore.
+  suffix: BS
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreBS
+    - type: Sprite
+      layers:
+        - state: rock_bsore #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+
+- type: entity
+  id: ADTWallRockSnowBS
+  parent: WallRockSnow
+  description: An ore vein rich with bluespace ore.
+  suffix: BS
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreBS
+    - type: Sprite
+      layers:
+        - state: rock_bsore #ADT tweak
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+
+- type: biomeMarkerLayer
+  id: ADTOreBS
+  entityMask:
+    AsteroidRock: ADTAsteroidRockBS
+    WallRock: ADTWallRockBS
+    WallRockBasalt: ADTWallRockBasaltBS
+    WallRockChromite: ADTWallRockChromiteBS
+    WallRockSand: ADTWallRockSandBS
+    WallRockSnow: ADTWallRockSnowBS
+  maxCount: 6
+  minGroupSize: 1
+  maxGroupSize: 2
+  radius: 4
 
 
 
@@ -121,22 +330,22 @@
   #BS CRYSTAL
 - type: entity
   parent: [MaterialBase,BaseItem]
-  id: MaterialBScrystal
-  name: Блюспейс кристалл
-  description: Просто блюспейс кристалл, который не был совмещен с плазмой и бриллиантом.Имеет ограниченный функционал,но умеет при определенной манипуляции над кристаллом искажать пространство,расширяя ,например, его внутри маленьких предметов, а так же перемещать в блюспейс скачки шаттлы
+  id: ADTMaterialBScrystal
+  name: Bluespace crystal
+  description: Just a bluespace crystal that was not combined with plasma and diamond. It has limited functionality, but with a certain manipulation of the crystal it can distort space, expanding, for example, it inside small objects, and also move jumps shuttles into bluespace
   suffix: Full
   components:
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      BScrystal: 100
+      ADTBScrystal: 100
   - type: Tag
     tags:
-    - BSCrystal
+    - ADTBSCrystal
   - type: Sprite
-    sprite: ADT/Bluespace_crystall/crystall.rsi
+    sprite: ADT/Bluespace_crystall/crystal.rsi
     layers:
-    - state: crystall
+    - state: crystal
       map: [ "base" ]
   - type: StaticPrice
     price: 0
@@ -144,40 +353,40 @@
     price: 1500
   - type: Appearance
   - type: Stack
-    stackType: BScrystal
+    stackType: ADTBScrystal
     baseLayer: base
     layerStates:
-    - crystall
-    - crystall_2
-    - crystall_3
+    - crystal
+    - crystal_2
+    - crystal_3
   - type: Item
     size: Small
     heldPrefix: crystal
-    sprite: ADT/Bluespace_crystall/crystall.rsi
+    sprite: ADT/Bluespace_crystall/crystal.rsi
     shape:
     - 0,0,2,2
 
 - type: entity
-  parent: MaterialBScrystal
-  id: MaterialBScrystal1
-  name: Блюспейс кристалл
+  parent: ADTMaterialBScrystal
+  id: ADTMaterialBScrystal1
+  name: Bluespace crystal
   suffix: 1
   components:
   - type: Stack
     count: 1
 
 - type: stack
-  id: BScrystal
-  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi, state: crystall }
-  spawn: MaterialBScrystal1
+  id: ADTBScrystal
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystal.rsi, state: crystal }
+  spawn: ADTMaterialBScrystal1
   maxCount: 10
 
 - type: material
-  id: BScrystal
+  id: ADTBScrystal
   stackEntity: MaterialBScrystal1
   name: materials-bluespacecrystal
   unit: materials-unit-piece
-  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall.rsi, state: crystall }
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystal.rsi, state: crystal }
   color: "#1d55c4"
   price: 50 
 
@@ -185,9 +394,9 @@
   #BS CRYSTAL ARTIF.
 - type: entity
   parent: [MaterialBase,BaseItem]
-  id: MaterialBScrystalArt
-  name: Артефактный блюспейс кристалл
-  description: Кристалл обьедененный с плазмой и бриллиантом, способный манипулировать позицией обьекта в пространстве, но становится очень нестабильным если сломать его
+  id: ADTMaterialBScrystalArt
+  name: Artefactul bluespace crystal
+  description: A crystal combined with plasma and diamond, capable of manipulating an object's position in space, but becomes very unstable if broken.
   suffix: Full
   components:
   - type: EmbeddableProjectile
@@ -197,9 +406,9 @@
   - type: LandAtCursor
   - type: BsCrystalTeleport
   - type: Sprite
-    sprite: ADT/Bluespace_crystall/crystall_art.rsi
+    sprite: ADT/Bluespace_crystall/crystal_art.rsi
     layers:
-    - state: crystall
+    - state: crystal
       map: [ "base" ]
   - type: StaticPrice
     price: 0
@@ -207,34 +416,34 @@
     price: 1500
   - type: Appearance
   - type: Stack
-    stackType: BScrystalArt
+    stackType: ADTBScrystalArt
   - type: Item
     size: Small
     heldPrefix: crystal
-    sprite: ADT/Bluespace_crystall/crystall_art.rsi
+    sprite: ADT/Bluespace_crystall/crystal_art.rsi
     shape:
     - 0,0,2,2
 
 - type: entity
-  parent: MaterialBScrystalArt
-  id: MaterialBScrystalArt1
-  name: Артефактный блюспейс кристалл
+  parent: ADTMaterialBScrystalArt
+  id: ADTMaterialBScrystalArt1
+  name: Artefactul bluespace crystal
   suffix: 1
   components:
   - type: Stack
     count: 1
 
 - type: stack
-  id: BScrystalArt
-  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall_art.rsi, state: crystall }
-  spawn: MaterialBScrystalArt1
+  id: ADTBScrystalArt
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystal_art.rsi, state: crystal }
+  spawn: ADTMaterialBScrystalArt1
   maxCount: 10
 
 - type: material
-  id: BScrystalArt
-  stackEntity: MaterialBScrystalArt1
+  id: ADTBScrystalArt
+  stackEntity: ADTMaterialBScrystalArt1
   unit: materials-unit-piece
-  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystall_art.rsi, state: crystall }
+  icon: { sprite: /Textures/ADT/Bluespace_crystall/crystal_art.rsi, state: crystal }
   color: "#1d55c4"
   price: 50 
 
@@ -242,14 +451,14 @@
 
 #latheRecipe
 - type: latheRecipe
-  id: SheetBScrystal
-  result: MaterialBScrystal1
+  id: ADTSheetBScrystal
+  result: ADTMaterialBScrystal1
   miningPoints: 40
   completetime: 2
   materials:
     RawBSore: 100
 #lathRecipePack
 - type: latheRecipePack
-  id: BScrystalSmelting
+  id: ADTBScrystalSmelting
   recipes:
-  - SheetBScrystal
+  - ADTSheetBScrystal

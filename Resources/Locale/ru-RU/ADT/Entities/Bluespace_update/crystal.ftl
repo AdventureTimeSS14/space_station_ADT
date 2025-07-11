@@ -1,29 +1,29 @@
 research-technology-crystal-manipulation = Манипуляция кристаллами
 
 
-ent-BSore = Блюспейс руда
+ent-ADTBSore = Блюспейс руда
     .desc = Камень с жилками блюспейс руды
 
-ent-RawBSore = Сырая блюспейс руда
+ent-ADTRawBSore = Сырая блюспейс руда
 
 
-ent-BSore1= Блюспейс руда
+ent-ADTBSore1= Блюспейс руда
 
-ent-MaterialBScrystal = Блюспейс кристалл
+ent-ADTMaterialBScrystal = Блюспейс кристалл
     .desc = Просто блюспейс кристалл, который не был совмещен с плазмой и бриллиантом. Имеет ограниченный функционал, но умеет при определенной манипуляции над кристаллом искажать пространство,расширяя ,например, его внутри маленьких предметов, а также перемещать в блюспейс скачки шаттлы
 
-ent-MaterialBScrystal1=Блюспейс кристалл
+ent-ADTMaterialBScrystal1=Блюспейс кристалл
 
 
-ent-BScrystal = Блюспейс кристалл
+ent-ADTBScrystal = Блюспейс кристалл
 
 materials-bluespacecrystal = Блюспейс кристалл
 
-ent-MaterialBScrystalArt = Артефактный блюспейс кристалл
+ent-ADTMaterialBScrystalArt = Артефактный блюспейс кристалл
     .desc = Кристалл, обьедененный с плазмой и бриллиантом, способный манипулировать позицией обьекта в пространстве, но становится очень нестабильным, если сломать его
 
 
-ent-MaterialBScrystalArt1 = Артефактный блюспейс кристалл
+ent-ADTMaterialBScrystalArt1 = Артефактный блюспейс кристалл
 
-ent-BScrystalArt = Артефактный блюспейс кристалл
+ent-ADTBScrystalArt = Артефактный блюспейс кристалл
 

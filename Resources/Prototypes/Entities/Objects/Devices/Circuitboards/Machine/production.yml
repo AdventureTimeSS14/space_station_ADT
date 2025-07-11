@@ -23,7 +23,7 @@
     stackRequirements:
       MatterBin: 3
       Glass: 1
-      BScrystal: 3 #ADT Tweak
+      ADTBScrystal: 3 #ADT Tweak
     tagRequirements:
       Igniter:
         amount: 1
@@ -59,7 +59,7 @@
     prototype: ProtolatheHyperConvection
     stackRequirements:
       MatterBin: 2
-      BScrystal: 3 #ADT Tweak
+      ADTBScrystal: 3 #ADT Tweak
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -163,7 +163,7 @@
     prototype: CircuitImprinterHyperConvection
     stackRequirements:
       MatterBin: 2
-      BScrystal: 3 #ADT Tweak
+      ADTBScrystal: 3 #ADT Tweak
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -202,7 +202,7 @@
     prototype: ResearchAndDevelopmentServer
     stackRequirements:
       Plasma: 5
-      BScrystal: 5 #ADT Tweak
+      ADTBScrystal: 5 #ADT Tweak
 
 - type: entity
   id: BiogeneratorMachineCircuitboard
@@ -867,7 +867,7 @@
     stackRequirements:
       Capacitor: 4
       Steel: 5
-      BScrystalArt: 2 #ADT Tweak
+      ADTBScrystalArt: 2 #ADT Tweak
 
 - type: entity
   id: GyroscopeMachineCircuitboard
@@ -1225,7 +1225,7 @@
       stackRequirements:
         Capacitor: 2
         Steel: 5
-        BScrystalArt: 5 #ADT Tweak
+        ADTBScrystalArt: 5 #ADT Tweak
 
 - type: entity
   id: MailTeleporterMachineCircuitboard

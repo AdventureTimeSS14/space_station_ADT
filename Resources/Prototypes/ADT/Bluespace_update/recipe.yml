@@ -8,7 +8,7 @@
   tier: 2
   cost: 15000
   recipeUnlocks:
-  - MaterialBScrystalArt
+  - ADTMaterialBScrystalArt
   # ADT Research Console Rework start
   position: 2,-2
   requiredTech:
@@ -18,14 +18,14 @@
 - type: latheRecipePack
   id: BluespaceCrystalTech
   recipes:
-  - MaterialBScrystalArt
+  - ADTMaterialBScrystalArt
 
 
 - type: latheRecipe
-  id: MaterialBScrystalArt
-  result: MaterialBScrystalArt1
+  id: ADTMaterialBScrystalArt
+  result: ADTMaterialBScrystalArt1
   completetime: 5
   materials:
     Plasma: 200
     Diamond: 200
-    BScrystal: 100
+    ADTBScrystal: 100

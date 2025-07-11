@@ -192,7 +192,7 @@
         - RawMaterial
         - Ingot
         - PhantomEctoplasm
-        - BSCrystal #ADT Tweak
+        - ADTBSCrystal #ADT Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -298,7 +298,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - BSCrystal #ADT Tweak
+        - ADTBSCrystal #ADT Tweak
   - type: RequireProjectileTarget
 
 - type: entity
@@ -357,7 +357,7 @@
       - Sheet
       - RawMaterial
       - Ingot
-      - BSCrystal #ADT Tweak
+      - ADTBSCrystal #ADT Tweak
   - type: GuideHelp
     guides:
     - Robotics
@@ -662,7 +662,7 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
-      - BScrystalSmelting #ADT Tweak
+      - ADTBScrystalSmelting #ADT Tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
@@ -689,7 +689,7 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
-    - BScrystalSmelting #ADT Tweak
+    - ADTBScrystalSmelting #ADT Tweak
 
 - type: entity
   parent: BaseLathe
