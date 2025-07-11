@@ -2,7 +2,7 @@
   id: CrystalManipulation
   name: research-technology-crystal-manipulation
   icon:
-    sprite: /Textures/ADT/Bluespace_crystall/crystall_art.rsi
+    sprite: /Textures/ADT/Bluespace_crystall/crystal_art.rsi
     state: crystal
   discipline: Experimental
   tier: 2
