@@ -171,4 +171,4 @@
   components:
   - type: Tendril
     spawns:
-    - MobBSCrab
+    - ADTMobBSCrab

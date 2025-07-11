@@ -12,7 +12,7 @@
   description: rock wirh pieces of bluespace ore
   components:
   - type: Stack
-    stackType: BSore
+    stackType: ADTBSore
   - type: Sprite
     sprite: ADT/Bluespace_crystall/BS_ore.rsi
     layers:
@@ -21,11 +21,11 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawBSore: 800
+      ADTRawBSore: 800
   - type: Extractable
-    grindableSolutionName: BSore
+    grindableSolutionName: ADTBSore
   - type: Item
-    heldPrefix: BSore
+    heldPrefix: ADTBSore
 
 - type: material
   id: ADTRawBSore
@@ -40,7 +40,7 @@
 - type: stack
   id: ADTBSore
   icon: { sprite: ADT/Bluespace_crystall/BS_ore.rsi, state: BS_ore }
-  spawn: BSore1
+  spawn: ADTBSore1
   maxCount: 30
 
 - type: entity
@@ -383,7 +383,7 @@
 
 - type: material
   id: ADTBScrystal
-  stackEntity: MaterialBScrystal1
+  stackEntity: ADTMaterialBScrystal1
   name: materials-bluespacecrystal
   unit: materials-unit-piece
   icon: { sprite: /Textures/ADT/Bluespace_crystall/crystal.rsi, state: crystal }
@@ -456,7 +456,7 @@
   miningPoints: 40
   completetime: 2
   materials:
-    RawBSore: 100
+    ADTRawBSore: 100
 #lathRecipePack
 - type: latheRecipePack
   id: ADTBScrystalSmelting

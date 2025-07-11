@@ -3,7 +3,7 @@
   name: research-technology-crystal-manipulation
   icon:
     sprite: /Textures/ADT/Bluespace_crystall/crystall_art.rsi
-    state: crystall
+    state: crystal
   discipline: Experimental
   tier: 2
   cost: 15000
