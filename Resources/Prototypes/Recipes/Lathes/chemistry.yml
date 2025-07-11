@@ -66,6 +66,7 @@
     Plasma: 100
     Silver: 50
     ADTBScrystal: 100 #ADT Tweak
+  
 - type: latheRecipe
   id: PillCanister
   result: PillCanister

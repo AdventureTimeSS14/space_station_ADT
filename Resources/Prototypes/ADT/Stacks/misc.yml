@@ -19,3 +19,15 @@
   spawn: Paper
   maxCount: 1
   # itemSize: 1
+
+- type: stack
+  id: ADTBScrystal
+  icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
+  spawn: ADTMaterialBScrystal1
+  maxCount: 10
+
+- type: stack
+  id: ADTBScrystalArt
+  icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
+  spawn: ADTMaterialBScrystalArt1
+  maxCount: 10

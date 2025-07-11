@@ -1,4 +1,9 @@
 - type: latheRecipePack
+  id: BluespaceCrystalTech
+  recipes:
+  - ADTMaterialBScrystalArt
+
+- type: latheRecipePack
   id: ADTRCDPack
   recipes:
   - RCD

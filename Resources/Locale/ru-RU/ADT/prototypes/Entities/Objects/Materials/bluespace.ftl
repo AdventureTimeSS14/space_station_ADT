@@ -1,6 +1,3 @@
-research-technology-crystal-manipulation = Манипуляция кристаллами
-
-
 ent-ADTBSore = Блюспейс руда
     .desc = Камень с жилками блюспейс руды
 
