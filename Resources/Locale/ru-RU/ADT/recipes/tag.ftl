@@ -32,12 +32,48 @@ construction-graph-salvage-hardsuitmode = шахтёрский скафандр/
 
 construction-graph-tag-clarke-central-module = центральный модуль управления Кларка
 construction-graph-tag-clarke-peripherals-module = модуль управления периферией Кларка
+construction-graph-tag-clarke-control-module = центральный контрольный модуль Кларка
 construction-graph-tag-durand-central-module = центральный модуль управления Дюранда
 construction-graph-tag-durand-peripherals-module = модуль управления периферией Дюранда
+construction-graph-tag-durand-armor-plates = защитная пластина Дюранда
 construction-graph-tag-gygax-central-module = центральный модуль управления Гайгэкса
 construction-graph-tag-gygax-peripherals-module = модуль управления периферией Гайгэкса
+construction-graph-tag-gygax-armor-plates = защитная пластина Гайгэкса
 construction-graph-tag-odysseus-central-module = центральный модуль управления Одиссея
 construction-graph-tag-odysseus-peripherals-module = модуль управления периферией Одиссея
 construction-graph-tag-phazon-central-module = центральный модуль управления Фазона
 construction-graph-tag-phazon-peripherals-module = модуль управления периферией Фазона
+construction-graph-tag-phazon-armor-plates = защитная пластина Фазона
+construction-graph-tag-phazon-weapon-control-module = оружейный модуль Фазона
 construction-graph-tag-ripley_mkii-modification-kit = комплект модификации Рипли
+
+# Очки
+construction-graph-tag-sun-glasses-med = солнечные очки
+
+# HUD
+construction-graph-tag-med-hud = медицинский визор
+
+# Аномалии
+construction-graph-tag-bluespace-anomaly-core = ядро блюспейс аномалии
+
+# Бумага
+construction-graph-tag-paper = бумага
+
+# Одежда
+construction-graph-tag-miner-armor = костюм исследователя
+construction-graph-tag-reinforced-explorer-suit =  пластинчатый костюм исследователя
+construction-graph-tag-reinforced-explorer-suit-two = взрывозашитный костюм
+
+# Тайлы
+construction-graph-tag-steel-dark-gray-tile = тёмно-серый пол
+construction-graph-tag-ship-gray-tile = серый пол шаттла
+construction-graph-tag-ship-dark-gray-tile = тёмно-серый пол шаттла
+
+# Гидропоника
+construction-graph-tag-galaxythistle = галакточертополох
+construction-graph-tag-poppy = мак
+construction-graph-tag-aloe = алоэ
+construction-graph-tag-ambrosia = амброзия
+
+# Другое
+construction-graph-tag-capicator-stock-part = конденцатор
