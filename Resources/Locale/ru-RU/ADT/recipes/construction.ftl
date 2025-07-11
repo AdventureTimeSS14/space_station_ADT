@@ -32,7 +32,6 @@ construction-name-brown-sofa-middle = средняя часть коричнев
 construction-name-brown-sofa-left-corner = левый угол коричневого дивана
 construction-name-brown-sofa-right-corner = правый угол коричневого дивана
 construction-name-violet-chair = фиолетовый стул
-construction-name-red-chair = красный стул
 construction-name-leather-chair = кожаный стул
 construction-name-black-chair = черный стул
 construction-name-white-armchair = белое кресло
