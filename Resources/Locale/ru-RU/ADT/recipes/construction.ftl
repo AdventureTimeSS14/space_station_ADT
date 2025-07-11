@@ -1,0 +1,1 @@
+ent-ADTSofaBlackLeftSideRecipe = левая сторона дивана
