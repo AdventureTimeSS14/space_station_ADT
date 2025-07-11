@@ -9,9 +9,6 @@
   targetNode: adtsofablackleft
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
-    state: sofa_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -26,9 +23,6 @@
   targetNode: adtsofablackmiddle
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
-    state: sofa_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -43,9 +37,6 @@
   targetNode: adtsofablackright
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/black_sofa.rsi
-    state: sofa_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -62,9 +53,6 @@
   targetNode: adtsofaredleft
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
-    state: sofa_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -79,9 +67,6 @@
   targetNode: adtsofaredmiddle
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
-    state: sofa_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -96,9 +81,6 @@
   targetNode: adtsofaredright
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/red_sofa.rsi
-    state: sofa_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -115,9 +97,6 @@
   targetNode: adtsofavioletleft
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
-    state: sofa_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -132,9 +111,6 @@
   targetNode: adtsofavioletmiddle
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
-    state: sofa_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -149,9 +125,6 @@
   targetNode: adtsofavioletright
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/violet_sofa.rsi
-    state: sofa_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -168,9 +141,6 @@
   targetNode: adtsofaleatherleft
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
-    state: sofa_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -185,9 +155,6 @@
   targetNode: adtsofaleathermiddle
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
-    state: sofa_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -202,9 +169,6 @@
   targetNode: adtsofaleatherright
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/leather_sofa.rsi
-    state: sofa_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -221,9 +185,6 @@
   targetNode: adtsofawhiteleft
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
-    state: whitesofa_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -238,9 +199,6 @@
   targetNode: adtsofawhiteright
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
-    state: whitesofa_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -257,9 +215,6 @@
   targetNode: adtsofawhiteleft2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
-    state: whitesofa_left_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -274,9 +229,6 @@
   targetNode: adtsofawhiteright2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
-    state: whitesofa_right_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -291,9 +243,6 @@
   targetNode: adtsofawhitemiddle
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
-    state: whitesofa_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -308,9 +257,6 @@
   targetNode: adtsofawhiteleftcorner
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
-    state: whitesofa_leftcorner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -325,9 +271,6 @@
   targetNode: adtsofawhiterightcorner
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_white.rsi
-    state: whitesofa_rightcorner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -344,9 +287,6 @@
   targetNode: adtsofablueleft
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
-    state: bluesofa_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -361,9 +301,6 @@
   targetNode: adtsofablueright
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
-    state: bluesofa_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -378,9 +315,6 @@
   targetNode: adtsofablueleft2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
-    state: bluesofa_left_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -395,9 +329,6 @@
   targetNode: adtsofablueright2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
-    state: bluesofa_right_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -412,9 +343,6 @@
   targetNode: adtsofabluemiddle
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
-    state: bluesofa_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -429,9 +357,6 @@
   targetNode: adtsofablueleftcorner
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
-    state: bluesofa_leftcorner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -446,9 +371,6 @@
   targetNode: adtsofabluerightcorner
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_blue.rsi
-    state: bluesofa_rightcorner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -464,9 +386,6 @@
   targetNode: adtsofabrownleft
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
-    state: brownsofa_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -481,9 +400,6 @@
   targetNode: adtsofabrownright
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
-    state: brownsofa_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -498,9 +414,6 @@
   targetNode: adtsofabrownleft2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
-    state: brownsofa_left_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -515,9 +428,6 @@
   targetNode: adtsofabrownright2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
-    state: brownsofa_right_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -532,9 +442,6 @@
   targetNode: adtsofabrownmiddle
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
-    state: brownsofa_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -549,9 +456,6 @@
   targetNode: adtsofabrownleftcorner
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
-    state: brownsofa_leftcorner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -566,9 +470,6 @@
   targetNode: adtsofabrownrightcorner
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Sofas/sofa_brown.rsi
-    state: brownsofa_rightcorner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -586,9 +487,6 @@
   targetNode: adtarmchairviolet
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
-    state: violet_armchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -603,9 +501,6 @@
   targetNode: adtarmchairred
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
-    state: red_armchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -620,9 +515,6 @@
   targetNode: adtarmchairleather
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
-    state: brown_armchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -639,9 +531,6 @@
   targetNode: adtarmchairblack
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
-    state: black_armchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -656,9 +545,6 @@
   targetNode: adtarmchairwhite
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
-    state: white_armchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -673,9 +559,6 @@
   targetNode: adtarmchairwhite2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
-    state: white_armchair_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -690,9 +573,6 @@
   targetNode: adtarmchairbrown
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
-    state: brown_armchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -707,9 +587,6 @@
   targetNode: adtarmchairbrown2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
-    state: brown_armchair_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -724,9 +601,6 @@
   targetNode: adtarmchairblue
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
-    state: blue_armchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -741,9 +615,6 @@
   targetNode: adtarmchairblue2
   category: construction-category-furniture
   description: It looks comfy.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/armchairsluna.rsi
-    state: blue_armchair_02
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -760,9 +631,6 @@
   targetNode: adttableroundplastic
   category: construction-category-furniture
   description: Lets fall in 2470.
-  icon:
-    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
-    state: round_plastic
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -777,9 +645,6 @@
   targetNode: adttableroundwood
   category: construction-category-furniture
   description: Lets fall in 2470.
-  icon:
-    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
-    state: round_wood
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -794,9 +659,6 @@
   targetNode: adttableroundglass
   category: construction-category-furniture
   description: Lets fall in 2470.
-  icon:
-    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
-    state: round_glass
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -811,9 +673,6 @@
   targetNode: adttablewhitewood
   category: construction-category-furniture
   description: A square piece of glass, standing on four metal legs.
-  icon:
-    sprite: ADT/Structures/Furniture/Tables/table_white_wood.rsi
-    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -828,9 +687,6 @@
   targetNode: adttableredwood
   category: construction-category-furniture
   description: A square piece of glass, standing on four metal legs.
-  icon:
-    sprite: ADT/Structures/Furniture/Tables/table_red_wood.rsi
-    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -847,9 +703,6 @@
   targetNode: adtchairpizzeria
   category: construction-category-furniture
   description: You can sit on this.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
-    state: pizza_chair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -864,9 +717,6 @@
   targetNode: adtchairwhite
   category: construction-category-furniture
   description: You can sit on this.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
-    state: white_chair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -881,9 +731,6 @@
   targetNode: adtchairred
   category: construction-category-furniture
   description: You can sit on this.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
-    state: red_chair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -900,9 +747,6 @@
   targetNode: adtbenchchurchleft
   category: construction-category-furniture
   description: Simple, but beautiful.
-  icon:
-    sprite: ADT/Structures/Furniture/bench_church.rsi
-    state: bench_left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -917,9 +761,6 @@
   targetNode: adtbenchchurchmiddle
   category: construction-category-furniture
   description: Simple, but beautiful.
-  icon:
-    sprite: ADT/Structures/Furniture/bench_church.rsi
-    state: bench_middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -934,9 +775,6 @@
   targetNode: adtbenchchurchright
   category: construction-category-furniture
   description: Simple, but beautiful.
-  icon:
-    sprite: ADT/Structures/Furniture/bench_church.rsi
-    state: bench_right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -953,9 +791,6 @@
   targetNode: adtchairoktoberfest
   category: construction-category-furniture
   description: You can sit on this.
-  icon:
-    sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
-    state: oct_chair_orange
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -970,9 +805,6 @@
   targetNode: adttableoktoberfest
   category: construction-category-furniture
   description: Do not apply fire to this. Rumour says it burns easily.
-  icon:
-    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table.rsi
-    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -987,9 +819,6 @@
   targetNode: adttableoktoberfestorange
   category: construction-category-furniture
   description: Do not apply fire to this. Rumour says it burns easily.
-  icon:
-    sprite: ADT/Structures/Furniture/Tables/oktoberfest_table_orange.rsi
-    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1006,9 +835,6 @@
   targetNode: fireplace
   category: construction-category-furniture
   description: A place that has fire. Cozy!
-  icon:
-    sprite: Structures/Decoration/fireplace.rsi
-    state: fireplace
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1023,9 +849,6 @@
   startNode: start
   targetNode: adtdeckchair
   category: construction-category-furniture
-  icon:
-    sprite: ADT/Structures/Furniture/deckchair.rsi
-    state: deckchair
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1040,9 +863,6 @@
   startNode: start
   targetNode: bonfire
   category: construction-category-misc
-  icon:
-    sprite: Structures/Decoration/bonfire.rsi
-    state: bonfire
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1057,9 +877,6 @@
   targetNode: adtdiscoball
   category: construction-category-furniture
   description: Lets fall in 2470.
-  icon:
-    sprite: ADT/Structures/Decoration/discoball.rsi
-    state: discoball
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
