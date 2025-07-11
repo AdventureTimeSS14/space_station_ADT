@@ -16,7 +16,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: sofa middle
+  name: construction-name-sofa-middle
   id: ADTSofaBlackMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -30,7 +30,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: sofa right side
+  name: construction-name-sofa-right-side
   id: ADTSofaBlackRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -46,7 +46,7 @@
 # sofa-red
 
 - type: construction
-  name: red sofa left side
+  name: construction-name-red-sofa-left-side
   id: ADTSofaRedLeftSideRecipe
   graph: ADTSeat
   startNode: start
@@ -60,7 +60,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red sofa middle
+  name: construction-name-red-sofa-middle
   id: ADTSofaRedMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -74,7 +74,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red sofa right side
+  name: construction-name-red-sofa-right-side
   id: ADTSofaRedRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -90,7 +90,7 @@
 # sofa-violet
 
 - type: construction
-  name: violet sofa left side
+  name: construction-name-violet-sofa-left-side
   id: ADTVioletSofaLeftSideRecipe
   graph: ADTSeat
   startNode: start
@@ -104,7 +104,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: violet sofa middle
+  name: construction-name-violet-sofa-middle
   id: ADTSofaVioletMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -118,7 +118,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: violet sofa right side
+  name: construction-name-violet-sofa-right-side
   id: ADTSofaVioletRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -134,7 +134,7 @@
 # sofa-leather
 
 - type: construction
-  name: leather sofa left side
+  name: construction-name-leather-sofa-left-side
   id: ADTSofaLeatherLeftSideRecipe
   graph: ADTSeat
   startNode: start
@@ -148,7 +148,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: leather sofa middle
+  name: construction-name-leather-sofa-middle
   id: ADTSofaLeatherMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -162,7 +162,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: leather sofa right side
+  name: construction-name-leather-sofa-right-side
   id: ADTSofaLeatherRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -178,7 +178,7 @@
 # sofa-white
 
 - type: construction
-  name: white sofa left side
+  name: construction-name-white-sofa-left-side
   id: ADTSofaWhiteLeftSideRecipe
   graph: ADTSeat
   startNode: start
@@ -192,7 +192,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa right side
+  name: construction-name-white-sofa-right-side
   id: ADTSofaWhiteRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -205,10 +205,8 @@
   conditions:
     - !type:TileNotBlocked
 
-# sofa-white
-
 - type: construction
-  name: white sofa left side
+  name: construction-name-white-sofa-left-side-2
   id: ADTSofaWhiteLeftSideRecipe2
   graph: ADTSeat
   startNode: start
@@ -222,7 +220,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa right side
+  name: construction-name-white-sofa-right-side-2
   id: ADTSofaWhiteRightSideRecipe2
   graph: ADTSeat
   startNode: start
@@ -236,7 +234,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa middle
+  name: construction-name-white-sofa-middle
   id: ADTSofaWhiteMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -250,7 +248,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa left corner
+  name: construction-name-white-sofa-left-corner
   id: ADTSofaWhiteLeftCornerRecipe
   graph: ADTSeat
   startNode: start
@@ -264,7 +262,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white sofa right corner
+  name: construction-name-white-sofa-right-corner
   id: ADTSofaWhiteRightCornerRecipe
   graph: ADTSeat
   startNode: start
@@ -280,7 +278,7 @@
 # sofa-blue
 
 - type: construction
-  name: blue sofa left side
+  name: construction-name-blue-sofa-left-side
   id: ADTSofaBlueLeftSideRecipe
   graph: ADTSeat
   startNode: start
@@ -294,7 +292,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa right side
+  name: construction-name-blue-sofa-right-side
   id: ADTSofaBlueRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -308,7 +306,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa left side
+  name: construction-name-blue-sofa-left-side-2
   id: ADTSofaBlueLeftSideRecipe2
   graph: ADTSeat
   startNode: start
@@ -322,7 +320,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa right side
+  name: construction-name-blue-sofa-right-side-2
   id: ADTSofaBlueRightSideRecipe2
   graph: ADTSeat
   startNode: start
@@ -336,7 +334,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa middle
+  name: construction-name-blue-sofa-middle
   id: ADTSofaBlueMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -350,7 +348,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa left corner
+  name: construction-name-blue-sofa-left-corner
   id: ADTSofaBlueLeftCornerRecipe
   graph: ADTSeat
   startNode: start
@@ -364,7 +362,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue sofa right corner
+  name: construction-name-blue-sofa-right-corner
   id: ADTSofaBlueRightCornerRecipe
   graph: ADTSeat
   startNode: start
@@ -379,7 +377,7 @@
 
 # sofa-brown
 - type: construction
-  name: brown sofa left side
+  name: construction-name-brown-sofa-left-side
   id: ADTSofabrownLeftSideRecipe
   graph: ADTSeat
   startNode: start
@@ -393,7 +391,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa right side
+  name: construction-name-brown-sofa-right-side
   id: ADTSofabrownRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -407,7 +405,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa left side
+  name: construction-name-brown-sofa-left-side-2
   id: ADTSofabrownLeftSideRecipe2
   graph: ADTSeat
   startNode: start
@@ -421,7 +419,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa right side
+  name: construction-name-brown-sofa-right-side-2
   id: ADTSofabrownRightSideRecipe2
   graph: ADTSeat
   startNode: start
@@ -435,7 +433,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa middle
+  name: construction-name-brown-sofa-middle
   id: ADTSofabrownMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -449,7 +447,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa left corner
+  name: construction-name-brown-sofa-left-corner
   id: ADTSofabrownLeftCornerRecipe
   graph: ADTSeat
   startNode: start
@@ -463,7 +461,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown sofa right corner
+  name: construction-name-brown-sofa-right-corner
   id: ADTSofabrownRightCornerRecipe
   graph: ADTSeat
   startNode: start
@@ -480,7 +478,7 @@
 # From Yuna
 
 - type: construction
-  name: violet chair
+  name: construction-name-violet-chair
   id: ADTArmchairVioletRecipe
   graph: ADTSeat
   startNode: start
@@ -494,7 +492,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red chair
+  name: construction-name-red-chair
   id: ADTArmchairRedRecipe
   graph: ADTSeat
   startNode: start
@@ -508,7 +506,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: leather chair
+  name: construction-name-leather-chair
   id: ADTArmchairLeatherRecipe
   graph: ADTSeat
   startNode: start
@@ -524,7 +522,7 @@
 # From Luna
 
 - type: construction
-  name: black chair
+  name: construction-name-black-chair
   id: ADTArmchairBlackRecipe
   graph: ADTSeat
   startNode: start
@@ -538,7 +536,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white armchair
+  name: construction-name-white-armchair
   id: ADTArmchairWhiteRecipe
   graph: ADTSeat
   startNode: start
@@ -552,7 +550,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white armchair
+  name: construction-name-white-armchair-2
   id: ADTArmchairWhiteRecipe2
   graph: ADTSeat
   startNode: start
@@ -566,7 +564,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown armchair
+  name: construction-name-brown-armchair
   id: ADTArmchairBrownRecipe
   graph: ADTSeat
   startNode: start
@@ -580,7 +578,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: brown armchair
+  name: construction-name-brown-armchair-2
   id: ADTArmchairBrownRecipe2
   graph: ADTSeat
   startNode: start
@@ -594,7 +592,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue armchair
+  name: construction-name-blue-armchair
   id: ADTArmchairBlueRecipe
   graph: ADTSeat
   startNode: start
@@ -608,7 +606,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blue armchair
+  name: construction-name-blue-armchair-2
   id: ADTArmchairBlueRecipe2
   graph: ADTSeat
   startNode: start
@@ -624,7 +622,7 @@
 # Tables
 
 - type: construction
-  name: plastic round table
+  name: construction-name-plastic-round-table
   id: ADTTableRoundPlasticRecipe
   graph: ADTTable
   startNode: start
@@ -638,7 +636,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: wood round table
+  name: construction-name-wood-round-table
   id: ADTTableRoundWoodRecipe
   graph: ADTTable
   startNode: start
@@ -652,7 +650,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: glass round table
+  name: construction-name-glass-round-table
   id: ADTTableRoundGlassRecipe
   graph: ADTTable
   startNode: start
@@ -666,7 +664,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white wood table
+  name: construction-name-white-wood-table
   id: ADTTableWhiteWoodRecipe
   graph: ADTTable
   startNode: start
@@ -680,7 +678,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red wood table
+  name: construction-name-red-wood-table
   id: ADTTableRedWoodRecipe
   graph: ADTTable
   startNode: start
@@ -696,7 +694,7 @@
 # Chairs
 
 - type: construction
-  name: pizza chair
+  name: construction-name-pizza-chair
   id: ADTChairPizzeriaRecipe
   graph: ADTSeat
   startNode: start
@@ -710,7 +708,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: white chair
+  name: construction-name-white-chair
   id: ADTChairWhiteRecipe
   graph: ADTSeat
   startNode: start
@@ -724,7 +722,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: red chair
+  name: construction-name-red-chair
   id: ADTChairRedRecipe
   graph: ADTSeat
   startNode: start
@@ -737,10 +735,10 @@
   conditions:
     - !type:TileNotBlocked
 
-# Benchs
+# Benches
 
 - type: construction
-  name: church bench left side
+  name: construction-name-church-bench-left-side
   id: ADTBenchChurchLeftSideRecipe
   graph: ADTSeat
   startNode: start
@@ -754,7 +752,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: church bench middle
+  name: construction-name-church-bench-middle
   id: ADTBenchChurchMiddleRecipe
   graph: ADTSeat
   startNode: start
@@ -768,7 +766,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: church bench right side
+  name: construction-name-church-bench-right-side
   id: ADTBenchChurchRightSideRecipe
   graph: ADTSeat
   startNode: start
@@ -784,7 +782,7 @@
 # OctoberFest
 
 - type: construction
-  name: oktoberfest chair
+  name: construction-name-oktoberfest-chair
   id: ADTChairOktoberfestRecipe
   graph: ADTSeat
   startNode: start
@@ -798,7 +796,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: oktoberfest table
+  name: construction-name-oktoberfest-table
   id: ADTTableOktoberfestRecipe
   graph: ADTTable
   startNode: start
@@ -812,7 +810,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: oktoberfest orange table
+  name: construction-name-oktoberfest-orange-table
   id: ADTTableOktoberfestOrangeRecipe
   graph: ADTTable
   startNode: start
@@ -828,7 +826,7 @@
 # Other
 
 - type: construction
-  name: fireplace
+  name: construction-name-fireplace
   id: ADTFireplaceRecipe
   graph: ADTFireplace
   startNode: start
@@ -842,7 +840,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: deckchair
+  name: construction-name-deckchair
   id: ADTDeckChairRecipe
   description: A deckchair for the acquisition of an even tan under the light of the nearest star.
   graph: adt_deckchair
@@ -857,7 +855,7 @@
 
 - type: construction
   id: ADTBonfireRecipe
-  name: bonfire
+  name: construction-name-bonfire
   description: Just dont freeze.
   graph: ADTBonfire
   startNode: start
@@ -870,7 +868,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: disco ball
+  name: construction-name-disco-ball
   id: ADTDiscoBallRecipe
   graph: ADTDiscoBallGraph
   startNode: start
