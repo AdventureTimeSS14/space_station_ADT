@@ -68,6 +68,23 @@ construction-graph-tag-reinforced-explorer-suit-two = взрывозашитны
 construction-graph-tag-steel-dark-gray-tile = тёмно-серый пол
 construction-graph-tag-ship-gray-tile = серый пол шаттла
 construction-graph-tag-ship-dark-gray-tile = тёмно-серый пол шаттла
+construction-graph-tag-black-wood-floor = пол из черного дерева
+construction-graph-tag-dark-wood-floor = пол из темного дерева
+construction-graph-tag-light-wood-floor = пол из светлого дерева
+construction-graph-tag-red-wood-floor = пол из красного дерева
+construction-graph-tag-large-black-wood-floor = большой пол из черного дерева
+construction-graph-tag-large-dark-wood-floor = большой пол из темного дерева
+construction-graph-tag-large-light-wood-floor = большой пол из светлого дерева
+construction-graph-tag-large-red-wood-floor = большой пол из красного дерева
+construction-graph-tag-parquet-black-wood-floor = паркет из черного дерева
+construction-graph-tag-parquet-dark-wood-floor = паркет из темного дерева
+construction-graph-tag-parquet-light-wood-floor = паркет из светлого дерева
+construction-graph-tag-parquet-red-wood-floor = паркет из красного дерева
+construction-graph-tag-chess-wood-floor = шахматный пол
+construction-graph-tag-chess-black-wood-floor = черный шахматный пол
+construction-graph-tag-chess-dark-wood-floor = темный шахматный пол
+construction-graph-tag-chess-light-wood-floor = светлый шахматный пол
+construction-graph-tag-chess-red-wood-floor = красный шахматный пол
 
 # Гидропоника
 construction-graph-tag-galaxythistle = галакточертополох
