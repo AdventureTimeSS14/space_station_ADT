@@ -49,7 +49,7 @@
     - ADTDeconstruct
   - type: LimitedCharges
     maxCharges: 130
-    charges: 130
+    lastCharges: 130
   - type: UseDelay
   - type: Sprite
     sprite: ADT/Objects/Tools/rpd.rsi

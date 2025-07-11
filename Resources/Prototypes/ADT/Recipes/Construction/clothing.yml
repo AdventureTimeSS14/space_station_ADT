@@ -6,5 +6,4 @@
   targetNode: glassesMed
   category: construction-category-clothing
   description: A pair of sunglasses, modified to have a built-in medical HUD.
-  icon: { sprite: ADT/Clothing/Eyes/Glasses/sunmed.rsi, state: icon }
   objectType: Item

@@ -17,7 +17,6 @@
       state: tesla_projectile
     event: !type:ProjectileSpellEvent
       prototype: TeslaGunBullet
-      speech: action-speech-spell-teslaball
 
 - type: entity
   id: ADTActionTaumaturgTaser
@@ -132,7 +131,6 @@
       sprite: Objects/Magic/magicactions.rsi
       state: knock
     event: !type:KnockSpellEvent
-      speech: action-speech-spell-knock
 
 - type: entity
   id: ADTTaumaturgActionSummonPizza
@@ -165,7 +163,6 @@
         orGroup: PizzaSlice
       - id: FoodPizzaMoldySlice
         orGroup: PizzaSlice
-      speech: action-speech-spell-summon-pizza
 
 - type: entity
   id: ADTTaumaturgActionSummonDonk

@@ -272,7 +272,7 @@
   # ADT Research Console Rework start
   position: 6,-1
   requiredTech:
-  - ExperimentalBatteryAmmo
+  # - ExperimentalBatteryAmmo # В прототипах такого не найдено
   - WaveParticleHarnessing
   # ADT Research Console Rework end
 
