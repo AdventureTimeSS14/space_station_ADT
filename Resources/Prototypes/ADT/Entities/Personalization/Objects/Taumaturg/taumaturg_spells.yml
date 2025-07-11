@@ -37,7 +37,6 @@
       state: icon
     event: !type:ProjectileSpellEvent
       prototype: BulletTaser
-      speech: action-speech-spell-taser
 
 - type: entity
   id: ADTActionTaumaturgMagicArrow
@@ -58,7 +57,6 @@
       state: magicmissile
     event: !type:ProjectileSpellEvent
       prototype: ADTProjectileMagicArrow
-      speech: action-speech-spell-arrow
 
 - type: entity
   id: ADTActionTaumaturgHealingBolt
@@ -79,7 +77,6 @@
       state: healing
     event: !type:ProjectileSpellEvent
       prototype: ADTProjectileHealingBoltWeak
-      speech: action-speech-spell-healing
 
 - type: entity
   id: ADTActionTaumaturgHealingBoltYoungling
@@ -100,7 +97,6 @@
       state: healing
     event: !type:ProjectileSpellEvent
       prototype: ADTProjectileHealingBoltWeak
-      speech: action-speech-spell-healing
 
 - type: entity
   id: ADTActionTaumaturgAnomalySpawn
@@ -199,7 +195,6 @@
         orGroup: DonkWarm
       - id: FoodDonkpocketDink
         orGroup: DonkWarm
-      speech: action-speech-spell-summon-donk
 
 - type: entity
   id: ADTTaumaturgActionSummonDrinks
@@ -250,7 +245,6 @@
         orGroup: DrinkCan
       - id: DrinkPwrGameCan
         orGroup: DrinkCan
-      speech: action-speech-spell-summon-can
 
 - type: entity
   id: ADTTaumaturgActionSummonCheese
@@ -273,4 +267,3 @@
         orGroup: CheeseSummon
       - id: FoodTofu
         orGroup: CheeseSummon
-      speech: action-speech-spell-summon-cheese

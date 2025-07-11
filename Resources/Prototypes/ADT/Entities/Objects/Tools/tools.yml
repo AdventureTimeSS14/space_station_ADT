@@ -100,7 +100,7 @@
   suffix: Empty
   components:
   - type: LimitedCharges
-    charges: 0
+    lastCharges: 0
 
 - type: entity
   id: ADTRPDRecharging
@@ -111,7 +111,7 @@
   components:
   - type: LimitedCharges
     maxCharges: 20
-    charges: 20
+    lastCharges: 20
   - type: AutoRecharge
     rechargeDuration: 10
 
