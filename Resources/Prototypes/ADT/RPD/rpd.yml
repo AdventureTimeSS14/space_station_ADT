@@ -5,7 +5,7 @@
 - type: RPD
   id: ADTDeconstruct
   name: rpd-component-deconstruct
-  category: Main
+  category: WallsAndFlooring
   sprite: /Textures/ADT/Interface/Radial/RPD/deconstruct.png
   mode: Deconstruct
   prototype: EffectRCDDeconstructPreview

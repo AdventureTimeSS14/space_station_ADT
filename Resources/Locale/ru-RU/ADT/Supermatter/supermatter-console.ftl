@@ -1,14 +1,14 @@
-ent-ComputerSupermatter = Консоль мониторинга кристалла Суперматерии
+ent-ComputerSupermatter = консоль мониторинга кристалла Суперматерии
     .desc = Используется для сбора данных кристалла Суперматерии.
 
-supermatter-console-window-title = Консоль мониторинга кристалла Суперматерии
+supermatter-console-window-title = Мониторинг кристалла Суперматерии
 supermatter-console-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 supermatter-console-window-unknown-location = Неизвестное местоположение
 supermatter-console-window-no-supermatters = [font size=16][color=white]Кристалл Суперматерии не обнаружен[/font]
 
 supermatter-console-window-label-sm = {CAPITALIZE($name)}
 
-supermatter-console-window-label-alert-types = Supermatter status:
+supermatter-console-window-label-alert-types = Crystal status:
 supermatter-console-window-status-error = Ошибка
 supermatter-console-window-status-inactive = Инертность
 supermatter-console-window-status-normal = Стабильность
