@@ -117,7 +117,7 @@
           data: 15
 
       - tag: CapacitorStockPart
-        name: capacitor stock part
+        name: construction-graph-tag-capicator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: capacitor

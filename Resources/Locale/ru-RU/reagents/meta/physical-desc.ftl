@@ -51,6 +51,7 @@ reagent-physical-desc-ground-brass = шлифованно-латунное
 reagent-physical-desc-dark-brown = тёмно-коричневое
 reagent-physical-desc-crystalline = кристаллическое
 reagent-physical-desc-viscous = вязкое
+reagent-physical-desc-skunky = вонючие
 reagent-physical-desc-shiny = блестящее
 reagent-physical-desc-dark-red = тёмно-красное
 reagent-physical-desc-ionizing = ионизационное
