@@ -17,5 +17,11 @@ ent-ADTBullet40mmGrenadeEMP = ЭМИ граната
 ent-ADTBullet40mmGrenadeFlash = светошумовая граната
     .desc = { ent-BaseBullet.desc }
 
-ent-ADTBullet40mmGrenadeSmoke = дымовая граната
+ent-ADTBulletHoly = дымовая граната
     .desc = { ent-BaseBullet.desc }
+
+ent-ADTBulletHoly = святая косточка
+    .desc = { ent-BaseBullet.desc }
+
+ent-ADTHolyBulletCharge = святое наказание
+    .desc = Если вы его получили - вы его точно заслуживаете.

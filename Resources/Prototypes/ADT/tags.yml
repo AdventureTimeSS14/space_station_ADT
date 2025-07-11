@@ -41,6 +41,9 @@
   id: ADTSteelSheet
 
 - type: Tag
+  id: ADTUraniumSheet
+
+- type: Tag
   id: ADTCartridgeBibis # Обычне
 
 - type: Tag

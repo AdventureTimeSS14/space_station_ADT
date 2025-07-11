@@ -115,6 +115,11 @@
     node: DruidAltarNode
   - type: Sacrifice
     possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTBananahilator
+        effectProto: ADTEffectKudzu
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 3
       - requiredProto: AppleSeeds
         resultProto: GoldenAppleSeeds
         effectProto: ADTEffectKudzu
@@ -158,12 +163,6 @@
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
       - requiredTag: Crowbar
         resultProto: Shovel
-        effectProto: ADTEffectKudzu
-        powerCost: 1
-        soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: CableCoil
-        requiredAmount: 5
-        resultProto: GoldenAppleSeeds
         effectProto: ADTEffectKudzu
         powerCost: 1
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
@@ -260,6 +259,11 @@
         resultProto: EldritchBlade
         effectProto: AdminInstantEffectSmoke3
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
+      - requiredProto: ADTEctoSword
+        resultProto: ADTHolyClaymore
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 3
 ### End ADT Tweak
 
 - type: entity
@@ -520,6 +524,13 @@
   - type: Construction
     graph: AltarsGraph
     node: HeavenAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTHolyClaymore
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 3
 ### End ADT Tweak
 
 - type: entity
@@ -558,11 +569,19 @@
         powerCost: 3
       - requiredTag: ADTJumpSuitSacrifice
         resultProto: ADTClownJumpsuitSacrafice
+        powerCost: 2
         soundPath: /Audio/Items/bikehorn.ogg
       - requiredTag: ADTShoesSacrifice
         resultProto: ADTClownShoesSacrafice
+        powerCost: 2
         soundPath: /Audio/Items/bikehorn.ogg
       - requiredTag: ADTGasmaskSacrifice
         resultProto: ADTClownMaskSacrafice
+        powerCost: 2
+        soundPath: /Audio/Items/bikehorn.ogg
+      - requiredTag: ADTUraniumSheet
+        requiredAmount: 1
+        resultProto: MaterialBananium1
+        powerCost: 0.1
         soundPath: /Audio/Items/bikehorn.ogg
 ### End ADT Tweak
