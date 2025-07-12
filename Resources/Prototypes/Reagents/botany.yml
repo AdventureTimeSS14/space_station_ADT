@@ -231,7 +231,7 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: 0.5 #ADT-tweak
+            Caustic: 0.5 #ADT-tweak. 1 -> 0.5
     Gas:
       effects:
       - !type:HealthChange
@@ -332,4 +332,4 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: 0.7 #ADT-tweak
+            Caustic: 0.7 #ADT-tweak. 1 -> 0.7
