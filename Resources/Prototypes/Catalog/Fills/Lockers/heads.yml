@@ -185,7 +185,7 @@
     - id: RCD
     - id: RCDAmmo
       amount: !type:RangeNumberSelector
-        value: 2
+        range: 1, 3
     - id: RubberStampCE
     # Start-ADT Tweak
     - id: OxygenTankFilled
