@@ -3,24 +3,3 @@
 #   id: ADTSecurityCadetNeck
 #   equipment:
 #     neck: ADTClothingNeckSecBadge
-
-- type: loadout
-  id: ADTSecurityCadetNeckBadgeBronze
-  equipment:
-    neck: ADTClothingNeckSecBadgeBronze
-
-- type: loadout
-  id: ADTSecurityCadetNeckBadgeSilver
-  equipment:
-    neck: ADTClothingNeckSecBadgeSilver
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTSecurity100hours
-
-- type: loadout
-  id: ADTSecurityCadetNeckBadgeGold
-  equipment:
-    neck: ADTClothingNeckSecBadgeGold
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTSecurityVeteran

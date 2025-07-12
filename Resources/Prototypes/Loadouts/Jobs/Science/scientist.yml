@@ -1,6 +1,6 @@
 # Senior Time
 - type: loadoutEffectGroup
-  id: HonoredScientist
+  id: SeniorResearcher
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -26,7 +26,7 @@
     head: ClothingHeadHatBeretRND
   effects:
   - !type:GroupLoadoutEffect
-    proto: HonoredScientist
+    proto: SeniorResearcher
 
 # Neck
 
