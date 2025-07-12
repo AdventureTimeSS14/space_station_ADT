@@ -1,6 +1,6 @@
 # Honored Doctor Time
 - type: loadoutEffectGroup
-  id: HonoredDoctor
+  id: SeniorPhysician
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -45,7 +45,7 @@
     head: ClothingHeadHatBeretMedic
   effects:
   - !type:GroupLoadoutEffect
-    proto: HonoredDoctor
+    proto: SeniorPhysician
 
 - type: loadout
   id: BlueSurgeryCap
