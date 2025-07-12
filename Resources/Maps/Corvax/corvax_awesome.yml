@@ -84000,8 +84000,8 @@ entities:
     components:
     - type: Transform
       parent: 6277
-    - type: Artifact
-      isSuppressed: True
+    # - type: Artifact
+    #   isSuppressed: True
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
