@@ -95,7 +95,7 @@
   - type: Appearance
   - type: ItemSlots
     slots:
-      gun_magazine:
+      cell_slot:
         name: Magazine
         startingItem: ADTPowerCellLasgunRevolver
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

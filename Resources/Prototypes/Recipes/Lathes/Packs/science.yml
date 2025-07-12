@@ -59,6 +59,7 @@
   - PKAUpgradeFireRate
   - WeaponTetherGun
   - WeaponGauntletGorilla
+  - WeaponLaserSvalinn # ADT tweak
 
 - type: latheRecipePack
   id: FauxTiles
