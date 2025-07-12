@@ -332,7 +332,7 @@
     - Belt
   - type: PhysicalComposition
     materialComposition:
-      Steel: 600
+      Steel: 500  #ADT_Tweak 600 to 500 - для починки материал арбитража
       Plastic: 100
   - type: StaticPrice
     price: 110
