@@ -121,6 +121,22 @@
             color: "#d67e27"
           protos:
           - VGRoid
+        # ADT-Mining-Start
+        salvage: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/pioneer.yml
+        mining: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/mining.yml
+        # ADT-Mining-End
+        # ADT-Security-Start
+        security: !type:GridSpawnGroup
+          nameGrid: false
+          paths:
+          - /Maps/ADTMaps/Shuttles/sec_shuttle.yml
+        # ADT-Security-End
 
 - type: entity
   id: BaseStationCentcomm
