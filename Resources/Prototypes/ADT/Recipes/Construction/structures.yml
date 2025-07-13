@@ -67,7 +67,6 @@
   startNode: start
   targetNode: adtblastfloor
   category: construction-category-structures
-  description: Barely visible blast door embedded in the floor.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
