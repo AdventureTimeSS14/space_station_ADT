@@ -62,16 +62,12 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blast floor
   id: ADTBlastFloor
   graph: ADTBlastFloor
   startNode: start
   targetNode: adtblastfloor
   category: construction-category-structures
   description: Barely visible blast door embedded in the floor.
-  icon:
-    sprite: ADT/Structures/Doors/Misc/blastfloor.rsi
-    state: closed
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
