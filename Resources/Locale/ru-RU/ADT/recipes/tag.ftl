@@ -92,5 +92,8 @@ construction-graph-tag-poppy = мак
 construction-graph-tag-aloe = алоэ
 construction-graph-tag-ambrosia = амброзия
 
+# Платы
+construction-graph-door-electronics = микросхема шлюза
+
 # Другое
 construction-graph-tag-capicator-stock-part = конденцатор
