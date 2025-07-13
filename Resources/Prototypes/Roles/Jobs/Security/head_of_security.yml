@@ -6,17 +6,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 3600 #1 hr
-    - !type:RoleTimeRequirement
-      role: JobDetective
-      time: 3600 #1 hr, knowing how to use the tools is important
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 18000 #5 hrs
+      time: 54000 #15 hrs # ADT-RoleTime
+#    - !type:RoleTimeRequirement
+#      role: JobSecurityOfficer
+#      time: 36000 #10 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hrs
-      # ADT Restrict Start
+      time: 198000 #55 hrs # ADT-RoleTime
     - !type:SpeciesRequirement
       inverted: true
       species:
