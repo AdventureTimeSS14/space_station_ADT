@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/commit/fd5cfd76acdf5bda9e46413c11006a6e825d51a9",
+  "copyright": "made by borkroman",
   "size": {
     "x": 32,
     "y": 32
@@ -12,9 +12,6 @@
     },
     {
       "name": "bolted_unlit"
-    },
-    {
-      "name": "bolted_open_unlit"
     },
     {
       "name": "closed"
@@ -34,29 +31,19 @@
           0.2,
           0.2,
           0.2,
+          0.2,
+          0.2,
           0.2
       ]
     ]
     },
     {
-      "name": "closing_unlit",
-      "delays": [
-        [
-          0.2,
-          0.2,
-          0.2,
-          0.2,
-          0.2,
-          0.2
-      ]
-    ]
+      "name": "closing_unlit"
     },
     {
       "name": "deny_unlit",
       "delays": [
         [
-          0.2,
-          0.2,
           0.2,
           0.2
       ]
@@ -74,17 +61,6 @@
           0.2,
           0.2,
           0.2,
-          0.2
-      ]
-    ]
-    },
-    {
-      "name": "opening_unlit",
-      "delays": [
-        [
-          0.2,
-          0.2,
-          0.2,
           0.2,
           0.2,
           0.2
@@ -92,12 +68,14 @@
     ]
     },
     {
-      "name": "panel_closed"
+      "name": "opening_unlit"
     },
     {
       "name": "panel_closing",
       "delays": [
         [
+          0.2,
+          0.2,
           0.2,
           0.2,
           0.2,
@@ -119,6 +97,8 @@
           0.2,
           0.2,
           0.2,
+          0.2,
+          0.2,
           0.2
       ]
     ]
@@ -134,9 +114,6 @@
           0.4
         ]
       ]
-    },
-    {
-      "name": "emergency_open_unlit"
     }
   ]
 }

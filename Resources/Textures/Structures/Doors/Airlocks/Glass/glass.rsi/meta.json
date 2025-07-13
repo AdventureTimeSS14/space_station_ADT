@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/commit/fd5cfd76acdf5bda9e46413c11006a6e825d51a9",
+  "copyright": "by borkroman",
   "size": {
     "x": 32,
     "y": 32
@@ -11,31 +11,16 @@
       "name": "assembly"
     },
     {
-      "name": "assembly-fill"
-    },
-    {
-      "name": "assembly-glass"
+      "name": "open_unlit"
     },
     {
       "name": "bolted_unlit"
-    },
-    {
-      "name": "bolted_open_unlit"
     },
     {
       "name": "closed"
     },
     {
       "name": "closed_unlit"
-    },
-    {
-      "name": "closed-fill"
-    },
-    {
-      "name": "closed-glass"
-    },
-    {
-      "name": "panel_closed"
     },
     {
       "name": "closing",
@@ -51,61 +36,15 @@
       ]
     },
     {
-      "name": "closing_unlit",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "closing-fill",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "closing-glass",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "closing-panel",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
+      "name": "closing_unlit"
     },
     {
       "name": "deny_unlit",
       "delays": [
         [
+          0.1,
+          0.1,
+          0.1,
           0.1,
           0.1,
           0.1
@@ -114,12 +53,6 @@
     },
     {
       "name": "open"
-    },
-    {
-      "name": "open_unlit"
-    },
-    {
-      "name": "panel_open"
     },
     {
       "name": "opening",
@@ -135,7 +68,10 @@
       ]
     },
     {
-      "name": "opening_unlit",
+      "name": "opening_unlit"
+    },
+    {
+      "name": "panel_closing",
       "delays": [
         [
           0.1,
@@ -148,33 +84,10 @@
       ]
     },
     {
-      "name": "opening-fill",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
+      "name": "panel_open"
     },
     {
-      "name": "opening-glass",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "opening-panel",
+      "name": "panel_opening",
       "delays": [
         [
           0.1,
@@ -208,8 +121,7 @@
           0.1,
           0.1,
           0.1,
-          0.1,
-          1.7
+          0.1
         ]
       ]
     },
@@ -250,9 +162,6 @@
           1.2
         ]
       ]
-    },
-    {
-      "name": "emergency_open_unlit"
     }
   ]
 }
