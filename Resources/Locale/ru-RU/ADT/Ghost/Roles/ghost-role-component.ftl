@@ -50,3 +50,6 @@ ghost-role-information-rosie-description = Слушайтесь священни
 
 ghost-role-information-hermit-name = Отшельник
 ghost-role-information-hermit-description = Вы застряли в этой безбожной тюрьме дольше, чем вы можете себе представить. Каждый день вы с трудом выживаете, и среди ужасных условий вашего импровизированного убежища, все, чего вы можете пожелать, - это ощущение мягкой травы между пальцами ног и свежий воздух Земли. Эти мысли рассеивает очередное воспоминание о том, как ты сюда попал...
+ghost-role-information-vox_raider-name = Вокс-налётчик
+ghost-role-information-vox_raider-description = Вы на задании стаи. Совершите ограбление станции, не нарушив нерушимый кодекс воксов
+ghost-role-information-vox_raider-rules = Вы [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color], в команде с другими воксами-налётчиками. Вместо убийств, попробуйте воспользоваться нелетальными средствами

@@ -2,6 +2,7 @@
   id: HumanHairAfro
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: afro
@@ -9,6 +10,7 @@
   id: HumanHairAfro2
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: afro2
@@ -64,7 +66,7 @@
 - type: marking
   id: HumanHairLongBedhead
   bodyPart: Hair
-  markingCategory: Hair
+  markingCategory: Hair 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long_bedhead
@@ -471,6 +473,7 @@
   id: HumanHairDrillruru
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: drillruru
@@ -688,6 +691,7 @@
   id: HumanHairLong
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long
@@ -695,6 +699,7 @@
   id: HumanHairLong2
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long2
@@ -702,6 +707,7 @@
   id: HumanHairLong3
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long3
@@ -758,6 +764,7 @@
   id: HumanHairMessy
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: messy
@@ -772,6 +779,7 @@
   id: HumanHairMohawk
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: d
@@ -779,6 +787,7 @@
   id: HumanHairNitori
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: nitori
@@ -793,6 +802,7 @@
   id: HumanHairUnshavenMohawk
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: unshaven_mohawk
@@ -807,6 +817,7 @@
   id: HumanHairOdango
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: odango
@@ -884,6 +895,7 @@
   id: HumanHairPompadour
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: pompadour
@@ -891,6 +903,7 @@
   id: HumanHairBigpompadour
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: bigpompadour
