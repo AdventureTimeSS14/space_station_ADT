@@ -387,3 +387,22 @@
     openOnActivation: true
     guides:
     - SupermatterGuideBook
+
+- type: entity
+  parent: BookBase
+  id: ADTBookAboutJail
+  name: BookAboutJail
+  description: The book about jail
+  components:
+    - type: Sprite
+      layers:
+      - state: paper
+      - state: cover_strong
+        color: "#FF8C00"
+      - state: icon_law
+        color: "#FFFFFF"
+    - type: Tag
+      tags:
+      - Book
+    - type: Paper
+      content: book-jail-contents

@@ -1158,9 +1158,9 @@
   - HeadofSecurityMantle
   # ADT-Loadout-Start
   - HeadofSecurityMantleShoulder
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
   # - HeadofSecurityShoulderMantle # Corvax-Loadouts
   # ADT-Loadout-End
 
@@ -1285,9 +1285,9 @@
   loadouts:
   - DetectiveTie
   # ADT-Loadout-Start
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
   # ADT-Loadout-End
 
 - type: loadoutGroup

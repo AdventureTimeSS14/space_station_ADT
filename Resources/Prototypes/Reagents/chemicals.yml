@@ -57,6 +57,28 @@
   desc: reagent-desc-sodium-carbonate
   physicalDesc: reagent-physical-desc-powdery
   color: white
+  #ADT-tweak-start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.27
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+  #ADT-tweak-end
 
 - type: reagent
   id: Artifexium
@@ -105,6 +127,28 @@
   color: "white"
   boilingPoint: 1661.0
   meltingPoint: 596.0
+  #ADT-tweak-start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.19
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.7
+  #ADT-tweak-end
 
 - type: reagent
   id: SodiumHydroxide
@@ -114,13 +158,31 @@
   color: "white"
   boilingPoint: 1661.0
   meltingPoint: 596.0
+  #ADT-tweak-start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.32
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+  #ADT-tweak-end
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
         damage:
           types:
-            Heat: 1.5
+            #ADT-tweak-start
+            #Heat: 1.5
+            Caustic: 1.2
+            #ADT-tweak-end
     Medicine:
       effects:
       - !type:ChemVomit
