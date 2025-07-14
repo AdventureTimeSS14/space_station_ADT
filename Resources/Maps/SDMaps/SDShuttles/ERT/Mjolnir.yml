@@ -6084,8 +6084,7 @@ entities:
 - proto: ActionToggleInternals
   entities:
   - uid: 3682
-    mapInit: true
-    paused: true
+
     components:
     - type: Transform
       parent: 3680
@@ -6093,8 +6092,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3680
   - uid: 3686
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3684
@@ -6102,8 +6099,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3684
   - uid: 3689
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3687
@@ -6111,8 +6106,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3687
   - uid: 3692
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3690
@@ -6120,8 +6113,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3690
   - uid: 4336
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 4334
@@ -6129,8 +6120,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 4334
   - uid: 6630
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6628
@@ -6138,8 +6127,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6628
   - uid: 6633
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6631
@@ -6147,8 +6134,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6631
   - uid: 6636
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6634
@@ -6156,8 +6141,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6634
   - uid: 6639
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6637
@@ -6165,8 +6148,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6637
   - uid: 6649
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6648
@@ -6176,8 +6157,6 @@ entities:
 - proto: ActionToggleJetpack
   entities:
   - uid: 3681
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3680
@@ -6185,8 +6164,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3680
   - uid: 3685
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3684
@@ -6194,8 +6171,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3684
   - uid: 3688
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3687
@@ -6203,8 +6178,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3687
   - uid: 3691
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 3690
@@ -6212,8 +6185,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 3690
   - uid: 4335
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 4334
@@ -6221,8 +6192,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 4334
   - uid: 6629
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6628
@@ -6230,8 +6199,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6628
   - uid: 6632
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6631
@@ -6239,8 +6206,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6631
   - uid: 6635
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6634
@@ -6248,8 +6213,6 @@ entities:
       originalIconColor: '#FFFFFFFF'
       container: 6634
   - uid: 6638
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6637
@@ -74030,8 +73993,8 @@ entities:
 - proto: RubberStampLawyer
   entities:
   - uid: 5525
-    mapInit: true
-    paused: true
+
+
     components:
     - type: MetaData
       name: печать ДСО
