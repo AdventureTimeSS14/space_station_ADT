@@ -338,18 +338,27 @@ namespace Content.IntegrationTests.Tests
             var sb = new StringBuilder();
             var addedEnts = newEnts.Except(oldEnts);
             var removedEnts = oldEnts.Except(newEnts);
+            // ADT-Tweak-start
             if (addedEnts.Any())
+            {
                 sb.AppendLine("Listing new entities:");
-            foreach (var addedEnt in addedEnts)
-            {
-                sb.AppendLine(entMan.ToPrettyString(addedEnt));
+                foreach (var addedEnt in addedEnts)
+                {
+                    sb.AppendLine("\t" + entMan.ToPrettyString(addedEnt));
+                }
             }
+            // ADT-Tweak-end
+
+            // ADT-Tweak-start
             if (removedEnts.Any())
-                sb.AppendLine("Listing removed entities:");
-            foreach (var removedEnt in removedEnts)
             {
-                sb.AppendLine("\t" + entMan.ToPrettyString(removedEnt));
+                sb.AppendLine("Listing removed entities:");
+                foreach (var removedEnt in removedEnts)
+                {
+                    sb.AppendLine("\t" + entMan.ToPrettyString(removedEnt));
+                }
             }
+            // ADT-Tweak-end
             return sb.ToString();
         }
 
