@@ -283,7 +283,8 @@
   - type: Fauna
   - type: Megafauna
   - type: Butcherable
-
+    spawned:
+    - Ash
 - type: entity
   id: MobDrake
   parent: [ BaseMobDrake, BaseMobAsteroid ]
