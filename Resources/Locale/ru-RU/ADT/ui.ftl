@@ -1,7 +1,7 @@
 adt-other-credits-tab = Другие
 
 ### Esc меню
-ui-escape-website = Boosty
+ui-escape-website = Discord
 
 ### Окно очереди
 queue-title = В очереди
