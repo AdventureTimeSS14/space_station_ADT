@@ -26,6 +26,7 @@
     baseWalkSpeed: 2.5
     baseSprintSpeed: 3
   - type: Butcherable
+    butcheringType: Knife
     spawned:
       - id: FoodMeat
         amount: 2

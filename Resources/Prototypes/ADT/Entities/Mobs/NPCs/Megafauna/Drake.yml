@@ -283,8 +283,9 @@
   - type: Fauna
   - type: Megafauna
   - type: Butcherable
+    butcheringType: Knife
     spawned:
-    - Ash
+    - id: Ash
 - type: entity
   id: MobDrake
   parent: [ BaseMobDrake, BaseMobAsteroid ]
