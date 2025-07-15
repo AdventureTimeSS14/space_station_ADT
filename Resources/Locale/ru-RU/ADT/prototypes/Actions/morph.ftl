@@ -11,7 +11,7 @@ ent-ActionMorphRemember = "[color=green]Запоминание[/color]"
     .desc = Запомните любой объект, чтобы использовть его форму в будущем.
 
 ent-ActionMorphReplication = "[color=green]Размножение[/color]"
-    .desc = Потратьте часть себя, чтобы создать идеальную копию вас. [color=yellow]Стоимость: 200 ед. сытости[/color].
+    .desc = Потратьте часть себя, чтобы создать вашу идеальную копию. [color=yellow]Стоимость: 200 ед. сытости[/color].
 
 ent-ActionMorphMimicry = "[color=green]Мимикрия[/color]"
     .desc = Используйте образы, которые вы запомнили, чтобы принять нужную вам форму.
