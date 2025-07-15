@@ -1,8 +1,40 @@
+- type: entity
+  parent: FoodSnackBase
+  id: ADTFoodSaltSnackBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 5
+
+- type: entity
+  parent: FoodSnackBase
+  id: ADTFoodChocolateSnackBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+
 # Чипсеки
 
 - type: entity
   name: chips
-  parent: FoodSnackBase
+  parent: ADTFoodSaltSnackBase
   id: ADTFoodSnackChipsBase
   description: chips
   abstract: true
@@ -76,7 +108,7 @@
 
 - type: entity
   name: Dried meat
-  parent: FoodSnackBase
+  parent: ADTFoodSaltSnackBase
   id: ADTFoodSnackDriedBase
   description: Dried meat
   abstract: true
