@@ -9,11 +9,9 @@
   cost: 15000
   recipeUnlocks:
   - ADTMaterialBScrystalArt
-  # ADT Research Console Rework start
   position: 2,-2
   requiredTech:
   - AlternativeResearch
-  # ADT Research Console Rework end
 
 - type: technology
   id: ADTModsuitBase

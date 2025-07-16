@@ -11,7 +11,6 @@
         Manipulator: 1
         Glass: 1
 
-
 - type: entity
   parent: BaseMachineCircuitboard
   id: AutolatheHyperConvectionMachineCircuitboard

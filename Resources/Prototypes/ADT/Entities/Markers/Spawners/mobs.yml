@@ -30,10 +30,10 @@
       - ADTMobLegion
       - ADTMobNightmareSpider
       - ADTMobShockSpider
+      - ADTMobBSCrab
     rarePrototypes:
       - MobAncientGoliath
       - ADTRandomTendrilSpawner
-      - ADTMobBSCrab
 #      - ADTAbominationDeath
   - type: TimedDespawn
     lifetime: 1
