@@ -184,6 +184,8 @@
     - id: DoorRemoteEngineering
     - id: RCD
     - id: RCDAmmo
+      amount: !type:RangeNumberSelector
+        range: 1, 3
     - id: RubberStampCE
     # Start-ADT Tweak
     - id: OxygenTankFilled
@@ -193,7 +195,6 @@
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
     - id: ADTRPD
-    - id: ADTRPDAmmo
     # End-ADT Tweak
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
