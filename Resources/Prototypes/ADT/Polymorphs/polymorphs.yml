@@ -546,6 +546,7 @@
     transferSpeechBarks: true
     transferAccents: true
     transferQuirks: true
+    canNotPolymorphInStorage: true
     transferHumanoidAppearance: false
     inventory: None
     transferDamage: true

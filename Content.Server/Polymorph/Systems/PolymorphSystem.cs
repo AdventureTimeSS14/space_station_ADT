@@ -16,6 +16,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Server.Traits.Assorted;
 using Content.Shared.Speech.Muting;
 using Content.Shared.ADT.Traits;
+using Content.Shared.Storage.Components;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
@@ -208,6 +209,14 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <returns></returns>
     public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
+        //ADT-Geras-Tweak-Start
+        if (configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("polymorph-in-storage-forbidden"), uid, uid);
+            return null;
+        }
+        //ADT-Geras-Tweak-End
+
         // if it's already morphed, don't allow it again with this condition active.
         if (!configuration.AllowRepeatedMorphs && HasComp<PolymorphedEntityComponent>(uid))
             return null;
@@ -508,6 +517,14 @@ public sealed partial class PolymorphSystem : EntitySystem
         var (uid, component) = ent;
         if (!Resolve(ent, ref component))
             return null;
+
+        //ADT-Geras-Tweak-Start
+        if (component.Configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("revert-in-storage-forbidden"), uid, uid);
+            return null;
+        }
+        //ADT-Geras-Tweak-End
 
         if (Deleted(uid))
             return null;

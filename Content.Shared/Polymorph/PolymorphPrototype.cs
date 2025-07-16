@@ -104,6 +104,12 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField(serverOnly: true)]
     public bool TransferQuirks;
+
+    /// <summary>
+    /// Whether or not the entity can polymorph between forms in storage.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool CanNotPolymorphInStorage;
     // ADT-Geras-Tweak-End
 
     /// <summary>

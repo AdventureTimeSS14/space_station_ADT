@@ -215,3 +215,5 @@
   - type: BloodCough
     postingSayDamage: blood-cough
   - type: TimeDespawnDamage
+  - type: Hands # They still don't have hands.
+  - type: ComplexInteraction
