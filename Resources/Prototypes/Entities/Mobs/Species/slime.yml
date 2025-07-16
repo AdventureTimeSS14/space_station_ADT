@@ -74,6 +74,8 @@
     damage:
       types:
         Heat: -0.14
+        Poison: -0.07 #ADT-tweak
+        Radiation: -0.035 #ADT-tweak
       groups:
         Brute: -0.14
   - type: DamageVisuals

@@ -23,6 +23,8 @@
     damage:
       types:
         Heat: -0.07
+        Poison: -0.035
+        Radiation: -0.0175
       groups:
         Brute: -0.07
   - type: Fingerprint

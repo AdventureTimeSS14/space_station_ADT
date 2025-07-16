@@ -35,6 +35,8 @@
     damage:
       types:
         Heat: -0.04
+        Poison: -0.03
+        Radiation: -0.015
       groups:
         Brute: -0.06
   - type: Body

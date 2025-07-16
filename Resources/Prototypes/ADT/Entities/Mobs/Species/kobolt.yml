@@ -35,6 +35,8 @@
       types:
         Heat: -0.06
         Cold: -0.04
+        Poison: -0.04
+        Radiation: -0.02
       groups:
         Brute: -0.08
   - type: Bloodstream

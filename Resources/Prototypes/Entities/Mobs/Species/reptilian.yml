@@ -125,6 +125,8 @@
     damage:
       types:
         Cold: -0.06
+        Poison: -0.04 #ADT-tweak
+        Radiation: -0.02 #ADT-tweak
       groups:
         Brute: -0.08
   - type: SlowOnDamage
