@@ -8,6 +8,11 @@
     name: ghost-role-information-pirate-name
     description: ghost-role-information-pirate-description
     rules: ghost-role-information-pirate-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobSkeletonPirate
   - type: Sprite
@@ -27,6 +32,11 @@
     name: ghost-role-information-captain-pirate-name
     description: ghost-role-information-captain-pirate-description
     rules: ghost-role-information-captain-pirate-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobSkeletonCaptainPirate
   - type: Sprite
@@ -46,6 +56,11 @@
     name: ghost-role-information-pirate-firstmate-name
     description: ghost-role-information-pirate-firstmate-description
     rules: ghost-role-information-pirate-firstmate-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobSkeletonFirstmatePirate
   - type: Sprite
@@ -222,3 +237,27 @@
   - type: ConditionalSpawner
     prototypes:
       - ADTMobHermit
+
+- type: entity
+  id: ADTSpawnPointVoxRaider
+  name: voxraider spawn point
+  suffix: voxraider
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-vox_raider-name
+    description: ghost-role-information-vox_raider-description
+    rules: ghost-role-information-vox_raider-rules
+    raffle:
+      settings: default
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobVoxRaider
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
