@@ -8,7 +8,6 @@
   recipes:
   - RCD
   - RCDAmmo
-  - RPDAmmo
   - RPD
 
 - type: latheRecipePack

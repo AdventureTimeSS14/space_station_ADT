@@ -658,3 +658,6 @@ ToxinChemistryBottle: ChemistryBottleToxin
 
 #ADT 2025-04-16
 DrinkBadTouchGlass: ADTDrinkPenetrationGlass
+
+# ADT 2025-07-11
+ADTRPDAmmo: RCDAmmo
