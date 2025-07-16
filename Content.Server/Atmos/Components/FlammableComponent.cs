@@ -74,6 +74,20 @@ namespace Content.Server.Atmos.Components
         [DataField]
         public float FirestacksOnIgnite = 2.0f;
 
+
+        /// <summary>
+        /// Set FirestackFade on Ingite to this value
+        /// </summary>
+        [DataField]
+        public float? FirestackFadeOnIgnite = null;
+
+        /// <summary>
+        /// ADT bonfire
+        /// determines how extinction "FirestackFade" will fade out. it can be used to make "parabolas" of object ignition and decay.
+        /// </summary>
+        [DataField]
+        public float FirestackFadeFade = 0;
+
         /// <summary>
         /// Determines how quickly the object will fade out. With positive values, the object will flare up instead of going out.
         /// </summary>
