@@ -74,25 +74,6 @@
   - type: ActivatableUI
     key: enum.RpdUiKey.Key
 
-- type: entity
-  id: ADTRPDAmmo
-  parent: BaseItem
-  name: canned matter
-  description: A polymeric substance designed to create new objects.
-  components:
-  - type: RPDAmmo
-  - type: Sprite
-    sprite: ADT/Objects/Tools/rpd.rsi
-    state: ammo
-  - type: Item
-    sprite: ADT/Objects/Tools/rpd.rsi
-    heldPrefix: ammo
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 100
-      Plastic: 100
-  - type: StaticPrice
-    price: 60
 
 - type: entity
   id: ADTRPDEmpty
@@ -115,8 +96,7 @@
   - type: AutoRecharge
     rechargeDuration: 10
 
-
-    # halloween
+# halloween
 
 - type: entity
   name: golden candlestick

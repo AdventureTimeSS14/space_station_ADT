@@ -669,6 +669,7 @@ ToxinChemistryBottle: ChemistryBottleToxin
 
 #ADT 2025-04-16
 DrinkBadTouchGlass: ADTDrinkPenetrationGlass
+
 # 2025-03-29
 ClothingBackpackDuffelSyndicateRaidBundle: ClothingBackpackSyndicateRaidBundle
 
@@ -701,3 +702,6 @@ AirlockMaintIntLocked: AirlockMaintLocked
 # 2025-04-26
 ComputerCargoShuttle: ComputerShuttleCargo
 CargoShuttleComputerCircuitboard: CargoShuttleConsoleCircuitboard
+
+# ADT 2025-07-11
+ADTRPDAmmo: RCDAmmo
