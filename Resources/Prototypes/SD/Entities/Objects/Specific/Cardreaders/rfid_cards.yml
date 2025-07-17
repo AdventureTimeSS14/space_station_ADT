@@ -1,0 +1,16 @@
+- type: entity
+  id: SD_Redcard
+  name: Red Keycard
+  parent: BaseItem
+  description: Keycard with red clearance level. Grants access to restricted areas.
+  components:
+  - type: Item
+    size: Small
+  - type: Rfid
+    accessLevel: 2
+    limitedUse: true
+    maxUses: 3
+    usesLeft: 3
+  - type: Sprite
+    sprite: SD/Objects/Specific/Cardreader/Cards/card.rsi
+    state: silver  # Используем состояние 'silver' из RSI

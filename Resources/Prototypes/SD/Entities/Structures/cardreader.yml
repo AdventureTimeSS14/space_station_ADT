@@ -1,0 +1,36 @@
+- type: entity
+  id: SD_CardReader
+  name: RFID reader
+  description: It's a device that reads RFID chips.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: StationAiWhitelist
+  - type: WallMount
+    arc: 360
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/switch.rsi
+    state: dead
+  - type: Rotatable
+  - type: Fixtures
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: Cardreader
+    requiredAccess: 2
+    allowHigherAccess: true
+  - type: DeviceLinkSource
+    ports:
+      - Output
+  - type: Tag
+    tags:
+    - Structure
+
