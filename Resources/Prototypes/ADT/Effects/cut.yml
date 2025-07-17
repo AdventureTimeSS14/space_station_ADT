@@ -1,5 +1,6 @@
 - type: entity
   id: ADTByondCut
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     snapCardinals: true

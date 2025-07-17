@@ -2,6 +2,7 @@ using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Content.Shared.ADT.PaperOrigami;
 using Content.Shared.ADT.PaperOrigami.Components;
+using Content.Shared.Throwing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.PaperOrigami;
@@ -23,6 +24,16 @@ public sealed class PaperOrigamiSystem : EntitySystem
 
         component.CanMakeState = canMakeState;
         _appearance.SetData(uid, PaperOrigamiState.State, component.CanMakeState, appearance);
+
+        if (canMakeState)
+        {
+            var throwing = EnsureComp<ThrowingAngleComponent>(uid);
+            throwing.Angle = Angle.FromDegrees(90);
+        }
+        else
+        {
+            RemComp<ThrowingAngleComponent>(uid);
+        }
     }
 
     private void OnAddVerbIsPaperOrigami(EntityUid uid, PaperOrigamiComponent component, GetVerbsEvent<Verb> args)
