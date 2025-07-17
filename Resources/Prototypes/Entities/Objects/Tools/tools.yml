@@ -382,6 +382,7 @@
   id: RCDAmmo
   description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
   components:
+  - type: RPDAmmo # ADT-Tweak
   - type: RCDAmmo
   - type: Sprite
     sprite: Objects/Tools/rcd.rsi
