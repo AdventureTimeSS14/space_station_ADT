@@ -359,6 +359,7 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
       state: tiger_head
 
+# ЗАКОМЕНТИРОВАНО - После принятия спрайтов корвакса эти глаза не подходят
 # - type: marking
 #   id: HeadEyesStripes
 #   bodyPart: Head
