@@ -183,7 +183,7 @@
   - type: StorageFill
     contents:
     - id: RCDAmmo
-      amount: 3
+      amount: 6
 
 - type: entity
   id: CrateRCD
