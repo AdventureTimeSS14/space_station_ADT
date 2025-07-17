@@ -3,6 +3,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
+using Content.Server.Atmos.ADT.EntitySystems; // ADT-Tweak
 
 namespace Content.Server.Atmos
 {
@@ -10,7 +11,7 @@ namespace Content.Server.Atmos
     ///     Internal Atmos class that stores data about the atmosphere in a grid.
     ///     You shouldn't use this directly, use <see cref="AtmosphereSystem"/> instead.
     /// </summary>
-    [Access(typeof(AtmosphereSystem), typeof(GasTileOverlaySystem), typeof(AtmosDebugOverlaySystem))]
+    [Access(typeof(AtmosphereSystem), typeof(GasTileOverlaySystem), typeof(AtmosDebugOverlaySystem), typeof(SuperconductionSystem))] /// SuperconductionSystem is ADT-Tweak
     public sealed class TileAtmosphere : IGasMixtureHolder
     {
         [ViewVariables]
