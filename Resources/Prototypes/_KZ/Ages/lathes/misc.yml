@@ -1,0 +1,132 @@
+- type: entity
+  parent: BaseHeaterMachine
+  id: firegrillmedi
+  name: Костёр
+  suffix: Middleages
+  description: Настоящее средневековое чудо.
+  components:
+  - type: Sprite
+    # TODO: draw a sprite
+    sprite: _KZ/Ages/sprite/firegrill.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: icon
+    - map: ["enum.EntityHeaterVisuals.Setting"]
+      shader: unshaded
+      visible: true
+  - type: ApcPowerReceiver
+    powerLoad: 0 # off by default
+  - type: EntityHeater
+  - type: ItemPlacer
+    maxEntities: 4 # big grill, many steaks
+    whitelist:
+      components:
+      - Temperature
+  - type: PlaceableSurface
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: low }
+          Medium: { visible: true, state: medium }
+          High: { visible: true, state: high }
+  - type: AlwaysHot
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: "#FFC90C"
+
+- type: entity
+  id: BonfiretestAges
+  parent: KitchenMicrowave
+  suffix: Middleages Test
+  name: Костёр
+  description: Настоящее средневековое чудо.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: Microwave
+    cookTimeMultiplier: 0.5
+    capacity: 10
+    canMicrowaveIdsSafely: false
+    explosionChance: 0.3
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/firegrill.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: high
+      map: ["enum.MicrowaveVisualizerLayers.Base"]
+    - state: high
+      shader: unshaded
+      map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
+    - state: high
+      map: ["bloody"]
+      visible: false
+    - state: high
+      shader: unshaded
+      map: ["bloodyunshaded"]
+      visible: false
+  - type: FoodRecipeProvider
+    providedRecipes:
+    - RecipeBaguetteSword
+    - RecipeThrowingCroissant
+
+- type: entity
+  name: Деревянный туалет
+  suffix: Middleages
+  description: Лучше не смотреть в дыру под ним.
+  id: Woodtoilet
+  parent: SeatBase
+  abstract: false
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/toilet.rsi
+    state: disposal
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: Inflatablewoodtoiletmedi
+  parent: BaseItem
+  name: Каркас для туалета
+  description: Похоже его стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: Woodtoilet
+      doAfter: 15
+      removeOnInteract: true
+    - type: Clickable

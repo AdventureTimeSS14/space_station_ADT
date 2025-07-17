@@ -1,0 +1,200 @@
+
+- type: entity
+  id: PottedPlantmedi
+  parent: BaseStructureDynamic
+  name: Сталевое дерево
+  suffix: Middleages
+  description: Кто то сказал что сталь не растёт на деревьях?
+  abstract: false
+  components:
+  - type: Transform
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 190
+        mask:
+        - HighImpassable
+    secretPartName: secret-stash-part-plant
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+  - type: Damageable
+    damageContainer: Inorganic # The pot. Not the plant. Or is it plastic?
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/plant_rustle.ogg
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/metalplant.rsi
+    state: plant-1
+  - type: TimedSpawner
+    prototypes:
+      - SheetSteel1
+    chance: 1
+    intervalSeconds: 150
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 3
+
+- type: entity
+  id: PottedPlantwoodmedi
+  parent: BaseStructureDynamic
+  name: Волшебное дерево
+  suffix: Middleages
+  description: Кто то сказал что доски не растут на деревьях?
+  abstract: false
+  components:
+  - type: Transform
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 190
+        mask:
+        - HighImpassable
+    secretPartName: secret-stash-part-plant
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+  - type: Damageable
+    damageContainer: Inorganic # The pot. Not the plant. Or is it plastic?
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/plant_rustle.ogg
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/woodplant.rsi
+    state: plant-1
+  - type: TimedSpawner
+    prototypes:
+      - MaterialWoodPlank1
+    chance: 1
+    intervalSeconds: 120
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 20
+
+- type: entity
+  id: PottedPlantapplemedi
+  parent: BaseStructureDynamic
+  name: Яблочное дерево
+  suffix: Middleages
+  description: Говорят, если яблоко упадёт на голову то ты станешь умным. Но лучше не проверять.
+  abstract: false
+  components:
+  - type: Transform
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 190
+        mask:
+        - HighImpassable
+    secretPartName: secret-stash-part-plant
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+  - type: Damageable
+    damageContainer: Inorganic # The pot. Not the plant. Or is it plastic?
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/plant_rustle.ogg
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/appleplant.rsi
+    state: plant-1
+  - type: TimedSpawner
+    prototypes:
+      - FoodApple
+    chance: 1
+    intervalSeconds: 180
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 3
+
+- type: entity
+  id: PottedPlantclothmedi
+  parent: BaseStructureDynamic
+  name: Тканевое дерево
+  suffix: Middleages
+  description: Кто то сказал что ткань не растёт на деревьях?
+  abstract: false
+  components:
+  - type: Transform
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 190
+        mask:
+        - HighImpassable
+    secretPartName: secret-stash-part-plant
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+  - type: Damageable
+    damageContainer: Inorganic # The pot. Not the plant. Or is it plastic?
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/plant_rustle.ogg
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/clothplant.rsi
+    state: plant-1
+  - type: TimedSpawner
+    prototypes:
+      - MaterialCloth1
+    chance: 1
+    intervalSeconds: 120
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 5

@@ -1,0 +1,21 @@
+- type: entity
+  name: Посох исцеления
+  suffix: Middleages
+  parent: WeaponStaffBase
+  id: WeaponStaffHealingmedi
+  description: Выглядит очаровывающе.
+  components:
+  - type: Sprite
+    layers:
+    - state: healing
+  - type: Item
+    heldPrefix: healing
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileHealingBolt
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 120

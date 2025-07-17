@@ -1,0 +1,26 @@
+- type: entity
+  parent: ComputerComms
+  id: Agescomms
+  name: Стол для подачи обьявлений короля
+  suffix: Middleages
+  description: Позволяет подать обьявление на всё королевство.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/consolecom.rsi
+    layers:
+      - state: icon
+      - map: ["computerLayerBody"]
+  - type: AccessReader
+    access: [[ "Captain" ]]
+  - type: CommunicationsConsole
+    title: Короля
+    color: "#F39300"
+    canShuttle: false
+    global: true #announce to everyone they're about to fuck shit up
+    sound: _KZ/Ages/sound/king.ogg
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#F39300"
+  - type: ApcPowerReceiver
+    powerLoad: 0

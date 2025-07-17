@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: lampchk
+  files:
+    - /Audio/_KZ/Items/Plush/lampochka/glitch1_1.ogg
+    - /Audio/_KZ/Items/Plush/lampochka/glitch2_1.ogg
+    - /Audio/_KZ/Items/Plush/lampochka/glitch3_1.ogg

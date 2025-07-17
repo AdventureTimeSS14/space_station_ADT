@@ -1,0 +1,87 @@
+- type: entity
+  id: Inflatableplantmedi
+  parent: BaseItem
+  name: Семяна сталевого дерева
+  description: Волшебно.
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/seedmetal.rsi
+      state: icon
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: Item
+      sprite: _KZ/Ages/sprite/seedmetal.rsi
+      size: Small
+    - type: SpawnAfterInteract
+      prototype: PottedPlantmedi
+      doAfter: 5
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: Inflatableplantwoodmedi
+  parent: BaseItem
+  name: Семяна волшебного дерева
+  description: Позволяет собирать доски бесконечно.
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/seedwood.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/seedwood.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: PottedPlantwoodmedi
+      doAfter: 5
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: Inflatableplantapplemedi
+  parent: BaseItem
+  name: Семяна яблочного дерева
+  description: Волшебно.
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/appleseeds.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/appleseeds.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: PottedPlantapplemedi
+      doAfter: 5
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: Inflatableplantmedicloth
+  parent: BaseItem
+  name: Семяна тканевого дерева
+  description: Волшебно.
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/clothseed.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/clothseed.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: PottedPlantclothmedi
+      doAfter: 5
+      removeOnInteract: true
+    - type: Clickable

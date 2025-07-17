@@ -1,0 +1,65 @@
+- type: entity
+  parent: UnsensoredClothingUniformBase
+  id: ClothingUniformJumpsuitAges
+  name: Крестьянская роба
+  suffix: Middleages
+  description: Поношенная и дряхлая, но зато своя.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/robe.rsi
+  - type: Clothing
+    sprite: _KZ/Ages/sprite/robe.rsi
+
+- type: entity
+  parent: UnsensoredClothingUniformBase
+  id: ClothingUniformJumpsuitAgesKing
+  name: Королевские одеяния
+  suffix: Middleages
+  description: Богато и прекрасно. Собственность короля.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/robeking.rsi
+  - type: Clothing
+    sprite: _KZ/Ages/sprite/robeking.rsi
+
+- type: entity
+  parent: ClothingOuterCoatHoSTrench
+  id: ClothingOuterCoatKingmediGreatcoat
+  name: Шинель короля
+  suffix: Middleages
+  description: Сделана из лучших материалов.
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/kingcoat.rsi
+    - type: Clothing
+      sprite: _KZ/Ages/sprite/kingcoat.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.4
+          Heat: 0.7
+
+- type: entity
+  parent: ClothingOuterBaseLarge
+  id: ClothingOuterArmormedi
+  name: Железная броня
+  suffix: Middleages
+  description: Великая броня, созданная на коленке.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/podwars_armor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/podwars_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.5
+  - type: GroupExamine
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8

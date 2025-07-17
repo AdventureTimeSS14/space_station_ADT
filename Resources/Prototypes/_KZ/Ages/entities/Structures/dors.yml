@@ -1,0 +1,567 @@
+- type: entity
+  id: Inflatabledoormedi
+  parent: BaseItem
+  name: Раскладная дверь
+  description: Думаю её стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: MediDoorbase
+      doAfter: 10
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: MediDoorbase
+  parent: BaseStructure
+  name: Деревянная дверь
+  suffix: Middleages
+  description: Красивая, деревянная дверь.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/doorbase.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: DoorBolt
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 50
+    openSound:
+      path: /Audio/Machines/scanning.ogg
+    closeSound:
+      path: /Audio/Machines/scanning.ogg
+    denySound:
+      path: /Audio/Machines/scanning.ogg
+  - type: Airlock
+    openUnlitVisible: true
+  - type: NavMapDoor
+  - type: Appearance
+  - type: WiresVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: Airtight
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Aliens
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+
+- type: entity
+  id: MediDoorwarden
+  parent: BaseStructure
+  name: Деревянная дверь
+  suffix: Middleages (Стражник)
+  description: Красивая, деревянная дверь.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/doorbase.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: DoorBolt
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 50
+    openSound:
+      path: /Audio/Machines/scanning.ogg
+    closeSound:
+      path: /Audio/Machines/scanning.ogg
+    denySound:
+      path: /Audio/Machines/scanning.ogg
+  - type: Airlock
+    openUnlitVisible: true
+  - type: NavMapDoor
+  - type: AccessReader
+    access: [["Engineering"]]
+  - type: Appearance
+  - type: WiresVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: Airtight
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Aliens
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+
+- type: entity
+  id: MediDoorking
+  parent: BaseStructure
+  name: Деревянная дверь
+  suffix: Middleages (Король)
+  description: Красивая, деревянная дверь.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/doorbase.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: DoorBolt
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 50
+    openSound:
+      path: /Audio/Machines/scanning.ogg
+    closeSound:
+      path: /Audio/Machines/scanning.ogg
+    denySound:
+      path: /Audio/Machines/scanning.ogg
+  - type: Airlock
+    openUnlitVisible: true
+  - type: NavMapDoor
+  - type: AccessReader
+    access: [["Captain"]]
+  - type: Appearance
+  - type: WiresVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: Airtight
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Aliens
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+
+- type: entity
+  id: MediDoorcloth
+  parent: BaseStructure
+  name: Деревянная дверь
+  suffix: Middleages (Портной)
+  description: Красивая, деревянная дверь.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/doorbase.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: DoorBolt
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 50
+    openSound:
+      path: /Audio/Machines/scanning.ogg
+    closeSound:
+      path: /Audio/Machines/scanning.ogg
+    denySound:
+      path: /Audio/Machines/scanning.ogg
+  - type: Airlock
+    openUnlitVisible: true
+  - type: NavMapDoor
+  - type: AccessReader
+    access: [["Research"]]
+  - type: Appearance
+  - type: WiresVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: Airtight
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Aliens
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+
+- type: entity
+  id: MediDooranvil
+  parent: BaseStructure
+  name: Деревянная дверь
+  suffix: Middleages (Кузнец)
+  description: Красивая, деревянная дверь.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/doorbase.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: DoorBolt
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 50
+    openSound:
+      path: /Audio/Machines/scanning.ogg
+    closeSound:
+      path: /Audio/Machines/scanning.ogg
+    denySound:
+      path: /Audio/Machines/scanning.ogg
+  - type: Airlock
+    openUnlitVisible: true
+  - type: NavMapDoor
+  - type: AccessReader
+    access: [["Service"]]
+  - type: Appearance
+  - type: WiresVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: Airtight
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Aliens
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+
+- type: entity
+  id: Inflatablewoodavnildoormedi
+  parent: BaseItem
+  name: Раскладная дверь кузнеца
+  description: Похоже её стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: MediDooranvil
+      doAfter: 10
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: Inflatablewoodclothdoormedi
+  parent: BaseItem
+  name: Раскладная дверь портного
+  description: Похоже её стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: MediDoorcloth
+      doAfter: 10
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: MediDoormage
+  parent: BaseStructure
+  name: Деревянная дверь
+  suffix: Middleages (Маг)
+  description: Красивая, деревянная дверь.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/doorbase.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: DoorBolt
+  - type: Door
+    closeTimeTwo: 0.4
+    openTimeTwo: 0.4
+    crushDamage:
+      types:
+        Blunt: 50
+    openSound:
+      path: /Audio/Machines/scanning.ogg
+    closeSound:
+      path: /Audio/Machines/scanning.ogg
+    denySound:
+      path: /Audio/Machines/scanning.ogg
+  - type: Airlock
+    openUnlitVisible: true
+  - type: NavMapDoor
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: Appearance
+  - type: WiresVisuals
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: Airtight
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Aliens
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite

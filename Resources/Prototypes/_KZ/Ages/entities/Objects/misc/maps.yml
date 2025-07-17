@@ -1,0 +1,18 @@
+- type: entity
+  name: Ручная карта
+  parent: BaseItem
+  suffix: Middleages
+  id: Agesmap
+  description: Поможет найти дорогу домой
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/map.rsi
+    layers:
+    - state: icon
+    - state: active
+  - type: Item
+    sprite: _KZ/Ages/sprite/map.rsi
+  - type: HandheldGPS
+  - type: Tag
+    tags:
+    - GPS
