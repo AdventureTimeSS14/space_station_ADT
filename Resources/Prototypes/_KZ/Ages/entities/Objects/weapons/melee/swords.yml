@@ -1,0 +1,22 @@
+- type: entity
+  name: Меч
+  suffix: Middleages
+  parent: CombatKnife
+  id: Agessword
+  description: Храбрый меч, служащий владельцу до самой смерти.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/sword.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 20
+  - type: Item
+    sprite: _KZ/Ages/sprite/sword.rsi
+    size: Large
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/claymore.rsi
+    slots:
+    - back

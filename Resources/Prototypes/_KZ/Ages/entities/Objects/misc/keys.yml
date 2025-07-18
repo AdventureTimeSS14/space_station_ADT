@@ -1,0 +1,100 @@
+- type: entity
+  parent: BaseItem
+  id: Kingkey
+  name: Ключ короля
+  suffix: Middleages
+  description: Выглядит очень дорогим
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/kingkey.rsi
+      state: item_wall
+    - type: Item
+      sprite: _KZ/Ages/sprite/kingkey.rsi
+      size: Small
+    - type: Access
+      groups:
+      - AllAccess
+    - type: Clothing
+      slots:
+      - idcard
+
+- type: entity
+  parent: BaseItem
+  id: Wardenkey
+  name: Ключ стражника
+  suffix: Middleages
+  description: Выглядит не очень дорогим
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/wardenkey.rsi
+      state: item_wall
+    - type: Item
+      sprite: _KZ/Ages/sprite/wardenkey.rsi
+      size: Small
+    - type: Access
+      groups:
+      - Engineering
+    - type: Clothing
+      slots:
+      - idcard
+
+- type: entity
+  parent: BaseItem
+  id: clothkey
+  name: Ключ портного
+  suffix: Middleages
+  description: Выглядит не очень дорогим
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/wardenkey.rsi
+      state: item_wall
+    - type: Item
+      sprite: _KZ/Ages/sprite/wardenkey.rsi
+      size: Small
+    - type: Access
+      groups:
+      - Research
+    - type: Clothing
+      slots:
+      - idcard
+
+- type: entity
+  parent: BaseItem
+  id: anvilkey
+  name: Ключ кузнеца
+  suffix: Middleages
+  description: Выглядит не очень дорогим
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/wardenkey.rsi
+      state: item_wall
+    - type: Item
+      sprite: _KZ/Ages/sprite/wardenkey.rsi
+      size: Small
+    - type: Access
+      groups:
+      - Service
+    - type: Clothing
+      slots:
+      - idcard
+
+- type: entity
+  parent: BaseItem
+  id: Kingmage
+  name: Ключ Мага
+  suffix: Middleages
+  description: Выглядит довольно дорогим
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/kingkey.rsi
+      state: item_wall
+    - type: Item
+      sprite: _KZ/Ages/sprite/kingkey.rsi
+      size: Small
+    - type: Access
+      groups:
+      - Medical
+      - Engineering
+    - type: Clothing
+      slots:
+      - idcard

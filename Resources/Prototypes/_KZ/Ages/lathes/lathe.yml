@@ -1,0 +1,531 @@
+- type: entity
+  id: Medilath
+  parent: BaseLatheLube
+  name: Верстак
+  suffix: Middleages
+  description: Позволяет создавать стены, двери и многое другое.
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/medilathe.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: AmmoTechFabCircuitboard
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      staticPacks:
+        - MLpackAges
+    - type: MaterialStorage
+    - type: ApcPowerReceiver
+      powerLoad: 0
+
+- type: latheRecipePack
+  id: MLpackAges
+  recipes:
+  - Medilathewallrecipe
+  - Medilathedoorrecipe
+  - Medilathefloorrecipe
+  - Medilatheanvilrecipe
+  - Medilathecuprecipe
+  - Medilathemaprecipe
+  - Medilathclothtablesrecipe
+  - Medilathevedrorecipe
+  - Medilatheshvabrarecipe
+  - Medilathbowrecipe
+  - Medilatharrowrecipe
+  - Medilathetoiletrecipe
+  - Medilatheshvabrarecipe
+
+
+- type: latheRecipe
+  id: Medilathewallrecipe
+  result: InflatableWallmedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1500
+
+- type: latheRecipe
+  id: Medilathedoorrecipe
+  result: Inflatabledoormedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1500
+
+- type: latheRecipe
+  id: Medilathefloorrecipe
+  result: Inflatablefloormedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 300
+
+- type: latheRecipe
+  id: Medilathemetalseedrecipe
+  result: Inflatableplantmedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 12000
+
+- type: entity
+  id: Medianvil
+  parent: BaseLatheLube
+  name: Наковальня
+  suffix: Middleages
+  description: Позволяет создавать ключи, оружие и многое другое.
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/anvil.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      staticPacks:
+        - MLanvilpackAges
+    - type: MaterialStorage
+    - type: ApcPowerReceiver
+      powerLoad: 0
+
+- type: latheRecipePack
+  id: MLanvilpackAges
+  recipes:
+  - Wrench
+  - Medilathekniferecipe
+  - Medilathekeyanvilrecipe
+  - Medilathekeyclothrecipe
+  - Medilathedoorclothrecipe
+  - Medilathedooranvilrecipe
+#  - Medilathekeykingrecipe
+  - Medilathebucklerrecipe
+  - Medilathaxerecipe
+  - Medilatheswordsrecipe
+  - Medilathearmorsrecipe
+  - Medilathehelmetrecipe
+
+
+- type: latheRecipe
+  id: Medilatheanvilrecipe
+  result: Inflatableanvilmedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 1500
+
+- type: latheRecipe
+  id: Medilathekniferecipe
+  result: Agesknife
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 1000
+    Wood: 1000
+
+- type: latheRecipe
+  id: Medilathecuprecipe
+  result: DrinkwoodCup
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 500
+
+- type: latheRecipe
+  id: Medilathekeyanvilrecipe
+  result: anvilkey
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: Medilathekeykingrecipe
+  result: Kingkey
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Gold: 500
+
+- type: latheRecipe
+  id: Medilathekeyclothrecipe
+  result: clothkey
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: Medilathehelmetrecipe
+  result: ClothingHeadHelmetTemplar
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 700
+
+- type: latheRecipe
+  id: Medilathedoorclothrecipe
+  result: Inflatablewoodclothdoormedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1500
+    Steel: 100
+
+- type: latheRecipe
+  id: Medilathedooranvilrecipe
+  result: Inflatablewoodavnildoormedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1500
+    Steel: 100
+
+- type: entity
+  id: Medimagetable
+  parent: BaseLatheLube
+  name: Стол мага
+  suffix: Middleages
+  description: Позволяет создавать бумагу, семяна и многое другое.
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/magetable.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      staticPacks:
+        - MLmagepackAges
+    - type: MaterialStorage
+      whitelist:
+        tags:
+        - Document
+        - Sheet
+        - RawMaterial
+        - Ingot
+        - Paper
+      storage:
+        Paper: 0
+    - type: ApcPowerReceiver
+      powerLoad: 0
+
+- type: latheRecipePack
+  id: MLmagepackAges
+  recipes:
+  - Medilathemetalseedrecipe
+  - Medilathewoodsseedrecipe
+  - Medilatheapplesseedrecipe
+  - Medilatheclothtreesrecipe
+  - MedilathePaperrecipe
+  - MedilatheForceWallSpellbookrecipe
+#  - MedilatheFireballSpellbookrecipe
+  - MedilatheBlinkBookrecipe
+
+- type: latheRecipe
+  id: Medilathewoodsseedrecipe
+  result: Inflatableplantwoodmedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 12000
+
+- type: latheRecipe
+  id: Medilatheapplesseedrecipe
+  result: Inflatableplantapplemedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 4500
+
+- type: latheRecipe
+  id: MedilathePaperrecipe
+  result: SheetPaper1
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 3000
+
+- type: latheRecipe
+  id: Medilathevedrorecipe
+  result: Bucketwood
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1500
+
+- type: latheRecipe
+  id: MedilatheForceWallSpellbookrecipe
+  result: ForceWallSpellbook
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Paper: 500
+
+- type: latheRecipe
+  id: MedilatheFireballSpellbookrecipe
+  result: FireballSpellbook
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Paper: 500
+
+- type: latheRecipe
+  id: MedilatheBlinkBookrecipe
+  result: BlinkBook
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Paper: 500
+
+- type: latheRecipe
+  id: Medilathemaprecipe
+  result: Agesmap
+  completetime: 5
+  applyMaterialDiscount: false
+  materials:
+    Paper: 50
+
+- type: latheRecipe
+  id: Medilathetoiletrecipe
+  result: Inflatablewoodtoiletmedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1000
+
+- type: latheRecipe
+  id: Medilatheshvabrarecipe
+  result: MopItemmedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1500
+    Cloth: 100
+
+- type: latheRecipe
+  id: Medilathebucklerrecipe
+  result: WoodenBuckler
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1000
+    Steel: 100
+
+- type: latheRecipe
+  id: Medilathearmorsrecipe
+  result: ClothingOuterArmormedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 1500
+
+- type: latheRecipe
+  id: Medilatheswordsrecipe
+  result: Agessword
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 1500
+
+- type: entity
+  id: Mediclothtable
+  parent: BaseLatheLube
+  name: Стол портного
+  suffix: Middleages
+  description: Позволяет создавать сумки, одежду и многое другое.
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/clothtable.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      staticPacks:
+        - MLfabricpackAges
+        - Carpets
+    - type: MaterialStorage
+      storage:
+        Paper: 0
+    - type: ApcPowerReceiver
+      powerLoad: 0
+
+- type: latheRecipePack
+  id: MLfabricpackAges
+  recipes:
+  - Medilatheblackdressrecipe
+  - Medilathebluedressrecipe
+  - Medilathegreendressrecipe
+  - Medilathereddressrecipe
+  - Medilathepurpledressrecipe
+  - Medilathehomejumpsuitrecipe
+  - Medilathechaplainrecipe
+  - Medilathemonastickrecipe
+  - Medilathpovrecipe
+  - Medilathquiverrecipe
+  - Medilathmeshokrecipe
+  - Medilathberetrecipe
+
+- type: latheRecipe
+  id: Medilatheclothtreesrecipe
+  result: Inflatableplantmedicloth
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 6000
+
+- type: latheRecipe
+  id: Medilatheblackdressrecipe
+  result: ClothingUniformJumpskirtBlackElegantDress
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathebluedressrecipe
+  result: ClothingUniformJumpskirtBlueElegantDress
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathegreendressrecipe
+  result: ClothingUniformJumpskirtGreenElegantDress
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathereddressrecipe
+  result: ClothingUniformJumpskirtRedElegantDress
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathepurpledressrecipe
+  result: ClothingUniformJumpskirtPurpleElegantDress
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathehomejumpsuitrecipe
+  result: ClothingUniformJumpsuitLoungewear
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathechaplainrecipe
+  result: ClothingUniformJumpsuitChaplain
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathemonastickrecipe
+  result: ClothingUniformJumpsuitMonasticRobeDark
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathquiverrecipe
+  result: ClothingBeltQuiver
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+    Wood: 100
+
+- type: latheRecipe
+  id: Medilathmeshokrecipe
+  result: ClothingBackpackmiddleages
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathbowrecipe
+  result: BowImprovised
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 1500
+    Cloth: 100
+
+- type: latheRecipe
+  id: Medilatharrowrecipe
+  result: ArrowRegular
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Wood: 150
+    Steel: 10
+
+- type: latheRecipe
+  id: Medilathberetrecipe
+  result: ClothingHeadHatBeret
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1500
+
+- type: latheRecipe
+  id: Medilathclothtablesrecipe
+  result: Inflatableclothtable
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 1000
+    Wood: 200
+    Steel: 100
+
+- type: latheRecipe
+  id: Medilathaxerecipe
+  result: AxeMedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Steel: 500
+    Wood: 200
+
+- type: latheRecipe
+  id: Medilathpovrecipe
+  result: Brutepackmedi
+  completetime: 10
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 500

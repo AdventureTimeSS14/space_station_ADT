@@ -1,0 +1,79 @@
+- type: entity
+  id: InflatableWallmedi
+  parent: BaseItem
+  name: Раскладная стена
+  description: Думаю её стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: WallWoodmedi
+      doAfter: 10
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: Inflatablefloormedi
+  parent: BaseItem
+  name: Раскладной пол
+  description: Думаю его стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: FlooragesEntity
+      doAfter: 5
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  parent: BaseWall
+  id: WallWoodmedi
+  name: Деревянная Стена
+  description: Красивая и грозная стена.
+  suffix: Middleages
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/wallbase.rsi
+  - type: Icon
+    sprite: _KZ/Ages/sprite/wallbase.rsi
+  - type: Construction
+    graph: Girder
+    node: woodWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+  - type: IconSmooth
+    key: woods
+    base: wood

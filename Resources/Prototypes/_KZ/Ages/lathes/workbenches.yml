@@ -1,0 +1,65 @@
+- type: entity
+  id: Inflatablelathemedi
+  parent: BaseItem
+  name: Каркас для верстака
+  description: Думаю его стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: SpawnAfterInteract
+      prototype: Medilath
+      doAfter: 30
+      removeOnInteract: true
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: Clickable
+
+- type: entity
+  id: Inflatableanvilmedi
+  parent: BaseItem
+  name: Каркас для наковальни
+  description: Думаю его стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingmetal.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingmetal.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: Medianvil
+      doAfter: 30
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  id: Inflatableclothtable
+  parent: BaseItem
+  name: Каркас для стола портного
+  description: Думаю его стоит разложить
+  suffix: Middleages
+  components:
+    - type: Sprite
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      state: icon
+    - type: Item
+      sprite: _KZ/Ages/sprite/foldingwall.rsi
+      size: Small
+    - type: Stack
+      stackType: InflatableWall
+      count: 1
+    - type: SpawnAfterInteract
+      prototype: Mediclothtable
+      doAfter: 30
+      removeOnInteract: true
+    - type: Clickable

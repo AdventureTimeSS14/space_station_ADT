@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakKing
+  name: Плащ Короля
+  suffix: Middleages
+  description: Нося его хочется построить королевство.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/kingcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakWarden
+  name: Плащ Стражника
+  suffix: Middleages
+  description: Нося его хочется унижать всех кто ниже тебя рангом.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/wardencloak.rsi

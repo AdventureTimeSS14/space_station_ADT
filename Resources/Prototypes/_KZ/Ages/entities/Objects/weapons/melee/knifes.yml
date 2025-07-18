@@ -1,0 +1,17 @@
+- type: entity
+  name: Кинжал
+  suffix: Middleages
+  parent: CombatKnife
+  id: Agesknife
+  description: Дешёвый, но надёжный.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/knife.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 15
+  - type: Item
+    sprite: _KZ/Ages/sprite/knife.rsi

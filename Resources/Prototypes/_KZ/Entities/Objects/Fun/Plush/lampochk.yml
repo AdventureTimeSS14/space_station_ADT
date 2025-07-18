@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseItem
+  id: lampochka
+  name: Лампочка
+  suffix: Oneshot
+  description: Лампочка, или же... Солнце...
+  components:
+  - type: Sprite
+    sprite: _KZ/Objects/plush/lampochk.rsi
+    state: icon
+  - type: Item
+    sprite: _KZ/Objects/plush/lampochk.rsi
+  - type: EmitSoundOnUse
+    sound:
+      collection: lampchk
+  - type: EmitSoundOnLand
+    sound:
+      collection: lampchk
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: lampchk
+  - type: EmitSoundOnActivate
+    sound:
+      collection: lampchk
+  - type: EmitSoundOnCollide
+    sound:
+      collection: lampchk
+  - type: MeleeWeapon
+    soundHit:
+      collection: lampchk
+    damage:
+      types:
+        Blunt: 0
+    hidden: true
+  - type: UseDelay
+    delay: 2.0

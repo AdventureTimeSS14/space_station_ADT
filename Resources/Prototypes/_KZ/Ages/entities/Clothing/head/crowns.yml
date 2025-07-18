@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCrownmedi
+  name: Королевская корона
+  suffix: Middleages
+  description: Символ власти. В случае её потери король перестаёт быть королём. Увы.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/crown.rsi
+  - type: Clothing
+    sprite: _KZ/Ages/sprite/crown.rsi

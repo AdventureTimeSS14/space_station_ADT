@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackmiddleages
+  suffix: Middleages
+  name: Мешок
+  description: Рюкзак для бедных.
+  components:
+  - type: Sprite
+    sprite: _KZ/Ages/sprite/backpack.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8

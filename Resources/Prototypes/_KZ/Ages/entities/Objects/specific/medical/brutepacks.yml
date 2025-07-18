@@ -1,0 +1,32 @@
+- type: entity
+  name: Повязка
+  description: Лекарство от всех болезней(Если все ваши болезни это ожоги факелом и порез куском метала).
+  parent: BaseHealingItem
+  id: Brutepackmedi
+  suffix: Middleages
+  components:
+  - type: Tag
+    tags:
+    - Brutepack
+  - type: Sprite
+    state: gauze
+  - type: Healing
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Brute: -30 # 5 for each type in the group
+        Heat: -30
+        Cold: -15
+        Caustic: -15
+        Bloodloss: -0.5
+    bloodlossModifier: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: Brutepack
+    count: 10
+  - type: StackPrice
+    price: 5
