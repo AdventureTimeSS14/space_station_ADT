@@ -279,10 +279,13 @@
       VisionRadius: !type:Single
         6
       AggroVisionRadius: !type:Single
-        25
+        35
   - type: Fauna
   - type: Megafauna
-
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: Ash
 - type: entity
   id: MobDrake
   parent: [ BaseMobDrake, BaseMobAsteroid ]
@@ -577,12 +580,8 @@
       params:
         volume: -10
   - type: BallisticAmmoProvider
-    proto: BulletFirethrow
+    proto: ProjectileDragonsBreath
     capacity: 69000
-  # - type: MagazineVisuals # Commented. Debug-fix
-  #   magState: mag
-  #   steps: 4
-  #   zeroVisible: true
   - type: Appearance
   - type: ContainerContainer
     containers:
