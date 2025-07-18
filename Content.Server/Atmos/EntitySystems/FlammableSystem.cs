@@ -28,7 +28,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
-using Content.Server.ADT.Temperature;
+using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -59,11 +59,7 @@ namespace Content.Server.Atmos.EntitySystems
         private float _timer;
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
-
-        [Obsolete]
-#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
         public override void Initialize()
-#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
         {
             UpdatesAfter.Add(typeof(AtmosphereSystem));
 
@@ -140,7 +136,7 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             _fixture.TryCreateFixture(uid, component.FlammableCollisionShape, component.FlammableFixtureID, hard: false,
-                collisionMask: (int)CollisionGroup.FullTileLayer, body: body);
+                collisionMask: (int) CollisionGroup.FullTileLayer, body: body);
         }
 
         private void OnInteractUsing(EntityUid uid, FlammableComponent flammable, InteractUsingEvent args)
@@ -255,7 +251,6 @@ namespace Content.Server.Atmos.EntitySystems
             Extinguish(uid, component);
         }
 
-        [Obsolete]
         private void OnResistFireAlert(Entity<FlammableComponent> ent, ref ResistFireAlertEvent args)
         {
             if (args.Handled)
@@ -375,10 +370,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (args.DamageDelta.DamageDict.TryGetValue("Heat", out FixedPoint2 value))
             {
                 // Make sure the value is greater than the threshold
-                if (value <= component.Threshold)
-                {
+                if(value <= component.Threshold)
                     return;
-                }
 
                 // Ignite that sucker
                 flammable.FireStacks += component.FireStacks;
@@ -388,7 +381,6 @@ namespace Content.Server.Atmos.EntitySystems
 
         }
 
-        [Obsolete]
         public void Resist(EntityUid uid,
             FlammableComponent? flammable = null)
         {
