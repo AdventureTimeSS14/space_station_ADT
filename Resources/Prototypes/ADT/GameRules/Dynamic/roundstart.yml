@@ -1,0 +1,130 @@
+# major antags that get picked once during roundstart.
+# the max number of antags is so small because it's used for midround events too.
+# regards.
+
+# Traitor
+- type: entity
+  parent: [BaseTraitorRuleDynamic, BaseTraitorRule]
+  id: TraitorDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-traitor-title
+    weight: 5
+    cost: 8
+    scalingCost: 9
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 2
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+
+# Thief (Spy wyci)
+- type: entity
+  parent: Thief
+  id: ThiefDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-thief-title
+    weight: 5
+    cost: 8
+    scalingCost: 9
+  - type: AntagSelection
+    agentName: thief-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Thief ]
+      max: 3
+      playerRatio: 1
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      mindRoles:
+      - MindRoleThief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
+
+# Changeling
+- type: entity
+  parent: [BaseGameRuleDynamic, ChangelingGameRule]
+  id: ChangelingDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-changeling-title
+    weight: 3
+    cost: 16
+    scalingCost: 10
+  - type: ChangelingRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 2
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        tags:
+        - ChangelingBlacklist
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleChangeling
+      components:
+      - type: Changeling
+    agentName: ling-round-end-name
+
+# Heretic
+- type: entity
+  parent: BaseGameRuleDynamic
+  id: HereticDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-heretic-title
+    weight: 3
+    cost: 10
+    scalingCost: 9
+  - type: HereticRule
+  - type: AntagSelection
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 2
+      playerRatio: 20
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+      startingGear: HereticGear
+
+# Revolution
+- type: entity
+  id: RevolutionDynamic
+  parent: BaseGameRuleDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-revolutionary-title
+    weight: 3
+    cost: 20
+    highImpact: true
+  - type: RevolutionaryRule
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ HeadRev ]
+      max: 3
+      playerRatio: 15
+      briefing:
+        text: head-rev-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+      startingGear: HeadRevGear
+      components:
+      - type: Revolutionary
+      - type: HeadRevolutionary
+      mindRoles:
+      - MindRoleHeadRevolutionary

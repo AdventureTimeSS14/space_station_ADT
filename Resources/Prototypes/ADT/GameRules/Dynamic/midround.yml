@@ -1,0 +1,177 @@
+# same with roundstart, highImpact means it can only be spawned once
+# the only weights that work are in DynamicRuleset
+
+# Midround Traitors
+- type: entity
+  parent: TraitorDynamic
+  id: TraitorDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-traitor-title
+    weight: 8
+    cost: 3
+  - type: StationEvent
+    earliestStart: 30
+    weight: 10
+    minimumPlayers: 15
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+
+# Midround Changelings
+- type: entity
+  parent: ChangelingDynamic
+  id: ChangelingDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-changeling-title
+    weight: 4
+    cost: 6
+  - type: StationEvent
+    earliestStart: 20
+    weight: 3
+    minimumPlayers: 15
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+
+# Midround Heretics
+- type: entity
+  parent: HereticDynamic
+  id: HereticDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-heretic-title
+    weight: 4
+    cost: 5
+  - type: StationEvent
+    earliestStart: 20
+    weight: 3
+    minimumPlayers: 30
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+
+# Midround Revolutionaries
+- type: entity
+  parent: RevolutionDynamic
+  id: RevolutionDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-revolutionary-title
+    weight: 3
+    cost: 7
+    highImpact: true
+  - type: StationEvent
+    earliestStart: 20
+    weight: 3
+    minimumPlayers: 30
+    maxOccurrences: 1
+    duration: null
+    occursDuringRoundEnd: false
+
+# Skeleton Spawn
+- type: entity
+  parent: BaseGameRule
+  id: SkeletonDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-skeleton-title
+    weight: 6
+    cost: 3
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    minimumPlayers: 15
+  - type: RandomEntityStorageSpawnRule
+    prototype: MobSkeletonCloset
+
+# Dragon Spawn
+- type: entity
+  parent: DragonSpawn
+  id: DragonDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-dragon-title
+    weight: 4
+    cost: 7
+    highImpact: true
+
+# Space Ninja Spawn
+- type: entity
+  parent: NinjaSpawn
+  id: NinjaDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-ninja-title
+    weight: 4
+    cost: 7
+    highImpact: true
+
+# Revenant Spawn
+- type: entity
+  parent: RevenantSpawn
+  id: RevenantDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-revenant-title
+    weight: 4
+    cost: 5
+    highImpact: true
+  - type: StationEvent
+    weight: 7.5
+    duration: 1
+    earliestStart: 45
+    minimumPlayers: 20
+
+# Zombie Outbreak
+# - type: entity
+#   id: ZombiesDynamicMidround
+#   parent: ZombieOutbreak
+#   components:
+#   - type: DynamicRuleset
+#     nameLoc: dynamic-gamerule-midround-zombies-title
+#     weight: 2
+#     cost: 10
+#     highImpact: true
+#   - type: StationEvent
+#     earliestStart: 90
+#     minimumPlayers: 40
+#     weight: 1
+#     duration: 1
+
+# Lone Operative Spawn
+- type: entity
+  parent: LoneOpsSpawn
+  id: NukeopsDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-loneop-title
+    weight: 4
+    cost: 7
+    highImpact: true
+  - type: StationEvent
+    earliestStart: 35
+    weight: 5.5
+    minimumPlayers: 20
+    duration: 1
+
+# Rat King Spawn
+- type: entity
+  id: RatKingDynamicMidround
+  parent: KingRatMigration
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-ratking-title
+    weight: 4
+    cost: 5
+    highImpact: true
