@@ -107,7 +107,6 @@
       - AnomalyHost
       - ADTCatEmotes
     - type: Inventory
-      speciesId: reptilian # whyyy
       femaleDisplacements:
         jumpsuit:
           sizeMaps:
@@ -119,6 +118,11 @@
             32:
               sprite: Corvax/Mobs/Species/displacement.rsi
               state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
       displacements:
         jumpsuit:
           sizeMaps:
@@ -130,6 +134,11 @@
             32:
               sprite: Corvax/Mobs/Species/displacement.rsi
               state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
 
 - type: entity
   save: false
@@ -149,7 +158,6 @@
       drawdepth: Mobs
       scale: 0.95, 0.95
     - type: Inventory
-      speciesId: reptilian # whyyy
       femaleDisplacements:
         jumpsuit:
           sizeMaps:
@@ -161,6 +169,11 @@
             32:
               sprite: Corvax/Mobs/Species/displacement.rsi
               state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
       displacements:
         jumpsuit:
           sizeMaps:
@@ -172,3 +185,8 @@
             32:
               sprite: Corvax/Mobs/Species/displacement.rsi
               state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
