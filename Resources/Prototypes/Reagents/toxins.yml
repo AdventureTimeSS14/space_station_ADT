@@ -15,9 +15,27 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 4
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -2
+    #ADT-tweak-end
 
 - type: reagent
   id: CarpoToxin
@@ -36,10 +54,34 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 4
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -2
+    #ADT-tweak-end
       - !type:PopupMessage
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -472,6 +514,20 @@
         conditions:
           - !type:OrganType
             type: Animal
+      #ADT-tweak-start
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+        damage:
+          types:
+            Poison: 0.4
+      - !type:ChemVomit
+        probability: 0.04
+        conditions:
+          - !type:OrganType
+            type: Slime
+      #ADT-tweak-end
 
 - type: reagent
   id: Amatoxin
@@ -485,9 +541,38 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+          - !type:OrganType
+            type: Slime
+            shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 3
+    #ADT-tweak-start
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+          - !type:OrganType
+            type: Slime
+            shouldHave: true
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+      - !type:HallucinationsReagentEffect
+        conditions:
+          - !type:OrganType
+            type: Slime
+            shouldHave: true
+        proto: Changeling
+        type: Add
+        time: 4
+        refresh: false
+    #ADT-tweak-end
 
 - type: reagent
   id: VentCrud
@@ -538,6 +623,11 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          #ADT-tweak-start
+          - !type:OrganType
+            type: Slime
+            shouldHave: false
+          #ADT-tweak-end
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -548,11 +638,21 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          #ADT-tweak-start
+          - !type:OrganType
+            type: Slime
+            shouldHave: false
+          #ADT-tweak-end
       - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Animal
           shouldHave: false
+        #ADT-tweak-start
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 1
@@ -563,6 +663,15 @@
           shouldHave: true
         reagent: Protein
         amount: 0.5
+      #ADT-tweak-start
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        reagent: Protein
+        amount: 0.75 # Типо лучше усваиваеться?
+      #ADT-tweak-end
 
 - type: reagent
   id: Allicin
@@ -658,9 +767,28 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 1.8
+    #ADT-tweak-start
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -1
+    #ADT-tweak-end
 
 - type: reagent
   id: Vestine

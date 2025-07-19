@@ -162,11 +162,41 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 1
       - !type:FlammableReaction
         multiplier: 0.4
+    #ADT-tweak-start
+    Food:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        probability: 0.5
+        damage:
+          groups:
+            Brute: -0.4
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        amount: 1
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+    #ADT-tweak-end
 
 - type: reagent
   id: Fluorosurfactant
