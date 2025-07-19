@@ -16,7 +16,7 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
+    sprite: SD/Entities/Structures/cardreader.rsi
     state: dead
   - type: Rotatable
   - type: Fixtures
@@ -34,3 +34,45 @@
     tags:
     - Structure
 
+
+- type: entity
+  id: SD_CardReaderLevel3NoHigher
+  parent: SD_CardReader
+  components:
+  - type: Cardreader
+    requiredAccess: 3
+    allowHigherAccess: false
+
+- type: entity
+  id: SD_CardReaderLevel4NoHigher
+  parent: SD_CardReader
+  components:
+  - type: Cardreader
+    requiredAccess: 4
+    allowHigherAccess: false
+
+
+- type: entity
+  id: SD_CardReaderLevel4
+  parent: SD_CardReader
+  components:
+  - type: Cardreader
+    requiredAccess: 4
+    allowHigherAccess: true
+
+- type: entity
+  id: SD_CardReaderLevel5NoHigher
+  parent: SD_CardReader
+  components:
+  - type: Cardreader
+    requiredAccess: 5
+    allowHigherAccess: false
+
+
+- type: entity
+  id: SD_CardReaderLevel5
+  parent: SD_CardReader
+  components:
+  - type: Cardreader
+    requiredAccess: 5
+    allowHigherAccess: true

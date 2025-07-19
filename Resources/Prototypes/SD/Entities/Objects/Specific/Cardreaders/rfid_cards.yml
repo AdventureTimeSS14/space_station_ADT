@@ -1,16 +1,111 @@
 - type: entity
-  id: SD_Redcard
-  name: Red Keycard
+  id: SD_Keycard
+  name: keycard
   parent: BaseItem
-  description: Keycard with red clearance level. Grants access to restricted areas.
+  description: An old magnetic card. Grants access to restriced areas.
   components:
   - type: Item
     size: Small
   - type: Rfid
-    accessLevel: 2
-    limitedUse: true
-    maxUses: 3
-    usesLeft: 3
   - type: Sprite
     sprite: SD/Objects/Specific/Cardreader/Cards/card.rsi
-    state: silver  # Используем состояние 'silver' из RSI
+    layers:
+    - state: icon
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/id_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/id_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/id_drop.ogg
+
+- type: entity
+  id: SD_Keycard_Red
+  name: red keycard
+  parent: SD_Keycard
+  description: An old magnetic card. Grants access to restriced areas.
+  components:
+  - type: Item
+    size: Small
+  - type: Rfid
+    accessLevel: 5
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: line
+      color: "#eb0c07"
+    - state: lambda
+      color: "#3f3f3f"
+
+- type: entity
+  id: SD_Keycard_Blue
+  name: blue keycard
+  parent: SD_Keycard
+  description: An old magnetic card. Grants access to restriced areas.
+  components:
+  - type: Rfid
+    accessLevel: 3
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: line
+      color: "#1591EA"
+    - state: lambda
+      color: "#3f3f3f"
+
+- type: entity
+  id: SD_Keycard_Green
+  name: green keycard
+  parent: SD_Keycard
+  description: An old magnetic card. Grants access to restriced areas.
+  components:
+  - type: Rfid
+    accessLevel: 4
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: line
+      color: "#32CD32"
+    - state: lambda
+      color: "#3f3f3f"
+
+- type: entity
+  id: SD_Keycard_Black
+  name: black keycard
+  parent: SD_Keycard
+  description: An old magnetic card. Grants access to restriced areas.
+  components:
+  - type: Rfid
+    accessLevel: 6
+    limitedUse: True
+    maxUses: 1
+    usesLeft: 1
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3f3f3f"
+    - state: line
+      color: "#B8860B"
+    - state: lambda
+      color: "#B8860B"
+
+- type: entity
+  id: SD_Keycard_Access
+  name: access keycard
+  parent: SD_Keycard
+  description: An old magnetic card. Grants access to restriced areas.
+  components:
+  - type: Rfid
+    accessLevel: 1
+    limitedUse: True
+    maxUses: 1
+    usesLeft: 1
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: lambda
+      color: "#3f3f3f"
+    - state: one
+      color: "#3f3f3f"
