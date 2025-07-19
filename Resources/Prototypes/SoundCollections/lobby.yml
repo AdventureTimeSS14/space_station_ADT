@@ -3,8 +3,8 @@
   files:
     - /Audio/Lobby/thunderdome.ogg
     - /Audio/Lobby/absconditus.ogg
-    - /Audio/Lobby/space_asshole.ogg
-    - /Audio/Lobby/the_wizard.ogg
+#    - /Audio/Lobby/space_asshole.ogg
+#    - /Audio/Lobby/the_wizard.ogg
     - /Audio/Lobby/endless_space.ogg
     - /Audio/Lobby/singuloose.ogg
     - /Audio/Lobby/comet_haley.ogg
@@ -29,3 +29,14 @@
     - /Audio/ADT/Lobby/horn.ogg
     # ADT music end
     - /Audio/Corvax/Lobby/nodecision.ogg # Corvax-LobbyMusic
+    # Kaizen music start
+    - /Audio/_KZ/Lobby/Bluespace.ogg
+    - /Audio/_KZ/Lobby/Codebrain.ogg
+    - /Audio/_KZ/Lobby/Downtown.ogg
+    - /Audio/_KZ/Lobby/Downtown2.ogg
+    - /Audio/_KZ/Lobby/Exploring.ogg
+    - /Audio/_KZ/Lobby/Metropolis.ogg
+    - /Audio/_KZ/Lobby/Phoronindustry.ogg
+    - /Audio/_KZ/Lobby/PhoronLeak.ogg
+    - /Audio/_KZ/Lobby/Runner_in_motion.ogg
+    - /Audio/_KZ/Lobby/TheRunnerinmotion.ogg
