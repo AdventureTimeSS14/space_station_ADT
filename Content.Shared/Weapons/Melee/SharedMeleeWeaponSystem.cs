@@ -898,6 +898,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         RaiseLocalEvent(target.Value, ref attemptEvent);
+        RaiseLocalEvent(user, ref attemptEvent); //ADT tweak
 
         if (attemptEvent.Cancelled)
             return false;
