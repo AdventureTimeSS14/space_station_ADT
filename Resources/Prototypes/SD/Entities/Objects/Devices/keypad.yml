@@ -1,0 +1,31 @@
+- type: entity
+  id: Keypad
+  name: keypad
+  description: keypad-examine
+  parent: BaseMachine
+  components:
+  - type: Keypad
+    correctCode: "4321"
+  - type: ActivatableUI
+    key: enum.KeypadUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.KeypadUiKey.Key:
+        type: KeypadBoundUserInterface
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Structures/Wallmounts/switch.rsi
+    state: on
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+  - type: WallMount
+    arc: 360
+  - type: Appearance
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: DeviceLinkSource
+    range: 4
+    ports:
+    - Pressed
