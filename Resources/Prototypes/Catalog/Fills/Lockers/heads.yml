@@ -7,7 +7,6 @@
     - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
     - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
     - id: CigPackGreen
@@ -19,12 +18,13 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: AstroNavCartridge
+    - id: ClothingHandsKnuckleDustersQM
     - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
-    # ADT-Economy-Start
-    - id: ADTCommandBudgetCard
-    - id: ADTCommandBudgetPinPaper
-    # ADT-Economy-End
+    # # ADT-Economy-Start
+    # - id: ADTCommandBudgetCard
+    # - id: ADTCommandBudgetPinPaper
+    # # ADT-Economy-End
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPcrg
@@ -67,6 +67,10 @@
     - id: SpaceCash1000
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
+    - id: HeadSkeleton # A skull to accompany your skeleton crew
+      conditions:
+      - !type:PlayerCountCondition
+        max: 15
     # Corvax-Resprite-Start
     - id: ClothingHeadCaptainHat
     - id: ClothingOuterCoatCaptain
@@ -149,6 +153,8 @@
     - id: DoorRemoteService
     - id: HoPIDCard
     - id: IDComputerCircuitboard
+    - id: FundingAllocationComputerCircuitboard
+    - id: CargoRequestServiceComputerCircuitboard
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
@@ -182,6 +188,7 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
+    - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
       amount: !type:RangeNumberSelector
@@ -257,6 +264,7 @@
     - id: HandheldCrewMonitor
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
+    - id: CargoRequestMedicalComputerCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
@@ -323,6 +331,7 @@
     - id: HandTeleporter
     - id: ProtolatheMachineCircuitboard
     - id: ResearchComputerCircuitboard
+    - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
@@ -389,6 +398,7 @@
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
+    - id: CargoRequestSecurityComputerCircuitboard
     - id: WeaponDisabler
     - id: WantedListCartridge
     - id: DrinkHosFlask

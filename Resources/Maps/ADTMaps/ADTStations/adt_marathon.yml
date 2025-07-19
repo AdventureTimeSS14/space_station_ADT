@@ -103472,13 +103472,13 @@ entities:
     - type: Transform
       pos: 3.51578,43.5845
       parent: 2
-- proto: PKAUpgradeLight
-  entities:
-  - uid: 15579
-    components:
-    - type: Transform
-      pos: 33.537964,-24.638634
-      parent: 2
+# - proto: PKAUpgradeLight
+#   entities:
+#   - uid: 15579
+#     components:
+#     - type: Transform
+#       pos: 33.537964,-24.638634
+#       parent: 2
 - proto: PlantBag
   entities:
   - uid: 15580

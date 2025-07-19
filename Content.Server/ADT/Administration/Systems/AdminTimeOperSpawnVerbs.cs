@@ -1,3 +1,4 @@
+using Content.Server.GameTicking;
 using Content.Shared.Actions;
 using Content.Shared.Administration;
 using Content.Shared.ComponentalActions.Components;
@@ -25,6 +26,7 @@ namespace Content.Server.Administration.Systems;
 public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
 
     private void AddAdminTimeOperSpawnVerbs(GetVerbsEvent<Verb> args)
     {

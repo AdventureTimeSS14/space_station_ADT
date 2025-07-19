@@ -36,7 +36,7 @@
           data: 4
 
       - tag: ADTOdysseusCentralControlModule
-        name: odysseus central control module
+        name: construction-graph-tag-odysseus-central-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -53,7 +53,7 @@
           data: 6
 
       - tag: ADTOdysseusPeripheralsControlModule
-        name: odysseus peripherals control module
+        name: construction-graph-tag-odysseus-peripherals-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -73,7 +73,7 @@
 #currently mechs don't support upgrading. add them back in once that's squared away.
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-tag-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi

@@ -38,6 +38,7 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedStunSystem _sharedStun = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -171,11 +172,11 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
 
     private void OnMindAdded(EntityUid uid, PhantomComponent component, MindAddedMessage args)
     {
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
 
-        // if (_roles.MindHasRole<PhantomRoleComponent>(mindId))
-        //     return;
+        if (!_player.TryGetSessionById(mind.UserId, out var session))
+            return;
 
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var phantom, out _))
@@ -189,15 +190,19 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
 
             _mind.AddObjective(mindId, mind, finObjective.Value);
             phantom.PhantomMind = (mindId, mind);
-            _antagSelection.SendBriefing(mind.Session, Loc.GetString("phantom-welcome"), Color.BlueViolet, component.GreetSoundNotification);
+            _antagSelection.SendBriefing(session, Loc.GetString("phantom-welcome"), Color.BlueViolet, component.GreetSoundNotification);
             break;
         }
     }
 
     private void OnNewLevelReached(EntityUid uid, PhantomComponent component, ref PhantomLevelReachedEvent args)
     {
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
+
+        if (!_player.TryGetSessionById(mind.UserId, out var _))
+            return;
+
         var ruleQuery = QueryActiveRules();
         while (ruleQuery.MoveNext(out _, out _, out var phantom, out _))
         {

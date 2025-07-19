@@ -253,7 +253,7 @@
     - BodyScannerComputerCircuitboard
     - CloningConsoleComputerCircuitboard
     - CloningPodMachineCircuitboard
-    - CargoShuttleComputerCircuitboard
+    - CargoShuttleConsoleCircuitboard
     rareChance: 0.2
 
 # Technological

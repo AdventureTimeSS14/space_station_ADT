@@ -1,39 +1,24 @@
 - type: construction
-  name: paper mask
   id: ADTPaperMask
   graph: ADTPaperMask
   startNode: start
   targetNode: CompletePaperMaskHeart
   category: construction-category-clothing
-  description: A neat, circular mask made out of paper.
-  icon:
-    sprite: ADT/Clothing/Mask/papermask_blank.rsi
-    state: icon
   objectType: Item
 
 - type: construction
-  name: paper crane
   id: ADTPaperCrane
   graph: ADTPaperCrane
   startNode: start
   targetNode: done
   category: construction-category-misc
   objectType: Item
-  description: A paper crane.
-  icon:
-    sprite: ADT/Objects/Misc/papers.rsi
-    state: crane
 
 - type: construction
-  name: paper ship
   id: ADTPaperShip
   graph: ADTPaperShip
   startNode: start
   targetNode: done
   category: construction-category-misc
   objectType: Item
-  description: A paper ship.
-  icon:
-    sprite: ADT/Objects/Misc/papers.rsi
-    state: ship
 

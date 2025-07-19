@@ -36,6 +36,9 @@
         },
         {
             "name": "spent"
+        },
+        {
+            "name": "cleanade"
         }
     ]
 }

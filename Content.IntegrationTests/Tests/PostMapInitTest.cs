@@ -103,6 +103,7 @@ namespace Content.IntegrationTests.Tests
             "Plasma",
             "Convex",
             "Relic",
+            "dm01-entryway",
             // ADT-Start
             "ADT_Avrit",
             "ADT_Bagel",

@@ -7,13 +7,13 @@
         - to: glassesMed
           steps:
             - tag: Sunglasses
-              name: sun glasses
+              name: construction-graph-tag-sun-glasses-med
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
               doAfter: 5
             - tag: HudMedical
-              name: Medacal hud
+              name: construction-graph-tag-med-hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon

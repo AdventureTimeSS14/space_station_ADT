@@ -146,7 +146,6 @@
     flags:
     - Anchorable
   - type: CargoPalletConsole
-    cashType: ADTPiastra
   - type: ActivatableUI
     key: enum.CargoPalletConsoleUiKey.Sale
   - type: UserInterface

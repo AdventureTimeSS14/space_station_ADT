@@ -10,12 +10,12 @@
         icon:
           sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
           state: icon
-        name: PKA
+        name: construction-graph-tag-pka
       - tag: ModularReceiver
         icon:
           sprite: Objects/Misc/modular_receiver.rsi
           state: icon
-        name: modular receiver
+        name: construction-graph-tag-modular-receiver
       - material: Cable
         amount: 15
       - material: Uranium

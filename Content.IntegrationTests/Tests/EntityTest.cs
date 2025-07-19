@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Text;
 using Robust.Shared;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Configuration;
@@ -9,6 +10,7 @@ using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.IntegrationTests.Tests
 {
@@ -210,7 +212,8 @@ namespace Content.IntegrationTests.Tests
 
             await pair.CleanReturnAsync();
         }
-
+        
+        // ADT-Revert-Start
         /// <summary>
         /// This test checks that spawning and deleting an entity doesn't somehow create other unrelated entities.
         /// </summary>
@@ -225,7 +228,7 @@ namespace Content.IntegrationTests.Tests
         /// Note that this isn't really a strict requirement, and there are probably quite a few edge cases. Its a pretty
         /// crude test to try catch issues like this, and possibly should just be disabled.
         /// </remarks>
-        [Test]
+         [Test]
         public async Task SpawnAndDeleteEntityCountTest()
         {
             var settings = new PoolSettings { Connected = true, Dirty = true };
@@ -338,6 +341,54 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
+        private static string BuildDiffString(IEnumerable<EntityUid> oldEnts, IEnumerable<EntityUid> newEnts, IEntityManager entMan)
+        {
+            var sb = new StringBuilder();
+            var addedEnts = newEnts.Except(oldEnts);
+            var removedEnts = oldEnts.Except(newEnts);
+            if (addedEnts.Any())
+                sb.AppendLine("Listing new entities:");
+            foreach (var addedEnt in addedEnts)
+            {
+                sb.AppendLine(entMan.ToPrettyString(addedEnt));
+            }
+            if (removedEnts.Any())
+                sb.AppendLine("Listing removed entities:");
+            foreach (var removedEnt in removedEnts)
+            {
+                sb.AppendLine("\t" + entMan.ToPrettyString(removedEnt));
+            }
+            return sb.ToString();
+        }
+
+        private static bool HasRequiredDataField(Component component)
+        {
+            foreach (var field in component.GetType().GetFields())
+            {
+                foreach (var attribute in field.GetCustomAttributes(true))
+                {
+                    if (attribute is not DataFieldAttribute dataField)
+                        continue;
+
+                    if (dataField.Required)
+                        return true;
+                }
+            }
+            foreach (var property in component.GetType().GetProperties())
+            {
+                foreach (var attribute in property.GetCustomAttributes(true))
+                {
+                    if (attribute is not DataFieldAttribute dataField)
+                        continue;
+
+                    if (dataField.Required)
+                        return true;
+                }
+            }
+            return false;
+        }
+        // ADT-Revert-End
+        
         [Test]
         public async Task AllComponentsOneToOneDeleteTest()
         {
@@ -362,9 +413,6 @@ namespace Content.IntegrationTests.Tests
                 "ActivatableUI", // Requires enum key
             };
 
-            // TODO TESTS
-            // auto ignore any components that have a "required" data field.
-
             await using var pair = await PoolManager.GetServerClient();
             var server = pair.Server;
             var entityManager = server.ResolveDependency<IEntityManager>();
@@ -382,8 +430,11 @@ namespace Content.IntegrationTests.Tests
 
                     foreach (var type in componentFactory.AllRegisteredTypes)
                     {
-                        var component = (Component) componentFactory.GetComponent(type);
+                        var component = (Component)componentFactory.GetComponent(type);
                         var name = componentFactory.GetComponentName(type);
+
+                        if (HasRequiredDataField(component))
+                            continue;
 
                         // If this component is ignored
                         if (skipComponents.Contains(name))

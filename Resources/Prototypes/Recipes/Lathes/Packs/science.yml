@@ -29,6 +29,7 @@
   - HoloprojectorField
   - SignallerAdvanced
   # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
+  - DeviceDesynchronizer
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -52,10 +53,13 @@
   recipes:
   - WeaponPistolCHIMP
   - WeaponForceGun
-  - WeaponLaserSvalinn
   - WeaponProtoKineticAccelerator
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
   - WeaponTetherGun
   - WeaponGauntletGorilla
+  - WeaponLaserSvalinn # ADT tweak
 
 - type: latheRecipePack
   id: FauxTiles

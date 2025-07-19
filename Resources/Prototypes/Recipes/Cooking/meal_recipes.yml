@@ -11,6 +11,15 @@
   - Oven
   #ADT-Tweak End
 
+- type: microwaveMealRecipe
+  id: RecipeCottonBun
+  name: cotton bun recipe
+  result: FoodCottonBun
+  time: 5
+  group: Breads
+  solids:
+    FoodDoughCottonSlice: 1
+
 #Bagels
 - type: microwaveMealRecipe
   id: RecipeBagel
@@ -2445,6 +2454,13 @@
   - Microwave
   #ADT-Tweak End
 
+- type: microwaveMealRecipe
+  id: RecipeDonkpocketMoth
+  name: warm moth-pocket recipe
+  result: FoodDonkpocketMothWarm
+  time: 5
+  solids:
+    FoodDonkpocketMoth: 1
 
 - type: microwaveMealRecipe
   id: RecipeHotChili
@@ -3225,3 +3241,12 @@
   - Oven
   #ADT-Tweak End
 
+- type: microwaveMealRecipe
+  id: RecipeGrilledCheeseSandwichCotton
+  name: cotton grilled cheese sandwich recipe
+  result: FoodBakedGrilledCheeseSandwichCotton
+  time: 10
+  solids:
+    FoodBreadCottonSlice: 2
+    FoodCheeseSlice: 1
+    FoodButterSlice: 1

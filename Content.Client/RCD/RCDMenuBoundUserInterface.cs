@@ -8,6 +8,7 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.Input;
 using Robust.Shared.Configuration;
+using Robust.Shared.Collections;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -17,6 +18,8 @@ namespace Content.Client.RCD;
 [UsedImplicitly]
 public sealed class RCDMenuBoundUserInterface : BoundUserInterface
 {
+    private const string TopLevelActionCategory = "Main";
+
     private static readonly Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo
         = new Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)>
         {
@@ -62,12 +65,24 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
         // ADT Radial menu settings end
     }
 
-    private IEnumerable<RadialMenuNestedLayerOption> ConvertToButtons(HashSet<ProtoId<RCDPrototype>> prototypes)
+    private IEnumerable<RadialMenuOption> ConvertToButtons(HashSet<ProtoId<RCDPrototype>> prototypes)
     {
         Dictionary<string, List<RadialMenuActionOption>> buttonsByCategory = new();
+        ValueList<RadialMenuActionOption> topLevelActions = new();
         foreach (var protoId in prototypes)
         {
             var prototype = _prototypeManager.Index(protoId);
+            if (prototype.Category == TopLevelActionCategory)
+            {
+                var topLevelActionOption = new RadialMenuActionOption<RCDPrototype>(HandleMenuOptionClick, prototype)
+                {
+                    Sprite = prototype.Sprite,
+                    ToolTip = GetTooltip(prototype)
+                };
+                topLevelActions.Add(topLevelActionOption);
+                continue;
+            }
+
             if (!PrototypesGroupingInfo.TryGetValue(prototype.Category, out var groupInfo))
                 continue;
 
@@ -85,7 +100,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
             list.Add(actionOption);
         }
 
-        var models = new RadialMenuNestedLayerOption[buttonsByCategory.Count];
+        var models = new RadialMenuOption[buttonsByCategory.Count + topLevelActions.Count];
         var i = 0;
         foreach (var (key, list) in buttonsByCategory)
         {
@@ -95,6 +110,12 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
                 Sprite = groupInfo.Sprite,
                 ToolTip = Loc.GetString(groupInfo.Tooltip)
             };
+            i++;
+        }
+
+        foreach (var action in topLevelActions)
+        {
+            models[i] = action;
             i++;
         }
 

@@ -10,7 +10,7 @@
         icon:
           sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
           state: icon
-        name: miner armor
+        name: construction-graph-tag-miner-armor
         doAfter: 2
       - material: GoliathHide
         amount: 2
@@ -30,7 +30,7 @@
         icon:
           sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
           state: icon
-        name: reinforced explorer suit
+        name: construction-graph-tag-reinforced-explorer-suit
         doAfter: 2
       - material: GoliathHide
         amount: 2
@@ -50,7 +50,7 @@
         icon:
           sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
           state: icon
-        name: reinforced explorer suit
+        name: construction-graph-tag-reinforced-explorer-suit-two
         doAfter: 2
       - material: GoliathHide
         amount: 2

@@ -35,7 +35,7 @@
           data: 4
 
       - tag: ADTGygaxCentralControlModule
-        name: gygax central control module
+        name: construction-graph-tag-gygax-central-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -52,7 +52,7 @@
           data: 6
 
       - tag: ADTGygaxPeripheralsControlModule
-        name: gygax peripherals control module
+        name: construction-graph-tag-gygax-peripherals-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -72,7 +72,7 @@
 #currently mechs don't support upgrading. add them back in once that's squared away.
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-tag-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
@@ -90,7 +90,7 @@
           data: 14
 
       - tag: CapacitorStockPart
-        name: capacitor stock part
+        name: construction-graph-tag-capicator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: capacitor
@@ -128,7 +128,7 @@
           data: 21
 
       - tag: ADTGygaxArmor
-        name: gygax armor plates
+        name: construction-graph-tag-gygax-armor-plates
         icon:
           sprite: "ADT/Objects/Specific/Mech/gygax_construction.rsi"
           state: gygax_armor

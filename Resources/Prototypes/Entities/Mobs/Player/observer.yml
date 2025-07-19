@@ -109,6 +109,7 @@
     - BypassInteractionRangeChecks
   - type: PointLight
     radius: 6
+    castShadows: false
     enabled: false
   - type: LanguageSpeaker
     languages:
@@ -118,8 +119,8 @@
     showInHands: false
   - type: Inventory
     templateId: ghost
-  - type: Loadout
-    prototypes: [ MobGhostGear ]
+  # - type: Loadout
+  #   prototypes: [ MobGhostGear ]
   - type: InventorySlots
   - type: ComplexInteraction
   - type: HumanoidAppearance

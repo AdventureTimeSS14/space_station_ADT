@@ -97,4 +97,14 @@
       - id: PeaSeeds
       - id: CherrySeeds
       - id: ADTMandarinSeeds # ADT Tweak
-      - id: ADTStrawberrySeeds # ADT Tweak
+
+- type: entity
+  id: CrateHydroponicsTray
+  parent: CrateHydroponics
+  name: hydroponics tray crate
+  description: Contains a hydroponics tray flatpack.
+  components:
+  - type: StorageFill
+    contents:
+    - id: HydroponicsTrayFlatpack
+    - id: ADTStrawberrySeeds # ADT Tweak

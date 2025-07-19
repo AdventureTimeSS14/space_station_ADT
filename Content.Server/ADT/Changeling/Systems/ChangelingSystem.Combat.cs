@@ -23,6 +23,8 @@ namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem
 {
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+
     private void InitializeCombatAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, LingEMPActionEvent>(OnLingEmp);
@@ -89,11 +91,11 @@ public sealed partial class ChangelingSystem
 
             _flashSystem.Flash(ent, uid, null, 6f * 1000f, 0.8f, false);
 
-            if (!_mindSystem.TryGetMind(ent, out var mindId, out var mind))
+            if (!_mindSystem.TryGetMind(ent, out var _, out var mind))
                 continue;
-            if (mind.Session == null)
+            if (!_player.TryGetSessionById(mind.UserId, out var session))
                 continue;
-            _audioSystem.PlayGlobal(component.SoundResonant, mind.Session);
+            _audioSystem.PlayGlobal(component.SoundResonant, session);
         }
     }
 
