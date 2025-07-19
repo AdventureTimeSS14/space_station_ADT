@@ -1,0 +1,18 @@
+- type: body
+  id: ADTGeras
+  name: "slimes"
+  root: torso
+  slots:
+    torso:
+      part: TorsoSlime
+      connections:
+      - legs
+      organs:
+        core: SentientSlimeCore
+        lungs: OrganSlimeLungs
+    legs:
+      part: ADTLegsGeras
+      connections:
+      - feet
+    feet:
+      part: ADTFeetGeras
