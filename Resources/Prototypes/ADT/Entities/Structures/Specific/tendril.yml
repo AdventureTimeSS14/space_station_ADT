@@ -160,3 +160,15 @@
   - type: Tendril
     spawns:
     - ADTMobNightmareSpider
+
+
+- type: entity
+  id: ADTTendrilBScrab
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: BS crab
+  components:
+  - type: Tendril
+    spawns:
+    - ADTMobBSCrab

@@ -46,6 +46,7 @@
     - AnomalyRockGold
     - AnomalyRockQuartz
     - AnomalyRockUranium
+    - ADTAnomalyRockBS # ADT Tweak
     chance: 1
     offset: 0.15
 

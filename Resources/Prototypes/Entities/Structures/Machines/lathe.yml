@@ -192,6 +192,7 @@
         - RawMaterial
         - Ingot
         - PhantomEctoplasm
+        - ADTBSCrystal #ADT Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -225,6 +226,7 @@
     - ADTXenoTranslatorPack
     - ADTPhantomPack
     #ADT-tweak-end
+    - BluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -296,6 +298,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - ADTBSCrystal #ADT Tweak
   - type: RequireProjectileTarget
 
 - type: entity
@@ -354,6 +357,7 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - ADTBSCrystal #ADT Tweak
   - type: GuideHelp
     guides:
     - Robotics
@@ -658,6 +662,7 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+      - ADTBScrystalSmelting #ADT Tweak
     # ADT tweak start
     - type: AutoMaterialInsert
       tag: ADTOreBag
@@ -684,6 +689,7 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+    - ADTBScrystalSmelting #ADT Tweak
 
 - type: entity
   parent: BaseLathe
