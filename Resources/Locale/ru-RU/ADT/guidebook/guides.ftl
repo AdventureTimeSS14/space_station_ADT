@@ -18,3 +18,4 @@ guide-entry-medicinal-recipes = Наборы и медипены
 guide-entry-other-recipes = Другое
 guide-entry-secret-recipes = Секретное
 guide-entry-medication = Медицина
+guide-entry-chaplain = Священник

@@ -13,3 +13,4 @@ necro-heal-success-self = Вы ударяете { $target } с помощью { 
 necro-heal-success-others = { CAPITALIZE($user) } ударяет { $target } с помощью { $bible }, и кожа { $target } начинает кукожиться и плавиться!
 necro-heal-fail-self = Вы ударяете { $target } с помощью { $bible }, но удар отдаётся печальным стуком, не сумев поразить { $target }.
 necro-heal-fail-others = { CAPITALIZE($user) } ударяет { $target } с помощью { $bible }, но удар отдаётся печальным стуком, не сумев поразить { $target }.
+altar-only-chaplain-altar-use = вы кладете предмет на алтарь , но ничего не происходит...

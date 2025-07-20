@@ -37,6 +37,7 @@
     attackRate: 1
     damage:
       types:
+        Holy: 5
         Slash: 1.5
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/ecto-sword.rsi
@@ -53,3 +54,229 @@
     quickEquip: false
     slots:
     - suitstorage
+
+- type: entity
+  name: brass whip
+  parent: BaseKnife
+  id: ADTBrassWhip
+  description: A good weapon against bad ghosts.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/brass_whip.rsi
+    state: icon
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Weapons/Melee/whiplash.ogg
+    wideAnimationRotation: -135
+    range: 2.5
+    clickDamageModifier: 1.5
+    attackRate: 1
+    damage:
+      types:
+        Holy: 5
+        Slash: 1.5
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/brass_whip.rsi
+    size: Huge
+    shape:
+    - 0,0,1,3
+  - type: HolyDamage
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/brass_whip.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
+
+- type: entity
+  name: god's keyboard
+  parent: BaseKnife
+  id: ADTCoderKeyboard
+  description: Dude. Your sintaxis sucks ass. Rewrite your shitcode.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/keyboard.rsi
+    state: icon
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Weapons/Melee/keyboard_smash.ogg
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Holy: 5
+        Blunt: 1.5
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/keyboard.rsi
+    size: Huge
+    shape:
+    - 0,0,1,3
+  - type: HolyDamage
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/keyboard.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
+
+- type: entity
+  name: devils knife
+  parent: BaseKnife
+  id: ADTDevilsKnife
+  description: Looks like axe-scythe combo, nor knife. Chaos-chaos!
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/devilsknife.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 200
+    attackRate: 1
+    damage:
+      types:
+        Holy: 5.5
+        Slash: 1.5
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/devilsknife.rsi
+    size: Huge
+    shape:
+    - 0,0,1,3
+  - type: HolyDamage
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/devilsknife.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: false
+    allowSpeech: true
+    name: ghost-role-information-devilknife-name
+    description: ghost-role-information-devilknife-description
+    rules: ghost-role-information-devilknife-rules
+  - type: SpeechBarks
+    data:
+      proto: Jevil
+      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-jevil.ogg
+
+- type: entity
+  parent: WeaponMeleeToolboxRobust
+  id: ADTHeavenbustToolbox
+  name: robust toolbox
+  description: A tider's weapon.
+  categories: [ DoNotMap ]
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Holy: 5
+        Blunt: 1.5
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+
+- type: entity
+  name: his holy chainsaw
+  parent: BaseItem
+  id: ADTHolyChainsaw
+  description: Just then you looking at it you want to say "Groovy...".
+  suffix: Unremoveable
+  components:
+  - type: Wieldable
+    wieldSound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: 1
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+    UntrainedUseString: nullrod-chainsaw-untrained-usage-popup
+  - type: Unremoveable
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/divinechainsaw.rsi
+    state: icon
+  - type: MeleeWeapon
+    heavyStaminaCost: 15
+    autoAttack: true
+    angle: 0
+    animationRotation: 90
+    wideAnimationRotation: 90
+    attackRate: 4
+    damage:
+      types:
+        Holy: 1.25
+        Slash: 0.375
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Objects/Weapons/Melee/divinechainsaw.rsi
+
+- type: entity
+  parent: BaseItem
+  id: ADTGodHand
+  name: Hand of God
+  description: A holy, fiery gift from the gods. You won't drop this one.
+  suffix: Unremoveable
+  components:
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Objects/Weapons/Melee/godhand.rsi
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/godhand.rsi
+    state: icon
+  - type: MeleeWeapon
+    canWideSwing: false
+    attackRate: 0.7
+    damage:
+      types:
+        Holy: 5.5
+        Heat: 2
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+  - type: IgniteOnMeleeHit # emphasis on FLAMING GIFT!!
+    fireStacks: 0.10
+  - type: Tool
+    qualities:
+    - Prying
+  - type: Unremoveable
+  - type: Electrified
+    shockDamage: 2
+    shockTime: 3
+
+- type: entity
+  name: warhammer of zillyhoo
+  parent: BaseItem
+  id: ADTHWarhammerOfZillyhoo
+  description: It is so beautiful. You are so bewitched by its beauty, you are not sure if you can wield it. But you are trully the choosen one.
+  suffix: Unremoveable
+  components:
+  - type: Wieldable
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/zillihoo.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Holy: 5
+        Blunt: 1.5
+    soundHit:
+      collection: RubberHammer
+      params:
+          variation: 0.03
+          volume: 3
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Objects/Weapons/Melee/zillihoo.rsi
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Holy: 5
+        Blunt: 1.5
+        Structural: 5

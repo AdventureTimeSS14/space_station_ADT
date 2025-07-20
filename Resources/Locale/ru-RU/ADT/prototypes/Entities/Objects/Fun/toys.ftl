@@ -8,3 +8,5 @@ ent-SkidAndPump = Скид и Тыковка
 
 ent-ADTPlushieOctocat = плюшевый Октокот
     .desc = Он не любит книги.
+ent-ADTPlushieDamn = плюшевое ругательство
+    .desc = "Какой долбоклюй "уморительно" поставил?!"

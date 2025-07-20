@@ -1,0 +1,12 @@
+- type: entity
+  id: ADTEffectKudzu
+  name: Geyas wines
+  parent: Kudzu
+  suffix: Weak
+  description: The arm of goddess of nature, what gives you for sacrifises - items.
+  components:
+    - type: Kudzu
+      spreadChance: 1
+      growthTickChance: 0.5
+    - type: TimedDespawn
+      lifetime: 1.3

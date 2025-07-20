@@ -17,6 +17,7 @@
     - WhitelistChameleon
     - GasMask # goob edit
     - Mask # goob edit
+    - ADTGasmaskSacrifice # ADT Tweak
   - type: HideLayerClothing
     slots: # ADT Tweak. layers: -> slots:
     - Snout

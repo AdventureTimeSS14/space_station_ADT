@@ -1,0 +1,23 @@
+- type: entity
+  id: ADTClownJumpsuitCluwneSpawn
+  parent: ClothingUniformJumpsuitClown
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTSpawnPointADTMobCluwneRole
+  - type: TriggerOnSpawn
+
+- type: entity
+  id: ADTClownShoesCluwneSpawn
+  parent: ClothingShoesClown
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTSpawnPointADTMobCluwneRole
+  - type: TriggerOnSpawn
+
+- type: entity
+  id: ADTClownMaskCluwneSpawn
+  parent: ClothingMaskClown
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTSpawnPointADTMobCluwneRole
+  - type: TriggerOnSpawn
