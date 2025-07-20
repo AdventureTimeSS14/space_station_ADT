@@ -18,5 +18,3 @@ battery-menu-eta-value-na = Н/Д
 battery-menu-power-value = { POWERWATTS($value) }  
 battery-menu-stored-percent-value = { TOSTRING($value, "P1") }  
 battery-menu-stored-energy-value = { ENERGYWATTHOURS($value) }  
-power-charge-window-power-on = ВКЛ
-power-charge-window-power-off = ВЫКЛ
