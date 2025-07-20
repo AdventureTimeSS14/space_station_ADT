@@ -32,7 +32,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockClothesFilled
-  cost: 5300 #ADT_Tweak
+  cost: 5335 #ADT_Tweak
   category: cargoproduct-category-name-service
   group: market
 
