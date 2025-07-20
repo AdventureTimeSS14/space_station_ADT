@@ -28,6 +28,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -58,7 +59,6 @@ namespace Content.Server.Atmos.EntitySystems
         private float _timer;
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
-
         public override void Initialize()
         {
             UpdatesAfter.Add(typeof(AtmosphereSystem));
@@ -315,6 +315,11 @@ namespace Content.Server.Atmos.EntitySystems
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
+            //ADT bonfire
+            var ev = new OnFireChangedEvent(flammable.OnFire);
+            RaiseLocalEvent(uid, ref ev);
+            //ADT bonfire end
+
             UpdateAppearance(uid, flammable);
         }
 
@@ -336,9 +341,19 @@ namespace Content.Server.Atmos.EntitySystems
                 else
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSource):actor}");
                 flammable.OnFire = true;
+
+                //ADT bonfire
+                var ev = new OnFireChangedEvent(flammable.OnFire);
+                RaiseLocalEvent(uid, ref ev);
+                //ADT bonfire end
             }
 
             UpdateAppearance(uid, flammable);
+
+            //ADT bonfire
+            if (flammable.FirestackFadeOnIgnite != null)
+                flammable.FirestackFade = flammable.FirestackFadeOnIgnite.Value;
+            //ADT bonfire end
         }
 
         private void OnDamageChanged(EntityUid uid, IgniteOnHeatDamageComponent component, DamageChangedEvent args)
@@ -458,6 +473,11 @@ namespace Content.Server.Atmos.EntitySystems
                     _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
+
+                    //ADT bonfire
+                    if (flammable.FirestackFadeFade != 0)
+                        flammable.FirestackFade += flammable.FirestackFadeFade * frameTime;
+                    //ADT bonfire end
                 }
                 else
                 {
