@@ -272,7 +272,6 @@ public class RPDSystem : EntitySystem
         // Check that the RPD has enough ammo to get the job done
         TryComp<LimitedChargesComponent>(uid, out var charges);
 
-        // Both of these were messages were suppose to be predicted, but HasInsufficientCharges wasn't being checked on the client for some reason?
         if (_charges.IsEmpty((uid, charges)))
         {
             if (popMsgs)
@@ -281,7 +280,7 @@ public class RPDSystem : EntitySystem
             return false;
         }
 
-        if (!_charges.TryUseCharges((uid, charges), component.CachedPrototype.Cost))
+        if (!_charges.HasCharges((uid, charges), component.CachedPrototype.Cost))
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-insufficient-ammo-message"), uid, user);
