@@ -267,9 +267,11 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.1
+      #ADT-tweak-start
+      #- !type:AdjustReagent
+      #  reagent: Theobromine
+      #  amount: 0.1
+      #ADT-tweak-end
     Poison:
       effects:
       - !type:HealthChange

@@ -38,11 +38,38 @@
     Medicine:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: -1
       - !type:ChemCleanBloodstream
         cleanseRate: 3
+    #ADT-tweak-start
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: 3
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        type: Local
+        visualType: LargeCaution
+        messages: [ "generic-reagent-effect-slicing-insides"]
+        probability: 0.4
+    #ADT-tweak-end
 
 - type: reagent
   id: Ash
