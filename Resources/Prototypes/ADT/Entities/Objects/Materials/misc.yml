@@ -80,6 +80,7 @@
   description: A crystal combined with plasma and diamond, capable of manipulating an object's position in space, but becomes very unstable if broken.
   suffix: Full
   components:
+  - type: Material
   - type: EmbeddableProjectile
     offset: -0.15,0.0
   - type: ThrowingAngle
