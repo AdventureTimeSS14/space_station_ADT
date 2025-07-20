@@ -41,11 +41,12 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.ADT.OnGhostAttemtpDamage;
 using Content.Shared.ADT.Ghost;
-using Content.Shared.Humanoid;
-using Content.Server.Humanoid;
-using Content.Server.Medical.SuitSensors;
-using Content.Shared.Inventory;
-using Content.Shared.Interaction.Components;
+// using Content.Shared.Humanoid;
+// using Content.Server.Humanoid;
+// using Content.Server.Medical.SuitSensors;
+// using Content.Shared.Inventory;
+// using Content.Shared.Interaction.Components;
+
 
 namespace Content.Server.Ghost
 {
@@ -75,10 +76,10 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!; //ADT tweak
+        // [Dependency] private readonly InventorySystem _inventory = default!; //ADT tweak
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
 
-        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
+        // [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -100,7 +101,7 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<GhostComponent, MindRemovedMessage>(OnMindRemovedMessage);
             SubscribeLocalEvent<GhostComponent, MindUnvisitedMessage>(OnMindUnvisitedMessage);
             SubscribeLocalEvent<GhostComponent, PlayerDetachedEvent>(OnPlayerDetached);
-            SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnPlayerAttached); //ADT tweak
+            // SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnPlayerAttached); //ADT tweak
 
             SubscribeLocalEvent<GhostOnMoveComponent, MoveInputEvent>(OnRelayMoveInput);
 
@@ -207,8 +208,8 @@ namespace Content.Server.Ghost
 
             if (_gameTicker.RunLevel != GameRunLevel.PostRound)
             {
-                _visibilitySystem.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
-                _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
@@ -226,8 +227,8 @@ namespace Content.Server.Ghost
             // Entity can't be seen by ghosts anymore.
             if (TryComp(uid, out VisibilityComponent? visibility))
             {
-                _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
-                _visibilitySystem.AddLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
@@ -271,40 +272,43 @@ namespace Content.Server.Ghost
         {
             DeleteEntity(uid);
         }
-        //ADT tweak start
-        private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
-        {
-            if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
-            {
-                return;
-            }
-            if (!TryComp(uid, out ActorComponent? actor))
-            {
-                return;
-            }
-            var profile = _gameTicker.GetPlayerProfile(actor.PlayerSession);
-            if (profile == null)
-                return;
-            _humanoidSystem.LoadProfile(uid, profile);
+        // // ADT tweak start
+        // // TODO(Schrodinger71): Временно отключено — вызывает бесконечную загрузку при подключении к серверу,
+        // // если игрок возвращается в госта сразу после входа.
+        // // Не вносить изменения в этот метод без согласования и предварительной проверки от меня
+        // private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
+        // {
+        //     if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
+        //     {
+        //         return;
+        //     }
+        //     if (!TryComp(uid, out ActorComponent? actor))
+        //     {
+        //         return;
+        //     }
+        //     var profile = _gameTicker.GetPlayerProfile(actor.PlayerSession);
+        //     if (profile == null)
+        //         return;
+        //     _humanoidSystem.LoadProfile(uid, profile);
 
-            if (component.AvailableClothing != null)
-            {
-                var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
-                if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
-                {
-                    ghostInv.Displacements = inv.Displacements;
-                    DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
-                }
-                QueueDel(mob);
+        //     if (component.AvailableClothing != null)
+        //     {
+        //         var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
+        //         if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
+        //         {
+        //             ghostInv.Displacements = inv.Displacements;
+        //             DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
+        //         }
+        //         QueueDel(mob);
 
-                var clothing = Spawn(_random.Pick(component.AvailableClothing));
-                RemComp<SuitSensorComponent>(clothing);
-                EnsureComp<UnremoveableComponent>(clothing);
-                if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
-                    QueueDel(clothing);
-            }
-        }
-        //ADT tweak end
+        //         var clothing = Spawn(_random.Pick(component.AvailableClothing));
+        //         RemComp<SuitSensorComponent>(clothing);
+        //         EnsureComp<UnremoveableComponent>(clothing);
+        //         if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
+        //             QueueDel(clothing);
+        //     }
+        // }
+        // //ADT tweak end
         private void DeleteEntity(EntityUid uid)
         {
             if (Deleted(uid) || Terminating(uid))
@@ -317,7 +321,7 @@ namespace Content.Server.Ghost
 
         private void OnGhostReturnToBodyRequest(GhostReturnToBodyRequest msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not {Valid: true} attached
+            if (args.SenderSession.AttachedEntity is not { Valid: true } attached
                 || !_ghostQuery.TryComp(attached, out var ghost)
                 || !ghost.CanReturnToBody
                 || !TryComp(attached, out ActorComponent? actor))
@@ -333,7 +337,7 @@ namespace Content.Server.Ghost
 
         private void OnGhostWarpsRequest(GhostWarpsRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not {Valid: true} entity
+            if (args.SenderSession.AttachedEntity is not { Valid: true } entity
                 || !_ghostQuery.HasComp(entity))
             {
                 Log.Warning($"User {args.SenderSession.Name} sent a {nameof(GhostWarpsRequestEvent)} without being a ghost.");
@@ -346,7 +350,7 @@ namespace Content.Server.Ghost
 
         private void OnGhostWarpToTargetRequest(GhostWarpToTargetRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not {Valid: true} attached
+            if (args.SenderSession.AttachedEntity is not { Valid: true } attached
                 || !_ghostQuery.HasComp(attached))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to {msg.Target} without being a ghost.");
@@ -369,14 +373,14 @@ namespace Content.Server.Ghost
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not {} uid
+            if (args.SenderSession.AttachedEntity is not { } uid
                 || !_ghostQuery.HasComp(uid))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
                 return;
             }
 
-            if (_followerSystem.GetMostGhostFollowed() is not {} target)
+            if (_followerSystem.GetMostGhostFollowed() is not { } target)
                 return;
 
             WarpTo(uid, target);
@@ -413,7 +417,7 @@ namespace Content.Server.Ghost
         {
             foreach (var player in _playerManager.Sessions)
             {
-                if (player.AttachedEntity is not {Valid: true} attached)
+                if (player.AttachedEntity is not { Valid: true } attached)
                     continue;
 
                 if (attached == except) continue;
@@ -461,13 +465,13 @@ namespace Content.Server.Ghost
 
                 if (visible)
                 {
-                    _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Normal, false);
-                    _visibilitySystem.RemoveLayer((uid, vis), (int) VisibilityFlags.Ghost, false);
+                    _visibilitySystem.AddLayer((uid, vis), (int)VisibilityFlags.Normal, false);
+                    _visibilitySystem.RemoveLayer((uid, vis), (int)VisibilityFlags.Ghost, false);
                 }
                 else
                 {
-                    _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Ghost, false);
-                    _visibilitySystem.RemoveLayer((uid, vis), (int) VisibilityFlags.Normal, false);
+                    _visibilitySystem.AddLayer((uid, vis), (int)VisibilityFlags.Ghost, false);
+                    _visibilitySystem.RemoveLayer((uid, vis), (int)VisibilityFlags.Normal, false);
                 }
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: vis);
             }
