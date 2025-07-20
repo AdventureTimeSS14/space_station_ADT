@@ -465,13 +465,13 @@ namespace Content.Server.Ghost
 
                 if (visible)
                 {
-                    _visibilitySystem.AddLayer((uid, vis), (int)VisibilityFlags.Normal, false);
-                    _visibilitySystem.RemoveLayer((uid, vis), (int)VisibilityFlags.Ghost, false);
+                    _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Normal, false);
+                    _visibilitySystem.RemoveLayer((uid, vis), (int) VisibilityFlags.Ghost, false);
                 }
                 else
                 {
-                    _visibilitySystem.AddLayer((uid, vis), (int)VisibilityFlags.Ghost, false);
-                    _visibilitySystem.RemoveLayer((uid, vis), (int)VisibilityFlags.Normal, false);
+                    _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Ghost, false);
+                    _visibilitySystem.RemoveLayer((uid, vis), (int) VisibilityFlags.Normal, false);
                 }
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: vis);
             }
