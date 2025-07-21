@@ -1,0 +1,64 @@
+- files: ["70K.ogg"]
+  license: "Custom"
+  copyright: "70K by Mike Klubnika. Converted to mono OGG."
+  source: "https://www.youtube.com/watch?v=SzW6GAZpvb8&list=PL39jRdjFRxGRzwi3Vd_k5frovImgWirXb&index=6&pp=iAQB8AUB"
+
+- files: ["BlankShell.ogg"]
+  license: "Custom"
+  copyright: "Blank shell by Mike Klubnika. Converted to mono OGG."
+  source: "https://www.youtube.com/watch?v=R-XWfz3SbNk&list=PL39jRdjFRxGRzwi3Vd_k5frovImgWirXb&index=2"
+
+- files: ["GeneralRelease.ogg"]
+  license: "Custom"
+  copyright: "General release by Mike Klubnika. Converted to mono OGG."
+  source: "https://www.youtube.com/watch?v=GXvHmYwcmF0&list=PL39jRdjFRxGRzwi3Vd_k5frovImgWirXb&index=2&pp=iAQB8AUB"
+
+- files: ["ch3_karaoke_full.ogg"]
+  license: "Custom"
+  copyright: "Raise Up Your Bat by Toby Fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/raise-up-your-bat"
+
+- files: ["ch4_credits.ogg"]
+  license: "Custom"
+  copyright: "Neverending Night by Toby fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/neverending-night"
+
+- files: ["church_lw_night.ogg"]
+  license: "Custom"
+  copyright: "12AM by Toby fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/12am"
+
+- files: ["church_wip.ogg"]
+  license: "Custom"
+  copyright: "Dark Sanctuary by Toby Fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/dark-sanctuary"
+
+- files: ["church_zone3.ogg"]
+  license: "Custom"
+  copyright: "The Third Sanctuary by Toby fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/the-third-sanctuary"
+
+- files: ["jitterbug.ogg"]
+  license: "Custom"
+  copyright: "the Ol' jitterbug by Toby Fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/the-ol-jitterbug"
+
+- files: ["knight.ogg"]
+  license: "Custom"
+  copyright: "Black Knife by Toby Fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/black-knife"
+
+- files: ["rudebuster_boss.ogg"]
+  license: "Custom"
+  copyright: "Ruder Buster by Toby Fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/ruder-buster"
+
+- files: ["rain.ogg"]
+  license: "Custom"
+  copyright: "The place where it rained by Toby Fox. Converted to mono OGG."
+  source: "https://tobyfox.bandcamp.com/track/the-place-where-it-rained"
+
+- files: ["piggies.ogg"]
+  license: "Custom"
+  copyright: "Bad piggies OG theme by Rovio team. Converted to mono OGG."
+  source: "https://www.youtube.com/watch?v=faB3eHfUWyA"

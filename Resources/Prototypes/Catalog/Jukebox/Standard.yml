@@ -39,3 +39,123 @@
   name: PigeonBeans - Sunset
   path:
     path: /Audio/Jukebox/sunset.ogg
+
+- type: jukebox
+  id: ticktock
+  name: Joji - Tick Tock
+  path:
+    path: /Audio/_KZ/Jukebox/ticktock.ogg
+
+- type: jukebox
+  id: piggies
+  name: Rovio - Bad piggies main theme
+  path:
+    path: /Audio/_KZ/Jukebox/piggies.ogg
+
+- type: jukebox
+  id: heartbeat
+  name: Childish Gambino - Heartbeat
+  path:
+    path: /Audio/_KZ/Jukebox/heartbeat.ogg
+
+- type: jukebox
+  id: podlaia
+  name: Подлая музыка
+  path:
+    path: /Audio/_KZ/Jukebox/podlaia.ogg
+
+- type: jukebox
+  id: dust
+  name: M00N - Dust
+  path:
+    path: /Audio/_KZ/Jukebox/dust.ogg
+
+- type: jukebox
+  id: blizzard
+  name: M00N - Blizzard
+  path:
+    path: /Audio/_KZ/Jukebox/blizzard.ogg
+
+- type: jukebox
+  id: 70K
+  name: Mike Klubnika - 70K
+  path:
+    path: /Audio/_KZ/Jukebox/70K.ogg
+
+- type: jukebox
+  id: BlankShell
+  name: Mike Klubnika - Blank Shell
+  path:
+    path: /Audio/_KZ/Jukebox/BlankShell.ogg
+
+- type: jukebox
+  id: GeneralRelease
+  name: Mike Klubnika - General Release
+  path:
+    path: /Audio/_KZ/Jukebox/GeneralRelease.ogg
+
+- type: jukebox
+  id: RaiseUpUrBat
+  name: Toby fox - Raise Up Your Bat
+  path:
+    path: /Audio/_KZ/Jukebox/ch3_karaoke_full.ogg
+
+- type: jukebox
+  id: NeverendingNight
+  name: Toby fox - Neverending Night
+  path:
+    path: /Audio/_KZ/Jukebox/ch4_credits.ogg
+
+- type: jukebox
+  id: HammerOfJustice
+  name: Toby fox - Hammer Of Justice
+  path:
+    path: /Audio/_KZ/Jukebox/ch4_extra_boss.ogg
+
+- type: jukebox
+  id: 12AM
+  name: Toby fox - 12AM
+  path:
+    path: /Audio/_KZ/Jukebox/church_lw_night.ogg
+
+- type: jukebox
+  id: DarkSanctuary
+  name: Toby fox - Dark Sanctuary
+  path:
+    path: /Audio/_KZ/Jukebox/church_wip.ogg
+
+- type: jukebox
+  id: TheThirdSanctuary
+  name: Toby fox - The Third Sanctuary
+  path:
+    path: /Audio/_KZ/Jukebox/church_zone3.ogg
+
+- type: jukebox
+  id: JitterBug
+  name: Toby fox - The Ol' Jitterbug
+  path:
+    path: /Audio/_KZ/Jukebox/jitterbug.ogg
+
+- type: jukebox
+  id: Knight
+  name: Toby fox - Black Knife
+  path:
+    path: /Audio/_KZ/Jukebox/knight.ogg
+
+- type: jukebox
+  id: TFRain
+  name: Toby fox - The place where it rained
+  path:
+    path: /Audio/_KZ/Jukebox/rain.ogg
+
+- type: jukebox
+  id: RuderBuster
+  name: Toby fox - Ruder Buster
+  path:
+    path: /Audio/_KZ/Jukebox/rudebuster_boss.ogg
+
+- type: jukebox
+  id: HardJellyfish
+  name: CosmoWave - HARDBASS Jellyfish Jam
+  path:
+    path: /Audio/_KZ/Jukebox/HardJellyfish.ogg

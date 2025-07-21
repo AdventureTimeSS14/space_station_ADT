@@ -32,5 +32,10 @@
       types:
         Blunt: 0
     hidden: true
+  - type: PointLight
+    enabled: true
+    color: "#FFE38F"
+    radius: 8.0
+    energy: 5.0
   - type: UseDelay
     delay: 2.0
