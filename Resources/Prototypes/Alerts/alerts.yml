@@ -202,14 +202,6 @@
   description: alerts-dead-desc
 
 - type: alert
-  id: Walking
-  icons:
-  - sprite: /Textures/Interface/Alerts/walking.rsi
-    state: walking
-  name: alerts-walking-name
-  description: alerts-walking-desc
-
-- type: alert
   id: HumanHealth
   category: Health
   icons:
