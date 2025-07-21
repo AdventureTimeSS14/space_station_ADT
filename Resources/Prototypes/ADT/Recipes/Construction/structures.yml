@@ -1,14 +1,9 @@
 - type: construction
-  name: disco floor
   id: ADTDiscoFloor
   graph: ADTDiscoFloor
   startNode: start
   targetNode: discoSquare
   category: construction-category-tiles
-  description: Construct multi-colored flooring to light up the dance floor.
-  icon:
-    sprite: ADT/Structures/Floor/disco_floor.rsi
-    state: off
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -16,16 +11,26 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: trinary deflector
+  id: shuttle
+  graph: ADTLightFixtureShuttle
+  startNode: start
+  targetNode: shuttle
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+  # Need an *additional* condition here that forces there to be a wall in the opposite direction to the one used for placement.
+  # Also see below. Didn't add it b/c construction ECS work going on. Cheers, - 20kdc
+    - !type:TileNotBlocked
+
+- type: construction
   id: ADTDeflectorTrinary
   graph: ADTTrinaryProjectileMirrorGraph
   startNode: start
   targetNode: adttrinaryprojectilemirror
   category: construction-category-structures
-  description: A device that redirects energy blasts.
-  icon:
-    sprite: ADT/Structures/Specific/projectilemirror.rsi
-    state: trinary
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -33,16 +38,11 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: binary deflector
   id: ADTDeflectorBinary
   graph: ADTBinaryProjectileMirrorGraph
   startNode: start
   targetNode: adtbinaryprojectilemirror
   category: construction-category-structures
-  description: A device that redirects energy blasts.
-  icon:
-    sprite: ADT/Structures/Specific/projectilemirror.rsi
-    state: binary
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -50,16 +50,11 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: two-sides binary deflector
   id: ADTDeflectorTBinary
   graph: ADTTBinaryProjectileMirrorGraph
   startNode: start
   targetNode: adttbinaryprojectilemirror
   category: construction-category-structures
-  description: A device that redirects energy blasts.
-  icon:
-    sprite: ADT/Structures/Specific/projectilemirror.rsi
-    state: tbinary
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -67,16 +62,11 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: blast floor
   id: ADTBlastFloor
   graph: ADTBlastFloor
   startNode: start
   targetNode: adtblastfloor
   category: construction-category-structures
-  description: Barely visible blast door embedded in the floor.
-  icon:
-    sprite: ADT/Structures/Doors/Misc/blastfloor.rsi
-    state: closed
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true

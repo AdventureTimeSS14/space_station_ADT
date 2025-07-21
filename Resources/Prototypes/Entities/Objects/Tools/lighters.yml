@@ -95,6 +95,7 @@
     tags:
     - ADTLighter
   # ADT Tweak END
+  - type: PhysicalComposition
 
 - type: entity
   name: cheap lighter

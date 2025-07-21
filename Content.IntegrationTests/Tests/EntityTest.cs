@@ -224,7 +224,8 @@ namespace Content.IntegrationTests.Tests
 
         //    await pair.CleanReturnAsync();
         }
-
+        
+        // ADT-Revert-Start
         /// <summary>
         /// This test checks that spawning and deleting an entity doesn't somehow create other unrelated entities.
         /// </summary>
@@ -239,7 +240,7 @@ namespace Content.IntegrationTests.Tests
         /// Note that this isn't really a strict requirement, and there are probably quite a few edge cases. Its a pretty
         /// crude test to try catch issues like this, and possibly should just be disabled.
         /// </remarks>
-        [Test]
+         [Test]
         public async Task SpawnAndDeleteEntityCountTest()
         {
             var settings = new PoolSettings { Connected = true, Dirty = true };
@@ -320,15 +321,19 @@ namespace Content.IntegrationTests.Tests
                     await server.WaitPost(() => server.EntMan.DeleteEntity(uid));
                     await pair.RunTicksSync(3);
 
-                    // Check that the number of entities has gone back to the original value.
-                    Warn.Unless(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deletion: count didn't reset properly\n" +
-                        BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                    //Assert.That(client.EntMan.EntityCount, Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deletion: count didn't reset properly:\n" +
-                    //    $"Expected {clientCount} and found {client.EntMan.EntityCount}.\n" +
-                    //    $"Server count was {count}.\n" +
-                    //    BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
+                // Check that the number of entities has gone back to the original value.
+                if (Count(server.EntMan) != count)
+                {
+                    Assert.Fail($"Server prototype {protoId} failed on deletion count didn't reset properly");
                 }
-            });
+
+                if (Count(client.EntMan) != clientCount)
+                {
+                    Assert.Fail($"Client prototype {protoId} failed on deletion count didn't reset properly:\n" +
+                                $"Expected {clientCount} and found {Count(client.EntMan)}.\n" +
+                                $"Server was {count}.");
+                }
+            }
 
             await pair.CleanReturnAsync();
         }
@@ -338,27 +343,18 @@ namespace Content.IntegrationTests.Tests
             var sb = new StringBuilder();
             var addedEnts = newEnts.Except(oldEnts);
             var removedEnts = oldEnts.Except(newEnts);
-            // ADT-Tweak-start
             if (addedEnts.Any())
-            {
                 sb.AppendLine("Listing new entities:");
-                foreach (var addedEnt in addedEnts)
-                {
-                    sb.AppendLine("\t" + entMan.ToPrettyString(addedEnt));
-                }
-            }
-            // ADT-Tweak-end
-
-            // ADT-Tweak-start
-            if (removedEnts.Any())
+            foreach (var addedEnt in addedEnts)
             {
-                sb.AppendLine("Listing removed entities:");
-                foreach (var removedEnt in removedEnts)
-                {
-                    sb.AppendLine("\t" + entMan.ToPrettyString(removedEnt));
-                }
+                sb.AppendLine(entMan.ToPrettyString(addedEnt));
             }
-            // ADT-Tweak-end
+            if (removedEnts.Any())
+                sb.AppendLine("Listing removed entities:");
+            foreach (var removedEnt in removedEnts)
+            {
+                sb.AppendLine("\t" + entMan.ToPrettyString(removedEnt));
+            }
             return sb.ToString();
         }
 
@@ -388,7 +384,8 @@ namespace Content.IntegrationTests.Tests
             }
             return false;
         }
-
+        // ADT-Revert-End
+        
         [Test]
         public async Task AllComponentsOneToOneDeleteTest()
         {

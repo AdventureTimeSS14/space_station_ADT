@@ -142,6 +142,15 @@
   description: alerts-weightless-desc
 
 - type: alert
+  id: Walking
+  icons:
+  - sprite: /Textures/Interface/Alerts/walking.rsi
+    state: walking
+  name: alerts-walking-name
+  description: alerts-walking-desc
+  clientHandled: true
+
+- type: alert
   id: Stun
   icons:
   - sprite: /Textures/Objects/Weapons/Melee/stunbaton.rsi #Should probably draw a proper icon

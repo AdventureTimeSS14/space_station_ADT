@@ -4,8 +4,7 @@ ent-ClothingMaskGasSecurity = противогаз СБ
     .desc = Стандартный противогаз Службы безопасности.
 # Corvax-HiddenDesc-Start
 ent-ClothingMaskGasSyndicate = чёрный боевой противогаз
-    .suffix = Синдикат
-    .desc = Высокотехнологичный противогаз с возможностью подключить его к баллону, разработанный специально для борьбы в тяжёлых условиях. Теперь – с функцией защиты для глаз!
+    .desc = Плотно прилегающая тактическая маска, которую можно подключить к дыхательному баллону.
 # Corvax-HiddenDesc-End
 ent-ClothingMaskGasAtmos = атмос-противогаз
     .desc = Улучшенный противогаз, используемый атмосферными техниками. Огнеупорный!
@@ -28,7 +27,7 @@ ent-ClothingMaskClown = { ent-ClothingMaskClownBase }
 ent-ClothingMaskClownBanana = банановые маска и парик клоуна
     .desc = { ent-ClothingMaskClown.desc }
 ent-ClothingMaskClownSecurity = маска и парик клоуна безопасности
-    .desc = Спорно оксюморонные защитная маска и парик.
+    .desc = Спорно оксюморонные, но защитные маска и парик.
 ent-ClothingMaskJoy = маска радости
     .desc = Выразите свою радость или спрячьте свою печаль с помощью этой хохочущей до слёз маски.
 ent-ClothingMaskMime = маска мима
@@ -63,7 +62,7 @@ ent-ClothingMaskRaven = маска ворона
 ent-ClothingMaskJackal = маска шакала
     .desc = Лучше не поворачиваться спиной к владельцу маски, он и укусить может.
 ent-ClothingMaskBat = маска летучей мыши
-    .desc = Кровопийца ночью, и милый, слепой зверёк днём..
+    .desc = Кровопийца ночью и милый, слепой зверёк днём.
 ent-ClothingMaskNeckGaiter = шейный гетр
     .desc = Стильный гетр, способный защитить от космического ветра?...
 ent-ClothingMaskNeckGaiterRed = красный шейный гетр
