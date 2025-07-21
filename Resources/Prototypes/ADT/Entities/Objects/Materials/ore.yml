@@ -6,7 +6,7 @@
   description: rock wirh pieces of bluespace ore
   components:
   - type: Stack
-    stackType: ADTBSore
+    stackType: ADTBSoreStack
   - type: Sprite
     sprite: ADT/Objects/Materials/BS_ore.rsi
     layers:
@@ -31,7 +31,7 @@
     count: 1
 
 - type: stack
-  id: ADTBSore
+  id: ADTBSoreStack
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   spawn: ADTBSore1
   maxCount: 30
