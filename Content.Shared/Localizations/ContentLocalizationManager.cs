@@ -6,12 +6,15 @@ using Robust.Shared.Utility;
 using Robust.Shared.ContentPack;
 using Linguini.Syntax.Parser;
 using System.IO;
+using Robust.Shared.Logging;
 
 namespace Content.Shared.Localizations
 {
     public sealed class ContentLocalizationManager
     {
         [Dependency] private readonly ILocalizationManager _loc = default!;
+
+        private static readonly ISawmill Sawmill = Logger.GetSawmill("content.localization");
 
         // If you want to change your codebase's language, do it here.
         private const string Culture = "ru-RU"; // Corvax-Localization
@@ -41,7 +44,6 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(culture, "POWERJOULES", FormatPowerJoules);
-            // NOTE: ENERGYWATTHOURS() still takes a value in joules, but formats as watt-hours.
             _loc.AddFunction(culture, "ENERGYWATTHOURS", FormatEnergyWattHours);
             _loc.AddFunction(culture, "UNITS", FormatUnits);
             _loc.AddFunction(culture, "TOSTRING", args => FormatToString(culture, args));
@@ -50,7 +52,6 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
             _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes); // ADT Change
-
 
             /*
              * The following language functions are specific to the english localization. When working on your own
@@ -73,7 +74,7 @@ namespace Content.Shared.Localizations
 
             foreach (var path in files)
             {
-                Console.WriteLine($"Проверка файла локализации: {path}");
+                Sawmill.Info($"Проверка файла локализации: {path}");
                 try
                 {
                     using var stream = resourceManager.ContentFileRead(path);
@@ -85,14 +86,14 @@ namespace Content.Shared.Localizations
 
                     if (resource.Errors.Count > 0)
                     {
-                        Console.WriteLine($"Ошибки парсинга в {path}:");
+                        Sawmill.Warning($"Ошибки парсинга в {path}:");
                         foreach (var err in resource.Errors)
-                            Console.WriteLine($"{err.Kind} at {err.Slice}");
+                            Sawmill.Warning($"{err.Kind} at {err.Slice}");
                     }
                 }
                 catch (System.Exception e)
                 {
-                    Console.WriteLine($"Ошибка с файлом {path}: {e}");
+                    Sawmill.Error($"Ошибка с файлом {path}: {e}");
                 }
             }
 
@@ -154,10 +155,6 @@ namespace Content.Shared.Localizations
             }
         }
 
-        // TODO: allow fluent to take in lists of strings so this can be a format function like it should be.
-        /// <summary>
-        /// Formats a list as per english grammar rules.
-        /// </summary>
         public static string FormatList(System.Collections.Generic.List<string> list)
         {
             return list.Count switch
@@ -169,9 +166,6 @@ namespace Content.Shared.Localizations
             };
         }
 
-        /// <summary>
-        /// Formats a list as per english grammar rules, but uses or instead of and.
-        /// </summary>
         public static string FormatListToOr(System.Collections.Generic.List<string> list)
         {
             return list.Count switch
@@ -183,18 +177,12 @@ namespace Content.Shared.Localizations
             };
         }
 
-        /// <summary>
-        /// Formats a direction struct as a human-readable string.
-        /// </summary>
         public static string FormatDirection(Direction dir)
         {
             return Loc.GetString($"zzzz-fmt-direction-{dir.ToString()}");
         }
 
-        /// <summary>
-        /// Formats playtime as hours and minutes.
-        /// </summary>
-        public static string FormatPlaytime(System.TimeSpan time) // ADT changes start
+        public static string FormatPlaytime(System.TimeSpan time)
         {
             time = System.TimeSpan.FromMinutes(System.Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
@@ -207,7 +195,7 @@ namespace Content.Shared.Localizations
             time = System.TimeSpan.FromMinutes(System.Math.Ceiling(time.TotalMinutes));
             var minutes = (int)System.Math.Ceiling(time.TotalMinutes);
             return Loc.GetString($"zzzz-fmt-playtime-minutes", ("minutes", minutes));
-        }// ADT changes end
+        }
 
         private static ILocValue FormatLoc(LocArgs args)
         {
@@ -299,10 +287,6 @@ namespace Content.Shared.Localizations
 
             fargs[^1] = Loc.GetString($"units-{mu.Unit.ToLower()}");
 
-            // Before anyone complains about "{"+"${...}", at least it's better than MS's approach...
-            // https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting#escaping-braces
-            //
-            // Note that the closing brace isn't replaced so that format specifiers can be applied.
             var res = string.Format(
                 fmtstr.Replace("{UNIT", "{" + $"{fargs.Length - 1}"),
                 fargs
