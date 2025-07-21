@@ -1059,6 +1059,7 @@
   - ScienceLabCoat
   - RegularLabCoat
   - ScienceWintercoat
+  - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
   id: ScientistShoes
