@@ -1,7 +1,11 @@
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using Robust.Shared.Utility;
+using Robust.Shared.ContentPack;
+using Linguini.Syntax.Parser;
+using System.IO;
 
 namespace Content.Shared.Localizations
 {
@@ -29,8 +33,9 @@ namespace Content.Shared.Localizations
             var culture = new CultureInfo(Culture);
             var fallbackCulture = new CultureInfo(FallbackCulture); // Corvax-Localization
 
-            _loc.LoadCulture(culture);
-            _loc.LoadCulture(fallbackCulture); // Corvax-Localization
+            SafeLoadCultureWithDetailedErrors(culture);
+            SafeLoadCultureWithDetailedErrors(fallbackCulture);
+
             _loc.SetFallbackCluture(fallbackCulture); // Corvax-Localization
             _loc.AddFunction(culture, "MANY", FormatMany); // Corvax-Localization: To prevent problems in auto-generated locale files
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
@@ -58,11 +63,47 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
         }
 
+        private void SafeLoadCultureWithDetailedErrors(CultureInfo culture)
+        {
+            var resourceManager = IoCManager.Resolve<IResourceManager>();
+
+            var dir = new ResPath($"/Locale/{culture.Name}");
+            var files = resourceManager.ContentFindFiles(dir)
+                .Where(c => c.Filename.EndsWith(".ftl", System.StringComparison.InvariantCultureIgnoreCase));
+
+            foreach (var path in files)
+            {
+                Console.WriteLine($"Проверка файла локализации: {path}");
+                try
+                {
+                    using var stream = resourceManager.ContentFileRead(path);
+                    using var reader = new StreamReader(stream, Encoding.UTF8);
+                    var contents = reader.ReadToEnd();
+
+                    var parser = new LinguiniParser(contents);
+                    var resource = parser.Parse();
+
+                    if (resource.Errors.Count > 0)
+                    {
+                        Console.WriteLine($"Ошибки парсинга в {path}:");
+                        foreach (var err in resource.Errors)
+                            Console.WriteLine($"{err.Kind} at {err.Slice}");
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Console.WriteLine($"Ошибка с файлом {path}: {e}");
+                }
+            }
+
+            _loc.LoadCulture(culture);
+        }
+
         private ILocValue FormatMany(LocArgs args)
         {
             var count = ((LocValueNumber) args.Args[1]).Value;
 
-            if (Math.Abs(count - 1) < 0.0001f)
+            if (System.Math.Abs(count - 1) < 0.0001f)
             {
                 return (LocValueString) args.Args[0];
             }
@@ -75,8 +116,8 @@ namespace Content.Shared.Localizations
         private ILocValue FormatNaturalPercent(LocArgs args)
         {
             var number = ((LocValueNumber) args.Args[0]).Value * 100;
-            var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            var maxDecimals = (int)System.Math.Floor(((LocValueNumber) args.Args[1]).Value);
+            var formatter = (System.Globalization.NumberFormatInfo)System.Globalization.NumberFormatInfo.GetInstance(System.Globalization.CultureInfo.GetCultureInfo(Culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)) + "%");
         }
@@ -84,8 +125,8 @@ namespace Content.Shared.Localizations
         private ILocValue FormatNaturalFixed(LocArgs args)
         {
             var number = ((LocValueNumber) args.Args[0]).Value;
-            var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            var maxDecimals = (int)System.Math.Floor(((LocValueNumber) args.Args[1]).Value);
+            var formatter = (System.Globalization.NumberFormatInfo)System.Globalization.NumberFormatInfo.GetInstance(System.Globalization.CultureInfo.GetCultureInfo(Culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)));
         }
@@ -117,7 +158,7 @@ namespace Content.Shared.Localizations
         /// <summary>
         /// Formats a list as per english grammar rules.
         /// </summary>
-        public static string FormatList(List<string> list)
+        public static string FormatList(System.Collections.Generic.List<string> list)
         {
             return list.Count switch
             {
@@ -131,7 +172,7 @@ namespace Content.Shared.Localizations
         /// <summary>
         /// Formats a list as per english grammar rules, but uses or instead of and.
         /// </summary>
-        public static string FormatListToOr(List<string> list)
+        public static string FormatListToOr(System.Collections.Generic.List<string> list)
         {
             return list.Count switch
             {
@@ -153,18 +194,18 @@ namespace Content.Shared.Localizations
         /// <summary>
         /// Formats playtime as hours and minutes.
         /// </summary>
-        public static string FormatPlaytime(TimeSpan time) // ADT changes start
+        public static string FormatPlaytime(System.TimeSpan time) // ADT changes start
         {
-            time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
+            time = System.TimeSpan.FromMinutes(System.Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
             var minutes = time.Minutes;
             return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
         }
 
-        public static string FormatPlaytimeMinutes(TimeSpan time)
+        public static string FormatPlaytimeMinutes(System.TimeSpan time)
         {
-            time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
-            var minutes = (int)Math.Ceiling(time.TotalMinutes);
+            time = System.TimeSpan.FromMinutes(System.Math.Ceiling(time.TotalMinutes));
+            var minutes = (int)System.Math.Ceiling(time.TotalMinutes);
             return Loc.GetString($"zzzz-fmt-playtime-minutes", ("minutes", minutes));
         }// ADT changes end
 
@@ -181,7 +222,7 @@ namespace Content.Shared.Localizations
             var fmt = ((LocValueString) args.Args[1]).Value;
 
             var obj = arg.Value;
-            if (obj is IFormattable formattable)
+            if (obj is System.IFormattable formattable)
                 return new LocValueString(formattable.ToString(fmt, culture));
 
             return new LocValueString(obj?.ToString() ?? "");
@@ -190,7 +231,7 @@ namespace Content.Shared.Localizations
         private static ILocValue FormatUnitsGeneric(
             LocArgs args,
             string mode,
-            Func<double, double>? transformValue = null)
+            System.Func<double, double>? transformValue = null)
         {
             const int maxPlaces = 5; // Matches amount in _lib.ftl
             var pressure = ((LocValueNumber) args.Args[0]).Value;
@@ -233,11 +274,11 @@ namespace Content.Shared.Localizations
         private static ILocValue FormatUnits(LocArgs args)
         {
             if (!Units.Types.TryGetValue(((LocValueString) args.Args[0]).Value, out var ut))
-                throw new ArgumentException($"Unknown unit type {((LocValueString) args.Args[0]).Value}");
+                throw new System.ArgumentException($"Unknown unit type {((LocValueString) args.Args[0]).Value}");
 
             var fmtstr = ((LocValueString) args.Args[1]).Value;
 
-            double max = Double.NegativeInfinity;
+            double max = double.NegativeInfinity;
             var iargs = new double[args.Args.Count - 1];
             for (var i = 2; i < args.Args.Count; i++)
             {
@@ -249,7 +290,7 @@ namespace Content.Shared.Localizations
             }
 
             if (!ut.TryGetUnit(max, out var mu))
-                throw new ArgumentException("Unit out of range for type");
+                throw new System.ArgumentException("Unit out of range for type");
 
             var fargs = new object[iargs.Length];
 
@@ -262,7 +303,7 @@ namespace Content.Shared.Localizations
             // https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting#escaping-braces
             //
             // Note that the closing brace isn't replaced so that format specifiers can be applied.
-            var res = String.Format(
+            var res = string.Format(
                 fmtstr.Replace("{UNIT", "{" + $"{fargs.Length - 1}"),
                 fargs
             );
@@ -272,8 +313,8 @@ namespace Content.Shared.Localizations
 
         private static ILocValue FormatPlaytime(LocArgs args)
         {
-            var time = TimeSpan.Zero;
-            if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
+            var time = System.TimeSpan.Zero;
+            if (args.Args is { Count: > 0 } && args.Args[0].Value is System.TimeSpan timeArg)
             {
                 time = timeArg;
             }
@@ -282,8 +323,8 @@ namespace Content.Shared.Localizations
 
         private static ILocValue FormatPlaytimeMinutes(LocArgs args) // ADT Changes start
         {
-            var time = TimeSpan.Zero;
-            if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
+            var time = System.TimeSpan.Zero;
+            if (args.Args is { Count: > 0 } && args.Args[0].Value is System.TimeSpan timeArg)
             {
                 time = timeArg;
             }
