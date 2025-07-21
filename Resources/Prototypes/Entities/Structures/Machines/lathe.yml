@@ -193,6 +193,7 @@
         - Ingot
         - PhantomEctoplasm
         - ADTBSCrystal #ADT Tweak
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -299,6 +300,7 @@
         - RawMaterial
         - Ingot
         - ADTBSCrystal #ADT Tweak
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -358,6 +360,15 @@
       - RawMaterial
       - Ingot
       - ADTBSCrystal #ADT Tweak
+  - type: OreSiloClient
+  - type: GuideHelp
+    guides:
+    - Robotics
+  # ADT-Sound-Update-Start
+  - type: Tag
+    tags:
+    - ADTRoboticsAmbience
+  # ADT-Sound-Update-End
   - type: GuideHelp
     guides:
     - Robotics
