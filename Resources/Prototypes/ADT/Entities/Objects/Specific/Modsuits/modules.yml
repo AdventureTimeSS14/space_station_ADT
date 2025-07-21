@@ -545,3 +545,23 @@
       canEjectStoredMaterials: false
     - type: BatteryRecharge
       multiplier: 3
+
+- type: entity
+  parent: ADTModsuitModBase
+  id: ADTModsuitModStorageOfHolding
+  name: MOD storage of holding module
+  description: Localized bluespace pocket, now in your MOD storage. Seems much bulkier than the regular storage module.
+  components:
+  - type: Sprite
+    state: storage_bluespace
+  - type: ModSuitMod
+    isInstantlyActive: true
+    complexity: 5
+    slots:
+    - MODcore
+    components:
+    - type: Storage
+      grid:
+      - 0,0,19,9
+      maxItemSize: Huge
+
