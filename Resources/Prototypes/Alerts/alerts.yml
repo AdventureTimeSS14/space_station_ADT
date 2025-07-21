@@ -13,6 +13,7 @@
     - alertType: Ensnared
     - category: Buckled
     - alertType: Pulling
+    - alertType: Walking
     - alertType: ADTPulling # ADT Grab
     - alertType: ADTPulled  # ADT Grab
     - category: Piloting
@@ -199,6 +200,14 @@
     state: dead
   name: alerts-dead-name
   description: alerts-dead-desc
+
+- type: alert
+  id: Walking
+  icons:
+  - sprite: /Textures/Interface/Alerts/walking.rsi
+    state: walking
+  name: alerts-walking-name
+  description: alerts-walking-desc
 
 - type: alert
   id: HumanHealth

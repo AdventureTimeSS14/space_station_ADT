@@ -1,10 +1,14 @@
+using Content.Shared.Alert;
+using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Client.Physics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 namespace Content.Client.PhysicsSystem.Controllers;
@@ -13,6 +17,8 @@ public sealed class MoverController : SharedMoverController
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     public override void Initialize()
     {
@@ -84,7 +90,7 @@ public sealed class MoverController : SharedMoverController
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        if (_playerManager.LocalEntity is not {Valid: true} player)
+        if (_playerManager.LocalEntity is not { Valid: true } player)
             return;
 
         if (RelayQuery.TryGetComponent(player, out var relayMover))
@@ -107,6 +113,17 @@ public sealed class MoverController : SharedMoverController
     protected override bool CanSound()
     {
         return _timing is { IsFirstTimePredicted: true, InSimulation: true };
+    }
+    
+    public override void SetSprinting(Entity<InputMoverComponent> entity, ushort subTick, bool walking)
+    {
+        // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] Sprint: {enabled}");
+        base.SetSprinting(entity, subTick, walking);
+
+        if (walking && _cfg.GetCVar(CCVars.ToggleWalk))
+            _alerts.ShowAlert(entity, WalkingAlert, showCooldown: false, autoRemove: false);
+        else
+            _alerts.ClearAlert(entity, WalkingAlert);
     }
 
 }
