@@ -193,6 +193,7 @@
         - RawMaterial
         - Ingot
         - PhantomEctoplasm
+        - ADTBSCrystal #ADT Tweak
   - type: OreSiloClient
   - type: Lathe
     idleState: icon
@@ -299,6 +300,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - ADTBSCrystal #ADT Tweak
   - type: OreSiloClient
   - type: RequireProjectileTarget
 
@@ -358,6 +360,7 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - ADTBSCrystal #ADT Tweak
   - type: OreSiloClient
   - type: GuideHelp
     guides:
