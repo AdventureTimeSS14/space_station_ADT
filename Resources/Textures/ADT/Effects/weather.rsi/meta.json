@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by kultistzvezd(Discord)",
+    "states": [
+        {
+            "name": "rain",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "ashfall_light",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "storm",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "snowfall_heavy",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "sandstorm_heavy",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "sandstorm",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "ashfall_heavy",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "ashfall",
+            "delays": [[0.2, 0.2, 0.2]]
+        },
+        {
+            "name": "snowfall_light",
+            "delays": [[0.2, 0.2, 0.2]]
+        }
+    ]
+}

@@ -5227,14 +5227,6 @@ entities:
     - type: Transform
       pos: 19.532019,-34.583195
       parent: 2
-- proto: ADTComputerShuttleSalvage
-  entities:
-  - uid: 2984
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -12.5,35.5
-      parent: 2
 - proto: ADTEftpos
   entities:
   - uid: 59
@@ -6055,7 +6047,7 @@ entities:
       pos: 0.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29298.406
+      secondsUntilStateChange: -29251.557
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6172,7 +6164,7 @@ entities:
       pos: 13.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -75835.914
+      secondsUntilStateChange: -75789.06
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6226,7 +6218,7 @@ entities:
       pos: 8.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -118741.02
+      secondsUntilStateChange: -118694.17
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6432,7 +6424,7 @@ entities:
       pos: 31.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -115434.734
+      secondsUntilStateChange: -115387.88
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -6503,7 +6495,7 @@ entities:
       pos: -27.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -90555.09
+      secondsUntilStateChange: -90508.24
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6626,7 +6618,7 @@ entities:
       pos: -10.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -85417.5
+      secondsUntilStateChange: -85370.65
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6860,7 +6852,7 @@ entities:
       pos: -8.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -107321.2
+      secondsUntilStateChange: -107274.35
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22688,6 +22680,14 @@ entities:
     - type: Transform
       pos: -5.5,27.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 2984
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,35.5
+      parent: 2
 - proto: ComputerSolarControl
   entities:
   - uid: 3181
@@ -26371,7 +26371,7 @@ entities:
       pos: -8.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -165.4065
+      secondsUntilStateChange: -118.55702
       state: Closing
   - uid: 3750
     components:
@@ -26443,6 +26443,8 @@ entities:
       pos: -5.5,2.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 105
   - uid: 2571
@@ -26451,6 +26453,8 @@ entities:
       pos: -4.5,2.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 105
   - uid: 2580
@@ -26459,6 +26463,8 @@ entities:
       pos: 1.5,5.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 105
   - uid: 2581
@@ -26467,6 +26473,8 @@ entities:
       pos: 0.5,5.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 105
   - uid: 3759
@@ -26668,6 +26676,8 @@ entities:
       pos: 7.5,2.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 105
   - uid: 3828
@@ -26676,6 +26686,8 @@ entities:
       pos: 6.5,2.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 105
 - proto: FirelockGlass
@@ -27458,6 +27470,8 @@ entities:
       pos: 6.5,-13.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 93
   - uid: 6870
@@ -27467,6 +27481,8 @@ entities:
       pos: 7.5,-13.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 93
   - uid: 9079
@@ -27475,6 +27491,8 @@ entities:
       pos: -19.5,-14.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
   - uid: 9083
@@ -27483,6 +27501,8 @@ entities:
       pos: -19.5,-13.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
 - proto: Fireplace
@@ -38586,6 +38606,8 @@ entities:
       pos: -23.5,-14.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
     - type: AtmosPipeColor
@@ -39328,6 +39350,8 @@ entities:
       pos: 7.5,-14.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 93
     - type: AtmosPipeColor
@@ -39358,6 +39382,8 @@ entities:
       pos: -23.5,-13.5
       parent: 2
     - type: DeviceNetwork
+      # configurators:
+      # - invalid
       deviceLists:
       - 9086
     - type: AtmosPipeColor
@@ -42294,19 +42320,19 @@ entities:
   - uid: 5817
     components:
     - type: Transform
-      pos: 20.162937,-5.7709155
+      pos: 20.5,-5.5
       parent: 2
   - uid: 5818
     components:
     - type: Transform
-      pos: 20.413073,-6.2396655
+      pos: 20.5,-4.5
       parent: 2
 - proto: IngotSilver
   entities:
   - uid: 5819
     components:
     - type: Transform
-      pos: 20.850807,-5.9427905
+      pos: 20.468555,-6.464033
       parent: 2
 - proto: IntercomEngineering
   entities:
@@ -42957,13 +42983,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 46.5,-4.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 7266
-    components:
-    - type: Transform
-      pos: 20.5,-4.5
       parent: 2
 - proto: MagazinePistolSubMachineGun
   entities:
@@ -50327,7 +50346,7 @@ entities:
   - uid: 6981
     components:
     - type: Transform
-      pos: 20.522507,-5.4271655
+      pos: 20.360529,-4.9743714
       parent: 2
 - proto: SpaceVillainArcadeFilled
   entities:
@@ -52140,6 +52159,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 10.5,6.5
+      parent: 2
+  - uid: 7266
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-4.5
       parent: 2
   - uid: 7267
     components:
@@ -62035,7 +62060,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -159986.92
+      secondsUntilStateChange: -159940.08
       state: Opening
     - type: Airlock
       autoClose: False
@@ -62054,7 +62079,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -71775.29
+      secondsUntilStateChange: -71728.44
       state: Opening
     - type: Airlock
       autoClose: False
@@ -62103,7 +62128,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -159984.92
+      secondsUntilStateChange: -159938.08
       state: Opening
     - type: Airlock
       autoClose: False

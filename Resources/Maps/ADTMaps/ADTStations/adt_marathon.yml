@@ -7769,7 +7769,6 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
     - type: GridPathfinding
-    - type: SupermatterSpreaderGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -8059,28 +8058,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 17.5,43.5
-      parent: 2
-- proto: ADTSmartFridgeMedical
-  entities:
-  - uid: 17744
-    components:
-    - type: Transform
-      pos: -18.5,9.5
-      parent: 2
-  - uid: 17745
-    components:
-    - type: Transform
-      pos: -23.5,-21.5
-      parent: 2
-  - uid: 17746
-    components:
-    - type: Transform
-      pos: -23.5,-17.5
-      parent: 2
-  - uid: 17747
-    components:
-    - type: Transform
-      pos: -10.5,-9.5
       parent: 2
 - proto: ADTSpawnPointRoboticist
   entities:
@@ -11716,7 +11693,7 @@ entities:
       pos: -20.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34483.754
+      secondsUntilStateChange: -34448.113
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -101870,13 +101847,6 @@ entities:
     - type: Transform
       pos: -6.5,-12.5
       parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 36
-    components:
-    - type: Transform
-      pos: 3.5,42.5
-      parent: 2
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:
   - uid: 15299
@@ -102096,7 +102066,7 @@ entities:
   - uid: 15339
     components:
     - type: Transform
-      pos: 3.1628036,44.171875
+      pos: 3.5019388,43.080338
       parent: 2
 - proto: MaterialDurathread
   entities:
@@ -116734,6 +116704,28 @@ entities:
     - type: Transform
       pos: -56.5,52.5
       parent: 2
+- proto: SmartFridge
+  entities:
+  - uid: 17744
+    components:
+    - type: Transform
+      pos: -18.5,9.5
+      parent: 2
+  - uid: 17745
+    components:
+    - type: Transform
+      pos: -23.5,-21.5
+      parent: 2
+  - uid: 17746
+    components:
+    - type: Transform
+      pos: -23.5,-17.5
+      parent: 2
+  - uid: 17747
+    components:
+    - type: Transform
+      pos: -10.5,-9.5
+      parent: 2
 - proto: SMESBasic
   entities:
   - uid: 17748
@@ -122963,6 +122955,11 @@ entities:
     components:
     - type: Transform
       pos: 10.5,41.5
+      parent: 2
+  - uid: 18770
+    components:
+    - type: Transform
+      pos: 3.5,42.5
       parent: 2
   - uid: 18771
     components:

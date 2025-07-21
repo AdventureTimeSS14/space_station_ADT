@@ -15811,9 +15811,6 @@ entities:
     - type: Transform
       pos: 56.189735,10.779067
       parent: 2
-    - type: CollisionWake
-      enabled: False
-    - type: Conveyed
 - proto: ArtifactAnalyzerMachineCircuitboard
   entities:
   - uid: 762
@@ -57916,6 +57913,13 @@ entities:
     - type: Transform
       pos: -24.626627,-28.84173
       parent: 2
+- proto: CigarGoldCase
+  entities:
+  - uid: 8858
+    components:
+    - type: Transform
+      pos: 5.5158696,-7.3988457
+      parent: 2
 - proto: CigPackBlack
   entities:
   - uid: 24007
@@ -74876,9 +74880,6 @@ entities:
     - type: Transform
       pos: -14.52124,-43.447884
       parent: 2
-    - type: CollisionWake
-      enabled: False
-    - type: Conveyed
 - proto: FoodBoxDonkpocketPizza
   entities:
   - uid: 9353
@@ -115131,13 +115132,6 @@ entities:
     - type: Transform
       pos: 4.5,-44.5
       parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 8858
-    components:
-    - type: Transform
-      pos: 5.5,-7.5
-      parent: 2
 - proto: MagazineLightRifle
   entities:
   - uid: 16301
@@ -139127,6 +139121,11 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-7.5
+      parent: 2
+  - uid: 20075
+    components:
+    - type: Transform
+      pos: 5.5,-7.5
       parent: 2
   - uid: 20076
     components:

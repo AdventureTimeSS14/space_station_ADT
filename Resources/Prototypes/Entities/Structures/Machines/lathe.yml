@@ -113,7 +113,6 @@
         - RawMaterial
         - Ingot
   - type: StationAiWhitelist #ADT-Tweak
-  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -193,8 +192,6 @@
         - RawMaterial
         - Ingot
         - PhantomEctoplasm
-  - type: OreSiloClient
-
   - type: Lathe
     idleState: icon
     runningState: building
@@ -299,7 +296,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -358,7 +354,6 @@
       - Sheet
       - RawMaterial
       - Ingot
-  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -458,7 +453,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
 
 - type: entity
   id: AmmoTechFab
@@ -492,7 +486,6 @@
           - Sheet
           - RawMaterial
           - Ingot
-    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
@@ -535,7 +528,6 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
-  - type: OreSiloClient
 
 - type: entity
   parent: BaseLathe
@@ -590,7 +582,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -759,4 +750,3 @@
         - Wooden
         - RawMaterial
         - Plastic
-  - type: OreSiloClient
