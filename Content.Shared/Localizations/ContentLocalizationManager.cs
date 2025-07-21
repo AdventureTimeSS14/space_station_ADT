@@ -6,7 +6,6 @@ using Robust.Shared.Utility;
 using Robust.Shared.ContentPack;
 using Linguini.Syntax.Parser;
 using System.IO;
-using Robust.Shared.Logging;
 
 namespace Content.Shared.Localizations
 {
