@@ -689,3 +689,56 @@
     sprite: ADT/Clothing/Head/Hats/old_fedora.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/old_fedora.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadDemonicHornsDeer
+  name: demonic deer horns
+  description: A horns of radio demon. Essh...
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/demonic_deer_horns.rsi
+    color: "#4e4e4e"
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/demonic_deer_horns.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#4e4e4e"
+
+- type: entity
+  name: drink helmet
+  parent: ClothingHeadBase
+  id: ADTClothingHeadDrinkCap
+  description: A red cap with cans attached to the sides, from which a straw extends. The label on the cans has been erased, but you can read the composition - “contains one hundred times the daily allowance of sugar” and “now contains 33% MORE PURE radiation”.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/drink_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/drink_cap.rsi
+  - type: StaticPrice
+    price: 120
+  - type: Drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+  - type: MixableSolution
+    solution: drink
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+    maxTransferAmount: 15
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: DrawableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: Spillable
+    solution: drink
+  - type: DnaSubstanceTrace

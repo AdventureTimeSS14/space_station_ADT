@@ -2583,7 +2583,7 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: ADTOrganVulpkaninAnimalLiver
+- proto: ADTOrganVulpkaninLiver
   entities:
   - uid: 46
     components:

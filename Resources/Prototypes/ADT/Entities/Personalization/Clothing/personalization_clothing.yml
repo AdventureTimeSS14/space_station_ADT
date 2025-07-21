@@ -1076,3 +1076,59 @@
     protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
+
+#rache11
+
+- type: entity
+  parent: [ClothingOuterHardsuitVoidParamed, BaseMedicalContraband] 
+  id: ADTClothingOuterHardsuitRachell
+  name: Rachell paramedic void suit
+  description: A void suit made for paramedics.
+  suffix: Personal, Rache11
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rachel_hardsuit.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/rachel_hardsuit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.85
+        Caustic: 0.85
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetRachell
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: violet
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+
+- type: entity
+  parent: [ ClothingHeadHelmetVoidParamed, ClothingHeadEVAHelmetBase ]
+  id: ADTClothingHeadHelmetRachell
+  name: paramedic void helmet
+  description: A void helmet made for paramedics.
+  categories: [ HideSpawnMenu ]
+  suffix: Personal, Rache11
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/rachel_hardsuit_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.90
+        Radiation: 0.75
+  - type: PointLight
+    radius: 6
+    energy: 2
+    color: violet

@@ -359,14 +359,15 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
       state: tiger_head
 
-- type: marking
-  id: HeadEyesStripes
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [TajaranSpecies]
-  sprites:
-    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
-      state: eye_stripes_head
+# ЗАКОМЕНТИРОВАНО - После принятия спрайтов корвакса эти глаза не подходят
+# - type: marking
+#   id: HeadEyesStripes
+#   bodyPart: Head
+#   markingCategory: Head
+#   speciesRestriction: [TajaranSpecies]
+#   sprites:
+#     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+#       state: eye_stripes_head
 
 - type: marking
   id: HeadStar

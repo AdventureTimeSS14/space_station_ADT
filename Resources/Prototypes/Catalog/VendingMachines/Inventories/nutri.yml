@@ -15,9 +15,12 @@
     ChemistryBottleRobustHarvest: 3
     ChemistryBottleEZNutrient: 3
     Bucket: 3
-    DiseaseSwab: 20
+    BoxMouthSwab: 1
     BoxAgrichem: 1
-    ADTPlantAnalyzer: 1 #ADT TWEAK
+    # ADT tweak Start
+    ADTPlantAnalyzer: 1
+    ADTSoilPacked: 2
+    # ADT tweak End
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Joint: 1

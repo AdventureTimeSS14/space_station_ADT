@@ -4,14 +4,14 @@
   root: torso
   slots:
     head:
-      part: HeadShadekin
+      part: ADTHeadShadekin
       connections:
       - torso
       organs:
         brain: ADTOrganShadekinBrain
         eyes: ADTOrganShadekinEyes
     torso:
-      part: TorsoShadekin
+      part: ADTTorsoShadekin
       connections:
       - right arm
       - left arm
@@ -24,26 +24,26 @@
         liver: ADTOrganShadekinLiver
         kidneys: ADTOrganShadekinKidneys
     right arm:
-      part: RightArmShadekin
+      part: ADTRightArmShadekin
       connections:
       - right hand
     left arm:
-      part: LeftArmShadekin
+      part: ADTLeftArmShadekin
       connections:
       - left hand
     right hand:
-      part: RightHandShadekin
+      part: ADTRightHandShadekin
     left hand:
-      part: LeftHandShadekin
+      part: ADTLeftHandShadekin
     right leg:
-      part: RightLegShadekin
+      part: ADTRightLegShadekin
       connections:
       - right foot
     left leg:
-      part: LeftLegShadekin
+      part: ADTLeftLegShadekin
       connections:
       - left foot
     right foot:
-      part: RightFootShadekin
+      part: ADTRightFootShadekin
     left foot:
-      part: LeftFootShadekin
+      part: ADTLeftFootShadekin

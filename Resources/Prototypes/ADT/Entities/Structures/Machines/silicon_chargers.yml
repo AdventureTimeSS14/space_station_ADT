@@ -15,11 +15,8 @@
           shader: unshaded
           map: ["enum.SiliconChargerVisuals.Lights"]
         - state: HV
-          map: ["HV"]
         - state: MV
-          map: ["MV"]
         - state: LV
-          map: ["LV"]
     - type: EntityStorageVisuals
       stateDoorOpen: open
       stateDoorClosed: closed
@@ -51,7 +48,7 @@
             - MachineLayer
     - type: ApcPowerReceiver
       powerLoad: 500
-    - type: StaticPrice #было DynamicPrice
+    - type: StaticPrice
       price: 600
     - type: EntityStorage
       maxItemSize: Tiny

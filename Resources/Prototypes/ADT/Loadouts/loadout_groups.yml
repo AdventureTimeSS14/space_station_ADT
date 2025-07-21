@@ -338,9 +338,9 @@
   minLimit: 0
   loadouts:
   # - ADTWardenNeck
-  - ADTWardenNeckBadgeBronze
-  - ADTWardenNeckBadgeSilver
-  - ADTWardenNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 # SECURITY OFFICER
 
@@ -350,9 +350,9 @@
   minLimit: 0
   loadouts:
   # - ADTSecurityOfficerNeck
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 # CADET
 
@@ -362,9 +362,9 @@
   minLimit: 0
   loadouts:
   # - ADTSecurityCadetNeck
-  - ADTSecurityCadetNeckBadgeBronze
-  - ADTSecurityCadetNeckBadgeSilver
-  - ADTSecurityCadetNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 #Плащ, берет и маска атмосианина
 
@@ -397,6 +397,16 @@
   loadouts:
   - ADTBeltUtility
   - ADTBeltUtilityWebbing
+
+- type: loadoutGroup
+  id: ADTEngineeringGlasses
+  name: loadout-group-engineering-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTEyeWeldingOldStyle
+  - ADTEyeWelding
+  - ADTEyeMeson
 
 # BRIGMEDIC
 
@@ -800,6 +810,16 @@
   loadouts:
   - CMOPDA
   - ADTCMOPDA
+
+- type: loadoutGroup
+  id: ADTQuartermasterPDA
+  name: loadout-group-quartermaster-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterPDAloadout
+  - ADTintendantPDAloadout
+
 
 # Alts PDA end
 

@@ -15,8 +15,8 @@ ent-ADTClothingOuterCoatLabPathologistOpened_alt = чёрный лаборато
 ent-ADTClothingOuterApronPathologist = фартук патологоанатома
     .desc = Фартук для работы с трупами.
 
-ent-ADTClothingKadet = шинель для Кадетов Службы безопасности
-    .desc = шинель, сшитая для новобранцев службы безопасности. Она очень похожа на шинели младших чинов РИА
+ent-ADTClothingKadet = шинель кадета службы безопасности
+    .desc = Легкобронированная кожаная шинель, предназначенная для повседневного ношения кадетами службы безопасности. Имеет логотип компании NanoTrasen Security.
 
 ent-ADTClothingOuterGraySweatshirtTop = серая толстовка-топка
     .desc = Стильная белая толстовка-топка. Производства компании "Modeling Agency Dar-Vaxed".
@@ -80,9 +80,9 @@ ent-ADTClothingOuterCoatLeathOvercoatOpened = кожаный плащ
 
 ent-ADTClothingOuterBikerJacket = косуха
     .desc = Плохой до мозга костей!
- 
- 
- 
+
+
+
 ent-ADTClothingOuterDutch = голландская куртка
     .desc = За те долгие ночи на пляже Таити.
 
@@ -100,6 +100,9 @@ ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
 ent-ADTClothingOuterCoatXCoat = икс-ключительное облачение
     .desc = Кажется, это облачение заигравшегося творца.
 
+ent-ADTClothingOuterCoatRadioDemon = фрак радио-демона
+    .desc = А теперь... Не переключайтесь.
+    .suffix = {"Хеллоуин"}
 
 ent-ADTClothingOuterExplorerBomber = бомбер исследователя
     .desc = Вперёд навстречу новым исследованиям и приключениям!.. Как жаль, что на Лаваленде многие приключения ведут к смерти... От него пахнет... Пеплом?

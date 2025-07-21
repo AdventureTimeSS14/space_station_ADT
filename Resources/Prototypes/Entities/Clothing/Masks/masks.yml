@@ -18,8 +18,9 @@
     - GasMask # goob edit
     - Mask # goob edit
   - type: HideLayerClothing
-    layers:
-      Snout: Mask
+    slots: # ADT Tweak. layers: -> slots:
+    - Snout
+    - SnoutOverlay # ADT Tweak
     hideOnToggle: true
   #ADT-Tweak-Start
   - type: CoveredSlot
@@ -143,6 +144,10 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 50
 
 - type: entity
   parent: ClothingMaskBreathMedical
@@ -210,6 +215,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -223,6 +229,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskClown
@@ -270,6 +277,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskBase
@@ -290,6 +298,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -347,6 +356,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
     hideOnToggle: true
 
 - type: entity
@@ -379,8 +389,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
+    - Snout  # ADT Tweak
+    - SnoutOverlay # ADT Tweak
     - Hair
-    - Snout
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -423,8 +434,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
+    - Snout # ADT Tweak
+    - SnoutOverlay # ADT Tweak
     - Hair
-    - Snout
     hideOnToggle: true
   - type: FlashImmunity
   - type: EyeProtection
@@ -472,6 +484,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
   - type: IdentityBlocker
 
 - type: entity
@@ -489,6 +502,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskBase
@@ -505,6 +519,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskBase
@@ -521,6 +536,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskBase
@@ -537,6 +553,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskBase
@@ -553,6 +570,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskBase
@@ -569,6 +587,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingMaskBase
@@ -694,6 +713,12 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+### Start ADT Tweak
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    - SnoutOverlay
+### End ADT Tweak
 
 # Entity tables
 - type: entityTable

@@ -7,6 +7,8 @@
   components:
     - type: HumanoidAppearance
       species: TajaranSpecies
+      hideLayersOnEquip:
+      - SnoutOverlay
     - type: Body
       prototype: Tajaran
       requiredLegs: 2
@@ -104,6 +106,39 @@
       - DoorBumpOpener
       - AnomalyHost
       - ADTCatEmotes
+    - type: Inventory
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit-female
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
 
 - type: entity
   save: false
@@ -115,9 +150,43 @@
   components:
     - type: HumanoidAppearance
       species: TajaranSpecies
+      hideLayersOnEquip:
+      - SnoutOverlay
     - type: Sprite
       netsync: false
       noRot: true
       drawdepth: Mobs
       scale: 0.95, 0.95
-
+    - type: Inventory
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit-female
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
