@@ -8767,7 +8767,7 @@ entities:
       pos: 42.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11259.715
+      secondsUntilStateChange: -11237.726
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8963,7 +8963,7 @@ entities:
       pos: 24.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5008.493
+      secondsUntilStateChange: -4986.504
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -41769,7 +41769,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -37471.504
+      secondsUntilStateChange: -37449.516
       state: Closing
   - uid: 6232
     components:
@@ -59622,7 +59622,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -37971.67
+      secondsUntilStateChange: -37949.684
       state: Closing
   - uid: 8874
     components:
@@ -59824,7 +59824,7 @@ entities:
   - uid: 8911
     components:
     - type: Transform
-      pos: 17.224611,39.87249
+      pos: 17.552685,41.54155
       parent: 2
 - proto: IntercomCommand
   entities:
@@ -60592,13 +60592,6 @@ entities:
     components:
     - type: Transform
       pos: 63.5,44.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 11034
-    components:
-    - type: Transform
-      pos: 17.5,41.5
       parent: 2
 - proto: MachineParticleAcceleratorEmitterForeCircuitboard
   entities:
@@ -73317,6 +73310,11 @@ entities:
     components:
     - type: Transform
       pos: 19.5,40.5
+      parent: 2
+  - uid: 11034
+    components:
+    - type: Transform
+      pos: 17.5,41.5
       parent: 2
   - uid: 11035
     components:

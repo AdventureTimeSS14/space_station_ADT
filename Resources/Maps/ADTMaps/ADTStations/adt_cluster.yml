@@ -57,6 +57,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
@@ -4715,7 +4716,6 @@ entities:
       id: ADT_Cluster
     - type: SpreaderGrid
     - type: GridPathfinding
-    - type: SupermatterSpreaderGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -5126,13 +5126,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,26.5
-      parent: 2
-- proto: ADTMiningShop
-  entities:
-  - uid: 10992
-    components:
-    - type: Transform
-      pos: 18.5,-20.5
       parent: 2
 - proto: ADTSpawnPointRoboticist
   entities:
@@ -6439,7 +6432,7 @@ entities:
       pos: 25.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -398.36386
+      secondsUntilStateChange: -369.55313
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33504,7 +33497,7 @@ entities:
   - uid: 5175
     components:
     - type: Transform
-      pos: -1.3835895,23.828379
+      pos: -1.434155,24.205725
       parent: 2
 - proto: DrinkMilkCarton
   entities:
@@ -56266,14 +56259,14 @@ entities:
   - uid: 8452
     components:
     - type: Transform
-      pos: -1.821326,24.24636
+      pos: -1.465405,25.0651
       parent: 2
 - proto: IngotSilver
   entities:
   - uid: 8453
     components:
     - type: Transform
-      pos: -2.5404632,23.609629
+      pos: -1.4981794,24.932814
       parent: 2
 - proto: IntercomAll
   entities:
@@ -57352,13 +57345,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,16.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 10809
-    components:
-    - type: Transform
-      pos: -1.5,25.5
       parent: 2
 - proto: MagazinePistol
   entities:
@@ -70571,6 +70557,11 @@ entities:
     - type: Transform
       pos: -1.5,24.5
       parent: 2
+  - uid: 10809
+    components:
+    - type: Transform
+      pos: -1.5,25.5
+      parent: 2
   - uid: 10810
     components:
     - type: Transform
@@ -71325,7 +71316,7 @@ entities:
   - uid: 10912
     components:
     - type: Transform
-      pos: -1.5242908,24.605736
+      pos: -1.51228,25.6276
       parent: 2
 - proto: ToolboxMechanicalFilled
   entities:
@@ -71937,6 +71928,13 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-15.5
+      parent: 2
+- proto: VendingMachineSalvage
+  entities:
+  - uid: 10992
+    components:
+    - type: Transform
+      pos: 18.5,-20.5
       parent: 2
 - proto: VendingMachineSciDrobe
   entities:

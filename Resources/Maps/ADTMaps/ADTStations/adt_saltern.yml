@@ -804,7 +804,7 @@ entities:
             2: 57344
           8,5:
             0: 272
-            3: 17472
+            4: 17472
           8,6:
             0: 65521
           8,7:
@@ -847,10 +847,10 @@ entities:
             0: 53759
           11,2:
             0: 4319
-            4: 49152
+            3: 49152
           11,3:
             0: 61457
-            4: 204
+            3: 204
           11,-1:
             0: 30583
           11,4:
@@ -862,9 +862,9 @@ entities:
             0: 28791
           12,2:
             0: 119
-            4: 28672
+            3: 28672
           12,3:
-            4: 119
+            3: 119
             0: 61440
           12,-1:
             0: 29311
@@ -1282,7 +1282,7 @@ entities:
             0: 55
           9,5:
             5: 4368
-            4: 17472
+            3: 17472
           9,6:
             0: 26464
           9,7:
@@ -1291,12 +1291,12 @@ entities:
           9,8:
             2: 14
           10,5:
-            4: 4368
+            3: 4368
             6: 17472
           10,6:
             2: 3840
           11,5:
-            4: 21840
+            3: 21840
           11,6:
             2: 3856
           12,5:
@@ -1486,7 +1486,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -1509,7 +1509,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -3648,6 +3648,17 @@ entities:
     - type: Transform
       pos: -11.470391,11.486723
       parent: 2
+# - proto: ActionStartFishing
+#   entities:
+#   - uid: 11941
+#     mapInit: true
+#     paused: true
+#     components:
+#     - type: Transform
+#       parent: 11940
+#     - type: WorldTargetAction
+#       originalIconColor: '#FFFFFFFF'
+#       container: 11940
 - proto: ActionToggleLight
   entities:
   - uid: 7
@@ -4116,19 +4127,27 @@ entities:
     - type: Transform
       pos: 0.5,-19.5
       parent: 2
+# - proto: ADTFishingRod
+#   entities:
+#   - uid: 11940
+#     components:
+#     - type: Transform
+#       pos: -23.49427,-37.621597
+#       parent: 2
+#     - type: FishingRod
+#       throwLureActionEntity: 11941
+#     - type: ActionsContainer
+#     - type: ContainerContainer
+#       containers:
+#         actions: !type:Container
+#           ents:
+#           - 11941
 - proto: ADTLockerBlueshieldFilled
   entities:
   - uid: 93
     components:
     - type: Transform
       pos: -7.5,28.5
-      parent: 2
-- proto: ADTMiningShop
-  entities:
-  - uid: 144
-    components:
-    - type: Transform
-      pos: 29.5,17.5
       parent: 2
 - proto: ADTPosterLegitGoobBigBrotherAI
   entities:
@@ -32910,7 +32929,7 @@ entities:
   - uid: 5283
     components:
     - type: Transform
-      pos: -3.1406748,17.21661
+      pos: -3.053735,18.815365
       parent: 2
 - proto: DrinkGreenTeaGlass
   entities:
@@ -51614,13 +51633,6 @@ entities:
     - type: Transform
       pos: -3.5,-43.5
       parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 9531
-    components:
-    - type: Transform
-      pos: -2.5,18.5
-      parent: 2
 - proto: MagazinePistol
   entities:
   - uid: 7887
@@ -62176,6 +62188,11 @@ entities:
     - type: Transform
       pos: -29.5,7.5
       parent: 2
+  - uid: 9531
+    components:
+    - type: Transform
+      pos: -2.5,18.5
+      parent: 2
   - uid: 9532
     components:
     - type: Transform
@@ -63697,7 +63714,7 @@ entities:
   - uid: 9772
     components:
     - type: Transform
-      pos: -3.7191107,17.138485
+      pos: -2.63186,18.64349
       parent: 2
 - proto: ToolboxMechanicalFilled
   entities:
@@ -64312,6 +64329,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-24.5
+      parent: 2
+- proto: VendingMachineSalvage
+  entities:
+  - uid: 144
+    components:
+    - type: Transform
+      pos: 29.5,17.5
       parent: 2
 - proto: VendingMachineSciDrobe
   entities:

@@ -13266,7 +13266,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31658.748
+      secondsUntilStateChange: -31628.59
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -85216,6 +85216,11 @@ entities:
     - type: Transform
       pos: 16.5,30.5
       parent: 2
+  - uid: 13471
+    components:
+    - type: Transform
+      pos: -29.5,6.5
+      parent: 2
   - uid: 13472
     components:
     - type: Transform
@@ -87209,7 +87214,7 @@ entities:
       pos: 41.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -28271.213
+      secondsUntilStateChange: -28241.055
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 53864.6889944
@@ -127622,13 +127627,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-85.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 13471
-    components:
-    - type: Transform
-      pos: -29.5,6.5
       parent: 2
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:
