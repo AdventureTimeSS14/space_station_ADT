@@ -492,18 +492,6 @@
   id: LavaDungeon
 
 - type: Tag
-  id: PKAUpgrade
-
-- type: Tag
-  id: GunUpgradeDamage
-
-- type: Tag
-  id: GunUpgradeRange
-
-- type: Tag
-  id: GunUpgradeReloadSpeed
-
-- type: Tag
   id: ADT40mmGrenade
 
 #sponsor_items

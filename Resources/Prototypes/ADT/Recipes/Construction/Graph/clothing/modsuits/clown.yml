@@ -7,13 +7,13 @@
         - to: adtmodsuitclown
           steps:
             - tag: ADTModsuitPlateCosmohonk
-              name: Cosmohonk MOD plate
+              name: construction-graph-tag-cosmohonk-mod-plate
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: cosmohonk
               doAfter: 2
             - tag: ADTModsuitAssembledPart
-              name: MOD core
+              name: construction-graph-tag-mod-core
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: modcore8
