@@ -32,7 +32,7 @@
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 30
-    charges: 30
+    lastCharges: 30
   - type: UseDelay
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Tools/rcd_kmt.rsi
