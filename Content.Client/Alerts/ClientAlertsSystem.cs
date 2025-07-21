@@ -57,9 +57,6 @@ public sealed class ClientAlertsSystem : AlertsSystem
 
     private void OnHandleState(Entity<AlertsComponent> alerts, ref ComponentHandleState args)
     {
-        if (args.Current is not AlertComponentState cast)
-            return;
-
         // Save all client-sided alerts to later put back in
         var clientAlerts = new Dictionary<AlertKey, AlertState>();
         foreach (var alert in alerts.Comp.Alerts)
@@ -70,8 +67,6 @@ public sealed class ClientAlertsSystem : AlertsSystem
                     clientAlerts[alert.Key] = alert.Value;
             }
         }
-
-        alerts.Comp.Alerts = new(cast.Alerts);
 
         foreach (var alert in clientAlerts)
         {
