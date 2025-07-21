@@ -4,6 +4,8 @@ ent-ADTBSore = Блюспейс руда
 ent-ADTBSore1 = Блюспейс руда
     .desc = Камень с жилками блюспейс руды
 
+ent-ADTBSore = Блюспейс руда
+
 ent-ADTRawBSore = Сырая блюспейс руда
 
 ent-ADTMaterialBScrystal = Блюспейс кристалл
