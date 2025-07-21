@@ -39,6 +39,7 @@
   - type: Tag
     tags:
       - FireAlarm
+      - MesonVisible # ADT meson
   - type: Clickable
   - type: InteractionOutline
   - type: FireAlarm
