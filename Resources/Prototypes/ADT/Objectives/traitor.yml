@@ -19,7 +19,7 @@
   - type: NotJobRequirement
     job: HeadOfSecurity
   - type: StealCondition
-    stealGroup: ADTWeaponPistolX01
+    stealGroup: ADTHosWeapon
     owner: job-name-hos
 
 - type: entity
