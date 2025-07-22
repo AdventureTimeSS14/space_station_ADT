@@ -1,6 +1,4 @@
 - type: entity
-<<<<<<< HEAD
-=======
   id: ADTCrateRPDAmmo
   parent: CrateEngineering
   name: canned matter crate
@@ -12,7 +10,6 @@
       amount: 3
 
 - type: entity
->>>>>>> pr-166
   id: ADTCrateRPD
   parent: CrateEngineeringSecure
   name: RPD crate

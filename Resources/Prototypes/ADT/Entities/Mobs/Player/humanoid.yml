@@ -584,6 +584,7 @@
       - MindShieldImplant
 
 - type: randomHumanoidSettings
+<<<<<<< HEAD
   speciesBlacklist: # ADT-Tweak-start
     - Diona
     - Vox
@@ -603,6 +604,10 @@
     - Dwarf
     - IPC
     - DraskSpecies # ADT-Tweak-end
+=======
+  speciesBlacklist:
+    - Diona
+>>>>>>> pr-213
   id: ADTCmndCBURNAgent
   components:
     - type: MindShield
@@ -611,6 +616,7 @@
     - type: GhostRole
       name: ghost-role-information-cmnd-cburn-agent-name
       description: ghost-role-information-cmnd-cburn-agent-description
+<<<<<<< HEAD
       # ADT-tweak-start
       requirements:
       - !type:DepartmentTimeRequirement
@@ -622,11 +628,17 @@
       - !type:OverallPlaytimeRequirement
         time: 90000 # ADT tweak 10h > 25h
       # ADT-Tweak-end
+=======
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 36000 # 10h overall
+>>>>>>> pr-213
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
       - ADTCmndNamesFirstMilitary
       - NamesLastERTCallsign  # Corvax Localization
+<<<<<<< HEAD
       nameFormat: name-format-standard
 # end Капитан РХБЗЗ
 
@@ -907,3 +919,6 @@
     - BoxSurvivalNitrogen
     - ChemistryBottleNocturine
     - ChemistryBottleNocturine
+=======
+# end Капитан РХБЗЗ
+>>>>>>> pr-213

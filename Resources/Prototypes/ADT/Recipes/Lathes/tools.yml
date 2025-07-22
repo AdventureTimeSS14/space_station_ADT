@@ -1,16 +1,11 @@
 - type: latheRecipe
   id: RPD
   result: ADTRPDEmpty
-<<<<<<< HEAD
-=======
   category: Tools
->>>>>>> pr-166
   completetime: 4
   materials:
     Steel: 1000
     Plastic: 300
-<<<<<<< HEAD
-=======
 
 - type: latheRecipe
   id: RPDAmmo
@@ -20,4 +15,3 @@
   materials:
     Steel: 500
     Plastic: 250
->>>>>>> pr-166

@@ -1,4 +1,5 @@
 ghost-role-information-cmnd-cburn-agent-name = Майор РХБЗЗ
+<<<<<<< HEAD
 ghost-role-information-cmnd-cburn-agent-description = Высококвалифицированный командир РХБЗЗ, способный справиться с любыми угрозами.
 
 ghost-role-information-carpcat-name = Карпкат
@@ -67,3 +68,6 @@ ghost-role-information-hermit-description = Вы застряли в этой б
 ghost-role-information-vox_raider-name = Вокс-налётчик
 ghost-role-information-vox_raider-description = Вы на задании стаи. Совершите ограбление станции, не нарушив нерушимый кодекс воксов
 ghost-role-information-vox_raider-rules = Вы [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color], в команде с другими воксами-налётчиками. Вместо убийств, попробуйте воспользоваться нелетальными средствами
+=======
+ghost-role-information-cmnd-cburn-agent-description = Высококвалифицированный командир РХБЗЗ, способный справиться с любыми угрозами.
+>>>>>>> pr-213

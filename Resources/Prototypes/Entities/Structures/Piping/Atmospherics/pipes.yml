@@ -64,23 +64,13 @@
     canCollide: false
     bodyType: static
   - type: StaticPrice
-<<<<<<< HEAD
-    price: 30
-=======
     price: 11
->>>>>>> pr-166
   # ADT-RPD-Start
   - type: RPDDeconstructable
     cost: 4
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
-<<<<<<< HEAD
-  - type: ContainerContainer # ADT tweak start
-    containers:
-      VentCrawlerTube: !type:Container
-=======
->>>>>>> pr-166
 
 - type: entity
   id: VentCrawlerHolder

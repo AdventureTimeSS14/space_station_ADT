@@ -51,6 +51,7 @@ ent-ADTRandomHumanoidSpawnerERTMedicalEVARiot = ОБР медик сб
 ent-ADTRandomHumanoidSpawnerCBURNUnit = капитан РХБЗЗ
     .suffix = РХБЗЗ
     .desc = { "" }
+<<<<<<< HEAD
 
 ent-ADTSpaceSecCadet = кадет SPACE SEC
 ent-ADTRandomHumanoidSpawnerSpaceSecCadet = кадет SPACE SEC
@@ -72,3 +73,5 @@ ent-ADTSpaceSecService = сотрудник SPACE SEC
 ent-ADTRandomHumanoidSpawnerSpaceSecService = сотрудник SPACE SEC
     .suffix = Space Sec, Случайный
     .desc = { "" }
+=======
+>>>>>>> pr-213

@@ -31,14 +31,6 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
-<<<<<<< HEAD
-  # ADT-Tweak-Start
-  - type: Construction
-    graph: ADTFan
-    node: litleFan
-  # ADT-Tweak-End
-=======
->>>>>>> pr-166
 
 - type: entity
   id: AtmosDeviceFanDirectional

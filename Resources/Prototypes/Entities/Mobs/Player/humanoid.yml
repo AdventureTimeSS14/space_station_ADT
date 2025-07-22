@@ -555,8 +555,12 @@
     - type: RandomMetadata
       nameSegments:
       - ADTNamesFirstMilitaryRXBZZ # ADT Tweak
+<<<<<<< HEAD
       - NamesLastERTCallsign
       nameFormat: name-format-standard
+=======
+      - NamesLastMilitary
+>>>>>>> pr-213
 
 ## Central Command
 

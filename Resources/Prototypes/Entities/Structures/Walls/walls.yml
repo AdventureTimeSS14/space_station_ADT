@@ -79,11 +79,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-<<<<<<< HEAD
-  - type: CanBuildWallOnTopRPD # ADT-RPD
-=======
   - type: CanBuildWindowOnTopRPD # ADT-RPD
->>>>>>> pr-166
   - type: IconSmooth
     key: walls
     base: brick
@@ -303,7 +299,7 @@
     graph: Girder
     node: goldWall
   # ADT tweak start
-  - type: RadiationBlocker 
+  - type: RadiationBlocker
     resistance: 5
   # ADT tweak end
   - type: RCDDeconstructable
@@ -861,7 +857,7 @@
     damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
-  - type: Reflect 
+  - type: Reflect
     reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
   - type: Pullable
   - type: Airtight
@@ -1113,7 +1109,7 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
-    resistance: 5 # ADT-Tweak         
+    resistance: 5 # ADT-Tweak
 
 - type: entity
   parent: BaseWall

@@ -4,12 +4,17 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasExplorer
+<<<<<<< HEAD
     eyes: ClothingEyesGlassesSecurity
+=======
+    eyes: ClothingEyesHudSecurity
+>>>>>>> pr-213
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURNLeader
     shoes: ADTClothingShoesBootsMagERT
     id: CBURNPDA
+<<<<<<< HEAD
     pocket1: WeaponPulsePistol
     pocket2: DoubleEmergencyOxygenTankFilled
     suitstorage: WeaponShotgunBulldog
@@ -35,3 +40,24 @@
   # innerClothingSkirt: ClothingUniformJumpsuitColorBrown
   # satchel: ClothingBackpackDuffelCBURN
   # duffelbag: ClothingBackpackDuffelCBURN
+=======
+    pocket1: RubberStampCentcom
+    pocket2: WeaponPulsePistol
+    suitstorage: OxygenTankFilled
+    belt: ClothingBeltBandolier
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - WeaponShotgunDoubleBarreled
+    - BoxShotgunIncendiary
+    - GrenadeFlashBang
+    - PillAmbuzolPlus
+    - PillAmbuzol
+    - RadioHandheld
+    # underwearb: ClothingUnderwearBottomBoxersWhite # Sirena-Underwear
+  # underweart: ClothingUnderwearTopBraWhite # Sirena-Underwear
+  # underwearb: ClothingUnderwearBottomPantiesWhite # Sirena-Underwear
+  # innerClothingSkirt: ClothingUniformJumpsuitColorBrown
+  # satchel: ClothingBackpackDuffelCBURN
+  # duffelbag: ClothingBackpackDuffelCBURN
+>>>>>>> pr-213
