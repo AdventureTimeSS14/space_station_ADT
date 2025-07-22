@@ -8,7 +8,7 @@
     tags:
     - SecBeltEquip
   - type: Clothing
-    #sprite: ADT/Objects/Weapons/Melee/tonfa.rsi #Тут нужен дополнительный спрайт
+    sprite: ADT/Objects/Weapons/Melee/tonfa.rsi
     quickEquip: false
     slots:
     - Belt
