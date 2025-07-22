@@ -116,3 +116,27 @@
     Steel: 50
     Plastic: 140
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: ADTWeaponTonfa
+  result: ADTWeaponTonfa
+  materials:
+    Wood: 1500
+    Steel: 500
+
+- type: latheRecipe
+  id: ADTGrenadeStinger
+  result: GrenadeStinger
+  completetime: 4
+  materials:
+    Steel: 800
+    Plastic: 600
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: ADTHardsuitRaider
+  result: ADTHardsuitRaider
+  materials:
+    Steel: 6000
+    Glass: 3000
+    Plasteel: 3000

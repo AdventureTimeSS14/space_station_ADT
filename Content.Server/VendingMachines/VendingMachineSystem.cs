@@ -21,6 +21,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
 using Content.Shared.Interaction;
 using Content.Shared.PDA;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Stacks;
@@ -31,6 +32,7 @@ using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -56,7 +58,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly EmagSystem _emag = default!;
 
         private const float WallVendEjectDistanceFromWall = 1f;
-        private const double GlobalPriceMultiplier = 2.0; //ADT-Economy
 
         public override void Initialize()
         {
@@ -124,7 +125,7 @@ namespace Content.Server.VendingMachines
 
         private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
         {
-            var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), GetPriceMultiplier(component),
+            var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), component.PriceMultiplier,
                 component.Credits); //ADT-Economy
 
             _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, state);
@@ -189,7 +190,9 @@ namespace Content.Server.VendingMachines
 
             TryRestockInventory(uid, component);
 
-            Popup.PopupEntity(Loc.GetString("vending-machine-restock-done", ("this", args.Args.Used), ("user", args.Args.User), ("target", uid)), args.Args.User, PopupType.Medium);
+            Popup.PopupEntity(Loc.GetString("vending-machine-restock-done-self", ("target", uid)), args.Args.User, args.Args.User, PopupType.Medium);
+            var othersFilter = Filter.PvsExcept(args.Args.User);
+            Popup.PopupEntity(Loc.GetString("vending-machine-restock-done-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", uid)), args.Args.User, othersFilter, true, PopupType.Medium);
 
             Audio.PlayPvs(restockComponent.SoundRestockDone, uid, AudioParams.Default.WithVolume(-2f).WithVariation(0.2f));
 
@@ -227,12 +230,7 @@ namespace Content.Server.VendingMachines
 
         private int GetPrice(VendingMachineInventoryEntry entry, VendingMachineComponent comp, int count)
         {
-            return (int)(entry.Price * count * GetPriceMultiplier(comp));
-        }
-
-        private double GetPriceMultiplier(VendingMachineComponent comp)
-        {
-            return comp.PriceMultiplier * GlobalPriceMultiplier;
+            return (int)(entry.Price * count * comp.PriceMultiplier);
         }
 
         private void OnWithdrawMessage(EntityUid uid, VendingMachineComponent component, VendingMachineWithdrawMessage args)

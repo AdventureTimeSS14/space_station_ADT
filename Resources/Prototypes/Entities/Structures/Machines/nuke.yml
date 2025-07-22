@@ -116,12 +116,15 @@
   - type: WarpPoint
     follow: true
     location: nuclear bomb
-  # ADT-Sound-Update-Start
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Tag
     tags:
-    - ADTVaultAmbience
-  # ADT-Sound-Update-End
+    - ADTVaultAmbience  # ADT-Sound-Update
+    - GhostOnlyWarp
   - type: FTLSmashImmune
+  - type: SupermatterImmune # ADT-Tweak
 
 - type: entity
   parent: NuclearBomb

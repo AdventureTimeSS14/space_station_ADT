@@ -51,10 +51,10 @@
     radius: 3
     energy: 1
     netsync: false
-    
+
 - type: entity
   id: PortalArtifact
-  parent: BasePortal
+  parent: ADTBasePortalInterMap ### ADT Tweak
   components:
   - type: Sprite
     layers:

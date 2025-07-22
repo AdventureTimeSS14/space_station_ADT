@@ -12,7 +12,8 @@
   - AllAccess
   access:
   - CentralCommand
-  special: # Start ADT Tweak 
+  # Start ADT Tweak
+  special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   # End ADT Tweak
@@ -25,7 +26,7 @@
     head: ClothingHeadHatCentcom
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorBasic
+    outerClothing: ClothingOuterArmorCentcommCarapace
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     belt: WeaponPistolN1984

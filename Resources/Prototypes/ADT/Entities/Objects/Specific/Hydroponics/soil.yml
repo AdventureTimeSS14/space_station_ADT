@@ -1,0 +1,30 @@
+- type: entity
+  name: packed soil
+  parent: BaseItem
+  id: ADTSoilPacked
+  description: Tastes like peat soil.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
+    state: soil-packed
+  - type: Item
+    size: Normal
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTSoilTrash
+      - id: hydroponicsSoil
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: ADTSoilTrash
+  name: soil wrapper
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
+    state: soil-trash
+  - type: Item
+    sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
+    heldPrefix: packet

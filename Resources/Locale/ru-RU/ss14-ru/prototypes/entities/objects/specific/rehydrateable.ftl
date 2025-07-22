@@ -1,6 +1,6 @@
 ent-MonkeyCube = обезьяний кубик
     .desc = Просто добавь воды!
-ent-KoboldCube = кобольдовый кубик
+ent-KoboldCube = прото-сохуновый кубик
     .desc = Просто добавь воды!
 ent-CowCube = коровий кубик
     .desc = { ent-MonkeyCube.desc }
@@ -23,3 +23,5 @@ ent-DehydratedSpaceCarp = обезвоженный космический кар
 ent-SyndicateSponge = обезьяний кубик
     .desc = Просто добавь воды!
     .suffix = Синдикат
+ent-ADTCubeGondola = гондолий кубик
+    .desc = { ent-MonkeyCube.desc }

@@ -148,6 +148,7 @@
     - id: WeaponSniperMosin
     - id: ADTClothingNeckScarfUnrobust # ADT tweaK
       weight: 2
+    - id: ClothingHandsKnuckleDustersSyndicate
 
 - type: entityTable
   id: MaintenanceLockerLoot
@@ -190,6 +191,8 @@
       prob: 0.05
     - id: DeathPaintTwo
       prob: 0.05
+    - id: ADTTonfaBlueprint
+      prob: 0.03
     #ADT tweak end
 
 - type: entity

@@ -1,0 +1,308 @@
+- type: entity
+  parent: Clothing
+  id: ADTShipBattleDogtagBase
+  name: dogtag
+  description: dogtag
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Misc/dogtags.rsi
+  - type: Clothing
+    slots:
+    - idcard
+    - neck
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Misc/dogtags.rsi
+  - type: Item
+    size: Tiny
+    heldPrefix: default
+    storedRotation: -90
+  - type: Access
+  - type: IdCard
+  - type: StationRecordKeyStorage
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: MiningPoints
+  # - type: EmitSoundOnPickup
+  #   sound:
+  #     path: /Audio/ADT/Entities/id_pickup.ogg
+  # - type: EmitSoundOnDrop
+  #   sound:
+  #     path: /Audio/ADT/Entities/id_drop.ogg
+  # - type: EmitSoundOnLand
+  #   sound:
+  #     path: /Audio/ADT/Entities/id_drop.ogg
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagCaptainTSF
+  name: captain tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipCaptainTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagExecutionalOfficerTSF
+  name: captain tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipExecutionalOfficerTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagCommanderTSF
+  name: commander tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipCommanderTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagChiefGunnerTSF
+  name: chief gunner tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipChiefGunnerTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagMarineLeutenantTSF
+  name: marine leutenant tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipMarineLeutenantTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagMarineTSF
+  name: marine tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: ADTBattleShipMarineTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagGunnerTSF
+  name: gunner tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: ADTBattleShipGunnerTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagNavigatorTSF
+  name: navigator tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: ADTBattleShipNavigatorTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagPilotTSF
+  name: pilot tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: ADTBattleShipPilotTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagMedicTSF
+  name: medic tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: ADTBattleShipMedicTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagEngineerTSF
+  name: engineer tsf dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: ADTBattleShipEngineerTSF
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagCaptainKMT
+  name: captain kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipCaptainKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagExecutionalOfficerKMT
+  name: captain kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipExecutionalOfficerKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagCommanderKMT
+  name: commander kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipCommanderKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagChiefGunnerKMT
+  name: chief gunner kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipChiefGunnerKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagMarineLeutenantKMT
+  name: marine leutenant kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+    - state: command
+  - type: PresetIdCard
+    job: ADTBattleShipMarineLeutenantKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagMarineKMT
+  name: marine kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+  - type: PresetIdCard
+    job: ADTBattleShipMarineKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagGunnerKMT
+  name: gunner kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+  - type: PresetIdCard
+    job: ADTBattleShipGunnerKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagNavigatorKMT
+  name: navigator kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+  - type: PresetIdCard
+    job: ADTBattleShipNavigatorKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagPilotKMT
+  name: pilot kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+  - type: PresetIdCard
+    job: ADTBattleShipPilotKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagMedicKMT
+  name: medic kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+  - type: PresetIdCard
+    job: ADTBattleShipMedicKMT
+
+- type: entity
+  parent: ADTShipBattleDogtagBase
+  id: ADTShipBattleDogtagEngineerKMT
+  name: engineer kmt dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: kmt
+  - type: PresetIdCard
+    job: ADTBattleShipEngineerKMT

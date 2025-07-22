@@ -68,13 +68,13 @@
         prob: 0.80
       - id: ClothingOuterHardsuitEVAPrisoner
         prob: 0.80
-      - id: ClothingOuterHardsuitVoidParamed
+      - id: ADTClothingModsuitBackMedical #ADT tweak
         prob: 0.10
       - id: ClothingOuterRedRacoon
         prob: 0.10
       - id: ClothingOuterSanta
         prob: 0.10
-      - id: ClothingOuterHardsuitSyndicate
+      - id: ClothingOuterEVASuitSyndicate
         prob: 0.20
       - id: EmergencyOxygenTankFilled
         prob: 0.25
@@ -82,7 +82,7 @@
         prob: 0.25
       - id: OxygenTankFilled
         prob: 0.05
-        
+
 - type: entity
   id: CratePermaEscapeGun
   parent: CrateGenericSteel

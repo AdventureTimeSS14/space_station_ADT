@@ -38,6 +38,7 @@ using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.Interaction;
 using Content.Server.ADT.Chat;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Server.Chat.Systems;
 
@@ -695,6 +696,26 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList(), author: player.UserId);
+        // ADT-Tweak-start: Поиск ругательств и оскорбление родных
+        if (_configurationManager.GetCVar(ADTCCVars.ChatFilterAdminAlertEnable))
+        {
+            var words = message.Split(
+                new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            foreach (var word in words)
+            {
+                if (ChatFilterConstants.OffensiveWords.Contains(word))
+                {
+                    _chatManager.SendAdminAlert(
+                        $"Внимние!! Сущность {ToPrettyString(source)} использовала слово `{word}`" +
+                        $" в сообщении, требуется проверка администратора: {message}"
+                    );
+                    break;
+                }
+            }
+        }
+        // ADT-Tweak-end
     }
     #endregion
 
@@ -905,7 +926,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public static readonly string[] ChatSanitize_Accent = { "chatsanitize", "adt_chatsanitize" }; // ADT-Tweak
+    public static readonly string[] ChatSanitize_Accent = { "adt_chatsanitize", "chatsanitize" }; // ADT-Tweak
 
     public string SanitizeMessageReplaceWords(string message)
     {

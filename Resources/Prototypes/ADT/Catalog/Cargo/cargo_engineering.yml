@@ -1,14 +1,4 @@
 - type: cargoProduct
-  id: EngineeringRPDAmmo
-  icon:
-    sprite: ADT/Objects/Tools/rpd.rsi
-    state: ammo
-  product: ADTCrateRPDAmmo
-  cost: 2500
-  category: cargoproduct-category-name-engineering # Визарды, сделайте пожалуйста паренты для категорий.
-  group: market
-
-- type: cargoProduct
   id: EngineeringRPD
   icon:
     sprite: ADT/Objects/Tools/rpd.rsi

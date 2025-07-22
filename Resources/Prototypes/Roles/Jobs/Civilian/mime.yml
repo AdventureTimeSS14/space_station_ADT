@@ -18,6 +18,12 @@
     - type: MimePowers
       preventWriting: true
     - type: FrenchAccent
+    # ADT-Tweak start. Акшон надувания шаров
+    - type: MimeBaloon
+    - type: ActionGrant
+      actions:
+      - ADTActionBaloonOfMime
+    # ADT-Tweak end.
 
 - type: startingGear
   id: MimeGear

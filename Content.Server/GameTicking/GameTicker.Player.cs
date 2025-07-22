@@ -11,6 +11,10 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.CCVar;
+using Content.Server.Discord;
+using Content.Server.ADT.Administration;
+using System.Linq;
 
 namespace Content.Server.GameTicking
 {
@@ -32,11 +36,8 @@ namespace Content.Server.GameTicking
             {
                 if (args.NewStatus != SessionStatus.Disconnected)
                 {
-                    mind.Session = session;
-                    _pvsOverride.AddSessionOverride(GetNetEntity(mindId.Value), session);
+                    _pvsOverride.AddSessionOverride(mindId.Value, session);
                 }
-
-                DebugTools.Assert(mind.Session == session);
             }
 
             DebugTools.Assert(session.GetMind() == mindId);
@@ -65,10 +66,77 @@ namespace Content.Server.GameTicking
 
                     var firstSeenTime = record?.FirstSeenTime.ToString("dd.MM.yyyy") ?? "неизвестно"; // дата первого подключения, ADT
 
-                    _chatManager.SendAdminAnnouncement(firstConnection
-                        ? $"\nВНИМАНИЕ!!! \nЗашёл новичок {args.Session.Name} с {firstSeenTime}. Администрации быть внимательней :0, у данного игрока меньше 10ч на нашем сервере. \n ВНИМАНИЕ!!!"
-                        : Loc.GetString("player-join-message", ("name", args.Session.Name)));
+                    // ADT-Tweak-start
+                    if (firstConnection)
+                    {
+                        var creationDate = "Не удалось получить дату создания";
+                        try
+                        {
+                            // Получаем дату создания аккаунта через API визардов
+                            creationDate = await AuthApiHelper.GetCreationDate(args.Session.UserId.ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error($"Ошибка при получении даты создания аккаунта: {ex.Message}");
+                        }
 
+                        _chatManager.SendAdminAnnouncementColor(
+                            "\nВНИМАНИЕ!!!\n" +
+                            $"Зашёл НОВИЧОК {args.Session.Name} первый заход: {firstSeenTime}.\n" +
+                            $"Дата создания аккаунта: {creationDate}\n" +
+                            "Администрации быть внимательней :0, у данного игрока меньше 10ч на нашем сервере.\n" +
+                            "ВНИМАНИЕ!!!",
+                            colorOverrid: Color.White
+                        );
+
+                        // Получаем всех администраторов
+                        var clients = _adminManager.ActiveAdmins
+                        .Where(admin => _adminManager.GetAdminData(admin)?.Flags.HasFlag(AdminFlags.Adminchat) == true)
+                        .Select(p => p.Channel).ToList();
+
+                        Filter filter = Filter.Empty();
+                        foreach (var client in clients)
+                        {
+                            var sessionAdmin = _playerManager.GetSessionByChannel(client);
+                            filter.AddPlayer(sessionAdmin);
+                        }
+
+                        var soundPath = new ResPath("/Audio/ADT/Misc/sgu.ogg");
+                        var audioParams = AudioParams.Default.WithVolume(-8f);
+                        var replay = false;
+
+                        // Каждому воспроизводим звук
+                        _audio.PlayGlobal(
+                            soundPath,
+                            filter,
+                            replay,
+                            audioParams
+                        );
+                    }
+                    else
+                    {
+                        _chatManager.SendAdminAnnouncement(Loc.GetString("player-join-message", ("name", args.Session.Name)));
+                    }
+                    // ADT-Tweak-end
+
+                    // ADT-Tweak-start: Постит в дис админчата, о заходе новых игроков
+                    if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)) && firstConnection)
+                    {
+                        var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
+
+                        if (webhookUrl == null)
+                            return;
+
+                        if (await _discord.GetWebhook(webhookUrl) is not { } webhookData)
+                            return;
+                        var payload = new WebhookPayload
+                        {
+                            Content = $"**Оповещение: ЗАШЁЛ НОВИЧОК** ({args.Session.Name})"
+                        };
+                        var identifier = webhookData.ToIdentifier();
+                        await _discord.CreateMessage(identifier, payload);
+                    }
+                    // ADT-Tweak-end
                     RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
 
                     if (firstConnection && _cfg.GetCVar(CCVars.AdminNewPlayerJoinSound))
@@ -128,10 +196,9 @@ namespace Content.Server.GameTicking
                 case SessionStatus.Disconnected:
                 {
                     _chatManager.SendAdminAnnouncement(Loc.GetString("player-leave-message", ("name", args.Session.Name)));
-                    if (mind != null)
+                    if (mindId != null)
                     {
-                        _pvsOverride.ClearOverride(GetNetEntity(mindId!.Value));
-                        mind.Session = null;
+                        _pvsOverride.RemoveSessionOverride(mindId.Value, session);
                     }
 
                     if (_playerGameStatuses.ContainsKey(args.Session.UserId)) // Corvax-Queue: Delete data only if player was in game

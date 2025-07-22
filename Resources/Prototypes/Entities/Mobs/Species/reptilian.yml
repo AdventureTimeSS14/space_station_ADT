@@ -11,7 +11,8 @@
     - Snout
     - HeadTop
     - HeadSide
-    undergarmentBottom: UndergarmentBottomBoxersReptilian
+    - SnoutOverlay # ADT Tweak
+    # undergarmentBottom: UndergarmentBottomBoxersReptilian # ADT-No-More-Useless-Feature
   - type: Hunger
   - type: Puller
     needsHands: false
@@ -102,7 +103,7 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi # Corvax-Digitigrade
+            sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   # ADT tweak start
   - type: LanguageSpeaker
@@ -166,7 +167,8 @@
     - Snout
     - HeadTop
     - HeadSide
-    undergarmentBottom: UndergarmentBottomBoxersReptilian
+    - SnoutOverlay # ADT Tweak
+    # undergarmentBottom: UndergarmentBottomBoxersReptilian # ADT-No-More-Useless-Feature
   - type: Inventory
     speciesId: reptilian
     femaleDisplacements:

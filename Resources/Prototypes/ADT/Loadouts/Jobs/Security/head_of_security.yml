@@ -5,3 +5,14 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterHoS
+
+
+- type: loadout
+  id: HoSPDA
+  equipment:
+    id: HoSPDA
+
+- type: loadout
+  id: ADTSheriffPDA
+  equipment:
+    id: ADTSheriffPDA

@@ -1,0 +1,161 @@
+- type: technology
+  id: ADTMedicalMODsuit
+  name: research-technology-medical-modsuit
+  icon:
+    sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
+    state: medical
+  discipline: Biochemical
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ADTModsuitPlateMedical
+  technologyPrerequisites:
+    - ADTModsuitBase
+  position: 3,0
+
+- type: technology
+  id: ADTCloning
+  name: research-technology-medical-cloning-adt
+  icon:
+    sprite: Structures/Machines/scanner.rsi
+    state: closed
+  discipline: Biochemical
+  tier: 2
+  cost: 12000
+  recipeUnlocks:
+  - CloningPodMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  position: 5,-1
+  requiredTech:
+  - ADTBiochemicalStasis
+
+- type: technology
+  id: ADTHighVoltageDefibrillator
+  name: research-technology-highvolt-defib
+  icon:
+    sprite: ADT/Objects/Specific/Medical/high-volt_defib.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 3
+  cost: 5000
+  recipeUnlocks:
+  - ADTHighVoltageDefibrillator
+  requiredTech:
+  - ADTIndustrialMedicine
+  position: 1,0
+
+
+- type: technology
+  id: ADTIndustrialMedicine
+  name: research-technology-industrial-medicine
+  icon:
+    sprite: ADT/Structures/Machines/medical_assembler.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ADTMedicalAssemblerMachineCircuitBoard
+  - ADTBlankMediPen
+  requiredTech:
+  - ADTMedicalMODsuit
+  position: 2,0
+
+- type: technology
+  id: ADTReagentAnalyzer
+  name: research-technology-reagent-analyzer
+  icon:
+    sprite: ADT/Objects/Specific/Medical/Chemistry/reagent_analyzer.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 3
+  cost: 5000
+  recipeUnlocks:
+  - ADTReagentAnalyzer
+  requiredTech:
+  - ADTIndustrialMedicine
+  position: 1,1
+
+- type: technology
+  id: CryoPod
+  name: research-technology-cryo-pod
+  icon:
+    sprite: Structures/Machines/Medical/cryopod.rsi
+    state: pod-open
+  discipline: Biochemical
+  tier: 3
+  cost: 8500
+  recipeUnlocks:
+  - CryoPodMachineCircuitboard
+  - CryostasisBeaker
+  - SyringeCryostasis
+  requiredTech:
+  - ADTBiochemicalStasis
+  position: 5,1
+
+- type: technology
+  id: ADTMechanizedTreatment
+  name: research-technology-mechanized-treatment
+  icon:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  discipline: Biochemical
+  tier: 2 
+  cost: 5000
+  recipeUnlocks:
+  # - BorgModuleAdvancedTreatment # В прототипах такого не найдено
+  - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
+  - BorgModuleAdvancedChemical
+  position: 3,-1
+  requiredTech:
+  - ADTMedicalMODsuit
+
+- type: technology
+  id: ADTBluespaceChemistry
+  name: research-technology-bluespace-chemistry
+  icon:
+    sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
+    state: beakerbluespace
+  discipline: Biochemical
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - BluespaceBeaker
+  - SyringeBluespace
+  position: 5,0
+  requiredTech:
+  - ADTBiochemicalStasis
+
+
+- type: technology
+  id: ADTBiochemicalStasis
+  name: research-technology-biochemical-stasis
+  icon:
+    sprite: Structures/Machines/stasis_bed.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - StasisBedMachineCircuitboard
+  position: 4,0
+  requiredTech:
+  - ADTMedicalMODsuit
+
+- type: technology
+  id: ADTAdvancedMedicalCare
+  name: research-technology-advanced-medical-care
+  icon:
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: syringe_gun
+  discipline: Biochemical
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - ADTMiniSyringe
+  - ADTLauncherSyringe
+  - ADTTourniquet
+  position: 1,-1
+  requiredTech:
+  - ADTIndustrialMedicine

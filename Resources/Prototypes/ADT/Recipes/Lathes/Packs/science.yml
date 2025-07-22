@@ -3,15 +3,11 @@
   recipes:
   - RCD
   - RCDAmmo
-  - RPDAmmo
   - RPD
 
 - type: latheRecipePack
   id: ADTPKAPack
   recipes:
-  - PKAUpgradeDamage
-  - PKAUpgradeRange
-  - PKAUpgradeFireRate
   - ADTWeaponCutter
   - ADTWeaponCutterAdv
 
@@ -74,3 +70,8 @@
   - PsiShield
   - PhantomHud
   - EctoShield
+
+- type: latheRecipePack
+  id: ADTBluespaceHarvesterPack
+  recipes:
+  - ADTMachineBluespaceHarvesterCircuitboard

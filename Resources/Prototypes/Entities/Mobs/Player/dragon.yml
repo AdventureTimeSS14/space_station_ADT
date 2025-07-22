@@ -7,7 +7,10 @@
   abstract: true
   components:
   - type: Bloodstream
+    bloodlossThreshold: 0.8 # ADT-Tweak
+    bloodRefreshAmount: 2 # ADT-Tweak
     bloodMaxVolume: 650
+    damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -112,6 +115,8 @@
   - type: EyeProtection
   - type: Damageable
     damageModifierSet: ADTDragonDamageSet
+  - type: Stamina
+    critThreshold: 350
 # ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
@@ -155,7 +160,7 @@
     foodPreference: Humanoid
     shouldStoreDevoured: true
     chemical: Ichor
-    healRate: 15.0
+    healRate: 7.5
     whitelist:
       components:
       - MobState
@@ -168,6 +173,10 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
+  - type: ThermalVision #ADT tweak start
+    color: Purple
+  - type: MesonVision
+    color: Purple #ADT tweak end
 # ADT-CollectiveMind-Tweak-Start
   - type: CollectiveMindRank
     rankName: collective-mind-dragon-rank
@@ -176,6 +185,17 @@
       GalacticCommon: Speak
       CarpCollectiveMind: Speak
 # ADT-CollectiveMind-Tweak-End
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDragon
+    - NamesDragonTitle
+    nameFormat: name-format-dragon
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5 # fast because dragon strong
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   parent: BaseMobDragon

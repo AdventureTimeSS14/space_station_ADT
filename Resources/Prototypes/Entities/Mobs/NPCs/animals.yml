@@ -54,6 +54,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: MeleeWeapon
     soundHit:
@@ -250,7 +252,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEgg
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
@@ -259,6 +261,9 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: HTN # ADT tweak
+    rootTask: # ADT tweak
+      task: RuminantCompound # ADT tweak
 
 - type: entity
   parent: MobChicken
@@ -312,7 +317,7 @@
 
 - type: entity
   id: FoodEggChickenFertilized
-  parent: FoodEgg
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Chicken
   components:
   - type: Timer
@@ -342,6 +347,7 @@
   - type: Item
     size: Tiny
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -401,6 +407,9 @@
     tags:
     - Trash
     - VimPilot
+  # ADT-Tweak
+  - type: MobCollision
+    enabled: false
   # - type: Destructible
   #   thresholds:
   #   - trigger:
@@ -421,6 +430,7 @@
     damage:
       types:
         Piercing: 0
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: glockroach
@@ -527,7 +537,7 @@
     baseSprintSpeed : 4
     weightlessAcceleration: 1.5
     weightlessFriction: 1
-    weightlessModifier: 1
+    baseWeightlessModifier: 1
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moth
@@ -590,6 +600,7 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: SupermatterIgnore # ADT-Tweak
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -688,7 +699,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEgg
+    - id: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
@@ -697,6 +708,9 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: HTN # ADT tweak
+    rootTask: # ADT tweak
+      task: RuminantCompound # ADT tweak
 
 - type: entity
   name: white duck #Quack
@@ -738,7 +752,7 @@
 
 - type: entity
   id: FoodEggDuckFertilized
-  parent: FoodEgg
+  parent: ADTFoodEggLaid # ADT: FoodEgg<ADTFoodEggLaid
   suffix: Fertilized, Duck
   components:
     - type: Timer
@@ -917,6 +931,7 @@
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
+  - type: VentCrawler # ADT tweak
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1089,6 +1104,12 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+      # Start ADT tweak
+  - type: LanguageSpeaker
+    languages:
+      Goat: Speak
+      GalacticCommon: Understand
+      # End ADT tweak
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1290,7 +1311,7 @@
     prototypes: [ BoxingKangarooGear ]
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Passive #ADT_Tweak - чтобы кенгуру-боксер атаковал только в ответ
 
 - type: entity
   name: genetic ancestor
@@ -1299,6 +1320,8 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  - type: VentCrawler # ADT tweak
+    allowInventory: false
   - type: CombatMode
   - type: Inventory
     templateId: monkey
@@ -1482,6 +1505,7 @@
   suffix: syndicate agent
   components:
     # make the player a traitor once its taken
+  - type: VentCrawler # ADT tweak
   - type: AutoTraitor
     profile: TraitorReinforcement
 
@@ -1490,6 +1514,7 @@
   parent: MobBaseSyndicateMonkey
   suffix: NukeOps
   components:
+  - type: VentCrawler # ADT tweak
   - type: NukeOperative
 
 - type: entity
@@ -1668,6 +1693,7 @@
   id: MobMouse
   description: Squeak!
   components:
+  - type: VentCrawler # ADT tweak
   - type: Body
     prototype: Mouse
   - type: GhostRole
@@ -1710,6 +1736,7 @@
     factions:
       - Mouse
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -1786,6 +1813,8 @@
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
+  - type: MobCollision
+    enabled: false
 # ADT-Tweak-end
   - type: Tag
     tags:
@@ -1841,6 +1870,7 @@
     languages:
       Mouse: Speak
       GalacticCommon: Understand
+  - type: SupermatterIgnore # ADT-Tweak
 # ADT-Tweak-end
 
 - type: entity
@@ -2030,6 +2060,7 @@
   id: MobSlug
   description: And they called this a lizard?
   components:
+  - type: VentCrawler # ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 3
@@ -2070,6 +2101,7 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: frog
@@ -2077,6 +2109,7 @@
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
+  - type: VentCrawler # ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
@@ -2325,6 +2358,7 @@
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
+  - type: VentCrawler # ADT tweak
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -2373,6 +2407,7 @@
   id: MobSpiderBase
   abstract: true
   components:
+  - type: VentCrawler # ADT tweak
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2445,6 +2480,7 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: SupermatterIgnore # ADT-Tweak
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive
@@ -2922,6 +2958,7 @@
   id: MobCorgiPuppy
   description: A little corgi! Aww...
   components:
+  - type: VentCrawler # ADT tweak
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/corgi.rsi
@@ -3012,6 +3049,9 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
   - type: LanguageSpeaker
     languages:
       Cat: Speak
@@ -3291,6 +3331,7 @@
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
+  - type: VentCrawler # ADT tweak
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

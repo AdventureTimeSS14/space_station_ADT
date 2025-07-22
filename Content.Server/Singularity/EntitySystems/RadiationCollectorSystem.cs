@@ -7,6 +7,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Singularity.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Radiation.Events;
@@ -86,7 +87,7 @@ public sealed class RadiationCollectorSystem : EntitySystem
         foreach (var gas in component.RadiationReactiveGases)
         {
             float reactantMol = gasTankComponent.Air.GetMoles(gas.ReactantPrototype);
-            float delta = args.TotalRads * reactantMol * gas.ReactantBreakdownRate;
+            float delta = args.TotalRads * gas.ReactantBreakdownRate; // ADT-Tweak 
 
             // We need to offset the huge power gains possible when using very cold gases
             // (they allow you to have a much higher molar concentrations of gas in the tank).

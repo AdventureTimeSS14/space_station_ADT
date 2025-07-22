@@ -43,6 +43,13 @@
     state: qm_clipboard
 
 - type: stealTargetGroup
+  id: ClothingHandsKnuckleDustersQM
+  name: steal-target-groups-clothing-hands-knuckledusters-qm
+  sprite:
+    sprite: Clothing/Hands/Gloves/KnuckleDusters/goldenknuckleduster.rsi
+    state: goldenknuckleduster
+
+- type: stealTargetGroup
   id: FoodMeatCorgi
   name: steal-target-groups-food-meat-corgi
   sprite:
@@ -181,12 +188,14 @@
     sprite: Clothing/Head/Hats/warden.rsi
     state: icon
 
-- type: stealTargetGroup
-  id: ClothingOuterHardsuitVoidParamed
-  name: steal-target-groups-clothing-outer-hardsuit-void-paramed
-  sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-    state: icon
+#ADT tweak start
+# - type: stealTargetGroup
+#   id: ClothingOuterHardsuitVoidParamed
+#   name: steal-target-groups-clothing-outer-hardsuit-void-paramed
+#   sprite:
+#     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#     state: icon
+#ADT tweak end
 
 - type: stealTargetGroup
   id: MedicalTechFabCircuitboard

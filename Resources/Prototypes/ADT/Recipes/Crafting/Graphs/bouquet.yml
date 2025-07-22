@@ -7,32 +7,32 @@
     - to: bouquetgalakto
       steps:
       - tag: Galaxythistle
-        name: galaxythistle
+        name: construction-graph-tag-galaxythistle
         icon:
           sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
           state: produce
       - tag: Galaxythistle
-        name: galaxythistle
+        name: construction-graph-tag-galaxythistle
         icon:
           sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
           state: produce
       - tag: Galaxythistle
-        name: galaxythistle
+        name: construction-graph-tag-galaxythistle
         icon:
           sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
           state: produce
       - tag: Galaxythistle
-        name: galaxythistle
+        name: construction-graph-tag-galaxythistle
         icon:
           sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
           state: produce
       - tag: Galaxythistle
-        name: galaxythistle
+        name: construction-graph-tag-galaxythistle
         icon:
           sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
           state: produce
       - tag: Paper
-        name: Paper
+        name: construction-graph-tag-paper
         doAfter: 5
   - node: bouquetgalakto
     entity: ADTObjectBouquetGalakto
@@ -46,32 +46,32 @@
     - to: bouquetmac
       steps:
       - tag: Poppy
-        name: Poppy
+        name: construction-graph-tag-poppy
         icon:
           sprite: Objects/Specific/Hydroponics/poppy.rsi
           state: produce
       - tag: Poppy
-        name: Poppy
+        name: construction-graph-tag-poppy
         icon:
           sprite: Objects/Specific/Hydroponics/poppy.rsi
           state: produce
       - tag: Poppy
-        name: Poppy
+        name: construction-graph-tag-poppy
         icon:
           sprite: Objects/Specific/Hydroponics/poppy.rsi
           state: produce
       - tag: Poppy
-        name: Poppy
+        name: construction-graph-tag-poppy
         icon:
           sprite: Objects/Specific/Hydroponics/poppy.rsi
           state: produce
       - tag: Poppy
-        name: Poppy
+        name: construction-graph-tag-poppy
         icon:
           sprite: Objects/Specific/Hydroponics/poppy.rsi
           state: produce
       - tag: Paper
-        name: Paper
+        name: construction-graph-tag-paper
         doAfter: 5
   - node: bouquetmac
     entity: ADTObjectBouquetMac
@@ -85,27 +85,27 @@
     - to: bouquetmix
       steps:
       - tag: Poppy
-        name: Poppy
+        name: construction-graph-tag-poppy
         icon:
           sprite: Objects/Specific/Hydroponics/poppy.rsi
           state: produce
       - tag: Ambrosia
-        name: Ambrosia
+        name: construction-graph-tag-ambrosia
         icon:
           sprite: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
           state: produce
       - tag: ADTAloe
-        name: Aloe
+        name: construction-graph-tag-aloe
         icon:
           sprite: Objects/Specific/Hydroponics/aloe.rsi
           state: produce
       - tag: Galaxythistle
-        name: galaxythistle
+        name: construction-graph-tag-galaxythistle
         icon:
           sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
           state: produce
       - tag: Paper
-        name: Paper
+        name: construction-graph-tag-paper
         doAfter: 5
   - node: bouquetmix
     entity: ADTObjectBouquetMix

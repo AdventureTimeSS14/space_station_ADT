@@ -15,6 +15,7 @@
   - Syringe
   - PillCanister
   - HandLabeler
+  - BaseChemistryEmptyVial
 
 - type: latheRecipePack
   parent: BasicChemistryStatic
@@ -80,6 +81,7 @@
   - ChemMasterMachineCircuitboard
   - CondenserMachineCircuitBoard
   - HotplateMachineCircuitboard
+  - ADTColdplateMachineCircuitboardCircuitboard  # ADT Tweak
 
 ## Dynamic
 
@@ -92,6 +94,7 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  - ADTBlankMediPen # ADT-Tweak
 
 - type: latheRecipePack
   id: MedicalBoards
@@ -99,3 +102,4 @@
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - ADTMedicalAssemblerMachineCircuitBoard # ADT-Tweak

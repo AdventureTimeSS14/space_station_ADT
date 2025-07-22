@@ -41,27 +41,6 @@
 #  equipment:
 #    neck: ADTClothingNeckCloakBrigmedic
 
-- type: loadout
-  id: ADTNeckSecBadgeBronze
-  equipment:
-    neck: ADTClothingNeckSecBadgeBronze
-
-- type: loadout
-  id: ADTNeckSecBadgeSilver
-  equipment:
-    neck: ADTClothingNeckSecBadgeSilver
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTSecurity100hours
-
-- type: loadout
-  id: ADTNeckSecBadgeGold
-  equipment:
-    neck: ADTClothingNeckSecBadgeGold
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTSecurityVeteran
-
  #Back
 
 - type: loadout
@@ -138,3 +117,15 @@
   equipment:
     outerClothing: ClothingOuterCoatLabSecurityMedic
 
+
+# PDA
+
+- type: loadout
+  id: BrigmedicPDA
+  equipment:
+    id: BrigmedicPDA
+
+- type: loadout
+  id: ADTFieldDoctorPDA
+  equipment:
+    id: ADTFieldDoctorPDA

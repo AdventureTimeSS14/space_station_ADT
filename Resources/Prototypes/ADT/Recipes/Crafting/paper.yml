@@ -1,0 +1,24 @@
+- type: construction
+  id: ADTPaperMask
+  graph: ADTPaperMask
+  startNode: start
+  targetNode: CompletePaperMaskHeart
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ADTPaperCrane
+  graph: ADTPaperCrane
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: ADTPaperShip
+  graph: ADTPaperShip
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
+

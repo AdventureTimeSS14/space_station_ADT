@@ -15,10 +15,11 @@
   - type: TechnologyDatabase
     supportedDisciplines:
     - Industrial
-    - Arsenal
-    - Experimental
-    - CivilianServices
+    - Biochemical # ADT
     - Mech # ADT
+    - Experimental
+    - Arsenal # ADT-Tweak
+    - CivilianServices
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: ExtensionCableReceiver

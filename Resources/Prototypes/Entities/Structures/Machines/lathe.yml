@@ -113,6 +113,7 @@
         - RawMaterial
         - Ingot
   - type: StationAiWhitelist #ADT-Tweak
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -192,6 +193,7 @@
         - RawMaterial
         - Ingot
         - PhantomEctoplasm
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -219,6 +221,8 @@
     - ADTRCDPack
     - ADTPKAPack
     - ADTWeaponExperimentalPKAPack
+    - ADTServiceHydroponics
+    - ADTAdvancedMedicalMiscPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
@@ -282,7 +286,8 @@
     - MechBoards
     - ShuttleBoards
     # ADT-tweak-start
-    - ADTEnergyBoardsPack 
+    - ADTEnergyBoardsPack
+    - ADTBluespaceHarvesterPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -293,6 +298,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -351,6 +357,7 @@
       - Sheet
       - RawMaterial
       - Ingot
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -430,6 +437,8 @@
     - SecurityWeaponsStatic
     - ADTMagazineStaticPack # ADT-tweak
     dynamicPacks:
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives
@@ -448,6 +457,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -481,6 +493,7 @@
           - Sheet
           - RawMaterial
           - Ingot
+    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
@@ -515,10 +528,17 @@
     - ADTMedicalMiscStaticPack # ADT-Tweak
     dynamicPacks:
     - Chemistry
+    #ADT-Tweak Start
+    - ADTAdvancedMedicalMiscPack
+    - ADTAdvancedMedicalCarePack
+    #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: BaseLathe
@@ -700,6 +720,7 @@
       tags:
       - Raw
       - Wooden
+      - Boll
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing

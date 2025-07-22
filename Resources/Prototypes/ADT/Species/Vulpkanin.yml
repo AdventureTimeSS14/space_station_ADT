@@ -35,6 +35,8 @@
     Head: MobVulpkaninHead
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
+    SnoutOverlay: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
     Chest: MobVulpkaninTorso
     Eyes: MobVulpkaninEyes
     LArm: MobVulpkaninLArm
@@ -56,6 +58,12 @@
       required: false
     Chest:
       points: 3
+      required: false
+    SnoutOverlay:
+      points: 1
+      required: false
+    Snout:
+      points: 2
       required: false
     Tail:
       points: 1

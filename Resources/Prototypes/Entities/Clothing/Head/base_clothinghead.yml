@@ -132,6 +132,11 @@
     - Snout
     - HeadTop
     - HeadSide
+  #ADT-Tweak-Start
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
+  #ADT-Tweak-End
+
 
 - type: entity
   abstract: true
@@ -177,12 +182,17 @@
     - Snout
     - HeadTop
     - HeadSide
-  - type: InjectorsBlocker # ADT TWEAK
+    - SnoutOverlay # ADT Tweak
+  #ADT-Tweak-Start
+  - type: InjectorsBlocker
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
+  #ADT-Tweak-End
 
 - type: entity
   abstract: true
   # No parent since it isn't an item
-  # must parent both this and the desired helmet base when using 
+  # must parent both this and the desired helmet base when using
   id: ClothingHeadSuitWithLightBase
   name: base hardsuit helmet with light
   categories: [ HideSpawnMenu ]
@@ -250,6 +260,11 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.05
     coolingCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.90
+  - type: Armor # so zombification resistance shows up
+    modifiers:
+      coefficients: { }
   - type: GroupExamine
   - type: HideLayerClothing
     slots:

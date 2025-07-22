@@ -146,13 +146,13 @@ public sealed partial class CCVars
     ///     The delay for which two votekicks are allowed to be made by separate people, in seconds.
     /// </summary>
     public static readonly CVarDef<float> VotekickTimeout =
-        CVarDef.Create("votekick.timeout", 120f, CVar.SERVERONLY);
+        CVarDef.Create("votekick.timeout", 60f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Sets the duration of the votekick vote timer.
     /// </summary>
     public static readonly CVarDef<int>
-        VotekickTimer = CVarDef.Create("votekick.timer", 60, CVar.SERVERONLY);
+        VotekickTimer = CVarDef.Create("votekick.timer", 45, CVar.SERVERONLY);
 
     /// <summary>
     ///     Config for how many hours playtime a player must have to get protection from the Raider votekick type when playing as an antag.
@@ -177,26 +177,4 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> VotekickIgnoreGhostReqInLobby =
         CVarDef.Create("votekick.ignore_ghost_req_in_lobby", true, CVar.SERVERONLY);
-
-    /*
-    * AUTOVOTE SYSTEM
-    */
-
-    /// ADT TWEAK START
-
-    /// Enables the automatic voting system.
-    public static readonly CVarDef<bool> AutoVoteEnabled =
-        CVarDef.Create("vote.autovote_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// Automatically starts a map vote when returning to the lobby.
-    /// Requires auto voting to be enabled.  
-    public static readonly CVarDef<bool> MapAutoVoteEnabled =
-        CVarDef.Create("vote.map_autovote_enabled", false, CVar.SERVERONLY);
-
-    /// Automatically starts a gamemode vote when returning to the lobby.
-    /// Requires auto voting to be enabled.  
-    public static readonly CVarDef<bool> PresetAutoVoteEnabled =
-        CVarDef.Create("vote.preset_autovote_enabled", true, CVar.SERVERONLY);
-
-    /// ADT TWEAK END
 }

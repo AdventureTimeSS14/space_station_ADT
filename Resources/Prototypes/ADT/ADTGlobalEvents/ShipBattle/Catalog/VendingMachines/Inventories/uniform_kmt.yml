@@ -1,0 +1,19 @@
+- type: vendingMachineInventory
+  id: ADTKMTUniformDispenserInventory
+  startingInventory:
+    ADTShipBattleClothingUniformGunnerKMT: 10
+    ADTShipBattleClothingUniformMarineKMT: 10
+    ADTShipBattleClothingOuterHardsuitGunnerKMT: 10
+    ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT: 10
+    ClothingMaskGasSecurity: 10
+    ClothingHandsGlovesCombat: 10
+    ADTShipBattleClothingHeadsetGunnerKMT: 10
+    ADTShipBattleEncryptionKeyMarineKMT: 5
+    ADTShipBattleEncryptionKeyMedEngiKMT: 5
+    ADTShipBattleEncryptionKeyPilotKMT: 5
+    ADTShipBattleClothingShoesBootsMagFleet: 10
+    ADTShipBattleClothingBlackBackpackJetKMT: 10
+    ADTShipBattleClothingBeltWarbelt: 10
+    ADTClothingBeltMagTSF: 10
+    ADTClothingBeltMedTSF: 10
+    DoubleEmergencyOxygenTankFilled: 20

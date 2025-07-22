@@ -12,11 +12,18 @@
       color: white
   - type: Projectile
     damage:
-      groups: # хилит, но слабее.
-        Brute: -20
-        Burn: -20
-        Airloss: -20
-        Toxin: -20
+      types: # хилит, но слабее.
+        Blunt: -15
+        Slash: -15
+        Piercing: -15
+        Heat: -15
+        Shock: -15
+        Cold: -15
+        Caustic: -15
+        Asphyxiation: -15
+        Bloodloss: -15
+        Poison: -15
+        Radiation: -15
     ignoreResistances: true
 
 - type: entity
@@ -26,8 +33,28 @@
   description: Nooo, I don't wanna be furry!
   categories: [ HideSpawnMenu ]
   components:
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: ADTWizardForcedVulpkanin
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Body
+
+
+- type: entity
+  id: ADTProjectileMagicArrow
+  name: magic arrow
+  description: magic arrow
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: spell
+      color: white
+  - type: Projectile
+    damage:
+      types:
+        Shock: 33
+    ignoreResistances: true

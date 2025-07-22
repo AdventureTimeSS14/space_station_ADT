@@ -17,6 +17,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Maps;
+using Content.Shared.NodeContainer;
+using Content.Shared.NodeContainer.NodeGroups;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
@@ -65,6 +67,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     // Yes, this is absurdly small for a reason.
     public const float ElectrifiedDamagePerWatt = 0.0015f; // Parkstation-IPC // This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
     private const float ElectrifiedScalePerWatt = 1E-6f;
+
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     // Multiply and shift the log scale for shock damage.
     private const float RecursiveDamageMultiplier = 0.75f;
@@ -143,7 +147,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             {
                 foreach (var entity in _entityLookup.GetLocalEntitiesIntersecting(tileRef.Value, flags: LookupFlags.StaticSundries))
                 {
-                    if (_tag.HasTag(entity, "Window"))
+                    if (_tag.HasTag(entity, WindowTag))
                         return false;
                 }
             }
@@ -190,7 +194,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         if (_meleeWeapon.GetDamage(args.Used, args.User).Empty)
             return;
 
-        DoCommonElectrocution(args.User, uid, component.UnarmedHitShock, component.UnarmedHitStun, false);
+        TryDoElectrocution(args.User, uid, component.UnarmedHitShock, component.UnarmedHitStun, false);
     }
 
     private void OnElectrifiedInteractUsing(EntityUid uid, ElectrifiedComponent electrified, InteractUsingEvent args)

@@ -167,6 +167,22 @@
   equipment:
     underwearb: ADTClothingUnderwearBottomPantiesLaceBlack
 
+- type: loadout
+  id: ADTUnderwearMonokiniWhite
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomMonokiniWhite
+
+- type: loadout
+  id: ADTUnderwearMonokiniBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underwearb: ADTClothingUnderwearBottomMonokiniBlack
+
 ## главы
 
 - type: loadout
@@ -324,6 +340,22 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     underweart: ADTClothingUnderwearTopBraLaceBlack
+
+- type: loadout
+  id: ADTUnderwearTopMonokiniWhite
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopMonokiniWhite
+
+- type: loadout
+  id: ADTUnderwearTopMonokiniBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    underweart: ADTClothingUnderwearTopMonokiniBlack
 
 ## главы
 

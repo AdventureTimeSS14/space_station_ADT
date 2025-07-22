@@ -42,6 +42,7 @@
     - id: WizardSpawn
     - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
     - id: Pirates # ADT tweak pirates
+    - id: MorphSpawn #ADT tweak morph
     - id: PhantomSpawn # ADT tweak phantom
     # - id: ZombieOutbreak
 
@@ -168,7 +169,7 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 4.5  # ADT tweak 6.5 > 4.5
+    weight: 6.5
     earliestStart: 40
     reoccurrenceDelay: 20
     minimumPlayers: 30 #ADT-Tweak 20 >>> 30
@@ -197,7 +198,7 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 4.5 # ADT tweak 6 > 4.5
+    weight: 5.5 # ADT tweak 6 > 5.5
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20
@@ -239,6 +240,7 @@
         nameSegments:
         - NamesNinjaTitle
         - NamesNinja
+        nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
 
@@ -299,7 +301,7 @@
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
-    minimumPlayers: 10
+    minimumPlayers: 1000  #ADT-Tweak - де факто отключаем визарда 10 > 1000
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -325,8 +327,10 @@
         nameSegments:
         - NamesWizardFirst
         - NamesWizardLast
+        nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
+#      - MindRoleWizard
 
 # disabled until event is rewritten to be more interesting
 #- type: entity
@@ -591,6 +595,7 @@
         nameSegments:
         - NamesSyndicatePrefix
         - NamesSyndicateNormal
+        nameFormat: name-format-nukie-generic
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -682,6 +687,19 @@
     - Service
     blacklist:
     - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: SmugglerStashVariationPass
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    duration: 1
+    minimumPlayers: 1
+    maxOccurrences: 2
+    weight: 10
+  - type: RandomSpawnRule
+    prototype: RandomSatchelSpawner
 
 - type: entity
   parent: BaseGameRule

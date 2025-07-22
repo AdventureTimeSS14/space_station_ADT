@@ -1,5 +1,5 @@
 ent-BaseImplanter = implanter
-    .desc = A syringe exclusively designed for the injection and extraction of subdermal implants.
+    .desc = A syringe exclusively designed for the injection and extraction of subdermal implants. Use care when extracting implants, as incorrect draw settings may injure the user.
 ent-Implanter = { ent-BaseImplanter }
     .desc = A disposable syringe exclusively designed for the injection and extraction of subdermal implants.
 ent-ImplanterAdmeme = { ent-Implanter }
@@ -62,4 +62,7 @@ ent-MindShieldImplanter = { ent-BaseImplantOnlyImplanter }
     .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-RadioImplanterCentcomm = { ent-BaseImplantOnlyImplanter }
     .suffix = radio Centcomm
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+ent-DeathRattleImplanterCentcomm = { ent-BaseImplantOnlyImplanter }
+    .suffix = centcomm death rattle
     .desc = { ent-BaseImplantOnlyImplanter.desc }

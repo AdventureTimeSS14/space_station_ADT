@@ -6,6 +6,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: GhostTakeoverAvailable
+    - type: IdBind
 
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
@@ -13,6 +14,15 @@
   components:
     - type: MindShield
     - type: AntagImmune
+
+- type: randomHumanoidSettings
+  id: EventHumanoidCentcomm
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants:
+    - DeathRattleImplantCentcomm
 
 ## Death Squad
 
@@ -26,14 +36,15 @@
       state: icon
     - type: RandomMetadata
       nameSegments:
-        - NamesMilitaryFirstLeader
-        - NamesMilitaryLast
+      - NamesFirstDeadSquad
+      - NamesLastDeadSquadCallsign
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   randomizeName: false
   speciesBlacklist: # ADT-Tweak-start
     - Diona
@@ -71,8 +82,9 @@
       roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
-        - NamesMilitaryFirstLeader
-        - NamesMilitaryLast
+      - NamesFirstDeadSquad
+      - NamesLastDeadSquadCallsign
+      nameFormat: name-format-standard
 
 
 # ## ERT Leader
@@ -526,7 +538,7 @@
     - IPC
     - DraskSpecies # ADT-Tweak-end
   id: CBURNAgent
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   components:
     - type: Loadout
       prototypes: [ADTCBURNGear] # ADT tweak
@@ -543,7 +555,8 @@
     - type: RandomMetadata
       nameSegments:
       - ADTNamesFirstMilitaryRXBZZ # ADT Tweak
-      - NamesLastMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
 
 ## Central Command
 
@@ -644,6 +657,7 @@
       nameSegments:
       - NamesFirst
       - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: Cluwne
