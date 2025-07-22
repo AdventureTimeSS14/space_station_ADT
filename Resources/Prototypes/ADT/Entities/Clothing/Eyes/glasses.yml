@@ -42,6 +42,9 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+  - type: Construction
+    graph: ADTGlassesMedHUD
+    node: glassesMed
   - type: ShowHealthIcons
     damageContainers:
     - Biological
@@ -159,7 +162,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ADTClothingEyesWeldingOldStyle
-  name: welding glasses
+  name: engineering goggles
   components:
   - type: Sprite
     sprite: ADT/Clothing/Eyes/Glasses/welding_old.rsi

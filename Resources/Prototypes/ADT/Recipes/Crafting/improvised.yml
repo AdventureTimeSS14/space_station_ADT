@@ -1,220 +1,143 @@
 - type: construction
-  name: Shitmade Full Shield
   id: ADTFullShield
   graph: ADTShield
   startNode: start
   targetNode: ADTCompShield
   category: construction-category-weapons
   objectType: Item
-  description: A big shield for big people.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/fullshield.rsi
-    state: icon
 
 - type: construction
-  name: Reinforced Plasma Shiv
   id: ADTPlasmaShiv
   graph: ADTPShiv
   startNode: start
   targetNode: ADTCompPlasmaShiv
   category: construction-category-weapons
   objectType: Item
-  description: Woah. A shiv from reinforced plasma
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/Rplasma_shiv.rsi
-    state: icon
 
 - type: construction
-  name: Reinforced Uranium Shiv
   id: ADTUraniumShiv
   graph: ADTUShiv
   startNode: start
   targetNode: ADTCompUraniumShiv
   category: construction-category-weapons
   objectType: Item
-  description: Woah. A shiv from reinforced uranium
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/Ruranium_shiv.rsi
-    state: icon
 
 - type: construction
-  name: Reinforced Uranium Spear
   id: ADTUraniumSpear
   graph: ADTUraniumSpear
   startNode: start
   targetNode: ADTCompUraniumSpear
   category: construction-category-weapons
   objectType: Item
-  description: Woah. A spear from reinforced uranium
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/Ruranium_spear.rsi
-    state: spear
 
 - type: construction
-  name: Reinforced Plasma Spear
   id: SpearReinforcedPlasma
   graph: ADTPSpear
   startNode: start
   targetNode: ADTCompPlasmaSpear
   category: construction-category-weapons
   objectType: Item
-  description: Woah. Spear from reinforced plasma
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/Rplasma_spear.rsi
-    state: spear
 
 - type: construction
-  name: glass dagger
   id: ADTDaggerGlass
   graph: ADTGDagger
   startNode: start
   targetNode: ADTCompGlassDager
   category: construction-category-weapons
   objectType: Item
-  description: Dagger to cut your enemies.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/glassdagger.rsi
-    state: icon
 
 - type: construction
-  name: reinforced glass dagger
   id: ADTDaggerRefGlass
   graph: ADTGRDagger
   startNode: start
   targetNode: ADTCompGlassRefDager
   category: construction-category-weapons
   objectType: Item
-  description: Dagger to cut your enemies.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/reinforceddagger.rsi
-    state: icon
 
 - type: construction
-  name: plasma dagger
   id: ADTDaggerPlasma
   graph: ADTPDagger
   startNode: start
   targetNode: ADTCompPlasmaDager
   category: construction-category-weapons
   objectType: Item
-  description: A dagger to cut your enemies.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/plasmadagger.rsi
-    state: icon
 
 - type: construction
-  name: uranium dagger
   id: ADTDaggerUranium
   graph: ADTUDagger
   startNode: start
   targetNode: ADTCompUranDager
   category: construction-category-weapons
   objectType: Item
-  description: A dagger to cut your enemies.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/makeshitdaggers/uraniumdagger.rsi
-    state: icon
 
 - type: construction
-  name: energy crossbow
   id: ADTEnergyCrossbow
   graph: EnergyCrossbowGraph
   startNode: start
   targetNode: crossbow
   category: construction-category-weapons
   objectType: Item
-  description: Big and modifiable.
-  icon:
-    sprite: ADT/Objects/Weapons/Guns/Battery/ebow.rsi
-    state: icon
 
 - type: construction
-  name: handmade crowbar
   id: HandmadeCrowbar
   graph: ADTHandmadeCrowbarGraph
   startNode: start
   targetNode: HandmadeCrowbar
   category: construction-category-tools
   objectType: Item
-  description: This is real need you?.
-  icon:
-    sprite: Objects/Tools/crowbar.rsi
-    state: icon
 
 - type: construction
-  name: bone knife
   id: ADTBoneKnife
   graph: ADTBKnife
   startNode: start
   targetNode: ADTBoneCompKnife
   category: construction-category-weapons
   objectType: Item
-  description: A handmade bone knife.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/bone_knife.rsi
-    state: icon
 
 - type: construction
-  name: bone machete
   id: ADTBoneMachete
   graph: ADTBMachete
   startNode: start
   targetNode: ADTBoneCompMachete
   category: construction-category-weapons
   objectType: Item
-  description: A handmade bone machete.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/bone_machete.rsi
-    state: icon
 
 - type: construction
-  name: bone sword
   id: ADTBoneSword
   graph: ADTBSword
   startNode: start
   targetNode: ADTBoneCompSword
   category: construction-category-weapons
   objectType: Item
-  description: A handmade bone sword.
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/bone_sword.rsi
-    state: icon
 
 - type: construction
-  name: wood cross
   id: ADTWoodCross
   graph: ADTWCross
   startNode: start
   targetNode: ADTWoodCompCross
   category: construction-category-clothing
   objectType: Item
-  description: A handmade wood cross.
-  icon:
-    sprite: ADT/Clothing/Neck/Misc/wood_cross.rsi
-    state: icon
 
 - type: construction
-  name: golden baseball bat
   id: ADTgoldbat
   graph: ADTGoldenBat
   startNode: start
   targetNode: ADTgoldbat
   category: construction-category-weapons
-  description: An even robust baseball bat!
-  icon:
-    sprite: ADT/Objects/Weapons/Melee/goldbat.rsi
-    state: icon
-  objectType: Item
 
 - type: construction
-  name: Improvised vaporiser pipe
   id: ADTCrackPipe
   graph: ADTCrackPipeGraph
   startNode: start
   targetNode: craft
   category: construction-category-misc
   objectType: Item
-  description: I am a blowfish! Yeah!... Blowfishin' this up....
-  icon:
-    sprite: Objects/Consumable/Smokeables/Pipes/crack.rsi
-    state: unlit-icon
+
+- type: construction
+  id: VoiceMaskGraph
+  graph: VoiceMaskGraph
+  startNode: start
+  targetNode: voicemask
+  category: construction-category-clothing
+  objectType: Item
+

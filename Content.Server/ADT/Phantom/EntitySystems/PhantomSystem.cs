@@ -94,7 +94,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
@@ -123,6 +123,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     //[Dependency] private readonly PhantomRuleSystem _phantomGameRule = default!; // ADT tweak
 
     #endregion
@@ -296,7 +297,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     /// <param name="args">Event</param>
     private void OnRequestStyleMenu(EntityUid uid, PhantomComponent component, OpenPhantomStylesMenuActionEvent args)
     {
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
         {
             var ev = new RequestPhantomStyleMenuEvent(GetNetEntity(uid));
 
@@ -307,7 +308,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 ev.Prototypes.Add(prototype.ID);
             }
             ev.Prototypes.Sort();
-            RaiseNetworkEvent(ev, mind.Session);
+            RaiseNetworkEvent(ev, session);
         }
     }
 
@@ -351,7 +352,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
         {
             var ev = new RequestPhantomFreedomMenuEvent(GetNetEntity(uid));
 
@@ -370,7 +371,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 }
             }
             ev.Prototypes.Sort();
-            RaiseNetworkEvent(ev, mind.Session);
+            RaiseNetworkEvent(ev, session);
         }
 
         args.Handled = true;
@@ -389,23 +390,23 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         var stationUid = _entitySystems.GetEntitySystem<StationSystem>().GetOwningStation(uid);
         if (stationUid == null)
             return;
-        if (!_mindSystem.TryGetMind(uid, out _, out var mind) || mind.Session == null)
+        if (!_player.TryGetSessionByEntity(uid, out var player))
             return;
 
         if (args.PrototypeId == "ActionPhantomOblivion")
         {
             var eui = new PhantomFinaleEui(uid, this, component, PhantomFinaleType.Oblivion);
-            _euiManager.OpenEui(eui, mind.Session);
+            _euiManager.OpenEui(eui, player);
         }
         if (args.PrototypeId == "ActionPhantomDeathmatch")
         {
             var eui = new PhantomFinaleEui(uid, this, component, PhantomFinaleType.Deathmatch);
-            _euiManager.OpenEui(eui, mind.Session);
+            _euiManager.OpenEui(eui, player);
         }
         if (args.PrototypeId == "ActionPhantomHelpFin")
         {
             var eui = new PhantomFinaleEui(uid, this, component, PhantomFinaleType.Help);
-            _euiManager.OpenEui(eui, mind.Session);
+            _euiManager.OpenEui(eui, player);
         }
     }
 
@@ -426,7 +427,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
 
         }
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
         {
             var ev = new RequestPhantomVesselMenuEvent(GetNetEntity(uid), new());
 
@@ -480,7 +481,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 ev.Vessels.Add((netEnt, profile, meta.EntityName));
             }
             ev.Vessels.Sort();
-            RaiseNetworkEvent(ev, mind.Session);
+            RaiseNetworkEvent(ev, session);
         }
 
         args.Handled = true;
@@ -593,7 +594,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (!_mindSystem.TryGetMind(target, out var mindId, out var mind) || mind.Session == null)
+        if (!_mindSystem.TryGetMind(target, out var mindId, out var mind) || mind.UserId != null)
         {
             var failMessage = Loc.GetString("phantom-no-mind");
             _popup.PopupEntity(failMessage, uid, uid);
@@ -637,8 +638,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 var timeHaunted = TimeSpan.FromHours(1);
                 _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", timeHaunted, false);
                 _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", timeHaunted, false);
-                if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                    _audio.PlayGlobal(component.ParalysisSound, mind.Session);
+                if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                    _audio.PlayGlobal(component.ParalysisSound, session);
             }
             else
             {
@@ -663,8 +664,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 var time = TimeSpan.FromSeconds(10);
                 if (_status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false) && _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false))
                 {
-                    if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                        _audio.PlayGlobal(component.ParalysisSound, mind.Session);
+                    if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                        _audio.PlayGlobal(component.ParalysisSound, session);
                     args.Handled = true;
                 }
             }
@@ -723,10 +724,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                     _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false, status);
                     _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false, status);
                     _status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", timeHaunted, false, status);
-                    if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                        _audio.PlayGlobal(component.BreakdownSound, mind.Session);
-                    if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.Session != null)
-                        _audio.PlayGlobal(component.BreakdownSound, targetMind.Session);
+                    if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                        _audio.PlayGlobal(component.BreakdownSound, session);
+                    if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetsession))
+                        _audio.PlayGlobal(component.BreakdownSound, targetsession);
 
                 }
                 else
@@ -859,8 +860,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 UpdateEctoplasmSpawn(uid);
                 var timeHaunted = TimeSpan.FromHours(1);
                 _status.TryAddStatusEffect<HungerEffectComponent>(target, "ADTStarvation", timeHaunted, false);
-                if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                    _audio.PlayGlobal(component.InjurySound, mind.Session);
+                if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                    _audio.PlayGlobal(component.InjurySound, session);
             }
             else
             {
@@ -886,8 +887,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 UpdateEctoplasmSpawn(uid);
                 var time = TimeSpan.FromSeconds(15);
                 _status.TryAddStatusEffect<HungerEffectComponent>(target, "ADTStarvation", time, false);
-                if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                    _audio.PlayGlobal(component.InjurySound, mind.Session);
+                if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                    _audio.PlayGlobal(component.InjurySound, session);
             }
         }
     }
@@ -900,8 +901,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         UpdateEctoplasmSpawn(uid);
         args.Handled = true;
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-            _audio.PlayGlobal(component.InjurySound, mind.Session);
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+            _audio.PlayGlobal(component.InjurySound, session);
 
         foreach (var mob in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 12f))
         {
@@ -912,8 +913,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             if (!TryUseAbility(uid, mob))
                 continue;
 
-            if (_mindSystem.TryGetMind(mob, out _, out var targetMind) && targetMind.Session != null)
-                _audio.PlayGlobal(component.InjurySound, targetMind.Session);
+            if (_mindSystem.TryGetMind(mob, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetsession))
+                _audio.PlayGlobal(component.InjurySound, targetsession);
 
             var stunTime = TimeSpan.FromSeconds(2);
             var list = _proto.EnumeratePrototypes<DamageGroupPrototype>().ToList();
@@ -1047,10 +1048,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         UpdateEctoplasmSpawn(uid);
         args.Handled = true;
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-            _audio.PlayGlobal(component.RecoverySound, mind.Session);
-        if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.Session != null)
-            _audio.PlayGlobal(component.RecoverySound, targetMind.Session);
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+            _audio.PlayGlobal(component.RecoverySound, session);
+        if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetSession))
+            _audio.PlayGlobal(component.RecoverySound, targetSession);
 
 
         var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), component.RegenerateBruteHealAmount);
@@ -1156,8 +1157,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         if (success)
         {
-            if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                _audio.PlayGlobal(component.RepairSound, mind.Session);
+            if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                _audio.PlayGlobal(component.RepairSound, session);
             var selfMessage = Loc.GetString("phantom-repair-self", ("name", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
             UpdateEctoplasmSpawn(uid);
@@ -1213,10 +1214,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         UpdateEctoplasmSpawn(uid);
         args.Handled = true;
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-            _audio.PlayGlobal(component.BlindingSound, mind.Session);
-        if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.Session != null)
-            _audio.PlayGlobal(component.BlindingSound, targetMind.Session);
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+            _audio.PlayGlobal(component.BlindingSound, session);
+        if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetSession))
+            _audio.PlayGlobal(component.BlindingSound, targetSession);
 
         _bloodstreamSystem.TryModifyBleedAmount(target, component.BlindingBleed, bloodstream);
         _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, "TemporaryBlindness", component.BlindingTime, true);
@@ -1316,8 +1317,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-            _audio.PlayGlobal(component.PsychoSound, mind.Session);
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+            _audio.PlayGlobal(component.PsychoSound, session);
 
         var selfMessage = Loc.GetString("phantom-epidemic-success", ("name", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessage, uid, uid);
@@ -1343,7 +1344,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         if (!TryUseAbility(uid, target))
             return;
 
-        if (!_mindSystem.TryGetMind(target, out _, out var mind) || mind.Session == null)
+        if (!_mindSystem.TryGetMind(target, out _, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
         {
             var failMessage = Loc.GetString("phantom-no-mind");
             _popup.PopupEntity(failMessage, uid, uid);
@@ -1353,7 +1354,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         args.Handled = true;
 
         UpdateEctoplasmSpawn(uid);
-        _euiManager.OpenEui(new AcceptHelpingHandEui(target, this, component), mind.Session);
+        _euiManager.OpenEui(new AcceptHelpingHandEui(target, this, component), session);
     }
 
     private void OnControl(EntityUid uid, PhantomComponent component, PhantomControlActionEvent args)
@@ -1397,10 +1398,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         //_mindSystem.TryGetMind(target, out _, out var targetMind))
         {
             args.Handled = true;
-            if (mind.Session != null)
-                _audio.PlayGlobal(component.PuppeterSound, mind.Session);
-            if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.Session != null)
-                _audio.PlayGlobal(component.PuppeterSound, targetMind.Session);
+            if (mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                _audio.PlayGlobal(component.PuppeterSound, session);
+            if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetSession))
+                _audio.PlayGlobal(component.PuppeterSound, targetSession);
             UpdateEctoplasmSpawn(uid);
             _controlled.TryStartControlling(uid, target, 30f, 10, "Phantom");
         }
@@ -1440,9 +1441,9 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         var stationUid = _entitySystems.GetEntitySystem<StationSystem>().GetOwningStation(uid);
         if (stationUid == null)
             return;
-        if (!_mindSystem.TryGetMind(uid, out _, out var selfMind) || selfMind.Session == null)
+        if (!_mindSystem.TryGetMind(uid, out _, out var selfMind) || selfMind.UserId == null || !_player.TryGetSessionById(selfMind.UserId, out var selfsession))
             return;
-        if (!_mindSystem.TryGetMind(target, out _, out var mind) || mind.Session == null)
+        if (!_mindSystem.TryGetMind(target, out _, out var mind) || mind.UserId == null)
         {
             var failMessage = Loc.GetString("phantom-no-mind");
             _popup.PopupEntity(failMessage, uid, uid);
@@ -1452,7 +1453,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         args.Handled = true;
 
         var eui = new PhantomFinaleEui(uid, this, component, PhantomFinaleType.Nightmare);
-        _euiManager.OpenEui(eui, selfMind.Session);
+        _euiManager.OpenEui(eui, selfsession);
     }
 
     private void OnTyrany(EntityUid uid, PhantomComponent component, TyranyFinaleActionEvent args)
@@ -1477,13 +1478,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         var stationUid = _entitySystems.GetEntitySystem<StationSystem>().GetOwningStation(uid);
         if (stationUid == null)
             return;
-        if (!_mindSystem.TryGetMind(uid, out _, out var mind) || mind.Session == null)
+        if (!_mindSystem.TryGetMind(uid, out _, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
             return;
 
         args.Handled = true;
 
         var eui = new PhantomFinaleEui(uid, this, component, PhantomFinaleType.Tyrany);
-        _euiManager.OpenEui(eui, mind.Session);
+        _euiManager.OpenEui(eui, session);
     }
     #endregion
 
@@ -1524,29 +1525,29 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 var message = popupMessage == "" ? "" : popupMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
                 var selfChatMessage = selfMessage == "" ? "" : selfMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
 
-                if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.Session == null)
+                if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.UserId == null || !_player.TryGetSessionById(selfMind.UserId, out var selfsession))
                     return;
-                _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfMind.Session.Channel);
+                _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfsession.Channel);
                 _popup.PopupEntity(selfMessage, uid, uid);
 
                 foreach (var vessel in component.Vessels)
                 {
                     if (!HasComp<VesselComponent>(vessel) && !HasComp<PhantomHolderComponent>(vessel))
                         continue;
-                    if (!_mindSystem.TryGetMind(vessel, out var mindId, out var mind) || mind.Session == null)
+                    if (!_mindSystem.TryGetMind(vessel, out var mindId, out var mind) || !_player.TryGetSessionById(selfMind.UserId, out var session))
                         continue;
-                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, mind.Session.Channel);
+                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, session.Channel);
                     _popup.PopupEntity(popupMessage, vessel, vessel, PopupType.MediumCaution);
 
                     if (component.SpeechTimer <= 0)
                     {
-                        _audio.PlayGlobal(component.SpeechSound, mind.Session);
+                        _audio.PlayGlobal(component.SpeechSound, session);
                         component.SpeechTimer = 5;
                         playSound = true;
                     }
                 }
                 if (playSound)
-                    _audio.PlayGlobal(component.SpeechSound, selfMind.Session);
+                    _audio.PlayGlobal(component.SpeechSound, selfsession);
                 return;
             }
             if (args.Type == InGameICChatType.Speak)
@@ -1556,30 +1557,30 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 var message = popupMessage == "" ? "" : popupMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
                 var selfChatMessage = selfMessage == "" ? "" : selfMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
 
-                if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.Session == null)
+                if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.UserId == null || !_player.TryGetSessionById(selfMind.UserId, out var selfsession))
                     return;
-                _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfMind.Session.Channel);
+                _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfsession.Channel);
                 _popup.PopupEntity(selfMessage, uid, uid);
 
                 foreach (var vessel in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 7f))
                 {
                     if (!HasComp<VesselComponent>(vessel) && !HasComp<PhantomHolderComponent>(vessel))
                         continue;
-                    if (!_mindSystem.TryGetMind(vessel, out var mindId, out var mind) || mind.Session == null)
+                    if (!_mindSystem.TryGetMind(vessel, out var mindId, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
                         continue;
-                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, mind.Session.Channel);
+                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, session.Channel);
                     _popup.PopupEntity(popupMessage, vessel, vessel, PopupType.MediumCaution);
 
                     if (component.SpeechTimer <= 0)
                     {
-                        _audio.PlayGlobal(component.SpeechSound, mind.Session);
+                        _audio.PlayGlobal(component.SpeechSound, session);
                         component.SpeechTimer = 5;
                         playSound = true;
                     }
 
                 }
                 if (playSound)
-                    _audio.PlayGlobal(component.SpeechSound, selfMind.Session);
+                    _audio.PlayGlobal(component.SpeechSound, selfsession);
                 return;
             }
             if (args.Type == InGameICChatType.Whisper)
@@ -1590,24 +1591,24 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                     var popupMessage = Loc.GetString("phantom-say-target");
                     var selfMessage = Loc.GetString("phantom-say-self");
 
-                    if (!_mindSystem.TryGetMind(target, out var mindId, out var mind) || mind.Session == null)
+                    if (!_mindSystem.TryGetMind(target, out var mindId, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
                         return;
-                    if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.Session == null)
+                    if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.UserId == null || !_player.TryGetSessionById(selfMind.UserId, out var selfsession))
                         return;
 
                     _popup.PopupEntity(popupMessage, target, target, PopupType.MediumCaution);
                     _popup.PopupEntity(selfMessage, uid, uid);
 
                     var message = popupMessage == "" ? "" : popupMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
-                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, mind.Session.Channel);
+                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, session.Channel);
 
                     var selfChatMessage = selfMessage == "" ? "" : selfMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
-                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfMind.Session.Channel);
+                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfsession.Channel);
 
                     if (component.SpeechTimer <= 0)
                     {
-                        _audio.PlayGlobal(component.SpeechSound, selfMind.Session);
-                        _audio.PlayGlobal(component.SpeechSound, mind.Session);
+                        _audio.PlayGlobal(component.SpeechSound, selfsession);
+                        _audio.PlayGlobal(component.SpeechSound, session);
                         component.SpeechTimer = 5;
                     }
                 }
@@ -1629,27 +1630,27 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 var message = popupMessage == "" ? "" : popupMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
                 var selfChatMessage = selfMessage == "" ? "" : selfMessage + (args.Message == "" ? "" : $" \"{args.Message}\"");
 
-                if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.Session == null)
+                if (!_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) || selfMind.UserId == null || !_player.TryGetSessionById(selfMind.UserId, out var selfsession))
                     return;
-                _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfMind.Session.Channel);
+                _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, selfChatMessage, EntityUid.Invalid, false, selfsession.Channel);
                 _popup.PopupEntity(selfMessage, uid, uid);
 
                 foreach (var vessel in component.Vessels)
                 {
-                    if (!_mindSystem.TryGetMind(vessel, out var mindId, out var mind) || mind.Session == null)
+                    if (!_mindSystem.TryGetMind(vessel, out var mindId, out var mind) || mind.UserId == null || !_player.TryGetSessionById(selfMind.UserId, out var session))
                         continue;
-                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, mind.Session.Channel);
+                    _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, message, EntityUid.Invalid, false, session.Channel);
                     _popup.PopupEntity(popupMessage, vessel, vessel, PopupType.MediumCaution);
 
                     if (component.SpeechTimer <= 0 && !HasComp<GhostComponent>(vessel))
                     {
-                        _audio.PlayGlobal(component.SpeechSound, mind.Session);
+                        _audio.PlayGlobal(component.SpeechSound, session);
                         component.SpeechTimer = 5;
                         playSound = true;
                     }
                 }
                 if (playSound)
-                    _audio.PlayGlobal(component.SpeechSound, selfMind.Session);
+                    _audio.PlayGlobal(component.SpeechSound, selfsession);
                 return;
             }
         }
@@ -1736,10 +1737,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        if (!_mindSystem.TryGetMind(target, out _, out var mind) || mind.Session == null)
+        if (!_mindSystem.TryGetMind(target, out _, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        _euiManager.OpenEui(new AcceptPhantomPowersEui(target, this, component), mind.Session);
+        _euiManager.OpenEui(new AcceptPhantomPowersEui(target, this, component), session);
     }
 
     private void OnSinguloConsumeAttempt(EntityUid uid, PhantomComponent component, ref EventHorizonAttemptConsumeEntityEvent args)
@@ -1864,8 +1865,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         SelectStyle(uid, component, component.CurrentStyle, true);
         ChangeEssenceAmount(uid, 0, component);
 
-        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-            _audio.PlayGlobal(component.GhostKissSound, mind.Session);
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+            _audio.PlayGlobal(component.GhostKissSound, session);
 
         PopulateVesselMenu(uid);
 
@@ -1951,8 +1952,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             _alerts.ShowAlert(uid, component.HauntedAlert);
             //_action.AddAction(uid, ref component.PhantomStopHauntActionEntity, component.PhantomStopHauntAction);
 
-            if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.Session != null)
-                _audio.PlayGlobal(component.HauntSound, mind.Session);
+            if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                _audio.PlayGlobal(component.HauntSound, session);
 
             Dirty(target, holderComp);
 
@@ -2546,10 +2547,10 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             _status.TryAddStatusEffect<KnockedDownComponent>(vessel, "KnockedDown", time, true);
             _status.TryAddStatusEffect<StunnedComponent>(vessel, "Stun", time, true);
 
-            if (_mindSystem.TryGetMind(vessel, out _, out var mind) && mind.Session != null)
+            if (_mindSystem.TryGetMind(vessel, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
             {
-                _euiManager.OpenEui(new PhantomAmnesiaEui(), mind.Session);
-                _audio.PlayGlobal(component.OblibionSound, mind.Session);
+                _euiManager.OpenEui(new PhantomAmnesiaEui(), session);
+                _audio.PlayGlobal(component.OblibionSound, session);
             }
 
             if (HasComp<PhantomPuppetComponent>(vessel))
@@ -2557,14 +2558,14 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
 
         var human = Spawn("ADTPhantomReincarnationAnim", Transform(uid).Coordinates);
-        if (_mindSystem.TryGetMind(uid, out var mindId, out var selfMind) && selfMind.Session != null)
+        if (_mindSystem.TryGetMind(uid, out var mindId, out var selfMind) && selfMind.UserId != null && _player.TryGetSessionById(selfMind.UserId, out var selfsession))
         {
             _mindSystem.TransferTo(mindId, human);
             var ev = new PhantomReincarnatedEvent();
             RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
-            _euiManager.OpenEui(new PhantomAmnesiaEui(), selfMind.Session);
-            _audio.PlayGlobal(component.OblivionSong, selfMind.Session);
+            _euiManager.OpenEui(new PhantomAmnesiaEui(), selfsession);
+            _audio.PlayGlobal(component.OblivionSong, selfsession);
         }
     }
 
@@ -2597,18 +2598,18 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
             EnsureComp<ShowVesselIconsComponent>(vessel);
 
-            if (_mindSystem.TryGetMind(vessel, out var mindId, out var mind) && mind.Session != null)
-            {
+            // if (_mindSystem.TryGetMind(vessel, out var mindId, out var mind) && mind.Session != null)
+            // {
 
-                //_mindSystem.TryAddObjective(mindId, mind, "NotYet");
-            }
+            //     //_mindSystem.TryAddObjective(mindId, mind, "NotYet");
+            // }
         }
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("phantom-deathmatch-announcement"), Loc.GetString("phantom-announcer"), true, component.TyranySound, Color.DarkCyan);
         _audio.PlayGlobal(component.DeathmatchSound, Filter.Broadcast(), true);
 
         _audio.PlayGlobal(component.DeathmatchSong, Filter.Broadcast(), true);
         var human = Spawn("ADTPhantomReincarnationAnim", Transform(uid).Coordinates);
-        if (_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) && selfMind.Session != null)
+        if (_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) && selfMind.UserId != null && _player.TryGetSessionById(selfMind.UserId, out var session))
         {
             _mindSystem.TransferTo(selfMindId, human);
             var ev = new PhantomReincarnatedEvent();
@@ -2640,13 +2641,13 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         _audio.PlayGlobal(component.HelpSound, Filter.Broadcast(), true);
 
         var human = Spawn("ADTPhantomReincarnationAnim", Transform(uid).Coordinates);
-        if (_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) && selfMind.Session != null)
+        if (_mindSystem.TryGetMind(uid, out var selfMindId, out var selfMind) && selfMind.UserId != null && _player.TryGetSessionById(selfMind.UserId, out var session))
         {
             _mindSystem.TransferTo(selfMindId, human);
             var ev = new PhantomReincarnatedEvent();
             RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
-            _audio.PlayGlobal(component.HelpSong, selfMind.Session);
+            _audio.PlayGlobal(component.HelpSong, session);
         }
     }
     #endregion

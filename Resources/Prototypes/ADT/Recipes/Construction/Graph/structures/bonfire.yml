@@ -12,7 +12,7 @@
               amount: 15
               doAfter: 3
     - node: bonfire
-      entity: Bonfire
+      entity: ADTBonfire
       edges:
         - to: start
           completed:

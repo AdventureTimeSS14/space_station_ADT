@@ -87,6 +87,13 @@
   - Fork
   - BarSpoon
   - Urn
+  - BoxFolderRed
+  - BoxFolderBlue
+  - BoxFolderYellow
+  - BoxFolderWhite
+  - BoxFolderGrey
+  - BoxFolderBlack
+  - BoxFolderGreen
 
 - type: latheRecipePack
   id: ADTServiceHydroponics

@@ -9,8 +9,9 @@
       state: ertleader
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitaryLeader
-      - NamesLastMilitary
+      - ADTCmndNamesFirstMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: ADTERTLeader
 
@@ -63,8 +64,9 @@
       prototypes: [ ADTERTLeaderGear ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitaryLeader
-      - NamesLastMilitary
+      - ADTCmndNamesFirstMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: ADTERTLeaderEVA
@@ -123,8 +125,9 @@
       state: ertjanitor
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTEngineer
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: ADTERTJanitor
 
@@ -162,8 +165,9 @@
         time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTEngineer
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: Loadout
       prototypes: [ ADTERTJanitorGear ]
 
@@ -236,8 +240,9 @@
       state: ertengineer
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTEngineer
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: ADTERTEngineer
 
@@ -275,8 +280,9 @@
         time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTEngineer
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: Loadout
       prototypes: [ ADTERTEngineerGear ]
 
@@ -349,8 +355,9 @@
       state: ertsecurity
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: ADTERTSecurity
 
@@ -388,8 +395,9 @@
         time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: Loadout
       prototypes: [ ADTERTSecurityGear ]
 
@@ -458,8 +466,9 @@
       state: ertmedical
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTMedical
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: ADTERTMedical
 
@@ -497,8 +506,9 @@
         time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesFirstERTMedical
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
     - type: Loadout
       prototypes: [ ADTERTMedicalGear ]
 
@@ -617,6 +627,7 @@
       nameSegments:
       - ADTCmndNamesFirstMilitary
       - NamesLastERTCallsign  # Corvax Localization
+      nameFormat: name-format-standard
 # end Капитан РХБЗЗ
 
 # SPACE SEC
