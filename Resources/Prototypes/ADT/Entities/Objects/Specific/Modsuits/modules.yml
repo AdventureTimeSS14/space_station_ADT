@@ -548,7 +548,7 @@
 
 - type: entity
   parent: ADTModsuitModBase
-  id: ADTModsuitModStorageOfHolding
+  id: ADTModsuitModStorageHolding
   name: MOD storage of holding module
   description: Localized bluespace pocket, now in your MOD storage. Seems much bulkier than the regular storage module.
   components:

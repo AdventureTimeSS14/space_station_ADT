@@ -39,6 +39,7 @@
   - ADTModsuitModIsulation
   - ADTModsuitModJump
   - ADTModsuitModNoslip
+  - ADTModsuitModStorageHolding
 
 - type: latheRecipePack
   id: ADTGygaxPack
@@ -131,4 +132,4 @@
   # - ADTBoxAmmoHades         Перенесено в охранный техфаб
   # - ADTBoxAmmoSniper        Вырезано ради баланса
   # - ADTBoxAmmoGranade       Перенесено в охранный техфаб
-  - ADTBoxPlasmaBox      
+  - ADTBoxPlasmaBox

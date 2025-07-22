@@ -345,3 +345,14 @@
     Plastic: 800
     Glass: 1000
     Silver: 200
+
+- type: latheRecipe
+  id: ADTModsuitModStorageHolding
+  result: ADTModsuitModStorageHolding
+  completetime: 4
+  materials:
+    Steel: 2500
+    Plastic: 1200
+    Glass: 1500
+    Silver: 700
+    Gold: 1000
