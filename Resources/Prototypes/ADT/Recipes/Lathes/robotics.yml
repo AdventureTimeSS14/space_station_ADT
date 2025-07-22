@@ -351,8 +351,7 @@
   result: ADTModsuitModStorageHolding
   completetime: 4
   materials:
-    Steel: 2500
-    Plastic: 1200
-    Glass: 1500
-    Silver: 700
-    Gold: 1000
+    Steel: 2000
+    Silver: 750
+    Plasma: 1500
+    Uranium: 150
