@@ -7,13 +7,13 @@
         - to: adtmodsuitengineering
           steps:
             - tag: ADTModsuitPlateEngineering
-              name: Engineering MOD plate
+              name: construction-graph-tag-engineering-mod-plate
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: engineering
               doAfter: 2
             - tag: ADTModsuitAssembledPart
-              name: MOD core
+              name: construction-graph-tag-mod-core
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: modcore8

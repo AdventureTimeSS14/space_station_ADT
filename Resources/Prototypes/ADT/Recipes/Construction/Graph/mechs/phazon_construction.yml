@@ -35,7 +35,7 @@
           data: 4
 
       - tag: ADTPhazonCentralControlModule
-        name: phazon central control module
+        name: construction-graph-tag-phazon-central-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -52,7 +52,7 @@
           data: 6
 
       - tag: ADTPhazonPeripheralsControlModule
-        name: phazon peripherals control module
+        name: construction-graph-tag-phazon-peripherals-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -72,7 +72,7 @@
 #currently mechs don't support upgrading. add them back in once that's squared away.
 
       - tag: ADTPhazonWeaponControlModule
-        name: phazon weapon and targeting control module
+        name: construction-graph-tag-phazon-weapon-control-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -89,7 +89,7 @@
           data: 10
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-tag-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
@@ -107,7 +107,7 @@
           data: 14
 
       - tag: CapacitorStockPart
-        name: capacitor stock part
+        name: construction-graph-tag-capicator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: capacitor
@@ -117,7 +117,7 @@
           data: 15
 
       - tag: CapacitorStockPart
-        name: capacitor stock part
+        name: construction-graph-tag-capicator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: capacitor
@@ -141,7 +141,7 @@
           data: 18
 
       - tag: ADTBluespaceAnomalyCore
-        name: bluespace anomaly core
+        name: construction-graph-tag-bluespace-anomaly-core
         icon:
           sprite: "Structures/Specific/Anomalies/Cores/bluespace_core.rsi"
           state: core
@@ -186,7 +186,7 @@
           data: 24
 
       - tag: ADTPhazonArmor
-        name: phazon armor plates
+        name: construction-graph-tag-phazon-armor-plates
         icon:
           sprite: "ADT/Objects/Specific/Mech/phazon_construction.rsi"
           state: phazon_armor

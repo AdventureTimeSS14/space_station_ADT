@@ -240,3 +240,15 @@
     - id: ADTMagazineRifleBibis
       amount: 6
 
+- type: entity
+  id: ADTRingsCrate
+  parent: CratePirate
+  name: ring box
+  description: Hello, my name is M1and1B and im stupid
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTRingBoxPlazma
+    - id: ADTRingBoxEmerald
+    - id: ADTRingBoxBlood
+    - id: ADTRingBoxTurk
