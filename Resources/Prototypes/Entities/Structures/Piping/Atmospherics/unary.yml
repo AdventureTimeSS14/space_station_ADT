@@ -34,6 +34,12 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: VentCrawlerTube  # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -115,6 +121,14 @@
     - type: GuideHelp
       guides:
       - PassiveVent
+    - type: VentCrawlerEntry # ADT tweak start
+    - type: VentCrawlerTube
+      containerId: VentCrawlerTube
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container
+    - type: Weldable
+      time: 3 # ADT tweak end
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -124,6 +138,12 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -217,6 +237,14 @@
     - type: GuideHelp
       guides:
       - AirInjector
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]

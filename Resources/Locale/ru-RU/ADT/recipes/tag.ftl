@@ -63,6 +63,7 @@ construction-graph-tag-paper = бумага
 construction-graph-tag-miner-armor = костюм исследователя
 construction-graph-tag-reinforced-explorer-suit =  пластинчатый костюм исследователя
 construction-graph-tag-reinforced-explorer-suit-two = взрывозащитный костюм
+construction-graph-gas-mask = противогаз
 
 # Тайлы
 construction-graph-tag-steel-dark-gray-tile = тёмно-серый пол
@@ -94,6 +95,8 @@ construction-graph-tag-ambrosia = амброзия
 
 # Платы
 construction-graph-door-electronics = микросхема шлюза
+construction-graph-intercom-electronics = плата интеркома
 
 # Другое
 construction-graph-tag-capicator-stock-part = конденцатор
+construction-graph-voice-trigger = голосовой триггер
