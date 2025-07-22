@@ -1001,6 +1001,7 @@
   loadouts:
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
+  - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -1059,6 +1060,7 @@
   - ScienceLabCoat
   - RegularLabCoat
   - ScienceWintercoat
+  - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
   id: ScientistShoes
