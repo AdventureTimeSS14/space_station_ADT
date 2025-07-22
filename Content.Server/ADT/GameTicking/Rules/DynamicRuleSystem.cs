@@ -41,7 +41,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
-        component.Chaos = (uint)_random.NextFloat(component.MinChaos, component.MaxChaos);
+        component.Chaos = (int)_random.NextFloat(component.MinChaos, component.MaxChaos);
         _adminLogger.Add(LogType.EventStarted, $"Current chaos level: {component.Chaos}");
         Log.Info($"Current chaos level: {component.Chaos}");
 

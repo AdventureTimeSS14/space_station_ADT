@@ -12,10 +12,10 @@ public sealed partial class DynamicRuleComponent : Component
     public int MaxEventsBeforeAntag = 9;
     public int EventsBeforeAntag = 9;
 
-    public uint Chaos = 0;
+    public int Chaos = 0;
     public float TimeUntilNextEvent;
     [DataField]
-    public int MinChaos = 1;
+    public int MinChaos = 10;
     [DataField]
     public int MaxChaos = 100;
 
@@ -46,12 +46,12 @@ public sealed partial class DynamicRuleComponent : Component
 }
 
 [DataDefinition]
-[Serializable, NetSerializable]
+[Serializable]
 public sealed partial record DynamicRulePriced
 {
     [DataField(required: true)]
     public string Id;
 
     [DataField]
-    public uint Cost;
+    public int Cost;
 }

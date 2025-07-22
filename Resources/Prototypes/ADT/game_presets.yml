@@ -67,3 +67,16 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
+
+- type: gamePreset
+  id: Dynamic
+  alias:
+    - dynamic
+  name: dynamic-title
+  description: dynamic-description
+  showInVote: true
+  rules:
+    - DynamicGamerule
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation

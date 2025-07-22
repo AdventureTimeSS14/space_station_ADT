@@ -101,8 +101,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 4          
-      playerRatio: 15 
+      max: 4
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
@@ -124,7 +124,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2       
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -181,3 +181,47 @@
       mindComponents:
       - type: HereticRole
       startingGear: HereticGear # see Roles/Antags/heretic.yml
+
+- type: entity
+  id: DynamicGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRule
+    scheduledGameRules: !type:NestedSelector
+      tableId: RampingGameRulesTable
+    roundstartRules:
+      - id: HereticDuoGameRule
+        cost: 20
+      - id: ChangelingDuoGameRule
+        cost: 10
+      - id: TraitorDuoGameRule
+        cost: 10
+      - id: TraitorLightGameRule
+        cost: 15
+      - id: ChangelingGameRule
+        cost: 25
+      - id: HereticGameRule
+        cost: 30
+      - id: Nukeops
+        cost: 50
+      - id: Revolutionary
+        cost: 30
+      - id: Zombie
+        cost: 100 # хы-хы
+    midroundAntags:
+      - id: DragonSpawn
+        cost: 100
+      - id: Pirates
+        cost: 120
+      - id: PhantomSpawn
+        cost: 110
+      - id: MorphSpawn
+        cost: 130
+      - id: NinjaSpawn
+        cost: 140
+      - id: KingRatMigration
+        cost: 90
+      - id: ParadoxCloneSpawn
+        cost: 90
+      - id: SleeperAgents
+        cost: 100
