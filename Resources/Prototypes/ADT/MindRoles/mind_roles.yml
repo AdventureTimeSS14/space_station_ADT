@@ -8,3 +8,12 @@
     antagPrototype: Phantom
     exclusiveAntag: true
   - type: PhantomRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMorph
+  name: Motph role
+  components:
+  - type: MindRole
+    roleType: TeamAntagonist
+    exclusiveAntag: true

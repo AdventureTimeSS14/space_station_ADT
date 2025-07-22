@@ -1,0 +1,8 @@
+- type: entity
+  abstract: true
+  parent: [BaseObjective, BaseSurviveObjective]
+  id: MorphSurviveObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    issuer: objective-issuer-dragon
