@@ -52,7 +52,7 @@ blueshield-voucher-saber-rev-description =
 
 hos-voucher-unika-name = Уника 6
 hos-voucher-unika-description =
-    Стандартный реввольвер, что часто используют ГСБ.
+    Стандартный револьвер, что часто используют ГСБ.
 
 hos-voucher-multiphase-name = X-01 М.Э.П.
 hos-voucher-multiphase-description =
