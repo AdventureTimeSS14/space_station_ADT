@@ -147,19 +147,19 @@ ent-ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless = чёрно-бел
     .desc = Практичная и удобная водолазка чёрно-белого цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
     .suffix = { "" }
 
-ent-ADTCEJumpsuitWarm = водолазка Старшего инженера
+ent-ADTCEJumpsuitWarm = водолазка старшего инженера
     .desc = Это комбинезон повышенной заметности, который выдается тем инженерам, которые достаточно безумны и живучи, чтобы достичь звания Старшего инженера. Имеет слабую защиту от радиации.
     .suffix = {""}
 
-ent-ADTCMOJumpsuitWarm = водолазка Главного врача
+ent-ADTCMOJumpsuitWarm = водолазка главного врача
     .desc = Это комбинезон, носимый теми, у кого есть опыт работы на должности Главного врача. Он обеспечивает слабую биологическую защиту.
     .suffix = {""}
 
-ent-ADTClothingUniformJumpsuitHopWarm = водолазка Главы персонала
+ent-ADTClothingUniformJumpsuitHopWarm = водолазка главы персонала
     .desc = Довольно безвкусная и невзрачная. Идеально подходит для того, чтобы исчезнуть с лица Вселенной.
     .suffix = {""}
 
-ent-ADTQMJumpsuitWarm = водолазка Квартирмейстера
+ent-ADTQMJumpsuitWarm = водолазка квартирмейстера
     .desc = Строгая водолазка, предназначенная для суровых условий работы в области снабжения.
     .suffix = {""}
 
@@ -191,9 +191,7 @@ ent-ADTSpaceSecUniformOfficer = комбинезон офицера SPACE SEC
 
 ent-ADTClothingUniformBrigmedicTurtleneck = водолазка бригмедика
     .desc = Удобная и тёплая водолазка ангела-хранителя брига.
-ent-ADTClothingUniformSkirtBrigmedicTurtleneck = юбка-водолазка бригмедика
-    .desc = Удобная и тёплая юбка-водолазка ангела-хранителя брига.
-
+    
 ent-ADTClothingUniformIlisium = костюм Иллизиума
     .suffix = Иллизиум
     .desc = Тёмный костюм Иллизиума.
