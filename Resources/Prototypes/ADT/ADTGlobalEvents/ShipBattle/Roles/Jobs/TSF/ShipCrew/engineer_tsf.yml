@@ -45,7 +45,7 @@
   id: ADTBattleShipEngineerTSFGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformEngineerTSF
-    back: ADTShipBattleClothingBlackBackpackJetEngineer
+    back: ADTShipBattleClothingBlackBackpackJetTSFEngineer
     shoes: ADTShipBattleClothingShoesBootsMagFleet
     # head: ClothingHeadHelmetERTSecurity
     eyes: ClothingEyesGlassesMeson
