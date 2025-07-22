@@ -15,3 +15,9 @@
   values:
     prefix: names-military-last-dataset-
     count: 43 # Corvax-MRP-Edit
+
+- type: localizedDataset
+  id: NamesFirstDeadSquad #ADT-Tweak
+  values:
+    prefix: names-military-deadsquad-first-dataset-
+    count: 1 # Corvax-MRP-Edit

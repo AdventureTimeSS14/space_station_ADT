@@ -79,6 +79,16 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasFilter
@@ -126,6 +136,16 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasTrinaryBase
@@ -135,6 +155,9 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/gasmixer.rsi
       layers:
@@ -175,6 +198,16 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasMixer
@@ -218,6 +251,16 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction
+    degrees:
+      - 0
+      - -90
+      - 180
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasPipeBase
@@ -234,6 +277,8 @@
     - type: SubFloorHide
       blockInteractions: false
       blockAmbience: false
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: NodeContainer
       nodes:
         inlet:
@@ -281,3 +326,13 @@
       - PneumaticValve
       - Pumps
       - Valves
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end

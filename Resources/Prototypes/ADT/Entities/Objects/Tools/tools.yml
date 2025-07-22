@@ -49,7 +49,7 @@
     - ADTDeconstruct
   - type: LimitedCharges
     maxCharges: 130
-    charges: 130
+    lastCharges: 130
   - type: UseDelay
   - type: Sprite
     sprite: ADT/Objects/Tools/rpd.rsi
@@ -63,7 +63,7 @@
     - Belt
   - type: PhysicalComposition
     materialComposition:
-      Steel: 600
+      Steel: 500
       Plastic: 100
   - type: StaticPrice
     price: 150
@@ -81,7 +81,7 @@
   suffix: Empty
   components:
   - type: LimitedCharges
-    charges: 0
+    lastCharges: 0
 
 - type: entity
   id: ADTRPDRecharging
@@ -92,7 +92,7 @@
   components:
   - type: LimitedCharges
     maxCharges: 20
-    charges: 20
+    lastCharges: 20
   - type: AutoRecharge
     rechargeDuration: 10
 

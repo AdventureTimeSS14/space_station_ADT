@@ -216,3 +216,19 @@
   materials:
     Steel: 100
     Plastic: 100
+
+# ADT-Tweak
+- type: latheRecipe 
+  parent: BaseCircuitboardRecipe
+  id: MedicalScannerMachineCircuitboard
+  result: MedicalScannerMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CloningConsoleComputerCircuitboard
+  result: CloningConsoleComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: CloningPodMachineCircuitboard
+  result: CloningPodMachineCircuitboard
