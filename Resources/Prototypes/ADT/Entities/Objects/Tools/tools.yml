@@ -2,7 +2,11 @@
   id: ADTRPD
   parent: BaseItem
   name: RPD
+<<<<<<< HEAD
   description: The rapid pipe dispenser is used to quickly build structures for atmosphere operation and disposal.
+=======
+  description: Rapid Pipe Dispenser is used to quickly build structures for atmosphere operation and disposal.
+>>>>>>> pr-166
   components:
   - type: RPD
     availablePrototypes:
@@ -20,11 +24,18 @@
     - ADTGasVolumePump
     - ADTGasPassiveVent
     - ADTGasOutletInjector
+<<<<<<< HEAD
     - ADTRadiator
     - ADTGasVentPump
     - ADTGasValve
     - ADTGasVentScrubber
     # - ADTAtmosDeviceFanTiny Удалено в целях баланса
+=======
+    - ADTGasVentPump
+    - ADTGasValve
+    - ADTGasVentScrubber
+    - ADTAtmosDeviceFanTiny
+>>>>>>> pr-166
     - ADTGasPassiveGate
     - ADTGasDualPortVentPump
     - ADTSignalControlledValve
@@ -49,7 +60,11 @@
     - ADTDeconstruct
   - type: LimitedCharges
     maxCharges: 130
+<<<<<<< HEAD
     lastCharges: 130
+=======
+    charges: 130
+>>>>>>> pr-166
   - type: UseDelay
   - type: Sprite
     sprite: ADT/Objects/Tools/rpd.rsi
@@ -63,10 +78,17 @@
     - Belt
   - type: PhysicalComposition
     materialComposition:
+<<<<<<< HEAD
       Steel: 500
       Plastic: 100
   - type: StaticPrice
     price: 150
+=======
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 100
+>>>>>>> pr-166
   - type: UserInterface
     interfaces:
       enum.RpdUiKey.Key:
@@ -74,6 +96,28 @@
   - type: ActivatableUI
     key: enum.RpdUiKey.Key
 
+<<<<<<< HEAD
+=======
+- type: entity
+  id: ADTRPDAmmo
+  parent: BaseItem
+  name: canned matter
+  description: A polymeric substance designed to create new objects.
+  components:
+  - type: RPDAmmo
+  - type: Sprite
+    sprite: ADT/Objects/Tools/rpd.rsi
+    state: ammo
+  - type: Item
+    sprite: ADT/Objects/Tools/rpd.rsi
+    heldPrefix: ammo
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: StaticPrice
+    price: 60
+>>>>>>> pr-166
 
 - type: entity
   id: ADTRPDEmpty
@@ -81,6 +125,7 @@
   suffix: Empty
   components:
   - type: LimitedCharges
+<<<<<<< HEAD
     lastCharges: 0
 
 - type: entity
@@ -253,3 +298,6 @@
     sprite: ADT/Objects/Tools/supermatter_scalpel.rsi
     storedRotation: 90
   - type : SupermatterImmune
+=======
+    charges: 0
+>>>>>>> pr-166

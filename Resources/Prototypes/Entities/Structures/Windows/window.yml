@@ -94,6 +94,7 @@
   - type: BlockWeather
   - type: CanBuildWindowOnTopRPD # ADT-RPD
 
+<<<<<<< HEAD
 - type: entity
   parent: Window
   id: TintedWindow
@@ -113,6 +114,8 @@
   - type: StaticPrice
     price: 70
 
+=======
+>>>>>>> pr-166
 - type: entity
   id: WindowRCDResistant
   parent: Window

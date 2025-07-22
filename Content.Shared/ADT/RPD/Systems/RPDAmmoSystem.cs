@@ -43,7 +43,11 @@ public sealed class RPDAmmoSystem : EntitySystem
 
         var user = args.User;
         args.Handled = true;
+<<<<<<< HEAD
         var count = Math.Min(charges.MaxCharges - charges.LastCharges, comp.Charges);
+=======
+        var count = Math.Min(charges.MaxCharges - charges.Charges, comp.Charges);
+>>>>>>> pr-166
         if (count <= 0)
         {
             _popup.PopupClient(Loc.GetString("rpd-ammo-component-after-interact-full"), target, user);
@@ -51,7 +55,11 @@ public sealed class RPDAmmoSystem : EntitySystem
         }
 
         _popup.PopupClient(Loc.GetString("rpd-ammo-component-after-interact-refilled"), target, user);
+<<<<<<< HEAD
         _charges.AddCharges(target, count);
+=======
+        _charges.AddCharges(target, count, charges);
+>>>>>>> pr-166
         comp.Charges -= count;
         Dirty(uid, comp);
 

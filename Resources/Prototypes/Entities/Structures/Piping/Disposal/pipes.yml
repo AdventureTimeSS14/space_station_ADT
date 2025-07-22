@@ -61,13 +61,18 @@
     containers:
       DisposalTube: !type:Container
   - type: StaticPrice
+<<<<<<< HEAD
     price: 30
+=======
+    price: 22
+>>>>>>> pr-166
   # ADT-RPD-Start
   - type: RPDDeconstructable
     cost: 4
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
+<<<<<<< HEAD
   # ADT-UPD-Start
   - type: Item
     size: Ginormous
@@ -76,6 +81,8 @@
     sprintModifier: 0.5
   - type: MultiHandedItem
   # ADT-UPD-End
+=======
+>>>>>>> pr-166
 
 - type: entity
   id: DisposalHolder

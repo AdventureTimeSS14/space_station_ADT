@@ -34,6 +34,11 @@ public class RPDSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
+    [Dependency] private readonly FloorTileSystem _floors = default!;
+>>>>>>> pr-166
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -43,7 +48,14 @@ public class RPDSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+<<<<<<< HEAD
 
+=======
+    [Dependency] private readonly TagSystem _tags = default!;
+
+    private readonly int _instantConstructionDelay = 0;
+    private readonly EntProtoId _instantConstructionFx = "EffectRPDConstruct0";
+>>>>>>> pr-166
 
     private HashSet<EntityUid> _intersectingEntities = new();
 
@@ -237,7 +249,11 @@ public class RPDSystem : EntitySystem
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
+<<<<<<< HEAD
         _charges.TryUseCharges(uid, args.Cost);
+=======
+        _charges.UseCharges(uid, args.Cost);
+>>>>>>> pr-166
     }
 
     private void OnRPDconstructionGhostRotationEvent(RPDConstructionGhostRotationEvent ev, EntitySessionEventArgs session)
@@ -272,7 +288,12 @@ public class RPDSystem : EntitySystem
         // Check that the RPD has enough ammo to get the job done
         TryComp<LimitedChargesComponent>(uid, out var charges);
 
+<<<<<<< HEAD
         if (_charges.IsEmpty((uid, charges)))
+=======
+        // Both of these were messages were suppose to be predicted, but HasInsufficientCharges wasn't being checked on the client for some reason?
+        if (_charges.IsEmpty(uid, charges))
+>>>>>>> pr-166
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-no-ammo-message"), uid, user);
@@ -280,7 +301,11 @@ public class RPDSystem : EntitySystem
             return false;
         }
 
+<<<<<<< HEAD
         if (!_charges.HasCharges((uid, charges), component.CachedPrototype.Cost))
+=======
+        if (_charges.HasInsufficientCharges(uid, component.CachedPrototype.Cost, charges))
+>>>>>>> pr-166
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-insufficient-ammo-message"), uid, user);
@@ -339,7 +364,11 @@ public class RPDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
+<<<<<<< HEAD
                     if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)component.CachedPrototype.CollisionMask) == 0)
+=======
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) component.CachedPrototype.CollisionMask) == 0)
+>>>>>>> pr-166
                         continue;
 
                     // Continue if our custom collision bounds are not intersected

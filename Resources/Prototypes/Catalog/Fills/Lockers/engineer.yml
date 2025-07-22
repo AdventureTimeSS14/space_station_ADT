@@ -94,6 +94,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+<<<<<<< HEAD
       - id: ADTDoorRemoteFirefight # ADT-Atmos-Remote
   # ADT-RPD-Start
       - id: ADTRPD
@@ -103,6 +104,12 @@
       - id: ADTBookSRPeng
       - id: ADTBookAtmosSupermatter
     # ADT-WikiBooks-End
+=======
+  # ADT-RPD-Start
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+  # ADT-RPD-End
+>>>>>>> pr-166
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -117,6 +124,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+<<<<<<< HEAD
       - id: ADTDoorRemoteFirefight # ADT-Atmos-Remote
   # ADT-RPD-Start
       - id: ADTRPD
@@ -126,6 +134,12 @@
       - id: ADTBookSRPeng
       - id: ADTBookAtmosSupermatter
     # ADT-WikiBooks-End
+=======
+  # ADT-RPD-Start
+      - id: ADTRPD
+      - id: ADTRPDAmmo
+  # ADT-RPD-End
+>>>>>>> pr-166
 
 - type: entity
   id: LockerEngineerFilledHardsuit

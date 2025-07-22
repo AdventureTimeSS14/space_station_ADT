@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using JetBrains.Annotations;
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
@@ -12,12 +13,21 @@ using Robust.Shared.Collections;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+=======
+using Content.Shared.ADT.RPD;
+using Content.Shared.ADT.RPD.Components;
+using JetBrains.Annotations;
+using Robust.Client.Graphics;
+using Robust.Client.Input;
+using Robust.Shared.Prototypes;
+>>>>>>> pr-166
 
 namespace Content.Client.ADT.RPD;
 
 [UsedImplicitly]
 public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 {
+<<<<<<< HEAD
     private const string TopLevelActionCategory = "Main";
 
     private static readonly Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo
@@ -35,6 +45,12 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
     [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT Radial menu settings
 
     private SimpleRadialMenu? _menu;
+=======
+    [Dependency] private readonly IClyde _displayManager = default!;
+    [Dependency] private readonly IInputManager _inputManager = default!;
+
+    private RPDMenu? _menu;
+>>>>>>> pr-166
 
     public RPDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -45,6 +61,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
+<<<<<<< HEAD
         if (!EntMan.TryGetComponent<RPDComponent>(Owner, out var rpd))
             return;
 
@@ -173,5 +190,28 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
     {
         // This exists to prevent Roslyn being clever and compiling something that fails sandbox checks.
         return a + b;
+=======
+        _menu = new(Owner, this);
+        _menu.OnClose += Close;
+
+        // Open the menu, centered on the mouse
+        var vpSize = _displayManager.ScreenSize;
+        _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+    }
+
+    public void SendRPDSystemMessage(ProtoId<RPDPrototype> protoId)
+    {
+        // A predicted message cannot be used here as the RPD UI is closed immediately
+        // after this message is sent, which will stop the server from receiving it
+        SendMessage(new RPDSystemMessage(protoId));
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (!disposing) return;
+
+        _menu?.Dispose();
+>>>>>>> pr-166
     }
 }

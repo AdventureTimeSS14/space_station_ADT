@@ -209,6 +209,7 @@
   parent: ClockworkGrille
   name: diagonal clockwork grille
   components:
+<<<<<<< HEAD
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/clockwork_grille.rsi
@@ -241,4 +242,35 @@
   - type: Construction
     graph: GrilleDiagonal
     node: clockworkGrilleDiagonal
+=======
+    - type: Sprite
+      drawdepth: Walls
+      sprite: Structures/Walls/clockwork_grille.rsi
+      layers:
+        - state: ratvargrille_diagonal
+        - state: electrified_diagonal
+          sprite: Effects/electricity.rsi
+          map: ["enum.ElectrifiedLayers.Powered"]
+          shader: unshaded
+          visible: false
+    - type: Icon
+      sprite: Structures/Walls/clockwork_grille.rsi
+      state: ratvargrille_diagonal
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PolygonShape
+              vertices:
+              - "-0.5,-0.5"
+              - "0.5,0.5"
+              - "0.5,-0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+    - type: Construction
+      graph: GrilleDiagonal
+      node: clockworkGrilleDiagonal
+>>>>>>> pr-166
 

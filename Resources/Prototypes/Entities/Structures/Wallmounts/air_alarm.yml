@@ -112,10 +112,13 @@
               collection: MetalGlassBreak
               params:
                 volume: -4
+<<<<<<< HEAD
   - type: GuideHelp
     guides:
     - AirAlarms
     - DeviceMonitoringAndControl
+=======
+>>>>>>> pr-166
   # ADT-RPD-Start
   - type: RPDDeconstructable
     cost: 5
