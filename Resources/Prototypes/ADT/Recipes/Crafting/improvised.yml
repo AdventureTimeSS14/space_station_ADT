@@ -132,3 +132,12 @@
   targetNode: craft
   category: construction-category-misc
   objectType: Item
+
+- type: construction
+  id: VoiceMaskGraph
+  graph: VoiceMaskGraph
+  startNode: start
+  targetNode: voicemask
+  category: construction-category-clothing
+  objectType: Item
+

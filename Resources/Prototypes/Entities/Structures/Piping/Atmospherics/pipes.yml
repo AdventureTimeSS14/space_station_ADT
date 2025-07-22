@@ -71,11 +71,24 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   # ADT-RPD-End
-  # ADT-PipePressureDamage-Start
-  - type: OverpressurePipeDamage
-    limitPressure: 10000
-  # ADT-PipePressureDamage-End
+  - type: ContainerContainer # ADT tweak start
+    containers:
+      VentCrawlerTube: !type:Container
 
+- type: entity
+  id: VentCrawlerHolder
+  categories: [ HideSpawnMenu ]
+  name: vent craw holder
+  components:
+    - type: VentCrawlerHolder
+    - type: InputMover
+    - type: ContainerContainer
+      containers:
+        VentCrawlerHolderComponent: !type:Container # ADT tweak end
+    # ADT-PipePressureDamage-Start
+    - type: OverpressurePipeDamage
+      limitPressure: 10000
+    # ADT-PipePressureDamage-End
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
 - type: entity
@@ -112,6 +125,12 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: Longitudinal
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
   - type: Sprite
     layers:
       - state: pipeStraight
@@ -149,6 +168,12 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: SWBend
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerBend
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
   - type: Sprite
     layers:
       - state: pipeBend
@@ -221,6 +246,16 @@
     guides:
     - Pipes
     - PipeNetworks
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction
+    degrees:
+      - 0
+      - 90
+      - -90
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasPipeBase
@@ -242,6 +277,17 @@
   - type: Construction
     graph: GasPipe
     node: fourway
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerJunction
+    degrees:
+      - 0
+      - 90
+      - -90
+      - 180
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
   - type: Item
     size: Normal
     shape:
