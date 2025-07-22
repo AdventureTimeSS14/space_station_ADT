@@ -16,7 +16,7 @@ ent-ADTFoodMandarinSlice = мандариновая долька
     .desc = Пахнет новым годом.
     .suffix = Новый год
 # пакет семян
-ent-ADTMandarinSeeds = пакет семян мандарина
+ent-ADTMandarinSeeds = пакет семян (мандарин)
     .desc = Ох, скорей бы выросли!
     .suffix = Новый год
 # семяна
