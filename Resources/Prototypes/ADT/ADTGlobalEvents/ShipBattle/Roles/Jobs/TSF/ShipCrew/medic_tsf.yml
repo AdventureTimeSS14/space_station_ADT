@@ -43,7 +43,7 @@
   id: ADTBattleShipMedicTSFGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformMedicTSF
-    back: ADTShipBattleClothingBlackBackpackJet
+    back: ADTShipBattleClothingBlackBackpackJetTSFMedic
     shoes: ADTShipBattleClothingShoesBootsMagFleet
     # head: ADTShipBattleClothingHeadHatExOfficerTSF
     eyes: ClothingEyesHudMedical
@@ -57,10 +57,10 @@
     underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
-  storage:
-    back:
-    - BoxSurvivalEngineering
-    - CrowbarRed
-    - SpaceCash500
-    - HandheldHealthAnalyzer
-    - ADTShipBattleClothingHeadHelmetHardsuitMedicTSF
+  # storage:
+  #   back:
+  #   - BoxSurvivalEngineering
+  #   - CrowbarRed
+  #   - SpaceCash500
+  #   - HandheldHealthAnalyzer
+  #   - ADTShipBattleClothingHeadHelmetHardsuitMedicTSF

@@ -47,7 +47,7 @@
   id: ADTBattleShipExecutionalOfficerTSFGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformExOfficerTSF
-    back: ADTShipBattleClothingBlackBackpackJetTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSFXO
     shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
     head: ADTShipBattleClothingHeadHatExOfficerTSF
     # eyes: ClothingEyesGlassesSecurity
@@ -61,9 +61,9 @@
     underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
-  storage:
-    back:
-    - BoxSurvivalEngineering
-    - CrowbarRed
-    - SpaceCash500
-    - ADTShipBattleClothingHeadHelmetHardsuitExOfficerTSF
+  # storage:
+  #   back:
+  #   - BoxSurvivalEngineering
+  #   - CrowbarRed
+  #   - SpaceCash500
+  #   - ADTShipBattleClothingHeadHelmetHardsuitExOfficerTSF

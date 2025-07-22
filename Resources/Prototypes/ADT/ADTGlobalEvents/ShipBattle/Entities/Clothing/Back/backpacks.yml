@@ -8,7 +8,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Back/Backpacks/backpack_jet.rsi
   - type: Storage
     grid:
-    - 0,0,7,4
+    - 0,0,7,5
     maxItemSize: Huge
   - type: ExplosionResistance
     damageCoefficient: 0.1
