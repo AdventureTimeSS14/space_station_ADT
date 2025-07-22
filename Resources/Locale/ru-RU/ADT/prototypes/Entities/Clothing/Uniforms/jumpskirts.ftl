@@ -69,13 +69,13 @@ ent-ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless = белая водол
 
 ent-ADTCEJumpskirtWarm = водолазка старшего инженера
     .desc = { ent-ADTCEJumpsuitWarm.desc }
-    .suffix = {""}Э
+    .suffix = {""}
 
 ent-ADTCMOJumpskirtWarm = водолазка главного врача
     .desc = { ent-ADTCMOJumpsuitWarm.desc }
     .suffix = {""}
 
-ent-ADTClothingUniformJumpskirtHopWarm = водолазка главы персонала c юбкой
+ent-ADTClothingUniformJumpskirtHopWarm = водолазка c юбкой главы персонала
     .desc = { ent-ADTClothingUniformJumpsuitHopWarm.desc }
     .suffix = {""}
 
