@@ -38,7 +38,7 @@
   - ADTModsuitModTray
   - ADTModsuitModIsulation
   - ADTModsuitModJump
-  - ADTModsuitModNoslip
+  # - ADTModsuitModNoslip
 
 - type: latheRecipePack
   id: ADTGygaxPack
