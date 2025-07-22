@@ -8,7 +8,7 @@
     sprite: ADT/Objects/Specific/Hydroponics/soil.rsi
     state: soil-packed
   - type: Item
-    size: Tiny
+    size: Normal
   - type: SpawnItemsOnUse
     items:
       - id: ADTSoilTrash

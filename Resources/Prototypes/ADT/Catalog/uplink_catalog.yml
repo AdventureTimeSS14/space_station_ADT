@@ -837,3 +837,27 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: uplinkContortionistJumpsuit
+  name: uplink-contortionist-jumpsuit-name
+  description: uplink-contortionist-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndie
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: uplinkContortionistJumpsuitAdvanced
+  name: uplink-contortionist-jumpsuit-advanced-name
+  description: uplink-contortionist-jumpsuit-advanced-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndieAdvanced
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - AtmosphericTechnician
