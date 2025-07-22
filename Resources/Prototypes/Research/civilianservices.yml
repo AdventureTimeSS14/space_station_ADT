@@ -10,8 +10,6 @@
   tier: 1
   cost: 5000
   recipeUnlocks:
-  - BorgModuleGardening
-  - BorgModuleHarvesting
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
@@ -86,23 +84,6 @@
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
   position: 3,0 # ADT Research Console Rework
-
-- type: technology
-  id: RoboticCleanliness
-  name: research-technology-robotic-cleanliness
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: janitor
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedCleaning
-  # ADT Research Console Rework start
-  position: 1,0
-  requiredTech:
-  - AdvancedEntertainment
-  # ADT Research Console Rework end
 
 - type: technology
   id: MeatManipulation
@@ -187,7 +168,6 @@
 #   - ADTMedicalMODsuit
 #   # ADT Research Console Rework end
 
-
 - type: technology
   id: AdvancedCleaning
   name: research-technology-advanced-cleaning
@@ -200,10 +180,11 @@
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
+  - BorgModuleAdvancedCleaning
   # ADT Research Console Rework start
   position: 1,1
   requiredTech:
-  - RoboticCleanliness
+  - ADTMechanizedTreatment # RoboticCleanliness -> ADTMechanizedTreatment. Заглушка, т.к нету прототипа RoboticCleanliness
   # ADT Research Console Rework end
 
 - type: technology
@@ -264,6 +245,21 @@
   position: 2,2
   requiredTech:
   - BasicTranslation
+  # ADT Research Console Rework end
+
+- type: technology
+  id: PushHorn
+  name: research-technology-clowning-utilities
+  icon:
+    sprite: Objects/Fun/push_horn.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 4000
+  recipeUnlocks:
+  - PushHorn
+  # ADT Research Console Rework start
+  position: 2,2
   # ADT Research Console Rework end
 
 # Tier 3

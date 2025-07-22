@@ -222,6 +222,26 @@
       - state: green
       - sprite: Mobs/Pets/fox.rsi
         state: fox
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostMorph
+  components:
+  - type: GhostRole
+    name: ghost-role-information-morph-name
+    description: ghost-role-information-morph-description
+    rules: ghost-role-information-morph-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: ADT/Mobs/Aliens/morph.rsi
+      state: alive
         
 - type: entity
   name: Hermit spawner

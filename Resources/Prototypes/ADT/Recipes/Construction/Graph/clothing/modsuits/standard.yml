@@ -7,13 +7,13 @@
         - to: adtmodsuitstandard
           steps:
             - tag: ADTModsuitPlateStandard
-              name: Standard MOD plate
+              name: construction-graph-tag-standart-mod-place
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: standard
               doAfter: 2
             - tag: ADTModsuitAssembledPart
-              name: MOD core
+              name: construction-graph-tag-mod-core
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: modcore8
