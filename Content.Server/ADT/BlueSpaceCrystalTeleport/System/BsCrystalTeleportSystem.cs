@@ -73,8 +73,8 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         if (targetCoords == null)
             return false;
 
-        _xform.SetCoordinates(entity, targetCoords.Value);
         _audio.PlayPvs(sound, entity);
+        _xform.SetCoordinates(entity, targetCoords.Value);
         return true;
     }
 
