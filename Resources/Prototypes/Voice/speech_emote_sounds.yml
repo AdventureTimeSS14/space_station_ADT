@@ -100,6 +100,7 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+      #ADT-Tweak start
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -108,10 +109,13 @@
       collection: MaleYawn
     Sigh:
       collection: MaleSigh
+      #ADT-Tweak end
     Crying:
       collection: MaleCry
+      #ADT-Tweak start
     Whistle:
       collection: Whistles
+      #ADT-Tweak end
     Weh:
       collection: Weh
     Hew:
@@ -134,6 +138,7 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+      #ADT-Tweak start
     Sneeze:
       collection: FemaleSneezes
     Cough:
@@ -142,10 +147,13 @@
       collection: FemaleYawn
     Sigh:
       collection: FemaleSigh
+      #ADT-Tweak end
     Crying:
       collection: FemaleCry
+      #ADT-Tweak start
     Whistle:
       collection: Whistles
+      #ADT-Tweak end
     Weh:
       collection: Weh
     Hew:

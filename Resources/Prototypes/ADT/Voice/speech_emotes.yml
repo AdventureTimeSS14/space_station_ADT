@@ -315,10 +315,8 @@
   blacklist:
     components:
     - BorgChassis
-    # ADT tweak start
     tags:
     - ADTSiliconEmotes
-    # ADT tweak end
   chatMessages: ["chat-emote-msg-spit"]
   chatTriggers:
     - spit
