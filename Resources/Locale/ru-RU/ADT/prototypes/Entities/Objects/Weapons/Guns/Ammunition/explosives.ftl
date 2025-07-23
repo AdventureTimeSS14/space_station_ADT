@@ -19,7 +19,7 @@ ent-ADT40mmGrenadeFlash = светошумовая 40-мм граната
 ent-ADT40mmGrenadeSmoke = дымовая 40-мм граната
     .desc = Гранатометный выстрел, выпускающий при срабатывании облако дыма.
 
-ent-ADTCartridgeBlastRocket = разрывной снаряд PG-7VL
+ent-ADTCartridgeBlastRocket = фугасный снаряд PG-7VL
     .desc = Гранатомётная боеголовка калибра 93 мм, предназначенная для РПГ-7. Наиболее эффективна для уничтожения укрытий.
 
 ent-ADTCartridgeFragRocket = осколочный снаряд OG-7B
