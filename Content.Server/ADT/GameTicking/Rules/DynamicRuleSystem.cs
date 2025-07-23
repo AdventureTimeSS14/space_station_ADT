@@ -49,8 +49,8 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         {
             var rule = _random.Pick(component.RoundstartRules);
             component.Chaos -= rule.Cost;
-            if (component.Chaos < 0)
-                break;
+            // if (component.Chaos < 0)
+            //     break;
             component.AddedRules.Add(rule.Id);
         }
 

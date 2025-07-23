@@ -10,10 +10,12 @@ public sealed partial class DynamicRuleComponent : Component
 {
     [DataField]
     public int MaxEventsBeforeAntag = 9;
+    [ViewVariables(VVAccess.ReadWrite)]
     public int EventsBeforeAntag = 9;
-
+    [ViewVariables(VVAccess.ReadWrite)]
     public int Chaos = 0;
-    public float TimeUntilNextEvent;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float TimeUntilNextEvent = 100;
     [DataField]
     public int MinChaos = 10;
     [DataField]
