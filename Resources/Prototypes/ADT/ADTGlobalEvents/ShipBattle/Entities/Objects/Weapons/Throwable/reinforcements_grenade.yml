@@ -1,0 +1,86 @@
+- type: entity
+  parent: [ GrenadeBase, BaseSecurityContraband ]
+  id: ADTSmokeGrenadeRed
+  name: smoke grenade red
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+    smokePrototype: ADTSmokeRed
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: DeleteOnTrigger
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Items/smoke_grenade_prime.ogg
+  # - type: SpawnOnTrigger
+  #   proto: ADTDroppodDroppingReinforcements
+
+- type: entity
+  parent: ADTSmokeGrenadeRed
+  id: ADTSmokeGrenadeGreen
+  name: smoke grenade green
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+    smokePrototype: ADTSmokeGreen
+
+- type: entity
+  parent: ADTSmokeGrenadeRed
+  id: ADTSmokeGrenadeBlue
+  name: smoke grenade blue
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+    smokePrototype: ADTSmokeBlue
+
+- type: entity
+  parent: ADTSmokeGrenadeRed
+  id: ADTSmokeGrenadeDarkBlue
+  name: smoke grenade dark blue
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+    smokePrototype: ADTSmokeDarkBlue
+
+- type: entity
+  parent: ADTSmokeGrenadeRed
+  id: ADTSmokeGrenadeYellow
+  name: smoke grenade yellow
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+    smokePrototype: ADTSmokeYellow
+
+- type: entity
+  parent: ADTSmokeGrenadeRed
+  id: ADTSmokeGrenadeOrange
+  name: smoke grenade orange
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+    smokePrototype: ADTSmokeOrange
+
+- type: entity
+  parent: ADTSmokeGrenadeRed
+  id: ADTSmokeGrenadeViolet
+  name: smoke grenade violet
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+    smokePrototype: ADTSmokeViolet

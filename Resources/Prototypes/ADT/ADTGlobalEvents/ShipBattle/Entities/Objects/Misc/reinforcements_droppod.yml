@@ -1,23 +1,4 @@
-- type: entity
-  parent: [ GrenadeBase, BaseSecurityContraband ]
-  id: SmokeGrenadeReinforcements
-  name: smoke grenade
-  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/smoke.rsi
-  - type: SmokeOnTrigger
-    duration: 3
-    spreadAmount: 3
-    smokePrototype: SmokeRed
-  - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-  - type: DeleteOnTrigger
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Items/smoke_grenade_prime.ogg
-  - type: SpawnOnTrigger
-    proto: ADTDroppodDroppingReinforcements
+
 
 
 - type: entity
@@ -53,20 +34,4 @@
     chance: 1.0
 
 
-- type: entity
-  parent: BaseFoam
-  id: ADTSmokeRed
-  name: smoke
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Occluder
-  - type: Sprite
-    color: "#ff0000"
-    sprite: Effects/chemsmoke.rsi
-    state: chemsmoke
-    shader: unshaded
-  - type: TimedDespawn
-    lifetime: 1
-  - type: Tag
-    tags:
-    - HideContextMenu
+
