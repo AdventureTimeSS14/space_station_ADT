@@ -51,6 +51,5 @@ ent-ADTClothingBackpackDuffelSyndicateCascade = набор физика-ядер
 
 ent-ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher = набор China-Like
     .desc = Модифицированный старый ручной многозарядный экспериментальный гранатомёт "China-Like" с 16-тью снарядами разной степени смертельности.
-
 ent-ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher = набор РПГ-7
     .desc = Отличное решение всех семейных конфликтов!
