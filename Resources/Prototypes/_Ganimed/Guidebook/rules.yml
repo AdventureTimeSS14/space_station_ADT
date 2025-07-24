@@ -1,0 +1,206 @@
+- type: guideEntry
+  id: GanimedRuleset
+  name: Правила сервера
+  priority: 0
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Ruleset.xml"
+  children:
+  - GanimedRule0-0
+  - GanimedRule0-1
+  - GanimedRule0-2
+  - GanimedRule0-3
+  - GanimedRule1-1
+  - GanimedRule1-2
+  - GanimedRule1-3
+  - GanimedRule1-4
+  - GanimedRule1-5
+  - GanimedRule1-6
+  - GanimedRule1-7
+  - GanimedRule1-8
+  - GanimedRule1-9
+  - GanimedRule1-10
+  - GanimedRule1-11
+  - GanimedRule1-12
+  - GanimedRule1-13
+  - GanimedRule1-14
+  - GanimedRule1-15
+  - GanimedRule2-0
+  - GanimedRule2-1
+  - GanimedRule2-2
+  - GanimedRule2-3
+  - GanimedRule2-4
+
+- type: guideEntry
+  id: GanimedRule0-0
+  name: Правило 0-0
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule0-0.xml"
+
+- type: guideEntry
+  id: GanimedRule0-1
+  name: Правило 0-1
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule0-1.xml"
+
+- type: guideEntry
+  id: GanimedRule0-2
+  name: Правило 0-2
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule0-2.xml"
+
+- type: guideEntry
+  id: GanimedRule0-3
+  name: Правило 0-3
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule0-3.xml"
+
+- type: guideEntry
+  id: GanimedRule1-0
+  name: Правило 1-0
+  priority: 5
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-0.xml"
+
+- type: guideEntry
+  id: GanimedRule1-1
+  name: Правило 1-1
+  priority: 6
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-1.xml"
+
+- type: guideEntry
+  id: GanimedRule1-2
+  name: Правило 1-2
+  priority: 7
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-2.xml"
+
+- type: guideEntry
+  id: GanimedRule1-3
+  name: Правило 1-3
+  priority: 8
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-3.xml"
+
+- type: guideEntry
+  id: GanimedRule1-4
+  name: Правило 1-4
+  priority: 9
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-4.xml"
+
+- type: guideEntry
+  id: GanimedRule1-5
+  name: Правило 1-5
+  priority: 10
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-5.xml"
+
+- type: guideEntry
+  id: GanimedRule1-6
+  name: Правило 1-6
+  priority: 11
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-6.xml"
+
+- type: guideEntry
+  id: GanimedRule1-7
+  name: Правило 1-7
+  priority: 12
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-7.xml"
+
+- type: guideEntry
+  id: GanimedRule1-8
+  name: Правило 1-8
+  priority: 13
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-8.xml"
+
+- type: guideEntry
+  id: GanimedRule1-9
+  name: Правило 1-9
+  priority: 14
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-9.xml"
+
+- type: guideEntry
+  id: GanimedRule1-10
+  name: Правило 1-10
+  priority: 15
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-10.xml"
+
+- type: guideEntry
+  id: GanimedRule1-11
+  name: Правило 1-11
+  priority: 16
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-11.xml"
+
+- type: guideEntry
+  id: GanimedRule1-12
+  name: Правило 1-12
+  priority: 17
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-12.xml"
+
+- type: guideEntry
+  id: GanimedRule1-13
+  name: Правило 1-13
+  priority: 18
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-13.xml"
+
+- type: guideEntry
+  id: GanimedRule1-14
+  name: Правило 1-14
+  priority: 19
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-14.xml"
+
+- type: guideEntry
+  id: GanimedRule1-15
+  name: Правило 1-15
+  priority: 20
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule1-15.xml"
+
+- type: guideEntry
+  id: GanimedRule2-0
+  name: Правило 2-0
+  priority: 21
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule2-0.xml"
+
+- type: guideEntry
+  id: GanimedRule2-1
+  name: Правило 2-1
+  priority: 22
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule2-1.xml"
+
+- type: guideEntry
+  id: GanimedRule2-2
+  name: Правило 2-2
+  priority: 23
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule2-2.xml"
+
+- type: guideEntry
+  id: GanimedRule2-3
+  name: Правило 2-3
+  priority: 24
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule2-3.xml"
+
+- type: guideEntry
+  id: GanimedRule2-4
+  name: Правило 2-4
+  priority: 25
+  ruleEntry: true
+  text: "/ServerInfo/Ganimed/Guidebook/ServerRules/Rule2-4.xml"

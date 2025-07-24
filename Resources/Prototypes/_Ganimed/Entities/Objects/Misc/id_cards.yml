@@ -1,0 +1,41 @@
+- type: entity
+  parent: IDCardStandard
+  id: SoldierUSSPIDCard
+  name: USSP soldier representative ID card.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Misc/id_cards.rsi
+    layers:
+    - state: red
+    - state: idusspsoldier
+  - type: IdCard
+    jobTitle: job-title-ussp-soldier
+    jobIcon: JobIconUSSPSoldier
+
+- type: entity
+  parent: IDCardStandard
+  id: MedicalUSSPIDCard
+  name: USSP medical representative ID card.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Misc/id_cards.rsi
+    layers:
+    - state: red
+    - state: idusspmedical
+  - type: IdCard
+    jobTitle: job-title-ussp-medical
+    jobIcon: JobIconUSSPMedical
+
+- type: entity
+  parent: IDCardStandard
+  id: OfficerUSSPIDCard
+  name: USSP officer representative ID card.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Misc/id_cards.rsi
+    layers:
+    - state: red
+    - state: idusspofficer
+  - type: IdCard
+    jobTitle: job-title-ussp-officer 
+    jobIcon: JobIconUSSPOfficer

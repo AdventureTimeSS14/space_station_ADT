@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Holster sprite taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/c26610dd929a4172f4f26351cbe73083683d129a/icons/obj/items/storage/holster.dmi , inserted revolvers sprite and small edit by Red_Spy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "reflected-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "filled-inspector"
+    },
+    {
+      "name": "filled-mateba"
+    },
+    {
+      "name": "filled-pirate"
+    },
+    {
+      "name": "filled-python"
+    }
+  ]
+}

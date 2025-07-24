@@ -1,0 +1,33 @@
+#- type: entity #ERT
+#  parent: ClothingBeltPouchMedical
+#  id: ClothingBeltPouchMedicalERTFilled
+  # categories: [ HideSpawnMenu ]
+#  components:
+#    - type: StorageFill
+#      contents:
+#        - id: OintmentAdvanced1
+#          amount: 4
+#        - id: BrutepackAdvanced1
+#          amount: 4
+#        - id: Tourniquet
+#          amount: 2
+#        - id: CombatMedipen
+#        - id: EmergencyMedipen
+
+#- type: entity #CBURN
+#  parent: ClothingBeltPouchMedical
+#  id: ClothingBeltPouchMedicalCBURNFilled
+#  # categories: [ HideSpawnMenu ]
+#  components:
+#    - type: StorageFill
+#      contents:
+#        - id: OintmentAdvanced1
+#          amount: 4
+#        - id: BrutepackAdvanced1
+#          amount: 4
+#        - id: Tourniquet
+#          amount: 2
+#        - id: CombatMedipen
+#        - id: AntiPoisonMedipen
+#        - id: RadAutoInjector
+#        # - id: BattleMedipenAntiVirus нет в этом билде, но им бы пригодился. Добавится в будущих PR
