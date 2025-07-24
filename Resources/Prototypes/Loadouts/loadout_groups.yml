@@ -255,12 +255,18 @@
   - PassengerGloves
 
 - type: loadoutGroup
-  id: CommonBackpack
+  id: Backpack
   name: loadout-group-backpack
   loadouts:
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+
+- type: loadoutGroup
+  id: LawyerBackpack
+  name: loadout-group-lawyer-backpack
+  loadouts:
+  - ClothingBackpackSatchelLeather
 
 - type: loadoutGroup
   id: PassengerNeck
