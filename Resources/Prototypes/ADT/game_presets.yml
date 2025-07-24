@@ -82,7 +82,7 @@
     - BasicRoundstartVariation
 
 - type: gamePreset
-  id: Dynamic
+  id: DynamicLight
   alias:
     - dynamiclight
   name: dynamic-low-title
@@ -95,7 +95,7 @@
     - BasicRoundstartVariation
 
 - type: gamePreset
-  id: Dynamic
+  id: DynamicMedium
   alias:
     - dynamicmedium
   name: dynamic-medium-title
