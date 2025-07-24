@@ -78,11 +78,12 @@
       needSupermatter: true
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: BaseTraitorStealObjective
   id: ADTStealSupermatterSliverObjective
   components:
   - type: Objective
-    difficulty: 2.5
+    difficulty: 4
   - type: StealCondition
     stealGroup: SupermatterSliver
     objectiveNoOwnerText: objective-condition-steal-smsliver-title
