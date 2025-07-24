@@ -112,7 +112,7 @@
         Heat: 0.5
         Radiation: 0.9
   - type: StaminaResistance
-    damageCoefficient: 0.60.7  # ADT
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
