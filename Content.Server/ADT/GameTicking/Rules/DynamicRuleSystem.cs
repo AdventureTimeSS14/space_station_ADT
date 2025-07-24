@@ -88,6 +88,8 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 
             scheduler.TimeUntilNextEvent = _random.NextFloat(scheduler.MinEventDelay, scheduler.MaxEventDelay);
             _event.RunRandomEvent(scheduler.ScheduledGameRules);
+            scheduler.EventsBeforeAntag--;
+
             if (scheduler.EventsBeforeAntag <= 0)
             {
                 var chaos = CheckChaos();

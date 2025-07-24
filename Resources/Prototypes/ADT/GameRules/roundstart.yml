@@ -183,10 +183,13 @@
       startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entity
-  id: DynamicGamerule
+  id: DynamicHardGamerule
   parent: BaseGameRule
   components:
   - type: DynamicRule
+    maxEventsBeforeAntag: 8
+    maxChaos: 120
+    minChaos: 20
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
@@ -225,3 +228,91 @@
         cost: 90
       - id: SleeperAgents
         cost: 100
+
+- type: entity
+  id: DynamicMediumGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRule
+    maxEventsBeforeAntag: 9
+    maxChaos: 90
+    minChaos: 10
+    scheduledGameRules: !type:NestedSelector
+      tableId: RampingGameRulesTable
+    roundstartRules:
+      - id: HereticDuoGameRule
+        cost: 20
+      - id: ChangelingDuoGameRule
+        cost: 10
+      - id: TraitorDuoGameRule
+        cost: 10
+      - id: TraitorLightGameRule
+        cost: 15
+      - id: ChangelingGameRule
+        cost: 25
+      - id: HereticGameRule
+        cost: 30
+      - id: Revolutionary
+        cost: 30
+    midroundAntags:
+      - id: HereticDuoGameRule
+        cost: 20
+      - id: ChangelingDuoGameRule
+        cost: 10
+      - id: TraitorDuoGameRule
+        cost: 10
+      - id: TraitorLightGameRule
+        cost: 15
+      - id: ChangelingGameRule
+        cost: 25
+      - id: HereticGameRule
+        cost: 30
+      - id: Nukeops
+        cost: 50
+      - id: Revolutionary
+        cost: 30
+      - id: Zombie
+        cost: 100 # хы-хы
+
+- type: entity
+  id: DynamicLightGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRule
+    maxEventsBeforeAntag: 10
+    maxChaos: 70
+    minChaos: 10
+    scheduledGameRules: !type:NestedSelector
+      tableId: ExtendedGameRulesTable
+    roundstartRules:
+      - id: HereticDuoGameRule
+        cost: 20
+      - id: ChangelingDuoGameRule
+        cost: 10
+      - id: TraitorDuoGameRule
+        cost: 10
+      - id: TraitorLightGameRule
+        cost: 15
+      - id: ChangelingGameRule
+        cost: 25
+      - id: HereticGameRule
+        cost: 30
+      - id: Revolutionary
+        cost: 30
+    midroundAntags:
+      - id: DragonSpawn
+        cost: 110
+      - id: Pirates
+        cost: 130
+      - id: PhantomSpawn
+        cost: 120
+      - id: MorphSpawn
+        cost: 140
+      - id: NinjaSpawn
+        cost: 150
+      - id: KingRatMigration
+        cost: 90
+      - id: ParadoxCloneSpawn
+        cost: 90
+      - id: SleeperAgents
+        cost: 110
