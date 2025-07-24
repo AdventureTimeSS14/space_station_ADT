@@ -88,9 +88,7 @@
       weightlessModifier: 1.2
     - type: CanMoveInAir
     - type: InputMover
-      toParent: true
     - type: GasTank
-      toggleAction: null
       outputPressure: 21.3
       air:
         volume: 5

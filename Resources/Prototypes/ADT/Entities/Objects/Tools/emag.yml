@@ -12,5 +12,5 @@
     sprite: ADT/Objects/Tools/emag_handmade.rsi
     storedRotation: -90
   - type: LimitedCharges
-    charges: 10
+    lastCharges: 10
     maxCharges: 10

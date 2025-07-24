@@ -1,8 +1,7 @@
-# ADT-Comment-delete-test
 # - type: gameMap
 #   id: CorvaxPilgrim
 #   mapName: 'Pilgrim'
-#   mapPath: /Maps/corvax_pilgrim.yml
+#   mapPath: /Maps/Corvax/corvax_pilgrim.yml
 #   maxRandomOffset: 0
 #   randomRotation: false
 #   minPlayers: 40
@@ -16,12 +15,12 @@
 #             !type:NanotrasenNameGenerator
 #             prefixCreator: 'TA'
 #         - type: StationEmergencyShuttle
-#           emergencyShuttlePath: /Maps/Shuttles/emergency_pilgrim.yml
+#           emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_pilgrim.yml
 #         - type: StationJobs
 #           availableJobs:
 #             # command
 #             Captain: [ 1, 1 ]
-#             #IAA: [ 1, 1 ] #ADT FIX
+#             IAA: [ 1, 1 ]
 #             # cargo
 #             Quartermaster: [ 1, 1 ]
 #             SalvageSpecialist: [ 4, 4 ]
@@ -49,6 +48,7 @@
 #             SecurityCadet: [ 3, 3 ]
 #             Detective: [ 1, 1 ]
 #             Pilot: [ 2, 2 ]
+#             Brigmedic: [ 1, 1 ]
 #             # service
 #             HeadOfPersonnel: [ 1, 1 ]
 #             Bartender: [ 1, 1 ]
