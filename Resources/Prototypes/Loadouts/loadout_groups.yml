@@ -255,7 +255,7 @@
   - PassengerGloves
 
 - type: loadoutGroup
-  id: Backpack
+  id: CommonBackpack
   name: loadout-group-backpack
   loadouts:
   - CommonBackpack
