@@ -37,6 +37,11 @@
       0: Alive
       85: Critical
       140: Dead
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatChicken
+      amount: 5
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Resomi
