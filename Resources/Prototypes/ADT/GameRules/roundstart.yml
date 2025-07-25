@@ -35,6 +35,24 @@
       - type: HereticRole
       startingGear: HereticGear # see Roles/Antags/heretic.yml
 
+- type: entity
+  parent: BaseHereticRule
+  id: HereticSoloGameRule
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 1
+      playerRatio: 15
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+      startingGear: HereticGear
+
 - type: entityTable
   id: ExtendedGameRulesTable
   table: !type:AllSelector
@@ -195,6 +213,8 @@
     roundstartRules:
       - id: HereticDuoGameRule
         cost: 20
+      - id: HereticSoloGameRule
+        cost: 10
       - id: ChangelingDuoGameRule
         cost: 10
       - id: TraitorDuoGameRule
@@ -235,7 +255,7 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 9
-    maxChaos: 90
+    maxChaos: 70
     minChaos: 10
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
@@ -243,6 +263,8 @@
       - id: HereticDuoGameRule
         cost: 20
       - id: ChangelingDuoGameRule
+        cost: 10
+      - id: HereticSoloGameRule
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
@@ -255,24 +277,22 @@
       - id: Revolutionary
         cost: 30
     midroundAntags:
-      - id: HereticDuoGameRule
-        cost: 20
-      - id: ChangelingDuoGameRule
-        cost: 10
-      - id: TraitorDuoGameRule
-        cost: 10
-      - id: TraitorLightGameRule
-        cost: 15
-      - id: ChangelingGameRule
-        cost: 25
-      - id: HereticGameRule
-        cost: 30
-      - id: Nukeops
-        cost: 50
-      - id: Revolutionary
-        cost: 30
-      - id: Zombie
-        cost: 100 # хы-хы
+      - id: DragonSpawn
+        cost: 110
+      - id: Pirates
+        cost: 130
+      - id: PhantomSpawn
+        cost: 120
+      - id: MorphSpawn
+        cost: 140
+      - id: NinjaSpawn
+        cost: 150
+      - id: KingRatMigration
+        cost: 90
+      - id: ParadoxCloneSpawn
+        cost: 90
+      - id: SleeperAgents
+        cost: 110
 
 - type: entity
   id: DynamicLightGamerule
@@ -280,7 +300,7 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 10
-    maxChaos: 70
+    maxChaos: 50
     minChaos: 10
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
@@ -291,13 +311,13 @@
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
+      - id: HereticSoloGameRule
+        cost: 10
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
         cost: 25
       - id: HereticGameRule
-        cost: 30
-      - id: Revolutionary
         cost: 30
     midroundAntags:
       - id: DragonSpawn
