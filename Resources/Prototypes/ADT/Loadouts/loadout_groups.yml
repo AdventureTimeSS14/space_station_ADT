@@ -68,7 +68,6 @@
   id: ADTLawyerBackpack
   name: loadout-group-lawyer-backpack
   loadouts:
-  - ClothingBackpackSatchelLeather
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
