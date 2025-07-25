@@ -6,32 +6,32 @@
   id: OreSteel
   oreEntity: SteelOre1
   minOreYield: 1
-  maxOreYield: 5
+  maxOreYield: 2 #ADT tweak 5-->2
 
 - type: ore
   id: OreSpaceQuartz
   oreEntity: SpaceQuartz1
   minOreYield: 1
-  maxOreYield: 5
+  maxOreYield: 2 #ADT tweak 5-->2
 
 - type: ore
   id: OreCoal
   oreEntity: Coal1
   minOreYield: 1
-  maxOreYield: 5
+  maxOreYield: 2 #ADT tweak 5-->2
 
 # Medium yields
 - type: ore
   id: OreGold
   oreEntity: GoldOre1
   minOreYield: 1
-  maxOreYield: 3
+  maxOreYield: 2 #ADT tweak 3-->2
 
 - type: ore
   id: OreSilver
   oreEntity: SilverOre1
   minOreYield: 1
-  maxOreYield: 3
+  maxOreYield: 2 #ADT tweak 3-->2
 
 - type: ore
   id: OreSalt

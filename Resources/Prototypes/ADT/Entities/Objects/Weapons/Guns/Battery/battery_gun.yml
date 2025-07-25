@@ -220,7 +220,7 @@
     tags:
     - HighRiskItem
   - type: StealTarget
-    stealGroup: ADTWeaponPistolX01
+    stealGroup: ADTHosWeapon
   - type: StaticPrice
     price: 7500
   - type: Item

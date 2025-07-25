@@ -7,7 +7,7 @@
     - id: RadioHandheld
     - id: WeaponProtoKineticAccelerator
     - id: FireExtinguisher
-    - id: SeismicCharge
+    # - id: SeismicCharge временно в ауте
     - id: OreBag
     - id: MineralScanner
 

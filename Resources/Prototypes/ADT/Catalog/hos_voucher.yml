@@ -1,0 +1,29 @@
+- type: thiefBackpackSet
+  id: WeaponHoSUnika
+  name: hos-voucher-unika-name
+  description: hos-voucher-unika-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
+    state: icon
+  content:
+  - ADTWeaponRevolverLesserUnica
+
+- type: thiefBackpackSet
+  id: WeaponHoSMultiphase
+  name: hos-voucher-multiphase-name
+  description: hos-voucher-multiphase-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
+    state: icon
+  content:
+  - ADTWeaponPistolX01
+
+- type: thiefBackpackSet
+  id: WeaponHoSBat
+  name: hos-voucher-bat-name
+  description: hos-voucher-bat-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Melee/tactic_bat.rsi
+    state: bat_on
+  content:
+  - ADTTacticBat

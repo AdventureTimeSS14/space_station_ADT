@@ -1,0 +1,47 @@
+- type: entity
+  name: tactic bat
+  parent: BaseItem
+  id: ADTTacticBat
+  description: Upgraded verion of telescopic baton.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/tactic_bat.rsi
+    layers:
+    - state: bat_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: SwitchableWeapon
+    openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
+    closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
+    damageOpen:
+      types:
+        Blunt: 20
+    damageFolded:
+      types:
+        Blunt: 0
+    staminaDamageFolded: 0
+    staminaDamageOpen: 25
+    sizeOpened: Normal
+    sizeClosed: Small
+  - type: StaminaDamageOnHit
+    damage: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2.4
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Weapons/Melee/tactic_bat.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: bat_on}
+          False: {state: bat_off}
+  - type: MeleeThrowOnHit
+    speed: 20
+    distance: 1
+  - type: StealTarget
+    stealGroup: ADTHosWeapon

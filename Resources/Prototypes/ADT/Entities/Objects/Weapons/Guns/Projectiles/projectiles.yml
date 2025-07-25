@@ -35,7 +35,7 @@
 - type: entity
   name: Laser bolt
   id: ADTBulletLaserMK2
-  parent: BulletDisabler
+  parent: BulletDisablerPractice
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

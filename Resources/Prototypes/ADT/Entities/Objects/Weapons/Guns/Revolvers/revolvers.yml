@@ -45,3 +45,5 @@
         volume: 2.25
   - type: StaticPrice
     price: 3500
+  - type: StealTarget
+    stealGroup: ADTHosWeapon
