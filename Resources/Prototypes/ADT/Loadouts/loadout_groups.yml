@@ -71,7 +71,7 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
-- ADTMagistratBackpackSatchel
+  - ADTMagistratBackpackSatchel
 # PATHOLOGIST
 
 - type: loadoutGroup
