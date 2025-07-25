@@ -73,3 +73,16 @@
     lightSoftness: 0.9
     BurningTemperature: 1000
     PowerUse: 12
+
+- type: entity
+  parent: BaseLightTube
+  name: warm light tube
+  id: ADTLightTubeWarm
+  description: "A warm light bulb for a more cozy atmosphere."
+  components:
+  - type: LightBulb
+    color: "#ffa647"
+    lightEnergy: 0.9
+    lightRadius: 10
+    lightSoftness: 1.5
+    PowerUse: 10

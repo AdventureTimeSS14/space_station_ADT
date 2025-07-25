@@ -1,0 +1,12 @@
+- type: vendingMachineInventory
+  id: ADTShipBattleAmmoDispenserInventory
+  startingInventory:
+    MagazineBoxRifle: 30
+    MagazineBoxRifleBig: 10
+    MagazineBoxPistol: 30
+    MagazineBoxLightRifle: 20
+    MagazineBoxLightRifleBig: 10
+    BoxLethalshot: 10
+    BoxShotgunSlug: 10
+    MagazineBoxMagnum: 10
+    MagazineBoxAntiMateriel: 10

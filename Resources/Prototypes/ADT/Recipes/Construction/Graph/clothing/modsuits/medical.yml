@@ -7,13 +7,13 @@
         - to: adtmodsuitmedical
           steps:
             - tag: ADTModsuitPlateMedical
-              name: Medical MOD plate
+              name: construction-graph-tag-medical-mod-plate
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: medical
               doAfter: 2
             - tag: ADTModsuitAssembledPart
-              name: MOD core
+              name: construction-graph-tag-mod-core
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: modcore8

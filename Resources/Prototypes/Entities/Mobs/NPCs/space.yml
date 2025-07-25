@@ -195,6 +195,7 @@
   parent: MobSpaceBasic
   description: It's so glowing, it looks dangerous.
   components:
+  - type: VentCrawler # ADT tweak
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/spacespider.rsi
@@ -384,6 +385,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.25
       movementVisibilityRate: 0.25
+    - type: SupermatterIgnore # ADT tweak
 
 - type: entity
   id: MobCobraSpaceSalvage
@@ -423,6 +425,7 @@
     factions:
       - Mouse
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -528,6 +531,7 @@
         visualType: Large
         messages: [ "snail-hurt-by-salt-popup" ]
         probability: 0.66
+  - type: SupermatterIgnore # ADT tweak
 
 - type: entity
   parent: MobSnail

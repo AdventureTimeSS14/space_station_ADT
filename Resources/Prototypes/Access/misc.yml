@@ -1,7 +1,6 @@
-- type: accessGroup 
-  id: AllAccess #ADT-group-roles - полный доступ ко всем "НТшным" доступам, в том числе ЦК и ОСЩ
+- type: accessGroup
+  id: AllAccess
   tags:
-  - CentralCommand 
   - EmergencyShuttleRepealAll
   - Captain
   - HeadOfPersonnel
@@ -33,6 +32,5 @@
   - Chapel
   - Hydroponics
   - Atmospherics
-  - IAA
-  - BlueShield # ADT-Roles
-  - Magistrate # ADT-Roles
+  - GenpopEnter
+  - GenpopLeave

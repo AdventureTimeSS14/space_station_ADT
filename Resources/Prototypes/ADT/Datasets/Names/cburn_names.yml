@@ -1,11 +1,11 @@
 - type: localizedDataset
   id: ADTCmndNamesFirstMilitary
   values:
-    prefix: names_ADTCmndNamesFirstMilitary-
+    prefix: names-ADTCmndNamesFirstMilitary-
     count: 1
 
 - type: localizedDataset
   id: ADTNamesFirstMilitaryRXBZZ
   values:
-    prefix: names_ADTNamesFirstMilitaryRXBZZ-
-    count: 5
+    prefix: names-ADTNamesFirstMilitaryRXBZZ-
+    count: 3

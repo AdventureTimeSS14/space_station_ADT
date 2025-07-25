@@ -630,3 +630,11 @@
   components:
   - type: IdCard
     jobTitle: job-name-real-chief-medical-officer
+
+- type: entity
+  parent: QuartermasterIDCard
+  id: ADTintendantIDCard
+  name: Intendant ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-intendant

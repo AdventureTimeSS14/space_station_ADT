@@ -72,6 +72,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     #region UI
     private void OnEquip(EntityUid uid, VoiceMaskComponent component, ClothingGotEquippedEvent args)
     {
+        if (component.Action != null) //ADT tweak
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
     }
 

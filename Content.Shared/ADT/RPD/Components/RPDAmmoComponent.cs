@@ -12,5 +12,5 @@ public sealed partial class RPDAmmoComponent : Component
     /// Can be partially transferred into an RPD, until it is empty then it gets deleted.
     /// </summary>
     [DataField("charges"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public int Charges = 130;
+    public int Charges = 50;
 }

@@ -42,3 +42,4 @@
   - type: ProjectileBatteryAmmoProvider
     proto: ADTBulletLaserMK2
     fireCost: 100
+  - type: PowerCell

@@ -205,6 +205,21 @@
   color: "#77b58e"
   boilingPoint: -33.0
   meltingPoint: -77.7
+  #ADT-tweak-start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.13
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+  #ADT-tweak-end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1
@@ -216,7 +231,7 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: 1
+            Caustic: 0.5 #ADT-tweak. 1 -> 0.5
     Gas:
       effects:
       - !type:HealthChange
@@ -284,6 +299,21 @@
   color: "#a1000b"
   boilingPoint: 55.5
   meltingPoint: -50.0
+  #ADT-tweak-start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.19
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+  #ADT-tweak-end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1
@@ -302,4 +332,4 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: 1
+            Caustic: 0.7 #ADT-tweak. 1 -> 0.7

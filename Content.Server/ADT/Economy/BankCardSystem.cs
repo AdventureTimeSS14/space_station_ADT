@@ -17,6 +17,8 @@ using Content.Shared.Mobs.Systems;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo;
 
 namespace Content.Server.ADT.Economy;
 
@@ -165,13 +167,13 @@ public sealed class BankCardSystem : EntitySystem
             do
             {
                 accountNumber = _random.Next(100000, 999999);
-            } while (AccountExist(accountId));
+            } while (AccountExist(accountNumber));
 
-            account = new BankAccount(accountNumber, startingBalance);
+            account = new BankAccount(accountNumber, startingBalance, _random);
         }
         else
         {
-            account = new BankAccount(accountId, startingBalance);
+            account = new BankAccount(accountId, startingBalance, _random);
         }
 
         _accounts.Add(account);
@@ -205,17 +207,17 @@ public sealed class BankCardSystem : EntitySystem
         if (!TryGetAccount(accountId, out var account) || account.Balance + amount < 0)
             return false;
 
-        if (account.CommandBudgetAccount)
-        {
-            while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
-            {
-                if (acc.BankAccount.AccountId != accountId)
-                    continue;
+        // if (account.CommandBudgetAccount)
+        // {
+        //     while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
+        //     {
+        //         if (acc.BankAccount.AccountId != accountId)
+        //             continue;
 
-                _cargo.UpdateBankAccount((uid, acc), amount);
-                return true;
-            }
-        }
+        //         _cargo.UpdateBankAccount((uid, acc), amount);
+        //         return true;
+        //     }
+        // }
 
         account.Balance += amount;
         if (account.CartridgeUid != null)

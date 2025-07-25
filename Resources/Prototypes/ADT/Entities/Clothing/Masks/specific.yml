@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskGasVoiceHandMade
+  name: hand-made voice mask
+  description: easy technology, straight from maints.
+  components:
+    - type: VoiceMask
+      voiceMaskName: "???"
+      action: null
+      barkId: Mettaton
+    - type: HideLayerClothing
+      slots:
+      - Snout
+      - SnoutOverlay
+    - type: Sprite
+      sprite: ADT/Clothing/Mask/gas_voice.rsi
+    - type: Clothing
+      sprite: ADT/Clothing/Mask/gas_voice.rsi
+    - type: BreathMask
+    - type: IdentityBlocker
+    - type: Construction
+      graph: VoiceMaskGraph
+      node: voicemask

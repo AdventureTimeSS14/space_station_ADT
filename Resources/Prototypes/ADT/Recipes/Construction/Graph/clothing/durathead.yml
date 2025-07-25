@@ -16,12 +16,9 @@
       entity: ADTClothingBackpackDuffelDurathead
 
 - type: construction
-  name: Duratthead duffel bag
   id: DuffelDurathead
   graph: DuffelDurathead
   startNode: start
   targetNode: DuffelDurathead
   category: construction-category-clothing
-  description: A better bag for a swag.
-  icon: { sprite: ADT/Clothing/Back/duffel_durathead.rsi, state: icon }
   objectType: Item

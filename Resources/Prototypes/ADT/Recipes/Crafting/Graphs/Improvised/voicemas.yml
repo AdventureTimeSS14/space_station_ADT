@@ -1,0 +1,30 @@
+- type: constructionGraph
+  id: VoiceMaskGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: voicemask
+      steps:
+      - tag: IntercomElectronics
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: cell_con
+        name: construction-graph-intercom-electronics
+      - tag: GasMask
+        icon:
+          sprite: Clothing/Mask/gas.rsi
+          state: icon
+        name: construction-graph-gas-mask
+      - tag: VoiceTrigger
+        icon:
+          sprite: Objects/Devices/voice.rsi
+          state: voice
+        name: construction-graph-voice-trigger
+      - material: Cable
+        amount: 15
+      - material: Cloth
+        amount: 10
+        doAfter: 10
+  - node: voicemask
+    entity: ADTClothingMaskGasVoiceHandMade

@@ -1,0 +1,9 @@
+- type: vendingMachineInventory
+  id: ADTFoodDispenserInventory
+  startingInventory:
+    FoodSnackNutribrick: 20
+    FoodSnackMREBrownie: 20
+    DrinkMREFlask: 30
+    FoodTinMRE: 20
+    DrinkJuiceOrangeCarton: 20
+    DrinkEnergyDrinkCan: 30

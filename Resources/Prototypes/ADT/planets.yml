@@ -15,16 +15,14 @@
       - LavaDungeonRoomMarker
       - LavaDungeonRoomMarker
       - LavaDungeonRoomMarker
-      # - BloodMinerDungeMarker
-    minX: -200
-    maxX: 200
-    minY: -200
-    maxY: 200
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - BloodMinerDungeMarker
+    minX: -250
+    maxX: 250
+    minY: -250
+    maxY: 250
   - type: FTLDestination
-    whitelist:
-      components:
-      - MiningShuttleGuest
-      - MiningShuttle
   - type: WeatherScheduler # Regular ash storms
     stages:
     - duration: # 5-10 minutes of calm

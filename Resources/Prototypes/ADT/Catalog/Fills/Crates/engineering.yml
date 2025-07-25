@@ -1,15 +1,4 @@
 - type: entity
-  id: ADTCrateRPDAmmo
-  parent: CrateEngineering
-  name: canned matter crate
-  description: Contains three canned matter cartridges.
-  components:
-  - type: StorageFill
-    contents:
-    - id: ADTRPDAmmo
-      amount: 3
-
-- type: entity
   id: ADTCrateRPD
   parent: CrateEngineeringSecure
   name: RPD crate

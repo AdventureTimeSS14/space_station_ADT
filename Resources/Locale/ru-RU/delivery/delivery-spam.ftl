@@ -103,6 +103,7 @@ delivery-spam-centcomm-retribution = [color=red] ОФИЦИАЛНОЕ СООБЩ
     
     { "[head=2][color=red]ИГНОРИРОВАНИЕ ЭТОГО ПРИКАЗА ГРОЗИТ ВАМ КАРОЙ ОТ [color=green]ЦЕНТКО[/color]!!!!![/head][/color]" }
 delivery-spam-alternate-timeline = {-delivery-header-nanotrasen-alternate-timeline}
+
     { "[head=2]Это официальное уведомление [color=red]Начальника Службы Безопасности[/color] Космической станции 15 Nanotrasen.[/head]" }
     
     Кому бы ни попало это письмо... Я сержант Ригель, начальник службы безопасности. Нам срочно нужно подкрепление.

@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Configuration;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -70,7 +70,7 @@ public sealed partial class CCVars
     /// Recommended that you utilise this in conjunction with <see cref="StaticStorageUI"/>
     /// </summary>
     public static readonly CVarDef<int> StorageLimit =
-        CVarDef.Create("control.storage_limit", 1, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("control.storage_limit", 5, CVar.REPLICATED | CVar.SERVER); /// ADT_Tweak - 1 to 5 - на радость любителям поменеджерить инвентарь
 
     /// <summary>
     /// Whether or not storage can be opened recursively.

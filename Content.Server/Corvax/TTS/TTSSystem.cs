@@ -8,9 +8,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.ADT.Language;  // ADT Languages
+using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
-using Content.Shared.Inventory;  // ADT Languages
 
 namespace Content.Server.Corvax.TTS;
 
@@ -115,7 +114,6 @@ public sealed partial class TTSSystem : EntitySystem
         if (soundData is null) return;
 
         // ADT Languages start
-
         var languageSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables), speaker);
         if (languageSoundData is null) return;
         // ADT Languages end

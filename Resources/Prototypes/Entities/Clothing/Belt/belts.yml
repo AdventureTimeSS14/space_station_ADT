@@ -46,7 +46,6 @@
         - HandLabeler
         # ADT tweak start
         - RPD
-        - RPDAmmo
         # ADT tweak end
   - type: ItemMapper
     mapLayers:
@@ -129,6 +128,9 @@
         - Geiger
         - TrayScanner
         - GasAnalyzer
+        # ADT tweak start
+        - RPD
+        # ADT tweak end
   - type: ItemMapper
     mapLayers:
       drill:
@@ -666,7 +668,7 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing

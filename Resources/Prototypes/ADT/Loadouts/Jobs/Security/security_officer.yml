@@ -25,12 +25,12 @@
 #     neck: ADTClothingNeckSecBadge
 
 - type: loadout
-  id: ADTSecurityOfficerNeckBadgeBronze
+  id: ADTNeckSecBadgeBronze
   equipment:
     neck: ADTClothingNeckSecBadgeBronze
 
 - type: loadout
-  id: ADTSecurityOfficerNeckBadgeSilver
+  id: ADTNeckSecBadgeSilver
   equipment:
     neck: ADTClothingNeckSecBadgeSilver
   effects:
@@ -38,7 +38,7 @@
     proto: ADTSecurity100hours
 
 - type: loadout
-  id: ADTSecurityOfficerNeckBadgeGold
+  id: ADTNeckSecBadgeGold
   equipment:
     neck: ADTClothingNeckSecBadgeGold
   effects:

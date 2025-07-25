@@ -41,3 +41,41 @@ artifact-trigger-hint-plasma = Газообразная плазма
 artifact-trigger-hint-land = Активное замедление
 artifact-trigger-hint-examine = Внимательное изучение
 artifact-trigger-hint-medical = Терапевтические химикаты
+
+xenoarch-trigger-tip-music = Звуковые вибрации
+xenoarch-trigger-tip-heat = Высокая температура газа
+xenoarch-trigger-tip-cold = Низкая температура газа
+xenoarch-trigger-tip-no-oxygen = Отсутсвие кислорода
+xenoarch-trigger-tip-water = Вода
+xenoarch-trigger-tip-co2 = Диоксид углерода
+xenoarch-trigger-tip-plasma = Нетвердая плазма
+xenoarch-trigger-tip-tritium = Тритий
+xenoarch-trigger-tip-ammonia = Аммиак
+xenoarch-trigger-tip-n2o = Оксид азота
+xenoarch-trigger-tip-frezon = Фрезон
+xenoarch-trigger-tip-radiation = Радиация
+xenoarch-trigger-tip-brute-damage = Физические повреждения
+xenoarch-trigger-tip-interaction = Физическое взаимодействие
+xenoarch-trigger-tip-wrenching = Закрепление
+xenoarch-trigger-tip-prying = Монтирование
+xenoarch-trigger-tip-screwing = Свинчивание
+xenoarch-trigger-tip-pulsing = Пульсация
+xenoarch-trigger-tip-pressure-low = Низкое давление
+xenoarch-trigger-tip-pressure-high = Высокое давление
+xenoarch-trigger-tip-examine = Тщательный осмотр
+xenoarch-trigger-tip-timer = Периодическая автоактивация
+xenoarch-trigger-tip-blood = Кровь
+xenoarch-trigger-tip-throw = Бросок
+xenoarch-trigger-tip-death = Эссенция жизни
+xenoarch-trigger-tip-magnet = Магнитные волны
+
+### Description hints
+xenoarch-trigger-examine-wrenching = На поверхности вращается незакреплённая деталь.
+xenoarch-trigger-examine-prying = Из поверхности приподнят панельный сегмент.
+xenoarch-trigger-examine-screwing = Приподнятая секция с небольшим углублением на поверхности.
+xenoarch-trigger-examine-pulsing = Из артефакта выступает открытый диод.
+xenoarch-trigger-examine-timer = Поверхность покрыта порезами и царапинами... Едва различимая цифра: [italic]{$time}[/italic]
+
+### Effects hints
+xenoarch-effect-puddle = Оставляет лужу из следующих реагентов: {$reagent}
+xenoarch-effect-foam = Образует пену из следующих реагентов: {$reagent}

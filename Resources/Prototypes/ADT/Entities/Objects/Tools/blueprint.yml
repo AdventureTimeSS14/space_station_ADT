@@ -7,3 +7,13 @@
   - type: Blueprint
     providedRecipes:
     - ADTWeaponTonfa
+
+- type: entity
+  parent: BaseBlueprint
+  id: ADTRaiderBlueprint
+  name: raider blueprint
+  description: A blueprint with a raider hardsuit. It can be inserted into an autolathe.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - ADTHardsuitRaider

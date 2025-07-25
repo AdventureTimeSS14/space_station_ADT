@@ -7,3 +7,9 @@
   - chat-speech-verb-radio-3
   - chat-speech-verb-radio-4
   - chat-speech-verb-radio-5
+
+- type: speechVerb
+  id: Supermatter
+  name: chat-speech-verb-name-supermatter
+  speechVerbStrings:
+  - chat-speech-verb-supermatter

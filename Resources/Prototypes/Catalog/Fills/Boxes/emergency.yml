@@ -228,6 +228,7 @@
     - id: Flare
     - id: FoodBreadBaguette
     - id: DrinkWaterBottleFull
+    - id: SpaceMedipen # ADT-Tweak
 
 - type: entity
   parent: BoxSurvivalNitrogen
@@ -242,6 +243,7 @@
     - id: Flare
     - id: FoodBreadBaguette
     - id: DrinkWaterBottleFull
+    - id: SpaceMedipen # ADT-Tweak
   - type: Sprite
     layers:
     - state: internals

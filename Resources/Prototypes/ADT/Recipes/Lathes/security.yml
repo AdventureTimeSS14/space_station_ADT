@@ -131,3 +131,12 @@
   materials:
     Steel: 800
     Plastic: 600
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: ADTHardsuitRaider
+  result: ADTHardsuitRaider
+  materials:
+    Steel: 6000
+    Glass: 3000
+    Plasteel: 3000

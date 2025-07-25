@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1 and unlumy, resprite by discrod:prazat911",
+  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1 and unlumy, resprite by discord:prazat911, ipc_antenna_tvalt, ipc_antenna_cat made by prazat911 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -117,6 +117,14 @@
     },
     {
       "name": "ipc_small_eye",
+      "directions": 4
+    },
+        {
+      "name": "ipc_antenna_tvalt",
+      "directions": 4
+    },
+        {
+      "name": "ipc_antenna_cat",
       "directions": 4
     }
   ]

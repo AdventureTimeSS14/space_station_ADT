@@ -16,7 +16,7 @@
     eyes: ADTClothingEyesWeldingOldStyle
   effects:
   - !type:GroupLoadoutEffect
-    proto: HonoredEngineer
+    proto: SeniorEngineering
 
 - type: loadout
   id: ADTEyeWelding

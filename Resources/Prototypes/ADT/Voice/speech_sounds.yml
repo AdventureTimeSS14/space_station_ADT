@@ -33,3 +33,53 @@
     path: /Audio/ADT/Voice/Resomi/resomi_2_ask.ogg
   exclaimSound:
     path: /Audio/ADT/Voice/Resomi/resomi_2_exclaim.ogg
+
+- type: speechSounds
+  id: SupermatterSilent
+  variation: 0
+  saySound:
+    path: /Audio/ADT/Supermatter/status/empty.ogg
+  askSound:
+    path: /Audio/ADT/Supermatter/status/empty.ogg
+  exclaimSound:
+    path: /Audio/ADT/Supermatter/status/empty.ogg
+
+- type: speechSounds
+  id: SupermatterWarning
+  variation: 0
+  saySound:
+    path: /Audio/ADT/Supermatter/status/terminal_alert.ogg
+  askSound:
+    path: /Audio/ADT/Supermatter/status/terminal_alert.ogg
+  exclaimSound:
+    path: /Audio/ADT/Supermatter/status/terminal_alert.ogg
+
+- type: speechSounds
+  id: SupermatterDanger
+  variation: 0
+  saySound:
+    path: /Audio/ADT/Supermatter/status/engine_alert2.ogg
+  askSound:
+    path: /Audio/ADT/Supermatter/status/engine_alert2.ogg
+  exclaimSound:
+    path: /Audio/ADT/Supermatter/status/engine_alert2.ogg
+
+- type: speechSounds
+  id: SupermatterEmergency
+  variation: 0
+  saySound:
+    path: /Audio/ADT/Supermatter/status/engine_alert1.ogg
+  askSound:
+    path: /Audio/ADT/Supermatter/status/engine_alert1.ogg
+  exclaimSound:
+    path: /Audio/ADT/Supermatter/status/engine_alert1.ogg
+
+- type: speechSounds
+  id: SupermatterDelaminating
+  variation: 0
+  saySound:
+    path: /Audio/ADT/Supermatter/status/ohfuck.ogg
+  askSound:
+    path: /Audio/ADT/Supermatter/status/ohfuck.ogg
+  exclaimSound:
+    path: /Audio/ADT/Supermatter/status/ohfuck.ogg

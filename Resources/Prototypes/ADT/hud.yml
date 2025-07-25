@@ -1,5 +1,5 @@
 - type: hudTheme
-  id: SS14OperativeTheme
+  id: ADTSS14OperativeTheme
   name: ui-options-hud-theme-operative
   path: /Textures/ADT/Interface/Operative/
   order: 7

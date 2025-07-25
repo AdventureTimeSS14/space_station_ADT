@@ -40,11 +40,11 @@
             min: 1
             max: 2
           ShardGlass:
-            min: 2
-            max: 4
+            min: 1
+            max: 2
           LightTubeBroken:
-            min: 2
-            max: 3
+            min: 1
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: PointLight

@@ -80,3 +80,52 @@
     Glass: 1000
     Steel: 500
     Gold: 500
+
+- type: latheRecipe
+  id: BoxFolderRed
+  result: BoxFolderRed
+  completetime: 3
+  materials:
+    Cardboard: 300
+
+- type: latheRecipe
+  id: BoxFolderBlue
+  result: BoxFolderBlue
+  completetime: 3
+  materials:
+    Cardboard: 300
+
+- type: latheRecipe
+  id: BoxFolderYellow
+  result: BoxFolderYellow
+  completetime: 3
+  materials:
+    Cardboard: 300
+
+- type: latheRecipe
+  id: BoxFolderWhite
+  result: BoxFolderWhite
+  completetime: 3
+  materials:
+    Cardboard: 300
+
+- type: latheRecipe
+  id: BoxFolderGrey
+  result: BoxFolderGrey
+  completetime: 3
+  materials:
+    Cardboard: 300
+
+- type: latheRecipe
+  id: BoxFolderBlack
+  result: BoxFolderBlack
+  completetime: 3
+  materials:
+    Cardboard: 300
+
+- type: latheRecipe
+  id: BoxFolderGreen
+  result: BoxFolderGreen
+  completetime: 3
+  materials:
+    Cardboard: 300

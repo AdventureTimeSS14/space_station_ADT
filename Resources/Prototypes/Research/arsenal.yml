@@ -214,6 +214,20 @@
   - ConcentratedLaserWeaponry
   # ADT Research Console Rework end
 
+#- type: technology
+#  id: KineticModifications
+#  name: research-technology-kinetic-modifications
+#  icon:
+#    sprite: Objects/Tools/upgrade.rsi
+#    state: display
+#  discipline: Arsenal
+#  tier: 2
+#  cost: 7500
+#  recipeUnlocks:
+#  - PKAUpgradeDamage
+#  - PKAUpgradeRange
+#  - PKAUpgradeFireRate
+
 - type: technology
   id: BasicShuttleArmament
   name: research-technology-basic-shuttle-armament
@@ -258,20 +272,21 @@
   # ADT Research Console Rework start
   position: 6,-1
   requiredTech:
-  - ExperimentalBatteryAmmo
+  # - ExperimentalBatteryAmmo # В прототипах такого не найдено
   - WaveParticleHarnessing
   # ADT Research Console Rework end
 
 - type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
+  id: ThermalWeaponry
+  name: research-technology-thermal-weaponry
   icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
     state: icon
   discipline: Arsenal
   tier: 3
   cost: 15000
   recipeUnlocks:
+  - WeaponTemperatureGun
   - WeaponLaserSvalinn
   # ADT Research Console Rework start
   position: 5,0

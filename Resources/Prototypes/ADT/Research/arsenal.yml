@@ -36,23 +36,6 @@
   requiredTech:
   - ADTSecMODsuit
 
-- type: technology
-  id: KineticModifications
-  name: research-technology-kinetic-modifications
-  icon:
-    sprite: ADT/Objects/Tools/upgrade.rsi
-    state: display
-  discipline: Arsenal
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - PKAUpgradeDamage
-  - PKAUpgradeRange
-  - PKAUpgradeFireRate
-  position: 0,2
-  requiredTech:
-  - SalvageWeapons
-
 #Технологии модулей
 - type: technology
   id: ADTArsenalBasicModules
@@ -95,3 +78,21 @@
   position: 0,-3
   requiredTech:
   - ADTArsenalBasicModules
+
+# Кинетики 
+- type: technology
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
+  icon:
+    sprite: ADT/Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+  position: 0,2
+  requiredTech:
+  - SalvageWeapons

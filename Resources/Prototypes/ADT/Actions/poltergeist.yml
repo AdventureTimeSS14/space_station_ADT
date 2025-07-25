@@ -32,8 +32,6 @@
     useDelay: 30
     canTargetSelf: false
     range: 3
-    charges: 5
-    renewCharges: true
 
 - type: entity
   id: ActionPoltergeistRestInPeace

@@ -161,3 +161,6 @@ ent-ADTCMOPDA = КПК старшего медицинского офицера
 
 ent-ADTTraumatologistPDA = КПК травматолога
     .desc = КПК травматолога.
+
+ent-ADTintendantPDA = КПК интенданта
+    .desc = КПК главы Каргонии

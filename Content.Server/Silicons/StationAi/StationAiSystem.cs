@@ -28,6 +28,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly SiliconLawSystem _law = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _ais = new();
 
@@ -151,9 +152,9 @@ public sealed class StationAiSystem : SharedStationAiSystem
     public override void SetLoadoutOnTakeover(EntityUid core, EntityUid brain)
     {
         base.SetLoadoutOnTakeover(core, brain);
-        if (!_mind.TryGetMind(brain, out _, out var mind) || mind.Session == null)
+        if (!_mind.TryGetMind(brain, out _, out var mind) || !_player.TryGetSessionById(mind.UserId, out var session))
             return;
-        var profile = _ticker.GetPlayerProfile(mind.Session);
+        var profile = _ticker.GetPlayerProfile(session);
 
         if (profile == null)
             return;

@@ -1,12 +1,12 @@
 ent-ADTBaseMagazineBoxMagnumLesser = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
 ent-ADTMagazineBoxMagnumLesser = коробка патронов (.357 магнум)
-    .desc = { ent-BaseMagazineBoxMagnumLesser.desc }
+    .desc = { ent-ADTBaseMagazineBoxMagnumLesser.desc }
 ent-ADTMagazineBoxMagnumLesserPractice = коробка патронов (.357 магнум учебные)
-    .desc = { ent-BaseMagazineBoxMagnumLesser.desc }
+    .desc = { ent-ADTBaseMagazineBoxMagnumLesser.desc }
 ent-ADTMagazineBoxMagnumLesserIncendiary = коробка патронов (.357 магнум зажигательные)
-    .desc = { ent-BaseMagazineBoxMagnumLesser.desc }
+    .desc = { ent-ADTBaseMagazineBoxMagnumLesser.desc }
 ent-ADTMagazineBoxMagnumLesserUranium = коробка патронов (.357 магнум урановые)
-    .desc = { ent-BaseMagazineBoxMagnumLesser.desc }
+    .desc = { ent-ADTBaseMagazineBoxMagnumLesser.desc }
 ent-ADTMagazineBoxMagnumLesserAP = коробка патронов (.357 магнум бронебойные)
-    .desc = { ent-BaseMagazineBoxMagnumLesser.desc }
+    .desc = { ent-ADTBaseMagazineBoxMagnumLesser.desc }

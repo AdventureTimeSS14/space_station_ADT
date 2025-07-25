@@ -46,7 +46,7 @@
 - type: guideEntry
   id: SlimePerson
   name: species-name-slime
-  text: "/ServerInfo/Guidebook/Mobs/SlimePerson.xml"
+  text: "/ServerInfo/ADT/Guidebook/Mobs/SlimePerson.xml" #ADT-tweak
 
 - type: guideEntry
   id: Vox

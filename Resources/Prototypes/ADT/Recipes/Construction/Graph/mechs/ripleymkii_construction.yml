@@ -14,7 +14,7 @@
         doAfter: 1
 
       - tag: ADTRipleyMk2ModificationKit
-        name: ripley mk2 modification kit
+        name: construction-graph-tag-ripley_mkii-modification-kit
         icon:
           sprite: "ADT/Objects/Specific/Mech/modification_kits.rsi"
           state: "ripley_mkii"

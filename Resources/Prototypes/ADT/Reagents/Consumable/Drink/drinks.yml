@@ -385,7 +385,8 @@
 
 - type: reagent
   id: ADTYupiDryApple
-  slippery: false
+  slipData:
+    requiredSlipSpeed: 3.5
   name: reagent-name-yupidryapple
   parent: BaseDrink
   desc: reagent-desc-yupidryapple

@@ -32,12 +32,12 @@
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: AlwaysHot
   # Start ADT tweak
-  - type: Construction
-    graph: ADTBonfire
-    node: bonfire
-  - type: Tag
-    tags:
-      - NoPaint
+  #- type: Construction
+  #  graph: ADTBonfire
+  #  node: bonfire
+  #- type: Tag
+  #  tags:
+  #    - NoPaint
   # End ADT tweak
 
 - type: entity

@@ -28,11 +28,11 @@
   cost: 1500
 
 - type: cargoProduct
-  id: FunRingBox
+  id: ADTFunRingBox
   icon:
     sprite: ADT/Objects/Specific/Service/RingBox.rsi
     state: box
-  product: ADTRingBox
+  product: ADTRingsCrate
   category: cargoproduct-category-name-fun
   cost: 8000
 

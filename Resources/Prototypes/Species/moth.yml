@@ -94,7 +94,7 @@
       points: 4
       required: false
     Chest:
-      points: 4
+      points: 2
       required: false
     Legs:
       points: 4

@@ -101,11 +101,12 @@
     sprite: Mobs/Silicon/chassis.rsi
     state: medical
   discipline: Biochemical
-  tier: 2
+  tier: 2 
   cost: 5000
   recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
+  # - BorgModuleAdvancedTreatment # В прототипах такого не найдено
+  - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
+  - BorgModuleAdvancedChemical
   position: 3,-1
   requiredTech:
   - ADTMedicalMODsuit

@@ -237,7 +237,7 @@ public class RPDSystem : EntitySystem
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
-        _charges.UseCharges(uid, args.Cost);
+        _charges.TryUseCharges(uid, args.Cost);
     }
 
     private void OnRPDconstructionGhostRotationEvent(RPDConstructionGhostRotationEvent ev, EntitySessionEventArgs session)
@@ -272,8 +272,7 @@ public class RPDSystem : EntitySystem
         // Check that the RPD has enough ammo to get the job done
         TryComp<LimitedChargesComponent>(uid, out var charges);
 
-        // Both of these were messages were suppose to be predicted, but HasInsufficientCharges wasn't being checked on the client for some reason?
-        if (_charges.IsEmpty(uid, charges))
+        if (_charges.IsEmpty((uid, charges)))
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-no-ammo-message"), uid, user);
@@ -281,7 +280,7 @@ public class RPDSystem : EntitySystem
             return false;
         }
 
-        if (_charges.HasInsufficientCharges(uid, component.CachedPrototype.Cost, charges))
+        if (!_charges.HasCharges((uid, charges), component.CachedPrototype.Cost))
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-insufficient-ammo-message"), uid, user);

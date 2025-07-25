@@ -15,8 +15,8 @@ ent-ADTClothingOuterCoatLabPathologistOpened_alt = чёрный лаборато
 ent-ADTClothingOuterApronPathologist = фартук патологоанатома
     .desc = Фартук для работы с трупами.
 
-ent-ADTClothingKadet = шинель для Кадетов Службы безопасности
-    .desc = шинель, сшитая для новобранцев службы безопасности. Она очень похожа на шинели младших чинов РИА
+ent-ADTClothingKadet = шинель кадета службы безопасности
+    .desc = Легкобронированная кожаная шинель, предназначенная для повседневного ношения кадетами службы безопасности. Имеет логотип компании NanoTrasen Security.
 
 ent-ADTClothingOuterGraySweatshirtTop = серая толстовка-топка
     .desc = Стильная белая толстовка-топка. Производства компании "Modeling Agency Dar-Vaxed".

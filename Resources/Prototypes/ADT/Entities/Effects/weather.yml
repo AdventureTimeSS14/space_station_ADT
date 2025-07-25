@@ -1,0 +1,206 @@
+- type: entity
+  id: ADTEffectRain
+  name: Rain
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: rain
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: rain
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADTEffectAshfall
+  name: ashfall
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: ashfall
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: ashfall
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADTEffectAshfallHeavy
+  name: ashfall_heavy
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: ashfall_heavy
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: ashfall_heavy
+  - type: DamageContacts
+    damage:
+      types:
+        Heat: 4
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - MidImpassable
+  - type: Appearance
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADTEffectSandstormHeavy
+  name: sandstorm_heavy
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: sandstorm_heavy
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: sandstorm_heavy
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADEffectTashfallLight
+  name: ashfall_light
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: ashfall_light
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: ashfall_light
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADTEffectStorm
+  name: storm
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: storm
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: storm
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADTEffectSnowfallHeavy
+  name: snowfall_heavy
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: snowfall_heavy
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: snowfall_heavy
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADTEffectSandstorm
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  name: sandstorm
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: sandstorm
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: sandstorm
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ADTEffectSnowfallLight
+  name: snowfall_light
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: snowfall_light
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: /Textures/ADT/Effects/weather.rsi
+    state: snowfall_light
+  - type: Tag
+    tags:
+      - HideContextMenu

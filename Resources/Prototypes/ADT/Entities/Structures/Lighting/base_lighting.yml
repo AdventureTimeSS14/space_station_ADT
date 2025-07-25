@@ -1,0 +1,37 @@
+- type: entity
+  id: ADTPoweredlightOld
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Old
+  parent: Poweredlight
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeOld
+  - type: PointLight
+    radius: 8
+    energy: 0.4
+    softness: 1.5
+    color: "#FFEEE0"
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: ADTPoweredlightWarm
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Warm
+  parent: Poweredlight
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: ADTLightTubeWarm
+  - type: PointLight
+    radius: 10
+    energy: 0.9
+    softness: 1.5
+    color: "#ffa647"
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand

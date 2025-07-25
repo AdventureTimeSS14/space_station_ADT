@@ -1,6 +1,6 @@
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
-  id: ADTRingBox
+  id: ADTRingBoxPlazma
   name: ring box
   description: very good.
   components:
@@ -10,23 +10,79 @@
     state: box
     layers:
     - state: box
+      color: "#ff94bb"
     - state: box-open
       map: ["openLayer"]
+      color: "#ff94bb"
   - type: Storage
-    maxItemSize: Small
+    grid:
+    - 0,0,0,0
   - type: Item
     sprite: ADT/Objects/Specific/Service/RingBox.rsi
+    shape:
+    - 0,0,0,0
     size: Small
     heldPrefix: box
   - type: StorageFill
     contents:
     - id: ADTClothingHandsRingPlazma
       amount: 1
-    - id: ADTClothingHandsRingEmerald
-      amount: 1
-    - id: ADTClothingHandsRingBlood
-      amount: 1
-    - id: ADTClothingHandsRingTurk
-      amount: 1
   - type: StaticPrice
     price: 500
+
+- type: entity
+  parent: ADTRingBoxPlazma
+  id: ADTRingBoxEmerald
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Objects/Specific/Service/RingBox.rsi
+    state: box
+    layers:
+    - state: box
+      color: "#42ff78"
+    - state: box-open
+      map: ["openLayer"]
+      color: "#42ff78"
+  - type: StorageFill
+    contents:
+    - id: ADTClothingHandsRingEmerald
+      amount: 1
+      
+- type: entity
+  parent: ADTRingBoxPlazma
+  id: ADTRingBoxBlood
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Objects/Specific/Service/RingBox.rsi
+    state: box
+    layers:
+    - state: box
+      color: "#d90101"
+    - state: box-open
+      map: ["openLayer"]
+      color: "#d90101"
+  - type: StorageFill
+    contents:
+    - id: ADTClothingHandsRingBlood
+      amount: 1
+
+- type: entity
+  parent: ADTRingBoxPlazma
+  id: ADTRingBoxTurk
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: ADT/Objects/Specific/Service/RingBox.rsi
+    state: box
+    layers:
+    - state: box
+      color: "#61caff"
+    - state: box-open
+      map: ["openLayer"]
+      color: "#61caff"
+  - type: StorageFill
+    contents:
+    - id: ADTClothingHandsRingTurk
+      amount: 1

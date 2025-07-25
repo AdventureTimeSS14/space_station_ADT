@@ -35,3 +35,497 @@
     radius: 0.1
     energy: 0.1
     color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineTSFWeapon
+  name: TSF Weapon Dispenser
+  description: TSF Weapon Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTWeaponTSFDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_tsf
+    brokenState: broken_tsf
+    normalState: normal_weapon_tsf
+    ejectState: eject_weapon_tsf
+    denyState: deny_tsf
+    screenState: screen_weapon_tsf
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_weapon_tsf"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineKMTWeapon
+  name: KMT Weapon Dispenser
+  description: KMT Weapon Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTWeaponKMTDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_kmt
+    brokenState: broken_kmt
+    normalState: normal_weapon_kmt
+    ejectState: eject_weapon_kmt
+    denyState: deny_kmt
+    screenState: screen_weapon_kmt
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_weapon_kmt"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineAmmoTSF
+  name: Ammo Dispenser TSF
+  description: Ammo Dispenser TSF
+  components:
+  - type: VendingMachine
+    pack: ADTShipBattleAmmoDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_tsf
+    brokenState: broken_tsf
+    normalState: normal_ammo
+    ejectState: eject_ammo
+    denyState: deny_tsf
+    screenState: screen_ammo_tsf
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_ammo_tsf"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineAmmoKMT
+  name: Ammo Dispenser KMT
+  description: Ammo Dispenser KMT
+  components:
+  - type: VendingMachine
+    pack: ADTShipBattleAmmoDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_kmt
+    brokenState: broken_kmt
+    normalState: normal_ammo
+    ejectState: eject_ammo
+    denyState: deny_kmt
+    screenState: screen_ammo_kmt
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_ammo_kmt"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineMedicalTSF
+  name: Medical Dispenser TSF
+  description: Medical Dispenser TSF
+  components:
+  - type: VendingMachine
+    pack: ADTShipBattleMedicalDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_tsf
+    brokenState: broken_tsf
+    normalState: normal_med
+    ejectState: eject_med
+    denyState: deny_tsf
+    screenState: screen_med_tsf
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_med_tsf"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineMedicalKMT
+  name: Medical Dispenser KMT
+  description: Medical Dispenser KMT
+  components:
+  - type: VendingMachine
+    pack: ADTShipBattleMedicalDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_kmt
+    brokenState: broken_kmt
+    normalState: normal_med
+    ejectState: eject_med
+    denyState: deny_kmt
+    screenState: screen_med_kmt
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_med_kmt"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineUniformTSF
+  name: Uniform Dispenser TSF
+  description: Uniform Dispenser TSF
+  components:
+  - type: VendingMachine
+    pack: ADTTSFUniformDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_tsf
+    brokenState: broken_tsf
+    normalState: normal_uniform_tsf
+    ejectState: eject_uniform_tsf
+    denyState: deny_tsf
+    screenState: screen_uniform_tsf
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_uniform_tsf"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineUniformKMT
+  name: Uniform Dispenser KMT
+  description: Uniform Dispenser KMT
+  components:
+  - type: VendingMachine
+    pack: ADTKMTUniformDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_kmt
+    brokenState: broken_kmt
+    normalState: normal_uniform_kmt
+    ejectState: eject_uniform_kmt
+    denyState: deny_kmt
+    screenState: screen_uniform_kmt
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_uniform_kmt"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineFood
+  name: Food Dispenser
+  description: Food Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTFoodDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_common
+    brokenState: broken_common
+    normalState: normal_food
+    ejectState: eject_food
+    denyState: deny_common
+    screenState: screen_food
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_common"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_common"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_food"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineAdditionsTSF
+  name: Additions TSF Dispenser
+  description: Additions TSF Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTAdditionsDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_tsf
+    brokenState: broken_tsf
+    normalState: normal_add
+    ejectState: eject_add
+    denyState: deny_tsf
+    screenState: screen_add_tsf
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_add_tsf"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineAdditionsKMT
+  name: Additions KMT Dispenser
+  description: Additions KMT Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTAdditionsDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_kmt
+    brokenState: broken_kmt
+    normalState: normal_add
+    ejectState: eject_add
+    denyState: deny_kmt
+    screenState: screen_add_kmt
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_add_kmt"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineEngineeringTSF
+  name: Engineering TSF Dispenser
+  description: Engineering TSF Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTTSFEngineeringDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_tsf
+    brokenState: broken_tsf
+    normalState: normal_engi_tsf
+    ejectState: eject_engi_tsf
+    denyState: deny_tsf
+    screenState: screen_engi_tsf
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_tsf"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_engi_tsf"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
+
+- type: entity
+  parent: VendingMachine
+  id: ADTShipbattleVendingMachineEngineeringKMT
+  name: Engineering KMT Dispenser
+  description: Engineering KMT Dispenser
+  components:
+  - type: VendingMachine
+    pack: ADTKMTEngineeringDispenserInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off_kmt
+    brokenState: broken_kmt
+    normalState: normal_engi_kmt
+    ejectState: eject_engi_kmt
+    denyState: deny_kmt
+    screenState: screen_engi_kmt
+    ejectDelay: 2
+    soundVend: /Audio/ADT/ADTGlobalEvents/ShipBattle/Machines/shell_in.ogg
+    allForFree: true # ADT-Economy
+  - type: Speech
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Machines/VendingMachines/vendings.rsi
+    layers:
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off_kmt"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen_engi_kmt"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 0.1
+    energy: 0.1
+    color: "#ffffff"
