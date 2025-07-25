@@ -100,12 +100,22 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
-    Honk:
-      collection: BikeHorn
-    Whistle:
-      collection: Whistles
+      #ADT-Tweak start
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Sigh:
+      collection: MaleSigh
+      #ADT-Tweak end
     Crying:
       collection: MaleCry
+      #ADT-Tweak start
+    Whistle:
+      collection: Whistles
+      #ADT-Tweak end
     Weh:
       collection: Weh
     Hew:
@@ -128,12 +138,22 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
-    Honk:
-      collection: BikeHorn
-    Whistle:
-      collection: Whistles
+      #ADT-Tweak start
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Sigh:
+      collection: FemaleSigh
+      #ADT-Tweak end
     Crying:
       collection: FemaleCry
+      #ADT-Tweak start
+    Whistle:
+      collection: Whistles
+      #ADT-Tweak end
     Weh:
       collection: Weh
     Hew:
@@ -189,6 +209,8 @@
     DefaultDeathgasp:
       collection: MaleSlimeDeathGasp #ADT-Tweak
     # ADT-Tweak Start
+    Spit:
+      collection: HumanSpits
     Bubbles:
       collection: SlimeBubbles
     Pop:
@@ -239,6 +261,8 @@
     DefaultDeathgasp:
       collection: FemaleSlimeDeathGasp #ADT-Tweak
     #ADT-Tweak Start
+    Spit:
+      collection: HumanSpits
     Bubbles:
       collection: SlimeBubbles
     Pop:

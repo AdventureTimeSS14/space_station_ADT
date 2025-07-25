@@ -315,6 +315,8 @@
   blacklist:
     components:
     - BorgChassis
+    tags:
+    - ADTSiliconEmotes
   chatMessages: ["chat-emote-msg-spit"]
   chatTriggers:
     - spit
