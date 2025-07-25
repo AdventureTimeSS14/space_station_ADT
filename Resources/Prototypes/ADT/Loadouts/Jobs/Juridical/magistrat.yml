@@ -5,5 +5,5 @@
 - type: loadout
   id: ADTMagistratBackpackSatchel
   equipment:
-  back: ClothingBackpackSatchelLeather
+    back: ClothingBackpackSatchelLeather
 
