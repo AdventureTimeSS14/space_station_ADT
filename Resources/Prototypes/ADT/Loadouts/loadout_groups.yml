@@ -48,7 +48,7 @@
   - LaceupShoes
   - LizardSkinShoes
   # ADT tweak start
-  - ADTFootWrapsW
+  - FootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
@@ -65,7 +65,7 @@
 
 # LAWYER
 - type: loadoutGroup
-  id: LawyerBackpackADT
+  id: ADTLawyerBackpack
   name: loadout-group-lawyer-backpack
   loadouts:
   - ClothingBackpackSatchelLeather
