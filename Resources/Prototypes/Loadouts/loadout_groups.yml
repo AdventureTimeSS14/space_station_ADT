@@ -263,12 +263,6 @@
   - CommonDuffel
 
 - type: loadoutGroup
-  id: LawyerBackpack
-  name: loadout-group-lawyer-backpack
-  loadouts:
-  - ClothingBackpackSatchelLeather
-
-- type: loadoutGroup
   id: PassengerNeck
   name: loadout-group-passenger-neck
   minLimit: 0
