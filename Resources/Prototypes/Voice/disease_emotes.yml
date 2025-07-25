@@ -11,6 +11,10 @@
   blacklist:
     components:
     - BorgChassis
+    # ADT tweak start
+    tags:
+    - ADTSiliconEmotes
+    # ADT tweak end
   chatTriggers:
     - sneeze
     - sneezes
