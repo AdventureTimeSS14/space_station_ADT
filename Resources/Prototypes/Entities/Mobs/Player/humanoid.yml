@@ -6,6 +6,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: GhostTakeoverAvailable
+    - type: IdBind
 
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
@@ -17,6 +18,7 @@
 - type: randomHumanoidSettings
   id: EventHumanoidCentcomm
   parent: EventHumanoidMindShielded
+  randomizeName: false
   components:
   - type: AutoImplant
     implants:
@@ -34,8 +36,9 @@
       state: icon
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+      - NamesFirstDeadSquad
+      - NamesLastDeadSquadCallsign
+      nameFormat: name-format-standard
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
@@ -79,8 +82,9 @@
       roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+      - NamesFirstDeadSquad
+      - NamesLastDeadSquadCallsign
+      nameFormat: name-format-standard
 
 
 # ## ERT Leader
@@ -551,7 +555,8 @@
     - type: RandomMetadata
       nameSegments:
       - ADTNamesFirstMilitaryRXBZZ # ADT Tweak
-      - NamesLastMilitary
+      - NamesLastERTCallsign
+      nameFormat: name-format-standard
 
 ## Central Command
 
@@ -652,6 +657,7 @@
       nameSegments:
       - NamesFirst
       - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: Cluwne

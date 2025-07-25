@@ -253,7 +253,7 @@
     - BodyScannerComputerCircuitboard
     - CloningConsoleComputerCircuitboard
     - CloningPodMachineCircuitboard
-    - CargoShuttleComputerCircuitboard
+    - CargoShuttleConsoleCircuitboard
     rareChance: 0.2
 
 # Technological
@@ -392,7 +392,7 @@
     - ADTMechOdysseusBattery
     - ADTMechGygaxBattery
     - ADTMechpaddyBattery
-    - ADTMechRipleyMk2Battery
+    # - ADTMechRipleyMk2Battery
     chance: 1.0
     offset: 0.0
     rarePrototypes:
