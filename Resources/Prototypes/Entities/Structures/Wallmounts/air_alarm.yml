@@ -51,6 +51,7 @@
   - type: Tag
     tags:
       - AirAlarm
+      - MesonVisible # ADT meson
   - type: AtmosDevice
   - type: StationAiWhitelist #ADT-Tweak
   - type: AirAlarm

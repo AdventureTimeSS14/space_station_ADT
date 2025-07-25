@@ -149,6 +149,9 @@
     - Power
   - type: BatteryDrinkerSource # ADT - IPC
     maxAmount: 10000
+  - type: Tag # ADT meson
+    tags:
+    - MesonVisible
 
 # APC under construction
 - type: entity
