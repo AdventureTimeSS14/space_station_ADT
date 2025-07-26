@@ -245,7 +245,8 @@
         - Opaque
   - type: KnockdownOnCollide
   - type: BlurOnCollide
-
+  - type: StaminaDamageOnCollide
+    damage: 65
 
 - type: entity
   id: ADTBulletEnergyCrossbow
@@ -279,8 +280,6 @@
         - Opaque
   - type: KnockdownOnCollide
   - type: BlurOnCollide
-  - type: StaminaDamageOnCollide
-    damage: 65
   - type: TimedDespawn
     lifetime: 0.1
 
