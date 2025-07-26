@@ -336,7 +336,6 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
-
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
   id: ClothingOuterArmorCult
