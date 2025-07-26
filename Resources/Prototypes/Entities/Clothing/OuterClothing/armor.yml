@@ -244,8 +244,10 @@
         Piercing: 0.35
         Heat: 0.35
         Caustic: 0.5
-  - type: StaminaResistance
-    damageCoefficient: 0.3  # ADT-Tweak
+  #ADT tweak start
+- type: StaminaResistance
+    damageCoefficient: 0.3
+#ADT tweak end
   - type: ExplosionResistance
     damageCoefficient: 0.35
   #- type: StaminaResistance
@@ -327,8 +329,10 @@
         Piercing: 0.7
         Heat: 0.8 # ADT tweak 0.9 > 0.8
         Caustic: 0.9
+#ADT Tweak start
   - type: StaminaResistance
-    damageCoefficient: 0.65  # ADT-Tweak
+    damageCoefficient: 0.65
+#ADT Tweak end
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
