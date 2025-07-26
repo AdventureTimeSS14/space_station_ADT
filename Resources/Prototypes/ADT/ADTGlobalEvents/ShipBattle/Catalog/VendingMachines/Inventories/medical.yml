@@ -1,0 +1,19 @@
+- type: vendingMachineInventory
+  id: ADTShipBattleMedicalDispenserInventory
+  startingInventory:
+    HandheldHealthAnalyzer: 5
+    Brutepack: 30
+    Ointment: 30
+    Tourniquet: 30
+    Bloodpack: 20
+    ChemistryBottleEpinephrine: 10
+    Syringe: 10
+    MedicatedSuture: 10
+    RegenerativeMesh: 10
+    EmergencyMedipen: 20
+    SpaceMedipen: 20
+    ADTStimulantAutoInjector: 10
+    ADTHemostasisAutoInjector: 30
+    BruteAutoInjector: 30
+    BurnAutoInjector: 30
+    Defibrillator: 3
