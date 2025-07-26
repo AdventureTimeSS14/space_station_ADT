@@ -44,8 +44,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         while (component.Chaos >= 0)
         {
             var rule = _random.Pick(component.RoundstartRules);
-            component.Chaos -= rule.Cost;
-            if (component.Chaos < 0)
+            if (component.Chaos - rule.Cost < 0)
             {
                 //быстро просматривает, каких ещё антагов можно добавить антагов
                 foreach (var antag in component.RoundstartRules)
@@ -53,10 +52,15 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
                     if (component.Chaos - antag.Cost < 0)
                     {
                         component.AddedRules.Add(antag.Id);
+                        break;
                     }
                 }
             }
-            component.AddedRules.Add(rule.Id);
+            else
+            {
+                component.Chaos -= rule.Cost;
+                component.AddedRules.Add(rule.Id);
+            }
         }
 
         //активация ивентов, не трогайте если не знаете
@@ -113,7 +117,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
                 }
                 foreach (var antag in scheduler.MidroundAntags)
                 {
-                    if (_random.NextDouble() > 0.9)
+                    if (_random.NextDouble() < 0.9)
                         continue;
                     GameTicker.AddGameRule(antag.Id);
                     scheduler.EventsBeforeAntag = _random.Next(2, scheduler.MaxEventsBeforeAntag);

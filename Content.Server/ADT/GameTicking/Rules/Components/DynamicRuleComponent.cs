@@ -22,9 +22,9 @@ public sealed partial class DynamicRuleComponent : Component
     public int MaxChaos = 100;
 
     [DataField]
-    public int MinEventDelay = 100;
+    public int MinEventDelay = 150;
     [DataField]
-    public int MaxEventDelay = 600;
+    public int MaxEventDelay = 700;
     /// <summary>
     /// Раундстартовые геймрулы
     /// </summary>

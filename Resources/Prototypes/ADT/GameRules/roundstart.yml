@@ -228,9 +228,7 @@
       - id: Nukeops
         cost: 50
       - id: Revolutionary
-        cost: 30
-      - id: Zombie
-        cost: 100 # хы-хы
+        cost: 45
     midroundAntags:
       - id: DragonSpawn
         cost: 100
@@ -262,9 +260,9 @@
     roundstartRules:
       - id: HereticDuoGameRule
         cost: 20
-      - id: ChangelingDuoGameRule
-        cost: 10
       - id: HereticSoloGameRule
+        cost: 10
+      - id: ChangelingDuoGameRule
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
@@ -274,8 +272,10 @@
         cost: 25
       - id: HereticGameRule
         cost: 30
+      - id: Nukeops
+        cost: 50
       - id: Revolutionary
-        cost: 30
+        cost: 35
     midroundAntags:
       - id: DragonSpawn
         cost: 110
