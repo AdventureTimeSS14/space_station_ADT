@@ -26,7 +26,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxPauseMessage>(OnJukeboxPause);
         SubscribeLocalEvent<JukeboxComponent, JukeboxStopMessage>(OnJukeboxStop);
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetTimeMessage>(OnJukeboxSetTime);
-        SubscribeLocalEvent<JukeboxComponent, JukeboxSetVolumeMessage>(OnJukeboxSetVolume); // Ganimed edit
+        SubscribeLocalEvent<JukeboxComponent, JukeboxSetVolumeMessage>(OnJukeboxSetVolume); /// ADT-Tweak
         SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
 
@@ -57,7 +57,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
                 return;
             }
 
-            component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f).WithVolume(MapToRange(component.Volume, component.MinSlider, component.MaxSlider, component.MinVolume, component.MaxVolume)))?.Entity; // Ganimed edit
+            component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f).WithVolume(MapToRange(component.Volume, component.MinSlider, component.MaxSlider, component.MinVolume, component.MaxVolume)))?.Entity; /// ADT-Tweak
             Dirty(uid, component);
         }
     }
@@ -76,7 +76,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         }
     }
 
-    private void OnJukeboxSetVolume(EntityUid uid, JukeboxComponent component, JukeboxSetVolumeMessage args) // Ganimed edit
+    private void OnJukeboxSetVolume(EntityUid uid, JukeboxComponent component, JukeboxSetVolumeMessage args) /// ADT-Tweak
     {
         SetJukeboxVolume(uid, component, args.Volume);
 
@@ -141,7 +141,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         }
     }
 
-    private void SetJukeboxVolume(EntityUid uid, JukeboxComponent component, float volume) // Ganimed edit
+    private void SetJukeboxVolume(EntityUid uid, JukeboxComponent component, float volume) /// ADT-Tweak
     {
         component.Volume = volume;
         Dirty(uid, component);

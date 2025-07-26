@@ -30,7 +30,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action? OnStopPressed;
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
-    public event Action<float>? SetVolume;
+    public event Action<float>? SetVolume; /// ADT-Tweak
 
     private EntityUid? _audio;
 
@@ -62,9 +62,9 @@ public sealed partial class JukeboxMenu : FancyWindow
             OnStopPressed?.Invoke();
         };
         PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
-        VolumeSlider.OnReleased += VolumeSliderKeyUp; // Ganimed edit
+        VolumeSlider.OnReleased += VolumeSliderKeyUp; /// ADT-Tweak
 
-        VolumeSlider.MaxValue = 100f; // Ganimed edit
+        VolumeSlider.MaxValue = 100f; /// ADT-Tweak
 
         SetPlayPauseButton(_audioSystem.IsPlaying(_audio), force: true);
     }
@@ -85,7 +85,7 @@ public sealed partial class JukeboxMenu : FancyWindow
         _lockTimer = 0.5f;
     }
 
-    private void VolumeSliderKeyUp(Slider args) // Ganimed edit
+    private void VolumeSliderKeyUp(Slider args) /// ADT-Tweak
     {
         SetVolume?.Invoke(VolumeSlider.Value);
         _lockTimer = 0.5f;
@@ -102,7 +102,7 @@ public sealed partial class JukeboxMenu : FancyWindow
         {
             MusicList.AddItem(entry.Name, metadata: entry.ID);
         }
-        MusicList.SortItemsByText();
+        MusicList.SortItemsByText(); /// ADT-Tweak
     }
 
     public void SetPlayPauseButton(bool playing, bool force = false)
@@ -128,7 +128,7 @@ public sealed partial class JukeboxMenu : FancyWindow
         PlaybackSlider.SetValueWithoutEvent(0);
     }
 
-    public void SetVolumeSlider(float volume) // Ganimed edit
+    public void SetVolumeSlider(float volume) /// ADT-Tweak
     {
         VolumeSlider.Value = volume;
     }
@@ -143,7 +143,7 @@ public sealed partial class JukeboxMenu : FancyWindow
         }
 
         PlaybackSlider.Disabled = _lockTimer > 0f;
-        VolumeSlider.Disabled = _lockTimer > 0f; // Ganimed edit
+        VolumeSlider.Disabled = _lockTimer > 0f; /// ADT-Tweak
 
         if (_entManager.TryGetComponent(_audio, out AudioComponent? audio))
         {
@@ -154,12 +154,12 @@ public sealed partial class JukeboxMenu : FancyWindow
             DurationLabel.Text = $"00:00 / 00:00";
         }
 
-        VolumeNumberLabel.Text = $"{VolumeSlider.Value.ToString("0.##")} %"; // Ganimed edit
+        VolumeNumberLabel.Text = $"{VolumeSlider.Value.ToString("0.##")} %"; /// ADT-Tweak
 
         if (PlaybackSlider.Grabbed)
             return;
             
-        if (VolumeSlider.Grabbed) // Ganimed edit
+        if (VolumeSlider.Grabbed) /// ADT-Tweak
             return;
 
         if (audio != null || _entManager.TryGetComponent(_audio, out audio))
