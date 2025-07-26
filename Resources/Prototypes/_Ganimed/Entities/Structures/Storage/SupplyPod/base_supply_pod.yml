@@ -9,6 +9,8 @@
     mode: AlignTileAny
   components:
   - type: Appearance
+  - type: Physics
+    bodyType: Static
   - type: Sprite
     noRot: true
     scale: 0.9, 0.9
@@ -37,12 +39,9 @@
         enum.EffectLayers.Unshaded:
           True: { visible: False }
           False: { visible: True }
-  - type: InteractionOutline
-  - type: Weldable
-  - type: ResistLocker
-  - type: ItemSlots
   - type: EntityStorage
-    capacity: 10
+    capacity: 42
+    isCollidableWhenOpen: true
   - type: RadiationBlockingContainer
     resistance: 5
   - type: ExplosionResistance
@@ -59,6 +58,9 @@
     node: SupplyPod
     containers:
       - entity_storage
+  - type: ConditionalSpawner
+    prototypes:
+      - GibZone
   - type: Destructible
     thresholds:
     - trigger:

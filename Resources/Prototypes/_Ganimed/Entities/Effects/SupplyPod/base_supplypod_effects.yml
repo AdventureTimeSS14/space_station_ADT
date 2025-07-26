@@ -46,6 +46,8 @@
     layers:
     - state: default_falling_animation
       offset: "0,3.3"
+  - type: Transform
+    anchored: true
   - type: Physics
     bodyType: Static
     canCollide: False
