@@ -1,0 +1,13 @@
+- type: biomeMarkerLayer
+  id: ADTOreBS
+  entityMask:
+    AsteroidRock: ADTAsteroidRockBS
+    WallRock: ADTWallRockBS
+    WallRockBasalt: ADTWallRockBasaltBS
+    WallRockChromite: ADTWallRockChromiteBS
+    WallRockSand: ADTWallRockSandBS
+    WallRockSnow: ADTWallRockSnowBS
+  maxCount: 6
+  minGroupSize: 1
+  maxGroupSize: 2
+  radius: 4

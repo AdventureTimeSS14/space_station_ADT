@@ -1,0 +1,15 @@
+- type: entity
+  id: ADTWallSpawnAsteroidBS
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTAsteroidRockBS
+
+- type: entity
+  id: ADTWallSpawnAsteroidBSCrab
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTMobBSCrab

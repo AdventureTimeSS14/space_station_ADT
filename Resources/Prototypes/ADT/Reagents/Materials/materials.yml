@@ -5,3 +5,30 @@
   icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
   color: "#d9d9d9"
   price: 0.01 # it's paper bro what do you expect?
+
+
+- type: material
+  id: ADTRawBSore
+  stackEntity: ADTBSore1
+  name: Bluespace ore
+  unit: materials-unit-chunk
+  icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
+  color: "#a8ccd7"
+  price: 0.075
+  
+- type: material
+  id: ADTBScrystal
+  stackEntity: ADTMaterialBScrystal1
+  name: materials-bluespacecrystal
+  unit: materials-unit-piece
+  icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
+  color: "#1d55c4"
+  price: 50 
+
+- type: material
+  id: ADTBScrystalArt
+  stackEntity: ADTMaterialBScrystalArt1
+  unit: materials-unit-piece
+  icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
+  color: "#1d55c4"
+  price: 50 
