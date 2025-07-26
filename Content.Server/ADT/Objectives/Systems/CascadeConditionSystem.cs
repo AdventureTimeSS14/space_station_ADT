@@ -11,11 +11,23 @@ public sealed class CascadeConditionSystem : EntitySystem
 {
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly CheckSupermatterSystem _supermatter = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<CascadeConditionComponent, ObjectiveAssignedEvent>(OnAssigned);
         SubscribeLocalEvent<CascadeConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
+    }
+
+    private void OnAssigned(Entity<CascadeConditionComponent> condition, ref ObjectiveAssignedEvent args)
+    {
+        if (condition.Comp.Supermatter && !_supermatter.SupermatterCheck())
+        {
+            args.Cancelled = true;
+            return;
+        }
     }
 
     private void OnGetProgress(EntityUid uid, CascadeConditionComponent comp, ref ObjectiveGetProgressEvent args)
