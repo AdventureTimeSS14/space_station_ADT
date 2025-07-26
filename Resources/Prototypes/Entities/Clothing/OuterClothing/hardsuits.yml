@@ -619,7 +619,7 @@
         Caustic: 0.3
 # Start ADT Tweak
   - type: StaminaResistance
-    damageCoefficient: 0.45
+    damageCoefficient: 0.3
 # End ADT Tweak
   - type: ClothingSpeedModifier #ADT Nukiebuff
     walkModifier: 1
@@ -841,7 +841,7 @@
     damageCoefficient: 0.2
   - type: Armor
     modifiers:
-      coefficients:
+      coefficients: 
         Blunt: 0.95
         Slash: 0.95
         Piercing: 1
