@@ -771,8 +771,8 @@
         Radiation: 0.2
         Caustic: 0.2
   # Start ADT Tweak
-- type: StaminaResistance
-  damageCoefficient: 0.15
+  - type: StaminaResistance
+    damageCoefficient: 0.15
 # End ADT Tweak 
   - type: ClothingSpeedModifier
     walkModifier: 0.9
