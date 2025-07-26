@@ -245,7 +245,7 @@
         Heat: 0.35
         Caustic: 0.5
   #ADT tweak start
-- type: StaminaResistance
+  - type: StaminaResistance
     damageCoefficient: 0.3
 #ADT tweak end
   - type: ExplosionResistance
