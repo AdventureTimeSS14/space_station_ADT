@@ -41,7 +41,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         Log.Info($"Current chaos level: {component.Chaos}");
 
         //тяжело, но тут идёт механизм выбора раундстарт антагов
-        while (component.Chaos >= 0)
+        for (int i = 0; i < 100 && component.Chaos >= 0; i++)
         {
             var rule = _random.Pick(component.RoundstartRules);
             if (component.Chaos - rule.Cost < 0)
