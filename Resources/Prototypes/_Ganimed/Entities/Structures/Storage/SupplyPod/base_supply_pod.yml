@@ -39,6 +39,10 @@
         enum.EffectLayers.Unshaded:
           True: { visible: False }
           False: { visible: True }
+  - type: InteractionOutline
+  - type: Weldable
+  - type: ResistLocker
+  - type: ItemSlots
   - type: EntityStorage
     capacity: 42
     isCollidableWhenOpen: true
