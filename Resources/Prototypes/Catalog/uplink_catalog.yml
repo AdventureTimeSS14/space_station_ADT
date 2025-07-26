@@ -1070,7 +1070,7 @@
   id: UplinkSurplusBundle
   name: uplink-surplus-bundle-name
   description: uplink-surplus-bundle-desc
-  productEntity: CrateSyndicateSurplusBundle
+  productEntity: SupplyPodCircleSyndicateSurplusBundle # Ganimed edit
   cost:
     Telecrystal: 20
   categories:
@@ -1089,7 +1089,7 @@
   id: UplinkSuperSurplusBundle
   name: uplink-super-surplus-bundle-name
   description: uplink-super-surplus-bundle-desc
-  productEntity: CrateSyndicateSuperSurplusBundle
+  productEntity: SupplyPodCircleSyndicateSuperSurplusBundle # Ganimed edit
   cost:
     Telecrystal: 40
   categories:
