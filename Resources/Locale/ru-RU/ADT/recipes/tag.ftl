@@ -96,4 +96,4 @@ construction-graph-tag-ambrosia = амброзия
 construction-graph-door-electronics = микросхема шлюза
 
 # Другое
-construction-graph-tag-capicator-stock-part = конденцатор
+construction-graph-tag-capicator-stock-part = конденсатор
