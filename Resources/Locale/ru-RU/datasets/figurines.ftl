@@ -1,7 +1,7 @@
 figurines-hop-1 = Бумаги, пожалуйста.
 figurines-hop-2 = Вы уволены.
 figurines-hop-3 = ОБЕД.
-figurines-hop-4 = You can get AA if you fill out the form.
+figurines-hop-4 = Вы можете получить полный доступ, заполнив эту форму.
 figurines-hop-5 = I was gone for two seconds...
 figurines-passenger-1 = Изоли пожалуйста.
 figurines-passenger-2 = Вызывайте эвак.
