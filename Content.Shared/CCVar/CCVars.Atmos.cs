@@ -149,5 +149,5 @@ public sealed partial class CCVars
     ///     Setting this to zero disables the explosion but still allows the tank to burst and leak.
     /// </summary>
     public static readonly CVarDef<float> AtmosTankFragment =
-        CVarDef.Create("atmos.max_explosion_range", 5f, CVar.SERVERONLY); /// ADT-Tweak 26f to 5f - нерф лимиток
+        CVarDef.Create("atmos.max_explosion_range", 13f, CVar.SERVERONLY); /// ADT-Tweak 26f to 13f - нерф лимиток
 }
