@@ -1,0 +1,1 @@
+jukebox-menu-volume = Настроить громкость:
