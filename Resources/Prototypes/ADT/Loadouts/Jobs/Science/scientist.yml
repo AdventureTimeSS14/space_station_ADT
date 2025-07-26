@@ -35,7 +35,7 @@
 - type: loadout
   id: ADTOuterClothingCoatsCrazySci
   equipment:
-    OuterClothing: ADTOuterClothingCoatsCrazyScientist
+    outerClothing: ADTOuterClothingCoatsCrazyScientist
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTOuterClothingCoatsCrazySci50Hour
