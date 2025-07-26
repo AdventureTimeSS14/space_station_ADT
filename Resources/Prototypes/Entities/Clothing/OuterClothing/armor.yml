@@ -331,7 +331,7 @@
         Caustic: 0.9
 #ADT Tweak start
   - type: StaminaResistance
-    damageCoefficient: 0.65
+      damageCoefficient: 0.65
 #ADT Tweak end
   - type: ExplosionResistance
     damageCoefficient: 0.9
