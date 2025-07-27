@@ -168,26 +168,7 @@
         conditions:
         - !type:OrganType
           type: Vox
-    Poison:
-      effects:
-      - !type:HealthChange
-        conditions:
-        #ADT-tweak-start
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        #ADT-tweak-end
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        damage:
-          types:
-            Poison: 1
-      - !type:FlammableReaction
-        multiplier: 0.4
-    #ADT-tweak-start
-    Food:
-      effects:
+      #ADT-tweak-start
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -208,7 +189,24 @@
         - !type:OrganType
           type: Slime
           shouldHave: true
-    #ADT-tweak-end
+      #ADT-tweak-end
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        #ADT-tweak-start
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        damage:
+          types:
+            Poison: 1
+      - !type:FlammableReaction
+        multiplier: 0.4
 
 - type: reagent
   id: Fluorosurfactant
