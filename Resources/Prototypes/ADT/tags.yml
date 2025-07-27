@@ -191,6 +191,18 @@
   id: ADTPenguinToy
 
 - type: Tag
+  id: ADTGoldCandle
+
+- type: Tag
+  id: ADTSilverCandle
+
+- type: Tag
+  id: ADTSyndieThingies
+
+- type: Tag
+  id: ADTGlassSheet
+
+- type: Tag
   id: ADTGoldOre
 
 - type: Tag

@@ -424,7 +424,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/radiodemoncoat.rsi
 
-# Бомбер шахтёрам/утилям 
+# Бомбер шахтёрам/утилям
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -444,3 +444,41 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingCoatMonkRobe
+  name: monks robe
+  description: You can't find something better than being alone in the altruism of cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_monk.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_monk.rsi
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodMonk
+    requiredSlot:
+    - outerclothing
+    slot: head
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingCoatReligionLeader
+  name: religion leader's robe
+  description: A royaly religious piece of clothing, that going to show all of your progeny about their place.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_leader.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_leader.rsi
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodChaplainLeader
+    requiredSlot:
+    - outerclothing
+    slot: head

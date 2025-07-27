@@ -1,3 +1,4 @@
+# Алтарь Хонкоматери
 - type: entityTable
   id: ADTClownJumpsuitChances
   table: !type:GroupSelector
@@ -85,3 +86,17 @@
   - type: TimedDespawn
     lifetime: 3
 
+# Алтарь Хаоса
+
+- type: entityTable
+  id: ADTChaosCarpMeat
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 90
+      children:
+      - id: PlushieCarp
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: DehydratedSpaceCarp

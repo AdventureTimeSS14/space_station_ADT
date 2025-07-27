@@ -118,6 +118,7 @@
     quickEquip: false
     slots:
     - suitstorage
+  - type: KeyboardOfGodSpammer
 
 - type: entity
   name: devils knife
@@ -177,6 +178,7 @@
         Blunt: 1.5
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
+  - type: HolyDamage
 
 - type: entity
   name: his holy chainsaw
@@ -216,6 +218,7 @@
   - type: Item
     size: Ginormous
     sprite: ADT/Objects/Weapons/Melee/divinechainsaw.rsi
+  - type: HolyDamage
 
 - type: entity
   parent: BaseItem
@@ -245,9 +248,12 @@
     qualities:
     - Prying
   - type: Unremoveable
-  - type: Electrified
-    shockDamage: 2
-    shockTime: 3
+  - type: HolyDamage
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/godhand.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
 
 - type: entity
   name: warhammer of zillyhoo
@@ -256,6 +262,11 @@
   description: It is so beautiful. You are so bewitched by its beauty, you are not sure if you can wield it. But you are trully the choosen one.
   suffix: Unremoveable
   components:
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/zillihoo.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
   - type: Wieldable
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/zillihoo.rsi
@@ -280,6 +291,7 @@
         Holy: 5
         Blunt: 1.5
         Structural: 5
+  - type: HolyDamage
 
 - type: entity
   name: holy claymore
@@ -336,6 +348,7 @@
   - type: Sharp
   - type: Execution
     doAfterDuration: 3.0
+  - type: HolyDamage
 
 - type: entity
   name: bananahilator
@@ -377,6 +390,7 @@
     proto: ADTBulletHoly
     capacity: 4
     count: 1
+  - type: HolyDamage
 
 - type: entity
   name: blood sword
@@ -402,13 +416,122 @@
     size: Huge
     shape:
     - 0,0,1,3
-  - type: HolyDamage
   - type: PointLight
     color: "#ff0000"
     radius: 1.5
     softness: 3
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/bloodsword.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
+  - type: HolyDamage
+
+- type: entity
+  name: nanotrasen coin
+  parent: BaseItem
+  id: ADTNanotrasenCoin
+  description: A cheap looking coin like a merch one. "Holy power is in money".
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - CombatKnife
+    - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/nanotrasen_coin.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 2
+    damage:
+      types:
+        Holy: 5
+        Slash: 1.5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Holy: 8
+        Slash: 2
+  - type: ThrowingAngle
+    angle: 225
+  - type: StaticPrice
+    price: 7500
+  - type: HolyDamage
+
+- type: entity
+  name: fetid baghnakhs
+  parent: BaseKnife
+  id: ADTFetidBaghnakhs
+  description: You can loot it from "Flesh" mimics. Looks alive.
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/flesh_claws.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -300
+    autoAttack: true
+    attackRate: 10
+    damage:
+      types:
+        Holy: 0.5
+        Slash: 0.15
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/flesh_claws.rsi
+    size: Huge
+    shape:
+    - 0,0,1,3
+  - type: HolyDamage
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/flesh_claws.rsi
+    quickEquip: false
+    slots:
+    - suitstorage
+
+- type: entity
+  name: Seraph
+  parent: BaseWeaponBattery
+  id: ADTSeraph
+  description: The latest model of bolter against evil spirits... and intelligent mushrooms.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/seraph.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-3
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Gun
+    projectileSpeed: 50
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_friendship.ogg
+      params:
+        variation: 0.2
+        pitch: 0.75
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBoltHoly
+    fireCost: 300
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: HolyDamage
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/flesh_claws.rsi
     quickEquip: false
     slots:
     - suitstorage

@@ -302,10 +302,3 @@
   flatReductions:
     Blunt: 5
     Heat: 5
-
-# Holy Damage
-- type: damageModifierSet
-  id: HolyVulnerable
-  modifiers:
-    coefficients:
-      Holy: 1.0

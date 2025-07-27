@@ -1,3 +1,4 @@
+/// What can i say exept "Your welcome"?. Update made by QWERTY
 using Content.Shared.Bible.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction;
@@ -82,7 +83,7 @@ public sealed class SacrificeSystem : EntitySystem
         if (args.Handled || _netManager.IsClient)
             return;
 
-        // Проверка, что игрок - священник
+        // checking for Chaplain component in players character
         if (!HasComp<ChaplainComponent>(args.User))
         {
             _popup.PopupEntity(
@@ -99,7 +100,7 @@ public sealed class SacrificeSystem : EntitySystem
             return;
         }
 
-        // Проверка очков силы
+        // Checking for faith power points
         if (!TryComp<ChaplainComponent>(args.User, out var chaplainComp))
         {
             return;
@@ -115,7 +116,7 @@ public sealed class SacrificeSystem : EntitySystem
             return;
         }
 
-        // Выполнение жертвоприношения
+        // doin' sacrafice
         if (TryComp<StackComponent>(args.Used, out var stack))
         {
             ProcessStackSacrifice(altar, args, transformation, stack, chaplainComp);
@@ -130,7 +131,6 @@ public sealed class SacrificeSystem : EntitySystem
 
     private void UpdatePowerAlert(EntityUid uid, ChaplainComponent component)
     {
-        // Обновляем алерт напрямую через AlertsSystem
         var level = (short) Math.Clamp(Math.Round(component.Power.Float()), 0, 5);
         var alertType = _protoMan.Index<AlertPrototype>(component.Alert);
         _alertsSystem.ShowAlert(uid, alertType, level);
@@ -138,14 +138,12 @@ public sealed class SacrificeSystem : EntitySystem
 
     private bool CheckStackTransformation(EntityUid used, TransformationData transform, StackComponent stack)
     {
-        // Для стаков проверяем по тегу
         if (!string.IsNullOrEmpty(transform.RequiredTag) &&
             _tagSystem.HasTag(used, transform.RequiredTag))
         {
             return true;
         }
 
-        // Для стаков проверяем по прототипу
         if (!string.IsNullOrEmpty(transform.RequiredProto))
         {
             var meta = MetaData(used);
@@ -163,14 +161,10 @@ public sealed class SacrificeSystem : EntitySystem
 
     private void ProcessStackSacrifice(EntityUid altar, InteractUsingEvent args, TransformationData transform, StackComponent stack, ChaplainComponent chaplainComp)
     {
-        // Рассчитываем, сколько полных трансформаций мы можем выполнить
         int possibleTransformations = stack.Count / transform.RequiredAmount;
         if (possibleTransformations <= 0) return;
 
-        // Рассчитываем общую стоимость силы
         FixedPoint2 totalPowerCost = transform.PowerCost * possibleTransformations;
-
-        // Проверяем, достаточно ли силы для всех трансформаций
         if (chaplainComp.Power < totalPowerCost)
         {
             _popup.PopupEntity(
@@ -181,23 +175,18 @@ public sealed class SacrificeSystem : EntitySystem
             return;
         }
 
-        // Уменьшаем силу
         chaplainComp.Power -= totalPowerCost;
         UpdatePowerAlert(args.User, chaplainComp);
 
-        // Рассчитываем, сколько предметов нужно удалить
         int itemsToRemove = possibleTransformations * transform.RequiredAmount;
 
-        // Уменьшаем стек
         _stack.SetCount(args.Used, stack.Count - itemsToRemove, stack);
 
-        // Если количество достигло нуля - удаляем
         if (stack.Count - itemsToRemove <= 0)
         {
             QueueDel(args.Used);
         }
 
-        // Выполняем трансформации
         for (int i = 0; i < possibleTransformations; i++)
         {
             ExecuteTransformation(altar, args, transform);
@@ -206,7 +195,6 @@ public sealed class SacrificeSystem : EntitySystem
 
     private void ProcessSacrifice(EntityUid altar, InteractUsingEvent args, TransformationData transform, ChaplainComponent chaplainComp)
     {
-        // Уменьшение очков силы
         chaplainComp.Power -= transform.PowerCost;
         UpdatePowerAlert(args.User, chaplainComp);
 
@@ -216,19 +204,16 @@ public sealed class SacrificeSystem : EntitySystem
 
     private void ExecuteTransformation(EntityUid altar, InteractUsingEvent args, TransformationData transform)
     {
-        // Визуальный эффект
         if (!string.IsNullOrEmpty(transform.EffectProto))
         {
             Spawn(transform.EffectProto, Transform(altar).Coordinates);
         }
 
-        // Звуковой эффект
         if (transform.SoundPath is not null)
         {
             _audio.PlayPvs(transform.SoundPath, altar, AudioParams.Default.WithVolume(-4f));
         }
 
-        // Создание результата
         if (!string.IsNullOrEmpty(transform.ResultProto))
         {
             Spawn(transform.ResultProto, args.ClickLocation.SnapToGrid(EntityManager));

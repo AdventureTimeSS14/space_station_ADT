@@ -225,4 +225,21 @@
     damage:
       types:
         Piercing: 0.75
-        Holy: 5
+        Holy: 6
+
+- type: entity
+  id: ADTBoltHoly
+  name: holy bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/holy_bolt.rsi
+    layers:
+    - state: holy_bolt
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 1.5
+        Holy: 7

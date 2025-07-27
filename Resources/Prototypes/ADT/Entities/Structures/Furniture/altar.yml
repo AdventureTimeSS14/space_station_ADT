@@ -20,6 +20,29 @@
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 3
+      - requiredProto: LuxuryPen
+        resultProto: ADTPlushieDamn
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredProto: Pen
+        resultProto: Error
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredTag: Book
+        resultProto: ADTCsharpForDummies
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ADTClothingUniformJumpskirtJanimaid
+        powerCost: 2
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredTag: ADTSocks
+        resultProto: ClothingUnderSocksCoder
+        powerCost: 2
+        soundPath: /Audio/Magic/blink.ogg
 
 - type: entity
   id: ADTAltarClockwork
@@ -48,4 +71,10 @@
         resultProto: SheetBrass10
         effectProto: ADTWeaponArcRedCrash
         powerCost: 1
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredTag: ADTGlassSheet
+        requiredAmount: 1
+        resultProto: SheetClockworkGlass1
+        effectProto: ADTWeaponArcRedCrash
+        powerCost: 0.1
         soundPath: /Audio/Magic/blink.ogg

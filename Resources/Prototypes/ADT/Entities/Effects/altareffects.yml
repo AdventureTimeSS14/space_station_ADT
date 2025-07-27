@@ -4,11 +4,21 @@
   parent: WeaponArcStatic
   categories: [ HideSpawnMenu ]
   components:
-    - type: WeaponArcVisuals
-      fadeOut: false
     - type: Sprite
       sprite: ADT/Effects/metamorphisis.rsi
       state: metamorphisis
+      drawdepth: Effects
+    - type: TimedDespawn
+      lifetime: 0.299
+
+- type: entity
+  id: ADTCultistBubble
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/cultbubble.rsi
+      state: bubble
       drawdepth: Effects
     - type: TimedDespawn
       lifetime: 0.299

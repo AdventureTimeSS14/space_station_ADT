@@ -62,3 +62,39 @@
     - Snout
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatHoodChaplainLeader
+  categories: [ HideSpawnMenu ]
+  name: leaders robe hood
+  description: A good visualiser for NOT sectant build of NOT cult.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/chaplain_leader_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/chaplain_leader_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatHoodMonk
+  categories: [ HideSpawnMenu ]
+  name: monk's hood
+  description: You can't find something better than being alone in the altruism of cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/chaplain_monk_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/chaplain_monk_hood.rsi
+  - type: HideLayervClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
