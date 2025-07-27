@@ -15,7 +15,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/corporate-law # Ganimed Tweak
 # Corvax-HyperLink
@@ -47,7 +46,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/security
 # Corvax-HyperLink
@@ -75,7 +73,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/command # Ganimed Tweak
 # Corvax-HyperLink
@@ -103,7 +100,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/law # Ganimed Tweak
 # Corvax-HyperLink
@@ -135,7 +131,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/command # Ganimed Tweak
 # Corvax-HyperLink
@@ -163,7 +158,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/supply # Ganimed Tweak
 # Corvax-HyperLink
@@ -191,7 +185,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/engineering # Ganimed Tweak
 # Corvax-HyperLink
@@ -219,7 +212,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/law # Ganimed Tweak
 # Corvax-HyperLink
@@ -247,7 +239,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/medical # Ganimed Tweak
 # Corvax-HyperLink
@@ -275,7 +266,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/science # Ganimed Tweak
 # Corvax-HyperLink
@@ -303,7 +293,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/security # Ganimed Tweak
 # Corvax-HyperLink
@@ -331,7 +320,6 @@
     interfaces:
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
-# Corvax-HyperLink
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/service # Ganimed Tweak
 # Corvax-HyperLink

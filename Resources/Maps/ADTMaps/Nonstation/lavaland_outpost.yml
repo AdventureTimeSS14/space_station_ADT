@@ -2275,23 +2275,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -4.5,8.5
       parent: 1
-- proto: BookshelfFilled
-  entities:
-  - uid: 119
-    components:
-    - type: Transform
-      pos: -3.5,3.5
-      parent: 1
-  - uid: 120
-    components:
-    - type: Transform
-      pos: 0.5,0.5
-      parent: 1
-  - uid: 121
-    components:
-    - type: Transform
-      pos: -3.5,0.5
-      parent: 1
 - proto: BoozeDispenser
   entities:
   - uid: 122
@@ -5097,13 +5080,6 @@ entities:
     - type: Transform
       pos: -9.5,14.5
       parent: 1
-- proto: ClothingBeltUtilityFilled
-  entities:
-  - uid: 502
-    components:
-    - type: Transform
-      pos: -10.501232,29.679468
-      parent: 1
 - proto: ClothingHeadHatWeldingMaskPainted
   entities:
   - uid: 1753
@@ -5968,23 +5944,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,3.5
-      parent: 1
-- proto: DresserFilled
-  entities:
-  - uid: 831
-    components:
-    - type: Transform
-      pos: 2.5,-0.5
-      parent: 1
-  - uid: 832
-    components:
-    - type: Transform
-      pos: -1.5,-0.5
-      parent: 1
-  - uid: 833
-    components:
-    - type: Transform
-      pos: -1.5,2.5
       parent: 1
 - proto: EncryptionKeySecurity
   entities:
@@ -10550,60 +10509,6 @@ entities:
     - type: Transform
       pos: -4.5,8.5
       parent: 1
-- proto: MedkitAdvancedFilled
-  entities:
-  - uid: 1472
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.4871235,10.533289
-      parent: 1
-- proto: MedkitBruteFilled
-  entities:
-  - uid: 1473
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.8343463,10.505511
-      parent: 1
-- proto: MedkitBurnFilled
-  entities:
-  - uid: 1474
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.126013,10.491622
-      parent: 1
-- proto: MedkitFilled
-  entities:
-  - uid: 1476
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -14.556031,28.421118
-      parent: 1
-- proto: MedkitOxygenFilled
-  entities:
-  - uid: 1477
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.1121235,10.519401
-      parent: 1
-- proto: MedkitToxinFilled
-  entities:
-  - uid: 1478
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -14.399781,28.561743
-      parent: 1
-  - uid: 1479
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.4739714,10.478813
-      parent: 1
 - proto: MiningWindow
   entities:
   - uid: 667
@@ -11165,78 +11070,6 @@ entities:
     components:
     - type: Transform
       pos: -10.5,27.5
-      parent: 1
-- proto: OreBox
-  entities:
-  - uid: 1576
-    components:
-    - type: Transform
-      pos: -4.5,23.5
-      parent: 1
-  - uid: 1577
-    components:
-    - type: Transform
-      pos: -18.5,10.5
-      parent: 1
-  - uid: 1578
-    components:
-    - type: Transform
-      pos: 25.5,1.5
-      parent: 1
-  - uid: 1579
-    components:
-    - type: Transform
-      pos: 24.5,1.5
-      parent: 1
-  - uid: 1580
-    components:
-    - type: Transform
-      pos: 22.5,1.5
-      parent: 1
-  - uid: 1581
-    components:
-    - type: Transform
-      pos: 32.5,5.5
-      parent: 1
-  - uid: 1582
-    components:
-    - type: Transform
-      pos: -14.5,9.5
-      parent: 1
-  - uid: 1583
-    components:
-    - type: Transform
-      pos: -14.5,10.5
-      parent: 1
-  - uid: 1584
-    components:
-    - type: Transform
-      pos: -13.5,8.5
-      parent: 1
-  - uid: 1585
-    components:
-    - type: Transform
-      pos: -13.5,10.5
-      parent: 1
-  - uid: 1586
-    components:
-    - type: Transform
-      pos: -13.5,9.5
-      parent: 1
-  - uid: 1587
-    components:
-    - type: Transform
-      pos: -12.5,9.5
-      parent: 1
-  - uid: 1588
-    components:
-    - type: Transform
-      pos: 34.5,12.5
-      parent: 1
-  - uid: 1589
-    components:
-    - type: Transform
-      pos: 24.5,-3.5
       parent: 1
 - proto: OxygenCanister
   entities:
@@ -12684,13 +12517,6 @@ entities:
     - type: Transform
       pos: 2.5,-5.5
       parent: 1
-- proto: ToolboxMechanicalFilled
-  entities:
-  - uid: 1822
-    components:
-    - type: Transform
-      pos: -10.5,24.5
-      parent: 1
 - proto: ToySpawner
   entities:
   - uid: 1823
@@ -12708,82 +12534,6 @@ entities:
     - type: Transform
       pos: 2.5,-0.5
       parent: 1
-- proto: TwoWayLever
-  entities:
-  - uid: 1826
-    components:
-    - type: Transform
-      pos: 30.5,2.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        689:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        688:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        690:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        691:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        692:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        693:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        694:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        695:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        686:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-  - uid: 1827
-    components:
-    - type: Transform
-      pos: -11.5,18.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        700:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        701:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        702:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        703:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        705:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
-        704:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
 - proto: VendingMachineBooze
   entities:
   - uid: 1828

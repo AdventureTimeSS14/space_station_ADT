@@ -54,9 +54,6 @@
             Quantity: 5
       - type: DrainableSolution
         solution: showerWater
-    - type: Construction
-      graph: Shower
-      node: shower
     - type: Destructible
       thresholds:
         - trigger:
