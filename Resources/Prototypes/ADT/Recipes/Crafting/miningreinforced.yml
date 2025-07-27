@@ -1,38 +1,23 @@
 - type: construction
-  name: reinforced explorer suit
   id: ADTClothingOuterArmorMinerReinforcedOne
   graph: ADTReinforcedMinerArmorOne
   startNode: start
   targetNode: ADTReinforcedMinerArmorOne
   category: construction-category-clothing
   objectType: Item
-  description: This explorer suit is reinforced with goliath hides.
-  icon:
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
-    state: icon
 
 - type: construction
-  name: partially reinforced explorer suit
   id: ADTClothingOuterArmorMinerReinforcedTwo
   graph: ADTReinforcedMinerArmorTwo
   startNode: start
   targetNode: ADTReinforcedMinerArmorTwo
   category: construction-category-clothing
   objectType: Item
-  description: This explorer suit is reinforced with goliath hides.
-  icon:
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
-    state: icon
 
 - type: construction
-  name: plated explorer suit
   id: ADTClothingOuterArmorMinerReinforcedFull
   graph: ADTReinforcedMinerArmorFull
   startNode: start
   targetNode: ADTReinforcedMinerArmorFull
   category: construction-category-clothing
   objectType: Item
-  description: This explorer suit is reinforced with goliath hides.
-  icon:
-    sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_full.rsi
-    state: icon

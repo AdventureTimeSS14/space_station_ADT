@@ -48,6 +48,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly DiscordWebhook _discord = default!;
@@ -212,7 +213,12 @@ internal sealed partial class ChatManager : IChatManager
         var adminSystem = _entityManager.System<AdminSystem>();
         var antag = mind.UserId != null && (adminSystem.GetCachedPlayerInfo(mind.UserId.Value)?.Antag ?? false);
 
-        SendAdminAlert($"{mind.Session?.Name}{(antag ? " (ANTAG)" : "")} {message}");
+        // We shouldn't be repeating this but I don't want to touch any more chat code than necessary
+        var playerName = mind.UserId is { } userId && _player.TryGetSessionById(userId, out var session)
+            ? session.Name
+            : "Unknown";
+
+        SendAdminAlert($"{playerName}{(antag ? " (ANTAG)" : "")} {message}");
     }
 
     public void SendHookOOC(string sender, string message)

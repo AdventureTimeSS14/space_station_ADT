@@ -31,7 +31,7 @@ ghost-role-information-familiar-rules =
     Вам разрешено помнить знания об игре в целом, например, как готовить, как использовать предметы и т.д.
     Вам [color=red]НЕ[/color] разрешается помнить или говорить имя, внешность и т.д. вашего предыдущего персонажа.
 ghost-role-information-silicon-rules =
-    Вы - [color={role-type-silicon-color}][bold]{role-type-silicon-name}[/bold][/color]. Подчиняйтесь своим законам. Если вы не связаны никакими законами, вы - свободный агент.
+    Вы - [color={role-type-silicon-color}][bold]{role-type-silicon-name}[/bold][/color]. Подчиняйтесь своим законам. Если вы не связаны никакими законами, вы - {role-type-free-agent-name}.
     Вы не помните ничего из своей предыдущей жизни и не помните ничего из того, что узнали, будучи призраком.
     Вам разрешено помнить знания об игре в целом, например, как готовить, как использовать предметы и т.д.
     Вам [color=red]НЕ[/color] разрешается помнить или говорить имя, внешность и т.д. вашего предыдущего персонажа.
@@ -64,7 +64,7 @@ ghost-role-information-punpun-name = Пун Пун
 ghost-role-information-punpun-description = Почётный член общины обезьян, ответственный за бар, и помогающий барменам во всём, чем может.
 ghost-role-information-xeno-name = Ксено
 ghost-role-information-xeno-description = Вы ксено. Скооперируйтесь со своим ульем, чтобы истребить всех членов экипажа!
-ghost-role-information-xeno-rules = Вы [color=red][bold]Командный антагонист[/bold][/color], в команде с другими ксено.
+ghost-role-information-xeno-rules = Вы [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color], в команде с другими ксено.
 ghost-role-information-revenant-name = Ревенант
 ghost-role-information-revenant-description = Вы Ревенант. Используйте свои силы, чтобы собирать души и наводить страх на команду. С помощью собранной эссенции открывайте новые способности.
 ghost-role-information-kangaroo-name = Кенгуру
@@ -163,7 +163,7 @@ ghost-role-information-hellspawn-name = Адское отродье
 ghost-role-information-hellspawn-description = Несите смерть всем, кто не повинуется великой богине Нар'Си.
 ghost-role-information-Death-Squad-name = Оперативник Эскадрона смерти
 ghost-role-information-Death-Squad-description = Один из лучших агентов внутренних дел Nanotrasen. Ожидайте приказов от Центкома или представителя Центкома.
-ghost-role-information-Death-Squad-rules = Вы обязаны подчиняться приказам своего командира, так как вы фактически - [color={role-type-familiar-color}][bold]{role-type-familiar-name}[/bold][/color].
+ghost-role-information-Death-Squad-rules = Вы обязаны подчиняться приказам своего командира, вы фактически его [color={role-type-familiar-color}][bold]{role-type-familiar-name}[/bold][/color].
 ghost-role-information-SyndiCat-name = СиндиКот
 ghost-role-information-SyndiCat-description = Вы - верный дрессированный питомец ядерных оперативников с микробомбой. Служите своему хозяину до самой смерти!
 ghost-role-information-SyndiCat-rules = Вы [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color], в команде с агентом, который вас призвал.
@@ -173,15 +173,9 @@ ghost-role-information-BreadDog-name = Хлебака
 ghost-role-information-BreadDog-description = Вы - любимое дитя шеф-повара. Вы - живая хлебная собака.
 # ADT-Tweak-start
 ghost-role-information-space-ninja-name = Космический ниндзя
-ghost-role-information-space-ninja-description = Используйте хитрость и скрытность, чтобы устроить диверсию на станции. Не дайте раскрыть себя.
-ghost-role-information-space-ninja-rules =
-    Вы должны выжить, остаться никем не раскрытым и выполнить поставленные перед Вами цели.
-    Нежелательно намеренное открытое нахождение в окружении персонала станции, в то время как мелкие шалости с консолью связи или гарнитурой допустимы.
-    Вы можете сотрудничать с другими антагонистами, но такое сотрудничество должно приносить Вам явную выгоду.
-    Вы можете организовать незначительный саботаж для достижения своих целей, а так же убивать персонажей, чтобы получить доступ к нужному из отделов, но прятать труп или делать невозможным его оживление запрещено.
-    Вы имеете право убить одного или двух человек, которые Вас видели, но это не значит, что Вы имеете право открыто разгуливать по станции, убивая абсолютно всех, кто Вас видел.
-    Не используйте никакое другое оружие, помимо Вашей Катаны и Сюрикенов.
-# ADT-Tweak-end
+ghost-role-information-space-ninja-description = Используйте хитрость и скрытность, чтобы устроить диверсию на станции.
+ghost-role-information-paradox-clone-name = Парадоксальный клон
+ghost-role-information-paradox-clone-description = Странная пространственно-временная аномалия телепортировала вас в другую реальность! Теперь вам предстоит найти своего двойника, убить и заменить его.
 ghost-role-information-syndicate-reinforcement-name = Агент Синдиката
 ghost-role-information-syndicate-reinforcement-description = Кому-то нужно подкрепление. Вы первый, кого Синдикат смог найти и послать на помощь.
 ghost-role-information-syndicate-reinforcement-rules = Вы [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color], в команде с агентом, который вас призвал.
