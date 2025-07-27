@@ -157,8 +157,10 @@
           shouldHave: true
         damage:
           groups:
-            Brute: -0.25
-            Burn: -0.25
+            Brute: -0.5
+            Burn: -0.5
+          types:
+            Poison: -0.5
     # End ADT tweak
     Gas:
       # Start ADT tweak: Novakid
@@ -210,19 +212,6 @@
             Piercing: -0.25
             Heat: -0.25
             Poison: -0.25
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Slime
-        - !type:ReagentThreshold
-          reagent: Plasma
-          min: 0.6
-        scaleByQuantity: true
-        ignoreResistances: true
-        damage:
-          groups:
-            Brute: -0.10
-            Burn: -0.10
       - !type:GenericStatusEffect
         conditions:
         - !type:OrganType
@@ -259,6 +248,11 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
+          #ADT-tweak-start
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+          #ADT-tweak-end
         - !type:ReagentThreshold
           min: 1.5
         clear: True
@@ -289,12 +283,24 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Radiation: 3
     Gas:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -305,10 +311,27 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
+          #ADT-tweak-start
+          - !type:OrganType
+            type: Slime
+            shouldHave: false
+          #ADT-tweak-end
           - !type:ReagentThreshold
             min: 1.5
         clear: True
         time: 5
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Radiation: -3
+    #ADT-tweak-end
 
 - type: reagent
   id: CarbonDioxide

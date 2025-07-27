@@ -21,10 +21,71 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Caustic: 1
             Poison: 2 # Phenol is definitely not safe
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -2
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          groups:
+            Brute: 2
+      - !type:Jitter
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.02
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 15
+    #ADT-tweak-end
 
 - type: reagent
   id: Charcoal
@@ -59,7 +120,7 @@
           shouldHave: true
         damage:
           types:
-            Poison: 3
+            Poison: 2
       - !type:PopupMessage
         conditions:
         - !type:OrganType
@@ -142,9 +203,40 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Cellular: 1 #it's a carcinogen, reckon this is fine
+    #ADT-tweak-start
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Cellular: -0.3
+            Radiation: 0.15
+            Caustic: 0.15
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          types:
+            Radiation: 0.2
+    #ADT-tweak-end
 
 - type: reagent
   id: Hydroxide

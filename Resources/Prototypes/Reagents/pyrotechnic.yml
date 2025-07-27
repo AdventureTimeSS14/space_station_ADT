@@ -163,6 +163,7 @@
   metabolisms:
     Food:
       effects:
+<<<<<<< Updated upstream
       - !type:SatiateThirst
         factor: 1
         conditions:
@@ -178,6 +179,8 @@
         damage:
           groups:
             Brute: -0.4
+=======
+>>>>>>> Stashed changes
       - !type:ModifyBloodLevel
         conditions:
         - !type:OrganType
@@ -189,6 +192,7 @@
         - !type:OrganType
           type: Slime
           shouldHave: true
+<<<<<<< Updated upstream
       #ADT-tweak-end
     Poison:
       effects:
@@ -207,6 +211,19 @@
             Poison: 1
       - !type:FlammableReaction
         multiplier: 0.4
+=======
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          groups:
+            Brute: -1
+    #ADT-tweak-end
+>>>>>>> Stashed changes
 
 - type: reagent
   id: Fluorosurfactant

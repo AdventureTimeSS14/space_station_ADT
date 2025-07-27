@@ -30,8 +30,10 @@
           type: Slime
           shouldHave: true
         damage:
+          groups:
+            Brute: -1
           types:
-            Poison: -1
+            Poison: -0.5
 
 - type: reagent
   id: ADTUltraChloralHydrate

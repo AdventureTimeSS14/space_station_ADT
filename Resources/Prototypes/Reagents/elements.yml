@@ -43,9 +43,50 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 2
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Heat: -1
+            Shock: -1
+            Cold: -1
+      - !type:SatiateThirst
+        factor: -10
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+      - !type:PopupMessage
+        type: Local
+        messages:
+        - generic-reagent-effect-nauseous
+        - generic-reagent-effect-thirsty
+        - generic-reagent-effect-parched
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 25
+    #ADT-tweak-end
 
 - type: reagent
   id: Copper
@@ -191,15 +232,88 @@
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 0.05
       - !type:Emote
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         emote: Scream
         probability: 0.05
       - !type:Emote
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         emote: Laugh
         probability: 0.05
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          groups:
+            Brute: 2
+      - !type:Jitter
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.02
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 15
+    #ADT-tweak-end
 
   # TODO: cause some brain damage when woundmed, and generally reduce the stutter/scrambledaccent unless high doses
 
@@ -217,12 +331,79 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 1
       - !type:GenericStatusEffect
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         key: Stutter
         component: ScrambledAccent
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          groups:
+            Brute: 2
+      - !type:Jitter
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.02
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 15
+    #ADT-tweak-end
 
 - type: reagent
   id: Potassium
@@ -257,13 +438,63 @@
   id: Radium
   name: reagent-name-radium
   group: Elements
-  parent: Uranium
+  #parent: Uranium ADT-tweak
   desc: reagent-desc-radium
   physicalDesc: reagent-physical-desc-glowing
   flavor: metallic
   color: "#00ff04"
   meltingPoint: 700.0
   boilingPoint: 1737.0
+  #ADT-tweak-start
+  plantMetabolism:
+  - !type:PlantAdjustMutationLevel
+    amount: 0.6
+  - !type:PlantAdjustToxins
+    amount: 4
+  - !type:PlantAdjustHealth
+    amount: -1.5
+  - !type:PlantAdjustMutationMod
+    probability: 0.2
+    amount: 0.1
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        damage:
+          types:
+            Radiation: 2
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Radiation: -2
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+           Heat: 2
+      - !type:Jitter
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+  #ADT-tweak-end
 
 - type: reagent
   id: Silicon
@@ -279,9 +510,50 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 1.5
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Heat: -1
+            Shock: -1
+            Cold: -1
+      - !type:SatiateThirst
+        factor: -10
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+      - !type:PopupMessage
+        type: Local
+        messages:
+        - generic-reagent-effect-nauseous
+        - generic-reagent-effect-thirsty
+        - generic-reagent-effect-parched
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 25
+    #ADT-tweak-end
 
 - type: reagent
   id: Silver
@@ -347,9 +619,44 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Radiation: 2
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Radiation: -1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+           Heat: 2
+      - !type:Jitter
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 30
+    #ADT-tweak-end
 
 - type: reagent
   id: Zinc
