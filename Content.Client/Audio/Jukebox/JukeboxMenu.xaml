@@ -24,7 +24,7 @@
             <!-- ADT-Tweak end -->
             </BoxContainer>
         </BoxContainer>
-        <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Vertical"> <!-- ADT-Tweak -->
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
                           VerticalExpand="False" SizeFlagsStretchRatio="1" HorizontalAlignment="Center">
