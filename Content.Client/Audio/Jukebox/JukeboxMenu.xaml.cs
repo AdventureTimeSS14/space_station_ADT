@@ -85,11 +85,13 @@ public sealed partial class JukeboxMenu : FancyWindow
         _lockTimer = 0.5f;
     }
 
-    private void VolumeSliderKeyUp(Slider args) /// ADT-Tweak
+    /// ADT-Tweak start
+    private void VolumeSliderKeyUp(Slider args)
     {
         SetVolume?.Invoke(VolumeSlider.Value);
         _lockTimer = 0.5f;
     }
+    /// ADT-Tweak end
 
     /// <summary>
     /// Re-populates the list of jukebox prototypes available.
@@ -128,10 +130,12 @@ public sealed partial class JukeboxMenu : FancyWindow
         PlaybackSlider.SetValueWithoutEvent(0);
     }
 
-    public void SetVolumeSlider(float volume) /// ADT-Tweak
+    /// ADT-Tweak start
+    public void SetVolumeSlider(float volume)
     {
         VolumeSlider.Value = volume;
     }
+    /// ADT-Tweak end
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
@@ -158,7 +162,7 @@ public sealed partial class JukeboxMenu : FancyWindow
 
         if (PlaybackSlider.Grabbed)
             return;
-            
+
         if (VolumeSlider.Grabbed) /// ADT-Tweak
             return;
 

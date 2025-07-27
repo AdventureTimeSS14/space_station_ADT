@@ -76,7 +76,8 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         }
     }
 
-    private void OnJukeboxSetVolume(EntityUid uid, JukeboxComponent component, JukeboxSetVolumeMessage args) /// ADT-Tweak
+    /// ADT-Tweak start
+    private void OnJukeboxSetVolume(EntityUid uid, JukeboxComponent component, JukeboxSetVolumeMessage args)
     {
         SetJukeboxVolume(uid, component, args.Volume);
 
@@ -85,6 +86,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
         Audio.SetVolume(component.AudioStream, MapToRange(args.Volume, component.MinSlider, component.MaxSlider, component.MinVolume, component.MaxVolume));
     }
+    /// ADT-Tweak end
 
     private void OnPowerChanged(Entity<JukeboxComponent> entity, ref PowerChangedEvent args)
     {
@@ -141,11 +143,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         }
     }
 
-    private void SetJukeboxVolume(EntityUid uid, JukeboxComponent component, float volume) /// ADT-Tweak
+    /// ADT-Tweak start
+    private void SetJukeboxVolume(EntityUid uid, JukeboxComponent component, float volume)
     {
         component.Volume = volume;
         Dirty(uid, component);
     }
+    /// ADT-Tweak end
     
     private void OnComponentShutdown(EntityUid uid, JukeboxComponent component, ComponentShutdown args)
     {
