@@ -2,3 +2,8 @@
   id: MagistratJumpsuit
   equipment:
     jumpsuit: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+- type: loadout
+  id: ADTMagistratBackpackSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
