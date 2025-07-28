@@ -40,3 +40,7 @@ cargo-acquisition-slip-body = [head=3]Информация[/head]
     {"[head=3]Детали покупки[/head]"}
     {"[bold]Заказчик:[/bold]"} {$orderer}
     {"[bold]Причина:[/bold]"} {$reason}
+
+
+ent-PaperAcquisitionSlip = квитанция о приобретении
+ .desc = Квитанция с данными заказа. Её можно передать в отдел снабжения для завершения заказа.
