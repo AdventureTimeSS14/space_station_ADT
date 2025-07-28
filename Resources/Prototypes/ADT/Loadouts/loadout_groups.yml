@@ -63,6 +63,15 @@
   loadouts:
   - LawyerNeck
 
+# LAWYER
+- type: loadoutGroup
+  id: ADTLawyerBackpack
+  name: loadout-group-lawyer-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTMagistratBackpackSatchel
 # PATHOLOGIST
 
 - type: loadoutGroup

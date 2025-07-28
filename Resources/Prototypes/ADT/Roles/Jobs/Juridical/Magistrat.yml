@@ -53,17 +53,19 @@
     shoes: ClothingShoesBootsLaceup
     #mask: Ну что за косипор оставляет пустуе значения?
     #outerClothing: ClothingOuterRobesJudge
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesCommand
     #head: ClothingHeadHatPwig
     id: MagistratPDA
     #gloves:
     ears: ClothingHeadsetMagistrat
-    #belt:
-    neck: ClothingNeckLawyerbadge
+    belt: ClothingBeltStorageWaistbag
+    #neck: ClothingNeckLawyerbadge
     pocket2: RubberStampMagisrat
   storage:
     back:
     - Flash
+    - WeaponDisabler
+    - Zipties
   # ADT-TelescopicBaton
     - ADTtelescopicBaton
   # ADT-TelescopicBaton
