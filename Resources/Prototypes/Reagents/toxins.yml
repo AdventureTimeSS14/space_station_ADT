@@ -589,11 +589,13 @@
         damage:
           types:
             Poison: 0.4
-      - !type:ChemVomit
-        probability: 0.04
+      - !type:Jitter
         conditions:
-          - !type:OrganType
-            type: Slime
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 5
       #ADT-tweak-end
 
 - type: reagent
