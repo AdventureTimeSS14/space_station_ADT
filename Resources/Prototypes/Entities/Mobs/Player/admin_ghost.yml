@@ -27,9 +27,6 @@
   - type: Puller
     needsHands: false
   - type: CombatMode
-  - type: Physics
-    ignorePaused: true
-    bodyType: Kinematic
   - type: Body
     prototype: Aghost
   - type: Access
