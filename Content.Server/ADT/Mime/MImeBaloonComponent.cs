@@ -4,4 +4,7 @@ namespace Content.Server.ADT.Mime;
 public sealed partial class MimeBaloonComponent : Component
 {
     public List<string> ListPrototypesBaloon = ["BalloonNT", "BalloonCorgi", "BalloonSyn"];
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? Action;
 }
