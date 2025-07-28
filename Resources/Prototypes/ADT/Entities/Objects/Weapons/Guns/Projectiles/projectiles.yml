@@ -418,3 +418,20 @@
     radius: 2
     color: green
     energy: 1
+
+- type: entity
+  name: stanner bolt
+  id: ADTBulletDisablerStrong
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 45
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 5
+    soundHit:
+      collection: WeakHit
+    forceSound: true

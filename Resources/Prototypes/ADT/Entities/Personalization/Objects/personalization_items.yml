@@ -2213,4 +2213,108 @@
     slots:
     - back
     - suitStorage #ADT_Tweak - чтобы вешать на спину
+
+- type: entity
+  name: YV-2 multiphase stunner
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponPistolYV2
+  description: new version of antique gun witout selfrcharge
+  suffix: Personal, KonnorSmith
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      visible: false
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
+  - type: Gun
+    fireRate: 2
+    projectileSpeed: 60
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletDisabler
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: ADTBulletDisablerStrong
+      fireCost: 150
+    - proto: ADTBulletLaser
+      fireCost: 150
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: Tag
+    tags:
+    - YV2Pistol
+    - Taser
+    - Sidearm
+  - type: StaticPrice
+    price: 5000
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTPortableYV2Recharger
+  name: YV-2 portable recharger
+  description: High-tech recharger adapted for portability.
+  suffix: Personal, KonnorSmith
+  components:
+  - type: Appearance
+  - type: Item
+    size: Large # ADT tweak
+    sprite: ADT/Personalization/yv2recharger.rsi
+  - type: Sprite
+    sprite: ADT/Personalization/yv2recharger.rsi
+    state: icon
+  # - type: Clothing
+  #   # equippedPrefix: charging
+  #   quickEquip: false
+  #   slots:
+  #   - belt
+  - type: Charger
+    chargeRate: 20 # ADT tweak
+    slotId: charger_slot
+    portable: true
+  # - type: PowerChargerVisuals
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: ContainerContainer
+    containers:
+      charger_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      charger_slot:
+        name: оружие
+        startingItem: ADTWeaponPistolYV2
+        ejectOnInteract: true
+        whitelist:
+          tags:
+          - YV2Pistol
+  - type: ItemMapper
+    mapLayers:
+      yv2:
+        whitelist:
+          tags:
+          - YV2Pistol
+    sprite: ADT/Personalization/yv2recharger.rsi
 #SPONSOR-ITEMS-END
