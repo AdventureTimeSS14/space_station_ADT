@@ -1,35 +1,35 @@
 ## Консоли
 
-ent-ComputerCargoOrdersScience = Какая-то научная хуйня
+ent-ComputerCargoOrdersScience = Консоль заказов научного отдела
  .desc = Какая-то научная хуйня для заказа более важной научной хуйни
 
-ent-ComputerCargoOrdersMedical = Какая-то медицинская хуйня
+ent-ComputerCargoOrdersMedical = Консоль заказов медицинского отдела
   .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
 
-ent-ComputerCargoOrdersSecurity = Какая-то медицинская хуйня
+ent-ComputerCargoOrdersSecurity = Консоль заказаов службы безопастности
   .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
 
-ent-ComputerCargoOrdersService = Какая-то медицинская хуйня
+ent-ComputerCargoOrdersService = Консоль заказов сервисного отдела
   .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
 
-ent-ComputerCargoOrdersEngineering = Какая-то медицинская хуйня
+ent-ComputerCargoOrdersEngineering = Консоль заказов инженерного отдела
   .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
 
 ## Платы
 
-ent-CargoRequestScienceComputerCircuitboard = Какая-то хуйня (машинная плата)
+ent-CargoRequestScienceComputerCircuitboard = Консоль заказов научного отдела (машинная плата)
  .desc = Плата для какой-то хуйни
 
-ent-CargoRequestMedicalComputerCircuitboard = Какая-то хуйня (машинная плата)
+ent-CargoRequestMedicalComputerCircuitboard = Консоль заказов медицинского отдела (машинная плата)
  .desc = Плата для какой-то хуйни
 
-ent-CargoRequestEngineeringComputerCircuitboard = Какая-то хуйня (машинная плата)
+ent-CargoRequestEngineeringComputerCircuitboard = Консоль заказаов службы безопастности (машинная плата)
  .desc = Плата для какой-то хуйни
 
-ent-CargoRequestSecurityComputerCircuitboard = Какая-то хуйня (машинная плата)
+ent-CargoRequestSecurityComputerCircuitboard = Консоль заказов сервисного отдела (машинная плата)
  .desc = Плата для какой-то хуйни
 
-ent-CargoRequestServiceComputerCircuitboard = Какая-то хуйня (машинная плата)
+ent-CargoRequestServiceComputerCircuitboard = Консоль заказов инженерного отдела (машинная плата)
  .desc = Плата для какой-то хуйни
 
 
