@@ -9,7 +9,7 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 #20 hrs # Corvax-RoleTime
-      inverted: true # stop playing intern if you're good at security!
+      # inverted: true # stop playing intern if you're good at security! # ADT-Tweak
 # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true
