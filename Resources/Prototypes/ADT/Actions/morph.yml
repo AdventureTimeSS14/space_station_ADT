@@ -23,7 +23,7 @@
 - type: entity
   id: ActionMorphReplication
   name: "[color=red]Reproduce[/color]"
-  description: Create absolute copy of you.
+  description: Create a full copy of yourself.
   components:
   - type: InstantAction
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: reproduce }
