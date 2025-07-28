@@ -12,7 +12,7 @@
 - type: entity
   id: ActionMorphRemember
   name: "[color=red]Remember[/color]"
-  description: Remember enrity to mimicry in future
+  description: Remember this entity to mimic in future.
   components:
   - type: EntityTargetAction
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
