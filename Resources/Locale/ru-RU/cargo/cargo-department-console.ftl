@@ -1,43 +1,42 @@
 ## Консоли
 
-ent-ComputerCargoOrdersScience = Консоль заказов научного отдела
- .desc = Какая-то научная хуйня для заказа более важной научной хуйни
+ent-ComputerCargoOrdersScience = консоль заказов научного отдела
+ .desc = Используется научным отделом для заказа снабжения
 
-ent-ComputerCargoOrdersMedical = Консоль заказов медицинского отдела
-  .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
+ent-ComputerCargoOrdersMedical = консоль заказов медицинского отдела
+  .desc = Используется медицинским отделом для заказа снабжения
 
-ent-ComputerCargoOrdersSecurity = Консоль заказаов службы безопастности
-  .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
+ent-ComputerCargoOrdersSecurity = консоль заказов службы безопастности
+  .desc = Используется службой безопастности для заказа снабжения
 
-ent-ComputerCargoOrdersService = Консоль заказов сервисного отдела
-  .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
+ent-ComputerCargoOrdersService = консоль заказов сервисного отдела
+  .desc = Используется сервисным отделом для заказа снабжения
 
-ent-ComputerCargoOrdersEngineering = Консоль заказов инженерного отдела
-  .desc = Какая-то медицинская хуйня для заказа более важной научной хуйни
+ent-ComputerCargoOrdersEngineering = консоль заказов инженерного отдела
+  .desc = Используется инженерным отделом для заказа снабжения
 
 ## Платы
 
-ent-CargoRequestScienceComputerCircuitboard = Консоль заказов научного отдела (машинная плата)
- .desc = Плата для какой-то хуйни
+ent-CargoRequestScienceComputerCircuitboard = консоль заказов научного отдела (машинная плата)
+ .desc = Печатная плата консоль заказов научного отдела
 
-ent-CargoRequestMedicalComputerCircuitboard = Консоль заказов медицинского отдела (машинная плата)
- .desc = Плата для какой-то хуйни
+ent-CargoRequestMedicalComputerCircuitboard = консоль заказов медицинского отдела (машинная плата)
+ .desc = Печатная плата консоль заказов медицинского отдела
 
-ent-CargoRequestEngineeringComputerCircuitboard = Консоль заказаов службы безопастности (машинная плата)
- .desc = Плата для какой-то хуйни
+ent-CargoRequestEngineeringComputerCircuitboard = консоль заказаов службы безопастности (машинная плата)
+ .desc = Печатная плата консоль заказов службы безопастности
 
-ent-CargoRequestSecurityComputerCircuitboard = Консоль заказов сервисного отдела (машинная плата)
- .desc = Плата для какой-то хуйни
+ent-CargoRequestSecurityComputerCircuitboard = консоль заказов сервисного отдела (машинная плата)
+ .desc = Печатная плата консоль заказов сервисного отдела
 
-ent-CargoRequestServiceComputerCircuitboard = Консоль заказов инженерного отдела (машинная плата)
- .desc = Плата для какой-то хуйни
-
+ent-CargoRequestServiceComputerCircuitboard = консоль заказов инженерного отдела (машинная плата)
+ .desc = Печатная плата консоль заказов инженерного отдела
 
 
 
 
 # Slip template
-cargo-acquisition-slip-body = [head=3]Asset Detail[/head]
+cargo-acquisition-slip-body = [head=3]Информация[/head]
     {"[bold]Товар:[/bold]"} {$product}
     {"[bold]Описание:[/bold]"} {$description}
     {"[bold]Цена за штуку:[/bold"}] ${$unit}
