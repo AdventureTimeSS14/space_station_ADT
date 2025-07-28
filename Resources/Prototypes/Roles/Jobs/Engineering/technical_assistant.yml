@@ -9,7 +9,7 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 18000 #5 hrs
-      inverted: true # stop playing intern if you're good at engineering!
+      # inverted: true # stop playing intern if you're good at engineering! # ADT-Tweak
 # ADT-Tweak
     # - !type:DepartmentTimeRequirement
     #   department: Engineering
