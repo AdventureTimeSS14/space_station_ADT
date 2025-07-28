@@ -3,7 +3,6 @@ using Content.Shared.ADT.Mime;
 using Content.Server.Popups;
 using Robust.Shared.Random;
 using Content.Server.Actions;
-using Robust.Shared.Timing;
 
 public sealed class MimeBaloonSystem : EntitySystem
 {
