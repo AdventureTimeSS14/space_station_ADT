@@ -26,6 +26,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxPauseMessage>(OnJukeboxPause);
         SubscribeLocalEvent<JukeboxComponent, JukeboxStopMessage>(OnJukeboxStop);
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetTimeMessage>(OnJukeboxSetTime);
+        SubscribeLocalEvent<JukeboxComponent, JukeboxSetVolumeMessage>(OnJukeboxSetVolume); /// ADT-Tweak
         SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
 
@@ -56,7 +57,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
                 return;
             }
 
-            component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f))?.Entity;
+            component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f).WithVolume(MapToRange(component.Volume, component.MinSlider, component.MaxSlider, component.MinVolume, component.MaxVolume)))?.Entity; /// ADT-Tweak
             Dirty(uid, component);
         }
     }
@@ -74,6 +75,18 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             Audio.SetPlaybackPosition(component.AudioStream, args.SongTime + offset);
         }
     }
+
+    /// ADT-Tweak start
+    private void OnJukeboxSetVolume(EntityUid uid, JukeboxComponent component, JukeboxSetVolumeMessage args)
+    {
+        SetJukeboxVolume(uid, component, args.Volume);
+
+        if (!TryComp<AudioComponent>(component.AudioStream, out var audioComponent))
+            return;
+
+        Audio.SetVolume(component.AudioStream, MapToRange(args.Volume, component.MinSlider, component.MaxSlider, component.MinVolume, component.MaxVolume));
+    }
+    /// ADT-Tweak end
 
     private void OnPowerChanged(Entity<JukeboxComponent> entity, ref PowerChangedEvent args)
     {
@@ -130,6 +143,14 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         }
     }
 
+    /// ADT-Tweak start
+    private void SetJukeboxVolume(EntityUid uid, JukeboxComponent component, float volume)
+    {
+        component.Volume = volume;
+        Dirty(uid, component);
+    }
+    /// ADT-Tweak end
+    
     private void OnComponentShutdown(EntityUid uid, JukeboxComponent component, ComponentShutdown args)
     {
         component.AudioStream = Audio.Stop(component.AudioStream);
