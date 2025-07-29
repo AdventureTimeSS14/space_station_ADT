@@ -52,7 +52,7 @@
     damage:
       types:
 #ADT tweak start
-        Piercing: 15  #(10 > 15)
+        Piercing: 15  #ADT tweak for example: 10 > 15
 # remove = Structural: 15
 #ADT tweak end
 
@@ -64,7 +64,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgun
-    count: 4 #ADT tweak (6 > 4)
+    count: 4 #ADT tweak  for example: 6 > 4
     spread: 15
 
 - type: entity
@@ -82,7 +82,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 14 #ADT tweak
+        Piercing: 14 #ADT tweak for example: 7 > 14
         # Blunt: 3 ADT tweak
         # Heat: 7 ADT tweak
   - type: IgnitionSource
@@ -95,7 +95,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunIncendiary
-    count: 4 #ADT tweak
+    count: 4 #ADT tweak for example: 6 > 4
     spread: 15
 
 - type: entity
