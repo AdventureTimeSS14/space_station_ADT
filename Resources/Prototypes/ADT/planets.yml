@@ -59,7 +59,7 @@
   - OreUranium
   - OreDiamond
   - OreArtifactFragment
-  - ADTOreBS #ADT tweak
+  - ADTOreBS
 
 - type: planet
   id: GlacierSurface
@@ -88,4 +88,4 @@
   - OreUranium
   - OreDiamond
   - OreArtifactFragment
-  - ADTOreBS #ADT tweak
+  - ADTOreBS

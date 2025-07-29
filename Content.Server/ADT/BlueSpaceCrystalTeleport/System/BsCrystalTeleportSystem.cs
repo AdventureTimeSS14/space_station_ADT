@@ -29,6 +29,9 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
 
     private HashSet<Entity<MapGridComponent>> _targetGrids = new();
     private bool valid;
+    private float CountToRadius;
+    private float adding;
+
 
     public override void Initialize()
     {
@@ -53,16 +56,34 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
 
     private void OnThrowInMob(Entity<BsCrystalTeleportComponent> uid, ref ThrowDoHitEvent args)
     {
-        if (TryTeleport(args.Target, uid.Comp.TeleportRadiusThrow, uid.Comp.TeleportSound))
+        AddRadiusIfMore1(uid,uid.Comp);
+        if (TryTeleport(args.Target, CountToRadius ,uid.Comp.TeleportSound))
         {
+            var xform = Transform(args.Target);
+            if (!xform.Anchored)
+            _xform.AnchorEntity(args.Target, xform);
             if (TryComp<StackComponent>(uid, out var stackComp))
-                _stacks.Use(uid, 1, stackComp);
+                _stacks.Use(uid, stackComp.Count , stackComp);
         }
     }
     private void OnProjectileHit (Entity<BsCrystalTeleportComponent> uid,ref ProjectileHitEvent args)
     {
         TryTeleport(args.Target, uid.Comp.TeleportRadiusThrow, uid.Comp.TeleportSound);
     }
+
+    private void AddRadiusIfMore1(Entity<BsCrystalTeleportComponent> uid ,BsCrystalTeleportComponent component)
+    {
+        if(TryComp<StackComponent>(uid, out var stack) && stack.Count>1) 
+        {
+            CountToRadius = stack.Count+component.TeleportRadiusThrow;
+ 
+        }
+        else
+        {
+            CountToRadius = component.TeleportRadiusThrow;
+        }
+    }
+
 
     private bool TryTeleport(EntityUid entity, float radius, SoundSpecifier sound)
     {

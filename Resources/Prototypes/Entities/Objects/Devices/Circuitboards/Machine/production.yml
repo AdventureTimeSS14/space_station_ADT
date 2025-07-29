@@ -201,7 +201,6 @@
     prototype: ResearchAndDevelopmentServer
     stackRequirements:
       Plasma: 5
-      ADTBScrystal: 5 #ADT Tweak
 
 - type: entity
   id: BiogeneratorMachineCircuitboard

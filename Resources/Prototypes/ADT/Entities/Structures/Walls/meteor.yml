@@ -31,8 +31,8 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore #ADT tweak
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_bsore
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
         - state: rock_asteroid
         - map: [ "enum.EdgeLayer.South" ]
           state: rock_asteroid_south
@@ -42,8 +42,6 @@
           state: rock_asteroid_north
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_asteroid_west
-        # - state: rock_phoron #ADT tweak
-        #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
 
 - type: entity
   id: ADTWallRockBS
@@ -56,8 +54,8 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore #ADT tweak
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_bsore 
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ] 
         - state: rock
         - map: [ "enum.EdgeLayer.South" ]
           state: rock_south
@@ -79,8 +77,8 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore #ADT tweak
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_bsore 
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
         - state: rock_wall
         - map: [ "enum.EdgeLayer.South" ]
           state: rock_wall_south
@@ -102,8 +100,8 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore #ADT tweak
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_bsore
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
         - state: rock_chromite
         - map: [ "enum.EdgeLayer.South" ]
           state: rock_chromite_south
@@ -125,8 +123,8 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore #ADT tweak
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_bsore
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
         - state: rock_sand
         - map: [ "enum.EdgeLayer.South" ]
           state: rock_sand_south
@@ -148,8 +146,8 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore #ADT tweak
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+        - state: rock_bsore
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
         - state: rock_snow
         - map: [ "enum.EdgeLayer.South" ]
           state: rock_snow_south
