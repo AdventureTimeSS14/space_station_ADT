@@ -5,7 +5,7 @@
   components:
   - type: InstantAction
     useDelay: 10
-    checkCanInteract: false
+    checkCanInteract: true
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Fun/toys.rsi

@@ -219,8 +219,10 @@ uplink-chameleon-name = Набор "Хамелеон"
 uplink-chameleon-desc = Рюкзак, полный вещей, оснащённых технологией хамелеона, позволяющих вам маскироваться под кого угодно на станции, и даже больше!
 uplink-clothing-no-slips-shoes-name = Нескользящая обувь
 uplink-clothing-no-slips-shoes-desc = Ботинки-хамелеоны, которые защищают вас от подскальзывания.
-uplink-clothing-thieving-gloves-name = Воровские перчатки
-uplink-clothing-thieving-gloves-desc = Незаметно обчищайте карманы и улучшайте свой навык воровства с помощью этих новых модных перчаток. Они даже выглядят как обычные!
+# ADT Tweak start
+uplink-clothing-chameleon-thieving-gloves-name = Воровские перчатки
+uplink-clothing-chameleon-thieving-gloves-desc = Незаметно обчищайте карманы и улучшайте свой навык воровства с помощью этих новых модных перчаток. Они даже выглядят как обычные!
+# ADT Tweak end
 uplink-clothing-outer-vest-web-name = Тактический жилет
 uplink-clothing-outer-vest-web-desc = Синтетический бронежилет. Имеет дополнительные ремни и баллистические пластины.
 uplink-hardsuit-syndie-name = Скафандр Синдиката
