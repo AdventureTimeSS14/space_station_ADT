@@ -31,7 +31,7 @@ public sealed partial class ItemBorgModuleComponent : Component
     public SortedDictionary<string, EntityUid> ProvidedItems = new();
 
     /// <summary>
-    /// The entities from <see cref="Items"/> that were spawned.
+    /// ADT: The entities from <see cref="Items"/> that were spawned.
     /// </summary>
     [DataField("droppableProvidedItems")]
     public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
