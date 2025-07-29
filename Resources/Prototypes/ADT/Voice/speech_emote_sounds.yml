@@ -661,9 +661,14 @@
   params:
     variation: 0.125
   sounds:
-    Scream: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+    Scream: 
+      collection: MaleResomiScreams # ADT-Tweak
     Laugh:
-      collection: MaleLaugh
+      collection: MaleResomiLaughs # ADT-Tweak 
+    Cough:
+      collection: MaleResomiCoughs # ADT-Tweak
+    Sneeze:
+      collection: MaleResomiSneeze # ADT-Tweak
     Honk:
       collection: BikeHorn
     Whistle:
@@ -683,9 +688,13 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+      collection: FemaleResomiScreams # ADT-Tweak
     Laugh:
-      collection: FemaleLaugh
+      collection: FemaleResomiLaughs # ADT-Tweak 
+    Cough:
+      collection: FemaleResomiCoughs # ADT-Tweak
+    Sneeze:
+      collection: FemaleResomiSneeze # ADT-Tweak
     Honk:
       collection: BikeHorn
     Whistle:

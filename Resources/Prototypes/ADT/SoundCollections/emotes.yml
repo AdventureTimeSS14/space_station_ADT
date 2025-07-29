@@ -219,6 +219,38 @@
   files:
     - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
 
+# ADT-Tweak start
+- type: soundCollection
+  id: MaleResomiLaughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_laught.ogg
+
+- type: soundCollection
+  id: FemaleResomiLaughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_laught.ogg
+
+- type: soundCollection
+  id: MaleResomiSneeze
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_sneeze.ogg
+
+- type: soundCollection
+  id: FemaleResomiSneeze
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_sneeze.ogg
+
+- type: soundCollection
+  id: MaleResomiCoughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
+
+- type: soundCollection
+  id: FemaleResomiCoughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
+# ADT-Tweak end
+
 # Other
 - type: soundCollection
   id: HumanSpits
