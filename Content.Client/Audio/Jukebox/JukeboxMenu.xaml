@@ -24,7 +24,8 @@
             <!-- ADT-Tweak end -->
             </BoxContainer>
         </BoxContainer>
-        <BoxContainer Orientation="Vertical"> <!-- ADT-Tweak -->
+        <!-- ADT-Tweak start-->
+        <BoxContainer Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
                           VerticalExpand="False" SizeFlagsStretchRatio="1" HorizontalAlignment="Center">
@@ -32,5 +33,6 @@
                 <Button Name="StopButton" Text="{Loc 'jukebox-menu-buttonstop'}" />
             </BoxContainer>
         </BoxContainer>
+        <!-- ADT-Tweak end-->
     </BoxContainer>
 </ui:FancyWindow>
