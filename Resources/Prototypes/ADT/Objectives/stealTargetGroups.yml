@@ -49,10 +49,10 @@
     state: shard
 
 - type: stealTargetGroup
-  id: ADTWeaponPistolX01
-  name: steal-target-groups-adt-pistol-x01
+  id: ADTHosWeapon
+  name: steal-target-groups-adt-hos-weapon
   sprite:
-    sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
+    sprite: ADT/Objects/Specific/hos_voucher.rsi
     state: icon
 
 # changeling
