@@ -662,7 +662,7 @@
     variation: 0.125
   sounds:
     Scream: 
-      collection: ResomiScreams
+      collection: MaleResomiScreams
     Laugh:
       collection: ResomiLaughs 
     Cough:
@@ -688,7 +688,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: ResomiScreams
+      collection: FemaleResomiScreams
     Laugh:
       collection: ResomiLaughs 
     Cough:

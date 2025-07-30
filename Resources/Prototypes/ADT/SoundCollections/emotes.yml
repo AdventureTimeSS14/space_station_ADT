@@ -210,7 +210,12 @@
 
 # Resomi
 - type: soundCollection
-  id: ResomiScreams
+  id: MaleResomiScreams
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+
+- type: soundCollection
+  id: FemaleResomiScreams
   files:
     - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
 
