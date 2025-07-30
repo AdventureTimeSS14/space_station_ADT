@@ -3560,8 +3560,6 @@
       sprite: Mobs/Animals/nymph.rsi
  - type: VentCrawler # ADT tweak
  - type: CanEscapeInventory
-      state: nymph
-      sprite: Mobs/Animals/nymph.rsi
   - type: Physics
   - type: Fixtures
     fixtures:
