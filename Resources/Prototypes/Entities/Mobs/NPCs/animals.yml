@@ -3553,6 +3553,8 @@
   description: It's like a cat, only.... branch-ier.
   components:
   - type: Sprite
+  - type: VentCrawler # ADT tweak
+  - type: CanEscapeInventory # ADT tweak
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -3597,8 +3599,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      30: Critical
-      60: Dead
+      50: Critical # ADT tweak
+      100: Dead # ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
@@ -3641,6 +3643,7 @@
   - type: LanguageSpeaker
     languages:
       RootSpeak: Speak
+      GalacticCommon: Speak
   # ADT End Tweak Nimf
 
 - type: entity
@@ -3654,6 +3657,7 @@
   - type: LanguageSpeaker
     languages:
       RootSpeak: Speak
+      GalacticCommon: Speak
 
 - type: entity
   name: reindeer buck
