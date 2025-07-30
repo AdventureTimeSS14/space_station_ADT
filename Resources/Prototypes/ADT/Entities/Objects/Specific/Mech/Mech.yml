@@ -27,6 +27,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     maxintegrity: 300
     baseState: gygax
     openState: gygax-open
@@ -99,6 +101,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     # ADT end
     maxintegrity: 340
     baseState: clarke
@@ -182,6 +186,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     maxintegrity: 350
     baseState: durand
     openState: durand-open
@@ -267,6 +273,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     # ADT end
     maxintegrity: 285
     baseState: odysseus
@@ -344,6 +352,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 420
     baseState: phazon
@@ -430,6 +440,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     # ADT end
     maxintegrity: 315
     baseState: ripleymkii
@@ -516,6 +528,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 385
     baseState: marauder
@@ -596,6 +610,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 600
     baseState: seraph
@@ -667,6 +683,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 350
     baseState: ntgygax
@@ -739,6 +757,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 350
     baseState: darkgygax
@@ -812,6 +832,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     mechToPilotDamageMultiplier: 0.0  #Боец в тяжелом мехе не должен получать урон пока сам мех - жив
     maxintegrity: 385
     baseState: mauler
@@ -899,6 +921,8 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
+        flatReductions:
+         Structural: 10
     mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
     maxintegrity: 300
     baseState: paddy
