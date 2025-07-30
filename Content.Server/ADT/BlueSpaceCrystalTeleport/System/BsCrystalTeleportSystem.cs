@@ -60,7 +60,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         if (TryTeleport(args.Target, CountToRadius ,uid.Comp.TeleportSound))
         {
             var xform = Transform(args.Target);
-            if (!xform.Anchored)
             _xform.AnchorEntity(args.Target, xform);
             if (TryComp<StackComponent>(uid, out var stackComp))
                 _stacks.Use(uid, stackComp.Count , stackComp);
