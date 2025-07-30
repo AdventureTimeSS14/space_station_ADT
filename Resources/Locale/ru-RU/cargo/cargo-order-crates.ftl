@@ -62,5 +62,5 @@ ent-FoodMealHappyHonkBigBite = набор "Happy Honk Big Bite"
 ent-BoxLighttubeColorfulMixed = коробка разноцветных ламп-трубок
  .desc = Вмещает в себя только лампы накаливания и лампы-трубки
 
- ent-BoxLightbulbColorfulMixed = коробка разноцветных ламп накаливания
+ent-BoxLightbulbColorfulMixed = коробка разноцветных ламп накаливания
  .desc = Вмещает в себя только лампы накаливания и лампы-трубки
