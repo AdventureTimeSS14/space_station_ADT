@@ -120,7 +120,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
                     if (_random.NextDouble() < 0.9)
                         continue;
                     GameTicker.AddGameRule(antag.Id);
-                    scheduler.EventsBeforeAntag = _random.Next(2, scheduler.MaxEventsBeforeAntag);
+                    scheduler.EventsBeforeAntag = scheduler.MaxEventsBeforeAntag;
                 }
             }
         }
