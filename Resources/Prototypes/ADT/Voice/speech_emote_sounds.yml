@@ -662,13 +662,13 @@
     variation: 0.125
   sounds:
     Scream: 
-      collection: MaleResomiScreams # ADT-Tweak
+      collection: MaleResomiScreams
     Laugh:
-      collection: MaleResomiLaughs # ADT-Tweak 
+      collection: MaleResomiLaughs 
     Cough:
-      collection: MaleResomiCoughs # ADT-Tweak
+      collection: MaleResomiCoughs
     Sneeze:
-      collection: MaleResomiSneeze # ADT-Tweak
+      collection: MaleResomiSneeze 
     Honk:
       collection: BikeHorn
     Whistle:
@@ -688,13 +688,13 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: FemaleResomiScreams # ADT-Tweak
+      collection: FemaleResomiScreams
     Laugh:
-      collection: FemaleResomiLaughs # ADT-Tweak 
+      collection: FemaleResomiLaughs 
     Cough:
-      collection: FemaleResomiCoughs # ADT-Tweak
+      collection: FemaleResomiCoughs
     Sneeze:
-      collection: FemaleResomiSneeze # ADT-Tweak
+      collection: FemaleResomiSneeze
     Honk:
       collection: BikeHorn
     Whistle:
