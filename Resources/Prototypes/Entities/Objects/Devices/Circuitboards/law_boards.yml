@@ -7,6 +7,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: NTDefault
 
@@ -19,6 +20,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: Crewsimov
 
@@ -31,6 +33,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: Corporate
 
@@ -43,6 +46,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: CommandmentsLawset
 
@@ -55,6 +59,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: PaladinLawset
 
@@ -67,6 +72,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
 
@@ -79,6 +85,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: EfficiencyLawset
 
@@ -91,6 +98,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: RobocopLawset
 
@@ -103,6 +111,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: OverlordLawset
 
@@ -115,6 +124,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: GameMasterLawset
 
@@ -127,6 +137,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: PainterLawset
 
@@ -139,6 +150,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: AntimovLawset
     lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
@@ -152,6 +164,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: NutimovLawset
 
@@ -165,6 +178,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: XenoborgLawset
 
@@ -178,5 +192,6 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
+  - type: SiliconLawBound # ADT tweak
   - type: SiliconLawProvider
     laws: MothershipCoreLawset
