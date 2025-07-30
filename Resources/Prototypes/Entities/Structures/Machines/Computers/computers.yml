@@ -156,6 +156,7 @@
   - type: GuideHelp
     guides:
     - ShuttleCraft
+  - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
   parent: BaseComputerShuttle

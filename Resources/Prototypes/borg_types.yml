@@ -86,6 +86,7 @@
   - BorgModuleMining
   - BorgModuleTraversal
   - BorgModuleAppraisal
+  - ADTBorgModulePKA # ADT tweak
 
   radioChannels:
   - Supply
