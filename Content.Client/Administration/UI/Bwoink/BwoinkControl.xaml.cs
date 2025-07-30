@@ -29,13 +29,14 @@ namespace Content.Client.Administration.UI.Bwoink
         public AdminAHelpUIHandler AHelpHelper = default!;
 
         // ADT-Tweak start. Система тегов в АХелп
-        private static readonly List<string> TagNames = [
+        private static readonly List<string> TagNames = new()
+        {
             "ahelp-user-type-tag-1",
             "ahelp-user-type-tag-2",
             "ahelp-user-type-tag-3",
             "ahelp-user-type-tag-4",
             "ahelp-user-type-tag-5"
-        ]; // Лист с локализацией названий тегов в списке
+        }; // Лист с локализацией названий тегов в списке
 
         public static int TagCount = TagNames.Count;
 

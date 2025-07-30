@@ -1,0 +1,24 @@
+﻿# Momsimov
+- type: siliconLaw
+  id: ADTMomsimov1
+  order: 1
+  lawString: law-momsimov-1
+
+- type: siliconLaw
+  id: ADTMomsimov2
+  order: 2
+  lawString: law-momsimov-2
+
+- type: siliconLaw
+  id: ADTMomsimov3
+  order: 3
+  lawString: law-momsimov-3
+
+- type: siliconLawset
+  id: ADTMomsimov
+  laws:
+  - ADTMomsimov1
+  - ADTMomsimov2
+  - ADTMomsimov3
+  obeysTo: laws-owner-crew
+  roundstart: true

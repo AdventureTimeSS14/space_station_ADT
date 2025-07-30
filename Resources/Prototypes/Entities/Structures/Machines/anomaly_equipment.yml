@@ -217,6 +217,7 @@
       - SetParticleEpsilon
       - SetParticleZeta
       - SetParticleSigma
+  - type: StationAiWhitelist # ADT tweak
 
 - type: entity
   id: MachineAnomalyGenerator
