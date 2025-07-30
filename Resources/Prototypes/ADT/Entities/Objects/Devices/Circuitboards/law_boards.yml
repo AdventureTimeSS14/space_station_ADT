@@ -1,0 +1,12 @@
+- type: entity
+  id: ADTMomsimovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Momsimov)
+  description: An electronics board containing the Momsimov lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawBound # ADT tweak
+  - type: SiliconLawProvider
+    laws: ADTMomsimov
