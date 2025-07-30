@@ -210,42 +210,22 @@
 
 # Resomi
 - type: soundCollection
-  id: MaleResomiScreams
+  id: ResomiScreams
   files:
     - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
 
 - type: soundCollection
-  id: FemaleResomiScreams
-  files:
-    - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
-
-- type: soundCollection
-  id: MaleResomiLaughs
+  id: ResomiLaughs
   files:
     - /Audio/ADT/Voice/Resomi/resomi_laught.ogg
 
 - type: soundCollection
-  id: FemaleResomiLaughs
-  files:
-    - /Audio/ADT/Voice/Resomi/resomi_laught.ogg
-
-- type: soundCollection
-  id: MaleResomiSneeze
+  id: ResomiSneeze
   files:
     - /Audio/ADT/Voice/Resomi/resomi_sneeze.ogg
 
 - type: soundCollection
-  id: FemaleResomiSneeze
-  files:
-    - /Audio/ADT/Voice/Resomi/resomi_sneeze.ogg
-
-- type: soundCollection
-  id: MaleResomiCoughs
-  files:
-    - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
-
-- type: soundCollection
-  id: FemaleResomiCoughs
+  id: ResomiCoughs
   files:
     - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
 
