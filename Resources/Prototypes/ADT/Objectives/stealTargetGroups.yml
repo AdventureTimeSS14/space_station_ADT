@@ -21,13 +21,6 @@
     state: icon
 
 - type: stealTargetGroup
-  id: ADTWeaponPistolX01
-  name: steal-target-groups-adt-pistol-x01
-  sprite:
-    sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
-    state: icon
-
-- type: stealTargetGroup
   id: ADTClothingMaskGasCE
   name: steal-target-groups-clothing-mask-gas-ce
   sprite:
@@ -54,6 +47,13 @@
   sprite:
     sprite: ADT/Objects/Misc/supermatter_silver.rsi
     state: shard
+
+- type: stealTargetGroup
+  id: ADTHosWeapon
+  name: steal-target-groups-adt-hos-weapon
+  sprite:
+    sprite: ADT/Objects/Specific/hos_voucher.rsi
+    state: icon
 
 # changeling
 
