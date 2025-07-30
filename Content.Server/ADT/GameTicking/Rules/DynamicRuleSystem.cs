@@ -97,23 +97,19 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
                 continue;
             }
 
-            scheduler.TimeUntilNextEvent = _random.NextFloat(scheduler.MinEventDelay, scheduler.MaxEventDelay);
-            _event.RunRandomEvent(scheduler.ScheduledGameRules);
-            scheduler.EventsBeforeAntag--;
-
             if (scheduler.EventsBeforeAntag <= 0)
             {
                 var chaos = CheckChaos();
                 if (chaos < 30) //чтоб в совсем жепу не спавнило антагов
-                    return;
+                    continue;
                 //проводит выбор по всем антагом, по схожести очкам хаоса, если не находит, выбирает случайного
                 foreach (var antag in scheduler.MidroundAntags)
                 {
                     if (Math.Abs(antag.Cost - chaos) >= 15)
                         continue;
                     GameTicker.AddGameRule(antag.Id);
-                    scheduler.EventsBeforeAntag = _random.Next(2, scheduler.MaxEventsBeforeAntag);
-                    return;
+                    scheduler.EventsBeforeAntag = scheduler.MaxEventsBeforeAntag;
+                    continue;
                 }
                 foreach (var antag in scheduler.MidroundAntags)
                 {
@@ -123,6 +119,10 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
                     scheduler.EventsBeforeAntag = scheduler.MaxEventsBeforeAntag;
                 }
             }
+
+            scheduler.TimeUntilNextEvent = _random.NextFloat(scheduler.MinEventDelay, scheduler.MaxEventDelay);
+            _event.RunRandomEvent(scheduler.ScheduledGameRules);
+            scheduler.EventsBeforeAntag--;
         }
     }
     public int CheckChaos()
