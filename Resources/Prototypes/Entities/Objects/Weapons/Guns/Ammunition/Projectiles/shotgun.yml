@@ -6,7 +6,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: slug
+  #ADT tweak start
+    layers:
+    - state: slug
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -22,7 +25,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+  #ADT tweak start
+    layers:
+    - state: rubber
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -38,7 +44,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+  #ADT tweak start
+    layers:
+    - state: buckshot
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -63,8 +72,11 @@
   parent: BaseBulletIncendiary
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot-flare
+  #ADT tweak start
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
+    layers:
+    - state: buckshot-incendiary
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -92,7 +104,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+  #ADT tweak start
+    layers:
+    - state: practice
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -116,7 +131,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: shard
+  #ADT tweak start
+    layers:
+    - state: shard
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -141,7 +159,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+  #ADT tweak start
+    layers:
+    - state: piercing
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -180,7 +201,10 @@
           - BulletImpassable
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot-flare
+  #ADT tweak start
+    layers:
+    - state: buckshot-flare
+  #ADT tweak end
   - type: IgnitionSource
     ignited: true
     temperature: 1000
@@ -215,7 +239,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: depleted-uranium
+  #ADT tweak start
+    layers:
+    - state: depleted-uranium
+  #ADT tweak end
   - type: Projectile
     damage:
       types:
