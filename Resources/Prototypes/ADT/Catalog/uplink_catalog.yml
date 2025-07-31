@@ -713,7 +713,7 @@
   icon: { sprite:  /Textures/ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
   productEntity: ADTWeaponMiniatureEnergyCrossbow
   cost:
-    Telecrystal: 6
+    Telecrystal: 9
   categories:
   - UplinkWeaponry
 
