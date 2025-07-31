@@ -93,7 +93,15 @@
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
-  - type: IonStormTarget # ADT edit
+  - type: ShowMindShieldIcons # ADT start
+  - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
+  - type: ShowHealthBars
+  - type: ShowHealthIcons
+  - type: Tag
+    tags:
+    - CanPilot
+  - type: IonStormTarget # ADT end
 
 - type: entity
   id: AiHeldIntellicard

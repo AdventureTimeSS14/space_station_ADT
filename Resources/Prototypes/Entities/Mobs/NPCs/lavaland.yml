@@ -115,10 +115,10 @@
     spawned:
     - id: MaterialBones1 #ADT tweak
       maxAmount: 3 #ADT tweak
-    - id: SilverOre1 #Ganimed tweak
-      maxAmount: 3 #Ganimed tweak
-    - id: DiamondOre1 #Ganimed tweak
-      maxAmount: 1 #Ganimedd tweak
+    - id: SilverOre1 #ADT tweak
+      maxAmount: 3 #ADT tweak
+    - id: DiamondOre1 #ADT tweak
+      maxAmount: 1 #ADT tweak
 
 - type: entity
   id: MobWatcherMagmawing
@@ -144,10 +144,10 @@
     spawned:
     - id: MaterialBones1 #ADT tweak
       maxAmount: 3 #ADT tweak
-    - id: PlasmaOre1 #Ganimed tweak
+    - id: PlasmaOre1 #ADT tweak
       maxAmount: 2
-    - id: DiamondOre1 #Ganimed tweak
-      maxAmount: 2 #Ganimed tweak
+    - id: DiamondOre1 #ADT tweak
+      maxAmount: 2 #ADT tweak
 
 - type: entity
   id: MobWatcherPride
