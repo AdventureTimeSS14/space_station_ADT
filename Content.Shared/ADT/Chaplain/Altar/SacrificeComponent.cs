@@ -38,6 +38,12 @@ public sealed partial class TransformationData
     public int RequiredAmount = 1;
 
     /// <summary>
+    /// Priority for transformation selection (higher = COOLER!!!)
+    /// </summary>
+    [DataField("priority")]
+    public int Priority = 0;
+
+    /// <summary>
     /// Needed amount of faith power to make sacrafice.
     /// </summary>
     [DataField("powerCost")]

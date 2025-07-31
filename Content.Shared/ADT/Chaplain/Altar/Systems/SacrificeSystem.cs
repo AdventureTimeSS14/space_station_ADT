@@ -1,4 +1,4 @@
-/// What can i say exept "Your welcome"?. Update made by QWERTY
+/// Updated Sacrifice System with guaranteed priority handling
 using Content.Shared.Bible.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction;
@@ -20,6 +20,7 @@ using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.ADT.Shared.Chaplain.Sacrifice;
 
@@ -39,118 +40,99 @@ public sealed class SacrificeSystem : EntitySystem
         SubscribeLocalEvent<SacrificeComponent, InteractUsingEvent>(OnInteractUsing);
     }
 
-    private TransformationData? GetApplicableTransformation(EntityUid used, SacrificeComponent component)
-    {
-        // Check for stacks
-        if (TryComp<StackComponent>(used, out var stack))
-        {
-            foreach (var transform in component.PossibleTransformations)
-            {
-                if (CheckStackTransformation(used, transform, stack))
-                {
-                    return transform;
-                }
-            }
-        }
-
-        // Check for tags
-        foreach (var transform in component.PossibleTransformations)
-        {
-            if (!string.IsNullOrEmpty(transform.RequiredTag) &&
-                _tagSystem.HasTag(used, transform.RequiredTag))
-            {
-                return transform;
-            }
-        }
-
-        // Check for prototypes
-        var meta = MetaData(used);
-        var protoId = meta.EntityPrototype?.ID;
-        foreach (var transform in component.PossibleTransformations)
-        {
-            if (!string.IsNullOrEmpty(transform.RequiredProto) &&
-                protoId == transform.RequiredProto)
-            {
-                return transform;
-            }
-        }
-
-        return null;
-    }
-
     private void OnInteractUsing(EntityUid altar, SacrificeComponent component, InteractUsingEvent args)
     {
         if (args.Handled || _netManager.IsClient)
             return;
 
-        // checking for Chaplain component in players character
         if (!HasComp<ChaplainComponent>(args.User))
         {
-            _popup.PopupEntity(
-                Loc.GetString("altar-only-chaplain-altar-use"),
-                args.User,
-                args.User
-            );
+            _popup.PopupEntity(Loc.GetString("altar-only-chaplain-altar-use"), args.User, args.User);
             return;
         }
 
-        var transformation = GetApplicableTransformation(args.Used, component);
-        if (transformation == null)
-        {
-            return;
-        }
-
-        // Checking for faith power points
         if (!TryComp<ChaplainComponent>(args.User, out var chaplainComp))
-        {
             return;
-        }
 
-        if (chaplainComp.Power < transformation.PowerCost)
-        {
-            _popup.PopupEntity(
-                Loc.GetString("chaplain-not-enough-power"),
-                args.User,
-                args.User
-            );
+        var sacrificeOption = FindBestSacrificeOption(args.Used, component);
+        if (sacrificeOption == null)
             return;
-        }
 
-        // doin' sacrafice
         if (TryComp<StackComponent>(args.Used, out var stack))
         {
-            ProcessStackSacrifice(altar, args, transformation, stack, chaplainComp);
+            ProcessStackSacrifice(altar, args, sacrificeOption.Value, stack, chaplainComp);
         }
         else
         {
-            ProcessSacrifice(altar, args, transformation, chaplainComp);
+            ProcessSingleSacrifice(altar, args, sacrificeOption.Value, chaplainComp);
         }
 
         args.Handled = true;
     }
 
-    private void UpdatePowerAlert(EntityUid uid, ChaplainComponent component)
+    private SacrificeOption? FindBestSacrificeOption(EntityUid item, SacrificeComponent component)
     {
-        var level = (short) Math.Clamp(Math.Round(component.Power.Float()), 0, 5);
-        var alertType = _protoMan.Index<AlertPrototype>(component.Alert);
-        _alertsSystem.ShowAlert(uid, alertType, level);
+        if (TryComp<StackComponent>(item, out var stack))
+        {
+            return FindBestStackSacrifice(item, stack.Count, component);
+        }
+        return FindBestSingleSacrifice(item, component);
     }
 
-    private bool CheckStackTransformation(EntityUid used, TransformationData transform, StackComponent stack)
+    private SacrificeOption? FindBestStackSacrifice(EntityUid item, int stackCount, SacrificeComponent component)
+    {
+        const int threshold = 1500;
+        var majorGroup = new List<TransformationData>();
+        var minorGroup = new List<TransformationData>();
+
+        foreach (var transform in component.PossibleTransformations)
+        {
+            if (!MeetsRequirements(item, transform))
+                continue;
+
+            if (stackCount < transform.RequiredAmount)
+                continue;
+
+            if (transform.RequiredAmount >= threshold)
+                majorGroup.Add(transform);
+            else
+                minorGroup.Add(transform);
+        }
+
+        List<TransformationData> applicable = majorGroup.Count > 0 ? majorGroup : minorGroup;
+        if (applicable.Count == 0)
+            return null;
+
+        var bestTransform = applicable
+            .OrderByDescending(t => t.Priority)
+            .ThenByDescending(t => t.RequiredAmount)
+            .First();
+
+        int times = stackCount / bestTransform.RequiredAmount;
+        return new SacrificeOption(bestTransform, times);
+    }
+
+    private SacrificeOption? FindBestSingleSacrifice(EntityUid item, SacrificeComponent component)
+    {
+        return component.PossibleTransformations
+            .Where(t => MeetsRequirements(item, t))
+            .OrderByDescending(t => t.Priority)
+            .Select(t => new SacrificeOption(t, 1))
+            .FirstOrDefault();
+    }
+
+    private bool MeetsRequirements(EntityUid item, TransformationData transform)
     {
         if (!string.IsNullOrEmpty(transform.RequiredTag) &&
-            _tagSystem.HasTag(used, transform.RequiredTag))
+            _tagSystem.HasTag(item, transform.RequiredTag))
         {
             return true;
         }
 
         if (!string.IsNullOrEmpty(transform.RequiredProto))
         {
-            var meta = MetaData(used);
-            var protoId = meta.EntityPrototype?.ID;
-
-            if (protoId == transform.RequiredProto &&
-                stack.Count >= transform.RequiredAmount)
+            var meta = MetaData(item);
+            if (meta.EntityPrototype?.ID == transform.RequiredProto)
             {
                 return true;
             }
@@ -159,47 +141,64 @@ public sealed class SacrificeSystem : EntitySystem
         return false;
     }
 
-    private void ProcessStackSacrifice(EntityUid altar, InteractUsingEvent args, TransformationData transform, StackComponent stack, ChaplainComponent chaplainComp)
+    private void ProcessStackSacrifice(EntityUid altar, InteractUsingEvent args, SacrificeOption option, StackComponent stack, ChaplainComponent chaplainComp)
     {
-        int possibleTransformations = stack.Count / transform.RequiredAmount;
-        if (possibleTransformations <= 0) return;
+        var transform = option.Transformation;
+        FixedPoint2 totalCost = transform.PowerCost * option.Times;
 
-        FixedPoint2 totalPowerCost = transform.PowerCost * possibleTransformations;
-        if (chaplainComp.Power < totalPowerCost)
+        if (chaplainComp.Power < totalCost)
         {
-            _popup.PopupEntity(
-                Loc.GetString("chaplain-not-enough-power"),
-                args.User,
-                args.User
-            );
+            _popup.PopupEntity(Loc.GetString("chaplain-not-enough-power"), args.User, args.User);
             return;
         }
 
-        chaplainComp.Power -= totalPowerCost;
-        UpdatePowerAlert(args.User, chaplainComp);
+        int itemsToRemove = transform.RequiredAmount * option.Times;
+        if (stack.Count < itemsToRemove)
+        {
+            _popup.PopupEntity(Loc.GetString("chaplain-not-enough-items"), args.User, args.User);
+            return;
+        }
 
-        int itemsToRemove = possibleTransformations * transform.RequiredAmount;
-
+        // Исправление: частичное уменьшение стака
         _stack.SetCount(args.Used, stack.Count - itemsToRemove, stack);
 
-        if (stack.Count - itemsToRemove <= 0)
+        // Удаляем только если стак пуст
+        if (stack.Count == 0)
         {
             QueueDel(args.Used);
         }
 
-        for (int i = 0; i < possibleTransformations; i++)
+        chaplainComp.Power -= totalCost;
+        UpdatePowerAlert(args.User, chaplainComp);
+
+        for (int i = 0; i < option.Times; i++)
         {
             ExecuteTransformation(altar, args, transform);
         }
     }
 
-    private void ProcessSacrifice(EntityUid altar, InteractUsingEvent args, TransformationData transform, ChaplainComponent chaplainComp)
+    private void ProcessSingleSacrifice(EntityUid altar, InteractUsingEvent args, SacrificeOption option, ChaplainComponent chaplainComp)
     {
+        var transform = option.Transformation;
+
+        if (chaplainComp.Power < transform.PowerCost)
+        {
+            _popup.PopupEntity(Loc.GetString("chaplain-not-enough-power"), args.User, args.User);
+            return;
+        }
+
         chaplainComp.Power -= transform.PowerCost;
         UpdatePowerAlert(args.User, chaplainComp);
 
         QueueDel(args.Used);
         ExecuteTransformation(altar, args, transform);
+    }
+
+    private void UpdatePowerAlert(EntityUid uid, ChaplainComponent component)
+    {
+        var level = (short) Math.Clamp(Math.Round(component.Power.Float()), 0, 5);
+        var alertType = _protoMan.Index<AlertPrototype>(component.Alert);
+        _alertsSystem.ShowAlert(uid, alertType, level);
     }
 
     private void ExecuteTransformation(EntityUid altar, InteractUsingEvent args, TransformationData transform)
@@ -217,6 +216,18 @@ public sealed class SacrificeSystem : EntitySystem
         if (!string.IsNullOrEmpty(transform.ResultProto))
         {
             Spawn(transform.ResultProto, args.ClickLocation.SnapToGrid(EntityManager));
+        }
+    }
+
+    private readonly struct SacrificeOption
+    {
+        public readonly TransformationData Transformation;
+        public readonly int Times;
+
+        public SacrificeOption(TransformationData transformation, int times)
+        {
+            Transformation = transformation;
+            Times = times;
         }
     }
 }

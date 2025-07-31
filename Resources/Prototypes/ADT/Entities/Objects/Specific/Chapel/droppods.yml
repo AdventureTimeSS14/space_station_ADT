@@ -1,0 +1,8 @@
+- type: entity
+  parent: ADTDroppodDropping
+  id: ADTAngrySyndieDroppod
+  categories: [HideSpawnMenu]
+  components:
+  - type: Droppod
+    prototypes:
+      - ADTSyndieSurpricePerson

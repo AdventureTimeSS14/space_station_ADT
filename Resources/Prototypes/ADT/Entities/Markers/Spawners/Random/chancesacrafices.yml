@@ -93,10 +93,238 @@
   table: !type:GroupSelector
     children:
     - !type:GroupSelector
-      weight: 90
+      weight: 70
       children:
       - id: PlushieCarp
     - !type:GroupSelector
-      weight: 10
+      weight: 30
       children:
       - id: DehydratedSpaceCarp
+
+- type: entity
+  parent: MarkerBase
+  id: ADTChaosCarpSacrafice
+  name: Carp plushie or Dehydrayed carp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ADTChaosCarpMeat
+      prob: 1
+  - type: TimedDespawn
+    lifetime: 3
+
+#ДОДЕЕЕЕП ДОДЕЕЕЕЕП
+
+- type: entityTable
+  id: ADTChaosPetitDepositWin
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - id: ToySpawner
+    - !type:GroupSelector
+      weight: 30
+      children:
+      - id: LootSpawnerIndustrial
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ClothingBeltUtility
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ClothingHandsGlovesColorYellowBudget
+
+- type: entityTable
+  id: ADTChaosSmallDepositWin
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 30
+      children:
+      - id: ToySpawner
+    - !type:GroupSelector
+      weight: 20
+      children:
+      - id: ClothingBeltUtility
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: RandomSoap
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: LootSpawnerIndustrial
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ClothingHandsGlovesColorYellow
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: CleanerGrenade
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ButchCleaver
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: CrateSyndicate
+
+- type: entityTable
+  id: ADTChaosBigBoyDepositWin
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 7.5
+      children:
+      - id: ClothingHandsGlovesColorYellow
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ButchCleaver
+    - !type:GroupSelector
+      weight: 7.5
+      children:
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: CrateSyndicate
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: SoapOmega
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: SoapSyndie
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ADTFoodBoxSyndiPizza
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ADTAngrySyndieDroppod
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ADTmklolgun
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ClothingBackpackDuffelSyndicateCostumeClown
+    - !type:GroupSelector
+      weight: 9
+      children:
+      - id: SyndicateBusinessCard
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: CyberPen
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ClothingBackpackDuffelSyndicateDecoyKitFilled
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ADTExplosivePizzabox
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ADTCrateFunSyndicateSegway
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: RevolverCapGun
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: RevolverCapGunFake
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ADTClothingBackpackDuffelSyndicateFilledMaid
+    - !type:GroupSelector
+      weight: 1
+      children:
+      - id: ClothingShoesChameleonNoSlips
+
+- type: entityTable
+  id: ADTChaosAllorNothingDepositWin
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 7.5
+      children:
+      - id: ClothingHandsGlovesColorYellow
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ButchCleaver
+    - !type:GroupSelector
+      weight: 7.5
+      children:
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: CrateSyndicate
+
+# записки лудоманов
+- type: entityTable
+  id: ADTGamblingAddictTrollingNotes
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteOne
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteTwo
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteThree
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteFour
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteFive
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteSix
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteSeven
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteEight
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteNine
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteTen

@@ -134,7 +134,21 @@
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 2
       - requiredProto: FoodMeatFish
-        resultProto: ADTChaosCarpMeat
+        resultProto: ADTChaosCarpSacrafice
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 50
+        priority: 0
+        resultProto: ADTChaosCarpSacrafice
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 500
+        priority: 2
+        resultProto: ADTJAWSofLife
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 2
@@ -417,11 +431,6 @@
         powerCost: 1
       - requiredTag: ADTToolboxBlueSacrifice
         resultProto: ClothingBeltUtility
-        effectProto: ADTWeaponArcRedCrash
-        soundPath: /Audio/Magic/blink.ogg
-        powerCost: 1
-      - requiredTag: ADTToolboxRedSacrifice
-        resultProto: WeaponMeleeToolboxRobust
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1

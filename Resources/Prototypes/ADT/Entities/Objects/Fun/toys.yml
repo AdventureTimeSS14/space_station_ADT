@@ -66,3 +66,23 @@
     sprite: ADT/Objects/Fun/toys.rsi
     state: plushie_damn
   - type: Rotatable
+
+- type: entity
+  parent: RevolverCapGun
+  id: ADTmklolgun
+  name: mk-rofl-58
+  description: Yeah, thats totaly fake gun.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: RevolverAmmoProvider
+    capacity: 10

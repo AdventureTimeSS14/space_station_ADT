@@ -92,7 +92,7 @@
     sprite: ADT/Clothing/Head/hoods/chaplain_monk_hood.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/hoods/chaplain_monk_hood.rsi
-  - type: HideLayervClothing
+  - type: HideLayerClothing
     slots:
     - Hair
     - Snout
