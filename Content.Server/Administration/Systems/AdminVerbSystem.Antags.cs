@@ -176,7 +176,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Heretic/Blades/blade_blade.rsi"), "icon"),
             Act = () =>
             {
-                _antag.ForceMakeAntag<HereticRuleComponent>(targetPlayer, "Heretic");
+                _antag.ForceMakeAntag<HereticRuleComponent>(targetPlayer, "HereticGameRule");
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-make-heretic"),
