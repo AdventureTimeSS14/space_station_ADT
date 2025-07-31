@@ -59,6 +59,13 @@
   description: job-description-ertleader
   playTimeTracker: JobERTLeader
   setPreference: false
+  requirements: # Ganimed-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 36000 # 10 hrs
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 18000 # 5 hrs
   startingGear: ADTERTLeaderGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
@@ -169,6 +176,10 @@
   description: job-description-ertengineer
   playTimeTracker: JobERTEngineer
   setPreference: false
+  requirements: # Ganimed-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 36000 # 10 hrs
   startingGear: ADTERTEngineerGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
@@ -272,6 +283,10 @@
   description: job-description-ertsecurity
   playTimeTracker: JobERTSecurity
   setPreference: false
+  requirements: # Ganimed-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hrs
   startingGear: ADTERTEngineerGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
@@ -371,6 +386,10 @@
   description: job-description-ertmedic
   playTimeTracker: JobERTMedical
   setPreference: false
+  requirements: # Ganimed-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000 # 10 hrs
   startingGear: ADTERTMedicalGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
@@ -474,6 +493,9 @@
   description: job-description-ertjanitor
   playTimeTracker: JobERTJanitor
   setPreference: false
+  requirements: # Ganimed-RoleTime
+  - !type:OverallPlaytimeRequirement
+    time: 36000 # 10 hrs # Corvax-RoleTime
   startingGear: ADTERTJanitorGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom

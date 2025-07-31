@@ -6,14 +6,14 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 90000 #25 hrs # ADT-RoleTime
+    time: 54000 #15 hrs Ganimed-RoleTime
   # ADT Restrict Start
   - !type:SpeciesRequirement
     inverted: true
     species:
     - Resomi
     - Vox
-    - Shadekin
+#    - Shadekin
   # ADT RESTRICT End
   startingGear: DetectiveGear
   icon: "JobIconDetective"
