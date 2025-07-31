@@ -423,7 +423,7 @@
     stateDoorOpen: color_red_open
     stateDoorClosed: brigmedic_door
   - type: AccessReader
-    access: [["Security"]] #ADT-tweak
+    access: [["Medical"], ["Armory"]] # Ganimed-Tweak
 
 # Security Officer
 - type: entity
