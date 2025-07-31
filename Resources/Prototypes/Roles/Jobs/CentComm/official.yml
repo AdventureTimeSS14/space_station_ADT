@@ -4,6 +4,10 @@
   description: job-description-centcomoff
   playTimeTracker: JobCentralCommandOfficial
   setPreference: false
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 90000 # 25 hrs Ganimed-RoleTime
   startingGear: CentcomGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom # Corvax-JobSupervisors
@@ -16,6 +20,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial # Ganimed-MRP: Loyalty implant
+    components:
+      - type: AntagImmune
   # End ADT Tweak
 
 - type: startingGear

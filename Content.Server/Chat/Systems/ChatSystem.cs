@@ -34,7 +34,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Robust.Shared.Timing; // Ganime edit
+using Robust.Shared.Timing; // Ganimed edit
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.Interaction;

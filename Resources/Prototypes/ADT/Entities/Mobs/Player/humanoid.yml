@@ -58,8 +58,12 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 36000 # 10 hrs Ganimed-RoleTime
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # 5 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
     - type: RandomMetadata
@@ -79,8 +83,12 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 36000 # 10 hrs Ganimed-RoleTime
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # 5 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVA ]
 
@@ -107,8 +115,12 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 36000 # 10 hrs Ganimed-RoleTime
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # 5 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVARiot ]
 
@@ -162,7 +174,7 @@
         settings: short
       requirements:
       - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+        time: 36000 # 10h Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTEngineer
@@ -195,7 +207,7 @@
         settings: short
       requirements:
       - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+        time: 36000 # 10h Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVA ]
 
@@ -223,7 +235,7 @@
         settings: short
       requirements:
       - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+        time: 36000 # 10h Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVARiot ]
 
@@ -276,8 +288,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTEngineer
@@ -309,8 +322,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVA ]
 
@@ -337,8 +351,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVARiot ]
 
@@ -391,8 +406,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTMilitary
@@ -424,8 +440,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTSecurityGearEVA ]
 
@@ -448,8 +465,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [  ADTERTSecurityGearEVARiot ]
 
@@ -502,8 +520,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTMedical
@@ -535,8 +554,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVA ]
 
@@ -563,8 +583,9 @@
       raffle:
         settings: short
       requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 

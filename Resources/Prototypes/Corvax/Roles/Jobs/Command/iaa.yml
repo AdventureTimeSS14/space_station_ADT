@@ -25,7 +25,7 @@
 #ADT tweak end
   startingGear: IAAGear
   icon: "JobIconIAA"
-  supervisors: job-supervisors-centcom
+  supervisors: job-supervisors-magistrat #Ganimed-Tweak
   canBeAntag: false
   access:
   - Service

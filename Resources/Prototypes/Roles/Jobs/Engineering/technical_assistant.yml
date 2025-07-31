@@ -1,4 +1,4 @@
-﻿- type: job
+- type: job
   id: TechnicalAssistant
   name: job-name-technical-assistant
   description: job-description-technical-assistant
@@ -6,21 +6,16 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600 #1 hr
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 18000 #5 hrs
-      # inverted: true # stop playing intern if you're good at engineering! # ADT-Tweak
 # ADT-Tweak
     # - !type:DepartmentTimeRequirement
     #   department: Engineering
     #   time: 36000 #10 hrs # Corvax-RoleTime
     #   inverted: true # stop playing intern if you're good at engineering!
-    #   time: 14400 # ADT-PlaytimeRequirement = 4 hrs
 # ADT-Tweak
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  canBeAntag: false
+  canBeAntag: true # Ganimed-MRP: Available not only for newbies
   access:
   - Maintenance
   - Engineering

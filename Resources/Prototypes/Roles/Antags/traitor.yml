@@ -7,7 +7,7 @@
   guides: [ Traitors ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 108000 # 30h # Corvax-RoleTime
+    time: 72000 # 20hrs Ganimed-RoleTime
 
 - type: antag
   id: TraitorSleeper
@@ -16,11 +16,9 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
-  # ADT add start
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 108000 # 30h
-  # ADT add end
+    time: 72000 # 20hrs Ganimed-RoleTime
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear
