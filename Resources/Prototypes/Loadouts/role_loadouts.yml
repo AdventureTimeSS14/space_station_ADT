@@ -39,10 +39,10 @@
   - GroupSpeciesBreathTool
 
 # Silicons
-#- type: roleLoadout
-#  id: JobBorg
-#  nameDataset: roleloadout doesn't support both so need to update that first.
-#  canCustomizeName: true
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -69,6 +69,7 @@
   - PassengerOuterClothing
   - PassengerShoes
   - Glasses
+  - ADTPassengerPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -88,6 +89,7 @@
   - CommonBackpack
   - BartenderOuterClothing
   - Glasses
+  - ADTBartenderPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -126,6 +128,7 @@
   - ChefOuterClothing
   - Glasses
   - ADTChefPocket1 #ADT tweak
+  - ADTChefPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -143,6 +146,7 @@
   - LibrarianJumpsuit
   - LibrarianBackpack # ADT tweak
   - Glasses
+  - ADTLibrarianPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -160,7 +164,10 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - ADTLawyerGloves # ADT-Tweak
+  - LawyerShoes # ADT tweak
   - Glasses
+  - ADTlawyerID # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -182,6 +189,7 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - Glasses
+  - ADTChaplainPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -204,6 +212,7 @@
   - CommonBackpack
   - JanitorOuterClothing
   - Glasses
+  - ADTJanitorPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -224,6 +233,7 @@
   - BotanistBackpack
   - BotanistOuterClothing
   - Glasses
+  - ADTBotanistPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -235,6 +245,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -244,6 +255,7 @@
   - ClownOuterClothing
   - ClownShoes
   - Glasses
+  - ADTClownPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -254,6 +266,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -304,6 +317,7 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
+  - ADTQuartermasterPDA # ADT-Tweak
   # ADT underwear tweak start
   - ADTTopQM
   - ADTBottomQM
@@ -324,6 +338,7 @@
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - Glasses
+  - ADTCargoPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -344,6 +359,7 @@
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
+  - ADTSalvagePDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -363,6 +379,7 @@
   - ChiefEngineerJumpsuit
   - ChiefEngineerBackpack # Corvax-Loadouts
   - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
@@ -401,6 +418,7 @@
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
@@ -424,8 +442,10 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  - ADTAtmosPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -449,6 +469,7 @@
   - ScientistGloves
   - ResearchDirectorShoes
   - Glasses
+  - ADTRnDPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopRD
   - ADTBottomRD
@@ -510,6 +531,7 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
+  - ADTHosPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopHOS
   - ADTBottomHOS
@@ -572,7 +594,8 @@
   - DetectiveJumpsuit
   - SecurityBackpack
   - DetectiveOuterClothing
-  - SecurityShoes
+  - DetectiveShoes # ADT tweak
+  - ADTDetectivePDA #ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -614,7 +637,8 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
+  - ADTCMOPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopCMO
   - ADTBottomCMO
@@ -638,7 +662,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -655,8 +679,9 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
+  - MedicalEyewear
   - ADTMedicalBelt # ADT tweak
-  - Glasses
+  - ADTMedicalInternPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -702,7 +727,7 @@
   # ADT tweak End
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -754,6 +779,7 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
+  - ADTPsychologistPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

@@ -1,7 +1,5 @@
 using System.Numerics;
 using Content.Server.Access.Systems;
-using Content.Server.DeviceNetwork;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Emp;
 using Content.Server.Medical.CrewMonitoring;
@@ -15,6 +13,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -25,6 +24,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.Medical.SuitSensors;
 
@@ -44,6 +44,7 @@ public sealed class SuitSensorSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -347,14 +348,27 @@ public sealed class SuitSensorSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    ///     Set all suit sensors on the equipment someone is wearing to the specified mode.
+    /// </summary>
+    public void SetAllSensors(EntityUid target, SuitSensorMode mode, SlotFlags slots = SlotFlags.All )
+    {
+        // iterate over all inventory slots
+        var slotEnumerator = _inventory.GetSlotEnumerator(target, slots);
+        while (slotEnumerator.NextItem(out var item, out _))
+        {
+            if (TryComp<SuitSensorComponent>(item, out var sensorComp))
+                SetSensor((item, sensorComp), mode);
+        }
+    }
+
     public SuitSensorStatus? GetSensorState(EntityUid uid, SuitSensorComponent? sensor = null, TransformComponent? transform = null)
     {
         if (!Resolve(uid, ref sensor, ref transform))
             return null;
 
-        // ADT-Tweak-Start
-        // check if sensor worn by user
-        if (sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
+        // check if sensor is enabled and worn by user
+        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
             return null;
 
         // try to get mobs id from ID slot
@@ -391,33 +405,44 @@ public sealed class SuitSensorSystem : EntitySystem
             totalDamageThreshold = critThreshold.Value.Int();
 
         // finally, form suit sensor status
-        var status = new SuitSensorStatus(GetNetEntity(uid), userName, userJob, userJobIcon, userJobDepartments, sensor.Mode);
-
-        status.IsAlive = isAlive;
-        status.TotalDamage = totalDamage;
-        status.TotalDamageThreshold = totalDamageThreshold;
-        status.Mode = sensor.Mode;
-        EntityCoordinates coordinates;
-        var xformQuery = GetEntityQuery<TransformComponent>();
-
-        if (transform.GridUid != null)
+        var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(uid), userName, userJob, userJobIcon, userJobDepartments, sensor.Mode); // ADT-Tweak
+        switch (sensor.Mode)
         {
-            coordinates = new EntityCoordinates(transform.GridUid.Value,
-                Vector2.Transform(_transform.GetWorldPosition(transform, xformQuery),
-                    _transform.GetInvWorldMatrix(xformQuery.GetComponent(transform.GridUid.Value), xformQuery)));
-        }
-        else if (transform.MapUid != null)
-        {
-            coordinates = new EntityCoordinates(transform.MapUid.Value,
-                _transform.GetWorldPosition(transform, xformQuery));
-        }
-        else
-        {
-            coordinates = EntityCoordinates.Invalid;
+            case SuitSensorMode.SensorBinary:
+                status.IsAlive = isAlive;
+                break;
+            case SuitSensorMode.SensorVitals:
+                status.IsAlive = isAlive;
+                status.TotalDamage = totalDamage;
+                status.TotalDamageThreshold = totalDamageThreshold;
+                break;
+            case SuitSensorMode.SensorCords:
+                status.IsAlive = isAlive;
+                status.TotalDamage = totalDamage;
+                status.TotalDamageThreshold = totalDamageThreshold;
+                EntityCoordinates coordinates;
+                var xformQuery = GetEntityQuery<TransformComponent>();
+
+                if (transform.GridUid != null)
+                {
+                    coordinates = new EntityCoordinates(transform.GridUid.Value,
+                        Vector2.Transform(_transform.GetWorldPosition(transform, xformQuery),
+                            _transform.GetInvWorldMatrix(xformQuery.GetComponent(transform.GridUid.Value), xformQuery)));
+                }
+                else if (transform.MapUid != null)
+                {
+                    coordinates = new EntityCoordinates(transform.MapUid.Value,
+                        _transform.GetWorldPosition(transform, xformQuery));
+                }
+                else
+                {
+                    coordinates = EntityCoordinates.Invalid;
+                }
+
+                status.Coordinates = GetNetCoordinates(coordinates);
+                break;
         }
 
-        status.Coordinates = GetNetCoordinates(coordinates);
-        // ADT-Tweak-End
         return status;
     }
 
@@ -435,6 +460,7 @@ public sealed class SuitSensorSystem : EntitySystem
             [SuitSensorConstants.NET_JOB_DEPARTMENTS] = status.JobDepartments,
             [SuitSensorConstants.NET_IS_ALIVE] = status.IsAlive,
             [SuitSensorConstants.NET_SUIT_SENSOR_UID] = status.SuitSensorUid,
+            [SuitSensorConstants.NET_OWNER_UID] = status.OwnerUid,
             [SuitSensorConstants.NET_SUIT_SENSOR_MODE] = status.Mode, // ADT-Tweak
         };
 
@@ -466,6 +492,7 @@ public sealed class SuitSensorSystem : EntitySystem
         if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_DEPARTMENTS, out List<string>? jobDepartments)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_IS_ALIVE, out bool? isAlive)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_UID, out NetEntity suitSensorUid)) return null;
+        if (!payload.TryGetValue(SuitSensorConstants.NET_OWNER_UID, out NetEntity ownerUid)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_MODE, out SuitSensorMode mode)) return null; // ADT-Tweak
 
         // try get total damage and cords (optionals)
@@ -473,7 +500,7 @@ public sealed class SuitSensorSystem : EntitySystem
         payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
         payload.TryGetValue(SuitSensorConstants.NET_COORDINATES, out NetCoordinates? coords);
 
-        var status = new SuitSensorStatus(suitSensorUid, name, job, jobIcon, jobDepartments, mode) // ADT-Tweak
+        var status = new SuitSensorStatus(ownerUid, suitSensorUid, name, job, jobIcon, jobDepartments, mode)
         {
             IsAlive = isAlive.Value,
             TotalDamage = totalDamage,

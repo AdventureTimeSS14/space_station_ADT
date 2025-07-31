@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseMobSpeciesOrganicUnRotting
+  parent: ADTBaseMobSpeciesOrganicUnRotting # ADT tweak from BaseMobSpeciesOrganic
   id: BaseMobVox
   abstract: true
   components:
@@ -13,9 +13,15 @@
     requiredLegs: 2
   - type: HumanoidAppearance
     species: Vox
-    undergarmentTop: UndergarmentTopTanktopVox
-    undergarmentBottom: UndergarmentBottomBoxersVox
+    # undergarmentTop: UndergarmentTopTanktopVox # ADT-No-More-Useless-Feature
+    # undergarmentBottom: UndergarmentBottomBoxersVox # ADT-No-More-Useless-Feature
     #- type: VoxAccent # Not yet coded
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hair
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
@@ -47,7 +53,7 @@
     damage:
       types:
         Heat: -0.07
-        Poison: -0.2
+        Poison: -0.2 # needs to be less than the PendingZombieComponent does or they never become zombies by the disease.
       groups:
         Brute: -0.07
   # ADT-Tweak Start
@@ -86,8 +92,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    # - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] # ADT-No-More-Useless-Feature
+    # - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] # ADT-No-More-Useless-Feature
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
@@ -170,6 +176,17 @@
     short: true
     shortscale: 0.95
   #ADT Tweak end
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_r
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -178,8 +195,14 @@
   components:
   - type: HumanoidAppearance
     species: Vox
-    undergarmentTop: UndergarmentTopTanktopVox
-    undergarmentBottom: UndergarmentBottomBoxersVox
+    # undergarmentTop: UndergarmentTopTanktopVox # ADT-No-More-Useless-Feature
+    # undergarmentBottom: UndergarmentBottomBoxersVox # ADT-No-More-Useless-Feature
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hair
   - type: Body
     prototype: Vox
   - type: Inventory
@@ -220,3 +243,14 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Species/Vox/displacement.rsi
+          state: hand_r

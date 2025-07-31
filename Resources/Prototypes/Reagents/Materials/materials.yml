@@ -101,6 +101,14 @@
   price: 0 # Maybe better for it to be priceless, knowing how greedy cargo is.
 
 - type: material
+  id: Cotton
+  name: materials-cotton
+  unit: materials-unit-boll
+  icon: { sprite: Objects/Materials/materials.rsi, state: cotton }
+  color: "#cccccc" 
+  price: 0.01 #Who knew cotton was infinitely more valuable than silk
+
+- type: material
   id: Bones
   name: materials-bones
   unit: materials-unit-piece
@@ -127,8 +135,9 @@
 
 - type: material
   id: Diamond
+  stackEntity: MaterialDiamond1 # ADT tweak
   name: materials-diamond
   unit: materials-unit-piece
   icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
   color: "#80ffff"
-  price: 20 # big diamond gaslit us so hard diamonds actually became extremely rare
+  price: 4 # big diamond gaslit us so hard diamonds actually became extremely rare

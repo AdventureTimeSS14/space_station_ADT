@@ -1,0 +1,72 @@
+- type: entity
+  id: ADTSpaceSecAirlockGlassShuttle
+  parent: AirlockShuttle
+  name: external airlock
+  suffix: Space Sec, External
+  description: Necessary for connecting two space craft together.
+  components:
+  - type: Docking
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/space_sec_shuttle.rsi
+    snapCardinals: false
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Occluder
+    enabled: false
+  - type: PaintableAirlock
+    group: ShuttleGlass
+  - type: Door
+    occludes: false
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+    securityLevel: maxSecurity
+  - type: Wires
+    boardName: wires-board-name-highsec
+    layoutId: HighSec
+  - type: AccessReader
+    access: [["SpaceSecExternal"]]
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleGuest
+  suffix: External, Mining, Glass, Docking, Guest
+  components:
+  - type: PriorityDock
+    tag: DockMiningGuest
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleMining
+  suffix: External, Mining, Glass, Docking
+  components:
+  - type: PriorityDock
+    tag: DockMining
+
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: ADTSpaceSecAirlockShuttle
+  suffix: Space Sec, External
+  components:
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+    securityLevel: maxSecurity
+  - type: Wires
+    boardName: wires-board-name-highsec
+    layoutId: HighSec
+  - type: ContainerFill
+    containers:
+      board: [ ADTDoorElectronicsSpaceSecExternal ]

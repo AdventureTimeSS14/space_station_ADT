@@ -159,9 +159,7 @@ public sealed class AdminSystem : EntitySystem
 
     private void OnRoleEvent(RoleEvent ev)
     {
-        var session = _minds.GetSession(ev.Mind);
-
-        if (!ev.RoleTypeUpdate || session == null)
+        if (!ev.RoleTypeUpdate || !_playerManager.TryGetSessionById(ev.Mind.UserId, out var session))
             return;
 
         UpdatePlayerList(session);
@@ -227,6 +225,7 @@ public sealed class AdminSystem : EntitySystem
         var name = data.UserName;
         var entityName = string.Empty;
         var identityName = string.Empty;
+        var sortWeight = 0;
 
         // Visible (identity) name can be different from real name
         if (session?.AttachedEntity != null)
@@ -240,10 +239,16 @@ public sealed class AdminSystem : EntitySystem
         // Starting role, antagonist status and role type
         RoleTypePrototype roleType = new();
         var startingRole = string.Empty;
-        if (_minds.TryGetMind(session, out var mindId, out var mindComp))
+        LocId? subtype = null;
+        if (_minds.TryGetMind(session, out var mindId, out var mindComp) && mindComp is not null)
         {
+            sortWeight = _role.GetRoleCompByTime(mindComp)?.Comp.SortWeight ?? 0;
+
             if (_proto.TryIndex(mindComp.RoleType, out var role))
+            {
                 roleType = role;
+                subtype = mindComp.Subtype;
+            }
             else
                 Log.Error($"{ToPrettyString(mindId)} has invalid Role Type '{mindComp.RoleType}'. Displaying '{Loc.GetString(roleType.Name)}' instead");
 
@@ -269,8 +274,21 @@ public sealed class AdminSystem : EntitySystem
         SponsorInfo? sponsorInfo = null;
         _sponsorsManager.TryGetInfo(data.UserId, out sponsorInfo);
 
-        return new PlayerInfo(name, entityName, identityName, startingRole, antag, sponsorInfo, roleType, GetNetEntity(session?.AttachedEntity), data.UserId,
-            connected, _roundActivePlayers.Contains(data.UserId), overallPlaytime);
+        return new PlayerInfo(
+            name,
+            entityName,
+            identityName,
+            startingRole,
+            antag,
+            sponsorInfo,
+            roleType,
+            subtype,
+            sortWeight,
+            GetNetEntity(session?.AttachedEntity),
+            data.UserId,
+            connected,
+            _roundActivePlayers.Contains(data.UserId),
+            overallPlaytime);
         //ADT-SPONSORS
     }
 

@@ -1,0 +1,365 @@
+#Base
+
+- type: entity
+  parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
+  id: ADTShipBattleClothingOuterHardsuitBasic
+  name: basic hardsuit
+  description: A basic, universal hardsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: Item
+#    size: Ginormous
+    size: Huge # ADT-Tweak
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.9
+        Heat: 0.90
+        Radiation: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: GroupExamine
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Small
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.75
+      Choke: 1.5
+  # ADT Grab end
+
+#Command
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitCaptainTSF
+  name: hardsuit captain of the TSF
+  description: hardsuit captain of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/captain_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/captain_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitExOfficerTSF
+  name: hardsuit executional officer of the TSF
+  description: hardsuit executional officer of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/exofficer_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/exofficer_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitCommanderTSF
+  name: hardsuit commander of the TSF
+  description: hardsuit commander of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/commander_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/commander_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitChiefGunnerTSF
+  name: hardsuit chief gunner of the TSF
+  description: hardsuit chief gunner of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/chiefgunner_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/chiefgunner_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.7
+        Radiation: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+#Marines
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitMarineLeutenantTSF
+  name: hardsuit marine leutenant of the TSF
+  description: hardsuit marine leutenant of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/marine_leutenant_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/marine_leutenant_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitMarineTSF
+  name: hardsuit marine of the TSF
+  description: hardsuit marine of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/marine_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/marine_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.6
+        Radiation: 0.1
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+#Shipcrew
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitGunnerTSF
+  name: hardsuit gunner of the TSF
+  description: hardsuit gunner of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/gunner_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/gunner_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitPilotTSF
+  name: hardsuit pilot of the TSF
+  description: hardsuit pilot of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/pilot_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/pilot_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.4
+        Radiation: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitMedicTSF
+  name: hardsuit medic of the TSF
+  description: hardsuit medic of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/medic_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/medic_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitEngineerTSF
+  name: hardsuit engineer of the TSF
+  description: hardsuit engineer of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/engineer_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/engineer_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.1
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+
+- type: entity
+  parent: ADTShipBattleClothingOuterHardsuitBasic
+  id: ADTShipBattleClothingOuterHardsuitNavigatorTSF
+  name: hardsuit navigator of the TSF
+  description: hardsuit navigator of the TSF
+  suffix: ShipBattle, TSF
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/navigator_tsf.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/OuterClothing/Hardsuits/navigator_tsf.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.7
+        Radiation: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8

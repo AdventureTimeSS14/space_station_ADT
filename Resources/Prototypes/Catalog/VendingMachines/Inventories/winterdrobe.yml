@@ -17,6 +17,7 @@
     ClothingOuterFlannelBlue: 2
     ClothingOuterFlannelGreen: 2
     ClothingOuterCoatBomber: 3
+    ClothingHeadHatCanadaBeanie: 4
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
     ClothingHeadHatUshanka: 3 #ADT-Tweak
@@ -33,6 +34,16 @@
     ADTClothingNeckScarfLongPink: 6 #ADT-Tweak
     ADTClothingNeckScarfLongBlack: 6 #ADT-Tweak
     ADTClothingNeckScarfLongBlue: 6 #ADT-Tweak
+    ADTClothingNeckFacescarfBlack: 3 #ADT-Tweak
+    ADTClothingNeckFacescarfBlue: 3 #ADT-Tweak
+    ADTClothingNeckFacescarfGreen: 3 #ADT-Tweak
+    ADTClothingNeckFacescarfGrey: 3 #ADT-Tweak
+    ADTClothingNeckFacescarfOrange: 3 #ADT-Tweak
+    ADTClothingNeckFacescarfPurple: 3 #ADT-Tweak
+    ADTClothingNeckFacescarfRed: 3 #ADT-Tweak
+    ADTClothingNeckFacescarfWhite: 3 #ADT-Tweak
+    ADTClothingOuterHoodyBlack: 3 #ADT-Tweak
+    ADTClothingOuterHoodyWhite: 3 #ADT-Tweak
     ADTClothingUnderwearSocksKneeHolyday: 2 #ADT-Tweak
     ADTClothingUnderwearSocksThighHolyday: 2 #ADT-Tweak
 

@@ -35,5 +35,6 @@
   - type: UniversalLanguageSpeaker # Ghosts should understand any language.
   - type: RandomMetadata
     nameSegments:
-      - NamesFirstMilitaryLeaderCorvax # Corvax-Localization
-      - NamesLastERTCallsign # Corvax-Localization
+    - NamesFirstDeadSquad
+    - NamesLastDeadSquadCallsign
+    nameFormat: name-format-standard

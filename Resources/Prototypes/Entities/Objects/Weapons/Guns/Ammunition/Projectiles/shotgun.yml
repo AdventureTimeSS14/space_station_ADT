@@ -6,11 +6,16 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: slug
+#ADT tweak start
+    layers:
+    - state: slug
+#ADT tweak end
   - type: Projectile
     damage:
       types:
-        Piercing: 28
+        Piercing: 40
+        Structural: 15
+
 
 - type: entity
   id: PelletShotgunBeanbag
@@ -20,13 +25,16 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+#ADT tweak start
+    layers:
+    - state: rubber
+#ADT tweak end
   - type: Projectile
     damage:
       types:
         Blunt: 10
   - type: StaminaDamageOnCollide
-    damage: 40 # 3 hits to stun
+    damage: 55 # ADT-Tweak - 40 to 55. Возврат старого значения урона по стамине, когда заряженной двухстволки хватало для остановки хама
 
 - type: entity
   id: PelletShotgun
@@ -36,11 +44,18 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+#ADT tweak start
+    layers:
+    - state: buckshot
+#ADT tweak end
   - type: Projectile
     damage:
       types:
-        Piercing: 10
+#ADT tweak start
+        Piercing: 15  #ADT tweak for example: 10 > 15
+# remove = Structural: 15
+#ADT tweak end
+
 
 - type: entity
   id: PelletShotgunSpread
@@ -49,7 +64,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgun
-    count: 6
+    count: 4 #ADT tweak  for example: 6 > 4
     spread: 15
 
 - type: entity
@@ -59,12 +74,15 @@
   parent: BaseBulletIncendiary
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot-flare
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
+#ADT tweak start
+    layers:
+    - state: buckshot-incendiary
+#ADT tweak end
   - type: Projectile
     damage:
       types:
-        Piercing: 7 #ADT tweak
+        Piercing: 14 #ADT tweak for example: 7 > 14
         # Blunt: 3 ADT tweak
         # Heat: 7 ADT tweak
   - type: IgnitionSource
@@ -77,7 +95,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunIncendiary
-    count: 6
+    count: 4 #ADT tweak for example: 6 > 4
     spread: 15
 
 - type: entity
@@ -88,7 +106,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+#ADT tweak start
+    layers:
+    - state: practice
+#ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -112,7 +133,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: shard
+#ADT tweak start
+    layers:
+    - state: shard
+#ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -137,7 +161,10 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
+#ADT tweak start
+    layers:
+    - state: piercing
+#ADT tweak end
   - type: Projectile
     damage:
       types:
@@ -176,7 +203,10 @@
           - BulletImpassable
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot-flare
+#ADT tweak start
+    layers:
+    - state: buckshot-flare
+#ADT tweak end
   - type: IgnitionSource
     ignited: true
     temperature: 1000
@@ -211,12 +241,15 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: depleted-uranium
+#ADT tweak start
+    layers:
+    - state: uranium
+#ADT tweak end
   - type: Projectile
     damage:
       types:
-        Radiation: 5
-        Piercing: 5
+        Radiation: 8 #ADT tweak 5>8
+        Piercing: 8 #ADT tweak 5>8
 
 - type: entity
   id: PelletShotgunUraniumSpread
@@ -225,7 +258,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunUranium
-    count: 5
+    count: 3 #ADT tweak 5>3
     spread: 6
 
 - type: entity

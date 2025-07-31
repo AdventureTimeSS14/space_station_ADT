@@ -14,3 +14,48 @@
       - state: equipped-NECK
       - state: equipped-NECK-unshaded
         shader: unshaded
+
+# Магма-нтия
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckMantleMag
+  name: magmantle
+  description: Invented by a dynamic duo of scientists, this mantle creates a localized gravity field, enabling the effects of magboots without the boot! However, the gravity field is cumbersome to move through, making the magnetic mantle somewhat inferior to its predecessor. However, it does come with a wool lining. Cozy!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.8 # equivalent to winter boots, scarves
+    coolingCoefficient: 0.8 # equivalent to winter boots, scarves
+  - type: ToggleClothing
+    action: ADTActionToggleMagmantle
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.75
+  - type: StaticPrice
+    price: 2000
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon-on}
+          False: {state: icon}
+
+- type: entity
+  id: ADTActionToggleMagmantle
+  name: Toggle Magmantle
+  description: Toggles the personal gravity field on and off.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    event: !type:ToggleActionEvent

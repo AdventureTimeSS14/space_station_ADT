@@ -44,6 +44,7 @@ using Content.Shared.Whitelist;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Stunnable;
 using Content.Server.Power.Components; // ADT-Revenant-Tweak
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -65,6 +66,9 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
+
+    private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
     private void InitializeAbilities()
     {
@@ -280,7 +284,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in lookup)
         {
             //break windows
-            if (tags.HasComponent(ent) && _tag.HasTag(ent, "Window"))
+            if (tags.HasComponent(ent) && _tag.HasTag(ent, WindowTag))
             {
                 //hardcoded damage specifiers til i die.
                 var dspec = new DamageSpecifier();
@@ -401,9 +405,9 @@ public sealed partial class RevenantSystem
         {
             _status.TryAddStatusEffect<TemporaryBlindnessComponent>(ent, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(3), true);
             _hallucinations.StartHallucinations(ent, "ADTHallucinations", component.HysteriaDuration, true, component.HysteriaProto);
-            if (!_mind.TryGetMind(ent, out var mindId, out var mind) || mind.Session == null)
+            if (!_mind.TryGetMind(ent, out var mindId, out var mind) || !_player.TryGetSessionById(mind.UserId, out var session))
                 continue;
-            _audio.PlayGlobal(component.HysteriaSound, Filter.SinglePlayer(mind.Session), false);
+            _audio.PlayGlobal(component.HysteriaSound, Filter.SinglePlayer(session), false);
         }
     }
 

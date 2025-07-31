@@ -46,6 +46,9 @@
   - type: Rotatable
   - type: Transform
     noRot: false
+  - type: SubFloorHide
+    visibleLayers:
+    - enum.SubfloorLayers.FirstLayer
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
@@ -85,6 +88,12 @@
   - type: GuideHelp
     guides:
     - Pumps
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -102,6 +111,9 @@
     - type: Rotatable
     - type: Transform
       noRot: false
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
@@ -121,6 +133,9 @@
     - type: PipeColorVisuals
     - type: GasVolumePump
       enabled: false
+    - type: ActivatableUI
+      key: enum.GasVolumePumpUiKey.Key
+    - type: ActivatableUIRequiresAnchor
     - type: UserInterface
       interfaces:
         enum.GasVolumePumpUiKey.Key:
@@ -147,6 +162,12 @@
     - type: GuideHelp
       guides:
       - Pumps
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -156,6 +177,9 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
@@ -181,6 +205,12 @@
     - type: GuideHelp
       guides:
       - PassiveGate
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -191,6 +221,9 @@
     mode: SnapgridCenter
   components:
     # TODO ATMOS: Give unique sprite.
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
@@ -234,6 +267,12 @@
     - type: GuideHelp
       guides:
       - ManualValve
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -244,6 +283,9 @@
     mode: SnapgridCenter
   components:
   - type: StationAiWhitelist
+  - type: SubFloorHide
+    visibleLayers:
+    - enum.SubfloorLayers.FirstLayer
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
@@ -298,6 +340,12 @@
   - type: GuideHelp
     guides:
     - SignalValve
+  - type: VentCrawlerTube # ADT tweak start
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit
+  - type: ContainerContainer
+    containers:
+      VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasBinaryBase
@@ -307,6 +355,9 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
       layers:
@@ -332,6 +383,14 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: VentCrawlerTube # ADT tweak start
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction
+      degrees:
+        - 0
+    - type: ContainerContainer
+      containers:
+        VentCrawlerTube: !type:Container # ADT tweak end
 
 - type: entity
   parent: GasVentPump
@@ -341,6 +400,9 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/vent.rsi
@@ -508,6 +570,9 @@
   id: HeatExchangerBend
   suffix: Bend
   components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       layers:
       - sprite: Structures/Piping/Atmospherics/pipe.rsi

@@ -84,7 +84,7 @@
   parent: BaseSubdermalImplant
   id: TrackingImplant
   name: tracking implant
-  description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
+  description: This implant has a tracking device attached to the suit sensor network.
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -102,11 +102,6 @@
     - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 500
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-    - type: Rattle
-      radioChannel: "Security"
 
 #Traitor implants
 
@@ -124,7 +119,7 @@
         - Hands # no use giving a mouse a storage implant, but a monkey is another story...
     - type: Storage
       grid:
-      - 0,0,2,2
+      - 0,0,2,2 #ADT_Tweak - вернул нормальный объем имлпантера, чтобы можно было пихать украденное
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -350,9 +345,6 @@
   components:
    - type: SubdermalImplant
    - type: MindShieldImplant
-   - type: Tag
-     tags:
-       - MindShield
 
 # Centcomm implants
 
@@ -367,3 +359,13 @@
   - type: RadioImplant
     radioChannels:
     - CentCom
+
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantCentcomm
+  name: centcomm death rattle implant
+  description: This implant will inform the Centcomm radio channel should the user fall into critical condition or die.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Rattle
+    radioChannel: CentCom

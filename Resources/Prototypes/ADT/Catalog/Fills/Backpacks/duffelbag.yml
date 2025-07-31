@@ -277,7 +277,6 @@
       - id: ADTModsuitModWelding
       - id: ADTModsuitModLight
       - id: ADTModsuitModJetpack
-      - id: ADTModsuitModDnaLock
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -296,3 +295,4 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingOuterCoatLab
       - id: GeigerCounter
+      - id: ADTAntiNobliumPaper

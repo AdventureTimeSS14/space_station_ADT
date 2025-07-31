@@ -13,15 +13,17 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-blue
+    fiberMaterial: fibers-carbon-adt
+    fiberColor: fibers-grey
   - type: FingerprintMask
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitAtmos
   name: atmos MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/atmospheric.rsi
@@ -31,16 +33,13 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
-  - type: Insulated
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-yellow
+    fiberColor: fibers-yellow
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitClown
   name: clown MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/clown.rsi
@@ -51,14 +50,12 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-yellow
+    fiberColor: fibers-colorful-adt
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitEngineering
   name: atmos MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/engineering.rsi
@@ -68,16 +65,13 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
-  - type: Insulated
   - type: Fiber
-    fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-yellow
+    fiberColor: fibers-brown
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitMedical
   name: atmos MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/medical.rsi
@@ -87,12 +81,13 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-cyan
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitMining
   name: mining MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/mining.rsi
@@ -102,12 +97,13 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-darkblack-adt
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitSecurity
   name: security MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/security.rsi
@@ -117,12 +113,13 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-black
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitScience
   name: Science MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/cience.rsi
@@ -132,27 +129,13 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-purple
 
 - type: entity
-  parent: ClothingHandsBase
-  id: ADTClothingHandsModsuitSyndicate
-  name: syndicate MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    equipDelay: 3
-    unequipDelay: 3
-
-- type: entity
-  parent: ClothingHandsBase
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitSafeguard
   name: safeguard MOD gauntlets
-  description: A pair of gauntlets for a MODsuit.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Hands/Modsuit/hos.rsi
@@ -162,4 +145,90 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3
     unequipDelay: 3
-  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitBso
+  name: bso MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/bso.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/bso.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-blue
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitAdvanced
+  name: advanced MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/advanced.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/advanced.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitSyndicate
+  name: syndicate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-bloodred-adt
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitSyndicateElite
+  name: elite syndicate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_elite.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_elite.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-darkgrey-adt
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitSyndicateCommander
+  name: comm syndicate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_comma.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/syndicate_comma.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-bloodred-adt

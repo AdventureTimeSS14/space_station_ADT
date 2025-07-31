@@ -1,0 +1,73 @@
+- type: entity
+  parent: BaseItem
+  id: ADTModStorageVoucher
+  name: mod storage voucher
+  description: A token to redeem a piece of equipment. Insert into your salvage vendor to redeem it.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Salvage/voucher.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    vendorWhitelist:
+     tags:
+     - ADTVendModStorage
+    kits:
+    - ModStorageDuffelbag
+    - ModStorageSatchel
+    typeDropPlace: ThisPlace
+
+- type: entity
+  parent: BaseItem
+  id: ADTBlueshieldVoucher
+  name: RSI "Devils"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/blueshield_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - WeaponSaberRevBlueshield
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTHosVoucher
+  name: RCU "Justice"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/blueshield_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - WeaponHoSUnika
+    - WeaponHoSMultiphase
+    - WeaponHoSBat
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket

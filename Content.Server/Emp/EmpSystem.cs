@@ -7,12 +7,14 @@ using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Content.Shared.Projectiles;
-using Content.Shared.ADT.Emp; // ADT TWEAK
+using Content.Shared.ADT.Emp;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Emp;
 
 public sealed class EmpSystem : SharedEmpSystem
 {
+    [Dependency] private readonly ChargerSystem _charger = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
@@ -72,6 +74,22 @@ public sealed class EmpSystem : SharedEmpSystem
     }
 
     /// <summary>
+    ///   Triggers an EMP pulse at the given location, by first raising an <see cref="EmpAttemptEvent"/>, then a raising <see cref="EmpPulseEvent"/> on all entities in range.
+    /// </summary>
+    /// <param name="coordinates">The location to trigger the EMP pulse at.</param>
+    /// <param name="range">The range of the EMP pulse.</param>
+    /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
+    /// <param name="duration">The duration of the EMP effects.</param>
+    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, float duration)
+    {
+        foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
+        {
+            TryEmpEffects(uid, energyConsumption, duration);
+        }
+        Spawn(EmpPulseEffectPrototype, coordinates);
+    }
+
+    /// <summary>
     ///    Attempts to apply the effects of an EMP pulse onto an entity by first raising an <see cref="EmpAttemptEvent"/>, followed by raising a <see cref="EmpPulseEvent"/> on it.
     /// </summary>
     /// <param name="uid">The entity to apply the EMP effects on.</param>
@@ -79,6 +97,7 @@ public sealed class EmpSystem : SharedEmpSystem
     /// <param name="duration">The duration of the EMP effects.</param>
     public void TryEmpEffects(EntityUid uid, float energyConsumption, float duration)
     {
+        if (HasComp<EmpProtectionComponent>(uid)) return; //ADT tweak
         var attemptEv = new EmpAttemptEvent();
         RaiseLocalEvent(uid, attemptEv);
         if (attemptEv.Cancelled)
@@ -159,6 +178,10 @@ public sealed class EmpSystem : SharedEmpSystem
     private void OnProjectileHit(EntityUid uid, EmpOnCollideComponent component, ref ProjectileHitEvent args)
     {
         TryEmpEffects(args.Target, component.EnergyConsumption, component.DisableDuration);
+        if (!TryComp<InventoryComponent>(args.Target, out var inventory))
+            return;
+        if (_charger.SearchForBattery(args.Target, out var batteryEnt, out var batteryComp))
+            TryEmpEffects(batteryEnt.Value, component.EnergyConsumption, component.DisableDuration);
     }
     ///ADT ion end
 }

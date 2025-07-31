@@ -7,8 +7,7 @@
     issuer: objective-issuer-thief
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - ThiefRole
+    - ThiefRole
 
 - type: entity
   abstract: true
@@ -196,16 +195,18 @@
   - type: Objective
     difficulty: 1
 
-- type: entity                                      #Medical subgroup
-  parent: BaseThiefStealObjective
-  id: ClothingOuterHardsuitVoidParamedStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Paramedic
-  - type: StealCondition
-    stealGroup: ClothingOuterHardsuitVoidParamed
-  - type: Objective
-    difficulty: 1
+#ADT tweak start
+# - type: entity                                      #Medical subgroup
+#   parent: BaseThiefStealObjective
+#   id: ClothingOuterHardsuitVoidParamedStealObjective
+#   components:
+#   - type: NotJobRequirement
+#     job: Paramedic
+#   - type: StealCondition
+#     stealGroup: ClothingOuterHardsuitVoidParamed
+#   - type: Objective
+#     difficulty: 1
+#ADT tweak end
 
 - type: entity
   parent: BaseThiefStealObjective

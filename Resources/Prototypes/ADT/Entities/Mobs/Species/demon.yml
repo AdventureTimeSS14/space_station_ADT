@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: DemonSpecies
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -89,10 +91,12 @@
   components:
   - type: HumanoidAppearance
     species: DemonSpecies
+    hideLayersOnEquip:
+    - SnoutOverlay
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
             state: jumpsuit-female

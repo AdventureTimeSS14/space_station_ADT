@@ -63,6 +63,8 @@
   # ADT-Tweak-Start
   - AcousticGuitarInstrument
   - HarmonicaInstrument
+  - ADTModStorageVoucher
+  - ADTClothingGeorgeRibbonPin
   # ADT-Tweak-End
 
 - type: loadoutGroup
@@ -368,6 +370,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
+  - LawyerGreenSuit # ADT-Loadouts
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -777,8 +780,10 @@
   id: SalvageSpecialistOuterClothing
   name: loadout-group-salvage-specialist-outerclothing
   minLimit: 0
+  maxLimit: 1 #ADT tweak
   loadouts:
   - SalvageSpecialistWintercoat
+  - ADTNeckSalvageSpecialistEBomber # ADT tweak
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -905,6 +910,8 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
+  - ADTElectricianPDA # ADT
+  - ADTMechanicPDA # ADT
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -994,6 +1001,7 @@
   loadouts:
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
+  - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -1002,6 +1010,7 @@
   - BrownShoes
   - ScienceWinterBoots
   # ADT tweak start
+  - PurpleShoes
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1051,6 +1060,7 @@
   - ScienceLabCoat
   - RegularLabCoat
   - ScienceWintercoat
+  - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1060,6 +1070,7 @@
   - BlackShoes
   - ScienceWinterBoots
   # ADT tweak start
+  - PurpleShoes
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1081,6 +1092,9 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
+  - ADTLabTechPDA # ADT
+  - ADTXenoarchPDA # ADT
+  - ADTAnomalistPDA # ADT
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1123,9 +1137,10 @@
   - HeadofSecurityMantle
   # ADT-Loadout-Start
   - HeadofSecurityMantleShoulder
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
+  # - HeadofSecurityShoulderMantle # Corvax-Loadouts
   # ADT-Loadout-End
 
 - type: loadoutGroup
@@ -1236,7 +1251,10 @@
   loadouts:
   - DetectiveFedora
   - DetectiveFedoraGrey
-  - DetectiveInvestigatorCap # ADT-Loadout
+  # ADT-Loadout-Start
+  - DetectiveInvestigatorCap
+  - ADTDetectiveOldFedora
+  # ADT-Loadout-End
 
 - type: loadoutGroup
   id: DetectiveNeck
@@ -1245,9 +1263,9 @@
   loadouts:
   - DetectiveTie
   # ADT-Loadout-Start
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
   # ADT-Loadout-End
 
 - type: loadoutGroup
@@ -1259,6 +1277,8 @@
   - NoirJumpsuit
   - NoirJumpskirt
   # ADT-Loadouts-Start
+  - ADTDetectiveOldSuit
+  - ADTDetectiveOldJumpskirt
   - DetectiveInvestigatorSuit
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
@@ -1272,8 +1292,11 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
-  - DetectiveCoatInvestigator # ADT-Loadout
-  - ADTArmorVestHidden # ADT-Loadout
+  # ADT-Loadouts-Start
+  - ADTDetectiveCoatOld
+  - DetectiveCoatInvestigator
+  - ADTArmorVestHidden
+  # ADT-Loadouts-End
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1409,6 +1432,10 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
+  - ADTClinicianPDA # ADT
+  - ADTDoctorPDA # ADT
+  - ADTTherapistPDA # ADT
+  - ADTTraumatologistPDA # ADT
 
 - type: loadoutGroup
   id: MedicalGloves
@@ -1461,6 +1488,7 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  - ADTParamedicBeret # ADT tweak
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1468,6 +1496,7 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - ADTClothingJumpsuitParamedicField # ADT tweak
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -1482,6 +1511,7 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - WhiteShoes
   - MedicalWinterBoots
   # ADT tweak start
   - ADTFootWrapsW
@@ -1491,6 +1521,17 @@
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
   # ADT tweak end
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical

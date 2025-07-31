@@ -1,0 +1,62 @@
+- type: entity
+  parent: BoxCardboard
+  id: ADTFoodPackGummies
+  name: pack of gummies
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/gummypack.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: gummy1
+      map: ["gummy1"]
+      sprite: ADT/Objects/Storage/gummypack.rsi
+      visible: false
+    - state: gummy2
+      map: ["gummy2"]
+      sprite: ADT/Objects/Storage/gummypack.rsi
+      visible: false
+    - state: gummy3
+      map: ["gummy3"]
+      sprite: ADT/Objects/Storage/gummypack.rsi
+      visible: false
+    - state: gummy4
+      map: ["gummy4"]
+      sprite: ADT/Objects/Storage/gummypack.rsi
+      visible: false
+    - state: gummy5
+      map: ["gummy5"]
+      sprite: ADT/Objects/Storage/gummypack.rsi
+      visible: false
+    - state: gummy6
+      map: ["gummy6"]
+      sprite: ADT/Objects/Storage/gummypack.rsi
+      visible: false
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Tiny
+    whitelist:
+      tags:
+      - ADTGummy
+    hideStackVisualsWhenClosed: false
+  - type: Item
+    sprite: ADT/Objects/Storage/gummypack.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+  - type: ItemCounter
+    count:
+      tags: [ADTGummy]
+    composite: true
+    layerStates:
+    - gummy1
+    - gummy2
+    - gummy3
+    - gummy4
+    - gummy5
+    - gummy6

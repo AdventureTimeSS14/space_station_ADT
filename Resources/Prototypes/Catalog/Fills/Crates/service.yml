@@ -7,7 +7,7 @@
   - type: StorageFill
     contents:
       - id: MopItem
-      - id: MopBucket
+      - id: MopBucketCubeWrapped
       - id: Bucket
         amount: 3
       - id: WetFloorSign
@@ -131,8 +131,12 @@
   components:
   - type: StorageFill
     contents:
-    - id: Paper
-      amount: 15
+    # ADT tweak start
+    #- id: Paper
+    #  amount: 15
+    - id: ADTPaperPack
+      amount: 2
+    # ADT tweak end
     - id: Pen
       amount: 2
     - id: BoxFolderClipboard
@@ -144,6 +148,7 @@
     - id: NewtonCradle
     - id: BoxEnvelope
     - id: BrbSign
+    - id: ADTBureaucraticBelt #ADT-Tweak
 
 - type: entity
   id: CrateServiceFaxMachine
@@ -363,3 +368,14 @@
         amount: 2
       - id: BoxCandleSmall
         amount: 2
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateServiceColorfulLights
+  name: colorful lights crate
+  description: It's not a party until it's hard to see, a little disorienting, and your ears hurt.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxLightbulbColorfulMixed
+    - id: BoxLighttubeColorfulMixed

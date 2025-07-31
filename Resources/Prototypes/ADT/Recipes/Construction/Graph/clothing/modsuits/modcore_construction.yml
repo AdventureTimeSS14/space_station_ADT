@@ -7,7 +7,7 @@
     - to: adtmodsuitassembled
       steps:
       - tag: ADTModsuitCoreEnergy
-        name: energy MOD core
+        name: construction-graph-tag-mod-core-energy
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
@@ -21,15 +21,8 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 2
 
-      - component: PowerCell
-        name: battery
-        store: battery-container
-        icon:
-          sprite: Objects/Power/power_cells.rsi
-          state: small
-
       - tag: ADTModsuitHelmet
-        name: MOD helmet
+        name: construction-graph-tag-mod-helmet
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
@@ -37,7 +30,7 @@
           data: 3
 
       - tag: ADTModsuitChestplate
-        name: MOD chestplate
+        name: construction-graph-tag-mod-chestplate
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
@@ -45,7 +38,7 @@
           data: 4
 
       - tag: ADTModsuitGauntlets
-        name: MOD gauntles
+        name: construction-graph-tag-mod-gauntles
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
@@ -53,7 +46,7 @@
           data: 5
 
       - tag: ADTModsuitBoots
-        name: MOD boots
+        name: construction-graph-tag-mod-boots
         doAfter: 1
         completed:
         - !type:VisualizerDataInt
@@ -76,5 +69,7 @@
 
   - node: adtmodsuitassembled
     actions:
-    - !type:BuildMech
-      mechPrototype: ADTModsuitAssembled
+      - !type:SpawnPrototype
+        prototype: ADTModsuitAssembled
+        amount: 1
+      - !type:DeleteEntity {}

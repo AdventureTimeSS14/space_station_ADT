@@ -40,23 +40,23 @@
 - type: startingGear
   id: ADTBattleShipEngineerKMTGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTSecurity
-    back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHelmetERTSecurity
-    eyes: ClothingEyesGlassesSecurity
+    jumpsuit: ADTShipBattleClothingUniformEngineerKMT
+    back: ADTShipBattleClothingBlackBackpackJet
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    # head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
-    id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: ADTBaseUplinkBOBERT
+    outerClothing: ADTShipBattleClothingOuterHardsuitEngineerKMT
+    id: ADTShipBattleDogtagEngineerKMT
+    ears: ADTShipBattleClothingHeadsetMedEngiKMT
+    belt: ClothingBeltUtilityFilled
+    # pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
   storage:
     back:
     - BoxSurvivalEngineering
-    - BoxZiptie
-    - CrowbarRed
-    - PinpointerNuclear
-    - FlashlightSeclite
     - SpaceCash500
+    - ADTShipBattleClothingHeadHelmetHardsuitEngineerKMT

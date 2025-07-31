@@ -13,12 +13,51 @@
     program: 2
   - type: UserInterface
     interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false
+      # available in pai shop
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+        requireInputValidation: false
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
         requireInputValidation: false
+  # ADT-Tweak-start      
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger 
+        damage: 135
+      behaviors:      
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 5                         
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:        
+        !type:DamageTrigger 
+        damage: 75
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapPAI:
+            min: 1
+            max: 1    
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]       
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  # ADT-Tweak-end        
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
@@ -51,6 +90,16 @@
     - Common
   - type: DoAfter
   - type: Actions
+  - type: Store
+    categories:
+    - PAIAbilities
+    currencyWhitelist:
+    - SiliconMemory
+    balance:
+      SiliconMemory: 30
+  - type: RadarConsole
+    maxRange: 256
+    followEntity: true
   - type: TypingIndicator
     proto: robot
   - type: TTS # Corvax-TTS
@@ -77,6 +126,7 @@
     whitelist:
       components:
         - SecretStash
+        - WrappedParcel
   # ADT-Tweak-start
   - type: LanguageSpeaker
     languages:
@@ -94,6 +144,38 @@
   name: syndicate personal ai device
   description: Your Syndicate pal who's fun to be with!
   components:
+  # ADT-Tweak-start      
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger 
+        damage: 135
+      behaviors:      
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 5                         
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:        
+        !type:DamageTrigger 
+        damage: 75
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapPAI:
+            min: 1
+            max: 1    
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]       
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  # ADT-Tweak-end
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
@@ -128,6 +210,24 @@
   name: potato artificial intelligence
   description: It's a potato. You forced it to be sentient, you monster.
   components:
+  # ADT-Tweak-start
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger 
+        damage: 75
+      behaviors:
+      - !type:SpawnEntitiesBehavior 
+        spawn:
+          FoodPotato:
+            min: 1
+            max: 1  
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  # ADT-Tweak-end       
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
@@ -154,6 +254,30 @@
     node: potatoai
 
 - type: entity
+  id: ActionPAIOpenShop
+  name: Software Catalog
+  description: Install new software to assist your owner.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: Interface/Actions/shop.png
+    event: !type:PAIShopActionEvent
+
+- type: entity
+  id: ActionPAIMassScanner
+  name: Mass Scanner
+  description: View a mass scanner interface.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    itemIconStyle: NoItem
+    event: !type:OpenUiActionEvent
+        key: enum.RadarConsoleUiKey.Key
+
+- type: entity
   id: ActionPAIPlayMidi
   name: Play MIDI
   description: Open your portable MIDI interface to soothe your owner.
@@ -162,6 +286,7 @@
     checkCanInteract: false
     checkConsciousness: false
     icon: Interface/Actions/pai-midi.png
+    itemIconStyle: NoItem
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key
 
@@ -174,5 +299,6 @@
       checkCanInteract: false
       checkConsciousness: false
       icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
+      itemIconStyle: NoItem
       event: !type:OpenUiActionEvent
         key: enum.StationMapUiKey.Key

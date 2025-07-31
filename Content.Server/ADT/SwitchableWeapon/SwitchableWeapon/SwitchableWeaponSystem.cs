@@ -30,7 +30,7 @@ public sealed class SwitchableWeaponSystem : EntitySystem
 
     private void OnComponentAdded(EntityUid uid, SwitchableWeaponComponent component, ComponentAdd args)
     {
-        UpdateState(uid, component);
+        UpdateState((uid, component));
     }
 
     //Non-stamina damage
@@ -55,28 +55,28 @@ public sealed class SwitchableWeaponSystem : EntitySystem
         args.PushMarkup(msg);
     }
 
-    private void UpdateState(EntityUid uid, SwitchableWeaponComponent comp)
+    private void UpdateState(Entity<SwitchableWeaponComponent> ent)
     {
-        if (TryComp<ItemComponent>(comp.Owner, out var item))
+        if (TryComp<ItemComponent>(ent.Owner, out var item))
         {
-            _item.SetSize(item.Owner, comp.IsOpen ? comp.SizeOpened : comp.SizeClosed, item);
-            _item.SetHeldPrefix(comp.Owner, comp.IsOpen ? "on" : "off", false, item);
+            _item.SetSize(item.Owner, ent.Comp.IsOpen ? ent.Comp.SizeOpened : ent.Comp.SizeClosed, item);
+            _item.SetHeldPrefix(ent.Owner, ent.Comp.IsOpen ? "on" : "off", false, item);
         }
 
-        if (TryComp<AppearanceComponent>(comp.Owner, out var appearance))
-            _appearance.SetData(comp.Owner, ToggleVisuals.Toggled, comp.IsOpen, appearance);
+        if (TryComp<AppearanceComponent>(ent.Owner, out var appearance))
+            _appearance.SetData(ent.Owner, ToggleVisuals.Toggled, ent.Comp.IsOpen, appearance);
 
         // Change stamina damage according to state
-        if (TryComp<StaminaDamageOnHitComponent>(uid, out var stamComp))
+        if (TryComp<StaminaDamageOnHitComponent>(ent.Owner, out var stamComp))
         {
-            stamComp.Damage = comp.IsOpen ? comp.StaminaDamageOpen : comp.StaminaDamageFolded;
+            stamComp.Damage = ent.Comp.IsOpen ? ent.Comp.StaminaDamageOpen : ent.Comp.StaminaDamageFolded;
         }
     }
 
     private void Toggle(EntityUid uid, SwitchableWeaponComponent comp, UseInHandEvent args)
     {
         comp.IsOpen = !comp.IsOpen;
-        UpdateState(uid, comp);
+        UpdateState((uid, comp));
 
         var soundToPlay = comp.IsOpen ? comp.OpenSound : comp.CloseSound;
         _audio.PlayPvs(soundToPlay, args.User);
