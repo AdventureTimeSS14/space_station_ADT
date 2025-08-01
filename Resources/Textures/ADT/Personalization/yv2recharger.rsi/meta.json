@@ -22,6 +22,10 @@
         {
             "name": "equipped-BELT",
             "directions": 4
+        },
+        {
+            "name": "yv2-equipped-BELT",
+            "directions": 4
         }
     ]
 }
