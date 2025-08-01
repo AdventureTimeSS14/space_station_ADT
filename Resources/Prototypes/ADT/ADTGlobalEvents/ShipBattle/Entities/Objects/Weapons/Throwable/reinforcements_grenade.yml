@@ -17,7 +17,7 @@
     primingSound:
       path: /Audio/Items/smoke_grenade_prime.ogg
   # - type: SpawnOnTrigger
-  #   proto: ADTDroppodDroppingReinforcements
+  #   proto: ADTReinforcementDroppodDropping
 
 - type: entity
   parent: ADTSmokeGrenadeRed
@@ -84,3 +84,259 @@
     duration: 3
     spreadAmount: 3
     smokePrototype: ADTSmokeViolet
+
+#Боеприпасы
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlueAmmo
+  name: smoke grenade dark blue (ammo)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingAmmo
+
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlueExplosives
+  name: smoke grenade dark blue (Explosives)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingExplosives
+
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlue40mmGrenade
+  name: smoke grenade dark blue (40mmGrenade)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDropping40mmGrenade
+
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlueRocket
+  name: smoke grenade dark blue (Rocket)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingRocket
+
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlueGAU32Ammo
+  name: smoke grenade dark blue (GAU32Ammo)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingGAU32Ammo
+
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlueDS30Ammo
+  name: smoke grenade dark blue (DS30Ammo)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingDS30Ammo
+
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlueD100Ammo
+  name: smoke grenade dark blue (D100Ammo)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingD100Ammo
+
+- type: entity
+  parent: ADTSmokeGrenadeDarkBlue
+  id: ADTSmokeGrenadeDarkBlueMk155Ammo
+  name: smoke grenade dark blue (Mk155Ammo)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingMk155Ammo
+
+#Медицина
+- type: entity
+  parent: ADTSmokeGrenadeBlue
+  id: ADTSmokeGrenadeBlueMedicine
+  name: smoke grenade blue (Medicine)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingMedicine
+
+- type: entity
+  parent: ADTSmokeGrenadeBlue
+  id: ADTSmokeGrenadeBlueSteelPlasteel
+  name: smoke grenade blue (SteelPlasteel)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingSteelPlasteel
+
+- type: entity
+  parent: ADTSmokeGrenadeBlue
+  id: ADTSmokeGrenadeBlueGlassPlastic
+  name: smoke grenade blue (GlassPlastic)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingGlassPlastic
+
+- type: entity
+  parent: ADTSmokeGrenadeBlue
+  id: ADTSmokeGrenadeBlueRareMaterials
+  name: smoke grenade blue (RareMaterials)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingRareMaterials
+
+- type: entity
+  parent: ADTSmokeGrenadeBlue
+  id: ADTSmokeGrenadeBlueFood
+  name: smoke grenade blue (Food)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingFood
+
+- type: entity
+  parent: ADTSmokeGrenadeBlue
+  id: ADTSmokeGrenadeBlueOxygenCanister
+  name: smoke grenade blue (OxygenCanister)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingOxygenCanister
+
+#Оружие
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowBasicWeaponTSF
+  name: smoke grenade yellow (BasicWeaponTSF)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingBasicWeaponTSF
+
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowBasicWeaponKMT
+  name: smoke grenade yellow (BasicWeaponKMT)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingBasicWeaponKMT
+
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowWeaponxC67
+  name: smoke grenade yellow (WeaponxC67)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingWeaponxC67
+
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowWeaponHristov
+  name: smoke grenade yellow (WeaponHristov)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingWeaponHristov
+
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowWeaponL6
+  name: smoke grenade yellow (WeaponL6)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingWeaponL6
+
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowWeaponChinaLake
+  name: smoke grenade yellow (WeaponChinaLake)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingWeaponChinaLake
+
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowWeaponRPG
+  name: smoke grenade yellow (WeaponRPG)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingWeaponRPG
+
+- type: entity
+  parent: ADTSmokeGrenadeYellow
+  id: ADTSmokeGrenadeYellowWeaponAvdLaspistols
+  name: smoke grenade yellow (WeaponAvdLaspistols)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingWeaponAvdLaspistols
+
+#Мехи и техника
+- type: entity
+  parent: ADTSmokeGrenadeViolet
+  id: ADTSmokeGrenadeVioletMechAmmo
+  name: smoke grenade violet (MechAmmo)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingMechAmmo
+
+- type: entity
+  parent: ADTSmokeGrenadeViolet
+  id: ADTSmokeGrenadeVioletSabreAmmo
+  name: smoke grenade violet (SabreAmmo)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingSabreAmmo
+
+- type: entity
+  parent: ADTSmokeGrenadeViolet
+  id: ADTSmokeGrenadeVioletMechGunBasic
+  name: smoke grenade violet (MechGunBasic)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingMechGunBasic
+
+- type: entity
+  parent: ADTSmokeGrenadeViolet
+  id: ADTSmokeGrenadeVioletMechGunAdvanced
+  name: smoke grenade violet (MechGunAdvanced)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingMechGunAdvanced
+
+- type: entity
+  parent: ADTSmokeGrenadeViolet
+  id: ADTSmokeGrenadeVioletHoverbikeTSF
+  name: smoke grenade violet (HoverbikeTSF)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingHoverbikeTSF
+
+- type: entity
+  parent: ADTSmokeGrenadeViolet
+  id: ADTSmokeGrenadeVioletHoverbikeKMT
+  name: smoke grenade violet (HoverbikeKMT)
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: SpawnOnTrigger
+    proto: ADTReinforcementDroppodDroppingHoverbikeKMT

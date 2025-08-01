@@ -193,7 +193,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ADTFoodSnackChocolateBarNutsPac
+      - id: ADTFoodSnackChocolateBarNutsPack
         amount: 15
       - id: DrinkEnergyDrinkCan
         amount: 15

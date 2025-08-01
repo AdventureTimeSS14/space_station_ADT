@@ -1,8 +1,6 @@
-
-
-
 - type: entity
-  id: ADTDroppodDroppingReinforcements
+  id: ADTReinforcementDroppodDropping
+  abstract: true
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/droppod.rsi
@@ -10,16 +8,17 @@
   - type: TimedDespawn
     lifetime: 5.1
   - type: SpawnOnDespawn
-    prototype: ADTDroppodOpenedReinforcements
+    prototype: ADTReinforcementDroppodOpened
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/Misc/droppod_landing.ogg
-  - type: Droppod
+  # - type: Droppod
   - type: StaticPrice
     price: 14
 
 - type: entity
-  id: ADTDroppodOpenedReinforcements
+  id: ADTReinforcementDroppodOpened
+  abstract: true
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/droppod_open.rsi
@@ -28,10 +27,516 @@
     lifetime: 16
   - type: StaticPrice
     price: 14
+  # - type: RandomSpawner
+  #   prototypes:
+  #   - ADTShipBattleReinforcementSpawnerGunnerTSF
+  #   chance: 1.0
+
+#Боеприпасы
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingAmmo
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedAmmo
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedAmmo
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
   - type: RandomSpawner
     prototypes:
-    - ADTShipBattleReinforcementSpawnerGunnerTSF
+    - ADTCrateReinforcementsAmmo
     chance: 1.0
 
+- type: entity
+  id: ADTReinforcementDroppodDroppingExplosives
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedExplosives
 
+- type: entity
+  id: ADTReinforcementDroppodOpenedExplosives
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsExplosives
+    chance: 1.0
 
+- type: entity
+  id: ADTReinforcementDroppodDropping40mmGrenade
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpened40mmGrenade
+
+- type: entity
+  id: ADTReinforcementDroppodOpened40mmGrenade
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcements40mmGrenade
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingRocket
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedRocket
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedRocket
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsRocket
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingGAU32Ammo
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedGAU32Ammo
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedGAU32Ammo
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsGAU32Ammo
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingDS30Ammo
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedDS30Ammo
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedDS30Ammo
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsDS30Ammo
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingD100Ammo
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedD100Ammo
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedD100Ammo
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsD100Ammo
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingMk155Ammo
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedMk155Ammo
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedMk155Ammo
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsMk155Ammo
+    chance: 1.0
+
+#Гражданские припасы
+- type: entity
+  id: ADTReinforcementDroppodDroppingMedicine
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedMedicine
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedMedicine
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsMedicine
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingSteelPlasteel
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedSteelPlasteel
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedSteelPlasteel
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsSteelPlasteel
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingGlassPlastic
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedGlassPlastic
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedGlassPlastic
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsGlassPlastic
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingRareMaterials
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedRareMaterials
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedRareMaterials
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsRareMaterials
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingFood
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOpenedFood
+
+- type: entity
+  id: ADTReinforcementDroppodOpenedFood
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsFood
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingOxygenCanister
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodOxygenCanister
+
+- type: entity
+  id: ADTReinforcementDroppodOxygenCanister
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - OxygenCanister
+    chance: 1.0
+
+#Weapon
+- type: entity
+  id: ADTReinforcementDroppodDroppingBasicWeaponTSF
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodBasicWeaponTSF
+
+- type: entity
+  id: ADTReinforcementDroppodBasicWeaponTSF
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsBasicWeaponTSF
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingBasicWeaponKMT
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodBasicWeaponKMT
+
+- type: entity
+  id: ADTReinforcementDroppodBasicWeaponKMT
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsBasicWeaponKMT
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingWeaponxC67
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodWeaponxC67
+
+- type: entity
+  id: ADTReinforcementDroppodWeaponxC67
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsWeaponxC67
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingWeaponHristov
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodWeaponHristov
+
+- type: entity
+  id: ADTReinforcementDroppodWeaponHristov
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsWeaponHristov
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingWeaponL6
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodWeaponL6
+
+- type: entity
+  id: ADTReinforcementDroppodWeaponL6
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsWeaponL6
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingWeaponChinaLake
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodWeaponChinaLake
+
+- type: entity
+  id: ADTReinforcementDroppodWeaponChinaLake
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsWeaponChinaLake
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingWeaponRPG
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodWeaponRPG
+
+- type: entity
+  id: ADTReinforcementDroppodWeaponRPG
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsWeaponRPG
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingWeaponAvdLaspistols
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodWeaponAvdLaspistols
+
+- type: entity
+  id: ADTReinforcementDroppodWeaponAvdLaspistols
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsWeaponAvdLaspistols
+    chance: 1.0
+
+#Для мехов
+- type: entity
+  id: ADTReinforcementDroppodDroppingMechAmmo
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodMechAmmo
+
+- type: entity
+  id: ADTReinforcementDroppodMechAmmo
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsMechAmmo
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingSabreAmmo
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodSabreAmmo
+
+- type: entity
+  id: ADTReinforcementDroppodSabreAmmo
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsSabreAmmo
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingMechGunBasic
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodMechGunBasic
+
+- type: entity
+  id: ADTReinforcementDroppodMechGunBasic
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsMechGunBasic
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingMechGunAdvanced
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodMechGunAdvanced
+
+- type: entity
+  id: ADTReinforcementDroppodMechGunAdvanced
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTCrateReinforcementsMechGunAdvanced
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingHoverbikeTSF
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodHoverbikeTSF
+
+- type: entity
+  id: ADTReinforcementDroppodHoverbikeTSF
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTSpawnVehicleHoverbikeTSF
+    chance: 1.0
+
+- type: entity
+  id: ADTReinforcementDroppodDroppingHoverbikeKMT
+  parent: ADTReinforcementDroppodDropping
+  name: dropping droppod
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTReinforcementDroppodHoverbikeKMT
+
+- type: entity
+  id: ADTReinforcementDroppodHoverbikeKMT
+  parent: ADTReinforcementDroppodOpened
+  name: dropping droppod
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - ADTSpawnVehicleHoverbikeKMT
+    chance: 1.0
