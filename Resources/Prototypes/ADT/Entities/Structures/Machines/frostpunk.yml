@@ -3,8 +3,8 @@
 - type: entity
   name: паровой реактор
   description: |-
-    A flexible backup generator for powering a variety of equipment.
-    Runs off solid plasma sheets and is rated for up to 30 kW.
+    Универсальный резервный генератор для питания различного оборудования.
+    Работает от твердотельных плазменных панелей и рассчитан на мощность до 30 кВт.
   parent: PortableGeneratorSwitchableBase
   id: ADTFrostpunkGenerator
   suffix: Фростпанк
@@ -33,7 +33,6 @@
           enum.GeneratorVisualLayers.Unlit:
             True: { visible: true }
             False: { visible: false }
-
     - type: Machine
       board: ADTFrostpunkGeneratorMachineCircuitboard
     - type: Fixtures
