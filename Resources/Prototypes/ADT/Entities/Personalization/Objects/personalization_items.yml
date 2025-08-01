@@ -1784,6 +1784,9 @@
     activatedDamage:
       types:
         Blunt: 0
+  - type: ItemTogglePrefix
+    prefixOn: on
+    prefixOff: off
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
