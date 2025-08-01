@@ -6,14 +6,14 @@
     A flexible backup generator for powering a variety of equipment.
     Runs off solid plasma sheets and is rated for up to 30 kW.
   parent: PortableGeneratorSwitchableBase
-  id: NesFrostpunkGenerator
+  id: ADTFrostpunkGenerator
   suffix: Фростпанк
   components:
     - type: SpriteFade
     - type: Sprite
       noRot: true
       drawdepth: Overdoors
-      sprite: NES/Frostpunk/ParGenik.rsi
+      sprite: ADT/Objects/Misc/Frostpunk/ParGenik.rsi
       layers:
         - state: portgen0
           offset: 0,1.8
@@ -35,7 +35,7 @@
             False: { visible: false }
 
     - type: Machine
-      board: NesFrostpunkGeneratorMachineCircuitboard
+      board: ADTFrostpunkGeneratorMachineCircuitboard
     - type: Fixtures
       fixtures:
         fix1:
@@ -57,7 +57,6 @@
       # a decent curve that goes up to about an hour at 5 kW.
       fuelEfficiencyConstant: 0.9
     - type: SolidFuelGeneratorAdapter
-      fuelMaterial: Plasma
       multiplier: 0.003
     - type: MaterialStorage
       storageLimit: 3000
@@ -81,14 +80,14 @@
       color: "#e0a634"
 
 - type: entity
-  id: NesFrostpunkGeneratorMachineCircuitboard
+  id: ADTFrostpunkGeneratorMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: паровое ядро
   suffix: Фростпанк
   description: Самая ценная вещь на этой планете.
   components:
     - type: Sprite
-      sprite: NES/Frostpunk/ParCore.rsi
+      sprite: ADT/Objects/Misc/Frostpunk/ParCore.rsi
       state: ParReactor
     - type: PointLight
       radius: 1
@@ -102,12 +101,11 @@
           Slash: 0.1
           Heat: 0.1
     - type: MachineBoard
-      prototype: NesFrostpunkGenerator
-      requirements:
+      prototype: ADTFrostpunkGenerator
+      stackRequirements:
+        CableHV: 10
         Capacitor: 4
         Manipulator: 2
-      materialRequirements:
-        CableHV: 10
         Steel: 10
         Plasteel: 20
     - type: Clothing
@@ -121,7 +119,7 @@
         Silicon: 20
 
 - type: entity
-  id: NesGenikFrame
+  id: ADTGenikFrame
   name: каркас парового реактора
   suffix: Фростпанк
   placement:
@@ -175,7 +173,7 @@
     - type: Sprite
       noRot: true
       drawdepth: Overdoors
-      sprite: NES/Frostpunk/ParGenik.rsi
+      sprite: ADT/Objects/Misc/Frostpunk/ParGenik.rsi
       state: box_1
       snapCardinals: true
       offset: 0,1.8
@@ -188,63 +186,3 @@
           whitelist:
             components:
             - MachineBoard
-
-- type: entity
-  id: NesIisysWallRockSnow
-  name: снежный камень
-  suffix: Фростпанк
-  parent: NesIisysWallRock
-  components:
-    - type: Sprite
-      sprite: Structures/Walls/rock.rsi
-      layers:
-        - state: rock_snow
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_snow_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_snow_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_snow_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_snow_west
-
-- type: entity
-  id: NesIisysWallRock
-  parent: BaseStructure
-  name: Бедрок
-  description: Коренная горная порода. Слишком крепкая, чтобы её можно было разрушить ручными инструментами.
-  suffix: Неразрушимый
-  components:
-    - type: PlacementReplacement
-      key: walls
-    - type: Occluder
-    - type: Airtight
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
-          density: 100
-          mask:
-            - FullTileMask
-          layer:
-            - WallLayer
-    - type: IconSmooth
-      key: walls
-      mode: NoSprite
-    - type: SmoothEdge
-    - type: Sprite
-      sprite: Structures/Walls/rock.rsi
-      layers:
-        - state: rock
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_west
-    - type: RadiationBlocker
-      resistance: 2
