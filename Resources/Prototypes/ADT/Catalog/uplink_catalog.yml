@@ -677,7 +677,7 @@
   description: uplink-ADTModularGrenadeBundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateModuleGrenade
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkChemicals
 
