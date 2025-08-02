@@ -48,3 +48,52 @@
         maxRange: 2.5
       spawns:
       - ADTSpecialMobGorilla
+
+- type: entity
+  id: ADTAnomalyStatic
+  parent: BaseAnomaly
+  suffix: Static
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/static_anum.rsi
+    layers:
+    - state: anom
+      map: ["enum.AnomalyVisualLayers.Base"]
+    - state: pulse
+      map: ["enum.AnomalyVisualLayers.Animated"]
+      visible: false
+  - type: StaticAnomaly
+  - type: PointLight
+    radius: 1.5
+    energy: 12.5
+    color: "#ffffff"
+  - type: Anomaly
+    corePrototype: ADTAnomalyCoreStatic
+    coreInertPrototype: ADTAnomalyCoreStaticInert
+    minPulseLength: 30
+    maxPulseLength: 90
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 1
+        maxAmount: 3
+        maxRange: 5
+      spawns:
+      - FakeTV
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 1
+        maxAmount: 1
+        maxRange: 1
+      spawns:
+      - StativTV
+  - type: DamageOnInteract
+    damage:
+      types:
+        Cold: 10
+    popupText: anomaly-component-contact-damage
+  - type: DamageOnAttacked
+    damage:
+      types:
+        Cold: 10
