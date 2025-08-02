@@ -1,0 +1,147 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Content.Server.Administration.Logs;
+using Content.Server.Chat.Managers;
+using Content.Server.GameTicking.Presets;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.GameTicking.Components;
+using Content.Shared.Random;
+using Content.Shared.CCVar;
+using Content.Shared.Database;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Configuration;
+using Robust.Shared.Utility;
+using Content.Server.GameTicking;
+using Content.Shared.Atmos.Monitor;
+using Content.Server.Atmos.Monitor.Components;
+using Content.Server.StationEvents;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs;
+
+namespace Content.Server.GameTicking.Rules;
+
+public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
+{
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly EventManagerSystem _event = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
+    protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    {
+        base.Added(uid, component, gameRule, args);
+        component.Chaos = (int)_random.NextFloat(component.MinChaos, component.MaxChaos);
+        _adminLogger.Add(LogType.EventStarted, $"Current chaos level: {component.Chaos}");
+        Log.Info($"Current chaos level: {component.Chaos}");
+
+        //тяжело, но тут идёт механизм выбора раундстарт антагов
+        for (int i = 0; i < 100 && component.Chaos >= 0; i++)
+        {
+            var rule = _random.Pick(component.RoundstartRules);
+            if (component.Chaos - rule.Cost < 0)
+            {
+                //быстро просматривает, каких ещё антагов можно добавить антагов
+                foreach (var antag in component.RoundstartRules)
+                {
+                    if (component.Chaos - antag.Cost < 0)
+                    {
+                        component.AddedRules.Add(antag.Id);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                component.Chaos -= rule.Cost;
+                component.AddedRules.Add(rule.Id);
+            }
+        }
+
+        //активация ивентов, не трогайте если не знаете
+        foreach (var rule in component.AddedRules)
+        {
+            if (GameTicker.RunLevel <= GameRunLevel.InRound)
+                GameTicker.AddGameRule(rule);
+            else
+                GameTicker.StartGameRule(rule, out _);
+        }
+    }
+
+    protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    {
+        base.Ended(uid, component, gameRule, args);
+    }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        //замена стандартных шкедуллеров
+
+        if (!_event.EventsEnabled)
+            return;
+
+        var query = EntityQueryEnumerator<DynamicRuleComponent, GameRuleComponent>();
+        while (query.MoveNext(out var uid, out var scheduler, out var gameRule))
+        {
+            if (!GameTicker.IsGameRuleActive(uid, gameRule))
+                continue;
+
+            if (scheduler.TimeUntilNextEvent > 0f)
+            {
+                scheduler.TimeUntilNextEvent -= frameTime;
+                continue;
+            }
+
+            if (scheduler.EventsBeforeAntag <= 0)
+            {
+                var chaos = CheckChaos();
+                if (chaos < 30) //чтоб в совсем жепу не спавнило антагов
+                    continue;
+                //проводит выбор по всем антагом, по схожести очкам хаоса, если не находит, выбирает случайного
+                foreach (var antag in scheduler.MidroundAntags)
+                {
+                    if (Math.Abs(antag.Cost - chaos) >= 15)
+                        continue;
+                    GameTicker.AddGameRule(antag.Id);
+                    scheduler.EventsBeforeAntag = scheduler.MaxEventsBeforeAntag;
+                    continue;
+                }
+                foreach (var antag in scheduler.MidroundAntags)
+                {
+                    if (_random.NextDouble() < 0.9)
+                        continue;
+                    GameTicker.AddGameRule(antag.Id);
+                    scheduler.EventsBeforeAntag = scheduler.MaxEventsBeforeAntag;
+                }
+            }
+
+            scheduler.TimeUntilNextEvent = _random.NextFloat(scheduler.MinEventDelay, scheduler.MaxEventDelay);
+            _event.RunRandomEvent(scheduler.ScheduledGameRules);
+            scheduler.EventsBeforeAntag--;
+        }
+    }
+    public int CheckChaos()
+    {
+        var chaos = 5; //изначально не нулевой для спавна мини-антагов
+        var seccoms = EntityQueryEnumerator<MindShieldComponent, MobStateComponent>();
+        //проверка живых людей с МЩ
+        while (seccoms.MoveNext(out var uid, out var _, out var state))
+        {
+            if (state.CurrentState == MobState.Alive || state.CurrentState == MobState.Critical)
+                chaos += 10;
+        }
+        //проверка на разгермы
+        var alarms = EntityQueryEnumerator<AirAlarmComponent>();
+        while (alarms.MoveNext(out var uid, out var alarm))
+        {
+            if (alarm.State != AtmosAlarmType.Normal || alarm.State != AtmosAlarmType.Invalid)
+                chaos--;
+        }
+        return chaos;
+    }
+}
