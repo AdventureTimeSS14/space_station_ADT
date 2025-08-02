@@ -530,7 +530,7 @@
   description: uplink-escapist-bundle-desc
   productEntity: ADTBoxSyndicateFilledEscapist
   cost:
-    Telecrystal: 12
+    Telecrystal: 9
   categories:
     - UplinkImplants
 
