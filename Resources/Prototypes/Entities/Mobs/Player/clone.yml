@@ -58,6 +58,23 @@
   - SpanishAccent
   - StutteringAccent
   - TTS # Corvax-TTS
+# Ganimed-Traits-Fix-Start
+  - LanguageSpeaker
+  - SpeechBarks
+  - SizeAttribute
+  - Hemophilia
+  - DeafTrait
+  - Monochromacy
+  - Frail
+  - SoftWalk
+  - Freerunning
+  - Sprinter
+  - FastLockers
+  - HardThrower
+  - FoodConsumptionSpeedModifier
+  - DrunkenResilience
+  - NyaAccent
+# Ganimed-Traits-Fix-End
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
