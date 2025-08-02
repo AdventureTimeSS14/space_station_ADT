@@ -130,6 +130,7 @@
   materials:
     Steel: 500
     Plastic: 250
+    ADTBScrystal: 30 #ADT Tweak
 
 - type: latheRecipe
   parent: BaseBigToolRecipe
