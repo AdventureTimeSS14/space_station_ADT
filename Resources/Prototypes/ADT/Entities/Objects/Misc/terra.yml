@@ -1,0 +1,31 @@
+- type: entity
+  id: ADTTerraformerElectronics
+  parent: BaseElectronics
+  name: плата терраформера
+  description: Плата управления терраформером, необходимая для его работы.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/terra-electronics.rsi
+      state: icon
+    - type: Tag
+      tags:
+      - ADTTerraformerElectronics
+
+- type: entity
+  id: ADTTerraformerDisk
+  parent: BaseElectronics
+  name: диск терраформера
+  description: Диск, контролирующий доступ к терраформеру.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/terra-disk.rsi
+      state: icon
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: inhand-left
+        right:
+        - state: inhand-right
+    - type: Tag
+      tags:
+      - ADTTerraformerElectronics

@@ -1,0 +1,140 @@
+- type: entity
+  id: ADTTerraformerRods
+  name: каркас терраформера
+  description: Массивное сооружение, ещё не завершённое. Требует больше деталей.
+  suffix: Unfinished
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.5,0.25,0.5"
+          density: 190
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Construction
+      graph: ADTTerra
+      node: start
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 10000
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:ChangeConstructionNodeBehavior
+          node: start
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - type: Sprite
+      sprite: ADT/Structures/Specific/terra.rsi
+      layers:
+        - map: ["base"]
+          state: base-1
+      snapCardinals: true
+      noRot: true
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ConstructionVisuals.Layer:
+          base:
+            0: { state: base-1 }
+            1: { state: base-2 }
+            2: { state: base-3 }
+            3: { state: base-4 }
+            4: { state: base-5 }
+            5: { state: base-6 }
+
+- type: entity
+  id: ADTTerraformer
+  name: терраформер
+  description: Массивное сооружение, в нужных руках способное изменить окружающую среду целой планеты.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.5,0.25,0.5"
+          density: 190
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Construction
+      graph: ADTTerra
+      node: start
+    - type: Sprite
+      sprite: ADT/Structures/Specific/terra.rsi
+      layers:
+        - map: ["enum.ToggleVisuals.Layer"]
+          state: base-7
+        - map: ["enum.ItemCabinetVisuals.Layer"]
+          state: loaded-disk
+          visible: false
+        - map: ["computerLayerScreen"]
+          state: screen
+          visible: false
+      snapCardinals: true
+      noRot: true
+    - type: ItemCabinet
+      slot: disk_slot
+    - type: ItemSlots
+      slots:
+        disk_slot:
+          ejectOnInteract: true
+          whitelist:
+            tags:
+            - ADTTerraDisk
+    - type: ContainerContainer
+      containers:
+        disk_slot: !type:ContainerSlot
+    - type: Computer
+      board: null
+    - type: ApcPowerReceiver
+    - type: Terraformer
+      activationCode: NTFCKSYN
+    - type: AmbientSound
+      enabled: false
+      range: 12
+      sound:
+        path: /Audio/ADT/SoundGen/factory_ambient.ogg
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ToggleVisuals.Toggled:
+          enum.ToggleVisuals.Layer:
+            True: { state: base-7-work }
+            False: { state: base-7 }
+        enum.ItemCabinetVisuals.ContainsItem:
+          enum.ItemCabinetVisuals.Layer:
+            True: { visible: true }
+            False: { visible: false }
+        enum.ComputerVisuals.Powered:
+          computerLayerScreen:
+            True: { visible: true, shader: unshaded }
+            False: { visible: false }

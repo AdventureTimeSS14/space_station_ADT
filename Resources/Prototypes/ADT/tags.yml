@@ -608,4 +608,8 @@
 - type: Tag
   id: ADTDoNotMakeOrigami
 
+- type: Tag
+  id: ADTTerraDisk
 
+- type: Tag
+  id: ADTTerraformerElectronics

@@ -1,0 +1,114 @@
+- type: constructionGraph
+  id: ADTTerra
+  start: start
+  graph:
+  - node: start
+    entity: ADTTerraformerRods
+    edges:
+    - to: finish
+      steps:
+        - material: Steel
+          amount: 15
+          doAfter: 2
+        - material: MetalRod
+          amount: 30
+          doAfter: 5
+        - tool: Welding
+          doAfter: 7
+        - material: Plasteel
+          amount: 20
+          doAfter: 5
+        - tool: Screwing
+          doAfter: 3
+        - material: Silver
+          amount: 10
+          doAfter: 2
+        - tool: Anchoring
+          doAfter: 4
+          completed:
+          - !type:VisualizerDataInt
+            key: "enum.ConstructionVisuals.Layer"
+            data: 1
+
+        - material: MetalRod
+          amount: 20
+          doAfter: 5
+        - tool: Welding
+          doAfter: 7
+        - material: Plasteel
+          amount: 10
+          doAfter: 5
+        - tool: Screwing
+          doAfter: 3
+        - tool: Anchoring
+          doAfter: 3
+        - tool: Welding
+          doAfter: 3
+          completed:
+          - !type:VisualizerDataInt
+            key: "enum.ConstructionVisuals.Layer"
+            data: 2
+
+        - material: MetalRod
+          amount: 25
+          doAfter: 5
+        - material: Plasteel
+          amount: 5
+          doAfter: 2
+        - tool: Welding
+          doAfter: 3
+          completed:
+          - !type:VisualizerDataInt
+            key: "enum.ConstructionVisuals.Layer"
+            data: 3
+
+        - material: Cable
+          amount: 15
+          doAfter: 2
+        - material: CableHV
+          amount: 15
+          doAfter: 2
+        - material: MetalRod
+          amount: 10
+          doAfter: 2
+        - tool: Welding
+          doAfter: 3
+        - material: Gold
+          amount: 15
+          doAfter: 2
+        - material: CableMV
+          amount: 20
+          doAfter: 2
+        - material: MetalRod
+          amount: 10
+          doAfter: 2
+        - tool: Welding
+          doAfter: 3
+          completed:
+          - !type:VisualizerDataInt
+            key: "enum.ConstructionVisuals.Layer"
+            data: 4
+
+        - tag: ADTTerraformerElectronics
+          name: плата терраформера
+          doAfter: 2
+        - material: Glass
+          amount: 10
+          doAfter: 2
+        - tool: Welding
+          doAfter: 3
+          completed:
+          - !type:VisualizerDataInt
+            key: "enum.ConstructionVisuals.Layer"
+            data: 5
+        - material: MetalRod
+          amount: 15
+          doAfter: 3
+        - material: Plasteel
+          amount: 15
+          doAfter: 2
+        - tool: Welding
+          doAfter: 3
+
+  - node: finish
+    entity: ADTTerraformer

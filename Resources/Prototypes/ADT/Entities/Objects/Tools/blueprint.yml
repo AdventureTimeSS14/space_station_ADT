@@ -17,3 +17,22 @@
   - type: Blueprint
     providedRecipes:
     - ADTHardsuitRaider
+
+- type: entity
+  parent: BaseBlueprint
+  id: ADTBlueprintTerra
+  name: blueprint
+  description: A blueprint with a schematic of a huge structure.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/blueprint.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,0
+    storedSprite:
+      sprite: Objects/Tools/blueprint.rsi
+      state: storage
+  - type: StaticPrice
+    price: 50000
