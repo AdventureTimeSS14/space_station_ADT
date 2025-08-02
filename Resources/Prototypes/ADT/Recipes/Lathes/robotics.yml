@@ -345,3 +345,13 @@
     Plastic: 800
     Glass: 1000
     Silver: 200
+
+- type: latheRecipe
+  id: ADTModsuitModStorageHolding
+  result: ADTModsuitModStorageHolding
+  completetime: 4
+  materials:
+    Steel: 2000
+    Silver: 750
+    Plasma: 1500
+    Uranium: 150
