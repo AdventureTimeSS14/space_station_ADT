@@ -60,6 +60,10 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] GameMaps =
         {
+            // SD-Start
+            "SD_Flicker",
+            // SD-End
+
             // Corvax-Start
             // "CorvaxAvrite", // ADT-Comment
             // "CorvaxDelta",
