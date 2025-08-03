@@ -44,7 +44,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         for (int i = 0; i < 1000 && component.Chaos >= 10; i++)
         {
             var rule = _random.Pick(component.RoundstartRules);
-            if (_random.NextDouble() > rule.RerollChance)
+            if (_random.NextDouble() < rule.RerollChance)
                 continue;
             if (component.Chaos - rule.Cost < 0)
             {
