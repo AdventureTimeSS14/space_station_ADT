@@ -390,7 +390,7 @@
     Steel: 1000
     Glass: 1500
     Gold: 1000
-    ADTBScrystal: 500 #ADT Tweak
+    ADTBScrystal: 500
 
 - type: latheRecipe
   id: ADTPhazonPeripheralsElectronics
