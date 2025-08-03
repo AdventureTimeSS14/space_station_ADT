@@ -315,15 +315,15 @@
     Steel: 1000
     Plastic: 800
 
-- type: latheRecipe
-  id: ADTModsuitModNoslip
-  result: ADTModsuitModNoslip
-  completetime: 2
-  materials:
-    Steel: 1000
-    Plastic: 250
-    Gold: 100
-    Plasma: 50
+# - type: latheRecipe
+#   id: ADTModsuitModNoslip
+#   result: ADTModsuitModNoslip
+#   completetime: 2
+#   materials:
+#     Steel: 1000
+#     Plastic: 250
+#     Gold: 100
+#     Plasma: 50
 
 - type: latheRecipe
   id: ADTClothingOuterExoskeletonBase
