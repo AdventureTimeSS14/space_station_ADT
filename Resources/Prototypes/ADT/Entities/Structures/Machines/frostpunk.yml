@@ -93,7 +93,7 @@
       energy: 3
       color: "#e0a634"
     - type: TemperatureProtection
-      HeatingCoefficient: 0.3
+      heatingCoefficient: 0.3
     - type: Armor
       modifiers:
         coefficients:
