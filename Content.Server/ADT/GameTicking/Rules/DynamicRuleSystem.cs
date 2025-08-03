@@ -41,9 +41,11 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         Log.Info($"Current chaos level: {component.Chaos}");
 
         //тяжело, но тут идёт механизм выбора раундстарт антагов
-        for (int i = 0; i < 100 && component.Chaos >= 0; i++)
+        for (int i = 0; i < 1000 && component.Chaos >= 10; i++)
         {
             var rule = _random.Pick(component.RoundstartRules);
+            if (_random.NextDouble() > rule.RerollChance)
+                continue;
             if (component.Chaos - rule.Cost < 0)
             {
                 //быстро просматривает, каких ещё антагов можно добавить антагов
@@ -100,8 +102,6 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
             if (scheduler.EventsBeforeAntag <= 0)
             {
                 var chaos = CheckChaos();
-                if (chaos < 30) //чтоб в совсем жепу не спавнило антагов
-                    continue;
                 //проводит выбор по всем антагом, по схожести очкам хаоса, если не находит, выбирает случайного
                 foreach (var antag in scheduler.MidroundAntags)
                 {

@@ -51,9 +51,20 @@ public sealed partial class DynamicRuleComponent : Component
 [Serializable]
 public sealed partial record DynamicRulePriced
 {
+    /// <summary>
+    /// тут должно быть исключительно айди геймрула по типу HereticDuoGameRule
+    /// </summary>
     [DataField(required: true)]
     public string Id;
 
+    /// <summary>
+    /// больше кост = меньше шанс на антага
+    /// </summary>
     [DataField]
     public int Cost;
+    /// <summary>
+    /// шанс с которым этот геймрул рерольнит
+    /// </summary>
+    [DataField]
+    public double RerollChance = 0;
 }

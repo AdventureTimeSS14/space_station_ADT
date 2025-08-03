@@ -211,10 +211,14 @@
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
+      - id: Thief
+        cost: 10
       - id: HereticDuoGameRule
         cost: 20
+        cerollChance: 0.5
       - id: HereticSoloGameRule
         cost: 10
+        cerollChance: 0.5
       - id: ChangelingDuoGameRule
         cost: 10
       - id: TraitorDuoGameRule
@@ -225,6 +229,7 @@
         cost: 25
       - id: HereticGameRule
         cost: 30
+        cerollChance: 0.5
       - id: Revolutionary
         cost: 45
       - id: Zombie
@@ -258,10 +263,14 @@
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
+      - id: Thief
+        cost: 10
       - id: HereticDuoGameRule
         cost: 20
+        cerollChance: 0.5
       - id: HereticSoloGameRule
         cost: 10
+        cerollChance: 0.5
       - id: ChangelingDuoGameRule
         cost: 10
       - id: TraitorDuoGameRule
@@ -272,6 +281,7 @@
         cost: 25
       - id: HereticGameRule
         cost: 30
+        cerollChance: 0.5
       - id: Nukeops
         cost: 50
       - id: Revolutionary
@@ -305,20 +315,22 @@
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
     roundstartRules:
+      - id: Thief
+        cost: 10
       - id: HereticDuoGameRule
         cost: 20
+        cerollChance: 0.5
       - id: ChangelingDuoGameRule
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
       - id: HereticSoloGameRule
         cost: 10
+        cerollChance: 0.5
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
         cost: 25
-      - id: HereticGameRule
-        cost: 30
     midroundAntags:
       - id: DragonSpawn
         cost: 110
