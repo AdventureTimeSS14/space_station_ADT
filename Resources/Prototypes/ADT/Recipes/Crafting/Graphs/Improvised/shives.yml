@@ -7,7 +7,7 @@
     - to: ADTCompPlasmaShiv
       steps:
       - tag: ADTRPlasmaShard
-        name: "Осколок закалённого плазменного стекла"
+        name: construction-graph-tag-reinforced-plasma-glass-shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -27,7 +27,7 @@
     - to: ADTCompUraniumShiv
       steps:
       - tag: ADTRUranShard
-        name: "Осколок закалённого уранового стекла"
+        name: construction-graph-tag-reinforced-uranium-glass-shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1

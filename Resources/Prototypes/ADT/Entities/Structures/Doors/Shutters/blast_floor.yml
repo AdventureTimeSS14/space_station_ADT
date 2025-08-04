@@ -1,0 +1,170 @@
+- type: entity
+  id: ADTFloorBlastDoor
+  name: blast floor
+  description: Barely visible blast door embedded in the floor.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: AccessReader
+    containerAccessProvider: board
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Misc/blastfloor.rsi
+    drawdepth: FloorTiles
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Transform
+    anchored: true
+  - type: Tag
+    tags:
+      - Catwalk
+  - type: Construction
+    graph: ADTBlastFloor
+    node: adtblastfloor
+    containers:
+    - board
+  - type: Door
+    openDrawDepth: FloorTiles
+    closedDrawDepth: FloorTiles
+    bumpOpen: false
+    clickOpen: false
+    closeTimeOne: 0.4
+    closeTimeTwo: 0.4
+    openTimeOne: 0.4
+    openTimeTwo: 0.4
+    openingAnimationTime: 1.0
+    closingAnimationTime: 1.0
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/blastdoor.ogg
+    closeSound:
+      path: /Audio/Machines/blastdoor.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        hard: false
+        layer:
+        - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        density: 1000
+        mask:
+        - ItemMask
+  - type: StaticPrice
+    price: 500
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
+  - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: DoorSignalControl
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - Open
+      - Close
+      - Toggle
+  - type: DeviceLinkSource
+    ports:
+    - DoorStatus
+    lastSignals:
+      DoorStatus: false
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics ]
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+  - type: Airtight
+  - type: Weldable
+    time: 3
+
+- type: entity
+  id: ADTFloorBlastDoorOpen
+  parent: ADTFloorBlastDoor
+  suffix: Open
+  components:
+  - type: Door
+    state: Open
+  - type: Airtight
+    airBlocked: false
+
+- type: entity
+  id: ADTBlastFloorFrame
+  parent: BaseStructureDynamic
+  name: blast floor frame
+  description: This one says 'BLAST DONGER'.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Misc/blastfloor.rsi
+    state: assembly
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        hard: false
+        layer:
+        - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        density: 1000
+        mask:
+        - ItemMask
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Construction
+    graph: ADTBlastFloor
+    node: frame1

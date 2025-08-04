@@ -161,6 +161,7 @@
     Piercing: 1.2
     Cold: 1.5
     Poison: 0.8
+    Caustic: 1.5 #ADT-tweak
 
 - type: damageModifierSet
   id: Infernal

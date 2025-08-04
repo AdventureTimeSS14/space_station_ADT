@@ -29,19 +29,20 @@ namespace Content.Client.Administration.UI.Bwoink
         public AdminAHelpUIHandler AHelpHelper = default!;
 
         // ADT-Tweak start. Система тегов в АХелп
-        public const int TagCount = 4; // Переменная количества тегов в списке
+        private static readonly List<string> TagNames = new()
+        {
+            "ahelp-user-type-tag-1",
+            "ahelp-user-type-tag-2",
+            "ahelp-user-type-tag-3",
+            "ahelp-user-type-tag-4",
+            "ahelp-user-type-tag-5"
+        }; // Лист с локализацией названий тегов в списке
 
-        private readonly string[] _tagNames = {
-            Loc.GetString("ahelp-user-type-tag-1"),
-            Loc.GetString("ahelp-user-type-tag-2"),
-            Loc.GetString("ahelp-user-type-tag-3"),
-            Loc.GetString("ahelp-user-type-tag-4")
-        }; // Массив с локализацией названий тегов в списке
+        public static int TagCount = TagNames.Count;
 
         // ADT-Tweak end. Система тегов в АХелп
 
         private PlayerInfo? _currentPlayer;
-        private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
 
         public BwoinkControl()
         {
@@ -94,10 +95,10 @@ namespace Content.Client.Administration.UI.Bwoink
                 // ADT-Tweak start. Система тегов в АХелп
                 if (AHelpHelper.TryGetChannel(info.SessionId, out var playerPanel))
                 {
-                    // Проверка диапазона тегов и добавление тега возле именри персонажа
+                    // Проверка диапазона тегов и добавление тега возле имени персонажа
                     if (playerPanel.LastTagId >= 0 && playerPanel.LastTagId < TagCount)
                     {
-                        sb.Append($" [{_tagNames[playerPanel.LastTagId]}]");
+                        sb.Append($" [{Loc.GetString(TagNames[playerPanel.LastTagId])}]");
                     }
                 }
                 // ADT-Tweak end.
@@ -177,11 +178,6 @@ namespace Content.Client.Administration.UI.Bwoink
 
             Kick.OnPressed += _ =>
             {
-                if (!AdminUIHelpers.TryConfirm(Kick, _confirmations))
-                {
-                    return;
-                }
-
                 // TODO: Reason field
                 if (_currentPlayer is not null)
                     _console.ExecuteCommand($"kick \"{_currentPlayer.Username}\"");
@@ -195,11 +191,6 @@ namespace Content.Client.Administration.UI.Bwoink
 
             Respawn.OnPressed += _ =>
             {
-                if (!AdminUIHelpers.TryConfirm(Respawn, _confirmations))
-                {
-                    return;
-                }
-
                 if (_currentPlayer is not null)
                     _console.ExecuteCommand($"respawn \"{_currentPlayer.Username}\"");
             };
