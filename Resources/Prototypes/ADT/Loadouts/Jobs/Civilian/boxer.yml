@@ -35,7 +35,7 @@
       role: JobBoxer
       time: 3600000 #1000 часов
 
- - type: loadout
+- type: loadout
   id: ADTBoxerPTSD
   effects:
   - !type:GroupLoadoutEffect
