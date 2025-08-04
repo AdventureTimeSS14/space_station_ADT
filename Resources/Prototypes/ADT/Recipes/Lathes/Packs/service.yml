@@ -98,4 +98,10 @@
 - type: latheRecipePack
   id: ADTServiceHydroponics
   recipes:
-  - ADTAdvancedPlantAnalyzer  
+  - ADTAdvancedPlantAnalyzer
+
+- type: latheRecipePack
+  id: ADTWeaponLauncherHydraPack
+  recipes:
+  - WeaponLauncherHydra
+  - GrenadeCleanade

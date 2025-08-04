@@ -140,10 +140,10 @@
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
     - state: cleanade
-      map: [ "enum.AmmoVisualLayers.Base" ]
+      map: ["enum.AmmoVisualLayers.Base"] #ADT tweak fix?
   - type: Appearance
   - type: SpentAmmoVisuals
-    state: frag
+    state: cleanade #ADT tweak fix: frag -> clenade
     suffix: false
 
 - type: entity

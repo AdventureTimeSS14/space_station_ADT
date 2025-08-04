@@ -80,3 +80,20 @@
   requiredTech:
   - MeatManipulation
   position: 3,-2
+
+- type: technology
+  id: WeaponLauncherHydra
+  name: research-technology-hydra
+  icon:
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponLauncherHydra
+  - GrenadeCleanade
+  position: 0,1
+  requiredTech:
+  - AdvancedSpray
+  - AdvancedCleaning
