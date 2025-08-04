@@ -519,7 +519,7 @@
 ## Боксёр
 
 - type: loadoutGroup
-  id: ADTBoxerPocket1
+  id: ADTBoxerMA
   name: loadout-boxer-pocket1-adt
   minLimit: 0
   maxLimit: 1
