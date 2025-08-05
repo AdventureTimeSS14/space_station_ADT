@@ -463,12 +463,21 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Radiation: 0.5
       # Start ADT tweak
       - !type:GenericStatusEffect
         conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         - !type:ReagentThreshold
           min: 4
         key: SeeingRainbows

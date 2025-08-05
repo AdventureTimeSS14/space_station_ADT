@@ -670,12 +670,27 @@
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.05
+    Poison:
+      effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         damage:
           types:
             Heat: 1
         probability: 0.2
       - !type:Emote
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         emote: Scream
         probability: 0.3
       # End ADT tweak
@@ -2854,10 +2869,21 @@
       effects:
       - !type:ChemVomit
         conditions:
+          #ADT-tweak-start
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+          #ADT-tweak-end
         - !type:ReagentThreshold
           min: 5
         probability: 0.5
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: .5
