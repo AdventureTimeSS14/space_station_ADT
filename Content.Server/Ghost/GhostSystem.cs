@@ -285,7 +285,7 @@ namespace Content.Server.Ghost
 
             try
             {
-                var profile = _gameTicker.GetPlayerProfile(player);+
+                var profile = _gameTicker.GetPlayerProfile(player);
                 GhostClothingInit(uid, component, profile);
             }
             catch (Exception ex)
