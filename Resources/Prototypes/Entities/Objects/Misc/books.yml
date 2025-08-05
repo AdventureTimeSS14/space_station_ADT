@@ -331,11 +331,12 @@
 
 - type: entity
   id: BookSpaceLaw
-  parent: BaseGuidebook
+  parent: BaseItem # Fix-ADT
   name: space law
   description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
   components:
   - type: Sprite
+    sprite: Objects/Misc/books.rsi # ADT-Fix
     layers:
     - state: paper
     - state: cover_strong
@@ -350,6 +351,21 @@
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/corporate-law # Ganimed Tweak
 # Corvax-HyperLink
+# ADT-Fix-Start Подтверждение перехода по ссылке
+  - type: UserInterface
+    interfaces:
+      enum.HyperLinkUiKey.Key:
+        type: HyperLinkBoundUserInterface
+  - type: Tag
+    tags:
+    - Book
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
+# ADT-Fix-end
 
 - type: entity
   parent: BookBase
