@@ -206,8 +206,9 @@
     belt: ADTClothingBeltMedicalSecurityFilled
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
-    pocket1: ADTBlueshieldVoucher
-    pocket2: HandheldCrewMonitor
+    pocket1: HandheldCrewMonitor
+  inhand: 
+    - ADTBaseWeaponCaseNTBS
   # innerClothingSkirt: ClothingUniformJumpskirtBlueshield
   # satchel: ADTClothingBackpackSatchelBlueshield
   # duffelbag: ADTClothingBackpackDuffelBlueshield
