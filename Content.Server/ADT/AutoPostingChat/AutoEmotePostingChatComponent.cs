@@ -14,6 +14,9 @@ public sealed partial class AutoEmotePostingChatComponent : Component
     [DataField("emoteMessage")]
     public string? PostingMessageEmote = default;
 
+    [DataField("listEmoteMessages")]
+    public List<string>? ListEmoteMessages = null;
+
     [DataField("randomIntervalEmote"), ViewVariables(VVAccess.ReadWrite)]
     public bool RandomIntervalEmote = false;
 

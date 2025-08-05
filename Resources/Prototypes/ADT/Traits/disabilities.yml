@@ -49,3 +49,19 @@
         Shock: 1.2
   cost: -2
   quirk: true
+
+- type: trait
+  id: ChronicRhinitis
+  name: trait-chronic-rhinitis-name
+  description: trait-chronic-rhiniti-desc
+  category: Quirks  # ADT Quirks
+  components:
+    - type: AutoEmotePostingChat
+      listEmoteMessages: [ "кашляет", "чихает" ]
+      randomIntervalEmote: true
+      max: 120
+      min: 20
+  cost: -1  # ADT Quirks
+  speciesBlacklist:
+  - IPC
+  quirk: true  # ADT Quirks
