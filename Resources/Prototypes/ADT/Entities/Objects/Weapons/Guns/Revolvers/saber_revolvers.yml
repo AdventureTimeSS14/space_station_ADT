@@ -1,6 +1,6 @@
 - type: entity
   name: NTRS-01 energy revolver-saber
-  parent: [EnergySword, BaseItem]
+  parent: BaseItem
   id: ADTWeaponSaberRevBlueshield
   description:
   components:
@@ -58,8 +58,6 @@
         whitelist:
           tags:
             - ADTLasgunRevolverCell
-  - type: AltFireMelee
-    attackType: Heavy
   - type: Tag
     tags:
     - ADTBsoWeapon
