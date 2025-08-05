@@ -25,6 +25,8 @@ public interface IGameMapManager
     /// <returns>enumerator of map prototypes</returns>
     IEnumerable<GameMapPrototype> AllMaps();
 
+    void RegisterPlayedMap(string mapId);
+
     /// <summary>
     /// Gets the currently selected map
     /// </summary>

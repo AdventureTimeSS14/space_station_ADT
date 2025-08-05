@@ -32,6 +32,9 @@ public sealed class GameMapManager : IGameMapManager
     [ViewVariables(VVAccess.ReadOnly)]
     private int _mapQueueDepth = 1;
 
+    private readonly Queue<string> _recentlyPlayedMaps = new();
+    private const int RecentMapBanDepth = 3;
+
     private ISawmill _log = default!;
 
     public void Initialize()
@@ -95,8 +98,13 @@ public sealed class GameMapManager : IGameMapManager
 
     public IEnumerable<GameMapPrototype> CurrentlyEligibleMaps()
     {
-        var maps = AllVotableMaps().Where(IsMapEligible).ToArray();
-        return maps.Length == 0 ? AllMaps().Where(x => x.Fallback) : maps;
+        var maps = AllVotableMaps()
+            .Where(map => IsMapEligible(map) && !_recentlyPlayedMaps.Contains(map.ID))
+            .ToArray();
+
+        return maps.Length == 0
+            ? AllMaps().Where(x => x.Fallback && !_recentlyPlayedMaps.Contains(x.ID))
+            : maps;
     }
 
     public IEnumerable<GameMapPrototype> AllVotableMaps()
@@ -131,6 +139,16 @@ public sealed class GameMapManager : IGameMapManager
     public GameMapPrototype? GetSelectedMap()
     {
         return _configSelectedMap ?? _selectedMap;
+    }
+
+    public void RegisterPlayedMap(string mapId)
+    {
+        _recentlyPlayedMaps.Enqueue(mapId);
+
+        while (_recentlyPlayedMaps.Count > RecentMapBanDepth)
+        {
+            _recentlyPlayedMaps.Dequeue();
+        }
     }
 
     public void ClearSelectedMap()
