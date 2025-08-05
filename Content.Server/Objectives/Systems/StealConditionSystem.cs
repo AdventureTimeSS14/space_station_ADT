@@ -24,7 +24,6 @@ public sealed class StealConditionSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly CheckSupermatterSystem _supermatter = default!; // ADT-Tweak
 
     private EntityQuery<ContainerManagerComponent> _containerQuery;
 
