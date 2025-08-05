@@ -131,7 +131,7 @@
     Cardboard: 300
 
 - type: latheRecipe
-  id: WeaponLauncherHydra
+  id: ADTWeaponLauncherHydra
   result: WeaponLauncherHydra
   completetime: 3
   materials:

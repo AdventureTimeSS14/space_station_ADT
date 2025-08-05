@@ -103,5 +103,5 @@
 - type: latheRecipePack
   id: ADTWeaponLauncherHydraPack
   recipes:
-  - WeaponLauncherHydra
+  - ADTWeaponLauncherHydra
   - GrenadeCleanade

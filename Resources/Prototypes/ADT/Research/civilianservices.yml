@@ -82,7 +82,7 @@
   position: 3,-2
 
 - type: technology
-  id: WeaponLauncherHydra
+  id: ADTWeaponLauncherHydra
   name: research-technology-hydra
   icon:
     sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
@@ -91,7 +91,7 @@
   tier: 3
   cost: 15000
   recipeUnlocks:
-  - WeaponLauncherHydra
+  - ADTWeaponLauncherHydra
   - GrenadeCleanade
   position: 0,1
   requiredTech:
