@@ -441,12 +441,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
-  # ADT-Tweak-start
-  - type: ClothingGrantComponent
-    component:
-    - type: SupermatterImmune
-  - type: SupermatterImmune
-  # ADT-Tweak-end
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -977,10 +971,6 @@
   - type: DNALocker # ADT-Tweak костыль
     enabled: false
   # ADT-Tweak-start
-  - type: ClothingGrantComponent
-    component:
-    - type: SupermatterImmune
-  - type: SupermatterImmune
   - type: ExplosionResistance
     damageCoefficient: 0.25
   # ADT-Tweak-end
@@ -1075,12 +1065,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
-  # ADT-Tweak-start
-  - type: ClothingGrantComponent
-    component:
-    - type: SupermatterImmune
-  - type: SupermatterImmune
-  # ADT-Tweak-end
 
 #CBURN Hardsuit
 - type: entity

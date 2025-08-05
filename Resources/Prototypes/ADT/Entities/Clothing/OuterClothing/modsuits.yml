@@ -360,10 +360,6 @@
     damageCoefficient: 0.5
   - type: FireProtection
     reduction: 1
-  - type: ClothingGrantComponent
-    component:
-    - type: SupermatterImmune
-  - type: SupermatterImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase

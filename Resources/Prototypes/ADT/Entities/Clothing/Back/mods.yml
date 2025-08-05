@@ -351,7 +351,6 @@
   - type: Construction
     graph: ADTModsuitScience
     node: adtmodsuitscience
-  - type: SupermatterImmune
 
 # синдиката
 - type: entity
