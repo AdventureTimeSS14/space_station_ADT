@@ -54,6 +54,9 @@ alerts-battery-desc = If your battery depletes, you will be unable to use your a
 alerts-no-battery-name = No Battery
 alerts-no-battery-desc = You don't have a battery, rendering you unable to charge or use your abilities.
 
+alerts-walking-name = Walking
+alerts-walking-desc = You are walking, moving at a slow pace.
+
 alerts-internals-name = Toggle internals
 alerts-internals-desc = Toggles your gas tank internals on or off.
 

@@ -15,7 +15,7 @@ public abstract class SharedAgillitySkillSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ClimbSystem _climb = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly INetManager _net = default!;

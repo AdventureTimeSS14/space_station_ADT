@@ -3,16 +3,17 @@
   name: job-name-ADTBlueShieldOfficer
   description: job-description-ADTBlueShieldOfficer
   playTimeTracker: JobADTBlueShieldOfficer
+  requireAdminNotify: true # Ganimed Rules Tweak
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobCaptain
-      time: 36000 #10 hrs
-    - !type:RoleTimeRequirement
-      role: JobHeadOfSecurity
-      time: 36000 #10 hrs
-    - !type:RoleTimeRequirement
-      role: JobChiefMedicalOfficer
-      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 72000 #20 hrs Ganimed-RoleTime
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 #20 hrs Ganimed-RoleTime
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs Ganimed-RoleTime
     - !type:AgeRequirement
       requiredAge: 21
     # ADT Restrict Start
@@ -22,6 +23,12 @@
       - Resomi
       - Vox
   # ADT RESTRICT End
+    - !type:TraitsRequirement # Ganimed-MRP: BSO undergoes medical examination
+      inverted: true
+      traits:
+      - Pacifist
+      - Blindness
+      - Frail
   weight: 15
   startingGear: ADTBlueShieldOfficerGear
   icon: "JobIconADTBlueShieldOfficer"
@@ -184,6 +191,7 @@
                     dropItems: false
                   - !type:ComboPopupEffect
                     localeText: combo-leg-sweep-end
+        - type: AntagImmune # Ganimed-MRP: Loyalty implant
 
 - type: startingGear
   id: ADTBlueShieldOfficerGear

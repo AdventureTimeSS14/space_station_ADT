@@ -8,7 +8,7 @@
       steps:
 
       - tag: ADTHardsuitSalvage
-        name: шахтёрский МОД
+        name: construction-graph-salvage-hardsuitmode
         icon:
           sprite: "Clothing/OuterClothing/Hardsuits/salvage.rsi"
           state: "icon"
@@ -46,7 +46,7 @@
           data: 5
 
       - tag: ADTClarkeCentralControlModule
-        name: clarke central control module
+        name: construction-graph-tag-clarke-control-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -63,7 +63,7 @@
           data: 7
 
       - tag: ADTClarkePeripheralsControlModule
-        name: clarke peripherals control module
+        name: construction-graph-tag-clarke-peripherals-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -83,7 +83,7 @@
 #currently mechs don't support upgrading. add them back in once that's squared away.
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-tag-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi

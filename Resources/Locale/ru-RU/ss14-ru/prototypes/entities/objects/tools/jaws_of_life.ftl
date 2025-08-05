@@ -4,6 +4,4 @@ ent-JawsOfLife = челюсти жизни
 ent-SyndicateJawsOfLife = чёрно-красные челюсти жизни
     .suffix = Синдикат
     .desc = Набор стильных челюстей жизни, скомпонованных при помощи магии науки.
-
 # Corvax-HiddenDesc-End
-

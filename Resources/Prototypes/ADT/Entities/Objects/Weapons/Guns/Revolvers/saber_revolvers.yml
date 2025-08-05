@@ -1,6 +1,6 @@
 - type: entity
   name: NTRS-01 energy revolver-saber
-  parent: [BaseWeaponPowerCellSmall]
+  parent: [EnergySword, BaseItem]
   id: ADTWeaponSaberRevBlueshield
   description:
   components:
@@ -50,7 +50,7 @@
   - type: Appearance
   - type: ItemSlots
     slots:
-      gun_magazine:
+      cell_slot:
         name: Magazine
         startingItem: ADTPowerCellLasgunRevolver
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -63,6 +63,7 @@
   - type: Tag
     tags:
     - ADTBsoWeapon
+    - Sidearm
   - type: RMCMagneticItem
   - type: DNAGunLocker
   - type: Clothing
@@ -71,3 +72,13 @@
     slots:
     - Belt
     - suitStorage
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: StaticPrice
+    price: 500
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletLaserMK2
+    fireCost: 100

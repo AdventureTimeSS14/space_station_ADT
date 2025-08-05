@@ -4,6 +4,7 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Configuration;
 using Content.Shared.ADT.CCVar;
 using Content.Server.Mind;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.SpeechBarks;
 
@@ -14,7 +15,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     private bool _isEnabled = false;
 
     public override void Initialize()
@@ -46,7 +47,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 
         foreach (var ent in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10f))
         {
-            if (!_mind.TryGetMind(ent, out _, out var mind) || mind.Session == null)
+            if (!_mind.TryGetMind(ent, out _, out var mind) || mind.UserId == null || !_player.TryGetSessionById(mind.UserId, out var session))
                 continue;
 
             RaiseNetworkEvent(new PlaySpeechBarksEvent(
@@ -56,7 +57,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                         ev.Data.Pitch,
                         ev.Data.MinVar,
                         ev.Data.MaxVar,
-                        args.Whisper), mind.Session);
+                        args.Whisper), session);
         }
     }
 }
