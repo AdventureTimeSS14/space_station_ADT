@@ -15,6 +15,7 @@ using Content.Shared.Database;
 using Content.Shared.ADT.Poltergeist;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
+using Content.Shared.Preferences;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
@@ -275,17 +276,31 @@ namespace Content.Server.Ghost
         }
 
         // ADT tweak start
-        private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
+        private void OnPlayerAttached(EntityUid uid, GhostComponent component, ref PlayerAttachedEvent args)
         {
+            if (!TryComp(uid, out ActorComponent? actor))
+                return;
+
+            var player = actor.PlayerSession;
+
             try
             {
-                var profile = _gameTicker.GetPlayerProfile(args.Player);
-                _humanoidSystem.LoadProfile(uid, profile);
+                var profile = _gameTicker.GetPlayerProfile(player);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Log.Error($"Error setting ghost profile for {ToPrettyString(uid)}:\n{e}");
+                Log.Error($"Failed to load ghost profile. Exception: {ex}");
+                return;
             }
+            finally
+            {
+                GhostClothingInit(uid, component, profile);
+            }
+        }
+
+        private void GhostClothingInit(EntityUid uid, GhostComponent component, HumanoidCharacterProfile profile)
+        {
+            _humanoidSystem.LoadProfile(uid, profile);
 
             if (component.AvailableClothing != null)
             {
@@ -535,6 +550,7 @@ namespace Content.Server.Ghost
                 return polter;
             }
             // ADT Poltergeist end
+
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
             var ghostComponent = Comp<GhostComponent>(ghost);
 
