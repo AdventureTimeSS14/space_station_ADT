@@ -13,14 +13,3 @@
   id: ADTResidentPDA
   equipment:
     id: ADTResidentPDA
-
-# Jumpsuit
-- type: loadout
-  id: ADTClothingUniformJumpsuitTurtleneckWhite
-  equipment:
-    jumpsuit: ADTClothingUniformJumpsuitTurtleneckWhite
-
-- type: loadout
-  id: ADTClothingUniformJumpskirtTurtleneckWhite
-  equipment:
-    jumpsuit: ADTClothingUniformJumpskirtTurtleneckWhite
