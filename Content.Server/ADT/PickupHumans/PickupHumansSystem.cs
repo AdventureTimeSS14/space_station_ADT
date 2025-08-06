@@ -4,36 +4,11 @@ using Content.Shared.Popups;
 using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Containers;
-
-using Content.Shared.DoAfter;
-using Content.Shared.Input;
-using Robust.Shared.Input.Binding;
 using Content.Shared.Standing;
-using Robust.Shared.Serialization;
-using Content.Shared.Stunnable;
-using Robust.Shared.Player;
-using Content.Shared.Alert;
-using Content.Shared.Interaction;
-using Content.Shared.ActionBlocker;
-// using Content.Shared.Throwing; // TODO: Сделать небольшой бросок
-using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Movement.Events;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Movement.Pulling.Events;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Mobs;
 using Content.Shared.Interaction.Events;
-using Content.Shared.ADT.Crawling;
-using Content.Shared.Popups;
 using Content.Shared.Climbing.Events;
-using Content.Shared.ADT.Silicon;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Verbs;
-using Content.Shared.Movement.Pulling.Components;
-using Robust.Shared.Containers;
 
 
 

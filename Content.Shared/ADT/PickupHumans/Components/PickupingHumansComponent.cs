@@ -8,7 +8,7 @@ public sealed partial class PickupingHumansComponent : Component
     public EntityUid User = default;
 
     [ViewVariables, DataField("sprintSpeedModifier"), AutoNetworkedField]
-    public float SprintSpeedModifier = 0.8f;
+    public float SprintSpeedModifier = 0.7f;
 
     [ViewVariables, DataField("walkSpeedModifier"), AutoNetworkedField]
     public float WalkSpeedModifier = 0.6f;
