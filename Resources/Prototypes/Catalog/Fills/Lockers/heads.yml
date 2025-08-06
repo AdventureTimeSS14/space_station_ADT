@@ -381,7 +381,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: ADTWeaponPistolX01 # ADT tweak Мультифаза для гсб
+    - id: ADTHosVoucher # ADT tweak
 #    - id: WeaponEnergyShotgun ADT tweak Дробовик для смотрителя
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
