@@ -276,45 +276,42 @@ namespace Content.Server.Ghost
         }
 
         // ADT tweak start
-        private void OnPlayerAttached(EntityUid uid, GhostComponent component, ref PlayerAttachedEvent args)
+        private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
         {
             if (!TryComp(uid, out ActorComponent? actor))
                 return;
 
+            if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
+                return;
+
             var player = actor.PlayerSession;
 
-            try
+            var profile = player != null ? _gameTicker.GetPlayerProfile(player);
+            if (profile != null)
             {
-                var profile = _gameTicker.GetPlayerProfile(player);
+                _humanoidSystem.LoadProfile(uid, profile, humanoid);
                 GhostClothingInit(uid, component, profile);
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"Failed to load ghost profile. Exception: {ex}");
-                return;
             }
         }
 
         private void GhostClothingInit(EntityUid uid, GhostComponent component, HumanoidCharacterProfile profile)
         {
-            _humanoidSystem.LoadProfile(uid, profile);
+            if (component.AvailableClothing == null)
+                return;
 
-            if (component.AvailableClothing != null)
+            var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
+            if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
             {
-                var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
-                if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
-                {
-                    ghostInv.Displacements = inv.Displacements;
-                    DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
-                }
-                QueueDel(mob);
-
-                var clothing = Spawn(_random.Pick(component.AvailableClothing));
-                RemComp<SuitSensorComponent>(clothing);
-                EnsureComp<UnremoveableComponent>(clothing);
-                if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
-                    QueueDel(clothing);
+                ghostInv.Displacements = inv.Displacements;
+                DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
             }
+            QueueDel(mob);
+
+            var clothing = Spawn(_random.Pick(component.AvailableClothing));
+            RemComp<SuitSensorComponent>(clothing);
+            EnsureComp<UnremoveableComponent>(clothing);
+            if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
+                QueueDel(clothing);
         }
         // ADT tweak end
 
