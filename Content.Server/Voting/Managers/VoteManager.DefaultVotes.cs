@@ -300,7 +300,6 @@ namespace Content.Server.Voting.Managers
                     picked = (GameMapPrototype) args.Winner;
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-map-win", ("winner", maps[picked])));
-                    _gameMapManager.RegisterPlayedMap(picked.ID); // ADT-Tweak: ReWork Vote Map
                 }
 
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Map vote finished: {picked.MapName}");
