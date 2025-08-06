@@ -35,7 +35,6 @@ public sealed class GameMapManager : IGameMapManager
 
     private readonly Queue<string> _recentlyPlayedMaps = new(); // ADT-Tweak: ReWork Vote Map
     private int RecentMapBanDepth => _configurationManager.GetCVar(ADTCCVars.MapVoteRecentBanDepth); // ADT-Tweak: ReWork Vote Map.
-
     private ISawmill _log = default!;
 
     public void Initialize()
