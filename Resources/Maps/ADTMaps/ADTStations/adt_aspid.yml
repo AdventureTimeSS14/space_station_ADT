@@ -43618,14 +43618,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 97.5,55.5
       parent: 2
-- proto: ComputerSupermatter
-  entities:
-  - uid: 13962
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 49.5,117.5
-      parent: 2
 - proto: ComputerSurveillanceCameraMonitor
   entities:
   - uid: 6927

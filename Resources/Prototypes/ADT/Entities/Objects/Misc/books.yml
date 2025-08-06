@@ -339,31 +339,6 @@
   - type: StaticPrice
     price: 2
 
-#Суперматерия
-- type: entity
-  parent: BaseGuidebook
-  id: ADTBookAtmosSupermatter
-  name: "Newton's Guide to Atmos: Supermatter"
-  description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
-  components:
-  - type: Sprite
-    layers:
-    - state: paper
-    - state: cover_base
-      color: "#3ec78e"
-    - state: decor_wingette
-      color: "#28a15a"
-    - state: supermatter
-    - state: icon_corner
-      color: gold
-  - type: Tag
-    tags:
-    - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - SupermatterGuideBook
-
 - type: entity
   parent: BookBase
   id: ADTBookAboutJail
