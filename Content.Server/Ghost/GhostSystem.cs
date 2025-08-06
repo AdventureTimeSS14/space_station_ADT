@@ -286,7 +286,10 @@ namespace Content.Server.Ghost
 
             var player = actor.PlayerSession;
 
-            var profile = player != null ? _gameTicker.GetPlayerProfile(player);
+            if (player == null)
+                return;
+
+            var profile = _gameTicker.GetPlayerProfile(player);
             if (profile != null)
             {
                 _humanoidSystem.LoadProfile(uid, profile, humanoid);
