@@ -790,7 +790,7 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobBoxer
+  id: Job
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -798,6 +798,7 @@
   - BoxerGloves
   - CommonBackpack
   - Glasses
+  - ADTBoxerMA #ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
