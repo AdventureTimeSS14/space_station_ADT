@@ -32,8 +32,8 @@ public sealed class GameMapManager : IGameMapManager
     [ViewVariables(VVAccess.ReadOnly)]
     private int _mapQueueDepth = 1;
 
-    private readonly Queue<string> _recentlyPlayedMaps = new();
-    private const int RecentMapBanDepth = 3;
+    private readonly Queue<string> _recentlyPlayedMaps = new(); // ADT-Tweak: ReWork Vote Map
+    private const int RecentMapBanDepth = 3;                    // ADT-Tweak: ReWork Vote Map
 
     private ISawmill _log = default!;
 
@@ -100,11 +100,11 @@ public sealed class GameMapManager : IGameMapManager
     {
         var maps = AllVotableMaps()
             .Where(map => IsMapEligible(map) && !_recentlyPlayedMaps.Contains(map.ID))
-            .ToArray();
+            .ToArray(); // ADT-Tweak: ReWork Vote Map
 
         return maps.Length == 0
             ? AllMaps().Where(x => x.Fallback && !_recentlyPlayedMaps.Contains(x.ID))
-            : maps;
+            : maps; // ADT-Tweak: ReWork Vote Map
     }
 
     public IEnumerable<GameMapPrototype> AllVotableMaps()
@@ -141,6 +141,7 @@ public sealed class GameMapManager : IGameMapManager
         return _configSelectedMap ?? _selectedMap;
     }
 
+    // ADT-Tweak-start: Добавлена функция для фильтрации последних карт
     public void RegisterPlayedMap(string mapId)
     {
         _recentlyPlayedMaps.Enqueue(mapId);
@@ -150,7 +151,7 @@ public sealed class GameMapManager : IGameMapManager
             _recentlyPlayedMaps.Dequeue();
         }
     }
-
+    // ADT-Tweak-end
     public void ClearSelectedMap()
     {
         _selectedMap = default!;
