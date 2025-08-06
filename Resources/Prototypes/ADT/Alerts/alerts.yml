@@ -255,3 +255,11 @@
   description: alerts-modsuit-power-desc
   minSeverity: 0
   maxSeverity: 5
+
+- type: alert
+  id: ADTPickupHumans
+  icons:
+  - sprite: /Textures/ADT/Alerts/pickup_entity.rsi
+    state: take_entity
+  name: alerts-pickup-name
+  description: alerts-pickup-desc
