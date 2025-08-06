@@ -74,6 +74,10 @@
   - type: ContainerContainer # ADT tweak start
     containers:
       VentCrawlerTube: !type:Container
+  # ADT-PipePressureDamage-Start
+  - type: OverpressurePipeDamage
+    limitPressure: 10000
+  # ADT-PipePressureDamage-End
 
 - type: entity
   id: VentCrawlerHolder
@@ -85,10 +89,6 @@
     - type: ContainerContainer
       containers:
         VentCrawlerHolderComponent: !type:Container # ADT tweak end
-    # ADT-PipePressureDamage-Start
-    - type: OverpressurePipeDamage
-      limitPressure: 10000
-    # ADT-PipePressureDamage-End
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
 - type: entity
