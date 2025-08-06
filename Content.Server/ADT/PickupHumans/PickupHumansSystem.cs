@@ -5,6 +5,36 @@ using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Containers;
 
+using Content.Shared.DoAfter;
+using Content.Shared.Input;
+using Robust.Shared.Input.Binding;
+using Content.Shared.Standing;
+using Robust.Shared.Serialization;
+using Content.Shared.Stunnable;
+using Robust.Shared.Player;
+using Content.Shared.Alert;
+using Content.Shared.Interaction;
+using Content.Shared.ActionBlocker;
+// using Content.Shared.Throwing; // TODO: Сделать небольшой бросок
+using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Movement.Events;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.ADT.Components.PickupHumans;
+using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Mobs;
+using Content.Shared.Interaction.Events;
+using Content.Shared.ADT.Crawling;
+using Content.Shared.Popups;
+using Content.Shared.Climbing.Events;
+using Content.Shared.ADT.Silicon;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Verbs;
+using Content.Shared.Movement.Pulling.Components;
+using Robust.Shared.Containers;
+
 
 
 namespace Content.Server.ADT.PickupHumans;
@@ -20,6 +50,16 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
 
         SubscribeLocalEvent<TakenHumansComponent, MoveInputEvent>(OnMoveInput);
         SubscribeLocalEvent<TakenHumansComponent, EscapingDoAfterEvent>(OnEscape);
+
+
+        SubscribeLocalEvent<TakenHumansComponent, PullAttemptEvent>(OnPullAttempt);
+        SubscribeLocalEvent<TakenHumansComponent, UpdateCanMoveEvent>(OnMoveAttempt);
+        SubscribeLocalEvent<TakenHumansComponent, StandAttemptEvent>(OnStandAttempt);
+        SubscribeLocalEvent<TakenHumansComponent, InteractionAttemptEvent>(OnInteractionAttempt);
+        SubscribeLocalEvent<TakenHumansComponent, StartClimbEvent>(OnStartClimb);
+        SubscribeLocalEvent<PickupingHumansComponent, DownAttemptEvent>(OnFallAttempt);
+        SubscribeLocalEvent<PickupHumansComponent, ContainerGettingInsertedAttemptEvent>(OnContainerInsertAttempt);
+        SubscribeLocalEvent<PickupHumansComponent, DropAttemptEvent>(OnDropAttempt);
     }
 
     private void OnMoveInput(EntityUid uid, TakenHumansComponent component, ref MoveInputEvent args)
@@ -60,4 +100,63 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
 
         DropFromHands(args.User, component.Target);
     }
+
+    #region Проверка на взаимодействия носителя и переносимого
+    private void OnInteractionAttempt(EntityUid uid, TakenHumansComponent component, InteractionAttemptEvent args)
+    {
+        if (TryComp<PickupingHumansComponent>(args.Target, out var pickupingHumansComponent) && pickupingHumansComponent.User == args.Target)
+            return;
+
+        args.Cancelled = true;
+    }
+
+    private void OnDropAttempt(EntityUid uid, PickupHumansComponent component, DropAttemptEvent args)
+    {
+        if (!HasComp<PickupingHumansComponent>(uid))
+            return;
+
+        if (_containerSystem.IsEntityInContainer(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("popup-down-attempt"), uid, uid);
+            args.Cancel();
+        }
+    }
+
+    private void OnFallAttempt(EntityUid uid, PickupingHumansComponent component, DownAttemptEvent args)
+    {
+        _popup.PopupEntity(Loc.GetString("pickup-cannot-down-while-pickuping"), uid, uid);
+        args.Cancel();
+    }
+
+    private void OnContainerInsertAttempt(EntityUid uid, PickupHumansComponent component, ContainerGettingInsertedAttemptEvent args)
+    {
+        if (!HasComp<TakenHumansComponent>(uid) || HasComp<PickupingHumansComponent>(uid))
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnStartClimb(EntityUid uid, TakenHumansComponent component, ref StartClimbEvent args)
+    {
+        if (!TryComp<PickupHumansComponent>(uid, out var pickupHumansComponent))
+            return;
+
+        DropFromHands(pickupHumansComponent.User, uid);
+    }
+
+    private void OnPullAttempt(EntityUid uid, TakenHumansComponent component, PullAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    private void OnMoveAttempt(EntityUid uid, TakenHumansComponent component, UpdateCanMoveEvent args)
+    {
+        args.Cancel();
+    }
+
+    private void OnStandAttempt(EntityUid uid, TakenHumansComponent component, StandAttemptEvent args)
+    {
+        args.Cancel();
+    }
+    #endregion
 }

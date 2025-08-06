@@ -10,18 +10,14 @@ using Content.Shared.Interaction;
 using Content.Shared.ActionBlocker;
 // using Content.Shared.Throwing; // TODO: Сделать небольшой бросок
 using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Movement.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.ADT.Components.PickupHumans;
-using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Mobs;
-using Content.Shared.Interaction.Events;
 using Content.Shared.ADT.Crawling;
 using Content.Shared.Popups;
-using Content.Shared.Climbing.Events;
 using Content.Shared.ADT.Silicon;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Verbs;
@@ -49,19 +45,10 @@ public abstract class SharedPickupHumansSystem : EntitySystem
 
         SubscribeLocalEvent<PickupHumansComponent, GetVerbsEvent<AlternativeVerb>>(AddPickupVerb);
         SubscribeLocalEvent<PickupHumansComponent, PickupHumansDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<PickupHumansComponent, DropAttemptEvent>(OnDropAttempt);
         SubscribeLocalEvent<PickupHumansComponent, InteractHandEvent>(OnPickupInteract);
-        SubscribeLocalEvent<PickupHumansComponent, ContainerGettingInsertedAttemptEvent>(OnContainerInsertAttempt);
 
         SubscribeLocalEvent<PickupingHumansComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<PickupingHumansComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<PickupingHumansComponent, DownAttemptEvent>(OnFallAttempt);
-
-        SubscribeLocalEvent<TakenHumansComponent, PullAttemptEvent>(OnPullAttempt);
-        SubscribeLocalEvent<TakenHumansComponent, UpdateCanMoveEvent>(OnMoveAttempt);
-        SubscribeLocalEvent<TakenHumansComponent, StandAttemptEvent>(OnStandAttempt);
-        SubscribeLocalEvent<TakenHumansComponent, InteractionAttemptEvent>(OnInteractionAttempt);
-        SubscribeLocalEvent<TakenHumansComponent, StartClimbEvent>(OnStartClimb);
 
         SubscribeLocalEvent<PickupingHumansComponent, ComponentInit>(OnPickupSlowdownInit);
         SubscribeLocalEvent<PickupingHumansComponent, ComponentShutdown>(OnTargetSlowRemove);
@@ -84,6 +71,9 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         ShowAlertPickupHumans(session.AttachedEntity.Value, component);
     }
 
+    /// <summary>
+    /// Показывает alert для сущности
+    /// </summary>
     private void ShowAlertPickupHumans(EntityUid uid, PickupHumansComponent component)
     {
         component.InReadyPickupHumansMod = !component.InReadyPickupHumansMod;
@@ -96,6 +86,9 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         Dirty(uid, component);
     }
 
+     /// <summary>
+    /// Добавления verb'a взятия на руки
+    /// </summary>
     private void AddPickupVerb(EntityUid uid, PickupHumansComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract || !args.CanAccess)
@@ -134,6 +127,9 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+    /// <summary>
+    /// Реагирует на дотрагивание до сущности в режиме готовности поднять её
+    /// </summary>
     private void OnPickupInteract(EntityUid uid, PickupHumansComponent component, InteractHandEvent args)
     {
         if (!HasComp<MobIpcComponent>(args.User) && HasComp<MobIpcComponent>(args.Target))
@@ -157,6 +153,10 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         StartPickupDoAfter(args.User, args.Target, userComponent);
     }
 
+
+    /// <summary>
+    /// Включает DoAfter поднятия
+    /// </summary>
     private void StartPickupDoAfter(EntityUid uid, EntityUid target, PickupHumansComponent comp)
     {
         if (HasComp<CrawlingComponent>(uid))
@@ -193,6 +193,10 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         args.Handled = true;
     }
 
+
+    /// <summary>
+    /// Поднимает сущность на руки
+    /// </summary>
     private void Pickup(EntityUid uid, EntityUid target)
     {
         if (!TryComp<PickupHumansComponent>(target, out var userComponent))
@@ -231,6 +235,9 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         _actionBlocker.UpdateCanMove(target);
     }
 
+    /// <summary>
+    /// Реагирует на выпадение сущности из рук
+    /// </summary>
     public void DropFromHands(EntityUid uid, EntityUid target)
     {
         RemComp<PickupingHumansComponent>(uid);
@@ -274,25 +281,6 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         return true;
     }
 
-    private void OnInteractionAttempt(EntityUid uid, TakenHumansComponent component, InteractionAttemptEvent args)
-    {
-        if (TryComp<PickupingHumansComponent>(args.Target, out var pickupingHumansComponent) && pickupingHumansComponent.User == args.Target)
-            return;
-
-        args.Cancelled = true;
-    }
-
-    private void OnDropAttempt(EntityUid uid, PickupHumansComponent component, DropAttemptEvent args)
-    {
-        if (!HasComp<PickupingHumansComponent>(uid))
-            return;
-
-        if (_container.IsEntityInContainer(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("popup-down-attempt"), uid, uid);
-            args.Cancel();
-        }
-    }
     private void OnVirtualItemDeleted(EntityUid uid, PickupingHumansComponent component, VirtualItemDeletedEvent args)
     {
         if (!HasComp<TakenHumansComponent>(args.BlockingEntity) || !HasComp<PickupHumansComponent>(args.BlockingEntity))
@@ -301,11 +289,18 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         DropFromHands(uid, args.BlockingEntity);
     }
 
+
+    /// <summary>
+    /// Реагирует на поднятие на руки и вызывает другую функцию для обновления скорости
+    /// </summary>
     private void OnPickupSlowdownInit(EntityUid uid, PickupingHumansComponent component, ComponentInit args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
     }
 
+    /// <summary>
+    /// Реагирует на опускание сущности и обновляет скорость до дефолтной
+    /// </summary>
     private void OnTargetSlowRemove(EntityUid uid, PickupingHumansComponent component, ComponentShutdown args)
     {
         component.SprintSpeedModifier = 1f;
@@ -313,51 +308,17 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
     }
 
+    /// <summary>
+    /// Обновляет скорость носителя при взятии на руки
+    /// </summary>
     private void OnRefreshTargetMovespeed(EntityUid uid, PickupingHumansComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
     }
 
-    private void OnFallAttempt(EntityUid uid, PickupingHumansComponent component, DownAttemptEvent args)
-    {
-        _popup.PopupEntity(Loc.GetString("pickup-cannot-down-while-pickuping"), uid, uid);
-        args.Cancel();
-    }
-
-    private void OnContainerInsertAttempt(EntityUid uid, PickupHumansComponent component, ContainerGettingInsertedAttemptEvent args)
-    {
-        if (!HasComp<TakenHumansComponent>(uid) || HasComp<PickupingHumansComponent>(uid))
-            return;
-
-        args.Cancel();
-    }
-
-    private void OnStartClimb(EntityUid uid, TakenHumansComponent component, ref StartClimbEvent args)
-    {
-        if (!TryComp<PickupHumansComponent>(uid, out var pickupHumansComponent))
-            return;
-
-        DropFromHands(pickupHumansComponent.User, uid);
-    }
-
-    private void OnPullAttempt(EntityUid uid, TakenHumansComponent component, PullAttemptEvent args)
-    {
-        args.Cancelled = true;
-    }
-
     private void OnMobStateChanged(EntityUid uid, PickupingHumansComponent component, MobStateChangedEvent args)
     {
         DropFromHands(uid, component.User);
-    }
-
-    private void OnMoveAttempt(EntityUid uid, TakenHumansComponent component, UpdateCanMoveEvent args)
-    {
-        args.Cancel();
-    }
-
-    private void OnStandAttempt(EntityUid uid, TakenHumansComponent component, StandAttemptEvent args)
-    {
-        args.Cancel();
     }
 }
 
