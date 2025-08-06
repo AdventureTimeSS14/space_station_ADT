@@ -13,14 +13,3 @@
   id: ADTEthnologistPDA
   equipment:
     id: ADTEthnologistPDA
-
-# Jumpsuit
-- type: loadout
-  id: ADTClothingUniformJumpsuitTurtleneckRed
-  equipment:
-    jumpsuit: ADTClothingUniformJumpsuitTurtleneckRed
-
-- type: loadout
-  id: ADTClothingUniformJumpskirtTurtleneckRed
-  equipment:
-    jumpsuit: ADTClothingUniformJumpskirtTurtleneckRed

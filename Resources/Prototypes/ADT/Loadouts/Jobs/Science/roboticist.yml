@@ -17,26 +17,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtRoboticist
 
-- type: loadout
-  id: ADTClothingUniformJumpsuitTurtleneckBlack
-  equipment:
-    jumpsuit: ADTClothingUniformJumpsuitTurtleneckBlack
-
-- type: loadout
-  id: ADTClothingUniformJumpskirtTurtleneckBlack
-  equipment:
-    jumpsuit: ADTClothingUniformJumpskirtTurtleneckBlack
-
-- type: loadout
-  id: ADTClothingUniformJumpsuitTurtleneckRed
-  equipment:
-    jumpsuit: ADTClothingUniformJumpsuitTurtleneckRed
-
-- type: loadout
-  id: ADTClothingUniformJumpskirtTurtleneckRed
-  equipment:
-    jumpsuit: ADTClothingUniformJumpskirtTurtleneckRed
-
 # OuterClothing
 
 - type: loadout

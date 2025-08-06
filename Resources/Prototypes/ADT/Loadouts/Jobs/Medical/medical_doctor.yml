@@ -29,13 +29,3 @@
   id: ADTClothingUniformJumpskirtTurtleneckAzure
   equipment:
     jumpsuit: ADTClothingUniformJumpskirtTurtleneckAzure
-
-- type: loadout
-  id: ADTClothingUniformJumpsuitTurtleneckWhite
-  equipment:
-    jumpsuit: ADTClothingUniformJumpsuitTurtleneckWhite
-
-- type: loadout
-  id: ADTClothingUniformJumpskirtTurtleneckWhite
-  equipment:
-    jumpsuit: ADTClothingUniformJumpskirtTurtleneckWhite

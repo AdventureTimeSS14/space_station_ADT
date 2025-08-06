@@ -59,14 +59,3 @@
   id: ADTMaidPDA
   equipment:
     id: ADTMaidPDA
-
-# Jumpsuit
-- type: loadout
-  id: ADTClothingUniformJumpsuitTurtleneckPurple
-  equipment:
-    jumpsuit: ADTClothingUniformJumpsuitTurtleneckPurple
-
-- type: loadout
-  id: ADTClothingUniformJumpskirtTurtleneckPurple
-  equipment:
-    jumpsuit: ADTClothingUniformJumpskirtTurtleneckPurple
