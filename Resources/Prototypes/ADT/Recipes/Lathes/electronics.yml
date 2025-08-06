@@ -66,12 +66,6 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: SupermatterComputerCircuitboardRecipe
-  result: SupermatterComputerCircuitboard
-
-
-- type: latheRecipe
-  parent: BaseCircuitboardRecipe
   id: ADTCoffeeMachineCircuitboard
   result: ADTCoffeeMachineCircuitboard
 

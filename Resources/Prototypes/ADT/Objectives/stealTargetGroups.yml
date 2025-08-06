@@ -42,13 +42,6 @@
     state: salvage
 
 - type: stealTargetGroup
-  id: SupermatterSliver
-  name: objective-condition-steal-smsliver-title
-  sprite:
-    sprite: ADT/Objects/Misc/supermatter_silver.rsi
-    state: shard
-
-- type: stealTargetGroup
   id: ADTHosWeapon
   name: steal-target-groups-adt-hos-weapon
   sprite:
