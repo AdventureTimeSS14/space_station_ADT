@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
+using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
@@ -79,8 +80,12 @@ namespace Content.Server.Ghost
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!; //ADT tweak
-        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
+        //ADT tweak Start
+        // [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly UserDbDataManager _userDb = default!;
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
+        //ADT tweak End
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
