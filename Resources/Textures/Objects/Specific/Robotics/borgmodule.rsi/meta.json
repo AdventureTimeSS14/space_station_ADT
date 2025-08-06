@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC0-1.0",
-    "copyright": "Created by EmoGarbage404 (github) for Space Station 14. icon-construction.png created by deltanedas (github). syndicateborgbomb.png created by Mangohydra (github). layered inhands by mubururu_ (github), icon-chem.png & icon-mining-adv.png created by mubururu_ (github), Xenoborg modules sprites by Samuka-C (github). icons-detentions, icons-peace, icons-harm, icons-disabler made by ratyyy.",
+    "copyright": "Created by EmoGarbage404 (github) for Space Station 14. icon-construction.png created by deltanedas (github). syndicateborgbomb.png created by Mangohydra (github). layered inhands by mubururu_ (github), icon-chem.png & icon-mining-adv.png created by mubururu_ (github), Xenoborg modules sprites by Samuka-C (github). icons-detentions, icons-peace, icons-harm, icons-disabler made by ratyyy), PKA by Mocho",
     "size": {
         "x": 32,
         "y": 32
@@ -230,6 +230,9 @@
         {
             "name": "base-stripes-inhand-right",
             "directions": 4
+        },
+	    {
+            "name": "icon-pka"
         }
     ]
 }

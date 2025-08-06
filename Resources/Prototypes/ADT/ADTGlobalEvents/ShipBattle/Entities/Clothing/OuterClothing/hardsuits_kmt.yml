@@ -19,7 +19,8 @@
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0.9
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
@@ -45,7 +46,8 @@
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0.9
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
@@ -71,7 +73,8 @@
         Piercing: 0.6
         Heat: 0.6
         Radiation: 0.9
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
@@ -97,7 +100,8 @@
         Piercing: 0.6
         Heat: 0.7
         Radiation: 0.9
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: ClothingSpeedModifier
@@ -124,7 +128,8 @@
         Piercing: 0.3
         Heat: 0.5
         Radiation: 0.25
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ClothingSpeedModifier
@@ -150,7 +155,8 @@
         Piercing: 0.4
         Heat: 0.6
         Radiation: 0.1
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: ClothingSpeedModifier
@@ -177,7 +183,8 @@
         Piercing: 0.7
         Heat: 0.8
         Radiation: 0.9
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ClothingSpeedModifier
@@ -203,7 +210,8 @@
         Piercing: 0.7
         Heat: 0.4
         Radiation: 0.8
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ClothingSpeedModifier
@@ -229,7 +237,8 @@
         Piercing: 0.8
         Heat: 0.8
         Radiation: 0.8
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
@@ -255,7 +264,8 @@
         Piercing: 0.8
         Heat: 0.8
         Radiation: 0.1
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ClothingSpeedModifier
@@ -281,7 +291,8 @@
         Piercing: 0.7
         Heat: 0.7
         Radiation: 0.9
-    staminaModifier: 0.7  # ADT
+  - type: StaminaResistance
+    damageCoefficient: 0.7  # ADT
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ClothingSpeedModifier
