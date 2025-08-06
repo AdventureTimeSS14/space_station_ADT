@@ -14,7 +14,7 @@
     damage:
       types:
         Piercing: 40
-        Structural: 15
+        Structural: 25 #ADT tweak 15 -> 25
 
 
 - type: entity
@@ -81,6 +81,7 @@
     damage:
       types:
         Piercing: 7
+        Structural: 15  #ADT tweak Structural 0 -> 15
         # Blunt: 3 ADT tweak
         # Heat: 7 ADT tweak
   - type: IgnitionSource
