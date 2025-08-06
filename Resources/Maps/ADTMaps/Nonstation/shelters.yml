@@ -386,7 +386,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-    - type: SupermatterSpreaderGrid
 - proto: ADTClothingUniformJumpskirtJanimaid
   entities:
   - uid: 358
