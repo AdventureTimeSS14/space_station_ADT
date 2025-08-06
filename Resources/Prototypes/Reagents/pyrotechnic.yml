@@ -169,15 +169,6 @@
         - !type:OrganType
           type: Vox
       #ADT-tweak-start
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
-        probability: 0.5
-        damage:
-          groups:
-            Brute: -0.4
       - !type:ModifyBloodLevel
         conditions:
         - !type:OrganType

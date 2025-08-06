@@ -438,63 +438,13 @@
   id: Radium
   name: reagent-name-radium
   group: Elements
-  #parent: Uranium ADT-tweak
+  parent: Uranium
   desc: reagent-desc-radium
   physicalDesc: reagent-physical-desc-glowing
   flavor: metallic
   color: "#00ff04"
   meltingPoint: 700.0
   boilingPoint: 1737.0
-  #ADT-tweak-start
-  plantMetabolism:
-  - !type:PlantAdjustMutationLevel
-    amount: 0.6
-  - !type:PlantAdjustToxins
-    amount: 4
-  - !type:PlantAdjustHealth
-    amount: -1.5
-  - !type:PlantAdjustMutationMod
-    probability: 0.2
-    amount: 0.1
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        damage:
-          types:
-            Radiation: 2
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
-        damage:
-          types:
-            Radiation: -2
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
-        - !type:ReagentThreshold
-          min: 30
-        damage:
-          types:
-           Heat: 2
-      - !type:Jitter
-        conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
-        - !type:ReagentThreshold
-          min: 30
-  #ADT-tweak-end
 
 - type: reagent
   id: Silicon
