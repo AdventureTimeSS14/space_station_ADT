@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.GameTicking;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.CCVar;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -33,11 +34,7 @@ public sealed class GameMapManager : IGameMapManager
     private int _mapQueueDepth = 1;
 
     private readonly Queue<string> _recentlyPlayedMaps = new(); // ADT-Tweak: ReWork Vote Map
-    /// <summary>
-    /// Кол-во след раундов в голосовании которых
-    /// сыгранные карты не будут появляться
-    /// </summary>
-    private const int RecentMapBanDepth = 3; // ADT-Tweak: ReWork Vote Map.
+    private int RecentMapBanDepth => _configurationManager.GetCVar(ADTCCVars.MapVoteRecentBanDepth); // ADT-Tweak: ReWork Vote Map.
 
     private ISawmill _log = default!;
 
