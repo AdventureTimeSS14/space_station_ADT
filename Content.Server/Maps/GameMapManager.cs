@@ -33,7 +33,11 @@ public sealed class GameMapManager : IGameMapManager
     private int _mapQueueDepth = 1;
 
     private readonly Queue<string> _recentlyPlayedMaps = new(); // ADT-Tweak: ReWork Vote Map
-    private const int RecentMapBanDepth = 3;                    // ADT-Tweak: ReWork Vote Map
+    /// <summary>
+    /// Кол-во след раундов в голосовании которых
+    /// сыгранные карты не будут появляться
+    /// </summary>
+    private const int RecentMapBanDepth = 3; // ADT-Tweak: ReWork Vote Map.
 
     private ISawmill _log = default!;
 
