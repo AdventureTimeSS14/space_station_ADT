@@ -1,3 +1,4 @@
+# PDA
 - type: loadout
   id: PsychologistPDA
   equipment:
@@ -12,3 +13,14 @@
   id: ADTPsychotherapistPDA
   equipment:
     id: ADTPsychotherapistPDA
+
+# Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckWhite
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckWhite
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckWhite
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckWhite

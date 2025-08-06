@@ -1,0 +1,10 @@
+# Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckOrange
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckOrange
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckOrange
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckOrange

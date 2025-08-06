@@ -18,3 +18,24 @@
   id: ADTStudentPDA
   equipment:
     id: ADTStudentPDA
+
+# Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckGrey
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckGrey
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckGrey
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckGrey
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckPink
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckPink
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckPink
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckPink
