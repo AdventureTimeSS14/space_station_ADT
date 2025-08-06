@@ -113,3 +113,12 @@ ent-ADTClothingCoatMonkRobe = роба монаха
 
 ent-ADTClothingCoatReligionLeader = роба религиозного лидера
     .desc = По королевски религионзная одежда, которая покажет вашим аппостолам своё место.
+
+ent-ADTClothingCoatClockworkRobe = заводная роба
+    .desc = Йэа ефдн унжчаачгп дфтн рнсфмыцръ яйърхпчяфф-х-рщцх (Что-то на ратваровском).
+
+ent-ClothingOuterSpiderRobe = зловещая паучья роба
+    .desc = Роба, популярная среди паучьих сект. Выглядит крайне знакомо...
+
+ent-ClothingOuterTechpriestRobe = роба техно-жреца
+    .desc = С мгновения того, как я понял слабость своей плоти, я был отвращён.

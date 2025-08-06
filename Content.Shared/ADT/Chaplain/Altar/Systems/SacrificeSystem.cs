@@ -196,7 +196,7 @@ public sealed class SacrificeSystem : EntitySystem
 
     private void UpdatePowerAlert(EntityUid uid, ChaplainComponent component)
     {
-        var level = (short) Math.Clamp(Math.Round(component.Power.Float()), 0, 5);
+        var level = (short)Math.Clamp(Math.Round(component.Power.Float()), 0, 5);
         var alertType = _protoMan.Index<AlertPrototype>(component.Alert);
         _alertsSystem.ShowAlert(uid, alertType, level);
     }
@@ -215,7 +215,7 @@ public sealed class SacrificeSystem : EntitySystem
 
         if (!string.IsNullOrEmpty(transform.ResultProto))
         {
-            Spawn(transform.ResultProto, args.ClickLocation.SnapToGrid(EntityManager));
+            Spawn(transform.ResultProto, Transform(altar).Coordinates);
         }
     }
 

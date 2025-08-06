@@ -6,3 +6,44 @@
   - type: Droppod
     prototypes:
       - ADTSyndieSurpricePerson
+
+- type: entity
+  parent: ADTDroppodDropping
+  id: ADTGamblingNotesDroppod
+  categories: [HideSpawnMenu]
+  components:
+  - type: Droppod
+    prototypes:
+      - ADTGamblingNotesSpawn
+
+- type: entity
+  parent: ADTDroppodDropping
+  id: ADTClarkeKitDroppod
+  categories: [HideSpawnMenu]
+  components:
+  - type: Droppod
+    prototypes:
+      - ADTMechClarkeBattery
+      - MechEquipmentDiamondDrill
+
+- type: entity
+  parent: ADTDroppodDropping
+  id: ADTOdysseusKitDroppod
+  categories: [HideSpawnMenu]
+  components:
+  - type: Droppod
+    prototypes:
+      - MechEquipmentHumanSleeper
+      - MechEquipmentHumanGrabber
+      - ADTMechOdysseusBattery
+
+- type: entity
+  parent: ADTDroppodDropping
+  id: ADTSeraphKitDroppod
+  categories: [HideSpawnMenu]
+  components:
+  - type: Droppod
+    prototypes:
+      - ADTMechSeraphBattery
+      - ADTMechGunScattershotCrate
+      - ADTMechGunScattershotCrate

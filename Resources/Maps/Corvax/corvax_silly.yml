@@ -6362,7 +6362,7 @@ entities:
     - type: Transform
       pos: 5.196375,7.684155
       parent: 2
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 122
     components:

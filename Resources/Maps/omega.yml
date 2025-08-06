@@ -8093,7 +8093,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13156
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 4008
     components:

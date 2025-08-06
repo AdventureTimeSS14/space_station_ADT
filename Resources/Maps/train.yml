@@ -10240,7 +10240,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 71
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 11643
     components:

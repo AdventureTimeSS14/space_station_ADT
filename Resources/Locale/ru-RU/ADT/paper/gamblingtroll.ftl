@@ -1,23 +1,35 @@
 ent-ADTGambleTrollNoteOne = письмо для лудомана
+    .desc = если они тебе пришли, то уж точно не с хорошей новостью.
     .suffix = Ехидный комментарий
 ent-ADTGambleTrollNoteTwo = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = Стих Пушника
 ent-ADTGambleTrollNoteThree = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = буллинг
 ent-ADTGambleTrollNoteFour = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = ТЫ - ИДИОТ!!
 ent-ADTGambleTrollNoteFive = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = предчувствие
 ent-ADTGambleTrollNoteSix = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = философия
 ent-ADTGambleTrollNoteSeven = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = ГАЗЗИЛИОН
 ent-ADTGambleTrollNoteEight = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = Самоуничтожение
 ent-ADTGambleTrollNoteNine = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
     .suffix = тест на IQ
 ent-ADTGambleTrollNoteTen = { ent-ADTGambleTrollNoteOne }
+    .desc = { ent-ADTGambleTrollNoteOne }
+    .suffix = Gorlex
 
+nuclear-opps-greatfull-message = Внимание станция, говорит близжайший отряд Ядерных Оперативников в секторе. На наше удивление, с территории вашей церкви было пожертвование нам в размере трёх миллионов кредитов. Мы крайне удивлены и не знаем как благодарить. В любом случае, сегодня живите. Смерть Нанотрейзен!
 
 doc-text-gamble-troll-1 = Тебе деньги некуда девать? Не знаю, скинь такую сумму сироткам если осталось, или пива купи, дегенерат.
 doc-text-gamble-troll-2 =
@@ -44,7 +56,7 @@ doc-text-gamble-troll-9 = Хочешь айкью тест? Сколько ты 
 doc-text-gamble-troll-10 =
     ⠀[color=#970000] ███░░█░░░░░███[/color]
     ⠀[color=#970000] █░░░█░█░██░░░█[/color]
-    ⠀[color=#970000] █▄▄█▄▄█▄█▄▄▄▄█[/color]   [head=3]Gorlex Securities[/head]
+    ⠀[color=#970000] █▄▄█▄▄█▄█▄▄▄▄█[/color]     [head=3]Gorlex Securities[/head]
     ⠀[color=#970000] █░░░░░█░█░█░░█[/color]
     ⠀[color=#970000] ███░░░░█░░░███[/color]
     =============================================

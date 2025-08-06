@@ -36,7 +36,7 @@
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
       - requiredTag: ADTJumpSuitSacrifice
-        resultProto: ADTClothingUniformJumpskirtJanimaid
+        resultProto: ADTClothingJumpsuitDryadCoverings
         powerCost: 2
         soundPath: /Audio/Magic/blink.ogg
       - requiredTag: ADTSocks
@@ -67,10 +67,10 @@
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 3
       - requiredTag: ADTSteelSheet
-        requiredAmount: 10
-        resultProto: SheetBrass10
+        requiredAmount: 1
+        resultProto: SheetBrass
         effectProto: ADTWeaponArcRedCrash
-        powerCost: 1
+        powerCost: 0.1
         soundPath: /Audio/Magic/blink.ogg
       - requiredTag: ADTGlassSheet
         requiredAmount: 1
@@ -78,3 +78,8 @@
         effectProto: ADTWeaponArcRedCrash
         powerCost: 0.1
         soundPath: /Audio/Magic/blink.ogg
+      - requiredTag: ADTrobeSacrifice
+        resultProto: ADTClothingCoatClockworkRobe
+        effectProto: ADTCultistBubble
+        soundPath: /Audio/Magic/Cults/ClockCult/steam_whoosh.ogg
+        powerCost: 1

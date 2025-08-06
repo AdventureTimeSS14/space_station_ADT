@@ -15412,7 +15412,7 @@ entities:
     - type: Transform
       pos: 43.5,-73.5
       parent: 2
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 905
     components:

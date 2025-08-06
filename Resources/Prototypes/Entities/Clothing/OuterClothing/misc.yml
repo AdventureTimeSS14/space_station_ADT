@@ -233,6 +233,11 @@
     sprite: Clothing/OuterClothing/Misc/plaguedoctorsuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/plaguedoctorsuit.rsi
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTrobeSacrifice
+### End ADT Tweak
 
 - type: entity
   parent: ClothingOuterBase
@@ -244,6 +249,11 @@
     sprite: Clothing/OuterClothing/Misc/nunrobe.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/nunrobe.rsi
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTrobeSacrifice
+### End ADT Tweak
 
 - type: entity
   parent: ClothingOuterBase

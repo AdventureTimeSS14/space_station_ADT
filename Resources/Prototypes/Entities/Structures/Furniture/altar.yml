@@ -141,14 +141,35 @@
       - requiredTag: ADTMoneyForGamble
         requiredAmount: 50
         priority: 0
-        resultProto: ADTChaosCarpSacrafice
+        resultProto: ADTChaosCasinoPetiteWin
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 2
       - requiredTag: ADTMoneyForGamble
-        requiredAmount: 500
+        requiredAmount: 150
+        priority: 1
+        resultProto: ADTChaosCasinoSmallWin
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 1500
         priority: 2
-        resultProto: ADTJAWSofLife
+        resultProto: ADTChaosBigBoyCasinoSpawn
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 50000
+        priority: 3
+        resultProto: ADTChaosAllorNothingCasinoSpawn
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 300000
+        priority: 4
+        resultProto: ADTChaosAllorNothinglerCasinoSpawn
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 2
@@ -222,6 +243,11 @@
         effectProto: ADTEffectKudzu
         powerCost: 1
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ADTClothingJumpsuitDryadCoverings
+        effectProto: ADTEffectKudzu
+        powerCost: 2
+        soundPath: /Audio/Magic/blink.ogg
 ### End ADT Tweak
 
 - type: entity
@@ -241,6 +267,16 @@
     node: ToolAltarNode
   - type: Sacrifice
     possibleTransformations:
+      - requiredTag: Crowbar
+        resultProto: BannerBlue
+        powerCost: 2
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredTag: ADTGasmaskSacrifice
+        resultProto: ADTMFDoomMask
+        powerCost: 2
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
       - requiredProto: ADTEctoSword
         resultProto: ADTHolyChainsaw
         effectProto: ADTWeaponArcRedCrash
@@ -284,14 +320,24 @@
     possibleTransformations:
       - requiredProto: ADTEctoSword
         resultProto: ADTPhilosopherstone
-        effectProto: ADTWeaponArcRedCrash
+        effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/holy.ogg
         powerCost: 3
       - requiredProto: ADTWoodCross
         resultProto: ADTGoldCross
         effectProto: BulletImpactEffectOrangeDisabler
-        soundPath: /Audio/Effects/hallelujah.ogg
+        soundPath: /Audio/Effects/holy.ogg
         powerCost: 2
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ClothingUniformJumpsuitMonasticRobeLight
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/holy.ogg
+        powerCost: 1
+      - requiredTag: Book
+        resultProto: Bible
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/holy.ogg
+        powerCost: 5
 ### End ADT Tweak
 
 - type: entity
@@ -374,15 +420,23 @@
       - requiredTag: ADTSilverCandle
         resultProto: ADTSilverCandleStick
         effectProto: EffectRCDConstruct0
+        powerCost: 1
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
       - requiredTag: ADTGoldCandle
         resultProto: ADTGoldenCandleStick
         effectProto: EffectRCDConstruct0
+        powerCost: 1
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
       - requiredTag: Bucket
         resultProto: PlushieRatvar
         effectProto: EffectRCDConstruct0
+        powerCost: 3
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
+      - requiredTag: ADTrobeSacrifice
+        resultProto: ClothingOuterTechpriestRobe
+        effectProto: EffectRCDConstruct0
+        soundPath: /Audio/Items/Mining/fultext_launch.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -645,7 +699,23 @@
   - type: Sacrifice
     possibleTransformations:
       - requiredProto: ADTEctoSword
-        resultProto: ADTFetidBaghnakhs
+        resultProto: ADTWebWeaver
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 3
+      - requiredProto: FoodMeatSpider
+        resultProto: ADTMobNotariusSpider
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 3
+      - requiredTag: ADTrobeSacrifice
+        resultProto: ClothingOuterSpiderRobe
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 1
+      - requiredTag: ADTWebSilk
+        requiredAmount: 3
+        resultProto: ADTWebWeaver
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 3

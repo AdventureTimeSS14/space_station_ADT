@@ -324,7 +324,7 @@ entities:
     - type: Transform
       pos: 0.5,5.5
       parent: 1
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 52
     components:

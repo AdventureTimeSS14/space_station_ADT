@@ -10100,7 +10100,7 @@ entities:
     - type: Transform
       pos: -49.5,10.5
       parent: 2
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 14290
     components:

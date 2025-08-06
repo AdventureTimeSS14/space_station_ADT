@@ -9629,7 +9629,7 @@ entities:
     - type: Transform
       pos: 60.5,39.5
       parent: 2
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 418
     components:

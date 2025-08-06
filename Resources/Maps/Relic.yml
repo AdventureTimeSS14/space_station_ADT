@@ -3285,7 +3285,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 6523
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 317
     components:

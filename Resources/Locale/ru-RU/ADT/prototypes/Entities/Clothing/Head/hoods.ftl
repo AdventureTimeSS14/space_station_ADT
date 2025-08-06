@@ -29,3 +29,12 @@ ent-ADTClothingHeadHatHoodChaplainLeader = капюшон религиозног
 
 ent-ADTClothingHeadHatHoodMonk = капюшон монаха
     .desc = Нету ничего на свете лучше чем просто уйти от всего и быть последователем креста.
+
+ent-ADTClothingHeadHatClockworkHood = заводной капюшон
+    .desc = Прямо идеальное решение, что надеть на голову. И он тяжелее чем кажется...
+
+ent-ADTClothingHeadHatWebHood = зловещий паучий капюшон
+    .desc = Ндаа... Теперь ты... ПАУтик.
+
+ent-ADTClothingHeadHatTechpriestHood = капюшон техно-жреца
+    .desc = Выглядит механически. В ней ты будешь выглядеть как культист сумашедшего Нар'си-Ратварского культа.
