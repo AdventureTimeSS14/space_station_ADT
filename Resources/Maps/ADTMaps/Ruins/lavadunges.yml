@@ -3,7 +3,7 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  21: ADTFloorSteelPlateDarkGray
+  21: FloorSteel
   19: FloorAsteroidIronsandUnvariantized
   16: FloorAsteroidSand
   6: FloorAsteroidSandUnvariantized
