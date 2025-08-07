@@ -110,6 +110,48 @@ ent-ADTJesterIDCard = ID карта шута
 ent-ADTFoolIDCard = ID карта дурака
     .desc = ID карта дурака.
 
+ent-ADTPerformerIDCard = ID карта исполнителя
+    .desc = ID карта исполнителя.
+
+ent-ADTConcertmasterIDCard = ID карта концертмейстера
+    .desc = ID карта концертмейстера.
+
+ent-ADTComposerIDCard = ID карта композитора
+    .desc = ID карта композитора.
+
+ent-ADTBardIDCard = ID карта барда
+    .desc = ID карта барда.
+
+ent-ADTDJIDCard = ID карта диджея
+    .desc = ID карта диджея.
+
+ent-ADYJournalistIDCard = ID карта журналиста
+    .desc = ID карта журналиста.
+
+ent-ADTKaratekaIDCard = ID карта каратиста
+    .desc = ID карта каратиста.
+
+ent-ADTKickboxerIDCard = ID карта кикбоксера
+    .desc = ID карта кикбоксера.
+
+ent-ADTSavatistIDCard = ID карта саватиста
+    .desc = ID карта саватиста.
+
+ent-ADTHandToHandCombatMasterIDCard = ID карта мастера рукопашного боя
+    .desc = ID карта мастера рукопашного боя.
+
+ent-ADTMMAFighterIDCard = ID карта бойца ММА
+    .desc = ID карта бойца ММА.
+
+ent-ADTJudoistIDCard = ID карта дзюдоиста
+    .desc = ID карта дзюдоиста.
+
+ent-ADTCoachIDCard = ID карта тренера
+    .desc = ID карта тренера.
+
+ent-ADTGladiatorIDCard = ID карта гладиатора
+    .desc = ID карта гладиатора.
+
 ent-ADTInvestigatorIDCard = ID карта следователя
     .desc = ID карта следователя.
 

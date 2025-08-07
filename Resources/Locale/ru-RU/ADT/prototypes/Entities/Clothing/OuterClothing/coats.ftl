@@ -92,6 +92,9 @@ ent-ADTClothingOuterLettermanNanoTrasen = корпоративно-синяя ж
 ent-ADTClothingOuterLettermanSyndie = кроваво-красная жилетка
     .desc = Кроваво-красная жилетка с огромной буквой "S" на спине. Ничего подозрительного.
 
+ent-ADTClothingOuterLettermanBlack = чёрная жилетка
+    .desc = Обычная чёрная жилетка.
+
 
 
 ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч

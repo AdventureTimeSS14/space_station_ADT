@@ -62,3 +62,22 @@
     - Snout
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatHoodChaplainHoodWhite
+  categories: [ HideSpawnMenu ]
+  name: white chaplain's hood
+  description: Maximum piety in this star system.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hoods/chaplain_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hoods/chaplain_white.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair

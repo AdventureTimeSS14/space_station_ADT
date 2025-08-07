@@ -17,7 +17,7 @@
 - type: startingGear
   id: BoxerGear
   equipment:
-    id: BoxerPDA
+    #id: BoxerPDA #ADT-tweak
     ears: ClothingHeadsetService
     shoes: ClothingShoesColorRed
     belt: ClothingBeltChampion

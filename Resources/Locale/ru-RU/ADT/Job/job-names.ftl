@@ -104,6 +104,20 @@ job-name-mixologist = миксолог
 job-name-baker = пекарь
 job-name-butcher = мясник
 job-name-pizzaiolo = пиццайоло
+job-name-performer = исполнитель
+job-name-concertmaster = концертмейстер
+job-name-composer = композитор
+job-name-bard = бард
+job-name-dj = диджей
+job-name-journalist = журналист
+job-name-karateka = каратист
+job-name-kickboxer = кикбоксер
+job-name-savatist = саватист
+job-name-hand-to-hand-combat-master = мастер рукопашного боя
+job-name-mma-fighter = боец ММА
+job-name-judoist = дзюдоист
+job-name-coach = тренер
+job-name-gladiator = гладиатор
 
 # Security
 

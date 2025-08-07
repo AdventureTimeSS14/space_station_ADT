@@ -60,3 +60,6 @@ ent-ADTClothingOuterArmorMinerReinforcedTwo = усиленный костюм и
 
 ent-ADTClothingOuterArmorMinerReinforcedFull = пластинчатый костюм исследователя
     .desc = Этот исследовательский костюм укреплён шкурами голиафов. Вершина шахтёрской мысли и безумности самого Лавалэнда в области защиты. 
+
+ent-ADTClothingOuterArmorTemplar = рыцарские доспехи
+    .desc = Броня, стилизованная под рыцарские доспехи. GLORY!!!

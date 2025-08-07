@@ -567,3 +567,26 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit_brown.rsi
 
+# Бармен
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBartenderRed
+  name: bartender's uniform
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_red.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBartenderGreen
+  name: bartender's uniform
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_green.rsi

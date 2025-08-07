@@ -8,3 +8,6 @@ ent-SkidAndPump = Скид и Тыковка
 
 ent-ADTPlushieOctocat = плюшевый Октокот
     .desc = Он не любит книги.
+
+ent-ADTToyHammerAbyss = игрушечный молот
+    .desc = Несмертельный, но жутко бесит.

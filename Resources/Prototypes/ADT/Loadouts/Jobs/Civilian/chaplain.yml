@@ -54,6 +54,27 @@
   equipment:
     neck: ADTGoldCross
 
+- type: loadout
+  id: ADTClothingOuterHoodieChaplainWhite
+  equipment:
+    outerClothing: ADTClothingOuterHoodieChaplainWhite
+
+- type: loadout
+  id: ClothingHeadHelmetTemplar
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainSilverCross50hour
+  equipment:
+    head: ClothingHeadHelmetTemplar
+
+- type: loadout
+  id: ADTClothingOuterArmorTemplar
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainSilverCross50hour
+  equipment:
+    outerClothing: ADTClothingOuterArmorTemplar
+
 # Я тут немного попоясничаю и добавлю святых книг для нашего святоши (QWERTY)
 - type: loadout
   id: ADTChaplainBible

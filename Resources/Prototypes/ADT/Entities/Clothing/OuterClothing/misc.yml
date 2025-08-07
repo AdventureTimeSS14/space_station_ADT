@@ -70,3 +70,16 @@
     sprite: ADT/Clothing/OuterClothing/Misc/barber_apron.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/barber_apron.rsi
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ADTClothingOuterHoodieChaplainWhite
+  name: white chaplain's hoodie
+  description: White and strict chaplain hoodie.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/chaplain_hoodie_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/chaplain_hoodie_white.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodChaplainHoodWhite

@@ -586,6 +586,124 @@
   - type: Pda
     id: ADTFoolIDCard
 
+# Musician
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTPerformerPDA
+  name: performer PDA
+  components:
+  - type: Pda
+    id: ADTPerformerIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTConcertmasterPDA
+  name: concertmaster PDA
+  components:
+  - type: Pda
+    id: ADTConcertmasterIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTComposerPDA
+  name: composer PDA
+  components:
+  - type: Pda
+    id: ADTComposerIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTBardPDA
+  name: bard PDA
+  components:
+  - type: Pda
+    id: ADTBardIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTDJPDA
+  name: DJ PDA
+  components:
+  - type: Pda
+    id: ADTDJIDCard
+
+# Reporter
+
+- type: entity
+  parent: ReporterPDA
+  id: ADTJournalistPDA
+  name: journalist PDA
+  components:
+  - type: Pda
+    id: ADYJournalistIDCard
+
+# Boxer
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTKaratekaPDA
+  name: karateka PDA
+  components:
+  - type: Pda
+    id: ADTKaratekaIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTKickboxerPDA
+  name: kickboxer PDA
+  components:
+  - type: Pda
+    id: ADTKickboxerIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTSavatistPDA
+  name: savatist PDA
+  components:
+  - type: Pda
+    id: ADTSavatistIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTHandToHandCombatMasterPDA
+  name: hand-to-hand combat master PDA
+  components:
+  - type: Pda
+    id: ADTHandToHandCombatMasterIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTMMAFighterPDA
+  name: MMA fighter PDA
+  components:
+  - type: Pda
+    id: ADTMMAFighterIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTJudoistPDA
+  name: judoist PDA
+  components:
+  - type: Pda
+    id: ADTJudoistIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTCoachPDA
+  name: coach PDA
+  components:
+  - type: Pda
+    id: ADTCoachIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTGladiatorPDA
+  name: gladiator PDA
+  components:
+  - type: Pda
+    id: ADTGladiatorIDCard
+
 # Janitor
 
 - type: entity

@@ -23,8 +23,8 @@
         type: PlantAnalyzerBoundUserInterface
   - type: PlantAnalyzer
     settings:
-      scanDelay: 10
-      advScanDelay: 20
+      scanDelay: 5
+      advScanDelay: 10
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: Appearance
@@ -75,8 +75,8 @@
   - type: ActivatableUIRequiresPowerCell
   - type: PlantAnalyzer
     settings:
-      scanDelay: 3
-      advScanDelay: 6
+      scanDelay: 1.5
+      advScanDelay: 3
   - type: Sprite
     sprite: ADT/Objects/Devices/plant_analyzerT2.rsi
     layers:
