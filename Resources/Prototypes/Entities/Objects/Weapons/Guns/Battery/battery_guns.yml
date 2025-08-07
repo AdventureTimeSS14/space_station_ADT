@@ -381,7 +381,7 @@
     maxCharge: 40000
     startingCharge: 40000
     # ADT tweak start
-    - type: BatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 100
     # ADT tweak end
