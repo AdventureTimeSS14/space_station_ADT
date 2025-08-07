@@ -21,5 +21,5 @@ public sealed partial class PickupHumansComponent : Component
     public int HandsRequired = 2;
 
     public EntityUid User = default;
-    public static EntityUid Target = default;
+    public EntityUid Target = default;
 }

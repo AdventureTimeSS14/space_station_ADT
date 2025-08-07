@@ -226,9 +226,9 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         EnsureComp<KnockedDownComponent>(target);
 
         takenHumansComponent.Target = target;
-        userComponent.User = uid;
 
-        PickupHumansComponent.Target = target;
+        userComponent.User = uid;
+        userComponent.Target = target;
 
         pickupingHumansComponent.User = uid;
 
