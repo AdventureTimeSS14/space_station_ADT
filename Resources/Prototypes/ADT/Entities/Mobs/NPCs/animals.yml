@@ -463,3 +463,24 @@
   - type: MeleeChemicalInjector
     transferAmount: 8
     solution: melee
+
+- type: entity
+  parent: BaseMobCarp
+  id: ADTChurchMobCarp
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: Rainbow
+      enum.DamageStateVisualLayers.BaseUnshaded:
+        mouth: ""

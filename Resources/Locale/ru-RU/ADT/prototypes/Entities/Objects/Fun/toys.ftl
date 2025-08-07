@@ -8,7 +8,7 @@ ent-SkidAndPump = Скид и Тыковка
 
 ent-ADTPlushieOctocat = плюшевый Октокот
     .desc = Он не любит книги.
-ent-ADTPlushieDamn = плюшевое ругательство
+ent-ADTPlushieDamn = большая ошибка
     .desc = "Какой долбоклюй "уморительно" поставил?!"
 ent-ADTmklolgun = МК-рофл-58
     .desc = Дап. Этот пистолет - пластикавая подделка.

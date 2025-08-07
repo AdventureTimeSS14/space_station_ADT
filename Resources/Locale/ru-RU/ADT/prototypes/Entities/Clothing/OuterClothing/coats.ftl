@@ -117,8 +117,8 @@ ent-ADTClothingCoatReligionLeader = роба религиозного лидер
 ent-ADTClothingCoatClockworkRobe = заводная роба
     .desc = Йэа ефдн унжчаачгп дфтн рнсфмыцръ яйърхпчяфф-х-рщцх (Что-то на ратваровском).
 
-ent-ClothingOuterSpiderRobe = зловещая паучья роба
+ent-ADTClothingOuterSpiderRobe = зловещая паучья роба
     .desc = Роба, популярная среди паучьих сект. Выглядит крайне знакомо...
 
-ent-ClothingOuterTechpriestRobe = роба техно-жреца
+ent-ADTClothingOuterTechpriestRobe = роба техно-жреца
     .desc = С мгновения того, как я понял слабость своей плоти, я был отвращён.

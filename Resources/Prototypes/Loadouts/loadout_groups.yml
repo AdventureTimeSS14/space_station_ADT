@@ -415,6 +415,7 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  - ADTChaplainReligiousLeaderRobe # ADT Tweak
 
 - type: loadoutGroup
   id: ChaplainNeck

@@ -10,3 +10,5 @@ ent-ADTMobGondola = гондола
     .desc = Его нейтральное выражение лица показывает принятие мира таким, какой он есть.
 ent-ADTMobNotariusSpider = Нотариус
     .desc = Бюрократически подкованный паук, который будет вам помогать. Удивительно любит церковь!
+ent-ADTChurchMobCarp = { ent-MobCarp }
+    .desc = { ent-MobCarp }

@@ -4,4 +4,7 @@ ent-ADTPhilosopherstone = филосовский камень
 ent-ADTCsharpForDummies = C# для чайников
     .desc = Книга, которая даст вам прекрасные знания для щиткода.
 
+ent-ADTChruchSpaceCarpDehyd = { ent-DehydratedSpaceCarp }
+    .desc = { ent-DehydratedSpaceCarp.desc }
+
 grant-language-success = Вы выучили новый язык: {$language}.

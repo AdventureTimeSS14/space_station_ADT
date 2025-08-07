@@ -80,12 +80,8 @@
         resultProto: ADTBureaucraticBelt
         soundPath: /Audio/Effects/kaching.ogg
         powerCost: 1
-      - requiredTag: ADTSyndieThingies
-        resultProto: SpaceCash2500
-        powerCost: 1
-        soundPath: /Audio/Effects/kaching.ogg
-      - requiredProto: SyndieFlag
-        resultProto: NTFlag
+      - requiredProto: SyndieHandyFlag
+        resultProto: NTHandyFlag
         soundPath: /Audio/Effects/kaching.ogg
         powerCost: 1
       - requiredProto: ClothingUniformJumpsuitMonasticRobeLight
@@ -167,12 +163,12 @@
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 2
       - requiredTag: ADTMoneyForGamble
-        requiredAmount: 300000
+        requiredAmount: 1000000
         priority: 4
         resultProto: ADTChaosAllorNothinglerCasinoSpawn
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
-        powerCost: 2
+        powerCost: 5
 ### End ADT Tweak
 
 - type: entity
@@ -272,7 +268,7 @@
         powerCost: 2
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
-      - requiredTag: ADTGasmaskSacrifice
+      - requiredProto: ClothingMaskGas
         resultProto: ADTMFDoomMask
         powerCost: 2
         effectProto: ADTWeaponArcRedCrash
@@ -367,14 +363,17 @@
       - requiredTag: Heart
         resultProto: RitualDagger
         effectProto: ADTCultistBubble
+        powerCost: 3
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
       - requiredTag: ADTrobeSacrifice
         resultProto: ClothingOuterRobesCult
         effectProto: ADTCultistBubble
+        powerCost: 2
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
       - requiredTag: Brain
         resultProto: ADTHeadVulpkanin
         effectProto: ADTCultistBubble
+        powerCost: 2
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
       - requiredProto: ADTEctoSword
         resultProto: ADTBloodSword
@@ -385,7 +384,7 @@
         resultProto: FoodMeatHuman
         effectProto: ADTCultistBubble
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
-        powerCost: 3
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -433,10 +432,10 @@
         powerCost: 3
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
       - requiredTag: ADTrobeSacrifice
-        resultProto: ClothingOuterTechpriestRobe
+        resultProto: ADTClothingOuterTechpriestRobe
         effectProto: EffectRCDConstruct0
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
-        powerCost: 1
+        powerCost: 3
 ### End ADT Tweak
 
 - type: entity
@@ -674,7 +673,7 @@
         powerCost: 3
       - requiredProto: ClothingUniformJumpsuitMonasticRobeLight
         resultProto: ADTClothingCoatMonkRobe
-        soundPath: /Audio/Effects/kaching.ogg
+        soundPath: /Audio/Effects/hallelujah.ogg
         powerCost: 1
       - requiredProto: ADTWoodCross
         resultProto: ADTGoldCross
@@ -699,7 +698,7 @@
   - type: Sacrifice
     possibleTransformations:
       - requiredProto: ADTEctoSword
-        resultProto: ADTWebWeaver
+        resultProto: ADTFetidBaghnakhs
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 3
@@ -709,7 +708,7 @@
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 3
       - requiredTag: ADTrobeSacrifice
-        resultProto: ClothingOuterSpiderRobe
+        resultProto: ADTClothingOuterSpiderRobe
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 1
@@ -748,7 +747,7 @@
         resultProto: ADTClownShoesSacrafice
         powerCost: 2
         soundPath: /Audio/Items/bikehorn.ogg
-      - requiredTag: ADTGasmaskSacrifice
+      - requiredProto: ClothingMaskGas
         resultProto: ADTClownMaskSacrafice
         powerCost: 2
         soundPath: /Audio/Items/bikehorn.ogg

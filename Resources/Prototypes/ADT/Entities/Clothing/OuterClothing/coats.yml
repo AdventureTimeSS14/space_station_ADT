@@ -497,7 +497,7 @@
 
 - type: entity
   parent: ClothingOuterBaseMedium
-  id: ClothingOuterSpiderRobe
+  id: ADTClothingOuterSpiderRobe
   name: spider ominous robe
   description: Robe, thats weared by spider cults. Looks kinda familiar...
   components:
@@ -513,15 +513,15 @@
 
 - type: entity
   parent: ClothingOuterBaseMedium
-  id: ClothingOuterTechpriestRobe
+  id: ADTClothingOuterTechpriestRobe
   name: tech-priest robe
   description: From the moment I understood the weakness of my flesh, it disgusted me.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_web.rsi
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_techpriest.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_web.rsi
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_techpriest.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatTechpriestHood
     slot: head

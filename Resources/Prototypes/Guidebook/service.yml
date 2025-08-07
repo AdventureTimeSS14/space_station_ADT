@@ -36,4 +36,12 @@
   id: ADTChaplain
   name: guide-entry-chaplain
   text: "/ServerInfo/Guidebook/Service/Chaplain.xml"
+  filterEnabled: True
+  children:
+  - ADTAltars
+
+- type: guideEntry
+  id: ADTAltars
+  name: guide-entry-altars
+  text: "/ServerInfo/Guidebook/Service/altars.xml"
 ### End ADT Tweak

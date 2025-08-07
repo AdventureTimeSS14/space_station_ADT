@@ -102,7 +102,7 @@
     - !type:GroupSelector
       weight: 30
       children:
-      - id: DehydratedSpaceCarp
+      - id: ADTChruchSpaceCarpDehyd
 
 - type: entity
   parent: MarkerBase

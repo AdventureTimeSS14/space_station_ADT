@@ -34,9 +34,9 @@
         resultProto: ADTCsharpForDummies
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
-        powerCost: 1
+        powerCost: 2
       - requiredTag: ADTJumpSuitSacrifice
-        resultProto: ADTClothingJumpsuitDryadCoverings
+        resultProto: ClothingUniformJumpskirtJanimaidmini
         powerCost: 2
         soundPath: /Audio/Magic/blink.ogg
       - requiredTag: ADTSocks
