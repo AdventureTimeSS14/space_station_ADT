@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMobAsteroid
   parent:
-  - BaseMob
+  - ADTSimpleMobBaselavaland
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
@@ -52,7 +52,7 @@
         Base: goliath_dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
-    baseSprintSpeed : 2.00
+    baseSprintSpeed : 2.50
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -65,8 +65,8 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 12   #ADT-Tweak 15>>12
-        Piercing: 5 #ADT-Tweak 10>>5
+        Slash: 15
+        Blunt: 10  #ADT-Tweak Piercing -> Blunt 
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -75,9 +75,9 @@
       task: GoliathCompound
     blackboard:
       VisionRadius: !type:Single
-        6
+        10 #ADT-Tweak 6>>10
       AggroVisionRadius: !type:Single
-        10
+        15 #ADT-Tweak 10>>15
   - type: NPCUseActionOnTarget
     actions: GoliathActions
   - type: Tag
@@ -132,6 +132,21 @@
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
     layers:
     - state: goliath_tentacle_wiggle
+  - type: DamageContacts #ADT-Tweak
+    damage:
+      types:
+        Slash: 15
+        Blunt: 10  
+  - type: Fixtures #ADT-Tweak
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - MidImpassable 
   - type: StunOnContact
     blacklist:
       tags:

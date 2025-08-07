@@ -1,14 +1,13 @@
 ﻿- type: entity
   name: watcher
   id: MobWatcherBase
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ ADTSimpleMobBaselavaland, FlyingMobBase ]
   abstract: true
   description: It's like it's staring right through you.
   components:
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-  - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
   - type: Sprite
@@ -76,9 +75,17 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: Fauna # ADT-Tweak start
-  - type: AshStormImmune
+  - type: AshStormImmune 
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        2
+      AggroVisionRadius: !type:Single
+        10
   # ADT-Tweak end
-  
+
 - type: entity
   id: MobWatcherLavaland
   parent: MobWatcherBase
@@ -134,6 +141,31 @@
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
+  
+- type: entity
+  name: magmawing watcher bolt
+  id: WatcherBoltMagmawing
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: orangered
+  - type: Projectile
+    #   soundHit:  Waiting on serv3
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 0
+  - type: ChangeTemperatureOnCollide
+    heat: 50000
+  - type: IgniteOnCollide
+    fireStacks: 1
+    count: 10
+
 
 - type: entity
   id: MobWatcherPride
@@ -154,3 +186,48 @@
     energy: 1
   - type: RgbLightController
     layers: [ 1 ]
+
+- type: entity
+  name: SimpleMobBaseLava
+  parent:
+  - MobRespirator
+  - MobAtmosStandard
+  - SimpleSpaceMobBase
+  id: ADTSimpleMobBaselavaland # for lavaland
+  suffix: AI
+  abstract: true
+  components:
+  - type: Hunger
+    thresholds: # only animals and rats are derived from this prototype so let's override it here and in rats' proto
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0.00925925925926 # it is okay for animals to eat and drink less than humans, but more frequently
+  - type: Thirst
+    thresholds:
+      OverHydrated: 200
+      Okay: 150
+      Thirsty: 100
+      Parched: 50
+      Dead: 0
+    baseDecayRate: 0.04
+  - type: StatusEffects
+    allowed:
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - StaminaModifier
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline #ADT-Medicine
+  - type: MobPrice
+    price: 150
+  - type: FloatingVisuals
+  - type: Fauna 
+  - type: AshStormImmune 
