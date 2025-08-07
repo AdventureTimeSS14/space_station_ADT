@@ -790,7 +790,7 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: Job
+  id: JobBoxer
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
