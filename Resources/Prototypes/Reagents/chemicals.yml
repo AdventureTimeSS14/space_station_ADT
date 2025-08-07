@@ -57,6 +57,7 @@
   desc: reagent-desc-sodium-carbonate
   physicalDesc: reagent-physical-desc-powdery
   color: white
+  #ADT-tweak-start
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -77,6 +78,7 @@
         damage:
           types:
             Caustic: 1
+  #ADT-tweak-end
 
 - type: reagent
   id: Artifexium
@@ -96,7 +98,7 @@
     Acidic:
       methods: [ Touch ]
       effects:
-      - !type:ActivateArtifact
+      - !type:ArtifactUnlock
         conditions:
         - !type:ReagentThreshold
           min: 5
@@ -125,6 +127,7 @@
   color: "white"
   boilingPoint: 1661.0
   meltingPoint: 596.0
+  #ADT-tweak-start
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -145,6 +148,7 @@
         damage:
           types:
             Caustic: 0.7
+  #ADT-tweak-end
 
 - type: reagent
   id: SodiumHydroxide
@@ -154,6 +158,7 @@
   color: "white"
   boilingPoint: 1661.0
   meltingPoint: 596.0
+  #ADT-tweak-start
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -167,13 +172,17 @@
       - !type:Emote
         emote: Scream
         probability: 0.3
+  #ADT-tweak-end
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
         damage:
           types:
+            #ADT-tweak-start
+            #Heat: 1.5
             Caustic: 1.2
+            #ADT-tweak-end
     Medicine:
       effects:
       - !type:ChemVomit
@@ -218,7 +227,6 @@
   flavor: bitter
   color: "#E6E6DA"
   physicalDesc: reagent-physical-desc-crystalline
-  slippery: false
 
 - type: reagent
   id: Rororium

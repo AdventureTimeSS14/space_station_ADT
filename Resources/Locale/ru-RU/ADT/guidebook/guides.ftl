@@ -1,6 +1,5 @@
 guide-entry-medic-brigmedic = Бригмедик
 guide-new-cocktails-ADT = Новые рецепты коктейлей
-
 guide-entry-pizza-recipes = Пицца
 guide-entry-savory-recipes = Пикантные блюда
 guide-entry-bread-recipes = Хлеб

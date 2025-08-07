@@ -28,3 +28,9 @@ ent-ADTHolyBulletCharge = святое наказание
 
 ent-ADTBoltHoly = святой болт
     .desc = Против грибов и нечестивых...
+
+ent-ADTBulletBlastRocket = фугасный снаряд PG-7VL
+    .desc = { ent-BaseBullet.desc }
+
+ent-ADTBulletFragRocket = осколочный снаряд OG-7B
+    .desc = { ent-BaseBullet.desc }

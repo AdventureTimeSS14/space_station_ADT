@@ -6,17 +6,15 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 28800 #8 hrs #ADT-RoleTime
+      time: 28800 #8 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000 #5 hrs #ADT-RoleTime
-  # ADT Restrict Start
+      time: 18000 #5 hrs
     - !type:SpeciesRequirement
       inverted: true
       species:
       - Resomi
       - Vox
-  # ADT RESTRICT End
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -34,18 +32,10 @@
 - type: startingGear
   id: BrigmedicGear
   equipment:
-    # id: BrigmedicPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetBrigmedic
     pocket1: WeaponPistolMk58
   storage:
     back:
     - Flash
     - MagazinePistol
-#    underwearb: ClothingUnderwearBottomBoxersWhite
-#    socks: ClothingUnderwearSocksNormal
-#  underweart: ClothingUnderwearTopBraWhite
-#  underwearb: ClothingUnderwearBottomPantiesWhite
-#  innerClothingSkirt: ADTClothingUniformSkirtBrigmedicTurtleneck
-#  satchel: ClothingBackpackSatchelBrigmedicFilled
-#  duffelbag: ClothingBackpackDuffelBrigmedicFilled
 

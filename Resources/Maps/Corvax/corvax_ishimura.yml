@@ -72683,7 +72683,7 @@ entities:
     - type: Transform
       pos: -0.70803356,19.792406
       parent: 2
-- proto: CentcomComputerComms
+- proto: CentcommComputerComms
   entities:
   - uid: 24519
     components:
