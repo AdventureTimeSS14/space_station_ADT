@@ -34,7 +34,7 @@
       - PosterContrabandFreeTonto
       - PosterContrabandAtmosiaDeclarationIndependence
       - PosterContrabandFunPolice
-      - PosterContrabandLustyExomorph
+      - PosterContrabandRealExomorph
       - PosterContrabandSyndicateRecruitment
       - PosterContrabandClown
       - PosterContrabandSmoke
@@ -65,7 +65,7 @@
       - PosterContrabandPunchShit
       - PosterContrabandTheGriffin
       - PosterContrabandFreeDrone
-      - PosterContrabandBustyBackdoorExoBabes6
+      - PosterContrabandRouny
       - PosterContrabandRobustSoftdrinks
       - PosterContrabandShamblersJuice
       - PosterContrabandPwrGame
@@ -93,11 +93,14 @@
       - PosterContrabandInterdyne
       - PosterContrabandWaffleCorp
       - PosterContrabandMissingSpacepen
+      - PosterContrabandExoAcid
+      - PosterContrabandExoRun
+      - PosterContrabandExoChomp
       #ADT tweak vvv
       - ADTPosterContrabandLustTayaran # Спрайт от Празата
       - ADTPosterContrabandFearThem # Спрайт от Иллюми
       - ADTPosterContrabandSilence # Спрайт от Иллюми
-      - ADTPosterContrabandLustUma
+      # - ADTPosterContrabandLustUma
       - ADTPosterContrabandLustArDeco
       - ADTPosterDontSitDown
       - ADTPosterTayarHalloween
@@ -106,12 +109,12 @@
       - ADTPosterPanem
       - ADTPosterGasAttack
       - ADTPosterNoGood
-      - ADTPosterContrabandUmaHot
-      - ADTPosterContrabandUmaPress
-      - ADTPosterContrabandUmaSport
-      - ADTPosterContrabandUmaAndAzalia
-      - ADTPosterContrabandUmaRabbit
-      - ADTPosterContrabandUmaOnBeach
+      # - ADTPosterContrabandUmaHot
+      # - ADTPosterContrabandUmaPress
+      # - ADTPosterContrabandUmaSport
+      # - ADTPosterContrabandUmaAndAzalia
+      # - ADTPosterContrabandUmaRabbit
+      # - ADTPosterContrabandUmaOnBeach
       - ADTPosterContrabandGoobChuckler
       - ADTPosterContrabandGoobYakub
       #ADT tweak ^^^
@@ -169,7 +172,6 @@
       - PosterLegitJustAWeekAway
       - PosterLegitSecWatch
       - PosterLegitVacation
-      - PosterLegitPeriodicTable
       - PosterLegitRenault
       - PosterLegitNTTGC
       - PosterLegitSafetyMothDelam

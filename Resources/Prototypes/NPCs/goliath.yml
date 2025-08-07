@@ -56,9 +56,11 @@
             targetKey: TargetCoordinates
             pathfindKey: TargetPathfind
             rangeKey: MeleeRange
-        - !type:HTNPrimitiveTask
-          operator: !type:JukeOperator
-            jukeType: AdjacentTile
+        #ADT tweak start
+        # - !type:HTNPrimitiveTask
+        #   operator: !type:JukeOperator
+        #     jukeType: AdjacentTile
+        #ADT tweak end
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: Target

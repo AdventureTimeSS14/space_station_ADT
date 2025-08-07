@@ -7,13 +7,13 @@
         - to: adtmodsuitatmospheric
           steps:
             - tag: ADTModsuitPlateAtmospheric
-              name: Atmospheric MOD plate
+              name: construction-graph-tag-atmospheric-mod-plate
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: atmospheric
               doAfter: 2
             - tag: ADTModsuitAssembledPart
-              name: MOD core
+              name: construction-graph-tag-mod-core
               icon:
                 sprite: ADT/Objects/Specific/Modsuits/modcore_construction.rsi
                 state: modcore8

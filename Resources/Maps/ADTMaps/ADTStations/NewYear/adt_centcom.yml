@@ -20255,7 +20255,7 @@ entities:
       parent: 21
     - type: Physics
       canCollide: False
-- proto: CentcomComputerComms
+- proto: CentcommComputerComms
   entities:
   - uid: 2363
     components:

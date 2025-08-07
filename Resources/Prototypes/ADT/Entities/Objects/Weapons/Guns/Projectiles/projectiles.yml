@@ -35,7 +35,7 @@
 - type: entity
   name: Laser bolt
   id: ADTBulletLaserMK2
-  parent: BulletDisabler
+  parent: BulletDisablerPractice
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -245,7 +245,8 @@
         - Opaque
   - type: KnockdownOnCollide
   - type: BlurOnCollide
-
+  - type: StaminaDamageOnCollide
+    damage: 65
 
 - type: entity
   id: ADTBulletEnergyCrossbow
@@ -279,8 +280,6 @@
         - Opaque
   - type: KnockdownOnCollide
   - type: BlurOnCollide
-  - type: StaminaDamageOnCollide
-    damage: 65
   - type: TimedDespawn
     lifetime: 0.1
 
@@ -419,3 +418,20 @@
     radius: 2
     color: green
     energy: 1
+
+- type: entity
+  name: stanner bolt
+  id: ADTBulletDisablerStrong
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 45
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 5
+    soundHit:
+      collection: WeakHit
+    forceSound: true

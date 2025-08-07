@@ -63,6 +63,15 @@
   loadouts:
   - LawyerNeck
 
+# LAWYER
+- type: loadoutGroup
+  id: ADTLawyerBackpack
+  name: loadout-group-lawyer-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTMagistratBackpackSatchel
 # PATHOLOGIST
 
 - type: loadoutGroup
@@ -219,6 +228,10 @@
   loadouts:
   - RoboticistJumpsuit
   - RoboticistJumpskirt
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
@@ -288,6 +301,7 @@
   minLimit: 0
   loadouts:
   - SeniorResearcherLabCoat
+  - ADTOuterClothingCoatsCrazySci 
 
 # BLUESHIELD
 
@@ -338,9 +352,9 @@
   minLimit: 0
   loadouts:
   # - ADTWardenNeck
-  - ADTWardenNeckBadgeBronze
-  - ADTWardenNeckBadgeSilver
-  - ADTWardenNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 # SECURITY OFFICER
 
@@ -350,9 +364,9 @@
   minLimit: 0
   loadouts:
   # - ADTSecurityOfficerNeck
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 # CADET
 
@@ -362,9 +376,9 @@
   minLimit: 0
   loadouts:
   # - ADTSecurityCadetNeck
-  - ADTSecurityCadetNeckBadgeBronze
-  - ADTSecurityCadetNeckBadgeSilver
-  - ADTSecurityCadetNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 #Плащ, берет и маска атмосианина
 
@@ -505,6 +519,19 @@
   maxLimit: 1
   loadouts:
   - ADTChefCqc
+
+## Боксёр
+
+- type: loadoutGroup
+  id: ADTBoxerMA
+  name: loadout-boxer-pocket1-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBoxerPTSD
+  - ADTBoxerCQCWeak
+  - ADTBoxerCQC
+  - ADTBoxerCarp
 
 ## GUARD OFFICER (НАДЗИРАТЕЛЬ)
 
@@ -810,6 +837,16 @@
   loadouts:
   - CMOPDA
   - ADTCMOPDA
+
+- type: loadoutGroup
+  id: ADTQuartermasterPDA
+  name: loadout-group-quartermaster-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterPDAloadout
+  - ADTintendantPDAloadout
+
 
 # Alts PDA end
 

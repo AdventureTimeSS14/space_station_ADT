@@ -109,8 +109,8 @@
     price: 125
   - id: MiningDrill
     price: 500
-  - id: SeismicCharge
-    price: 200
+  # - id: SeismicCharge временно в ауте
+  #   price: 200
   - id: FireExtinguisherMini
     price: 150
   - id: ADTWeaponCutter

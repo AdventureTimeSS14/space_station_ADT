@@ -5,8 +5,8 @@ smart-fridge-component-search-filter = Поиск...
 smart-fridge-component-title = Умный Холодильник
 smart-fridge-list-item = {$item} [{$amount}]
 
-ent-ADTSmartFridge = Умный холодильник
+ent-ADTSmartFridge = умный холодильник
     .desc = Эта железяка по мнению NanoTrasen умнее тебя. Помимо этого она отлично сохраняет в себе что угодно.
 
-ent-ADTSmartFridgeMedical = Умный холодильник
+ent-ADTSmartFridgeMedical = умный холодильник
     .desc = Эта железяка по мнению NanoTrasen умнее тебя. Помимо этого она отлично сохраняет в себе что угодно, особенно медикаменты.

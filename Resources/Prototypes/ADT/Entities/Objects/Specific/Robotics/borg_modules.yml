@@ -62,3 +62,22 @@
   - type: ItemBorgModule
     items:
     - ADTRPDRecharging
+
+- type: entity
+  id: ADTBorgModulePKA
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: proto kinetic accelerator cyborg module
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: cargo
+    - state: icon-pka
+  - type: ItemBorgModule
+    droppableItems:
+    - id: WeaponProtoKineticAccelerator
+      whitelist:
+        tags:
+        - PKA
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }

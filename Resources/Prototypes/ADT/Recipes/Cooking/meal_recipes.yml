@@ -310,9 +310,8 @@
   time: 30
   solids:
     FoodDoughFlat: 1
-    FoodCheeseSlice: 2
-    FoodMeatChicken: 1
-    FoodTomato: 1
+    FoodCheeseSlice: 3
+    FoodTomato: 2
   recipeType:
   - Oven
 

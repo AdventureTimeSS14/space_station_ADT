@@ -59,6 +59,7 @@ job-name-mechanic = механик
 
 # Cargo
 
+job-name-intendant = интендант
 job-name-postman = почтальон
 job-name-inventory-associate = кладовщик
 job-name-excavator = шахтёр
