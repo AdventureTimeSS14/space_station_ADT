@@ -156,31 +156,7 @@
     - id: PlasmaOre1 #ADT tweak
       maxAmount: 2
     - id: DiamondOre1 #ADT tweak
-      maxAmount: 2 #ADT tweak
-      
-- type: entity
-  name: magmawing watcher bolt
-  id: WatcherBoltMagmawing
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-    layers:
-    - state: omnilaser_greyscale
-      shader: unshaded
-      color: orangered
-  - type: Projectile
-    #   soundHit:  Waiting on serv3
-    impactEffect: BulletImpactEffectOrangeDisabler
-    damage:
-      types:
-        Heat: 0
-  - type: ChangeTemperatureOnCollide
-    heat: 50000
-  - type: IgniteOnCollide
-    fireStacks: 1
-    count: 10
+      maxAmount: 2 #ADT tweak   
 
 - type: entity
   id: MobWatcherPride
