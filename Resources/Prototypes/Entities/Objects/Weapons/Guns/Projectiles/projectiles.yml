@@ -427,6 +427,9 @@
         Heat: 0
   - type: ChangeTemperatureOnCollide
     heat: 50000
+  - type: IgniteOnCollide
+    fireStacks: 1
+    count: 10
 
 - type: entity
   name: scorching bolt
