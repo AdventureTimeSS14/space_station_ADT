@@ -889,9 +889,6 @@
   targetNode: AltarConvertNode
   category: construction-category-structures
   description: construction-desc-altar
-  icon:
-    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
-    state: convertaltar
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false

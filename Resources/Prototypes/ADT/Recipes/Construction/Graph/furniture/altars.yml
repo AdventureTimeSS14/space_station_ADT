@@ -101,7 +101,6 @@
           southRotation: true
         steps:
         - tag: CapacitorStockPart
-          doAfter: 3
       - to: ToolAltarNode
         completed:
         - !type:SnapToGrid

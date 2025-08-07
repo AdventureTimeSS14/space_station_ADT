@@ -9,7 +9,6 @@
     rechargeDuration: 30
   - type: LimitedCharges
     maxCharges: 10
-    charges: 10
   - type: UseDelay
   - type: Sprite
     sprite: ADT/Objects/Tools/web_weaver.rsi
