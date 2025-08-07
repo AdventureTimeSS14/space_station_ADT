@@ -133,8 +133,6 @@
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
     layers:
     - state: goliath_tentacle_wiggle
-        layer:
-          - MidImpassable 
   - type: StunOnContact
     blacklist:
       tags:
