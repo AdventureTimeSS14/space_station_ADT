@@ -256,6 +256,9 @@ public abstract class SharedPickupHumansSystem : EntitySystem
 
     private bool CanPickup(EntityUid uid, EntityUid target, PickupHumansComponent? pickupComp)
     {
+        if (HasComp<CrawlingComponent>(uid))
+            return false;
+
         if (uid == target)
         {
             _popup.PopupEntity(Loc.GetString("popup-attempt-interact-self"), uid, uid);
