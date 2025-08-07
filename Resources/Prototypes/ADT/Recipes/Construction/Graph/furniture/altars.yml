@@ -158,7 +158,7 @@
             state: capacitor
           name: construction-graph-penguin-toy
           doAfter: 3
-#Nullrod Altars
+
   - node: BananiumAltarNode
     entity: AltarBananium
     edges:

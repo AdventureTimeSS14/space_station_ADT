@@ -448,7 +448,7 @@
 # Одежда для Священника
 
 - type: entity
-  parent: ClothingOuterBaseMedium
+  parent: ClothingOuterStorageBase
   id: ADTClothingCoatMonkRobe
   name: monks robe
   description: You can't find something better than being alone in the altruism of cross.
@@ -464,7 +464,7 @@
     slot: head
 
 - type: entity
-  parent: ClothingOuterBaseMedium
+  parent: ClothingOuterStorageBase
   id: ADTClothingCoatReligionLeader
   name: religion leader's robe
   description: A royaly religious piece of clothing, that going to show all of your progeny about their place.
@@ -480,7 +480,7 @@
     slot: head
 
 - type: entity
-  parent: ClothingOuterBaseMedium
+  parent: ClothingOuterStorageBase
   id: ADTClothingCoatClockworkRobe
   name: clockwork robe
   description: Gungf gur ebor-bs oenff tbq-bs pybpxjebx zrpunavfzf-naq-fuvg`
@@ -496,7 +496,7 @@
     slot: head
 
 - type: entity
-  parent: ClothingOuterBaseMedium
+  parent: ClothingOuterStorageBase
   id: ADTClothingOuterSpiderRobe
   name: spider ominous robe
   description: Robe, thats weared by spider cults. Looks kinda familiar...
@@ -512,7 +512,7 @@
 
 
 - type: entity
-  parent: ClothingOuterBaseMedium
+  parent: ClothingOuterStorageBase
   id: ADTClothingOuterTechpriestRobe
   name: tech-priest robe
   description: From the moment I understood the weakness of my flesh, it disgusted me.

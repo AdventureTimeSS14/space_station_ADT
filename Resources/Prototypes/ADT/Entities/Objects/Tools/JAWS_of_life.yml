@@ -10,6 +10,8 @@
     delay: 0.5
   - type: Prying
     speedModifier: 2
+  - type: Tool
+    useSound: /Audio/Items/crowbar.ogg
   - type: MultipleTool
     statusShowBehavior: true
     entries:
