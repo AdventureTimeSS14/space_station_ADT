@@ -8,8 +8,6 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-    rootTask:
-      task: SimpleRangedHostileCompound
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Lavaland/watcher.rsi
