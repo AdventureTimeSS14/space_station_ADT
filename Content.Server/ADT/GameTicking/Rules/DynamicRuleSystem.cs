@@ -27,7 +27,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
-
+    [Dependency] private readonly IChatManager _chatManager = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -37,9 +37,8 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     {
         base.Added(uid, component, gameRule, args);
         component.Chaos = (int)_random.NextFloat(component.MinChaos, component.MaxChaos);
-        _adminLogger.Add(LogType.EventStarted, $"Current chaos level: {component.Chaos}");
-        Log.Info($"Current chaos level: {component.Chaos}");
 
+        _chatManager.SendAdminAnnouncement($"Current chaos level: {component.Chaos}");
         //тяжело, но тут идёт механизм выбора раундстарт антагов
         for (int i = 0; i < 1000 && component.Chaos >= 10; i++)
         {
