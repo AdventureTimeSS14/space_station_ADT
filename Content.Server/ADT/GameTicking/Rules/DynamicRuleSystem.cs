@@ -84,9 +84,6 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         base.Update(frameTime);
         //замена стандартных шкедуллеров
 
-        if (!_event.EventsEnabled)
-            return;
-
         var query = EntityQueryEnumerator<DynamicRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var scheduler, out var gameRule))
         {
@@ -101,16 +98,16 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 
             if (scheduler.EventsBeforeAntag <= 0)
             {
-                var chaos = CheckChaos();
-                //проводит выбор по всем антагом, по схожести очкам хаоса, если не находит, выбирает случайного
-                foreach (var antag in scheduler.MidroundAntags)
-                {
-                    if (Math.Abs(antag.Cost - chaos) >= 15)
-                        continue;
-                    GameTicker.AddGameRule(antag.Id);
-                    scheduler.EventsBeforeAntag = scheduler.MaxEventsBeforeAntag;
-                    continue;
-                }
+                // var chaos = CheckChaos();
+                // //проводит выбор по всем антагом, по схожести очкам хаоса, если не находит, выбирает случайного
+                // foreach (var antag in scheduler.MidroundAntags)
+                // {
+                //     if (Math.Abs(antag.Cost - chaos) >= 15)
+                //         continue;
+                //     GameTicker.AddGameRule(antag.Id);
+                //     scheduler.EventsBeforeAntag = scheduler.MaxEventsBeforeAntag;
+                //     continue;
+                // }
                 foreach (var antag in scheduler.MidroundAntags)
                 {
                     if (_random.NextDouble() < 0.9)
@@ -125,23 +122,23 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
             scheduler.EventsBeforeAntag--;
         }
     }
-    public int CheckChaos()
-    {
-        var chaos = 5; //изначально не нулевой для спавна мини-антагов
-        var seccoms = EntityQueryEnumerator<MindShieldComponent, MobStateComponent>();
-        //проверка живых людей с МЩ
-        while (seccoms.MoveNext(out var uid, out var _, out var state))
-        {
-            if (state.CurrentState == MobState.Alive || state.CurrentState == MobState.Critical)
-                chaos += 10;
-        }
-        //проверка на разгермы
-        var alarms = EntityQueryEnumerator<AirAlarmComponent>();
-        while (alarms.MoveNext(out var uid, out var alarm))
-        {
-            if (alarm.State != AtmosAlarmType.Normal || alarm.State != AtmosAlarmType.Invalid)
-                chaos--;
-        }
-        return chaos;
-    }
+    // public int CheckChaos()
+    // {
+    //     var chaos = 5; //изначально не нулевой для спавна мини-антагов
+    //     var seccoms = EntityQueryEnumerator<MindShieldComponent, MobStateComponent>();
+    //     //проверка живых людей с МЩ
+    //     while (seccoms.MoveNext(out var uid, out var _, out var state))
+    //     {
+    //         if (state.CurrentState == MobState.Alive || state.CurrentState == MobState.Critical)
+    //             chaos += 10;
+    //     }
+    //     //проверка на разгермы
+    //     var alarms = EntityQueryEnumerator<AirAlarmComponent>();
+    //     while (alarms.MoveNext(out var uid, out var alarm))
+    //     {
+    //         if (alarm.State != AtmosAlarmType.Normal || alarm.State != AtmosAlarmType.Invalid)
+    //             chaos--;
+    //     }
+    //     return chaos;
+    // }
 }
