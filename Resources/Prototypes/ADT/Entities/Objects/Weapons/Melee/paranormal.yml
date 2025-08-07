@@ -303,7 +303,6 @@
     useKey: false
   - type: GunRequiresWield
   - type: MeleeWeapon
-    animationRotation: -45
     wideAnimationRotation: -135
     attackRate: 0.8
     damage:

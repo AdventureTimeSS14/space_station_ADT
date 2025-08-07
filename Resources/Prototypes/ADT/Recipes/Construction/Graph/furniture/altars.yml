@@ -72,6 +72,10 @@
           southRotation: true
         steps:
         - tag: ADTTemplarHelmet
+          icon:
+            sprite: Objects/Misc/stock_parts.rsi
+            state: capacitor
+          name: construction-graph-tag-crusader-helmet
           doAfter: 3
       - to: MaintsAltarNode
         completed:
@@ -79,6 +83,10 @@
           southRotation: true
         steps:
         - tag: ADTBudgetInsuls
+          icon:
+            sprite: Objects/Misc/stock_parts.rsi
+            state: capacitor
+          name: construction-graph-tag-budget-insuls
           doAfter: 3
       - to: NanotrasenAltarNode
         completed:
@@ -94,6 +102,10 @@
           southRotation: true
         steps:
         - tag: ADTBible
+          icon:
+            sprite: Objects/Misc/stock_parts.rsi
+            state: capacitor
+          name: construction-graph-tag-bible
           doAfter: 3
       - to: TechnologyAltarNode
         completed:
@@ -101,12 +113,20 @@
           southRotation: true
         steps:
         - tag: CapacitorStockPart
+          icon:
+            sprite: Objects/Misc/stock_parts.rsi
+            state: capacitor
+          name: construction-graph-tag-capacitor
       - to: ToolAltarNode
         completed:
         - !type:SnapToGrid
           southRotation: true
         steps:
         - tag: Toolbox
+          icon:
+            sprite: Objects/Misc/stock_parts.rsi
+            state: capacitor
+          name: construction-graph-toolbox
           doAfter: 3
       - to: NarsiAltarNode
         completed:
@@ -114,6 +134,10 @@
           southRotation: true
         steps:
         - tag: Heart
+          icon:
+            sprite: Objects/Misc/stock_parts.rsi
+            state: capacitor
+          name: construction-graph-heart
           doAfter: 3
       - to: RatvarAltarNode
         completed:
@@ -129,6 +153,10 @@
           southRotation: true
         steps:
         - tag: ADTPenguinToy
+          icon:
+            sprite: Objects/Misc/stock_parts.rsi
+            state: capacitor
+          name: construction-graph-penguin-toy
           doAfter: 3
 #Nullrod Altars
   - node: BananiumAltarNode
