@@ -11,4 +11,4 @@ ent-ADTMobGondola = гондола
 ent-ADTMobNotariusSpider = Нотариус
     .desc = Бюрократически подкованный паук, который будет вам помогать. Удивительно любит церковь!
 ent-ADTChurchMobCarp = { ent-MobCarp }
-    .desc = { ent-MobCarp }
+    .desc = { ent-MobCarp.desc }
