@@ -23,6 +23,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Containers;
+using Content.Shared.Buckle.Components;
 
 namespace Content.Shared.ADT.Systems.PickupHumans;
 
@@ -49,6 +50,8 @@ public abstract class SharedPickupHumansSystem : EntitySystem
 
         SubscribeLocalEvent<PickupingHumansComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<PickupingHumansComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        SubscribeLocalEvent<TakenHumansComponent, BuckleAttemptEvent>(OnBuckle);
 
         SubscribeLocalEvent<PickupingHumansComponent, ComponentInit>(OnPickupSlowdownInit);
         SubscribeLocalEvent<PickupingHumansComponent, ComponentShutdown>(OnTargetSlowRemove);
@@ -86,7 +89,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         Dirty(uid, component);
     }
 
-     /// <summary>
+    /// <summary>
     /// Добавления verb'a взятия на руки
     /// </summary>
     private void AddPickupVerb(EntityUid uid, PickupHumansComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -290,6 +293,14 @@ public abstract class SharedPickupHumansSystem : EntitySystem
             return;
 
         DropFromHands(uid, args.BlockingEntity);
+    }
+
+    private void OnBuckle(EntityUid uid, TakenHumansComponent component, ref BuckleAttemptEvent args)
+    {
+        if (!TryComp<PickupHumansComponent>(uid, out var pickupHumansComponent))
+            return;
+
+        DropFromHands(pickupHumansComponent.User, pickupHumansComponent.Target);
     }
 
 

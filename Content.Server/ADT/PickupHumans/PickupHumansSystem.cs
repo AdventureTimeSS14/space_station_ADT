@@ -10,8 +10,6 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Climbing.Events;
 
-
-
 namespace Content.Server.ADT.PickupHumans;
 
 public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
@@ -32,6 +30,7 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
         SubscribeLocalEvent<TakenHumansComponent, StandAttemptEvent>(OnStandAttempt);
         SubscribeLocalEvent<TakenHumansComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<TakenHumansComponent, StartClimbEvent>(OnStartClimb);
+
         SubscribeLocalEvent<PickupingHumansComponent, DownAttemptEvent>(OnFallAttempt);
         SubscribeLocalEvent<PickupHumansComponent, ContainerGettingInsertedAttemptEvent>(OnContainerInsertAttempt);
         SubscribeLocalEvent<PickupHumansComponent, DropAttemptEvent>(OnDropAttempt);
