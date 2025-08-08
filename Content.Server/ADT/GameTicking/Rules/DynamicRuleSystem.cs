@@ -1,31 +1,14 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
-using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Random;
-using Content.Shared.CCVar;
-using Content.Shared.Database;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Configuration;
-using Robust.Shared.Utility;
-using Content.Server.GameTicking;
-using Content.Shared.Atmos.Monitor;
-using Content.Server.Atmos.Monitor.Components;
 using Content.Server.StationEvents;
-using Content.Shared.Mindshield.Components;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     public override void Initialize()

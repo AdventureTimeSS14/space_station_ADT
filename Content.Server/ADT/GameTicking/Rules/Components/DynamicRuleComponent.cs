@@ -1,7 +1,4 @@
-﻿using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-using Content.Shared.EntityTable.EntitySelectors;
+﻿using Content.Shared.EntityTable.EntitySelectors;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
