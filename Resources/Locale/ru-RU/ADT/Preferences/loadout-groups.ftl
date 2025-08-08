@@ -97,7 +97,7 @@ loadout-group-medical-intern-id-adt = Интерн, ID
 
 # Wildcards
 loadout-group-psychologist-id-adt = Психолог, ID
-loadout-boxer-pocket1-adt = Боксёр, боевые искусства
+
 # Juridical
 loadout-group-lawyer-id-adt = Адвокат, ID
 loadout-group-lawyer-gloves = Адвокат, перчатки
