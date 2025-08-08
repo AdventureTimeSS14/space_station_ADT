@@ -90,30 +90,28 @@
       types:
         Blunt: 0.50 #per second, scales with pressure and other constants.
         Heat: 0.2 # 0.1 more than humans, i feel like low pressure would make slime boil more than blunt stretch them so i decided on this instead.
-  #ADT-tweak-start
-  #- type: Reactive
-  #  groups:
-  #    Flammable: [ Touch ]
-  #    Extinguish: [ Touch ]
-  #  reactions:
-  #  - reagents: [ Water, SpaceCleaner ]
-  #    methods: [ Touch ]
-  #    effects:
-  #    - !type:WashCreamPieReaction
-  #  - reagents: [ Water ]
-  #    methods: [ Touch ]
-  #    effects:
-  #    - !type:HealthChange
-  #      scaleByQuantity: true
-  #      damage:
-  #        types:
-  #          Heat: 0.1
-  #    - !type:PopupMessage
-  #      type: Local
-  #      visualType: Large
-  #      messages: [ "slime-hurt-by-water-popup" ]
-  #      probability: 0.25
-  #ADT-tweak-end
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Heat: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
   - type: Butcherable
     butcheringType: Spike
     spawned:
