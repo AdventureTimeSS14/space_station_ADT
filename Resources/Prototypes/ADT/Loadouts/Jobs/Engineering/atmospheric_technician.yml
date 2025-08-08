@@ -17,7 +17,7 @@
     proto: ADTMasterAtmos
 
 - type: loadout
-  id: ClothingAtmosphericsOveralls
+  id: ADTClothingAtmosphericsOveralls
   equipment:
     outerClothing: ClothingAtmosphericsOveralls
 

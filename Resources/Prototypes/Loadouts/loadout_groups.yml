@@ -957,7 +957,7 @@
   - AtmosphericTechnicianWintercoat
   # ADT-Loadouts-Start
   - ADTOuterAtmosianBomberJacket
-  - ClothingAtmosphericsOveralls
+  - ADTClothingAtmosphericsOveralls
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1232,7 +1232,7 @@
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray
-  - ClothingUniformJumpsuitSecBlue
+  - ADTClothingUniformJumpsuitSecBlue
   # ADT-Loadouts-End
 
 - type: loadoutGroup
