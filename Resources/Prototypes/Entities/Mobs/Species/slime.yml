@@ -67,7 +67,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
-  - type: Geras # ADT-tweak
   - type: PassiveDamage # Around 8 damage a minute healed
     allowedStates:
     - Alive
@@ -146,6 +145,19 @@
     tallscale: 1.05
     short: true
     shortscale: 0.95
+  #- type: Geras - до переработки
+  - type: Uncloneable
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 285
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 1.5
   #End ADT tweak
 
 - type: entity
