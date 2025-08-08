@@ -1,6 +1,7 @@
 - type: entity
   id: ADTReinforcementDroppodDropping
   abstract: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/droppod.rsi
@@ -19,6 +20,7 @@
 - type: entity
   id: ADTReinforcementDroppodOpened
   abstract: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/droppod_open.rsi
@@ -38,6 +40,7 @@
   id: ADTReinforcementDroppodDroppingAmmo
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedAmmo
@@ -46,6 +49,7 @@
   id: ADTReinforcementDroppodOpenedAmmo
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -56,6 +60,7 @@
   id: ADTReinforcementDroppodDroppingExplosives
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedExplosives
@@ -64,6 +69,7 @@
   id: ADTReinforcementDroppodOpenedExplosives
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -74,6 +80,7 @@
   id: ADTReinforcementDroppodDropping40mmGrenade
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpened40mmGrenade
@@ -82,6 +89,7 @@
   id: ADTReinforcementDroppodOpened40mmGrenade
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -92,6 +100,7 @@
   id: ADTReinforcementDroppodDroppingRocket
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedRocket
@@ -100,6 +109,7 @@
   id: ADTReinforcementDroppodOpenedRocket
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -110,6 +120,7 @@
   id: ADTReinforcementDroppodDroppingGAU32Ammo
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedGAU32Ammo
@@ -118,6 +129,7 @@
   id: ADTReinforcementDroppodOpenedGAU32Ammo
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -128,6 +140,7 @@
   id: ADTReinforcementDroppodDroppingDS30Ammo
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedDS30Ammo
@@ -136,6 +149,7 @@
   id: ADTReinforcementDroppodOpenedDS30Ammo
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -146,6 +160,7 @@
   id: ADTReinforcementDroppodDroppingD100Ammo
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedD100Ammo
@@ -154,6 +169,7 @@
   id: ADTReinforcementDroppodOpenedD100Ammo
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -164,6 +180,7 @@
   id: ADTReinforcementDroppodDroppingMk155Ammo
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedMk155Ammo
@@ -172,6 +189,7 @@
   id: ADTReinforcementDroppodOpenedMk155Ammo
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -183,6 +201,7 @@
   id: ADTReinforcementDroppodDroppingMedicine
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedMedicine
@@ -191,6 +210,7 @@
   id: ADTReinforcementDroppodOpenedMedicine
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -201,6 +221,7 @@
   id: ADTReinforcementDroppodDroppingSteelPlasteel
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedSteelPlasteel
@@ -209,6 +230,7 @@
   id: ADTReinforcementDroppodOpenedSteelPlasteel
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -219,6 +241,7 @@
   id: ADTReinforcementDroppodDroppingGlassPlastic
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedGlassPlastic
@@ -227,6 +250,7 @@
   id: ADTReinforcementDroppodOpenedGlassPlastic
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -237,6 +261,7 @@
   id: ADTReinforcementDroppodDroppingRareMaterials
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedRareMaterials
@@ -245,6 +270,7 @@
   id: ADTReinforcementDroppodOpenedRareMaterials
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -255,6 +281,7 @@
   id: ADTReinforcementDroppodDroppingFood
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOpenedFood
@@ -263,6 +290,7 @@
   id: ADTReinforcementDroppodOpenedFood
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -273,6 +301,7 @@
   id: ADTReinforcementDroppodDroppingOxygenCanister
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodOxygenCanister
@@ -281,6 +310,7 @@
   id: ADTReinforcementDroppodOxygenCanister
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -292,6 +322,7 @@
   id: ADTReinforcementDroppodDroppingBasicWeaponTSF
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodBasicWeaponTSF
@@ -300,6 +331,7 @@
   id: ADTReinforcementDroppodBasicWeaponTSF
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -310,6 +342,7 @@
   id: ADTReinforcementDroppodDroppingBasicWeaponKMT
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodBasicWeaponKMT
@@ -318,6 +351,7 @@
   id: ADTReinforcementDroppodBasicWeaponKMT
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -328,6 +362,7 @@
   id: ADTReinforcementDroppodDroppingWeaponxC67
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodWeaponxC67
@@ -336,6 +371,7 @@
   id: ADTReinforcementDroppodWeaponxC67
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -346,6 +382,7 @@
   id: ADTReinforcementDroppodDroppingWeaponHristov
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodWeaponHristov
@@ -354,6 +391,7 @@
   id: ADTReinforcementDroppodWeaponHristov
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -364,6 +402,7 @@
   id: ADTReinforcementDroppodDroppingWeaponL6
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodWeaponL6
@@ -372,6 +411,7 @@
   id: ADTReinforcementDroppodWeaponL6
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -382,6 +422,7 @@
   id: ADTReinforcementDroppodDroppingWeaponChinaLake
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodWeaponChinaLake
@@ -390,6 +431,7 @@
   id: ADTReinforcementDroppodWeaponChinaLake
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -400,6 +442,7 @@
   id: ADTReinforcementDroppodDroppingWeaponRPG
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodWeaponRPG
@@ -408,6 +451,7 @@
   id: ADTReinforcementDroppodWeaponRPG
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -418,6 +462,7 @@
   id: ADTReinforcementDroppodDroppingWeaponAvdLaspistols
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodWeaponAvdLaspistols
@@ -426,6 +471,7 @@
   id: ADTReinforcementDroppodWeaponAvdLaspistols
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -437,6 +483,7 @@
   id: ADTReinforcementDroppodDroppingMechAmmo
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodMechAmmo
@@ -445,6 +492,7 @@
   id: ADTReinforcementDroppodMechAmmo
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -455,6 +503,7 @@
   id: ADTReinforcementDroppodDroppingSabreAmmo
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodSabreAmmo
@@ -463,6 +512,7 @@
   id: ADTReinforcementDroppodSabreAmmo
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -473,6 +523,7 @@
   id: ADTReinforcementDroppodDroppingMechGunBasic
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodMechGunBasic
@@ -481,6 +532,7 @@
   id: ADTReinforcementDroppodMechGunBasic
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -491,6 +543,7 @@
   id: ADTReinforcementDroppodDroppingMechGunAdvanced
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodMechGunAdvanced
@@ -499,6 +552,7 @@
   id: ADTReinforcementDroppodMechGunAdvanced
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -509,6 +563,7 @@
   id: ADTReinforcementDroppodDroppingHoverbikeTSF
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodHoverbikeTSF
@@ -517,6 +572,7 @@
   id: ADTReinforcementDroppodHoverbikeTSF
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:
@@ -527,6 +583,7 @@
   id: ADTReinforcementDroppodDroppingHoverbikeKMT
   parent: ADTReinforcementDroppodDropping
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnDespawn
     prototype: ADTReinforcementDroppodHoverbikeKMT
@@ -535,6 +592,7 @@
   id: ADTReinforcementDroppodHoverbikeKMT
   parent: ADTReinforcementDroppodOpened
   name: dropping droppod
+  categories: [ HideSpawnMenu ]
   components:
   - type: RandomSpawner
     prototypes:

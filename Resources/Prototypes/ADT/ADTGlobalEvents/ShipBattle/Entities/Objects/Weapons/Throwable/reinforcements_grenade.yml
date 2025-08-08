@@ -6,6 +6,11 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
+    layers:
+      - state: icon
+        map: ["enum.TriggerVisualLayers.Base"]
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Grenades/color_smoke_grenade.rsi
+        state: red
   - type: SmokeOnTrigger
     duration: 3
     spreadAmount: 3
@@ -16,8 +21,6 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Items/smoke_grenade_prime.ogg
-  # - type: SpawnOnTrigger
-  #   proto: ADTReinforcementDroppodDropping
 
 - type: entity
   parent: ADTSmokeGrenadeRed
@@ -29,6 +32,13 @@
     duration: 3
     spreadAmount: 3
     smokePrototype: ADTSmokeGreen
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    layers:
+      - state: icon
+        map: ["enum.TriggerVisualLayers.Base"]
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Grenades/color_smoke_grenade.rsi
+        state: green
 
 - type: entity
   parent: ADTSmokeGrenadeRed
@@ -40,6 +50,13 @@
     duration: 3
     spreadAmount: 3
     smokePrototype: ADTSmokeBlue
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    layers:
+      - state: icon
+        map: ["enum.TriggerVisualLayers.Base"]
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Grenades/color_smoke_grenade.rsi
+        state: blue
 
 - type: entity
   parent: ADTSmokeGrenadeRed
@@ -51,6 +68,13 @@
     duration: 3
     spreadAmount: 3
     smokePrototype: ADTSmokeDarkBlue
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    layers:
+      - state: icon
+        map: ["enum.TriggerVisualLayers.Base"]
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Grenades/color_smoke_grenade.rsi
+        state: darkblue
 
 - type: entity
   parent: ADTSmokeGrenadeRed
@@ -62,6 +86,13 @@
     duration: 3
     spreadAmount: 3
     smokePrototype: ADTSmokeYellow
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    layers:
+      - state: icon
+        map: ["enum.TriggerVisualLayers.Base"]
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Grenades/color_smoke_grenade.rsi
+        state: yellow
 
 - type: entity
   parent: ADTSmokeGrenadeRed
@@ -73,6 +104,13 @@
     duration: 3
     spreadAmount: 3
     smokePrototype: ADTSmokeOrange
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    layers:
+      - state: icon
+        map: ["enum.TriggerVisualLayers.Base"]
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Grenades/color_smoke_grenade.rsi
+        state: orange
 
 - type: entity
   parent: ADTSmokeGrenadeRed
@@ -84,6 +122,13 @@
     duration: 3
     spreadAmount: 3
     smokePrototype: ADTSmokeViolet
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    layers:
+      - state: icon
+        map: ["enum.TriggerVisualLayers.Base"]
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/Weapons/Grenades/color_smoke_grenade.rsi
+        state: violet
 
 #Боеприпасы
 - type: entity

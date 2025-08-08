@@ -128,7 +128,7 @@ ent-ADTReinforcementDroppodDroppingOxygenCanister = дропппод снабж�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedOxygenCanister = дропппод снабжения
+ent-ADTReinforcementDroppodOxygenCanister = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -137,7 +137,7 @@ ent-ADTReinforcementDroppodDroppingBasicWeaponTSF = дропппод снабж�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedBasicWeaponTSF = дропппод снабжения
+ent-ADTReinforcementDroppodBasicWeaponTSF = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -146,7 +146,7 @@ ent-ADTReinforcementDroppodDroppingBasicWeaponKMT = дропппод снабж�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedBasicWeaponKMT = дропппод снабжения
+ent-ADTReinforcementDroppodBasicWeaponKMT = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -155,7 +155,7 @@ ent-ADTReinforcementDroppodDroppingWeaponxC67 = дропппод снабжен�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedWeaponxC67 = дропппод снабжения
+ent-ADTReinforcementDroppodWeaponxC67 = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -164,7 +164,7 @@ ent-ADTReinforcementDroppodDroppingWeaponHristov = дропппод снабже
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedWeaponHristov = дропппод снабжения
+ent-ADTReinforcementDroppodWeaponHristov = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -173,7 +173,7 @@ ent-ADTReinforcementDroppodDroppingWeaponL6 = дропппод снабжени�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedWeaponL6 = дропппод снабжения
+ent-ADTReinforcementDroppodWeaponL6 = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -181,7 +181,7 @@ ent-ADTReinforcementDroppodDroppingWeaponChinaLake = дропппод снабж
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedWeaponChinaLake = дропппод снабжения
+ent-ADTReinforcementDroppodWeaponChinaLake = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -190,7 +190,7 @@ ent-ADTReinforcementDroppodDroppingWeaponRPG = дропппод снабжени
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedWeaponRPG = дропппод снабжения
+ent-ADTReinforcementDroppodWeaponRPG = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -199,7 +199,7 @@ ent-ADTReinforcementDroppodDroppingWeaponAvdLaspistols = дропппод сна
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedWeaponAvdLaspistols = дропппод снабжения
+ent-ADTReinforcementDroppodWeaponAvdLaspistols = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -208,7 +208,7 @@ ent-ADTReinforcementDroppodDroppingMechAmmo = дропппод снабжени�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedMechAmmo = дропппод снабжения
+ent-ADTReinforcementDroppodMechAmmo = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -217,7 +217,7 @@ ent-ADTReinforcementDroppodDroppingSabreAmmo = дропппод снабжени
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedSabreAmmo = дропппод снабжения
+ent-ADTReinforcementDroppodSabreAmmo = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -226,7 +226,7 @@ ent-ADTReinforcementDroppodDroppingMechGunBasic = дропппод снабже�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedMechGunBasic = дропппод снабжения
+ent-ADTReinforcementDroppodMechGunBasic = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -235,7 +235,7 @@ ent-ADTReinforcementDroppodDroppingMechGunAdvanced = дропппод снабж
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedMechGunAdvanced = дропппод снабжения
+ent-ADTReinforcementDroppodMechGunAdvanced = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -244,7 +244,7 @@ ent-ADTReinforcementDroppodDroppingHoverbikeTSF = дропппод снабже�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedHoverbikeTSF = дропппод снабжения
+ent-ADTReinforcementDroppodHoverbikeTSF = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
 
@@ -253,6 +253,6 @@ ent-ADTReinforcementDroppodDroppingHoverbikeKMT = дропппод снабже�
     .desc = Падающий дроппод снабжения.
     .suffix = { "Космические бои" }
 
-ent-ADTReinforcementDroppodOpenedHoverbikeKMT = дропппод снабжения
+ent-ADTReinforcementDroppodHoverbikeKMT = дропппод снабжения
     .desc = Упавший дроппод снабжения.
     .suffix = { "Космические бои" }
