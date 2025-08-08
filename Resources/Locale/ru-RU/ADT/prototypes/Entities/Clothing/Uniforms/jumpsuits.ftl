@@ -478,9 +478,5 @@ ent-ADTClothingJumpsuitRadioDemonSuit = костюм радио-демона
 ent-ADTClothingJumpsuitParamedicFieldSuit = полевой комбинезон парамедика
     .desc = одежда, созданная с расчетом на полное удобство носителя
 
-ent-ADTClownJumpsuitCluwneSpawn = костюм клоуна
-    .desc = ХОНК!
-    .suffix = Спавн клувня
-
 ent-ADTClothingJumpsuitDryadCoverings = подвязки дриады
     .desc = Та самая одежда, что выращена самой богиней природы.
