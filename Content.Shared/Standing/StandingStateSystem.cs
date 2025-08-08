@@ -5,6 +5,7 @@ using Content.Shared.Rotation;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.ADT.Crawling; // ADT tweak
 
 namespace Content.Shared.Standing;
 
@@ -93,17 +94,21 @@ public sealed class StandingStateSystem : EntitySystem
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal, appearance);
 
         // Change collision masks to allow going under certain entities like flaps and tables
-        if (TryComp(uid, out FixturesComponent? fixtureComponent))
+        if (!HasComp<CrawlerComponent>(uid))// ADT tweak
         {
-            foreach (var (key, fixture) in fixtureComponent.Fixtures)
+            if (TryComp(uid, out FixturesComponent? fixtureComponent))
             {
-                if ((fixture.CollisionMask & StandingCollisionLayer) == 0)
-                    continue;
+                foreach (var (key, fixture) in fixtureComponent.Fixtures)
+                {
+                    if ((fixture.CollisionMask & StandingCollisionLayer) == 0)
+                        continue;
 
-                standingState.ChangedFixtures.Add(key);
-                _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
+                    standingState.ChangedFixtures.Add(key);
+                    _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
+                }
             }
         }
+
 
         // check if component was just added or streamed to client
         // if true, no need to play sound - mob was down before player could seen that
