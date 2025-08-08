@@ -228,6 +228,10 @@
   loadouts:
   - RoboticistJumpsuit
   - RoboticistJumpskirt
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
@@ -515,6 +519,19 @@
   maxLimit: 1
   loadouts:
   - ADTChefCqc
+
+## Боксёр
+
+- type: loadoutGroup
+  id: ADTBoxerMA
+  name: loadout-boxer-pocket1-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBoxerPTSD
+  - ADTBoxerCQCWeak
+  - ADTBoxerCQC
+  - ADTBoxerCarp
 
 ## GUARD OFFICER (НАДЗИРАТЕЛЬ)
 
