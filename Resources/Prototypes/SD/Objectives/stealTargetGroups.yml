@@ -1,0 +1,8 @@
+# Thief Collection
+
+- type: stealTargetGroup
+  id: HeadUnderwear
+  name: steal-target-groups-heads-underwear
+  sprite:
+    sprite: ADT/Clothing/Underwear/Bottom/Heads/capitan_panties.rsi
+    state: icon

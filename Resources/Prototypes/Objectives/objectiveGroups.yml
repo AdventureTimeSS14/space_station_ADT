@@ -63,6 +63,7 @@
 - type: weightedRandom
   id: ThiefObjectiveGroupCollection
   weights:
+    HeadUnderwearStealCollectionObjective: 1 # SD tweak
     HeadCloakStealCollectionObjective: 1                #command
     HeadBedsheetStealCollectionObjective: 1
     StampStealCollectionObjective: 1

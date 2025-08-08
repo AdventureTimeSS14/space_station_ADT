@@ -1,0 +1,12 @@
+# Collections
+
+- type: entity
+  parent: BaseThiefStealCollectionObjective
+  id: HeadUnderwearStealCollectionObjective
+  components:
+  - type: StealCondition
+    stealGroup: HeadUnderwear
+    minCollectionSize: 6
+    maxCollectionSize: 21
+  - type: Objective
+    difficulty: 1.5
