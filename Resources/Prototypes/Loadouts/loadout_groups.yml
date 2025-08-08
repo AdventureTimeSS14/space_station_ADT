@@ -957,8 +957,8 @@
   - AtmosphericTechnicianWintercoat
   # ADT-Loadouts-Start
   - ADTOuterAtmosianBomberJacket
+  - ClothingAtmosphericsOveralls
   # ADT-Loadouts-End
-  - ClothingAtmosphericsOveralls # ADT tweak
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
