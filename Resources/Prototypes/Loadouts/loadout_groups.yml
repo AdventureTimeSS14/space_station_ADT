@@ -1232,8 +1232,8 @@
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray
+  - ClothingUniformJumpsuitSecBlue
   # ADT-Loadouts-End
-  - ClothingUniformJumpsuitSecBlue # ADT tweak
 
 - type: loadoutGroup
   id: SecurityBackpack
