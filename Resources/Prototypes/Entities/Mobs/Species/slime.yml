@@ -145,7 +145,7 @@
     tallscale: 1.05
     short: true
     shortscale: 0.95
-  #- type: Geras - до переработки
+  - type: Geras
   - type: Uncloneable
   - type: Temperature
     heatDamageThreshold: 325
