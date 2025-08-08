@@ -1,0 +1,47 @@
+- type: entity
+  name: dakimakura spawner
+  id: DakiSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: SD/Objects/Fun/daki.rsi
+          state: ian
+    - type: RandomSpawner
+      prototypes:
+        - DakiChaika
+        - DakiHaruko
+        - DakiKurisu
+        - DakiYaranaika
+        - DakiReisen
+        - DakiNaga
+        - DakiHolo
+        - DakiNarsie
+        - DakiMarie
+        - DakiYoko
+        - DakiToriel
+        - DakiPlutia
+        - DakiSueBowchief
+        - DakiCasca
+        - DakiSquiggly
+        - DakiPatchouli
+        - DakiCamille
+        - DakiRei
+        - DakiTomoko
+        - DakiElisabeth
+        - DakiSquid
+        - DakiMugi
+        - DakiCallie
+        - DakiIan
+        - DakiFoxyGranpa
+        - DakiUmaru
+        - DakiJolyne
+        - DakiImera
+        - DakiSisa
+        - DakiAurora
+        - DakiSlarsha
+        - DakiNukie
+        - DakiRocker
+        - DakiRed
+      offset: 0.2

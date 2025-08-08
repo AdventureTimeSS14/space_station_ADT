@@ -1,0 +1,364 @@
+- type: entity
+  parent: BaseItem
+  id: BaseDaki
+  abstract: true
+  name: dakimakura
+  description: "A large pillow depicting a girl in a compromising position. Featuring as many dimensions as you."
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Fun/daki.rsi
+    layers:
+    - state: base
+    - state: base
+    netsync: false
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/SD/Items/pillow_hit.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/SD/Items/pillow_hit.ogg
+    damage:
+      types:
+        Blunt: 0
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  parent: BaseDaki
+  id: DakiChaika
+  suffix: chaika
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: chaika
+
+- type: entity
+  parent: BaseDaki
+  id: DakiHaruko
+  suffix: haruko
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: haruko
+
+- type: entity
+  parent: BaseDaki
+  id: DakiKurisu
+  suffix: kurisu
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: kurisu
+
+- type: entity
+  parent: BaseDaki
+  id: DakiYaranaika
+  suffix: yaranaika
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: yaranaika
+
+- type: entity
+  parent: BaseDaki
+  id: DakiReisen
+  suffix: reisen
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: reisen
+
+- type: entity
+  parent: BaseDaki
+  id: DakiNaga
+  suffix: naga
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: naga
+
+- type: entity
+  parent: BaseDaki
+  id: DakiHolo
+  suffix: holo
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: holo
+
+- type: entity
+  parent: BaseDaki
+  id: DakiNarsie
+  suffix: narsie
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: narsie
+
+- type: entity
+  parent: BaseDaki
+  id: DakiMarie
+  suffix: marie
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: marie
+
+- type: entity
+  parent: BaseDaki
+  id: DakiYoko
+  suffix: yoko
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: yoko
+
+- type: entity
+  parent: BaseDaki
+  id: DakiToriel
+  suffix: toriel
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: toriel
+
+- type: entity
+  parent: BaseDaki
+  id: DakiPlutia
+  suffix: plutia
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: plutia
+
+- type: entity
+  parent: BaseDaki
+  id: DakiSueBowchief
+  suffix: sue bowchief
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: sue_bowchief
+
+- type: entity
+  parent: BaseDaki
+  id: DakiCasca
+  suffix: casca
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: casca
+
+- type: entity
+  parent: BaseDaki
+  id: DakiSquiggly
+  suffix: squiggly
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: squiggly
+
+- type: entity
+  parent: BaseDaki
+  id: DakiPatchouli
+  suffix: patchouli
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: patchouli
+
+- type: entity
+  parent: BaseDaki
+  id: DakiCamille
+  suffix: camille
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: camille
+
+- type: entity
+  parent: BaseDaki
+  id: DakiRei
+  suffix: rei
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: rei
+
+- type: entity
+  parent: BaseDaki
+  id: DakiTomoko
+  suffix: tomoko
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: tomoko
+
+- type: entity
+  parent: BaseDaki
+  id: DakiElisabeth
+  suffix: elisabeth
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: elisabeth
+
+- type: entity
+  parent: BaseDaki
+  id: DakiSquid
+  suffix: squid
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: squid
+
+- type: entity
+  parent: BaseDaki
+  id: DakiMugi
+  suffix: mugi
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: mugi
+
+- type: entity
+  parent: BaseDaki
+  id: DakiCallie
+  suffix: callie
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: callie
+
+- type: entity
+  parent: BaseDaki
+  id: DakiIan
+  suffix: ian
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: ian
+
+- type: entity
+  parent: BaseDaki
+  id: DakiFoxyGranpa
+  suffix: foxy granpa
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: foxy_granpa
+
+- type: entity
+  parent: BaseDaki
+  id: DakiUmaru
+  suffix: umaru
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: umaru
+
+- type: entity
+  parent: BaseDaki
+  id: DakiJolyne
+  suffix: jolyne
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: jolyne
+
+- type: entity
+  parent: BaseDaki
+  id: DakiImera
+  suffix: imera
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: imera
+
+- type: entity
+  parent: BaseDaki
+  id: DakiSisa
+  suffix: sisa
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: sisa
+
+- type: entity
+  parent: BaseDaki
+  id: DakiAurora
+  suffix: aurora
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: aurora
+
+- type: entity
+  parent: BaseDaki
+  id: DakiSlarsha
+  suffix: slarsha
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: slarsha
+
+- type: entity
+  parent: BaseDaki
+  id: DakiNukie
+  suffix: nukie
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: nukie
+
+- type: entity
+  parent: BaseDaki
+  id: DakiRocker
+  suffix: rocker
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: rocker
+
+- type: entity
+  parent: BaseDaki
+  id: DakiRed
+  suffix: red
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: red

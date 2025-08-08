@@ -1,0 +1,23 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachinePillowmat
+  name: Pillowmat
+  description: Distributes those soft fluffy high... Pillows!
+  components:
+  - type: VendingMachine
+    pack: PillowmatInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    loopDeny: false
+  - type: Sprite
+    sprite: SD/Structures/Machines/VendingMachines/pillowmat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
