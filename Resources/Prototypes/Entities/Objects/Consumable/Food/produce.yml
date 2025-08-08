@@ -2399,6 +2399,8 @@
     seedId: bungo
   - type: SpaceGarbage
   - type: BadFood
+  - type: Item
+    size: Tiny
 
 - type: entity
   parent: FoodProduceBase
@@ -2684,6 +2686,7 @@
   - type: Item
     sprite: Objects/Specific/Hydroponics/cherry.rsi
     heldPrefix: pit
+    size: Tiny
   - type: Tag
     tags:
     - Recyclable
