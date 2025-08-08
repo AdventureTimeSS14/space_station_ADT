@@ -958,6 +958,7 @@
   # ADT-Loadouts-Start
   - ADTOuterAtmosianBomberJacket
   # ADT-Loadouts-End
+  - ClothingAtmosphericsOveralls # ADT tweak
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1232,6 +1233,7 @@
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray
   # ADT-Loadouts-End
+  - ClothingUniformJumpsuitSecBlue # ADT tweak
 
 - type: loadoutGroup
   id: SecurityBackpack
