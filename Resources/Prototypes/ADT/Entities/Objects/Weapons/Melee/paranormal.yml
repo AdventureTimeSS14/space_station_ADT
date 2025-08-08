@@ -156,7 +156,7 @@
     allowSpeech: true
     name: ghost-role-information-devilknife-name
     description: ghost-role-information-devilknife-description
-    rules: ghost-role-information-devilknife-rules
+    rules: ghost-role-information-familiar-rules
   - type: SpeechBarks
     data:
       proto: Jevil

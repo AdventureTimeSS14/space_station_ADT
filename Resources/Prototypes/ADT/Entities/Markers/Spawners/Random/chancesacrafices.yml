@@ -7,10 +7,11 @@
       weight: 90
       children:
       - id: ClothingUniformJumpsuitClown
-    - !type:GroupSelector
+    - !type:AllSelector
       weight: 10
       children:
-      - id: ADTClownJumpsuitCluwneSpawn
+      - id: ClothingUniformJumpsuitClown
+      - id: ADTSpawnPointADTMobCluwneRole
 
 - type: entity
   parent: MarkerBase
@@ -37,10 +38,11 @@
       weight: 90
       children:
       - id: ClothingShoesClown
-    - !type:GroupSelector
+    - !type:AllSelector
       weight: 10
       children:
-      - id: ADTClownShoesCluwneSpawn
+      - id: ClothingShoesClown
+      - id: ADTSpawnPointADTMobCluwneRole
 
 - type: entity
   parent: MarkerBase
@@ -67,10 +69,11 @@
       weight: 90
       children:
       - id: ClothingMaskClown
-    - !type:GroupSelector
+    - !type:AllSelector
       weight: 10
       children:
-      - id: ADTClownMaskCluwneSpawn
+      - id: ClothingMaskClown
+      - id: ADTSpawnPointADTMobCluwneRole
 
 - type: entity
   parent: MarkerBase

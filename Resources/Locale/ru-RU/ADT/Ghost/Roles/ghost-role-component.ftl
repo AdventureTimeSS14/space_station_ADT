@@ -80,8 +80,3 @@ ghost-role-information-cluwne-prank-rules =
 
 ghost-role-information-devilknife-name = Нож дьявола
 ghost-role-information-devilknife-description = Элементаль хаоса и подручный инструмент священника. Хаос, хаос!
-ghost-role-information-devilknife-rules =
-    Вы - [color={role-type-familiar-color}][bold]{role-type-familiar-name}[/bold][/color]. Служите интересам своего хозяина, какими бы они ни были.
-    Вы не помните ничего из своей предыдущей жизни и не помните ничего из того, что узнали, будучи призраком.
-    Вам разрешено помнить знания об игре в целом, например, как готовить, как использовать предметы и т.д.
-    Вам [color=red]НЕ[/color] разрешается помнить или говорить имя, внешность и т.д. вашего предыдущего персонажа.
