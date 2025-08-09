@@ -10,6 +10,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Item;
 using Content.Shared.Hands;
+using Content.Shared.Anomaly.Components;
 
 namespace Content.Server.ADT.Geras;
 
@@ -45,6 +46,9 @@ public sealed class GerasSystem : SharedGerasSystem
     private void OnMorphIntoGeras(EntityUid uid, GerasComponent component, MorphIntoGeras args)
     {
         if (HasComp<ZombieComponent>(uid))
+            return;
+
+        if (HasComp<AnomalyComponent>(uid))
             return;
 
         if (!_actionBlocker.CanInteract(uid, null) || _mobState.IsDead(uid) || _mobState.IsIncapacitated(uid))
