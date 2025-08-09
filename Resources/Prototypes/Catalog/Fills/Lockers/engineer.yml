@@ -101,7 +101,6 @@
   # ADT-RPD-End
     # ADT-WikiBooks-Start
       - id: ADTBookSRPeng
-      - id: ADTBookAtmosSupermatter
     # ADT-WikiBooks-End
 
 - type: entity
@@ -124,7 +123,6 @@
   # ADT-RPD-End
     # ADT-WikiBooks-Start
       - id: ADTBookSRPeng
-      - id: ADTBookAtmosSupermatter
     # ADT-WikiBooks-End
 
 - type: entity

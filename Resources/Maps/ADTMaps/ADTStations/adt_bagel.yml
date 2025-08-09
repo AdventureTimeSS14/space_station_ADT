@@ -9907,7 +9907,6 @@ entities:
     - type: GasTileOverlay
     - type: GridPathfinding
     - type: NavMap
-    - type: SupermatterSpreaderGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -62272,14 +62271,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -113.5,17.5
-      parent: 2
-- proto: ComputerSupermatter
-  entities:
-  - uid: 12872
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -14.5,34.5
       parent: 2
 - proto: ComputerSurveillanceCameraMonitor
   entities:
@@ -136698,13 +136689,6 @@ entities:
     components:
     - type: Transform
       pos: -51.5,-28.5
-      parent: 2
-- proto: Supermatter
-  entities:
-  - uid: 17722
-    components:
-    - type: Transform
-      pos: -16.5,45.5
       parent: 2
 - proto: SurveillanceCameraCommand
   entities:

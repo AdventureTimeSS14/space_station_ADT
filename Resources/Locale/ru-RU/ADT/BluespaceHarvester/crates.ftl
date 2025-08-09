@@ -79,5 +79,3 @@ ent-ADTCrateHarvesterSingularity = { ent-ADTCrateLimitedSecure }
     .desc= { ent-ADTCrateLimitedSecure.desc }
 ent-ADTCrateHarvesterSingularityFake = { ent-ADTCrateLimitedSecure } 
     .desc= { ent-ADTCrateLimitedSecure.desc }
-ent-ADTCrateHarvesterDarkmatter = { ent-ADTCrateLimitedSecure } 
-    .desc= { ent-ADTCrateLimitedSecure.desc }

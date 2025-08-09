@@ -4911,7 +4911,6 @@ entities:
     - type: NavMap
     - type: BecomesStation
       id: ADT_Cluster_Legacy
-    - type: SupermatterSpreaderGrid
   - uid: 7
     components:
     - type: MetaData

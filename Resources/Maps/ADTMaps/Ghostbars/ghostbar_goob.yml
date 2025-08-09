@@ -1123,7 +1123,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
-    - type: SupermatterSpreaderGrid
   - uid: 1740
     components:
     - type: MetaData

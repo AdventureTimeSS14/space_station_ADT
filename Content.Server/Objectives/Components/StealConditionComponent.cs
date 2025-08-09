@@ -68,11 +68,4 @@ public sealed partial class StealConditionComponent : Component
     public LocId DescriptionText;
     [DataField(required: true)]
     public LocId DescriptionMultiplyText;
-
-    // ADT-Tweak
-    ///<summary>
-    /// Проверка на наличие СМа на карте станции.
-    ///</summary>
-    [DataField("needSupermatter")]
-    public bool Supermatter = false;
 }
