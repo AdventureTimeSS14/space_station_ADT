@@ -705,3 +705,15 @@
   - type: Construction
     graph: ADTPaperMask
     node: CompletePaperMaskBlack
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTMFDoomMask
+  name: MF-Doom mask
+  description: "I keep hearing these strange sounds coming from the kitchen. holy shit, it’s the slender man!"
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/mfdoom.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/mfdoom.rsi

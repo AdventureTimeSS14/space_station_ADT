@@ -8432,6 +8432,7 @@ entities:
       parent: 4812
     - type: DeviceNetwork
       deviceLists:
+      - 13156
       - 14182
 - proto: AirTankFilled
   entities:
@@ -8440,7 +8441,7 @@ entities:
     - type: Transform
       pos: -37.849342,29.701904
       parent: 4812
-- proto: AltarSpawner
+- proto: AltarConvert # ADT Tweak
   entities:
   - uid: 4008
     components:

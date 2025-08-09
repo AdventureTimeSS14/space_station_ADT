@@ -1,0 +1,9 @@
+- type: entity
+  parent: DehydratedSpaceCarp
+  id: ADTChruchSpaceCarpDehyd
+  name: dehydrated space carp
+  description: Looks like a plush toy carp, but just add water and it becomes a real-life space carp!
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - ADTChurchMobCarp

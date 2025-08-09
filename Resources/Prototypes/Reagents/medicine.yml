@@ -1348,7 +1348,7 @@
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          max: 50
+          min: 50
         damage:
           types:
             Blunt: -0.2
@@ -1356,7 +1356,7 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
-
+            Holy: -2 # ADT Tweak
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]

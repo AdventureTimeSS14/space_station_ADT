@@ -249,6 +249,9 @@
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
+  - type: Tag
+    tags:
+      - ADTTemplarHelmet
   #ADT-Tweak-End
 
 #Thunderdome Helmet

@@ -25,6 +25,7 @@
       role: JobChaplain
       time: 360000 #100 часов
 
+
 - type: loadout
   id: ADTChaplainWCross
   equipment:
@@ -131,3 +132,13 @@
   id: ADTClergymanPDA
   equipment:
     id: ADTClergymanPDA
+
+# Плюс мотивации для святош
+
+- type: loadout
+  id: ADTChaplainReligiousLeaderRobe
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTChaplainSilverCross50hour
+  equipment:
+    outerClothing: ADTClothingCoatReligionLeader

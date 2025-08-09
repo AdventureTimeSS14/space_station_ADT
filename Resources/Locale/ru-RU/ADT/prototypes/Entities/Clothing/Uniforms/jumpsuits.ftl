@@ -191,7 +191,7 @@ ent-ADTSpaceSecUniformOfficer = комбинезон офицера SPACE SEC
 
 ent-ADTClothingUniformBrigmedicTurtleneck = водолазка бригмедика
     .desc = Удобная и тёплая водолазка ангела-хранителя брига.
-    
+
 ent-ADTClothingUniformIlisium = костюм Иллизиума
     .suffix = Иллизиум
     .desc = Тёмный костюм Иллизиума.
@@ -478,3 +478,5 @@ ent-ADTClothingJumpsuitRadioDemonSuit = костюм радио-демона
 ent-ADTClothingJumpsuitParamedicFieldSuit = полевой комбинезон парамедика
     .desc = одежда, созданная с расчетом на полное удобство носителя
 
+ent-ADTClothingJumpsuitDryadCoverings = подвязки дриады
+    .desc = Та самая одежда, что выращена самой богиней природы.
