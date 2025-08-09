@@ -34,14 +34,14 @@
   mode: ConstructObject
   prototype: GasPipeBend
   cost: 2
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
     - IsWindow
     - MustBuildOnSubfloor
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasPipeStraight
@@ -51,14 +51,14 @@
   mode: ConstructObject
   prototype: GasPipeStraight
   cost: 2
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
     - IsWindow
     - MustBuildOnSubfloor
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasPipeHalf
@@ -68,14 +68,14 @@
   mode: ConstructObject
   prototype: GasPipeHalf
   cost: 2
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
     - IsWindow
     - MustBuildOnSubfloor
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasPipeFourway
@@ -84,15 +84,15 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasPipeFourway.png
   mode: ConstructObject
   prototype: GasPipeFourway
-  cost: 4
-  delay: 2
+  cost: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
     - IsWindow
     - MustBuildOnSubfloor
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasPipeTJunction
@@ -101,15 +101,15 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasPipeTJunction.png
   mode: ConstructObject
   prototype: GasPipeTJunction
-  cost: 3
-  delay: 2
+  cost: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rules:
     - IsWindow
     - MustBuildOnSubfloor
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasPressurePump
@@ -118,12 +118,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasPressurePump.png
   mode: ConstructObject
   prototype: GasPressurePump
-  cost: 2
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasMixer
@@ -132,12 +132,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasMixer.png
   mode: ConstructObject
   prototype: GasMixer
-  cost: 3
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasMixerFlipped
@@ -146,12 +146,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasMixerFlipped.png
   mode: ConstructObject
   prototype: GasMixerFlipped
-  cost: 3
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasFilter
@@ -160,12 +160,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasFilter.png
   mode: ConstructObject
   prototype: GasFilter
-  cost: 3
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasFilterFlipped
@@ -174,12 +174,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasFilterFlipped.png
   mode: ConstructObject
   prototype: GasFilterFlipped
-  cost: 3
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasVolumePump
@@ -188,12 +188,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasVolumePump.png
   mode: ConstructObject
   prototype: GasVolumePump
-  cost: 3
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasPassiveVent
@@ -203,11 +203,11 @@
   mode: ConstructObject
   prototype: GasPassiveVent
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasOutletInjector
@@ -217,11 +217,11 @@
   mode: ConstructObject
   prototype: GasOutletInjector
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasVentPump
@@ -231,11 +231,11 @@
   mode: ConstructObject
   prototype: GasVentPump
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasValve
@@ -245,11 +245,11 @@
   mode: ConstructObject
   prototype: GasValve
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasVentScrubber
@@ -259,11 +259,11 @@
   mode: ConstructObject
   prototype: GasVentScrubber
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTAtmosDeviceFanTiny
@@ -289,11 +289,11 @@
   mode: ConstructObject
   prototype: GasPassiveGate
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTGasDualPortVentPump
@@ -303,11 +303,11 @@
   mode: ConstructObject
   prototype: GasDualPortVentPump
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTPressureControlledValve
@@ -317,11 +317,11 @@
   mode: ConstructObject
   prototype: PressureControlledValve
   cost: 4
-  delay: 2
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTDisposalUnit
@@ -358,12 +358,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/GasPort.png
   mode: ConstructObject
   prototype: GasPort
-  cost: 5
-  delay: 3
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct3
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTDisposalJunctionFlipped
@@ -372,7 +372,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalJunctionFlipped.png
   mode: ConstructObject
   prototype: DisposalJunctionFlipped
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -389,7 +389,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalJunction.png
   mode: ConstructObject
   prototype: DisposalJunction
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -406,7 +406,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalRouterFlipped.png
   mode: ConstructObject
   prototype: DisposalRouterFlipped
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -423,7 +423,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalRouter.png
   mode: ConstructObject
   prototype: DisposalRouter
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -440,7 +440,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalTagger.png
   mode: ConstructObject
   prototype: DisposalTagger
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -457,7 +457,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalBend.png
   mode: ConstructObject
   prototype: DisposalBend
-  cost: 2
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -474,7 +474,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalYJunction.png
   mode: ConstructObject
   prototype: DisposalYJunction
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -491,7 +491,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalSignalRouter.png
   mode: ConstructObject
   prototype: DisposalSignalRouter
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -508,7 +508,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalSignalRouterFlipped.png
   mode: ConstructObject
   prototype: DisposalSignalRouterFlipped
-  cost: 3
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -525,7 +525,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalTrunk.png
   mode: ConstructObject
   prototype: DisposalTrunk
-  cost: 2
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -542,7 +542,7 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/DisposalPipe.png
   mode: ConstructObject
   prototype: DisposalPipe
-  cost: 2
+  cost: 4
   delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
@@ -560,11 +560,11 @@
   mode: ConstructObject
   prototype: AirSensor
   cost: 4
-  delay: 3
+  delay: 2
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct3
+  fx: EffectRCDConstruct2
 
 - type: RPD
   id: ADTFloorDrain
@@ -603,12 +603,12 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/SignalControlledValve.png
   mode: ConstructObject
   prototype: SignalControlledValve
-  cost: 3
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 - type: RPD
   id: ADTRadiator
@@ -617,9 +617,9 @@
   sprite: /Textures/ADT/Interface/Radial/RPD/HeatExchanger.png
   mode: ConstructObject
   prototype: HeatExchanger
-  cost: 3
-  delay: 2
+  cost: 4
+  delay: 1
   collisionMask: FullTileMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1

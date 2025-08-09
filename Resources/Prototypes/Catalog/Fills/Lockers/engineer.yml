@@ -99,10 +99,11 @@
       - id: ADTRPD
       - id: ADTRPDAmmo
   # ADT-RPD-End
-    # ADT-WikiBooks-Start
+  # ADT-WikiBooks-Start
       - id: ADTBookSRPeng
       - id: ADTBookAtmosSupermatter
-    # ADT-WikiBooks-End
+  # ADT-WikiBooks-End
+      - id: ClothingShoesBootsMagAtmos # SD-ElfAtmos
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -122,7 +123,7 @@
       - id: ADTRPD
       - id: ADTRPDAmmo
   # ADT-RPD-End
-    # ADT-WikiBooks-Start
+  # ADT-WikiBooks-Start
       - id: ADTBookSRPeng
       - id: ADTBookAtmosSupermatter
     # ADT-WikiBooks-End

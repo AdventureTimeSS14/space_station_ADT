@@ -48,9 +48,9 @@
   - type: Stamina
     critThreshold: 110
   - type: MovementSpeedModifier
-    weightlessAcceleration: 1.35
+    weightlessAcceleration: 1.25
     weightlessFriction: 1
-    weightlessModifier: 1.2
+    weightlessModifier: 1.15
   - type: Temperature
     heatDamageThreshold: 330
     coldDamageThreshold: 250

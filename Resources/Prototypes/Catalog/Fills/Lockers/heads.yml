@@ -201,6 +201,7 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    - id: AtmoTechCartridge # SD Elven Atmos
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

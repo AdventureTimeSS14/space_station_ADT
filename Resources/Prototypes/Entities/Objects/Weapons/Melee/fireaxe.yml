@@ -45,6 +45,7 @@
       - AdvancedPrying # ADT-Axe-Great-Return
   - type: ToolTileCompatible
   - type: Prying
+    pryPowered: true # SD tweak
   - type: UseDelay
     delay: 1
   - type: StealTarget

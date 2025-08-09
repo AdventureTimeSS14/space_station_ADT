@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingShoesBootsMag
+  id: ClothingShoesBootsMagAtmos
+  name: magboots atmos
+  description: Magnetic boots atmos, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Shoes/Boots/atmos_magboots.rsi
+    state: icon
+  - type: Clothing
+    sprite: SD/Clothing/Shoes/Boots/atmos_magboots.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HighRiskItem
+  - type: StaticPrice
+    price: 450
+  - type: Magboots
+  - type: ToggleClothing
+    action: ActionToggleMagbootsAtmos
+
+- type: entity
+  id: ActionToggleMagbootsAtmos
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: SD/Clothing/Shoes/Boots/atmos_magboots.rsi, state: icon }
+    iconOn: SD/Clothing/Shoes/Boots/atmos_magboots.rsi/icon-on.png

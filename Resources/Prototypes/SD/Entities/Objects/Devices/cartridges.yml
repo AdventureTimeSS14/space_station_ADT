@@ -1,0 +1,18 @@
+﻿- type: entity
+  parent: BaseItem
+  id: AtmoTechCartridge
+  name: AtmoTech cartridge
+  description: A program that provides scanner which reports current gas levels.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-y
+    - type: Icon
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-y
+    - type: Cartridge
+      programName: atmo-tech-program-name
+      icon:
+        sprite: Objects/Specific/Atmos/gasanalyzer.rsi
+        state: icon
+    - type: AtmoTechCartridge
