@@ -226,6 +226,7 @@
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
+    - ADTWeaponLauncherHydraPack
     #ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
