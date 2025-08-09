@@ -1,4 +1,4 @@
-ent-WeaponLauncherHydra = Гидра
+ent-WeaponLauncherHydra = Уборочный гранатомёт
     .desc = БЛУП... Пшшшш
 
 ent-GrenadeCleanade = чистящая граната
