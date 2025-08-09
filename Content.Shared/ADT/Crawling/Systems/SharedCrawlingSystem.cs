@@ -19,6 +19,7 @@ using Content.Shared.Buckle;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Gravity;
 using Content.Shared.Coordinates;
+using Content.Shared.Climbing.Events;
 
 namespace Content.Shared.ADT.Crawling;
 
@@ -32,8 +33,8 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly BonkSystem _bonk = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    // [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    // [Dependency] private readonly ThrowingSystem _throwing = default!;
 
     public override void Initialize()
     {
@@ -51,6 +52,8 @@ public abstract class SharedCrawlingSystem : EntitySystem
         SubscribeLocalEvent<CrawlingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<CrawlerComponent, MapInitEvent>(OnCrawlerInit);
+
+        SubscribeLocalEvent<ClimbableComponent, AttemptClimbEvent>(OnClimbAttemptWhileCrawling);
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ToggleCrawling,
@@ -76,6 +79,22 @@ public abstract class SharedCrawlingSystem : EntitySystem
         switch (_standing.IsDown(uid))
         {
             case false:
+                if (TryComp<ClimbingComponent>(uid, out var climbing))
+                {
+                    if (climbing.DoAfter != null)
+                    {
+                        _doAfter.Cancel(climbing.DoAfter);
+                        climbing.DoAfter = null;
+                    }
+
+                    if (climbing.IsClimbing)
+                        return;
+                }
+
+                var tablesNearby = _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f);
+
+                if (tablesNearby.Count > 0)
+                    return;
                 _standing.Down(uid, dropHeldItems: false);
                 // дропкик перенесён в отдельный компонент. По крайней мере пока-что
                 // if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
@@ -195,6 +214,15 @@ public abstract class SharedCrawlingSystem : EntitySystem
     {
         _appearance.SetData(uid, CrawlingVisuals.Standing, true);
         _appearance.SetData(uid, CrawlingVisuals.Crawling, false);
+    }
+
+    private void OnClimbAttemptWhileCrawling(EntityUid uid, ClimbableComponent comp, ref AttemptClimbEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (HasComp<CrawlingComponent>(args.Climber))
+            args.Cancelled = true;
     }
 }
 

@@ -5,7 +5,8 @@ using Content.Shared.Rotation;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
-using Content.Shared.ADT.Crawling; // ADT tweak
+using Content.Shared.Mobs.Systems; // ADT tweak
+using Content.Shared.Stunnable; // ADT tweak
 
 namespace Content.Shared.Standing;
 
@@ -14,9 +15,10 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; // ADT tweak
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
-    private const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
+    private const int StandingCollisionLayer = (int)CollisionGroup.MidImpassable;
 
     public override void Initialize()
     {
@@ -64,6 +66,24 @@ public sealed class StandingStateSystem : EntitySystem
         // Optional component.
         Resolve(uid, ref appearance, ref hands, false);
 
+
+        // Change collision masks to allow going under certain entities like flaps and tables
+        // ADT: Перенесла выше проверку, чем была.
+        if (_mobState.IsDead(uid) || _mobState.IsCritical(uid))// ADT tweak
+        {
+            if (TryComp(uid, out FixturesComponent? fixtureComponent))
+            {
+                foreach (var (key, fixture) in fixtureComponent.Fixtures)
+                {
+                    if ((fixture.CollisionMask & StandingCollisionLayer) == 0)
+                        continue;
+
+                    standingState.ChangedFixtures.Add(key);
+                    _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
+                }
+            }
+        }
+
         if (!standingState.Standing)
             return true;
 
@@ -92,24 +112,7 @@ public sealed class StandingStateSystem : EntitySystem
 
         // Seemed like the best place to put it
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal, appearance);
-
-        // Change collision masks to allow going under certain entities like flaps and tables
-        if (!HasComp<CrawlerComponent>(uid))// ADT tweak
-        {
-            if (TryComp(uid, out FixturesComponent? fixtureComponent))
-            {
-                foreach (var (key, fixture) in fixtureComponent.Fixtures)
-                {
-                    if ((fixture.CollisionMask & StandingCollisionLayer) == 0)
-                        continue;
-
-                    standingState.ChangedFixtures.Add(key);
-                    _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
-                }
-            }
-        }
-
-
+        // ADT: перенесла проверки на 72 строку
         // check if component was just added or streamed to client
         // if true, no need to play sound - mob was down before player could seen that
         if (standingState.LifeStage <= ComponentLifeStage.Starting)
