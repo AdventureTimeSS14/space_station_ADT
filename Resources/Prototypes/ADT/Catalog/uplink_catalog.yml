@@ -382,7 +382,7 @@
   description: uplink-intruder-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledIntruder
   cost:
-    Telecrystal: 6
+    Telecrystal: 10
   categories:
     - UplinkDisruption
 
