@@ -18,7 +18,7 @@
       - id: DoorRemoteArmory
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
-      - id: BookSpaceLaw
+      - id: ADTBookSpaceLaw #ADT-WikiBooks
       - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
       - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
       - id: ClothingBackpackWarden # Corvax-SecFashion
@@ -56,7 +56,7 @@
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
-      - id: BookSpaceLaw
+      - id: ADTBookSpaceLaw #ADT-WikiBooks
       - id: Binoculars
       - id: ClothingBackpackWarden # Corvax-SecFashion
       # ADT-Tweak-Start
@@ -99,7 +99,7 @@
         prob: 0.2
       - id: HoloprojectorSecurity
         prob: 0.6
-      - id: BookSpaceLaw
+      - id: ADTBookSpaceLaw #ADT-WikiBooks
         prob: 0.5
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsec
