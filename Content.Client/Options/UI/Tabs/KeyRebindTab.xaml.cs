@@ -195,6 +195,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.RotateStoredItem);
             AddButton(ContentKeyFunctions.SaveItemLocation);
             AddButton(ContentKeyFunctions.OfferItem); // ADT-Tweak
+            AddButton(ContentKeyFunctions.PickupHumans); // ADT-Tweak
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
