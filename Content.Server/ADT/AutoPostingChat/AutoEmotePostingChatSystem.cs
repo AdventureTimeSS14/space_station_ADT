@@ -35,19 +35,33 @@ public sealed class AutoEmotePostingChatSystem : EntitySystem
         {
             if (_time.CurTime >= comp.NextSecond)
             {
-                var delay = comp.EmoteTimerRead;
+                string? messageToPost = null;
 
-                if (comp.PostingMessageEmote != null)
+                if (comp.ListEmoteMessages != null && comp.ListEmoteMessages.Count > 0)
                 {
-                    _chat.TrySendInGameICMessage(uid, comp.PostingMessageEmote, InGameICChatType.Emote, ChatTransmitRange.Normal);
+                    messageToPost = _random.Pick(comp.ListEmoteMessages);
+                }
+                else if (!string.IsNullOrEmpty(comp.PostingMessageEmote))
+                {
+                    messageToPost = comp.PostingMessageEmote;
                 }
 
+                if (messageToPost != null)
+                {
+                    _chat.TrySendInGameICMessage(uid, messageToPost, InGameICChatType.Emote, ChatTransmitRange.Normal);
+                }
+
+                int delaySeconds;
                 if (comp.RandomIntervalEmote)
                 {
-                    delay = _random.Next(comp.IntervalRandomEmoteMin, comp.IntervalRandomEmoteMax);
+                    delaySeconds = _random.Next(comp.IntervalRandomEmoteMin, comp.IntervalRandomEmoteMax + 1); // +1, так как верхняя граница не включается
+                }
+                else
+                {
+                    delaySeconds = comp.EmoteTimerRead;
                 }
 
-                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
+                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delaySeconds);
             }
         }
     }
