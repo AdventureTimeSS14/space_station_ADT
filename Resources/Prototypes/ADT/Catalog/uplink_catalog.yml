@@ -392,7 +392,7 @@
   description: uplink-blackmail-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledBlackmail
   cost:
-    Telecrystal: 7
+    Telecrystal: 9
   categories:
     - UplinkDisruption
 
