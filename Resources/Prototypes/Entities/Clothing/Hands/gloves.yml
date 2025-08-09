@@ -108,7 +108,13 @@
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
   - type: FingerprintMask
-
+  - type: Armor #ADT Tweak
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesHop
@@ -284,8 +290,8 @@
   - type: Armor #ADT Tweak
     modifiers:
       coefficients:
-        Blunt: 0.90
-        Slash: 0.90
+        Blunt: 0.95
+        Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
 
@@ -447,7 +453,13 @@
         type: MeleeSpeechBoundUserInterface
   - type: StaticPrice
     price: 0
-
+  - type: Armor #ADT Tweak
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]
   id: ClothingHandsGlovesForensic
