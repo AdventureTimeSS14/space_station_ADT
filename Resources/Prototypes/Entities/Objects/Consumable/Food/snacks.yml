@@ -31,7 +31,7 @@
 
 - type: entity
   name: boritos
-  parent: FoodSnackBase
+  parent: ADTFoodSaltSnackBase #ADT-tweak
   id: FoodSnackBoritos
   description: Crunchy, salty tortilla chips. You could probably make nachos with these.
   components:
@@ -47,7 +47,7 @@
 
 - type: entity
   name: C&Ds
-  parent: FoodSnackBase
+  parent: ADTFoodChocolateSnackBase #ADT-tweak
   id: FoodSnackCnDs
   description: Legally, we cannot say that these won't melt in your hands.
   components:
@@ -80,7 +80,7 @@
 
 - type: entity
   name: chips
-  parent: FoodSnackBase
+  parent: ADTFoodSaltSnackBase #ADT-tweak
   id: FoodSnackChips
   description: Commander Riker's What-The-Crisps.
   components:
@@ -120,7 +120,7 @@
 
 - type: entity
   name: chocolate bar
-  parent: FoodSnackBase
+  parent: ADTFoodChocolateSnackBase #ADT-tweak
   id: FoodSnackChocolateBar
   description: Tastes like cardboard.
   components:
@@ -255,7 +255,7 @@
 
 - type: entity
   name: sus jerky
-  parent: FoodSnackBase
+  parent: ADTFoodSaltSnackBase #ADT-tweak
   id: FoodSnackSus
   description: Something about this packet makes you feel incredibly uneasy. Jerky's good though.
   components:
