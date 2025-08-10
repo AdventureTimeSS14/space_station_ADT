@@ -1,0 +1,14 @@
+- type: vendingMachineInventory
+  id: ADTWeaponKMTDispenserInventory
+  startingInventory:
+    ADTWeaponRifleAR12: 10
+    WeaponShotgunEnforcer: 10
+    WeaponSubMachineGunWt550: 10
+    WeaponPistolMk58: 20
+    ADTMagazineRifleAR12: 30
+    MagazinePistolSubMachineGunTopMounted: 30
+    BoxLethalshot: 10
+    BoxShotgunSlug: 10
+    MagazinePistol: 40
+    CombatKnife: 15
+    WeaponCaseNTGunsModules: 10

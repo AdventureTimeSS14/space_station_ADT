@@ -219,6 +219,21 @@
   files:
     - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
 
+- type: soundCollection
+  id: ResomiLaughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_laught.ogg
+
+- type: soundCollection
+  id: ResomiSneeze
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_sneeze.ogg
+
+- type: soundCollection
+  id: ResomiCoughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
+
 # Other
 - type: soundCollection
   id: HumanSpits

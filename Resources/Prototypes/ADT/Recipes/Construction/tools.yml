@@ -1,23 +1,15 @@
 - type: construction
-  name: makeshift fishing rod
   id: FishingRodMakeshift
   graph: FishingRodMakeshift
   startNode: start
   targetNode: makeshiftRod
   category: construction-category-misc
-  description: Probably would be hard to catch a fish using that.
-  icon:
-    sprite: ADT/Objects/Specific/Fishing/makeshift_rod.rsi
-    state: icon
   objectType: Item
 
 - type: construction
-  name: radio
   id: ADTOldRadio
   graph: BroadcastRadio
   startNode: start
   targetNode: oldRadio
   category: construction-category-tools
-  description: A radio, connected to some radio channel.
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   objectType: Item

@@ -9,6 +9,12 @@
     "states": [
         {
             "name": "khachapuri"
+        },
+        {
+            "name": "shawerma"
+        },
+        {
+            "name": "cheese_shawerma"
         }
     ]
 }

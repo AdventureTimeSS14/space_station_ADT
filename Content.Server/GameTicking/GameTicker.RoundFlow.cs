@@ -440,6 +440,10 @@ namespace Content.Server.GameTicking
 
             // MapInitialize *before* spawning players, our codebase is too shit to do it afterwards...
             _map.InitializeMap(DefaultMap);
+            // ADT-Tweak-start: ReWork Vote Map
+            if (_gameMapManager.GetSelectedMap() is { } selectedMap)
+                _gameMapManager.RegisterPlayedMap(selectedMap.ID);
+            // ADT-Tweak-End
 
             SpawnPlayers(readyPlayers, readyPlayerProfiles, force);
 
@@ -774,6 +778,9 @@ namespace Content.Server.GameTicking
             // Handle restart for server update
             if (_serverUpdates.RoundEnded())
                 return;
+
+            // Check if the GamePreset needs to be reset
+            TryResetPreset();
 
             _sawmill.Info("Restarting round!");
 

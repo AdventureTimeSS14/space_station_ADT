@@ -122,6 +122,14 @@
     radius: 1.5
     energy: 1
     color: deepskyblue
+  - type: Butcherable
+    spawned:
+    - id: MaterialBones1 #ADT tweak
+      maxAmount: 3 #ADT tweak
+    - id: SilverOre1 #ADT tweak
+      maxAmount: 3 #ADT tweak
+    - id: DiamondOre1 #ADT tweak
+      maxAmount: 1 #ADT tweak
 
 - type: entity
   id: MobWatcherMagmawing
@@ -143,6 +151,14 @@
   - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
+  - type: Butcherable
+    spawned:
+    - id: MaterialBones1 #ADT tweak
+      maxAmount: 3 #ADT tweak
+    - id: PlasmaOre1 #ADT tweak
+      maxAmount: 2
+    - id: DiamondOre1 #ADT tweak
+      maxAmount: 2 #ADT tweak
 
 - type: entity
   id: MobWatcherPride

@@ -1,3 +1,5 @@
+using Content.Shared.Atmos.Components;
+using Content.Shared.DrawDepth;
 using Content.Client.UserInterface.Systems.Sandbox;
 using Content.Shared.SubFloor;
 using Robust.Client.GameObjects;
@@ -12,6 +14,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     private bool _showAll;
+     private bool _showVentPipe; //ADT tweak
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ShowAll
@@ -31,6 +34,21 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         }
     }
 
+    // ADT-Tweak-Start
+     [ViewVariables(VVAccess.ReadWrite)]
+     public bool ShowVentPipe
+     {
+         get => _showVentPipe;
+         set
+         {
+             if (_showVentPipe == value)
+                 return;
+             _showVentPipe = value;
+
+             UpdateAll();
+         }
+     }
+    // ADT-Tweak-End
     public override void Initialize()
     {
         base.Initialize();
@@ -62,7 +80,8 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
-        var revealed = !covered || ShowAll || scannerRevealed;
+         var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //ADT tweak - Ventcrawler
+         var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //ADT tweak - Ventcrawler
 
         // set visibility & color of each layer
         foreach (var layer in args.Sprite.AllLayers)

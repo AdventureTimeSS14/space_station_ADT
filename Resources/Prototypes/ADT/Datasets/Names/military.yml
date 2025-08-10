@@ -1,5 +1,35 @@
 - type: localizedDataset
   id: NamesLastERTCallsign
   values:
-    prefix: names_NamesLastERTCallsign-
+    prefix: names-NamesLastERTCallsign-
     count: 58
+
+- type: localizedDataset
+  id: NamesLastDeadSquadCallsign
+  values:
+    prefix: names-military-deadsquad-last-dataset-
+    count: 20
+
+- type: localizedDataset
+  id: NamesFirstERTEngineer
+  values:
+    prefix: names-military-ertengineer-first-dataset-
+    count: 2
+
+- type: localizedDataset
+  id: NamesFirstERTMedical
+  values:
+    prefix: names-military-ertmedical-first-dataset-
+    count: 2
+
+- type: localizedDataset
+  id: NamesFirstERTMilitary
+  values:
+    prefix: names-military-ert-first-dataset-
+    count: 3
+
+# - type: localizedDataset
+#   id: NamesFirstDeadSquad
+#   values:
+#     prefix: names-military-deadsquad-first-dataset-
+#     count: 2

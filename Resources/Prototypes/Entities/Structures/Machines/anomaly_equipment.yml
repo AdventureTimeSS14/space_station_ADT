@@ -217,6 +217,7 @@
       - SetParticleEpsilon
       - SetParticleZeta
       - SetParticleSigma
+  - type: StationAiWhitelist # ADT tweak
 
 - type: entity
   id: MachineAnomalyGenerator
@@ -270,6 +271,7 @@
         - Sheet
     materialWhiteList:
     - Plasma
+  - type: OreSiloClient
   - type: Fixtures
     fixtures:
       fix1:
