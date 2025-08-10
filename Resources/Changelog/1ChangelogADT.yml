@@ -8950,3 +8950,8 @@ Entries:
           барки', type: Fix}
     time: '2025-08-10T02:12:30Z'
     id: 1132
+  - author: Darkiich
+    changes:
+      - {message: Добавлена новая механика - поднятие на руки, type: Add}
+    time: '2025-08-10T11:57:05Z'
+    id: 1133
