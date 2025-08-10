@@ -19,8 +19,6 @@ public abstract partial class SharedPuddleSystem
 
     private const string DryableBlood = "DryableBlood"; // SD tweak
 
-    public static readonly string[] EvaporationReagents = [Water, DryableBlood]; // SD tweak
-
     public string[] GetAbsorbentReagents(Solution solution)
     {
         var absorbentReagents = new List<string>();
