@@ -64,6 +64,9 @@ namespace Content.Client.Lobby.UI
                 LobbyPanelLeftTop.Visible = false;
             }
             // ADT-Tweak-End
+
+            CollapseButton.OnPressed += _ => TogglePanel(false);
+            ExpandButton.OnPressed += _ => TogglePanel(true);
         }
 
         public void SwitchState(LobbyGuiState state)
@@ -170,6 +173,12 @@ namespace Content.Client.Lobby.UI
             DiscordLinkButton.Text = text;
         }
         // ADT-Tweak-end
+
+        private void TogglePanel(bool value)
+        {
+            RightSide.Visible = value;
+            ExpandPanel.Visible = !value;
+        }
 
         public enum LobbyGuiState : byte
         {

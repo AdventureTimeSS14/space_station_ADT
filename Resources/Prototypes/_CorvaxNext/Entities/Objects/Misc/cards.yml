@@ -70,7 +70,7 @@
     sprite: _CorvaxNext/Objects/Misc/cards.rsi
     state: deck_black_full
   - type: Item
-    size: Normal
+    size: Small # SD fix
   - type: CardDeck
 
 

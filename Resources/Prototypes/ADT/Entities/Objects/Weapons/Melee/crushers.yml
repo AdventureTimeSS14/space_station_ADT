@@ -112,6 +112,10 @@
   - type: PointLight
     color: "#ffeead"
     enabled: false
+  - type: Sharp
+  - type: Utensil
+    types:
+      - Knife
 
 - type: entity
   parent: WeaponKineticBase
@@ -224,6 +228,10 @@
   - type: PointLight
     color: "#ffeead"
     enabled: false
+  - type: Sharp
+  - type: Utensil
+    types:
+      - Knife
 
 - type: entity
   parent: WeaponKineticBase
@@ -275,3 +283,7 @@
   - type: PointLight
     color: "#ffeead"
     enabled: false
+  - type: Sharp
+  - type: Utensil
+    types:
+      - Knife

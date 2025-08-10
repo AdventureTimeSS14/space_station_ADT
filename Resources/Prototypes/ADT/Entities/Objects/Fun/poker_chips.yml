@@ -42,35 +42,35 @@
 
 - type: stack
   id: ADTCasinoChip1
-  name: casino_chip_1
+  name: stack-name-casino_chip
   spawn: ADTFunCasinoChipBase
   maxCount: 10
   # itemSize: 1
 
 - type: stack
   id: ADTCasinoChip5
-  name: casino_chip_5
+  name: stack-name-casino_chips
   spawn: ADTFunCasinoChip5
   maxCount: 10
   # itemSize: 1
 
 - type: stack
   id: ADTCasinoChip10
-  name: casino_chip_10
+  name: stack-name-casino_chips
   spawn: ADTFunCasinoChip10
   maxCount: 10
   # itemSize: 1
 
 - type: stack
   id: ADTCasinoChip50
-  name: casino_chip_50
+  name: stack-name-casino_chips
   spawn: ADTFunCasinoChip50
   maxCount: 10
   # itemSize: 1
 
 - type: stack
   id: ADTCasinoChip100
-  name: casino_chip_100
+  name: stack-name-casino_chips
   spawn: ADTFunCasinoChip100
   maxCount: 10
   # itemSize: 1
