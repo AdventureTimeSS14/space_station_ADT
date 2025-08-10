@@ -11479,7 +11479,7 @@ entities:
     - type: Transform
       pos: -20.5,7.5
       parent: 2
-- proto: AltarNanotrasen
+- proto: AltarSpawner
   entities:
   - uid: 551
     components:

@@ -33449,7 +33449,7 @@ entities:
     - type: Transform
       pos: 115.5,22.5
       parent: 1
-- proto: AltarConvert # ADT Tweak
+- proto: AltarSpawner
   entities:
   - uid: 11972
     components:

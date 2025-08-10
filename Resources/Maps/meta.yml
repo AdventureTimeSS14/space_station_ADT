@@ -16689,7 +16689,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -40.5,39.5
       parent: 5350
-- proto: AltarConvert # ADT Tweak
+- proto: AltarSpawner
   entities:
   - uid: 21685
     components:

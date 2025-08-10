@@ -15350,7 +15350,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
-- proto: AltarConvert # ADT Tweak
+- proto: AltarSpawner
   entities:
   - uid: 686
     components:
