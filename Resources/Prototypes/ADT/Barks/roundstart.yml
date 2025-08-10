@@ -119,6 +119,11 @@
   name: bark-underswap-sans-name
   sound: /Audio/ADT/Voice/Vocal-Barks/underswap-sans.ogg
 
+- type: speechBark
+  id: Gaster
+  name: bark-gaster-name
+  sound:
+    collection: ADTGaster
 
 # UNY some new shit brah @@@ QWERTY barks addont folder
 
@@ -186,7 +191,14 @@
 - type: speechBark
   id: RoxlsCaard
   name: bark-roxlscaard-name
-  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-roxlscaard.ogg
+  sound:
+    collection: ADTRouxlsKaard
+
+- type: speechBark
+  id: MrAntTenna
+  name: bark-tenna-name
+  sound:
+    collection: ADTMrAntTennaBark
 
 - type: speechBark
   id: Ralsei

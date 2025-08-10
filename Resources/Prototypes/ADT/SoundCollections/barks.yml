@@ -1,0 +1,37 @@
+- type: soundCollection
+  id: ADTMrAntTennaBark
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-03.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-04.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-05.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-06.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-07.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-08.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-09.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-10.ogg
+
+- type: soundCollection
+  id: ADTRouxlsKaard
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-rouxls-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-rouxls-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-rouxls-03.ogg
+
+- type: soundCollection
+  id: ADTSkeletonBark
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-03.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-04.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-05.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-06.ogg
+
+- type: soundCollection
+  id: ADTGaster
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/undertale-gaster-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale-gaster-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale-gaster-03.ogg

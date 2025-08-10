@@ -9,4 +9,3 @@ public sealed partial class SpeechBarksComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public BarkData Data = new();
 }
-
