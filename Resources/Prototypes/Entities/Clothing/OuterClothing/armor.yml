@@ -167,6 +167,10 @@
         Slash: 0.6
         Piercing: 0.3
         Heat: 0.9
+  #ADT tweak start
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  #ADT tweak end
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -193,6 +197,10 @@
         Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
+  #ADT tweak start
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  #ADT tweak end
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: FireProtection

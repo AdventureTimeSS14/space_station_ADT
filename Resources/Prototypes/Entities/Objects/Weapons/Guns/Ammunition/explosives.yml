@@ -143,7 +143,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Appearance
   - type: SpentAmmoVisuals
-    state: frag
+    state: cleanade #ADT tweak fix: frag -> clenade
     suffix: false
 
 - type: entity
