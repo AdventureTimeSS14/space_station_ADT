@@ -121,6 +121,7 @@
     - ChangelingBlacklist
     - ADTSiliconStealthWhitelist
     - ADTSiliconEmotes
+    - SiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable # ADT-Tweak
   - type: Inventory
