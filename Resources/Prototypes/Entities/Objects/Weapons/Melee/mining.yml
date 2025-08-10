@@ -60,7 +60,7 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 4
+    attackRate: 2 #ADT tweak 4>2
     damage:
       groups:
         Brute: 3
@@ -82,12 +82,12 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 4
+    attackRate: 3.65 #ADT tweak 4>3.65
     damage:
       groups:
         Brute: 6
       types:
-        Structural: 30
+        Structural: 20 #ADT tweak 30>20
 
 
 - type: entity
