@@ -12557,7 +12557,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 165
-- proto: AltarSpawner
+- proto: AltarConvertRed
   entities:
   - uid: 682
     components:

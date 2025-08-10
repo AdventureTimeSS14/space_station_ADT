@@ -16049,7 +16049,6 @@ entities:
       deviceLists:
       - 17460
 - proto: AltarSpawner
-
   entities:
   - uid: 3247
     components:
