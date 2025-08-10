@@ -50,14 +50,6 @@
         Base: goliath
       Dead:
         Base: goliath_dead
-  - type: Bloodstream #SD tweak
-    bloodMaxVolume: 150
-    bloodlossDamage:
-      types:
-        Bloodloss: 0
-    bloodlossHealDamage:
-      types:
-        Bloodloss: 0
     bloodReagent: DryableBlood
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
