@@ -11,6 +11,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Item;
 using Content.Shared.Hands;
 using Content.Shared.Anomaly.Components;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Server.ADT.Geras;
 
@@ -22,6 +24,8 @@ public sealed class GerasSystem : SharedGerasSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<GerasComponent, MorphIntoGeras>(OnMorphIntoGeras);
@@ -55,6 +59,17 @@ public sealed class GerasSystem : SharedGerasSystem
         {
             _popupSystem.PopupEntity(Loc.GetString("geras-popup-cant-use"), uid, uid);
             return;
+        }
+
+        if (TryComp<HandsComponent>(uid, out var handsComp))
+        {
+            foreach (var hand in handsComp.Hands.Values)
+            {
+                if (hand.HeldEntity != null)
+                {
+                    _handsSystem.TryDrop(uid, hand.HeldEntity.Value);
+                }
+            }
         }
 
         var ent = _polymorphSystem.PolymorphEntity(uid, component.GerasPolymorphId);
