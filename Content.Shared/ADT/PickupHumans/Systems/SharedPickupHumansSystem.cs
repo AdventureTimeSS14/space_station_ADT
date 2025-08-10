@@ -24,6 +24,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Containers;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Weapons.Melee;
 
 namespace Content.Shared.ADT.Systems.PickupHumans;
 
@@ -211,6 +212,12 @@ public abstract class SharedPickupHumansSystem : EntitySystem
             _pulling.TryStopPull(pullerComp.Pulling!.Value, pullableComp, target);
         }
 
+        var meleeWeaponCompUid = EnsureComp<MeleeWeaponComponent>(uid);
+        var meleeWeaponCompTarget = EnsureComp<MeleeWeaponComponent>(target);
+
+        meleeWeaponCompTarget.AltDisarm = false;
+        meleeWeaponCompUid.AltDisarm = false;
+
         _standing.Down(target, dropHeldItems: false);
 
         _transform.AttachToGridOrMap(uid);
@@ -246,6 +253,13 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         RemComp<PickupingHumansComponent>(uid);
         RemComp<TakenHumansComponent>(target);
         RemComp<KnockedDownComponent>(target);
+
+
+        var meleeWeaponCompUid = EnsureComp<MeleeWeaponComponent>(uid);
+        var meleeWeaponCompTarget = EnsureComp<MeleeWeaponComponent>(target);
+
+        meleeWeaponCompTarget.AltDisarm = true;
+        meleeWeaponCompUid.AltDisarm = true;
 
         _standing.Stand(target);
 
