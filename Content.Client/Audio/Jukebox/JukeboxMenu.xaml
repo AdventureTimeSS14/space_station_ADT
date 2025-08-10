@@ -1,25 +1,30 @@
+<!-- Resized a window to add UI for the Jukebox volume slider-->
 <ui:FancyWindow xmlns="https://spacestation14.io" xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
-                SetSize="600 500" Title="{Loc 'jukebox-menu-title'}">
+                SetSize="600 500" Title="{Loc 'jukebox-menu-title'}"> <!-- ADT-Tweak -->
     <BoxContainer Margin="4 0" Orientation="Vertical">
         <ItemList Name="MusicList" SelectMode="Button" Margin="3 3 3 3"
         HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="8"/>
         <BoxContainer Orientation="Vertical">
             <Label Name="SongSelected" Text="{Loc 'jukebox-menu-selectedsong'}" />
-            <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
-                          VerticalExpand="False" SizeFlagsStretchRatio="1">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" 
+                          VerticalExpand="False" SizeFlagsStretchRatio="1"> <!-- ADT-Tweak -->
                 <Label Name="SongName" Text="---" />
                 <Label Name="DurationLabel" Text="00:00 / 00:00" HorizontalAlignment="Right" HorizontalExpand="True"/>
             </BoxContainer>
-
+            <!-- Here I added Interface to change the music volume in Jukebox.
+                Added volume slider and Volume label to show the volume-->
+            <!-- ADT-Tweak start -->
             <Slider Name="PlaybackSlider" HorizontalExpand="True" />
             <Label Name="VolumeNumberLabel" Text="0" HorizontalAlignment="Right" HorizontalExpand="True"/>
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
                           VerticalExpand="False" SizeFlagsStretchRatio="1">
                 <Label Name="VolumeLabel" Text="{Loc 'jukebox-menu-volume'} " />
                 <Slider Name="VolumeSlider" HorizontalExpand="True" />
-
+            <!-- End of changes. In summary I added from another pr: volume slider and volume label -->
+            <!-- ADT-Tweak end -->
             </BoxContainer>
         </BoxContainer>
+        <!-- ADT-Tweak start-->
         <BoxContainer Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
@@ -28,5 +33,6 @@
                 <Button Name="StopButton" Text="{Loc 'jukebox-menu-buttonstop'}" />
             </BoxContainer>
         </BoxContainer>
+        <!-- ADT-Tweak end-->
     </BoxContainer>
 </ui:FancyWindow>

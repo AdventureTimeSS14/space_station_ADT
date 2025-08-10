@@ -61,7 +61,7 @@ uplink-pistol-magazine-c20r-name = Магазин ПП (9х19 мм)
 uplink-pistol-magazine-c20r-desc = Магазин ПП на 30 патронов. Совместим с C-20r.
 uplink-pistol-magazine-caseless-name = Пистолетный магазин (4.7х33 мм безгильзовые)
 uplink-pistol-magazine-caseless-desc = Пистолетный магазин на 10 патронов. Совместим с "Коброй".
-uplink-speedloader-magnum-name = Спидлоадер (.44 магнум ББ)
+uplink-speedloader-magnum-name = Спидлоадер (.357 магнум ББ)
 uplink-speedloader-magnu-desc = Спидлоадер с 6 бронебойными, полностью игнорирующими броню, патронами для револьвера. Совместим с "Питоном".
 uplink-mosin-ammo-name = Коробка патронов (7.62х39 мм)
 uplink-mosin-ammo-desc = Коробка с 60 патронами для резервной винтовки.
@@ -219,8 +219,10 @@ uplink-chameleon-name = Набор "Хамелеон"
 uplink-chameleon-desc = Рюкзак, полный вещей, оснащённых технологией хамелеона, позволяющих вам маскироваться под кого угодно на станции, и даже больше!
 uplink-clothing-no-slips-shoes-name = Нескользящая обувь
 uplink-clothing-no-slips-shoes-desc = Ботинки-хамелеоны, которые защищают вас от подскальзывания.
-uplink-clothing-thieving-gloves-name = Воровские перчатки
-uplink-clothing-thieving-gloves-desc = Незаметно обчищайте карманы и улучшайте свой навык воровства с помощью этих новых модных перчаток. Они даже выглядят как обычные!
+# ADT Tweak start
+uplink-clothing-chameleon-thieving-gloves-name = Воровские перчатки
+uplink-clothing-chameleon-thieving-gloves-desc = Незаметно обчищайте карманы и улучшайте свой навык воровства с помощью этих новых модных перчаток. Они даже выглядят как обычные!
+# ADT Tweak end
 uplink-clothing-outer-vest-web-name = Тактический жилет
 uplink-clothing-outer-vest-web-desc = Синтетический бронежилет. Имеет дополнительные ремни и баллистические пластины.
 uplink-hardsuit-syndie-name = Скафандр Синдиката

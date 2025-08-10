@@ -27,6 +27,7 @@
     layoutId: ParticleAccelerator
   - type: AccessReader
     access: [["Engineering"]]
+  - type: StationAiWhitelist #ADT-Tweak
 
 # Unfinished
 

@@ -42,9 +42,8 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         };
 
         _menu.OnSongSelected += SelectSong;
-
         _menu.SetTime += SetTime;
-        _menu.SetVolume += SetVolume; // Ganimed edit
+        _menu.SetVolume += SetVolume; // ADT-Tweak
         PopulateMusic();
         Reload();
     }
@@ -58,12 +57,11 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             return;
 
         _menu.SetAudioStream(jukebox.AudioStream);
-        _menu.SetVolumeSlider(jukebox.Volume); // Ganimed edit
-
+        _menu.SetVolumeSlider(jukebox.Volume); // ADT-Tweak
         if (_protoManager.TryIndex(jukebox.SelectedSongId, out var songProto))
         {
             var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
-            _menu.SetSelectedSong(songProto.Name, (float)length.TotalSeconds);
+            _menu.SetSelectedSong(songProto.Name, (float)length.TotalSeconds); // ADT-Tweak
         }
         else
         {
@@ -99,14 +97,14 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         SendMessage(new JukeboxSetTimeMessage(sentTime));
     }
-    /// <summary>
-    /// Ganimed edit
-    /// Sets the playback volume.
+
+    /// ADT-Tweak start
     /// First applies the volume locally for prediction (if components are available),
     /// then sends a message to the server for synchronization.
     /// Uses MapToRange to convert the slider value to the actual audio component volume range.
     /// </summary>
     /// <param name="volume">Volume value from the UI slider (typically from 0 to 1).</param>
+
     public void SetVolume(float volume)
     {
         var sentVolume = volume;
@@ -120,5 +118,5 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         SendMessage(new JukeboxSetVolumeMessage(sentVolume));
     }
+    /// ADT-Tweak end
 }
-
