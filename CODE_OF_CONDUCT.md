@@ -52,3 +52,4 @@
 - `Добавлено веселье`
 - `add(src, proto, texture, ui, lang): Добавлена хирургия`
 - `remove, add(src): Удалена команда fuckrules и добавлена команда adminwho`
+
