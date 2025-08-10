@@ -13,6 +13,10 @@ using Content.Shared.Hands;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
+using Content.Shared.Nuke;
+using Content.Server.Ghost.Roles.Components;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server.ADT.Geras;
 
@@ -25,6 +29,7 @@ public sealed class GerasSystem : SharedGerasSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
 
     public override void Initialize()
     {
@@ -68,6 +73,25 @@ public sealed class GerasSystem : SharedGerasSystem
                 if (hand.HeldEntity != null)
                 {
                     _handsSystem.TryDrop(uid, hand.HeldEntity.Value);
+                }
+            }
+        }
+
+        if (TryComp<InventoryComponent>(uid, out var inventoryComp))
+        {
+            _inventorySystem.TryUnequip(uid, "outerClothing", force: true);
+
+            foreach (var slot in inventoryComp.Slots)
+            {
+                if (_inventorySystem.TryGetSlotEntity(uid, slot.Name, out var itemUid) && itemUid.HasValue)
+                {
+                    if (HasComp<NukeDiskComponent>(itemUid.Value) ||
+                        HasComp<GhostRoleComponent>(itemUid.Value) ||
+                        HasComp<MindContainerComponent>(itemUid.Value) ||
+                        HasComp<MobStateComponent>(itemUid.Value))
+                    {
+                        _inventorySystem.TryUnequip(uid, slot.Name, force: true);
+                    }
                 }
             }
         }
