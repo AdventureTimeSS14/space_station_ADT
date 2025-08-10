@@ -20,7 +20,7 @@ CHANGELOG_RE = re.compile(
     re.IGNORECASE | re.MULTILINE
 )
 
-TIMEOUT = 10  # seconds
+TIMEOUT = 620  # seconds
 
 
 def smart_capitalize(text):
@@ -153,6 +153,22 @@ def create_embeds(changelog, author_name, author_avatar, branch, coauthors=None)
     return embeds
 
 
+def test_discord_webhook(url):
+    try:
+        resp = requests.get(url, timeout=5)
+        if resp.status_code in (401, 403, 404):
+            print(f"❌ Discord webhook invalid or no permission (HTTP {resp.status_code}).")
+            return False
+        print(f"ℹ️ Discord webhook reachable (HTTP {resp.status_code}).")
+        return True
+    except requests.Timeout:
+        print("⏳ Timeout while testing Discord webhook.")
+        return False
+    except requests.RequestException as e:
+        print(f"❌ Error testing Discord webhook: {e}")
+        return False
+
+
 def main():
     event_path = os.environ.get("GITHUB_EVENT_PATH")
     webhook_url = os.environ.get("DISCORD_WEBHOOK")
@@ -160,6 +176,9 @@ def main():
 
     if not event_path or not webhook_url:
         print("❌ Missing required environment variables.")
+        return
+
+    if not test_discord_webhook(webhook_url):
         return
 
     with open(event_path, 'r', encoding='utf-8') as f:
@@ -193,31 +212,6 @@ def main():
     if not changelog:
         print("ℹ️ No valid changelog after extraction. Skipping PR.")
         return
-
-    coauthors_raw = extract_coauthors(body)
-    if token and coauthors_raw:
-        for name, email in coauthors_raw:
-            try:
-                user_req = requests.get(
-                    f"https://api.github.com/search/users?q={email}+in:email",
-                    headers={"Authorization": f"Bearer {token}"},
-                    timeout=TIMEOUT
-                )
-                if user_req.ok:
-                    result = user_req.json()
-                    if result.get("total_count", 0) > 0:
-                        user = result["items"][0]
-                        coauthor_profiles.append({
-                            "name": user["login"],
-                            "avatar": user["avatar_url"]
-                        })
-                    else:
-                        coauthor_profiles.append({"name": name, "avatar": None})
-                else:
-                    coauthor_profiles.append({"name": name, "avatar": None})
-            except requests.Timeout:
-                print(f"⏳ Timeout fetching coauthor {email}")
-                coauthor_profiles.append({"name": name, "avatar": None})
 
     embeds = create_embeds(changelog, author_display, avatar_url, branch, coauthors=coauthor_profiles)
     headers = {"Content-Type": "application/json"}
