@@ -401,6 +401,128 @@
           min: 20
 
 #Пиво октоберфеста
+- type: reagent
+  id: ADTCargoBeer
+  name: cargo-beer-name
+  parent: BaseAlcohol
+  desc: cargo-beer-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_cargobeer
+  color: "#663100"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/cargobeer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTLeafloverBeer
+  name: leaflover-beer-name
+  parent: BaseAlcohol
+  desc: leaflover-beer-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_leafloverbeer
+  color: "#defa92"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages: [ "medicine-effect-hungover" ]
+        probability: 0.04
+      - !type:GenericStatusEffect
+        key: Drunk
+        time: 3.0
+        type: Remove
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/leafloverbeer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTScientificAle
+  name: scientific-ale-name
+  parent: BaseAlcohol
+  desc: scientific-ale-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_scientificale
+  color: "#ff9de2"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.3
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/scientificale.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTUraniumAle
+  name: uranium-ale-name
+  parent: BaseAlcohol
+  desc: uranium-ale-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_uraniumale
+  color: "#b9c73b"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 0.3
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/uraniumale.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
 
 - type: reagent
   id: ADTGoldenAle
