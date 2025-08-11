@@ -1,5 +1,5 @@
 using Robust.Shared.Serialization;
-using Robust.Shared.Audio; // Добавлено
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.SpeechBarks;
 
@@ -8,7 +8,7 @@ public sealed class PlaySpeechBarksEvent : EntityEventArgs
 {
     public NetEntity? Source;
     public string? Message;
-    public SoundSpecifier SoundSpecifier; // Оригинальный SoundSpecifier
+    public SoundSpecifier SoundSpecifier;
     public float Pitch;
     public float LowVar;
     public float HighVar;

@@ -2,7 +2,7 @@ using Content.Shared.Humanoid;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Audio; // Добавлено
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.SpeechBarks;
 

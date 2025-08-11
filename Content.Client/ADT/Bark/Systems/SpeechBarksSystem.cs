@@ -86,7 +86,6 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         {
             if (_player.LocalSession == null) break;
 
-            // СОВРЕМЕННЫЙ ПОДХОД К ВОСПРОИЗВЕДЕНИЮ ЗВУКОВ
             _audio.PlayEntity(
                 ev.SoundSpecifier,
                 _player.LocalSession,
@@ -117,7 +116,6 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         {
             if (_player.LocalSession == null) break;
 
-            // СОВРЕМЕННЫЙ ПОДХОД К ВОСПРОИЗВЕДЕНИЮ ЗВУКОВ
             _audio.PlayGlobal(
                 proto.Sound,
                 _player.LocalSession,

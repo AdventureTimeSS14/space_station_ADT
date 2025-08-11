@@ -89,7 +89,6 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        // Исправлено название метода
         _entManager.System<SpeechBarksSystem>().PlayDataPreview(
             Profile.Bark.Proto,
             Profile.Bark.Pitch,
