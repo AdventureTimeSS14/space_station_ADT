@@ -41,7 +41,9 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
         "Тест мессЭдж 1.",
         "Тест мессЭдж 2!",
         "Тест мессЭдж 3?",
-        "Здесь был котя."
+        "Здесь был котя.",
+        "Здесь был КВЕРТИ :3.",
+        "Сьешь этих французких булок, да выпей чаю."
     };
 
     private float _volume = 0.0f;
