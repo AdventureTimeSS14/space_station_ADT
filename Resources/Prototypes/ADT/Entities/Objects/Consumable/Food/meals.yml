@@ -192,3 +192,93 @@
     sprite: ADT/Objects/Consumable/Food/noodles.rsi
     state: tomato_meatball
 
+#Шаурма
+- type: entity
+  parent: FoodInjectableBase
+  id: ADTShawermaBase
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vegetables
+      - meaty
+      - magical
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meals.rsi
+    state: shawerma
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 3
+  - type: Item
+    sprite: ADT/Objects/Consumable/Food/meals.rsi
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+
+- type: entity
+  name: shawerma-default-name
+  parent: ADTShawermaBase
+  id: ADTShawermaDefault
+  description: shawerma-default-desc
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vegetables
+      - meaty
+      - magical
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meals.rsi
+    state: shawerma
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 3
+
+- type: entity
+  name: shawerma-cheese-name
+  parent: ADTShawermaBase
+  id: ADTShawermaCheese
+  description: shawerma-cheese-desc
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vegetables
+      - meaty
+      - cheesy
+      - magical
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meals.rsi
+    state: cheese_shawerma
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 4

@@ -636,3 +636,6 @@ binds:
 - function: OfferItem # ADT-Tweak
   type: State
   key: F
+- function: PickupHumans # ADT-Tweak
+  type: State
+  key: Space
