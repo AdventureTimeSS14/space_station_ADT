@@ -93,7 +93,10 @@ public sealed class GerasSystem : SharedGerasSystem
             return;
 
         if (HasComp<AnomalyComponent>(uid))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("geras-popup-cant-use-anomaly"), uid, uid);
             return;
+        }
 
         if (!_actionBlocker.CanInteract(uid, null) || _mobState.IsDead(uid) || _mobState.IsIncapacitated(uid))
         {
