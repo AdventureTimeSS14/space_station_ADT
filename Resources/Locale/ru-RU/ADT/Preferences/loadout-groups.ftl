@@ -111,3 +111,4 @@ loadout-group-psychologist-id-adt = Психолог, ID
 # Juridical
 loadout-group-lawyer-id-adt = Адвокат, ID
 loadout-group-lawyer-gloves = Адвокат, перчатки
+loadout-group-lawyer-backpack = Магистрат, рюкзак

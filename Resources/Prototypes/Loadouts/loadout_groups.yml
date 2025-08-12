@@ -238,6 +238,12 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckGrey
+  - ADTClothingUniformJumpskirtTurtleneckGrey
+  - ADTClothingUniformJumpsuitTurtleneckPink
+  - ADTClothingUniformJumpskirtTurtleneckPink
+  # ADT tweak end
 
 - type: loadoutGroup
   id: PassengerFace
@@ -359,6 +365,10 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
+  # ADT tweak end
 # ADT-Loadouts-Start
 - type: loadoutGroup
   id: LibrarianBackpack
@@ -463,6 +473,10 @@
   - ADTJanitorJumpsuitJanimaidmini
   - ADTJanitorJumpsuitJanimaidElegant
   # ADT-Loadouts-End
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckPurple
+  - ADTClothingUniformJumpskirtTurtleneckPurple
+  # ADT tweak end
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -502,6 +516,10 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckGreen
+  - ADTClothingUniformJumpskirtTurtleneckGreen
+  # ADT tweak end
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -761,6 +779,10 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckGrey
+  - ADTClothingUniformJumpskirtTurtleneckGrey
+  # ADT tweak end
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -897,6 +919,12 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckOrange
+  - ADTClothingUniformJumpskirtTurtleneckOrange
+  - ADTClothingUniformJumpsuitTurtleneckYellow
+  - ADTClothingUniformJumpskirtTurtleneckYellow
+  # ADT tweak end
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -953,6 +981,7 @@
   - AtmosphericTechnicianWintercoat
   # ADT-Loadouts-Start
   - ADTOuterAtmosianBomberJacket
+  - ADTClothingAtmosphericsOveralls
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1025,6 +1054,7 @@
   loadouts:
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
+  - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -1066,6 +1096,14 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+  - ADTClothingUniformJumpsuitTurtleneckPurple
+  - ADTClothingUniformJumpskirtTurtleneckPurple
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1083,6 +1121,7 @@
   - ScienceLabCoat
   - RegularLabCoat
   - ScienceWintercoat
+  - ADTOuterClothingCoatsCrazySci # ADT tweak
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1217,6 +1256,7 @@
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray
+  - ADTClothingUniformJumpsuitSecBlue
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1418,6 +1458,12 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckAzure
+  - ADTClothingUniformJumpskirtTurtleneckAzure
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1480,6 +1526,10 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ChemistJumpsuit
@@ -1487,6 +1537,10 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckOrange
+  - ADTClothingUniformJumpskirtTurtleneckOrange
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1533,6 +1587,7 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - WhiteShoes
   - MedicalWinterBoots
   # ADT tweak start
   - ADTFootWrapsW
@@ -1542,6 +1597,17 @@
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
   # ADT tweak end
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical
@@ -1572,6 +1638,10 @@
   loadouts:
   - PsychologistJumpsuit
   - PsychologistJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: BoxerJumpsuit

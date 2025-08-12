@@ -39,12 +39,12 @@ namespace Content.Server.ADT.Abilities.XenoQueen
         {
             base.Update(frameTime);
 
-            var query = EntityQueryEnumerator<XenoQueenComponent>(); 
+            var query = EntityQueryEnumerator<XenoQueenComponent>();
             while (query.MoveNext(out var uid, out var component) && component.Regenetarion) // Костыль, но супер рабочий)
             {
-                if (component.BloobCount >= component.MaxBloobCount) 
+                if (component.BloobCount >= component.MaxBloobCount)
                 {
-                    component.Accumulator = 0f; 
+                    component.Accumulator = 0f;
                     continue;
                 }
 
@@ -54,7 +54,7 @@ namespace Content.Server.ADT.Abilities.XenoQueen
                     continue;
 
                 component.Accumulator -= component.RegenDelay; // component.Accumulator = 0f;
-                if (component.BloobCount < component.MaxBloobCount) 
+                if (component.BloobCount < component.MaxBloobCount)
                 {
                     ChangePowerAmount(uid, component.RegenBloobCount, component);
                 }
@@ -142,7 +142,6 @@ namespace Content.Server.ADT.Abilities.XenoQueen
             {
                 component.BloobCount -= args.Cost.Value;
                 Spawn(args.Prototypes[0].PrototypeId, Transform(uid).Coordinates);
-                Speak(args);
                 args.Handled = true;
             }
             else
@@ -150,14 +149,6 @@ namespace Content.Server.ADT.Abilities.XenoQueen
                 _popupSystem.PopupEntity(Loc.GetString("queen-no-bloob-count", ("CountBloob", args.Cost.GetValueOrDefault() - component.BloobCount)), uid);
             }
             UpdateAlertShow(uid, component);
-        }
-        private void Speak(BaseActionEvent args)
-        {
-            if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
-                return;
-
-            var ev = new SpeakSpellEvent(args.Performer, speak.Speech);
-            RaiseLocalEvent(ref ev);
         }
         private void UpdateAlertShow(EntityUid uid, XenoQueenComponent component)
         {

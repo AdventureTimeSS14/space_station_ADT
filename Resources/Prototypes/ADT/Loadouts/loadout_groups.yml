@@ -63,6 +63,15 @@
   loadouts:
   - LawyerNeck
 
+# LAWYER
+- type: loadoutGroup
+  id: ADTLawyerBackpack
+  name: loadout-group-lawyer-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTMagistratBackpackSatchel
 # PATHOLOGIST
 
 - type: loadoutGroup
@@ -219,6 +228,10 @@
   loadouts:
   - RoboticistJumpsuit
   - RoboticistJumpskirt
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
@@ -288,6 +301,7 @@
   minLimit: 0
   loadouts:
   - SeniorResearcherLabCoat
+  - ADTOuterClothingCoatsCrazySci 
 
 # BLUESHIELD
 

@@ -57,6 +57,76 @@
   - type: Rotatable
 
 - type: entity
+  parent: BaseItem
+  id: ADTBalloon
+  name: balloon
+  description: Ballon.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon
+    state: icon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Fun/Balloon
+    heldPrefix: icon
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: ADTBalloon
+  id: ADTBalloonNT
+  name: nt balloon
+  description: NT Ballon.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon
+    state: nt-balloon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Fun/Balloon
+    heldPrefix: nt
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: ADTBalloon
+  id: ADTBalloonCorgi
+  name: corgi balloon
+  description: corgi Ballon.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon
+    state: corgi-balloon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Fun/Balloon
+    heldPrefix: corgi
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: ADTBalloon
+  id: ADTBalloonClown
+  name: clown balloon
+  description: clown Ballon.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon
+    state: clown-balloon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Fun/Balloon
+    heldPrefix: clown
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
   parent: ToyHammer
   id: ADTToyHammerAbyss
   name: rubber hammer from abyss

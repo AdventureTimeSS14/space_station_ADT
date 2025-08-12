@@ -1,7 +1,5 @@
-names_ADTCmndNamesFirstMilitary-1 = Капитан
+names-ADTCmndNamesFirstMilitary-1 = Коммандер
 
-names_ADTNamesFirstMilitaryRXBZZ-1 = Прапорщик
-names_ADTNamesFirstMilitaryRXBZZ-2 = Старший Прапорщик
-names_ADTNamesFirstMilitaryRXBZZ-3 = Младший лейтенант
-names_ADTNamesFirstMilitaryRXBZZ-4 = Лейтенант
-names_ADTNamesFirstMilitaryRXBZZ-5 = Старший лейтенант
+names-ADTNamesFirstMilitaryRXBZZ-1 = Сержант-специалист
+names-ADTNamesFirstMilitaryRXBZZ-2 = Лейтенант-специалист
+names-ADTNamesFirstMilitaryRXBZZ-3 = Специалист

@@ -1,54 +1,39 @@
 - type: construction
-  name: ground cannabis white
   id: ADTsmokeableGroundCannabisWhite
   graph: ADTsmokeableGroundCannabisWhite
   startNode: start
   targetNode: ground
   category: construction-category-misc
-  description: "Ground white cannabis, ready to take you on a trip."
-  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   objectType: Item
 
 - type: construction
-  name: joint of cannabis white
   id: ADTsmokeableJoint
   graph: ADTsmokeableJoint
   startNode: start
   targetNode: joint
   category: construction-category-misc
-  description: "A roll of dried plant matter wrapped in thin paper."
-  icon: { sprite: Objects/Consumable/Smokeables/Cannabis/joint.rsi, state: unlit-icon }
   objectType: Item
 
 - type: construction
-  name: blunt of cannabis white
   id: ADTsmokeableBlunt
   graph: ADTsmokeableBlunt
   startNode: start
   targetNode: blunt
   category: construction-category-misc
-  description: "A roll of dried plant matter wrapped in a dried tobacco leaf."
-  icon: { sprite: Objects/Consumable/Smokeables/Cannabis/blunt.rsi, state: unlit-icon }
   objectType: Item
 
 - type: construction
-  name: ground desoxyephedrine crystals
   id: ADTGroundMethCrystal
   graph: ADTGroundMethCrystalGraph
   startNode: start
   targetNode: ground
   category: construction-category-misc
-  description: "Meth can be smoked, eaten, or sniffed. But this specimen is best smoked."
-  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   objectType: Item
 
 - type: construction
-  name: ground blue sky desoxyephedrine crystals
   id: ADTGroundWalterMethCrystal
   graph: ADTGroundWalterMethCrystalGraph
   startNode: start
   targetNode: ground
   category: construction-category-misc
-  description: "Tight, tight, tight! Blue, pink, yellow - whatever man, just bring me some more!"
-  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   objectType: Item
