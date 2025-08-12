@@ -54,9 +54,9 @@ cmd-zoom_tweak-command-error-content-eye = У указанной сущност�
 
 # Command: massmsg
 massmsg-command-description = Отправляет скрытое сообщение всем указанным игрокам
-massmsg-command-help-text = Использование: {$command} <сообщение> <всплывающее сообщение> <user1 [user2 [user3]] | all | radius: <float>>
+massmsg-command-help-text = Использование: {$command} <сообщение> <всплывающее сообщение> <user1 [user2 [user3]] | all | radius:<float>>
 massmsg-player-unable = Не удалось найти игрока с таким никнеймом.
-massmsg-command-hint = username/all/radius:
+massmsg-command-hint = username/all/radius:<int>
 massmsg-command-hint-one-args = message
 massmsg-command-hint-second-args = popupMessage
 
