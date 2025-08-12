@@ -42,7 +42,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         _actions.AddAction(entity.Owner, ref actionEnt, entity.Comp.BackToAiAction);
 
         if (actionEnt != null)
-            entity.Comp.BackToAiActionEntity = actionEnt.Value;
+            entity.Comp.ADTBackToAiActionEntity = actionEnt.Value;
     }
 
     private void OnShutdown(Entity<AiRemoteControllerComponent> entity, ref ComponentShutdown args)
