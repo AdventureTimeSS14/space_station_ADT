@@ -86,7 +86,7 @@
     event: !type:ReturnMindIntoAiEvent
 
 - type: entity
-  id: ActionOpenRemoteDevicesMenu
+  id: ADTActionOpenRemoteDevicesMenu
   name: Open list of remote devices
   description: Opens a menu with available remote devices.
   components:
