@@ -71,7 +71,7 @@
     event: !type:ToggleIntrinsicUIEvent { key: enum.AtmosAlertsComputerUiKey.Key }
 
 - type: entity
-  id: ActionBackToAi
+  id: ADTActionBackToAi
   name: Back to Ai
   description: Sends your mind back to the core.
   components:
