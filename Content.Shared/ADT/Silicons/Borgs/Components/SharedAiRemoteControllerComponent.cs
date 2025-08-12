@@ -12,7 +12,7 @@ public sealed partial class AiRemoteControllerComponent : Component
     [DataField] public string[]? PreviouslyTransmitterChannels;
     [DataField] public string[]? PreviouslyActiveRadioChannels;
 
-    [DataField] public EntProtoId BackToAiAction = "ActionBackToAi";
+    [DataField] public EntProtoId ADTBackToAiAction = "ActionBackToAi";
     [DataField] public EntityUid? ADTBackToAiActionEntity;
 
     [Serializable, NetSerializable]
