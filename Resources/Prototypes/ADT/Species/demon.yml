@@ -1,7 +1,7 @@
 - type: species
   id: DemonSpecies
   name: species-name-demon
-  roundStart: false #вр соаву здравому смыслу, раз ни одного из обещанных изменений так и не поступило
+  roundStart: false #во славу здравому смыслу, раз ни одного из обещанных изменений так и не поступило
   prototype: MobDemon
   sprites: MobDemonSprites
   defaultSkinTone: "#34a223"
