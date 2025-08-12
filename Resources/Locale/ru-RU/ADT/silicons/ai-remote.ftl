@@ -4,7 +4,7 @@ ai-remote-ui-menu-moveto = Перенестись к
 ai-remote-control = Взять контроль
 
 # Actions
-ent-ActionBackToAi = Вернуться в ИИ
+ent-ADTActionBackToAi = Вернуться в ИИ
     .desc = Возвращает обратно в оболочку ИИ.
 ent-ADTActionOpenRemoteDevicesMenu = Открыть список удалённых устройств
     .desc = Открывает меню с доступными устройствами для удалённого управления.
