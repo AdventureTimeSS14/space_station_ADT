@@ -24,5 +24,5 @@ ent-ADTClothingHeadHelmetMinerReinforcedTwo = усиленный капюшон 
 ent-ADTClothingHeadHelmetMinerReinforcedFull = пластинчатый капюшон исследователя 
     .desc = Такой же безумный способ укрыть голову от опасностей, как и рассудок придумавшего это.
 
-ent-ADTClothingHeadHatHoodChaplainHoodWhite = белый капюшон священника
+ent-ADTClothingHeadHatHoodChaplainHoodWhite = светлый капюшон священника
     .desc = Максимальное благоверие в этой звёздной системе.
