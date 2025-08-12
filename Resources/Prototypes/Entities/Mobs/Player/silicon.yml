@@ -56,7 +56,7 @@
         type: StationAiInfoBoundUserInterface
     # ADT End
       enum.RemoteDeviceUiKey.Key: # ADT Tweak
-        type: RemoteDevicesBoundUserInterface
+        type: RemoteDevicesBoundUserInterface #ADT Tweak
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
