@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: AiRemoteBrain
+  id: ADTAiRemoteBrain
   name: "B.O.R.I.S. AI-Cyborg Remote Control"
   description: Artificial Intelligence cyborg control board.
   components:
