@@ -55,7 +55,7 @@
       enum.StationAiInfoUiKey.Key:
         type: StationAiInfoBoundUserInterface
     # ADT End
-      enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
+      enum.RemoteDeviceUiKey.Key: # ADT Tweak
         type: RemoteDevicesBoundUserInterface
   - type: IntrinsicUI
     uis:
