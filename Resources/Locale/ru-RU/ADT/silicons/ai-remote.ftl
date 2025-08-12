@@ -6,7 +6,7 @@ ai-remote-control = Взять контроль
 # Actions
 ent-ActionBackToAi = Вернуться в ИИ
     .desc = Возвращает обратно в оболочку ИИ.
-ent-ActionOpenRemoteDevicesMenu = Открыть список удалённых устройств
+ent-ADTActionOpenRemoteDevicesMenu = Открыть список удалённых устройств
     .desc = Открывает меню с доступными устройствами для удалённого управления.
 
 # Ents
