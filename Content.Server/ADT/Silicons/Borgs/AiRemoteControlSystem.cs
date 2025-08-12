@@ -39,7 +39,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         var visionComp = EnsureComp<StationAiVisionComponent>(entity.Owner);
         EntityUid? actionEnt = null;
 
-        _actions.AddAction(entity.Owner, ref actionEnt, entity.Comp.BackToAiAction);
+        _actions.AddAction(entity.Owner, ref actionEnt, entity.Comp.ADTBackToAiAction);
 
         if (actionEnt != null)
             entity.Comp.ADTBackToAiActionEntity = actionEnt.Value;
