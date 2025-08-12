@@ -134,6 +134,8 @@ public sealed class GerasSystem : SharedGerasSystem
             }
         }
 
+        EjectForbiddenRecursive(uid, uid);
+
         var ent = _polymorphSystem.PolymorphEntity(uid, component.GerasPolymorphId);
 
         if (!ent.HasValue)
