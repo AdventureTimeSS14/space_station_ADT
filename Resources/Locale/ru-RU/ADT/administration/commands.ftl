@@ -52,7 +52,7 @@ cmd-zoom_tweak-command-description = Указанному игроку или ui
 cmd-zoom_tweak-command-help-text = Использование: { $command } <Username/Uid> <int-Zoom>
 cmd-zoom_tweak-command-error-content-eye = У указанной сущности отсутствует { $component }.
 
-# Command: massmsg
+# Команда: massmsg
 massmsg-command-description = Отправляет скрытое сообщение всем указанным игрокам
 massmsg-command-help-text = Использование: {$command} <сообщение> <всплывающее сообщение> <user1 [user2 [user3]] | all | radius:<float>>
 massmsg-player-unable = Не удалось найти игрока с таким никнеймом.
