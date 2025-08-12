@@ -267,6 +267,7 @@
     - Document
     - Trash
     - Paper
+    - ADTDoNotMakeOrigami # ADT-Fix. Оригами из бумаги
   - type: PaperVisuals
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"

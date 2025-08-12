@@ -1,3 +1,4 @@
+# PDA
 - type: loadout
   id: BotanistPDA
   equipment:
@@ -12,3 +13,14 @@
   id: ADTEcologistPDA
   equipment:
     id: ADTEcologistPDA
+
+# Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckGreen
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckGreen
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckGreen
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckGreen

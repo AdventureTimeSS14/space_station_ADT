@@ -13,6 +13,7 @@ using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Input;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Interaction.Components; // ADT tweak
 
 namespace Content.Client.UserInterface.Systems.Hands;
 
@@ -138,6 +139,13 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
                 handButton.SetEntity(virt.BlockingEntity);
                 handButton.Blocked = true;
             }
+            // ADT - borg hand placeholder
+            else if (_entities.TryGetComponent(hand.HeldEntity, out HandPlaceholderVisualsComponent? placeholder))
+            {
+                handButton.SetEntity(placeholder.Dummy);
+                handButton.Blocked = true;
+            }
+            // End ADT - borg hand placeholder
             else
             {
                 handButton.SetEntity(hand.HeldEntity);
@@ -189,6 +197,13 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             hand.SetEntity(virt.BlockingEntity);
             hand.Blocked = true;
         }
+        // ADT: borg hand placeholders
+        else if (_entities.TryGetComponent(entity, out HandPlaceholderVisualsComponent? placeholder))
+        {
+            hand.SetEntity(placeholder.Dummy);
+            hand.Blocked = true;
+        }
+        // End ADT: borg hand placeholders
         else
         {
             hand.SetEntity(entity);
