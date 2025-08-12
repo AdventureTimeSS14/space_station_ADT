@@ -47,7 +47,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     private void OnShutdown(Entity<AiRemoteControllerComponent> entity, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(entity.Owner, entity.Comp.BackToAiActionEntity);
+        _actions.RemoveAction(entity.Owner, entity.Comp.ADTBackToAiActionEntity);
 
         var backArgs = new ReturnMindIntoAiEvent();
         backArgs.Performer = entity;
