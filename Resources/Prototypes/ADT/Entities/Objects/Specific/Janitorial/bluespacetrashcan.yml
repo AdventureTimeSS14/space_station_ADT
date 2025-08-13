@@ -7,7 +7,7 @@
     range: 1 
   - type: Sprite
     sprite: ADT/Objects/Specific/bluespace_trashcan.rsi
-    state: icon 
+    state: icon-0 
   - type: Clothing
     sprite: ADT/Objects/Specific/bluespace_trashcan.rsi
   - type: Storage
