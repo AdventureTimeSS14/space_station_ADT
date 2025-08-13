@@ -47,10 +47,10 @@ public sealed partial class GameTicker
             DelayStart(TimeSpan.FromSeconds(PresetFailedCooldownIncrease));
         }
 
-        if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
-        {
-            var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
-            var startFailed = true;
+            if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
+            {
+                var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
+                var startFailed = true;
 
             foreach (var preset in fallbackPresets)
             {
