@@ -28,7 +28,6 @@ namespace Content.Server.Voting.Managers
         [Dependency] private readonly ILogManager _logManager = default!;
         [Dependency] private readonly IBanManager _bans = default!;
         [Dependency] private readonly VoteWebhooks _voteWebhooks = default!;
-        // [Dependency] pr
 
         private VotingSystem? _votingSystem;
         private RoleSystem? _roleSystem;
@@ -603,14 +602,14 @@ namespace Content.Server.Voting.Managers
 
                 presets[preset.ID] = preset.ModeTitle;
             }
-
+            // ADT-Tweak-start: Убираем сыгранные режимы из голосования
             // Фильтруем уже сыгранные режимы
             if (_gameTicker != null)
             {
                 foreach (var played in _gameTicker.PlayedPresets.Keys)
                     presets.Remove(played);
             }
-
+            // ADT-Tweak-End
             return presets;
         }
     }
