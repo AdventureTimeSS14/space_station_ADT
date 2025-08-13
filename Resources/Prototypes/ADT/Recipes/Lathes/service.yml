@@ -129,3 +129,22 @@
   completetime: 3
   materials:
     Cardboard: 300
+
+- type: latheRecipe
+  id: ADTWeaponLauncherHydra
+  result: WeaponLauncherHydra
+  completetime: 3
+  materials:
+    Steel: 3500
+    Gold: 500
+    Plastic: 1000
+    Glass: 2000
+
+- type: latheRecipe
+  id: GrenadeCleanade
+  result: GrenadeCleanade
+  completetime: 0.5
+  materials:
+    Steel: 200
+    Gold: 300
+    Plastic: 100

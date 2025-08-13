@@ -227,6 +227,7 @@
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
+    - ADTWeaponLauncherHydraPack
     #ADT-tweak-end
     - BluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
