@@ -33,8 +33,8 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly BonkSystem _bonk = default!;
-    // [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    // [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
 
     public override void Initialize()
     {
@@ -79,17 +79,6 @@ public abstract class SharedCrawlingSystem : EntitySystem
         switch (_standing.IsDown(uid))
         {
             case false:
-                if (TryComp<ClimbingComponent>(uid, out var climbing))
-                {
-                    if (climbing.DoAfter != null)
-                    {
-                        _doAfter.Cancel(climbing.DoAfter);
-                        climbing.DoAfter = null;
-                    }
-
-                    if (climbing.IsClimbing)
-                        return;
-                }
 
                 var tablesNearby = _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f);
 
