@@ -19,6 +19,8 @@ using Content.Shared.ADT.Traits;
 using Content.Shared.Storage.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
@@ -74,6 +76,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     [Dependency] private readonly FlammableSystem _flammable = default!; //ADT-Geras-Tweak
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!; //ADT-Geras-Tweak
 
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -360,7 +363,7 @@ public sealed partial class PolymorphSystem : EntitySystem
                 {
                     var originalAccentComp = EntityManager.GetComponent(uid, accentType);
                     var childAccentComp = (Component)_serialization.CreateCopy(originalAccentComp, notNullableOverride: true);
-            EntityManager.AddComponent(child, childAccentComp);
+                    EntityManager.AddComponent(child, childAccentComp);
                 }
             }
         }
@@ -410,6 +413,15 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             var childFlame = EnsureComp<FlammableComponent>(child);
             _flammable.SetFireStacks(child, parentFlame.FireStacks, childFlame, parentFlame.OnFire);
+        }
+
+        if (configuration.TransferStaminaDamage && TryComp<StaminaComponent>(uid, out var parentStam))
+        {
+            var childStam = EnsureComp<StaminaComponent>(child);
+            var parentEffective = _stamina.GetStaminaDamage(uid, parentStam);
+            var fraction = parentEffective / parentStam.CritThreshold;
+            var childTarget = fraction * childStam.CritThreshold;
+            _stamina.TakeStaminaDamage(child, childTarget, childStam, visual: false, ignoreResist: true);
         }
         // ADT-Geras-Tweak-End
 
@@ -604,6 +616,17 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             var parentFlame = EnsureComp<FlammableComponent>(parent);
             _flammable.SetFireStacks(parent, childFlame.FireStacks, parentFlame, childFlame.OnFire);
+        }
+
+        if (component.Configuration.TransferStaminaDamage && TryComp<StaminaComponent>(uid, out var childStam))
+        {
+            var parentStam = EnsureComp<StaminaComponent>(parent);
+            var childEffective = _stamina.GetStaminaDamage(uid, childStam);
+            var fraction = childEffective / childStam.CritThreshold;
+            var parentTarget = fraction * parentStam.CritThreshold;
+            var parentCurrent = _stamina.GetStaminaDamage(parent, parentStam);
+            var delta = parentTarget - parentCurrent;
+            _stamina.TakeStaminaDamage(parent, delta, parentStam, visual: false, ignoreResist: true);
         }
         //ADT-Geras-Tweak-End
 

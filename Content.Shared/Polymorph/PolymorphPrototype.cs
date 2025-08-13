@@ -120,6 +120,12 @@ public sealed partial record PolymorphConfiguration
     public bool TransferFlame = true;
 
     /// <summary>
+    /// Whether or not the entity transfers its stamina damage between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferStaminaDamage = true;
+
+    /// <summary>
     /// Whether or not the entity can polymorph between forms in storage.
     /// </summary>
     [DataField(serverOnly: true)]
