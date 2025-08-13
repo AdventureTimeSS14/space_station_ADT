@@ -56,7 +56,7 @@ public sealed partial class AdminVerbSystem
 
                     _quickDialog.OpenDialogDynamic(
                         player,
-                        "Изменение ХП",
+                        Loc.GetString("admin-smite-threshold-ui-text"),
                         fieldNames.ToArray(),
                         defaultValues.ToArray(),
                         results =>
