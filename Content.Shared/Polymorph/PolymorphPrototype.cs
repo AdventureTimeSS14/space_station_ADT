@@ -114,6 +114,12 @@ public sealed partial record PolymorphConfiguration
     public bool TransferQuirks;
 
     /// <summary>
+    /// Whether or not the entity transfers its flame between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferFlame = true;
+
+    /// <summary>
     /// Whether or not the entity can polymorph between forms in storage.
     /// </summary>
     [DataField(serverOnly: true)]

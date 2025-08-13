@@ -17,6 +17,8 @@ using Content.Server.Traits.Assorted;
 using Content.Shared.Speech.Muting;
 using Content.Shared.ADT.Traits;
 using Content.Shared.Storage.Components;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Components;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
@@ -71,6 +73,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
+    [Dependency] private readonly FlammableSystem _flammable = default!; //ADT-Geras-Tweak
 
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -402,6 +405,12 @@ public sealed partial class PolymorphSystem : EntitySystem
                 }
             }
         }
+
+        if (configuration.TransferFlame && TryComp<FlammableComponent>(uid, out var parentFlame))
+        {
+            var childFlame = EnsureComp<FlammableComponent>(child);
+            _flammable.SetFireStacks(child, parentFlame.FireStacks, childFlame, parentFlame.OnFire);
+        }
         // ADT-Geras-Tweak-End
 
         if (configuration.TransferHumanoidAppearance)
@@ -589,6 +598,14 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
+
+        //ADT-Geras-Tweak-Start
+        if (component.Configuration.TransferFlame && TryComp<FlammableComponent>(uid, out var childFlame))
+        {
+            var parentFlame = EnsureComp<FlammableComponent>(parent);
+            _flammable.SetFireStacks(parent, childFlame.FireStacks, parentFlame, childFlame.OnFire);
+        }
+        //ADT-Geras-Tweak-End
 
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
