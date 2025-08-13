@@ -27,6 +27,7 @@ public sealed partial class GameTicker
     /// Countdown to the preset being reset to the server default.
     /// </summary>
     public int? ResetCountdown;
+    public readonly Dictionary<string, int> PlayedPresets = new(); // ADT-Tweak
 
     private bool StartPreset(ICommonSession[] origReadyPlayers, bool force)
     {
@@ -46,10 +47,10 @@ public sealed partial class GameTicker
             DelayStart(TimeSpan.FromSeconds(PresetFailedCooldownIncrease));
         }
 
-            if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
-            {
-                var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
-                var startFailed = true;
+        if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
+        {
+            var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
+            var startFailed = true;
 
             foreach (var preset in fallbackPresets)
             {
