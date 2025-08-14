@@ -55,6 +55,11 @@
       - state: equipped-INNERCLOTHING
         color: "#b3b3b3"
       - state: trinkets-equipped-INNERCLOTHING
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTJumpSuitSacrifice
+### End ADT Tweak
 
 # Black Jumpsuit
 - type: entity

@@ -17,6 +17,7 @@
     - WhitelistChameleon
     - GasMask # goob edit
     - Mask # goob edit
+    - ADTGasmaskSacrifice # ADT Tweak
   - type: HideLayerClothing
     slots: # ADT Tweak. layers: -> slots:
     - Snout
@@ -334,8 +335,6 @@
     equipDelay: 3
     unequipDelay: 3
   - type: IngestionBlocker
-  - type: AddAccentClothing
-    accent: MumbleAccent
   - type: Construction
     graph: Muzzle
     node: muzzle

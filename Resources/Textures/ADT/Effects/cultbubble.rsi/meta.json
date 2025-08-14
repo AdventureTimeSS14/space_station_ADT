@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from vgstation and redacted by QWERTY from commit https://github.com/vgstation-coders/vgstation13/commit/061b426c3ebaf1dbdf312187da8bd6fff25f0573",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bubble",
+            "delays": [
+                [
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12,
+                    0.12
+                ]
+            ]
+        }
+    ]
+}

@@ -148,3 +148,13 @@
   - type: NoSlip
   - type: CollectiveMindRank
     rankName: collective-mind-burrower-rank
+
+- type: entity
+  name: syndicate surpricer
+  description: Bouncers sponsored by corporations to stop you from gambling. It shouldn't stop you from GAMBLING!!!
+  parent: MobSyndicateFootsoldier
+  id: ADTSyndieSurpricePerson
+  components:
+    - type: Loadout
+      prototypes:
+        - SyndicateSurpricerGear
