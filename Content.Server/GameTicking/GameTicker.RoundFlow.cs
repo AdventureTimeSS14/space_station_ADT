@@ -812,9 +812,9 @@ namespace Content.Server.GameTicking
                 UpdateInfoText();
 
                 ReqWindowAttentionAll();
-                _voteManager.CreateStandardVote(initiator: null, StandardVoteType.Preset);
-                _voteManager.CreateStandardVote(initiator: null, StandardVoteType.Map); // ADT-Twe
-                Logger.Debug("Запуск StandardVoteType.Preset и StandardVoteType.Map");
+                // Запуск голосования за Мапу и Режим в лобби
+                _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Map);     // ADT-Tweak
+                _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Preset);  // ADT-Tweak
             }
         }
 

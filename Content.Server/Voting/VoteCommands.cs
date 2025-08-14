@@ -12,15 +12,15 @@ using Robust.Server;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Utility;
+using Content.Server.Administration.Managers;
 
 namespace Content.Server.Voting
 {
-    // [AnyCommand] // ADT-Tweak
-    [AdminCommand(AdminFlags.Admin)] // ADT-Tweak: Делаю УПРАВЛЯЕМУЮ ДЕМОКРАТИЮ.
-    // Теперь эта команда не доступна игрокам и голосования делаются автоматически системой
+    [AnyCommand]
     public sealed class CreateVoteCommand : IConsoleCommand
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IAdminManager _adminManager = default!;
 
         public string Command => "createvote";
         public string Description => Loc.GetString("cmd-createvote-desc");
@@ -39,6 +39,14 @@ namespace Content.Server.Voting
                 return;
             }
 
+            // ADT-Tweak: УПРАВЛЯЕМАЯ ДЕМОКРАТИЯ.
+            // Теперь эта команда недоступна игрокам для Preset/Map, если они не админы.
+            if (shell.Player != null
+                && (args[0] == StandardVoteType.Preset.ToString() || args[0] == StandardVoteType.Map.ToString())
+                && !_adminManager.IsAdmin(shell.Player))
+            {
+                return;
+            }
 
             if (!Enum.TryParse<StandardVoteType>(args[0], ignoreCase: true, out var type))
             {
