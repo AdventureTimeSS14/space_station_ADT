@@ -51,3 +51,12 @@ cmd-adjstationjob-help = Использование: adjstationjob <station id> 
 cmd-zoom_tweak-command-description = Указанному игроку или uid меняет компонент { $component } устанавливая значения zoom.
 cmd-zoom_tweak-command-help-text = Использование: { $command } <Username/Uid> <int-Zoom>
 cmd-zoom_tweak-command-error-content-eye = У указанной сущности отсутствует { $component }.
+
+# Команда: massmsg
+massmsg-command-description = Отправляет скрытое сообщение всем указанным игрокам
+massmsg-command-help-text = Использование: {$command} <сообщение> <всплывающее сообщение> <user1 [user2 [user3]] | all | radius:<float>>
+massmsg-player-unable = Не удалось найти игрока с таким никнеймом.
+massmsg-command-hint = username/all/radius:<int>
+massmsg-command-hint-one-args = message
+massmsg-command-hint-second-args = popupMessage
+

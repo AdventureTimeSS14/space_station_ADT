@@ -11,6 +11,7 @@
       size: Tiny
     - type: Stack
       count: 1
+    - type: StockPart # ADT tweak
 
 - type: entity
   id: CapacitorStockPart

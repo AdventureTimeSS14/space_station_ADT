@@ -8,9 +8,10 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
+
+#  blacklist:
+#    tags:
+#    - SiliconEmotes ADT Tweak
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream

@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Was took from BeeStation (author is WilsonPH)https://wiki.beestation13.com/view/Research_items#/media/File:Bluespace_Crystal.png and modified by firemix_",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "BS_ore"
+        }
+    ]
+}

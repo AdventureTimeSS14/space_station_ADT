@@ -16,7 +16,10 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    state: rpg
+    #ADT tweak start
+    layers:
+    - state: rpg
+    #ADT tweak end
   - type: StaticPrice
     price: 20
 
@@ -36,7 +39,10 @@
       deleteOnSpawn: true
     - type: Sprite
       sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      state: frag
+      #ADT tweak start
+      layers:
+      - state: frag
+      #ADT tweak end
     - type: StaticPrice
       price: 20
 
@@ -137,7 +143,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Appearance
   - type: SpentAmmoVisuals
-    state: frag
+    state: cleanade #ADT tweak fix: frag -> clenade
     suffix: false
 
 - type: entity
@@ -183,7 +189,10 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    state: ball
+    #ADT tweak start
+    layers:
+    - state: ball
+    #ADT tweak end
 
 - type: entity
   id: CannonBallGrapeshot
@@ -196,7 +205,10 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    state: grapeshot
+    #ADT tweak start
+    layers:
+    - state: grapeshot
+    #ADT tweak end
 
 - type: entity
   id: CannonBallGlassshot
@@ -209,4 +221,7 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    state: glassshot
+    #ADT tweak start
+    layers:
+    - state: glassshot
+    #ADT tweak end
