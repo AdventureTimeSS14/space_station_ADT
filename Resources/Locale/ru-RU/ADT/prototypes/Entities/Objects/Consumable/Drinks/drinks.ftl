@@ -86,6 +86,22 @@ ent-ADTDrinkLimeShadeGlass = { ent-DrinkGlass }
     .suffix = Лаймовый Шэйд
     .desc = { ent-DrinkGlass.desc }
 
+ent-ADTDrinkCargoBeerGlass = { ent-DrinkGlass }
+    .suffix = Зубодробительное пиво "Каргония", Октоберфест
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkLeafloverBeerGlass = { ent-DrinkGlass }
+    .suffix = Листолюб особый, Октоберфест
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkScientificAleGlass = { ent-DrinkGlass }
+    .suffix = Научный плазмо-эль, Октоберфест
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkUraniumAleGlass = { ent-DrinkGlass }
+    .suffix = Радиоактивный бледный эль "Отто", Октоберфест
+    .desc = { ent-DrinkGlass.desc }
+
 ent-ADTDrinkGoldenAleGlass = { ent-DrinkGlass }
     .suffix = Золотой эль, Октоберфест
     .desc = { ent-DrinkGlass.desc }

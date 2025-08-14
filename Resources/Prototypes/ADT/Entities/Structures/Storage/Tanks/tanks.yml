@@ -1,4 +1,54 @@
 #Пивные бочки
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankCargo
+  name: golden ale tank
+  description: golden ale tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTGoldenAle
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: cargobeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankLeaflover
+  name: leaflover beer tank
+  description: leaflover beer tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTLeafloverBeer
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: leafloverbeer
+
+- type: entity
+  parent: StorageTank
+  id: ADTBeerTankScientificAle
+  name: scientific ale tank
+  description: scientific ale tank
+  suffix: Oktoberfest
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          reagents:
+            - ReagentId: ADTScientificAle
+              Quantity: 1500
+    - type: Sprite
+      sprite: ADT/Structures/Storage/beertank.rsi
+      state: scientificale
 
 - type: entity
   parent: StorageTank
