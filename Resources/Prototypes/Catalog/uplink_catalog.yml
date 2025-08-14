@@ -1295,7 +1295,7 @@
   discountDownTo:
     Telecrystal: 3 # ADT-Tweak. 4 -> 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 6 # ADT-Tweak. 8 -> 6
   categories:
     - UplinkImplants
   conditions:
