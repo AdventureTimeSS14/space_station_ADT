@@ -396,7 +396,7 @@
     rechargeCooldown: 0.8
     rechargeSound: null
   - type: BasicEntityAmmoProvider
-    proto: BulletBS
+    proto: ADTBulletBS
     capacity: 1
     count: 1
 

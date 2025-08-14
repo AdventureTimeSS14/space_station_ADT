@@ -19,7 +19,6 @@ namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 
 public sealed class BsCrystalTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -30,7 +29,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     private HashSet<Entity<MapGridComponent>> _targetGrids = new();
     private bool valid;
     private float CountToRadius;
-    private float adding;
 
 
     public override void Initialize()

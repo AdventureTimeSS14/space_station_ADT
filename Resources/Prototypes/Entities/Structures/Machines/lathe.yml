@@ -229,7 +229,7 @@
     - ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     #ADT-tweak-end
-    - BluespaceCrystalTech #ADT Tweak
+    - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
