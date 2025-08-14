@@ -18,6 +18,7 @@
   - type: GhostRole
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
+    rules: ghost-role-information-antagonist-rules
     # ADT-Tweak-start
     requirements:
     - !type:OverallPlaytimeRequirement
@@ -25,7 +26,7 @@
     # ADT-Tweak-end
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner

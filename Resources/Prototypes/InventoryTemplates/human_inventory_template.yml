@@ -1,4 +1,4 @@
-﻿- type: inventoryTemplate
+- type: inventoryTemplate
   id: human
   slots:
     - name: shoes
@@ -153,3 +153,6 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,6 # ADT tweak
       displayName: Back
+      blacklist:
+        tags:
+        - PetOnly

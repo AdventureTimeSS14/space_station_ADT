@@ -609,7 +609,7 @@
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
-    price: 500
+    price: 1500
     #ADT Tweak Start
   - type: Tag
     tags:

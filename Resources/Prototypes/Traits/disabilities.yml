@@ -69,6 +69,14 @@
   quirk: true  # ADT Quirks
 
 - type: trait
+  id: Monochromacy
+  name: trait-monochromacy-name
+  description: trait-monochromacy-desc
+  category: Disabilities
+  components:
+  - type: BlackAndWhiteOverlay
+
+- type: trait
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc

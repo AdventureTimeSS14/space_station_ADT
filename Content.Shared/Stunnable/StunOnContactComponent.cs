@@ -18,6 +18,18 @@ public sealed partial class StunOnContactComponent : Component
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(3); /// 5>>3  #ADT-Tweak
 
+    /// <summary>
+    /// Should the stun applied refresh?
+    /// </summary>
+    [DataField]
+    public bool Refresh = true;
+
+    /// <summary>
+    /// Should the stunned entity try to stand up when knockdown ends?
+    /// </summary>
+    [DataField]
+    public bool AutoStand = true;
+
     [DataField]
     public EntityWhitelist Blacklist = new();
 }

@@ -197,7 +197,7 @@
           - BatteryRecharge # ADT plasmacutters
 
 - type: entity
-  parent: BaseItemRecharger
+  parent: [ BaseItemRecharger, BaseWallmount ]
   id: WallWeaponCapacitorRecharger
   name: wall recharger
   placement: # ADT START CHANGES
