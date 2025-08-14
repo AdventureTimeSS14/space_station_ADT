@@ -126,6 +126,12 @@ public sealed partial record PolymorphConfiguration
     public bool TransferStaminaDamage = true;
 
     /// <summary>
+    /// Whether or not the entity transfers its temperature between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferTemperature = true;
+
+    /// <summary>
     /// Whether or not the entity can polymorph between forms in storage.
     /// </summary>
     [DataField(serverOnly: true)]

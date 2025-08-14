@@ -21,6 +21,8 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
+using Content.Server.Temperature.Components;
+using Content.Server.Temperature.Systems;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
@@ -77,6 +79,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     [Dependency] private readonly FlammableSystem _flammable = default!; //ADT-Geras-Tweak
     [Dependency] private readonly SharedStaminaSystem _stamina = default!; //ADT-Geras-Tweak
+    [Dependency] private readonly TemperatureSystem _temperatureSystem = default!; //ADT-Geras-Tweak
 
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -423,6 +426,15 @@ public sealed partial class PolymorphSystem : EntitySystem
             var childTarget = fraction * childStam.CritThreshold;
             _stamina.TakeStaminaDamage(child, childTarget, childStam, visual: false, ignoreResist: true);
         }
+
+        if (configuration.TransferTemperature)
+        {
+            if (TryComp<TemperatureComponent>(uid, out var parentTemp))
+            {
+                var childTemp = EnsureComp<TemperatureComponent>(child);
+                _temperatureSystem.ForceChangeTemperature(child, parentTemp.CurrentTemperature, childTemp);
+            }
+        }
         // ADT-Geras-Tweak-End
 
         if (configuration.TransferHumanoidAppearance)
@@ -627,6 +639,15 @@ public sealed partial class PolymorphSystem : EntitySystem
             var parentCurrent = _stamina.GetStaminaDamage(parent, parentStam);
             var delta = parentTarget - parentCurrent;
             _stamina.TakeStaminaDamage(parent, delta, parentStam, visual: false, ignoreResist: true);
+        }
+
+        if (component.Configuration.TransferTemperature)
+        {
+            if (TryComp<TemperatureComponent>(uid, out var childTemp))
+            {
+                var parentTemp = EnsureComp<TemperatureComponent>(parent);
+                _temperatureSystem.ForceChangeTemperature(parent, childTemp.CurrentTemperature, parentTemp);
+            }
         }
         //ADT-Geras-Tweak-End
 
