@@ -26,6 +26,7 @@
           - FitsInDispenser
   - type: ChemMaster
     pillDosageLimit: 20
+    bottleDosageLimit: 30
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -90,6 +91,8 @@
           tags:
           - Bottle
           - PillCanister
+          - MedicalPatch # Goobstation
+          - BoxCardboard # Funkystation
   - type: SolutionContainerManager
     solutions:
       buffer: {}
