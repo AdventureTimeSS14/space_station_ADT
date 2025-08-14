@@ -1293,7 +1293,7 @@
   productEntity: StorageImplanter
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 3 # ADT-Tweak. 4 -> 3
   cost:
     Telecrystal: 6
   categories:
