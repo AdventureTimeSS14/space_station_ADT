@@ -50,6 +50,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle
+  - ADTBluespaceTrashCan # ADT tweak
 
 - type: latheRecipePack
   id: Instruments
