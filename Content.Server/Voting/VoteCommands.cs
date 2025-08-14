@@ -15,7 +15,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Voting
 {
-    [AnyCommand]
+    // [AnyCommand] // ADT-Tweak
+    [AdminCommand(AdminFlags.Admin)] // ADT-Tweak: Делаю УПРАВЛЯЕМУЮ ДЕМОКРАТИЮ.
+    // Теперь эта команда не доступна игрокам и голосования делаются автоматически системой
     public sealed class CreateVoteCommand : IConsoleCommand
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
