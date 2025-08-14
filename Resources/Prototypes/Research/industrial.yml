@@ -251,7 +251,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
-  - ADTModsuitModStorageHolding
+  - ADTModsuitModStorageHolding # ADT-Tweak
 # ADT Research Console Rework start
   position: 1,-4
   requiredTech:
