@@ -341,8 +341,8 @@
     - BorgModules
     - MechParts
     - MechEquipment
-    - ADTModsuitModStorageHolding
     # ADT-tweak-start
+    - ADTModsuitModStorageHolding
     - ADTSecBorgPack
     - ADTModsuitPack
     - ADTGygaxPack
