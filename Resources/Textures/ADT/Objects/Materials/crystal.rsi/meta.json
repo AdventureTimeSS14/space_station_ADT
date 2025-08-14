@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Was took from https://paradisestation.org/wiki/images/0/0f/Bluespace_Crystal.png, by SynthTee",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "crystal"
+        },
+        {
+            "name": "crystal_2"
+        },
+        {
+            "name": "crystal_3"
+        }
+    ]
+}

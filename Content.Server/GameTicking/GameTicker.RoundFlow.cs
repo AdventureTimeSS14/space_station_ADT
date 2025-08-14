@@ -445,6 +445,20 @@ namespace Content.Server.GameTicking
             if (_gameMapManager.GetSelectedMap() is { } selectedMap)
                 _gameMapManager.RegisterPlayedMap(selectedMap.ID);
             // ADT-Tweak-End
+            // ADT-Tweak-start: Register Played Preset
+            foreach (var key in PlayedPresets.Keys.ToList())
+            {
+                PlayedPresets[key]--;
+                if (PlayedPresets[key] <= 0)
+                    PlayedPresets.Remove(key);
+            }
+
+            // Добавляем текущий пресет в бан-лист, если у него указан BannedRound > 0
+            if (CurrentPreset != null && CurrentPreset.BannedRound.HasValue && CurrentPreset.BannedRound.Value > 0)
+            {
+                PlayedPresets[CurrentPreset.ID] = CurrentPreset.BannedRound.Value;
+            }
+            // ADT-Tweak-end
 
             SpawnPlayers(readyPlayers, readyPlayerProfiles, force);
 
