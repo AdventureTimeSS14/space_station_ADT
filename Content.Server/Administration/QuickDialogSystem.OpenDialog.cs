@@ -173,4 +173,31 @@ public sealed partial class QuickDialogSystem
             cancelAction ?? (() => { })
         );
     }
+    // ADT-Tweak-Start: Добавлена новая функция для вызова окна, принимающая массивы элементов
+    [PublicAPI]
+    public void OpenDialogDynamic(ICommonSession session, string title, string[] prompts, string[] defaults, Action<string[]> okAction, Action? cancelAction = null)
+    {
+        var entries = new List<QuickDialogEntry>();
+        for (int i = 0; i < prompts.Length; i++)
+        {
+            entries.Add(new QuickDialogEntry((i + 1).ToString(), QuickDialogEntryType.LongText, prompts[i], defaults[i]));
+        }
+
+        OpenDialogInternal(
+            session,
+            title,
+            entries,
+            QuickDialogButtonFlag.OkButton | QuickDialogButtonFlag.CancelButton,
+            ev =>
+            {
+                var results = new string[prompts.Length];
+                for (int i = 0; i < prompts.Length; i++)
+                    results[i] = ev.Responses[(i + 1).ToString()];
+
+                okAction(results);
+            },
+            cancelAction ?? (() => { })
+        );
+    }
+    // ADT-Tweak-End
 }

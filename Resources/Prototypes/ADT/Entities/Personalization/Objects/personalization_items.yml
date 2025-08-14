@@ -2094,6 +2094,30 @@
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
+- type: entity
+  name: Argument
+  parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
+  id: ADTWeaponRevolverArgumentCouatl
+  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
+  suffix: Revolver, Personal, Couatl
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/couatl_argument.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 2
+  - type: RevolverAmmoProvider
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+  - type: Appearance
+  - type: StaticPrice
+    price: 1500
+  - type: Clothing
+    sprite: ADT/Personalization/couatl_argument.rsi
+
 #kugooergooer
 - type: entity
   parent: BasePlushie
@@ -2320,4 +2344,16 @@
           tags:
           - YV2Pistol
     sprite: ADT/Personalization/yv2recharger.rsi
+
+#KapitanOgonek
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKapitanOgonek
+  name: Plushie Ray Kulakov
+  description: Plushie Ray Kulakov
+  suffix: Personal, KapitanOgonek
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_raykulakov
 #SPONSOR-ITEMS-END

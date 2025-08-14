@@ -5,6 +5,8 @@
   #description: [mob_ipc-desc]
   abstract: true
   components:
+  - type: PickupHumans
+  - type: MobIpc
   - type: InteractionPopup
     interactSuccessString: petting-success-ipc
     #interactFailureString: petting-failure-cleanbot
@@ -121,6 +123,7 @@
     - ChangelingBlacklist
     - ADTSiliconStealthWhitelist
     - ADTSiliconEmotes
+    - SiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable # ADT-Tweak
   - type: Inventory
