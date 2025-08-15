@@ -8,7 +8,7 @@ public sealed partial class HumanoidProfileEditor
 {
     private List<BarkPrototype> _barkList = new();
 
-    private void InitializeBarks()  // У меня случился небольшой затуп. Оно барки в обход кнопки сохраняет, но хотя бы работает                                                                                                                                                             ы
+    private void InitializeBarks()
     {
         _barkList = _prototypeManager
             .EnumeratePrototypes<BarkPrototype>()
@@ -89,6 +89,11 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        _entManager.System<SpeechBarksSystem>().PlayDataPrewiew(Profile.Bark.Proto, Profile.Bark.Pitch, Profile.Bark.MinVar, Profile.Bark.MaxVar);
+        _entManager.System<SpeechBarksSystem>().PlayDataPreview(
+            Profile.Bark.Proto,
+            Profile.Bark.Pitch,
+            Profile.Bark.MinVar,
+            Profile.Bark.MaxVar
+        );
     }
 }

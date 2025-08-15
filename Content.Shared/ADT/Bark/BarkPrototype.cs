@@ -2,6 +2,7 @@ using Content.Shared.Humanoid;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.SpeechBarks;
 
@@ -18,7 +19,7 @@ public sealed partial class BarkPrototype : IPrototype
     public string Name = "Default";
 
     [DataField(required: true)]
-    public string Sound = "/Audio/Voice/Talk/speak_1.ogg";
+    public SoundSpecifier Sound { get; private set; } = default!;
 }
 
 [DataDefinition]
@@ -28,11 +29,8 @@ public sealed partial class BarkData
     [DataField]
     public ProtoId<BarkPrototype> Proto = "Human1";
 
-    /// <summary>
-    /// Данное поле заполняется после инициализации барка, если не было задано в прототипе.
-    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public string Sound = "";
+    public SoundSpecifier? Sound = null;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MinVar = 0.1f;
@@ -42,7 +40,6 @@ public sealed partial class BarkData
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Pitch = 1f;
-
     public BarkData WithProto(string proto)
     {
         var data = this;
