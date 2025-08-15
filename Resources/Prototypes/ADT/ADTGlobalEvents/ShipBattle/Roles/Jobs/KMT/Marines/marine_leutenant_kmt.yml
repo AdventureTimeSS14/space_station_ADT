@@ -39,7 +39,7 @@
   id: ADTBattleShipMarineLeutenantKMTGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformMarineLeutenantKMT
-    back: ADTShipBattleClothingBlackBackpackJetKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMTMarineLeutenant
     shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
     # head: ADTShipBattleClothingHeadHatExOfficerTSF
     # eyes: ClothingEyesGlassesSecurity
@@ -53,9 +53,9 @@
     underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
-  storage:
-    back:
-    - BoxSurvivalEngineering
-    - CrowbarRed
-    - SpaceCash500
-    - ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantKMT
+  # storage:
+  #   back:
+  #   - BoxSurvivalEngineering
+  #   - CrowbarRed
+  #   - SpaceCash500
+  #   - ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantKMT

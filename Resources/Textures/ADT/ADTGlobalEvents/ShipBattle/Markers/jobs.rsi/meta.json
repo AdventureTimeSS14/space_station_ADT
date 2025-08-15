@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By not_so_big_chungus",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "green"
+    },
+    {
+        "name": "captain_kmt"
+    },
+    {
+        "name": "captain_tsf"
+    },
+    {
+        "name": "chiefgunner_kmt"
+    },
+    {
+        "name": "chiefgunner_tsf"
+    },
+    {
+        "name": "commander_kmt"
+    },
+    {
+        "name": "commander_tsf"
+    },
+    {
+        "name": "engineer_kmt"
+    },
+    {
+        "name": "engineer_tsf"
+    },
+    {
+        "name": "exofficer_kmt"
+    },
+    {
+        "name": "exofficer_tsf"
+    },
+    {
+        "name": "gunner_kmt"
+    },
+    {
+        "name": "gunner_tsf"
+    },
+    {
+        "name": "marine_kmt"
+    },
+    {
+        "name": "marine_leutenant_kmt"
+    },
+    {
+        "name": "marine_leutenant_tsf"
+    },
+    {
+        "name": "marine_tsf"
+    },
+    {
+        "name": "medic_kmt"
+    },
+    {
+        "name": "medic_tsf"
+    },
+    {
+        "name": "navigator_kmt"
+    },
+    {
+        "name": "navigator_tsf"
+    },
+    {
+        "name": "pilot_kmt"
+    },
+    {
+        "name": "pilot_tsf"
+    }
+  ]
+}

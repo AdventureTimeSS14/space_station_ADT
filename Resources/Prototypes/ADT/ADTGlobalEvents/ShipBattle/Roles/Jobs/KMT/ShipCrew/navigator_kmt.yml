@@ -38,7 +38,7 @@
   id: ADTBattleShipNavigatorKMTGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformGunnerKMT
-    back: ADTShipBattleClothingBlackBackpackJetKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMTNavigator
     shoes: ADTShipBattleClothingShoesBootsMagFleet
     head: ADTShipBattleClothingHeadHatGunnerKMT
     # eyes: ClothingEyesGlassesSecurity
@@ -52,9 +52,9 @@
     underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
-  storage:
-    back:
-    - BoxSurvivalEngineering
-    - CrowbarRed
-    - SpaceCash500
-    - ADTShipBattleClothingHeadHelmetHardsuitNavigatorKMT
+  # storage:
+  #   back:
+  #   - BoxSurvivalEngineering
+  #   - CrowbarRed
+  #   - SpaceCash500
+  #   - ADTShipBattleClothingHeadHelmetHardsuitNavigatorKMT

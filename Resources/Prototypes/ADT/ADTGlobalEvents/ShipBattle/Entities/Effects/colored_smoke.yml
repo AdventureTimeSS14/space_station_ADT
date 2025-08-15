@@ -1,0 +1,89 @@
+- type: entity
+  parent: BaseFoam
+  id: ADTSmokeRed
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  # - type: Occluder
+  - type: Sprite
+    color: "#ff0000"
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    shader: unshaded
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: ADTSmokeRed
+  id: ADTSmokeGreen
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#2bff00"
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    shader: unshaded
+
+- type: entity
+  parent: ADTSmokeRed
+  id: ADTSmokeBlue
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#00f1ff"
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    shader: unshaded
+
+- type: entity
+  parent: ADTSmokeRed
+  id: ADTSmokeDarkBlue
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#000eff"
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    shader: unshaded
+
+- type: entity
+  parent: ADTSmokeRed
+  id: ADTSmokeYellow
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#ffff00"
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    shader: unshaded
+
+- type: entity
+  parent: ADTSmokeRed
+  id: ADTSmokeOrange
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#ff6300"
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    shader: unshaded
+
+- type: entity
+  parent: ADTSmokeRed
+  id: ADTSmokeViolet
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#d400ff"
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    shader: unshaded
