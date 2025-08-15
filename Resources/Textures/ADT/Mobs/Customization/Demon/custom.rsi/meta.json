@@ -68,6 +68,10 @@
             "directions": 4
         },
         {
+            "name": "twin",
+            "directions": 4
+        },
+        {
             "name": "ears_elf",
             "directions": 4
         },

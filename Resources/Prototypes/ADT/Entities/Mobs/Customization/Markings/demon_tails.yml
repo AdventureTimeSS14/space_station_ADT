@@ -1,5 +1,5 @@
 - type: marking
-  id: DemomTail1
+  id: DemonTail1
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [DemonSpecies]
@@ -8,7 +8,7 @@
     state: demon_tail
 
 - type: marking
-  id: DemomTailLong
+  id: DemonTailLong
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [DemonSpecies]
@@ -17,10 +17,19 @@
     state: long
 
 - type: marking
-  id: DemomTailUp
+  id: DemonTailUp
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [DemonSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: up
+
+- type: marking
+  id: DemonTailTwin
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: twin
