@@ -51,3 +51,15 @@
       amount: 1
   products:
     ADTGenusiphine: 10
+
+- type: reaction
+  id: ADTSoapReagent
+  reactants:
+    Oil:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    SoapReagent: 3
