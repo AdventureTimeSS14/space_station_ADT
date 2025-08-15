@@ -48,7 +48,7 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 1500
+    price: 500
   - type: Appearance
   - type: Stack
     stackType: ADTBScrystal
