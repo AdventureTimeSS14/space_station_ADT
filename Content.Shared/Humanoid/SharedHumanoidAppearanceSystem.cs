@@ -44,7 +44,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly GrammarSystem _grammarSystem = default!;
     [Dependency] private readonly SharedIdentitySystem _identity = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
-    private ISharedSponsorsManager? _sponsors;
 
     public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
     // Corvax-TTS-Start

@@ -11,11 +11,11 @@ public sealed partial class AshDrakeMeteoritesActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class AshDrakeFireActionEvent : EntityWorldTargetActionEvent
+public sealed partial class AshDrakeFireActionEvent : WorldTargetActionEvent
 {
 }
 
-public sealed partial class AshDrakeBreathActionEvent : EntityWorldTargetActionEvent
+public sealed partial class AshDrakeBreathActionEvent : WorldTargetActionEvent
 {
 }
 

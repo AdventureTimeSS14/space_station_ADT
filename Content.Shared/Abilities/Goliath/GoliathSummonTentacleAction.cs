@@ -30,7 +30,7 @@ public sealed partial class GoliathSummonTentacleAction : WorldTargetActionEvent
     public int ExtraSpawns = 3;
 };
 
-public sealed partial class GoliathSummonRandomTentacleAction : EntityWorldTargetActionEvent
+public sealed partial class GoliathSummonRandomTentacleAction : WorldTargetActionEvent
 {
     /// <summary>
     /// The ID of the entity that is spawned.

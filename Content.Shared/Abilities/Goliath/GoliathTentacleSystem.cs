@@ -114,7 +114,7 @@ public sealed class GoliathTentacleSystem : EntitySystem
         foreach (var pos in spawnPos)
         {
             if (!_map.TryGetTileRef(grid, gridComp, pos, out var tileRef) ||
-                tileRef.IsSpace() ||
+                _turf.IsSpace(tileRef.Tile) ||
                 _turf.IsTileBlocked(tileRef, CollisionGroup.Impassable))
             {
                 continue;
