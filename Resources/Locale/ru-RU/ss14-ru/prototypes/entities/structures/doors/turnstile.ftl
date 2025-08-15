@@ -1,7 +1,10 @@
-ent-TurnstileGenpopEnter = входной турникет
-    .desc = Турникет, контролирующий вход в общую зону содержания заключенных.
-
-ent-TurnstileGenpopLeave = выходной турникет
-    .desc = Турникет, контролирующий выход из общей зоны содержания заключенных.
-
-turnstile-component-popup-resist = {CAPITALIZE(THE($turnstile))} останавливает ваше движение!
+ent-Turnstile = турникет
+    .desc = Механическая дверь, обеспечивающая односторонний доступ и препятствующая проникновению посторонних.
+ent-TurnstileArrow = { "" }
+    .desc = { "" }
+ent-TurnstileGenpopEnter = { ent-Turnstile }
+    .suffix = Общий блок Вход
+    .desc = { ent-Turnstile.desc }
+ent-TurnstileGenpopLeave = { ent-Turnstile }
+    .suffix = Общий блок Выход
+    .desc = { ent-Turnstile.desc }

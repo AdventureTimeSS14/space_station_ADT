@@ -93,7 +93,7 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      301: 0.8
+      301: 0.9
       275: 0.6 # ADT tweak
       255: 0.4 # ADT tweak
   - type: Wagging

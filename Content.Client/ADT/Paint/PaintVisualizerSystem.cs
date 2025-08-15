@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.Paint
 {
-    public sealed class PaintedVisualizerSystem : VisualizerSystem<PaintedComponent>
+    public sealed class PaintedVisualizerSystem : VisualizerSystem<ColorPaintedComponent>
     {
         /// <summary>
         /// Visualizer for Paint which applies a shader and colors the entity.
@@ -24,12 +24,12 @@ namespace Content.Client.ADT.Paint
         {
             base.Initialize();
 
-            SubscribeLocalEvent<PaintedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
-            SubscribeLocalEvent<PaintedComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<PaintedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
+            SubscribeLocalEvent<ColorPaintedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
+            SubscribeLocalEvent<ColorPaintedComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<ColorPaintedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
         }
 
-        protected override void OnAppearanceChange(EntityUid uid, PaintedComponent component, ref AppearanceChangeEvent args)
+        protected override void OnAppearanceChange(EntityUid uid, ColorPaintedComponent component, ref AppearanceChangeEvent args)
         {
             // ShaderPrototype sadly in Robust.Client, cannot move to shared component.
             Shader = _protoMan.Index<ShaderPrototype>(component.ShaderName).Instance();
@@ -56,7 +56,7 @@ namespace Content.Client.ADT.Paint
             }
         }
 
-        private void OnHeldVisualsUpdated(EntityUid uid, PaintedComponent component, HeldVisualsUpdatedEvent args)
+        private void OnHeldVisualsUpdated(EntityUid uid, ColorPaintedComponent component, HeldVisualsUpdatedEvent args)
         {
             if (args.RevealedLayers.Count == 0)
                 return;
@@ -74,7 +74,7 @@ namespace Content.Client.ADT.Paint
             }
         }
 
-        private void OnEquipmentVisualsUpdated(EntityUid uid, PaintedComponent component, EquipmentVisualsUpdatedEvent args)
+        private void OnEquipmentVisualsUpdated(EntityUid uid, ColorPaintedComponent component, EquipmentVisualsUpdatedEvent args)
         {
             if (args.RevealedLayers.Count == 0)
                 return;
@@ -92,7 +92,7 @@ namespace Content.Client.ADT.Paint
             }
         }
 
-        private void OnShutdown(EntityUid uid, PaintedComponent component, ref ComponentShutdown args)
+        private void OnShutdown(EntityUid uid, ColorPaintedComponent component, ref ComponentShutdown args)
         {
             if (!TryComp(uid, out SpriteComponent? sprite))
                 return;
