@@ -341,7 +341,7 @@ namespace Content.Client.Chemistry.UI
             PillNumber.IsValid = x => x >= 0;
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
             BottleNumber.IsValid = x => x >= 0;
-            BottleDosage.IsValid = x => x >= 0 && x <= castState.BottleDosageLimit;
+            BottleDosage.IsValid = x => x > 0 && x <= castState.BottleDosageLimit;
 
             // Avoid division by zero
             if (PillDosage.Value > 0)

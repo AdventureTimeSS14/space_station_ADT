@@ -35,7 +35,7 @@ chem-master-window-sort-type-alphabetical = Сорт. по: По алфавит�
 chem-master-window-sort-type-quantity = Сорт. по: Количество
 chem-master-window-sort-type-latest = Сорт. по: Сначала новые
 
-chem-master-window-amount-placeholder = Введите переносимое кол-во:
+chem-master-window-amount-placeholder = Кол-во переносимого вещества:
 chem-master-window-set-amount-label = Применить
 chem-master-window-save-as-frequent-label = Добавить шаблон
 chem-master-window-sort-method-Alphabetical-text = Сортировка по алфавиту

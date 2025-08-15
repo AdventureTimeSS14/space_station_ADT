@@ -106,7 +106,7 @@
                             <Label Text="{Loc 'chem-master-window-number-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
                             <SpinBox MinSize="100 0" Name="BottleNumber" Access="Public" Value="0" />
                             <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
-                            <SpinBox MinSize="100 0" Name="BottleDosage" Access="Public" Value="0" />
+                            <SpinBox MinSize="100 0" Name="BottleDosage" Access="Public" Value="1" />
                             <Button MinSize="80 0" Name="CreateBottleButton" Access="Public" Text="{Loc 'chem-master-window-create-button'}" />
                         </BoxContainer>
                     </BoxContainer>
