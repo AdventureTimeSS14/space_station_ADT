@@ -10,6 +10,8 @@ using Content.Shared.Database;
 using Content.Shared.Voting;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.Utility;
+using Content.Server.Administration.Managers;
 
 namespace Content.Server.Voting
 {
@@ -18,6 +20,7 @@ namespace Content.Server.Voting
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly IAdminManager _adminManager = default!;
 
         public override string Command => "createvote";
 
@@ -34,6 +37,14 @@ namespace Content.Server.Voting
                 return;
             }
 
+            // ADT-Tweak: УПРАВЛЯЕМАЯ ДЕМОКРАТИЯ.
+            // Теперь эта команда недоступна игрокам для Preset/Map, если они не админы.
+            if (shell.Player != null
+                && (args[0] == StandardVoteType.Preset.ToString() || args[0] == StandardVoteType.Map.ToString())
+                && !_adminManager.IsAdmin(shell.Player))
+            {
+                return;
+            }
 
             if (!Enum.TryParse<StandardVoteType>(args[0], ignoreCase: true, out var type))
             {
