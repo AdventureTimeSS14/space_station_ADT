@@ -353,7 +353,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     /// <param name="user"> The user (if any) opening the door</param>
     /// <param name="predicted">Whether the interaction would have been
     /// predicted. See comments in the PlaySound method on the Server system for details</param>
-    public void StartOpening(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false)
+    public virtual void StartOpening(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false) // Ganimed edit
     {
         if (!Resolve(uid, ref door))
             return;
@@ -448,7 +448,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         return !ev.PerformCollisionCheck || !GetColliding(uid).Any();
     }
 
-    public void StartClosing(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false)
+    public virtual void StartClosing(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false) // Ganimed edit
     {
         if (!Resolve(uid, ref door))
             return;
