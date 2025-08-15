@@ -31,7 +31,6 @@
       solutionArea:
         maxVol: 600
         canReact: false
-  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   parent: BaseFoam
