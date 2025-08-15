@@ -1021,6 +1021,7 @@
     stackRequirements:
       MatterBin: 4
       Cable: 1
+      ADTBScrystal: 5
 
 - type: entity
   id: OreProcessorMachineCircuitboard
