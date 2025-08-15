@@ -444,3 +444,14 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterLettermanBlack
+  name: black letterman jacket
+  description: A black letterman jacket.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_black.rsi

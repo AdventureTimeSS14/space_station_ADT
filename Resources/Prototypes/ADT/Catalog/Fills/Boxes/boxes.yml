@@ -829,6 +829,39 @@
     - id: ADTRadioDemonMonocle
       amount: 1
 
+# Barotrauma
+
+- type: entity
+  id: ADTBoxBarotraumaClown
+  parent: ADTBoxNightmareClown
+  name: barotrauma clown suit
+  description: Barotrauma Clown suit
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+    state: barotrauma_clown
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Ginormous
+  - type: StorageFill
+    contents:
+    - id: ADTClothingMaskClownAbyss
+      amount: 1
+    - id: ADTClothingUniformJumpsuitClownAbyss
+      amount: 1
+    - id: ClothingHandsGlovesColorRed
+      amount: 1
+    - id: ADTClothingShoesClownAbyss
+      amount: 1
+    - id: ADTBikeHornAbyss
+      amount: 1
+    - id: ADTToyHammerAbyss
+      amount: 1
+    - id: ADTMorphineBottle
+      amount: 1
+
 - type: entity
   parent: ADTFoodPackGummies
   id: ADTFoodPackGummiesFilled
