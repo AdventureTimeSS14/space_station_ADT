@@ -103,6 +103,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 pillBufferCurrentVolume,
                 chemMaster.PillType,
                 chemMaster.PillDosageLimit,
+                chemMaster.BottleDosageLimit,
                 updateLabel,
                 chemMaster.SortMethod,
                 chemMaster.TransferringAmount,
@@ -218,9 +219,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
             if (maybeContainer == null)
             {
-                var canister = _entityManager.SpawnEntity(PillCanisterPrototypeId, Transform(chemMaster.Owner).Coordinates);
-                _itemSlotsSystem.TryInsert(chemMaster.Owner, SharedChemMaster.OutputSlotName, canister, null);
-                maybeContainer = canister;
+                return;
             }
 
             if (maybeContainer is not { Valid: true } container
@@ -299,7 +298,7 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Dosage == 0)
                 return;
 
-             // Ensure the amount is valid.
+            // Ensure the amount is valid.
             if (message.Dosage == 0 || message.Dosage > chemMaster.Comp.BottleDosageLimit)
                 return;
 

@@ -158,6 +158,7 @@ namespace Content.Shared.Chemistry
         FixedPoint2 pillBufferCurrentVolume,
         uint selectedPillType,
         uint pillDosageLimit,
+        uint bottleDosageLimit,
         bool updateLabel,
         int sortMethod,
         int transferringAmount,
@@ -183,6 +184,7 @@ namespace Content.Shared.Chemistry
         public readonly uint SelectedPillType = selectedPillType;
 
         public readonly uint PillDosageLimit = pillDosageLimit;
+        public readonly uint BottleDosageLimit = bottleDosageLimit;
 
         public readonly bool UpdateLabel = updateLabel;
 
