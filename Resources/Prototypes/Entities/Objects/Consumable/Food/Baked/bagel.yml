@@ -23,6 +23,10 @@
   - type: Tag
     tags:
     - VoxFood
+  #ADT-Tweak start
+  - type: Item
+    size: Tiny
+  #ADT-Tweak end
 
 - type: entity
   id: FoodBagel
@@ -50,6 +54,10 @@
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 5
+  #ADT-Tweak start
+  - type: Item
+    size: Tiny
+  #ADT-Tweak end
 
 - type: entity
   id: FoodBagelCotton
@@ -77,4 +85,8 @@
           Quantity: 2.5
         - ReagentId: Fiber
           Quantity: 2.5
+  #ADT-Tweak start
+  - type: Item
+    size: Tiny
+  #ADT-Tweak end
 

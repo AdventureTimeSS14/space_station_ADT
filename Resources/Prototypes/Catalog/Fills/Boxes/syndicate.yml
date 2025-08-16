@@ -84,4 +84,5 @@
         amount: 2
       - id: WeaponBaguette
       - id: SyndicateMicrowaveMachineCircuitboard
+      - id: ADTSyndicateElectricRangeMachineCircuitboard # ADT-Tweak
       - id: PaperWrittenCombatBakeryKit
