@@ -93,3 +93,9 @@
   - type: Tag #ADT tweak
     tags:
       - NoPaint
+  - type: Electrified #ADT tweak
+    requirePower: false
+    shockDamage: 70
+    shockTime: 4
+    OnAttacked: true
+    
