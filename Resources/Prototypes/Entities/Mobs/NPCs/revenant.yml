@@ -97,5 +97,4 @@
     requirePower: false
     shockDamage: 70
     shockTime: 4
-    OnAttacked: true
     
