@@ -19,3 +19,9 @@ admin-smite-divine-delay-description = Удар молнией: Ебните в�
 ### Scale
 admin-trick-scale-name = Изменить размер
 admin-trick-scale-description = Изменяет размер выбранной сущности, указывайте число с плавующей запятой от 0,001 и до разумных пределов.
+
+## Debug
+### Tweak Health
+admin-smite-threshold-name = Изменение ХП сущности
+admin-smite-threshold-description = Изменение ХП сущности
+admin-smite-threshold-ui-text = Изменение ХП

@@ -8,27 +8,27 @@
         - to: CompletePaperMaskBlank
           steps:
             - tag: Paper
-              name: "бумагу"
+              name: construction-graph-tag-paper
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "бумагу"
+              name: construction-graph-tag-paper
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "бумагу"
+              name: construction-graph-tag-paper
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "бумагу"
+              name: construction-graph-tag-paper
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
             - tag: Paper
-              name: "бумагу"
+              name: construction-graph-tag-paper
               icon:
                 sprite: Objects/Misc/bureaucracy.rsi
                 state: paper
@@ -169,7 +169,7 @@
     - to: done
       steps:
       - tag: Paper
-        name: "бумагу"
+        name: construction-graph-tag-paper
         icon:
           sprite: Objects/Misc/bureaucracy.rsi
           state: paper
@@ -186,7 +186,7 @@
     - to: done
       steps:
       - tag: Paper
-        name: "бумагу"
+        name: construction-graph-tag-paper
         icon:
           sprite: Objects/Misc/bureaucracy.rsi
           state: paper

@@ -131,6 +131,7 @@
     Silver: 750
     Plasma: 1500
     Uranium: 150
+    ADTBScrystal: 500 # ADT Tweak
 
 - type: latheRecipe
   parent: ClothingBackpackHolding
@@ -174,6 +175,16 @@
     Steel: 700
     Glass: 100
     Uranium: 100
+
+- type: latheRecipe
+  id: DeviceDesynchronizer
+  result: DeviceDesynchronizer
+  completetime: 5
+  materials:
+    Steel: 700
+    Glass: 100
+    Uranium: 200
+    ADTBScrystal: 200 #ADT Tweak
 
 - type: latheRecipe
   id: WeaponProtoKineticAccelerator

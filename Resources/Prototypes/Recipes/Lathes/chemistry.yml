@@ -3,14 +3,14 @@
   result: Beaker
   completetime: 2
   materials:
-    Glass: 100
+    Glass: 200
 
 - type: latheRecipe
   id: LargeBeaker
   result: LargeBeaker
   completetime: 2
   materials:
-    Glass: 200
+    Glass: 400
 
 - type: latheRecipe
   id: CryostasisBeaker
@@ -53,6 +53,7 @@
     Plastic: 500
     Plasma: 150
     Silver: 50
+    ADTBScrystal: 200 #ADT Tweak
 
 - type: latheRecipe
   id: SyringeBluespace
@@ -64,6 +65,7 @@
     Glass: 250
     Plasma: 100
     Silver: 50
+    ADTBScrystal: 100 #ADT Tweak
 
 - type: latheRecipe
   id: PillCanister
@@ -89,6 +91,14 @@
   materials:
     Plastic: 100
     Steel: 250
+
+- type: latheRecipe
+  id: BaseChemistryEmptyVial
+  result: BaseChemistryEmptyVial
+  completetime: 2
+  materials:
+    Glass: 50
+    Wood: 20
 
 - type: latheRecipe
   id: ClothingEyesGlassesChemical

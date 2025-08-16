@@ -11,3 +11,5 @@ research-advanced-reagent-grinder = Продвинутый измельчите�
 research-technology-services-hydroponics-advanced = Продвинутая гидропоника
 
 research-technology-electrical-range = Электрическая печь
+
+research-technology-hydra = Уборочный гранатомёт

@@ -19,3 +19,9 @@ ent-ADTBullet40mmGrenadeFlash = светошумовая граната
 
 ent-ADTBullet40mmGrenadeSmoke = дымовая граната
     .desc = { ent-BaseBullet.desc }
+
+ent-ADTBulletBlastRocket = фугасный снаряд PG-7VL
+    .desc = { ent-BaseBullet.desc }
+
+ent-ADTBulletFragRocket = осколочный снаряд OG-7B
+    .desc = { ent-BaseBullet.desc }

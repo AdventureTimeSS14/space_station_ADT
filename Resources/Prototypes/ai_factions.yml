@@ -25,6 +25,7 @@
   - AllHostile
   - Wizard
   - Heretic # goob edit - heretics
+  - Xenoborg
 
 - type: npcFaction
   id: Mouse
@@ -61,6 +62,8 @@
   - Wizard
   - Heretic # goob edit - heretics
   - Dragon
+  - Xeno
+  - Xenoborg
 
 - type: npcFaction
   id: SimpleNeutral
@@ -79,6 +82,7 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
 
 - type: npcFaction
   id: Xeno
@@ -94,6 +98,7 @@
   - AllHostile
   - Wizard
   - Dragon
+  - Xenoborg
 
 - type: npcFaction
   id: Zombie
@@ -110,6 +115,7 @@
   - Wizard
   - Heretic # goob edit - heretics
   - Dragon
+  - Xenoborg
 
 - type: npcFaction
   id: Revolutionary
@@ -121,6 +127,7 @@
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
+  - Xenoborg
 
 - type: npcFaction
   id: AllHostile
@@ -139,6 +146,7 @@
   - Ursus # ADT tweak
   - DroneAntag # ADT tweak
   - Wizard
+  - Xenoborg
 
 - type: npcFaction
   id: Wizard
@@ -154,4 +162,21 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - AllHostile
+  - Xenoborg
+
+- type: npcFaction
+  id: Xenoborg
+  hostile:
+  # they have brains
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Wizard
+
+  - Xeno # rivalry
+
+  # cause they are hostile to them
+  - SimpleHostile 
   - AllHostile

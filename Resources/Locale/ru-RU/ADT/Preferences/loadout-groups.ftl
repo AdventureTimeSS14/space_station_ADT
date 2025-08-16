@@ -27,6 +27,7 @@ loadout-barber-jumpsuit-adt = Парикмахер, комбинезон
 loadout-barber-other-clothing-adt = Парикмахер, верхняя одежда
 
 # Cargo
+loadout-group-quartermaster-id = Квартирмейстер, ID
 loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
 loadout-salvage-specialist-neck-adt = Утилизатор, шея
 loadout-group-salvage-id-adt = Утилизатор, ID
@@ -100,3 +101,4 @@ loadout-group-psychologist-id-adt = Психолог, ID
 # Juridical
 loadout-group-lawyer-id-adt = Адвокат, ID
 loadout-group-lawyer-gloves = Адвокат, перчатки
+loadout-group-lawyer-backpack = Магистрат, рюкзак

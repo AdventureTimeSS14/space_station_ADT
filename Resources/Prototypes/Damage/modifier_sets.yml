@@ -159,8 +159,9 @@
     Blunt: 0.6
     Slash: 1.2
     Piercing: 1.2
-    Cold: 1.5
+    Cold: 1.7 #ADT-tweak 1.5>1.7
     Poison: 0.8
+    Caustic: 1.5 #ADT-tweak
 
 - type: damageModifierSet
   id: Infernal

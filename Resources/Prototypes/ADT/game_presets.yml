@@ -67,3 +67,44 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
+
+- type: gamePreset
+  id: DynamicHard
+  alias:
+    - dynamichard
+  name: dynamic-hard-title
+  description: dynamic-hard-description
+  showInVote: true
+  rules:
+    - DynamicHardGamerule
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+  bannedRound: 3
+
+- type: gamePreset
+  id: DynamicLight
+  alias:
+    - dynamiclight
+  name: dynamic-low-title
+  description: dynamic-low-description
+  showInVote: true
+  rules:
+    - DynamicLightGamerule
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: DynamicMedium
+  alias:
+    - dynamicmedium
+  name: dynamic-medium-title
+  description: dynamic-medium-description
+  showInVote: true
+  rules:
+    - DynamicMediumGamerule
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+  bannedRound: 2
