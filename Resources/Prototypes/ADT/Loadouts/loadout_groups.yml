@@ -228,6 +228,10 @@
   loadouts:
   - RoboticistJumpsuit
   - RoboticistJumpskirt
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
 
 - type: loadoutGroup
   id: RoboticistOuterClothing

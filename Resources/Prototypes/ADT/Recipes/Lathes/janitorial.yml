@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: ADTBluespaceTrashCan
+  result: ADTBluespaceTrashCan
+  completetime: 5
+  materials:
+    Steel: 1000
+    Gold: 300
+    Plasma: 750
+    Uranium: 100

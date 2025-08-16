@@ -1822,7 +1822,7 @@ entities:
     - type: Transform
       pos: -1.0177488,2.6373255
       parent: 2050
-- proto: ADTClothingBeltMedicalBagFilled
+- proto: ADTClothingBeltMedicalBag
   entities:
   - uid: 2081
     components:
