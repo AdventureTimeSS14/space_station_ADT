@@ -58,14 +58,3 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ProfessionalHoP
-
-# Ears
-- type: loadout
-  id: ADTClothingHoPCommand
-  equipment:
-    ears: ClothingHeadsetCommand
-
-- type: loadout
-  id: ADTClothingHoPAltCommand
-  equipment:
-    ears: ClothingHeadsetAltCommand

@@ -23,8 +23,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - ADTClothingHoPCommand
-  - ADTClothingHoPAltCommand
+  - ADTClothingHeadsetCommand
+  - ADTClothingHeadsetAltCommand
 
 - type: loadoutGroup
   id: ADTBlueshieldEars
