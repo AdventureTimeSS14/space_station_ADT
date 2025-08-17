@@ -79,7 +79,7 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ DemomTail1 ] 
+      defaultMarkings: [ MobDemonTailColor ]
     Snout:
       points: 2
       required: false
