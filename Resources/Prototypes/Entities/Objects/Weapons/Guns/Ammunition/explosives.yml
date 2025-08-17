@@ -136,6 +136,11 @@
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeCleanade
+#ADT tweak start
+  - type: Tag
+    tags:
+        - Сleanaderound
+#ADT tweak end
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:

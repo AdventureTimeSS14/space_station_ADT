@@ -89,6 +89,8 @@
     sprite: ADT/Clothing/Shoes/Boots/kirzaboots.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/kirzaboots.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
 
 # Боты деку, ага 
 

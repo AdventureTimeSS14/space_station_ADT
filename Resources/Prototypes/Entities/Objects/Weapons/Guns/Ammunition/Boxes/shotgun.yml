@@ -34,7 +34,7 @@
       whitelist:
         tags:
         - ShellShotgun
-      capacity: 16
+      capacity: 24 #ADT tweak buff 16 -> 24
     - type: MagazineVisuals
       magState: mag
       steps: 5

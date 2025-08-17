@@ -232,7 +232,7 @@
         - !type:HealthChange
           conditions:
           - !type:TotalDamage
-            min: 70 # only heals when you're more dead than alive
+            min: 30 # only heals when you're more dead than alive, and ADT tweak
           damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
             groups:
               Burn: -1

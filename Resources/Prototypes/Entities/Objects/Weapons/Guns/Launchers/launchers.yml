@@ -83,7 +83,7 @@
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-      - Grenade
+      - Сleanaderound #ADT tweak Grenade -> Сleanaderound
     proto: GrenadeCleanade
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
