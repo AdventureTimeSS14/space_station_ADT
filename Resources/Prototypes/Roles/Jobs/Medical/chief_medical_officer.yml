@@ -39,7 +39,7 @@
   id: CMOGear
   equipment:
  #id: CMOPDA  # ADT Tweak
-    ears: ClothingHeadsetCMO
+    # ears: ClothingHeadsetCMO # ADT tweak
 #    belt: ClothingBeltMedicalFilled ADT tweak
   storage:
     back:

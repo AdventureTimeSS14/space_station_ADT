@@ -2,3 +2,14 @@
   id: ADTChiefEngineerBeret
   equipment:
     head: ADTClothingHeadHatBeretCEngineer
+
+# Ears
+- type: loadout
+  id: ADTClothingHeadsetCE
+  equipment:
+    ears: ClothingHeadsetCE
+
+- type: loadout
+  id: ADTClothingHeadsetAltEngineering
+  equipment:
+    ears: ClothingHeadsetAltEngineering

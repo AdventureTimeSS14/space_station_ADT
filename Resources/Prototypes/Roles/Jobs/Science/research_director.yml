@@ -34,7 +34,7 @@
   id: ResearchDirectorGear
   equipment:
  #id: RnDPDA # ADT Tweak
-    ears: ClothingHeadsetRD
+    # ears: ClothingHeadsetRD # ADT tweak
   storage:
     back:
     - Flash
