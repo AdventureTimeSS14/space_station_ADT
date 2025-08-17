@@ -1131,7 +1131,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
+  - ADTPurpleGloves # ADT tweak
 
 - type: loadoutGroup
   id: ScientistPDA
