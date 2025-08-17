@@ -11,6 +11,7 @@
     OreUranium: 0.20
     OreArtifactFragment: 0.10
     OreBananium: 0.10
+    ADTOreBS: 0.10 #ADT Tweak
 
 - type: oreDunGen
   id: OreIron

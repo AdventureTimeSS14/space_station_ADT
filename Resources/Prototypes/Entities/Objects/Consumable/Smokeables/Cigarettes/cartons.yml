@@ -9,9 +9,6 @@
  # ADT TWEAK Start - Откат кабинетных спрайтов
     layers:
       - state: closed
-        map: ["closeLayer"]
-      - state: open
-        map: ["openLayer"]
  # ADT TWEAK End - Откат кабинетных спрайтов
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
