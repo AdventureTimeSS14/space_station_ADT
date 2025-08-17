@@ -6333,7 +6333,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: SpreaderGrid
-    - type: SupermatterSpreaderGrid
   - uid: 13582
     components:
     - type: MetaData

@@ -780,7 +780,6 @@ entities:
             105: -12,-1
             106: -12,0
             107: -12,1
-    - type: SupermatterSpreaderGrid
     - type: GridAtmosphere
       version: 2
       data:

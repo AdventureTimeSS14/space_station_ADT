@@ -5921,7 +5921,6 @@ entities:
           - 0
           - 0
         chunkSize: 4
-    - type: SupermatterSpreaderGrid
   - uid: 5
     components:
     - type: MetaData

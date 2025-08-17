@@ -31,7 +31,6 @@
     shootMaxInterval: 10
     shootRange: 3
     lightningPrototype: Lightning
-  - type: SupermatterImmune # ADT-Tweak
 
 - type: entity
   id: TeslaEnergyBall

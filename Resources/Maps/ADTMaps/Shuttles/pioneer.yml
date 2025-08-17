@@ -471,7 +471,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-    - type: SupermatterSpreaderGrid
 - proto: ActionToggleInternals
   entities:
   - uid: 65

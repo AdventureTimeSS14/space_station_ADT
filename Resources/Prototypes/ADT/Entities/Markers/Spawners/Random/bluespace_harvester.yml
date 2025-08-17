@@ -23,7 +23,6 @@
     rarePrototypes:
     - ADTCrateHarvesterTurretSyndicate # Death
     - ADTCrateHarvesterWeaponElite
-    - ADTCrateHarvesterDarkmatter # Not death, but obvious problems
     rareChance: 0.1
 
 - type: entity

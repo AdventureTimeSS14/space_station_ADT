@@ -9047,7 +9047,6 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
     - type: GridPathfinding
-    - type: SupermatterSpreaderGrid
   - uid: 3
     components:
     - type: MetaData
@@ -9106,7 +9105,6 @@ entities:
     - type: RadiationGridResistance
     - type: SpreaderGrid
     - type: GridPathfinding
-    - type: SupermatterSpreaderGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 4
@@ -10337,13 +10335,6 @@ entities:
     components:
     - type: Transform
       pos: -23.5,-7.5
-      parent: 2
-- proto: ADTSupermatterSpawner
-  entities:
-  - uid: 223
-    components:
-    - type: Transform
-      pos: 19.5,-76.5
       parent: 2
 - proto: ADTToyFigurineBlueshieldOfficer
   entities:
@@ -73096,13 +73087,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-4.5
-      parent: 2
-- proto: ComputerSupermatter
-  entities:
-  - uid: 11515
-    components:
-    - type: Transform
-      pos: 14.5,-70.5
       parent: 2
 - proto: ComputerSurveillanceCameraMonitor
   entities:

@@ -3630,7 +3630,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
-    - type: SupermatterSpreaderGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
