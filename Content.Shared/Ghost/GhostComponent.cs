@@ -43,14 +43,7 @@ public sealed partial class GhostComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? BooActionEntity;
 
-    // ADT: Ghost Info action
-    [DataField]
-    public EntProtoId GhostInfoAction = "ActionGhostInfo";
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? GhostInfoActionEntity;
-
-    // End ADT actions
+    // End actions
 
     /// <summary>
     /// Time at which the player died and created this ghost.
