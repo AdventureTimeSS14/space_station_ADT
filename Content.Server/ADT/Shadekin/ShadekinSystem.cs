@@ -25,6 +25,7 @@ using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.ADT.Components.PickupHumans;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -75,6 +76,9 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short) Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
             comp.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
+
+            if (HasComp<TakenHumansComponent>(uid))
+                return;
 
             if (comp.PowerLevel >= comp.PowerLevelMax)
                 comp.MaxedPowerAccumulator += 1f;

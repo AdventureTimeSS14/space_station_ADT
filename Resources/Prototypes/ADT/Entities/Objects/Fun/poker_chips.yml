@@ -334,9 +334,9 @@
   - type: Item
     size: Normal
   - type: Storage
-    maxItemSize: Small
+    maxItemSize: Huge
     grid:
-    - 0,0,5,3
+    - 0,0,8,4
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

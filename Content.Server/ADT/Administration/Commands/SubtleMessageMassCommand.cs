@@ -1,11 +1,11 @@
 using System.Linq;
-using Content.Server.Administration.Managers;
 using Content.Server.Prayer;
 using Content.Shared.Administration;
+using Content.Shared.Players;
 using Robust.Server.Player;
-using Robust.Shared.Configuration;
 using Robust.Shared.Console;
-
+using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
@@ -13,10 +13,10 @@ namespace Content.Server.Administration.Commands;
 public sealed class SubtleMessageMassCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly PrayerSystem _prayerSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
 
     public override string Command => "massmsg";
     public override string Description => Loc.GetString("massmsg-command-description");
@@ -38,10 +38,47 @@ public sealed class SubtleMessageMassCommand : LocalizedEntityCommands
             return;
         }
 
+        // Variables
         var message = args[0];
         var popupMessage = args[1];
-
+        var senderEntity = player.AttachedEntity;
         string[]? allTargets;
+
+        // Второй аргумент: radius:<число>
+        if (args[2].StartsWith("radius:", StringComparison.OrdinalIgnoreCase))
+        {
+            if (senderEntity == null)
+            {
+                shell.WriteError("You must be attached to an entity to use radius mode.");
+                return;
+            }
+
+            if (!float.TryParse(args[2].Split(':')[1], out var radius))
+            {
+                shell.WriteError("Invalid radius value.");
+                return;
+            }
+
+            if (!_entityManager.TryGetComponent<TransformComponent>(senderEntity.Value, out var xform))
+                return;
+
+            var entitiesInRange = _entityLookup.GetEntitiesInRange(xform.Coordinates, radius)
+                                               .Where(e => _entityManager.HasComponent<ActorComponent>(e))
+                                               .ToList();
+
+            foreach (var ent in entitiesInRange)
+            {
+                if (!_entityManager.TryGetComponent(ent, out ActorComponent? actor))
+                    continue;
+                _prayerSystem.SendSubtleMessage(actor.PlayerSession, player, message, popupMessage);
+                shell.WriteLine($"{_entityManager.ToPrettyString(ent)}");
+            }
+
+            shell.WriteLine($"Sent message to {entitiesInRange.Count} players in radius {radius}.");
+            return;
+        }
+
+        // Второй аргумент: По никам или всех
         if (args[2] == "all")
         {
             allTargets = CompletionHelper.SessionNames()
@@ -80,9 +117,6 @@ public sealed class SubtleMessageMassCommand : LocalizedEntityCommands
                 Loc.GetString("massmsg-command-hint")
             );
 
-        if (args.Length == 1)
-            return CompletionResult.FromHint(Loc.GetString("massmsg-command-hint-one-args"));
-
         if (args.Length == 2)
         {
             var option = new CompletionOption[]
@@ -95,6 +129,9 @@ public sealed class SubtleMessageMassCommand : LocalizedEntityCommands
                 Loc.GetString("massmsg-command-hint-second-args")
             );
         }
+
+        if (args.Length == 1)
+            return CompletionResult.FromHint(Loc.GetString("massmsg-command-hint-one-args"));
 
         return CompletionResult.Empty;
     }
