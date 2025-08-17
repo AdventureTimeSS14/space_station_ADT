@@ -602,6 +602,14 @@ namespace Content.Server.Voting.Managers
 
                 presets[preset.ID] = preset.ModeTitle;
             }
+            // ADT-Tweak-start: Убираем сыгранные режимы из голосования
+            // Фильтруем уже сыгранные режимы
+            if (_gameTicker != null)
+            {
+                foreach (var played in _gameTicker.PlayedPresets.Keys)
+                    presets.Remove(played);
+            }
+            // ADT-Tweak-End
             return presets;
         }
     }
