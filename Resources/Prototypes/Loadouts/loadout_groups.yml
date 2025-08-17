@@ -266,9 +266,11 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+  #ADT-Tweak-Start
   - ClothingBackpackSatchelLeather
   - ADTClothingBackpackBlackLadySatchel
   - ADTClothingBackpackLeatherLadySatchel
+  #ADT-Tweak-End
 
 - type: loadoutGroup
   id: PassengerNeck
@@ -438,9 +440,9 @@
   - ChaplainPlagueSuit
   - ChaplainNunRobe
   - ChaplainBlackHoodie
-  - ADTClothingOuterHoodieChaplainWhite
+  - ADTClothingOuterHoodieChaplainWhite #ADT-Tweak
   - ChaplainHoodie
-  - ADTClothingOuterArmorTemplar
+  - ADTClothingOuterArmorTemplar #ADT-Tweak
 
 - type: loadoutGroup
   id: ChaplainNeck
