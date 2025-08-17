@@ -321,7 +321,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
+  - ADTPurpleGloves
   - RobohandsGloves
 
 # SENIOR ENGINEER
@@ -367,7 +367,7 @@
   loadouts:
   - LatexGloves
   # - NitrileGloves # ADT-Tweak (почему у НРа их нет (тем более они медицинские), а у доцента - есть?)
-  - PurpleGloves
+  - ADTPurpleGloves
 
 - type: loadoutGroup
   id: ADTSeniorResearcherOuterClothing
