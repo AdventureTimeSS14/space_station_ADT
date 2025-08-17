@@ -1,4 +1,34 @@
 - type: cargoProduct
+  id: ADTFoodBeerTankCargo
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: cargobeer
+  product: ADTBeerTankCargo
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankLeaflover
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: leafloverbeer
+  product: ADTBeerTankLeaflover
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFoodBeerTankScientific
+  icon:
+    sprite: ADT/Structures/Storage/beertank.rsi
+    state: scientificale
+  product: ADTBeerTankScientificAle
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
   id: ADTFoodBeerTankGoldenAle
   icon:
     sprite: ADT/Structures/Storage/beertank.rsi

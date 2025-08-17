@@ -80,6 +80,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+  bannedRound: 3
 
 - type: gamePreset
   id: DynamicLight
@@ -106,3 +107,4 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+  bannedRound: 2

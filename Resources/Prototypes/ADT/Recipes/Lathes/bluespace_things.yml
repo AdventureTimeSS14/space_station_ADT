@@ -1,0 +1,8 @@
+- type: latheRecipe
+  id: ADTMaterialBScrystalArt
+  result: ADTMaterialBScrystalArt1
+  completetime: 5
+  materials:
+    Plasma: 200
+    Diamond: 200
+    ADTBScrystal: 100
