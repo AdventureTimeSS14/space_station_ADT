@@ -13,6 +13,10 @@ marking-DemomTailLong = Аркана, хвост (Длинный демонич�
 marking-DemomTailLong-long = Хвост
 marking-DemomTailUp = Аркана, хвост (Демонические вверх)
 marking-DemomTailUp-up = Хвост
+marking-DemomTailAnimated = Аркана, хвост (Движущийся демонический)
+marking-DemomTail1Animated =  Хвост (Движущийся)
+marking-DemomTailLongAnimated = Аркана, хвост (Движущийся длинный демонический)
+marking-DemomTailUpAnimated = Хвост (Движущийся)
 
 # Туловище
 marking-DemonChestCowSpots = Аркана, туловище (Коровьи пятна)

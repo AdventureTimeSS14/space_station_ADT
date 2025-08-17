@@ -24,3 +24,46 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: up
+
+ # Corvax-Wega Animated Tail demons
+- type: marking
+  id: DemomTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: tail_waggin
+
+- type: marking
+  id: DemomTail1Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: demon_tail_waggin
+
+- type: marking
+  id: DemomTailLongAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: long_waggin
+
+- type: marking
+  id: DemomTailUpAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: tail_waggin
+  - sprite: ADT/Mobs/Customization/Demon/tails_of_demons.rsi
+    state: up_waggin
