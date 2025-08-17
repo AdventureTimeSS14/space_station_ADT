@@ -116,7 +116,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         if (HasComp<CrawlingComponent>(args.User))
             return;
 
-        if (handComp.CountFreeHands() < component.HandsRequired || handComp.CountFreeHands() > component.HandsRequired)
+        if (handComp.Count < component.HandsRequired || handComp.Count > component.HandsRequired)
             return;
 
         AlternativeVerb verb = new()
@@ -293,7 +293,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         if (!HasComp<PickupHumansComponent>(uid) || !HasComp<PickupHumansComponent>(target))
             return false;
 
-        if (handComp.CountFreeHands() != pickupComp.HandsRequired)
+        if (handComp.Count != pickupComp.HandsRequired)
         {
             _popup.PopupEntity(Loc.GetString("popup-hands-required"), uid, uid);
             return false;

@@ -57,7 +57,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             {
                 var stunTime = TimeSpan.FromSeconds(4);
                 RemComp<VesselComponent>(uid);
-                _sharedStun.TryParalyze(uid, stunTime, true);
+                _sharedStun.TryUpdateParalyzeDuration(uid, stunTime);
             }
         }
         // ADT phantom end

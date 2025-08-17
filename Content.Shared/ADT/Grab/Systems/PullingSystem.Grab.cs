@@ -230,7 +230,7 @@ public abstract partial class PullingSystem
         var stunTime = TimeSpan.FromSeconds(2);
 
         _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 17));
-        _stun.TryParalyze(uid, stunTime, true);
+        _stun.TryUpdateParalyzeDuration(uid, stunTime);
         _audio.PlayPredicted(new SoundCollectionSpecifier("TrayHit"), uid, args.PuttingOnTable);
         TryStopPull(uid, comp);
 
@@ -334,7 +334,7 @@ public abstract partial class PullingSystem
         {
             var stunTime = TimeSpan.FromSeconds(1);
             _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 8));
-            _stun.TryParalyze(uid, stunTime, true);
+            _stun.TryUpdateParalyzeDuration(uid, stunTime);
             _audio.PlayPredicted(new SoundCollectionSpecifier("MetalThud"), uid, uid);
         }
 
@@ -348,7 +348,7 @@ public abstract partial class PullingSystem
             return;
 
         _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid, uid);
-        _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(2), true);
+        _stun.TryUpdateParalyzeDuration(args.Target, TimeSpan.FromSeconds(2));
         _stamina.TakeStaminaDamage(args.Target, 65f);
         _stamina.TakeStaminaDamage(uid, 65f);
         _standing.Down(uid);
@@ -357,7 +357,7 @@ public abstract partial class PullingSystem
         if (comp.CollideCounter < comp.MaxCollides)
             return;
 
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), true);
+        _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(2));
         if (!_gravity.IsWeightless(uid))
             _physics.SetLinearVelocity(uid, Vector2.Zero);
         if (TryComp<ThrownItemComponent>(uid, out var thrown))
