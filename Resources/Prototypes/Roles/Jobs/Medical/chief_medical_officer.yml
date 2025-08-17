@@ -37,7 +37,7 @@
 
 - type: startingGear
   id: CMOGear
-  equipment:
+  # equipment: # ADT tweak
  #id: CMOPDA  # ADT Tweak
     # ears: ClothingHeadsetCMO # ADT tweak
 #    belt: ClothingBeltMedicalFilled ADT tweak
