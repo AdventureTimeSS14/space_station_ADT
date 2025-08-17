@@ -162,6 +162,26 @@
   description: flavor-complex-sausagebeer
 
 - type: flavor
+  id: adt_cargobeer
+  flavorType: Complex
+  description: flavor-complex-cargobeer
+
+- type: flavor
+  id: adt_leafloverbeer
+  flavorType: Complex
+  description: flavor-complex-leafloverbeer
+
+- type: flavor
+  id: adt_scientificale
+  flavorType: Complex
+  description: flavor-complex-scientificale
+
+- type: flavor
+  id: adt_uraniumale
+  flavorType: Complex
+  description: flavor-complex-uraniumale
+
+- type: flavor
   id: adt_goldenale
   flavorType: Complex
   description: flavor-complex-goldenale
