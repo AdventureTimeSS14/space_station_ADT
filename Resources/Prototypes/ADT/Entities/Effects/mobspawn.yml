@@ -1,0 +1,11 @@
+- type: entity
+  id: ADTMobSpawnBSCrab
+  parent: MobSpawnCrabQuartz
+  name: mobspawner BS crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Effects/mobspawn.rsi
+    state: crab_BS
+  - type: SpawnOnDespawn
+    prototype: ADTMobBSCrab

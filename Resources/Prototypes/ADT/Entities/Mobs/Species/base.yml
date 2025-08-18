@@ -10,6 +10,7 @@
   abstract: true
   components:
   - type: OfferItem
+  - type: PickupHumans
   - type: RadiationPopup
   - type: Barotrauma
     damage:

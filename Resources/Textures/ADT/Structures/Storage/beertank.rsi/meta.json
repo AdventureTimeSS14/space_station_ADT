@@ -7,6 +7,15 @@
         "y": 32
     },
     "states": [
+	{
+            "name": "cargobeer"
+        },
+	{
+            "name": "leafloverbeer"
+        },
+	{
+            "name": "scientificale"
+        },
         {
             "name": "goldenale"
         },

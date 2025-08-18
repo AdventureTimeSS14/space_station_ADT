@@ -1,6 +1,6 @@
 # Honored times
 - type: loadoutEffectGroup
-  id: HonoredEngineer
+  id: SeniorEngineering
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -26,7 +26,7 @@
     head: ClothingHeadHatBeretEngineering
   effects:
   - !type:GroupLoadoutEffect
-    proto: HonoredEngineer
+    proto: SeniorEngineering
 
 - type: loadout
   id: StationEngineerHardhatYellow

@@ -1,6 +1,6 @@
 - type: stack
   id: Ectoplasm
-  name: ectoplasm
+  name: stack-ectoplasm
   icon: { sprite: ADT/Objects/Misc/ectoplasm.rsi, state: icon }
   spawn: ADTPhantomEctoplasm
   maxCount: 1
@@ -8,14 +8,28 @@
 
 - type: stack
   id: ADTPiastra
-  name: Piastre
+  name: stack-piastre
   icon: { sprite: ADT/Objects/Specific/piastra.rsi, state: piastra_1 }
   spawn: ADTPiratePiastr1
- 
+
 - type: stack
   id: ADTPaper
-  name: paper
+  name: stack-paper
   icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
   spawn: Paper
   maxCount: 1
   # itemSize: 1
+
+- type: stack
+  id: ADTBScrystal
+  name: stack-BScrystal
+  icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
+  spawn: ADTMaterialBScrystal1
+  maxCount: 10
+
+- type: stack
+  id: ADTBScrystalArt
+  name: stack-BScrystalArt
+  icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
+  spawn: ADTMaterialBScrystalArt1
+  maxCount: 10

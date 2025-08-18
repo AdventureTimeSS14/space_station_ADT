@@ -35,7 +35,7 @@
           data: 4
 
       - tag: ADTDurandCentralControlModule
-        name: durand central control module
+        name: construction-graph-tag-durand-central-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -52,7 +52,7 @@
           data: 6
 
       - tag: ADTDurandPeripheralsControlModule
-        name: durand peripherals control module
+        name: construction-graph-tag-durand-peripherals-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -72,7 +72,7 @@
 #currently mechs don't support upgrading. add them back in once that's squared away.
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-tag-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
@@ -90,7 +90,7 @@
           data: 13
 
       - tag: CapacitorStockPart
-        name: capacitor stock part
+        name: construction-graph-tag-capicator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: capacitor
@@ -100,7 +100,7 @@
           data: 14
 
       - tag: CapacitorStockPart
-        name: capacitor stock part
+        name: construction-graph-tag-capicator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: capacitor
@@ -110,7 +110,7 @@
           data: 15
 
       - tag: CapacitorStockPart
-        name: capacitor stock part
+        name: construction-graph-tag-capicator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: capacitor
@@ -148,7 +148,7 @@
           data: 21
 
       - tag: ADTDurandArmor
-        name: durand armor plates
+        name: construction-graph-tag-durand-armor-plates
         icon:
           sprite: "ADT/Objects/Specific/Mech/durand_construction.rsi"
           state: durand_armor

@@ -48,3 +48,9 @@ ent-ADTClothingBackpackDuffelSyndieMod = набор модулей для МОД
 
 ent-ADTClothingBackpackDuffelSyndicateCascade = набор физика-ядерщика
     .desc = Покупая данный набор, вы знали, на что идёте.
+
+ent-ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher = набор China-Lake
+    .desc = Модифицированный старый ручной многозарядный экспериментальный гранатомёт "China-Lake" с 16-тью снарядами разной степени смертельности.
+
+ent-ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher = набор РПГ-7
+    .desc = Отличное решение всех семейных конфликтов!
