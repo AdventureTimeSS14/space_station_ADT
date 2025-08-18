@@ -22,7 +22,7 @@ public sealed partial class StationBankAccountComponent : Component
     /// When giving funds to a particular account, the proportion of funds they should receive compared to remaining accounts.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public double PrimaryCut = 0.50;
+    public double PrimaryCut = 1.00; ///ADT_Tweak 0.50 to 1.00 - пока судьба счетов отделов не решена - пусть все деньги идут Каргонии
 
     /// <summary>
     /// When giving funds to a particular account from an override sell, the proportion of funds they should receive compared to remaining accounts.

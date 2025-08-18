@@ -1132,3 +1132,16 @@
     radius: 6
     energy: 2
     color: violet
+
+# kiwi_fruit
+- type: entity
+  parent: ADTSponsorClothingUniformSkirtBase
+  id: ADTSponsorClothingUniformSkirtKiwi
+  suffix: kiwi_fruit
+  name: dark green jumpskirt
+  description: dark green jumpskirt
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_jumpskirt.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_jumpskirt.rsi

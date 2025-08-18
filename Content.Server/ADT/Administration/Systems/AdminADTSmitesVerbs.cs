@@ -102,6 +102,7 @@ public sealed partial class AdminVerbSystem
                             }
 
                             thresholdsComponent.Thresholds = newThresholds;
+                            Dirty(args.Target, thresholdsComponent);
                         });
                 },
                 Impact = LogImpact.Extreme,
