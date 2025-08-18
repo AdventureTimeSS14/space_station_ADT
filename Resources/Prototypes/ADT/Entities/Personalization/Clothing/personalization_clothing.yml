@@ -1143,3 +1143,5 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/kiwi_jumpskirt.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_jumpskirt.rsi
