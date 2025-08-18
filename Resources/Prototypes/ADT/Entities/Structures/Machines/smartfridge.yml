@@ -92,6 +92,7 @@
 - type: entity
   parent: ADTSmartFridge
   id: ADTSmartFridgeMedical
+  suffix: Medical, Locked
   name: Medical SmartFridge
   description: A refrigerated storage unit for keeping lifesaving medications cold and fresh.
   components:
