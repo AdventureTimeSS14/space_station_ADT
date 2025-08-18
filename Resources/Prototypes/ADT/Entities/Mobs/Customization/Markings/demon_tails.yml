@@ -1,5 +1,5 @@
 - type: marking
-  id: DemomTail1
+  id: DemonTail1
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [DemonSpecies]
@@ -10,7 +10,7 @@
     state: demon_tail
 
 - type: marking
-  id: DemomTailLong
+  id: DemonTailLong
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [DemonSpecies]
@@ -21,7 +21,7 @@
     state: long
 
 - type: marking
-  id: DemomTailUp
+  id: DemonTailUp
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [DemonSpecies]
@@ -42,7 +42,7 @@
 
  # Corvax-Wega Animated Tail demons
 - type: marking
-  id: DemomTail1Animated
+  id: DemonTail1Animated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -53,7 +53,7 @@
     state: demon_tail_waggin
 
 - type: marking
-  id: DemomTailLongAnimated
+  id: DemonTailLongAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -64,7 +64,7 @@
     state: long_waggin
 
 - type: marking
-  id: DemomTailUpAnimated
+  id: DemonTailUpAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
