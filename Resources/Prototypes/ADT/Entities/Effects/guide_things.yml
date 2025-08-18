@@ -44,6 +44,15 @@
       drawdepth: Effects
 
 - type: entity
+  id: ADTGuideAnyVest
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: any_vests
+      drawdepth: Effects
+
+- type: entity
   id: ADTGuideEveryFolder
   categories: [ HideSpawnMenu ]
   components:

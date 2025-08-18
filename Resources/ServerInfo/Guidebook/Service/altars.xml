@@ -250,7 +250,8 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryOre"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryOre"Caption="приложеная
+руда"/>
         x5
       </Box>
     </ColorBox>
@@ -261,8 +262,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryCrab"Caption="любой
-рудокраб"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryCrab"Caption="рудокраб"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1042,7 +1042,8 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingOuterArmorBasic"/>
+        <GuideEntityEmbed Entity="ADTGuideAnyVest"Caption="лёгкий
+бронежилет"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1067,8 +1068,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingHeadHelmetTemplar"Caption="рыцарский
-шлем"/>
+        <GuideEntityEmbed Entity="ClothingHeadHelmetBasic"Caption="шлем"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1221,6 +1221,7 @@ NT-519"/>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
         <GuideEntityEmbed Entity="MaterialWebSilk1"/>
+        x15
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1400,7 +1401,7 @@ NT-519"/>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
         <GuideEntityEmbed Entity="SpaceCash30000"/>
-        x30000
+        x50000
       </Box>
     </ColorBox>
     <ColorBox>

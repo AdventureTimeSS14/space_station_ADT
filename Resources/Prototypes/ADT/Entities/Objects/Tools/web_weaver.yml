@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: AutoRecharge
-    rechargeDuration: 30
+    rechargeDuration: 5
   - type: LimitedCharges
     maxCharges: 10
   - type: UseDelay

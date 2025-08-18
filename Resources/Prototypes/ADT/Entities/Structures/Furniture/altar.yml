@@ -68,7 +68,7 @@
         powerCost: 3
       - requiredTag: ADTSteelSheet
         requiredAmount: 1
-        resultProto: SheetBrass
+        resultProto: SheetBrass1
         effectProto: ADTWeaponArcRedCrash
         powerCost: 0.1
         soundPath: /Audio/Magic/blink.ogg

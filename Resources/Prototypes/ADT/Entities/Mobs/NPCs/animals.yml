@@ -447,7 +447,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 8
+        Piercing: 4
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -463,6 +463,11 @@
   - type: MeleeChemicalInjector
     transferAmount: 8
     solution: melee
+  - type: PointLight
+    radius: 1
+    energy: 0.5
+    softness: 3
+    color: "#05d116"
 
 - type: entity
   parent: BaseMobCarp

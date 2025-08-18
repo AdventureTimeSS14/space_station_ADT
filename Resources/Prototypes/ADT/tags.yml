@@ -197,6 +197,9 @@
   id: ADTSilverCandle
 
 - type: Tag
+  id: ADTArmorSacrafice
+
+- type: Tag
   id: ADTSyndieThingies
 
 - type: Tag
@@ -207,6 +210,9 @@
 
 - type: Tag
   id: ADTGoldOre
+
+- type: Tag
+  id: ADTBSore
 
 - type: Tag
   id: ADTSteelOre

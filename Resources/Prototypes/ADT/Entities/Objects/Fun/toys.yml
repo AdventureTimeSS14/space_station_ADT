@@ -88,6 +88,8 @@
     capacity: 10
     chambers: [ True, True, True, True, True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null, null, null, null, null ]
+  - type: Item
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
 
 - type: entity
   parent: BaseItem

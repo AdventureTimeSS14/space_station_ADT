@@ -32,6 +32,7 @@
                   1,
                   1,
                   1,
+                  1,
                   1 ]
             ]
         },
@@ -39,6 +40,7 @@
             "name": "every_ore",
             "delays": [
                 [ 1,
+                  1,
                   1,
                   1,
                   1,
@@ -70,6 +72,14 @@
         },
         {
             "name": "every_holy_robe",
+            "delays": [
+                [ 1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "any_vests",
             "delays": [
                 [ 1,
                   1,

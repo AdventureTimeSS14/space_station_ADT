@@ -16,3 +16,6 @@ ent-ADTMobGoldCrabFriendly = рудокраб
 ent-ADTMobCoalCrabFriendly = рудокраб
     .desc = Рудный краб, состоящий из угля.
     .suffix = Уголь, Дружеский
+ent-ADTMobBSCrabFriendly = рудокраб
+    .desc = Рудный краб, состоящий из блюспейс кристалла.
+    .suffix = Блюспейс кристалл, Дружеский

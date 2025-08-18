@@ -255,7 +255,6 @@
   parent: BaseItem
   id: ADTHWarhammerOfZillyhoo
   description: It is so beautiful. You are so bewitched by its beauty, you are not sure if you can wield it. But you are trully the choosen one.
-  suffix: Unremoveable
   components:
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/zillihoo.rsi
@@ -374,7 +373,7 @@
       - SemiAuto
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
   - type: AmmoCounter
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 3.4
@@ -429,10 +428,6 @@
   components:
   - type: Item
     size: Small
-  - type: Tag
-    tags:
-    - CombatKnife
-    - Knife
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/nanotrasen_coin.rsi
     state: icon
@@ -443,9 +438,6 @@
       types:
         Holy: 5
         Slash: 1.5
-  - type: EmbeddableProjectile
-    sound: /Audio/Weapons/star_hit.ogg
-    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     ignoreResistances: true

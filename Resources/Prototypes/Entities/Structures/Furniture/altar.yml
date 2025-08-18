@@ -234,6 +234,12 @@
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTBSore
+        requiredAmount: 5
+        resultProto: MobSpawnBSCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
       - requiredTag: Crowbar
         resultProto: Shovel
         effectProto: ADTEffectKudzu
@@ -661,7 +667,7 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/hallelujah.ogg
         powerCost: 3
-      - requiredProto: ClothingOuterArmorBasic
+      - requiredTag: ADTArmorSacrafice
         resultProto: ADTClothingOuterArmorCrusader
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/hallelujah.ogg
@@ -713,7 +719,7 @@
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 1
       - requiredTag: ADTWebSilk
-        requiredAmount: 3
+        requiredAmount: 15
         resultProto: ADTWebWeaver
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
