@@ -90,11 +90,7 @@
   - type: Reactive
     groups:
       Acidic: [Touch]
-  - type: Tag #ADTtweak
+  - type: Tag #ADT tweak
     tags:
       - NoPaint
-  - type: Electrified #ADT tweak
-    requirePower: false
-    shockDamage: 70
-    shockTime: 4
     
