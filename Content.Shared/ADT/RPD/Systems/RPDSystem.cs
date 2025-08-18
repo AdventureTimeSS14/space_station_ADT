@@ -13,7 +13,6 @@ using Content.Shared.Popups;
 using Content.Shared.ADT.RPD.Components;
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
