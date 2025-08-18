@@ -643,7 +643,6 @@ ClothingOuterHardsuitSalvage: ADTClothingModsuitBackMining
 ClothingOuterWinterCoat: ClothingOuterWinterCoatToggleable
 
 #ADT 2025-03-12
-SmartFridge: ADTSmartFridgeMedical
 VendingMachineSmartFridge: ADTSmartFridgeMedical
 
 # 2025-03-18
