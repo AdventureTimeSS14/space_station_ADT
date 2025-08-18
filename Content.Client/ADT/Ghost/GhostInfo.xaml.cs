@@ -18,7 +18,6 @@ public sealed partial class GhostInfo : FancyWindow
     private readonly ClientGameTicker _gameTicker;
     public float AccumulatedTime;
 
-    private string _stationName = Loc.GetString("comp-pda-ui-unknown");
     private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
     private string _instructions = Loc.GetString("comp-pda-ui-unknown");
 
@@ -28,10 +27,6 @@ public sealed partial class GhostInfo : FancyWindow
         IoCManager.InjectDependencies(this);
         _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
 
-        StationNameButton.OnPressed += _ =>
-        {
-            _clipboard.SetText(_stationName);
-        };
 
         StationAlertLevelButton.OnPressed += _ =>
         {
@@ -48,6 +43,16 @@ public sealed partial class GhostInfo : FancyWindow
         {
             _clipboard.SetText(_instructions);
         };
+
+        _gameTicker.InfoBlobUpdated += OnServerInfoUpdated;
+    }
+
+    private void OnServerInfoUpdated()
+    {
+        if (_gameTicker.ServerInfoBlob != null)
+        {
+            ServerInfoLabel.SetMarkup(_gameTicker.ServerInfoBlob);
+        }
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -60,10 +65,6 @@ public sealed partial class GhostInfo : FancyWindow
     }
     public void UpdateState(GhostInfoUpdateState state)
     {
-        _stationName = state.StationName ?? Loc.GetString("comp-pda-ui-unknown");
-        StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",
-            ("station", _stationName)));
-
         var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
         StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
@@ -84,5 +85,10 @@ public sealed partial class GhostInfo : FancyWindow
             "comp-pda-ui-station-alert-level-instructions",
             ("instructions", _instructions))
         );
+
+        if (_gameTicker.ServerInfoBlob != null)
+        {
+            ServerInfoLabel.SetMarkup(_gameTicker.ServerInfoBlob);
+        }
     }
 }

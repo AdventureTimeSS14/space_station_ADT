@@ -83,24 +83,15 @@ public sealed partial class GhostInfoSystem : EntitySystem
 
         if (!_uiSystem.HasUi(uid, GhostInfoUiKey.Key))
             return;
-        var aIName = _entity.GetComponent<MetaDataComponent>(uid).EntityName;
 
-        UpdateStationName(uid, component);
         UpdateAlertLevel(uid, component);
 
         var state = new GhostInfoUpdateState(
-            component.StationName,
             component.StationAlertLevel,
             component.StationAlertColor
             );
 
         _uiSystem.SetUiState(uid, GhostInfoUiKey.Key, state);
-    }
-
-    private void UpdateStationName(EntityUid uid, GhostInfoComponent component)
-    {
-        var station = _station.GetOwningStation(uid);
-        component.StationName = station is null ? null : Name(station.Value);
     }
 
     private void UpdateAlertLevel(EntityUid uid, GhostInfoComponent component)

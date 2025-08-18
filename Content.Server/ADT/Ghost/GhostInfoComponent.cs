@@ -14,8 +14,6 @@ public sealed partial class GhostInfoComponent : Component
     public EntityUid? ActionEntity;
 
     [ViewVariables]
-    public string? StationName;
-    [ViewVariables]
     public string? StationAlertLevel;
     [ViewVariables]
     public Color StationAlertColor = Color.White;
