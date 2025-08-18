@@ -7,13 +7,13 @@ marking-DemonElfEars = Аркана, уши (Эльфийские)
 marking-DemonElfEars-ears_elf = Уши
 
 # Хвост
-marking-DemonTail1 = Аркана, хвост (Демонические)
-marking-DemonTailLong = Аркана, хвост (Длинный демонические)
-marking-DemonTailUp = Аркана, хвост (Демонические вверх)
+marking-DemonTail1 = Аркана, хвост (Демонический)
+marking-DemonTailLong = Аркана, хвост (Длинный демонический)
+marking-DemonTailUp = Аркана, хвост (Демонический вверх)
 marking-DemonTailAnimated = Аркана, хвост (Движущийся демонический)
-marking-DemonTail1Animated =  Хвост (Движущийся)
+marking-DemonTail1Animated = Аркана, хвост (Движущийся)
 marking-DemonTailLongAnimated = Аркана, хвост (Движущийся длинный демонический)
-marking-DemonTailUpAnimated = Хвост (Движущийся)
+marking-DemonTailUpAnimated = Аркана, хвост (Движущийся)
 marking-MobDemonTailColor = Аркана, хвост (Обычный)
 
 # Туловище
