@@ -8,11 +8,13 @@ marking-DemonElfEars-ears_elf = Уши
 
 # Хвост
 marking-DemomTail1 = Аркана, хвост (Демонические)
-marking-DemomTail1-demon_tail = Хвост
 marking-DemomTailLong = Аркана, хвост (Длинный демонические)
-marking-DemomTailLong-long = Хвост
 marking-DemomTailUp = Аркана, хвост (Демонические вверх)
-marking-DemomTailUp-up = Хвост
+marking-DemomTailAnimated = Аркана, хвост (Движущийся демонический)
+marking-DemomTail1Animated =  Хвост (Движущийся)
+marking-DemomTailLongAnimated = Аркана, хвост (Движущийся длинный демонический)
+marking-DemomTailUpAnimated = Хвост (Движущийся)
+marking-MobDemonTailColor = Аркана, хвост (Обычный)
 
 # Туловище
 marking-DemonChestCowSpots = Аркана, туловище (Коровьи пятна)
