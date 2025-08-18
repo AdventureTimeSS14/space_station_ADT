@@ -108,10 +108,6 @@ namespace Content.Client.Chemistry.UI
             Tabs.SetTabTitle(1, Loc.GetString("chem-master-window-output-tab"));
 
             SortMethod.AddItem(
-                Loc.GetString("chem-master-window-sort-method-Alphabetical-text"),
-                (int) ReagentSortMethod.Alphabetical);
-
-            SortMethod.AddItem(
                 Loc.GetString("chem-master-window-sort-method-Amount-text"),
                 (int) ReagentSortMethod.Amount);
 
@@ -121,10 +117,6 @@ namespace Content.Client.Chemistry.UI
 
             SortMethod.OnItemSelected += HandleChildPressed;
 
-            PillSortMethod.AddItem(
-                Loc.GetString(
-                    "chem-master-window-sort-method-Alphabetical-text"),
-                (int) ReagentSortMethod.Alphabetical);
             PillSortMethod.AddItem(Loc.GetString(
                     "chem-master-window-sort-method-Amount-text"),
                 (int) ReagentSortMethod.Amount);

@@ -113,6 +113,7 @@
                 </PanelContainer>
             </BoxContainer>
         </TabContainer>
+        <!-- ADT-Tweak-NewChemMasterUI Start -->
         <BoxContainer Orientation="Vertical" Margin="5 5 7 5" MinSize="300 0">
             <!-- Input container info -->
             <BoxContainer Orientation="Horizontal">
@@ -159,4 +160,5 @@
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>
+    <!-- ADT-Tweak-NewChemMasterUI End -->
 </controls:FancyWindow>
