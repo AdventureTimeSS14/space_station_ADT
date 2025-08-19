@@ -48,6 +48,9 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+  - type: Tag
+    tags:
+    - ADTToolboxRedSacrifice
 
 - type: entity
   name: mechanical toolbox
@@ -60,6 +63,9 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+  - type: Tag
+    tags:
+    - ADTToolboxBlueSacrifice
 
 - type: entity
   name: electrical toolbox

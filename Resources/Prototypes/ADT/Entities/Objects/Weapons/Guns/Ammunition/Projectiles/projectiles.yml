@@ -177,3 +177,66 @@
     state: impact_laser
 
 # Конец отдельного проджектайтла.. НУ понятно корчое
+
+- type: entity
+  id: ADTHolyBulletCharge
+  name: holy bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  description: Marks a target for additional holy damage.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_yellow
+      shader: unshaded
+  - type: GatheringProjectile
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - MobState
+    damage:
+      types:
+        Burn: 0.5
+        Holy: 2
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Blunt: 0
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.4
+
+- type: entity
+  id: ADTBulletHoly
+  name: holy seed
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 0.75
+        Holy: 6
+
+- type: entity
+  id: ADTBoltHoly
+  name: holy bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/holy_bolt.rsi
+    layers:
+    - state: holy_bolt
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 1.5
+        Holy: 7
