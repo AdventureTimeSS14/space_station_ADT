@@ -58,6 +58,7 @@ construction-name-fireplace = камин
 construction-name-deckchair = шезлонг
 construction-name-bonfire = костер
 construction-name-disco-ball = диско-шар
+construction-name-altar = алтарь обращения
 
 # Описания
 construction-desc-sofa-left-side = Выглядит удобно.
@@ -120,3 +121,4 @@ construction-desc-fireplace = Место с огнем. Уютно!
 construction-desc-deckchair = Шезлонг для равномерного загара под светом ближайшей звезды.
 construction-desc-bonfire = Только не замерзни.
 construction-desc-disco-ball = Упадет в 2470 году.
+construction-desc-altar = Заготовка для алтаря религии. Стоит попробовать вставить в него какой нибудь материал.

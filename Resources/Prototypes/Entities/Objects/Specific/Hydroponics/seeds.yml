@@ -311,6 +311,11 @@
       seedId: apple
     - type: Sprite
       sprite: Objects/Specific/Hydroponics/apple.rsi
+### Start ADT Tweak
+    - type: Tag
+      tags:
+        - ADTAppleSacrifice
+### End ADT Tweak
 
 - type: entity
   parent: SeedBase
@@ -623,6 +628,11 @@
       seedId: watermelon
     - type: Sprite
       sprite: Objects/Specific/Hydroponics/watermelon.rsi
+### Start ADT Tweak
+    - type: Tag
+      tags:
+        - ADTMelonacrifice
+### End ADT Tweak
 
 - type: entity
   parent: SeedBase

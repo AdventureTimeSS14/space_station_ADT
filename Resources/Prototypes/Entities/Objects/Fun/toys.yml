@@ -1094,6 +1094,9 @@
   components:
   - type: Sprite
     state: plushie_penguin
+  - type: Tag
+    tags:
+    - ADTPenguinToy
   - type: FoodSequenceElement
     entries:
       CottonBurger: PenguinPlushie
