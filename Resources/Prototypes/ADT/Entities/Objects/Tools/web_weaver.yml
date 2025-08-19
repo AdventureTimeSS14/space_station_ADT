@@ -1,0 +1,77 @@
+- type: entity
+  id: ADTBaseWebWeaver
+  parent: BaseItem
+  name: web weaver
+  description: An indispensable friend in decorating if you want to age a room.
+  abstract: true
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 5
+  - type: LimitedCharges
+    maxCharges: 10
+  - type: UseDelay
+  - type: Sprite
+    sprite: ADT/Objects/Tools/web_weaver.rsi
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Tools/web_weaver.rsi
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RcdUiKey.Key
+
+- type: entity
+  id: ADTWebWeaver
+  parent: ADTBaseWebWeaver
+  components:
+  - type: Sprite
+    state: icon
+  - type: RCD
+    availablePrototypes:
+    - Cobweb1
+    - Cobweb2
+    - ADTPosterHalloweenSpiderWeb1
+    - ADTPosterHalloweenSpiderWeb2
+
+- type: rcd
+  id: Cobweb1
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/Interface/web_weaver/cobweb1.png
+  mode: ConstructObject
+  prototype: Cobweb1
+  collisionMask: FullTileMask
+  cost: 5
+  delay: 5
+
+- type: rcd
+  id: Cobweb2
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/Interface/web_weaver/cobweb2.png
+  mode: ConstructObject
+  prototype: Cobweb2
+  collisionMask: FullTileMask
+  cost: 5
+  delay: 5
+
+- type: rcd
+  id: ADTPosterHalloweenSpiderWeb1
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/Interface/web_weaver/spiderweb1.png
+  mode: ConstructObject
+  prototype: ADTPosterHalloweenSpiderWeb1
+  collisionMask: FullTileMask
+  cost: 5
+  delay: 5
+
+- type: rcd
+  id: ADTPosterHalloweenSpiderWeb2
+  category: WallsAndFlooring
+  sprite: /Textures/ADT/Interface/web_weaver/spiderweb2.png
+  mode: ConstructObject
+  prototype: ADTPosterHalloweenSpiderWeb2
+  collisionMask: FullTileMask
+  cost: 5
+  delay: 5

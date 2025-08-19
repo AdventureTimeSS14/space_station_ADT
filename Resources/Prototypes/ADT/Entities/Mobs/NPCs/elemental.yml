@@ -1,0 +1,135 @@
+- type: entity
+  parent: MobQuartzCrab
+  id: ADTMobQuartzCrabFriendly
+  description: An ore crab made from Quartz.
+  components:
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  parent: MobIronCrab
+  id: ADTMobIronCrabFriendly
+  description: An ore crab made from iron.
+  components:
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  parent: MobCoalCrab
+  id: ADTMobCoalCrabFriendly
+  description: An ore crab made from coal.
+  components:
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  parent: MobUraniumCrab
+  id: ADTMobUraniumCrabFriendly
+  description: An ore crab made from uranium.
+  components:
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: RadiationSource
+    intensity: 0.1
+    slope: 0.5
+
+- type: entity
+  parent: MobSilverCrab
+  id: ADTMobSilverCrabFriendly
+  name: ore crab
+  description: An ore crab made from silver.
+  components:
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  parent: MobGoldCrab
+  id: ADTMobGoldCrabFriendly
+  name: ore crab
+  description: An ore crab made from gold.
+  components:
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  id: ADTMobBSCrabFriendly
+  parent: ADTMobBSCrab
+  name: Bluespace crab
+  description: A crab made half from the ashes of Lavaland storms, a quarter flesh, a quarter bluespace. Aggressive on look.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg

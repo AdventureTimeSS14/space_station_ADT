@@ -20,6 +20,9 @@
     grindableSolutionName: ADTBSore
   - type: Item
     heldPrefix: ADTBSore
+  - type: Tag
+    tags:
+      - ADTBSore
 
 - type: entity
   parent: ADTBSore
