@@ -640,6 +640,7 @@
     tags:
       - ClothMade
       - RawMaterial
+      - ADTWebSilk  # ADT Tweak
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk

@@ -24,6 +24,7 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+    - ADTShoesSacrifice # ADT Tweak
   - type: ProtectedFromStepTriggers
   # ADT Start
   - type: EmitSoundOnPickup

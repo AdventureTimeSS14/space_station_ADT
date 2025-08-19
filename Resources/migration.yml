@@ -707,6 +707,7 @@ Bonfire: ADTBonfire
 
 # ADT 2025-07-11
 ADTRPDAmmo: RCDAmmo
+
 # 2025-04-11 Corvax
 CentcomComputerComms: CentcommComputerComms
 
@@ -805,3 +806,7 @@ ClothingNeckHeadphones: ClothingMultipleHeadphones
 DrinkDaiquiriGlass: DrinkDaiquiri
 DrinkEspressoMartiniGlass: DrinkEspressoMartini
 DrinkMoscowMuleGlass: DrinkMoscowMule
+
+# ADT 2025-08.10
+AltarSpawner: AltarConvert
+ConvertAltarSpawner: AltarConvert
