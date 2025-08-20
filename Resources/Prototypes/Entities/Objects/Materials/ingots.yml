@@ -32,6 +32,11 @@
   name: gold bar
   suffix: Full
   components:
+# Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTGoldCandle
+# End ADT Tweak
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -77,6 +82,11 @@
   name: silver bar
   suffix: Full
   components:
+# Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTSilverCandle
+# End ADT Tweak
   - type: Material
   - type: PhysicalComposition
     materialComposition:

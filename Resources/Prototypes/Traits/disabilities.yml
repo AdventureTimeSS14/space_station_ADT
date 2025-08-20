@@ -41,7 +41,6 @@
   - IPC
   - Vox
   - NovakidSpecies
-  - SlimePerson #ADT-tweak
   quirk: true  # ADT Quirks
 
 - type: trait

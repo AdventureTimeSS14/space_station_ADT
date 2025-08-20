@@ -1,0 +1,28 @@
+- type: entity
+  name: lightning
+  id: ADTBananaSpark
+  parent: BaseLightning
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Effects/lightning.rsi
+    color: "#eeff00"
+    drawdepth: Effects
+    layers:
+    - state: "lightning_1"
+      shader: unshaded
+  - type: Electrified
+    shockDamage: 0.1
+    requirePower: false
+  - type: Lightning
+    lightningPrototype: ADTBananaSpark
+  - type: PointLight
+    radius: 0.2
+    softness: .4
+  - type: Beam
+    sound: /Audio/Effects/Lightning/lightningshock.ogg
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Tag
+    tags:
+      - HideContextMenu
