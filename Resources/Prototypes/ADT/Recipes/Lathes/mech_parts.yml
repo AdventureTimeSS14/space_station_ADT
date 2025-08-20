@@ -164,6 +164,7 @@
     Glass: 300
     Silver: 300
     Plasma: 600
+    ADTBScrystal: 400
 
 #Кларк
 - type: latheRecipe
@@ -389,6 +390,7 @@
     Steel: 1000
     Glass: 1500
     Gold: 1000
+    ADTBScrystal: 500
 
 - type: latheRecipe
   id: ADTPhazonPeripheralsElectronics
