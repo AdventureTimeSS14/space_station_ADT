@@ -132,6 +132,7 @@
   loadouts:
   - CaptainHead
   - CaptainCap
+  - ADTClothingAdmiralHat # ADT Loadout
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -155,6 +156,7 @@
   - CaptainCloakFormal
   - ADTClothingCaptainShoulderNeck # ADT Loadout
   - CaptainMantle
+  - ADTClothingAdmiralShoulder # ADT Loadout
 
 - type: loadoutGroup
   id: CaptainBackpack
