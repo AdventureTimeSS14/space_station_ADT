@@ -113,16 +113,17 @@
           southRotation: true
         steps:
         - tag: CapacitorStockPart
+          name: construction-graph-tag-capacitor
           icon:
             sprite: Objects/Misc/stock_parts.rsi
             state: capacitor
-          name: construction-graph-tag-capacitor
+          doAfter: 3
       - to: ToolAltarNode
         completed:
         - !type:SnapToGrid
           southRotation: true
         steps:
-        - tag: Toolbox
+        - tag: ADTToolboxBlueSacrifice
           icon:
             sprite: Objects/Misc/stock_parts.rsi
             state: capacitor
