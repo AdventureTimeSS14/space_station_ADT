@@ -742,3 +742,19 @@
   - type: Spillable
     solution: drink
   - type: DnaSubstanceTrace
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingAdmiralHat
+  name: captain tricorn hat
+  description: Yarr! Hoist the sails!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/captain_cocked_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/captain_cocked_hat.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 2
