@@ -23,6 +23,7 @@
   - type: Tag
     tags:
       - ADTBSore
+      - Ore
 
 - type: entity
   parent: ADTBSore
