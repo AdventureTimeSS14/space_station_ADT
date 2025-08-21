@@ -8,7 +8,7 @@ using Content.Shared.NodeContainer.NodeGroups;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
-using Content.Server.ADT.Atmos.EntityDamage.Systems; //ADT-Tweak
+using Content.Server.ADT.Atmos.EntitySystems; //ADT-Tweak
 
 namespace Content.Server.NodeContainer.NodeGroups
 {
