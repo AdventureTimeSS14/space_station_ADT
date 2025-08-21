@@ -121,4 +121,4 @@ construction-desc-fireplace = Место с огнем. Уютно!
 construction-desc-deckchair = Шезлонг для равномерного загара под светом ближайшей звезды.
 construction-desc-bonfire = Только не замерзни.
 construction-desc-disco-ball = Упадет в 2470 году.
-construction-desc-altar = Заготовка для алтаря религии. Стоит попробовать вставить в него какой нибудь материал.
+construction-desc-altar = Заготовка для алтаря религии. Стоит попробовать вставить в него какой-нибудь материал.

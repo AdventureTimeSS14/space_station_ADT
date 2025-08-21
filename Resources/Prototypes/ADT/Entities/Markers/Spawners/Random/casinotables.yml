@@ -57,6 +57,7 @@
       - id: ADTExplosivePizzabox
       - id: RevolverCapGun
       - id: ADTClothingBackpackDuffelSyndicateFilledMaid
+      - id: FoodBoxPizzaFilled
 
 - type: entityTable
   id: ADTChaosBigBoyDepositJackpot
