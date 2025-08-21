@@ -36,6 +36,7 @@
   - type: Tag
     tags:
       - ADTGoldCandle
+      - Ingot
 # End ADT Tweak
   - type: Material
   - type: PhysicalComposition
@@ -86,6 +87,7 @@
   - type: Tag
     tags:
       - ADTSilverCandle
+      - Ingot
 # End ADT Tweak
   - type: Material
   - type: PhysicalComposition
