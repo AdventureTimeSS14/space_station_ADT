@@ -157,6 +157,7 @@
     name: ghost-role-information-devilknife-name
     description: ghost-role-information-devilknife-description
     rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
   - type: SpeechBarks
     data:
       proto: Jevil
