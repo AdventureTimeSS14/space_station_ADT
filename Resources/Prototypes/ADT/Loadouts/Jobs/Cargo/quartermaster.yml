@@ -35,3 +35,14 @@
   id: ADTintendantPDAloadout
   equipment:
     pda: ADTintendantPDA
+
+# Ears
+- type: loadout
+  id: ADTClothingHeadsetQM
+  equipment:
+    ears: ClothingHeadsetQM
+
+- type: loadout
+  id: ADTClothingHeadsetAltCargo
+  equipment:
+    ears: ClothingHeadsetAltCargo
