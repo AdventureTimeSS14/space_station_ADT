@@ -1,0 +1,9 @@
+- type: loadout
+  id: ADTClothingHeadsetCommand
+  equipment:
+    ears: ClothingHeadsetCommand
+
+- type: loadout
+  id: ADTClothingHeadsetAltCommand
+  equipment:
+    ears: ClothingHeadsetAltCommand

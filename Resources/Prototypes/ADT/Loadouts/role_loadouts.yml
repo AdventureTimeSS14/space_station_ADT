@@ -70,7 +70,9 @@
   - GroupTankHarness
   - ADTBlueshieldHead
   - ADTBlueshieldJumpsuit
+  - ADTBlueshieldOuterClothing # ADT tweak
   - ADTBlueshieldNeck
+  - ADTBlueshieldEars # ADT tweak
   - ADTBlueshieldBack
   - SurvivalSecurity
   - Trinkets
