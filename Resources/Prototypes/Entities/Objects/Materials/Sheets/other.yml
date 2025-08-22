@@ -214,6 +214,11 @@
   name: uranium
   suffix: Full
   components:
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTUraniumSheet
+### End ADT Tweak
   - type: Material
   - type: Food
     transferAmount: 10

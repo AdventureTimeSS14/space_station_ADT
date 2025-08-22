@@ -49,9 +49,11 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+  - type: Material ### ADT Tweak
   - type: Tag
     tags:
     - Book
+    - ADTBible ### ADT Tweak
   - type: StealTarget
     stealGroup: Bible
 

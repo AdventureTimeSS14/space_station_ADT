@@ -62,3 +62,93 @@
     - Snout
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatHoodChaplainLeader
+  categories: [ HideSpawnMenu ]
+  name: leaders robe hood
+  description: A good visualiser for NOT sectant build of NOT cult.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/chaplain_leader_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/chaplain_leader_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatHoodMonk
+  categories: [ HideSpawnMenu ]
+  name: monk's hood
+  description: You can't find something better than being alone in the altruism of cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/chaplain_monk_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/chaplain_monk_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatClockworkHood
+  categories: [ HideSpawnMenu ]
+  name: clockwork hood
+  description: nice thing to wear on you hear. Its realy heavy...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/clockwork_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/clockwork_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatWebHood
+  categories: [ HideSpawnMenu ]
+  name: spider ominous hood
+  description: Yeah, now you are WEBetic.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/chaplain_web_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/chaplain_web_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatTechpriestHood
+  categories: [ HideSpawnMenu ]
+  name: tech-priest hood
+  description: Kinda mechanic. Looks like you are somekind of twisted Nar'si-Ratvar cult.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/hoods/chaplain_techpriest_hood.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/hoods/chaplain_techpriest_hood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
