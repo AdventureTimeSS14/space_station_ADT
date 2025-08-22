@@ -1,7 +1,6 @@
-using Content.Shared.Whitelist;
-using Content.Shared.Actions.Events;
 using Content.Shared.CombatMode;
 using Content.Shared.Item;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.ADT.Combat;
 
