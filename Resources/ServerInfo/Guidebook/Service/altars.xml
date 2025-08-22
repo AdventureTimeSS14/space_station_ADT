@@ -4,7 +4,7 @@
   <Table Columns="5">
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        АЛТАРЬ
+            АЛТАРЬ
       </Box>
     </ColorBox>
     <ColorBox>
@@ -250,9 +250,9 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryOre"Caption="приложеная
+        <GuideEntityEmbed Entity="ADTGuideEveryOre"Caption="данная
 руда"/>
-        x5
+     x5
       </Box>
     </ColorBox>
     <ColorBox>
@@ -441,10 +441,11 @@ Nanotrasen"/>
       </Box>
     </ColorBox>
     <ColorBox>
+    [color=#25252A]ммммммммммммммммммм[/color]
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
         <GuideEntityEmbed Entity="AltarToolbox"Caption="алтарь
 ящика для
-инструмента"/>
+инструмента     "/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1438,7 +1439,7 @@ NT-519"/>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
         <GuideEntityEmbed Entity="ADTGuideAllOrNothingerDeposit"Caption="казино
 ''всё или
-ничего-шнее''"/>
+ничегошнее''"/>
       </Box>
     </ColorBox>
     <ColorBox>

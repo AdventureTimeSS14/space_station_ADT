@@ -190,11 +190,11 @@
   equipment:
     # head: ADTClothingHeadHatBeretBlueshieldBlack
     eyes: ADTClothingEyesGlassesBlueshield
-    ears: ADTClothingHeadsetBlueshield
+    # ears: ADTClothingHeadsetBlueshield 
     # jumpsuit: ADTClothingUniformJumpsuitBlueshield
     # back: ADTClothingBlueshieldBackpack
     shoes: ClothingShoesBootsCombatFilled
-    outerClothing: ADTClothingBlueshieldArmor
+    # outerClothing: ADTClothingBlueshieldArmor 
     belt: ADTClothingBeltMedicalSecurityFilled
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
