@@ -132,6 +132,11 @@
   - type: TypingIndicator
     proto: ghost
   - type: Speech
+  - type: UserInterface
+    interfaces:
+      enum.GhostInfoUiKey.Key:
+        type: GhostInfoBoundUserInterface
+  - type: GhostInfo
   # ADT-Tweak-end
 
 # proto for player ghosts specifically

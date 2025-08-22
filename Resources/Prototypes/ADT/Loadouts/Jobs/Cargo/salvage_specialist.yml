@@ -146,3 +146,14 @@
    proto: ADTSalvageSpecialistEBomber5hour
   equipment:
     outerClothing: ADTClothingOuterExplorerBomber
+
+# Ears
+- type: loadout
+  id: ADTClothingHeadsetCargo
+  equipment:
+    ears: ClothingHeadsetCargo
+
+- type: loadout
+  id: ADTClothingHeadsetMining
+  equipment:
+    ears: ClothingHeadsetMining

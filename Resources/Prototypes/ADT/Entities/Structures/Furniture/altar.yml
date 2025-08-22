@@ -10,3 +10,76 @@
   - type: Icon
     sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
     state: gitoctocat
+  - type: Construction
+    graph: AltarsGraph
+    node: CoderAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTCoderKeyboard
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 3
+      - requiredProto: LuxuryPen
+        resultProto: ADTPlushieDamn
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredProto: Pen
+        resultProto: Error
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredTag: Book
+        resultProto: ADTCsharpForDummies
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 2
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ClothingUniformJumpskirtJanimaidmini
+        powerCost: 2
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredTag: ADTSocks
+        resultProto: ClothingUnderSocksCoder
+        powerCost: 2
+        soundPath: /Audio/Magic/blink.ogg
+
+- type: entity
+  id: ADTAltarClockwork
+  parent: AltarNanotrasen
+  name: clockwork altar
+  description: And the heart going to beat like a clockwork machine and the brass arm lay on your shoulder.s
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: ratvar
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: ratvar
+  - type: Construction
+    graph: AltarsGraph
+    node: RatvarAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTBrassWhip
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 3
+      - requiredTag: ADTSteelSheet
+        requiredAmount: 1
+        resultProto: SheetBrass1
+        effectProto: ADTWeaponArcRedCrash
+        powerCost: 0.1
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredTag: ADTGlassSheet
+        requiredAmount: 1
+        resultProto: SheetClockworkGlass1
+        effectProto: ADTWeaponArcRedCrash
+        powerCost: 0.1
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredTag: ADTrobeSacrifice
+        resultProto: ADTClothingCoatClockworkRobe
+        effectProto: ADTCultistBubble
+        soundPath: /Audio/Magic/Cults/ClockCult/steam_whoosh.ogg
+        powerCost: 1
