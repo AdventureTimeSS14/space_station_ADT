@@ -66,6 +66,3 @@ ent-ADTClothingOuterArmorCrusader = защитный доспех крестон
 
 ent-ClothingOuterVestWebElite = элитный синтетический бронежилет
     .desc = Синтетический бронежилет. Имеет дополнительные ремни и покрыт толстым слоем крайне термостойкого волокна.
-
-ent-ADTClothingOuterArmorTemplar = рыцарские доспехи
-    .desc = Броня, стилизованная под рыцарские доспехи. GLORY!!!
