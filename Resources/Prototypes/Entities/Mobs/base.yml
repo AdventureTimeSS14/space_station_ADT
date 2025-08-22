@@ -55,6 +55,7 @@
     blacklist:
       tags:
         - Cartridge
+        - Trash
   # ADT tweak end
 
 - type: entity
