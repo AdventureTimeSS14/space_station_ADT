@@ -41,6 +41,9 @@
   id: ADTSteelSheet
 
 - type: Tag
+  id: ADTUraniumSheet
+
+- type: Tag
   id: ADTCartridgeBibis # Обычне
 
 - type: Tag
@@ -171,6 +174,75 @@
 
 - type: Tag
   id: ADTModsuitAssembledPart
+
+- type: Tag
+  id: ADTJumpSuitSacrifice
+
+- type: Tag
+  id: ADTGasmaskSacrifice
+
+- type: Tag
+  id: ADTShoesSacrifice
+
+- type: Tag
+  id: ADTToolboxBlueSacrifice
+
+- type: Tag
+  id: ADTPenguinToy
+
+- type: Tag
+  id: ADTGoldCandle
+
+- type: Tag
+  id: ADTSilverCandle
+
+- type: Tag
+  id: ADTArmorSacrafice
+
+- type: Tag
+  id: ADTSyndieThingies
+
+- type: Tag
+  id: ADTMoneyForGamble
+
+- type: Tag
+  id: ADTGlassSheet
+
+- type: Tag
+  id: ADTGoldOre
+
+- type: Tag
+  id: ADTBSore
+
+- type: Tag
+  id: ADTSteelOre
+
+- type: Tag
+  id: ADTQuarzOre
+
+- type: Tag
+  id: ADTUraniumOre
+
+- type: Tag
+  id: ADTSilverOre
+
+- type: Tag
+  id: ADTCoalOre
+
+- type: Tag
+  id: ADTWebSilk
+
+- type: Tag
+  id: ADTToolboxRedSacrifice
+
+- type: Tag
+  id: ADTAppleSacrifice
+
+- type: Tag
+  id: ADTrobeSacrifice
+
+- type: Tag
+  id: ADTMelonacrifice
 
 - type: Tag
   id: ADTModsuitPlateAtmospheric
@@ -600,10 +672,22 @@
   id: ADTBadgeGolden
 
 - type: Tag
+  id: ADTBudgetInsuls
+
+- type: Tag
+  id: ADTTemplarHelmet
+
+- type: Tag
+  id: ADTBible
+
+- type: Tag
   id: ADTGummy
 
 - type: Tag
   id: ADTLavabikeKeys
+
+- type: Tag
+  id: ADTBSCrystal
 
 - type: Tag
   id: ADTDoNotMakeOrigami

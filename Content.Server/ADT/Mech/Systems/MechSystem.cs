@@ -12,6 +12,8 @@ namespace Content.Server.Mech.Systems;
 /// <inheritdoc/>
 public sealed partial class MechSystem
 {
+    [Dependency] private readonly SharedMechSystem _mech = default!;
+
     private void InitializeADT()
     {
         SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse);
@@ -53,9 +55,16 @@ public sealed partial class MechSystem
 
     private void OnEquipmentDestroyed(EntityUid uid, MechComponent component, ref MechEquipmentDestroyedEvent args)
     {
+        if (!component.CurrentSelectedEquipment.HasValue)
+            return;
+
         Spawn("EffectSparks", Transform(uid).Coordinates);
-        QueueDel(component.CurrentSelectedEquipment);
         _audio.PlayPvs(component.EquipmentDestroyedSound, uid);
+
+        var equipment = component.CurrentSelectedEquipment.Value;
+        _mech.RemoveEquipment(uid, equipment, component, forced: true);
+
+        QueueDel(equipment);
     }
 
     private void OnEmpPulse(EntityUid uid, MechComponent comp, ref EmpPulseEvent args)

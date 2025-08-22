@@ -1674,7 +1674,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/radiodemonsuit.rsi
 
-# Полевой комбез парамедика 
+# Полевой комбез парамедика
 
 - type: entity
   parent: ClothingUniformBase
@@ -1686,6 +1686,19 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/paramedic_field_suit.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/paramedic_field_suit.rsi
+
+# Костюм дриады
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingJumpsuitDryadCoverings
+  name: dryad coverings
+  description: A thing, that used to be harvested and made by nature goddess.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dryad.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/dryad.rsi
 
 # Клоун
 

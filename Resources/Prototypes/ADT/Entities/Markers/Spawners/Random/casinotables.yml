@@ -1,0 +1,181 @@
+- type: entityTable
+  id: ADTChaosPetitDepositWin
+  table: !type:GroupSelector
+    children:
+      - id: ToySpawner
+      - id: LootSpawnerIndustrial
+      - id: ClothingBeltUtility
+      - id: ClothingHandsGlovesColorYellowBudget
+
+- type: entityTable
+  id: ADTChaosSmallDepositWin
+  table: !type:GroupSelector
+    children:
+      - id: RandomSoap
+      - id: LootSpawnerIndustrial
+      - id: ClothingHandsGlovesColorYellow
+      - id: CleanerGrenade
+      - id: ButchCleaver
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+      - id: CrateSyndicate
+
+- type: entityTable
+  id: ADTChaosSmallDeposit
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: ADTChaosPetitDepositWin
+        weight: 40
+      - !type:NestedSelector
+        tableId: ADTChaosSmallDepositWin
+        weight: 60
+
+- type: entityTable
+  id: ADTChaosBigBoyDepositWin
+  table: !type:GroupSelector
+    children:
+      - id: ClothingHandsGlovesColorYellow
+      - id: CleanerGrenade
+      - id: SoapOmega
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+      - id: CrateSyndicate
+      - id: SoapSyndie
+      - id: ADTFoodBoxSyndiPizza
+      - id: ADTmklolgun
+      - id: ClothingBackpackDuffelSyndicateCostumeClown
+      - id: SyndicateBusinessCard
+      - id: CyberPen
+      - id: ClothingBackpackDuffelSyndicateDecoyKitFilled
+      - id: ADTCrateFunSyndicateSegway
+      - id: RevolverCapGunFake
+
+- type: entityTable
+  id: ADTChaosBigBoyDepositLoose
+  table: !type:GroupSelector
+    children:
+      - id: ADTAngrySyndieDroppod
+      - id: ADTExplosivePizzabox
+      - id: RevolverCapGun
+      - id: ADTClothingBackpackDuffelSyndicateFilledMaid
+      - id: FoodBoxPizzaFilled
+
+- type: entityTable
+  id: ADTChaosBigBoyDepositJackpot
+  table: !type:GroupSelector
+    children:
+      - id: ClothingShoesChameleonNoSlips
+
+- type: entityTable
+  id: ADTChaosBigBoyChances
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 1
+      children:
+      - id: ADTChaosCasinoBigBoyJackpot
+    - !type:GroupSelector
+      weight: 55
+      children:
+      - id: ADTChaosCasinoBigBoyWin
+    - !type:GroupSelector
+      weight: 44
+      children:
+      - id: ADTChaosCasinoBigBoyLoose
+
+- type: entityTable
+  id: ADTChaosAllorNothingDepositWin
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 35
+      children:
+      - id: ADTClarkeKitDroppod
+    - !type:GroupSelector
+      weight: 35
+      children:
+      - id: ADTOdysseusKitDroppod
+    - !type:GroupSelector
+      weight: 30
+      children:
+      - id: ADTSeraphKitDroppod
+
+- type: entityTable
+  id: ADTChaosAllorNothingDepositLoose
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: ADTGamblingNotesDroppod
+
+- type: entityTable
+  id: ADTChaosAllorNothingChances
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 20
+      children:
+      - id: ADTChaosCasinoAllorNothingJackpot
+    - !type:GroupSelector
+      weight: 80
+      children:
+      - id: ADTChaosCasinoAllorNothingLoose
+
+- type: entityTable
+  id: ADTChaosAllorNothinglerChances
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - id: ADTChaosCasinoAllorNothinglerJackpot
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - id: ADTChaosCasinoAllorNothinglerLoose
+
+# записки лудоманам
+- type: entityTable
+  id: ADTGamblingAddictTrollingNotes
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteOne
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteTwo
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteThree
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteFour
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteFive
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteSix
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteSeven
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteEight
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteNine
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - id: ADTGambleTrollNoteTen

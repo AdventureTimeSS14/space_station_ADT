@@ -880,3 +880,18 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-altar
+  id: AltarConvert
+  graph: AltarsGraph
+  startNode: start
+  targetNode: AltarConvertNode
+  category: construction-category-structures
+  description: construction-desc-altar
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

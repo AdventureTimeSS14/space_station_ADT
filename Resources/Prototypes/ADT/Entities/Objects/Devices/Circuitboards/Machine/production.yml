@@ -271,6 +271,7 @@
       Manipulator: 5
       Capacitor: 5
       MatterBin: 15
+      ADTBScrystalArt: 10
     tagRequirements:
       GlassBeaker:
         amount: 5
