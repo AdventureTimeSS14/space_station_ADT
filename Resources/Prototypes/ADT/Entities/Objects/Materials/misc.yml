@@ -34,9 +34,6 @@
   suffix: Full
   components:
   - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      ADTBScrystal: 100
   - type: Tag
     tags:
     - ADTBSCrystal
@@ -45,7 +42,7 @@
     layers:
     - state: crystal
       map: [ "base" ]
-  - type: StackPrice
+  - type: StaticPrice
     price: 200
   - type: Appearance
   - type: Stack
@@ -88,7 +85,7 @@
     layers:
     - state: crystal
       map: [ "base" ]
-  - type: StackPrice
+  - type: StaticPrice
     price: 500
   - type: Appearance
   - type: Stack
