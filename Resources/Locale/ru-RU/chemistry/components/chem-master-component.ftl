@@ -46,6 +46,6 @@ chem-master-window-transferring-label =    Перенести: [color={$color}]{
 chem-master-window-transferring-default-label =    Перенести: [color=#ffffff]50[/color] ед.
 chem-master-window-pill-buffer-text = Буфер таблеток
 chem-master-window-number-label = Кол-во:
-chem-master-window-notation-text = Химмастер. Управляй мечтой.
+chem-master-window-notation-text = ХимМастер. Управляй мечтой.
 chem-master-window-version-text = v.1.1.0
 chem-master-window-sort-method-tooltip = Метод сортировки выбранного буфера.
