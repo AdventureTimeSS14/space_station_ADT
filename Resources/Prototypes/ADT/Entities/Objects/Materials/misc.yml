@@ -88,7 +88,7 @@
     layers:
     - state: crystal
       map: [ "base" ]
-  - type: StaticPrice
+  - type: StackPrice
     price: 500
   - type: Appearance
   - type: Stack
