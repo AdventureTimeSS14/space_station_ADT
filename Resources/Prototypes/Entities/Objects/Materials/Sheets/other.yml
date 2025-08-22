@@ -218,6 +218,7 @@
   - type: Tag
     tags:
       - ADTUraniumSheet
+      - Sheet
 ### End ADT Tweak
   - type: Material
   - type: Food
