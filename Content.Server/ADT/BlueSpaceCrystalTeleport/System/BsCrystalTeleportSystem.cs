@@ -53,8 +53,8 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
 
     private void OnThrowInMob(Entity<BsCrystalTeleportComponent> uid, ref ThrowDoHitEvent args)
     {
-        AddRadiusIfMore1(uid, uid.Comp);
-        if (TryTeleport(args.Target, CountToRadius, uid.Comp.TeleportSound))
+        var radius = GetThrowRadius(uid, uid.Comp);
+        if (TryTeleport(args.Target, radius, uid.Comp.TeleportSound))
         {
             var xform = Transform(args.Target);
             _xform.AnchorEntity(args.Target, xform);
@@ -67,17 +67,11 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         TryTeleport(args.Target, uid.Comp.TeleportRadiusThrow, uid.Comp.TeleportSound);
     }
 
-    private void AddRadiusIfMore1(Entity<BsCrystalTeleportComponent> uid, BsCrystalTeleportComponent component)
+    private float GetThrowRadius(Entity<BsCrystalTeleportComponent> uid, BsCrystalTeleportComponent component)
     {
         if (TryComp<StackComponent>(uid, out var stack) && stack.Count > 1)
-        {
-            CountToRadius = stack.Count + component.TeleportRadiusThrow;
-
-        }
-        else
-        {
-            CountToRadius = component.TeleportRadiusThrow;
-        }
+            return stack.Count + component.TeleportRadiusThrow;
+        return component.TeleportRadiusThrow;
     }
 
 
