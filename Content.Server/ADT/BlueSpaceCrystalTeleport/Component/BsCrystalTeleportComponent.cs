@@ -1,11 +1,11 @@
-using Content.Shared.DoAfter;
+using Content.Server.ADT.BlueSpaceCrystalTeleport;
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction.Events;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Audio;
-using Robust.Server.GameObjects;
-using Content.Shared.Interaction.Events;
-using Content.Server.ADT.BlueSpaceCrystalTeleport;
 
 namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 
