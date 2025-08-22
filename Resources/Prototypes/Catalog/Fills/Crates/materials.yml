@@ -165,6 +165,8 @@
       amount: 4
     - id: CableApcStack1
       amount: 2
+    - id: ADTMaterialBScrystal1 #ADTTweak
+      amount: 5
 
 - type: entity
   id: CrateMaterialBasicResource
