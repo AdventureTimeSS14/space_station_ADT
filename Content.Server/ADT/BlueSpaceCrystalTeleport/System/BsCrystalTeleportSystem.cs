@@ -3,18 +3,18 @@ using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Stacks;
 using Content.Shared.Throwing;
+using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
-using Robust.Server.Audio;
-using Content.Server.Stack;
-using System.Numerics;
-using System.Linq;
 using Content.Server.Atmos.Components;
+using Content.Server.Stack;
+using System.Linq;
+using System.Numerics;
+
 using Robust.Server.GameObjects;
 
 namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
@@ -24,13 +24,9 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly StackSystem _stacks = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
-    private HashSet<Entity<MapGridComponent>> _targetGrids = new();
-    private bool valid;
     private float CountToRadius;
 
 
