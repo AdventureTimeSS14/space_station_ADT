@@ -19,13 +19,13 @@ public sealed partial class BsCrystalTeleportComponent : Component
     /// Radius of teleport on use in hand
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TeleportRadius = 40f;
+    public float TeleportRadius = 4f;
 
     /// <summary>
     /// Teleport radius on throw . If in stack of entity(not owner entity) more than 1 entity, count adding to radius
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TeleportRadiusThrow = 20f;
+    public float TeleportRadiusThrow = 2f;
 
     /// <summary>
     /// Sound of teleport
