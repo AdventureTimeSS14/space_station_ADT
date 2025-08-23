@@ -44,6 +44,8 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - ADTBSCrystal #ADT Tweak
+  - type: OreSiloClient
   - type: AmbientSound
     enabled: false
     volume: 5

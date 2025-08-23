@@ -1,4 +1,19 @@
 - type: technology
+  id: CrystalManipulation
+  name: research-technology-crystal-manipulation
+  icon:
+    sprite: ADT/Objects/Materials/crystal_art.rsi
+    state: crystal
+  discipline: Experimental
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ADTMaterialBScrystalArt
+  position: 2,-2
+  requiredTech:
+  - AlternativeResearch
+
+- type: technology
   id: ADTModsuitBase
   name: research-technology-basic-modsuit
   icon:
@@ -18,3 +33,18 @@
   position: 0,-1
   requiredTech:
   - MagnetsTech
+
+- type: technology
+  id: ADTBluespaceMining
+  name: research-technology-bluespace-mining
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: ansible_crystal
+  discipline: Experimental
+  tier: 2
+  cost: 40000
+  recipeUnlocks:
+  - ADTMachineBluespaceHarvesterCircuitboard
+  position: 4,-3
+  requiredTech:
+  - BasicAnomalousResearch

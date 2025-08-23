@@ -1,0 +1,12 @@
+marking-ADTTajaranTongue = Язык кошки
+marking-ADTTajaranTongue-tajaran_cat_tongue = Язык
+marking-ADTTajaranTongueFast = Язык кошки (Быстрый)
+marking-ADTTajaranTongueFast-tajaran_cat_tongue_fast = Язык
+marking-ADTTajaranTongueSlow = Язык кошки (медленный)
+marking-ADTTajaranTongueSlow-tajaran_cat_tongue_slow = Язык
+marking-ADTTajaranTongueBreath = Язык тахипноэ
+marking-ADTTajaranTongueBreath-tajaran_cat_tongue_breath = Язык
+marking-ADTTajaranTongueBreathFast = Язык тахипноэ (Быстрый)
+marking-ADTTajaranTongueBreathFast-tajaran_cat_tongue_breath_fast = Язык
+marking-ADTTajaranTongueBreathSlow = Язык тахипноэ (медленный)
+marking-ADTTajaranTongueBreathSlow-tajaran_cat_tongue_breath_slow = Язык

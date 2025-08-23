@@ -1,3 +1,20 @@
+# CrazyScientist
+- type: loadoutEffectGroup
+  id: ADTOuterClothingCoatsCrazySci50Hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Science
+      time: 180000 #50 hrs
+
+#Shoes
+
+- type: loadout
+  id: PurpleShoes
+  equipment:
+    shoes: ClothingShoesColorPurple
+
 # PDA
 - type: loadout
   id: ADTLabTechPDA
@@ -13,3 +30,12 @@
   id: ADTAnomalistPDA
   equipment:
     id: ADTAnomalistPDA
+
+# OuterClothing
+- type: loadout
+  id: ADTOuterClothingCoatsCrazySci
+  equipment:
+    outerClothing: ADTOuterClothingCoatsCrazyScientist
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTOuterClothingCoatsCrazySci50Hour

@@ -1,0 +1,19 @@
+- type: entity
+  name: trash can
+  id: ADTBluespaceTrashCan
+  parent: TrashBag
+  components:
+  - type: MagnetPickup
+    range: 1 
+  - type: Sprite
+    sprite: ADT/Objects/Specific/bluespace_trashcan.rsi
+    state: icon-0 
+  - type: Clothing
+    sprite: ADT/Objects/Specific/bluespace_trashcan.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,19,9
+    quickInsert: true
+    areaInsert: true
+    areaInsertRadius: 5  

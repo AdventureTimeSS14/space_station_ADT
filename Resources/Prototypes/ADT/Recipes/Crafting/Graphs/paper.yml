@@ -1,0 +1,195 @@
+- type: constructionGraph
+  id: ADTPaperMask
+  start: start
+  graph:
+
+    - node: start
+      edges:
+        - to: CompletePaperMaskBlank
+          steps:
+            - tag: Paper
+              name: construction-graph-tag-paper
+              icon:
+                sprite: Objects/Misc/bureaucracy.rsi
+                state: paper
+            - tag: Paper
+              name: construction-graph-tag-paper
+              icon:
+                sprite: Objects/Misc/bureaucracy.rsi
+                state: paper
+            - tag: Paper
+              name: construction-graph-tag-paper
+              icon:
+                sprite: Objects/Misc/bureaucracy.rsi
+                state: paper
+            - tag: Paper
+              name: construction-graph-tag-paper
+              icon:
+                sprite: Objects/Misc/bureaucracy.rsi
+                state: paper
+            - tag: Paper
+              name: construction-graph-tag-paper
+              icon:
+                sprite: Objects/Misc/bureaucracy.rsi
+                state: paper
+              doAfter: 1
+
+    - node: CompletePaperMaskBlank
+      entity: ADTClothingMaskPaperBlank
+      edges:
+        - to: CompletePaperMaskNeutral
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskNeutral
+      entity: ADTClothingMaskPaperNeutral
+      edges:
+        - to: CompletePaperMaskEyes
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskEyes
+      entity: ADTClothingMaskPaperEyes
+      edges:
+        - to: CompletePaperMaskSleeping
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskSleeping
+      entity: ADTClothingMaskPaperSleeping
+      edges:
+        - to: CompletePaperMaskHeart
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskHeart
+      entity: ADTClothingMaskPaperHeart
+      edges:
+        - to: CompletePaperMaskCore
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskCore
+      entity: ADTClothingMaskPaperCore
+      edges:
+        - to: CompletePaperMaskPlus
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskPlus
+      entity: ADTClothingMaskPaperPlus
+      edges:
+        - to: CompletePaperMaskSquare
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskSquare
+      entity: ADTClothingMaskPaperSquare
+      edges:
+        - to: CompletePaperMaskBullseye
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskBullseye
+      entity: ADTClothingMaskPaperBullseye
+      edges:
+        - to: CompletePaperMaskVertical
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskVertical
+      entity: ADTClothingMaskPaperVertical
+      edges:
+        - to: CompletePaperMaskHorizontal
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskHorizontal
+      entity: ADTClothingMaskPaperHorizontal
+      edges:
+        - to: CompletePaperMaskX
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskX
+      entity: ADTClothingMaskPaperX
+      edges:
+        - to: CompletePaperMaskBugeyes
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskBugeyes
+      entity: ADTClothingMaskPaperBugeyes
+      edges:
+        - to: CompletePaperMaskDouble
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskDouble
+      entity: ADTClothingMaskPaperDouble
+      edges:
+        - to: CompletePaperMaskMark
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskMark
+      entity: ADTClothingMaskPaperMark
+      edges:
+        - to: CompletePaperMaskSad
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskSad
+      entity: ADTClothingMaskPaperSad
+      edges:
+        - to: CompletePaperMaskShadekin
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskShadekin
+      entity: ADTClothingMaskPaperShadekin
+      edges:
+        - to: CompletePaperMaskBlack
+          steps:
+            - tool: Drawing
+
+    - node: CompletePaperMaskBlack
+      entity: ADTClothingMaskPaperBlack
+      edges:
+        - to: CompletePaperMaskBlank
+          steps:
+            - tool: Drawing
+
+- type: constructionGraph
+  id: ADTPaperCrane
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+  - node: done
+    entity: ADTPaperCrane
+
+- type: constructionGraph
+  id: ADTPaperShip
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 4
+  - node: done
+    entity: ADTPaperShip

@@ -1,0 +1,50 @@
+# Gloves
+- type: loadout
+  id: ADTLightBrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorLightBrown
+
+- type: loadout
+  id: ADTRedGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorRed
+
+- type: loadout
+  id: ADTTealGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorTeal
+
+- type: loadout
+  id: ADTGreenGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGreen
+
+- type: loadout
+  id: ADTWhiteGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+- type: loadout
+  id: ADTBlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: ADTGrayGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGray
+
+- type: loadout
+  id: ADTBlueGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlue
+
+- type: loadout
+  id: ADTOrangeGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorOrange
+
+- type: loadout
+  id: ADTPurpleGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorPurple

@@ -1,0 +1,20 @@
+- type: loadout
+  id: RnDPDA
+  equipment:
+    id: RnDPDA
+
+- type: loadout
+  id: ADTRDPDA
+  equipment:
+    id: ADTRDPDA
+
+# Ears
+- type: loadout
+  id: ADTClothingHeadsetRD
+  equipment:
+    ears: ClothingHeadsetRD
+
+- type: loadout
+  id: ADTClothingHeadsetAltScience
+  equipment:
+    ears: ClothingHeadsetAltScience

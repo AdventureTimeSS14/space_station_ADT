@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Adventure Time project. Art by discord:prazat911",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "icon-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "nt-balloon"
+    },
+    {
+      "name": "nt-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "nt-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "corgi-balloon"
+    },
+    {
+      "name": "corgi-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "corgi-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "clown-balloon"
+    },
+    {
+      "name": "clown-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "clown-inhand-right",
+      "directions": 4
+    }
+  ]
+}

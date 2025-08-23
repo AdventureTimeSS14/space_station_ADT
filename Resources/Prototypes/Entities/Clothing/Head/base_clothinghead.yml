@@ -182,6 +182,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - SnoutOverlay # ADT Tweak
   #ADT-Tweak-Start
   - type: InjectorsBlocker
   - type: CoveredSlot
@@ -259,6 +260,11 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.05
     coolingCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.90
+  - type: Armor # so zombification resistance shows up
+    modifiers:
+      coefficients: { }
   - type: GroupExamine
   - type: HideLayerClothing
     slots:

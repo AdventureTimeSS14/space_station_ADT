@@ -5,7 +5,8 @@
   - GroupTankHarness
   - MagistratNeck
   - MagistratJumpsuit
-  - CommonBackpack
+  - ADTLawyerBackpack # ADT-Tweak
+  - ADTLawyerGloves # ADT-Tweak
   - LawyerShoes
   - Glasses
   - Survival
@@ -69,7 +70,9 @@
   - GroupTankHarness
   - ADTBlueshieldHead
   - ADTBlueshieldJumpsuit
+  - ADTBlueshieldOuterClothing # ADT tweak
   - ADTBlueshieldNeck
+  - ADTBlueshieldEars # ADT tweak
   - ADTBlueshieldBack
   - SurvivalSecurity
   - Trinkets
@@ -113,7 +116,7 @@
   - ADTSeniorResearcherGloves # ADT-Tweak-senior
   - ScientistBackpack
   - ADTSeniorResearcherOuterClothing # ADT-Tweak-senior
-  - ScientistShoes
+  - ScientistShoes  
   - Survival
   - Trinkets
   # ADT tweak start
@@ -132,6 +135,7 @@
   - ADTSeniorEngineerJumpsuit # ADT-Tweak-senior
   - StationEngineerOuterClothing
   - StationEngineerBackpack
+  - ADTEngineeringGlasses
   - ADTEngineeringBelt
   - StationEngineerShoes
   - SurvivalExtended

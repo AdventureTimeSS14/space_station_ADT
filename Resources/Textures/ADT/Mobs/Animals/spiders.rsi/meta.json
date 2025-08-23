@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise and tg station.",
+    "states": [
+        {
+            "name": "ice_spider",
+            "directions": 4
+        },
+        {
+            "name": "ice_spider_dead"
+        },
+        {
+            "name": "nightmare_spider",
+            "directions": 4
+        },
+        {
+            "name": "nightmare_spider_dead"
+        },
+        {
+            "name": "notarius",
+            "directions": 4
+        },
+        {
+            "name": "notarius_dead"
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+﻿- type: decal
+  id: ADTTileBrickTileSteelBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_box
+
+- type: decal
+  id: ADTTileBrickTileSteelCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_corner_ne
+
+- type: decal
+  id: ADTTileBrickTileSteelCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_corner_se
+
+- type: decal
+  id: ADTTileBrickTileSteelCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_corner_nw
+
+- type: decal
+  id: ADTTileBrickTileSteelCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_corner_sw
+
+- type: decal
+  id: ADTTileBrickTileSteelInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_inner_ne
+
+- type: decal
+  id: ADTTileBrickTileSteelInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_inner_se
+
+- type: decal
+  id: ADTTileBrickTileSteelInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_inner_nw
+
+- type: decal
+  id: ADTTileBrickTileSteelInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_inner_sw
+
+- type: decal
+  id: ADTTileBrickTileSteelEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_end_n
+
+- type: decal
+  id: ADTTileBrickTileSteelEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_end_e
+
+- type: decal
+  id: ADTTileBrickTileSteelEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_end_s
+
+- type: decal
+  id: ADTTileBrickTileSteelEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_end_w
+
+- type: decal
+  id: ADTTileBrickTileSteelLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_line_n
+
+- type: decal
+  id: ADTTileBrickTileSteelLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_line_e
+
+- type: decal
+  id: ADTTileBrickTileSteelLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_line_s
+
+- type: decal
+  id: ADTTileBrickTileSteelLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: ADT/Decals/tile_bricktile.rsi
+    state: steel_line_w

@@ -1,6 +1,5 @@
 guide-entry-medic-brigmedic = Бригмедик
 guide-new-cocktails-ADT = Новые рецепты коктейлей
-
 guide-entry-pizza-recipes = Пицца
 guide-entry-savory-recipes = Пикантные блюда
 guide-entry-bread-recipes = Хлеб
@@ -18,3 +17,5 @@ guide-entry-medicinal-recipes = Наборы и медипены
 guide-entry-other-recipes = Другое
 guide-entry-secret-recipes = Секретное
 guide-entry-medication = Медицина
+guide-entry-chaplain = Священник
+guide-entry-altars = Таблица алтарей

@@ -59,15 +59,18 @@ job-name-mechanic = механик
 
 # Cargo
 
+job-name-intendant = интендант
 job-name-postman = почтальон
 job-name-inventory-associate = кладовщик
 job-name-excavator = шахтёр
 
 # Medical
 
+job-name-real-chief-medical-officer = старший медицинский офицер
 job-name-practical-nurse = фельдшер
 job-name-resident = ординатор
 job-name-clinician = медик
+job-name-traumatologist = травматолог
 job-name-adt-doctor = доктор
 job-name-therapist = терапевт
 job-name-psychiatrist = психиатр
@@ -75,6 +78,7 @@ job-name-psychotherapist = психотерапевт
 
 # RnD
 
+job-name-real-reserch-director = директор исследований
 job-name-lab-tech = аналитик
 job-name-anomalist = аномалист
 job-name-xenoarch = ксеноархеолог

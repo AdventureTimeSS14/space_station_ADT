@@ -5,6 +5,10 @@
   id: BaseMobDwarf
   abstract: true
   components:
+# Start ADT Tweak
+  - type: Damageable
+    damageContainer: Biological
+# End ADT Tweak
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -71,7 +75,7 @@
     languages:
       GalacticCommon: Speak
       Dwarf: Speak
-  # ADT tweak start
+  # ADT tweak end
 
 - type: entity
   parent: BaseSpeciesDummy

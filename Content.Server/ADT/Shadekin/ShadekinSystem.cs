@@ -24,15 +24,15 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
-using Content.Server.Disposal.Unit.Components;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.ADT.Components.PickupHumans;
 
 namespace Content.Server.ADT.Shadekin;
 
 public sealed partial class ShadekinSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
@@ -92,7 +92,7 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             if (comp.MinPowerAccumulator >= comp.MinPowerRoof)
                 BlackEye(uid);
-            if (comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
+            if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
                 TeleportRandomly(uid, comp);
         }
     }
@@ -134,7 +134,6 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         if (
             HasComp<MechPilotComponent>(uid)
-            || HasComp<BeingDisposedComponent>(uid)
         )
         {
             return;
@@ -179,7 +178,6 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (
             (TryComp<CuffableComponent>(uid, out var cuffable) && _cuffable.IsCuffed((uid, cuffable), true))
             || HasComp<MechPilotComponent>(uid)
-            || HasComp<BeingDisposedComponent>(uid)
         )
         {
             comp.MaxedPowerAccumulator = 0f;

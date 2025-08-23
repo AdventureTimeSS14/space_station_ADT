@@ -23,6 +23,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: WeldingMaskBase

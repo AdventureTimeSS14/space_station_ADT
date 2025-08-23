@@ -25,3 +25,24 @@
   id: ADTQMJumpskirtCamisole
   equipment:
     jumpsuit: ADTClothingUniformJumpskirtCamisoleQM
+
+- type: loadout
+  id: QuartermasterPDAloadout
+  equipment:
+    pda: QuartermasterPDA
+
+- type: loadout
+  id: ADTintendantPDAloadout
+  equipment:
+    pda: ADTintendantPDA
+
+# Ears
+- type: loadout
+  id: ADTClothingHeadsetQM
+  equipment:
+    ears: ClothingHeadsetQM
+
+- type: loadout
+  id: ADTClothingHeadsetAltCargo
+  equipment:
+    ears: ClothingHeadsetAltCargo

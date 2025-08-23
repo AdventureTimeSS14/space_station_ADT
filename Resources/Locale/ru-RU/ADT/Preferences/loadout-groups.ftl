@@ -11,7 +11,9 @@ ent-MagistratJumpsuit = Костюмы
 loadout-group-blueshield-jumpsuit = ОСЩ, комбинезон
 loadout-group-blueshield-head = ОСЩ, голова
 loadout-group-blueshield-neck = ОСЩ, шея
+loadout-blueshield-ears-adt = ОСЩ, ухо
 loadout-group-blueshield-back = ОСЩ, рюкзак
+loadout-group-blueshield-outer-clothing = ОСЩ, верхняя одежда
 
 # Civilian
 loadout-chef-pocket1-adt = Шеф Повар, карман 1
@@ -27,8 +29,11 @@ loadout-barber-jumpsuit-adt = Парикмахер, комбинезон
 loadout-barber-other-clothing-adt = Парикмахер, верхняя одежда
 
 # Cargo
+loadout-group-quartermaster-id = Квартирмейстер, ID
+loadout-quartermaster-ears-adt = Квартирмейстер, ухо
 loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
 loadout-salvage-specialist-neck-adt = Утилизатор, шея
+loadout-salvage-specialist-ears-adt = Утилизатор, ухо
 loadout-group-salvage-id-adt = Утилизатор, ID
 loadout-group-cargo-id-adt = Грузчик, ID
 
@@ -37,13 +42,17 @@ loadout-chaplain-blessedbook-adt = Священник, священная кни
 loadout-group-chaplain-id-adt = Священник, ID
 
 # Engineering
+loadout-chief-engineer-ears-adt = Старший инженер, ухо
 loadout-group-senior-engineer-head = Бригадир, голова
 loadout-group-senior-engineer-jumpsuit = Бригадир, комбинезон
 loadout-group-atmospheric-technician-neck = Атмосферный техник, плащ
 loadout-group-atmospheric-technician-gasmask = Атмосферный техник, противогаз
 loadout-group-atmospheric-technician-head = Атмосферный техник, голова
 loadout-group-atmos-id-adt = Атмосферный техник, ID
+
 # Science
+loadout-research-director-ears-adt = Научный руководитель, ухо
+loadout-group-reserch-director-id-adt = Научный руководитель, ID
 loadout-group-senior-researcher-head = Доцент, голова
 loadout-group-senior-researcher-jumpsuit = Доцент, комбинезон
 loadout-group-senior-researcher-gloves = Доцент, перчатки
@@ -53,6 +62,7 @@ loadout-group-roboticist-jumpsuit = Робототехник, комбинезо
 loadout-group-roboticist-outerclothing = Робототехник, верхняя одежда
 loadout-group-roboticist-gloves = Робототехник, перчатки
 loadout-group-mechanical-assembler-id-adt = Робототехник, ID
+
 # Security
 loadout-group-sheriff-id-adt = Глава службы безопасности, ID
 loadout-group-senior-officer-jumpsuit = Офицер-инструктор, комбинезон
@@ -64,6 +74,7 @@ loadout-guardofficer-jumpsuit-adt = Надзиратель, комбинезон
 loadout-group-detective-id-adt = Детектив, ID
 loadout-security-officer-neck-adt = Офицер СБ, шея
 loadout-security-cadet-neck-adt = Кадет СБ, шея
+
 # Brigmedic
 loadout-brigmedic-jumpsuit-adt = Бригмедик, комбинезон
 loadout-brigmedic-head-adt = Бригмедик, голова
@@ -74,7 +85,10 @@ loadout-brigmedic-glasses-adt = Бригмедик, очки
 loadout-brigmedic-pda-adt = Бригмедик, ID
 loadout-brigmedic-belt-adt = Бригмедик, поясы
 loadout-brigmedic-outerwear-adt = Бригмедик, верхняя одежда
+
 # Medical
+loadout-group-chief-medical-officer-id-adt = Главный врач, ID
+loadout-chief-medical-officer-ears-adt = Главный врач, ухо
 loadout-group-senior-physician-head = Ведущий врач, голова
 loadout-group-senior-physician-jumpsuit = Ведущий врач, комбинезон
 loadout-group-senior-physician-outerclothing = Ведущий врач, верхняя одежда
@@ -93,3 +107,9 @@ loadout-group-psychologist-id-adt = Психолог, ID
 
 # Juridical
 loadout-group-lawyer-id-adt = Адвокат, ID
+loadout-group-lawyer-gloves = Адвокат, перчатки
+loadout-group-lawyer-backpack = Магистрат, рюкзак
+
+# Command
+loadout-captain-ears-adt = Капитан, ухо
+loadout-HoP-ears-adt = Глава персонала, ухо

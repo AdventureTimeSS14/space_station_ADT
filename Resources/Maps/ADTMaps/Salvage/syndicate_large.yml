@@ -3990,7 +3990,7 @@ entities:
     - type: Transform
       pos: -10.5,28.5
       parent: 1
-- proto: HeadVulpkanin
+- proto: ADTHeadVulpkanin
   entities:
   - uid: 544
     components:

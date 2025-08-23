@@ -15,6 +15,7 @@ public sealed class BackstabDamageMultipilierSystem : EntitySystem
     {
         foreach (var damaged in args.HitEntities)
         {
+            if (damaged == args.User) continue; // проверка на пользователя оружия
             var degrees = Transform(damaged).LocalRotation.Degrees - Transform(args.User).LocalRotation.Degrees;
             if (degrees >= 300 || degrees <= 60 && degrees >= -30) // проверка  на градус, работает криво
             {

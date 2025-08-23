@@ -28,7 +28,7 @@ public sealed class ADTCCVars
         CVarDef.Create("barks.max_delay", 0.6f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
     public static readonly CVarDef<bool> ReplaceTTSWithBarks =
-        CVarDef.Create("barks.replace_tts", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("barks.replace_tts", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -78,6 +78,12 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<bool> SupermatterDoCascadeDelam =
         CVarDef.Create("supermatter.do_cascade", true, CVar.SERVER);
+
+    /// <summary>
+    ///     The supermatter gains +1 bolts of electricity.
+    /// </summary>
+    public static readonly CVarDef<float> SupermatterPowerMinPenaltyThreshold =
+        CVarDef.Create("supermatter.power_min_penalty_threshold", 3000f, CVar.SERVER);
 
     /// <summary>
     ///     The cutoff on power properly doing damage, pulling shit around.
@@ -183,7 +189,7 @@ public sealed class ADTCCVars
     ///     Scales powerloss inhibition down until this amount of moles is reached.
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 20f, CVar.SERVER);
+        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 12f, CVar.SERVER);
 
     /// <summary>
     ///     Bonus powerloss inhibition boost if this amount of moles is reached.
@@ -255,5 +261,11 @@ public sealed class ADTCCVars
     public static readonly CVarDef<string> DiscordTokenBot =
         CVarDef.Create("discord.token_bot", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
 
+
+    /// <summary>
+    /// Кол-во предыдущих карт, которые будут исключены из голосования.
+    /// </summary>
+    public static readonly CVarDef<int> MapVoteRecentBanDepth =
+        CVarDef.Create("game.map_vote_recent_ban_depth", 3, CVar.SERVER | CVar.ARCHIVE);
 }
 

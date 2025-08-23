@@ -1,0 +1,133 @@
+- type: entity
+  name: morph
+  parent: BaseSimpleMob
+  id: ADTBaseMobMorph
+  description: It looks terrifying.
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: ADT/Mobs/Aliens/morph.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: CombatMode
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 3
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+      - id: FoodMeat
+        amount: 2
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 11
+        Slash: 9
+  - type: TypingIndicator
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Speech
+    speechVerb: LargeMob
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      MorphCollectiveMind: Speak
+  - type: VentCrawler
+  - type: Hunger
+    baseDecayRate: 0 # не голодни
+    starvingSlowdownModifier: 1
+    thresholds:
+      Overfed: 500
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+  - type: Morph
+    damageOnTouch:
+      types:
+        Blunt: 16
+        Slash: 14
+    devourWhitelist:
+      components:
+        - Item
+        - MobState
+      tags:
+        - Structure
+  - type: ThermalVision
+    color: "#064700"
+  - type: NightVision
+  - type: Hands
+  - type: MindContainer
+  - type: ChameleonProjector #да, прекрасно знаю, что могла бы просто переписать систему визардов, но ну к чёрту, лучше уж костыли
+  # ПОТОМУ НЕ ДЕЛАЙТЕ РУЧНЫХ МОРФОВ
+    whitelist:
+      components:
+      - Anchorable
+      - Item
+      - MobState
+      tags:
+      - Bot # for funny bot moments
+    blacklist:
+      components:
+      - ChameleonDisguise # no becoming kleiner
+      - Pda # PDAs currently make you invisible /!\
+    disguiseProto: ChameleonDisguise
+  - type: UserInterface
+    interfaces:
+      enum.MimicryKey.Key:
+        type: MimicryMenuBoundUserInterface
+  - type: Prying
+    pryPowered: true
+    force: true
+    useSound:
+      path: /Audio/Machines/airlock_creaking.ogg
+  - type: Body
+    prototype: Animal
+  - type: Puller
+    needsHands: false
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: MovementAlwaysTouching
+  - type: AntiRottingContainer
+  - type: Destructible #мини-костыль
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Radiation
+        damage: 4000
+      behaviors:
+      - !type:GibBehavior { }
+
+#нужен для работы размножения
+- type: entity
+  parent: ADTBaseMobMorph
+  id: ADTMorphGhostRole
+  components:
+  - type: GhostRole
+    name: ghost-role-information-morph-cloned-name
+    description: ghost-role-information-morph-cloned-description
+    rules: ghost-role-information-morph-cloned-rules
+  - type: GhostTakeoverAvailable

@@ -17,3 +17,25 @@
   id: ADTCMOHighBoots
   equipment:
     shoes: ADTClothingShoesHighboots
+
+- type: loadout
+  id: CMOPDA
+  equipment:
+    id: CMOPDA
+
+
+- type: loadout
+  id: ADTCMOPDA
+  equipment:
+    id: ADTCMOPDA
+
+# Ears
+- type: loadout
+  id: ADTClothingHeadsetCMO
+  equipment:
+    ears: ClothingHeadsetCMO
+
+- type: loadout
+  id: ADTClothingHeadsetAltMedical
+  equipment:
+    ears: ClothingHeadsetAltMedical

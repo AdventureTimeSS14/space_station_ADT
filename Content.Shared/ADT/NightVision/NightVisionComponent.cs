@@ -1,5 +1,3 @@
-// taken and adapted from https://github.com/RMC-14/RMC-14?ysclid=lzx00zxd6e53093995
-
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -22,16 +20,12 @@ public sealed partial class NightVisionComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Innate;
-
-    [DataField, AutoNetworkedField]
-    public bool SeeThroughContainers;
 }
 
 [Serializable, NetSerializable]
 public enum NightVisionState
 {
     Off,
-    Half,
     Full
 }
 

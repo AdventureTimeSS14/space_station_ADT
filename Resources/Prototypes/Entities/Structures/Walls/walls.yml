@@ -48,8 +48,8 @@
   - type: Airtight
   - type: StaticPrice
     price: 75
-  - type: RadiationBlocker
-    resistance: 2
+  - type: RadiationBlocker # ADT-Tweak
+    resistance: 2 # ADT-Tweak
   - type: BlockWeather
   - type: SunShadowCast
 
@@ -135,6 +135,10 @@
     cost: 6
     delay: 8
     fx: EffectRCDDeconstruct8
+  # ADT tweak start
+  - type: RadiationBlocker
+    resistance: 10
+  # ADT tweak end
   - type: Destructible
     thresholds:
     - trigger:
@@ -294,6 +298,10 @@
   - type: Construction
     graph: Girder
     node: goldWall
+  # ADT tweak start
+  - type: RadiationBlocker 
+    resistance: 5
+  # ADT tweak end
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -398,7 +406,7 @@
     key: walls
     base: plasma
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 5 # ADT tweak
 
 - type: entity
   parent: BaseWall
@@ -635,7 +643,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 4 #ADT-Tweak
 
 - type: entity
   parent: WallReinforced
@@ -900,7 +908,6 @@
   parent: BaseWall
   id: WallShuttle
   name: shuttle wall
-  suffix: Reinforced, Exterior
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -930,7 +937,7 @@
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 2 # ADT-Tweak
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
@@ -955,51 +962,6 @@
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
   - type: Reflect
-    reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
-
-- type: entity
-  parent: BaseWall
-  id: WallShuttleInterior
-  name: shuttle wall
-  suffix: Interior
-  components:
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Sprite
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Icon
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Construction
-    graph: Girder
-    node: shuttleInteriorWall
-  - type: IconSmooth
-    key: walls
-    base: state
-  - type: Reflect #ADT_Tweak - без рикошетов
     reflectProb: 0.01 #ADT_Tweak - 1 to 0.01
 
 - type: entity
@@ -1147,7 +1109,7 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
-    resistance: 6
+    resistance: 5 # ADT-Tweak         
 
 - type: entity
   parent: BaseWall

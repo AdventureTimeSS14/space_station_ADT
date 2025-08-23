@@ -151,13 +151,14 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.7
         Radiation: 0.3
         Caustic: 0.7
   - type: ClothingSpeedModifier
@@ -262,9 +263,12 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.6
-        Heat: 0.8 # ADT tweak 1 > 0.8
+        Heat: 0.8
         Caustic: 0.7
-    staminaModifier: 0.8  # ADT
+# Start ADT Tweak
+  - type: StaminaResistance
+    damageCoefficient: 0.8
+# End ADT Tweak
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -289,9 +293,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
     # ADT tweak start
-        Slash: 0.7
+        Blunt: 0.75 # ADT tweak 0.8 > 0.75
+        Slash: 0.75 # ADT tweak 0.7 > 0.75
         Piercing: 0.7
         Heat: 0.7
         Radiation: 0.8
@@ -352,12 +356,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75 # ADT tweak 1 > 0.75
+        Blunt: 0.6 # ADT tweak 0.4 > 0.6
+        Slash: 0.6 # ADT tweak 0.5 > 0.6
+        Piercing: 0.5 # ADT tweak 0.6 > 0.5
+        Heat: 0.65 # ADT tweak 0.8 > 0.65
         Caustic: 0.7
-    staminaModifier: 0.7  # ADT
+# Start ADT Tweak
+  - type: StaminaResistance
+    damageCoefficient: 0.7 
+# End ADT Tweak
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -390,7 +397,10 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.6
-    staminaModifier: 0.7  # ADT
+# Start ADT Tweak
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+# End ADT Tweak
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -456,6 +466,8 @@
     modifiers:
       coefficients:
         Caustic: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.95
@@ -521,17 +533,20 @@
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.6
         Slash: 0.5
         Piercing: 0.5
-        Heat: 0.7 # ADT tweak 1 > 0.7
+        Heat: 0.8
         Radiation: 0.5
         Caustic: 0.6
-    staminaModifier: 0.7 # ADT tweak
+# Start ADT Tweak
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+# End ADT Tweak
   - type: ClothingSpeedModifier
     walkModifier: 0.75 # ADT tweak
     sprintModifier: 0.75 # ADT tweak
@@ -555,13 +570,14 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.8
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.9
         Radiation: 0.5
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -590,6 +606,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  #- type: StaminaResistance
+  #  damageCoefficient: 0.75
   - type: Armor
     modifiers:
       coefficients: #ADT Nukiebuff
@@ -599,7 +617,10 @@
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
-    staminaModifier: 0.45  # ADT
+# Start ADT Tweak
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+# End ADT Tweak
   - type: ClothingSpeedModifier #ADT Nukiebuff
     walkModifier: 1
     sprintModifier: 1
@@ -646,7 +667,7 @@
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
   name: syndicate elite hardsuit
-  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+  description: An elite version of the blood-red hardsuit, with improved radiation resistance and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -662,6 +683,8 @@
     damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.8
+  #- type: StaminaResistance
+  #  damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients: #ADT nukebuff
@@ -671,7 +694,10 @@
         Heat: 0.1
         Radiation: 0.01
         Caustic: 0.5
-    staminaModifier: 0.3  # ADT
+#ADT Tweak start
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+#ADT Tweak end
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier # ADT tweak
@@ -698,6 +724,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  #- type: StaminaResistance
+  #  damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
@@ -707,10 +735,13 @@
         Heat: 0.5
         Radiation: 0.25
         Caustic: 0.4
-    staminaModifier: 0.3  # ADT
+#ADT Tweak start
+  - type: StaminaResistance
+    damageCoefficient: 0.3 
+#ADT Tweak end
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
@@ -732,6 +763,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
+  #- type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
+  #  damageCoefficient: 0.99
   - type: Armor
     modifiers:
       coefficients:
@@ -741,13 +774,19 @@
         Heat: 0.2
         Radiation: 0.2
         Caustic: 0.2
-    staminaModifier: 0.15 # ADT
+# Start ADT Tweak
+  - type: StaminaResistance
+    damageCoefficient: 0.15
+# End ADT Tweak 
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: Tag
+    tags:
+    - MonkeyWearable
   - type: DNALocker # ADT-Tweak
   # ADT Grab start
   - type: ModifyGrabStageTime
@@ -806,7 +845,7 @@
     damageCoefficient: 0.2
   - type: Armor
     modifiers:
-      coefficients:
+      coefficients: 
         Blunt: 0.95
         Slash: 0.95
         Piercing: 1
@@ -821,7 +860,7 @@
 #Pirate EVA Suit (Deep Space EVA Suit)
 #Despite visually appearing like a softsuit, it functions exactly like a hardsuit would (parents off of base hardsuit, has resistances and toggleable clothing, etc.) so it goes here.
 - type: entity
-  parent:  ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id:  ClothingOuterHardsuitPirateEVA
   name: deep space EVA suit
   suffix: Pirate
@@ -829,6 +868,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
+  - type: Item
+    size: Huge
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
   - type: ExplosionResistance
@@ -852,13 +893,15 @@
 
 #Pirate Captain Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitPirateCap
   name: pirate captain's hardsuit
   description: An ancient armored hardsuit, perfect for defending against space scurvy and toolbox-wielding scallywags.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+  - type: Item
+    size: Huge
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
   - type: PressureProtection
@@ -929,6 +972,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: FireProtection
+    reduction: 0.8
   - type: DNALocker # ADT-Tweak костыль
     enabled: false
   # ADT-Tweak-start
@@ -1013,6 +1058,8 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.15 # Needs 21 hits with a disabler to stun :godo:
   - type: Armor
     modifiers:
       coefficients:
@@ -1064,7 +1111,9 @@
         Cold: 0.2 #ADT-tweak 0.1 -> 0.2
         Shock: 0.3 #ADT-tweak 0.1 -> 0.3
         Radiation: 0.1
-        Caustic: 0.3 #ADT-tweak
+        Caustic: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.25
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

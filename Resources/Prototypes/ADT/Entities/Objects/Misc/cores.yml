@@ -1,0 +1,65 @@
+- type: entity
+  parent: BaseItem
+  id: ADTUsedPlutoniumCore
+  name: Used Plutonium Core
+  description: write here something cool pls.
+  components:
+  - type: Item
+    sprite: ADT/Objects/Misc/cores.rsi
+    size: Normal
+  - type: Sprite
+    layers:
+      - sprite: ADT/Objects/Misc/cores.rsi
+        state: p_core
+
+- type: entity
+  parent: BaseItem
+  id: ADTPlutoniumCore
+  name: Plutonium Core
+  description: write here something more cooler then in "UsedPlutoniumCore" item description.
+  components:
+  - type: Item
+    sprite: ADT/Objects/Misc/cores.rsi
+    size: Normal
+  - type: Sprite
+    layers:
+      - sprite: ADT/Objects/Misc/cores.rsi
+        state: radiation
+        shader: unshaded
+  - type: RadiationSource
+    intensity: 2
+  - type: SolutionContainerManager
+    solutions:
+      ADTPlutonium:
+        maxVol: 50
+        reagents:
+        - ReagentId: ADTPlutoniumReactant
+          Quantity: 50
+  - type: Extractable
+    grindableSolutionName: ADTPlutonium
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseItem
+  id: ADTHyperNobCore
+  name: hyper-Noblium Core
+  description: SPEEED SPEEED SPEEED HELL YEAAA :eagle:!!!!
+  components:
+  - type: Item
+    sprite: ADT/Objects/Misc/cores.rsi
+    size: Normal
+  - type: Sprite
+    layers:
+      - sprite: ADT/Objects/Misc/cores.rsi
+        state: hnob_core
+  - type: SupermatterNobliumCore
+  - type: SupermatterImmune

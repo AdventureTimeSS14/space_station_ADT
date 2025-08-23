@@ -5,6 +5,7 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
+  - type: VentCrawler # ADT tweak
   - type: Sprite
     drawdepth: Mobs
     sprite: ADT/Mobs/Aliens/slimes.rsi
@@ -122,6 +123,7 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: SupermatterIgnore # ADT-Tweak
   # ADT tweak end
 
 - type: entity

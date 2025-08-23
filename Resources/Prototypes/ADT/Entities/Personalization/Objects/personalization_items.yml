@@ -22,6 +22,53 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_evgeniy
 
+- type: entity
+  name: TP-17
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolTP17
+  description: Standard issue sidearm for civilian protection.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/tp17.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Personalization/tp17.rsi
+  - type: Gun
+    minAngle: 4
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 1
+    fireRate: 3.2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/tp17_shot.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/ADT/Weapons/Guns/Cock/tp17-bolt-cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/ADT/Weapons/Guns/MagIn/tp17-load.ogg
+        ejectSound: /Audio/ADT/Weapons/Guns/MagOut/tp17-unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+
 # Conjurer
 - type: entity
   parent: BasePlushie
@@ -1737,6 +1784,9 @@
     activatedDamage:
       types:
         Blunt: 0
+  - type: ItemTogglePrefix
+    prefixOn: on
+    prefixOff: off
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -2024,4 +2074,286 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_azil
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+- type: entity
+  name: Argument
+  parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
+  id: ADTWeaponRevolverArgumentCouatl
+  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
+  suffix: Revolver, Personal, Couatl
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/couatl_argument.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 2
+  - type: RevolverAmmoProvider
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+  - type: Appearance
+  - type: StaticPrice
+    price: 1500
+  - type: Clothing
+    sprite: ADT/Personalization/couatl_argument.rsi
+
+#kugooergooer
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieGiPatter
+  name: Plushie GiPatter
+  description: Plushie GiPatter
+  suffix: Personal, kugooergooer
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_gipatter
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+#BLAD
+- type: entity
+  name: Cutter
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponCutterBLAD
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  suffix: Personal, BLAD
+  components:
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,2,0
+      - 0,1,0,1
+    - type: MaterialStorage
+      storageLimit: 0
+      materialWhiteList: [RawUranium, RawPlasma, Plasma, Uranium]
+      canEjectStoredMaterials: false
+    - type: BatteryRecharge
+      multiplier: 1.25
+    - type: Sprite
+      sprite: ADT/Personalization/cutter_blad.rsi
+      state: icon
+    - type: Gun
+      fireRate: 0.8
+      soundGunshot:
+        path: /Audio/Weapons/plasma_cutter.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: ADTBulletCutter
+      fireCost: 100
+    - type: BatteryWeaponFireModes
+      fireModes:
+      - proto: ADTBulletCutterWeak
+        fireCost: 100
+      - proto: ADTBulletLaserGreenWeak
+        fireCost: 150
+    - type: Battery
+      maxCharge: 2500
+      startingCharge: 2500
+    - type: Appearance
+
+#MagmaShow
+- type: entity
+  name: double stun baton
+  parent: [ Stunbaton, BaseSecurityContraband ]
+  id: StarlightDoubleStunbatonMagmaShow
+  suffix: Personal, MagmaShow
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/doublestunbaton.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+
+#KonnorSmith
+- type: entity
+  name: fireaxe
+  parent: [FireAxe, BaseEngineeringContraband]
+  id: ADTFireAxeKori
+  description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
+  suffix: Personal, KonnorSmith
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kori_axe.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    damage:
+      types:
+        # axes are kinda like sharp hammers, you know?
+        Blunt: 5
+        Slash: 12.5
+        Structural: 10
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 12.5
+        Structural: 40
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,3
+  - type: Clothing
+    sprite: ADT/Personalization/kori_axe.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage #ADT_Tweak - чтобы вешать на спину
+
+- type: entity
+  name: YV-2 multiphase stunner
+  parent: BaseWeaponBatterySmall
+  id: ADTWeaponPistolYV2
+  description: new version of antique gun witout selfrcharge
+  suffix: Personal, KonnorSmith
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      visible: false
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/yv2.rsi
+  - type: Gun
+    fireRate: 2
+    projectileSpeed: 60
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletDisabler
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: ADTBulletDisablerStrong
+      fireCost: 150
+    - proto: ADTBulletLaser
+      fireCost: 150
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: Tag
+    tags:
+    - YV2Pistol
+    - Taser
+    - Sidearm
+  - type: StaticPrice
+    price: 5000
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTPortableYV2Recharger
+  name: YV-2 portable recharger
+  description: High-tech recharger adapted for portability.
+  suffix: Personal, KonnorSmith
+  components:
+  - type: Appearance
+  - type: Item
+    size: Large # ADT tweak
+    sprite: ADT/Personalization/yv2recharger.rsi
+  - type: Sprite
+    sprite: ADT/Personalization/yv2recharger.rsi
+    state: icon
+  # - type: Clothing
+  #   # equippedPrefix: charging
+  #   quickEquip: false
+  #   slots:
+  #   - belt
+  - type: Charger
+    chargeRate: 20 # ADT tweak
+    slotId: charger_slot
+    portable: true
+  # - type: PowerChargerVisuals
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: ContainerContainer
+    containers:
+      charger_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      charger_slot:
+        name: оружие
+        startingItem: ADTWeaponPistolYV2
+        ejectOnInteract: true
+        whitelist:
+          tags:
+          - YV2Pistol
+  - type: ItemMapper
+    mapLayers:
+      yv2:
+        whitelist:
+          tags:
+          - YV2Pistol
+    sprite: ADT/Personalization/yv2recharger.rsi
+
+#KapitanOgonek
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKapitanOgonek
+  name: Plushie Ray Kulakov
+  description: Plushie Ray Kulakov
+  suffix: Personal, KapitanOgonek
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_raykulakov
 #SPONSOR-ITEMS-END

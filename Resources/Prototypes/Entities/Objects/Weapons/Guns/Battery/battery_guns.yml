@@ -42,10 +42,12 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 50
   - type: ItemSlots
     slots:
-      gun_magazine:
+      cell_slot:
         name: Magazine
         startingItem: PowerCellSmall
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -54,12 +56,14 @@
           tags:
             - PowerCell
             - PowerCellSmall
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
   - type: Appearance
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
+      cell_slot: !type:ContainerSlot
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -301,13 +305,13 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
-    fireCost: 200
+    fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 1000 # ADT tweak 2000->1000
+    startingCharge: 1000 # ADT tweak 2000 -> 1000
 
 - type: entity
   name: pulse carbine
@@ -337,13 +341,13 @@
       - SemiAuto
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
-    fireCost: 200
+    fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
-    maxCharge: 5000
-    startingCharge: 5000
+    maxCharge: 2500 # ADT tweak 5000 -> 2500
+    startingCharge: 2500 # ADT tweak 5000 -> 2500
 
 - type: entity
   name: pulse rifle
@@ -367,7 +371,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 3 # ADT tweak 1.5 -> 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
@@ -376,7 +380,11 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
-
+    # ADT tweak start
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+    # ADT tweak end
 - type: entity
   name: laser cannon
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
@@ -399,12 +407,12 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2.0 #ADT_Tweak 1.5 to 2.0
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
-    fireCost: 100
+    fireCost: 50 #ADT_Tweak 100 to 50
   - type: Tag
     tags:
     - TurretCompatibleWeapon
@@ -439,7 +447,7 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
-
+      
 - type: entity
   name: x-ray cannon
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
@@ -461,7 +469,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: XrayLaser
-    fireCost: 100
+    fireCost: 75 #ADT_Tweak 100 to 75
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -844,3 +852,60 @@
     autoRechargeRate: 24
     autoRechargePause: true
     autoRechargePauseTime: 30
+
+- type: entity
+  name: temperature gun
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: WeaponTemperatureGun
+  description: An advanced gun that shoots body-temperature-changing beams. This probably constitutes as some kind of war crime.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-1
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BoltTempgunCold
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BoltTempgunCold
+      fireCost: 100
+    - proto: BoltTempgunHot
+      fireCost: 100
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  name: xenoborg laser gun
+  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  id: XenoborgLaserGun
+
+- type: entity
+  name: xenoborg heavy laser gun
+  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  id: XenoborgHeavyLaserGun
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: RedHeavyLaser

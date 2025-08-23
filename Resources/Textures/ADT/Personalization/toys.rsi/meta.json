@@ -164,6 +164,9 @@
             "name": "magicplush"
         },
         {
+            "name": "plushie_raykulakov"
+        },
+        {
             "name": "ntb-inhand-left",
             "directions": 4
         },
@@ -199,6 +202,9 @@
         },
         {
             "name": "plushie_azil"
+        },
+        {
+            "name": "plushie_gipatter"
         }
     ]
 }

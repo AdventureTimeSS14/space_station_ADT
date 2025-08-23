@@ -42,6 +42,14 @@ public sealed partial record PolymorphConfiguration
     public EntProtoId Entity;
 
     /// <summary>
+    /// Additional entity to spawn when polymorphing/reverting.
+    /// Gets parented to the entity polymorphed into.
+    /// Useful for visual effects.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public EntProtoId? EffectProto;
+
+    /// <summary>
     /// The delay between the polymorph's uses in seconds
     /// Slightly weird as of right now.
     /// </summary>
@@ -73,6 +81,44 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField(serverOnly: true)]
     public bool TransferName;
+
+    // ADT-Geras-Tweak-Start
+    /// <summary>
+    /// Whether or not the entity transfers its knowledge of languages between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferLanguageSpeaker;
+
+    /// <summary>
+    /// Whether or not the entity transfers its text-to-speech voice between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferTTS;
+
+    /// <summary>
+    /// Whether or not the entity transfers its speech barks between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferSpeechBarks;
+
+    /// <summary>
+    /// Whether or not the entity transfers its accents between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferAccents;
+
+    /// <summary>
+    /// Whether or not the entity transfers its quirks between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferQuirks;
+
+    /// <summary>
+    /// Whether or not the entity can polymorph between forms in storage.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool CanNotPolymorphInStorage;
+    // ADT-Geras-Tweak-End
 
     /// <summary>
     /// Whether or not the entity transfers its hair, skin color, hair color, etc.

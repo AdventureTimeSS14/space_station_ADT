@@ -13,3 +13,19 @@
   id: ADTTherapistPDA
   equipment:
     id: ADTTherapistPDA
+
+- type: loadout
+  id: ADTTraumatologistPDA
+  equipment:
+    id: ADTTraumatologistPDA
+
+# Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckAzure
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckAzure
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckAzure
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckAzure

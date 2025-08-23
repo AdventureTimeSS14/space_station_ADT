@@ -5,6 +5,7 @@
   - Inventory # Corvax-Loadouts
   - CaptainHead
   - CaptainNeck
+  - ADTCaptainEars # ADT tweak
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
@@ -25,6 +26,7 @@
   - GroupTankHarness
   - HoPHead
   - HoPNeck
+  - ADTHoP # ADT tweak
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
@@ -39,10 +41,10 @@
   - GroupSpeciesBreathTool
 
 # Silicons
-#- type: roleLoadout
-#  id: JobBorg
-#  nameDataset: roleloadout doesn't support both so need to update that first.
-#  canCustomizeName: true
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -164,6 +166,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - ADTLawyerGloves # ADT-Tweak
   - LawyerShoes # ADT tweak
   - Glasses
   - ADTlawyerID # ADT tweak
@@ -244,6 +247,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -264,6 +268,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -308,12 +313,14 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - QuartermasterHead
+  - ADTQuartermasterEars # ADT tweak
   - QuartermasterNeck
   - QuartermasterJumpsuit
   - CargoTechnicianBackpack
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
+  - ADTQuartermasterPDA # ADT-Tweak
   # ADT underwear tweak start
   - ADTTopQM
   - ADTBottomQM
@@ -352,6 +359,7 @@
   - ADTSalvageSpecialistJumpsuit #ADT Loadouts
   - SalvageSpecialistBackpack
   - ADTSalvageSpecialistNeck #ADT Loadouts
+  - ADTSalvageSpecialistEars # ADT tweak
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
@@ -373,8 +381,10 @@
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
+  - ADTChiefEngineerEars # ADT tweak
   - ChiefEngineerBackpack # Corvax-Loadouts
   - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
@@ -413,6 +423,7 @@
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
@@ -436,6 +447,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   - ADTAtmosPDA # ADT tweak
@@ -456,12 +468,14 @@
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
+  - ADTResearchDirectorEars # ADT tweak
   - ResearchDirectorJumpsuit
   - ScientistBackpack
   - ResearchDirectorOuterClothing
   - ScientistGloves
   - ResearchDirectorShoes
   - Glasses
+  - ADTRnDPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopRD
   - ADTBottomRD
@@ -628,8 +642,10 @@
   - ADTMedicalBelt # ADT tweak
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
+  - ADTChiefMedicalOfficerEars # ADT tweak
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
+  - ADTCMOPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopCMO
   - ADTBottomCMO
@@ -653,7 +669,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -670,8 +686,8 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
+  - MedicalEyewear
   - ADTMedicalBelt # ADT tweak
-  - Glasses
   - ADTMedicalInternPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
@@ -718,7 +734,7 @@
   # ADT tweak End
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

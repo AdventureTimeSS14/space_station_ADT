@@ -1,3 +1,76 @@
+# ГАРНИТУРЫ
+- type: loadoutGroup
+  id: ADTQuartermasterEars
+  name: loadout-quartermaster-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetQM
+  - ADTClothingHeadsetAltCargo
+
+- type: loadoutGroup
+  id: ADTCaptainEars
+  name: loadout-captain-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCommand
+  - ADTClothingHeadsetAltCommand
+
+- type: loadoutGroup
+  id: ADTHoP
+  name: loadout-HoP-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCommand
+  - ADTClothingHeadsetAltCommand
+
+- type: loadoutGroup
+  id: ADTBlueshieldEars
+  name: loadout-blueshield-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetBlueshield
+  - ADTClothingHeadsetAltBlueshield
+
+- type: loadoutGroup
+  id: ADTChiefEngineerEars
+  name: loadout-chief-engineer-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCE
+  - ADTClothingHeadsetAltEngineering
+
+- type: loadoutGroup
+  id: ADTResearchDirectorEars
+  name: loadout-research-director-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetRD
+  - ADTClothingHeadsetAltScience
+
+- type: loadoutGroup
+  id: ADTChiefMedicalOfficerEars
+  name: loadout-chief-medical-officer-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCMO
+  - ADTClothingHeadsetAltMedical
+
+- type: loadoutGroup
+  id: ADTSalvageSpecialistEars
+  name: loadout-salvage-specialist-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCargo
+  - ADTClothingHeadsetMining
+
 # MAGISTRATE
 
 - type: loadoutGroup
@@ -18,6 +91,23 @@
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
   - LawyerGreenSuit
+
+- type: loadoutGroup
+  id: ADTLawyerGloves
+  name: loadout-group-lawyer-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTLightBrownGloves
+  - ADTRedGloves
+  - ADTTealGloves
+  - ADTGreenGloves
+  - ADTWhiteGloves
+  - ADTBlackGloves
+  - ADTGrayGloves
+  - ADTBlueGloves
+  - ADTOrangeGloves
+  - ADTPurpleGloves
 
 - type: loadoutGroup
   id: LawyerShoes
@@ -46,6 +136,16 @@
   loadouts:
   - LawyerNeck
 
+# LAWYER
+- type: loadoutGroup
+  id: ADTLawyerBackpack
+  name: loadout-group-lawyer-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - ADTClothingBackpackSatchelLeather
+  
 # PATHOLOGIST
 
 - type: loadoutGroup
@@ -202,6 +302,10 @@
   loadouts:
   - RoboticistJumpsuit
   - RoboticistJumpskirt
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
@@ -217,7 +321,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
+  - ADTPurpleGloves
   - RobohandsGloves
 
 # SENIOR ENGINEER
@@ -263,7 +367,7 @@
   loadouts:
   - LatexGloves
   # - NitrileGloves # ADT-Tweak (почему у НРа их нет (тем более они медицинские), а у доцента - есть?)
-  - PurpleGloves
+  - ADTPurpleGloves
 
 - type: loadoutGroup
   id: ADTSeniorResearcherOuterClothing
@@ -271,6 +375,7 @@
   minLimit: 0
   loadouts:
   - SeniorResearcherLabCoat
+  - ADTOuterClothingCoatsCrazySci 
 
 # BLUESHIELD
 
@@ -313,6 +418,15 @@
   - ADTBlueshieldSatchel
   - ADTBlueshieldDuffel
 
+- type: loadoutGroup
+  id: ADTBlueshieldOuterClothing
+  name: loadout-group-blueshield-outer-clothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingOuterWinterBlueshield
+  - ADTClothingBlueshieldArmor
+
 # WARDEN
 
 - type: loadoutGroup
@@ -321,9 +435,9 @@
   minLimit: 0
   loadouts:
   # - ADTWardenNeck
-  - ADTWardenNeckBadgeBronze
-  - ADTWardenNeckBadgeSilver
-  - ADTWardenNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 # SECURITY OFFICER
 
@@ -333,9 +447,9 @@
   minLimit: 0
   loadouts:
   # - ADTSecurityOfficerNeck
-  - ADTSecurityOfficerNeckBadgeBronze
-  - ADTSecurityOfficerNeckBadgeSilver
-  - ADTSecurityOfficerNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 # CADET
 
@@ -345,9 +459,9 @@
   minLimit: 0
   loadouts:
   # - ADTSecurityCadetNeck
-  - ADTSecurityCadetNeckBadgeBronze
-  - ADTSecurityCadetNeckBadgeSilver
-  - ADTSecurityCadetNeckBadgeGold
+  - ADTNeckSecBadgeBronze
+  - ADTNeckSecBadgeSilver
+  - ADTNeckSecBadgeGold
 
 #Плащ, берет и маска атмосианина
 
@@ -380,6 +494,16 @@
   loadouts:
   - ADTBeltUtility
   - ADTBeltUtilityWebbing
+
+- type: loadoutGroup
+  id: ADTEngineeringGlasses
+  name: loadout-group-engineering-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTEyeWeldingOldStyle
+  - ADTEyeWelding
+  - ADTEyeMeson
 
 # BRIGMEDIC
 
@@ -766,6 +890,34 @@
   - BrigmedicPDA
   - ADTFieldDoctorPDA
 
+- type: loadoutGroup
+  id: ADTRnDPDA
+  name: loadout-group-reserch-director-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - RnDPDA
+  - ADTRDPDA
+
+- type: loadoutGroup
+  id: ADTCMOPDA
+  name: loadout-group-chief-medical-officer-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CMOPDA
+  - ADTCMOPDA
+
+- type: loadoutGroup
+  id: ADTQuartermasterPDA
+  name: loadout-group-quartermaster-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterPDAloadout
+  - ADTintendantPDAloadout
+
+
 # Alts PDA end
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
@@ -789,6 +941,8 @@
   - ADTUnderwearPantiesLaceBlue
   - ADTUnderwearPantiesLaceRed
   - ADTUnderwearPantiesLaceBlack
+  - ADTUnderwearMonokiniWhite
+  - ADTUnderwearMonokiniBlack
 
 - type: loadoutGroup
   id: ADTTop
@@ -807,6 +961,8 @@
   - ADTUnderwearBraLaceBlue
   - ADTUnderwearBraLaceRed
   - ADTUnderwearBraLaceBlack
+  - ADTUnderwearTopMonokiniWhite
+  - ADTUnderwearTopMonokiniBlack
 
 - type: loadoutGroup
   id: ADTSocks

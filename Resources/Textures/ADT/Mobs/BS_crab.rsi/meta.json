@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by firemix_",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bs_crab-alive",
+            "directions": 4
+        },
+        {
+            "name": "bs_crab-dead"
+        }
+    ]
+}
