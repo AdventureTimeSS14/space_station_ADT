@@ -15,11 +15,7 @@ public sealed class CombatModePickupWhitelistSystem : EntitySystem
 
         SubscribeLocalEvent<CombatModePickupWhitelistComponent, PickupAttemptEvent>(OnPickup);
     }
-
-    private void OnCombatToggled(EntityUid uid, CombatModePickupWhitelistComponent comp, ref ToggleCombatActionEvent args)
-    {
-    }
-
+    
     private void OnPickup(EntityUid uid, CombatModePickupWhitelistComponent comp, ref PickupAttemptEvent args)
     {
         if (!_combat.IsInCombatMode(uid))
