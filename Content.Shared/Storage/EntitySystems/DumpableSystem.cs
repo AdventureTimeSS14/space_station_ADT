@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.ADT.SmartFridge; // DeltaV - ough why do you not use events for this
 using Content.Shared.Disposal;
 using Content.Shared.Disposal.Components;
 using Content.Shared.Disposal.Unit;
@@ -23,7 +22,6 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!; // ADT-Smartfridge
 
     private EntityQuery<ItemComponent> _itemQuery;
 

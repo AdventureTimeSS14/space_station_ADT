@@ -34,6 +34,13 @@
     - CorgiWearable
     - WhitelistChameleon
 
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTArmorSacrafice
+### End ADT Tweak
+
+
 #Alternate / slim basic armor vest
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -46,6 +53,11 @@
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTArmorSacrafice
+### End ADT Tweak
 
 - type: entity
   parent: ClothingOuterArmorBase

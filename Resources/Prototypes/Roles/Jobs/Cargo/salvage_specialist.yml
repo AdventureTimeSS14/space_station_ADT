@@ -29,7 +29,7 @@
   equipment:
 #    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist #ADT tweak
     #id: SalvagePDA # ADT: different PDAs in loadouts
-    ears: ClothingHeadsetCargo
+    # ears: ClothingHeadsetCargo # ADT tweak
     pocket1: AppraisalTool #ADT start
     eyes: ClothingEyesGlassesMeson
     pocket2: OreBag

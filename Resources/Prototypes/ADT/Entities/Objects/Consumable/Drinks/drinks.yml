@@ -371,6 +371,72 @@
       sprite: ADT/Objects/Consumable/Drinks/limeshade.rsi
       state: icon
 
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkCargoBeerGlass
+  suffix: CargoBeer
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTCargoBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/cargobeer.rsi
+      state: icon
+
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkLeafloverBeerGlass
+  suffix: LeafloverBeer
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTLeafloverBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/leafloverbeer.rsi
+      state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkScientificAleGlass
+  suffix: ScientificAle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTScientificAle
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/scientificale.rsi
+      state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkUraniumAleGlass
+  suffix: UraniumAle
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTUraniumAle
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/uraniumale.rsi
+      state: icon
+    - type: RadiationSource
+      intensity: 0.1
 
 - type: entity
   parent: DrinkGlass

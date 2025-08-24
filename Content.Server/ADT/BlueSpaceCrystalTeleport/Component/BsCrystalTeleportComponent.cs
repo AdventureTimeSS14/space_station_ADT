@@ -1,11 +1,11 @@
-using Content.Shared.DoAfter;
+using Content.Server.ADT.BlueSpaceCrystalTeleport;
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction.Events;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Audio;
-using Robust.Server.GameObjects;
-using Content.Shared.Interaction.Events;
-using Content.Server.ADT.BlueSpaceCrystalTeleport;
 
 namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 
@@ -19,13 +19,13 @@ public sealed partial class BsCrystalTeleportComponent : Component
     /// Radius of teleport on use in hand
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TeleportRadius = 40f;
+    public float TeleportRadius = 4f;
 
     /// <summary>
     /// Teleport radius on throw . If in stack of entity(not owner entity) more than 1 entity, count adding to radius
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TeleportRadiusThrow = 20f;
+    public float TeleportRadiusThrow = 2f;
 
     /// <summary>
     /// Sound of teleport
