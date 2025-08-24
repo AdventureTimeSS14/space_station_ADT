@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseComputer
+  id: MinesweeperComputer
+  name: Minesweeper Arcade
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/minesweeper.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: arcade
+    - map: ["computerLayerScreen"]
+      state: screen_minesweeper
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: panel
+      visible: false
+  - type: Tag
+    tags:
+    - EmagImmune
+  - type: Minesweeper
+  - type: Computer
+    board: MinesweeperCircuitboard
+  - type: ActivatableUI
+    key: enum.MinesweeperUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.MinesweeperUiKey.Key:
+        type: MinesweeperBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: MinesweeperCircuitboard
+  components:
+  - type: ComputerBoard
+    prototype: MinesweeperComputer
