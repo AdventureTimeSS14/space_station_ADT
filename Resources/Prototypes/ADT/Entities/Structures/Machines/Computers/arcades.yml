@@ -13,6 +13,8 @@
     - map: ["enum.WiresVisualLayers.MaintenancePanel"]
       state: panel
       visible: false
+  - type: PointLight
+    color: "#d1d1d1"
   - type: Tag
     tags:
     - EmagImmune
@@ -28,6 +30,15 @@
         type: MinesweeperBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+  - type: ActivatableUIRequiresPower
+  - type: StationAiWhitelist
+  - type: Advertise
+    pack: MinesweeperAds
+    minimumWait: 60 # Arcades are noisy
+    maximumWait: 240
+  - type: SpeakOnUIClosed
+    pack: MinesweeperGoodbyes
+
 
 - type: entity
   parent: BaseComputerCircuitboard
