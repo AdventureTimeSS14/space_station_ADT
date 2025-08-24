@@ -180,7 +180,8 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
-    public bool TryKnockdown(Entity<StandingStateComponent?> entity, TimeSpan? time, bool refresh, bool autoStand = true, bool drop = true, bool force = false)
+    public bool TryKnockdown(Entity<StandingStateComponent?> entity, TimeSpan? time, bool refresh, bool autoStand = true,
+    bool drop = true, bool force = false, bool down = true)
     {
         if (time <= TimeSpan.Zero)
             return false;
@@ -204,7 +205,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         Knockdown(entity!, time, refresh, autoStand, drop);
 
         if (down)  //ADT tweak
-            _standingState.Down(uid, dropHeldItems: dropItems); //ADT tweak
+            _standingState.Down(entity.Owner, dropHeldItems: drop); //ADT tweak
         return true;
     }
 

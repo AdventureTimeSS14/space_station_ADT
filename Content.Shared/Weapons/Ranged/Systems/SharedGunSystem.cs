@@ -73,11 +73,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private   readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     // ADT-Tweak-Start
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatModeOff = default!;
     // ADT-Tweak-End
 
     private const float InteractNextFire = 0.3f;
@@ -271,11 +267,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (dnaGunComp.GunOwner?.Id != user.Id)
             {
                 _electrocutionSystem.TryDoElectrocution(user, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
-                _popup.PopupClient(Loc.GetString("gun-personalize-fuck"), user);
-                _audio.PlayPredicted(dnaGunComp.ElectricSound, gunUid, user);
+                PopupSystem.PopupClient(Loc.GetString("gun-personalize-fuck"), user);
+                Audio.PlayPredicted(dnaGunComp.ElectricSound, gunUid, user);
 
                 if (TryComp<CombatModeComponent>(user, out var combatModeComp))
-                    _combatModeOff.SetInCombatMode(user, false);
+                    _combatMode.SetInCombatMode(user, false);
 
                 return;
             }

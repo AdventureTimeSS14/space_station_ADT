@@ -293,20 +293,22 @@ public sealed class PaperSystem : EntitySystem
         }
     }
 
-    public void SetContent(Entity<PaperComponent> entity, string content, bool? doNewline = true) // ADT-BookPrinter
+    public void SetContent(Entity<PaperComponent> entity, string content)
     {
         if (!TryComp<PaperComponent>(entity, out var paper))
             return;
         SetContent((entity, paper), content);
     }
 
-    public void SetContent(Entity<PaperComponent> entity, string content)
+    public void SetContent(Entity<PaperComponent> entity, string content, bool? doNewline = true) // ADT-BookPrinter
     {
         entity.Comp.Content = content;
+        
         // ADT-BookPrinter-Start
         if (doNewline is not null && doNewline.Value)
             entity.Comp.Content += '\n';
         // ADT-BookPrinter-End
+
         Dirty(entity);
         UpdateUserInterface(entity);
 

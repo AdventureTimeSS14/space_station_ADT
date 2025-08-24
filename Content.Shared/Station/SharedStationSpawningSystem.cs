@@ -63,7 +63,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
 
         EquipRoleName(entity, loadout, roleProto);
-        ApplyLoadoutExtras(entity, loadout);    // ADT SAI Custom
     }
 
     /// <summary>
