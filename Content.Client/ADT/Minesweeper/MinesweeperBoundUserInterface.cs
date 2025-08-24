@@ -1,6 +1,5 @@
-using JetBrains.Annotations;
 using Content.Shared.ADT.Minesweeper;
-using Robust.Shared.Prototypes;
+using JetBrains.Annotations;
 
 namespace Content.Client.ADT.Minesweeper.Minesweeper;
 
@@ -22,8 +21,12 @@ public sealed class MinesweeperBoundUserInterface : BoundUserInterface
 
         _window = new MinesweeperWindow();
 
-        // TODO: Запись рекордов
-        if (EntMan.TryGetComponent<MinesweeperComponent>(_owner, out var minesweeper) && EntMan.TryGetComponent<MetaDataComponent>(_owner, out _))
+        _window.OnClose += () =>
+        {
+            Close();
+        };
+
+        if (EntMan.TryGetComponent<MinesweeperComponent>(_owner, out var minesweeper))
         {
             _window.LoadRecords(_owner, minesweeper, this);
         }
@@ -35,5 +38,6 @@ public sealed class MinesweeperBoundUserInterface : BoundUserInterface
     {
         base.Dispose(disposing);
         _window?.Close();
+        _window = null;
     }
 }

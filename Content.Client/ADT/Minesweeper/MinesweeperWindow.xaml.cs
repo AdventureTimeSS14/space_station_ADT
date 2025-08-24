@@ -184,6 +184,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         }
     }
 
+    // TODO: Доделать запись результатов
     // public void UpdateName(string? userName)
     // {
     //     _comp.LastOpenedBy = userName;
@@ -294,6 +295,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
                 if (!_mines[x, y] && !_revealed[x, y])
                     return;
             }
+        // TODO: Доделать запись результатов
         // if (_comp != null)
         //     _comp.Dirty();
 
@@ -328,6 +330,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         _boundUserInterface = boundUserInterface;
     }
 
+    // TODO: Доделать запись результатов
     // private void UpdateRecordsDisplay()
     // {
     //     _recordListLabel.Text = string.Join("\n", _records.Select(r => r.ToString()));
