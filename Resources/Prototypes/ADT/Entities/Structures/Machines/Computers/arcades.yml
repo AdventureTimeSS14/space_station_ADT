@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseComputer
+  parent: ArcadeBase
   id: MinesweeperComputer
   name: Minesweeper Arcade
   components:
@@ -40,9 +40,3 @@
     pack: MinesweeperGoodbyes
 
 
-- type: entity
-  parent: BaseComputerCircuitboard
-  id: MinesweeperCircuitboard
-  components:
-  - type: ComputerBoard
-    prototype: MinesweeperComputer
