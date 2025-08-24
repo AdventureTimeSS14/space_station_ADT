@@ -31,12 +31,15 @@
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="20">
 
                 <!-- Игровое поле с обводкой -->
-                <PanelContainer VerticalExpand="True">
+                <PanelContainer HorizontalExpand="True" VerticalExpand="True">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
                     </PanelContainer.PanelOverride>
-                    <PanelContainer Name="MineContainer" StyleClasses="PdaContentBackground"
-                                    HorizontalExpand="True" VerticalExpand="True"/>
+
+                    <PanelContainer Name="MineContainer"
+                                    StyleClasses="PdaContentBackground"
+                                    HorizontalExpand="True"
+                                    VerticalExpand="True"/>
                 </PanelContainer>
 
                     <!-- Боковая панель -->

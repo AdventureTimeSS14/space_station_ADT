@@ -42,9 +42,9 @@ public sealed partial class MinesweeperWindow : FancyWindow
     private readonly List<(string name, int size, int mines, Color themeColor, Color modulateColor)> _difficulties = new()
     {
         ("Debug", 4, 1, Color.FromHex("#FF00FF"), Color.FromHex("#b563b5ff")),     // Фиолетовый для дебага
-        ("Легко", 8, 10, Color.FromHex("#32cd32"), Color.FromHex("#69b369ff")),   // Зеленый для легкого
-        ("Средне", 10, 15, Color.FromHex("#e28b00"), Color.FromHex("#c3ab64ff")), // Оранжевый для среднего
-        ("Сложно", 15, 35, Color.FromHex("#cc0000"), Color.FromHex("#cb6161ff"))  // Красный для сложного
+        ("Легко", 8, 10, Color.FromHex("#32cd32"), Color.FromHex("#9fc19fff")),   // Зеленый для легкого
+        ("Средне", 10, 15, Color.FromHex("#e28b00"), Color.FromHex("#cebf8fff")), // Оранжевый для среднего
+        ("Сложно", 15, 35, Color.FromHex("#cc0000"), Color.FromHex("#e4a9a9ff"))  // Красный для сложного
     };
 
     private void ApplyDifficultyTheme(Color color)
