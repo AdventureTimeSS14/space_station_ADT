@@ -22,18 +22,18 @@ public sealed partial class MinesweeperSystem : EntitySystem
         var actor = args.Actor;
         var name = _entityManager.GetComponent<MetaDataComponent>(actor);
 
-        if (component.LastOpenedBy != null)
-        {
-            var message = Loc.GetString("machine-already-in-use", ("machine", uid));
-            _popupSystem.PopupEntity(message, uid, args.Entity);
-            Logger.Warning($"{name.EntityName} Попытался открыть используемый {ToPrettyString(uid)} ");
-            return;
-        }
+        // if (component.LastOpenedBy != null)
+        // {
+        //     var message = Loc.GetString("machine-already-in-use", ("machine", uid));
+        //     _popupSystem.PopupEntity(message, uid, args.Entity);
+        //     Logger.Warning($"{name.EntityName} Попытался открыть используемый {ToPrettyString(uid)} ");
+        //     return;
+        // }
 
         Logger.Warning($"Игрок {name} открыл сапёра на объекте {ToPrettyString(uid)} name {name.EntityName}");
-        _userName = name.EntityName;
-        component.LastOpenedBy = name.EntityName;
-        Dirty(uid, component);
+        // _userName = name.EntityName;
+        // component.LastOpenedBy = name.EntityName;
+        // Dirty(uid, component);
     }
 
     private void OnBoundUiClosed(EntityUid uid, MinesweeperComponent component, BoundUIClosedEvent args)
@@ -41,7 +41,7 @@ public sealed partial class MinesweeperSystem : EntitySystem
         var actor = args.Actor;
         var name = _entityManager.GetComponent<MetaDataComponent>(actor);
         Logger.Warning($"Игрок {name} ЗАКРЫЛ сапёра на объекте {ToPrettyString(uid)} name {name.EntityName}");
-        component.LastOpenedBy = null;
-        Dirty(uid, component);
+        // component.LastOpenedBy = null;
+        // Dirty(uid, component);
     }
 }

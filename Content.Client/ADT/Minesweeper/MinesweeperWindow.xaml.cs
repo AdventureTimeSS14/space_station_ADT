@@ -103,8 +103,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
         };
 
         // Устанавливаем среднюю сложность и ее цвет по умолчанию
-        DifficultySelect.SelectId(1);
-        ApplyDifficultyTheme(_difficulties[1].color);
+        DifficultySelect.SelectId(2);
+        ApplyDifficultyTheme(_difficulties[2].color);
     }
 
     private void NewGame()

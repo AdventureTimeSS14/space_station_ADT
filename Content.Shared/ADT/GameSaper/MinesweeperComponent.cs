@@ -9,9 +9,6 @@ namespace Content.Shared.ADT.Minesweeper;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MinesweeperComponent : Component
 {
-    // [DataField]
-    // public string? Input;
-
     [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public string? LastOpenedBy;
 }
@@ -45,13 +42,13 @@ public sealed partial class MinesweeperComponent : Component
 //     }
 // }
 
-[Serializable, NetSerializable]
-public sealed class OnWinMessage : BoundUserInterfaceMessage
-{
-    public string? UserName;
+// [Serializable, NetSerializable]
+// public sealed class OnWinMessage : BoundUserInterfaceMessage
+// {
+//     public string? UserName;
 
-    public OnWinMessage(string? userName)
-    {
-        UserName = userName;
-    }
-}
+//     public OnWinMessage(string? userName)
+//     {
+//         UserName = userName;
+//     }
+// }
