@@ -85,4 +85,141 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+    
+- type: construction
+  name: stairs
+  id: ADTSteelDarkSingleStairs
+  graph: ADTSteelDarkSingleStairs
+  startNode: start
+  targetNode: adtsteeldarksinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: steel_dark_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  name: stairs
+  id: ADTSteelSingleStairs
+  graph: ADTSteelSingleStairs
+  startNode: start
+  targetNode: adtsteelsinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: steel_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  name: stairs
+  id: ADTSteelWhiteSingleStairs
+  graph: ADTSteelWhiteSingleStairs
+  startNode: start
+  targetNode: adtsteelwhitesinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: steel_white_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  name: stairs
+  id: ADTWoodBlackSingleStairs
+  graph: ADTWoodBlackSingleStairs
+  startNode: start
+  targetNode: adtwoodblacksinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: wood_black_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+   
+- type: construction
+  name: stairs
+  id: ADTWoodDarkSingleStairs
+  graph: ADTWoodDarkSingleStairs
+  startNode: start
+  targetNode: adtwooddarksinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: wood_black_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  name: stairs
+  id: ADTWoodSingleStairs
+  graph: ADTWoodSingleStairs
+  startNode: start
+  targetNode: adtwoodsinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: wood_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: stairs
+  id: ADTWoodLightSingleStairs
+  graph: ADTWoodLightSingleStairs
+  startNode: start
+  targetNode: adtwoodlightsinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: wood_light_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  name: stairs
+  id: ADTWoodRedSingleStairs
+  graph: ADTWoodRedSingleStairs
+  startNode: start
+  targetNode: adtwoodredsinglestairs
+  category: construction-category-structures
+  description: The greatest invention since rocket-propelled grenades.
+  icon:
+    sprite: ADT/Structures/stairs.rsi
+    state: wood_red_single_stairs
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 

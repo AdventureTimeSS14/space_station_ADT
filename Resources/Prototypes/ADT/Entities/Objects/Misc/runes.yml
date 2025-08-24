@@ -9,3 +9,27 @@
     drawdepth: WallMountedItems
     sprite: ADT/Objects/Misc/forgotten_god_rune.rsi
     state: god_pentagram
+
+- type: entity
+  id: NarsieRuneBlack
+  name: a rune
+  description: The rune for the Nar'si summoning ritual.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: ADT/Objects/Misc/narsie_rune.rsi
+    state: narsie_pentagram_black
+
+- type: entity
+  id: NarsieRuneRed
+  name: a rune
+  description: The rune for the Nar'si summoning ritual.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: ADT/Objects/Misc/narsie_rune.rsi
+    state: narsie_pentagram_red
