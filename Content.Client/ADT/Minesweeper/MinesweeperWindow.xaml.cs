@@ -39,12 +39,12 @@ public sealed partial class MinesweeperWindow : FancyWindow
     // private List<MinesweeperRecord> _records = new();
 
     // Список сложностей для выбора
-    private readonly List<(string name, int size, int mines, Color color)> _difficulties = new()
+    private readonly List<(string name, int size, int mines, Color themeColor, Color modulateColor)> _difficulties = new()
     {
-        ("Debug", 4, 1, Color.FromHex("#FF00FF")),    // Фиолетовый для дебага
-        ("Легко", 8, 10, Color.FromHex("#32cd32")),   // Зеленый для легкого
-        ("Средне", 10, 15, Color.FromHex("#e28b00")), // Оранжевый для среднего
-        ("Сложно", 15, 35, Color.FromHex("#cc0000"))  // Красный для сложного
+        ("Debug", 4, 1, Color.FromHex("#FF00FF"), Color.FromHex("#b563b5ff")),     // Фиолетовый для дебага
+        ("Легко", 8, 10, Color.FromHex("#32cd32"), Color.FromHex("#69b369ff")),   // Зеленый для легкого
+        ("Средне", 10, 15, Color.FromHex("#e28b00"), Color.FromHex("#c3ab64ff")), // Оранжевый для среднего
+        ("Сложно", 15, 35, Color.FromHex("#cc0000"), Color.FromHex("#cb6161ff"))  // Красный для сложного
     };
 
     private void ApplyDifficultyTheme(Color color)
@@ -95,16 +95,17 @@ public sealed partial class MinesweeperWindow : FancyWindow
             GridSize = selected.size;
             MineCount = selected.mines;
 
-            // Применяем цветовую тему
-            ApplyDifficultyTheme(selected.color);
+            ApplyDifficultyTheme(selected.themeColor);
+            MineContentsContainer.Modulate = selected.modulateColor;
 
             DifficultySelect.SelectId(index);
             NewGame();
         };
 
-        // Устанавливаем среднюю сложность и ее цвет по умолчанию
+        // Устанавливаем среднюю сложность и её цвета по умолчанию
         DifficultySelect.SelectId(2);
-        ApplyDifficultyTheme(_difficulties[2].color);
+        ApplyDifficultyTheme(_difficulties[2].themeColor);
+        MineContentsContainer.Modulate = _difficulties[2].modulateColor;
     }
 
     private void NewGame()
