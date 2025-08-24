@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Corvax.Interfaces.Shared;
 using Content.Shared.Construction.Prototypes;
 using Content.Client.Corvax.Sponsors;
 using Content.Shared.Preferences;

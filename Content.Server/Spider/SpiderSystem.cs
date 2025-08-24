@@ -67,14 +67,6 @@ public sealed class SpiderSystem : SharedSpiderSystem
 
         var result = SpawnWeb((uid, component), transform.Coordinates);
 
-                if (!IsTileBlockedByWeb(coords))
-                {
-                    Spawn(component.WebPrototype, coords);
-                    result = true;
-                }
-            }
-        }
-// ADT tweak end
         if (result)
         {
             _popup.PopupEntity(Loc.GetString("spider-web-action-success"), args.Performer, args.Performer);
