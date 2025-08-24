@@ -12,7 +12,6 @@ namespace Content.Shared.ADT.OfferItem;
 public abstract partial class SharedOfferItemSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -61,7 +60,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
 
         if (offerItem.Item is not null)
         {
-            if (!_hands.TryPickup(ent, offerItem.Item.Value, handsComp: hands))
+            if (!_hand.TryPickup(ent, offerItem.Item.Value, handsComp: hands))
             {
                 _popup.PopupClient(Loc.GetString("offer-item-full-hand"), ent, ent);
                 return;

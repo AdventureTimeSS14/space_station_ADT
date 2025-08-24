@@ -393,7 +393,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             {
                 var item = GetEntity(x);
                 if (Exists(item) && !Terminating(item))
-                    _virtualItem.DeleteVirtualItem((item, Comp<VirtualItemComponent>(item)), pullerUid);
+                    _virtual.DeleteVirtualItem((item, Comp<VirtualItemComponent>(item)), pullerUid);
             });
             pullerComp.VirtualItems.Clear();
             // ADT Grab end
