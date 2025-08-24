@@ -20,18 +20,16 @@ public sealed partial class MinesweeperWindow : FancyWindow
     private bool[,] _revealed = new bool[1, 1];
     private bool[,] _flags = new bool[1, 1];
     private readonly Random _rand = new();
-
     private GridContainer _mineGrid = default!;
-
     private bool _minesPlaced = false;
     private bool _flagMode = false;
+    private bool _timerRunning = false;
+    private TimeSpan _finalTime = TimeSpan.Zero;
 
 
     private EntityUid _uid = default!;
     private MinesweeperComponent _comp = default!;
     private BoundUserInterface _boundUserInterface = default!;
-
-
 
     // private float _elapsedTime = 0f;
     private bool _gameEnd = false;
@@ -51,10 +49,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
     {
         // Меняем цвет кнопок
         // NewGameButton.ModulateSelfOverride = color;
-
         // Меняем цвет выпадающего списка
         DifficultySelect.ModulateSelfOverride = color;
-
         // DifficultySelect.ModulateSelfOverride = color.Darken(0.2f);
     }
 
@@ -78,6 +74,20 @@ public sealed partial class MinesweeperWindow : FancyWindow
         base.Opened();
     }
 
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (_gameEnd)
+        {
+            TimerLabel.Text = $"{_finalTime.Minutes:D2}:{_finalTime.Seconds:D2}";
+        }
+        else if (_timerRunning)
+        {
+            var elapsed = _stopwatch.Elapsed;
+            TimerLabel.Text = $"{elapsed.Minutes:D2}:{elapsed.Seconds:D2}";
+        }
+    }
 
     private void InitializeDifficultyOptions()
     {
@@ -112,7 +122,10 @@ public sealed partial class MinesweeperWindow : FancyWindow
     {
         _gameEnd = false;
         // _elapsedTime = 0f;
-        _stopwatch.Restart();
+        _timerRunning = false;   // таймер пока стоит
+
+        _stopwatch.Restart();    // обнуляем и запускаем заново (пусть тикает в фоне)
+        TimerLabel.Text = "00:00";
         GameStatusLabel.Text = "Игра началась...";
         GameStatusLabel.FontColorOverride = Color.Green;
 
@@ -200,6 +213,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         {
             PlaceMinesExceptFirstClick(x, y);
             _minesPlaced = true;
+            _timerRunning = true;
         }
 
         if (_flagMode)
@@ -225,7 +239,10 @@ public sealed partial class MinesweeperWindow : FancyWindow
             RevealAllMines();
             GameStatusLabel.Text = "💣 Вы подорвались на мине!";
             GameStatusLabel.FontColorOverride = Color.Red;
+
             _gameEnd = true;
+            _timerRunning = false;
+            _finalTime = _stopwatch.Elapsed;
             return;
         }
 
@@ -301,7 +318,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
                     flagsPlaced++;
             }
         }
-
         MinesCountLabel.Text = $"{flagsPlaced}/{MineCount}";
     }
 
@@ -319,11 +335,11 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
         // Победа
         _gameEnd = true;
+        _timerRunning = false;
+        _finalTime = _stopwatch.Elapsed; // сохранили результат
+
         RevealAllMines();
-        GameStatusLabel.Text = "✓ Победа! \nВсе мины разминированы.";
-
-
-
+        GameStatusLabel.Text = $"✓ Победа! \nВремя: {_finalTime.Minutes:D2}:{_finalTime.Seconds:D2}";
 
         // TODO: Доделать запись результатов
         // var nameUser = _comp?.LastOpenedBy ?? "Unknow";
