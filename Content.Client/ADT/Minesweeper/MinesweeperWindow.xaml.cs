@@ -137,6 +137,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         MineContainer.AddChild(_mineGrid);
 
         GenerateGrid();
+        UpdateMinesCounter();
     }
 
     private void GenerateGrid()
@@ -206,6 +207,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
             {
                 _flags[x, y] = !_flags[x, y];
                 _buttons[x, y].Text = _flags[x, y] ? "🏳" : "";
+                UpdateMinesCounter();
             }
             return;
         }
@@ -285,6 +287,21 @@ public sealed partial class MinesweeperWindow : FancyWindow
         _flagMode = !_flagMode;
         ToggleFlagButton.Text = _flagMode ? "Режим: Флажок 🏳" : "Режим: Открыть";
         ToggleFlagButton.ModulateSelfOverride = _flagMode ? Color.FromHex("#b07d2b") : Color.FromHex("#004EFF");
+    }
+
+    private void UpdateMinesCounter()
+    {
+        int flagsPlaced = 0;
+        for (int y = 0; y < GridSize; y++)
+        {
+            for (int x = 0; x < GridSize; x++)
+            {
+                if (_flags[x, y])
+                    flagsPlaced++;
+            }
+        }
+
+        MinesCountLabel.Text = $"{flagsPlaced}/{MineCount}";
     }
 
     private void CheckWinCondition()
