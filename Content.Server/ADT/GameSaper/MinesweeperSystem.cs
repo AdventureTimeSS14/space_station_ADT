@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Popups;
 using Content.Shared.ADT.Minesweeper;
 
@@ -14,7 +15,6 @@ public sealed partial class MinesweeperSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<MinesweeperComponent, BoundUIOpenedEvent>(OnBoundUiOpened);
         SubscribeLocalEvent<MinesweeperComponent, BoundUIClosedEvent>(OnBoundUiClosed);
-        // SubscribeNetworkEvent<MinesweeperWinMessage>(OnWinMessageReceived);
         Subs.BuiEvents<MinesweeperComponent>(MinesweeperUiKey.Key, subs =>
         {
             subs.Event<MinesweeperWinMessage>(OnWinMessageReceived);
@@ -50,24 +50,21 @@ public sealed partial class MinesweeperSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnWinMessageReceived(EntityUid uid, MinesweeperComponent comp, MinesweeperWinMessage msg)
+    private void OnWinMessageReceived(EntityUid uid, MinesweeperComponent component, MinesweeperWinMessage msg)
     {
-        Logger.Warning($"ПРИШЛО OnWinMessageReceived");
-        if (!_entityManager.TryGetComponent<MetaDataComponent>(uid, out var meta))
-            return;
+        Logger.Warning($"ПРИШЛО OnWinMessageReceived для {msg.NameWin}");
 
-        var name = meta.EntityName;
-        Logger.Warning($"ПРИШЛО OnWinMessageReceived {name}");
-
-        // Добавляем новый рекорд
-        comp.Records.Add(new MinesweeperRecord
+        // Проходим по всем сущностям с компонентом MinesweeperComponent
+        foreach (var comp in _entityManager.EntityQuery<MinesweeperComponent>())
         {
-            Difficulty = msg.Difficulty,
-            TimeSeconds = msg.TimeSeconds,
-            EntityName = msg.NameWin
-        });
+            comp.Records.Add(new MinesweeperRecord
+            {
+                Difficulty = msg.Difficulty,
+                TimeSeconds = msg.TimeSeconds,
+                EntityName = msg.NameWin
+            });
 
-        // Синхронизируем компонент с клиентом
-        _entityManager.Dirty(uid, comp);
+            _entityManager.Dirty(comp.Owner, comp);
+        }
     }
 }
