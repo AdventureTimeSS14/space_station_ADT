@@ -47,7 +47,7 @@ public sealed partial class MinesweeperSystem : EntitySystem
                 EntityName = msg.NameWin
             });
 
-            _entityManager.Dirty(ent, comp);
+            Dirty(ent, comp);
         }
     }
 }
