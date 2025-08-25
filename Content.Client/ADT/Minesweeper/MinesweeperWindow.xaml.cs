@@ -384,6 +384,9 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     private void UpdateRecordsDisplay()
     {
-        RecordListLabel.Text = string.Join("\n", _records.Select(r => r.ToString()));
+        RecordListLabel.Text = string.Join("\n",
+            _records
+                .OrderBy(r => r.TimeSeconds)
+                .Select(r => r.ToString()));
     }
 }
