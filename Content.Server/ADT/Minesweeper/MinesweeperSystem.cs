@@ -1,9 +1,11 @@
 using Content.Shared.ADT.Minesweeper;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.ADT.Minesweeper;
 
 public sealed partial class MinesweeperSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
@@ -14,6 +16,7 @@ public sealed partial class MinesweeperSystem : EntitySystem
         Subs.BuiEvents<MinesweeperComponent>(MinesweeperUiKey.Key, subs =>
         {
             subs.Event<MinesweeperWinMessage>(OnWinMessageReceived);
+            subs.Event<MinesweeperLostMessage>(OnLostMessageReceived);
         });
     }
 
@@ -49,5 +52,11 @@ public sealed partial class MinesweeperSystem : EntitySystem
 
             Dirty(ent, comp);
         }
+    }
+
+    private void OnLostMessageReceived(EntityUid uid, MinesweeperComponent component, MinesweeperLostMessage msg)
+    {
+        if (component.SoundLost != null)
+            _sharedAudioSystem.PlayPvs(component.SoundLost, uid);
     }
 }

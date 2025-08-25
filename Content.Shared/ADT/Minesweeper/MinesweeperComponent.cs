@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -14,6 +15,10 @@ public sealed partial class MinesweeperComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<MinesweeperRecord> Records = new();
+
+    [DataField("sound")]
+    public SoundSpecifier? SoundLost;
+
 }
 
 [Serializable, NetSerializable]
@@ -47,4 +52,11 @@ public sealed class MinesweeperWinMessage : BoundUserInterfaceMessage
         TimeSeconds = timeSeconds;
         NameWin = nameWin;
     }
+}
+
+[Serializable, NetSerializable]
+public sealed class MinesweeperLostMessage : BoundUserInterfaceMessage
+{
+    public MinesweeperLostMessage()
+    {}
 }

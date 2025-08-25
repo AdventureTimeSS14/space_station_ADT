@@ -264,6 +264,11 @@ public sealed partial class MinesweeperWindow : FancyWindow
             _gameEnd = true;
             _timerRunning = false;
             _finalTime = _stopwatch.Elapsed;
+
+            // Отправляем серверу
+            if (_boundUserInterface != null)
+                _boundUserInterface.SendMessage(new MinesweeperLostMessage());
+
             return;
         }
 
