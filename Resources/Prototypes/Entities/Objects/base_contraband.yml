@@ -23,12 +23,12 @@
   components:
   - type: Contraband
     severity: Syndicate
+    criminalPoints: 4 # ADT-Beepsky
 # Start ADT Tweak
   - type: Tag
     tags:
       - ADTSyndieThingies
 # End ADT Tweak
-    criminalPoints: 4 # ADT-Beepsky
 
 # minor contraband not departmentally restricted -- improvised weapons etc
 - type: entity

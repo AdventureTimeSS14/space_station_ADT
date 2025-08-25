@@ -21,6 +21,7 @@ public sealed partial class ForceHandcuffOperator : HTNOperator
     {
         base.Initialize(sysManager);
         _cuffable = sysManager.GetEntitySystem<SharedCuffableSystem>();
+        _audio = sysManager.GetEntitySystem<SharedAudioSystem>();
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)

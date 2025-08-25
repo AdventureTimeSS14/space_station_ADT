@@ -11,7 +11,6 @@ public sealed partial class EntityWhitelistOperator : HTNOperator, IHtnCondition
     [Dependency] private readonly IEntityManager _entManager = default!;
 
     private EntityLookupSystem _entityLookup = default!;
-    private SharedTransformSystem _transform = default!;
     private EntityWhitelistSystem _whitelist = default!;
 
     [DataField]
@@ -36,7 +35,6 @@ public sealed partial class EntityWhitelistOperator : HTNOperator, IHtnCondition
     {
         base.Initialize(sysManager);
         _entityLookup = sysManager.GetEntitySystem<EntityLookupSystem>();
-        _transform = sysManager.GetEntitySystem<SharedTransformSystem>();
         _whitelist = sysManager.GetEntitySystem<EntityWhitelistSystem>();
     }
 
