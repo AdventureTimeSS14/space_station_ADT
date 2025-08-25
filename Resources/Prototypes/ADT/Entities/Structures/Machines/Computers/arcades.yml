@@ -1,0 +1,42 @@
+- type: entity
+  parent: ArcadeBase
+  id: MinesweeperArcade
+  name: Minesweeper Arcade
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/minesweeper.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: arcade
+    - map: ["computerLayerScreen"]
+      state: screen_minesweeper
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: panel
+      visible: false
+  - type: PointLight
+    color: "#d1d1d1"
+  - type: Tag
+    tags:
+    - EmagImmune
+  - type: Minesweeper
+  - type: Computer
+    board: MinesweeperCircuitboard
+  - type: ActivatableUI
+    key: enum.MinesweeperUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.MinesweeperUiKey.Key:
+        type: MinesweeperBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActivatableUIRequiresPower
+  - type: StationAiWhitelist
+  - type: Advertise
+    pack: MinesweeperAds
+    minimumWait: 60 # Arcades are noisy
+    maximumWait: 240
+  - type: SpeakOnUIClosed
+    pack: MinesweeperGoodbyes
+
+

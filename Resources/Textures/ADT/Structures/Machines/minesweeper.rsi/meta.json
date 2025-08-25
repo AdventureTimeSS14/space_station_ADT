@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Make by discord:conjurerq",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "arcade",
+      "directions": 4
+    },
+    {
+        "name": "panel",
+        "directions": 4
+    },
+    {
+      "name": "arcade_broken",
+      "directions": 4
+    },
+    {
+      "name": "screen_minesweeper",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.5
+        ],
+        [
+          4.8
+        ],
+        [
+          4.8
+        ],
+        [
+          4.8
+        ]
+      ]
+    }
+  ]
+}
