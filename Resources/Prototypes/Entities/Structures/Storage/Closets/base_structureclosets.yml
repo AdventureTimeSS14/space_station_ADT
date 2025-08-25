@@ -321,3 +321,8 @@
     stateDoorOpen: base
     stateDoorClosed: door
   - type: LockVisuals
+    ## ADT-Tweak
+  - type: Tag
+    tags:
+    - ModSuitStation
+    ## ADT-Tweak

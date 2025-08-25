@@ -71,3 +71,62 @@
     - WeaponHoSBat
     typeDropPlace: ThisPlace
     typeDrop: Rocket
+
+## ModSuitVoucher
+- type: entity
+  parent: [BaseItem, BaseFoldable]
+  id: ADTModSuitStorageVoucher
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_flipped
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: ADTModSuitStorageVoucher
+  id: ADTModSuitStorageVoucherFliped
+  abstract: true
+  suffix: flipped
+  components:
+  - type: Foldable
+    folded: true
+  - type: Item
+    heldPrefix: flipped
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+      visible: false
+    - state: icon_flipped
+      map: ["foldedLayer"]
+      visible: true
+
+- type: entity
+  parent: ADTModSuitStorageVoucher
+  id: ADTModSuitStorageVoucherEngi
+  name: ModSuit Voucher
+  description: "ModSuit Engi Voucher"
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Soft/bluesoft.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Soft/bluesoft.rsi
+  - type: ModSuitVoucher
+    id: ADTClothingModsuitBackEngineering
+
+- type: entity
+  parent: [ADTModSuitStorageVoucherFliped, ADTModSuitStorageVoucherEngi]
+  id: ADTModSuitStorageVoucherEngiFlipped
+  name: ModSuit Voucher
+  components:
+  - type: ModSuitVoucher
+    id: ClothingOuterHardsuitEngineering
