@@ -9,8 +9,9 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using System.Linq;
+using System.Numerics;
 
-namespace Content.Client.ADT.Supermatter.Consoles;
+namespace Content.Client._EE.Supermatter.Consoles;
 
 [GenerateTypedNameReferences]
 public sealed partial class SupermatterEntryContainer : BoxContainer
@@ -34,8 +35,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     private readonly Color _colorTurquoise = Color.FromHex("#00fff7");
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/ADT/Interface/arrows.rsi/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/ADT/Interface/arrows.rsi/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/_EE/Interface/Supermatter/arrow_down.png";
 
     // Supermatter base values
     private readonly float _radiationBase;
@@ -138,8 +139,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         #endregion
 
         // Load values and set base labels
-        _radiationBase = _config.GetCVar(ADTCCVars.SupermatterRadsBase);
-        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(ADTCCVars.SupermatterHeatPenaltyThreshold);
+        _radiationBase = _config.GetCVar(EECCVars.SupermatterRadsBase);
+        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
         _wasteBase = 1f;
 
         RadiationBaseInfoLabel.Text = Loc.GetString("supermatter-console-window-label-radiation-bar", ("radiation", _radiationBase.ToString("0.00")));

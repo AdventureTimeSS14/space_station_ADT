@@ -471,8 +471,6 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem
         else
             Log.Error("Unable to set bloodstream DNA, solution entity could not be resolved");
     }
-}
-
 
     /// <summary>
     /// Get the reagent data for blood that a specific entity should have.
