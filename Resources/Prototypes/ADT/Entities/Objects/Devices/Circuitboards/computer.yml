@@ -35,5 +35,5 @@
   parent: BaseComputerCircuitboard
   id: MinesweeperCircuitboard
   components:
-  - type: ComputerBoard
-    prototype: MinesweeperComputer
+    - type: ComputerBoard
+      prototype: MinesweeperComputer
