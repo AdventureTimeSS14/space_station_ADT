@@ -289,18 +289,41 @@ namespace Content.Server.Ghost
             var player = args.Player;
 
             if (!_userDb.IsLoadComplete(player))
+            {
+                ApplyAfterDb();
                 return;
 
-            try
-            {
-                var profile = _gameTicker.GetPlayerProfile(player);
+                async void ApplyAfterDb()
+                {
+                    try
+                    {
+                        await _userDb.WaitLoadComplete(player);
 
-                _humanoidSystem.LoadProfile(uid, profile, humanoid);
-                GiveClothesToGhost(uid, component, profile);
+                        if (Deleted(uid) || Terminating(uid))
+                            return;
+
+                        var profile = _gameTicker.GetPlayerProfile(player);
+                        _humanoidSystem.LoadProfile(uid, profile, humanoid);
+                        GiveClothesToGhost(uid, component, profile);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error($"Load of ghost preferences failed (delayed): {e}");
+                    }
+                }
             }
-            catch (Exception e)
+            else
             {
-                Log.Error($"Load of ghost preferences failed: {e}");
+                try
+                {
+                    var profile = _gameTicker.GetPlayerProfile(player);
+                    _humanoidSystem.LoadProfile(uid, profile, humanoid);
+                    GiveClothesToGhost(uid, component, profile);
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Load of ghost preferences failed: {e}");
+                }
             }
         }
 
