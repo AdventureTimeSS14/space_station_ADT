@@ -28,7 +28,7 @@ public sealed class MinesweeperBoundUserInterface : BoundUserInterface
 
         if (EntMan.TryGetComponent<MinesweeperComponent>(_owner, out var minesweeper))
         {
-            _window.LoadRecords(_owner, minesweeper, this);
+            _window.LoadRecords(minesweeper, this);
         }
 
         _window.OpenCentered();

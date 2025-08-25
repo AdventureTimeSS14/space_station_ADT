@@ -96,6 +96,27 @@
                                 </BoxContainer>
                             </BoxContainer>
                         </PanelContainer>
+
+
+                        <!-- Рекорды -->
+                        <PanelContainer VerticalExpand="True">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+                                <Label Text="> RECORDS" StyleClasses="ConsoleSubHeading" FontColorOverride="orange" HorizontalAlignment="Center"/>
+
+                                <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                                    <Label Name="RecordListLabel"
+                                        FontColorOverride="lightgray"
+                                        HorizontalExpand="True"
+                                        VerticalExpand="True"
+                                        ClipText="True"
+                                        MouseFilter="Ignore"/>
+                                </ScrollContainer>
+                            </BoxContainer>
+                        </PanelContainer>
+
                     </BoxContainer>
                 </BoxContainer>
             </Control>
@@ -110,13 +131,4 @@
 </controls1:FancyWindow>
 
 
-<!-- TODO: ЗАПИСЬ РЕКОРДОВ ПОТОМ МБ БУДЕТ
-<PanelContainer MinHeight="2" Margin="0 4"/>
-<Label Text="> RECORDS" FontColorOverride="orange"/>
-<Label Name="RecordListLabel"
-    FontColorOverride="lightgray"
-    HorizontalExpand="True"
-    VerticalExpand="True"
-    ClipText="True"
-    MouseFilter="Ignore"/>
--->
+

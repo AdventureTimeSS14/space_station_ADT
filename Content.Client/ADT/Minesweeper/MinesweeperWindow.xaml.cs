@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
@@ -34,7 +35,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
     // private float _elapsedTime = 0f;
     private bool _gameEnd = false;
     private Stopwatch _stopwatch = new();
-    // private List<MinesweeperRecord> _records = new();
+    private List<MinesweeperRecord> _records = new();
 
     // Список сложностей для выбора
     private readonly List<(string name, int size, int mines, Color themeColor, Color modulateColor)> _difficulties = new()
@@ -66,12 +67,18 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
         InitializeDifficultyOptions();
 
+        UpdateRecordsDisplay();
+
         NewGame();
     }
+
 
     protected override void Opened()
     {
         base.Opened();
+
+        if (_comp != null)
+            UpdateRecords(_comp);
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -113,9 +120,9 @@ public sealed partial class MinesweeperWindow : FancyWindow
         };
 
         // Устанавливаем среднюю сложность и её цвета по умолчанию
-        DifficultySelect.SelectId(2);
-        ApplyDifficultyTheme(_difficulties[2].themeColor);
-        MineContentsContainer.Modulate = _difficulties[2].modulateColor;
+        DifficultySelect.SelectId(1);
+        ApplyDifficultyTheme(_difficulties[1].themeColor);
+        MineContentsContainer.Modulate = _difficulties[1].modulateColor;
     }
 
     private void NewGame()
@@ -329,44 +336,54 @@ public sealed partial class MinesweeperWindow : FancyWindow
                 if (!_mines[x, y] && !_revealed[x, y])
                     return;
             }
-        // TODO: Доделать запись результатов
-        // if (_comp != null)
-        //     _comp.Dirty();
 
-        // Победа
         _gameEnd = true;
         _timerRunning = false;
-        _finalTime = _stopwatch.Elapsed; // сохранили результат
+        _finalTime = _stopwatch.Elapsed;
 
         RevealAllMines();
         GameStatusLabel.Text = $"✓ Победа! \nВремя: {_finalTime.Minutes:D2}:{_finalTime.Seconds:D2}";
 
-        // TODO: Доделать запись результатов
-        // var nameUser = _comp?.LastOpenedBy ?? "Unknow";
-        // var record = new MinesweeperRecord
-        // {
-        //     Difficulty = _difficulties[DifficultySelect.SelectedId].name,
-        //     TimeSeconds = (float)_stopwatch.Elapsed.TotalSeconds,
-        //     EntityName = nameUser
-        // };
-        // // Сохраняем локально для демонстрации
-        // _records.Add(record);
-        // _boundUserInterface.SendMessage(new MinesweeperWinMessage(_difficulties[DifficultySelect.SelectedId].name, (float)_stopwatch.Elapsed.TotalSeconds));
-        // if (_comp != null)
-        //     _comp.Dirty();
-        // UpdateRecordsDisplay();
+        var nameUser = _comp?.LastOpenedBy ?? "Unknown";
+        Logger.Warning($"ПОБЕДИЛ {nameUser}");
+
+        // Создаём локальный рекорд и сразу добавляем в _records
+        var record = new MinesweeperRecord
+        {
+            Difficulty = _difficulties[DifficultySelect.SelectedId].name,
+            TimeSeconds = (float)_stopwatch.Elapsed.TotalSeconds,
+            EntityName = nameUser
+        };
+
+        _records.Add(record);
+        UpdateRecordsDisplay();
+
+        // Отправляем серверу, если есть интерфейс
+        if (nameUser != null && _boundUserInterface != null)
+        {
+            _boundUserInterface.SendMessage(
+                new MinesweeperWinMessage(
+                    _difficulties[DifficultySelect.SelectedId].name,
+                    (float)_stopwatch.Elapsed.TotalSeconds,
+                    nameUser));
+        }
     }
 
-    public void LoadRecords(EntityUid uid, MinesweeperComponent component, BoundUserInterface boundUserInterface)
+
+    public void LoadRecords(MinesweeperComponent component, BoundUserInterface boundUserInterface)
     {
-        _uid = uid;
         _comp = component;
         _boundUserInterface = boundUserInterface;
     }
 
-    // TODO: Доделать запись результатов
-    // private void UpdateRecordsDisplay()
-    // {
-    //     _recordListLabel.Text = string.Join("\n", _records.Select(r => r.ToString()));
-    // }
+    public void UpdateRecords(MinesweeperComponent comp)
+    {
+        _records = comp.Records;
+        UpdateRecordsDisplay();
+    }
+
+    private void UpdateRecordsDisplay()
+    {
+        RecordListLabel.Text = string.Join("\n", _records.Select(r => r.ToString()));
+    }
 }

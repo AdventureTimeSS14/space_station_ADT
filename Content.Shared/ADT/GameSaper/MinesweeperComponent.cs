@@ -11,36 +11,41 @@ public sealed partial class MinesweeperComponent : Component
 {
     [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public string? LastOpenedBy;
+
+    [DataField, AutoNetworkedField]
+    public List<MinesweeperRecord> Records = new();
 }
 
 
 // TODO: Доделать запись рекордов
-// [Serializable, NetSerializable]
-// public sealed class MinesweeperRecord
-// {
-//     public string Difficulty = "";
-//     public float TimeSeconds = 0f;
-//     public string EntityName = "";
+[Serializable, NetSerializable]
+public sealed class MinesweeperRecord
+{
+    public string Difficulty = "";
+    public float TimeSeconds = 0f;
+    public string EntityName = "";
 
-//     public override string ToString()
-//     {
-//         var time = TimeSpan.FromSeconds(TimeSeconds);
-//         return $"{EntityName} — {Difficulty} — {time:mm\\:ss}";
-//     }
-// }
+    public override string ToString()
+    {
+        var time = TimeSpan.FromSeconds(TimeSeconds);
+        return $"{EntityName} — {Difficulty} — {time:mm\\:ss}";
+    }
+}
 
-// [Serializable, NetSerializable]
-// public sealed class MinesweeperWinMessage : BoundUserInterfaceMessage
-// {
-//     public string Difficulty { get; }
-//     public float TimeSeconds { get; }
+[Serializable, NetSerializable]
+public sealed class MinesweeperWinMessage : BoundUserInterfaceMessage
+{
+    public string Difficulty { get; }
+    public float TimeSeconds { get; }
+    public string NameWin { get; }
 
-//     public MinesweeperWinMessage(string difficulty, float timeSeconds)
-//     {
-//         Difficulty = difficulty;
-//         TimeSeconds = timeSeconds;
-//     }
-// }
+    public MinesweeperWinMessage(string difficulty, float timeSeconds, string nameWin)
+    {
+        Difficulty = difficulty;
+        TimeSeconds = timeSeconds;
+        NameWin = nameWin;
+    }
+}
 
 // [Serializable, NetSerializable]
 // public sealed class OnWinMessage : BoundUserInterfaceMessage
