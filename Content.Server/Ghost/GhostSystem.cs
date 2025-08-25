@@ -277,7 +277,7 @@ namespace Content.Server.Ghost
 
         private void OnPlayerDetached(EntityUid uid, GhostComponent component, PlayerDetachedEvent args)
         {
-            DeleteEntity(uid);
+            QueueDel(uid); // ADT tweak
         }
 
         // ADT tweak start
@@ -296,8 +296,7 @@ namespace Content.Server.Ghost
                 var profile = _gameTicker.GetPlayerProfile(player);
 
                 _humanoidSystem.LoadProfile(uid, profile, humanoid);
-                GhostClothingInit(uid, component, profile);
-
+                GiveClothesToGhost(uid, component, profile);
             }
             catch (Exception e)
             {
@@ -305,7 +304,7 @@ namespace Content.Server.Ghost
             }
         }
 
-        private void GhostClothingInit(EntityUid uid, GhostComponent component, HumanoidCharacterProfile profile)
+        private void GiveClothesToGhost(EntityUid uid, GhostComponent component, HumanoidCharacterProfile profile)
         {
             if (component.AvailableClothing == null)
                 return;
