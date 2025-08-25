@@ -85,7 +85,7 @@
   - id: ADTModsuitModDrill
     price: 1000
   - id: ADTModsuitModStorageLarge
-    price: 500 
+    price: 500
 
 
 - type: miningShopSection
@@ -98,8 +98,8 @@
     price: 125
   - id: MiningDrill
     price: 425
-  - id: SeismicCharge
-    price: 200
+  # - id: SeismicCharge временно в ауте
+  #   price: 200
   - id: FireExtinguisherMini
     price: 150
   - id: ADTWeaponCutter

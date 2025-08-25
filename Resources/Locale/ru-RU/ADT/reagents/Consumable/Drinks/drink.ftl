@@ -28,7 +28,12 @@ reagent-physical-desc-coffeebonbon = густое и кофейное
 
 reagent-name-bacchus-blessing = благославение бахуса
 reagent-desc-bacchus-blessing = Коктейль не может быть настолько ужасным... Или может?
-flavor-complex-bacchus-blessing = как кирпичная стена
+-blessing = как кирпичная стена
+
+
+reagent-name-strawberryjuice = клубничный сок
+reagent-desc-strawberryjuice = Обычный клубничный сок, приятен на запах.
+reagent-physical-desc-strawberryjuice = клубничное
 
 reagent-name-yupidryapple = растворимый яблочный порошок
 reagent-desc-yupidryapple = Едкий яблочный порошок, который можно растворить в воде.
@@ -71,3 +76,4 @@ reagent-name-yupistrawberry = клубничный напиток
 reagent-desc-yupistrawberry = Напиток, чем-то похожий на клубничный сок. Сильно отдаёт химозой, но... Вас это не остановит, верно?
 reagent-name-yupiwatermelon = арбузный напиток
 reagent-desc-yupiwatermelon = Напиток, чем-то похожий на арбузный сок. Сильно отдаёт химозой, но... Вас это не остановит, верно?
+

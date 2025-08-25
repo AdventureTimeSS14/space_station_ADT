@@ -18,3 +18,34 @@
   id: ADTStudentPDA
   equipment:
     id: ADTStudentPDA
+
+# Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckPink
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckPink
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckPink
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckPink
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitHawaiRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+  
+- type: loadout
+  id: ADTClothingUniformJumpsuitHawaiBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitHawaiYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitHawaiBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack

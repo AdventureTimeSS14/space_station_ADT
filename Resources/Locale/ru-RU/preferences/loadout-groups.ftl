@@ -14,6 +14,7 @@ loadout-group-survival-syndicate = Github заставил меня переве
 loadout-group-breath-tool = Расозависимое дыхательное снаряжение
 loadout-group-tank-harness = Расозависимое снаряжение для выживания
 loadout-group-EVA-tank = Расозависимый газовый баллон
+loadout-group-vox-tank = Газовый баллон для воксов
 loadout-group-pocket-tank-double = Расозависимый двойной аварийный газовый баллон в кармане
 loadout-group-survival-mime = Мимский аварийный запас
 # Command
@@ -100,6 +101,7 @@ loadout-group-station-engineer-outerclothing = Инженер, верхняя о
 loadout-group-station-engineer-shoes = Инженер, обувь
 loadout-group-station-engineer-id = Инженер, ID
 loadout-group-engineering-belt = Инженерный отдел, пояс
+loadout-group-engineering-glasses = Инженерный отдел, очки
 loadout-group-atmospheric-technician-jumpsuit = Атмосферный техник, комбинезон
 loadout-group-atmospheric-technician-backpack = Атмосферный техник, рюкзак
 loadout-group-atmospheric-technician-outerclothing = Атмосферный техник, верхняя одежда

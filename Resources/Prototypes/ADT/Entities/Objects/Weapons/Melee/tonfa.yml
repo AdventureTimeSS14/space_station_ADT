@@ -4,6 +4,14 @@
   id: ADTWeaponTonfa
   description: Ancient craftwork made with not so ancient plasteel.
   components:
+  - type: Tag
+    tags:
+    - SecBeltEquip
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/tonfa.rsi
+    quickEquip: false
+    slots:
+    - Belt
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/tonfa.rsi
     layers:

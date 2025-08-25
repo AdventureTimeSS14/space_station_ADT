@@ -45,5 +45,13 @@
       growthTickChance: 0.1
       spreadChance: 0.4
     - type: RadiationSource
-      intensity: 4
+      intensity: 2
     - type: SupermatterKudzuCollide
+    - type: Food # что нахуй
+      delay: 0.5
+    - type: SolutionContainerManager # TODO: Когда-нибудь в будущем сделать собственный реагент для суперматтер.
+      solutions:
+        food:
+          reagents:
+          - ReagentId: Radium
+            Quantity: 50

@@ -1,0 +1,63 @@
+
+- type: entity
+  id: ActionMorphDevour
+  name: "[color=red]Devour[/color]"
+  description: Attempt to break a structure with your jaws or swallow a creature.
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
+    event: !type:MorphDevourActionEvent
+    priority: 1
+
+- type: entity
+  id: ActionMorphRemember
+  name: "[color=red]Remember[/color]"
+  description: Remember enrity to mimicry in future
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
+    event: !type:MorphMimicryRememberActionEvent
+    priority: 2
+    checkCanAccess: false
+
+- type: entity
+  id: ActionMorphReplication
+  name: "[color=red]Reproduce[/color]"
+  description: Create absolute copy of you.
+  components:
+  - type: InstantAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: reproduce }
+    event: !type:MorphReproduceActionEvent
+    priority: 3
+    useDelay: 200
+
+- type: entity
+  id: ActionMorphMimicry
+  name: "[color=red]Mimicry[/color]"
+  description: Transform to an remembered entiry
+  components:
+  - type: InstantAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: mimicry }
+    event: !type:MorphOpenRadialMenuEvent
+    priority: 4
+
+- type: entity
+  id: ActionMorphAmbush
+  name: "[color=red]Ambush[/color]"
+  description: Get ready to attack
+  components:
+  - type: InstantAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: ambush }
+    event: !type:MorphAmbushActionEvent
+    priority: 5
+    useDelay: 25
+
+- type: entity
+  id: ActionMorphVentOpen
+  name: "[color=red]Axid[/color]"
+  description: Open vent for a price
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
+    event: !type:MorphVentOpenActionEvent
+    priority: 6

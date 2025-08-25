@@ -15,8 +15,8 @@ ent-ADTClothingOuterCoatLabPathologistOpened_alt = чёрный лаборато
 ent-ADTClothingOuterApronPathologist = фартук патологоанатома
     .desc = Фартук для работы с трупами.
 
-ent-ADTClothingKadet = шинель для Кадетов Службы безопасности
-    .desc = шинель, сшитая для новобранцев службы безопасности. Она очень похожа на шинели младших чинов РИА
+ent-ADTClothingKadet = шинель кадета службы безопасности
+    .desc = Легкобронированная кожаная шинель, предназначенная для повседневного ношения кадетами службы безопасности. Имеет логотип компании NanoTrasen Security.
 
 ent-ADTClothingOuterGraySweatshirtTop = серая толстовка-топка
     .desc = Стильная белая толстовка-топка. Производства компании "Modeling Agency Dar-Vaxed".
@@ -106,3 +106,19 @@ ent-ADTClothingOuterCoatRadioDemon = фрак радио-демона
 
 ent-ADTClothingOuterExplorerBomber = бомбер исследователя
     .desc = Вперёд навстречу новым исследованиям и приключениям!.. Как жаль, что на Лаваленде многие приключения ведут к смерти... От него пахнет... Пеплом?
+
+
+ent-ADTClothingCoatMonkRobe = роба монаха
+    .desc = Нет ничего на свете лучше, чем просто уйти от всего и быть последователем креста.
+
+ent-ADTClothingCoatReligionLeader = роба религиозного лидера
+    .desc = По-королевски религиозная одежда, которая покажет вашим апостолам своё место.
+
+ent-ADTClothingCoatClockworkRobe = заводная роба
+    .desc = Йэа ефдн унжчаачгп дфтн рнсфмыцръ яйърхпчяфф-х-рщцх (Что-то на ратваровском).
+
+ent-ADTClothingOuterSpiderRobe = зловещая паучья роба
+    .desc = Роба, популярная среди паучьих сект. Выглядит крайне знакомо...
+
+ent-ADTClothingOuterTechpriestRobe = роба техно-жреца
+    .desc = С мгновения того, как понял я слабость своей плоти, я был отвращён.

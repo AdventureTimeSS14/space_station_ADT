@@ -16,6 +16,7 @@
     tags:
     - Sheet
     - NoPaint #ADT tweak
+    - ADTGlassSheet #ADT tweak
   - type: Material
   - type: Damageable
     damageContainer: Inorganic
@@ -227,6 +228,15 @@
         canReact: false
 
 - type: entity
+  parent: SheetRGlass
+  id: SheetRGlassLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: entity
   parent: SheetGlassBase
   id: SheetPGlass
   name: plasma glass
@@ -397,6 +407,15 @@
   - type: Stack
     stackType: ReinforcedPlasmaGlass
     count: 1
+
+- type: entity
+  parent: SheetRPGlass
+  id: SheetRPGlassLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
 
 - type: entity
   parent: SheetGlassBase
