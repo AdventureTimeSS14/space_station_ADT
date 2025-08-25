@@ -12,5 +12,5 @@
     prototypes:
       - BlockGameArcade
       - SpaceVillainArcadeFilled
-      - MinesweeperArcade
+      - MinesweeperArcade # ADT-Tweak: Добавлен спавн нового аркадного автомата Minesweeper
     chance: 1
