@@ -9,6 +9,7 @@
     startingCharge: 1000
   - type: StaminaDamageOnHit
     damage: 35
+    sound: /Audio/Weapons/egloves.ogg
 # ADT-Beepsky-End
 
 - type: entity
@@ -58,7 +59,7 @@
     animation: WeaponArcThrust
   # - type: StaminaDamageOnHit
   #   damage: 35
-    sound: /Audio/Weapons/egloves.ogg
+  # sound: /Audio/Weapons/egloves.ogg
   #ADT tweak start
   # TODO: сделать компонент StaminaDamageOnLand заместо этого
   # - type: StaminaDamageOnCollide
