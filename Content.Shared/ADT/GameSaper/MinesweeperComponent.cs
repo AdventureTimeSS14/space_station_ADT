@@ -46,14 +46,3 @@ public sealed class MinesweeperWinMessage : BoundUserInterfaceMessage
         NameWin = nameWin;
     }
 }
-
-// [Serializable, NetSerializable]
-// public sealed class OnWinMessage : BoundUserInterfaceMessage
-// {
-//     public string? UserName;
-
-//     public OnWinMessage(string? userName)
-//     {
-//         UserName = userName;
-//     }
-// }
