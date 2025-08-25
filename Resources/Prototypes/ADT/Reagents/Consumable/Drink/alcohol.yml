@@ -553,7 +553,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/goldenale.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -581,7 +581,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/sausagebeer.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -610,7 +610,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/technarbeer.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -637,7 +637,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/classicalpaulaner.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -666,7 +666,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/doctorlivsey.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -699,7 +699,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/luckyjonny.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -726,7 +726,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/secbeer.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -754,7 +754,7 @@
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 3
+  metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
