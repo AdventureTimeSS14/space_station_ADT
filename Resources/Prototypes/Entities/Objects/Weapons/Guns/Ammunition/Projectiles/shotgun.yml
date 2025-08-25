@@ -14,7 +14,7 @@
     damage:
       types:
         Piercing: 40
-        Structural: 15
+        Structural: 25 #ADT tweak 15 -> 25
 
 
 - type: entity
@@ -51,10 +51,8 @@
   - type: Projectile
     damage:
       types:
-#ADT tweak start
-        Piercing: 15  #ADT tweak for example: 10 > 15
-# remove = Structural: 15
-#ADT tweak end
+        Piercing: 10
+        Structural: 15
 
 
 - type: entity
@@ -64,7 +62,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgun
-    count: 4 #ADT tweak  for example: 6 > 4
+    count: 6
     spread: 15
 
 - type: entity
@@ -74,15 +72,16 @@
   parent: BaseBulletIncendiary
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
 #ADT tweak start
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
     layers:
     - state: buckshot-incendiary
 #ADT tweak end
   - type: Projectile
     damage:
       types:
-        Piercing: 14 #ADT tweak for example: 7 > 14
+        Piercing: 7
+        Structural: 15  #ADT tweak Structural 0 -> 15
         # Blunt: 3 ADT tweak
         # Heat: 7 ADT tweak
   - type: IgnitionSource
@@ -95,7 +94,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunIncendiary
-    count: 4 #ADT tweak for example: 6 > 4
+    count: 6
     spread: 15
 
 - type: entity
@@ -248,8 +247,8 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 8 #ADT tweak 5>8
-        Piercing: 8 #ADT tweak 5>8
+        Radiation: 5
+        Piercing: 5
 
 - type: entity
   id: PelletShotgunUraniumSpread
@@ -258,7 +257,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunUranium
-    count: 3 #ADT tweak 5>3
+    count: 5
     spread: 6
 
 - type: entity

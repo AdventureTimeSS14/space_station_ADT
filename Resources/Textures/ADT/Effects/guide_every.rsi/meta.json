@@ -1,0 +1,118 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ADT server and animation made by QWERTY.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "every_jumpsuit",
+            "delays": [
+                [ 1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "every_crab",
+            "delays": [
+                [ 1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "every_ore",
+            "delays": [
+                [ 1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "every_shoes",
+            "delays": [
+                [ 1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "every_folder",
+            "delays": [
+                [ 1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "every_holy_robe",
+            "delays": [
+                [ 1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "any_vests",
+            "delays": [
+                [ 1,
+                  1,
+                  1 ]
+            ]
+        },
+        {
+            "name": "cluwne_jumpsuit"
+        },
+        {
+            "name": "cluwne_mask"
+        },
+        {
+            "name": "cluwne_shoes"
+        },
+        {
+            "name": "carp_hydrated"
+        },
+        {
+            "name": "petite_deposit"
+        },
+        {
+            "name": "small_deposit"
+        },
+        {
+            "name": "big_boy_deposit"
+        },
+        {
+            "name": "all_or_nothing_deposit"
+        },
+        {
+            "name": "all_or_nothinger_deposit"
+        }
+
+    ]
+}

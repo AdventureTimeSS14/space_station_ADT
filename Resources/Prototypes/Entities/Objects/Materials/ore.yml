@@ -32,6 +32,12 @@
   components:
   - type: Stack
     stackType: GoldOre
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTGoldOre
+    - Ore
+### End ADT Tweak
   - type: Sprite
     state: gold
   - type: Material
@@ -100,6 +106,12 @@
     stackType: SteelOre
   - type: Sprite
     state: iron
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTSteelOre
+    - Ore
+### End ADT Tweak
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -169,6 +181,12 @@
   components:
   - type: Stack
     stackType: SilverOre
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTSilverOre
+    - Ore
+### End ADT Tweak
   - type: Sprite
     state: silver
   - type: Material
@@ -205,6 +223,12 @@
   - type: Sprite
     state: spacequartz
   - type: Material
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTQuarzOre
+    - Ore
+### End ADT Tweak
   - type: PhysicalComposition
     materialComposition:
       RawQuartz: 300   #ADT_Tweak - повышено со 100
@@ -241,6 +265,12 @@
   - type: PhysicalComposition
     materialComposition:
       RawUranium: 300   #ADT_Tweak - повышено со 100
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTUraniumOre
+    - Ore
+### End ADT Tweak
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -321,6 +351,12 @@
   - type: Sprite
     state: coal
   - type: Material
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTCoalOre
+    - Ore
+### End ADT Tweak
   - type: Extractable
     grindableSolutionName: coal
   - type: SolutionContainerManager

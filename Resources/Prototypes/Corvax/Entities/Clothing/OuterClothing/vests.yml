@@ -8,6 +8,11 @@
       sprite: Corvax/Clothing/OuterClothing/Vests/armor_sec.rsi
     - type: Clothing
       sprite: Corvax/Clothing/OuterClothing/Vests/armor_sec.rsi
+### Start ADT Tweak
+    - type: Tag
+      tags:
+        - ADTArmorSacrafice
+### End ADT Tweak
 
 - type: entity
   parent: [ClothingOuterArmorBasic, BadgeOnClothing] #ADT-Tweak

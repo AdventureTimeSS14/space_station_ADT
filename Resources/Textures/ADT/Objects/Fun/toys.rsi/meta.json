@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
     "copyright": "Created ADT team",
     "size": {
@@ -12,6 +12,18 @@
         },
         {
             "name": "plushie_git"
-        }    
+        },
+        {
+            "name": "plushie_damn",
+            "delays": [
+                [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+                ]
+              ]
+
+        }
     ]
 }

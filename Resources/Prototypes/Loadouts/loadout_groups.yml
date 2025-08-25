@@ -132,6 +132,7 @@
   loadouts:
   - CaptainHead
   - CaptainCap
+  - ADTClothingAdmiralHat # ADT Loadout
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -155,6 +156,7 @@
   - CaptainCloakFormal
   - ADTClothingCaptainShoulderNeck # ADT Loadout
   - CaptainMantle
+  - ADTClothingAdmiralShoulder # ADT Loadout
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -239,6 +241,16 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckGrey
+  - ADTClothingUniformJumpskirtTurtleneckGrey
+  - ADTClothingUniformJumpsuitTurtleneckPink
+  - ADTClothingUniformJumpskirtTurtleneckPink
+  - ADTClothingUniformJumpsuitHawaiRed
+  - ADTClothingUniformJumpsuitHawaiBlue
+  - ADTClothingUniformJumpsuitHawaiYellow
+  - ADTClothingUniformJumpsuitHawaiBlack
+  # ADT tweak end
 
 - type: loadoutGroup
   id: PassengerFace
@@ -346,6 +358,10 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
+  # ADT tweak end
 # ADT-Loadouts-Start
 - type: loadoutGroup
   id: LibrarianBackpack
@@ -415,6 +431,7 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  - ADTChaplainReligiousLeaderRobe # ADT Tweak
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -447,6 +464,10 @@
   - ADTJanitorJumpsuitJanimaidmini
   - ADTJanitorJumpsuitJanimaidElegant
   # ADT-Loadouts-End
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckPurple
+  - ADTClothingUniformJumpskirtTurtleneckPurple
+  # ADT tweak end
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -454,8 +475,10 @@
   minLimit: 0
   loadouts:
   - JanitorRubberGloves
-  - OrangeGloves
-  - PurpleGloves
+  # ADT tweak start
+  - ADTOrangeGloves
+  - ADTPurpleGloves
+  # ADT tweak end
 
 - type: loadoutGroup
   id: JanitorOuterClothing
@@ -478,6 +501,7 @@
   loadouts:
   - BotanistHead
   - BotanistBandana
+  - ADTClothingHeadHatFlowerWreath # ADT tweak
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -486,6 +510,10 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckGreen
+  - ADTClothingUniformJumpskirtTurtleneckGreen
+  # ADT tweak end
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -737,6 +765,10 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckGrey
+  - ADTClothingUniformJumpskirtTurtleneckGrey
+  # ADT tweak end
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -745,6 +777,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
+  - ADTClothingBackpackSatchelLeather # ADT tweak
 
 - type: loadoutGroup
   id: CargoTechnicianOuterClothing
@@ -873,6 +906,12 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckOrange
+  - ADTClothingUniformJumpskirtTurtleneckOrange
+  - ADTClothingUniformJumpsuitTurtleneckYellow
+  - ADTClothingUniformJumpskirtTurtleneckYellow
+  # ADT tweak end
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -929,6 +968,7 @@
   - AtmosphericTechnicianWintercoat
   # ADT-Loadouts-Start
   - ADTOuterAtmosianBomberJacket
+  - ADTClothingAtmosphericsOveralls
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1043,6 +1083,14 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+  - ADTClothingUniformJumpsuitTurtleneckPurple
+  - ADTClothingUniformJumpskirtTurtleneckPurple
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1051,6 +1099,7 @@
   - ScientistBackpack
   - ScientistSatchel
   - ScientistDuffel
+  - ADTClothingBackpackSatchelLeather # ADT tweak
 
 - type: loadoutGroup
   id: ScientistOuterClothing
@@ -1085,7 +1134,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
+  - ADTPurpleGloves # ADT tweak
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -1195,6 +1244,7 @@
   - ADTSecurityOfficerMogesBrown
   - ADTSecurityOfficerMogesBlue
   - ADTSecurityOfficerMogesGray
+  - ADTClothingUniformJumpsuitSecBlue
   # ADT-Loadouts-End
 
 - type: loadoutGroup
@@ -1396,6 +1446,12 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckAzure
+  - ADTClothingUniformJumpskirtTurtleneckAzure
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1411,6 +1467,7 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - ADTClothingBackpackSatchelLeather # ADT tweak
 
 - type: loadoutGroup
   id: MedicalShoes
@@ -1458,6 +1515,10 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ChemistJumpsuit
@@ -1465,6 +1526,10 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckOrange
+  - ADTClothingUniformJumpskirtTurtleneckOrange
+  # ADT tweak end
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1562,6 +1627,10 @@
   loadouts:
   - PsychologistJumpsuit
   - PsychologistJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+  # ADT tweak end
 
 - type: loadoutGroup
   id: BoxerJumpsuit

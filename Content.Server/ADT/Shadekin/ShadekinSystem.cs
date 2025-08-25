@@ -25,6 +25,7 @@ using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.ADT.Components.PickupHumans;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -91,7 +92,7 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             if (comp.MinPowerAccumulator >= comp.MinPowerRoof)
                 BlackEye(uid);
-            if (comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
+            if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
                 TeleportRandomly(uid, comp);
         }
     }
