@@ -13,29 +13,34 @@ namespace Content.Client.ADT.Minesweeper;
 [GenerateTypedNameReferences]
 public sealed partial class MinesweeperWindow : FancyWindow
 {
-    private int GridSize = 10;
-    private int MineCount = 15;
+    // --- Константы / readonly ---
+    private readonly Random _rand = new();
+    private readonly Stopwatch _stopwatch = new();
 
+    // --- Игровые настройки ---
+    private int _gridSize = 10;
+    private int _mineCount = 15;
+
+    // --- Игровое состояние ---
+    private bool _minesPlaced = false;
+    private bool _flagMode = false;
+    private bool _timerRunning = false;
+    private bool _gameEnd = false;
+    private TimeSpan _finalTime = TimeSpan.Zero;
+
+    // --- Данные игры ---
     private Button[,] _buttons = new Button[1, 1];
     private bool[,] _mines = new bool[1, 1];
     private bool[,] _revealed = new bool[1, 1];
     private bool[,] _flags = new bool[1, 1];
-    private readonly Random _rand = new();
+    private List<MinesweeperRecord> _records = new();
+
+    // --- UI ---
     private GridContainer _mineGrid = default!;
-    private bool _minesPlaced = false;
-    private bool _flagMode = false;
-    private bool _timerRunning = false;
-    private TimeSpan _finalTime = TimeSpan.Zero;
 
-
-    private EntityUid _uid = default!;
+    // --- Сетевые компоненты ---
     private MinesweeperComponent _comp = default!;
     private BoundUserInterface _boundUserInterface = default!;
-
-    // private float _elapsedTime = 0f;
-    private bool _gameEnd = false;
-    private Stopwatch _stopwatch = new();
-    private List<MinesweeperRecord> _records = new();
 
     // Список сложностей для выбора
     private readonly List<(string name, int size, int mines, Color themeColor, Color modulateColor)> _difficulties = new()
@@ -45,15 +50,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
         ("Средне", 10, 15, Color.FromHex("#e28b00"), Color.FromHex("#cebf8fff")), // Оранжевый для среднего
         ("Сложно", 15, 35, Color.FromHex("#cc0000"), Color.FromHex("#e4a9a9ff"))  // Красный для сложного
     };
-
-    private void ApplyDifficultyTheme(Color color)
-    {
-        // Меняем цвет кнопок
-        // NewGameButton.ModulateSelfOverride = color;
-        // Меняем цвет выпадающего списка
-        DifficultySelect.ModulateSelfOverride = color;
-        // DifficultySelect.ModulateSelfOverride = color.Darken(0.2f);
-    }
 
     public MinesweeperWindow()
     {
@@ -71,7 +67,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
         NewGame();
     }
-
 
     protected override void Opened()
     {
@@ -109,8 +104,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
         {
             int index = (int)args.Id;
             var selected = _difficulties[index];
-            GridSize = selected.size;
-            MineCount = selected.mines;
+            _gridSize = selected.size;
+            _mineCount = selected.mines;
 
             ApplyDifficultyTheme(selected.themeColor);
             MineContentsContainer.Modulate = selected.modulateColor;
@@ -123,6 +118,11 @@ public sealed partial class MinesweeperWindow : FancyWindow
         DifficultySelect.SelectId(1);
         ApplyDifficultyTheme(_difficulties[1].themeColor);
         MineContentsContainer.Modulate = _difficulties[1].modulateColor;
+    }
+
+    private void ApplyDifficultyTheme(Color color)
+    {
+        DifficultySelect.ModulateSelfOverride = color;
     }
 
     private void NewGame()
@@ -141,16 +141,16 @@ public sealed partial class MinesweeperWindow : FancyWindow
         _flagMode = false;
         ToggleFlagButton.Text = "Режим: Открыть";
 
-        _buttons = new Button[GridSize, GridSize];
-        _mines = new bool[GridSize, GridSize];
-        _revealed = new bool[GridSize, GridSize];
-        _flags = new bool[GridSize, GridSize];
+        _buttons = new Button[_gridSize, _gridSize];
+        _mines = new bool[_gridSize, _gridSize];
+        _revealed = new bool[_gridSize, _gridSize];
+        _flags = new bool[_gridSize, _gridSize];
 
         MineContainer.RemoveAllChildren();
 
         _mineGrid = new GridContainer
         {
-            Columns = GridSize,
+            Columns = _gridSize,
             HorizontalExpand = true,
             VerticalExpand = true,
         };
@@ -163,9 +163,9 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     private void GenerateGrid()
     {
-        for (int y = 0; y < GridSize; y++)
+        for (int y = 0; y < _gridSize; y++)
         {
-            for (int x = 0; x < GridSize; x++)
+            for (int x = 0; x < _gridSize; x++)
             {
                 var button = new Button
                 {
@@ -189,10 +189,10 @@ public sealed partial class MinesweeperWindow : FancyWindow
     private void PlaceMinesExceptFirstClick(int safeX, int safeY)
     {
         int placed = 0;
-        while (placed < MineCount)
+        while (placed < _mineCount)
         {
-            int x = _rand.Next(GridSize);
-            int y = _rand.Next(GridSize);
+            int x = _rand.Next(_gridSize);
+            int y = _rand.Next(_gridSize);
 
             if (x >= safeX - 1 && x <= safeX + 1 &&
                 y >= safeY - 1 && y <= safeY + 1)
@@ -205,12 +205,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
             placed++;
         }
     }
-
-    // TODO: Доделать запись результатов
-    // public void UpdateName(string? userName)
-    // {
-    //     _comp.LastOpenedBy = userName;
-    // }
 
     public void OnTileClicked(int x, int y)
     {
@@ -273,7 +267,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
             {
                 int nx = x + dx;
                 int ny = y + dy;
-                if (nx >= 0 && ny >= 0 && nx < GridSize && ny < GridSize && !_revealed[nx, ny])
+                if (nx >= 0 && ny >= 0 && nx < _gridSize && ny < _gridSize && !_revealed[nx, ny])
                 {
                     OnTileClicked(nx, ny);
                 }
@@ -282,8 +276,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     private void RevealAllMines()
     {
-        for (int y = 0; y < GridSize; y++)
-            for (int x = 0; x < GridSize; x++)
+        for (int y = 0; y < _gridSize; y++)
+            for (int x = 0; x < _gridSize; x++)
             {
                 if (_mines[x, y])
                 {
@@ -301,7 +295,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
             {
                 int nx = x + dx;
                 int ny = y + dy;
-                if (nx >= 0 && ny >= 0 && nx < GridSize && ny < GridSize && _mines[nx, ny])
+                if (nx >= 0 && ny >= 0 && nx < _gridSize && ny < _gridSize && _mines[nx, ny])
                     count++;
             }
         return count;
@@ -317,21 +311,21 @@ public sealed partial class MinesweeperWindow : FancyWindow
     private void UpdateMinesCounter()
     {
         int flagsPlaced = 0;
-        for (int y = 0; y < GridSize; y++)
+        for (int y = 0; y < _gridSize; y++)
         {
-            for (int x = 0; x < GridSize; x++)
+            for (int x = 0; x < _gridSize; x++)
             {
                 if (_flags[x, y])
                     flagsPlaced++;
             }
         }
-        MinesCountLabel.Text = $"{flagsPlaced}/{MineCount}";
+        MinesCountLabel.Text = $"{flagsPlaced}/{_mineCount}";
     }
 
     private void CheckWinCondition()
     {
-        for (int y = 0; y < GridSize; y++)
-            for (int x = 0; x < GridSize; x++)
+        for (int y = 0; y < _gridSize; y++)
+            for (int x = 0; x < _gridSize; x++)
             {
                 if (!_mines[x, y] && !_revealed[x, y])
                     return;
@@ -345,7 +339,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
         GameStatusLabel.Text = $"✓ Победа! \nВремя: {_finalTime.Minutes:D2}:{_finalTime.Seconds:D2}";
 
         var nameUser = _comp?.LastOpenedBy ?? "Unknown";
-        Logger.Warning($"ПОБЕДИЛ {nameUser}");
+
 
         // Создаём локальный рекорд и сразу добавляем в _records
         var record = new MinesweeperRecord
