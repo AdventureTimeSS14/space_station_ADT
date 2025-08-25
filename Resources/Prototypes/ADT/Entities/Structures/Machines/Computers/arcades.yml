@@ -1,6 +1,6 @@
 - type: entity
   parent: ArcadeBase
-  id: MinesweeperComputer
+  id: MinesweeperArcade
   name: Minesweeper Arcade
   components:
   - type: Sprite

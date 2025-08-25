@@ -36,4 +36,4 @@
   id: MinesweeperCircuitboard
   components:
     - type: ComputerBoard
-      prototype: MinesweeperComputer
+      prototype: MinesweeperArcade
