@@ -369,7 +369,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
         }
     }
 
-
     public void LoadRecords(MinesweeperComponent component, BoundUserInterface boundUserInterface)
     {
         _comp = component;
