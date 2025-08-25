@@ -6,6 +6,7 @@ using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
 using Content.Shared.Actions;
@@ -81,9 +82,8 @@ namespace Content.Server.Ghost
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         //ADT tweak Start
-        // [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+        [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly UserDbDataManager _userDb = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
         //ADT tweak End
 
@@ -283,22 +283,26 @@ namespace Content.Server.Ghost
         // ADT tweak start
         private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
         {
-            if (!TryComp(uid, out ActorComponent? actor))
-                return;
-
             if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
                 return;
 
-            var player = actor.PlayerSession;
+            var player = args.Player;
 
             if (player == null)
                 return;
 
-            var profile = _gameTicker.GetPlayerProfile(player);
-            if (profile != null)
+            try
             {
-                _humanoidSystem.LoadProfile(uid, profile, humanoid);
-                GhostClothingInit(uid, component, profile);
+                var profile = _gameTicker.GetPlayerProfile(player);
+                if (_prefsManager.HavePreferencesLoaded(player))
+                {
+                    _humanoidSystem.LoadProfile(uid, profile, humanoid);
+                    GhostClothingInit(uid, component, profile);
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Load of ghost preferences failed: {e}");
             }
         }
 
