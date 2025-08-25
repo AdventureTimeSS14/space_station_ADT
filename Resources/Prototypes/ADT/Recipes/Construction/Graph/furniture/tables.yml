@@ -87,6 +87,32 @@
               amount: 1
               doAfter: 1
 
+        - to: adtreinforcedplasmaglasstable
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Cutting
+              doAfter: 1
+            - material: ReinforcedPlasmaGlass
+              amount: 1
+              doAfter: 1
+
+        - to: adtreinforceduraniumglasstable
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Cutting
+              doAfter: 1
+            - material: ReinforcedUraniumGlass
+              amount: 1
+              doAfter: 1
+
+        - to: adturaniumglasstable
+          steps:
+            - material: UraniumGlass
+              amount: 1
+              doAfter: 1
+
     - node: adttableroundplastic
       entity: ADTTableRoundPlastic
       edges:
@@ -172,4 +198,40 @@
               amount: 1
           steps:
             - tool: Prying
+              doAfter: 1
+
+    - node: adtreinforcedplasmaglasstable
+      entity: ADTTableReinforcedPlasmaGlass
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRPGlass
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: adtreinforceduraniumglasstable
+      entity: ADTTableReinforcedUraniumGlass
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRUGlass
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: adturaniumglasstable
+      entity: ADTTableUraniumGlass
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetUGlass
+              amount: 1
+          steps:
+            - tool: Anchoring
               doAfter: 1

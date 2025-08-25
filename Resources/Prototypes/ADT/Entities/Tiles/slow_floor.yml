@@ -1,0 +1,38 @@
+- type: entity
+  id: FloorSepiaSlowEntity
+  name: slow sepia floor
+  description: Time seems to flow very slowly around these tiles.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: ADT/Tiles/Misc/sepia.rsi
+    drawdepth: FloorTiles
+    layers:
+      - state: sepia
+  - type: Transform
+    anchored: true
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.1
+    sprintSpeedModifier: 0.1
+  - type: StepTrigger
+    intersectRatio: 0.2
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        hard: false
+        layer:
+        - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        density: 1000
+        mask:
+        - ItemMask
