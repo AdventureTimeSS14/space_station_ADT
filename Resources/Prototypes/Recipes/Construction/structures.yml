@@ -1228,19 +1228,6 @@
     - !type:TileNotBlocked
 
 - type: construction
-  id: BananiumAltar
-  graph: BananiumAltarGraph
-  startNode: start
-  targetNode: bananiumAltar
-  category: construction-category-structures
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   id: SolidSecretDoor
   name: recipes-secret-door-name
   description: recipes-secret-door-desc

@@ -1,0 +1,64 @@
+
+- type: entity
+  id: ADTSwordMetamorphisis
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/metamorphisis.rsi
+      state: metamorphisis
+      drawdepth: Effects
+    - type: TimedDespawn
+      lifetime: 0.299
+
+- type: entity
+  id: ADTCultistBubble
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/cultbubble.rsi
+      state: bubble
+      drawdepth: Effects
+    - type: TimedDespawn
+      lifetime: 0.299
+
+- type: entity
+  id: ADTEffectKudzu
+  name: Geyas wines
+  parent: Kudzu
+  suffix: Weak
+  categories: [ HideSpawnMenu ]
+  description: The arm of goddess of nature, what gives you for sacrifises - items.
+  components:
+    - type: Kudzu
+      spreadChance: 1
+      growthTickChance: 0.5
+    - type: TimedDespawn
+      lifetime: 1.3
+
+- type: entity
+  name: tesla gun lightning
+  id: ADTZillyhooSummon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Timer
+  - type: TimedDespawn
+    lifetime: 5
+  - type: TimedSpawner
+    prototypes:
+      - ADTHWarhammerOfZillyhoo
+    chance: 1
+    intervalSeconds: 3
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: LightningArcShooter
+    arcDepth: 1
+    maxLightningArc: 5
+    shootMinInterval: 3
+    shootMaxInterval: 3
+    shootRange: 9
+    lightningPrototype: ADTBananaSpark
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/Effects/zillyhoo_summon.ogg

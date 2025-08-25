@@ -8,7 +8,8 @@
   - Botany
   - Chef
   - Janitorial
-  
+  - ADTChaplain # ADT Tweak
+
 - type: guideEntry
   id: Bartender
   name: guide-entry-bartender
@@ -29,3 +30,18 @@
   id: Janitorial
   name: guide-entry-janitorial
   text: "/ServerInfo/Guidebook/Service/Janitorial.xml"
+
+### Start ADT Tweak
+- type: guideEntry
+  id: ADTChaplain
+  name: guide-entry-chaplain
+  text: "/ServerInfo/Guidebook/Service/Chaplain.xml"
+  filterEnabled: True
+  children:
+  - ADTAltars
+
+- type: guideEntry
+  id: ADTAltars
+  name: guide-entry-altars
+  text: "/ServerInfo/Guidebook/Service/altars.xml"
+### End ADT Tweak
