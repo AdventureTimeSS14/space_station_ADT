@@ -3,7 +3,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
-    mask: ClothingMaskGasExplorer
+    mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
@@ -25,10 +25,9 @@
     - MedkitCombatFilled
     - GrenadeFlashBang
     - PillAmbuzolPlus
-    - PillAmbuzol
     - RubberStampCentcom
     - SpaceCash1000
-    - ADTertMechUplink
+    - ADTertRevolutionaryMechUplink
     # underwearb: ClothingUnderwearBottomBoxersWhite
   # underweart: ClothingUnderwearTopBraWhite
   # underwearb: ClothingUnderwearBottomPantiesWhite

@@ -8,10 +8,10 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsMag
     id: CBURNPDA
     pocket2: WeaponLaserGun
-    belt: ADTClothingBeltBandolierFilledIncendiary
+    belt: ClothingBeltAssault
     suitstorage: WeaponShotgunEnforcer
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
@@ -26,5 +26,6 @@
     - MagazineShotgun
     - GrenadeFlashBang
     - PillAmbuzolPlus
-    - PillAmbuzol
     - SpaceCash500
+    - BoxShotgunIncendiary
+    - BoxLethalshot

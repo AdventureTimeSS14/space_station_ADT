@@ -6,7 +6,8 @@ ent-BoxBeanbag = коробка ружейных патронов (12х70 тра
     .desc = { ent-AmmoProviderShotgunShell.desc }
 ent-BoxLethalshot = коробка ружейных патронов (12х70 дробь)
     .desc = { ent-AmmoProviderShotgunShell.desc }
-ent-BoxShotgunSlug = коробка ружейных патронов 12х70 пуля)
+#ADT tweak fix "коробка ружейных патронов 12х70 пуля"
+ent-BoxShotgunSlug = коробка ружейных патронов (12х70 пуля)
     .desc = { ent-AmmoProviderShotgunShell.desc }
 ent-BoxShotgunFlare = коробка ружейных патронов (12х70 фальшфейеры)
     .desc = { ent-AmmoProviderShotgunShell.desc }

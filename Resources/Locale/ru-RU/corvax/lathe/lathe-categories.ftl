@@ -1,10 +1,12 @@
 lathe-category-reports = Отчёты
-lathe-category-statements = Заключения
+#ADT tweak fix = Заключения -> Заявление
+lathe-category-statements = Заявление
 lathe-category-inquiries-and-appeals = Запросы и обращения
 lathe-category-complaints = Жалобы
 lathe-category-permissions = Разрешения
 lathe-category-orders-and-instructions = Приказы и распоряжения
 lathe-category-orders = Заказы
-lathe-category-evidence = Свидетельства
+#ADT tweak fix = Свидетельства -> Свидетельства и грамоты
+lathe-category-evidence = Свидетельства и грамоты
 lathe-category-conclusions-and-decisions = Заключения и решения
 lathe-category-error = Ошибка

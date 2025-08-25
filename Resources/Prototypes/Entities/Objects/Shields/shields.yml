@@ -154,14 +154,14 @@
         coefficients:
           Blunt: 0.95
           Slash: 0.95
-          Piercing: 0.95
+          Piercing: 0.70 #ADT tweak 0.95 -> 0.70
           Heat: 2
       activeBlockModifier:
         coefficients:
           Blunt: 0.85
           Slash: 0.85
-          Piercing: 0.85
-          Heat: 2
+          Piercing: 0.65 #ADT tweak 0.85 -> 0.65
+          Heat: 1.5 #ADT tweak 2 -> 1.5
         flatReductions:
           Blunt: 1
           Slash: 1
@@ -173,13 +173,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 60
+            damage: 80 #ADT tweak 60 -> 80
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 30 #Weaker shield
+            damage: 70 #Weaker shield + ADT tweak 30 -> 70
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -193,6 +193,15 @@
                   max: 5
     - type: StaticPrice
       price: 150
+#ADT tweak start
+    - type: Clothing
+      sprite: ADT/Objects/Weapons/Melee/shields/buckler.rsi
+      quickEquip: false
+      slots:
+      - back
+      - suitStorage
+      - belt
+#ADT tweak end
 
 - type: entity
   name: makeshift shield
@@ -209,14 +218,18 @@
         coefficients:
           Blunt: 0.95
           Slash: 0.95
-          Piercing: 0.95
-          Heat: 0.9
+#ADT tweak start
+          Piercing: 1.3 #0.95 -> 1.3
+          Heat: 0.7 #0.9 -> 0.7
+#ADT tweak end
       activeBlockModifier:
         coefficients:
           Blunt: 0.85
           Slash: 0.85
-          Piercing: 0.85
-          Heat: 0.8
+#ADT tweak start
+          Piercing: 1 # 0.85 -> 1
+          Heat: 0.6 # 0.8 -> 0.6
+#ADT tweak end
         flatReductions:
           Blunt: 0.5
           Slash: 0.5
@@ -229,13 +242,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 40
+            damage: 70 #ADT tweak 40 -> 70
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 20 #Very weak shield
+            damage: 60 #Very weak shield + ADT tweak 20 -> 60
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -247,6 +260,14 @@
                 SheetSteel:
                   min: 1
                   max: 2
+#ADT tweak start
+    - type: Clothing
+      sprite: ADT/Objects/Weapons/Melee/shields/metal.rsi
+      quickEquip: false
+      slots:
+      - back
+      - suitStorage
+#ADT tweak end
 
 - type: entity
   name: web shield
