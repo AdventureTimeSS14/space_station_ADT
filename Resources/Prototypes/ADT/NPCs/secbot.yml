@@ -4,7 +4,9 @@
     - tasks:
         - !type:HTNCompoundTask
           task: ArrestWantedNearbyCompound
-
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
     - tasks:
         - !type:HTNCompoundTask
           task: SecbotPatrolCompound

@@ -60,6 +60,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: NPCRetaliation
+    attackMemoryLength: 15
+  - type: FactionException
   - type: HTN
     rootTask:
       task: SecbotCompound
