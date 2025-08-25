@@ -6,6 +6,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared._RMC14.Weapons.Common;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -14,6 +15,7 @@ public sealed class SharedWeaponComboSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -65,6 +67,11 @@ public sealed class SharedWeaponComboSystem : EntitySystem
                 comp.CurrentStand = ComboWeaponStand.Protective;
                 _appearance.SetData(uid, ComboWeaponState.State, false);
                 break;
+        }
+
+        if (comp.SwapSound != null)
+        {
+            _audio.PlayPredicted(comp.SwapSound, uid, args.UserUid);
         }
     }
 
