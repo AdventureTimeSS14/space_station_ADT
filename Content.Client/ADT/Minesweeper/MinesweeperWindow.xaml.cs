@@ -208,7 +208,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     public void OnTileClicked(int x, int y)
     {
-        if (_gameEnd) return;
+        if (_gameEnd)
+            return;
 
         if (!_minesPlaced)
         {
