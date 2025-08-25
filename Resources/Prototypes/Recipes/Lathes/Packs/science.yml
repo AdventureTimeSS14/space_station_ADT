@@ -30,6 +30,7 @@
   - SignallerAdvanced
   # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
   - DeviceDesynchronizer
+  - ClothingBackpackHarmpack
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -38,6 +39,7 @@
   # - ClothingShoesBootsMoon # ADT-Tweak - убираем луноходы
   # - ClothingShoesBootsSpeed # ADT tweak
   - ADTClothingOuterExoskeletonBase #ADT tweak
+  - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
@@ -47,6 +49,7 @@
   recipes:
   # - PowerCellMicroreactor ADT tweak
   - PowerCellHigh
+  - PowerCellHyper
 
 - type: latheRecipePack
   id: ScienceWeapons

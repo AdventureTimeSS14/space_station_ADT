@@ -30,18 +30,16 @@ public sealed class ModSuitSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPowerCellSystem _cell = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] protected readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedIdCardSystem _id = default!;
     [Dependency] private readonly SharedModSuitModSystem _module = default!;
@@ -202,7 +200,7 @@ public sealed class ModSuitSystem : EntitySystem
         if (!_inventorySystem.TryUnequip(Transform(attached.Owner).ParentUid, attachedSlot, force: true))
             return;
 
-        _containerSystem.Insert(attached.Owner, modSuitComp.Container);
+        _container.Insert(attached.Owner, modSuitComp.Container);
         args.Handled = true;
     }
 
@@ -332,7 +330,7 @@ public sealed class ModSuitSystem : EntitySystem
             return;
 
         if (modSuitComp.Container != null)
-            _containerSystem.Insert(attached.Owner, modSuitComp.Container);
+            _container.Insert(attached.Owner, modSuitComp.Container);
     }
 
     /// <summary>
@@ -515,8 +513,7 @@ public sealed class ModSuitSystem : EntitySystem
         var attachedCount = GetAttachedToggleCount(modSuit.Owner, modSuit.Comp);
         if (attachedCount <= 0)
         {
-            _cell.QueueUpdate((modSuit.Owner, celldraw));
-            _cell.SetDrawEnabled((modSuit.Owner, celldraw), false);
+            _cell.SetDrawEnabled((modSuit.Owner, celldraw), true);
             return;
         }
         modSuit.Comp.ModEnergyModifyedUsing = modSuit.Comp.ModEnergyBaseUsing * attachedCount;
@@ -544,7 +541,7 @@ public sealed class ModSuitSystem : EntitySystem
                 return;
 
             if (_inventorySystem.TryUnequip(user, parent, slot))
-                _containerSystem.Insert(currentClothing.Value, attachedComp.ClothingContainer);
+                _container.Insert(currentClothing.Value, attachedComp.ClothingContainer);
         }
 
         _inventorySystem.TryEquip(user, parent, clothing, slot, force: true);
@@ -590,15 +587,15 @@ public sealed class ModSuitSystem : EntitySystem
     {
         var comp = modSuit.Comp;
 
-        comp.Container = _containerSystem.EnsureContainer<Container>(modSuit, comp.ContainerId);
-        comp.ModuleContainer = _containerSystem.EnsureContainer<Container>(modSuit, comp.ModuleContainerId);
+        comp.Container = _container.EnsureContainer<Container>(modSuit, comp.ContainerId);
+        comp.ModuleContainer = _container.EnsureContainer<Container>(modSuit, comp.ModuleContainerId);
     }
 
     private void OnAttachedInit(Entity<ModAttachedClothingComponent> attached, ref ComponentInit args)
     {
         var comp = attached.Comp;
 
-        comp.ClothingContainer = _containerSystem.EnsureContainer<ContainerSlot>(attached, comp.ClothingContainerId);
+        comp.ClothingContainer = _container.EnsureContainer<ContainerSlot>(attached, comp.ClothingContainerId);
     }
 
     /// <summary>
@@ -641,7 +638,7 @@ public sealed class ModSuitSystem : EntitySystem
             EnsureComp<ContainerManagerComponent>(spawned);
 
             comp.ClothingUids.Add(spawned, prototype.Key);
-            _containerSystem.Insert(spawned, comp.Container, containerXform: xform);
+            _container.Insert(spawned, comp.Container, containerXform: xform);
 
             Dirty(spawned, attachedClothing);
         }
@@ -649,7 +646,7 @@ public sealed class ModSuitSystem : EntitySystem
         Dirty(modSuit, comp);
 
         if (_actionContainer.EnsureAction(modSuit, ref comp.ActionEntity, out var action, comp.Action))
-            _actionsSystem.SetEntityIcon(comp.ActionEntity.Value, modSuit, action);
+            _actionsSystem.SetEntityIcon((comp.ActionEntity.Value, action), modSuit);
         _actionContainer.EnsureAction(modSuit, ref comp.ActionMenuEntity, comp.MenuAction);
 
         foreach (var module in modSuit.Comp.StartingModules)
@@ -754,7 +751,7 @@ public sealed class ModSuitSystem : EntitySystem
             EquipmentStates = ev.States
         };
         Dirty(uid, component);
-        _ui.SetUiState(uid, ModSuitMenuUiKey.Key, state);
+        _uiSystem.SetUiState(uid, ModSuitMenuUiKey.Key, state);
     }
     public List<EntityUid>? GetAttachedClothingsList(EntityUid modSuit, ModSuitComponent? component = null)
     {
