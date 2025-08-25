@@ -27,8 +27,6 @@
     maxChargeRate: 500000
     supplyRampTolerance: 500000
     supplyRampRate: 100000
-  - type: Machine
-    board: ADTIndustrialSMESMachineCircuitboard
 
 - type: entity
   parent: ADTIndustrialSMES
