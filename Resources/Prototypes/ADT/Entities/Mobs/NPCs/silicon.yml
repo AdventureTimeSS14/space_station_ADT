@@ -63,11 +63,11 @@
   - type: HTN
     rootTask:
       task: SecbotCompound
-         blackboard:
-      TargetFoundSound: !type:SoundCollectionSpecifier
-        collection: ADTBeepskyTargetFound
-      TargetArrestedSound: !type:SoundCollectionSpecifier
-        collection: ADTBeepskyTargetArrested
+      blackboard:
+        TargetFoundSound: !type:SoundCollectionSpecifier
+          collection: ADTBeepskyTargetFound
+        TargetArrestedSound: !type:SoundCollectionSpecifier
+          collection: ADTBeepskyTargetArrested
   - type: CombatMode
   - type: MeleeWeapon
     hidden: true
