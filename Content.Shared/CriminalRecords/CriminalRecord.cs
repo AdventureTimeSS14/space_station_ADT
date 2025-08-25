@@ -42,3 +42,18 @@ public sealed partial record CriminalRecord
 /// </summary>
 [Serializable, NetSerializable]
 public record struct CrimeHistory(TimeSpan AddTime, string Crime, string? InitiatorName);
+
+// ADT-Beepsky-Start
+[Serializable, NetSerializable]
+public sealed class CriminalRecordChanged : EntityEventArgs
+{
+    public SecurityStatus Status;
+    public SecurityStatus PreviousStatus;
+
+    public CriminalRecordChanged(SecurityStatus status, SecurityStatus previousStatus)
+    {
+        Status = status;
+        PreviousStatus = previousStatus;
+    }
+}
+// ADT-Beepsky-End

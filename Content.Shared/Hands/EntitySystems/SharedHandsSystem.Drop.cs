@@ -94,7 +94,7 @@ public abstract partial class SharedHandsSystem
     /// </summary>
     public bool TryDrop(EntityUid uid, EntityUid entity, EntityCoordinates? targetDropLocation = null, bool checkActionBlocker = true, bool doDropInteraction = true, HandsComponent? handsComp = null)
     {
-        if (!Resolve(uid, ref handsComp))
+        if (!Resolve(uid, ref handsComp, false)) // ADT-Beepsky
             return false;
 
         if (!IsHolding(uid, entity, out var hand, handsComp))
