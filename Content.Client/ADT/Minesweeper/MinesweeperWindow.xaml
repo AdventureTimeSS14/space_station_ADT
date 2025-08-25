@@ -4,7 +4,7 @@
     xmlns:controls="clr-namespace:Content.Client.ADT.Minesweeper"
     xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    Title="▌ M I N E S W E E P E R ▐"
+    Title="{Loc 'minesweeper-window-title'}"
     MinSize="900 700"
     x:Class="Content.Client.ADT.Minesweeper.MinesweeperWindow">
 
@@ -15,7 +15,7 @@
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="10">
 
     <!-- Заголовок -->
-    <Label Text="SYSTEM MODULE :: MINESWEEPER PRO"
+    <Label Text="{Loc 'minesweeper-header'}"
             StyleClasses="ConsoleHeading"
             HorizontalAlignment="Center" Margin="0 5 0 10"/>
 
@@ -51,24 +51,24 @@
                                 <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
                             </PanelContainer.PanelOverride>
                             <BoxContainer Orientation="Vertical" SeparationOverride="10" Margin="10">
-                                <Label Text="CONTROLS" StyleClasses="ConsoleSubHeading" FontColorOverride="cyan" HorizontalAlignment="Center"/>
+                                <Label Text="{Loc 'minesweeper-controls'}" StyleClasses="ConsoleSubHeading" FontColorOverride="cyan" HorizontalAlignment="Center"/>
 
                                 <Button Name="ToggleFlagButton"
                                         StyleClasses="MonotoneButton"
-                                        Text="🏳 Toggle Flag Mode"
-                                        MinSize="300,45"
-                                        MaxSize="300,45"/>
+                                        Text="{Loc 'minesweeper-toggle-flag'}"
+                                        MinSize="300,50"
+                                        MaxSize="300,50"/>
 
                                 <Button Name="NewGameButton"
                                         StyleClasses="MonotoneButton"
-                                        Text="● New Game"
-                                        MinSize="300,45"
-                                        MaxSize="300,45"/>
+                                        Text="{Loc 'minesweeper-new-game'}"
+                                        MinSize="300,50"
+                                        MaxSize="300,50"/>
 
                                 <OptionButton Name="DifficultySelect"
                                               StyleClasses="OptionButton"
-                                              MinSize="300,45"
-                                              MaxSize="300,45"/>
+                                              MinSize="300,50"
+                                              MaxSize="300,50"/>
                             </BoxContainer>
                         </PanelContainer>
 
@@ -78,20 +78,20 @@
                                 <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
                             </PanelContainer.PanelOverride>
                             <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
-                                <Label Text="GAME STATUS" StyleClasses="ConsoleSubHeading" FontColorOverride="lime" HorizontalAlignment="Center"/>
+                                <Label Text="{Loc 'minesweeper-status'}" StyleClasses="ConsoleSubHeading" FontColorOverride="lime" HorizontalAlignment="Center"/>
 
                                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                                    <Label Text="State:" FontColorOverride="silver" MinWidth="80"/>
-                                    <Label Name="GameStatusLabel" Text="Ready..." FontColorOverride="lime" HorizontalExpand="True"/>
+                                    <Label Text="{Loc 'minesweeper-state'}" FontColorOverride="silver" MinWidth="80"/>
+                                    <Label Name="GameStatusLabel" Text="{Loc 'minesweeper-ready'}" FontColorOverride="lime" HorizontalExpand="True"/>
                                 </BoxContainer>
 
                                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                                    <Label Text="Mines:" FontColorOverride="silver" MinWidth="80"/>
+                                    <Label Text="{Loc 'minesweeper-mines'}" FontColorOverride="silver" MinWidth="80"/>
                                     <Label Name="MinesCountLabel" Text="0/10" FontColorOverride="orange"/>
                                 </BoxContainer>
 
                                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                                    <Label Text="Time:" FontColorOverride="silver" MinWidth="80"/>
+                                    <Label Text="{Loc 'minesweeper-time'}" FontColorOverride="silver" MinWidth="80"/>
                                     <Label Name="TimerLabel" Text="00:00" FontColorOverride="yellow"/>
                                 </BoxContainer>
                             </BoxContainer>
@@ -104,7 +104,7 @@
                                 <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
                             </PanelContainer.PanelOverride>
                             <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
-                                <Label Text="> RECORDS" StyleClasses="ConsoleSubHeading" FontColorOverride="orange" HorizontalAlignment="Center"/>
+                                <Label Text="{Loc 'minesweeper-records'}" StyleClasses="ConsoleSubHeading" FontColorOverride="orange" HorizontalAlignment="Center"/>
 
                                 <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
                                     <Label Name="RecordListLabel"
@@ -122,15 +122,12 @@
             </Control>
         </Control>
 
-        <!-- Нижний надпись -->
+        <!-- Нижняя надпись -->
         <BoxContainer Orientation="Horizontal" SetHeight="28" Margin="0 10 0 5" SeparationOverride="10" HorizontalExpand="True">
-            <Label Text="⌨ MINESWEEPER_OS v1.04" FontColorOverride="#FFFFFF" HorizontalAlignment="Left"/>
-            <Label Text="📚 Powered by Schrödinger.inc Systems" FontColorOverride="#e7ff10ff" HorizontalExpand="True" HorizontalAlignment="Center"/>
-            <Label Text="📦 Auto-Save: Disable" FontColorOverride="#ff0d00ff" HorizontalAlignment="Right"/>
+            <Label Text="{Loc 'minesweeper-footer-os'}" FontColorOverride="#FFFFFF" HorizontalAlignment="Left"/>
+            <Label Text="{Loc 'minesweeper-footer-powered'}" FontColorOverride="#e7ff10ff" HorizontalExpand="True" HorizontalAlignment="Center"/>
+            <Label Text="{Loc 'minesweeper-footer-autosave'}" FontColorOverride="#ff0d00ff" HorizontalAlignment="Right"/>
         </BoxContainer>
 
     </BoxContainer>
 </controls1:FancyWindow>
-
-
-

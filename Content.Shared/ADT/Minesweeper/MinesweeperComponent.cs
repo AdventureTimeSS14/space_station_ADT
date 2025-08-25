@@ -26,7 +26,11 @@ public sealed class MinesweeperRecord
     public override string ToString()
     {
         var time = TimeSpan.FromSeconds(TimeSeconds);
-        return $"{EntityName} — {Difficulty} — {time:mm\\:ss}";
+        var timeStr = time.ToString(@"mm\:ss");
+        return Loc.GetString("minesweeper-record-format",
+            ("name", EntityName),
+            ("difficulty", Difficulty),
+            ("time", timeStr));
     }
 }
 
