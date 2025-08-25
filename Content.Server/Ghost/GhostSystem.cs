@@ -82,7 +82,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         //ADT tweak Start
-        [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+        [Dependency] private readonly UserDbDataManager _userDb = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
         //ADT tweak End
@@ -288,17 +288,16 @@ namespace Content.Server.Ghost
 
             var player = args.Player;
 
-            if (player == null)
+            if (!_userDb.IsLoadComplete(player))
                 return;
 
             try
             {
                 var profile = _gameTicker.GetPlayerProfile(player);
-                if (_prefsManager.HavePreferencesLoaded(player))
-                {
-                    _humanoidSystem.LoadProfile(uid, profile, humanoid);
-                    GhostClothingInit(uid, component, profile);
-                }
+
+                _humanoidSystem.LoadProfile(uid, profile, humanoid);
+                GhostClothingInit(uid, component, profile);
+
             }
             catch (Exception e)
             {
