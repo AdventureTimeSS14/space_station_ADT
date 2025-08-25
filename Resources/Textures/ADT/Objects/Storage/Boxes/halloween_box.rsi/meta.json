@@ -1,7 +1,7 @@
 {
     "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by discord: prazat911 для Времени Приключений MRP",
+    "copyright": "Made by discord: prazat911 для Времени Приключений MRP, barotrauma_clown sprited by orange6775 (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -90,6 +90,9 @@
         },
         {
             "name": "michael"
+        },
+        {
+            "name": "barotrauma_clown"
         }
     ]
 }
