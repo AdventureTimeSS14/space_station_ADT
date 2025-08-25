@@ -16,14 +16,12 @@ public sealed partial class MinesweeperComponent : Component
     public List<MinesweeperRecord> Records = new();
 }
 
-
-// TODO: Доделать запись рекордов
 [Serializable, NetSerializable]
 public sealed class MinesweeperRecord
 {
-    public string Difficulty = "";
+    public string Difficulty = string.Empty;
     public float TimeSeconds = 0f;
-    public string EntityName = "";
+    public string EntityName = string.Empty;
 
     public override string ToString()
     {

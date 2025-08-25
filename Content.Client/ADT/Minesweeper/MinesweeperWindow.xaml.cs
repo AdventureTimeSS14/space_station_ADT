@@ -128,10 +128,8 @@ public sealed partial class MinesweeperWindow : FancyWindow
     private void NewGame()
     {
         _gameEnd = false;
-        // _elapsedTime = 0f;
         _timerRunning = false;   // таймер пока стоит
-
-        _stopwatch.Restart();    // обнуляем и запускаем заново (пусть тикает в фоне)
+        _stopwatch.Restart();    // обнуляем и запускаем заново
         TimerLabel.Text = "00:00";
         GameStatusLabel.Text = "Игра началась...";
         GameStatusLabel.FontColorOverride = Color.Green;
