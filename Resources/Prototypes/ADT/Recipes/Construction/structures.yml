@@ -139,7 +139,7 @@
   description: The greatest invention since rocket-propelled grenades.
   icon:
     sprite: ADT/Structures/stairs.rsi
-    state: wood_black_single_stairs
+    state: wood_dark_single_stairs
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -196,7 +196,6 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
-
 
 - type: construction
   id: ADTBlastFloor
