@@ -8,15 +8,6 @@
     Gold: 100
 
 - type: latheRecipe
-  id: ADTIndustrialSMESMachineCircuitboard
-  result: ADTIndustrialSMESMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-     Gold: 100
-
-- type: latheRecipe
   parent: MicrowaveMachineCircuitboard
   id: ADTAdvancedMicrowaveMachineCircuitBoard
   result: ADTAdvancedMicrowaveMachineCircuitBoard
