@@ -1,7 +1,7 @@
 using Content.Shared.ADT.Minesweeper;
 using JetBrains.Annotations;
 
-namespace Content.Client.ADT.Minesweeper.Minesweeper;
+namespace Content.Client.ADT.Minesweeper;
 
 [UsedImplicitly]
 public sealed class MinesweeperBoundUserInterface : BoundUserInterface
