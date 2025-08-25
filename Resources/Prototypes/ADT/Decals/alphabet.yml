@@ -305,7 +305,7 @@
     state: rus_g
 
 - type: decal
-  id: ADTRusHardSing
+  id: ADTRusHardSign
   tags: ["symbols"]
   snapCardinals: true
   defaultSnap: false
