@@ -54,7 +54,6 @@
             - Captain
             - CentralCommandOfficial
             - CBURN
-            - 
 
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
