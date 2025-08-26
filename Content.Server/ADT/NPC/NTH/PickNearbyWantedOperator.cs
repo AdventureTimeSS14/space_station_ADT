@@ -4,7 +4,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Security.Components;
-using Content.Shared.Stealth;
 using System.Threading;
 using System.Threading.Tasks;
 using Robust.Shared.Audio;
@@ -18,7 +17,6 @@ public sealed partial class PickNearbyWantedOperator : HTNOperator
     private EntityLookupSystem _lookup = default!;
     private PathfindingSystem _pathfinding = default!;
     private SharedAudioSystem _audio = default!;
-    private SharedStealthSystem _stealthSystem = default!;
 
     [DataField]
     public float MaxPoints = 10f;

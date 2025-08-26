@@ -8,7 +8,6 @@ using Content.Shared.Security.Components;
 using Content.Shared.Security;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles;
-using Content.Shared.Stealth;
 using System.Threading;
 using System.Threading.Tasks;
 using Robust.Shared.Audio;
