@@ -298,6 +298,8 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
     // ADT-Beepsky-Start
     public const string SecuritronArrestRange = "SecuritronArrestRange";
     public const string SecuritronPatrolRange = "SecuritronPatrolRange";
+    public const string ContrabandTarget = "ContrabandTarget";
+    public const string ContrabandTargetCoordinates = "ContrabandTargetCoordinates";
     // ADT-Beepsky-End
 
     public const string MeleeMissChance = "MeleeMissChance";
