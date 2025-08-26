@@ -57,7 +57,7 @@ public sealed partial class MinesweeperSystem : EntitySystem
             Dirty(ent, comp);
         }
 
-        if (component.SoundLost != null)
+        if (component.SoundWin != null)
             _sharedAudioSystem.PlayPvs(component.SoundWin, uid);
     }
 
