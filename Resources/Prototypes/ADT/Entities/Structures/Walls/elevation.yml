@@ -9,7 +9,7 @@
     drawdepth: SmallObjects
     sprite: ADT/Structures/Walls/elevation.rsi
   - type: Icon
-    sprite: Structures/Walls/elevation.rsi
+    sprite: ADT/Structures/Walls/elevation.rsi
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
