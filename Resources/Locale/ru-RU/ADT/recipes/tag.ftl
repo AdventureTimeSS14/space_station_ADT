@@ -100,3 +100,4 @@ construction-graph-intercom-electronics = плата интеркома
 # Другое
 construction-graph-tag-capicator-stock-part = конденсатор
 construction-graph-voice-trigger = голосовой триггер
+construction-graph-tag-stunbaton = дубинка-шокер
