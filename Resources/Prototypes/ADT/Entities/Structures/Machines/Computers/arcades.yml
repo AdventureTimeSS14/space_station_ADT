@@ -19,7 +19,9 @@
     tags:
     - EmagImmune
   - type: Minesweeper
-    sound: /Audio/ADT/Machines/minesweeaper_lost_boom.ogg
+    soundLost: /Audio/ADT/Machines/minesweeaper_lost_boom.ogg
+    soundWin: /Audio/ADT/Machines/win.ogg
+    soundTick: /Audio/ADT/Machines/tick.ogg
   - type: Computer
     board: MinesweeperCircuitboard
   - type: ActivatableUI

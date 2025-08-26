@@ -16,9 +16,14 @@ public sealed partial class MinesweeperComponent : Component
     [DataField, AutoNetworkedField]
     public List<MinesweeperRecord> Records = new();
 
-    [DataField("sound")]
+    [DataField("soundLost")]
     public SoundSpecifier? SoundLost;
 
+    [DataField("soundWin")]
+    public SoundSpecifier? SoundWin;
+
+    [DataField("soundTick")]
+    public SoundSpecifier? SoundTick;
 }
 
 [Serializable, NetSerializable]

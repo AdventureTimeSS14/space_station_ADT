@@ -56,6 +56,9 @@ public sealed partial class MinesweeperSystem : EntitySystem
 
             Dirty(ent, comp);
         }
+
+        if (component.SoundLost != null)
+            _sharedAudioSystem.PlayPvs(component.SoundWin, uid);
     }
 
     private void OnLostMessageReceived(EntityUid uid, MinesweeperComponent component, MinesweeperLostMessage msg)
@@ -67,7 +70,7 @@ public sealed partial class MinesweeperSystem : EntitySystem
         // if (_random.Next(100) < 2)
         // {
         //     _explosionSystem.ExplodeTile();
-        //     // _explosion.QueueExplosion(equipee, "Default", 200f, 10f, 100f, 1f);
+        //     // _explosionSystem.QueueExplosion(equipee, "Default", 200f, 10f, 100f, 1f);
         // }
     }
 }
