@@ -47,7 +47,6 @@ public sealed partial class PickNearbyWantedOperator : HTNOperator
         _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _audio = sysManager.GetEntitySystem<SharedAudioSystem>();
-        _stealthSystem = sysManager.GetEntitySystem<SharedStealthSystem>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
@@ -78,9 +77,6 @@ public sealed partial class PickNearbyWantedOperator : HTNOperator
             var path = await _pathfinding.GetPath(owner, entity, pathRange, cancelToken);
 
             if (path.Result == PathResult.NoPath)
-                continue;
-
-            if (_stealthSystem.GetVisibility(entity) < 0.8f || !_stealthSystem.CheckStealthWhitelist(owner, entity))
                 continue;
 
             if (TargetFoundSoundKey != null &&

@@ -20,7 +20,6 @@ public sealed partial class PickNearbyContrabandOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     private SharedRoleSystem _roleSystem = default!;
-    private SharedStealthSystem _stealthSystem = default!;
     private EntityLookupSystem _lookup = default!;
     private PathfindingSystem _pathfinding = default!;
     private SharedAudioSystem _audio = default!;
@@ -51,7 +50,6 @@ public sealed partial class PickNearbyContrabandOperator : HTNOperator
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _audio = sysManager.GetEntitySystem<SharedAudioSystem>();
         _mindSystem = sysManager.GetEntitySystem<MindSystem>();
-        _stealthSystem = sysManager.GetEntitySystem<SharedStealthSystem>();
         _roleSystem = sysManager.GetEntitySystem<SharedRoleSystem>();
     }
 
@@ -84,12 +82,6 @@ public sealed partial class PickNearbyContrabandOperator : HTNOperator
                 continue;
 
             if (cuffableQuery.TryGetComponent(entity, out var cuffable) && cuffable.CuffedHandCount > 0)
-                continue;
-
-            if (criminalRecord.Points >= 10f)
-                continue;
-
-            if (_stealthSystem.GetVisibility(entity) < 0.8f || !_stealthSystem.CheckStealthWhitelist(owner, entity))
                 continue;
 
             if (!ShouldArrestForContraband(entity))
