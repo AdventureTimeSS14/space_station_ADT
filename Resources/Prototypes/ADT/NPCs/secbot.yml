@@ -47,6 +47,14 @@
             - HeadOfSecurity
             - Detective
             - SecurityCadet
+            - Brigmedic
+            - ADTGuardOfficer
+            - ADTSeniorOfficer
+            - ADTBlueShieldOfficer
+            - Captain
+            - CentralCommandOfficial
+            - CBURN
+            - 
 
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator

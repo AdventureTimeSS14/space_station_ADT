@@ -9,3 +9,4 @@
 - type: contrabandSeverity
   id: Magic
   examineText: contraband-examine-text-magic
+  criminalPoints: 6 # ADT-Beepsky
