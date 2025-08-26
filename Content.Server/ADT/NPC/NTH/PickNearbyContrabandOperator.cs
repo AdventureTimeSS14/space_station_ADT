@@ -1,10 +1,14 @@
 using Content.Server.NPC.Pathfinding;
+using Content.Server.Mind;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Security.Components;
 using Content.Shared.Security;
+using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles;
+using Content.Shared.Stealth;
 using System.Threading;
 using System.Threading.Tasks;
 using Robust.Shared.Audio;
@@ -15,9 +19,12 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 public sealed partial class PickNearbyContrabandOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+    private SharedRoleSystem _roleSystem = default!;
+    private SharedStealthSystem _stealthSystem = default!;
     private EntityLookupSystem _lookup = default!;
     private PathfindingSystem _pathfinding = default!;
     private SharedAudioSystem _audio = default!;
+    private MindSystem _mindSystem = default!;
 
     [DataField]
     public float MinContrabandPoints = 3f;
@@ -34,12 +41,18 @@ public sealed partial class PickNearbyContrabandOperator : HTNOperator
     [DataField]
     public string? TargetFoundSoundKey;
 
+    [DataField]
+    public HashSet<string> ExcludedJobs = new();
+
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
         _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _audio = sysManager.GetEntitySystem<SharedAudioSystem>();
+        _mindSystem = sysManager.GetEntitySystem<MindSystem>();
+        _stealthSystem = sysManager.GetEntitySystem<SharedStealthSystem>();
+        _roleSystem = sysManager.GetEntitySystem<SharedRoleSystem>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
@@ -76,6 +89,12 @@ public sealed partial class PickNearbyContrabandOperator : HTNOperator
             if (criminalRecord.Points >= 10f)
                 continue;
 
+            if (_stealthSystem.GetVisibility(entity) < 0.8f || !_stealthSystem.CheckStealthWhitelist(owner, entity))
+                continue;
+
+            if (!ShouldArrestForContraband(entity))
+                continue;
+
             var pathRange = SharedInteractionSystem.InteractionRange - 1f;
             var path = await _pathfinding.GetPath(owner, entity, pathRange, cancelToken);
 
@@ -99,5 +118,23 @@ public sealed partial class PickNearbyContrabandOperator : HTNOperator
         }
 
         return (false, null);
+    }
+
+    private bool ShouldArrestForContraband(EntityUid entity)
+    {
+        if (!_mindSystem.TryGetMind(entity, out var mindId, out var _))
+            return true;
+
+        if (!_roleSystem.MindHasRole<JobRoleComponent>(mindId, out var jobRole))
+            return true;
+
+        var jobPrototypeId = jobRole.Value.Comp1.JobPrototype;
+        if (jobPrototypeId == null)
+            return true;
+
+        if (ExcludedJobs.Contains(jobPrototypeId.Value))
+            return false;
+
+        return true;
     }
 }

@@ -40,8 +40,13 @@
           operator: !type:PickNearbyContrabandOperator
             targetKey: ContrabandTarget
             targetMoveKey: ContrabandTargetCoordinates
-            targetFoundSoundKey: ContrabandTargetFoundSound
             minContrabandPoints: 3
+            excludedJobs:
+            - SecurityOfficer
+            - Warden
+            - HeadOfSecurity
+            - Detective
+            - SecurityCadet
 
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
@@ -90,7 +95,6 @@
         - !type:HTNPrimitiveTask
           operator: !type:ForceHandcuffOperator
             targetKey: ContrabandTarget
-            targetArrestedSoundKey: ContrabandTargetArrestedSound
         - !type:HTNPrimitiveTask
           operator: !type:SendRadioOperator
             message: securitron-contraband-arrested
