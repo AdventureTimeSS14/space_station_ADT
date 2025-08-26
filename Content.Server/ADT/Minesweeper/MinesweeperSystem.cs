@@ -1,6 +1,7 @@
 using Content.Shared.ADT.Minesweeper;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Content.Shared.Emag.Systems;
 using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.ADT.Minesweeper;
@@ -10,11 +11,13 @@ public sealed partial class MinesweeperSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+    [Dependency] private readonly EmagSystem _emagSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<MinesweeperEmagComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<MinesweeperComponent, BoundUIOpenedEvent>(OnBoundUiOpened);
         SubscribeLocalEvent<MinesweeperComponent, BoundUIClosedEvent>(OnBoundUiClosed);
         Subs.BuiEvents<MinesweeperComponent>(MinesweeperUiKey.Key, subs =>
@@ -22,6 +25,17 @@ public sealed partial class MinesweeperSystem : EntitySystem
             subs.Event<MinesweeperWinMessage>(OnWinMessageReceived);
             subs.Event<MinesweeperLostMessage>(OnLostMessageReceived);
         });
+    }
+
+    private void OnEmagged(EntityUid uid, MinesweeperEmagComponent component, ref GotEmaggedEvent args)
+    {
+        Logger.Warning($"{ToPrettyString(uid)} ЕМАГНУЛИ");
+
+        if (!TryComp<MinesweeperComponent>(uid, out var minesweeperComponent))
+            return;
+
+        minesweeperComponent.IsEmagged = true;
+        args.Handled = true;
     }
 
     private void OnBoundUiOpened(EntityUid uid, MinesweeperComponent component, BoundUIOpenedEvent args)
@@ -66,11 +80,27 @@ public sealed partial class MinesweeperSystem : EntitySystem
         if (component.SoundLost != null)
             _sharedAudioSystem.PlayPvs(component.SoundLost, uid);
 
-        // TODO: с шансом 1-2% Будет взрыв при проигрыше ^_^
-        // if (_random.Next(100) < 2)
-        // {
-        //     _explosionSystem.ExplodeTile();
-        //     // _explosionSystem.QueueExplosion(equipee, "Default", 200f, 10f, 100f, 1f);
-        // }
+        if (component.IsEmagged)
+        {
+            _explosionSystem.QueueExplosion(uid, "Cryo", 200f, 10f, 100f, 1f); // Да я это захардкодю, вопросы?
+            return;
+        }
+
+        // с шансом 10% Будет взрыв при проигрыше ^_^
+        if (_random.Next(100) < 10)
+        {
+            _explosionSystem.QueueExplosion(
+                uid,
+                "Default",
+                totalIntensity: 0.01f,
+                slope: 1f,
+                maxTileIntensity: 0f,
+                tileBreakScale: 0f,
+                maxTileBreak: 0,
+                canCreateVacuum: false,
+                user: null,
+                addLog: false
+            );
+        }
     }
 }

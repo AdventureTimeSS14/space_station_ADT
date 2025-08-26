@@ -24,6 +24,9 @@ public sealed partial class MinesweeperComponent : Component
 
     [DataField("soundTick")]
     public SoundSpecifier? SoundTick;
+
+    [DataField]
+    public bool IsEmagged = false;
 }
 
 [Serializable, NetSerializable]

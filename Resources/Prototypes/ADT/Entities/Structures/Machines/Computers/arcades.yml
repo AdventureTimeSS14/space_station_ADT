@@ -41,5 +41,5 @@
     maximumWait: 240
   - type: SpeakOnUIClosed
     pack: MinesweeperGoodbyes
-
+  - type: MinesweeperEmag
 
