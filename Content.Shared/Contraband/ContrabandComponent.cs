@@ -33,4 +33,10 @@ public sealed partial class ContrabandComponent : Component
     [DataField]
     [AutoNetworkedField]
     public HashSet<ProtoId<JobPrototype>> AllowedJobs = new();
+
+    // ADT-Beepsky-Start
+    [DataField]
+    [AutoNetworkedField]
+    public float CriminalPoints = 0f;
+    // ADT-Beepsky-End
 }
