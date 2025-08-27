@@ -24,8 +24,6 @@
   id: ADTBaseMedicalPDA
   abstract: true
   components:
-  # - type: ItemToggle # ADT Tweak (commented)
-  #   onUse: false # ADT Tweak (commented)
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
