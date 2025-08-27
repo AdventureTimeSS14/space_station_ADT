@@ -832,6 +832,7 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
   - SalvageSpecialistDuffel
+  - ADTClothingBackpackSatchelLeather # ADT tweak
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
