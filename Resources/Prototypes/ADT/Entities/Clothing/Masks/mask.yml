@@ -181,22 +181,6 @@
 #   - type: Clothing
 #     sprite: ADT/Clothing/Mask/lapkeeset_mask.rsi
 
-# - type: entity
-#   parent: ClothingMaskBase
-#   id: ADTClothingMaskBorodaDedMoroz
-#   suffix: New Year
-#   name: Boroda ded moroz
-#   description: Boroda ded moroz
-#   components:
-#   - type: Sprite
-#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-#   - type: Clothing
-#     sprite: ADT/Clothing/Mask/ded_morozsetboroda.rsi
-#     clothingVisuals:
-#       mask:
-#       - state: equipped-MASK
-#   - type: BreathMask
-
 - type: entity
   parent: ClothingMaskBase
   id: ADTChronosMask
