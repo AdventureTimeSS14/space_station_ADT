@@ -4,7 +4,9 @@ uplink-pistol-viper-desc = Небольшой, легко скрываемый, 
 uplink-estoc-bundle-name = Estoc DMR
 uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
 uplink-revolver-python-name = Питон
-uplink-revolver-python-desc = Брутально простой, эффективный и громкий револьвер Синдиката. Поставляется с бронебойными патронами. Использует патроны калибра .44 магнум.
+#ADT tweak start (44 магнум -> 357 магнум)
+uplink-revolver-python-desc = Брутально простой, эффективный и громкий револьвер Синдиката. Поставляется с бронебойными патронами. Использует патроны калибра .357 магнум.
+#ADT tweak end
 uplink-pistol-cobra-name = Кобра
 uplink-pistol-cobra-desc = Пистолет суровых робастных агентов, с интегрированным глушителем. Использует патроны калибра 4.7х33 мм безгильзовый.
 uplink-rifle-mosin-name = Кардашёв-Мосин

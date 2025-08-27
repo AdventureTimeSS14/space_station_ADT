@@ -30,6 +30,10 @@
         Caustic: 0.2 #ADT-tweak
   - type: ExplosionResistance
     damageCoefficient: 0.7
+#ADT tweak start
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.25
+#ADT tweak end
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURNLeader
 

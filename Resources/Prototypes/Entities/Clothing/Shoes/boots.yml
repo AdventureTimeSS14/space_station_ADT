@@ -59,6 +59,10 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/combatboots.rsi
+#ADT tweak start
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+#ADT tweak end
 
 - type: entity
   parent: ClothingShoesMilitaryBase

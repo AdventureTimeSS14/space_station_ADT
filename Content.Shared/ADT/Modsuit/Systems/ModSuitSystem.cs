@@ -22,11 +22,13 @@ using Content.Shared.Coordinates;
 using Content.Shared.PowerCell;
 using Content.Shared.Access.Systems;
 using Content.Shared.Emp;
+using Robust.Shared.Player;
 
 namespace Content.Shared.ADT.ModSuits;
 
 public sealed class ModSuitSystem : EntitySystem
 {
+    [Dependency] private readonly ISharedPlayerManager _players = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
@@ -548,11 +550,10 @@ public sealed class ModSuitSystem : EntitySystem
 
         if (GetAttachedToggleStatus(modSuit, modSuit.Comp) == ModSuitAttachedStatus.AllToggled)
         {
-            if (!_mindSystem.TryGetMind(user, out var _, out var mind))
-                return;
-            // if (mind.Session == null)
-            //     return;
-            // _audioSystem.PlayGlobal(comp.FullyEnabledSound, mind.Session);
+            // if (_players.TryGetSessionByEntity(user, out var session) && !_timing.ServerTime)
+            // {
+            //     _audioSystem.PlayGlobal(comp.FullyEnabledSound, session);
+            // }
         }
         if (!TryComp<PowerCellDrawComponent>(modSuit.Owner, out var celldraw))
             return;

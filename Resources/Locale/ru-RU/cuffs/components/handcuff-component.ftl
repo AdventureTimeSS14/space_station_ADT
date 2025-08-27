@@ -36,3 +36,5 @@ handcuff-component-cuff-interrupt-other-message = Вы помешали { $other
 handcuff-component-cuff-interrupt-buckled-message = Вы не можете пристегнуться в наручниках!
 handcuff-component-cuff-interrupt-unbuckled-message = Вы не можете отстегнуться в наручниках!
 handcuff-component-cannot-drop-cuffs = Вы не можете надеть наручники на { $target }.
+
+force-handcuff-verb-get-data-text = Заковать

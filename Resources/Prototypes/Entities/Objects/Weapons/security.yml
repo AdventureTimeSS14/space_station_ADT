@@ -1,6 +1,20 @@
+# ADT-Beepsky-Start
+- type: entity
+  id: BaseStunbaton
+  components:
+  - type: Stunbaton
+    energyPerUse: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+# ADT-Beepsky-End
+
 - type: entity
   name: stun baton
-  parent: [BaseItem, BaseSecurityContraband]
+  parent: [BaseItem, BaseSecurityContraband, BaseStunbaton]
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
@@ -43,9 +57,9 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
-  - type: StaminaDamageOnHit
-    damage: 35
-    sound: /Audio/Weapons/egloves.ogg
+  # - type: StaminaDamageOnHit
+  #   damage: 35
+  # sound: /Audio/Weapons/egloves.ogg
   #ADT tweak start
   # TODO: сделать компонент StaminaDamageOnLand заместо этого
   # - type: StaminaDamageOnCollide
@@ -53,9 +67,9 @@
   #   sound: /Audio/Weapons/egloves.ogg
   #ADT tweak end
   - type: LandAtCursor # it deals stamina damage when thrown
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+  # - type: Battery
+  #   maxCharge: 1000
+  #   startingCharge: 1000
   - type: UseDelay
   - type: Item
     heldPrefix: off
@@ -97,7 +111,8 @@
     guides:
     - Security
     - Antagonists
-  - type: MeleeBlacklist #ADT tweak start
+  #ADT tweak start
+  - type: MeleeBlacklist
     blacklist:
       tags:
       - ADTBatonBlocker
