@@ -191,7 +191,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
                     }
                     else if (args.Function == EngineKeyFunctions.UIRightClick) // ПКМ
                     {
-                        if (_comp != null)
+                        if (_comp?.SoundTick != null)
                             _audioSystem.PlayPvs(_comp.SoundTick, _comp.Owner);
                         OnTileRightClicked(localX, localY);
                         args.Handle();
