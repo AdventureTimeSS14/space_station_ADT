@@ -22,6 +22,7 @@
     whitelist:
       tags:
       - Sheet
+      - RawMaterial
       - Ingot
       - ADTBSCrystal #ADT Tweak
       - PhantomEctoplasm #ADT Tweak

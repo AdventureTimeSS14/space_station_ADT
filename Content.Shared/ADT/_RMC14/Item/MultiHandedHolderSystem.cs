@@ -31,7 +31,7 @@ public sealed class MultiHandedHolderSystem : EntitySystem
             return;
 
         if (TryComp<HandsComponent>(args.User, out var hands) &&
-            hands.CountFreeHands() >= needed)
+            hands.Count >= needed)
         {
             return;
         }
