@@ -1,31 +1,7 @@
 using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Content.Shared.Actions;
-using Content.Shared.Clothing.Components;
-using Content.Shared.DoAfter;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
-using Content.Shared.Popups;
-using Content.Shared.Strip;
-using Content.Shared.Verbs;
-using Robust.Shared.Containers;
-using Robust.Shared.Network;
-using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
-using System.Linq;
-using Content.Shared.Mind;
-using Content.Shared.Wires;
-using Content.Shared.Containers.ItemSlots;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Coordinates;
 using Content.Shared.PowerCell;
-using Content.Shared.Access.Systems;
-using Content.Shared.Emp;
-using Robust.Shared.Player;
 
 namespace Content.Shared.ADT.ModSuits;
 

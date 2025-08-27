@@ -82,7 +82,7 @@
   - type: Sprite
     state: jetpack_adv
   - type: ModSuitMod
-    energyUsing: 1.5
+    energyUsing: 3.5
     slots:
     - MODcore
     components:
