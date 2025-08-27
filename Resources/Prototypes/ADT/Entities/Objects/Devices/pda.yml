@@ -396,6 +396,15 @@
   - type: Pda
     id: ADTTavernkeepIDCard
 
+- type: entity
+  parent: BartenderPDA
+  id: ADTBaristaPDA
+  name: barista PDA
+  description: The position is for those who want to legally poison Xenos.
+  components:
+  - type: Pda
+    id: ADTBaristaIDCard
+
 # Chef
 
 - type: entity
@@ -665,7 +674,7 @@
   name: journalist PDA
   components:
   - type: Pda
-    id: ADYJournalistIDCard
+    id: ADTJournalistIDCard
 
 # Boxer
 

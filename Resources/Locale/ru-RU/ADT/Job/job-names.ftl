@@ -102,6 +102,7 @@ job-name-tourist = турист
 job-name-student = студент
 job-name-mixologist = миксолог
 job-name-taverkeeper = трактирщик
+job-name-barista = бариста
 job-name-baker = пекарь
 job-name-butcher = мясник
 job-name-pizzaiolo = пиццайоло

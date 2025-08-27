@@ -726,7 +726,7 @@
 
 - type: loadoutGroup
   id: ADTClownGloves
-  name: loadout-group-clown-mask-adt
+  name: loadout-group-clown-gloves-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -776,6 +776,25 @@
   - ADTWhiteGloves
   - ADTRedGloves
 
+## Сервисный работник
+
+- type: loadoutGroup
+  id: ADTServiceWorkerGloves
+  name: loadout-group-service-worker-gloves-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlackGloves
+  - ADTWhiteGloves
+
+- type: loadoutGroup
+  id: ADTServiceWorkerJumpsuit
+  name: loadout-group-service-worker-jumpsuit-adt
+  loadouts:
+  - BartenderJumpsuit
+  - BartenderJumpskirt
+  - ADTClothingUniformJumpsuitTuxedo
+
 # Боксёр
 
 - type: loadoutGroup
@@ -807,6 +826,7 @@
   - BartenderPDA
   - ADTMixologistPDA
   - ADTTavernkeepPDA
+  - ADTBaristaPDA
 
 - type: loadoutGroup
   id: ADTChefPDA

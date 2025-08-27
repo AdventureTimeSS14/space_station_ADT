@@ -59,6 +59,9 @@ ent-ADTMixologistIDCard = ID карта миксолога
 ent-ADTTavernkeepIDCard = ID карта трактирщика
     .desc = ID карта трактирщика.
 
+ent-ADTBaristaIDCard = ID карта баристы
+    .desc = ID карта баристы.
+
 ent-ADTBakerIDCard = ID карта пекаря
     .desc = ID карта пекаря.
 
@@ -134,7 +137,7 @@ ent-ADTBardIDCard = ID карта барда
 ent-ADTDJIDCard = ID карта диджея
     .desc = ID карта диджея.
 
-ent-ADYJournalistIDCard = ID карта журналиста
+ent-ADTJournalistIDCard = ID карта журналиста
     .desc = ID карта журналиста.
 
 ent-ADTKaratekaIDCard = ID карта каратиста

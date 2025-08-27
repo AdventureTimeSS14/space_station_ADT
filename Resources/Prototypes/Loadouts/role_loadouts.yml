@@ -107,9 +107,9 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - BartenderJumpsuit
+  - ADTServiceWorkerJumpsuit #ADT-tweak
   - CommonBackpack
-  - ADTBartenderGloves #ADT-tweak
+  - ADTServiceWorkerGloves #ADT-tweak
   - Glasses
   - ADTServiceWorkerPDA # ADT tweak
   # ADT underwear tweak start

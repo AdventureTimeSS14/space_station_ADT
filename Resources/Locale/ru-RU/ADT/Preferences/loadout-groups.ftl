@@ -37,7 +37,9 @@ loadout-group-reporter-id-adt = Репортёр, ID
 loadout-group-bartender-gloves-adt = Бармен, перчатки
 loadout-group-boxer-id-adt = Боксёр, ID
 loadout-group-boxer-head-adt = Боксёр, голова
+loadout-group-service-worker-gloves-adt = Сервисный работник, перчатки
 loadout-group-service-worker-id-adt = Сервисный работник, ID
+loadout-group-service-worker-jumpsuit-adt = Сервисный работник, комбинезон
 
 # Cargo
 loadout-group-quartermaster-id = Квартирмейстер, ID
