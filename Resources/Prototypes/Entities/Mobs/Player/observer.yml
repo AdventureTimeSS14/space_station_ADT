@@ -43,33 +43,34 @@
     sprite: Mobs/Ghosts/ghost_human.rsi
     color: "#fff8"
     layers: # ADT ghost start
-    # - state: animated
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      shader: unshaded
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-      shader: unshaded
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-      shader: unshaded
-    - map: ["enum.HumanoidVisualLayers.RHand"]
-      shader: unshaded
-    - map: ["jumpsuit"]
-      shader: unshaded
+    - state: animated # TODO: был откат, это нужно доделать в Content.Server\Ghost\GhostSystem.cs метод OnPlayerAttached
+    # - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.Head" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    #   shader: unshaded
+    # - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    #   shader: unshaded
+    # - map: ["enum.HumanoidVisualLayers.LHand"]
+    #   shader: unshaded
+    # - map: ["enum.HumanoidVisualLayers.RHand"]
+    #   shader: unshaded
+    # - map: ["jumpsuit"]
+    #   shader: unshaded
+  # ОЧЕНЬ ЧЁРТ ВОЗЬМИ ВАЖНЫЙ TODO: придумать, как сделать аншейдед на госта
   # ADT ghost end
   - type: ContentEye
     maxZoom: 1.44,1.44
@@ -80,8 +81,7 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
-  # ADT-Tweak-Start
-    availableClothing:
+    availableClothing: #ADT tweak
     - ClothingUniformJumpsuitPsychologist
     - ClothingUniformJumpsuitScientist
     - ClothingUniformJumpsuitSafari
@@ -99,7 +99,6 @@
     - ClothingUniformJumpsuitChaplain
     - ClothingUniformJumpsuitParamedic
     - ClothingUniformJumpsuitPirate
-  # ADT-Tweak-End
   - type: GhostHearing
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
