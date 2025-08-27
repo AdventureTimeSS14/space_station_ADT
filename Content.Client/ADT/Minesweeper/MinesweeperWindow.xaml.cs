@@ -351,13 +351,19 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
     private void CheckWinCondition()
     {
+        if (_gameEnd) // если уже закончено — не выполняем повторно
+            return;
+
         for (int y = 0; y < _gridSize; y++)
+        {
             for (int x = 0; x < _gridSize; x++)
             {
                 if (!_mines[x, y] && !_revealed[x, y])
                     return;
             }
+        }
 
+        // Победа впервые
         _gameEnd = true;
         _timerRunning = false;
         _finalTime = _stopwatch.Elapsed;
@@ -367,8 +373,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
 
         var nameUser = _comp?.LastOpenedBy ?? Loc.GetString("minesweeper-unknown-record");
 
-
-        // Создаём локальный рекорд и сразу добавляем в _records
         var record = new MinesweeperRecord
         {
             Difficulty = _difficulties[DifficultySelect.SelectedId].name,
@@ -379,7 +383,6 @@ public sealed partial class MinesweeperWindow : FancyWindow
         _records.Add(record);
         UpdateRecordsDisplay();
 
-        // Отправляем серверу, если есть интерфейс
         if (nameUser != null && _boundUserInterface != null)
         {
             _boundUserInterface.SendMessage(
