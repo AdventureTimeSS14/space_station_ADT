@@ -578,9 +578,9 @@
     modifiers:
       coefficients:
         Blunt: 0.5
-        Slash: 0.45
-        Piercing: 0.35
-        Heat: 0.10
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.9
   - type: GroupExamine
   - type: ClothingSpeedModifier
     walkModifier: 0.75

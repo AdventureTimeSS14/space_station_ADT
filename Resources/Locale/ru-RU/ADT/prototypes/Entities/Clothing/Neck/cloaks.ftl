@@ -72,3 +72,5 @@ ent-ADTClothingRubieCape = плащ из голиафов
 ent-ADTClothingCaptainShoulder = наплечная мантия капитана
     .desc = На этой станции слишком мало места для нас двоих...
 
+ent-ADTClothingAdmiralShoulder = плащ капитана-адмирала
+    .desc = Массивный синий плащ с золотой окантовкой. Его вручают капитанам, которые прошли через многое... BIG CAP.

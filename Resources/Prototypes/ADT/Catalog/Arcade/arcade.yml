@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: MinesweeperAds
+  values:
+    prefix: advertisement-minesweeper-
+    count: 15
+
+- type: localizedDataset
+  id: MinesweeperGoodbyes
+  values:
+    prefix: thankyou-minesweeper-
+    count: 12

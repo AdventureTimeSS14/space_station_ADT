@@ -243,3 +243,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/captain_neck.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingAdmiralShoulder
+  name: admiral shoulder
+  description: A massive blue cloak with gold trim. It is presented to captains who have been through a lot...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/captain_admiral.rsi
