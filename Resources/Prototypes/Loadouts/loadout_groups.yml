@@ -334,6 +334,7 @@
   loadouts:
   - BartenderVest
   - BartenderApron
+  - ADTClothingOuterApronBarista #ADT-tweak
   - BartenderWintercoat
 
 - type: loadoutGroup

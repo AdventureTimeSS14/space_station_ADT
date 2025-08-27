@@ -83,3 +83,15 @@
     sprite: ADT/Clothing/OuterClothing/Misc/chaplain_hoodie_white.rsi
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatHoodChaplainHoodWhite
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronBarista
+  suffix: Barista
+  name: apron
+  description: A brown apron designed for baristas.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_barista.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_barista.rsi

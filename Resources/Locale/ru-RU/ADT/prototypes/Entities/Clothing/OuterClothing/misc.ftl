@@ -13,3 +13,6 @@ ent-ADTClothingOuterApronBarber = фартук парикмахера
     .desc = Волосы прочь с костюма!
 ent-ADTClothingOuterHoodieChaplainWhite = светлые облачения священника
     .desc = Красивые белые облачения священника.
+ent-ADTClothingOuterApronBarista = фартук
+    .desc = Коричневый фартук, предназначенный для барист.
+    .suffix = Баристский

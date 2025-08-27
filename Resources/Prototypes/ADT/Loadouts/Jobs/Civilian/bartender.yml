@@ -55,3 +55,10 @@
   id: ADTClothingUniformJumpsuitBartenderVestGreen
   equipment:
     jumpsuit: ADTClothingUniformJumpsuitBartenderVestGreen
+
+# Outer clothing
+
+- type: loadout
+  id: ADTClothingOuterApronBarista
+  equipment:
+    outerClothing: ADTClothingOuterApronBarista
