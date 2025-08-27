@@ -1,8 +1,8 @@
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.ADT.Minesweeper;
+using Content.Shared.Emag.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Content.Shared.Emag.Systems;
-using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.ADT.Minesweeper;
 
@@ -17,7 +17,8 @@ public sealed partial class MinesweeperSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<MinesweeperEmagComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<MinesweeperComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<MinesweeperComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<MinesweeperComponent, BoundUIOpenedEvent>(OnBoundUiOpened);
         SubscribeLocalEvent<MinesweeperComponent, BoundUIClosedEvent>(OnBoundUiClosed);
         Subs.BuiEvents<MinesweeperComponent>(MinesweeperUiKey.Key, subs =>
@@ -27,14 +28,20 @@ public sealed partial class MinesweeperSystem : EntitySystem
         });
     }
 
-    private void OnEmagged(EntityUid uid, MinesweeperEmagComponent component, ref GotEmaggedEvent args)
+    private void OnComponentInit(EntityUid uid, MinesweeperComponent component, ComponentInit args)
     {
-        Logger.Warning($"{ToPrettyString(uid)} ЕМАГНУЛИ");
+        // Random amount of prizes
+        component.RewardAmount = new Random().Next(component.RewardMinAmount, component.RewardMaxAmount + 1);
+    }
 
-        if (!TryComp<MinesweeperComponent>(uid, out var minesweeperComponent))
+    private void OnEmagged(EntityUid uid, MinesweeperComponent component, ref GotEmaggedEvent args)
+    {
+        if (!_emagSystem.CompareFlag(args.Type, EmagType.Interaction))
             return;
 
-        minesweeperComponent.IsEmagged = true;
+        if (_emagSystem.CheckFlag(uid, EmagType.Interaction))
+            return;
+
         args.Handled = true;
     }
 
@@ -71,8 +78,21 @@ public sealed partial class MinesweeperSystem : EntitySystem
             Dirty(ent, comp);
         }
 
+        ProcessWin(uid, component);
+
         if (component.SoundWin != null)
             _sharedAudioSystem.PlayPvs(component.SoundWin, uid);
+    }
+
+    private void ProcessWin(EntityUid uid, MinesweeperComponent? arcade = null, TransformComponent? xform = null)
+    {
+        if (!Resolve(uid, ref arcade, ref xform))
+            return;
+        if (arcade.RewardAmount <= 0)
+            return;
+
+        EntityManager.SpawnEntity(_random.Pick(arcade.PossibleRewards), xform.Coordinates);
+        arcade.RewardAmount--;
     }
 
     private void OnLostMessageReceived(EntityUid uid, MinesweeperComponent component, MinesweeperLostMessage msg)
@@ -80,7 +100,7 @@ public sealed partial class MinesweeperSystem : EntitySystem
         if (component.SoundLost != null)
             _sharedAudioSystem.PlayPvs(component.SoundLost, uid);
 
-        if (component.IsEmagged)
+        if (_emagSystem.CheckFlag(uid, EmagType.Interaction))
         {
             _explosionSystem.QueueExplosion(uid, "Cryo", 200f, 10f, 100f, 1f); // Да я это захардкодю, вопросы?
             return;

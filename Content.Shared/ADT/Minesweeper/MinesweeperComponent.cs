@@ -1,6 +1,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.ADT.Minesweeper;
 
@@ -25,8 +27,31 @@ public sealed partial class MinesweeperComponent : Component
     [DataField("soundTick")]
     public SoundSpecifier? SoundTick;
 
-    [DataField]
-    public bool IsEmagged = false;
+
+    /// <summary>
+    /// The prototypes that can be dispensed as a reward for winning the game.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("possibleRewards", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
+    public List<string> PossibleRewards = new();
+
+    /// <summary>
+    /// The minimum number of prizes the arcade machine can have.
+    /// </summary>
+    [DataField("rewardMinAmount")]
+    public int RewardMinAmount;
+
+    /// <summary>
+    /// The maximum number of prizes the arcade machine can have.
+    /// </summary>
+    [DataField("rewardMaxAmount")]
+    public int RewardMaxAmount;
+
+    /// <summary>
+    /// The remaining number of prizes the arcade machine can dispense.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int RewardAmount = 0;
 }
 
 [Serializable, NetSerializable]
@@ -66,5 +91,6 @@ public sealed class MinesweeperWinMessage : BoundUserInterfaceMessage
 public sealed class MinesweeperLostMessage : BoundUserInterfaceMessage
 {
     public MinesweeperLostMessage()
-    {}
+    {
+    }
 }

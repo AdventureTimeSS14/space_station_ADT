@@ -50,7 +50,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
     // Список сложностей для выбора
     private readonly List<(string name, int size, int mines, Color themeColor, Color modulateColor)> _difficulties = new()
     {
-        ("Debug", 4, 1, Color.FromHex("#FF00FF"), Color.FromHex("#b563b5ff")), // Фиолетовый для дебага УБРАТЬ НА РЕЛИЗЕ
+        // ("Debug", 4, 1, Color.FromHex("#FF00FF"), Color.FromHex("#b563b5ff")), // Фиолетовый для дебага УБРАТЬ НА РЕЛИЗЕ
         (Loc.GetString("adt-minesweeper-difficulty-easy"), 8, 10, Color.FromHex("#32cd32"), Color.FromHex("#9fc19fff")),
         (Loc.GetString("adt-minesweeper-difficulty-medium"), 10, 15, Color.FromHex("#e28b00"), Color.FromHex("#cebf8fff")),
         (Loc.GetString("adt-minesweeper-difficulty-hard"), 15, 35, Color.FromHex("#cc0000"), Color.FromHex("#e4a9a9ff"))
