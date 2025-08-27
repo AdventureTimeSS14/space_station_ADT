@@ -22,10 +22,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             if (!Identity.Name(uid, EntityManager).Equals(name))
                 continue;
 
-            if (status == SecurityStatus.None)
-                RemComp<CriminalRecordComponent>(uid);
-            else
-                SetCriminalIcon(name, status, uid);
+            SetCriminalIcon(name, status, uid); // ADT-Beepsky
         }
     }
 
@@ -36,10 +33,14 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
     {
         EnsureComp<CriminalRecordComponent>(characterUid, out var record);
 
-        var previousIcon = record.StatusIcon;
+        // ADT-Beepsky-Start
+        if (status == record.Status)
+            return;
+        // ADT-Beepsky-End
 
         record.StatusIcon = status switch
         {
+            SecurityStatus.None => null, // ADT-Beepsky
             SecurityStatus.Paroled => "SecurityIconParoled",
             SecurityStatus.Wanted => "SecurityIconWanted",
             SecurityStatus.Detained => "SecurityIconIncarcerated",
@@ -48,8 +49,16 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             _ => record.StatusIcon
         };
 
-        if (previousIcon != record.StatusIcon)
-            Dirty(characterUid, record);
+        // ADT-Beepsky-Start
+        var previousStatus = record.Status;
+
+        var ev = new CriminalRecordChanged(status, previousStatus);
+        RaiseLocalEvent(characterUid, ev);
+
+        record.Status = status;
+
+        Dirty(characterUid, record);
+        // ADT-Beepsky-End
     }
 }
 

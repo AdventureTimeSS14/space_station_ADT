@@ -5,6 +5,7 @@
   components:
   - type: Contraband
     severity: Major # placeholder until they make a better severity
+    criminalPoints: 3 # ADT-Beepsky
 
 # any type of magical items used by wizards and similiar
 - type: entity
@@ -13,6 +14,7 @@
   components:
   - type: Contraband
     severity: Magical
+    criminalPoints: 6 # ADT-Beepsky
 
 # non-stealth syndicate stuff
 - type: entity
@@ -21,6 +23,7 @@
   components:
   - type: Contraband
     severity: Syndicate
+    criminalPoints: 4 # ADT-Beepsky
 # Start ADT Tweak
   - type: Tag
     tags:
@@ -34,6 +37,7 @@
   components:
   - type: Contraband
     severity: Minor
+    criminalPoints: 2.5 # ADT-Beepsky
 
 # major contraband, for things like guns or weaponry that don't belong to any department and aren't syndicate specific
 - type: entity
@@ -42,6 +46,7 @@
   components:
   - type: Contraband
     severity: Major
+    criminalPoints: 3 # ADT-Beepsky
 
 # base department restricted contraband, this should only be used as a parent for other contraband prototypes, not the restricted items themselves.
 - type: entity
@@ -52,6 +57,7 @@
     severity: Restricted
     allowedDepartments: [  ]
     allowedJobs: [  ]
+    criminalPoints: 3 # ADT-Beepsky
 
 # one department restricted contraband
 - type: entity
@@ -117,6 +123,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Cargo ]
+    criminalPoints: 2 # ADT-Beepsky
 
 # multiple departments restricted contraband
 - type: entity
