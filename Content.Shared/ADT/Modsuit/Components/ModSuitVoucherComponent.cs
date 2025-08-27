@@ -1,9 +1,10 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.ModSuits;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ModSuitVoucherComponent : Component
 {
     [DataField("modId", required: true)]
@@ -12,14 +13,18 @@ public sealed partial class ModSuitVoucherComponent : Component
     [DataField("hardId", required: true)]
     public EntProtoId HardId = default!;
 
-    public ModSuitType Current = ModSuitType.MOD;
-
-    [DataField]
-    public string State = string.Empty;
+    [DataField, AutoNetworkedField]
+    public SuitType Current = SuitType.MOD;
 }
 
-public enum ModSuitType : byte
+public enum SuitType : byte
 {
-    MOD,
-    Hard
+    MOD = 0,
+    Hard = 1
+}
+
+[NetSerializable, Serializable]
+public enum SuitVoucherVisuals : byte
+{
+    State
 }

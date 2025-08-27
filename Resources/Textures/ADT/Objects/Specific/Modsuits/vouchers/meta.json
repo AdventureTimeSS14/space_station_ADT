@@ -8,10 +8,10 @@
   },
   "states": [
     {
-      "name": "base"
+      "name": "hard"
     },
     {
-      "name": "base-two"
+      "name": "mod"
     }
   ]
 }
