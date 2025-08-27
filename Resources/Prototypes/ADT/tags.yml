@@ -482,6 +482,9 @@
   id: ADTCandies
 
 - type: Tag
+  id: ADTBeerCan
+
+- type: Tag
   id: ADTPillExperimental
 
 - type: Tag
