@@ -677,5 +677,5 @@
             - ReagentId: ADTCoffeeBonBon
               Quantity: 30
     - type: Icon
-      sprite: ADT/Objects/Consumable/Drinks/silverhand.rsi
+      sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
       state: icon
