@@ -1353,13 +1353,6 @@ entities:
       pos: -7.5,-4.5
       parent: 1
     - type: Emagged
-- proto: ADTVendingMachineNewYear
-  entities:
-  - uid: 30
-    components:
-    - type: Transform
-      pos: -5.5,1.5
-      parent: 1
 - proto: ADTVendingMachinePrazatClothing
   entities:
   - uid: 31

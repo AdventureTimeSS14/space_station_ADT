@@ -7350,18 +7350,6 @@ entities:
     - type: Transform
       pos: 28.26036,47.251907
       parent: 2
-- proto: ADTVendingMachineNewYear
-  entities:
-  - uid: 2519
-    components:
-    - type: Transform
-      pos: 48.5,37.5
-      parent: 2
-  - uid: 5459
-    components:
-    - type: Transform
-      pos: 50.5,5.5
-      parent: 2
 - proto: AdvMopItem
   entities:
   - uid: 66
