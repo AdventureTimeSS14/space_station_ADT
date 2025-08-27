@@ -22,25 +22,6 @@ ent-ADTClothingUnderwearSocksThigh = высокие чулки
 ent-ADTClothingUnderwearSocksLaceThigh = кружевные чулки
     .desc = Красивые кружевные чулки.
 
-ent-ADTClothingUnderwearSocksBeige = бежевые праздничные носки
-    .desc = Ноги чувствуют тепло от плотного слоя шерстки в них.
-ent-ADTClothingUnderwearSocksBlue = синие праздничные носки
-    .desc = Синие - словно лед. Теплые - как праздник.
-ent-ADTClothingUnderwearSocksFingerless = праздничные носки без пальцев
-    .desc = Когти не помеха для праздника!
-ent-ADTClothingUnderwearSocksRed = красные праздничные носки
-    .desc = Традиционные носки на Новый Год.
-ent-ADTClothingUnderwearSocksGreen = зеленые носки
-    .desc = Истинный эльф ходит в них.
-ent-ADTClothingUnderwearSocksGnome = носки гнома
-    .desc = Специально для хождения по леденным шахтам помошникам санты.
-ent-ADTClothingUnderwearSocksRedWhite = красные носки
-    .desc = Простые, праздничные красные носки.
-ent-ADTClothingUnderwearSocksFingerlessStripped = беспалые носки в полоску
-    .desc = Для тех, кому когти мешают греть ноги.
-ent-ADTClothingUnderwearSocksStripped = носки в полоску
-    .desc = Простые праздничные носки в полоску.
-
 ent-ADTClothingUnderwearSocksHeart = носки с сердечками
     .desc = Теплый и милый подарок для любимого.
     .suffix = { "День Святого Валентина" }
