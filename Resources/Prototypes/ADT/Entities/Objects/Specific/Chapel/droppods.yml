@@ -44,7 +44,7 @@
   components:
   - type: Droppod
     prototypes:
-      - ADTMechGygaxBattery
+      - ADTMechErtGygaxBattery
       - ADTMechGunScattershotCrate
       - ADTMechGunHeavyPulseRifleCrate
 
