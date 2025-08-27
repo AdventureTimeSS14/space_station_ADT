@@ -24,12 +24,11 @@
       - ADTCrateNecropolisBones
     rarePrototypes:
       - ADTCrateNecropolisVavilon
-      - ADTCrateNecropolisCursedKatana #krisa, why there was shard but not crate with shard???
+      - ADTCrateNecropolisCursedKatana #krisa, why there was shard but not crate with shard??? # chort evo znaet, illumi
       - ADTCrateNecropolisVampirismCrystal
       - ADTCrateNecropolisTrapAncientGoliath
       - ADTCrateNecropolisMjollnir
       - ADTCrateNecropolisStaffHealingWeak
       - ADTCrateNecropolisMimicry
-      - ADTCrateNecropolisHyperEutacticBlade
       - ADTCrateNecropolisBorgDerelict
     chance: 1
