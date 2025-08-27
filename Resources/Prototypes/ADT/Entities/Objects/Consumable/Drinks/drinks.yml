@@ -562,13 +562,13 @@
   id: ADTDrinkGlyphidStoutBeerGlass
   suffix: GlyphidStoutBeer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ADTGlyphidStoutBeer
-          Quantity: 30
-  - type: Icon
-    sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
-    state: icon
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTGlyphidStoutBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
+      state: icon
