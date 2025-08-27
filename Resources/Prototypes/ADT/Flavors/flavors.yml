@@ -185,7 +185,7 @@
   id: adt_goldenale
   flavorType: Complex
   description: flavor-complex-goldenale
-  
+
 - type: flavor
   id: adt_poppy
   flavorType: Base
