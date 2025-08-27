@@ -6,7 +6,7 @@ minesweeper-record-format = { $name } — { $difficulty } — { $time }
 
 minesweeper-window-title = ▌ M I N E S W E E P E R ▐
 minesweeper-header = SYSTEM MODULE :: MINESWEEPER PRO
-#🏳 Toggle Flag Mode
+
 minesweeper-controls = CONTROLS
 minesweeper-toggle-flag = ЛКМ - открыть поле
                           ПКМ - поставить/снять флаг
