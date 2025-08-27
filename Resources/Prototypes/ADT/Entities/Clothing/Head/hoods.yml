@@ -166,7 +166,6 @@
     sprite: ADT/Clothing/Head/Hoods/chaplain_white.rsi
   - type: Tag
     tags:
-    - HamsterWearable
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
