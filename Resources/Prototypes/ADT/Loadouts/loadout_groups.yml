@@ -817,6 +817,7 @@
   - ADTBakerPDA
   - ADTButcherPDA
   - ADTPizzaioloPDA
+  - ADTConfectionerPDA
 
 - type: loadoutGroup
   id: ADTMedicalInternPDA

@@ -35,3 +35,8 @@
   id: ADTPizzaioloPDA
   equipment:
     id: ADTPizzaioloPDA
+
+- type: loadout
+  id: ADTConfectionerPDA
+  equipment:
+    id: ADTConfectionerPDA

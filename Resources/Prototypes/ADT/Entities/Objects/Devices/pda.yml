@@ -416,6 +416,15 @@
   - type: Pda
     id: ADTPizzaioloIDCard
 
+- type: entity
+  parent: ChefPDA
+  id: ADTConfectionerPDA
+  name: confectioner PDA
+  description: The cake is a lie.
+  components:
+  - type: Pda
+    id: ADTConfectionerIDCard
+
 # Medical Intern
 
 - type: entity

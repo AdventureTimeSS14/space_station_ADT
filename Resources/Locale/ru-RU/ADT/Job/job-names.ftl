@@ -104,6 +104,7 @@ job-name-mixologist = миксолог
 job-name-baker = пекарь
 job-name-butcher = мясник
 job-name-pizzaiolo = пиццайоло
+job-name-confectioner = кондитер
 job-name-performer = исполнитель
 job-name-concertmaster = концертмейстер
 job-name-composer = композитор

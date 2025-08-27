@@ -51,6 +51,9 @@ ent-ADTButcherPDA = КПК мясника
 ent-ADTPizzaioloPDA = КПК пиццайоло
     .desc = Эй, пиццайоло! Пришло время готовить пиццу!
 
+ent-ADTConfectionerPDA = КПК кондитера
+    .desc = Торт - это ложь.
+
 ent-ADTPracticalNursePDA = КПК фельдшера
     .desc = Для тех, кто практически-но-не-полностью возвращает людей к здоровью.
 

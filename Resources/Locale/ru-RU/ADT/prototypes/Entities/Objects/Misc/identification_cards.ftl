@@ -65,6 +65,9 @@ ent-ADTButcherIDCard = ID карта мясника
 ent-ADTPizzaioloIDCard = ID карта пиццайоло
     .desc = ID карта пиццайоло.
 
+ent-ADTConfectionerIDCard = ID карта кондитера
+    .desc = ID карта кондитера.
+
 ent-ADTPracticalNurseIDCard = ID карта фельдшера
     .desc = ID карта фельдшера.
 
