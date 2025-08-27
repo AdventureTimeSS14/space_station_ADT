@@ -40,14 +40,6 @@
     jumpsuit: ADTClothingUniformJumpsuitClownAbyss
 
 - type: loadout
-  id: ADTClothingBackpackClownAbyss
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTAbyssClown
-  equipment:
-    back: ADTClothingBackpackClownAbyss
-
-- type: loadout
   id: ClothingMaskClown
   equipment:
     mask: ClothingMaskClown
