@@ -161,9 +161,9 @@
   description: Maximum piety in this star system.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hoods/chaplain_white.rsi
+    sprite: ADT/Clothing/Head/Hoods/chaplain_white_hood.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hoods/chaplain_white.rsi
+    sprite: ADT/Clothing/Head/Hoods/chaplain_white_hood.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
