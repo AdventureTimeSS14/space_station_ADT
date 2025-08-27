@@ -39,11 +39,22 @@
 
 - type: entity
   parent: ADTDroppodDropping
+  id: ADTGygaxKitDroppod
+  categories: [HideSpawnMenu]
+  components:
+  - type: Droppod
+    prototypes:
+      - ADTMechGygaxBattery
+      - ADTMechGunScattershotCrate
+      - ADTMechGunHeavyPulseRifleCrate
+
+- type: entity
+  parent: ADTDroppodDropping
   id: ADTSeraphKitDroppod
   categories: [HideSpawnMenu]
   components:
   - type: Droppod
     prototypes:
       - ADTMechSeraphBattery
-      - ADTMechGunScattershotCrate
+      - ADTMechGunFNX99HadesCrate
       - ADTMechGunUltraAC2Crate

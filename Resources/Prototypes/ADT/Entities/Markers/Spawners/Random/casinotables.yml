@@ -97,7 +97,7 @@
     - !type:GroupSelector
       weight: 30
       children:
-      - id: ADTSeraphKitDroppod
+      - id: ADTGygaxKitDroppod
 
 - type: entityTable
   id: ADTChaosAllorNothingDepositLoose

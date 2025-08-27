@@ -5,7 +5,6 @@
   id: BaseMob
   abstract: true
   components:
-  - type: PassiveHolyHealing
   - type: Sprite
     noRot: true
     drawdepth: Mobs

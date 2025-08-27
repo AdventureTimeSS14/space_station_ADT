@@ -59,6 +59,7 @@ construction-name-deckchair = шезлонг
 construction-name-bonfire = костер
 construction-name-disco-ball = диско-шар
 construction-name-altar = алтарь обращения
+construction-name-old-radio = старое радио
 
 # Описания
 construction-desc-sofa-left-side = Выглядит удобно.
@@ -122,3 +123,4 @@ construction-desc-deckchair = Шезлонг для равномерного з�
 construction-desc-bonfire = Только не замерзни.
 construction-desc-disco-ball = Упадет в 2470 году.
 construction-desc-altar = Заготовка для алтаря религии. Стоит попробовать вставить в него какой-нибудь материал.
+construction-desc-old-radio = Радио старого образца, который позволит слушать подкастеров и репортёров.

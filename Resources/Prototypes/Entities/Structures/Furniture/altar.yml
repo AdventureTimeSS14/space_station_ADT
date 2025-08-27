@@ -335,7 +335,7 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/holy.ogg
         powerCost: 1
-      - requiredTag: Book
+      - requiredProto: ADTBibleLeatherCodex
         resultProto: Bible
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/holy.ogg

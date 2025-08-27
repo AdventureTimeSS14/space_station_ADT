@@ -660,7 +660,8 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="BookBase"/>
+        <GuideEntityEmbed Entity="ADTBibleLeatherCodex"Caption="кожаный
+кодекс"/>
       </Box>
     </ColorBox>
     <ColorBox>

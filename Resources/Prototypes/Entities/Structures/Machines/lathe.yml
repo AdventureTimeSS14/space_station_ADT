@@ -462,6 +462,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - ADTBSCrystal # ADT Tweak
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
@@ -498,6 +499,7 @@
           - Sheet
           - RawMaterial
           - Ingot
+          - ADTBSCrystal # ADT Tweak
     - type: OreSiloClient
 
 - type: entity
@@ -544,6 +546,15 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Medical]
+### Start ADT Tweaks
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+        - ADTBSCrystal # ADT Tweak
+### End ADT Tweak
 
 - type: entity
   parent: BaseLathe
