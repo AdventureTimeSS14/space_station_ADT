@@ -271,6 +271,14 @@
   - type: IdCard
     jobTitle: job-name-mixologist
 
+- type: entity
+  parent: BartenderIDCard
+  id: ADTTavernkeepIDCard
+  name: tavernkeep ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-tavernkeep
+
 # Chef
 
 - type: entity
@@ -304,6 +312,16 @@
   components:
   - type: IdCard
     jobTitle: job-name-confectioner
+
+# Service Worker
+
+- type: entity
+  parent: ServiceWorkerIDCard
+  id: ADTWaiterIDCard
+  name: waiter ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-waiter
 
 # Medical Intern
 

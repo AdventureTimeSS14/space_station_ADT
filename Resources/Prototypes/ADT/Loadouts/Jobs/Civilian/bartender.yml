@@ -9,6 +9,11 @@
   equipment:
     id: ADTMixologistPDA
 
+- type: loadout
+  id: ADTTavernkeepPDA
+  equipment:
+    id: ADTTavernkeepPDA
+
 # Jumpsuit
 
 - type: loadout

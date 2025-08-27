@@ -387,6 +387,15 @@
   - type: Pda
     id: ADTMixologistIDCard
 
+- type: entity
+  parent: BartenderPDA
+  id: ADTTavernkeepPDA
+  name: tavernkeep PDA
+  description: The Tavernkeep is a unique NPC vendor who only accepts-... ROLLBACK, WRONG GAME!
+  components:
+  - type: Pda
+    id: ADTTavernkeepIDCard
+
 # Chef
 
 - type: entity
@@ -424,6 +433,17 @@
   components:
   - type: Pda
     id: ADTConfectionerIDCard
+
+# Service Worker
+
+- type: entity
+  parent: ServiceWorkerPDA
+  id: ADTWaiterPDA
+  name: waiter PDA
+  description: The waiter! There's a fly floating in my soup!
+  components:
+  - type: Pda
+    id: ADTWaiterIDCard
 
 # Medical Intern
 

@@ -19,7 +19,7 @@
   equipment:
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsLaceup
-    #id: MusicianPDA #ADT-tweak
+    #id: MusicianPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   #storage:
     #back:

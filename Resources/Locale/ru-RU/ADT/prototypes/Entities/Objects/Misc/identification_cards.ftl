@@ -56,6 +56,9 @@ ent-ADTStudentIDCard = ID карта студента
 ent-ADTMixologistIDCard = ID карта миксолога
     .desc = ID карта миксолога.
 
+ent-ADTTavernkeepIDCard = ID карта трактирщика
+    .desc = ID карта трактирщика.
+
 ent-ADTBakerIDCard = ID карта пекаря
     .desc = ID карта пекаря.
 
@@ -67,6 +70,9 @@ ent-ADTPizzaioloIDCard = ID карта пиццайоло
 
 ent-ADTConfectionerIDCard = ID карта кондитера
     .desc = ID карта кондитера.
+
+ent-ADTWaiterIDCard = ID карта официанта
+    .desc = ID карта официанта.
 
 ent-ADTPracticalNurseIDCard = ID карта фельдшера
     .desc = ID карта фельдшера.

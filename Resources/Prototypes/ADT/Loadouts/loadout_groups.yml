@@ -806,6 +806,7 @@
   loadouts:
   - BartenderPDA
   - ADTMixologistPDA
+  - ADTTavernkeepPDA
 
 - type: loadoutGroup
   id: ADTChefPDA
@@ -818,6 +819,15 @@
   - ADTButcherPDA
   - ADTPizzaioloPDA
   - ADTConfectionerPDA
+
+- type: loadoutGroup
+  id: ADTServiceWorkerPDA
+  name: loadout-group-service-worker-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTServiceWorkerPDA
+  - ADTWaiterPDA
 
 - type: loadoutGroup
   id: ADTMedicalInternPDA
