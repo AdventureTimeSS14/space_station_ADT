@@ -6818,76 +6818,6 @@ entities:
     - type: Transform
       pos: 54.387638,30.682287
       parent: 2
-- proto: ADTPosterNewYear
-  entities:
-  - uid: 3236
-    components:
-    - type: Transform
-      pos: 53.5,11.5
-      parent: 2
-  - uid: 5433
-    components:
-    - type: Transform
-      pos: 54.5,43.5
-      parent: 2
-- proto: ADTPosterNewYear2
-  entities:
-  - uid: 7140
-    components:
-    - type: Transform
-      pos: 32.5,7.5
-      parent: 2
-  - uid: 7186
-    components:
-    - type: Transform
-      pos: 38.5,26.5
-      parent: 2
-  - uid: 7211
-    components:
-    - type: Transform
-      pos: 27.5,53.5
-      parent: 2
-  - uid: 7247
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,51.5
-      parent: 2
-  - uid: 7248
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 53.5,7.5
-      parent: 2
-  - uid: 7254
-    components:
-    - type: Transform
-      pos: 28.5,37.5
-      parent: 2
-  - uid: 7302
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 73.5,39.5
-      parent: 2
-  - uid: 7313
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,58.5
-      parent: 2
-- proto: ADTPosterNewYear3
-  entities:
-  - uid: 5267
-    components:
-    - type: Transform
-      pos: 44.5,39.5
-      parent: 2
-  - uid: 7139
-    components:
-    - type: Transform
-      pos: 43.5,23.5
-      parent: 2
 - proto: ADTPresentRandomBlue
   entities:
   - uid: 3239
@@ -10583,7 +10513,7 @@ entities:
       content: >2+
                                    [head=2] Джордж Оруэлл [/head]
 
-                                                [head=1] 1984  [/head]                                             
+                                                [head=1] 1984  [/head]
 
                                          (краткий пересказ)
         [head=3] Часть первая [/head]
