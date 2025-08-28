@@ -31,7 +31,10 @@ public sealed class DiscordWebhook : IPostInjectInit
     {
         try
         {
-            return await _http.GetFromJsonAsync<WebhookData>(url);
+            return await new HttpClient(new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (msg, cert, chain, errors) => true
+            }).GetFromJsonAsync<WebhookData>(url); // ADT-Fix: Отключаем проверку сертификата
         }
         catch (Exception e)
         {
