@@ -31,10 +31,14 @@ public sealed class DiscordWebhook : IPostInjectInit
     {
         try
         {
-            return await new HttpClient(new HttpClientHandler
+            // ADT-Tweak-Start: Отключаем проверку сертификата (по задаче PR). ВНИМАНИЕ: небезопасно.
+            using var http = new HttpClient(new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (msg, cert, chain, errors) => true
-            }).GetFromJsonAsync<WebhookData>(url); // ADT-Fix: Отключаем проверку сертификата
+            });
+            var data = await http.GetFromJsonAsync<WebhookData>(url);
+            return data;
+            // ADT-Tweak-End
         }
         catch (Exception e)
         {
