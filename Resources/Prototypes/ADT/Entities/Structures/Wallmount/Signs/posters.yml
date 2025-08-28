@@ -376,7 +376,6 @@
   - type: Sprite
     state: poster_efficiencydiagram_legit #Спрайт от Иллюми
 
-
 #Хеллоуинский декор
 
 - type: entity
