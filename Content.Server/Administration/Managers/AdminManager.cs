@@ -18,9 +18,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.CCVar;
-using Content.Server.Discord;
-using Serilog;
 
 
 namespace Content.Server.Administration.Managers
@@ -37,7 +34,6 @@ namespace Content.Server.Administration.Managers
         [Dependency] private readonly IChatManager _chat = default!;
         [Dependency] private readonly ToolshedManager _toolshed = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly DiscordWebhook _discord = default!;
 
         private readonly Dictionary<ICommonSession, AdminReg> _admins = new();
         private readonly HashSet<NetUserId> _promotedPlayers = new();
