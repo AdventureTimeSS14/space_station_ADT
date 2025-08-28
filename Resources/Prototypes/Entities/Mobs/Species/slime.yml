@@ -70,7 +70,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
-  - type: Geras # Ganimed
   - type: PassiveDamage # Around 8 damage a minute healed
     allowedStates:
     - Alive

@@ -24,6 +24,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration; // Ganimed edit
 
 using System.Text.RegularExpressions;
 using System.IO;
@@ -40,6 +41,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly IConfigurationManager _configManager = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -827,8 +829,13 @@ namespace Content.Server.GameTicking
 
                 ReqWindowAttentionAll();
                 // Запуск голосования за Мапу и Режим в лобби
-                _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Map);     // ADT-Tweak
-                _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Preset);  // ADT-Tweak
+                // Ganimed edit start
+                if (_cfg.GetCVar(CCVars.LobbyAutoVotes))
+                {
+                    _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Map);
+                    _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Preset);
+                }
+                // Ganimed edit end
             }
         }
 

@@ -403,4 +403,11 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> GameHostnameInTitlebar =
         CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Should automatic map and preset votes be created in the lobby when a round restarts?
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyAutoVotes =
+        CVarDef.Create("game.lobby_auto_votes", true);
+
 }
