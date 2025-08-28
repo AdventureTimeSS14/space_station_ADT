@@ -15,7 +15,7 @@
       department: Cargo
       time: 72000 #20 hours # Ganimed-RoleTime
     - !type:OverallPlaytimeRequirement
-      time: 126000 #35 hrs # Ganimed-RoleTime
+      time: 144000 #40 hrs Ganimed-RoleTime
       #ADT tweak start
 #    - !type:SpeciesRequirement
 #      inverted: true
@@ -25,25 +25,25 @@
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
-  supervisors: job-supervisors-hop # Ganimed-MRP, test merge
+  supervisors: job-supervisors-captain
   canBeAntag: true # Ganimed-MRP
-  #antagAdvantage: 5 # Ganimed-MRP, no advantage during the test merge
+  antagAdvantage: 5 # Ganimed-MRP: Heads can be antags
   access:
   - Cargo
   - Salvage
   - Quartermaster
   - Maintenance
   - External
-#  - Command # Ganimed-MRP, test merge
-#  - Brig # Ganimed-MRP, test merge
+  - Command
+  - Brig
   - Cryogenics
-#  special:
+  special:
 #  - !type:AddImplantSpecial # Ganimed-MRP
 #    implants: [ MindShieldImplant ] # Ganimed-MRP
-#  - !type:AddComponentSpecial # Ganimed-MRP, test merge
-#    components: # Ganimed-MRP, test merge
-#      - type: CommandStaff # Ganimed-MRP, test merge
-      # - type: PhantomTyranyTarget # ADT Phantom
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+#     - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: QuartermasterGear
