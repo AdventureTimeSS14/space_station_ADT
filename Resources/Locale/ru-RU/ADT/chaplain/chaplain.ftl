@@ -28,6 +28,8 @@ chaplain-cursed-touch= Вы коснулись ЗЛА!
 chaplain-holy-touch-fail-self = Вы касаетесь {THE($target)}, но ничего не происходит.
 chaplain-holy-touch-fail-target = {CAPITALIZE(THE($issuer))} касается вас. Вы чувствуете благославление.
 
+chaplain-item-converted = Предмет освящён и наделён частью вашей веры!
+
 # EUI
 accept-religion-window-title = Религия
 accept-religion-window-prompt-text-part = Согласитесь ли вы стать последователем религии?
@@ -37,3 +39,4 @@ accept-religion-window-deny-button = Отказаться
 # Обновление алтарей
 altar-only-chaplain-use = Вы кладете предмет на алтарь, но ничего не происходит...
 chaplain-for-the-worthy = Вы не достойны этого оружия...
+altar-limit-exceeded = Алтарь приобрёл форму, но вы не чувствуете силы от него...

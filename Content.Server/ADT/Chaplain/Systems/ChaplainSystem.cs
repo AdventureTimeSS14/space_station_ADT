@@ -48,6 +48,22 @@ public sealed class ChaplainSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 
+    // Wanna infi-candles? THEN GET SOME IF THEM!!!!!
+    private readonly Dictionary<string, string> _candleConversions = new()
+    {
+        ["Candle"] = "CandleInfinite",
+        ["CandleRed"] = "CandleRedInfinite",
+        ["CandleBlue"] = "CandleBlueInfinite",
+        ["CandleBlack"] = "CandleBlackInfinite",
+        ["CandleGreen"] = "CandleGreenInfinite",
+        ["CandlePurple"] = "CandlePurpleInfinite",
+        ["CandleRedSmall"] = "CandleRedSmallInfinite",
+        ["CandleBlueSmall"] = "CandleBlueSmallInfinite",
+        ["CandleBlackSmall"] = "CandleBlackSmallInfinite",
+        ["CandleGreenSmall"] = "CandleGreenSmallInfinite",
+        ["CandlePurpleSmall"] = "CandlePurpleSmallInfinite"
+    };
+
     public override void Initialize()
     {
         base.Initialize();
@@ -88,7 +104,7 @@ public sealed class ChaplainSystem : EntitySystem
 
             if (comp.Power < comp.PowerRegenCap)
             {
-                ChangePowerAmount(uid, 1, comp);
+                ChangePowerAmount(uid, 2, comp);
             }
         }
     }
@@ -305,6 +321,12 @@ public sealed class ChaplainSystem : EntitySystem
 
         args.Handled = true;
 
+        if (TryConvertCandle(uid, target, component))
+        {
+            ChangePowerAmount(uid, -1, component);
+            return;
+        }
+
         if (!TryUseAbility(uid, component, component.HolyWaterCost))
             return;
 
@@ -363,5 +385,30 @@ public sealed class ChaplainSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-touch-fail-self", ("target", Identity.Entity(target, EntityManager))), uid, uid);
             _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-touch-fail-target", ("issuer", Identity.Entity(uid, EntityManager))), target, target);
         }
+    }
+
+    private bool TryConvertCandle(EntityUid user, EntityUid target, ChaplainComponent component)
+    {
+        if (!TryComp<MetaDataComponent>(target, out var metaData))
+            return false;
+
+        var prototypeId = metaData.EntityPrototype?.ID;
+
+        if (prototypeId == null || !_candleConversions.TryGetValue(prototypeId, out var infiniteCandleId))
+            return false;
+
+        var transform = Transform(target);
+        var coordinates = transform.Coordinates;
+        var rotation = transform.LocalRotation;
+
+        Del(target);
+
+        var newCandle = Spawn(infiniteCandleId, coordinates);
+        Transform(newCandle).LocalRotation = rotation;
+
+        _popupSystem.PopupEntity(Loc.GetString("chaplain-item-converted", ("candle", Identity.Entity(newCandle, EntityManager))), user, user);
+        _audio.PlayPvs(component.HolyWaterSoundPath, user);
+
+        return true;
     }
 }

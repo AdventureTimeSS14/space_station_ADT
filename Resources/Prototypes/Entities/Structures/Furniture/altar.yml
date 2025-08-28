@@ -66,6 +66,7 @@
   name: nanotrasen altar
   components:
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: NanotrasenAltarNode
@@ -114,6 +115,7 @@
     energy: 1
     color: "#fbb1b1"
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: ChaosAltarNode
@@ -183,6 +185,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: DruidAltarNode
@@ -264,6 +267,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: ToolAltarNode
@@ -315,6 +319,7 @@
     energy: 1
     color: "#fbceb1"
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: SpaceChristianAltarNode
@@ -361,6 +366,7 @@
     energy: 1
     color: "#ff6347"
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: NarsiAltarNode
@@ -412,6 +418,7 @@
     energy: 1
     color: "#e0ffff"
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: TechnologyAltarNode
@@ -478,6 +485,7 @@
     energy: 1
     color: "#fbceb1"
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: MaintsAltarNode
@@ -657,6 +665,7 @@
     energy: 1
     color: "#f08080"
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: HeavenAltarNode
@@ -698,6 +707,7 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: FangedAltarNode
@@ -736,6 +746,7 @@
     sprite: Structures/Furniture/Altars/Cults/bananium.rsi
     state: full
 ### Start ADT Tweak
+  - type: AltarControl
   - type: Construction
     graph: AltarsGraph
     node: BananiumAltarNode
