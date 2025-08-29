@@ -58,6 +58,7 @@
       - id: DrinkMilkCarton
         amount: 2
       - id: DrinkSoyMilkCarton
+      - id: FoodContainerEgg #ADT-tweak
     # ADT-WikiBooks-Start
       - id: ADTBookSRPsrv
     # ADT-WikiBooks-End
