@@ -66,21 +66,6 @@
     graph: ADTSeat
     node: adtchairwhite
 
-# OctoberFest
-
-- type: entity
-  name: oktoberfest chair
-  id: ADTChairOktoberfest
-  parent: ADTChairBase
-  suffix: Oktoberfest
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
-    state: oct_chair_orange
-  - type: Construction
-    graph: ADTSeat
-    node: adtchairoktoberfest
-
 # Sofas
 
 #кресла от Юны
