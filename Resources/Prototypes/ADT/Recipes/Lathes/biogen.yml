@@ -1,8 +1,0 @@
-- type: latheRecipe
-  id: ADTBioGenFoodMeat
-  result: FoodMeat
-  categories:
-  - Food
-  completetime: 1
-  materials:
-    Biomass: 25

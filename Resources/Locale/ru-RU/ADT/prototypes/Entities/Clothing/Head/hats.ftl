@@ -147,3 +147,6 @@ ent-ADTClothingHeadDrinkCap = питьевая кепка
 
 ent-ADTClothingAdmiralHat = капитанская треуголка
     .desc = Яррр! Поднять паруса!
+
+ent-ADTClothingHeadHatChefRed = красный поварской колпак
+    .desc = Прямиком из космо-Италии!

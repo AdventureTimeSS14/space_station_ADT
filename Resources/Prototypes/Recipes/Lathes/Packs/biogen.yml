@@ -20,7 +20,6 @@
   - BioGenLeft4Zed
   - BioGenEZNutrient
   - BioGenRobustHarvest
-  - ADTBioGenFoodMeat #ADT-tweak
 
 - type: latheRecipePack
   id: BioGenMaterialsStatic

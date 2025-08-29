@@ -343,6 +343,7 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  # ADT-Tweak-Start
 
 - type: loadoutGroup
   id: ChefMask

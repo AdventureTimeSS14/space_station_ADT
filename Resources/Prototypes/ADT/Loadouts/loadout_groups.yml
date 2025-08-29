@@ -603,6 +603,15 @@
   loadouts:
   - ADTChefCqc
 
+- type: loadoutGroup
+  id: ADTChefGloves
+  name: loadout-group-chef-gloves-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTWhiteGloves
+  - ADTRedGloves
+
 ## GUARD OFFICER (НАДЗИРАТЕЛЬ)
 
 # Голова

@@ -95,3 +95,26 @@
     sprite: ADT/Clothing/OuterClothing/Misc/apron_barista.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/apron_barista.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterApronButcher
+  suffix: Butcher
+  name: apron
+  description: Come here, little piggy...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_butcher.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/apron_butcher.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterJacketChefRed
+  name: red chef jacket
+  description: An apron-jacket used by a high class confectioner.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/chef_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/chef_red.rsi
