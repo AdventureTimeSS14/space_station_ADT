@@ -56,26 +56,6 @@
   - type: Sprite
     state: poster_adtturnonsensors_legit #Спрайт от Празата
 
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterLegitOktoberfest
-  name: Oktoberfest!
-  description: "A poster with a tayaran advertising the traditional October beer festival."
-  suffix: Oktoberfest
-  components:
-  - type: Sprite
-    state: poster_adtoktoberfest_legit #Спрайт от Празата
-
-- type: entity
-  parent: ADTPosterBase
-  id: ADTPosterLegitOktoberfest2
-  name: Oktoberfest!
-  description: "A poster with a beer mug advertising the traditional October beer festival."
-  suffix: Oktoberfest
-  components:
-  - type: Sprite
-    state: poster_adtoktoberfest2_legit #Спрайт от Празата
-
 #контрабандные постеры
 
 - type: entity
