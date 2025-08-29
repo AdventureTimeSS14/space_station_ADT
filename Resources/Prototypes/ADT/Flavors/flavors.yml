@@ -187,11 +187,6 @@
   description: flavor-complex-goldenale
 
 - type: flavor
-  id: adt_poppy
-  flavorType: Base
-  description: flavor-base-adtpoppy
-
-- type: flavor
   id: ADTRelax
   flavorType: Complex
   description: flavor-complex-adtrelaxing
@@ -200,11 +195,6 @@
   id: ADTSindiPizza
   flavorType: base
   description: flavor-base-adtsindipizza
-
-- type: flavor
-  id: adt_vanilla
-  flavorType: Base
-  description: flavor-base-adtvanilla
 
 # CHIPPIN' IN!!! Алкогольные Коктейли от QWERTY
 - type: flavor
