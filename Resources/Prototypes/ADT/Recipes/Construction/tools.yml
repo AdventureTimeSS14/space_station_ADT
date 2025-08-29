@@ -8,6 +8,8 @@
 
 - type: construction
   id: ADTOldRadio
+  name: construction-name-old-radio
+  description: construction-desc-old-radio
   graph: BroadcastRadio
   startNode: start
   targetNode: oldRadio

@@ -145,6 +145,14 @@
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    # ADT-Tweak-start
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 # 15h
+    - !type:OverallPlaytimeRequirement
+      time: 108000  # 30h
+    # ADT-Tweak-end
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -157,6 +165,15 @@
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    # ADT-Tweak-start
+    requirements:
+    - !type:RoleTimeRequirement
+      role: JobChemist
+      time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h
+    # ADT-Tweak-end
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -169,6 +186,14 @@
     rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    # ADT-Tweak-start
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000  # 5h
+    - !type:OverallPlaytimeRequirement
+      time: 54000  # 15h
+    # ADT-Tweak-end
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

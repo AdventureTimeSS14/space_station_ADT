@@ -4,6 +4,7 @@
   name: OctoCat altar
   description: "In front of this sacred image of a cat-god, even the most staunch adherents involuntarily begin to mutter incantations like 'git push --force' and 'sudo rm -rf'. Six forbidden letters - L, I, N, U, X - begin to pulse before the eyes with a bloody RGB glow, like uncommitted code at 3 am."
   components:
+  - type: AltarControl
   - type: Sprite
     sprite: ADT/Structures/Furniture/Altars/Gods/convertaltar.rsi
     state: gitoctocat
@@ -83,3 +84,4 @@
         effectProto: ADTCultistBubble
         soundPath: /Audio/Magic/Cults/ClockCult/steam_whoosh.ogg
         powerCost: 1
+  - type: AltarControl

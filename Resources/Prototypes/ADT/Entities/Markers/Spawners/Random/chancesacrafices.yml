@@ -237,6 +237,8 @@
       path: /Audio/Announcements/war.ogg
   - type: TimedDespawn
     lifetime: 3
+  - type: SpawnGameRule
+    gameRule: "Nukeops"
 
 - type: entity
   id: ADTChaosCasinoAllorNothinglerJackpot
