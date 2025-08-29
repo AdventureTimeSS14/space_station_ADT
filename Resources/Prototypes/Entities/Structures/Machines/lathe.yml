@@ -552,7 +552,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - ADTBSCrystal # ADT Tweak
+        - ADTBSCrystal
 ### End ADT Tweak
 
 - type: entity
