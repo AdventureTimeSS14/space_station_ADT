@@ -1,6 +1,4 @@
 using Content.Server.Chemistry.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Shared.Labels.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Administration.Logs;
@@ -20,6 +18,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+// ADT-Tweak-Start
+using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Shared.Labels.EntitySystems;
+// ADT-Tweak-End
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -39,13 +41,13 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly StorageSystem _storageSystem = default!;
         [Dependency] private readonly LabelSystem _labelSystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!; //ADT-Tweak
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string PillPrototypeId = "Pill";
 
         [ValidatePrototypeId<EntityPrototype>]
-        private const string PillCanisterPrototypeId = "PillCanister";
+        private const string PillCanisterPrototypeId = "PillCanister";  //ADT-Tweak
 
         public override void Initialize()
         {
@@ -69,13 +71,14 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnAmountsUpdated(Entity<ChemMasterComponent> ent, ref ChemMasterAmountsUpdated args)
         {
-            ent.Comp.Amounts = args.Amounts;
+            ent.Comp.Amounts = args.Amounts;    //ADT-Tweak
             UpdateUiState(ent);
         }
 
+        //ADT-Tweak Start
         private void SubscribeUpdateUiState<T>(Entity<ChemMasterComponent> ent, ref T ev) =>
             UpdateUiState(ent);
-
+        //ADT-Tweak End
         private void UpdateUiState(Entity<ChemMasterComponent> ent, bool updateLabel = false)
         {
             var (owner, chemMaster) = ent;
@@ -83,9 +86,10 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryGetSolution(owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                 return;
 
+            //ADT-Tweak Start
             if (!_solutionContainerSystem.TryGetSolution(owner, SharedChemMaster.PillBufferSolutionName, out _, out var pillBufferSolution))
                 return;
-
+            //ADT-Tweak End
             var container = _itemSlotsSystem.GetItemOrNull(owner, SharedChemMaster.InputSlotName);
 
             var bufferReagents = bufferSolution.Contents;
@@ -94,6 +98,7 @@ namespace Content.Server.Chemistry.EntitySystems
             var pillBufferReagents = pillBufferSolution.Contents;
             var pillBufferCurrentVolume = pillBufferSolution.Volume;
 
+            //ADT-Tweak Start
             var state = new ChemMasterBoundUserInterfaceState(
                 chemMaster.Mode,
                 BuildInputContainerInfo(container),
@@ -108,6 +113,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.SortMethod,
                 chemMaster.TransferringAmount,
                 chemMaster.Amounts);
+            //ADT-Tweak End
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
@@ -152,6 +158,7 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
+        // ADT-Tweak-Start: Расширенная логика для работы с двумя буферами
         private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, bool isOutput)
         {
             var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
@@ -172,7 +179,7 @@ namespace Content.Server.Chemistry.EntitySystems
             else // Container to buffer
             {
                 amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
-                if (bufferSolution.MaxVolume.Value > 0)    //Goobstation - chemicalbuffer if no limit
+                if (bufferSolution.MaxVolume.Value > 0)    //ADT-Tweak - chemicalbuffer if no limit
                     amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id), bufferSolution.AvailableVolume);
 
                 _solutionContainerSystem.RemoveReagent(containerEntity.Value, id, amount);
@@ -183,6 +190,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
             UpdateUiState(chemMaster, updateLabel: true);
         }
+        // ADT-Tweak-End
 
         private void DiscardReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, bool isOutput)
         {
@@ -413,6 +421,7 @@ namespace Content.Server.Chemistry.EntitySystems
             return BuildContainerInfo(Name(container.Value), solution);
         }
 
+        // ADT-Tweak-Start
         private static ContainerInfo BuildContainerInfo(string name, Solution solution) =>
             new(name, solution.Volume, solution.MaxVolume)
             {
@@ -433,5 +442,6 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound((uid, chemMaster));
             UpdateUiState((uid, chemMaster));
         }
+        // ADT-Tweak-End
     }
 }

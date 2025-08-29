@@ -21,12 +21,14 @@ namespace Content.Server.Chemistry.Components
         [DataField("pillDosageLimit", required: true), ViewVariables(VVAccess.ReadWrite)]
         public uint PillDosageLimit;
 
+        // ADT-Tweak-Start: лимит дозировки для бутылочек
         [DataField("bottleDosageLimit", required: true), ViewVariables(VVAccess.ReadWrite)]
         public uint BottleDosageLimit;
-
+        // ADT-Tweak-End
         [DataField("clickSound"), ViewVariables(VVAccess.ReadWrite)]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
 
+        // ADT-Tweak-Start: метод сортировки, количество переноса и пресеты количеств
         [DataField]
         public int SortMethod;
 
@@ -38,5 +40,6 @@ namespace Content.Server.Chemistry.Components
         {
             1, 5, 10, 15, 20, 25, 30, 50
         };
+        // ADT-Tweak-End
     }
 }

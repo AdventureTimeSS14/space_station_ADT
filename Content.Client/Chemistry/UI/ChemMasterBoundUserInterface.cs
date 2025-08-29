@@ -10,7 +10,7 @@ namespace Content.Client.Chemistry.UI
     /// Initializes a <see cref="ChemMasterWindow"/> and updates it when new server messages are received.
     /// </summary>
     [UsedImplicitly]
-    public sealed class ChemMasterBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+    public sealed class ChemMasterBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey) //ADT-Tweak
     {
         [ViewVariables]
         private ChemMasterWindow? _window;
@@ -33,28 +33,31 @@ namespace Content.Client.Chemistry.UI
             _window.BufferTransferButton.OnPressed += _ => SendMessage(
                 new ChemMasterSetModeMessage(ChemMasterMode.Transfer));
             _window.BufferDiscardButton.OnPressed += _ => SendMessage(
+            //ADT-Tweak-Start
                 new ChemMasterSetModeMessage(ChemMasterMode.Discard));
             _window.PillBufferTransferButton.OnPressed += _ => SendMessage(
                 new ChemMasterSetModeMessage(ChemMasterMode.Transfer));
             _window.PillBufferDiscardButton.OnPressed += _ => SendMessage(
+            //ADT-Tweak-End
                 new ChemMasterSetModeMessage(ChemMasterMode.Discard));
             _window.CreatePillButton.OnPressed += _ => SendMessage(
                 new ChemMasterCreatePillsMessage(
-                    (uint) _window.PillDosage.Value, (uint) _window.PillNumber.Value, _window.LabelLine));
+                    (uint)_window.PillDosage.Value, (uint)_window.PillNumber.Value, _window.LabelLine));
             _window.CreateBottleButton.OnPressed += _ => SendMessage(
                 new ChemMasterOutputToBottleMessage(
-                    (uint) _window.BottleDosage.Value, (uint) _window.BottleNumber.Value, _window.LabelLine));
+                    (uint)_window.BottleDosage.Value, (uint)_window.BottleNumber.Value, _window.LabelLine)); //ADT-Tweak
 
             for (uint i = 0; i < _window.PillTypeButtons.Length; i++)
             {
                 var pillType = i;
                 _window.PillTypeButtons[i].OnPressed += _ => SendMessage(new ChemMasterSetPillTypeMessage(pillType));
             }
-
             _window.OnReagentButtonPressed += (_, button, amount, isOutput) => SendMessage(new ChemMasterReagentAmountButtonMessage(button.Id, amount, button.IsBuffer, isOutput));
+            //ADT-Tweak-Start
             _window.OnSortMethodChanged += sortMethod => SendMessage(new ChemMasterSortMethodUpdated(sortMethod));
             _window.OnTransferAmountChanged += amount => SendMessage(new ChemMasterTransferringAmountUpdated(amount));
             _window.OnUpdateAmounts += amounts => SendMessage(new ChemMasterAmountsUpdated(amounts));
+            //ADT-Tweak-End
         }
 
         /// <summary>

@@ -2,7 +2,7 @@
                 xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                MinSize="800 00"
+                MinSize="800 0"
                 Title="{Loc 'chem-master-bound-user-interface-title'}">
     <BoxContainer Orientation="Horizontal" VerticalExpand="true" MinSize="0 200">
         <TabContainer Name="Tabs" Margin="5 5 7 5" HorizontalExpand="True">
@@ -113,7 +113,7 @@
                 </PanelContainer>
             </BoxContainer>
         </TabContainer>
-        <!-- ADT-Tweak-NewChemMasterUI Start -->
+        <!-- ADT-Tweak-NewChemMasterUI  Start -->
         <BoxContainer Orientation="Vertical" Margin="5 5 7 5" MinSize="300 0">
             <!-- Input container info -->
             <BoxContainer Orientation="Horizontal">
