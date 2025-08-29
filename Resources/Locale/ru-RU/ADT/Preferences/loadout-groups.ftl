@@ -41,6 +41,7 @@ loadout-group-service-worker-gloves-adt = Сервисный работник, �
 loadout-group-service-worker-id-adt = Сервисный работник, ID
 loadout-group-service-worker-jumpsuit-adt = Сервисный работник, комбинезон
 loadout-group-chef-gloves-adt = Шеф-Повар, перчатки
+loadout-group-chef-neck-adt = Шеф-Повар, шея
 
 # Cargo
 loadout-group-quartermaster-id = Квартирмейстер, ID

@@ -127,14 +127,17 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - ChefHead
+  - ADTChefNeck # ADT-Tweak
   - ChefMask
   - ChefJumpsuit
   - CommonBackpack
-  - ADTChefGloves #ADT-Tweak
+  - ADTChefGloves # ADT-Tweak
   - ChefOuterClothing
   - Glasses
-  - ADTChefPocket1 #ADT tweak
-  - ADTChefPDA # ADT tweak
+  # ADT-Tweak-Start
+  - ADTChefPocket1
+  - ADTChefPDA
+  # ADT-Tweak-End
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

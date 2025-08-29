@@ -612,6 +612,14 @@
   - ADTWhiteGloves
   - ADTRedGloves
 
+- type: loadoutGroup
+  id: ADTChefNeck
+  name: loadout-group-chef-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingNecChefShawl
+
 ## GUARD OFFICER (НАДЗИРАТЕЛЬ)
 
 # Голова

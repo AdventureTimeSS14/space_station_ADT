@@ -47,6 +47,11 @@
   equipment:
     head: ADTClothingHeadHatChefRed
 
+- type: loadout
+  id: ADTClothingNecChefShawl
+  equipment:
+    neck: ADTClothingNecChefShawl
+
 # Outer clothing
 - type: loadout
   id: ADTClothingOuterApronButcher
