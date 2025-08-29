@@ -2368,10 +2368,6 @@
   - type: Sprite
     sprite: ADT/Personalization/sokoring.rsi
     state: icon
-  - type: Tag
-    tags:
-      - Payload
-      - ClothMade
   - type: PhysicalComposition
     materialComposition:
       Gold: 100
@@ -2379,4 +2375,48 @@
     price: 1000
   - type: Item
     size: Tiny
+
+#Sir_talter
+- type: entity
+  name: proto-kinetic pistol
+  id: ADTWeaponProtoKineticPistolSirtalter
+  parent: ADTWeaponProtoKineticPistol
+  description: The Pistol trades base damage, and range, for double mod capacity, making it a truely customizable PKA.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+
+- type: entity
+  parent: WeaponKineticSpear
+  id: ADTWeaponKineticGlephSirtalter
+  name: kinetic spear
+  description: A long-ranged melee weapon which trades damage for a two-tile reach, similar to reagent/bone spears.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Personalization/sirtalter_crusher_spear-inhands.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
 #SPONSOR-ITEMS-END
