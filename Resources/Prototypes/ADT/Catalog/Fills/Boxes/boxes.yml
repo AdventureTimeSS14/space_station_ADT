@@ -34,30 +34,6 @@
     - id: ADTFoodSnackMinichoco5
       amount: 1
 
-# ~~Gaylord~~ Alasor from Hazbin Hotel
-- type: entity
-  id: ADTBoxRadioDemon
-  parent: ADTBoxNightmareClown
-  name: radio demon suit
-  description: radio demon suit
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: alastor
-  - type: StorageFill
-    contents:
-    - id: ADTClothingHeadDemonicHornsDeer
-      amount: 1
-    - id: ADTClothingOuterCoatRadioDemon
-      amount: 1
-    - id: ADTClothingJumpsuitRadioDemonSuit
-      amount: 1
-    - id: ADTRadioDemonShoes
-      amount: 1
-    - id: ADTRadioDemonMonocle
-      amount: 1
-
 - type: entity
   parent: ADTFoodPackGummies
   id: ADTFoodPackGummiesFilled
