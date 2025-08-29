@@ -48,22 +48,12 @@ ent-ADTClothingOuterCoatTrader = бомбер торговца
     .desc = Куртка-бомбер торговцев ТСФ
     .suffix = { "ТСФ" }
 
-ent-ADTJasonBomber = куртка маньяка-убийцы
-    .suffix = Хеллоуин
-    .desc = Ходят слухи, что эта куртка принадлежит маньяку в хоккейной маске!
-
-ent-ADTStudentBomber = университетская куртка-бомбер
-    .suffix = Хеллоуин
-    .desc = Удобная студенческая куртка-бомбер с нашитой на ней большой английской буквой В. Довольно популярна среди студентов различных учебных заведений ТСФ.
-
 ent-ADTClothingOuterCoatLabcoatCMOHike = походный халат Главного врача
     .desc = Частично открытый халат. Не сковывает движения.
 
 ent-ADTClothingOuterCoatLabcoatCMOHikeOpened = походный халат Главного врача
     .desc = Частично открытый халат. Не сковывает движения.
     .suffix = {"Раскрытый"}
-
-
 
 ent-ADTClothingOuterLeatherJacket = кожаная куртка
     .desc = Причёска «Помпадур» в комплект не входит.
@@ -100,9 +90,6 @@ ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
 ent-ADTClothingOuterCoatXCoat = икс-ключительное облачение
     .desc = Кажется, это облачение заигравшегося творца.
 
-ent-ADTClothingOuterCoatRadioDemon = фрак радио-демона
-    .desc = А теперь... Не переключайтесь.
-    .suffix = {"Хеллоуин"}
 
 ent-ADTClothingOuterExplorerBomber = бомбер исследователя
     .desc = Вперёд навстречу новым исследованиям и приключениям!.. Как жаль, что на Лаваленде многие приключения ведут к смерти... От него пахнет... Пеплом?
