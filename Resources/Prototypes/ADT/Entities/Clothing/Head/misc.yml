@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadTetoWig
+  name: teto's wig
+  description: The tails on the sides look like drills.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/teto-wig.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/teto-wig.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
