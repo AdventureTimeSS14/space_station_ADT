@@ -344,6 +344,10 @@
   loadouts:
   - ChefHead
   # ADT-Tweak-Start
+  - ADTClothingHeadHatChefRed
+  - ADTHatSoftWhite
+  - ADTHatSoftRed
+  # ADT-Tweak-End
 
 - type: loadoutGroup
   id: ChefMask
@@ -366,6 +370,10 @@
   loadouts:
   - ChefApron
   - ChefJacket
+  # ADT-Tweak-Start
+  - ADTClothingOuterApronButcher
+  - ADTClothingOuterJacketChefRed
+  # ADT-Tweak-End
   - ChefWintercoat
 
 - type: loadoutGroup
