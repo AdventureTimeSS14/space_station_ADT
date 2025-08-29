@@ -165,3 +165,5 @@ ent-ADTClothingUniformJumpskirtBarber = модная юбка-костюм
 ent-ADTClothingUniformJumpskirtBarberBrown = коричневая модная юбка-костюм
     .desc = Для любителей старомодного стиля.
 
+ent-ADTClothingUniformJumpskirtTeto = юбка-костюм Тето
+    .desc = Юбка костюм 31-летней женщины уталоида.
