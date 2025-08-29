@@ -1160,3 +1160,17 @@
       orGroup: ADTYupi6
     - id: ADTYupiPacketWatermelon
       orGroup: ADTYupi6
+
+- type: entity
+  name: kasane teto bag
+  parent: ClothingBackpackDuffel
+  id: ADTBoxTeto
+  description: TetoTetoTetoTetoTetoTetoTeto.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingUnderwearSocksThighBlack
+      - id: ADTClothingUniformJumpskirtTeto
+      - id: ADTClothingHeadTetoWig
+      - id: FoodBreadBaguette
+        amount: 2

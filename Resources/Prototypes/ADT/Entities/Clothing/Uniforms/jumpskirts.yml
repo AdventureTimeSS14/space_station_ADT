@@ -567,3 +567,13 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/barber_fancy_suit_brown.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtTeto
+  name: teto's jumpskirt
+  description: The jumpskirt of the 31-year-old popular UTAUloid.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/teto.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/teto.rsi
