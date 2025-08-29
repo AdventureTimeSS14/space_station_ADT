@@ -76,15 +76,3 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ADTRadioDemonShoes
-  name: radio demon suit
-  description: No way. No fucking way.
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Misc/demongentleman.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Misc/demongentleman.rsi

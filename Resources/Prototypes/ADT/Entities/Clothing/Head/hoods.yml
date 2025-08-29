@@ -45,25 +45,6 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ADTClothingHeadHatHoodRedhat
-  categories: [ HideSpawnMenu ]
-  name: redhat
-  suffix: Halloween
-  description: wearing it, you feel the illusion of security
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Head/hoods/redhat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Head/hoods/redhat.rsi
-  - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
-
-- type: entity
-  parent: ClothingHeadBase
   id: ADTClothingHeadHatHoodChaplainLeader
   categories: [ HideSpawnMenu ]
   name: leaders robe hood

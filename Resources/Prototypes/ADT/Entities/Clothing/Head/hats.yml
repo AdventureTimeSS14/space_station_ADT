@@ -553,7 +553,6 @@
   id: ADTClothingHeadDemonicHornsDeer
   name: demonic deer horns
   description: A horns of radio demon. Essh...
-  suffix: Halloween
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hats/demonic_deer_horns.rsi
