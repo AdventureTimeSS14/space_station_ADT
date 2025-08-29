@@ -2356,4 +2356,27 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_raykulakov
+
+#maksim_soko
+- type: entity
+  parent: BaseItem
+  id: ADTRingSoko
+  name: Ring Soko
+  description: Ring Soko
+  suffix: Personal, maksim_soko
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sokoring.rsi
+    state: icon
+  - type: Tag
+    tags:
+      - Payload
+      - ClothMade
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
+  - type: StaticPrice
+    price: 1000
+  - type: Item
+    size: Tiny
 #SPONSOR-ITEMS-END
