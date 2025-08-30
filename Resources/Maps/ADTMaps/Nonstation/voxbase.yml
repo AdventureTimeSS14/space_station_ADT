@@ -1958,13 +1958,6 @@ entities:
     - type: Transform
       pos: -7.5,10.5
       parent: 2
-- proto: ADTSpiderStool
-  entities:
-  - uid: 13
-    components:
-    - type: Transform
-      pos: -8.5,14.5
-      parent: 2
 - proto: ADTtelescopicBaton
   entities:
   - uid: 14
