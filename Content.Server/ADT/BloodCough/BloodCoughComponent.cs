@@ -14,7 +14,6 @@ public sealed partial class BloodCoughComponent : Component
     [DataField("postingSayDamage")]
     public string? PostingSayDamage = default;
 
-    [AutoNetworkedField]
     public bool CheckCoughBlood = false;
 
     /// <summary>
