@@ -2,7 +2,7 @@ using System.Threading;
 
 namespace Content.Server.ADT.BloodCough;
 
-[RegisterComponent, AutoGenerateComponentState(true)]
+[RegisterComponent]
 public sealed partial class BloodCoughComponent : Component
 {
     [DataField("coughTimeMin"), ViewVariables(VVAccess.ReadWrite)]
