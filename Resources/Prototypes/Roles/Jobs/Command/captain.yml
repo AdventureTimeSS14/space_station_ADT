@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: Captain
   name: job-name-captain
   description: job-description-captain
@@ -40,7 +40,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: CaptainGear

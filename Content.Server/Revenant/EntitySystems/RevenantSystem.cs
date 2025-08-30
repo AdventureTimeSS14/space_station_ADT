@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Server.Actions;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
@@ -24,7 +23,6 @@ using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Singularity.Events;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -47,7 +45,6 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
-    [Dependency] private readonly ExplosionSystem _explotions = default!;
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string RevenantShopId = "ActionRevenantShop";
@@ -66,12 +63,9 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RevenantComponent, StatusEffectEndedEvent>(OnStatusEnded);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
 
-        SubscribeLocalEvent<RevenantComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);  // ADT
-
         SubscribeLocalEvent<RevenantComponent, GetVisMaskEvent>(OnRevenantGetVis);
 
         InitializeAbilities();
-        InitializeInstantEffects(); // ADT Revenant instant effects
     }
 
     private void OnRevenantGetVis(Entity<RevenantComponent> ent, ref GetVisMaskEvent args)
@@ -156,17 +150,6 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (component.Essence <= 0)
         {
-            // ADT Revenant shield ability start
-            if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
-            {
-                shield.Used = true;
-                _status.TryRemoveStatusEffect(uid, "Stun");
-                _status.TryRemoveStatusEffect(uid, "Corporeal");
-                ChangeEssenceAmount(uid, 50, allowDeath: false);
-                return true;
-            }
-            // ADT Revenant shield ability end
-
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             QueueDel(uid);
         }
@@ -204,11 +187,6 @@ public sealed partial class RevenantSystem : EntitySystem
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
         _store.ToggleUi(uid, uid, store);
-    }
-
-    private void OnSinguloConsumeAttempt(EntityUid uid, RevenantComponent component, ref EventHorizonAttemptConsumeEntityEvent args) // ADT
-    {
-        args.Cancelled = true;
     }
 
     public void MakeVisible(bool visible)

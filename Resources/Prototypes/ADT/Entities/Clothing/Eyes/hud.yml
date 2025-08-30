@@ -1,17 +1,5 @@
 - type: entity
   parent: ClothingEyesBase
-  id: ADTClothingEyesHudPhantom
-  name: ectoplasmic hud
-  description: Im tired
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Eyes/HUD/phantom_hud.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Eyes/HUD/phantom_hud.rsi
-  - type: ShowHauntedIcons
-
-- type: entity
-  parent: ClothingEyesBase
   id: ADTClothingEyesHudMGD
   name: mgd hud
   description: owl attacking

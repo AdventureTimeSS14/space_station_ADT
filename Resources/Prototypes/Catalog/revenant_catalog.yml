@@ -1,6 +1,6 @@
 - type: listing
   id: RevenantDefile
-  name: revenant-defile
+  name: revenant-defile-name
   description: revenant-defile-desc
   productAction: ActionRevenantDefile
   cost:
@@ -13,8 +13,8 @@
 
 - type: listing
   id: RevenantOverloadLights
-  name: revenant-overload-lights
-  description: revenant-overload-lights-desc
+  name: revenant-overload-name
+  description: revenant-overload-desc
   productAction: ActionRevenantOverloadLights
   cost:
     StolenEssence: 25
@@ -39,7 +39,7 @@
 
 - type: listing
   id: RevenantMalfunction
-  name: revenant-malfunction
+  name: revenant-malfunction-name
   description: revenant-malfunction-desc
   productAction: ActionRevenantMalfunction
   cost:
@@ -49,78 +49,3 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-
-  # ADT Content start
-- type: listing
-  id: RevenantHysteria
-  name: revenant-hysteria
-  description: revenant-hysteria-desc
-  productAction: ActionRevenantHysteria
-  cost:
-    StolenEssence: 50
-  categories:
-  - RevenantAbilities
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: RevenantSmoke
-  name: revenant-smoke
-  description: revenant-smoke-desc
-  productAction: ActionRevenantSmoke
-  cost:
-    StolenEssence: 75
-  categories:
-  - RevenantAbilities
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: RevenantLock
-  name: revenant-lock
-  description: revenant-lock-desc
-  productAction: ActionRevenantLock
-  cost:
-    StolenEssence: 100
-  categories:
-  - RevenantAbilities
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: RevenantShield
-  name: revenant-shield-effect-name
-  description: revenant-shield-effect-desc
-  productEvent: !type:AddRevenantShieldEvent
-  raiseOnBuyer: true
-  cost:
-    StolenEssence: 100
-  categories:
-  - RevenantInstantEffects
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  icon:
-    sprite: Interface/Actions/revenant.rsi
-    state: shield
-
-- type: listing
-  id: RevenantMisery
-  name: revenant-misery-effect-name
-  description: revenant-misery-effect-desc
-  productEvent: !type:StartRevenantMiseryEvent
-  raiseOnBuyer: true
-  cost:
-    StolenEssence: 300
-  categories:
-  - RevenantInstantEffects
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  icon:
-    sprite: Interface/Actions/revenant.rsi
-    state: rage
-  # ADT content end
