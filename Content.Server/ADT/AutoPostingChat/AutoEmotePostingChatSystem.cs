@@ -1,21 +1,24 @@
-using Content.Shared.Mobs;
+using System.Threading;
 using Content.Server.Chat.Systems;
-using Robust.Shared.Timing;
-using Robust.Shared.Random;
 using Content.Shared.Chat;
+using Content.Shared.Mobs;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.AutoPostingChat;
 
 public sealed class AutoEmotePostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<AutoEmotePostingChatComponent, MobStateChangedEvent>(OnMobState);
+        SubscribeLocalEvent<AutoEmotePostingChatComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<AutoEmotePostingChatComponent, ComponentStartup>(OnComponentStartup);
     }
+
     /// <summary>
     /// On death removes active comps and gives genetic damage to prevent cloning, reduce this to allow cloning.
     /// </summary>
@@ -26,29 +29,56 @@ public sealed class AutoEmotePostingChatSystem : EntitySystem
             RemComp<AutoEmotePostingChatComponent>(uid);
         }
     }
-    public override void Update(float frameTime)
+
+    private void OnComponentStartup(EntityUid uid, AutoEmotePostingChatComponent component, ComponentStartup args)
     {
-        base.Update(frameTime);
+        StartEmoteTimer(uid, component);
+    }
 
-        var query = EntityQueryEnumerator<AutoEmotePostingChatComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+    private void OnComponentShutdown(EntityUid uid, AutoEmotePostingChatComponent component, ComponentShutdown args)
+    {
+        // Отменяем таймер при удалении компонента
+        if (component.TokenSource != null)
         {
-            if (_time.CurTime >= comp.NextSecond)
-            {
-                var delay = comp.EmoteTimerRead;
+            component.TokenSource.Cancel();
+            component.TokenSource.Dispose();
+            component.TokenSource = null;
+        }
+    }
 
-                if (comp.PostingMessageEmote != null)
-                {
-                    _chat.TrySendInGameICMessage(uid, comp.PostingMessageEmote, InGameICChatType.Emote, ChatTransmitRange.Normal);
-                }
+    private void StartEmoteTimer(EntityUid uid, AutoEmotePostingChatComponent component)
+    {
+        // Отменяем предыдущий таймер если он существует
+        component.TokenSource?.Cancel();
+        component.TokenSource?.Dispose();
+        component.TokenSource = new CancellationTokenSource();
 
-                if (comp.RandomIntervalEmote)
-                {
-                    delay = _random.Next(comp.IntervalRandomEmoteMin, comp.IntervalRandomEmoteMax);
-                }
+        var delay = component.EmoteTimerRead;
+        if (component.RandomIntervalEmote)
+        {
+            delay = _random.Next(component.IntervalRandomEmoteMin, component.IntervalRandomEmoteMax);
+        }
 
-                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
-            }
+        // Запускаем повторяющийся таймер
+        uid.SpawnRepeatingTimer(TimeSpan.FromSeconds(delay), () => OnEmoteTimerFired(uid, component), component.TokenSource.Token);
+    }
+
+    private void OnEmoteTimerFired(EntityUid uid, AutoEmotePostingChatComponent component)
+    {
+        // Проверяем, что компонент все еще существует
+        if (!HasComp<AutoEmotePostingChatComponent>(uid))
+            return;
+
+        // Отправляем сообщение
+        if (component.PostingMessageEmote != null)
+        {
+            _chat.TrySendInGameICMessage(uid, component.PostingMessageEmote, InGameICChatType.Emote, ChatTransmitRange.Normal);
+        }
+
+        // Если используется случайный интервал, перезапускаем таймер с новым случайным значением
+        if (component.RandomIntervalEmote)
+        {
+            StartEmoteTimer(uid, component);
         }
     }
 }
