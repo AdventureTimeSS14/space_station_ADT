@@ -5,8 +5,6 @@ namespace Content.Server.ADT.BloodCough;
 [RegisterComponent, AutoGenerateComponentState(true)]
 public sealed partial class BloodCoughComponent : Component
 {
-    public TimeSpan NextSecond = TimeSpan.Zero;
-
     [DataField("coughTimeMin"), ViewVariables(VVAccess.ReadWrite)]
     public int CoughTimeMin = 5;
 
