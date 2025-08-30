@@ -1,5 +1,6 @@
 #nullable enable
 using Content.Shared.CCVar;
+using Content.Shared.Corvax.CCCVars;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.UnitTesting;
@@ -39,7 +40,16 @@ public static partial class PoolManager
         (CVars.NetBufferSize.Name, "0"),
         (CCVars.InteractionRateLimitCount.Name, "9999999"),
         (CCVars.InteractionRateLimitPeriod.Name, "0.1"),
-        // (CCVars.MovementMobPushing.Name, "false"), // ADT-Tweak
+        // ADT-Tweak-start
+        (CCVars.VoteEnabled.Name, "false"),
+        (CCVars.VoteRestartEnabled.Name, "false"),
+        (CCVars.VotePresetEnabled.Name, "false"),
+        (CCVars.VoteMapEnabled.Name, "false"),
+        (CCVars.VotekickEnabled.Name, "false"),
+        (CCCVars.QueueEnabled.Name, "false"),
+        (CCCVars.DiscordAuthEnabled.Name, "false"),
+        // (CCVars.MovementMobPushing.Name, "false"),
+        // ADT-Tweak-end
     };
 
     public static async Task SetupCVars(RobustIntegrationTest.IntegrationInstance instance, PoolSettings settings)
