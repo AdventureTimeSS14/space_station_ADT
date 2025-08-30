@@ -784,11 +784,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGoldenCandleStick" Caption="золотой подсвечник"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
