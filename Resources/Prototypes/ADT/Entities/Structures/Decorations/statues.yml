@@ -1,4 +1,5 @@
 - type: entity
+
   id: ADTStatueBeerMessiahLeft
   parent: BaseStructure
   name: statue of a beer messiah

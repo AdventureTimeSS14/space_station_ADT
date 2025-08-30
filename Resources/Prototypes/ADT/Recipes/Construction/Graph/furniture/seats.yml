@@ -286,11 +286,6 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtchairoktoberfest
-          steps:
-            - material: WoodPlank
-              amount: 2
-              doAfter: 1
         - to: adtbenchchurchleft
           steps:
             - material: WoodPlank
@@ -1026,18 +1021,6 @@
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-          steps:
-            - tool: Screwing
-              doAfter: 2
-
-    - node: adtchairoktoberfest
-      entity: ADTChairOktoberfest
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetSteel1
-              amount: 2
           steps:
             - tool: Screwing
               doAfter: 2

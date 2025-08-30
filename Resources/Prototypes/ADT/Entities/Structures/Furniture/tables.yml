@@ -236,7 +236,7 @@
   - type: Construction
     graph: ADTTable
     node: adttableroundglass
-
+    
 # OctoberFest
 
 - type: entity
@@ -491,4 +491,3 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
-

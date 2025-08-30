@@ -540,7 +540,7 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
     - type: GridPathfinding
-- proto: ADTIndustrialSMES
+- proto: SMESAdvanced
   entities:
   - uid: 2
     components:
