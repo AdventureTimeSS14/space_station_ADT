@@ -1,7 +1,5 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
-using Content.Shared.FixedPoint;
 
 namespace Content.Server.Bible.Components
 {
@@ -54,10 +52,5 @@ namespace Content.Server.Bible.Components
 
         [DataField("locPrefix")]
         public string LocPrefix = "bible";
-
-        // ADT Chaplain
-        [DataField("healCost")]
-        [ViewVariables(VVAccess.ReadWrite)]
-        public FixedPoint2 HealCost = 2;
     }
 }

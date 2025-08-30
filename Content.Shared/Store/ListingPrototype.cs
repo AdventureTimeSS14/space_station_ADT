@@ -190,8 +190,8 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public object? ProductEvent;
 
-    [DataField("raiseOnBuyer")]
-    public bool RaiseProductEventOnUser = false;    // adt типо
+    [DataField]
+    public bool RaiseProductEventOnUser;
 
     /// <summary>
     /// used internally for tracking how many times an item was purchased.

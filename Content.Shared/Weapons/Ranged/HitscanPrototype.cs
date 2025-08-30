@@ -56,8 +56,5 @@ public sealed partial class HitscanPrototype : IPrototype, IShootable
     public float MaxLength = 20f;
 
     [DataField]
-    public List<object> TargetEvents = new();   // ADT Hitscan events
-
-    [DataField]
     public float? BloodlossModifier = null;   // ADT Hitscan bloodloss modify
 }

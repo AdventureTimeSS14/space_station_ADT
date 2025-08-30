@@ -24,8 +24,9 @@
     damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
   - type: NoSlip
+  - type: Actions
   - type: TTS # Corvax-TTS
-    voice: illidan
+    voice: Kelthuzad
   - type: Eye
     drawFov: false
     visMask:
@@ -70,23 +71,22 @@
   - type: Store
     categories:
     - RevenantAbilities
-    - RevenantInstantEffects
     currencyWhitelist:
     - StolenEssence
   - type: RandomMetadata
     nameSegments:
-    # - The # ADT CHANGE
-    - NamesRevenantType
-    - NamesRevenantAdjective
-    - NamesRevenantTheme
-    # - of # ADT CHANGE
+#    - The
+    - RevenantType
+#    - of
+    - RevenantAdjective
+    - RevenantTheme
   - type: Speech
     speechVerb: Ghost
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-  - type: ShowHealthIcons
-  - type: OuijaBoardUser
+  - type: LanguageSpeaker # Frontier
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
   - type: Reactive
     groups:
       Acidic: [Touch]

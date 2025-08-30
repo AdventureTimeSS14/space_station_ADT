@@ -172,17 +172,6 @@
     Poison: 1.0
     Bloodloss: 2 # в замен зализывания
 
-- type: damageModifierSet
-  id: Pretender
-  coefficients:
-    Blunt: 0.33
-    Piercing: 0.33
-    Slash: 0.33
-    Cold: 0.33
-    Heat: 0.33
-    Poison: 0.33
-    Cellular: 0.33
-
 #
 # ADT-damage modifier sets
 #

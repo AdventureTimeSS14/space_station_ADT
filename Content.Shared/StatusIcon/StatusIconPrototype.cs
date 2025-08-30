@@ -74,11 +74,6 @@ public partial class StatusIconData : IComparable<StatusIconData>
     [DataField]
     public bool IsShaded = false;
 
-    // ADT Status icons upd start
-    [DataField]
-    public bool VisibleToOwner = true;
-    // ADT Status icons upd end
-
     public int CompareTo(StatusIconData? other)
     {
         return Priority.CompareTo(other?.Priority ?? int.MaxValue);

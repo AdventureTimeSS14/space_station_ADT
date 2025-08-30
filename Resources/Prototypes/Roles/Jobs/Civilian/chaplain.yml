@@ -12,10 +12,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: Chaplain  # ADT Chaplain
-      statusIcon: ChaplainFaction
-    #- type: BibleUser #Lets them heal with bibles
-
+    - type: BibleUser #Lets them heal with bibles
 
 - type: startingGear
   id: ChaplainGear
@@ -27,4 +24,3 @@
     back:
     - Bible
     - RubberStampChaplain
-    - ADTEctoSword  # ADT Phantom

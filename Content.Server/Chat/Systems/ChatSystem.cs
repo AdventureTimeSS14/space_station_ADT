@@ -238,18 +238,6 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // ADT Languages end
 
-        // ADT Alternative speech start
-        var altEv = new AlternativeSpeechEvent(sanitizedMessage, false, desiredType);
-        if (TryProccessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true))
-        {
-            altEv.Radio = true;
-            altEv.Message = altSpeechRadioResult;
-        }
-        RaiseLocalEvent(source, altEv);
-        if (altEv.Cancelled)
-            return;
-        // ADT Alternative speech end
-
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {

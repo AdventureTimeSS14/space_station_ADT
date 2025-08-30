@@ -105,7 +105,6 @@
 - type: storeCategory
   id: RevenantAbilities
   name: store-category-abilities
-  priority: 1
 
 #pai
 - type: storeCategory
@@ -116,9 +115,3 @@
   id: DiscountedItems
   name: store-discounted-items
   priority: 200
-
-  # ADT revenant
-- type: storeCategory
-  id: RevenantInstantEffects
-  name: store-category-inst-effects
-  priority: 2

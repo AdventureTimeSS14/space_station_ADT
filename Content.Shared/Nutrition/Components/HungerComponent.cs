@@ -9,7 +9,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Shared.Nutrition.Components;
 
-[RegisterComponent, NetworkedComponent]//, Access(typeof(HungerSystem))]    // ADT starvation
+[RegisterComponent, NetworkedComponent, Access(typeof(HungerSystem))]
 [AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 public sealed partial class HungerComponent : Component
 {
