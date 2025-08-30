@@ -409,7 +409,6 @@
       </Box>
     </ColorBox>
     <ColorBox>
-    [color=#25252A]ммммммммммммммммммм[/color]
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
         <GuideEntityEmbed Entity="AltarToolbox" Caption="алтарь ящика для инструмента"/>
       </Box>
