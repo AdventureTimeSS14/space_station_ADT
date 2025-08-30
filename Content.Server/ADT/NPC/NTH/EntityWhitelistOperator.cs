@@ -48,6 +48,9 @@ public sealed partial class EntityWhitelistOperator : HTNOperator, IHtnCondition
         if (!blackboard.TryGetValue<List<EntityUid>>(ListKey, out var entities, _entManager) || entities.Count <= 0)
             entities = GetEntities(owner, range);
 
+        if (entities.Count <= 0) // FIx
+            return (false, null);
+
         return (true, new Dictionary<string, object>()
         {
             {TargetKey, entities[0]},

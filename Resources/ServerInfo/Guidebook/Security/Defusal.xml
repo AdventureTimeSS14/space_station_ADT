@@ -6,7 +6,7 @@
   Для обезвреживания требуются два основных инструмента, однако для идентификации проводов очень полезен мультитул.
   <Box>
     <GuideEntityEmbed Entity="Wirecutter" Caption="Кусачки"/>
-    <GuideEntityEmbed Entity="Screwdriver "Caption="Отвёртка"/>
+    <GuideEntityEmbed Entity="Screwdriver" Caption="Отвёртка"/>
     <GuideEntityEmbed Entity="Multitool" Caption="Мультитул"/>
   </Box>
 

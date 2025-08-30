@@ -1,6 +1,6 @@
 <Document>
-  # Таблица трансформаций алтарей и жертв
 
+# Таблица трансформаций алтарей и жертв
   <Table Columns="5">
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
@@ -799,12 +799,6 @@
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
         1
       </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTSilverCandleStick" Caption="серебряный подсвечник"/>
-      </Box>
-    </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
       </Box>
@@ -957,8 +951,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideAnyVest" Caption="лёгкий
-бронежилет"/>
+        <GuideEntityEmbed Entity="ADTGuideAnyVest" Caption="лёгкий бронежилет"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1568,8 +1561,9 @@
       </Box>
     </ColorBox>
   </Table>
-## Сноска
-[color=red]1)[/color] При каждой жертве одежды для набора клоуна, шанс появления трикстера Хонкомамы, Клувня, равен 10%.
 
-[color=red]2)[/color] При использовании философского камня на определённой руке, на её месте появляется длань господня, которая занимает руку [color=red][bold]на всю смену.[/bold][/color]
+# Сноска
+[color=red]1)[/color] При каждой жертве одежды для набора клоуна, шанс появления трикстера Хонкомамы, Клувня, равен 10%.
+[color=red]2)[/color] При использовании философского камня на определённой руке, на её месте появляется длань господня, которая занимает руку на всю смену.
+
 </Document>
