@@ -537,14 +537,3 @@
       amount: 5
   products:
     ADTYupiWatermelon: 6
-
-# Prazat Beer (Octoberfest)
-- type: reaction
-  id: ADTUraniumAleReaction
-  reactants:
-    ADTTechnoBeer:
-      amount: 5
-    Uranium:
-      amount: 1
-  products:
-    ADTUraniumAle: 6
