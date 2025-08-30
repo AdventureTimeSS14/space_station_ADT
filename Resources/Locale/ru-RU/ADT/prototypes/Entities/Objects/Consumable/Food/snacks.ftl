@@ -110,66 +110,6 @@ ent-ADTFoodSnackChocolateTrashPink = обертка от Розовый шоко
 
 ent-ADTFoodSnackChocolateTrashTwo = обертка от Двойного батончика
     .desc = Мусор
-#День Святого Валентина
-ent-ADTFoodSnackMinichoco1Bar = конфетка
-    .desc = Для тебя!
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackMinichoco2Bar = конфетка
-    .desc = Для тебя!
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackMinichoco3Bar = конфетка
-    .desc = Для тебя!
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackCandyLove = леденец виде сердечко
-    .desc = Любовь сладка как никогда!
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackMinichoco1 = кремовая конфетка
-    .desc = Внутри кремовая начинка!
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackMinichoco2 = кофейная конфетка
-    .desc = Любимая конфета кофемана
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackMinichoco3 = сливочная конфетка
-    .desc = ммм как вкусно
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackMinichoco4 = клубничная конфетка
-    .desc = ты моя клубничка
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodSnackMinichoco5 = молочная конфетка
-    .desc = очень сладкое!
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodBananChocolate = банан в шоколаде
-    .desc = Банан на палочке, покрытый шоколадной глазурью.
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodBananChocolatePink = банан в розовом шоколаде
-    .desc = Банан на палочке, покрытый розовой глазурью.
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodEclairBrown = эклер
-    .desc = Нежное пироженое с заварным кремом.
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodEclairChocolate = эклер с шоколадной глазурью
-    .desc = Нежное пироженое с заварным кремом, покрытое шоколадом.
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodEclairWhite = эклер с белой глазурью
-    .desc = Нежное пироженое с заварным кремом, покрытое белой глазурью.
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodEclairPink = эклер с розовой глазурью
-    .desc = Нежное пироженое с заварным кремом, покрытое розовой глазурью.
-    .suffix = { "День Святого Валентина" }
 
 ent-ADTFoodEggBoiledEaster = пасхальное яйцо
     .desc = Нежное отварное яичко с покрашенной скорлупой. Христос Воскресе!
