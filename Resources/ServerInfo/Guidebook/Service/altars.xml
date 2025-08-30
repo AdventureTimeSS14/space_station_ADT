@@ -29,8 +29,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarNanotrasen" Caption="алтарь
-Nanotrasen"/>
+        <GuideEntityEmbed Entity="AltarNanotrasen" Caption="алтарь Nanotrasen"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -41,8 +40,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+        <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -52,8 +50,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTNanotrasenCoin" Caption="монета
-Nanotrasen"/>
+        <GuideEntityEmbed Entity="ADTNanotrasenCoin" Caption="монета Nanotrasen"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -66,33 +63,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingBeltUtility" Caption="Пояс для
-инструментов"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        1
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTBureaucraticBelt" Caption="пояс
-бюрократа"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="SyndieHandyFlag" Caption="ручной флаг
-синдиката"/>
+        <GuideEntityEmbed Entity="ClothingBeltUtility" Caption="Пояс для инструментов"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -102,8 +73,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="NTHandyFlag" Caption="ручной флаг
-Nanotrasen"/>
+        <GuideEntityEmbed Entity="ADTBureaucraticBelt" Caption="пояс бюрократа"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -116,36 +86,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeLight" Caption="светлая
-монашеская
-ряса"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        1
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-          <GuideEntityEmbed Entity="ADTClothingUniformsJumpsuitWhiteDiplomatSuitL" Caption="белый
-костюм
-дипломата"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeDark" Caption="тёмная
-монашеская
-ряса"/>
+        <GuideEntityEmbed Entity="SyndieHandyFlag" Caption="ручной флаг синдиката"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -155,9 +96,53 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformJumpsuitLawyerBlack" Caption="чёрный
-адвокатский
-костюм"/>
+        <GuideEntityEmbed Entity="NTHandyFlag" Caption="ручной флаг Nanotrasen"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeLight" Caption="светлая монашеская ряса"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        1
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+          <GuideEntityEmbed Entity="ADTClothingUniformsJumpsuitWhiteDiplomatSuitL" Caption="белый костюм дипломата"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeDark" Caption="тёмная монашеская ряса"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        1
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ClothingUniformJumpsuitLawyerBlack" Caption="чёрный адвокатский костюм"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -180,15 +165,13 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="BoxFolderCentCom" Caption="папка
-Центком"/>
+        <GuideEntityEmbed Entity="BoxFolderCentCom" Caption="папка Ценком"/>
       </Box>
     </ColorBox>
 
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarDruid" Caption="алтарь
-друидов"/>
+        <GuideEntityEmbed Entity="AltarDruid" Caption="алтарь друидов"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -199,8 +182,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -210,8 +192,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTBananahilator" Caption="банана
-нигилятор"/>
+        <GuideEntityEmbed Entity="ADTBananahilator" Caption="банана нигилятор"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -224,8 +205,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AppleSeeds" Caption="семена
-яблони"/>
+        <GuideEntityEmbed Entity="AppleSeeds" Caption="семена яблони"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -235,9 +215,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="GoldenAppleSeeds" Caption="семена
-золотой
-яблони"/>
+        <GuideEntityEmbed Entity="GoldenAppleSeeds" Caption="семена золотистой яблони"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -250,14 +228,11 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryOre" Caption="данная
-руда"/>
-     x5
+        <GuideEntityEmbed Entity="ADTGuideEveryOre" Caption="данная руда"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        3
       </Box>
     </ColorBox>
     <ColorBox>
@@ -275,8 +250,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой
-комбинезон"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой комбинезон"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -286,8 +260,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingJumpsuitDryadCoverings" Caption="подвязки
-дриады"/>
+        <GuideEntityEmbed Entity="ADTClothingJumpsuitDryadCoverings" Caption="подвязки дриады"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -315,8 +288,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarBananium" Caption="алтарь
-хонкоматери"/>
+        <GuideEntityEmbed Entity="AltarBananium" Caption="алтарь хонкоматери"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -327,8 +299,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -338,9 +309,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTHWarhammerOfZillyhoo" Caption="боевой
-молот
-зиллихто"/>
+        <GuideEntityEmbed Entity="ADTHWarhammerOfZillyhoo" Caption="боевой молот зиллихто"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -353,8 +322,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой
-комбинезон"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой комбинезон"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -364,8 +332,8 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideCluwneJumpsuit" Caption="комбинезон
-клоуна"/> [color=red]1[/color]
+        <GuideEntityEmbed Entity="ADTGuideCluwneJumpsuit" Caption="комбинезон клоуна"/>
+        [color=red]1[/color]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -388,8 +356,8 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideCluwneMask" Caption="маска
-клоуна"/> [color=red]1[/color]
+        <GuideEntityEmbed Entity="ADTGuideCluwneMask" Caption="маска клоуна"/>
+        [color=red]1[/color]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -412,8 +380,8 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideCluwneShoes" Caption="обувь
-клоуна"/> [color=red]1[/color]
+        <GuideEntityEmbed Entity="ADTGuideCluwneShoes" Caption="обувь клоуна"/>
+        [color=red]1[/color]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -443,22 +411,17 @@ Nanotrasen"/>
     <ColorBox>
     [color=#25252A]ммммммммммммммммммм[/color]
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarToolbox" Caption="алтарь
-ящика для
-инструмента"/>
+        <GuideEntityEmbed Entity="AltarToolbox" Caption="алтарь ящика для инструмента"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ToolboxMechanicalFilled" Caption="технический
-ящик для
-инструмента"/>
+        <GuideEntityEmbed Entity="ToolboxMechanicalFilled" Caption="технический ящик для инструмента"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -468,8 +431,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTHolyChainsaw" Caption="священная
-бензопила"/>
+        <GuideEntityEmbed Entity="ADTHolyChainsaw" Caption="священная бензопила"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -515,8 +477,7 @@ Nanotrasen"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTMFDoomMask" Caption="маска
-MF-Doom"/>
+        <GuideEntityEmbed Entity="ADTMFDoomMask" Caption="маска MF-Doom"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -529,9 +490,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="WelderMini" Caption="аварийный
-сварочный
-аппарат"/>
+        <GuideEntityEmbed Entity="WelderMini" Caption="аварийный ящик для инструмента"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -541,8 +500,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="Welder" Caption="сварочный
-аппарат"/>
+        <GuideEntityEmbed Entity="Welder" Caption="сварочный ящик для инструмента"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -555,8 +513,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой
-комбинезон"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой комбинезон"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -566,15 +523,12 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformOveralls" Caption="комбинезон
-на лямках"/>
+        <GuideEntityEmbed Entity="ClothingUniformOveralls" Caption="комбинезон на лямках"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarSpaceChristian" Caption="космо-
-христианский
-алтарь"/>
+        <GuideEntityEmbed Entity="AltarSpaceChristian" Caption="космо-христианский алтарь"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -584,8 +538,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -595,8 +548,8 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTPhilosopherstone" Caption="Философский
-камень"/> [color=red]2[/color]
+        <GuideEntityEmbed Entity="ADTPhilosopherstone" Caption="Философский камень"/>
+      [color=red]2[/color]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -609,8 +562,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTWoodCross" Caption="деревянный
-крест"/>
+        <GuideEntityEmbed Entity="ADTWoodCross" Caption="деревянный крест"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -620,8 +572,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGoldCross" Caption="золотой
-крест"/>
+        <GuideEntityEmbed Entity="ADTGoldCross" Caption="золотой крест"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -634,8 +585,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой
-комбинезон"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой комбинезон"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -645,9 +595,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeLight" Caption="светлая
-монашеская
-ряса"/>
+        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeLight" Caption="светлая монашеская ряса"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -675,8 +623,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarSatana" Caption="алтарь
-Нар'си"/>
+        <GuideEntityEmbed Entity="AltarSatana" Caption="алтарь Нар'си"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -686,8 +633,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -697,8 +643,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTBloodSword" Caption="кровавый
-меч"/>
+        <GuideEntityEmbed Entity="ADTBloodSword" Caption="кровавый меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -721,8 +666,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="RitualDagger" Caption="ритуальный
-кинжал"/>
+        <GuideEntityEmbed Entity="RitualDagger" Caption="ритуальный кинжал"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -745,8 +689,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTHeadVulpkanin" Caption="голова
-вульпканина"/>
+        <GuideEntityEmbed Entity="ADTHeadVulpkanin" Caption="голова вульпканина"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -769,8 +712,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="FoodMeatHuman" Caption="сырое мясо
-человека"/>
+        <GuideEntityEmbed Entity="FoodMeatHuman" Caption="сырое мясо человека"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -798,8 +740,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarTechnology" Caption="алтарь
-технологий"/>
+        <GuideEntityEmbed Entity="AltarTechnology" Caption="алтарь технологий"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -810,8 +751,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -821,8 +761,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTSeraph" Caption="СЕРАФИМ-
-NT-519"/>
+        <GuideEntityEmbed Entity="ADTSeraph" Caption="СЕРАФИМ-NT-519"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -835,33 +774,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="IngotGold" Caption="золотой
-слиток"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        1
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGoldenCandleStick" Caption="золотой
-подсвечник"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="IngotSilver" Caption="серебряный
-слиток"/>
+        <GuideEntityEmbed Entity="IngotGold" Caption="золотой слиток"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -871,8 +784,30 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTSilverCandleStick" Caption="серебряный
-подсвечник"/>
+        <GuideEntityEmbed Entity="ADTGoldenCandleStick" Caption="золотой подсвечник"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="IngotSilver" Caption="серебряный слиток"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        1
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ADTSilverCandleStick" Caption="серебряный подсвечник"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -895,8 +830,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="PlushieRatvar" Caption="плюшевый
-ратвар"/>
+        <GuideEntityEmbed Entity="PlushieRatvar" Caption="плюшевый ратвар"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -919,27 +853,22 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingOuterTechpriestRobe" Caption="роба
-техно-жреца"/>
+        <GuideEntityEmbed Entity="ADTClothingOuterTechpriestRobe" Caption="роба техно-жреца"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarConvertMaint" Caption="алтарь
-техтуннелей"/>
+        <GuideEntityEmbed Entity="AltarConvertMaint" Caption="алтарь техтуннелей"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellowBudget" Caption="дешёвые
-изолирован.
-перчатки"/>
+        <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellowBudget" Caption="дешёвые изолированные перчатки"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -949,8 +878,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTHeavenbustToolbox" Caption="священный
-тулбокс"/>
+        <GuideEntityEmbed Entity="ADTHeavenbustToolbox" Caption="священный тулбокс"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -963,34 +891,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой
-комбинезон"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        1
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformJumpsuitAncient" Caption="старинный
-комбинезон"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ToolboxEmergencyFilled" Caption="ящик
-для аварийных
-инструментов"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой комбинезон"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1000,26 +901,45 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingBeltUtility" Caption="пояс для
-инструментов"/>
+        <GuideEntityEmbed Entity="ClothingUniformJumpsuitAncient" Caption="старинный комбинезон"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarHeaven" Caption="небесный
-алтарь"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingHeadHelmetTemplar" Caption="рыцарский
-шлем"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+        <GuideEntityEmbed Entity="ToolboxEmergencyFilled" Caption="ящик для аварийных инструментов"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        1
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ClothingBeltUtility" Caption="пояс для инструментов"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="AltarHeaven" Caption="небесный алтарь"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ClothingHeadHelmetTemplar" Caption="рыцарский шлем"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1029,8 +949,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTHolyClaymore" Caption="святой
-клеймор"/>
+        <GuideEntityEmbed Entity="ADTHolyClaymore" Caption="святой клеймор"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1054,9 +973,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingOuterArmorCrusader" Caption="защитный
-доспех
-крестоносца"/>
+        <GuideEntityEmbed Entity="ADTClothingOuterArmorCrusader" Caption="защитный доспех крестоносца"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1079,8 +996,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingHeadHelmetTrueTemplar" Caption="шлем
-крестоносца"/>
+        <GuideEntityEmbed Entity="ADTClothingHeadHelmetTrueTemplar" Caption="шлем крестоносца"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1093,9 +1009,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeLight" Caption="светлая
-монашеская
-ряса"/>
+        <GuideEntityEmbed Entity="ClothingUniformJumpsuitMonasticRobeLight" Caption="светлая монашеская ряса"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1105,8 +1019,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingCoatMonkRobe" Caption="роба
-монаха"/>
+        <GuideEntityEmbed Entity="ADTClothingCoatMonkRobe" Caption="роба монаха"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1119,8 +1032,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTWoodCross" Caption="деревянный
-крест"/>
+        <GuideEntityEmbed Entity="ADTWoodCross" Caption="деревянный крест"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1130,14 +1042,12 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGoldCross" Caption="золотой
-крест"/>
+        <GuideEntityEmbed Entity="ADTGoldCross" Caption="золотой крест"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarFangs" Caption="клыкастый
-алтарь"/>
+        <GuideEntityEmbed Entity="AltarFangs" Caption="клыкастый алтарь"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1148,8 +1058,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1159,8 +1068,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTFetidBaghnakhs" Caption="вонючий
-багнак"/>
+        <GuideEntityEmbed Entity="ADTFetidBaghnakhs" Caption="вонючий алтарь"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1173,8 +1081,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="FoodMeatSpider" Caption="сырое мясо
-паука"/>
+        <GuideEntityEmbed Entity="FoodMeatSpider" Caption="сырое мясо паука"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1207,8 +1114,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingOuterSpiderRobe" Caption="зловещая
-паучья роба"/>
+        <GuideEntityEmbed Entity="ADTClothingOuterSpiderRobe" Caption="зловещая паучья роба"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1232,27 +1138,23 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTWebWeaver" Caption="паутинный
-ткач"/>
+        <GuideEntityEmbed Entity="ADTWebWeaver" Caption="паутинный ткач"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="AltarChaos" Caption="алтарь
-хаоса"/>
+        <GuideEntityEmbed Entity="AltarChaos" Caption="алтарь хаоса"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ArtifactFragment1" Caption="фрагмент
-артефакта"/>
+        <GuideEntityEmbed Entity="ArtifactFragment1" Caption="фрагмент артефакта"/>
         x1
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1275,8 +1177,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="JawsOfLife" Caption="челюсти
-жизни"/>
+        <GuideEntityEmbed Entity="JawsOfLife" Caption="челюсти жизни"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1286,8 +1187,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTJAWSofLife" Caption="''челюсти''
-жизни"/>
+        <GuideEntityEmbed Entity="ADTJAWSofLife" Caption="''челюсти'' жизни"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1300,8 +1200,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="FoodMeatFish" Caption="сырое филе
-карпа"/>
+        <GuideEntityEmbed Entity="FoodMeatFish" Caption="сырое филе карпа"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1311,8 +1210,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideCarpThing" Caption="карповое
-безобразие"/>
+        <GuideEntityEmbed Entity="ADTGuideCarpThing" Caption="карповое безобразие"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1336,8 +1234,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuidePetiteDeposit" Caption="малюсенькое
-казино"/>
+        <GuideEntityEmbed Entity="ADTGuidePetiteDeposit" Caption="малюсенькое казино"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1361,8 +1258,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideSmallDeposit" Caption="маленькое
-казино"/>
+        <GuideEntityEmbed Entity="ADTGuideSmallDeposit" Caption="маленькое казино"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1386,9 +1282,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideBigBoyDeposit" Caption="казино
-большого
-мальчика"/>
+        <GuideEntityEmbed Entity="ADTGuideBigBoyDeposit" Caption="казино большого мальчика"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1412,8 +1306,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideAllOrNothingDeposit" Caption="казино
-''всё или ничего''"/>
+        <GuideEntityEmbed Entity="ADTGuideAllOrNothingDeposit" Caption="казино ''всё или ничего''"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1437,27 +1330,22 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideAllOrNothingerDeposit" Caption="казино
-''всё или
-ничегошнее''"/>
+        <GuideEntityEmbed Entity="ADTGuideAllOrNothingerDeposit" Caption="казино ''всё или ничего-шнее''"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTAltarOctoCat" Caption="алтарь
-октокота"/>
+        <GuideEntityEmbed Entity="ADTAltarOctoCat" Caption="алтарь октокота"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="PlushiePenguin" Caption="плюшевый
-пингвин"/>
+        <GuideEntityEmbed Entity="PlushiePenguin" Caption="плюшевый пингвин"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1467,8 +1355,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTCoderKeyboard" Caption="клавиатура
-господня"/>
+        <GuideEntityEmbed Entity="ADTCoderKeyboard" Caption="клавиатура господня"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1481,8 +1368,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="LuxuryPen" Caption="роскошная
-ручка"/>
+        <GuideEntityEmbed Entity="LuxuryPen" Caption="роскошная ручка"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1492,8 +1378,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTPlushieDamn" Caption="большая
-ошибка"/>
+        <GuideEntityEmbed Entity="ADTPlushieDamn" Caption="большая ошибка"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1539,8 +1424,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTCsharpForDummies" Caption="C# для
-чайников"/>
+        <GuideEntityEmbed Entity="ADTCsharpForDummies" Caption="C# для чайников"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1553,34 +1437,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой
-комбинезон"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        2
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUniformJumpskirtJanimaidmini" Caption="форма
-горничной с
-миниюбкой"/>
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingUnderwearSocksHigh" Caption="высокие
-носки"/>
+        <GuideEntityEmbed Entity="ADTGuideEveryJumpsuit" Caption="любой комбинезон"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1590,14 +1447,35 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ClothingUnderSocksCoder" Caption="носки для
-программистов"/>
+        <GuideEntityEmbed Entity="ClothingUniformJumpskirtJanimaidmini" Caption="форма горничной с миниюбкой"/>
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTAltarClockwork" Caption="латунный
-алтарь"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ADTClothingUnderwearSocksHigh" Caption="высокие носки"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        2
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ClothingUnderSocksCoder" Caption="носки для программистов"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <GuideEntityEmbed Entity="ADTAltarClockwork" Caption="латунный алтарь"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1608,8 +1486,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный
-меч"/>
+                <GuideEntityEmbed Entity="ADTEctoSword" Caption="священный меч"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1619,8 +1496,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTBrassWhip" Caption="латунный
-хлыст"/>
+        <GuideEntityEmbed Entity="ADTBrassWhip" Caption="латунный хлыст"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1669,8 +1545,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="SheetClockworkGlass1" Caption="заводное
-стекло"/>
+        <GuideEntityEmbed Entity="SheetClockworkGlass1" Caption="заводное стекло"/>
         x1
       </Box>
     </ColorBox>
@@ -1694,8 +1569,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTClothingCoatClockworkRobe" Caption="заводная
-роба"/>
+        <GuideEntityEmbed Entity="ADTClothingCoatClockworkRobe" Caption="заводная роба"/>
       </Box>
     </ColorBox>
   </Table>
