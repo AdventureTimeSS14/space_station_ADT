@@ -110,7 +110,3 @@ ent-ADTFoodSnackChocolateTrashPink = обертка от Розовый шоко
 
 ent-ADTFoodSnackChocolateTrashTwo = обертка от Двойного батончика
     .desc = Мусор
-
-ent-ADTFoodEggBoiledEaster = пасхальное яйцо
-    .desc = Нежное отварное яичко с покрашенной скорлупой. Христос Воскресе!
-    .suffix = { "Пасха" }
