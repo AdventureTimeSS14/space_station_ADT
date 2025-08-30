@@ -239,8 +239,6 @@
         cost: 100
       - id: Pirates
         cost: 120
-      - id: PhantomSpawn
-        cost: 110
       # - id: MorphSpawn #TODO: Раскомментить после фикса
       #   cost: 130
       - id: NinjaSpawn
@@ -291,8 +289,6 @@
         cost: 110
       - id: Pirates
         cost: 130
-      - id: PhantomSpawn
-        cost: 120
       # - id: MorphSpawn #TODO: Раскомментить после фикса
       #   cost: 140
       - id: NinjaSpawn
@@ -336,8 +332,6 @@
         cost: 110
       - id: Pirates
         cost: 130
-      - id: PhantomSpawn
-        cost: 120
       # - id: MorphSpawn #TODO: Раскомментить после фикса
       #   cost: 140
       - id: NinjaSpawn

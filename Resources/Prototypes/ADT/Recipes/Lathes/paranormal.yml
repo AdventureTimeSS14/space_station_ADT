@@ -56,17 +56,6 @@
     Ectoplasm: 400
 
 - type: latheRecipe
-  id: PhantomHud
-  result: ADTClothingEyesHudPhantom
-  completetime: 20
-  materials:
-    Steel: 500
-    Glass: 1500
-    Silver: 500
-    Gold: 100
-    Ectoplasm: 200
-
-- type: latheRecipe
   id: EctoShield
   result: ADTEctoShield
   completetime: 20

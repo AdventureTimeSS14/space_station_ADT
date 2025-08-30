@@ -43,7 +43,6 @@
   cost: 7500
   recipeUnlocks:
   - PsiShield
-  - PhantomHud
   - EctoShield
   position: 6,0
   requiredTech:

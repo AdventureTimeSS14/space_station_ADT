@@ -15,7 +15,7 @@ namespace Content.Shared.ADT.Controlled;
 public sealed partial class ControlledComponent : Component
 {
     /// <summary>
-    /// Entity that stole control. 
+    /// Entity that stole control.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid Controller = new();

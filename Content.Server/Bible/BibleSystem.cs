@@ -20,14 +20,12 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Content.Shared.ADT.Controlled;
 using Content.Shared.Mind;
-using Content.Shared.ADT.Phantom.Components;
-using Content.Server.ADT.Phantom.EntitySystems;
+
 
 namespace Content.Server.Bible;
 
 public sealed class BibleSystem : EntitySystem
 {
-    [Dependency] private readonly PhantomSystem _phantom = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedControlledSystem _controlled = default!;
@@ -95,79 +93,6 @@ public sealed class BibleSystem : EntitySystem
             return;
         }
 
-        bool checkPhantom = false;
-        if (TryComp<VesselComponent>(target, out var vessel) && !HasComp<PhantomPuppetComponent>(target))
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs(component.HealSoundPath, user);
-            RemComp<VesselComponent>(target);
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        // Checks phantom components and removing it
-        if (TryComp<PhantomHolderComponent>(target, out var haunted))
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs(component.HealSoundPath, user);
-            _phantom.StopHaunt(haunted.Phantom, target);
-
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        if (HasComp<PhantomPuppetComponent>(target))
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-puppet-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-puppet-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs("/Audio/Effects/hit_kick.ogg", user);
-            _damageableSystem.TryChangeDamage(target, component.DamageOnFail * 4, true, origin: uid);
-            _damageableSystem.TryChangeDamage(user, component.DamageOnFail, true, origin: uid);
-
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        // If the body is controlled by a phantom 
-        if (TryComp<ControlledComponent>(target, out var controlled) && controlled.Key == "Phantom")
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-controlled-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-controlled-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs("/Audio/Effects/hit_kick.ogg", user);
-            _damageableSystem.TryChangeDamage(target, component.DamageOnFail * 2, true, origin: uid);
-            _damageableSystem.TryChangeDamage(user, component.DamageOnFail / 2, true, origin: uid);
-
-            _controlled.StopControlling(target, key: "Phantom");
-
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        if (checkPhantom)
-            return;
-
         var damage = _damageableSystem.TryChangeDamage(target, component.Damage, true, origin: uid);
 
         if (damage == null || damage.Empty)
@@ -220,7 +145,7 @@ public sealed class BibleSystem : EntitySystem
             return;
         if (component.RequiresBibleUser && !HasComp<ChaplainComponent>(user))
             return;
-        if (component.RequiresBibleUser && TryComp<ChaplainComponent>(user, out var chaplain) && !_chaplain.TryUseAbility(user, chaplain, component.SummonCost))
+        if (component.RequiresBibleUser && TryComp<ChaplainComponent>(user, out var chaplain) && !_chaplain.TryUseAbility(user, chaplain, 4))
             return;
         if (!Resolve(user, ref xForm))
             return;
@@ -232,7 +157,6 @@ public sealed class BibleSystem : EntitySystem
         // Make this familiar the component's summon
         var familiar = EntityManager.SpawnEntity(component.SpecialItemPrototype, xForm.Coordinates);
         component.Summon = familiar;
-        component.PersonSummoned = user;
 
         // If this is going to use a ghost role mob spawner, attach it to the bible.
         if (HasComp<GhostRoleMobSpawnerComponent>(familiar))
@@ -259,8 +183,6 @@ public sealed class BibleSystem : EntitySystem
             return;
         if (!TryComp<SummonableComponent>(component.Source, out var summonable))
             return;
-        if (summonable.PersonSummoned != null)
-            _popupSystem.PopupEntity(Loc.GetString("bible-familiar-dead"), summonable.PersonSummoned.Value, PopupType.SmallCaution);
         summonable.AlreadySummoned = false;
     }
 }

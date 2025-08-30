@@ -192,7 +192,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - PhantomEctoplasm
         - ADTBSCrystal #ADT Tweak
   - type: OreSiloClient
   - type: Lathe
@@ -226,7 +225,6 @@
     - ADTAdvancedMedicalMiscPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
-    - ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak

@@ -3,11 +3,6 @@
   announcement: terror-pirate
   rule: Pirates
 
-- type: ninjaHackingThreat
-  id: Phantom
-  announcement: terror-revenant
-  rule: PhantomSpawn
-
 #- type: ninjaHackingThreat
 #  id: Wizard
 #  announcement: terror-wizard

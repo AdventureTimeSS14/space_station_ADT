@@ -64,19 +64,6 @@
   - IPCTranslator
 
 - type: latheRecipePack
-  id: ADTPhantomPack
-  recipes:
-  - GhostRadio
-  - OuijaBoard
-  - EctoRifle
-  - EctoPistol
-  - EctoBatterySmall
-  - EctoBattery
-  - PsiShield
-  - PhantomHud
-  - EctoShield
-
-- type: latheRecipePack
   id: ADTBluespaceHarvesterPack
   recipes:
   - ADTMachineBluespaceHarvesterCircuitboard
