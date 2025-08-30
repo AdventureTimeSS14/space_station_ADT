@@ -21,17 +21,6 @@
     Diamond: 200
 
 - type: latheRecipe
-  id: ADTWeaponExperimentalProtoKineticAcelleratorRecipe
-  result: ADTWeaponExperimentalProtoKineticAcellerator
-  completetime: 10
-  materials:
-    Steel: 1500
-    Glass: 350
-    Gold: 500
-    Plasma: 300
-    Silver: 300
-
-- type: latheRecipe
   id: ADTAttachmentVerticalGripRecipe
   result: ADTAttachmentVerticalGrip
   completetime: 5

@@ -221,7 +221,6 @@
     #ADT-tweak-start
     - ADTRCDPack
     - ADTPKAPack
-    - ADTWeaponExperimentalPKAPack
     - ADTServiceHydroponics
     - ADTAdvancedMedicalMiscPack
     - ADTTranslatorPack

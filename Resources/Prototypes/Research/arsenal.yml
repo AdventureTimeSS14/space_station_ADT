@@ -12,8 +12,6 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
-  - ADTWeaponCutter #ADT plasmacutter
-  # These are roundstart but not replenishable for salvage
   position: 0,0 # ADT Research Console Rework
 
 - type: technology
