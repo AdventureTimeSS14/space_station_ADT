@@ -36,6 +36,7 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ADTActionOpenRemoteDevicesMenu # ADT Tweak
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -54,6 +55,8 @@
       enum.StationAiInfoUiKey.Key:
         type: StationAiInfoBoundUserInterface
     # ADT End
+      enum.RemoteDeviceUiKey.Key: # ADT Tweak
+        type: RemoteDevicesBoundUserInterface #ADT Tweak
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
