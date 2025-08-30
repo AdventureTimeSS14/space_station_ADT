@@ -1,0 +1,245 @@
+- type: entity
+  id: ADTShipBattleReinforcementSpawnerGunnerTSF
+  name: Gunner TSF
+  suffix: ShipBattle TSF
+  components:
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+          state: chiefgunner_tsf
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: ADTShipBattleReinforcementSpawnerGunnerTSFSettings
+
+- type: randomHumanoidSettings
+  id: ADTShipBattleReinforcementSpawnerGunnerTSFSettings
+  parent: EventHumanoid
+  randomizeName: true
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - Felinid
+    - Resomi
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
+    - type: Loadout
+      prototypes: [ ADTBattleShipGunnerTSFGearReinforcement ]
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
+
+
+- type: entity
+  id: ADTShipBattleReinforcementSpawnerMarineTSF
+  name: Marine TSF
+  suffix: ShipBattle TSF
+  components:
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+          state: marine_tsf
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: ADTShipBattleReinforcementSpawnerMarineTSFSettings
+
+- type: randomHumanoidSettings
+  id: ADTShipBattleReinforcementSpawnerMarineTSFSettings
+  parent: EventHumanoid
+  randomizeName: true
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - Felinid
+    - Resomi
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
+    - type: Loadout
+      prototypes: [ ADTBattleShipMarineTSFGearReinforcement ]
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
+
+
+
+#КМТ
+
+- type: entity
+  id: ADTShipBattleReinforcementSpawnerGunnerKMT
+  name: Gunner KMT
+  suffix: ShipBattle KMT
+  components:
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+          state: chiefgunner_kmt
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: ADTShipBattleReinforcementSpawnerGunnerKMTSettings
+
+- type: randomHumanoidSettings
+  id: ADTShipBattleReinforcementSpawnerGunnerKMTSettings
+  parent: EventHumanoid
+  randomizeName: true
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - Felinid
+    - Resomi
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
+    - type: Loadout
+      prototypes: [ ADTBattleShipGunnerKMTGearReinforcement ]
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
+
+
+- type: entity
+  id: ADTShipBattleReinforcementSpawnerMarineKMT
+  name: Marine KMT
+  suffix: ShipBattle KMT
+  components:
+    - type: Sprite
+      sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+          state: marine_kmt
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
+    - type: RandomHumanoidSpawner
+      settings: ADTShipBattleReinforcementSpawnerMarineKMTSettings
+
+- type: randomHumanoidSettings
+  id: ADTShipBattleReinforcementSpawnerMarineKMTSettings
+  parent: EventHumanoid
+  randomizeName: true
+  speciesBlacklist: # ADT-Tweak-start
+    - Diona
+    - Vox
+    - KoboltSpecies
+    - DemonSpecies
+    - NovakidSpecies
+    - TajaranSpecies
+    - UrsusSpecies
+    - Moth
+    - VulpkaninSpecies
+    - Shadekin
+    - Arachnid
+    - Reptilian
+    - Felinid
+    - Resomi
+    - SlimePerson
+    - Dwarf
+    - IPC
+    - DraskSpecies # ADT-Tweak-end
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 180000 # 50h #
+    - type: Loadout
+      prototypes: [ ADTBattleShipMarineKMTGearReinforcement ]
+    # - type: RandomMetadata
+    #   nameSegments:
+    #   - ADTCmndNamesFirstMilitary
+    #   - NamesLastERTCallsign
+    #   nameFormat: name-format-standard
