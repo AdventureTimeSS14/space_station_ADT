@@ -120,6 +120,7 @@ namespace Content.IntegrationTests.Tests
             "ADT_Aspid",
             "ADT_Cluster_Legacy",
             "ADT_Meta",
+            "ADT_Origin",
             "ADT_Centcomm"
             // ADT-End
         };
