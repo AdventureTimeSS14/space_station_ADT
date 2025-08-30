@@ -445,7 +445,7 @@ Nanotrasen"/>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
         <GuideEntityEmbed Entity="AltarToolbox "Caption="алтарь
 ящика для
-инструмента     "/>
+инструмента"/>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -595,7 +595,7 @@ MF-Doom"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTPhilosopherstone "Caption="Филосовский
+        <GuideEntityEmbed Entity="ADTPhilosopherstone" Caption="Философский
 камень"/> [color=red]2[/color]
       </Box>
     </ColorBox>
@@ -860,7 +860,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="IngotSilver" Caption="серебрянный
+        <GuideEntityEmbed Entity="IngotSilver" Caption="серебряный
 слиток"/>
       </Box>
     </ColorBox>
@@ -871,7 +871,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTSilverCandleStick" Caption="серебрянный
+        <GuideEntityEmbed Entity="ADTSilverCandleStick" Caption="серебряный
 подсвечник"/>
       </Box>
     </ColorBox>
@@ -1029,7 +1029,7 @@ NT-519"/>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
-        <GuideEntityEmbed Entity="ADTHolyClaymore "Caption="святый
+        <GuideEntityEmbed Entity="ADTHolyClaymore" Caption="святой
 клеймор"/>
       </Box>
     </ColorBox>
@@ -1702,5 +1702,5 @@ NT-519"/>
 ## Сноска
 [color=red]1)[/color] При каждой жертве одежды для набора клоуна, шанс появления трикстера Хонкомамы, Клувня, равен 10%.
 
-[color=red]2)[/color] При использовании филосовского камня на определённой руке, на её месте появляется длань господня, которая занимает руку [color=red][bold]на всю смену.[/bold][/color]
+[color=red]2)[/color] При использовании философского камня на определённой руке, на её месте появляется длань господня, которая занимает руку [color=red][bold]на всю смену.[/bold][/color]
 </Document>
