@@ -345,6 +345,7 @@
     - MechParts
     - MechEquipment
     # ADT-tweak-start
+    - ADTModsuitModStorageHolding
     - ADTSecBorgPack
     - ADTModsuitPack
     - ADTGygaxPack
