@@ -1,5 +1,5 @@
 ﻿using Content.Shared.Sticky.Systems;
-﻿using Content.Shared.Whitelist;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
@@ -87,4 +87,24 @@ public sealed partial class StickyComponent : Component
     /// </summary>
     [DataField]
     public SpriteSpecifier VerbIcon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png"));
+
+    // SD start
+    /// <summary>
+    /// Should the stick do-after break on move if the user is the target
+    /// </summary>
+    [DataField]
+    public bool SelfStickBreakOnMove = true;
+
+    /// <summary>
+    /// Should the unstick do-after break on move if the user is the target
+    /// </summary>
+    [DataField]
+    public bool SelfUnstickBreakOnMove = true;
+
+    [DataField]
+    public float SelfStickTimeMultiplier = 1f;
+
+    [DataField]
+    public float SelfUnstickTimeMultiplier = 1f;
+    // SD end
 }

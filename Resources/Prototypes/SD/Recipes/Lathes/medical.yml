@@ -1,0 +1,31 @@
+- type: latheRecipe
+  id: MedicalPatchBasic
+  result: MedicalPatchBasic
+  completetime: 2
+  materials:
+    Plastic: 100
+    Cloth: 100
+
+- type: latheRecipe
+  id: MedicalPatchRapid
+  result: MedicalPatchRapid
+  completetime: 2
+  materials:
+    Cloth: 150
+    Plastic: 100
+
+- type: latheRecipe
+  id: MedicalPatchTherapeutic
+  result: MedicalPatchTherapeutic
+  completetime: 2
+  materials:
+    Cloth: 100
+    Plastic: 150
+
+- type: latheRecipe
+  id: MedicalPatchLarge
+  result: MedicalPatchLarge
+  completetime: 3
+  materials:
+    Plastic: 200
+    Cloth: 200

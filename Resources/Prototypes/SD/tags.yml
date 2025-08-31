@@ -9,3 +9,6 @@
 
 - type: Tag
   id: GoliathTentacleUpgrade
+
+- type: Tag
+  id: MedicalPatch

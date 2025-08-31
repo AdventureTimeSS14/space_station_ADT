@@ -531,6 +531,9 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     - ADTMedicalMiscStaticPack # ADT-Tweak
+    # SD tweak start
+    - MedicalPatchesStatic
+    # SD tweak end
     dynamicPacks:
     - Chemistry
     #ADT-Tweak Start

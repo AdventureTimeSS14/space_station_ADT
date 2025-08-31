@@ -3,7 +3,9 @@
   startingInventory:
     HandheldHealthAnalyzer: 3
     # ADT tweak start
-    ADTPatchPackFilled: 3
+    # ADTPatchPackFilled: 3 SD tweak
+    MedicalPatchPrefilledBicaridine: 3  #SD tweak
+    MedicalPatchPrefilledDermaline: 3   #SD tweak
     Brutepack: 4
     Ointment: 4
     ADTAntibioticOintment: 4
@@ -20,5 +22,5 @@
   emaggedInventory:
     ADTMorphineBottle: 1
     ADTOmnizineBottle: 1
-    ADTPatchHonk: 3
+  # ADTPatchHonk: 3 SD tweak
   # ADT tweak End

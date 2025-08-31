@@ -1,0 +1,7 @@
+- type: latheRecipePack
+  id: MedicalPatchesStatic
+  recipes:
+  - MedicalPatchBasic
+  - MedicalPatchRapid
+  - MedicalPatchTherapeutic
+  - MedicalPatchLarge

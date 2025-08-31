@@ -6,8 +6,10 @@
     ADTBloodpack1: 40
     ADTGauze1: 40
     ADTPillTricordrazine: 20
-    ADTPatchHealingMini: 15
-    ADTPatchBurnMini: 15
+    # SD tweak start
+    # ADTPatchHealingMini: 15
+    # ADTPatchBurnMini: 15
+    # SD tweak end
   emaggedInventory:
     ADTBrutepackAdvanced1: 10
     ADTOintmentAdvanced1: 10
