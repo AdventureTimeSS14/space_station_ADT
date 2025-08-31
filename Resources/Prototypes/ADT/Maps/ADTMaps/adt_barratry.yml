@@ -18,8 +18,6 @@
         - type: StationCargoShuttle
           path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             #service
             Captain: [ 1, 1 ]
