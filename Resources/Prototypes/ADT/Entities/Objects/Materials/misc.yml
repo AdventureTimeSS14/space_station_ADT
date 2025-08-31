@@ -34,9 +34,6 @@
   suffix: Full
   components:
   - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      ADTBScrystal: 100
   - type: Tag
     tags:
     - ADTBSCrystal
@@ -45,10 +42,8 @@
     layers:
     - state: crystal
       map: [ "base" ]
-  - type: StaticPrice
-    price: 0
   - type: StackPrice
-    price: 1500
+    price: 200
   - type: Appearance
   - type: Stack
     stackType: ADTBScrystal
@@ -61,8 +56,6 @@
     size: Small
     heldPrefix: crystal
     sprite: ADT/Objects/Materials/crystal.rsi
-    shape:
-    - 0,0,2,2
 
 - type: entity
   parent: ADTMaterialBScrystal
@@ -92,10 +85,8 @@
     layers:
     - state: crystal
       map: [ "base" ]
-  - type: StaticPrice
-    price: 0
   - type: StackPrice
-    price: 1500
+    price: 500
   - type: Appearance
   - type: Stack
     stackType: ADTBScrystalArt
@@ -103,8 +94,6 @@
     size: Small
     heldPrefix: crystal
     sprite: ADT/Objects/Materials/crystal_art.rsi
-    shape:
-    - 0,0,2,2
 
 - type: entity
   parent: ADTMaterialBScrystalArt

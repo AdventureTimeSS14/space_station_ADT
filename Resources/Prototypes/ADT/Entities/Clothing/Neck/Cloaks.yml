@@ -94,41 +94,6 @@
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka
 
-
-    # halloween
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ADTVergileCloak
-  name: Vergile cloak
-  description: Vergile cloak
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ADTClothingNeckCloakRedhat
-  name: redhat cloak
-  description: redhat cloak
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHatHoodRedhat
-    requiredSlot:
-    - neck
-    slot: head
-
 - type: entity
   parent: ClothingNeckBase
   id: ADTClothingNeckInvisibleCloak
@@ -243,3 +208,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/captain_neck.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingAdmiralShoulder
+  name: admiral shoulder
+  description: A massive blue cloak with gold trim. It is presented to captains who have been through a lot...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/captain_admiral.rsi

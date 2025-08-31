@@ -82,7 +82,7 @@
   - type: ContainerFill
     containers:
       cell_slot:
-      - PowerCellHigh
+      - PowerCellMedium
   - type: Geiger
     showExamine: true
     attachedToSuit: true

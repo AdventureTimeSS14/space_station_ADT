@@ -7,6 +7,26 @@
       role: JobCaptain
       time: 36000 #10 часов
 
+- type: loadoutEffectGroup
+  id: ADTClothingCaptainShoulder50hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000 #50 часов
+
+- type: loadoutEffectGroup
+  id: ADTClothingCaptainHat30hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 108000 #30 часов
+
+# Shoulder
+
 - type: loadout
   id: ADTClothingCaptainShoulderNeck
   effects:
@@ -14,3 +34,21 @@
    proto: ADTClothingCaptainShoulder10hour
   equipment:
     neck: ADTClothingCaptainShoulder
+
+- type: loadout
+  id: ADTClothingAdmiralShoulder
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTClothingCaptainShoulder50hour
+  equipment:
+    neck: ADTClothingAdmiralShoulder
+
+# Head
+
+- type: loadout
+  id: ADTClothingAdmiralHat
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: ADTClothingCaptainHat30hour
+  equipment:
+    head: ADTClothingAdmiralHat

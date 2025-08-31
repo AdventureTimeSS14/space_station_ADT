@@ -13,7 +13,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: PhoneInstrument 
+    pocket2: PhoneInstrument
     underwearb: ADTClothingUnderwearBottomBriefsWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksComfyGrey
@@ -278,7 +278,7 @@
     outerClothing: ClothingOuterArmorBulletproof
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
+    belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTWeaponPistolDesertEagle
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -307,7 +307,7 @@
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
+    belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -350,7 +350,7 @@
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
+    belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -376,8 +376,8 @@
     back: ClothingBackpackERTMedical
     shoes: ADTClothingShoesHighboots
     head: ClothingHeadHatBeretCmo
-    eyes: ClothingEyesHudMedical
-    gloves: ClothingHandsGlovesNitrile
+    eyes: ClothingEyesHudMedSec
+    gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterVestArmorMedSec
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
@@ -406,8 +406,8 @@
     back: ClothingBackpackERTMedical
     shoes: ClothingShoesBootsMag
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedical
-    gloves: ClothingHandsGlovesNitrile
+    eyes: ClothingEyesHudMedSec
+    gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTMedical
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
@@ -450,7 +450,7 @@
     back: ClothingBackpackERTMedical
     shoes: ClothingShoesBootsMag
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedical
+    eyes: ClothingEyesHudMedSec
     gloves: ClothingHandsGlovesNitrile
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTMedicPDA
@@ -480,7 +480,7 @@
     back: ClothingBackpackERTJanitor
     shoes: ClothingShoesColorWhite
     head: ClothingHeadHelmetERTJanitor
-    gloves: ClothingHandsGlovesLatex
+    gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterCoatLabOpened
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
@@ -520,7 +520,7 @@
     back: ClothingBackpackERTJanitor
     shoes: ClothingShoesBootsMag
     mask: ClothingMaskGasERT
-    gloves: ClothingHandsGlovesLatex
+    gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTJanitor
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
@@ -575,7 +575,7 @@
     back: ClothingBackpackERTJanitor
     shoes: ClothingShoesBootsMag
     mask: ClothingMaskGasERT
-    gloves: ClothingHandsGlovesLatex
+    gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom

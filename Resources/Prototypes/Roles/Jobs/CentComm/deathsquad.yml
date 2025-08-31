@@ -26,7 +26,7 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ADTClothingShoesBootsMagERT #ADT tweak
     id: DeathsquadPDA
     pocket1: EnergySwordDouble
     pocket2: DoubleEmergencyOxygenTankFilled
