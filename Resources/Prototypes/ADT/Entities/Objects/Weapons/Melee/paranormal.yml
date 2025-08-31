@@ -433,6 +433,12 @@
     quickEquip: false
     slots:
     - suitstorage
+  - type: MeleeHolyVampirism
+    healOnHit:
+      types:
+        Slash: 1
+        Piercing: 1
+        Blunt: 1
 
 - type: entity
   name: nanotrasen coin
@@ -463,6 +469,7 @@
     angle: 225
   - type: StaticPrice
     price: 7500
+  - type: Boomerang
 
 - type: entity
   name: fetid baghnakhs
