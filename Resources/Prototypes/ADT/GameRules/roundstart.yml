@@ -294,7 +294,7 @@
       - id: PhantomSpawn
         cost: 120
       - id: MorphSpawn
-       cost: 140
+        cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
