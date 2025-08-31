@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
-using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Tabletop.Components;
@@ -114,9 +113,6 @@ namespace Content.Shared.Tabletop
         {
             if (!TryComp(target, out draggable))
                 return false;
-
-            if (HasComp<OuijaBoardUserComponent>(playerEntity)) // ADT Ouija board
-                return true;
 
             // CanSeeTable checks interaction action blockers. So no need to check them here.
             // If this ever changes, so that ghosts can spectate games, then the check needs to be moved here.

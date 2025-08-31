@@ -75,7 +75,7 @@ public sealed class StatusIconSystem : SharedStatusIconSystem
         var viewer = _playerManager.LocalSession?.AttachedEntity;
 
         // Always show our icons to our entity
-        if (viewer == ent.Owner && data.VisibleToOwner) // ADT Status icon upd
+        if (viewer == ent.Owner)
             return true;
 
         if (data.VisibleToGhosts && HasComp<GhostComponent>(viewer))
