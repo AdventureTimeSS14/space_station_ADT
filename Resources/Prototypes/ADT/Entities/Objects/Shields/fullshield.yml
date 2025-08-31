@@ -34,13 +34,20 @@
           Blunt: 0.4
           Slash: 0.4
           Piercing: 0.4
+          Heat: 1.5
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.50
+          Slash: 0.40
+          Piercing: 1
+          Heat: 3
         flatReductions:
-          Blunt: 0.4
-          Slash: 0.4
-          Piercing: 0.4
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
     - type: ClothingSpeedModifier
-      walkModifier: 0.4
-      sprintModifier: 0.4	
+      walkModifier: 1
+      sprintModifier: 0.4
     - type: HeldSpeedModifier
     - type: Construction
       graph: ADTShield
@@ -49,13 +56,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 500
+            damage: 600
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 400 #Weaker shield
+            damage: 500 #Weaker shield
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]

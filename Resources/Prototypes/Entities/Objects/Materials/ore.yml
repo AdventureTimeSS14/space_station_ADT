@@ -36,6 +36,7 @@
   - type: Tag
     tags:
     - ADTGoldOre
+    - Ore
 ### End ADT Tweak
   - type: Sprite
     state: gold
@@ -109,6 +110,7 @@
   - type: Tag
     tags:
     - ADTSteelOre
+    - Ore
 ### End ADT Tweak
   - type: Material
   - type: PhysicalComposition
@@ -183,6 +185,7 @@
   - type: Tag
     tags:
     - ADTSilverOre
+    - Ore
 ### End ADT Tweak
   - type: Sprite
     state: silver
@@ -224,6 +227,7 @@
   - type: Tag
     tags:
     - ADTQuarzOre
+    - Ore
 ### End ADT Tweak
   - type: PhysicalComposition
     materialComposition:
@@ -265,6 +269,7 @@
   - type: Tag
     tags:
     - ADTUraniumOre
+    - Ore
 ### End ADT Tweak
   - type: PointLight
     radius: 1.2
@@ -350,6 +355,7 @@
   - type: Tag
     tags:
     - ADTCoalOre
+    - Ore
 ### End ADT Tweak
   - type: Extractable
     grindableSolutionName: coal

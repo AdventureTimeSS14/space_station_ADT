@@ -57,6 +57,7 @@
       - id: ADTExplosivePizzabox
       - id: RevolverCapGun
       - id: ADTClothingBackpackDuffelSyndicateFilledMaid
+      - id: FoodBoxPizzaFilled
 
 - type: entityTable
   id: ADTChaosBigBoyDepositJackpot
@@ -69,15 +70,15 @@
   table: !type:GroupSelector
     children:
     - !type:GroupSelector
-      weight: 10
+      weight: 1
       children:
       - id: ADTChaosCasinoBigBoyJackpot
     - !type:GroupSelector
-      weight: 50
+      weight: 55
       children:
       - id: ADTChaosCasinoBigBoyWin
     - !type:GroupSelector
-      weight: 40
+      weight: 44
       children:
       - id: ADTChaosCasinoBigBoyLoose
 

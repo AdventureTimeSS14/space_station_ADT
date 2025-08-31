@@ -491,14 +491,6 @@
     socks: ADTClothingUnderwearSocksComfyViolet
 
 - type: loadout
-  id: ADTUnderwearSocksHeart
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTUnderwearSpeciesRestrictions
-  equipment:
-    socks: ADTClothingUnderwearSocksHeart
-
-- type: loadout
   id: ADTUnderwearSocksBee
   effects:
   - !type:GroupLoadoutEffect
@@ -537,14 +529,6 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     socks: ADTClothingUnderwearSocksLaceThigh
-
-- type: loadout
-  id: ADTUnderwearStockingsHeart
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTUnderwearSpeciesRestrictions
-  equipment:
-    socks: ADTClothingUnderwearSocksStockingsHeart
 
 - type: loadout
   id: ADTUnderwearStockingsBlack
