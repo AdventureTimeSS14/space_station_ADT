@@ -20,9 +20,11 @@
 
 # ADT Maps Базовые Актуальные
   - ADT_Bagel
+  - ADT_Barratry
   - ADT_Box
   - ADT_Cluster
   - ADT_Cluster_Legacy
+  - ADT_Origin
   - ADT_Gemini
   - ADT_Fland
   - ADT_Marathon
