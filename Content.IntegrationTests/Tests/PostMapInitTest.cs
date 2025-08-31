@@ -107,6 +107,7 @@ namespace Content.IntegrationTests.Tests
             // ADT-Start
             "ADT_Avrit",
             "ADT_Bagel",
+            "ADT_Barratry",
             "ADT_Box",
             "ADT_Cluster",
             "ADT_Fland",
