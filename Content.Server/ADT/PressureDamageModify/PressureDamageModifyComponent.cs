@@ -16,6 +16,8 @@ public sealed partial class PressureDamageModifyComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("needsPressure")]
     public float Pressure = 40f;
+    [ViewVariables(VVAccess.ReadWrite), DataField("needsPressure")]
+    public float MaxPressure = 10f;
 
     /// <summary>
     /// only for melee, doesn`t work for projectiles
