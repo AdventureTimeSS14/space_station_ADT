@@ -129,6 +129,17 @@
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
+  ## ADT-Tweak
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAtmos
+    - ClothingOuterHardsuitAtmos
+    selected: null   # изначально ничего не выбрано
+  ## ADT-Tweak
 
 #Security hardsuit
 - type: entity
