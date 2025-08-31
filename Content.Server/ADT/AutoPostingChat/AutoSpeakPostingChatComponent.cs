@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using System.Threading;
 
 namespace Content.Server.ADT.AutoPostingChat;
 
@@ -22,6 +23,11 @@ public sealed partial class AutoSpeakPostingChatComponent : Component
 
     [DataField("min"), ViewVariables(VVAccess.ReadWrite)]
     public int IntervalRandomSpeakMin = 2;
+
+    /// <summary>
+    /// Token source for managing the timer cancellation
+    /// </summary>
+    public CancellationTokenSource? TokenSource;
 
 }
 

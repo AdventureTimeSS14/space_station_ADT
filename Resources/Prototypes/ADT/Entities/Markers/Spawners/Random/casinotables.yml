@@ -74,11 +74,11 @@
       children:
       - id: ADTChaosCasinoBigBoyJackpot
     - !type:GroupSelector
-      weight: 55
+      weight: 30
       children:
       - id: ADTChaosCasinoBigBoyWin
     - !type:GroupSelector
-      weight: 44
+      weight: 69
       children:
       - id: ADTChaosCasinoBigBoyLoose
 
