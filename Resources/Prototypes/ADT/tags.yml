@@ -694,8 +694,3 @@
 
 - type: Tag
   id: YV2Pistol
-
-# ModSuits
-
-- type: Tag
-  id: ModSuitStation
