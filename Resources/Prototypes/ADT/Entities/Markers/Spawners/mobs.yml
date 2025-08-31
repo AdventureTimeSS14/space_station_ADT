@@ -222,7 +222,7 @@
 
 - type: entity
   name: Burrower Spawner
-  id: SpawnMobXenoBurrower
+  id: ADTSpawnMobXenoBurrower
   parent: MarkerBase
   components:
   - type: Sprite
@@ -236,7 +236,7 @@
 
 - type: entity
   name: Praetorian Spawner
-  id: SpawnMobXenoPraetorian
+  id: ADTSpawnMobXenoPraetorian
   parent: MarkerBase
   components:
   - type: Sprite
@@ -250,7 +250,7 @@
 
 - type: entity
   name: Drone Spawner
-  id: SpawnMobXenoDrone
+  id: ADTSpawnMobXenoDrone
   parent: MarkerBase
   components:
   - type: Sprite
@@ -264,7 +264,7 @@
 
 - type: entity
   name: Queen Spawner
-  id: SpawnMobXenoQueen
+  id: ADTSpawnMobXenoQueen
   parent: MarkerBase
   components:
   - type: Sprite
@@ -278,7 +278,7 @@
 
 - type: entity
   name: Ravager Spawner
-  id: SpawnMobXenoRavager
+  id: ADTSpawnMobXenoRavager
   parent: MarkerBase
   components:
   - type: Sprite
@@ -292,7 +292,7 @@
 
 - type: entity
   name: Runner Spawner
-  id: SpawnMobXenoRunner
+  id: ADTSpawnMobXenoRunner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -306,7 +306,7 @@
 
 - type: entity
   name: Rouny Spawner
-  id: SpawnMobXenoRouny
+  id: ADTSpawnMobXenoRouny
   parent: MarkerBase
   components:
   - type: Sprite
@@ -320,7 +320,7 @@
 
 - type: entity
   name: Spitter Spawner
-  id: SpawnMobXenoSpitter
+  id: ADTSpawnMobXenoSpitter
   parent: MarkerBase
   components:
   - type: Sprite
@@ -334,7 +334,7 @@
 
 - type: entity
   name: Slurva Spawner
-  id: SpawnMobArgocyteSlurva
+  id: ADTSpawnMobArgocyteSlurva
   parent: MarkerBase
   components:
   - type: Sprite
@@ -348,7 +348,7 @@
 
 - type: entity
   name: Barrier Spawner
-  id: SpawnMobArgocyteBarrier
+  id: ADTSpawnMobArgocyteBarrier
   parent: MarkerBase
   components:
   - type: Sprite
@@ -362,7 +362,7 @@
 
 - type: entity
   name: Skitter Spawner
-  id: SpawnMobArgocyteSkitter
+  id: ADTSpawnMobArgocyteSkitter
   parent: MarkerBase
   components:
   - type: Sprite
@@ -376,7 +376,7 @@
 
 - type: entity
   name: Swiper Spawner
-  id: SpawnMobArgocyteSwiper
+  id: ADTSpawnMobArgocyteSwiper
   parent: MarkerBase
   components:
   - type: Sprite
@@ -390,7 +390,7 @@
 
 - type: entity
   name: Molder Spawner
-  id: SpawnMobArgocyteMolder
+  id: ADTSpawnMobArgocyteMolder
   parent: MarkerBase
   components:
   - type: Sprite
@@ -404,7 +404,7 @@
 
 - type: entity
   name: Pouncer Spawner
-  id: SpawnMobArgocytePouncer
+  id: ADTSpawnMobArgocytePouncer
   parent: MarkerBase
   components:
   - type: Sprite
@@ -418,7 +418,7 @@
 
 - type: entity
   name: Glider Spawner
-  id: SpawnMobArgocyteGlider
+  id: ADTSpawnMobArgocyteGlider
   parent: MarkerBase
   components:
   - type: Sprite
@@ -432,7 +432,7 @@
 
 - type: entity
   name: Harvester Spawner
-  id: SpawnMobArgocyteHarvester
+  id: ADTSpawnMobArgocyteHarvester
   parent: MarkerBase
   components:
   - type: Sprite
@@ -446,7 +446,7 @@
 
 - type: entity
   name: Crawler Spawner
-  id: SpawnMobArgocyteCrawler
+  id: ADTSpawnMobArgocyteCrawler
   parent: MarkerBase
   components:
   - type: Sprite
@@ -460,7 +460,7 @@
 
 - type: entity
   name: Enforcer Spawner
-  id: SpawnMobArgocyteEnforcer
+  id: ADTSpawnMobArgocyteEnforcer
   parent: MarkerBase
   components:
   - type: Sprite
@@ -474,7 +474,7 @@
 
 - type: entity
   name: Founder Spawner
-  id: SpawnMobArgocyteFounder
+  id: ADTSpawnMobArgocyteFounder
   parent: MarkerBase
   components:
   - type: Sprite
@@ -488,7 +488,7 @@
 
 - type: entity
   name: Leviathing Spawner
-  id: SpawnMobArgocyteLeviathing
+  id: ADTSpawnMobArgocyteLeviathing
   parent: MarkerBase
   components:
   - type: Sprite
