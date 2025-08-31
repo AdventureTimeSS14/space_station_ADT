@@ -25,7 +25,7 @@
       - Ingot
       - ADTBSCrystal #ADT Tweak
       - PhantomEctoplasm #ADT Tweak
-      - RawMaterial
+      - RawMaterial  #ADT Tweak 
   - type: ActivatableUI
     key: enum.OreSiloUiKey.Key
   - type: ActivatableUIRequiresPower
