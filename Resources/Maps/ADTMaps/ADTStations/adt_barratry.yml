@@ -11881,13 +11881,6 @@ entities:
     - type: Transform
       pos: 20.642607,51.519356
       parent: 2
-# - proto: ADTFoodEggBoiledEaster
-#   entities:
-#   - uid: 39
-#     components:
-#     - type: Transform
-#       pos: -77.301704,51.222046
-#       parent: 2
 - proto: ADTFoodFrozenHonkdae
   entities:
   - uid: 40
@@ -11895,13 +11888,6 @@ entities:
     - type: Transform
       pos: 12.583374,43.796616
       parent: 2
-# - proto: ADTFoodKulichBig
-#   entities:
-#   - uid: 41
-#     components:
-#     - type: Transform
-#       pos: -77.749626,51.28459
-#       parent: 2
 - proto: ADTFoodSoupUzbekPilaf
   entities:
   - uid: 42
