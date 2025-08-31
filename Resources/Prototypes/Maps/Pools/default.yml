@@ -23,6 +23,7 @@
   - ADT_Box
   - ADT_Cluster
   - ADT_Cluster_Legacy
+  - ADT_Origin
   - ADT_Gemini
   - ADT_Fland
   - ADT_Marathon
