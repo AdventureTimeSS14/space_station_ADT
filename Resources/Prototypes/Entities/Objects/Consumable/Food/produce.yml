@@ -1542,7 +1542,6 @@
   - type: Tag
     tags:
     - Vegetable
-    - ADTAloe # ADT-Tweak
     - ADTMedicalAssemblerStuff # ADT-Tweak: Medical Assembler recipe stuff
   - type: FoodSequenceElement
     entries:

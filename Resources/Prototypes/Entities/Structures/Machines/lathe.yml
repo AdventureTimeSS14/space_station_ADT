@@ -289,7 +289,6 @@
     - MechBoards
     - ShuttleBoards
     # ADT-tweak-start
-    - ADTEnergyBoardsPack
     - ADTBluespaceHarvesterPack
     # ADT-tweak-end
   - type: EmagLatheRecipes

@@ -10,8 +10,8 @@
     ClothingOuterWinterMime: 1
     ADTClothingOuterClothingBox: 2 #ADT tweak
     ADTClothingOuterWinterLongMime: 1 #ADT tweak
-    ADTClothingUniformJumpsuitOldDark: 1 # ADT tweak 
-    ADTClothingOuterCoatXCoat: 1 # ADT tweak 
+    ADTClothingUniformJumpsuitOldDark: 1 # ADT tweak
+    ADTClothingOuterCoatXCoat: 1 # ADT tweak
     ClothingOuterWinterMusician: 1
     ClothingMaskJoy: 2
     ClothingHeadHatCardborg: 2
@@ -59,6 +59,8 @@
     ClothingShoesBootsCowboyBrown: 1
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
+    ADTBoxTeto: 1 # ADT tweak
+    BoxPerformer: 1 # ADT tweak
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1

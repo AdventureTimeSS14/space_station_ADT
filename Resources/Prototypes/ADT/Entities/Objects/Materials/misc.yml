@@ -27,12 +27,15 @@
     softness: 3
 
 - type: entity
-  parent: BaseItem
+  parent: MaterialBase
   id: ADTMaterialBScrystal
   name: Bluespace crystal
   description: Just a bluespace crystal that was not combined with plasma and diamond. It has limited functionality, but with a certain manipulation of the crystal it can distort space, expanding, for example, it inside small objects, and also move jumps shuttles into bluespace
   suffix: Full
   components:
+  - type: PhysicalComposition
+    materialComposition:
+      ADTBScrystal: 100
   - type: Material
   - type: Tag
     tags:
