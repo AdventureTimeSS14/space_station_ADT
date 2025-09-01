@@ -1,0 +1,32 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+uniform highp float noiseScale;
+
+void fragment() {
+    highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
+    highp float time = TIME;
+
+    // Create noise based on time and coordinates
+    highp vec2 noiseCoord = coord * noiseScale + time * 0.1;
+    highp float noise = fract(sin(dot(noiseCoord, vec2(12.9898, 78.233))) * 43758.5453);
+
+    // Create interference
+    highp float interference = noise * intensity;
+
+    // Add random stripes
+    highp float stripes = sin(coord.y * 100.0 + time * 2.0) * 0.5 + 0.5;
+    interference += stripes * intensity * 0.3;
+
+    // Get screen color
+    highp vec4 screenColor = zTextureSpec(SCREEN_TEXTURE, coord);
+
+    // Mix with screen
+    highp vec3 interferenceColor = vec3(interference * 0.8, interference * 0.6, interference * 0.9);
+    highp vec3 finalColor = mix(screenColor.rgb, interferenceColor, intensity * 0.7);
+
+    // Add flickering
+    highp float flicker = sin(time * 8.0) * 0.1 + 0.9;
+    finalColor *= flicker;
+
+    COLOR = vec4(finalColor, screenColor.a);
+}

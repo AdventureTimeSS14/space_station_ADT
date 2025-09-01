@@ -1,0 +1,41 @@
+- type: entity
+  id: EmpZoneTest
+  name: "ЭМИ Зона (Тест)"
+  description: "Тестовая зона ЭМИ эффекта с переменной интенсивностью"
+  components:
+  - type: EmpZone
+    radius: 8.0
+    maxIntensity: 1.0
+    minIntensity: 0.1
+    duration: 15.0
+    enabled: true
+  - type: Sprite
+    sprite: Effects/emp.rsi
+    state: emp_pulse
+    color: "#DA70D680" # Semi-transparent purple
+    drawdepth: Effects
+  - type: Physics
+    bodyType: Static
+    fixtures:
+      - shape:
+          !type:PhysShapeCircle
+          radius: 8.0
+        collisionLayer: MobLayer
+        collisionMask: MobLayer
+        isSensor: true
+        id: empZone
+  - type: PointLight
+    enabled: true
+    color: "#DA70D6" # Purple light
+    radius: 8.0
+    energy: 1.5
+  - type: InteractionPopup
+    interactSuccessString: "Вы чувствуете электромагнитное воздействие..."
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Appearance
+    layers:
+      - state: emp_pulse
+        color: "#DA70D680"
+        drawdepth: Effects

@@ -8,3 +8,7 @@
 
 - type: statusEffect
   id: SeeingStatic
+
+# EMP Interference Effect
+- type: statusEffect
+  id: EmpInterference
