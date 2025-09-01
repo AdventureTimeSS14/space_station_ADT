@@ -15,8 +15,8 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - GasMask # goob edit
-    - Mask # goob edit
+    - GasMask # # ADT tweak
+    - Mask # # ADT tweak
     - ADTGasmaskSacrifice # ADT Tweak
   - type: HideLayerClothing
     slots: # ADT Tweak. layers: -> slots:
@@ -212,7 +212,7 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-    - Mask # goob-edit
+    - Mask # # ADT tweak
   - type: HideLayerClothing
     slots:
     - Snout

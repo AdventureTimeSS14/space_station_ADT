@@ -168,7 +168,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(thief);
 
-        // goobstation - heretics
+        // ADT tweak - heretics start
         Verb heretic = new()
         {
             Text = Loc.GetString("admin-verb-make-heretic"),
@@ -182,6 +182,7 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
+        // ADT tweak - heretics end
 
         // ADT-Changeling-Tweak-Start
         Verb changeling = new()

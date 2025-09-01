@@ -224,7 +224,7 @@
     canResistFire: true
     damage: #per second, scales with number of fire 'stacks'
       types:
-        Heat: 0.5 # goob edit - ash heretic must weep
+        Heat: 0.5 # # ADT tweak - ash heretic must weep
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning

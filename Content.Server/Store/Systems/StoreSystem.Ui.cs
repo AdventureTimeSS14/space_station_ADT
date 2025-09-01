@@ -36,8 +36,6 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-
-    // goobstation - heretics
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
 
     private void InitializeUi()
@@ -185,7 +183,7 @@ public sealed partial class StoreSystem
             component.BalanceSpent[currency] += amount;
         }
 
-        // goobstation - heretics
+        //ADT tweak- heretics
         // i am too tired of making separate systems for knowledge adding
         // and all that shit. i've had like 4 failed attempts
         // so i'm just gonna shitcode my way out of my misery

@@ -19,7 +19,7 @@
   - type: FlavorProfile
     flavors:
       - chicken # everything kinda tastes like chicken
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -64,7 +64,7 @@
   - type: Item
     size: Small
     heldPrefix: lungs
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -98,7 +98,7 @@
   - type: Item
     size: Small
     heldPrefix: stomach
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -136,7 +136,7 @@
   - type: Item
     size: Small
     heldPrefix: liver
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -161,7 +161,7 @@
   - type: Item
     size: Small
     heldPrefix: heart
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -185,7 +185,7 @@
   - type: Item
     size: Small
     heldPrefix: kidneys
-  - type: Tag # goob edit
+  - type: Tag # # ADT tweak
     tags:
     - Meat
     - Organ

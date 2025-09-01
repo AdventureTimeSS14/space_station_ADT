@@ -197,10 +197,10 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      # Goobstation - changelings & heretics
+      # ADT tweak - changelings & heretics
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+      enum.HereticLivingHeartKey.Key: # # ADT tweak - heretics
         type: LivingHeartMenuBoundUserInterface
   - type: Puller
   - type: Speech

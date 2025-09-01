@@ -24,7 +24,7 @@
       prob: 0.5
 #    - id: SubWizard
 #      prob: 0.05
-    # - id: Heretic # goob edit #ADT-Tweak - убрал еретиков и генокрадов из геймрула
+    # - id: Heretic # # ADT tweak #ADT-Tweak - убрал еретиков и генокрадов из геймрула
     #   prob: 0.2
     # - id: ChangelingGameRule # ADT-Changeling-Tweak
     #   prob: 0.1

@@ -8,14 +8,14 @@ namespace Content.Shared.Damage.Components;
 /// <summary>
 /// Passively damages the entity on a specified interval.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] //ADT tweaked, added AutoGenerateComponentState
 public sealed partial class PassiveDamageComponent : Component
 {
     /// <summary>
     /// The entitys' states that passive damage will apply in
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<MobState> AllowedStates = new();
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public List<MobState>? AllowedStates = null; // ADT tweak
 
     /// <summary>
     /// Damage / Healing per interval dealt to the entity every interval

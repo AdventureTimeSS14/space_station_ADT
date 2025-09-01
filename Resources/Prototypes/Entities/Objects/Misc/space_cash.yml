@@ -52,7 +52,7 @@
         mask:
         - ItemMask
   - type: Appearance
-    # <Goobstation> #ADT Tweak (port to be clear)
+    # #ADT Tweak (port to be clear)
   - type: Flammable # it's about sending a message
     fireSpread: true
     alwaysCombustible: true
@@ -89,7 +89,7 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 1
-  # </Goobstation> #End ADT Tweak
+  # #End ADT Tweak
   # ADT-Economy-Start
   - type: Currency
     price:

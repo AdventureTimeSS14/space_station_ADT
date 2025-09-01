@@ -1750,7 +1750,7 @@
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   suffix: Sponsor, Uma
   components:
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Stunbaton
   - type: Sprite

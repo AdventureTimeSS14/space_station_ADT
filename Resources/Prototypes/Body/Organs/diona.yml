@@ -24,7 +24,7 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -55,7 +55,7 @@
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -71,7 +71,7 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -110,7 +110,7 @@
   - type: Item
     size: Small
     heldPrefix: stomach
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -146,7 +146,7 @@
       Lung:
         maxVol: 100
         canReact: False
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -164,7 +164,7 @@
   - type: Nymph # This will make the organs turn into a nymph when they're removed.
     entityPrototype: OrganDionaNymphBrain
     transferMind: true
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -179,7 +179,7 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphStomach
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -194,7 +194,7 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphLungs
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ

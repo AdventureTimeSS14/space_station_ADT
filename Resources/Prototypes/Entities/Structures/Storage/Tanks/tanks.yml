@@ -85,7 +85,7 @@
   description: A water tank. It's used to store high amounts of water.
   suffix: Empty
   components:
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - WaterTank
   - type: StaticPrice

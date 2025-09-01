@@ -1379,7 +1379,7 @@
 - type: Tag
   id: WeaponShotgunKammerer
 
-- type: Tag # goob edit
+- type: Tag # ADT tweak
   id: WaterTank
 
 - type: Tag

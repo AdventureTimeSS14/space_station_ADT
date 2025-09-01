@@ -9,7 +9,7 @@
     size: Small
   - type: Clothing
     slots: [mask]
-  - type: Tag # goob edit
+  - type: Tag # # ADT tweak
     tags:
     - Mask
   - type: StaticPrice

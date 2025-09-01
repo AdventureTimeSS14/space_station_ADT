@@ -16,7 +16,7 @@ public sealed partial class GhostGui : UIWidget
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
-    public event Action? GhostBarPressed; // Goobstation - Ghost Bar
+    public event Action? GhostBarPressed; // ADT tweak- Ghost Bar
     private int _prevNumberRoles;
 
     public GhostGui()
@@ -32,14 +32,14 @@ public sealed partial class GhostGui : UIWidget
         GhostWarpButton.OnPressed += _ => RequestWarpsPressed?.Invoke();
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
-        GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // Goobstation - Ghost Bar
+        GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // ADT tweak - Ghost Bar
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleBase.ButtonCaution);
     }
 
     public void Hide()
     {
         TargetWindow.Close();
-        GhostBarWindow.Close(); // Goobstation - Ghost Bar
+        GhostBarWindow.Close(); // ADT tweak - Ghost Bar
         Visible = false;
     }
 
@@ -69,7 +69,7 @@ public sealed partial class GhostGui : UIWidget
         if (disposing)
         {
             TargetWindow.Dispose();
-            GhostBarWindow.Dispose(); // Goobstation - Ghost Bar
+            GhostBarWindow.Dispose(); // ADT tweak - Ghost Bar
         }
     }
 }

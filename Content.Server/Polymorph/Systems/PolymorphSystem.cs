@@ -70,7 +70,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
+    [Dependency] private readonly FollowerSystem _follow = default!;
 
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -471,14 +471,14 @@ public sealed partial class PolymorphSystem : EntitySystem
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
 
-        // goob edit
+        // ADT tweak start
         if (TryComp<FollowedComponent>(uid, out var followed))
             foreach (var f in followed.Following)
             {
                 _follow.StopFollowingEntity(f, uid);
                 _follow.StartFollowingEntity(f, child);
             }
-        // goob edit end
+        // ADT tweak end
 
         return child;
     }
@@ -608,14 +608,14 @@ public sealed partial class PolymorphSystem : EntitySystem
                 parent);
         QueueDel(uid);
 
-        // goob edit
+        // ADT tweak start
         if (TryComp<FollowedComponent>(uid, out var followed))
             foreach (var f in followed.Following)
             {
                 _follow.StopFollowingEntity(f, uid);
                 _follow.StartFollowingEntity(f, parent);
             }
-        // goob edit end
+        // ADT tweak end
 
         return parent;
     }
@@ -757,5 +757,5 @@ public sealed partial class PolymorphSystem : EntitySystem
     // ADT-Changeling-Tweak-End
 }
 
-// goob edit
+// ADT tweak
 public sealed partial class PolymorphRevertEvent : EntityEventArgs { }

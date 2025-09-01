@@ -23,7 +23,7 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -51,7 +51,7 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -88,7 +88,7 @@
   - type: Item
     size: Small
     heldPrefix: eyeballs
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -102,7 +102,7 @@
   components:
   - type: Sprite
     state: tongue
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -164,7 +164,7 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -191,7 +191,7 @@
   - type: Item
     size: Small
     heldPrefix: heart
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -228,7 +228,7 @@
     groups:
     - id: Food
     - id: Drink
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -251,7 +251,7 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
@@ -275,7 +275,7 @@
     maxReagents: 5
     metabolizerTypes: [Human]
     removeEmpty: true
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ

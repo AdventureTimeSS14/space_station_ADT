@@ -81,7 +81,7 @@ public sealed partial class AntagSelectionSystem
         return count;
     }
 
-    // goob edit
+    // ADT tweak start
     public List<ICommonSession> GetAliveConnectedPlayers(IList<ICommonSession> pool)
     {
         var l = new List<ICommonSession>();
@@ -93,7 +93,7 @@ public sealed partial class AntagSelectionSystem
         }
         return l;
     }
-    // goob edit end
+    // ADT tweak end
 
     /// <summary>
     /// Gets the number of antagonists that should be present for a given antag definition based on the provided pool.

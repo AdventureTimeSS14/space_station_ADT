@@ -4,7 +4,7 @@
   id: Stunprod
   description: A stun prod for illegal incapacitation.
   components:
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Stunbaton
   - type: Sprite

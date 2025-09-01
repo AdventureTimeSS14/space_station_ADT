@@ -42,7 +42,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.RestockTime,
         other.DiscountDownTo,
         other.DisableRefund,
-        other.ProductHereticKnowledge ///goob edit
+        other.ProductHereticKnowledge //ADT tweak
     )
     {
 
@@ -68,7 +68,7 @@ public partial class ListingData : IEquatable<ListingData>
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         bool disableRefund,
-        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge ///goob edit
+        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge ///ADT tweak
     )
     {
         Name = name;
@@ -84,7 +84,7 @@ public partial class ListingData : IEquatable<ListingData>
         ProductEvent = productEvent;
         RaiseProductEventOnUser = raiseProductEventOnUser;
         PurchaseAmount = purchaseAmount;
-        ProductHereticKnowledge = productHereticKnowledge; //goob edit
+        ProductHereticKnowledge = productHereticKnowledge; //ADT tweak
         ID = id;
         Categories = categories.ToHashSet();
         OriginalCost = originalCost;
@@ -142,7 +142,7 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public SpriteSpecifier? Icon;
 
-    // goobstation - heretics
+    // ADT tweak - heretics
     // i am too tired of making separate systems for knowledge adding
     // and all that shit. i've had like 4 failed attempts
     // so i'm just gonna shitcode my way out of my misery
@@ -312,7 +312,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.DisableRefund,
-            listingData.ProductHereticKnowledge  //goob edit
+            listingData.ProductHereticKnowledge  //ADT tweak
         )
     {
     }

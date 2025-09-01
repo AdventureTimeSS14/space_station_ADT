@@ -399,7 +399,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
     }
 
-    // goob edit - made it public.
+    // ADT tweak - made it public.
     // in any case it requires a stamina component that can be freely modified.
     // so it doesn't really matter if it's public or private. besides, very convenient.
     // regards

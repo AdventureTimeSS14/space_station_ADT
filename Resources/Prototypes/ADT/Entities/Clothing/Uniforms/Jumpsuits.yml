@@ -1154,7 +1154,7 @@
     - type: VentCrawler
       allowInventory: false
 
-- type: entity  # Goobstation original
+- type: entity
   parent: ClothingUniformJumpsuitAtmosSyndie
   id: ClothingUniformJumpsuitAtmosSyndieAdvanced
   suffix: Contortionistic, Inventory

@@ -7,7 +7,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
-  - Heretic # goob edit - heretics
+  - Heretic # ADT tweak - heretics
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
@@ -24,7 +24,7 @@
   - Dragon
   - AllHostile
   - Wizard
-  - Heretic # goob edit - heretics
+  - Heretic # ADT tweak - heretics
   - Xenoborg
 
 - type: npcFaction
@@ -60,7 +60,7 @@
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
-  - Heretic # goob edit - heretics
+  - Heretic # ADT tweak - heretics
   - Dragon
   - Xeno
   - Xenoborg
@@ -76,7 +76,7 @@
   - Xeno
   - PetsNT
   - Zombie
-  - Heretic # goob edit - heretics
+  - Heretic # ADT tweak - heretics
   - DroneAntag # ADT tweak
   - Ursus # ADT tweak
   - Dragon
@@ -93,7 +93,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
-  - Heretic # goob edit - heretics
+  - Heretic # ADT tweak - heretics
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
@@ -113,7 +113,7 @@
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
-  - Heretic # goob edit - heretics
+  - Heretic # ADT tweak - heretics
   - Dragon
   - Xenoborg
 
@@ -179,5 +179,5 @@
   - Xeno # rivalry
 
   # cause they are hostile to them
-  - SimpleHostile 
+  - SimpleHostile
   - AllHostile

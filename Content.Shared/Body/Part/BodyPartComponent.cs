@@ -7,7 +7,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Body.Part;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-//[Access(typeof(SharedBodySystem))] // goob edit - all access :godo:
+//[Access(typeof(SharedBodySystem))] // ADT tweak - all access :godo:
 public sealed partial class BodyPartComponent : Component
 {
     // Need to set this on container changes as it may be several transform parents up the hierarchy.

@@ -11,7 +11,7 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
-  - type: Tag # goob edit
+  - type: Tag # ADT tweak
     tags:
     - Meat
     - Organ
