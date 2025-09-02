@@ -16,6 +16,8 @@ using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Components;
+using Content.Shared.ADT.Chaplain.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -38,10 +40,16 @@ public sealed partial class HereticSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
+        // QWERTY's chaplain update//  Thats for buffing chaplain against heretic.
+        SubscribeLocalEvent<HereticComponent, ComponentStartup>(OnHereticStartup);
 
         SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
+    }
+    private void OnHereticStartup(EntityUid uid, HereticComponent component, ComponentStartup args)
+    {
+        EnsureComp<HolyDamageMultiplierComponent>(uid);
     }
 
     public override void Update(float frameTime)

@@ -74,7 +74,7 @@ public sealed partial class CCVars
     ///     Sets the duration of the gamemode/preset vote timer.
     /// </summary>
     public static readonly CVarDef<int>
-        VoteTimerPreset = CVarDef.Create("vote.timerpreset", 30, CVar.SERVERONLY);
+        VoteTimerPreset = CVarDef.Create("vote.timerpreset", 90, CVar.SERVERONLY); // ADT-Tweak: ReWork Vote Lobby
 
     /// <summary>
     ///     Sets the duration of the map vote timer when ALONE.

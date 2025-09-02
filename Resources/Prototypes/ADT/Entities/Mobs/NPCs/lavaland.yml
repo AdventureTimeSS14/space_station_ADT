@@ -339,3 +339,64 @@
   - type: AshStormImmune
   - type: Fauna
 
+#Crab
+- type: entity
+  id: ADTMobBSCrab
+  parent: BaseMobAsteroid
+  name: Bluespace crab
+  description: A crab made half from the ashes of Lavaland storms, a quarter flesh, a quarter bluespace. Aggressive on look.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/BS_crab.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bs_crab-alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bs_crab-alive
+      Dead:
+        Base: bs_crab-dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Dead 
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        5
+      AggroVisionRadius: !type:Single
+        11
+  - type: Butcherable
+    spawned:
+    - id: ADTBSore1
+  - type: Fauna
+  - type: AshStormImmune
+  - type: Gun
+    fireRate: 0.66
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes:
+    - SemiAuto
+    soundGunshot: null
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 0.8
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: ADTBulletBS
+    capacity: 1
+    count: 1
+

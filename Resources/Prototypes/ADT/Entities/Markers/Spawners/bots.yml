@@ -1,0 +1,13 @@
+- type: entity
+  name: beepsky spawner
+  id: ADTSpawnMobBeepsky
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Mobs/Silicon/Bots/securitron.rsi
+        state: secbot
+  - type: ConditionalSpawner
+    prototypes:
+      - ADTMobSecuritron

@@ -62,6 +62,9 @@
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [underwearb, underweart]
+  - type: Tag
+    tags:
+      - ADTJumpSuitSacrifice
   #ADT-Tweak-End
 
 - type: entity

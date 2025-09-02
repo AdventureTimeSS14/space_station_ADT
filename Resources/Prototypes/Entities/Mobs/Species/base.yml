@@ -161,6 +161,7 @@
     state: icon
   - type: AnimationPlayer
   - type: Buckle
+  - type: CriminalRecord # ADT-Beepsky
   - type: CombatMode
     canDisarm: true
   - type: MeleeWeapon

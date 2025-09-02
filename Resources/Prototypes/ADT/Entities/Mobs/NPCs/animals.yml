@@ -398,3 +398,94 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+
+- type: entity
+  name: Notarius
+  parent: ADTMobBaseSpider
+  id: ADTMobNotariusSpider
+  description: A church burocrate spider which going to realy like your church!
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: notarius
+      sprite: ADT/Mobs/Animals/spiders.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: notarius
+    noMovementLayers:
+      movement:
+        state: notarius
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: notarius
+      Dead:
+        Base: notarius_dead
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        10
+      AggroVisionRadius: !type:Single
+        10
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 3
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: 0.65
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 4
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Rewriter
+          Quantity: 35
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Rewriter
+        Quantity: 2
+  - type: MeleeChemicalInjector
+    transferAmount: 8
+    solution: melee
+  - type: PointLight
+    radius: 1
+    energy: 0.5
+    softness: 3
+    color: "#05d116"
+
+- type: entity
+  parent: BaseMobCarp
+  id: ADTChurchMobCarp
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: Rainbow
+      enum.DamageStateVisualLayers.BaseUnshaded:
+        mouth: ""

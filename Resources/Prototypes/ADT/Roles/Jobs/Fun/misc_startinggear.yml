@@ -44,3 +44,21 @@
     belt: ClothingBeltUtility
     pocket1: AppraisalTool
     outerClothing: ClothingOuterCoatGentle
+
+# Syndicate Surpricer Gear - No Headset
+- type: startingGear
+  id: SyndicateSurpricerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    head: ClothingHeadHelmetSwatSyndicate
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterArmorBasic
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  inhand:
+    - CombatKnife
+  storage:
+    back:
+    - BoxSurvival

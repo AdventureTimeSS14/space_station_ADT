@@ -211,9 +211,9 @@
     - Fulton
     - FultonBeacon
   # ADT Research Console Rework start
-  position: 3,-3
+  position: 3,-2
   requiredTech:
-  - AdvantedEnergy
+  - AtmosphericTech
   # ADT Research Console Rework end
 
 - type: technology
@@ -252,7 +252,7 @@
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
 # ADT Research Console Rework start
-  position: 1,-4
+  position: 2,-3
   requiredTech:
   - ADTCompactTechnologies
   - ADTIndustrialMODsuitMODs

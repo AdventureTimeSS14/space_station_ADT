@@ -1,0 +1,94 @@
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteOne
+  name: gambler note
+  suffix: "Cheeky comment"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-1
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteTwo
+  name: gambler note
+  suffix: "Pushkin's poem"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-2
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteThree
+  name: gambler note
+  suffix: "wanna cry"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-3
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteFour
+  name: gambler note
+  suffix: "YOU ARE AN IDIOT"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-4
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteFive
+  name: gambler note
+  suffix: "Bad feeling"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-5
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteSix
+  name: gambler note
+  suffix: "Rich people philosophy"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-6
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteSeven
+  name: gambler note
+  suffix: "GAZZILION REQUEST"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-7
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteEight
+  name: gambler note
+  suffix: "Self hate"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-8
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteNine
+  name: gambler note
+  suffix: "IQ-test"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-9
+
+
+- type: entity
+  parent: PrintedDocument
+  id: ADTGambleTrollNoteTen
+  name: gambler note
+  suffix: "Gorlex Securities"
+  components:
+    - type: Paper
+      content: doc-text-gamble-troll-10
+      stampState: "paper_stamp-hos"
+      stampedBy:
+      - stampedColor: "#970000"
+        stampedName: "Gorlex Securities"
