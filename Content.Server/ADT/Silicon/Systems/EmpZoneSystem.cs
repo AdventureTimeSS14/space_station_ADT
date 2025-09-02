@@ -45,10 +45,14 @@ public sealed class EmpZoneSystem : EntitySystem
 
             foreach (var uid in _lookup.GetEntitiesInRange(mapCoords, zone.Radius))
             {
+                // Не накладываем эффект на сам источник зоны
+                if (HasComp<EmpZoneComponent>(uid))
+                    continue;
+
                 if (!HasComp<MindContainerComponent>(uid))
                     continue;
 
-                // Применяем только тем, у кого уже есть контейнер статусов (из прототипа)
+                // Проверяем наличие контейнера статусов
                 if (!TryComp<StatusEffectsComponent>(uid, out var status))
                     continue;
 
@@ -79,33 +83,51 @@ public sealed class EmpZoneSystem : EntitySystem
 
         if (_pending.Count == 0)
         {
-            // Никто не в зоне: снимаем эффект только у тех, у кого он активен
-            var activeStaticQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpZoneComponent>();
+            // Никто не в зоне: снимаем эффекты только у тех, у кого они активны
+            var activeStaticQuery = EntityQueryEnumerator<StatusEffectsComponent, SeeingStaticComponent>();
             while (activeStaticQuery.MoveNext(out var uid, out var status, out var _))
+            {
+                _status.TryRemoveStatusEffect(uid, SharedSeeingStaticSystem.StaticKey, status);
+            }
+            var activeEmpQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpInterferenceComponent>();
+            while (activeEmpQuery.MoveNext(out var uid, out var status, out var _))
             {
                 _status.TryRemoveStatusEffect(uid, SharedEmpInterferenceSystem.StaticKey, status);
             }
             return;
         }
 
-        // Применяем/обновляем эффект тем, кто в зонах
+        // Применяем/обновляем эффекты тем, кто в зонах
         foreach (var (uid, data) in _pending)
         {
-            if (TryComp<StatusEffectsComponent>(uid, out var status))
+            if (!TryComp<StatusEffectsComponent>(uid, out var status))
+                continue;
+
+            // SeeingStatic (визуальный шейдер)
+            _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SharedSeeingStaticSystem.StaticKey, TimeSpan.FromSeconds(data.DurSec), true, status);
+            var staticComp = EnsureComp<SeeingStaticComponent>(uid);
+            if (Math.Abs(staticComp.Multiplier - data.Mult) > 0.01f)
             {
-                _status.TryAddStatusEffect<EmpZoneComponent>(uid, SharedEmpInterferenceSystem.StaticKey, TimeSpan.FromSeconds(data.DurSec), true, status);
-                var comp = EnsureComp<EmpZoneComponent>(uid);
-                if (Math.Abs(comp.Multiplier - data.Mult) > 0.01f)
-                {
-                    comp.Multiplier = data.Mult;
-                    Dirty(uid, comp);
-                }
+                staticComp.Multiplier = data.Mult;
+                Dirty(uid, staticComp);
             }
+
+            // EmpInterference (геймплейный эффект)
+            _status.TryAddStatusEffect<EmpInterferenceComponent>(uid, SharedEmpInterferenceSystem.StaticKey, TimeSpan.FromSeconds(data.DurSec), true, status);
         }
 
-        // Снимаем эффект с тех, кто сейчас не в зонах, но эффект ещё висит
-        var removeQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpZoneComponent>();
-        while (removeQuery.MoveNext(out var uid, out var statusComp, out var _))
+        // Снимаем эффекты с тех, кто сейчас не в зонах, но эффекты ещё висят
+        var removeStaticQuery = EntityQueryEnumerator<StatusEffectsComponent, SeeingStaticComponent>();
+        while (removeStaticQuery.MoveNext(out var uid, out var statusComp, out var _))
+        {
+            if (_pending.ContainsKey(uid))
+                continue;
+
+            _status.TryRemoveStatusEffect(uid, SharedSeeingStaticSystem.StaticKey, statusComp);
+        }
+
+        var removeEmpQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpInterferenceComponent>();
+        while (removeEmpQuery.MoveNext(out var uid, out var statusComp, out var _))
         {
             if (_pending.ContainsKey(uid))
                 continue;

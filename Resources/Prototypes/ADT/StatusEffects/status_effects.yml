@@ -8,7 +8,7 @@
 
 - type: statusEffect
   id: SeeingStatic
-  # alwaysAllowed: true
+  alwaysAllowed: true
 
 # EMP Interference Effect
 - type: statusEffect
