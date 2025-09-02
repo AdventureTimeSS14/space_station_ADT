@@ -1,175 +1,65 @@
 - type: jukebox
-  id: lateraligator
-  name: Silverman Sound Studios - Later Alligator
+  id: ThirdSeptemberCivilProtection
+  name: Гражданская оборона - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/lateraligator.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberCivilProtection.ogg
 
 - type: jukebox
-  id: ABeautifulLull
-  name: Conjurerq - A beautiful lull
+  id: ThirdSeptemberCountry
+  name: Банжо Кантриев - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/A_beautiful_lull.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberCountry.ogg
 
 - type: jukebox
-  id: ATenseAdventure
-  name: Conjurerq - A Tense Adventure
+  id: ThirdSeptemberCurier
+  name: Курьер - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/A_Tense_Adventure.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberCurier.ogg
 
 - type: jukebox
-  id: HappyEnding
-  name: Conjurerq - Happy ending
+  id: ThirdSeptemberFull
+  name: Михаил Шуфутинский - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/Happy_ending.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberFull.ogg
 
 - type: jukebox
-  id: TheFallOfTheCorporation
-  name: Conjurerq - The fall of the corporation
+  id: ThirdSeptemberHardCore
+  name: Михаил Шуфутинский - 3 сентября (хард-кор)
   path:
-    path: /Audio/ADT/Jukebox/The_fall_of_the_corporation.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberHardCore.ogg
 
 - type: jukebox
-  id: WaitingForTheMeeting
-  name: Conjurerq - Waiting for the meeting
+  id: ThirdSeptemberJazz
+  name: Джазз Блюзов - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/Waiting_for_the_meeting.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberJazz.ogg
 
 - type: jukebox
-  id: GiftOfAdventureFromConjurer
-  name: Conjurerq - Gift of Adventure from Conjurer
+  id: ThirdSeptemberMetallica
+  name: Metallica - The third september
   path:
-    path: /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
-
-# - type: jukebox
-#   id: AlexProductionsChristmasCountdown
-#   name: Alex Productions - Christmas Countdown
-#   path:
-#     path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-countdown-deck-the-halls.ogg
-
-# - type: jukebox
-#   id: AlexProductionsChristmasIsComing
-#   name: Alex Productions - Christmas is Coming
-#   path:
-#     path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-is-coming.ogg
-
-# - type: jukebox
-#   id: AlexProductionsChristmasMood
-#   name: Alex Productions - Christmas Mood
-#   path:
-#     path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-mood.ogg
-
-# - type: jukebox
-#   id: AlexProductionsChristmasVibes
-#   name: Alex Productions - Christmas Vibes
-#   path:
-#     path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-vibes.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberMetallica.ogg
 
 - type: jukebox
-  id: ESCPMidnightRoom
-  name: < e s c p > - Midnight Room
+  id: ThirdSeptemberRock
+  name: Рокк Хардов - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberRock.ogg
 
 - type: jukebox
-  id: ESCPNeonscapes
-  name: < e s c p > - Neonscapes
+  id: ThirdSeptemberProphetSunboy
+  name: Пророк Санбой (ОРИГИНАЛЬНЫЙ ИСПОЛНИТЕЛЬ) - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
-
-# - type: jukebox
-#   id: MaxKoMusicChristmasIsComing
-#   name: MaxKoMusic - Christmas is Coming
-#   path:
-#     path: /Audio/ADT/Jukebox/NewYear/maxkomusic-christmas-is-coming.ogg
-
-# - type: jukebox
-#   id: RoaMusicWinterMagic
-#   name: Roa Music - Winter Magic
-#   path:
-#     path: /Audio/ADT/Jukebox/NewYear/roa-music-winter-magic.ogg
-
-# - type: jukebox
-#   id: PianoSaysYuletide
-#   name: Piano Says - Yuletide
-#   path:
-#     path: /Audio/ADT/Jukebox/NewYear/the-piano-says-yuletide.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberProphetSunboy.ogg
 
 - type: jukebox
-  id: FSMTeamEagle
-  name: FSM team - Eagle
+  id: ThirdSeptemberRockBallad
+  name: Кипелов - 3 сентября
   path:
-    path: /Audio/ADT/Jukebox/fsm-team-eagle.ogg
+    path: /Audio/ADT/Jukebox/ThirdSeptemberRockBallad.ogg
 
 - type: jukebox
-  id: horn
-  name: Scruq - horn
+  id: ThirdSeptemberShitRider
+  name: Михаил Шуфутинский - 3 сентября (Точно оригинал)
   path:
-    path: /Audio/ADT/Lobby/horn.ogg
-
-- type: jukebox
-  id: SpaceAsshole
-  name: Space Asshole - Chris Remo
-  path:
-    path: /Audio/ADT/Jukebox/space_asshole_mono_jukebox.ogg
-
-# START 9 МАЯ
-# - type: jukebox
-#   id: may_day-pobedy
-#   name: 9 Мая - День Победы
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/day-pobedy.ogg
-
-# - type: jukebox
-#   id: may_desyatiy-nash-desantniy-batalon
-#   name: 9 Мая - Десятый наш десантный батальон
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/desyatiy-nash-desantniy-batalon.ogg
-
-# - type: jukebox
-#   id: may_katyusha
-#   name: 9 Мая - Катюша
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/katyusha.ogg
-
-# - type: jukebox
-#   id: may_mayskiy-vals
-#   name: 9 Мая - Майский Вальс
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/mayskiy-vals.ogg
-
-# - type: jukebox
-#   id: may_proshchanie-slavyanki
-#   name: 9 Мая - Прощание Славянки
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/proshchanie-slavyanki.ogg
-
-# - type: jukebox
-#   id: may_smuglyanka
-#   name: 9 Мая - Смуглянка
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/smuglyanka.ogg
-
-# - type: jukebox
-#   id: may_svyashchennaya-voyna
-#   name: 9 Мая - Священная Война
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/svyashchennaya-voyna.ogg
-
-# - type: jukebox
-#   id: may_tanki
-#   name: 9 Мая - 3 Танкиста
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/tanki.ogg
-
-# - type: jukebox
-#   id: may_tyomnaya-noch
-#   name: 9 Мая - Тёмная Ночь
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/tyomnaya-noch.ogg
-
-# - type: jukebox
-#   id: may_zhuravli
-#   name: 9 Мая - Журавли
-#   path:
-#     path: /Audio/ADT/Jukebox/9May/zhuravli.ogg
-# END
+    path: /Audio/ADT/Jukebox/ThirdSeptemberShitRider.ogg

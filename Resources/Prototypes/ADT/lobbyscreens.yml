@@ -1,75 +1,27 @@
 - type: lobbyBackground
-  id: Nanotrasen3024
-  background: /Textures/ADT/LobbyScreens/nanotrasen-3024.webp
+  id: beauty
+  background: /Textures/ADT/LobbyScreens/beauty.webp
 
 - type: lobbyBackground
-  id: Spider clan
-  background: /Textures/ADT/LobbyScreens/spider-clan.webp
+  id: gentleman
+  background: /Textures/ADT/LobbyScreens/gentleman.png
 
 - type: lobbyBackground
-  id: NOGORLEX
-  background: /Textures/ADT/LobbyScreens/NOGORLEX.webp
+  id: glorious
+  background: /Textures/ADT/LobbyScreens/glorious.webp
 
 - type: lobbyBackground
-  id: detective
-  background: /Textures/ADT/LobbyScreens/detective.webp
+  id: mysterious
+  background: /Textures/ADT/LobbyScreens/mysterious.webp
 
 - type: lobbyBackground
-  id: starbow
-  background: /Textures/ADT/LobbyScreens/starbow.webp
+  id: stylish
+  background: /Textures/ADT/LobbyScreens/stylish.webp
 
 - type: lobbyBackground
-  id: barparty
-  background: /Textures/ADT/LobbyScreens/bar_party.webp
+  id: serious
+  background: /Textures/ADT/LobbyScreens/serious.webp
 
 - type: lobbyBackground
-  id: VPshaboom
-  background: /Textures/ADT/LobbyScreens/VPsha_boom.webp
-
-- type: lobbyBackground
-  id: VPshalogo
-  background: /Textures/ADT/LobbyScreens/VPsha_logo.webp
-
-- type: lobbyBackground
-  id: catblueprint
-  background: /Textures/ADT/LobbyScreens/cat1.webp
-
-- type: lobbyBackground
-  id: cosmohop
-  background: /Textures/ADT/LobbyScreens/cosmo1.webp
-
-- type: lobbyBackground
-  id: singuloose
-  background: /Textures/ADT/LobbyScreens/singulo_run.webp
-
-- type: lobbyBackground
-  id: cluwnehonk
-  background: /Textures/ADT/LobbyScreens/Lunalita.webp
-
-- type: lobbyBackground
-  id: ADThos
-  background: /Textures/ADT/LobbyScreens/Lobby1.webp
-
-- type: lobbyBackground
-  id: dedsquad
-  background: /Textures/ADT/LobbyScreens/Epsil.webp
-
-- type: lobbyBackground
-  id: averesomi
-  background: /Textures/ADT/LobbyScreens/averezomi.webp
-
-- type: lobbyBackground
-  id: cqcclown
-  background: /Textures/ADT/LobbyScreens/cqcm3.webp
-
-- type: lobbyBackground
-  id: cqchit
-  background: /Textures/ADT/LobbyScreens/cqcm2.webp
-
-- type: lobbyBackground
-  id: cqc
-  background: /Textures/ADT/LobbyScreens/cqcm1.webp
-
-- type: lobbyBackground
-  id: cqmime
-  background: /Textures/ADT/LobbyScreens/cqcm1.webp
+  id: smart
+  background: /Textures/ADT/LobbyScreens/smart.webp
