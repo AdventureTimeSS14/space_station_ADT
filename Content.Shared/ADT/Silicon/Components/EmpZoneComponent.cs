@@ -28,12 +28,6 @@ public sealed partial class EmpZoneComponent : Component
     public float MinIntensity = 0.1f;
 
     /// <summary>
-    /// ID фикстуры для проверки коллизий.
-    /// </summary>
-    [DataField("fixtureId"), AutoNetworkedField]
-    public string FixtureId = "empZone";
-
-    /// <summary>
     /// Длительность эффекта в секундах.
     /// </summary>
     [DataField("duration"), AutoNetworkedField]

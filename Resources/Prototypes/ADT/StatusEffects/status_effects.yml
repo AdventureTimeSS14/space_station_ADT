@@ -12,3 +12,4 @@
 # EMP Interference Effect
 - type: statusEffect
   id: EmpInterference
+  alwaysAllowed: true
