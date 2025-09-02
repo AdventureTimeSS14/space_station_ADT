@@ -153,6 +153,12 @@
         },
         {
             "name": "rus_zh"
+        },
+        {
+            "name": "rus_jj"
+        },
+        {
+            "name": "question_mark"
         }
     ]
 }
