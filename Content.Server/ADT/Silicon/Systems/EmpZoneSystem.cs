@@ -20,6 +20,8 @@ public sealed class EmpZoneSystem : EntitySystem
 
     // Буферы для минимизации аллокаций каждый кадр
     private readonly Dictionary<EntityUid, (float DurSec, float Mult)> _pending = new();
+    // Отслеживаем, кому мы добавили SeeingStatic в allowed
+    private readonly HashSet<EntityUid> _allowedSeeingStatic = new();
 
     public override void Initialize()
     {
@@ -56,6 +58,14 @@ public sealed class EmpZoneSystem : EntitySystem
                 if (!TryComp<StatusEffectsComponent>(uid, out var status))
                     continue;
 
+                // Добавляем SeeingStatic в allowed, если его там нет
+                if (!status.AllowedEffects.Contains(SharedSeeingStaticSystem.StaticKey))
+                {
+                    status.AllowedEffects.Add(SharedSeeingStaticSystem.StaticKey);
+                    _allowedSeeingStatic.Add(uid);
+                    Dirty(uid, status);
+                }
+
                 // Расстояние до центра для вычисления интенсивности (меньше расстояние → выше мультипликатор)
                 if (!TryComp<TransformComponent>(uid, out var targetXform))
                     continue;
@@ -89,11 +99,23 @@ public sealed class EmpZoneSystem : EntitySystem
             {
                 _status.TryRemoveStatusEffect(uid, SharedSeeingStaticSystem.StaticKey, status);
             }
-            var activeEmpQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpInterferenceComponent>();
-            while (activeEmpQuery.MoveNext(out var uid, out var status, out var _))
+            // Убираем EmpInterference компоненты у всех
+            var activeEmpQuery = EntityQueryEnumerator<EmpInterferenceComponent>();
+            while (activeEmpQuery.MoveNext(out var uid, out var _))
             {
-                _status.TryRemoveStatusEffect(uid, SharedEmpInterferenceSystem.StaticKey, status);
+                RemComp<EmpInterferenceComponent>(uid);
             }
+
+            // Возвращаем SeeingStatic из allowed тем, кому мы его добавляли
+            foreach (var uid in _allowedSeeingStatic)
+            {
+                if (TryComp<StatusEffectsComponent>(uid, out var status))
+                {
+                    status.AllowedEffects.Remove(SharedSeeingStaticSystem.StaticKey);
+                    Dirty(uid, status);
+                }
+            }
+            _allowedSeeingStatic.Clear();
             return;
         }
 
@@ -112,8 +134,11 @@ public sealed class EmpZoneSystem : EntitySystem
                 Dirty(uid, staticComp);
             }
 
-            // EmpInterference (геймплейный эффект)
-            _status.TryAddStatusEffect<EmpInterferenceComponent>(uid, SharedEmpInterferenceSystem.StaticKey, TimeSpan.FromSeconds(data.DurSec), true, status);
+            // EmpInterference (геймплейный эффект) - добавляем компонент напрямую
+            var empComp = EnsureComp<EmpInterferenceComponent>(uid);
+            empComp.Multiplier = data.Mult;
+            empComp.Duration = data.DurSec;
+            Dirty(uid, empComp);
         }
 
         // Снимаем эффекты с тех, кто сейчас не в зонах, но эффекты ещё висят
@@ -126,13 +151,33 @@ public sealed class EmpZoneSystem : EntitySystem
             _status.TryRemoveStatusEffect(uid, SharedSeeingStaticSystem.StaticKey, statusComp);
         }
 
-        var removeEmpQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpInterferenceComponent>();
-        while (removeEmpQuery.MoveNext(out var uid, out var statusComp, out var _))
+        // Убираем EmpInterference компоненты у тех, кто не в зонах
+        var removeEmpQuery = EntityQueryEnumerator<EmpInterferenceComponent>();
+        while (removeEmpQuery.MoveNext(out var uid, out var _))
         {
             if (_pending.ContainsKey(uid))
                 continue;
 
-            _status.TryRemoveStatusEffect(uid, SharedEmpInterferenceSystem.StaticKey, statusComp);
+            RemComp<EmpInterferenceComponent>(uid);
+        }
+
+        // Возвращаем SeeingStatic из allowed тем, кто вышел из зон
+        var toRemove = new List<EntityUid>();
+        foreach (var uid in _allowedSeeingStatic)
+        {
+            if (!_pending.ContainsKey(uid))
+            {
+                if (TryComp<StatusEffectsComponent>(uid, out var status))
+                {
+                    status.AllowedEffects.Remove(SharedSeeingStaticSystem.StaticKey);
+                    Dirty(uid, status);
+                }
+                toRemove.Add(uid);
+            }
+        }
+        foreach (var uid in toRemove)
+        {
+            _allowedSeeingStatic.Remove(uid);
         }
     }
 }

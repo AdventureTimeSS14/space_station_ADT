@@ -145,7 +145,6 @@
     - Adrenaline # ADT-Medicine
     - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
-    - EmpInterference # ADT-Tweak
   - type: Body
     prototype: Human
     requiredLegs: 2

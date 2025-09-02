@@ -8,8 +8,3 @@
   id: SeeingStatic
   kind: source
   path: "/Textures/ADT/Shaders/seeing_static.swsl"
-
-- type: shader
-  id: EmpInterference
-  kind: source
-  path: "/Textures/ADT/Shaders/seeing_static.swsl"
