@@ -91,4 +91,20 @@
   position: 5,1
   requiredTech:
   - AdvSalvageWeapons
+
+- type: technology
+  id: ADTAdvancedEnergy
+  name: research-technology-advanced-energy
+  icon:
+    sprite: Objects/Power/power_cells.rsi
+    state: hyper
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTPowerCellHyperRecipe
+    - IndustrialChargerCircuitboard
+  position: 0,-2
+  requiredTech:
+  - AdvancedPowercells
   # Fuck you new RnD console
