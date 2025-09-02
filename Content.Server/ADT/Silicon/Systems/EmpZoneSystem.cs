@@ -80,7 +80,7 @@ public sealed class EmpZoneSystem : EntitySystem
         if (_pending.Count == 0)
         {
             // Никто не в зоне: снимаем эффект только у тех, у кого он активен
-            var activeStaticQuery = EntityQueryEnumerator<StatusEffectsComponent, SeeingStaticComponent>();
+            var activeStaticQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpZoneComponent>();
             while (activeStaticQuery.MoveNext(out var uid, out var status, out var _))
             {
                 _status.TryRemoveStatusEffect(uid, SharedEmpInterferenceSystem.StaticKey, status);
@@ -93,8 +93,8 @@ public sealed class EmpZoneSystem : EntitySystem
         {
             if (TryComp<StatusEffectsComponent>(uid, out var status))
             {
-                _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SharedEmpInterferenceSystem.StaticKey, TimeSpan.FromSeconds(data.DurSec), true, status);
-                var comp = EnsureComp<SeeingStaticComponent>(uid);
+                _status.TryAddStatusEffect<EmpZoneComponent>(uid, SharedEmpInterferenceSystem.StaticKey, TimeSpan.FromSeconds(data.DurSec), true, status);
+                var comp = EnsureComp<EmpZoneComponent>(uid);
                 if (Math.Abs(comp.Multiplier - data.Mult) > 0.01f)
                 {
                     comp.Multiplier = data.Mult;
@@ -104,7 +104,7 @@ public sealed class EmpZoneSystem : EntitySystem
         }
 
         // Снимаем эффект с тех, кто сейчас не в зонах, но эффект ещё висит
-        var removeQuery = EntityQueryEnumerator<StatusEffectsComponent, SeeingStaticComponent>();
+        var removeQuery = EntityQueryEnumerator<StatusEffectsComponent, EmpZoneComponent>();
         while (removeQuery.MoveNext(out var uid, out var statusComp, out var _))
         {
             if (_pending.ContainsKey(uid))
