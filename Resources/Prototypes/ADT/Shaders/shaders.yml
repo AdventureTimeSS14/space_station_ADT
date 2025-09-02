@@ -12,4 +12,4 @@
 - type: shader
   id: EmpInterference
   kind: source
-  path: "/Textures/ADT/Shaders/emp_interference.swsl"
+  path: "/Textures/ADT/Shaders/seeing_static.swsl"
