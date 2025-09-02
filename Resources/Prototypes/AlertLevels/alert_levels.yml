@@ -17,14 +17,14 @@
       shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
-      sound: /Audio/Misc/notice1.ogg
+      sound: /Audio/Misc/violetalert.ogg   ### 3 сентября
       color: Violet
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
-      sound: /Audio/Misc/notice1.ogg
+      sound: /Audio/Misc/yellowalert.ogg    ### 3 сентября
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true

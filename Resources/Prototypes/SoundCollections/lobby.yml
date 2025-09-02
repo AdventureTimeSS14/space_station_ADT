@@ -1,31 +1,8 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/Lobby/thunderdome.ogg
-    - /Audio/Lobby/absconditus.ogg
-    - /Audio/Lobby/space_asshole.ogg
-    - /Audio/Lobby/the_wizard.ogg
-    - /Audio/Lobby/endless_space.ogg
-    - /Audio/Lobby/singuloose.ogg
-    - /Audio/Lobby/comet_haley.ogg
-    - /Audio/Lobby/title2.ogg
-    - /Audio/Lobby/title3.ogg
-    - /Audio/Lobby/mod.flip-flap.ogg
-    - /Audio/Lobby/Spac_Stac.ogg
-    - /Audio/Lobby/pwmur.ogg
-    - /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
-    - /Audio/Lobby/every_light_is_blinking_at_once.ogg
-    - /Audio/Corvax/Lobby/title2.ogg # Corvax-LobbyMusic
-    - /Audio/Lobby/atomicamnesiammx.ogg
-    - /Audio/Corvax/Lobby/service.ogg # Corvax-LobbyMusic
-    # ADT music start
-    - /Audio/ADT/Lobby/The_Wrong_Party.ogg
-    - /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
-    - /Audio/ADT/Lobby/friday_night.ogg
-    - /Audio/ADT/Lobby/space_oddity.ogg
-    - /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
-    - /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
-    - /Audio/ADT/Jukebox/fsm-team-eagle.ogg
-    - /Audio/ADT/Lobby/horn.ogg
-    # ADT music end
-    - /Audio/Corvax/Lobby/nodecision.ogg # Corvax-LobbyMusic
+### Start ADT Tweak
+   # треТЬЕ СЕНТЯБРЯЯЯЯ
+    - /Audio/ADT/Jukebox/ThirdSeptemberFull.ogg
+    - /Audio/ADT/Jukebox/ThirdSeptemberMeme.ogg
+### End ADT Tweak
