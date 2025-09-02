@@ -2,9 +2,11 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
+using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
 using Content.Shared.Actions;
@@ -15,6 +17,7 @@ using Content.Shared.Database;
 using Content.Shared.ADT.Poltergeist;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
+using Content.Shared.Preferences;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
@@ -42,11 +45,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.ADT.OnGhostAttemtpDamage;
 using Content.Shared.ADT.Ghost;
-// using Content.Shared.Humanoid;
-// using Content.Server.Humanoid;
-// using Content.Server.Medical.SuitSensors;
-// using Content.Shared.Inventory;
-// using Content.Shared.Interaction.Components;
+using Content.Shared.Humanoid;
+using Content.Server.Humanoid;
+using Content.Server.Medical.SuitSensors;
+using Content.Shared.Inventory;
+using Content.Shared.Interaction.Components;
 
 
 namespace Content.Server.Ghost
@@ -77,10 +80,13 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
-        // [Dependency] private readonly InventorySystem _inventory = default!; //ADT tweak
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
+        //ADT tweak Start
+        [Dependency] private readonly UserDbDataManager _userDb = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
+        //ADT tweak End
 
-        // [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!; //ADT tweak
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -102,7 +108,7 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<GhostComponent, MindRemovedMessage>(OnMindRemovedMessage);
             SubscribeLocalEvent<GhostComponent, MindUnvisitedMessage>(OnMindUnvisitedMessage);
             SubscribeLocalEvent<GhostComponent, PlayerDetachedEvent>(OnPlayerDetached);
-            // SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnPlayerAttached); //ADT tweak
+            SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnPlayerAttached); //ADT tweak
 
             SubscribeLocalEvent<GhostOnMoveComponent, MoveInputEvent>(OnRelayMoveInput);
 
@@ -271,45 +277,77 @@ namespace Content.Server.Ghost
 
         private void OnPlayerDetached(EntityUid uid, GhostComponent component, PlayerDetachedEvent args)
         {
-            DeleteEntity(uid);
+            QueueDel(uid); // ADT tweak
         }
-        // // ADT tweak start
-        // // TODO(Schrodinger71): Временно отключено — вызывает бесконечную загрузку при подключении к серверу,
-        // // если игрок возвращается в госта сразу после входа.
-        // // Не вносить изменения в этот метод без согласования и предварительной проверки от меня
-        // private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
-        // {
-        //     if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
-        //     {
-        //         return;
-        //     }
-        //     if (!TryComp(uid, out ActorComponent? actor))
-        //     {
-        //         return;
-        //     }
-        //     var profile = _gameTicker.GetPlayerProfile(actor.PlayerSession);
-        //     if (profile == null)
-        //         return;
-        //     _humanoidSystem.LoadProfile(uid, profile);
 
-        //     if (component.AvailableClothing != null)
-        //     {
-        //         var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
-        //         if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
-        //         {
-        //             ghostInv.Displacements = inv.Displacements;
-        //             DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
-        //         }
-        //         QueueDel(mob);
+        // ADT tweak start
+        private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
+        {
+            if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
+                return;
 
-        //         var clothing = Spawn(_random.Pick(component.AvailableClothing));
-        //         RemComp<SuitSensorComponent>(clothing);
-        //         EnsureComp<UnremoveableComponent>(clothing);
-        //         if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
-        //             QueueDel(clothing);
-        //     }
-        // }
-        // //ADT tweak end
+            var player = args.Player;
+
+            if (!_userDb.IsLoadComplete(player))
+            {
+                ApplyAfterDb();
+                return;
+
+                async void ApplyAfterDb()
+                {
+                    try
+                    {
+                        await _userDb.WaitLoadComplete(player);
+
+                        if (Deleted(uid) || Terminating(uid))
+                            return;
+
+                        var profile = _gameTicker.GetPlayerProfile(player);
+                        _humanoidSystem.LoadProfile(uid, profile, humanoid);
+                        GiveClothesToGhost(uid, component, profile);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error($"Load of ghost preferences failed (delayed): {e}");
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+                    var profile = _gameTicker.GetPlayerProfile(player);
+                    _humanoidSystem.LoadProfile(uid, profile, humanoid);
+                    GiveClothesToGhost(uid, component, profile);
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Load of ghost preferences failed: {e}");
+                }
+            }
+        }
+
+        private void GiveClothesToGhost(EntityUid uid, GhostComponent component, HumanoidCharacterProfile profile)
+        {
+            if (component.AvailableClothing == null)
+                return;
+
+            var mob = Spawn(_prototypeManager.Index(profile.Species).Prototype);
+            if (TryComp<InventoryComponent>(mob, out var inv) && TryComp<InventoryComponent>(uid, out var ghostInv))
+            {
+                ghostInv.Displacements = inv.Displacements;
+                DirtyField(uid, ghostInv, nameof(InventoryComponent.Displacements));
+            }
+            QueueDel(mob);
+
+            var clothing = Spawn(_random.Pick(component.AvailableClothing));
+            RemComp<SuitSensorComponent>(clothing);
+            EnsureComp<UnremoveableComponent>(clothing);
+            if (!_inventory.TryEquip(uid, clothing, "jumpsuit", true, true))
+                QueueDel(clothing);
+        }
+        // ADT tweak end
+
         private void DeleteEntity(EntityUid uid)
         {
             if (Deleted(uid) || Terminating(uid))
@@ -539,6 +577,7 @@ namespace Content.Server.Ghost
                 return polter;
             }
             // ADT Poltergeist end
+
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
             var ghostComponent = Comp<GhostComponent>(ghost);
 
