@@ -134,7 +134,11 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         if (!_charInfoIsAttach)
             return;
 
-        var (_, job, _, _, entityName) = data;
+        // ADT tweak start: Fixed tuple deconstruction syntax to match CharacterData structure
+        var entityUid = data.Entity;
+        var job = data.Job;
+        var entityName = data.EntityName;
+        // ADT tweak end
 
         // Mark this entity's name as our character name for the "UpdateHighlights" function.
         var newHighlights = "@" + entityName;
@@ -146,12 +150,18 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
         // If the character has a name with more than one hyphen assume it is a lizard name and extract the first and
         // last name eg. "Eats-The-Food" -> "@Eats" "@Food"
         if (newHighlights.Count(c => c == '-') > 1)
-            newHighlights = newHighlights.Split('-')[0] + "\n@" + newHighlights.Split('-')[^1];
+        {
+            // ADT tweak start: Added null check and safe array access
+            var nameParts = newHighlights.Split('-');
+            if (nameParts.Length > 1)
+                newHighlights = nameParts[0] + "\n@" + nameParts[nameParts.Length - 1];
+            // ADT tweak end
+        }
 
         // Convert the job title to kebab-case and use it as a key for the loc file.
-        var jobKey = job.Replace(' ', '-').ToLower();
+        var jobKey = job?.Replace(' ', '-').ToLower() ?? string.Empty; // ADT tweak: Added null check
 
-        if (_loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
+        if (!string.IsNullOrEmpty(jobKey) && _loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
             newHighlights += '\n' + jobMatches.Replace(", ", "\n");
 
         UpdateHighlights(newHighlights);

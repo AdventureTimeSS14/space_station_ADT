@@ -380,7 +380,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             }
         }
 
-        _spawn.ApplyLoadoutExtras(uid, roleLoadout);    // ADT SAI Custom
+        // _spawn.ApplyLoadoutExtras(uid, roleLoadout);    // ADT SAI Custom
     }
 
     /// <summary>
@@ -482,12 +482,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
 
             // ADT SAI Custom start
             // Applying loadout extras to dummy
-            if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job?.ID)))
-            {
-                var loadout = humanoid?.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job?.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
-                if (loadout != null)
-                    _spawn.ApplyLoadoutExtras(dummyEnt, loadout);
-            }
+            // if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job?.ID)))
+            // {
+            //     var loadout = humanoid?.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job?.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
+            //     if (loadout != null)
+            //         _spawn.ApplyLoadoutExtras(dummyEnt, loadout);
+            // }
             // ADT SAI Custom end
 
             return dummyEnt;

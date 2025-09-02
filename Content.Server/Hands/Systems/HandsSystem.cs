@@ -22,6 +22,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Movement.Pulling.Events;
+using Robust.Shared.Utility;
+using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Server.Hands.Systems
 {
@@ -34,7 +37,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-
+        [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
         /// <summary>
@@ -145,7 +148,7 @@ namespace Content.Server.Hands.Systems
             if (TryComp<PullerComponent>(args.PullerUid, out var pullerComp) && !pullerComp.NeedsHands)
                 return;
 
-            if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virtualItem))    // ADT Grab tweaked
+            if (!_virtualItem.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virtualItem))    // ADT Grab tweaked
             {
                 DebugTools.Assert("Unable to find available hand when starting pulling??");
             }
@@ -166,16 +169,16 @@ namespace Content.Server.Hands.Systems
 
             // Try find hand that is doing this pull.
             // and clear it.
-            foreach (var hand in component.Hands.Values)
+            foreach (var hand in component.Hands)
             {
-                if (hand.HeldEntity == null
-                    || !TryComp(hand.HeldEntity, out VirtualItemComponent? virtualItem)
+                if (TryGetHeldItem((uid, component), hand.Key, out var held)
+                    || !TryComp(held, out VirtualItemComponent? virtualItem)
                     || virtualItem.BlockingEntity != args.PulledUid)
                 {
                     continue;
                 }
 
-                TryDrop(args.PullerUid, hand, handsComp: component);
+                TryDrop(args.PullerUid, held.Value);
                 break;
             }
         }

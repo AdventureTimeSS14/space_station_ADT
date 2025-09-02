@@ -5,8 +5,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.Discord.DiscordLink;
-using Content.Server.Corvax.Sponsors;
-using Content.Server.MoMMI;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
@@ -23,6 +21,8 @@ using Robust.Shared.Utility;
 using Content.Shared.ADT.CCVar;
 using Content.Server.Discord;
 using Content.Server.ADT.Chat;
+using Content.Server.Corvax.Sponsors;
+using Content.Server.Discord;
 
 namespace Content.Server.Chat.Managers;
 
@@ -50,7 +50,8 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly DiscordChatLink _discordLink = default!;
-    private ISharedSponsorsManager? _sponsorsManager; // Corvax-Sponsors
+    [Dependency] private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+    [Dependency] private readonly DiscordWebhook _discord = default!;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -438,9 +439,9 @@ internal sealed partial class ChatManager : IChatManager
         _discordLink.SendMessage(message, player.Name, ChatChannel.AdminChat);
         _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
         // ADT-Tweak-start: Постит в дис весь админчат, если есть данный вебхук
-        if (!string.IsNullOrEmpty(_cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
+        if (!string.IsNullOrEmpty(_configurationManager.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook)))
         {
-            var webhookUrl = _cfg.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
+            var webhookUrl = _configurationManager.GetCVar(ADTDiscordWebhookCCVars.DiscordAdminchatWebhook);
 
             if (webhookUrl == null)
                 return;

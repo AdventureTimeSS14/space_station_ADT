@@ -7,8 +7,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
-[AdminCommand(AdminFlags.Adminchat)] // Use only administration with flag AdminChat, eddit ADT
-public sealed class AdminWhoCommand : IConsoleCommand
+[AdminCommand(AdminFlags.Adminchat)] //ADT tweak
+
+public sealed class AdminWhoCommand : LocalizedCommands
 {
     [Dependency] private readonly IAfkManager _afkManager = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;

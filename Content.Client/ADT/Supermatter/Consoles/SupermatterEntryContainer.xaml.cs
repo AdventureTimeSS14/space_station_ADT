@@ -10,8 +10,9 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.ADT.CCVar;
 
-namespace Content.Client._EE.Supermatter.Consoles;
+namespace Content.Client.ADT.Supermatter.Consoles;
 
 [GenerateTypedNameReferences]
 public sealed partial class SupermatterEntryContainer : BoxContainer
@@ -139,8 +140,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         #endregion
 
         // Load values and set base labels
-        _radiationBase = _config.GetCVar(EECCVars.SupermatterRadsBase);
-        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
+        _radiationBase = _config.GetCVar(ADTCCVars.SupermatterRadsBase);
+        _temperatureLimitBase = Atmospherics.T0C + _config.GetCVar(ADTCCVars.SupermatterHeatPenaltyThreshold);
         _wasteBase = 1f;
 
         RadiationBaseInfoLabel.Text = Loc.GetString("supermatter-console-window-label-radiation-bar", ("radiation", _radiationBase.ToString("0.00")));

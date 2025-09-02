@@ -92,7 +92,7 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
     {
         if (!_prototype.TryIndex(RulesEntryId, out var guideEntryPrototype))
         {
-            guideEntryPrototype = _prototype.Index(DefaultRuleset);
+            guideEntryPrototype = _prototype.Index(RulesEntryId); //ADT tweak
             Log.Error($"Couldn't find the following prototype: {RulesEntryId}. Falling back to {DefaultRuleset}, please check that the server has the rules set up correctly");
             return guideEntryPrototype;
         }

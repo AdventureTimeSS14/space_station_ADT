@@ -148,13 +148,6 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
                 handButton.SetEntity(virt.BlockingEntity);
                 handButton.Blocked = true;
             }
-            // ADT - borg hand placeholder
-            else if (_entities.TryGetComponent(hand.HeldEntity, out HandPlaceholderVisualsComponent? placeholder))
-            {
-                handButton.SetEntity(placeholder.Dummy);
-                handButton.Blocked = true;
-            }
-            // End ADT - borg hand placeholder
             else
             {
                 handButton.SetEntity(held);
