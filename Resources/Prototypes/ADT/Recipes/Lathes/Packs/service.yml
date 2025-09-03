@@ -109,6 +109,6 @@
 - type: latheRecipePack
   id: ADTArcade
   recipes:
-  - BlockGameArcadeComputerCircuitboard
-  - SpaceVillainArcadeComputerCircuitboard
-  - MinesweeperCircuitboard
+  - ADTBlockGameArcadeComputerCircuitboard
+  - ADTSpaceVillainArcadeComputerCircuitboard
+  - ADTMinesweeperCircuitboard

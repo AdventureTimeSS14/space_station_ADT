@@ -1,4 +1,14 @@
 - type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTIndustrialChargerCircuitboard
+  result: IndustrialChargerCircuitboard
+  completetime: 6
+  materials:
+     Steel: 100
+     Glass: 500
+     Gold: 100
+
+- type: latheRecipe
   parent: MicrowaveMachineCircuitboard
   id: ADTAdvancedMicrowaveMachineCircuitBoard
   result: ADTAdvancedMicrowaveMachineCircuitBoard
@@ -80,7 +90,7 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: MinesweeperCircuitboard
+  id: ADTMinesweeperCircuitboard
   result: MinesweeperCircuitboard
   completetime: 3
   materials:
@@ -89,7 +99,7 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: BlockGameArcadeComputerCircuitboard
+  id: ADTBlockGameArcadeComputerCircuitboard
   result: BlockGameArcadeComputerCircuitboard
   completetime: 3
   materials:
@@ -98,19 +108,9 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: SpaceVillainArcadeComputerCircuitboard
+  id: ADTSpaceVillainArcadeComputerCircuitboard
   result: SpaceVillainArcadeComputerCircuitboard
   completetime: 3
   materials:
      Steel: 100
      Glass: 500
-
-- type: latheRecipe
-  parent: BaseCircuitboardRecipe
-  id: IndustrialChargerCircuitboard
-  result: IndustrialChargerCircuitboard
-  completetime: 6
-  materials:
-     Steel: 100
-     Glass: 500
-     Gold: 100

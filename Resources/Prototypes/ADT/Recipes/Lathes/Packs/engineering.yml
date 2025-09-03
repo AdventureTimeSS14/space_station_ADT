@@ -43,4 +43,4 @@
 - type: latheRecipePack
   id: ADTIndustrialCharger
   recipes: 
-  - IndustrialChargerCircuitboard
+  - ADTIndustrialChargerCircuitboard

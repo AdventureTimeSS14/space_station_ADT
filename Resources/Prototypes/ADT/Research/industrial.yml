@@ -103,7 +103,7 @@
   cost: 10000
   recipeUnlocks:
     - ADTPowerCellHyperRecipe
-    - IndustrialChargerCircuitboard
+    - ADTIndustrialChargerCircuitboard
   position: 0,-2
   requiredTech:
   - AdvancedPowercells

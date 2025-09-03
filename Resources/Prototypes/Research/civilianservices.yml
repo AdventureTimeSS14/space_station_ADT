@@ -84,9 +84,9 @@
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
     # ADT tweak start
-    - BlockGameArcadeComputerCircuitboard
-    - SpaceVillainArcadeComputerCircuitboard
-    - MinesweeperCircuitboard
+    - ADTBlockGameArcadeComputerCircuitboard
+    - ADTSpaceVillainArcadeComputerCircuitboard
+    - ADTMinesweeperCircuitboard
     # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 
