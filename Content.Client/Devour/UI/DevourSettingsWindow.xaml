@@ -1,0 +1,21 @@
+<BoxContainer xmlns="https://spacestation14.io"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Orientation="Vertical"
+        MinWidth="400">
+    <BoxContainer Orientation="Vertical" Margin="10">
+        <Label Text="Devour System Preferences" StyleClasses="LabelHeadingBigger" Margin="0 0 0 10"/>
+
+        <CheckBox Name="ScatEnabledCheckBox" Text="Enable Scat System" Margin="0 5"/>
+        <CheckBox Name="ShowDigestionMessagesCheckBox" Text="Show Digestion Messages" Margin="0 5"/>
+        <CheckBox Name="ShowDevourMessagesCheckBox" Text="Show Devour Messages" Margin="0 5"/>
+        <CheckBox Name="ShowScatMessagesCheckBox" Text="Show Scat Messages" Margin="0 5"/>
+        <CheckBox Name="ShowDetailedDigestionCheckBox" Text="Show Detailed Digestion Info" Margin="0 5"/>
+
+        <Control MinHeight="20"/>
+
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="SaveButton" Text="Save" Margin="5 0 0 0"/>
+            <Button Name="CancelButton" Text="Cancel" Margin="5 0 0 0"/>
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>

@@ -1,0 +1,32 @@
+- type: EntityPrototype
+  id: DevourScat
+  name: devour-scat-name
+  description: devour-scat-description
+  components:
+    - type: Transform
+    - type: Sprite
+      layers:
+        - texture: /Textures/Objects/Misc/devour_scat.png
+          shader: unshaded
+    - type: Physics
+      bodyType: Dynamic
+      mass: 1
+      friction: 0.8
+      linearDamping: 0.5
+    - type: CollisionLayer
+      layer: 1
+    - type: CollisionMask
+      mask: 1
+    - type: Item
+      size: 1
+      sprite: /Textures/Objects/Misc/devour_scat.png
+    - type: Stack
+      count: 1
+      max: 1
+    - type: Appearance
+      visuals:
+        - type: Decal
+          sprite: /Textures/Objects/Misc/devour_scat.png
+          color: [0.6, 0.4, 0.2, 0.8]
+    - type: TimedDespawn
+      lifetime: 300 # 5 minutes

@@ -11,3 +11,8 @@
   id: Quirks
   name: trait-category-quirks
   maxTraitPoints: 0 # ADT quirks
+
+- type: traitCategory
+  id: Devour
+  name: trait-category-devour-name
+  maxTraitPoints: 0

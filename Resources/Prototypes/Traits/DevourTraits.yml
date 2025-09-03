@@ -1,0 +1,62 @@
+- type: TraitPrototype
+  id: Predator
+  name: trait-predator-name
+  description: trait-predator-description
+  category: Devour
+  cost: 0
+  components:
+    - type: PredatorComponent
+    - type: GutsComponent
+  traitGear: null
+  whitelist:
+    - !type:SiliconComponent
+
+- type: TraitPrototype
+  id: Prey
+  name: trait-prey-name
+  description: trait-prey-description
+  category: Devour
+  cost: 0
+  components:
+    - type: PreyComponent
+  traitGear: null
+
+- type: TraitPrototype
+  id: PreyPred
+  name: trait-prey-pred-name
+  description: trait-prey-pred-description
+  category: Devour
+  cost: 0
+  components:
+    - type: PredatorComponent
+    - type: PreyComponent
+    - type: GutsComponent
+  traitGear: null
+  whitelist:
+    - !type:SiliconComponent
+
+# Devour category is now defined in categories.yml
+
+# Prey trait to allow unwilling devour at round start
+- type: TraitPrototype
+  id: PreyAllowUnwilling
+  name: trait-prey-allow-unwilling-name
+  description: trait-prey-allow-unwilling-description
+  category: Devour
+  cost: 0
+  components:
+    - type: PreyComponent
+      allowUnwillingDevour: true
+  traitGear: null
+
+# Prey undigestible trait
+- type: TraitPrototype
+  id: PreyUndigestible
+  name: trait-prey-undigestible-name
+  description: trait-prey-undigestible-description
+  category: Devour
+  cost: 0
+  components:
+    - type: PreyComponent
+      undigestible: true
+  traitGear: null

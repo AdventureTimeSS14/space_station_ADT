@@ -1,0 +1,20 @@
+- type: entity
+  id: ActionDevour
+  name: "[color=red]Devour[/color]"
+  description: Attempt to break a structure with your jaws or swallow a creature.
+  components:
+  - type: EntityTargetAction
+    icon: { sprite : Interface/Actions/devour.rsi, state: icon }
+    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
+    event: !type:DevourActionEvent
+    priority: 1
+
+- type: entity
+  id: ActionToggleUnwillingConsent
+  name: Toggle unwilling devour consent
+  description: Allow or disallow being eaten unwillingly.
+  components:
+  - type: InstantAction
+    event: !type:ToggleUnwillingConsentEvent
+    icon: Interface/Actions/lock.svg
+
