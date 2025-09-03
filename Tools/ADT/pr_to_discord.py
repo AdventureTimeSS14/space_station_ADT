@@ -64,7 +64,13 @@ def create_embed(changelog, author_name, author_avatar, branch, pr_url, pr_title
         color = DEFAULT_COLOR  # Розовый по умолчанию
 
     # Форматируем время слияния
-    merged_time = datetime.fromisoformat(merged_at.replace('Z', '+00:00')).strftime('%d.%m.%Y %H:%M UTC')
+    if merged_at:
+        try:
+            merged_time = datetime.fromisoformat(merged_at.replace('Z', '+00:00')).strftime('%d.%m.%Y %H:%M UTC')
+        except:
+            merged_time = "Неизвестно"
+    else:
+        merged_time = "Неизвестно"
 
     embed = {
         "title": f"🚀 Обновление: {pr_title}",
@@ -113,7 +119,7 @@ def main():
         print("No valid changelog found. Skipping PR.")
         return
 
-    embed = create_embed(changelog, author, avatar_url, branch)
+    embed = create_embed(changelog, author, avatar_url, branch, pr_url, pr_title, merged_at, commits_count, changed_files)
 
     headers = {"Content-Type": "application/json"}
     payload = {"embeds": [embed]}
