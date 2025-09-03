@@ -60,9 +60,10 @@ public sealed class NarcolepsySystem : EntitySystem
             // Make sure the sleep time doesn't cut into the time to next incident.
             narcolepsy.NextIncidentTime += duration;
 
+            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey,
+                TimeSpan.FromSeconds(duration), false);
+            
             // ADT-Tweak-start
-            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
-
             if (TryComp<StrapComponent>(uid, out var strap) && strap.BuckledEntities.Count > 0)
             {
                 continue;
