@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Notify Discord about merged PR
-        run: python3 Tools/ganimed/pr_to_discord.py
+        run: python3 Tools/ADT/pr_to_discord.py
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
