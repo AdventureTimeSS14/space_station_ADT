@@ -166,8 +166,4 @@ ent-ClothingHeadHatStrawHat = соломенная шляпа
     .desc = Модная шляпа для жарких деньков! Не рекомендуется носить около источников огня.
 ent-ClothingHeadHatBeretMedic = берет врача
     .desc = Белый берет, призывающий вас к чистоте.
-ent-ClothingHeadHatBeretCommand = берет командования
-    .desc = Берет с эмблемой командования. В нём вы чувствуете власть над окружающими.
-ent-ClothingHeadHatCommandSoft = кепка командования
-    .desc = Бейсболка расцветки командования.
 
