@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.ADT.MesonVision;
 using Content.Shared.Doors.Components;
 using Content.Shared.Light.Components;
@@ -34,7 +35,8 @@ public sealed class MesonVisionOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (!_entity.TryGetComponent(_player.LocalEntity, out MesonVisionComponent? nightVision) ||
-            nightVision.State != MesonVisionState.Full)
+            nightVision.State != MesonVisionState.Full ||
+            _entity.HasComponent<PermanentBlindnessComponent>(_player.LocalEntity))
         {
             return;
         }
