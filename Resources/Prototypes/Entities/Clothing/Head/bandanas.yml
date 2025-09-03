@@ -28,6 +28,8 @@
     tags:
     - Bandana
     - ClothMade
+    - Recyclable
+    - WhitelistChameleon
   - type: StaticPrice # ADT START CHANGES
     price: 20 # ADT END CHANGES
 

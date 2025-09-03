@@ -9,6 +9,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Actions.Components;
 
 
 // ADT Content: Time Patrol "ОБВА" by 🐾 Schrödinger's Code 🐾
@@ -26,7 +27,6 @@ namespace Content.Server.Administration.Systems;
 public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
 
     private void AddAdminTimeOperSpawnVerbs(GetVerbsEvent<Verb> args)
     {
@@ -58,7 +58,7 @@ public sealed partial class AdminVerbSystem
 
                         var stationUid = _stations.GetOwningStation(args.Target);
                         ProtoId<JobPrototype> job = "ADTJobTimePatrol";
-                        var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
+                        var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
                         var mobUid = _spawning.SpawnPlayerMob(coords.Value, job, profile, stationUid);
                         var targetMind = _mindSystem.GetMind(args.Target);
                         _audio.PlayPvs("/Audio/Magic/forcewall.ogg", mobUid);
@@ -66,7 +66,7 @@ public sealed partial class AdminVerbSystem
                         EnsureComp<TeleportActComponent>(mobUid, out var teleport);
                         if (teleport?.ActionEntity != null)
                         {
-                            EnsureComp<WorldTargetActionComponent>(teleport.ActionEntity.Value).UseDelay = TimeSpan.FromSeconds(1);
+                            // EnsureComp<ActionComponent>(teleport.ActionEntity.Value).UseDelay = TimeSpan.FromSeconds(1); RAT tweak, сейчас починить не могу, починить потом
                         }
                         EnsureComp<ElectrionPulseActComponent>(mobUid);
 

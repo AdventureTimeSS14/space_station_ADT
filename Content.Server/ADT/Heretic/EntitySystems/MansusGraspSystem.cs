@@ -1,6 +1,5 @@
 using Content.Server.Atmos.Commands;
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
@@ -250,7 +249,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         if (TryComp<HandsComponent>(target, out var hands))
-            _hands.TryDrop(target, Transform(target).Coordinates, handsComp: hands);
+            _hands.TryDrop(target, Transform(target).Coordinates);
 
         SpendInfusionCharges(ent, charges: ent.Comp.MaxCharges); // spend all because RCHTHTRTH
     }

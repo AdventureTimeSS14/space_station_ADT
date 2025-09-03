@@ -1,7 +1,7 @@
 using Content.Server.Chat.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
-using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Mobs.Systems;

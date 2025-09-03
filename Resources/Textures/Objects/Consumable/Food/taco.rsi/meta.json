@@ -1,35 +1,32 @@
 {
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Added by Phunny",
-    "size": {
-      "x": 32,
-      "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Added by Phunny, dragon taco modified from beef taco by MisterImp (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "beeftaco"
     },
-    "states": [
-      {
-        "name": "beeftaco"
-      },
-      {
-        "name": "beeftacosupreme"
-      },
-      {
-        "name": "chickentaco"
-      },
-      {
-        "name": "chickentacosupreme"
-      },
-      {
-        "name": "fishtaco"
-      },
-      {
-        "name": "rattaco"
-      },
-      {
-        "name": "tacoshell_back"
-      },
-      {
-        "name": "tacoshell_forward"
-      }
-    ]
-  }
+    {
+      "name": "beeftacosupreme"
+    },
+    {
+      "name": "chickentaco"
+    },
+    {
+      "name": "chickentacosupreme"
+    },
+    {
+      "name": "fishtaco"
+    },
+    {
+      "name": "rattaco"
+    },
+    {
+      "name": "dragontaco"
+    }
+  ]
+}

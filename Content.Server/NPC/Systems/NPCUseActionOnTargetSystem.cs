@@ -12,7 +12,6 @@ namespace Content.Server.NPC.Systems;
 
 public sealed class NPCUseActionOnTargetSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 

@@ -1,7 +1,5 @@
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Bed.Sleep;
-using static Content.Shared.Repairable.SharedRepairableSystem;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 
 namespace Content.Server.ADT.Silicon.Sytstems;

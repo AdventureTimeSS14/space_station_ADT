@@ -6,6 +6,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.ADT.Crawling;
+using Content.Shared.Inventory;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Coordinates;
 using Content.Shared.Hands.Components;
@@ -136,7 +137,7 @@ public sealed partial class ComboStunEffect : IComboEffect
         if (!entMan.TryGetComponent<StatusEffectsComponent>(target, out var status))
             return;
         var down = entMan.System<SharedStunSystem>();
-        down.TryParalyze(target, TimeSpan.FromSeconds(StunTime), false, status, dropItems: DropItems, down: Fall);
+        down.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(StunTime));
     }
 }
 
@@ -165,9 +166,9 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var hands = entMan.System<SharedHandsSystem>();
-        if (!entMan.TryGetComponent<HandsComponent>(target, out var hand) || hand.ActiveHand == null)
+        if (!entMan.TryGetComponent<HandsComponent>(target, out var hand) || hand.ActiveHandId == null)
             return;
-        hands.DoDrop(target, hand.ActiveHand);
+        hands.DoDrop(target, hand.ActiveHandId);
     }
 }
 
@@ -180,13 +181,16 @@ public sealed partial class ComboHamdsRetakeEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var hands = entMan.System<SharedHandsSystem>();
-        if (!entMan.TryGetComponent<HandsComponent>(target, out var targetHand) || targetHand.ActiveHand == null)
+        var inventory = entMan.System<InventorySystem>();
+        if (!entMan.TryGetComponent<HandsComponent>(target, out var targetHand) || targetHand.ActiveHandId == null)
             return;
-        if (!entMan.TryGetComponent<HandsComponent>(user, out var userHand) || userHand.ActiveHand == null)
+        if (!entMan.TryGetComponent<HandsComponent>(user, out var userHand) || userHand.ActiveHandId == null)
             return;
-        if (targetHand.ActiveHand.Container == null || targetHand.ActiveHand.Container.ContainedEntity == null)
+        if (inventory.TryGetSlotContainer(target, targetHand.ActiveHandId, out var container, out var _))
             return;
-        hands.TryDropIntoContainer(user, target, targetHand.ActiveHand.Container);
+        if (container == null || container.ContainedEntity == null)
+            return;
+        hands.TryDropIntoContainer(user, target, container);
     }
 }
 
@@ -228,7 +232,7 @@ public sealed partial class ComboSlowdownEffect : IComboEffect
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var status = entMan.System<StatusEffectsSystem>();
-        status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", TimeSpan.FromSeconds(Time), false);
+        status.TryAddStatusEffect<StunnedStatusEffectComponent>(target, "SlowedDown", TimeSpan.FromSeconds(Time), false);
     }
 }
 

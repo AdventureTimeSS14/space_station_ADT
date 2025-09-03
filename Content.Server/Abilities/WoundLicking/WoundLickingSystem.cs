@@ -1,7 +1,7 @@
 //using Content.Server.Disease.Components;
 //using Content.Server.Disease;
 
-using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared.DoAfter;
@@ -158,7 +158,7 @@ namespace Content.Server.Felinid
                 }
             }
 */
-            _bloodstreamSystem.TryModifyBleedAmount(target, -healed, bloodstream);
+            _bloodstreamSystem.TryModifyBleedAmount(target, -healed);
 
             if (performer == target)
             {

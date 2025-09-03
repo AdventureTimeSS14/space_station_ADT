@@ -597,6 +597,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -768,3 +769,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+  - type: OreSiloClient
