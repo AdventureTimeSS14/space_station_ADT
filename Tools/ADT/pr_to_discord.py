@@ -3,7 +3,7 @@ import os
 import json
 import re
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 
 EMOJI_MAP = {
     "add": "✨",
@@ -63,10 +63,13 @@ def create_embed(changelog, author_name, author_avatar, branch, pr_url, pr_title
     else:
         color = DEFAULT_COLOR  # Розовый по умолчанию
 
-    # Форматируем время слияния
+    # Форматируем время слияния (Москва, UTC+3)
     if merged_at:
         try:
-            merged_time = datetime.fromisoformat(merged_at.replace('Z', '+00:00')).strftime('%d.%m.%Y %H:%M UTC')
+            # Парсим время и конвертируем в московское время
+            utc_time = datetime.fromisoformat(merged_at.replace('Z', '+00:00'))
+            moscow_time = utc_time.replace(tzinfo=None) + timedelta(hours=3)
+            merged_time = moscow_time.strftime('%d.%m.%Y %H:%M МСК')
         except:
             merged_time = "Неизвестно"
     else:
@@ -78,8 +81,7 @@ def create_embed(changelog, author_name, author_avatar, branch, pr_url, pr_title
         "description": f"**👤 Автор:** {author_name}\n**🌿 Ветка:** {branch}\n**📊 Изменений:** {change_count}\n**🕒 Слит:** {merged_time}\n**📝 Коммитов:** {commits_count}\n**📁 Файлов:** {changed_files}\n\n{changelog}",
         "color": color,
         "footer": {
-            "text": f"📅 {datetime.utcnow().strftime('%d.%m.%Y %H:%M UTC')}",
-            "icon_url": author_avatar
+            "text": f"📅 {(datetime.utcnow() + timedelta(hours=3)).strftime('%d.%m.%Y %H:%M МСК')}"
         },
         "thumbnail": {
             "url": author_avatar
