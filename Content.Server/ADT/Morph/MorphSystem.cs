@@ -36,6 +36,9 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 using Content.Server.Body.Components;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map;
+using System.Numerics;
 
 namespace Content.Server.ADT.Morph;
 
@@ -61,7 +64,7 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-
+    [Dependency] private readonly TransformSystem _transform = default!;
     public ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     public ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     public override void Initialize()
@@ -91,6 +94,11 @@ public sealed class MorphSystem : SharedMorphSystem
 
     private void OnDestroy(EntityUid uid, MorphComponent component, ref BeingGibbedEvent args)
     {
+        foreach (var entity in component.ContainedCreatures)
+        {
+            var transform = Transform(uid);
+            _transform.SetCoordinates(entity, transform.Coordinates);
+        }
         container.EmptyContainer(component.Container);
     }
     private void OnInit(EntityUid uid, MorphComponent component, MapInitEvent args)
@@ -346,9 +354,11 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (!TryComp<MobThresholdsComponent>(args.Target, out var state) || !_threshold.TryGetDeadThreshold(args.Target.Value, out var health))
         {
+            //ЭТО ОТВЕЧАЕТ ЗА КУШАНИЕ ПРЕДМЕТОВ. НЕ ПЕРЕПУТАТЬ.
             health = -component.EatWeaponHungerReq;
             _hunger.ModifyHunger(uid, (float)health.Value, hunger);
             _audioSystem.PlayPvs(component.SoundDevour, uid);
+            component.ContainedCreatures.Add(args.Target.Value);
             container.Insert(args.Target.Value, component.Container);
             return;
         }
@@ -364,6 +374,7 @@ public sealed class MorphSystem : SharedMorphSystem
         _damageable.TryChangeDamage(uid, damage_burn);
         _hunger.ModifyHunger(uid, (float)health.Value / 3.5f, hunger);
         _audioSystem.PlayPvs(component.SoundDevour, uid);
-        container.Insert(args.Target.Value, component.Container);
+        component.ContainedCreatures.Add(args.Target.Value);
+        _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
     }
 }
