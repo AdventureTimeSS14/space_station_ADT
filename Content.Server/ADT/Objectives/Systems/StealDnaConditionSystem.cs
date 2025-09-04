@@ -60,12 +60,11 @@ public sealed class StealDnaConditionSystem : EntitySystem
         if (!TryComp<ChangelingComponent>(uid, out var ling))
             return 0f;
 
-        // Умер - не выполнил цель.
-        if (!_mind.IsCharacterDeadIc(mind))
+        if (_mind.IsCharacterDeadIc(mind))
             return 0f;
 
         // Подсчёт требуемых и имеющихся ДНК
-        var count = Math.Clamp(ling.DNAStolen, 0, 1);
-        return count;
+        var stolen = Math.Clamp(ling.DNAStolen, 0, comp.AbsorbDnaCount);
+        return (float)stolen / comp.AbsorbDnaCount;
     }
 }
