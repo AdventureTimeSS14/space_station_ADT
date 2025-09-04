@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: ADTPowerCellHyperRecipe
+  result: PowerCellHyperPrinted
+  completetime: 13
+  materials:
+    Steel: 800
+    Glass: 900
+    Gold: 200
+    Plastic: 500
