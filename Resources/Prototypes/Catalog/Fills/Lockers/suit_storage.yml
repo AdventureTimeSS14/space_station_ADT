@@ -115,7 +115,7 @@
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Engineering"]]
-  ## ADT-Tweak
+  # ADT-Tweak-start
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -124,7 +124,7 @@
     options:
     - ADTClothingModsuitBackEngineering
     - ClothingOuterHardsuitEngineering
-  ## ADT-Tweak
+  # ADT-Tweak-end
 
 #Atmospherics hardsuit
 - type: entity
@@ -139,7 +139,7 @@
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
-  ## ADT-Tweak
+  # ADT-Tweak-start
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -148,7 +148,7 @@
     options:
     - ADTClothingModsuitBackAtmos
     - ClothingOuterHardsuitAtmos
-  ## ADT-Tweak
+  # ADT-Tweak-end
 
 #Security hardsuit
 - type: entity
@@ -163,7 +163,7 @@
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
-  ## ADT-Tweak
+  # ADT-Tweak-start
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -172,7 +172,7 @@
     options:
     - ADTClothingModsuitBackSecurity
     - ClothingOuterHardsuitSecurity
-  ## ADT-Tweak
+  # ADT-Tweak-end
 
 #CE's hardsuit
 - type: entity
@@ -186,7 +186,7 @@
         tableId: FillChiefEngineerHardsuit
   - type: AccessReader
     access: [["ChiefEngineer"]]
-  ## ADT-Tweak
+  # ADT-Tweak-start
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -195,7 +195,7 @@
     options:
     - ADTClothingModsuitBackAdvanced
     - ClothingOuterHardsuitEngineeringWhite
-  ## ADT-Tweak
+  # ADT-Tweak-end
 
 #CMO's hardsuit
 - type: entity
@@ -235,7 +235,7 @@
         tableId: FillHeadOfSecurityHardsuit
   - type: AccessReader
     access: [["HeadOfSecurity"]]
-  ## ADT-Tweak
+  # ADT-Tweak-start
   - type: UserInterface
     interfaces:
       enum.SuitStorageUiKey.Key:
@@ -244,7 +244,7 @@
     options:
     - ADTClothingModsuitBackSafeguard
     - ClothingOuterHardsuitSecurityRed
-  ## ADT-Tweak
+  # ADT-Tweak
 
 #Warden's hardsuit
 - type: entity
