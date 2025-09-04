@@ -354,11 +354,12 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (!TryComp<MobThresholdsComponent>(args.Target, out var state) || !_threshold.TryGetDeadThreshold(args.Target.Value, out var health))
         {
+            //ЭТО ОТВЕЧАЕТ ЗА КУШАНИЕ ПРЕДМЕТОВ. НЕ ПЕРЕПУТАТЬ.
             health = -component.EatWeaponHungerReq;
             _hunger.ModifyHunger(uid, (float)health.Value, hunger);
             _audioSystem.PlayPvs(component.SoundDevour, uid);
-            _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(args.Target.Value, MapCoordinates.Nullspace.Position));
             component.ContainedCreatures.Add(args.Target.Value);
+            container.Insert(args.Target.Value, component.Container);
             return;
         }
         if (state.CurrentThresholdState != MobState.Dead)
@@ -373,6 +374,7 @@ public sealed class MorphSystem : SharedMorphSystem
         _damageable.TryChangeDamage(uid, damage_burn);
         _hunger.ModifyHunger(uid, (float)health.Value / 3.5f, hunger);
         _audioSystem.PlayPvs(component.SoundDevour, uid);
-        container.Insert(args.Target.Value, component.Container);
+        component.ContainedCreatures.Add(args.Target.Value);
+        _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
     }
 }

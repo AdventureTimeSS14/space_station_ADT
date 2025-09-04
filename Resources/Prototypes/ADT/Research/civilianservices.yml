@@ -4,7 +4,7 @@
   name: research-technology-services-modsuit-mods
   icon:
     sprite: ADT/Objects/Specific/Modsuits/modules.rsi
-    state: no_baton
+    state: antigrav
   discipline: CivilianServices
   tier: 2
   cost: 5000
