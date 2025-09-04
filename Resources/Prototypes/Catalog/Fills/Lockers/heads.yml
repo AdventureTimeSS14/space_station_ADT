@@ -216,7 +216,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasAtmos
-  # - id: ADTClothingModsuitBackAdvanced #ADT tweak
+  # - id: ADTClothingModsuitBackAdvanced #ADT-tweak
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
@@ -406,7 +406,7 @@
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
     - id: BookBusido # Corvax-Books
-    - id: ADTBookPTCR #ADT tweak
+    - id: ADTBookPTCR #ADT-tweak
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPsec
@@ -424,7 +424,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-  # - id: ADTClothingModsuitBackSafeguard #ADT tweak
+  # - id: ADTClothingModsuitBackSafeguard #ADT-tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
