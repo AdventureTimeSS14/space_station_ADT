@@ -1,6 +1,7 @@
 using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Shared.PowerCell;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -100,9 +101,16 @@ public sealed class SharedModSuitModSystem : EntitySystem
             if (component.RemoveComponents != null)
                 EntityManager.RemoveComponents(attached.Key, component.RemoveComponents);
         }
+
+        if (TryComp<PowerCellDrawComponent>(modSuit, out var celldraw))
+        {
+            modcomp.ModEnergyBaseUsing = (float)Math.Round(modcomp.ModEnergyBaseUsing + component.EnergyUsing, 3);
+            var attachedCount = _mod.GetAttachedToggleCount(modSuit, modcomp);
+            celldraw.DrawRate = modcomp.ModEnergyBaseUsing * attachedCount;
+        }
+
         Dirty(module, component);
         Dirty(modSuit, modcomp);
-
         // этот таймер нужен в связи с тем, что обновление интерфейса происходит до того, как на клиент передаёт информацию о включении модуля
         Timer.Spawn(1, () =>
         {
@@ -130,6 +138,14 @@ public sealed class SharedModSuitModSystem : EntitySystem
             break;
         }
         component.Active = false;
+
+        if (TryComp<PowerCellDrawComponent>(modSuit, out var celldraw))
+        {
+            modcomp.ModEnergyBaseUsing = (float)Math.Round(modcomp.ModEnergyBaseUsing - component.EnergyUsing, 3);
+            var attachedCount = _mod.GetAttachedToggleCount(modSuit, modcomp);
+            celldraw.DrawRate = modcomp.ModEnergyBaseUsing * attachedCount;
+        }
+
         Dirty(module, component);
         Dirty(modSuit, modcomp);
         // этот таймер нужен в связи с тем, что обновление интерфейса происходит до того, как на клиент передаёт информацию о включении модуля

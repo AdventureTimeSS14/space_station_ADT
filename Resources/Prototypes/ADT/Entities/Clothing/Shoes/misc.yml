@@ -50,45 +50,6 @@
   - type: StaticPrice
     price: 10
 
-
-    # halloween
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ADTClownNightmareShoes
-  name: clown nightmare shoes
-  description: No way.
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Misc/clownnightmareshoes.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Misc/clownnightmareshoes.rsi
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ADTGreyClownPsyhoShoes
-  name: grey clown psyho shoes
-  description: grey clown psyho shoes
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Misc/greyclownshoes.rsi
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ADTEmpressOfLightShoes
-  name: empress of light shoes
-  description: empress of light shoes
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Misc/empress_of_light_shoes.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Misc/empress_of_light_shoes.rsi
-
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ADTClothingShoesShaleBrealVulp
@@ -115,15 +76,3 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ADTRadioDemonShoes
-  name: radio demon suit
-  description: No way. No fucking way.
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Misc/demongentleman.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Misc/demongentleman.rsi

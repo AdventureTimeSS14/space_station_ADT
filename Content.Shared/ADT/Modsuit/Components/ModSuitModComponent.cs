@@ -23,6 +23,12 @@ public sealed partial class ModSuitModComponent : Component
     public int Complexity = 1;
 
     /// <summary>
+    ///     energy using
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float EnergyUsing = 0;
+
+    /// <summary>
     ///     The container that the clothing is stored in when not equipped.
     /// </summary>
     [DataField, AutoNetworkedField]
