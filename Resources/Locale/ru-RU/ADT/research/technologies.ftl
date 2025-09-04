@@ -5,3 +5,5 @@ research-technology-compact-technologies = Технологии сжатия м�
 research-technology-kinetic-modifications = Кинетические модификации
 
 research-technology-crystal-manipulation = Манипуляция кристаллами
+
+research-technology-advanced-energy = Продвинутая энергия 
