@@ -1,7 +1,7 @@
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: ADTIndustrialChargerCircuitboard
-  result: IndustrialChargerCircuitboard
+  result: ADTIndustrialChargerCircuitboard
   completetime: 6
   materials:
      Steel: 100
