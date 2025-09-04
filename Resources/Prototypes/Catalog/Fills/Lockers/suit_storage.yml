@@ -111,10 +111,20 @@
     contents:
         - id: OxygenTankFilled
         - id: ClothingShoesBootsMag
-        - id: ADTClothingModsuitBackEngineering #ADT tweak
+  #     - id: ADTClothingModsuitBackEngineering #ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Engineering"]]
+  ## ADT-Tweak
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackEngineering
+    - ClothingOuterHardsuitEngineering
+  ## ADT-Tweak
 
 #Atmospherics hardsuit
 - type: entity
@@ -125,7 +135,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackAtmos #ADT tweak
+  #     - id: ADTClothingModsuitBackAtmos # ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -138,7 +148,6 @@
     options:
     - ADTClothingModsuitBackAtmos
     - ClothingOuterHardsuitAtmos
-    selected: null   # изначально ничего не выбрано
   ## ADT-Tweak
 
 #Security hardsuit
@@ -150,10 +159,20 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackSecurity
+  #     - id: ADTClothingModsuitBackSecurity #ADT tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
+  ## ADT-Tweak
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackSecurity
+    - ClothingOuterHardsuitSecurity
+  ## ADT-Tweak
 
 #CE's hardsuit
 - type: entity
@@ -167,6 +186,16 @@
         tableId: FillChiefEngineerHardsuit
   - type: AccessReader
     access: [["ChiefEngineer"]]
+  ## ADT-Tweak
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAdvanced
+    - ClothingOuterHardsuitEngineeringWhite
+  ## ADT-Tweak
 
 #CMO's hardsuit
 - type: entity
@@ -206,6 +235,16 @@
         tableId: FillHeadOfSecurityHardsuit
   - type: AccessReader
     access: [["HeadOfSecurity"]]
+  ## ADT-Tweak
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackSafeguard
+    - ClothingOuterHardsuitSecurityRed
+  ## ADT-Tweak
 
 #Warden's hardsuit
 - type: entity
