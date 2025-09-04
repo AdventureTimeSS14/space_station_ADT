@@ -1,19 +1,11 @@
 - type: latheRecipe
-  id: IndustrialChargerCircuitboard
-  result: IndustrialChargerCircuitboard
-  completetime: 2
-  materials:
-    Steel: 900
-    Plastic: 100
-    Gold: 100
-
-- type: latheRecipe
-  id: ADTIndustrialSMESMachineCircuitboard
-  result: ADTIndustrialSMESMachineCircuitboard
-  completetime: 4
+  parent: BaseCircuitboardRecipe
+  id: ADTIndustrialChargerCircuitboard
+  result: ADTIndustrialChargerCircuitboard
+  completetime: 6
   materials:
      Steel: 100
-     Glass: 900
+     Glass: 500
      Gold: 100
 
 - type: latheRecipe
@@ -95,3 +87,30 @@
     Glass: 900
     Gold: 300
     Silver: 300
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTMinesweeperCircuitboard
+  result: MinesweeperCircuitboard
+  completetime: 3
+  materials:
+     Steel: 100
+     Glass: 500
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTBlockGameArcadeComputerCircuitboard
+  result: BlockGameArcadeComputerCircuitboard
+  completetime: 3
+  materials:
+     Steel: 100
+     Glass: 500
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTSpaceVillainArcadeComputerCircuitboard
+  result: SpaceVillainArcadeComputerCircuitboard
+  completetime: 3
+  materials:
+     Steel: 100
+     Glass: 500
