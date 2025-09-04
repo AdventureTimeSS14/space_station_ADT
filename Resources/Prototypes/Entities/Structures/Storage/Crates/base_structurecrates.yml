@@ -132,12 +132,12 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: Metallic #ADT_Tweak - чтобы их можно было в принципе сломать ломиком
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 120 #ADT_Tweak - 75 to 120 - увеличено здоровье. С измененным дамаджмодифаерсетом ящик можно сломать инструментами, но теперь он требует в 2 c небольшим раза больше ударов, чем обычный ящик
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

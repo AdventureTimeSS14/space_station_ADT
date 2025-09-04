@@ -68,6 +68,7 @@
   - type: MobPrice
     price: 1000 # Living critters are valuable in space.
   - type: Perishable
+  - type: Fauna #ADT tweak
 
 - type: entity
   parent:

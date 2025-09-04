@@ -1,0 +1,187 @@
+﻿#NES фростпанк
+
+- type: entity
+  name: паровой реактор
+  description: |-
+    Универсальный резервный генератор для питания различного оборудования.
+    Работает от твердотельных плазменных панелей и рассчитан на мощность до 30 кВт.
+  parent: PortableGeneratorSwitchableBase
+  id: ADTFrostpunkGenerator
+  suffix: Фростпанк
+  components:
+    - type: SpriteFade
+    - type: Sprite
+      noRot: true
+      drawdepth: Overdoors
+      sprite: ADT/Objects/Misc/Frostpunk/ParGenik.rsi
+      layers:
+        - state: portgen0
+          offset: 0,1.8
+          scale: 2, 2
+          map: [ "enum.GeneratorVisualLayers.Body" ]
+        - state: portgen_on_unlit
+          offset: 0,1.8
+          scale: 2, 2
+          map: [ "enum.GeneratorVisualLayers.Unlit" ]
+          visible: false
+    - type: GenericVisualizer
+      visuals:
+        enum.GeneratorVisuals.Running:
+          enum.GeneratorVisualLayers.Body:
+            True: { state: portgen0on }
+            False: { state: portgen0 }
+          enum.GeneratorVisualLayers.Unlit:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Machine
+      board: ADTFrostpunkGeneratorMachineCircuitboard
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-1,-1,1,1"
+          density: 1000
+          layer:
+          - WallLayer
+    - type: Physics
+      bodyType: Static
+    - type: FuelGenerator
+      minTargetPower: 5000
+      maxTargetPower: 60000
+      targetPower: 60000
+      optimalPower: 60000
+      # 15 minutes at max output
+      optimalBurnRate: 0.0333333
+      # a decent curve that goes up to about an hour at 5 kW.
+      fuelEfficiencyConstant: 0.9
+    - type: SolidFuelGeneratorAdapter
+      multiplier: 0.003
+    - type: MaterialStorage
+      storageLimit: 3000
+      materialWhiteList: [Plasma]
+    - type: PortableGenerator
+      startChance: 0.4
+    - type: Transform
+      anchored: True
+    - type: AmbientSound
+      range: 10
+      volume: 30
+      sound:
+        path: /Audio/Ambience/Objects/engine_hum.ogg
+    - type: GeneratorExhaustGas
+      gasType: CarbonDioxide
+      moleRatio: 100
+      temperature: 1300
+    - type: PointLight
+      radius: 15
+      energy: 5
+      color: "#e0a634"
+
+- type: entity
+  id: ADTFrostpunkGeneratorMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: паровое ядро
+  suffix: Фростпанк
+  description: Самая ценная вещь на этой планете.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/Frostpunk/ParCore.rsi
+      state: ParReactor
+    - type: PointLight
+      radius: 1
+      energy: 3
+      color: "#e0a634"
+    - type: TemperatureProtection
+      heatingCoefficient: 0.3
+    - type: Armor
+      modifiers:
+        coefficients:
+          Slash: 0.1
+          Heat: 0.1
+    - type: MachineBoard
+      prototype: ADTFrostpunkGenerator
+      stackRequirements:
+        CableHV: 10
+        Capacitor: 4
+        Manipulator: 2
+        Steel: 10
+        Plasteel: 20
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - Belt
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
+
+- type: entity
+  id: ADTGenikFrame
+  name: каркас парового реактора
+  suffix: Фростпанк
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-1,-1,1,1"
+          density: 1000
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Anchorable
+    - type: Rotatable
+    - type: Pullable
+    - type: Construction
+      graph: Machine
+      node: machineFrame
+      defaultTarget: machine
+      containers:
+        - machine_board
+        - machine_parts
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: missingWires
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - type: MachineFrame
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+    - type: Sprite
+      noRot: true
+      drawdepth: Overdoors
+      sprite: ADT/Objects/Misc/Frostpunk/ParGenik.rsi
+      state: box_1
+      snapCardinals: true
+      offset: 0,1.8
+      scale: 2, 2
+    - type: Appearance
+    - type: ItemMapper
+      mapLayers:
+        box_2:
+          minCount: 1
+          whitelist:
+            components:
+            - MachineBoard

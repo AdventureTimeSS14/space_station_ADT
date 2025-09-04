@@ -66,21 +66,6 @@
     graph: ADTSeat
     node: adtchairwhite
 
-# OctoberFest
-
-- type: entity
-  name: oktoberfest chair
-  id: ADTChairOktoberfest
-  parent: ADTChairBase
-  suffix: Oktoberfest
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
-    state: oct_chair_orange
-  - type: Construction
-    graph: ADTSeat
-    node: adtchairoktoberfest
-
 # Sofas
 
 #кресла от Юны
@@ -214,24 +199,6 @@
   - type: Construction
     graph: ADTSeat
     node: adtarmchairblue2
-
-- type: entity
-  name: spider stool
-  id: ADTSpiderStool
-  parent: ADTChairBase
-  description: It looks spooky.
-  suffix: Halloween
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-  - type: Anchorable
-  - type: Rotatable
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/Chairs/spider_stool.rsi #спрайт от Умы
-    state: icon
-
 - type: entity
   name: barber chair
   id: ADTBarberChair

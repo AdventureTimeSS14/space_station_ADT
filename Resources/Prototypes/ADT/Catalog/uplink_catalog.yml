@@ -22,6 +22,9 @@
   description: uplink-AKMS-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
   productEntity: ADTClothingBackpackDuffelSyndicateFilledAKMS
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 9
   cost:
     Telecrystal: 15
   categories:
@@ -62,9 +65,9 @@
   productEntity: FireAxeFlaming
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 7
+    Telecrystal: 5
   cost:
-    Telecrystal: 10
+    Telecrystal: 8
   categories:
   - UplinkWeaponry
 
@@ -79,7 +82,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3
   categories:
   - UplinkAttachments #ADT_Tweak
 
@@ -240,7 +243,7 @@
   description: uplink-smokegrenade-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledSmokeGrenade
   cost:
-    Telecrystal: 4
+    Telecrystal: 3
   categories:
   - UplinkExplosives
   conditions:
@@ -272,7 +275,7 @@
   icon: { sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ADTClothingBackpackDuffelSyndicateFilledElite
   cost:
-    Telecrystal: 30
+    Telecrystal: 25
   categories:
   - UplinkWearables
   conditions:
@@ -321,7 +324,7 @@
   description: uplink-ADTHandDefibrillator-desc
   productEntity: ADTHandDefibrillator
   cost:
-    Telecrystal: 4
+    Telecrystal: 3
   categories:
   - UplinkChemicals
   conditions:
@@ -369,7 +372,7 @@
   description: uplink-stealth-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledStealth
   cost:
-    Telecrystal: 12
+    Telecrystal: 9
   categories:
     - UplinkDisruption
 
@@ -379,7 +382,7 @@
   description: uplink-intruder-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledIntruder
   cost:
-    Telecrystal: 20
+    Telecrystal: 10
   categories:
     - UplinkDisruption
 
@@ -389,7 +392,7 @@
   description: uplink-blackmail-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledBlackmail
   cost:
-    Telecrystal: 15
+    Telecrystal: 9
   categories:
     - UplinkDisruption
 
@@ -438,7 +441,7 @@
   icon: { sprite: ADT/Objects/Specific/Service/iron_tray.rsi, state: icon}
   productEntity: ADTAntagIronTray
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
   - UplinkJob
   conditions:
@@ -482,7 +485,7 @@
   description: uplink-cane-shotgun-desc
   productEntity: ADTWhiteCaneShotgun
   cost:
-    Telecrystal: 6
+    Telecrystal: 5
   categories:
   - UplinkJob
   conditions:
@@ -527,7 +530,7 @@
   description: uplink-escapist-bundle-desc
   productEntity: ADTBoxSyndicateFilledEscapist
   cost:
-    Telecrystal: 15
+    Telecrystal: 9
   categories:
     - UplinkImplants
 
@@ -582,7 +585,7 @@
   icon: { sprite: ADT/Objects/Weapons/Melee/fullshieldsindi.rsi, state: icon}
   productEntity: ADTFullRiotShieldSyndicate
   cost:
-    Telecrystal: 16
+    Telecrystal: 13
   categories:
   - UplinkWeaponry
   conditions:
@@ -654,7 +657,7 @@
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVision
   cost:
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
     - UplinkWearables
 
@@ -674,7 +677,7 @@
   description: uplink-ADTModularGrenadeBundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateModuleGrenade
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkChemicals
 
@@ -755,7 +758,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4
+    Telecrystal: 3
   categories:
   - UplinkWearables
 
@@ -854,7 +857,7 @@
   description: uplink-contortionist-jumpsuit-advanced-desc
   productEntity: ClothingUniformJumpsuitAtmosSyndieAdvanced
   cost:
-    Telecrystal: 10
+    Telecrystal: 8
   categories:
   - UplinkJob
   conditions:

@@ -1,0 +1,5 @@
+- type: ore
+  id: ADTOreBS
+  oreEntity: ADTBSore1
+  minOreYield: 1
+  maxOreYield: 2

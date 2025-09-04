@@ -12,6 +12,7 @@
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
+  bannedRound: 2 #ADT tweak
 
 - type: gamePreset
   id: KesslerSyndrome

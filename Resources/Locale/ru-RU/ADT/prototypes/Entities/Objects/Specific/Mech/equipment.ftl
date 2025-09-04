@@ -25,5 +25,5 @@ ent-MechEquipmentPuddyGrabber = клешня Падди
 ent-MechEquipmentDrill = бур меха
     .desc = Просверлит всё! Стены, двери, руду, столы, ковры, ваших врагов!
 
-ent-MechEquipmentDiamondDrill = бур меха
-    .desc = Просверлит всё! Стены, двери, руду, столы, ковры, ваших врагов!
+ent-MechEquipmentDiamondDrill = алмазный бур меха
+    .desc = Твой бур создан, чтобы пронзить небо, землю и само будущее!

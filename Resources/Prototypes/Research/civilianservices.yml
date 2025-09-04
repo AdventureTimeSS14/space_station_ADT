@@ -83,6 +83,11 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    # ADT tweak start
+    - ADTBlockGameArcadeComputerCircuitboard
+    - ADTSpaceVillainArcadeComputerCircuitboard
+    - ADTMinesweeperCircuitboard
+    # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 
 - type: technology
@@ -178,13 +183,16 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
+  - ADTBluespaceTrashCan # ADT tweak
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
   # ADT Research Console Rework start
   position: 1,1
   requiredTech:
-  - ADTMechanizedTreatment # RoboticCleanliness -> ADTMechanizedTreatment. Заглушка, т.к нету прототипа RoboticCleanliness
+  - AdvancedEntertainment # add добавил
+  - ADTServiceMODsuitMODs # add добавил для того чтобы было больше смысла от линий...
+ # RoboticCleanliness -> ADTMechanizedTreatment. Remove = ADTMechanizedTreatment Заглушка идёт домой... а что она тут вобще делает?
   # ADT Research Console Rework end
 
 - type: technology
@@ -227,6 +235,7 @@
   # ADT Research Console Rework start
   position: 0,0
   requiredTech:
+  - AdvancedEntertainment
   - AdvancedCleaning
   # ADT Research Console Rework end
 

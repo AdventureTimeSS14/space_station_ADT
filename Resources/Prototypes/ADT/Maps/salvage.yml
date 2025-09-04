@@ -93,6 +93,11 @@
   mapPath: /Maps/ADTMaps/Salvage/piece_debris_com.yml
   sizeString: salvage-map-wreck-size-medium
 
+- type: salvageMap
+  id: ADT_ParkWreck
+  mapPath: /Maps/ADTMaps/Salvage/parkwreck.yml
+  sizeString: salvage-map-wreck-size-medium
+
 # """Large""" maps
 
 - type: salvageMap
@@ -124,10 +129,10 @@
 
 # SHMALL
 
-- type: salvageMap
-  id: ADT_adventurer
-  mapPath: /Maps/Corvax/Ruins/corvax_adventurer.yml
-  sizeString: salvage-map-wreck-size-small
+# - type: salvageMap
+#   id: ADT_adventurer
+#   mapPath: /Maps/Corvax/Ruins/corvax_adventurer.yml
+#   sizeString: salvage-map-wreck-size-small
 
 #large
 - type: salvageMap
@@ -135,20 +140,20 @@
   mapPath: /Maps/Ruins/abandoned_outpost.yml
   sizeString: salvage-map-wreck-size-large
 
-- type: salvageMap
-  id: ADT_Accident
-  mapPath: /Maps/Corvax/Ruins/corvax_accident.yml
-  sizeString: salvage-map-wreck-size-large
+# - type: salvageMap
+#   id: ADT_Accident
+#   mapPath: /Maps/Corvax/Ruins/corvax_accident.yml
+#   sizeString: salvage-map-wreck-size-large
 
-- type: salvageMap
-  id: ADT_Battleship
-  mapPath: /Maps/Corvax/Ruins/corvax_battleship.yml
-  sizeString: salvage-map-wreck-size-large
+# - type: salvageMap
+#   id: ADT_Battleship
+#   mapPath: /Maps/Corvax/Ruins/corvax_battleship.yml
+#   sizeString: salvage-map-wreck-size-large
 
-- type: salvageMap
-  id: ADT_GasStation
-  mapPath: /Maps/Corvax/Ruins/corvax_gas_station.yml
-  sizeString: salvage-map-wreck-size-large
+# - type: salvageMap
+#   id: ADT_GasStation
+#   mapPath: /Maps/Corvax/Ruins/corvax_gas_station.yml
+#   sizeString: salvage-map-wreck-size-large
 
 - type: salvageMap
   id: ADT_BssUnluck

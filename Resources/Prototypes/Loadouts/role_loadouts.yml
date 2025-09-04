@@ -5,6 +5,7 @@
   - Inventory # Corvax-Loadouts
   - CaptainHead
   - CaptainNeck
+  - ADTCaptainEars # ADT tweak
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
@@ -25,6 +26,7 @@
   - GroupTankHarness
   - HoPHead
   - HoPNeck
+  - ADTHoP # ADT tweak
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
@@ -311,6 +313,7 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - QuartermasterHead
+  - ADTQuartermasterEars # ADT tweak
   - QuartermasterNeck
   - QuartermasterJumpsuit
   - CargoTechnicianBackpack
@@ -356,6 +359,7 @@
   - ADTSalvageSpecialistJumpsuit #ADT Loadouts
   - SalvageSpecialistBackpack
   - ADTSalvageSpecialistNeck #ADT Loadouts
+  - ADTSalvageSpecialistEars # ADT tweak
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
   - Glasses
@@ -377,6 +381,7 @@
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
+  - ADTChiefEngineerEars # ADT tweak
   - ChiefEngineerBackpack # Corvax-Loadouts
   - ADTEngineeringBelt # ADT-TWEAK
   - ADTEngineeringGlasses # ADT-TWEAK
@@ -463,6 +468,7 @@
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
+  - ADTResearchDirectorEars # ADT tweak
   - ResearchDirectorJumpsuit
   - ScientistBackpack
   - ResearchDirectorOuterClothing
@@ -636,6 +642,7 @@
   - ADTMedicalBelt # ADT tweak
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
+  - ADTChiefMedicalOfficerEars # ADT tweak
   - ChiefMedicalOfficerShoes
   - MedicalEyewear
   - ADTCMOPDA # ADT tweak
@@ -798,7 +805,6 @@
   - BoxerGloves
   - CommonBackpack
   - Glasses
-  - ADTBoxerMA #ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

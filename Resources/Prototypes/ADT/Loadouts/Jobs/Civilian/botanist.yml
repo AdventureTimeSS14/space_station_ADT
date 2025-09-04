@@ -1,3 +1,21 @@
+# Head
+- type: loadoutEffectGroup
+  id: ClothingHeadHatFlowerWreath10Hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBotanist
+      time: 36000 #10 hrs
+
+- type: loadout
+  id: ADTClothingHeadHatFlowerWreath
+  equipment:
+    head: ClothingHeadHatFlowerWreath
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ClothingHeadHatFlowerWreath10Hour
+
 # PDA
 - type: loadout
   id: BotanistPDA

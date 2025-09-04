@@ -1,3 +1,76 @@
+# ГАРНИТУРЫ
+- type: loadoutGroup
+  id: ADTQuartermasterEars
+  name: loadout-quartermaster-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetQM
+  - ADTClothingHeadsetAltCargo
+
+- type: loadoutGroup
+  id: ADTCaptainEars
+  name: loadout-captain-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCommand
+  - ADTClothingHeadsetAltCommand
+
+- type: loadoutGroup
+  id: ADTHoP
+  name: loadout-HoP-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCommand
+  - ADTClothingHeadsetAltCommand
+
+- type: loadoutGroup
+  id: ADTBlueshieldEars
+  name: loadout-blueshield-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetBlueshield
+  - ADTClothingHeadsetAltBlueshield
+
+- type: loadoutGroup
+  id: ADTChiefEngineerEars
+  name: loadout-chief-engineer-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCE
+  - ADTClothingHeadsetAltEngineering
+
+- type: loadoutGroup
+  id: ADTResearchDirectorEars
+  name: loadout-research-director-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetRD
+  - ADTClothingHeadsetAltScience
+
+- type: loadoutGroup
+  id: ADTChiefMedicalOfficerEars
+  name: loadout-chief-medical-officer-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCMO
+  - ADTClothingHeadsetAltMedical
+
+- type: loadoutGroup
+  id: ADTSalvageSpecialistEars
+  name: loadout-salvage-specialist-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCargo
+  - ADTClothingHeadsetMining
+
 # MAGISTRATE
 
 - type: loadoutGroup
@@ -26,15 +99,15 @@
   maxLimit: 1
   loadouts:
   - ADTLightBrownGloves
-  - OrangeGloves
   - ADTRedGloves
   - ADTTealGloves
   - ADTGreenGloves
   - ADTWhiteGloves
   - ADTBlackGloves
   - ADTGrayGloves
-  - PurpleGloves
   - ADTBlueGloves
+  - ADTOrangeGloves
+  - ADTPurpleGloves
 
 - type: loadoutGroup
   id: LawyerShoes
@@ -71,7 +144,8 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
-  - ADTMagistratBackpackSatchel
+  - ADTClothingBackpackSatchelLeather
+
 # PATHOLOGIST
 
 - type: loadoutGroup
@@ -247,7 +321,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
+  - ADTPurpleGloves
   - RobohandsGloves
 
 # SENIOR ENGINEER
@@ -293,7 +367,7 @@
   loadouts:
   - LatexGloves
   # - NitrileGloves # ADT-Tweak (почему у НРа их нет (тем более они медицинские), а у доцента - есть?)
-  - PurpleGloves
+  - ADTPurpleGloves
 
 - type: loadoutGroup
   id: ADTSeniorResearcherOuterClothing
@@ -301,7 +375,7 @@
   minLimit: 0
   loadouts:
   - SeniorResearcherLabCoat
-  - ADTOuterClothingCoatsCrazySci 
+  - ADTOuterClothingCoatsCrazySci
 
 # BLUESHIELD
 
@@ -343,6 +417,15 @@
   - ADTBlueshieldBackpack
   - ADTBlueshieldSatchel
   - ADTBlueshieldDuffel
+
+- type: loadoutGroup
+  id: ADTBlueshieldOuterClothing
+  name: loadout-group-blueshield-outer-clothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingOuterWinterBlueshield
+  - ADTClothingBlueshieldArmor
 
 # WARDEN
 
@@ -519,19 +602,6 @@
   maxLimit: 1
   loadouts:
   - ADTChefCqc
-
-## Боксёр
-
-- type: loadoutGroup
-  id: ADTBoxerMA
-  name: loadout-boxer-pocket1-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTBoxerPTSD
-  - ADTBoxerCQCWeak
-  - ADTBoxerCQC
-  - ADTBoxerCarp
 
 ## GUARD OFFICER (НАДЗИРАТЕЛЬ)
 
@@ -909,12 +979,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -981,12 +1049,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1050,12 +1116,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1431,12 +1495,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1503,12 +1565,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1574,12 +1634,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1645,12 +1703,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey

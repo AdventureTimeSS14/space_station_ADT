@@ -23,6 +23,7 @@
     tags:
     - ClothMade
     - WhitelistChameleon
+    - ADTShoesSacrifice # ADT Tweak
   - type: ProtectedFromStepTriggers
   # ADT Start
   - type: EmitSoundOnPickup

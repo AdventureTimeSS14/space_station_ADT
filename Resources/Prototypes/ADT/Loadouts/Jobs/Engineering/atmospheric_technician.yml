@@ -16,6 +16,11 @@
   - !type:GroupLoadoutEffect
     proto: ADTMasterAtmos
 
+- type: loadout
+  id: ADTClothingAtmosphericsOveralls
+  equipment:
+    outerClothing: ClothingAtmosphericsOveralls
+
 # Neck
 - type: loadout
   id: ADTCloakAtmosian

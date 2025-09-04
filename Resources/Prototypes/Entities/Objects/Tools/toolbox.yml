@@ -48,6 +48,11 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTToolboxRedSacrifice
+### End ADT Tweak
 
 - type: entity
   name: mechanical toolbox
@@ -60,6 +65,11 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTToolboxBlueSacrifice
+### End ADT Tweak
 
 - type: entity
   name: electrical toolbox

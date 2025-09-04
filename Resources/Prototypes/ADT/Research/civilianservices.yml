@@ -4,7 +4,7 @@
   name: research-technology-services-modsuit-mods
   icon:
     sprite: ADT/Objects/Specific/Modsuits/modules.rsi
-    state: no_baton
+    state: antigrav
   discipline: CivilianServices
   tier: 2
   cost: 5000
@@ -80,3 +80,20 @@
   requiredTech:
   - MeatManipulation
   position: 3,-2
+
+- type: technology
+  id: ADTWeaponLauncherHydra
+  name: research-technology-hydra
+  icon:
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ADTWeaponLauncherHydra
+  - GrenadeCleanade
+  position: 0,1
+  requiredTech:
+  - AdvancedSpray
+  - AdvancedCleaning
