@@ -43,7 +43,7 @@ public sealed partial class ModSuitComponent : Component
     ///     non-modifyed energy using. 1 toggled part - 1 energy per PowerCellDraw use
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ModEnergyBaseUsing = 1;
+    public float ModEnergyBaseUsing = 0.5f;
 
     public float ModEnergyModifyedUsing = 1;
 

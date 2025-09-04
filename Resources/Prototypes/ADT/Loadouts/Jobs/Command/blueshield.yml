@@ -56,3 +56,25 @@
   id: ADTBlueshieldDuffel
   equipment:
     back: ADTClothingBackpackDuffelBlueshield
+
+# Ears
+- type: loadout
+  id: ADTClothingHeadsetBlueshield
+  equipment:
+    ears: ADTClothingHeadsetBlueshield
+
+- type: loadout
+  id: ADTClothingHeadsetAltBlueshield
+  equipment:
+    ears: ADTClothingHeadsetAltBlueshield
+
+# OuterClothing
+- type: loadout
+  id: ADTClothingOuterWinterBlueshield
+  equipment:
+    outerClothing: ADTClothingOuterWinterBlueshield
+
+- type: loadout
+  id: ADTClothingBlueshieldArmor
+  equipment:
+    outerClothing: ADTClothingBlueshieldArmor

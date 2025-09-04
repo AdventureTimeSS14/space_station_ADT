@@ -83,6 +83,11 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    # ADT tweak start
+    - ADTBlockGameArcadeComputerCircuitboard
+    - ADTSpaceVillainArcadeComputerCircuitboard
+    - ADTMinesweeperCircuitboard
+    # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 
 - type: technology
@@ -178,6 +183,7 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
+  - ADTBluespaceTrashCan # ADT tweak
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning

@@ -94,46 +94,11 @@
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/nukeops_cloak.rsi #спрайты от floppo4ka
 
-
-    # halloween
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ADTVergileCloak
-  name: Vergile cloak
-  description: Vergile cloak
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Misc/vergile_cloak.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ADTClothingNeckCloakRedhat
-  name: redhat cloak
-  description: redhat cloak
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Neck/Cloaks/redhat.rsi
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
-  - type: ToggleableClothing
-    clothingPrototype: ADTClothingHeadHatHoodRedhat
-    requiredSlot:
-    - neck
-    slot: head
-
 - type: entity
   parent: ClothingNeckBase
   id: ADTClothingNeckInvisibleCloak
   name: Invisible Cloak
-  description: kto eto chitaet
+  description: Cloak that hides a owner, acquiring the colors and contours of the environment using nanotechnology. Also, it provides some protection against external influences, but the downside of such properties is slow down. # Ya chitayu \\\ QWERTY Shenanigans
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/invisible_cloak.rsi
@@ -243,3 +208,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/captain_neck.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingAdmiralShoulder
+  name: admiral shoulder
+  description: A massive blue cloak with gold trim. It is presented to captains who have been through a lot...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Cloaks/captain_admiral.rsi

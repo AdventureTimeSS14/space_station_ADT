@@ -4,11 +4,12 @@ using Content.Shared.Antag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Content.Shared.Alert;
+using Robust.Shared.GameStates;  // ADT QWERTY's altar update
 
 namespace Content.Shared.Bible.Components;
 
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ChaplainComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]

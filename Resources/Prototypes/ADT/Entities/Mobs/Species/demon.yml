@@ -18,6 +18,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
+  - type: Wagging
   - type: Body
     prototype: Demon
     requiredLegs: 2

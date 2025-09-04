@@ -48,3 +48,54 @@
         maxRange: 2.5
       spawns:
       - ADTSpecialMobGorilla
+
+
+- type: entity
+  id: ADTAnomalyRockBS
+  parent: AnomalyRockBase
+  suffix: Rock, BS
+  components:
+  - type: Sprite
+    color: "#3363c4"
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#3363c4"
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 8
+        maxAmount: 15
+        minRange: 4.5
+        maxRange: 7.5
+      spawns:
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidBS
+      - ADTWallSpawnAsteroidBSCrab
+    - settings:
+        spawnOnPulse: true
+        maxAmount: 3
+        minRange: 2.5
+        maxRange: 4.5
+      spawns:
+      - CrystalBlue
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 40
+        minRange: 5
+        maxRange: 15
+      spawns:
+      - CrystalBlue
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidBSCrab
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 6
+        maxAmount: 10
+        maxRange: 5
+      spawns:
+      - ADTMobSpawnBSCrab

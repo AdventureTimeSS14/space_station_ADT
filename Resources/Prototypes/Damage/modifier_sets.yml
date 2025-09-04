@@ -130,7 +130,7 @@
   flatReductions:
     Blunt: 6.5 #ADT_Tweak 5 > 6.5
     Slash: 6.5 #ADT_Tweak 5 > 6.5
-    Piercing: 5 
+    Piercing: 5
     Heat: 5
     Structural: 10
 
@@ -159,9 +159,8 @@
     Blunt: 0.6
     Slash: 1.2
     Piercing: 1.2
-    Cold: 1.7 #ADT-tweak 1.5>1.7
+    Cold: 1.5
     Poison: 0.8
-    Caustic: 1.5 #ADT-tweak
 
 - type: damageModifierSet
   id: Infernal
@@ -187,7 +186,7 @@
     Slash: 0.8
     Heat: 1.5
     Shock: 1.2
-    
+
 ## ADT Tweak - ЗАКОММЕНТИЛИ ДЛЯ ADT НИАН
 # - type: damageModifierSet
 #   id: Moth # Slightly worse at everything but cold

@@ -1,0 +1,14 @@
+- type: entity
+  id: ADTBulletBS
+  name: Bluespace bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BsCrystalTeleport
+    - type: Projectile
+    - type: Sprite
+      sprite: ADT/Objects/Materials/crystal_art.rsi
+      layers:
+        - state: crystal
+    - type: Ammo
+      muzzleFlash: null

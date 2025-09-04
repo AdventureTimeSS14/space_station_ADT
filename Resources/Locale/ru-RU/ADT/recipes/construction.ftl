@@ -51,13 +51,11 @@ construction-name-red-chair = красный стул
 construction-name-church-bench-left-side = левая сторона церковной скамьи
 construction-name-church-bench-middle = средняя часть церковной скамьи
 construction-name-church-bench-right-side = правая сторона церковной скамьи
-construction-name-oktoberfest-chair = стул для Октоберфеста
-construction-name-oktoberfest-table = стол для Октоберфеста
-construction-name-oktoberfest-orange-table = оранжевый стол для Октоберфеста
 construction-name-fireplace = камин
 construction-name-deckchair = шезлонг
 construction-name-bonfire = костер
 construction-name-disco-ball = диско-шар
+construction-name-altar = алтарь обращения
 
 # Описания
 construction-desc-sofa-left-side = Выглядит удобно.
@@ -120,3 +118,4 @@ construction-desc-fireplace = Место с огнем. Уютно!
 construction-desc-deckchair = Шезлонг для равномерного загара под светом ближайшей звезды.
 construction-desc-bonfire = Только не замерзни.
 construction-desc-disco-ball = Упадет в 2470 году.
+construction-desc-altar = Заготовка для алтаря религии. Стоит попробовать вставить в него какой-нибудь материал.

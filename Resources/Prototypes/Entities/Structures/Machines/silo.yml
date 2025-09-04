@@ -23,6 +23,9 @@
       tags:
       - Sheet
       - Ingot
+      - ADTBSCrystal #ADT Tweak
+      - PhantomEctoplasm #ADT Tweak
+      - RawMaterial  #ADT Tweak 
   - type: ActivatableUI
     key: enum.OreSiloUiKey.Key
   - type: ActivatableUIRequiresPower

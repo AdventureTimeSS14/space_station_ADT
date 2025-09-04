@@ -656,6 +656,10 @@
   - type: Tag
     tags:
     - Slice
+  #ADT-Tweak start
+  - type: Item
+    size: Tiny
+  #ADT-Tweak end
 
 - type: entity
   name: stick of cannabis butter
@@ -897,6 +901,10 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
+  #ADT-Tweak start
+  - type: Item
+    size: Tiny
+  #ADT-Tweak end
 
 - type: entity
   name: raw cotton croissant
@@ -910,3 +918,7 @@
     - cotton
   - type: Sprite
     state: croissant-raw-cotton
+  #ADT-Tweak start
+  - type: Item
+    size: Tiny
+  #ADT-Tweak end

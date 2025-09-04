@@ -30,6 +30,7 @@
       - ADTMobLegion
       - ADTMobNightmareSpider
       - ADTMobShockSpider
+      - ADTMobBSCrab
     rarePrototypes:
       - MobAncientGoliath
       - ADTRandomTendrilSpawner

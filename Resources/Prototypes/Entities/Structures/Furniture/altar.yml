@@ -5,36 +5,9 @@
   description: Altar of the Gods.
   abstract: true
   components:
-  - type: Anchorable
-  - type: Transform
-  - type: Prayable
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Wood
-  - type: PlaceableSurface
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
-        density: 55
-        mask: #mouse can pass under, but I think this is can understandable by logic
-        - TableMask
-        layer:
-        - TableLayer
+# Start ADT Tweak
   - type: Sprite
     snapCardinals: true
-  - type: Climbable
-  - type: Clickable
-  - type: Altar
-
-- type: entity
-  id: AltarNanotrasen
-  parent: AltarBase
-  name: nanotrasen altar
-  components:
-  - type: Sprite
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: nanotrasen
   - type: Icon
@@ -59,18 +32,75 @@
         spawn:
           SheetSteel1:
             min: 1
-            max: 5
-          MaterialCloth1:
-            min: 1
             max: 3
+          MaterialCloth1:
+            min: 0
+            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StealTarget
-    stealGroup: AltarNanotrasen
+# End ADT Tweak
+  - type: Anchorable
+  - type: Transform
+  - type: Prayable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask: #mouse can pass under, but I think this is can understandable by logic
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Climbable
+  - type: Clickable
+
+- type: entity
+  id: AltarNanotrasen
+  parent: AltarBase
+  name: nanotrasen altar
+  components:
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: NanotrasenAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTNanotrasenCoin
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/kaching.ogg
+        powerCost: 3
+      - requiredProto: ClothingBeltUtility
+        resultProto: ADTBureaucraticBelt
+        soundPath: /Audio/Effects/kaching.ogg
+        powerCost: 1
+      - requiredProto: SyndieHandyFlag
+        resultProto: NTHandyFlag
+        soundPath: /Audio/Effects/kaching.ogg
+        powerCost: 1
+      - requiredProto: ClothingUniformJumpsuitMonasticRobeLight
+        resultProto: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
+        soundPath: /Audio/Effects/kaching.ogg
+        powerCost: 1
+      - requiredProto: ClothingUniformJumpsuitMonasticRobeDark
+        resultProto: ClothingUniformJumpsuitLawyerBlack
+        soundPath: /Audio/Effects/kaching.ogg
+        powerCost: 1
+      - requiredTag: Folder
+        resultProto: BoxFolderCentCom
+        soundPath: /Audio/Effects/kaching.ogg
+        powerCost: 5
+### End ADT Tweak
 
 - type: entity
   id: AltarChaos
-  parent: AltarNanotrasen
+  parent: BaseStructure
   name: chaos altar
   components:
   - type: Sprite
@@ -79,10 +109,71 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: chaos
+  - type: PointLight
+    radius: 1.5
+    energy: 1
+    color: "#fbb1b1"
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: ChaosAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTDevilsKnife
+        effectProto: ADTSwordMetamorphisis
+        soundPath: /Audio/ADT/Effects/jester_laught.ogg
+        powerCost: 3
+      - requiredProto: JawsOfLife
+        resultProto: ADTJAWSofLife
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredProto: FoodMeatFish
+        resultProto: ADTChaosCarpSacrafice
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 50
+        priority: 0
+        resultProto: ADTChaosCasinoPetiteWin
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 150
+        priority: 1
+        resultProto: ADTChaosCasinoSmallWin
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 1500
+        priority: 2
+        resultProto: ADTChaosBigBoyCasinoSpawn
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 50000
+        priority: 3
+        resultProto: ADTChaosAllorNothingCasinoSpawn
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 2
+      - requiredTag: ADTMoneyForGamble
+        requiredAmount: 1000000
+        priority: 4
+        resultProto: ADTChaosAllorNothinglerCasinoSpawn
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 5
+### End ADT Tweak
 
 - type: entity
   id: AltarDruid
-  parent: AltarNanotrasen
+  parent: BaseStructure
   name: druid altar
   components:
   - type: Sprite
@@ -91,10 +182,79 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: DruidAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTBananahilator
+        effectProto: ADTEffectKudzu
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+        powerCost: 3
+      - requiredProto: AppleSeeds
+        resultProto: GoldenAppleSeeds
+        effectProto: ADTEffectKudzu
+        powerCost: 1
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTCoalOre
+        requiredAmount: 5
+        resultProto: MobSpawnCoalCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTGoldOre
+        requiredAmount: 5
+        resultProto: MobSpawnGoldCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTSilverOre
+        requiredAmount: 5
+        resultProto: MobSpawnSilverCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTUraniumOre
+        requiredAmount: 5
+        resultProto: MobSpawnUraniumCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTSteelOre
+        requiredAmount: 5
+        resultProto: MobSpawnIronCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTQuarzOre
+        requiredAmount: 5
+        resultProto: MobSpawnQuartzCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTBSore
+        requiredAmount: 5
+        resultProto: MobSpawnBSCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: Crowbar
+        resultProto: Shovel
+        effectProto: ADTEffectKudzu
+        powerCost: 1
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ADTClothingJumpsuitDryadCoverings
+        effectProto: ADTEffectKudzu
+        powerCost: 2
+        soundPath: /Audio/Magic/blink.ogg
+### End ADT Tweak
 
 - type: entity
   id: AltarToolbox
-  parent: AltarNanotrasen
+  parent: BaseStructure
   name: toolbox altar
   components:
   - type: Sprite
@@ -103,10 +263,42 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: ToolAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredTag: Crowbar
+        resultProto: BannerBlue
+        powerCost: 2
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredProto: ClothingMaskGas
+        resultProto: ADTMFDoomMask
+        powerCost: 2
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+      - requiredProto: ADTEctoSword
+        resultProto: ADTHolyChainsaw
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 3
+      - requiredProto: WelderMini
+        resultProto: Welder
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 2
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ClothingUniformOveralls
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+### End ADT Tweak
 
 - type: entity
   id: AltarSpaceChristian
-  parent: AltarNanotrasen
+  parent: BaseStructure
   name: space-Christian altar
   components:
   - type: Sprite
@@ -122,10 +314,37 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: SpaceChristianAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTPhilosopherstone
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/holy.ogg
+        powerCost: 3
+      - requiredProto: ADTWoodCross
+        resultProto: ADTGoldCross
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/holy.ogg
+        powerCost: 2
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ClothingUniformJumpsuitMonasticRobeLight
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/holy.ogg
+        powerCost: 1
+      - requiredTag: Book
+        resultProto: Bible
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/holy.ogg
+        powerCost: 5
+### End ADT Tweak
 
 - type: entity
   id: AltarSatana
-  parent: AltarNanotrasen
+  parent: BaseStructure
   name: satanic altar
   components:
   - type: Sprite
@@ -141,10 +360,42 @@
     radius: 1.5
     energy: 1
     color: "#ff6347"
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: NarsiAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredTag: Heart
+        resultProto: RitualDagger
+        effectProto: ADTCultistBubble
+        powerCost: 3
+        soundPath: /Audio/Magic/Eldritch/voidblink.ogg
+      - requiredTag: ADTrobeSacrifice
+        resultProto: ClothingOuterRobesCult
+        effectProto: ADTCultistBubble
+        powerCost: 2
+        soundPath: /Audio/Magic/Eldritch/voidblink.ogg
+      - requiredTag: Brain
+        resultProto: ADTHeadVulpkanin
+        effectProto: ADTCultistBubble
+        powerCost: 2
+        soundPath: /Audio/Magic/Eldritch/voidblink.ogg
+      - requiredProto: ADTEctoSword
+        resultProto: ADTBloodSword
+        effectProto: ADTCultistBubble
+        soundPath: /Audio/Magic/Eldritch/voidblink.ogg
+        powerCost: 3
+      - requiredTag: Meat
+        resultProto: FoodMeatHuman
+        effectProto: ADTCultistBubble
+        soundPath: /Audio/Magic/Eldritch/voidblink.ogg
+        powerCost: 1
+### End ADT Tweak
 
 - type: entity
   id: AltarTechnology
-  parent: AltarNanotrasen
+  parent: BaseStructure
   name: technology altar
   components:
   - type: Sprite
@@ -160,6 +411,28 @@
     radius: 1.5
     energy: 1
     color: "#e0ffff"
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: TechnologyAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTSeraph
+        effectProto: EffectRCDConstruct0
+        soundPath: /Audio/Items/Mining/fultext_launch.ogg
+        powerCost: 3
+      - requiredTag: Bucket
+        resultProto: PlushieRatvar
+        effectProto: EffectRCDConstruct0
+        powerCost: 3
+        soundPath: /Audio/Items/Mining/fultext_launch.ogg
+      - requiredTag: ADTrobeSacrifice
+        resultProto: ADTClothingOuterTechpriestRobe
+        effectProto: EffectRCDConstruct0
+        soundPath: /Audio/Items/Mining/fultext_launch.ogg
+        powerCost: 3
+### End ADT Tweak
 
 - type: entity
   id: AltarConvertFestival
@@ -172,33 +445,6 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
     state: festival
-  - type: Damageable
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 15
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroyHeavy
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MaterialWoodPlank:
-            min: 1
-            max: 5
-          MaterialCloth1:
-            min: 1
-            max: 3
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Tag
     tags:
     - Wooden
@@ -221,6 +467,28 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: MaintsAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ClothingUniformJumpsuitAncient
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredTag: ADTToolboxBlueSacrifice
+        resultProto: ClothingBeltUtility
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredProto: ADTEctoSword
+        resultProto: ADTHeavenbustToolbox
+        effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 3
+### End ADT Tweak
 
 - type: entity
   id: AltarConvertBlue
@@ -278,6 +546,11 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: AltarConvertNode
+### End ADT Tweak
 
 - type: entity
   id: AltarConvertOrange
@@ -369,32 +642,41 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/heaven.rsi
     state: full
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 125
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: PointLight
     radius: 1.5
     energy: 1
     color: "#f08080"
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: HeavenAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTHolyClaymore
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 3
+      - requiredTag: ADTArmorSacrafice
+        resultProto: ADTClothingOuterArmorCrusader
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 3
+      - requiredProto: ClothingHeadHelmetBasic
+        resultProto: ADTClothingHeadHelmetTrueTemplar
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 3
+      - requiredProto: ClothingUniformJumpsuitMonasticRobeLight
+        resultProto: ADTClothingCoatMonkRobe
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 1
+      - requiredProto: ADTWoodCross
+        resultProto: ADTGoldCross
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Effects/hallelujah.ogg
+        powerCost: 2
+### End ADT Tweak
 
 - type: entity
   id: AltarFangs
@@ -405,7 +687,34 @@
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-
+### Start ADT Tweak
+  - type: Construction
+    graph: AltarsGraph
+    node: FangedAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTFetidBaghnakhs
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 3
+      - requiredProto: FoodMeatSpider
+        resultProto: ADTMobNotariusSpider
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 3
+      - requiredTag: ADTrobeSacrifice
+        resultProto: ADTClothingOuterSpiderRobe
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 1
+      - requiredTag: ADTWebSilk
+        requiredAmount: 15
+        resultProto: ADTWebWeaver
+        effectProto: BulletImpactEffectOrangeDisabler
+        soundPath: /Audio/Magic/knock.ogg
+        powerCost: 3
+### End ADT Tweak
 
 - type: entity
   id: AltarBananium
@@ -416,6 +725,31 @@
   - type: Sprite
     sprite: Structures/Furniture/Altars/Cults/bananium.rsi
     state: full
+### Start ADT Tweak
   - type: Construction
-    graph: BananiumAltarGraph
-    node: bananiumAltar
+    graph: AltarsGraph
+    node: BananiumAltarNode
+  - type: Sacrifice
+    possibleTransformations:
+      - requiredProto: ADTEctoSword
+        resultProto: ADTZillyhooSummon
+        effectProto: ADTWeaponArcRedCrash
+        powerCost: 3
+      - requiredTag: ADTJumpSuitSacrifice
+        resultProto: ADTClownJumpsuitSacrafice
+        powerCost: 2
+        soundPath: /Audio/Items/bikehorn.ogg
+      - requiredTag: ADTShoesSacrifice
+        resultProto: ADTClownShoesSacrafice
+        powerCost: 2
+        soundPath: /Audio/Items/bikehorn.ogg
+      - requiredProto: ClothingMaskGas
+        resultProto: ADTClownMaskSacrafice
+        powerCost: 2
+        soundPath: /Audio/Items/bikehorn.ogg
+      - requiredTag: ADTUraniumSheet
+        requiredAmount: 1
+        resultProto: MaterialBananium1
+        powerCost: 0.1
+        soundPath: /Audio/Items/bikehorn.ogg
+### End ADT Tweak

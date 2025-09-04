@@ -33,14 +33,13 @@ flavor-complex-livseybeer = как хмель, солод и жидкость и
 flavor-complex-classicpaulaner = как хмель, солод и традиция
 flavor-complex-technobeer = как хмель, солод и горячая зад...душа
 flavor-complex-sausagebeer = как хмель, солод и колбаска
+flavor-complex-cargobeer = На вкус как скала и камень
+flavor-complex-leafloverbeer = На вкус как слабость
+flavor-complex-scientificale = На вкус как плазма и хмель
+flavor-complex-uraniumale = На вкус радиактивно, небезопасно и рак.
 flavor-complex-goldenale = как эль, золото и исцеление
-
-flavor-base-adtpoppy = маково
 flavor-complex-adtrelaxing = как довольно сильный наркотик
-flavor-base-adtvanilla = ванильно
-flavor-base-mandarin = сочная мандаринка
 
-flavor-complex-ADTChocolateDrinkFlavor = как теплый растопленный шоколад
 flavor-complex-ADTCocoaDrink = как тепло, уют и какао
 
 flavor-base-adtsindipizza = зловеще сырно

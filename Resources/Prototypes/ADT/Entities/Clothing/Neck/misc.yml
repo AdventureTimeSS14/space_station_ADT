@@ -43,29 +43,6 @@
     - type: StaticPrice
       price: 40
 
-
-      # halloween
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ADTClownCollarCaterpillar
-  name: clown collar-caterpillar
-  description: A once-extinct attribute of a Buffoon and a Clown
-  suffix: Halloween
-  components:
-    - type: Sprite
-      sprite: ADT/Clothing/Neck/Misc/clowncollar.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ADTVampireCloak
-  name: vampire cloak
-  description: vampire cloak
-  suffix: Halloween
-  components:
-    - type: Sprite
-      sprite: ADT/Clothing/Neck/Misc/vampire_cloak.rsi
-
 - type: entity
   parent: ClothingNeckPinBase
   id: ADTClothingNeckKubanoidPin

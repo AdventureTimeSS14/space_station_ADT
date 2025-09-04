@@ -25,3 +25,84 @@
     color: Cyan
     radius: 1.5
     softness: 3
+
+- type: entity
+  parent: MaterialBase
+  id: ADTMaterialBScrystal
+  name: Bluespace crystal
+  description: Just a bluespace crystal that was not combined with plasma and diamond. It has limited functionality, but with a certain manipulation of the crystal it can distort space, expanding, for example, it inside small objects, and also move jumps shuttles into bluespace
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ADTBScrystal: 100
+  - type: Material
+  - type: Tag
+    tags:
+    - ADTBSCrystal
+  - type: Sprite
+    sprite: ADT/Objects/Materials/crystal.rsi
+    layers:
+    - state: crystal
+      map: [ "base" ]
+  - type: StackPrice
+    price: 200
+  - type: Appearance
+  - type: Stack
+    stackType: ADTBScrystal
+    baseLayer: base
+    layerStates:
+    - crystal
+    - crystal_2
+    - crystal_3
+  - type: Item
+    size: Small
+    heldPrefix: crystal
+    sprite: ADT/Objects/Materials/crystal.rsi
+
+- type: entity
+  parent: ADTMaterialBScrystal
+  id: ADTMaterialBScrystal1
+  name: Bluespace crystal
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BaseItem
+  id: ADTMaterialBScrystalArt
+  name: Artefactul bluespace crystal
+  description: A crystal combined with plasma and diamond, capable of manipulating an object's position in space, but becomes very unstable if broken.
+  suffix: Full
+  components:
+  - type: Material
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: BsCrystalTeleport
+  - type: Sprite
+    sprite: ADT/Objects/Materials/crystal_art.rsi
+    layers:
+    - state: crystal
+      map: [ "base" ]
+  - type: StackPrice
+    price: 500
+  - type: Appearance
+  - type: Stack
+    stackType: ADTBScrystalArt
+  - type: Item
+    size: Small
+    heldPrefix: crystal
+    sprite: ADT/Objects/Materials/crystal_art.rsi
+
+- type: entity
+  parent: ADTMaterialBScrystalArt
+  id: ADTMaterialBScrystalArt1
+  name: Artefactul bluespace crystal
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1

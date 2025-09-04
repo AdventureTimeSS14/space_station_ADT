@@ -33,3 +33,6 @@ accept-religion-window-title = Религия
 accept-religion-window-prompt-text-part = Согласитесь ли вы стать последователем религии?
 accept-religion-window-accept-button = Принять
 accept-religion-window-deny-button = Отказаться
+
+# Обновление алтарей
+altar-only-chaplain-use = вы кладете предмет на алтарь, но ничего не происходит...
