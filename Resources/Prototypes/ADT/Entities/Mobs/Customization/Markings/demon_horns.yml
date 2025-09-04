@@ -44,6 +44,15 @@
     state: horns_capricorn
 
 - type: marking
+  id: DemonHornsDevilOne
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: []
+  sprites:
+  - sprite: ADT/Mobs/Customization/Demon/custom.rsi
+    state: horns_devil_one
+
+- type: marking
   id: DemonHornsDevil
   bodyPart: HeadTop
   markingCategory: HeadTop

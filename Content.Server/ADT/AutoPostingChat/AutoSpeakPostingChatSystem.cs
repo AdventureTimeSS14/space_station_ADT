@@ -1,20 +1,23 @@
-using Content.Shared.Mobs;
+using System.Threading;
 using Content.Server.Chat.Systems;
-using Robust.Shared.Timing;
-using Robust.Shared.Random;
 using Content.Shared.Chat;
+using Content.Shared.Mobs;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.AutoPostingChat;
 public sealed class AutoSpeakPostingChatSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<AutoSpeakPostingChatComponent, MobStateChangedEvent>(OnMobState);
+        SubscribeLocalEvent<AutoSpeakPostingChatComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<AutoSpeakPostingChatComponent, ComponentStartup>(OnComponentStartup);
     }
+
     /// <summary>
     /// On death removes active comps and gives genetic damage to prevent cloning, reduce this to allow cloning.
     /// </summary>
@@ -25,29 +28,57 @@ public sealed class AutoSpeakPostingChatSystem : EntitySystem
             RemComp<AutoSpeakPostingChatComponent>(uid);
         }
     }
-    public override void Update(float frameTime)
+
+    private void OnComponentStartup(EntityUid uid, AutoSpeakPostingChatComponent component, ComponentStartup args)
     {
-        base.Update(frameTime);
+        // Перезапускаем таймер при старте компонента (например, при десериализации)
+        StartSpeakTimer(uid, component);
+    }
 
-        var query = EntityQueryEnumerator<AutoSpeakPostingChatComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+    private void OnComponentShutdown(EntityUid uid, AutoSpeakPostingChatComponent component, ComponentShutdown args)
+    {
+        // Отменяем таймер при удалении компонента
+        if (component.TokenSource != null)
         {
-            if (_time.CurTime >= comp.NextSecond)
-            {
-                var delay = comp.SpeakTimerRead;
+            component.TokenSource.Cancel();
+            component.TokenSource.Dispose();
+            component.TokenSource = null;
+        }
+    }
 
-                if (comp.PostingMessageSpeak != null)
-                {
-                    _chat.TrySendInGameICMessage(uid, comp.PostingMessageSpeak, InGameICChatType.Speak, ChatTransmitRange.Normal);
-                }
+    private void StartSpeakTimer(EntityUid uid, AutoSpeakPostingChatComponent component)
+    {
+        // Отменяем предыдущий таймер если он существует
+        component.TokenSource?.Cancel();
+        component.TokenSource?.Dispose();
+        component.TokenSource = new CancellationTokenSource();
 
-                if (comp.RandomIntervalSpeak)
-                {
-                    delay = _random.Next(comp.IntervalRandomSpeakMin, comp.IntervalRandomSpeakMax);
-                }
+        var delay = component.SpeakTimerRead;
+        if (component.RandomIntervalSpeak)
+        {
+            delay = _random.Next(component.IntervalRandomSpeakMin, component.IntervalRandomSpeakMax);
+        }
 
-                comp.NextSecond = _time.CurTime + TimeSpan.FromSeconds(delay);
-            }
+        // Запускаем повторяющийся таймер
+        uid.SpawnRepeatingTimer(TimeSpan.FromSeconds(delay), () => OnSpeakTimerFired(uid, component), component.TokenSource.Token);
+    }
+
+    private void OnSpeakTimerFired(EntityUid uid, AutoSpeakPostingChatComponent component)
+    {
+        // Проверяем, что компонент все еще существует
+        if (!HasComp<AutoSpeakPostingChatComponent>(uid))
+            return;
+
+        // Отправляем сообщение
+        if (component.PostingMessageSpeak != null)
+        {
+            _chat.TrySendInGameICMessage(uid, component.PostingMessageSpeak, InGameICChatType.Speak, ChatTransmitRange.Normal);
+        }
+
+        // Если используется случайный интервал, перезапускаем таймер с новым случайным значением
+        if (component.RandomIntervalSpeak)
+        {
+            StartSpeakTimer(uid, component);
         }
     }
 }
