@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by Sh4zik",
+    "copyright": "Created by Sh4zik, add back and suitStorage by armorkillerd",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,14 @@
         },
         {
             "name": "metal-inhand",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK",
             "directions": 4
         }
     ]

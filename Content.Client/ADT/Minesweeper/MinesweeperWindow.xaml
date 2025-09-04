@@ -1,0 +1,133 @@
+<controls1:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Content.Client.ADT.Minesweeper"
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'minesweeper-window-title'}"
+    MinSize="900 700"
+    x:Class="Content.Client.ADT.Minesweeper.MinesweeperWindow">
+
+    <!-- Фон и границы окна -->
+    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" ModulateSelfOverride="#0e0e0eff"/>
+    <PanelContainer Name="Border" StyleClasses="PdaBorderRect"/>
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="10">
+
+    <!-- Заголовок -->
+    <Label Text="{Loc 'minesweeper-header'}"
+            StyleClasses="ConsoleHeading"
+            HorizontalAlignment="Center" Margin="0 5 0 10"/>
+
+        <!-- Основной -->
+        <Control Margin="0" RectClipContent="True" VerticalExpand="True" HorizontalExpand="True">
+            <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
+            <Control Name="MineContentsContainer" Margin="0" Modulate="#ff5e5eff" HorizontalExpand="True" VerticalExpand="True">
+
+                <!-- Фон -->
+                <PanelContainer Name="ContentBackground" StyleClasses="PdaContentBackground" HorizontalExpand="True" VerticalExpand="True"/>
+
+                <!-- Основная панель -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="20">
+
+                <!-- Игровое поле с обводкой -->
+                <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
+                    </PanelContainer.PanelOverride>
+
+                    <PanelContainer Name="MineContainer"
+                                    StyleClasses="PdaContentBackground"
+                                    HorizontalExpand="True"
+                                    VerticalExpand="True"/>
+                </PanelContainer>
+
+                    <!-- Боковая панель -->
+                    <BoxContainer Orientation="Vertical" MinWidth="350" MaxWidth="350" VerticalExpand="True" SeparationOverride="12">
+
+                        <!-- Панель управления -->
+                        <PanelContainer VerticalExpand="False">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Orientation="Vertical" SeparationOverride="10" Margin="10">
+                                <Label Text="{Loc 'minesweeper-controls'}" StyleClasses="ConsoleSubHeading" FontColorOverride="cyan" HorizontalAlignment="Center"/>
+
+                                <Button Name="ToggleFlagButton"
+                                        StyleClasses="MonotoneButton"
+                                        Text="{Loc 'minesweeper-toggle-flag'}"
+                                        MinSize="300,50"
+                                        MaxSize="300,50"/>
+
+                                <Button Name="NewGameButton"
+                                        StyleClasses="MonotoneButton"
+                                        Text="{Loc 'minesweeper-new-game'}"
+                                        MinSize="300,50"
+                                        MaxSize="300,50"/>
+
+                                <OptionButton Name="DifficultySelect"
+                                              StyleClasses="OptionButton"
+                                              MinSize="300,50"
+                                              MaxSize="300,50"/>
+                            </BoxContainer>
+                        </PanelContainer>
+
+                        <!-- Статус игры -->
+                        <PanelContainer VerticalExpand="False">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+                                <Label Text="{Loc 'minesweeper-status'}" StyleClasses="ConsoleSubHeading" FontColorOverride="lime" HorizontalAlignment="Center"/>
+
+                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                                    <Label Text="{Loc 'minesweeper-state'}" FontColorOverride="silver" MinWidth="80"/>
+                                    <Label Name="GameStatusLabel" Text="{Loc 'minesweeper-ready'}" FontColorOverride="lime" HorizontalExpand="True"/>
+                                </BoxContainer>
+
+                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                                    <Label Text="{Loc 'minesweeper-mines'}" FontColorOverride="silver" MinWidth="80"/>
+                                    <Label Name="MinesCountLabel" Text="0/10" FontColorOverride="orange"/>
+                                </BoxContainer>
+
+                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                                    <Label Text="{Loc 'minesweeper-time'}" FontColorOverride="silver" MinWidth="80"/>
+                                    <Label Name="TimerLabel" Text="00:00" FontColorOverride="yellow"/>
+                                </BoxContainer>
+                            </BoxContainer>
+                        </PanelContainer>
+
+
+                        <!-- Рекорды -->
+                        <PanelContainer VerticalExpand="True">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2"/>
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+                                <Label Text="{Loc 'minesweeper-records'}" StyleClasses="ConsoleSubHeading" FontColorOverride="orange" HorizontalAlignment="Center"/>
+
+                                <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                                    <Label Name="RecordListLabel"
+                                        FontColorOverride="lightgray"
+                                        HorizontalExpand="True"
+                                        VerticalExpand="True"
+                                        ClipText="True"
+                                        MouseFilter="Ignore"/>
+                                </ScrollContainer>
+                            </BoxContainer>
+                        </PanelContainer>
+
+                    </BoxContainer>
+                </BoxContainer>
+            </Control>
+        </Control>
+
+        <!-- Нижняя надпись -->
+        <BoxContainer Orientation="Horizontal" SetHeight="28" Margin="0 10 0 5" SeparationOverride="10" HorizontalExpand="True">
+            <Label Text="{Loc 'minesweeper-footer-os'}" FontColorOverride="#FFFFFF" HorizontalAlignment="Left"/>
+            <Label Text="{Loc 'minesweeper-footer-powered'}" FontColorOverride="#e7ff10ff" HorizontalExpand="True" HorizontalAlignment="Center"/>
+            <Label Text="{Loc 'minesweeper-footer-autosave'}" FontColorOverride="#ff0d00ff" HorizontalAlignment="Right"/>
+        </BoxContainer>
+
+    </BoxContainer>
+</controls1:FancyWindow>

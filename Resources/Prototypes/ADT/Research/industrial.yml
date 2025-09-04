@@ -1,19 +1,4 @@
 - type: technology
-  id: AdvantedEnergy
-  name: research-avanted-energy
-  icon:
-    sprite: ADT/Structures/Power/industrial_smes.rsi
-    state: smes
-  discipline: Industrial
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - ADTIndustrialSMESMachineCircuitboard
-  position: 3,-2
-  requiredTech:
-  - AtmosphericTech
-
-- type: technology
   id: ADTCompactTechnologies
   name: research-technology-compact-technologies
   icon:
@@ -26,7 +11,7 @@
     - RPD
     - RCD
     - RCDAmmo
-  position: 3,-4
+  position: 3,-3
   requiredTech:
   - AdvancedToolsTechnology
 
@@ -106,4 +91,20 @@
   position: 5,1
   requiredTech:
   - AdvSalvageWeapons
+
+- type: technology
+  id: ADTAdvancedEnergy
+  name: research-technology-advanced-energy
+  icon:
+    sprite: Objects/Power/power_cells.rsi
+    state: hyper
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTPowerCellHyperRecipe
+    - ADTIndustrialChargerCircuitboard
+  position: 0,-2
+  requiredTech:
+  - AdvancedPowercells
   # Fuck you new RnD console

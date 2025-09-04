@@ -124,73 +124,6 @@
   flavorType: Complex
   description: flavor-complex-ADTSawdust
 
-#Пиво Октоберфеста
-
-- type: flavor
-  id: adt_glyphidstoutbeer
-  flavorType: Complex
-  description: flavor-complex-glyphidstoutbeer
-
-- type: flavor
-  id: adt_secunfilteredbeer
-  flavorType: Complex
-  description: flavor-complex-secunfilteredbeer
-
-- type: flavor
-  id: adt_luckyjonnybeer
-  flavorType: Complex
-  description: flavor-complex-luckyjonnybeer
-
-- type: flavor
-  id: adt_livseybeer
-  flavorType: Complex
-  description: flavor-complex-livseybeer
-
-- type: flavor
-  id: adt_classicpaulaner
-  flavorType: Complex
-  description: flavor-complex-classicpaulaner
-
-- type: flavor
-  id: adt_technobeer
-  flavorType: Complex
-  description: flavor-complex-technobeer
-
-- type: flavor
-  id: adt_sausagebeer
-  flavorType: Complex
-  description: flavor-complex-sausagebeer
-
-- type: flavor
-  id: adt_cargobeer
-  flavorType: Complex
-  description: flavor-complex-cargobeer
-
-- type: flavor
-  id: adt_leafloverbeer
-  flavorType: Complex
-  description: flavor-complex-leafloverbeer
-
-- type: flavor
-  id: adt_scientificale
-  flavorType: Complex
-  description: flavor-complex-scientificale
-
-- type: flavor
-  id: adt_uraniumale
-  flavorType: Complex
-  description: flavor-complex-uraniumale
-
-- type: flavor
-  id: adt_goldenale
-  flavorType: Complex
-  description: flavor-complex-goldenale
-
-- type: flavor
-  id: adt_poppy
-  flavorType: Base
-  description: flavor-base-adtpoppy
-
 - type: flavor
   id: ADTRelax
   flavorType: Complex
@@ -200,27 +133,6 @@
   id: ADTSindiPizza
   flavorType: base
   description: flavor-base-adtsindipizza
-
-- type: flavor
-  id: adt_vanilla
-  flavorType: Base
-  description: flavor-base-adtvanilla
-
-#на вкус как.. Отсутствие сортировки
-- type: flavor
-  id: ADTmandarin
-  flavorType: Base
-  description: flavor-base-mandarin
-
-- type: flavor
-  id: ADTChocolateDrinkFlavor
-  flavorType: Complex
-  description: flavor-complex-ADTChocolateDrinkFlavor
-
-- type: flavor
-  id: ADTCocoaDrinkFlavor
-  flavorType: Complex
-  description: flavor-complex-ADTCocoaDrink
 
 # CHIPPIN' IN!!! Алкогольные Коктейли от QWERTY
 - type: flavor
