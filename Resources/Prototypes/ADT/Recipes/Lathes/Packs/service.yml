@@ -105,3 +105,10 @@
   recipes:
   - ADTWeaponLauncherHydra
   - GrenadeCleanade
+
+- type: latheRecipePack
+  id: ADTArcade
+  recipes:
+  - ADTBlockGameArcadeComputerCircuitboard
+  - ADTSpaceVillainArcadeComputerCircuitboard
+  - ADTMinesweeperCircuitboard

@@ -95,6 +95,7 @@ public sealed partial class MorphComponent : Component
     [DataField("devourTime")]
     public float DevourTime = 3f;
 
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public List<EntityUid> ContainedCreatures = new();
     /// <summary>
     /// вайтлист на обед
