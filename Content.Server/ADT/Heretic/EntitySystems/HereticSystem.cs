@@ -18,6 +18,7 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.Damage.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -49,6 +50,8 @@ public sealed partial class HereticSystem : EntitySystem
     }
     private void OnHereticStartup(EntityUid uid, HereticComponent component, ComponentStartup args)
     {
+        EnsureComp<PassiveHolyHealingComponent>(uid);
+        EnsureComp<ChangeDamageContainerComponent>(uid);
         EnsureComp<HolyDamageMultiplierComponent>(uid);
     }
 
