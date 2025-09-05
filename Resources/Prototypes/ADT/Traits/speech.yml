@@ -17,6 +17,15 @@
   components:
     - type: NyaAccent
 
+- type: trait
+  id: ADTSickTeethAccent
+  name: trait-sick-teeth-accent-name
+  description: trait-sick-teeth-accent-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+    - type: SickTeethAccent
+
 # Визарды добавили свой немецкий язык
 # - type: trait
 #   id: ADTDeutscAccent

@@ -1,11 +1,3 @@
-ent-ADTCandyBox = коробка конфет
-    .desc = Дарю тебе сердце!
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodBoxEclairs = коробка с эклерами
-    .desc = Картонная коробка со вкусным десертом.
-    .suffix = { "День Святого Валентина" }
-
 ent-ADTFoodPackGummiesFilled = желейные конфеты "Space Gummy"
     .desc = Внутри поистине скрыто сокровище.
     .suffix = Заполненный
@@ -13,3 +5,6 @@ ent-ADTFoodPackGummiesFilled = желейные конфеты "Space Gummy"
 ent-ADTDrinksPackYupiFilled = растворимые напитки "Юппи"
     .desc = Картонная коробка с пакетиками растворимых напитков. Стакан и вода продаются отдельно.
     .suffix = Заполненный
+
+ent-ADTBoxTeto = коробка с костюмом Касане Тето
+    .desc = ТетоТетоТетоТетоТетоТетоТетоТето.

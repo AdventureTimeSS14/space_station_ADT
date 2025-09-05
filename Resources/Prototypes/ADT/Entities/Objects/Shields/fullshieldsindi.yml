@@ -11,7 +11,7 @@
       damage:
         types:
           Blunt: 5
-          Structural: 5
+          Structural: 25
           Slash: 10
           Piercing: 10
       soundHit:
@@ -36,29 +36,45 @@
         coefficients:
           Blunt: 0.1
           Slash: 0.1
-          Piercing: 0.1
+          Piercing: 0.3
+          Heat: 1
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.30
+          Slash: 0.30
+          Piercing: 0.65
+          Heat: 2
         flatReductions:
-          Blunt: 0.1
-          Slash: 0.1
-          Piercing: 0.1
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
     - type: ClothingSpeedModifier
-      walkModifier: 0.3
-      sprintModifier: 0.3	
+      walkModifier: 1
+      sprintModifier: 0.6
     - type: HeldSpeedModifier
     - type: Destructible
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 99999
+            damage: 6000
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 99999 #Weaker shield
+            damage: 5000 #Weaker shield
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
             - !type:PlaySoundBehavior
               sound:
                 collection: WoodDestroy
+    - type: Tag
+      tags:
+        - ADTFullRiotShieldSyndi
+    - type: Clothing
+      sprite: ADT/Objects/Weapons/Melee/fullshieldsindi.rsi
+      quickEquip: false
+      slots:
+        - back
+        - suitStorage

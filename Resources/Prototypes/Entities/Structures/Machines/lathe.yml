@@ -228,6 +228,7 @@
     - ADTXenoTranslatorPack
     - ADTPhantomPack
     - ADTWeaponLauncherHydraPack
+    - ADTPowerPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
@@ -289,8 +290,9 @@
     - MechBoards
     - ShuttleBoards
     # ADT-tweak-start
-    - ADTEnergyBoardsPack
     - ADTBluespaceHarvesterPack
+    - ADTArcade
+    - ADTIndustrialCharger
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
