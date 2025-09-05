@@ -17,7 +17,7 @@ EMOJI_ORDER = ["add", "remove", "delete", "tweak", "fix"]
 DEFAULT_COLOR = 0xE91E63  # Красный цвет эмбеда
 
 def extract_changelog(text):
-    match = re.search(r":cl:\s*(.*?)\s*(?:<!--|\Z)", text, re.DOTALL)
+    match = re.search(r"(?:\:cl\:|🆑)\s*(.*?)\s*(?:<!--|\Z)", text, re.DOTALL)
     if not match:
         return None
 
