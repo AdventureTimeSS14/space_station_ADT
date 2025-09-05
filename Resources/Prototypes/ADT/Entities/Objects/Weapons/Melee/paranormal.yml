@@ -69,7 +69,7 @@
       path: /Audio/ADT/Weapons/Melee/whiplash.ogg
     wideAnimationRotation: -135
     range: 2.5
-    clickDamageModifier: 1.5
+    clickDamageModifier: 1.1
     attackRate: 1
     damage:
       types:
@@ -126,6 +126,8 @@
   id: ADTDevilsKnife
   description: Looks like axe-scythe combo, nor knife. Chaos-chaos!
   components:
+  - type: CombatMode
+    toggleMouseRotator: false
   - type: Tag
     tags:
     - Knife
@@ -137,8 +139,17 @@
     attackRate: 1
     damage:
       types:
-        Holy: 5.5
-        Slash: 1.5
+        Holy: 3.5
+        Slash: 0.75
+  - type: ThrowingAngle
+    angle: 200
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Holy: 5
+        Slash: 2
+        Piercing: 1
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/devilsknife.rsi
     size: Huge
@@ -152,7 +163,7 @@
     - suitstorage
   - type: GhostRole
     makeSentient: true
-    allowMovement: false
+    allowMovement: true
     allowSpeech: true
     name: ghost-role-information-devilknife-name
     description: ghost-role-information-devilknife-description
@@ -162,6 +173,13 @@
     data:
       proto: Jevil
       sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-jevil.ogg
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0
+    baseSprintSpeed : 2.5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
 
 - type: entity
   parent: WeaponMeleeToolboxRobust
@@ -207,7 +225,7 @@
     damage:
       types:
         Holy: 1.25
-        Slash: 0.375
+        Slash: 0.5
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
@@ -267,7 +285,7 @@
     sprite: ADT/Objects/Weapons/Melee/zillihoo.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 0.65
     damage:
       types:
         Holy: 5
@@ -471,7 +489,7 @@
     damage:
       types:
         Holy: 0.5
-        Slash: 0.15
+        Slash: 0.35
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/flesh_claws.rsi
     size: Huge
