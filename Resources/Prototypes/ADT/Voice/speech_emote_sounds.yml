@@ -742,7 +742,7 @@
     Wurble:
       path: /Audio/ADT/Voice/Shadekin/wurble.ogg
     Purse:
-      path: /Audio/ADT/Voice/Shadekin/woosh.ogg
+      path: /Audio/Effects/thudswoosh.ogg
 
 - type: emoteSounds
   id: FemaleShadekin
@@ -796,4 +796,4 @@
     Salute:
       collection: Salutes
     Purse:
-      path: /Audio/ADT/Voice/Shadekin/woosh.ogg
+      path: /Audio/Effects/thudswoosh.ogg

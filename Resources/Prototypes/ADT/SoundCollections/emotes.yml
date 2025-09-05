@@ -331,4 +331,4 @@
 - type: soundCollection
   id: Purse
   files:
-    - /Audio/ADT/Voice/Shadekin/woosh.ogg
+    - /Audio/Effects/thudswoosh.ogg
