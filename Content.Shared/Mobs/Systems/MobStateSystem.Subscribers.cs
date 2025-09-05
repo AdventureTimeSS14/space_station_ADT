@@ -94,10 +94,10 @@ public partial class MobStateSystem
         // ADT-Tweak-start
         _moveMod.RefreshMovementSpeedModifiers(target);
 
-        if (state == MobState.Alive)
+        if (state is MobState.Critical or MobState.Dead)
         {
             if (HasComp<SlowedDownComponent>(target))
-                RemCompDeferred<SlowedDownComponent>(target);
+                RemComp<SlowedDownComponent>(target);
 
             _moveMod.RefreshMovementSpeedModifiers(target);
         }
