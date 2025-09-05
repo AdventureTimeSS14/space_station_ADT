@@ -741,8 +741,6 @@
       collection: HumanSpits
     Wurble:
       path: /Audio/ADT/Voice/Shadekin/wurble.ogg
-    Purse:
-      path: /Audio/Effects/thudswoosh.ogg
 
 - type: emoteSounds
   id: FemaleShadekin
