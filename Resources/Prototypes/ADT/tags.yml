@@ -512,6 +512,9 @@
   id: ADTSlimeEmotes
 
 - type: Tag
+  id: ADTShadekinEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag
@@ -654,4 +657,3 @@
 
 - type: Tag
   id: ADTFullRiotShieldSyndi
-
