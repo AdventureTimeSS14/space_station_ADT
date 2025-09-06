@@ -798,14 +798,6 @@
     socks: ADTClothingUnderwearSocksKneePink
 
 - type: loadout
-  id: ADTUnderwearSocksKneeCreepy
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTUnderwearSpeciesRestrictions
-  equipment:
-    socks: ADTClothingUnderwearSocksKneeCreepy
-
-- type: loadout
   id: ADTUnderwearSocksThighCreepy
   effects:
   - !type:GroupLoadoutEffect
