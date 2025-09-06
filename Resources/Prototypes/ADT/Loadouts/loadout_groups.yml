@@ -1014,7 +1014,6 @@
   - ADTUnderwearSocksThighOrange
   - ADTUnderwearSocksPink
   - ADTUnderwearSocksKneePink
-  - ADTUnderwearSocksKneeCreepy
   - ADTUnderwearSocksThighCreepy
   - ADTUnderwearSocksKneeFishnet
   - ADTUnderwearSocksFullFishnet
@@ -1114,6 +1113,7 @@
   - ADTUnderwearStockings
   - ADTUnderwearSocksComfyBlue
   - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
