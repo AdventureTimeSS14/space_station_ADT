@@ -1,0 +1,19 @@
+# Imp special. This file covers all of the stuff needed for repair drones to spawn with their tools.
+
+# Unremovable versions of their items. I am aware that unremoveable is spelled wrong.
+
+- type: entity
+  parent: Omnitool
+  id: OmnitoolUnremoveable
+  suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: WelderExperimental
+  id: WelderExperimentalUnremoveable
+  suffix: Unremoveable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable

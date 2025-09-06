@@ -1,0 +1,8 @@
+- type: language
+  id: ReplicatorCollectiveMind
+  priority: 0
+  uiColor: "#d70aa0"
+  speech: !type:CollectiveMind
+    color: "#d70aa0"
+    showRank: false
+    showName: true
