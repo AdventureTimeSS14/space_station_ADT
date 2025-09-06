@@ -128,6 +128,7 @@
   - type: Sharp
   - type: TTS # Corvax-TTS
     voice: dude
+  - type: GrabProtection #ADT tweak
 
 - type: entity
   id: MobRatKingBuff
