@@ -67,6 +67,7 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
+  - type: GrabProtection #ADT tweak
 
 - type: entity
   name: space bear

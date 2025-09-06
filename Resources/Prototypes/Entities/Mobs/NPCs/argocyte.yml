@@ -50,6 +50,7 @@
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
+  - type: GrabProtection #ADT tweak
 
 - type: entity
   parent: BaseMobArgocyte
