@@ -21,6 +21,7 @@
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
     - id: ADTCqcManualWeak
     - id: BlueShieldHypo
+    - id: FoodSnackLollypopWrappedBlueshield # SD tweak
 - type: entity
   id: ADTLockerBlueshieldFilled
   suffix: Filled

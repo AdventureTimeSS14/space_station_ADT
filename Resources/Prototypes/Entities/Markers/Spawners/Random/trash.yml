@@ -19,6 +19,8 @@
       - id: FoodPacketSemkiTrash
       - id: FoodPacketSusTrash
       - id: FoodPacketSyndiTrash
+      - id: FoodSnackLollypopTrash # SD tweak
+      - id: FoodPacketLollypopTrash # SD tweak
       - id: BrokenBottle
     - !type:GroupSelector
       weight: 5

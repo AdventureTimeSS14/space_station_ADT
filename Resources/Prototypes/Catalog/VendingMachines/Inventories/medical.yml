@@ -16,11 +16,15 @@
     BoxBottle: 3
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
+    FoodSnackLollypopWrapped: 5 # SD tweak
+    FoodSnackLollypopWrappedTricordrazine: 3 # SD tweak
   contrabandInventory:
     FoodApple: 1
   # ADT tweak Start
   emaggedInventory:
     ADTMorphineBottle: 1
     ADTOmnizineBottle: 1
+    FoodSnackLollypopWrappedLexorin: 3 # SD tweak
+    FoodSnackLollypopWrappedMysteryEvil: 5 # SD tweak
   # ADTPatchHonk: 3 SD tweak
   # ADT tweak End

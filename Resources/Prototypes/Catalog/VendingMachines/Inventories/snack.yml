@@ -7,6 +7,7 @@
     FoodSnackPistachios: 1 # ADT-tweak 3 > 1
     FoodSnackSus: 1 # ADT-tweak 3 > 1
     FoodSnackSemki: 1 # ADT-tweak 3 > 1
+    FoodSnackLollypopWrapped: 3 # SD tweak
     # ADT-tweak-start
     ADTFoodPackGummiesFilled: 2
     ADTDrinksPackYupiFilled: 2
@@ -18,3 +19,4 @@
     # ADT-tweak-end
   emaggedInventory:
     FoodSnackSyndi: 3
+    FoodSnackLollypopWrappedMysteryEvil: 2 # SD tweak
