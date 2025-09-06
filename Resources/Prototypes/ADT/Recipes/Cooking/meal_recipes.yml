@@ -198,6 +198,18 @@
   - Microwave
 
 - type: microwaveMealRecipe
+  id: ADTFoodMeatClown
+  name: clown meat recipe
+  result: FoodMeatClown
+  time: 10
+  group: Savory
+  solids:
+    ClothingMaskClown: 1
+    FoodMeat: 1
+  recipeType:
+  - Microwave
+
+- type: microwaveMealRecipe
   id: ADTFoodSoupUzbekPilafRecipe
   name: uzbek pilaf
   result: ADTFoodSoupUzbekPilaf
