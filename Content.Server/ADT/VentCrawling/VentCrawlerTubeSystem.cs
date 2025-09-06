@@ -209,11 +209,12 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-equiptment"), uid);
             return true;
         }
-        if (_hands.TryGetHand(uid, "right", out var rhand) && !rhand.IsEmpty){
+        if (_hands.TryGetHand(uid, "right", out var rhand) && rhand?.HeldEntity != null)
+        {
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
             return true;
         }
-        if (_hands.TryGetHand(uid, "left", out var lhand) && !lhand.IsEmpty)
+        if (_hands.TryGetHand(uid, "left", out var lhand) && lhand?.HeldEntity != null)
         {
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
             return true;

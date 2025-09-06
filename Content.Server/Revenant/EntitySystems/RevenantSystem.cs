@@ -159,8 +159,8 @@ public sealed partial class RevenantSystem : EntitySystem
             if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
             {
                 shield.Used = true;
-                _status.TryRemoveStatusEffect(uid, "Stun");
-                _status.TryRemoveStatusEffect(uid, "Corporeal");
+                _statusEffects.TryRemoveStatusEffect(uid, "Stun");
+                _statusEffects.TryRemoveStatusEffect(uid, "Corporeal");
                 ChangeEssenceAmount(uid, 50, allowDeath: false);
                 return true;
             }

@@ -22,7 +22,7 @@ public sealed class OpenAdminLogsCommand : LocalizedEntityCommands
         }
 
         var ui = new AdminLogsEui();
-        eui.OpenEui(ui, player);
+        _euiManager.OpenEui(ui, player);
 
         // ADT-Tweak-Start
         if (args.Length == 1)

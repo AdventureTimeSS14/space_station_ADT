@@ -15,6 +15,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Components;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Light.Components;
+using SysVector4 = System.Numerics.Vector4;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 public sealed partial class SupermatterSystem
