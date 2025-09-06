@@ -15,10 +15,27 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 15
 
 - type: entity
   parent: ADTFoodFrozenBase
+  id: ADTFoodFrozenChocolateBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+
+- type: entity
+  parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenChocolateFreezy
   components:
   - type: Food
@@ -26,7 +43,7 @@
     state: chocolatefreezy
 
 - type: entity
-  parent: ADTFoodFrozenBase
+  parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenChocolateFreezyCaramel
   components:
   - type: Food
@@ -34,7 +51,7 @@
     state: chocolatefreezy_caramel
 
 - type: entity
-  parent: ADTFoodFrozenBase
+  parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenChocolateIceCream
   components:
   - type: Food
@@ -48,6 +65,13 @@
   - type: Food
   - type: Sprite
     state: honkdae
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -56,6 +80,13 @@
   - type: Food
   - type: Sprite
     state: icecreamcone
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -64,6 +95,17 @@
   - type: Food
   - type: Sprite
     state: icecreamwafflecone
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -72,9 +114,20 @@
   - type: Food
   - type: Sprite
     state: icecreamwaffleconenuts
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
 
 - type: entity
-  parent: ADTFoodFrozenBase
+  parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenPineappleChocolate
   components:
   - type: Food
@@ -120,6 +173,13 @@
   - type: Food
   - type: Sprite
     state: sundae
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
 
 - type: entity
   parent: ADTFoodFrozenBase
@@ -191,6 +251,24 @@
 - type: entity
   name: Popsicle
   parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenChocolatePopsicleBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
   id: ADTFoodFrozenPopsicleBananaFruitIce
   components:
   - type: Sprite
@@ -210,7 +288,7 @@
 
 - type: entity
   name: Popsicle
-  parent: ADTFoodFrozenPopsicleBase
+  parent: ADTFoodFrozenChocolatePopsicleBase
   id: ADTFoodFrozenChocolatePopsicle
   components:
   - type: Sprite
@@ -220,7 +298,7 @@
 
 - type: entity
   name: Popsicle
-  parent: ADTFoodFrozenPopsicleBase
+  parent: ADTFoodFrozenChocolatePopsicleBase
   id: ADTFoodFrozenChocolatePopsicleWithNuts
   components:
   - type: Sprite

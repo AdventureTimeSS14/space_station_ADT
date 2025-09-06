@@ -482,6 +482,11 @@
   - type: Tag
     tags:
     - ADTMothFriendlyFood #ADT_Tweak - делаем вафли съедобными для молей
+  #ADT-Tweak-Start
+  - type: SliceableFood
+    count: 3
+    slice: ADTFoodFrozenIceCreamCone
+  #ADT-Tweak-End
 
 - type: entity
   name: soy waffles
