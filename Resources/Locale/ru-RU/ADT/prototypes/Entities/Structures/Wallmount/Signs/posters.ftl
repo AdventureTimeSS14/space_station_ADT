@@ -191,3 +191,12 @@ ent-ADTPosterContrabandGoobChuckler = Хохотун
 
 ent-ADTPosterContrabandGoobYakub = Постер Якуба
     .desc = Ваши якубские способности к трюкнологии, вложенные в вас Якубом, усиливаются, когда вы смотрите на постер.
+
+
+ent-ADTPosterHalloweenSpiderWeb1 = паутина
+    .suffix = Хеллоуин
+    .desc = Дом паука Аркадия.
+
+ent-ADTPosterHalloweenSpiderWeb2 = паутина
+    .suffix = Хеллоуин
+    .desc = Дом паука Аркадия.
