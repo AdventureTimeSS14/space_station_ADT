@@ -285,6 +285,17 @@
         color: "#decb8e"
       - state: fire-big
         shader: unshaded
+  - type: Item
+    size: Small
+  - type: ToggleableLightVisuals
+    spriteLayer: null
+    inhandVisuals:
+      left:
+      - state: inhand-left-flame
+        shader: unshaded
+      right:
+      - state: inhand-right-flame
+        shader: unshaded
   - type: PointLight
     color: "#e39c40"
     radius: 2.5
@@ -306,9 +317,11 @@
       left:
       - state: inhand-left
         color: "#a12349"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#a12349"
+      - state: inhand-right-flame
 
 - type: entity
   name: magic blue candle
@@ -326,9 +339,11 @@
       left:
       - state: inhand-left
         color: "#425d7d"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#425d7d"
+      - state: inhand-right-flame
 
 - type: entity
   name: magic black candle
@@ -346,9 +361,11 @@
       left:
       - state: inhand-left
         color: "#1b1724"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#1b1724"
+      - state: inhand-right-flame
 
 - type: entity
   name: magic green candle
@@ -366,9 +383,11 @@
       left:
       - state: inhand-left
         color: "#5d997e"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#5d997e"
+      - state: inhand-right-flame
 
 - type: entity
   name: magic purple candle
@@ -386,13 +405,38 @@
       left:
       - state: inhand-left
         color: "#984aa1"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#984aa1"
+      - state: inhand-right-flame
+
+- type: entity
+  name: small magic candle
+  parent: CandleInfinite
+  id: CandleSmallInfinite
+  components:
+  - type: Sprite
+    layers:
+      - state: candle-small
+        color: "#decb8e"
+      - state: fire-small
+        shader: unshaded
+  - type: Item
+    size: Tiny
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#decb8e"
+      - state: inhand-left-flame
+      right:
+      - state: inhand-right
+        color: "#decb8e"
+      - state: inhand-right-flame
 
 - type: entity
   name: small magic red candle
-  parent: CandleInfinite
+  parent: CandleSmallInfinite
   id: CandleRedSmallInfinite
   components:
   - type: Sprite
@@ -406,13 +450,15 @@
       left:
       - state: inhand-left
         color: "#a12349"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#a12349"
+      - state: inhand-right-flame
 
 - type: entity
   name: small magic blue candle
-  parent: CandleInfinite
+  parent: CandleSmallInfinite
   id: CandleBlueSmallInfinite
   components:
   - type: Sprite
@@ -426,13 +472,15 @@
       left:
       - state: inhand-left
         color: "#425d7d"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#425d7d"
+      - state: inhand-right-flame
 
 - type: entity
   name: small magic black candle
-  parent: CandleInfinite
+  parent: CandleSmallInfinite
   id: CandleBlackSmallInfinite
   components:
   - type: Sprite
@@ -446,13 +494,15 @@
       left:
       - state: inhand-left
         color: "#1b1724"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#1b1724"
+      - state: inhand-right-flame
 
 - type: entity
   name: small magic green candle
-  parent: CandleInfinite
+  parent: CandleSmallInfinite
   id: CandleGreenSmallInfinite
   components:
   - type: Sprite
@@ -466,13 +516,15 @@
       left:
       - state: inhand-left
         color: "#5d997e"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#5d997e"
+      - state: inhand-right-flame
 
 - type: entity
   name: small magic purple candle
-  parent: CandleInfinite
+  parent: CandleSmallInfinite
   id: CandlePurpleSmallInfinite
   components:
   - type: Sprite
@@ -486,6 +538,8 @@
       left:
       - state: inhand-left
         color: "#984aa1"
+      - state: inhand-left-flame
       right:
       - state: inhand-right
         color: "#984aa1"
+      - state: inhand-right-flame
