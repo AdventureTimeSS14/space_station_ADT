@@ -888,6 +888,7 @@
     FoodOrange: 1
   reagents:
     Ice: 5
+    Cream: 5
   recipeType:
   - Assembler
 
@@ -901,6 +902,7 @@
     FoodWatermelonSlice: 1
   reagents:
     Ice: 5
+    Cream: 5
   recipeType:
   - Assembler
 
@@ -914,6 +916,7 @@
     FoodApple: 1
   reagents:
     Ice: 5
+    Cream: 5
   recipeType:
   - Assembler
 
@@ -945,7 +948,7 @@
 
 - type: microwaveMealRecipe
   id: ADTFoodFrozenPopsicleBananaFruitIce
-  name: banana popsicle recipe
+  name: banana fruit ice recipe
   result: ADTFoodFrozenPopsicleBananaFruitIce
   time: 10
   group: Icecreams
@@ -953,6 +956,20 @@
     FoodBanana: 1
   reagents:
     Ice: 5
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenPopsicleBanana
+  name: banana popsicle recipe
+  result: ADTFoodFrozenPopsicleBanana
+  time: 10
+  group: Icecreams
+  solids:
+    FoodBanana: 1
+  reagents:
+    Ice: 5
+    Cream: 5
   recipeType:
   - Assembler
 
@@ -994,6 +1011,7 @@
     FoodPineappleSlice: 1
   reagents:
     Ice: 5
+    Cream: 5
   recipeType:
   - Assembler
 
@@ -1018,8 +1036,22 @@
   time: 10
   group: Icecreams
   reagents:
-    Saline: 10
     Ice: 5
+    Cream: 5
+    Saline: 10
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTFoodFrozenPopsicleSlime
+  name: slime popsicle recipe
+  result: ADTFoodFrozenPopsicleSlime
+  time: 10
+  group: Icecreams
+  reagents:
+    Ice: 5
+    Cream: 5
+    Slime: 10
   recipeType:
   - Assembler
 

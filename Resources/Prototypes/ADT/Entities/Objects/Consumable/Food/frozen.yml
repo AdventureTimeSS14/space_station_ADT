@@ -426,6 +426,16 @@
     - state: IceCreamStick
     - state: watermelonpopsicle
 
+- type: entity
+  name: Popsicle
+  parent: ADTFoodFrozenPopsicleBase
+  id: ADTFoodFrozenPopsicleSlime
+  components:
+  - type: Sprite
+    layers:
+    - state: IceCreamStick
+    - state: popsicleslime
+
 # Упаковки с мороженым
 
 - type: entity

@@ -50,6 +50,9 @@ ent-ADTFoodFrozenPopsicleBanana = банановый эскимо
 ent-ADTFoodFrozenPopsicleMole = эскимо в виде моли
     .desc = НЕ ЕШЬ МЕНЯ!!!
 
+ent-ADTFoodFrozenPopsicleSlime = эскимо в виде слайма
+    .desc = Съешь меня >:3
+
 ent-ADTFoodFrozenPopsicleSeaSalt = эскимо с морской солью
     .desc = Боже, кто это придумал? Увольте человека, который предложил это!
 
