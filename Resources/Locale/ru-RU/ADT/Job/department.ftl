@@ -1,0 +1,1 @@
+department-Juridical = Департамент юрисдикции
