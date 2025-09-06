@@ -1,0 +1,75 @@
+- type: reaction
+  id: SDTirimol
+  reactants:
+    Acetone:
+      amount: 2
+    SodiumPolyacrylate:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    SDTirimol: 4
+
+- type: reaction
+  id: SDCalomel
+  minTemp: 370
+  reactants:
+    Mercury:
+      amount: 1
+    Lithium:
+      amount: 1
+  products:
+    SDCalomel: 2
+
+- type: reaction
+  id: SDAmmoniatedMercury
+  reactants:
+    SDCalomel:
+      amount: 1
+    Ammonia:
+      amount: 1
+  products:
+    SDAmmoniatedMercury: 2
+
+- type: reaction
+  id: SDSynthcells
+  reactants:
+    Omnizine:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Blood:
+      amount: 1
+    ADTStypticPowder:
+      amount: 1
+  products:
+    SDSynthcells: 3
+
+- type: reaction
+  id: SDSalicylicAcid
+  minTemp: 370
+  reactants:
+    TranexamicAcid:
+      amount: 1
+    FluorosulfuricAcid:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+    Bicaridine:
+      amount: 1
+  products:
+    SDSalicylicAcid: 4
+
+- type: reaction
+  id: SDOxandrolone
+  reactants:
+    SodiumCarbonate:
+      amount: 1
+    Dermaline:
+      amount: 1
+    Phenol:
+      amount: 1
+    Leporazine:
+      amount: 1
+  products:
+    SDOxandrolone: 4

@@ -1,0 +1,39 @@
+- type: reagent
+  id: SDCyanide
+  name: reagent-name-cyanide
+  group: Toxins
+  desc: reagent-desc-cyanide
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#1abcff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.75 # 37.5 за 5u
+            Asphyxiation: 0.45
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+      - !type:Paralyze
+        probability: 0.05
+        paralyzeTime: 2
+      - !type:Emote
+        emote: Gasp
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false

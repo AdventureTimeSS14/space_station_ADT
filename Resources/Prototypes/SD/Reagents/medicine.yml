@@ -22,3 +22,330 @@
             Heat: -2
       - !type:ModifyBloodLevel
         amount: 6
+
+# Лекарства от асфиксии
+
+- type: reagent
+  id: SDTirimol
+  name: reagent-name-tirimol
+  group: Medicine
+  desc: reagent-desc-tirimol
+  physicalDesc: reagent-physical-desc-milky
+  flavor: medicine
+  color: "#ff6060"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -6 # предполагалогается, что он будет сильнее, но более раздражающим, чем инапровалин
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: false
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -3
+        conditions:
+        - !type:OrganType
+          type: Shadekin
+          shouldHave: true
+      - !type:TakeStaminaDamage
+        amount: 3 # полный шприц не равно стамина крит (может быть так и должно быть?)
+        immediate: false
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
+      - !type:Paralyze
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        probability: 0.2
+        paralyzeTime: 4
+      - !type:ModifyBleedAmount
+        amount: -0.25
+
+# Лекарства от отравления
+
+- type: reagent
+  id: SDCalomel
+  name: reagent-name-calomel
+  group: Medicine
+  desc: reagent-desc-calomel
+  physicalDesc: reagent-physical-desc-coarse
+  flavor: medicine
+  color: "#baffd6"
+  plantMetabolism:
+    - !type:PlantAdjustToxins
+      amount: 20
+    - !type:PlantAdjustWeeds
+      amount: -50
+    - !type:PlantAdjustHealth
+      amount: -50
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:ChemCleanBloodstream
+        cleanseRate: 4.5 # лучше угля, но при использовании не на критованных наносит урон
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -3
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 3
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Alive
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 6
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+      - !type:AdjustReagent
+        reagent: SDCalomel
+        amount: -2
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  id: SDAmmoniatedMercury
+  name: reagent-name-ammoniated-mercury
+  group: Medicine
+  desc: reagent-desc-ammoniated-mercury
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: medicine
+  color: "#bad2ff"
+  plantMetabolism:
+    - !type:PlantAdjustToxins
+      amount: 10
+    - !type:PlantAdjustWeeds
+      amount: -20
+    - !type:PlantAdjustHealth
+      amount: -20
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        group: Poison
+        amount: -0.5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1
+        conditions:
+        - !type:ReagentThreshold
+          max: 10
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 1
+              Burn: 1
+          inverse: true
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 30
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 60
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 30
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 60
+
+- type: reagent
+  id: SDSynthcells
+  name: reagent-name-synthcells
+  group: Medicine
+  desc: reagent-desc-synthcells
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: strange
+  color: "#ffbebe"
+  plantMetabolism:
+    - !type:PlantAdjustWeeds
+      amount: 8
+    - !type:PlantAdjustHealth
+      amount: 8
+  worksOnTheDead: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Cellular: 0.75
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection
+          invert: true
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          groups:
+            Brute: -1
+            Burn: -1
+            Toxin: -1.5
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection
+          invert: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1
+            Burn: -1
+            Toxin: -1.5
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.75
+
+# Лекарства от механических
+
+- type: reagent
+  id: SDSalicylicAcid
+  name: reagent-name-salicylic-acid
+  group: Medicine
+  desc: reagent-desc-salicylic-acid
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#e8cb4e"
+  plantMetabolism:
+    - !type:PlantAdjustWeeds
+      amount: -4
+    - !type:PlantAdjustHealth
+      amount: -10
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -4
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 25
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1.5
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 25
+          inverse: true
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 3
+        conditions:
+        - !type:ReagentThreshold
+          min: 5.5
+
+# Лекарства от физических
+
+- type: reagent
+  id: SDOxandrolone
+  name: reagent-name-oxandrolone
+  group: Medicine
+  desc: reagent-desc-oxandrolone
+  physicalDesc: reagent-physical-desc-sticky
+  flavor: medicine
+  color: "#cac6bf"
+  plantMetabolism:
+    - !type:PlantAdjustHealth
+      amount: -8
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -4
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 25
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1.5
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 25
+          inverse: true
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: 4
+        conditions:
+        - !type:ReagentThreshold
+          min: 5.5
