@@ -255,7 +255,7 @@
 
 - type: microwaveMealRecipe
   id: FoodMealPigblanket
-  name: pig blanket recipe
+  name: pig in a blanket recipe
   result: FoodMealPigblanket
   time: 5
   group: Savory
@@ -558,7 +558,7 @@
 
 - type: microwaveMealRecipe
   id: ADTFoodMealCreamMeatballRecipe
-  name: pasta creammeathball
+  name: pasta cream meathball
   result: ADTFoodMealCreamMeatball
   time: 10
   group: Pasta
