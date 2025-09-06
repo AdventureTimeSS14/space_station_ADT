@@ -373,15 +373,6 @@
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksKneeCreepy
-  name: creepy knee socks
-  description: Creepy knee socks.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Underwear/Socks/creepy_knee.rsi
-
-- type: entity
-  parent: ADTClothingUnderwearSocksBase
   id: ADTClothingUnderwearSocksKneeCyan
   name: cyan knee socks
   description: Cyan knee socks.
