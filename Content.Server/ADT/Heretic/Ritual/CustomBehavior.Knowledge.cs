@@ -43,7 +43,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
             if (allTags.Count < 4)
             {
-                outstr = "Not enough eligible tags available";
+                outstr = Loc.GetString("heretic-ritual-fail-not-enough-tags");
                 return false;
             }
 

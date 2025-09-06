@@ -112,3 +112,4 @@ names_eligibleTags-Wirecutter = Кусачки
 names_eligibleTags-Wrench = Гаечный ключ
 names_eligibleTags-ADTTeaPack = Чайный пакетик
 names_eligibleTags-ADTYupiPack = Пакетик юпи
+heretic-ritual-fail-not-enough-tags = Не все вещи собраны.
