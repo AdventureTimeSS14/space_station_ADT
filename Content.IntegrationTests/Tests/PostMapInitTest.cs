@@ -111,6 +111,7 @@ namespace Content.IntegrationTests.Tests
             // ADT-Start
             "ADT_Avrit",
             "ADT_Bagel",
+            "ADT_Barratry",
             "ADT_Box",
             "ADT_Cluster",
             "ADT_Fland",
@@ -124,6 +125,7 @@ namespace Content.IntegrationTests.Tests
             "ADT_Aspid",
             "ADT_Cluster_Legacy",
             "ADT_Meta",
+            "ADT_Origin",
             "ADT_Centcomm"
             // ADT-End
         };

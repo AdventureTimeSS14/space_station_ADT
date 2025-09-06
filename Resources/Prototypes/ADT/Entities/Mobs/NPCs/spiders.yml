@@ -2,7 +2,7 @@
 # random sprite state when you spawn it.
 - type: entity
   name: base spider
-  parent: SimpleMobBase
+  parent: SimpleSpaceMobBase
   id: ADTMobBaseSpider
   abstract: true
   description: Widely recognized to be the literal worst thing in existence.

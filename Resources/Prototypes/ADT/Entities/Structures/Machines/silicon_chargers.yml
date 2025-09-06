@@ -69,7 +69,7 @@
       - machine_parts
       - entity_storage
     - type: Machine
-      board: IndustrialChargerCircuitboard
+      board: ADTIndustrialChargerCircuitboard
     - type: Destructible
       thresholds:
       - trigger:

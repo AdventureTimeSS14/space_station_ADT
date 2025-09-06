@@ -789,10 +789,9 @@
     - MonkeyWearable
   - type: DNALocker # ADT-Tweak
   # ADT Grab start
-  - type: ModifyGrabStageTime
-    modifiers:
-      Hard: 3.75
-      Choke: 3
+  - type: ClothingGrantComponent
+    component:
+    - type: GrabProtection
   # ADT Grab end
 
 #Wizard Hardsuit
