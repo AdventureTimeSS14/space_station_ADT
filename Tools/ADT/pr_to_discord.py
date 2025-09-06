@@ -17,7 +17,7 @@ EMOJI_ORDER = ["add", "remove", "delete", "tweak", "fix"]
 DEFAULT_COLOR = 0xE91E63  # Красный цвет эмбеда
 
 def extract_changelog(text):
-    match = re.search(r":cl:\s*(.*?)\s*(?:<!--|\Z)", text, re.DOTALL)
+    match = re.search(r"(?:\:cl\:|🆑)\s*(.*?)\s*(?:<!--|\Z)", text, re.DOTALL)
     if not match:
         return None
 
@@ -78,7 +78,7 @@ def create_embed(changelog, author_name, author_avatar, branch, pr_url, pr_title
     embed = {
         "title": f"🚀 Обновление: {pr_title}",
         "url": pr_url,
-        "description": f"**👤 Автор:** {author_name}\n**🌿 Ветка:** {branch}\n**📊 Изменений:** {change_count}\n**🕒 Замерджен:** {merged_time}\n**📝 Коммитов:** {commits_count}\n**📁 Файлов:** {changed_files}\n\n{changelog}",
+        "description": f"**👤 Автор:** {author_name}\n**🌿 Ветка:** {branch}\n**📊 Изменений:** {change_count}\n**📝 Коммитов:** {commits_count}\n**📁 Файлов:** {changed_files}\n\n{changelog}",
         "color": color,
         "footer": {
             "text": f"📅 {(datetime.utcnow() + timedelta(hours=3)).strftime('%d.%m.%Y %H:%M МСК')}"

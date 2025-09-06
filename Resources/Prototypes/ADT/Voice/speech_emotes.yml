@@ -403,3 +403,48 @@
   chatMessages: [chat-emote-msg-bubbles]
   chatTriggers:
     - булькает
+
+# Shadekin
+
+- type: emote
+  id: Wurble
+  name: chat-emote-name-wurble
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTShadekinEmotes
+  icon: ADT/Interface/Emotes/Vocal/purr.png
+  chatMessages: [chat-emote-msg-wurble]
+  chatTriggers:
+    - урчит
+    - мурлычет
+    - фырчит
+
+- type: emote
+  id: Purse
+  name: chat-emote-name-purse
+  category: Hands
+  whitelist:
+    requireAll: true
+    components:
+    - Hands
+    tags:
+    - ADTShadekinEmotes
+  icon: ADT/Interface/Emotes/Vocal/purse.png
+  chatMessages: [chat-emote-msg-purse]
+  chatTriggers:
+    - поджимает уши
+    - поджимает ушки
+    - поджал ушки
+    - поджала ушки
+    - поджал уши
+    - поджала уши
+    - прижимает уши
+    - прижимает ушки
+    - прижал ушки
+    - прижала ушки
+    - прижал уши
+    - прижала уши
