@@ -9,7 +9,7 @@
   id: ADTBaseMobSpeciesOrganicUnRotting
   abstract: true
   components:
-   # ADT-Tweak Start
+  # ADT-Tweak Start
   - type: Body
     prototype: Human # !!! Другие расы ДОЛЖНЫ переопределить этот prototype на свой
   - type: MobState

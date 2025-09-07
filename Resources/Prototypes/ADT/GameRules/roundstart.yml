@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseHereticRule
-  id: HereticGameRule
+  id: Heretic
   components:
   - type: HereticRule
   - type: GameRule
@@ -227,7 +227,7 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
-      - id: HereticGameRule
+      - id: Heretic
         cost: 30
         rerollChance: 0.5
       - id: Revolutionary
@@ -241,8 +241,8 @@
         cost: 120
       - id: PhantomSpawn
         cost: 110
-      - id: MorphSpawn
-        cost: 130
+      # - id: MorphSpawn #TODO: Раскомментить после фикса
+      #   cost: 130
       - id: NinjaSpawn
         cost: 140
       - id: KingRatMigration
@@ -279,7 +279,7 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
-      - id: HereticGameRule
+      - id: Heretic
         cost: 30
         rerollChance: 0.5
       - id: Nukeops
@@ -293,8 +293,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      - id: MorphSpawn
-        cost: 140
+      # - id: MorphSpawn #TODO: Раскомментить после фикса
+      #   cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
@@ -338,8 +338,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      - id: MorphSpawn
-        cost: 140
+      # - id: MorphSpawn #TODO: Раскомментить после фикса
+      #   cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
