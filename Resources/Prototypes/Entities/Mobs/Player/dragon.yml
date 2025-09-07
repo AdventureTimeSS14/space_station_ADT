@@ -100,6 +100,8 @@
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
 # ADT-Tweak-start
 # disable taking damage from fire, since its a fire breathing dragon. # also it can't be lit on fire
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
   - type: Flammable
     fireSpread: false
     canResistFire: true

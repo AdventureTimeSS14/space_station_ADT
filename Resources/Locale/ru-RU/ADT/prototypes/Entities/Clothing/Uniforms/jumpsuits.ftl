@@ -260,14 +260,6 @@ ent-ADTClothingUniformJumpsuitCMOHike = походный костюм главн
     .desc = Рубашка и мешковитые штаны, отлично подходящие для активной работы как вне, так и внутри своего отдела.
     .suffix = { "" }
 
-ent-ADTClothingUniformJumpsuitSollux = футболка тролля Близнеца
-    .desc = Черная футболка с серыми мешковатыми брюками, на футболке изображен знак зодиака "Близнецы" горчично-желтого цвета.
-    .suffix = Хеллоуин
-
-ent-ADTClothingUniformSwimsuitWinth = купальник ведьмочки
-    .desc = Точно не для повседневного ношения, так ведь?..
-    .suffix = Хеллоуин
-
 ent-ADTClothingUniformJumpsuitCamisoleQM = укороченный камзол квартирмейстера
     .desc = Камзол, который одновременно хорош как для работы так и для отдыха.
 ent-ADTClothingUniformJumpskirtCamisoleQM = укороченный юбка-камзол квартирмейстера
@@ -337,12 +329,11 @@ ent-ClothingUniformJumpsuitAtmosSyndie = костюм акробата
 ent-ClothingUniformJumpsuitAtmosSyndieAdvanced = блюспейс костюм акробата
     .desc = Я на работе. Я не могу бросить работу. Работа - это дыхание. Я проверяю качество воздуха.
 
-ent-ADTClothingJumpsuitRadioDemonSuit = костюм радио-демона
-    .desc = Улыбка — это ценный инструмент, дорогая! Она вдохновляет твоих друзей, держит врагов в неведении и гарантирует, что, что бы ни случилось, ты - у руля.
-    .suffix = { "Хеллоуин" }
-
 ent-ADTClothingJumpsuitParamedicFieldSuit = полевой комбинезон парамедика
     .desc = одежда, созданная с расчетом на полное удобство носителя
 
 ent-ADTClothingJumpsuitDryadCoverings = подвязки дриады
     .desc = Та самая одежда, что выращена самой богиней природы.
+
+ent-ClothingUniformJumpsuitCommandGeneric = униформа командования
+    .desc = Обычный комбинезон расцветки командования, не связанный с каким-либо конкретным отделом.

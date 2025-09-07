@@ -27,9 +27,11 @@
   - type: Puller
     needsHands: false
   - type: CombatMode
-  - type: Physics
-    ignorePaused: true
-    bodyType: Kinematic
+  #ADT-tweak-start
+  # - type: Physics
+  #   ignorePaused: true
+  #   bodyType: Kinematic
+  #ADT-tweak-end
   - type: Body
     prototype: Aghost
   - type: Access
