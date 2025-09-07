@@ -104,9 +104,6 @@
   id: ADTBola
 
 - type: Tag
-  id: ADTAloe
-
-- type: Tag
   id: Eyes
 
 - type: Tag
@@ -515,6 +512,9 @@
   id: ADTSlimeEmotes
 
 - type: Tag
+  id: ADTShadekinEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag
@@ -657,4 +657,3 @@
 
 - type: Tag
   id: ADTFullRiotShieldSyndi
-

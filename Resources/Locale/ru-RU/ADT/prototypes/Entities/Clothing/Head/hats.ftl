@@ -54,10 +54,6 @@ ent-ADTClothingHeadHatTrader = кепка торговца
     .desc = Бейсболка, окрашенная в цвета ТСФ
     .suffix = { "ТСФ" }
 
-ent-ADTClothingHeadRomanticHat = широкая красно-белая шляпа
-    .desc = Снимаю шляпу из уважения к вам!
-    .suffix = { "День Святого Валентина" }
-
 ent-ADTClothingHeadOldFedora = старая федора
     .desc = Носящий её точно хочет показать, что он ценит старые принципы и поведения. Забавно, что при столь сильной потёртости она так и не утеряла форму.
 
@@ -66,6 +62,12 @@ ent-ADTClothingHeadDrinkCap = питьевая кепка
 
 ent-ADTClothingAdmiralHat = капитанская треуголка
     .desc = Яррр! Поднять паруса!
+
+ent-ClothingHeadHatBeretCommand = берет командования
+    .desc = Берет с эмблемой командования. В нём вы чувствуете власть над окружающими.
+
+ent-ClothingHeadHatCommandSoft = кепка командования
+    .desc = Бейсболка расцветки командования.
 
 ent-ADTClothingHeadHatChefRed = красный поварской колпак
     .desc = Прямиком из космо-Италии!

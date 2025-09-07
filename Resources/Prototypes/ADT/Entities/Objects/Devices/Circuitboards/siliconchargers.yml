@@ -1,5 +1,5 @@
 - type: entity
-  id: IndustrialChargerCircuitboard
+  id: ADTIndustrialChargerCircuitboard
   parent: BaseMachineCircuitboard
   name: industrial charger machine board
   description: A machine printed circuit board for an industrial charger
