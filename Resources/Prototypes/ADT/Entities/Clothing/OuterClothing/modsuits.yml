@@ -405,7 +405,10 @@
     walkModifier: 1
     sprintModifier: 1
   - type: FireProtection
-    reduction: 0.5 # SD tweak 1 -> 0.5
+    reduction: 1
+  - type: ClothingGrantComponent
+    component:
+    - type: GrabProtection
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -479,40 +482,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: FireProtection
-    reduction: 0.5 # SD tweak 1 -> 0.5
-
-- type: entity
-  parent: ADTClothingOuterModsuitBodySyndicate
-  id: ADTClothingOuterModsuitBodySyndicateContractor
-  name: syndicate contractor MOD chestplate
-  description: A chestplate for a MODsuit.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_contractor.rsi
-  - type: Clothing
-    equipDelay: 3
-    unequipDelay: 3
-    sprite: ADT/Clothing/OuterClothing/Modsuit/syndicate_contractor.rsi
-    slots: [ OUTERCLOTHING ]
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.6
-        Radiation: 0.01
-        Caustic: 0.5
-    staminaModifier: 0.3
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1.1
-  - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
-  - type: ExplosionResistance
-    damageCoefficient: 0.6
-  - type: FireProtection
-    reduction: 0.5 # SD tweak 1 -> 0.5
+    reduction: 1
+  - type: ClothingGrantComponent
+    component:
+    - type: GrabProtection

@@ -618,6 +618,8 @@
     - type: GhostRole
       name: ghost-role-information-cmnd-cburn-agent-name
       description: ghost-role-information-cmnd-cburn-agent-description
+      raffle:
+        settings: short
       # ADT-tweak-start
       requirements:
       - !type:DepartmentTimeRequirement

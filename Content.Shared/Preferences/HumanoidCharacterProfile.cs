@@ -723,7 +723,7 @@ namespace Content.Shared.Preferences
             _antagPreferences.UnionWith(antags);
 
             _traitPreferences.Clear();
-            _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
+            _traitPreferences.UnionWith(traits); // ADT-Tweak
 
             // Corvax-TTS-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
@@ -793,14 +793,22 @@ namespace Content.Shared.Preferences
                 if (!protoManager.TryIndex(traitProto.Category, out var category))
                     continue;
 
-                var existing = groups.GetOrNew(category.ID);
-                existing += traitProto.Cost;
+                // ADT-Tweak start
+                if (category.MaxTraitPoints < 0)
+                {
+                    result.Add(trait);
+                    continue;
+                }
 
-                // Too expensive.
-                if (existing > category.MaxTraitPoints)
+                var total = groups.GetOrNew(category.ID);
+                var newTotal = total + traitProto.Cost;
+                // Ganimed edit trait points end
+
+                if (newTotal > category.MaxTraitPoints)
+                // ADT-Tweak end
                     continue;
 
-                groups[category.ID] = existing;
+                groups[category.ID] = newTotal; //  ADT-Tweak trait points
                 result.Add(trait);
             }
 
