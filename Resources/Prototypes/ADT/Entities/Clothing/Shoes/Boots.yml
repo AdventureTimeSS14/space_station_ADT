@@ -39,17 +39,6 @@
 
 - type: entity
   parent: ClothingShoesBaseButcherable
-  id: ADTClothingShoesBootsSollux
-  name: Highboots
-  description: a pair of highboot to walk on blood puddles
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
   id: ADTClothingShoesRomanSandales
   name: Roman sandales
   description: The old Roman sandals are still reliable and stylish.
