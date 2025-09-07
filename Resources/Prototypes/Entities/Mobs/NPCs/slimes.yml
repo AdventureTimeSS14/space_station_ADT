@@ -124,6 +124,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: SupermatterIgnore # ADT-Tweak
+  - type: GrabProtection
   # ADT tweak end
 
 - type: entity
