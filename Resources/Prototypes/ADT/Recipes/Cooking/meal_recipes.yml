@@ -352,7 +352,7 @@
 
 - type: microwaveMealRecipe
   id: ADTFoodPizzaFourcheeseRecipe
-  name: pizza cheese
+  name: pizza four cheese
   result: ADTFoodPizzaFourcheese
   time: 30
   group: Pizza
@@ -558,7 +558,7 @@
 
 - type: microwaveMealRecipe
   id: ADTFoodMealCreamMeatballRecipe
-  name: pasta cream meathball
+  name: pasta cream meatball
   result: ADTFoodMealCreamMeatball
   time: 10
   group: Pasta

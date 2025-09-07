@@ -41,10 +41,10 @@ ent-ADTFoodFrozenPopsicleChocolate = шоколадное эскимо
 ent-ADTFoodFrozenPineappleChocolate = эскимо со вкусом ананаса в шоколаде
     .desc = Мороженое в форме ломтика ананаса, покрытого шоколадом.
 
-ent-ADTFoodFrozenPopsicleApple = яблочный эскимо
-    .desc = Приятный эскимо с кисло-сладким вкусом.
+ent-ADTFoodFrozenPopsicleApple = яблочное эскимо
+    .desc = Приятное эскимо с кисло-сладким вкусом.
 
-ent-ADTFoodFrozenPopsicleBanana = банановый эскимо
+ent-ADTFoodFrozenPopsicleBanana = банановое эскимо
     .desc = Фруктовое мороженое со вкусом банана. Любимое лакомство клоунов и обезьян.
 
 ent-ADTFoodFrozenPopsicleMole = эскимо в виде моли
@@ -108,10 +108,10 @@ ent-ADTFoodFrozenIceCreamCone = вафельный рожок
     .desc = Пустой рожок.
 
 ent-ADTFoodFrozenIceCreamWafflecone = шоколадный рожок
-    .desc = Шолоколадное мороженое в вафельном рожке.
+    .desc = Шоколадное мороженое в вафельном рожке.
 
 ent-ADTFoodFrozenIceCreamWaffleconeNuts = шоколадный рожок с орехами
-    .desc = Шолоколадное мороженое с орешками в вафельном рожке.
+    .desc = Шоколадное мороженое с орешками в вафельном рожке.
 
 ent-ADTFoodFrozenWafflecone = рожок
     .desc = Пустой вафельный рожок. Лучше, чем ничего.
@@ -134,19 +134,19 @@ ent-ADTFoodFrozenPopsicleBananaFruitIce = банановый фруктовый 
     .desc = ХОНК.
 
 ent-ADTFoodFrozenPopsicleBerryFruitIce = мятно-ягодный фруктовый лёд
-    .desc = Освежающий фруктовый лед со вкусом мяты и ягод. 
+    .desc = Освежающий фруктовый лёд со вкусом мяты и ягод.
 
 ent-ADTFoodFrozenPopsicleGrapeFruitIce = виноградный фруктовый лёд
-    .desc = фруктовый лед со вкусом винограда и приятной кислинкой.
+    .desc = Фруктовый лёд со вкусом винограда и приятной кислинкой.
 
-ent-ADTFoodFrozenPopsicleJumbo = шоколадное мороженное НТ
-    .desc = На вкус как вся ваша зарплата - дешёво.
+ent-ADTFoodFrozenPopsicleJumbo = шоколадное мороженое НТ
+    .desc = На вкус как вся ваша зарплата — дешёво.
 
 ent-ADTFoodFrozenPopsicleMangoFruitIce = манговый фруктовый лёд
-    .desc = Освежающий фруктовый лед со вкусом манго, нежный и очень сладкий.
+    .desc = Освежающий фруктовый лёд со вкусом манго, нежный и очень сладкий.
 
 ent-ADTFoodFrozenPopsicleStrawberryFruitIce = клубничный фруктовый лёд
-    .desc = Освежающий фруктовый лед со вкусом клубники.
+    .desc = Освежающий фруктовый лёд со вкусом клубники.
 
 #=======
 # Упаковки с мороженым
@@ -225,72 +225,72 @@ ent-ADTFoodFrozenPackedWatermelonPopsicle = { ent-ADTFoodFrozenWatermelonPopsicl
 # Мусор
 #=======
 
-ent-ADTFoodFrozenChocolateFreezyTrash = обертка от стаканчика шоколадного мороженого
+ent-ADTFoodFrozenChocolateFreezyTrash = обёртка от стаканчика шоколадного мороженого
     .desc = Мусор
 
-ent-ADTFoodFrozenChocolateIceCreamTrash = обертка от шоколадного пломбира
+ent-ADTFoodFrozenChocolateIceCreamTrash = обёртка от шоколадного пломбира
     .desc = Мусор
 
-ent-ADTFoodFrozenTrash = обертка от мороженого
+ent-ADTFoodFrozenTrash = обёртка от мороженого
     .desc = Мусор
 
-ent-ADTFoodFrozenChocolatePopsicleWithNutsTrash = обертка от шоколадного эскимо с орехами
+ent-ADTFoodFrozenChocolatePopsicleWithNutsTrash = обёртка от шоколадного эскимо с орехами
     .desc = Мусор
 
-ent-ADTFoodFrozenIceCreamWaffleconeTrash = обертка от шоколадного рожка
+ent-ADTFoodFrozenIceCreamWaffleconeTrash = обёртка от шоколадного рожка
     .desc = Мусор
 
-ent-ADTFoodFrozenIceCreamWaffleconeNutsTrash = обертка от шоколадного рожка с орехами
+ent-ADTFoodFrozenIceCreamWaffleconeNutsTrash = обёртка от шоколадного рожка с орехами
     .desc = Мусор
 
-ent-ADTFoodFrozenJumboPopsicleTrash = обертка от мороженого НТ
+ent-ADTFoodFrozenJumboPopsicleTrash = обёртка от мороженого НТ
     .desc = Мусор
 
-ent-ADTFoodFrozenMelonPopsicleTrash = обертка от эскимо со вкусом дыни
+ent-ADTFoodFrozenMelonPopsicleTrash = обёртка от эскимо со вкусом дыни
     .desc = Мусор
 
-ent-ADTFoodFrozenOrangePopsicleTrash = обертка от эскимо со вкусом апельсина
+ent-ADTFoodFrozenOrangePopsicleTrash = обёртка от эскимо со вкусом апельсина
     .desc = Мусор
 
-ent-ADTFoodFrozenPineappleChocolateTrash = обертка от ананасового эскимо с шоколада
+ent-ADTFoodFrozenPineappleChocolateTrash = обёртка от ананасового эскимо в шоколаде
     .desc = Мусор
 
-ent-ADTFoodFrozenPopsicleAppleTrash = обертка от яблочного эскимо
+ent-ADTFoodFrozenPopsicleAppleTrash = обёртка от яблочного эскимо
     .desc = Мусор
 
-ent-ADTFoodFrozenPopsicleBananaTrash = обертка от эскимо со вкусом банана
+ent-ADTFoodFrozenPopsicleBananaTrash = обёртка от эскимо со вкусом банана
     .desc = Мусор
 
-ent-ADTFoodFrozenPopsicleMoleTrash = обертка от эскимо со вкусом моли
+ent-ADTFoodFrozenPopsicleMoleTrash = обёртка от эскимо со вкусом моли
     .desc = Мусор
 
-ent-ADTFoodFrozenRandomFruitIceTrash = обертка от мороженого
+ent-ADTFoodFrozenRandomFruitIceTrash = обёртка от мороженого
     .desc = Мусор
 
-ent-ADTFoodFrozenPopsicleSeaSaltTrash = обертка от эскимо с морской солью
+ent-ADTFoodFrozenPopsicleSeaSaltTrash = обёртка от эскимо с морской солью
     .desc = Мусор
 
-ent-ADTFoodFrozenSpaceFreezyTrash = обертка от стаканчика космического мороженого с карамелью
+ent-ADTFoodFrozenSpaceFreezyTrash = обёртка от стаканчика космического мороженого с карамелью
     .desc = Мусор
 
-ent-ADTFoodFrozenSpaceIceCreamTrash = обертка от космического пломбира
+ent-ADTFoodFrozenSpaceIceCreamTrash = обёртка от космического пломбира
     .desc = Мусор
 
-ent-ADTFoodFrozenStrawberryIceCreamTrash = обертка от клубничного пломбира
+ent-ADTFoodFrozenStrawberryIceCreamTrash = обёртка от клубничного пломбира
     .desc = Мусор
 
-ent-ADTFoodFrozenThreeFlavorsFreezyTrash = обертка от стаканчика космического мороженого с тремя вкусами
+ent-ADTFoodFrozenThreeFlavorsFreezyTrash = обёртка от стаканчика космического мороженого с тремя вкусами
     .desc = Мусор
 
-ent-ADTFoodFrozenThreeFlavorsPopsicleTrash = обертка от эскимо с тремя вкусами
+ent-ADTFoodFrozenThreeFlavorsPopsicleTrash = обёртка от эскимо с тремя вкусами
     .desc = Мусор
 
-ent-ADTFoodFrozenVanillaFreezyTrash = обертка от стаканчика ванильного мороженого
+ent-ADTFoodFrozenVanillaFreezyTrash = обёртка от стаканчика ванильного мороженого
     .desc = Мусор
 
-ent-ADTFoodFrozenVanillaIceCreamTrash = обертка от ванильного пломбира
+ent-ADTFoodFrozenVanillaIceCreamTrash = обёртка от ванильного пломбира
     .desc = Мусор
 
-ent-ADTFoodFrozenWatermelonPopsicleTrash = обертка от эскимо со вкусом арбуза
+ent-ADTFoodFrozenWatermelonPopsicleTrash = обёртка от эскимо со вкусом арбуза
     .desc = Мусор
 
