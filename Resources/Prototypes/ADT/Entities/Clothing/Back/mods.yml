@@ -481,10 +481,10 @@
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominal_contract.ogg
     clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitSyndicateContractor
-      gloves: ADTClothingHandsModsuitSyndicateContractor
-      outerClothing: ADTClothingOuterModsuitBodySyndicateContractor
-      shoes: ADTClothingModsuitShoesSyndicateContractor
+      head: ADTClothingHeadHelmetModsuitSyndicateCommander
+      gloves: ADTClothingHandsModsuitSyndicateCommander
+      outerClothing: ADTClothingOuterModsuitBodySyndicateCommander
+      shoes: ADTClothingModsuitShoesSyndicateCommander
     startingModules:
       - ADTModsuitModStorageSyndie
       - ADTModsuitModWelding
