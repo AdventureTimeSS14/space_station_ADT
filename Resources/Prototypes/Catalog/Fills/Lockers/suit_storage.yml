@@ -135,7 +135,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-  #     - id: ADTClothingModsuitBackAtmos # ADT tweak
+  #     - id: ADTClothingModsuitBackAtmos #ADT-tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -159,7 +159,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-  #     - id: ADTClothingModsuitBackSecurity #ADT tweak
+  #     - id: ADTClothingModsuitBackSecurity #ADT-tweak
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
@@ -180,10 +180,18 @@
   parent: SuitStorageBase
   suffix: Chief Engineer
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillChiefEngineerHardsuit
+  #ADT-Tweak start
+  #- type: EntityTableContainerFill
+  #  containers:
+  #    entity_storage: !type:NestedSelector
+  #      tableId: FillChiefEngineerHardsuit
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasAtmos
+    - id: ClothingShoesBootsMagAdv
+    - id: JetpackVoidFilled
+    - id: OxygenTankFilled
+  #ADT-Tweak end
   - type: AccessReader
     access: [["ChiefEngineer"]]
   # ADT-Tweak-start
@@ -229,10 +237,17 @@
   parent: SuitStorageBase
   suffix: Head of Security
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillHeadOfSecurityHardsuit
+  #ADT-Tweak-start
+  #  - type: EntityTableContainerFill
+  #  containers:
+  #   entity_storage: !type:NestedSelector
+  #      tableId: FillHeadOfSecurityHardsuit
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSwat
+    - id: JetpackSecurityFilled
+    - id: OxygenTankFilled
+  #ADT-Tweak end
   - type: AccessReader
     access: [["HeadOfSecurity"]]
   # ADT-Tweak-start
@@ -295,7 +310,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackSyndicate # ADT tweak
+        - id: ADTClothingModsuitBackSyndicate #ADT-tweak
         # - id: ClothingShoesBootsMagSyndie #ADT tweak
         - id: ClothingMaskGasSyndicate
 
