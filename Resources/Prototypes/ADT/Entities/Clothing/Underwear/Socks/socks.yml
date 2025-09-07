@@ -55,29 +55,6 @@
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/lace_socks_thigh.rsi
 
-
-#День Святого Валентина
-
-- type: entity
-  parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksHeart
-  name: socks with hearts
-  description: socks with hearts
-  suffix: Valentine Day
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Underwear/Socks/socks_heart.rsi #Спрайты от lunalita
-
-- type: entity
-  parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksStockingsHeart
-  name: stockings with hearts
-  description: socks with hearts
-  suffix: Valentine Day
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Underwear/Socks/stockings_heart.rsi #Спрайты от lunalita
-
 #Stockings
 
 - type: entity
@@ -393,15 +370,6 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/centcom_knee.rsi
-
-- type: entity
-  parent: ADTClothingUnderwearSocksBase
-  id: ADTClothingUnderwearSocksKneeCreepy
-  name: creepy knee socks
-  description: Creepy knee socks.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Underwear/Socks/creepy_knee.rsi
 
 - type: entity
   parent: ADTClothingUnderwearSocksBase

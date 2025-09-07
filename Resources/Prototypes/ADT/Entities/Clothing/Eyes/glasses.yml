@@ -55,7 +55,6 @@
     tags:
     - WhitelistChameleon
     - HudMedical
-
 - type: entity
   parent: ClothingEyesBase
   id: ADTClothingEyesGlassesMimicry
@@ -66,46 +65,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/mimicry.rsi
 
-    # halloween
 
-- type: entity
-  parent: ClothingEyesBase
-  id: ADTNeonTacticalGlasses
-  name: neon tactical glasses
-  description: Ordinary tactical glasses made of acid-green polycarbonate.
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Eyes/Glasses/neontactical.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Clothing/Eyes/Glasses/neontactical.rsi
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ADTServantOfEvilGlasses
-  name: welding glasses
-  description: welding glasses
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Clothing/Eyes/Glasses/servant_of_evil.rsi
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ADTClothingEyesGlassesSollux
-  name: welding glasses
-  description: welding glasses
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Clothing/Eyes/Glasses/sollux_captor.rsi
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
@@ -197,27 +157,6 @@
     sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-  - type: IdentityBlocker
-    coverage: EYES
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ADTRadioDemonMonocle
-  name: demonic monocle
-  description: Yeah, thats one makes you smile.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
-    color: "#4e4e4e"
-  - type: Clothing
-    sprite: ADT/Clothing/Eyes/Glasses/monocle.rsi
-    clothingVisuals:
-      eyes:
-      - state: equipped-EYES
-        color: "#4e4e4e"
   - type: Tag
     tags:
     - WhitelistChameleon
