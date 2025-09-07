@@ -13,6 +13,7 @@
         liver: OrganAnimalLiver
         heart: OrganArachnidHeart
         kidneys: OrganAnimalKidneys
+        eyes: OrganAnimalEyes
     legs:
       part: LegsAnimal
       connections:

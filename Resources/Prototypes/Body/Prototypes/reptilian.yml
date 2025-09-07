@@ -18,6 +18,7 @@
         stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
+        eyes: OrganAnimalEyes
       connections:
       - right arm
       - left arm
