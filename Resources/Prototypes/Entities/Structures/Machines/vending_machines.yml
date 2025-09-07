@@ -177,7 +177,7 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     loopDeny: false
-    priceMultiplier: 1 # ADT-Economy
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: BoozeOMatAds
   - type: SpeakOnUIClosed
@@ -276,6 +276,7 @@
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: ChefvendAds
   - type: SpeakOnUIClosed
@@ -729,6 +730,7 @@
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: DinnerwareAds
   - type: SpeakOnUIClosed
@@ -896,6 +898,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: Advertise
     pack: NutriMaxAds
   - type: SpeakOnUIClosed
@@ -996,10 +999,6 @@
   components:
   - type: AccessReader
     access: [["Hydroponics"]]
-  # ADT-Economy-Start
-  - type: VendingMachine
-    allForFree: false
-  # ADT-Economy-End
 
 - type: entity
   parent: VendingMachine
