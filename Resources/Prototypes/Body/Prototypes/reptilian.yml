@@ -18,7 +18,7 @@
         stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
-        eyes: OrganAnimalEyes
+        eyes: OrganAnimalEyes # ADT-Tweak
       connections:
       - right arm
       - left arm

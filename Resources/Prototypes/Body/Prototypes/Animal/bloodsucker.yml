@@ -13,7 +13,7 @@
         liver: OrganBloodsuckerLiver
         heart: OrganBloodsuckerHeart
         kidneys: OrganAnimalKidneys
-        eyes: OrganAnimalEyes
+        eyes: OrganAnimalEyes # ADT-Tweak
     legs:
       part: LegsAnimal
       connections:
