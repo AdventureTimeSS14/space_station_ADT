@@ -305,8 +305,6 @@ public sealed class ChaplainSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!TryUseAbility(uid, component, component.HolyWaterCost))
-            return;
 
         if (TryComp<MetaDataComponent>(target, out var metaData) && metaData.EntityPrototype != null)
         {
@@ -315,7 +313,14 @@ public sealed class ChaplainSystem : EntitySystem
             if (entityId.Contains("Candle") && !entityId.EndsWith("Infinite"))
             {
                 var newPrototypeId = entityId + "Infinite";
-
+                if (!_proto.HasIndex<EntityPrototype>(newPrototypeId))
+                {
+                    _popupSystem.PopupEntity(
+                        Loc.GetString("chaplain-holy-touch-fail-self", ("target", Identity.Entity(target, EntityManager))),
+                        uid,
+                        uid);
+                    return;
+                }
                 var transform = Transform(target);
                 var newCandle = Spawn(newPrototypeId, transform.Coordinates);
 
@@ -323,9 +328,14 @@ public sealed class ChaplainSystem : EntitySystem
                 newTransform.LocalRotation = transform.LocalRotation;
 
                 Del(target);
-
+                ChangePowerAmount(uid, -component.HolyWaterCost, component);
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-candle-transform-success", ("target", Identity.Entity(newCandle, EntityManager))), uid, uid);
                 _audio.PlayPvs(component.HolyWaterSoundPath, uid);
+                return;
+            }
+            else
+            {
+                _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-nothing", ("target", Identity.Entity(target, EntityManager))), uid, uid);
                 return;
             }
         }
@@ -359,14 +369,13 @@ public sealed class ChaplainSystem : EntitySystem
 
             if (success)
             {
-
+                ChangePowerAmount(uid, -component.HolyWaterCost, component);
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
                 _audio.PlayPvs(component.HolyWaterSoundPath, uid);
             }
 
             else
             {
-                ChangePowerAmount(uid, component.HolyWaterCost, component);
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-nothing", ("target", Identity.Entity(target, EntityManager))), uid, uid);
                 return;
             }
