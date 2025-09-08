@@ -1,4 +1,5 @@
 using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Medical.CrewMonitoring;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Medical.CrewMonitoring;
@@ -22,6 +23,12 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     // ADT-Tweak-Start
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool IsEmagged = false;
+
+    /// <summary>
+    /// What version of the monitor this is (e.g., Full or SecurityOnly)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public CrewMonitoringVersion Version = CrewMonitoringVersion.Full;
 
     /// <summary>
     /// Emag sound effects.

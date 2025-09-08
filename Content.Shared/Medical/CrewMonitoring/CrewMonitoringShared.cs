@@ -10,6 +10,13 @@ public enum CrewMonitoringUIKey
 }
 
 [Serializable, NetSerializable]
+public enum CrewMonitoringVersion
+{
+    Full,
+    SecurityOnly
+}
+
+[Serializable, NetSerializable]
 public sealed class CrewMonitoringState : BoundUserInterfaceState
 {
     public List<SuitSensorStatus> Sensors;

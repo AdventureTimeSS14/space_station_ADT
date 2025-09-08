@@ -80,6 +80,23 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         // Update all sensors info
         var allSensors = component.ConnectedSensors.Values.ToList();
+
+        // Apply version-specific filtering
+        if (component.Version == CrewMonitoringVersion.SecurityOnly)
+        {
+            allSensors = allSensors.Where(s =>
+                (s.JobDepartments != null && s.JobDepartments.Contains("Security")) ||
+                (!string.IsNullOrEmpty(s.Job) && (
+                    s.Job.Contains("Security", StringComparison.OrdinalIgnoreCase) ||
+                    s.Job.Contains("Officer", StringComparison.OrdinalIgnoreCase) ||
+                    s.Job.Contains("Brig", StringComparison.OrdinalIgnoreCase) ||
+                    s.Job.Contains("Warden", StringComparison.OrdinalIgnoreCase) ||
+                    s.Job.Contains("Detective", StringComparison.OrdinalIgnoreCase) ||
+                    s.Job.Contains("Captain", StringComparison.OrdinalIgnoreCase)
+                ))
+            ).ToList();
+        }
+
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, component.IsEmagged)); // ADT-Tweak
     }
 

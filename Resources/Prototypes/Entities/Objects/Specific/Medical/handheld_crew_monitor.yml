@@ -41,3 +41,15 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+
+# Brigmedic version - security-only view
+- type: entity
+  id: HandheldCrewMonitorBrigmedic
+  parent: HandheldCrewMonitor
+  name: brigmedic crew monitor
+  description: A hand-held crew monitor showing security personnel only.
+  components:
+  - type: CrewMonitoringConsole
+    version: SecurityOnly
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/brigmedic_handheldcrewmonitor.rsi
