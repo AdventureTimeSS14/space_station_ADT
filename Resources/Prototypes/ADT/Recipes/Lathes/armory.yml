@@ -30,7 +30,7 @@
     Gold: 500
     Plasma: 300
     Silver: 300
-
+ 
 - type: latheRecipe
   id: ADTAttachmentVerticalGripRecipe
   result: ADTAttachmentVerticalGrip
