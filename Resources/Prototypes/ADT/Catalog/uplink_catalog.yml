@@ -600,7 +600,7 @@
   description: uplink-maid-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledMaid
   cost:
-    Telecrystal: 15 #ADT-Tweak 20->15
+    Telecrystal: 15 #Tweak 20->15
   categories:
     - UplinkPointless
 
