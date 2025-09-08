@@ -31,6 +31,27 @@
   components:
   - type: Gibbable
 
+# ADT-Tweak start
+- type: entity
+  id: OrganAnimalEyes
+  parent: BaseAnimalOrgan
+  name: eyes
+  description: "I see you!"
+  components:
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
+# ADT-Tweak end
+
 - type: entity
   id: OrganAnimalLungs
   parent: BaseAnimalOrgan
