@@ -310,6 +310,13 @@ public sealed class ChaplainSystem : EntitySystem
         {
             var entityId = metaData.EntityPrototype.ID;
 
+            // ADT-Tweak: проверяем ресурс до выполнения, стоимость списываем лишь при успехе
+            if (component.Power < component.HolyWaterCost)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("chaplain-not-enough-power"), uid, uid);
+                return;
+            }
+
             if (entityId.Contains("Candle") && !entityId.EndsWith("Infinite"))
             {
                 var newPrototypeId = entityId + "Infinite";
@@ -331,11 +338,6 @@ public sealed class ChaplainSystem : EntitySystem
                 ChangePowerAmount(uid, -component.HolyWaterCost, component);
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-candle-transform-success", ("target", Identity.Entity(newCandle, EntityManager))), uid, uid);
                 _audio.PlayPvs(component.HolyWaterSoundPath, uid);
-                return;
-            }
-            else
-            {
-                _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-nothing", ("target", Identity.Entity(target, EntityManager))), uid, uid);
                 return;
             }
         }
