@@ -20,12 +20,10 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   discountCategory: rareDiscounts
-  #ADT-tweak 
   discountDownTo:
     Telecrystal: 3 #ADTtweak 2->3
   cost:
     Telecrystal: 5 #ADTtweak 4->5
-  #ADT-tweak-end
   categories:
   - UplinkWeaponry
 
@@ -89,12 +87,10 @@
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
   productEntity: ThrowingKnivesKit
   discountCategory: rareDiscounts
-  # ADT-Tweak
   discountDownTo:
     Telecrystal: 1 # ADT-Tweak 2->1
   cost:
     Telecrystal: 3 # ADT-Tweak 4->3
-  # ADT-Tweak-end
   categories:
     - UplinkWeaponry
 
@@ -118,12 +114,10 @@
   icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
   productEntity: ClothingHandsKnuckleDustersSyndicate
   discountCategory: veryRareDiscounts
-  # ADT-Tweak
   discountDownTo:
     Telecrystal: 2 # ADT-Tweak 3->2
   cost:
     Telecrystal: 5 # ADT-Tweak 6->5
-  # ADT-Tweak-end
   categories:
   - UplinkWeaponry
 
@@ -133,12 +127,10 @@
   description: uplink-disposable-turret-desc
   productEntity: ToolboxElectricalTurretFilled
   discountCategory: usualDiscounts
-  # ADT-Tweak
   discountDownTo:
     Telecrystal: 4 # ADT-Tweak 2->4
   cost:
     Telecrystal: 6 # ADT-Tweak 4->6
-  # ADT-Tweak-end
   categories:
   - UplinkWeaponry
   conditions:
@@ -1144,12 +1136,10 @@
   icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
   productEntity: BoxHoloparasite
   discountCategory: usualDiscounts
-  # ADT-Tweak
   discountDownTo:
     Telecrystal: 8 # ADT-Tweak 6->8
   cost:
     Telecrystal: 12 # ADT-Tweak 10->12
-  # ADT-Tweak-end
   categories:
   - UplinkAllies
   conditions:
@@ -1880,10 +1870,8 @@
   name: uplink-balloon-name
   description: uplink-balloon-desc
   productEntity: BalloonSyn
-  # ADT-Tweak
   cost:
     Telecrystal: 10 # ADT-Tweak 20->10
-  # ADT-Tweak-End
   categories:
   - UplinkPointless
 

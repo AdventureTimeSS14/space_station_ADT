@@ -513,10 +513,8 @@
   name: uplink-mute-toxin-name
   description: uplink-mute-toxin-desc
   productEntity: ChemistryBottleMuteToxin
-  # ADT-Tweak
   cost:
     Telecrystal: 1 # ADTtweak 2->1
-  # ADT-Tweak-end
   categories:
   - UplinkJob
   conditions:
@@ -601,10 +599,8 @@
   name: uplink-maid-bundle-name
   description: uplink-maid-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledMaid
-  # ADT-Tweak
   cost:
     Telecrystal: 15 #ADT-Tweak 20->15
-  # ADT-Tweak-End
   categories:
     - UplinkPointless
 
