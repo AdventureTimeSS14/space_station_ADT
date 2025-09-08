@@ -21,7 +21,7 @@
   productEntity: WeaponRevolverPythonAP
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3 #ADTtweak 2->3
+    Telecrystal: 3 #ADT-tweak 2->3
   cost:
     Telecrystal: 5 #ADT-tweak 4->5
   categories:
