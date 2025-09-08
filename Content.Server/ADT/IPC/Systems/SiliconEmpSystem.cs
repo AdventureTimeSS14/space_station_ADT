@@ -1,7 +1,4 @@
-// Simple Station
-
 using Content.Server.Emp;
-using Content.Server.Speech.Muting;
 using Content.Server.Stunnable;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Eye.Blinding.Components;
@@ -37,9 +34,6 @@ public sealed class SiliconEmpSystem : EntitySystem
 
     private void OnEmpPulse(EntityUid uid, SiliconComponent component, ref EmpPulseEvent args)
     {
-        //args.EnergyConsumption *= 0.25f; // EMPs drain a lot of freakin power.
-        // А потому что нефиг под эми попадаться
-
         if (!TryComp<StatusEffectsComponent>(uid, out var statusComp))
             return;
 
@@ -58,21 +52,22 @@ public sealed class SiliconEmpSystem : EntitySystem
 
         _status.TryAddStatusEffect<SeeingStaticComponent>(uid, SharedSeeingStaticSystem.StaticKey, duration, true, statusComp);
 
-        if (_random.Prob(0.60f))
-            _stuttering.DoStutter(uid, duration * 2, false, statusComp);
-        else if (_random.Prob(0.80f))
+        if (_random.Prob(0.8f))
             _slurredSystem.DoSlur(uid, duration * 2, statusComp);
 
-        if (_random.Prob(0.4f)) // Какие-то неадекватно низкие шансы тут, буквально 2-8 процентов. Ребят, это слишком мало для ЭМИ
-            _status.TryAddStatusEffect<MutedComponent>(uid, "Muted", duration * 0.5, true, statusComp);
-
-        if (_random.Prob(0.4f))
-            _status.TryAddStatusEffect<TemporaryBlindnessComponent>(uid, TemporaryBlindnessSystem.BlindingStatusEffect, duration * 0.5, true, statusComp);
+        if (_random.Prob(0.6f))
+            _stuttering.DoStutter(uid, duration * 2, false, statusComp);
 
         if (_random.Prob(0.7f))
             _status.TryAddStatusEffect<PacifiedComponent>(uid, "Pacified", duration * 0.5, true, statusComp);
 
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), _random.Next(20, 40)));  // УБИВАТЬ УБИВАТЬ УБИВАТЬ УБИВАТЬ
+        if (_random.Prob(0.4f)) // Какие-то неадекватно низкие шансы тут, буквально 2-8 процентов. Ребят, это слишком мало для ЭМИ
+            _status.TryAddStatusEffect<MutedComponent>(uid, "Muted", duration * 0.5, true, statusComp);
+
+        if (_random.Prob(0.3f))
+            _status.TryAddStatusEffect<TemporaryBlindnessComponent>(uid, TemporaryBlindnessSystem.BlindingStatusEffect, duration * 0.5, true, statusComp);
+
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Shock"), _random.Next(20, 40)));
 
         args.EnergyConsumption = 0;
     }

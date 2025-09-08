@@ -18,8 +18,8 @@ JobADTSeniorEngineer = бригадир
 job-name-senior-officer = офицер-инструктор
 JobADTSeniorOfficer = офицер-инструктор
 
-job-name-ADTBlueShieldOfficer = офицер синего щита
-JobADTBlueShieldOfficer = офицер синего щита
+job-name-ADTBlueShieldOfficer = офицер синий щит
+JobADTBlueShieldOfficer = офицер синий щит
 
 job-name-ussp-army-private = Военнослужащий СССП
 job-name-ussp-army-officer = Офицер СССП

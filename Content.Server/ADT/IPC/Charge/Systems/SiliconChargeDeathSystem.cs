@@ -1,13 +1,9 @@
-// Simple Station
-
 using Content.Server.Power.Components;
 using Content.Shared.ADT.Silicon.Systems;
-// using Content.Server.Bed.Sleep; - nixsilvam: ну предположим это не нужно вообще теперь
 using Content.Shared.Bed.Sleep;
-// using Content.Server.Sound.Components; - nixsilvam: это в целом не используется тут, хз зачем оно было
 using Content.Server.ADT.Silicon.Charge;
-using System.Threading;
-using Timer = Robust.Shared.Timing.Timer;
+using Content.Server.Humanoid;
+using Content.Shared.Humanoid;
 
 namespace Content.Server.ADT.Silicon.Death;
 
@@ -15,6 +11,7 @@ public sealed class SiliconDeathSystem : EntitySystem
 {
     [Dependency] private readonly SleepingSystem _sleep = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
 
     public override void Initialize()
     {
@@ -25,37 +22,19 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, SiliconChargeStateUpdateEvent args)
     {
-        _silicon.TryGetSiliconBattery(uid, out var batteryComp, out var batteryUid);
-
-        if (args.ChargeState == ChargeState.Dead && siliconDeadComp.Dead)
+        if (!_silicon.TryGetSiliconBattery(uid, out var batteryComp, out var batteryUid))
         {
-            siliconDeadComp.WakeToken?.Cancel();
+            SiliconDead(uid, siliconDeadComp, batteryComp, uid);
             return;
         }
 
-        if (args.ChargeState == ChargeState.Dead && !siliconDeadComp.Dead)
+        if (args.ChargePercent == 0 && siliconDeadComp.Dead)
+            return;
+
+        if (args.ChargePercent == 0 && !siliconDeadComp.Dead)
             SiliconDead(uid, siliconDeadComp, batteryComp, batteryUid);
-        else if (args.ChargeState != ChargeState.Dead && siliconDeadComp.Dead)
-        {
-            if (siliconDeadComp.DeadBuffer > 0)
-            {
-                siliconDeadComp.WakeToken?.Cancel(); // This should never matter, but better safe than loose timers.
-
-                var wakeToken = new CancellationTokenSource();
-                siliconDeadComp.WakeToken = wakeToken;
-
-                // If battery is dead, wait the dead buffer time and then wake it up.
-                Timer.Spawn(TimeSpan.FromSeconds(siliconDeadComp.DeadBuffer), () =>
-                {
-                    if (wakeToken.IsCancellationRequested)
-                        return;
-
-                    SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
-                }, wakeToken.Token);
-            }
-            else
-                SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
-        }
+        else if (args.ChargePercent != 0 && siliconDeadComp.Dead)
+            SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryUid);
     }
 
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp, EntityUid batteryUid)
@@ -69,6 +48,12 @@ public sealed class SiliconDeathSystem : EntitySystem
         EntityManager.EnsureComponent<SleepingComponent>(uid);
         EntityManager.EnsureComponent<ForcedSleepingComponent>(uid);
 
+        if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
+        {
+            var layers = HumanoidVisualLayersExtension.Sublayers(HumanoidVisualLayers.HeadSide);
+            _humanoidAppearanceSystem.SetLayersVisibility((uid, humanoidAppearanceComponent), layers, false);
+        }
+
         siliconDeadComp.Dead = true;
 
         RaiseLocalEvent(uid, new SiliconChargeDeathEvent(uid, batteryComp, batteryUid));
@@ -76,6 +61,7 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void SiliconUnDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp, EntityUid batteryUid)
     {
+        RemComp<ForcedSleepingComponent>(uid);
         _sleep.TryWaking(uid, true, null);
 
         siliconDeadComp.Dead = false;

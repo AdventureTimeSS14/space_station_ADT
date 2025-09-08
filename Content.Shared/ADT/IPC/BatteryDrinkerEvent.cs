@@ -1,5 +1,3 @@
-// Simple station
-
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 

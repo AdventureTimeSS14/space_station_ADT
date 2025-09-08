@@ -1,8 +1,4 @@
-// Simple Station
-
-using System.ComponentModel.DataAnnotations;
 using Robust.Shared.Audio;
-using Content.Server.Sound.Components;
 
 namespace Content.Server.ADT.Silicon;
 
@@ -12,15 +8,18 @@ namespace Content.Server.ADT.Silicon;
 [RegisterComponent]
 public sealed partial class SiliconEmitSoundOnDrainedComponent : Component
 {
-    [DataField("sound"), Required]
+    [DataField]
     public SoundSpecifier Sound = default!;
 
-    [DataField("interval")]
-    public float Interval = 8f;
+    [DataField]
+    public TimeSpan MinInterval = TimeSpan.FromSeconds(8);
 
-    [DataField("playChance")]
+    [DataField]
+    public TimeSpan MaxInterval = TimeSpan.FromSeconds(15);
+
+    [DataField]
     public float PlayChance = 1f;
 
-    [DataField("popUp")]
-    public string? PopUp;
+    [DataField]
+    public string? PopUp = "silicon-power-low";
 }

@@ -1,5 +1,3 @@
-// Simple Station
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Power.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -19,7 +17,6 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    //[Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -89,8 +86,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             doAfterTime *= sourceComp.DrinkSpeedMulti;
         else
             doAfterTime *= drinkerComp.DrinkAllMultiplier;
-        var args = new DoAfterArgs(_entityManager, user, doAfterTime, new BatteryDrinkerDoAfterEvent(), user, target) //modern.df
-        //var args = new DoAfterArgs(user, doAfterTime, new BatteryDrinkerDoAfterEvent(), user, target) // TODO: Make this doafter loop, once we merge Upstream.
+
+        var args = new DoAfterArgs(_entityManager, user, doAfterTime, new BatteryDrinkerDoAfterEvent(), user, target)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -112,11 +109,11 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         var drinker = uid;
         var sourceBattery = Comp<BatteryComponent>(source);
 
-        TryGetFillableBattery(drinker, out var drinkerBattery, out var drinkerBatteryUid);
+        if (!TryGetFillableBattery(drinker, out var drinkerBattery, out var drinkerBatteryUid))
+            return;
 
-        TryComp<BatteryDrinkerSourceComponent>(source, out var sourceComp);
-
-        DebugTools.AssertNotNull(drinkerBattery);
+        if (!TryComp<BatteryDrinkerSourceComponent>(source, out var sourceComp))
+            return;
 
         if (drinkerBattery == null)
             return;
@@ -127,7 +124,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         amountToDrink = MathF.Min(amountToDrink, drinkerBattery.MaxCharge - drinkerBattery.CurrentCharge);
 
         if (sourceComp != null && sourceComp.MaxAmount > 0)
-            amountToDrink = MathF.Min(amountToDrink, (float) sourceComp.MaxAmount);
+            amountToDrink = MathF.Min(amountToDrink, (float)sourceComp.MaxAmount);
 
         if (amountToDrink <= 0)
         {
@@ -139,9 +136,14 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         {
             _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink, drinkerBattery);
             if (drinkerBattery.CurrentCharge < drinkerBattery.MaxCharge * 0.95f)
+            {
                 args.Repeat = true;
+            }
             else
+            {
                 args.Repeat = false;
+            }
+
         }
 
         else
@@ -150,8 +152,5 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             _battery.SetCharge(source, 0, sourceBattery);
             args.Repeat = false;
         }
-
-        //if (sourceComp != null && sourceComp.DrinkSound != null)
-        //    _audio.PlayPvs(sourceComp.DrinkSound, source);
     }
 }

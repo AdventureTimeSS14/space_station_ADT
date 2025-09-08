@@ -1,12 +1,9 @@
-// Simple Station
-
 using Content.Server.Electrocution;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Electrocution;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Power.Systems;
 
