@@ -305,17 +305,15 @@ public sealed class ChaplainSystem : EntitySystem
 
         args.Handled = true;
 
+        if (component.Power < component.HolyWaterCost)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("chaplain-not-enough-power"), uid, uid);
+            return;
+        }
 
         if (TryComp<MetaDataComponent>(target, out var metaData) && metaData.EntityPrototype != null)
         {
             var entityId = metaData.EntityPrototype.ID;
-
-            // ADT-Tweak: проверяем ресурс до выполнения, стоимость списываем лишь при успехе
-            if (component.Power < component.HolyWaterCost)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("chaplain-not-enough-power"), uid, uid);
-                return;
-            }
 
             if (entityId.Contains("Candle") && !entityId.EndsWith("Infinite"))
             {
@@ -375,12 +373,11 @@ public sealed class ChaplainSystem : EntitySystem
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
                 _audio.PlayPvs(component.HolyWaterSoundPath, uid);
             }
-
             else
             {
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-nothing", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-                return;
             }
+            return;
         }
 
         if (HasComp<PhantomComponent>(target) || HasComp<RevenantComponent>(target))
