@@ -83,7 +83,7 @@
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-      - Grenade
+      - Сleanaderound #ADT tweak Grenade -> Сleanaderound
     proto: GrenadeCleanade
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
@@ -192,6 +192,11 @@
       proto: CannonBall
       soundInsert:
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    #ADT-tweak-start
+    - type: UseDelayOnShoot
+    - type: UseDelay
+      delay: 6
+    #ADT-tweak-end
 
 - type: entity
   name: tether gun

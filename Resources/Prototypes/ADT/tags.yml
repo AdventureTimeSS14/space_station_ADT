@@ -104,9 +104,6 @@
   id: ADTBola
 
 - type: Tag
-  id: ADTAloe
-
-- type: Tag
   id: Eyes
 
 - type: Tag
@@ -484,49 +481,6 @@
 - type: Tag
   id: ADTBeerCan
 
-  # New Year
-
-- type: Tag
-  id: ADTGoldenStarGarland
-
-- type: Tag
-  id: ADTSilverStarGarland
-
-- type: Tag
-  id: ADTBaseStarGarland
-
-- type: Tag
-  id: ADTShinyGarland
-
-- type: Tag
-  id: ADTTreeGoldenStar
-
-- type: Tag
-  id: ADTTreeRedStar
-
-- type: Tag
-  id: ADTTreeSilverStar
-
-- type: Tag
-  id: ADTTreeRedBalls
-
-- type: Tag
-  id: ADTTreeGoldenBalls
-
-- type: Tag
-  id: ADTTreeSilverBalls
-
-- type: Tag
-  id: ADTTreeRedMishura
-
-- type: Tag
-  id: ADTTreeGoldenMishura
-
-- type: Tag
-  id: ADTTreeSilverMishura
-
-  # ADT NEW YEAR END /\/\/\/\/\/\/\/\/\/\/\/\
-
 - type: Tag
   id: ADTPillExperimental
 
@@ -556,6 +510,9 @@
 
 - type: Tag
   id: ADTSlimeEmotes
+
+- type: Tag
+  id: ADTShadekinEmotes
 
 - type: Tag
   id: ADTDogEmotes
@@ -694,3 +651,9 @@
 
 - type: Tag
   id: YV2Pistol
+
+- type: Tag
+  id: Сleanaderound
+
+- type: Tag
+  id: ADTFullRiotShieldSyndi
