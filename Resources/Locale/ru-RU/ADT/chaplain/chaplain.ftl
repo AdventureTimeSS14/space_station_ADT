@@ -26,7 +26,7 @@ chaplain-holy-water-nothing = Внутри {$target} нечего освящат
 chaplain-cursed-touch= Вы коснулись ЗЛА!
 
 chaplain-holy-touch-fail-self = Вы касаетесь {$target}, но ничего не происходит.
-chaplain-holy-touch-fail-target = {CAPITALIZE($issuer)} касается вас. Вы чувствуете благославление.
+chaplain-holy-touch-fail-target = {CAPITALIZE($issuer)} касается вас. Вы чувствуете благословение.
 
 chaplain-candle-transform-success = Вы успешно освятили {$target}!
 
