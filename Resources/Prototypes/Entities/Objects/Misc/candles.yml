@@ -253,7 +253,7 @@
 - type: entity
   name: small purple candle
   parent: CandleSmall
-  id: CandlePurplSmall
+  id: CandlePurpleSmall
   components:
   - type: Sprite
     layers:
