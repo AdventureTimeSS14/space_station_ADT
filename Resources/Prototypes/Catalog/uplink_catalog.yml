@@ -23,7 +23,7 @@
   discountDownTo:
     Telecrystal: 3 #ADTtweak 2->3
   cost:
-    Telecrystal: 5 #ADTtweak 4->5
+    Telecrystal: 5 #ADT-tweak 4->5
   categories:
   - UplinkWeaponry
 
