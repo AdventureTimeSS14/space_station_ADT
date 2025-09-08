@@ -1,3 +1,6 @@
+using Content.Shared.ADT.Systems.PickupHumans;
+using Content.Shared.ADT.Components.PickupHumans;
+using Content.Shared.Construction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
@@ -26,6 +29,7 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly StackSystem _stacks = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedPickupHumansSystem _pickupsys = default!;
 
     private float CountToRadius;
 
@@ -33,7 +37,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<BsCrystalTeleportComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<BsCrystalTeleportComponent, ThrowDoHitEvent>(OnThrowInMob);
         SubscribeLocalEvent<BsCrystalTeleportComponent, ProjectileHitEvent>(OnProjectileHit);
     }
 
@@ -46,20 +49,7 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         {
             if (TryComp<StackComponent>(uid, out var stackComp))
                 _stacks.Use(uid, 1, stackComp);
-
             args.Handled = true;
-        }
-    }
-
-    private void OnThrowInMob(Entity<BsCrystalTeleportComponent> uid, ref ThrowDoHitEvent args)
-    {
-        var radius = GetThrowRadius(uid, uid.Comp);
-        if (TryTeleport(args.Target, radius, uid.Comp.TeleportSound))
-        {
-            var xform = Transform(args.Target);
-            _xform.AnchorEntity(args.Target, xform);
-            if (TryComp<StackComponent>(uid, out var stackComp))
-                _stacks.Use(uid, stackComp.Count, stackComp);
         }
     }
     private void OnProjectileHit(Entity<BsCrystalTeleportComponent> uid, ref ProjectileHitEvent args)
@@ -67,12 +57,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         TryTeleport(args.Target, uid.Comp.TeleportRadiusThrow, uid.Comp.TeleportSound);
     }
 
-    private float GetThrowRadius(Entity<BsCrystalTeleportComponent> uid, BsCrystalTeleportComponent component)
-    {
-        if (TryComp<StackComponent>(uid, out var stack) && stack.Count > 1)
-            return stack.Count + component.TeleportRadiusThrow;
-        return component.TeleportRadiusThrow;
-    }
 
 
     private bool TryTeleport(EntityUid entity, float radius, SoundSpecifier sound)
@@ -86,11 +70,13 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     }
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius)
     {
+        if (TryComp<TakenHumansComponent>(uid,out var takenComp))
+            if (TryComp<PickupHumansComponent>(uid,out var pickupComp))
+                _pickupsys.DropFromHands(pickupComp.User, takenComp.Target);
         EntityCoordinates coords = Transform(uid).Coordinates;
         var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-radius, +radius), coords.Y + _random.NextFloat(-radius, +radius));
 
         _transform.SetCoordinates(uid, newCoords);
-        _transform.AttachToGridOrMap(uid, Transform(uid));
         return newCoords;
     }
 }
