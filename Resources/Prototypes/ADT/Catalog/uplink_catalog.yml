@@ -514,7 +514,7 @@
   description: uplink-mute-toxin-desc
   productEntity: ChemistryBottleMuteToxin
   cost:
-    Telecrystal: 1 # ADTtweak 2->1
+    Telecrystal: 1 # Tweak 2->1
   categories:
   - UplinkJob
   conditions:
