@@ -176,7 +176,7 @@
   - type: RgbLightController
     layers: [ 1 ]
 
-- type: entity
+- type: entity #ADT‑Tweak
   name: SimpleMobBaseLava
   parent:
   - MobRespirator
