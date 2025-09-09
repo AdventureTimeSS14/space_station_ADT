@@ -53,6 +53,11 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.50 #ADT‑Tweak
+  # ADT-Commented-start
+  # - type: Bloodstream
+  #   bloodMaxVolume: 350
+  #   chemicalMaxVolume: 0
+  # ADT-Commented-end
   - type: MobThresholds
     thresholds:
       0: Alive
