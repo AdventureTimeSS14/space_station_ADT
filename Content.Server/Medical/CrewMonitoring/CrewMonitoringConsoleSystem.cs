@@ -91,13 +91,13 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (component.Departments.Count > 0)
         {
             var allowedDepartmentNames = new List<string>();
-            foreach (var deptVersion in component.Departments)
+            foreach (var dept in component.Departments)
             {
-                var deptId = deptVersion.ToString();
+                var deptId = dept.ToString();
                 if (_proto.TryIndex<DepartmentPrototype>(deptId, out var department))
                 {
-                    var localizedDeptName = Loc.GetString(department.Name);
-                    allowedDepartmentNames.Add(localizedDeptName);
+                    var localizedDepartmentName = Loc.GetString(department.Name);
+                    allowedDepartmentNames.Add(localizedDepartmentName);
                 }
             }
 

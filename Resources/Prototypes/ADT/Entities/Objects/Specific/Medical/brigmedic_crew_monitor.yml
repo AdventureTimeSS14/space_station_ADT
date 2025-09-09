@@ -9,3 +9,4 @@
     departments: [Security]
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/brigmedic_handheldcrewmonitor.rsi
+    state: scanner
