@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMobAsteroid
   parent:
-  - ADTSimpleMobBaselavaland
+  - ADTSimpleMobBaselavaland #ADT-Tweak: сменил перент на наш для удобства
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
