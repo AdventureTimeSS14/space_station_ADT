@@ -1,7 +1,7 @@
 ﻿- type: entity
   name: watcher
   id: MobWatcherBase
-  parent: [ ADTSimpleMobBaselavaland, FlyingMobBase ] #ADT‑Tweak: Сменил перент на наш
+  parent: [ ADTSimpleMobBaselavaland, FlyingMobBase ] #ADT‑Tweak: Сменил перент на наш (SimpleSpaceMobBase - > ADTSimpleMobBaselavaland)
   abstract: true
   description: It's like it's staring right through you.
   components:
