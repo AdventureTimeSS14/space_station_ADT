@@ -334,3 +334,6 @@ ent-ADTClothingJumpsuitParamedicFieldSuit = полевой комбинезон 
 
 ent-ADTClothingJumpsuitDryadCoverings = подвязки дриады
     .desc = Та самая одежда, что выращена самой богиней природы.
+
+ent-ClothingUniformJumpsuitCommandGeneric = униформа командования
+    .desc = Обычный комбинезон расцветки командования, не связанный с каким-либо конкретным отделом.
