@@ -45,6 +45,7 @@
     # - id: MorphSpawn #ADT tweak morph #TODO: Раскомментить после фикса
     - id: PhantomSpawn # ADT tweak phantom
     - id: VoxRaidersEvent # ADT tweak vox-raiders
+    - id: ReplicatorSpawn # SD replicators
     # - id: ZombieOutbreak
 
 - type: entity
