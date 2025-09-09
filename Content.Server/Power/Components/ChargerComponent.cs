@@ -34,6 +34,8 @@ namespace Content.Server.Power.Components
         [DataField]
         public bool Portable = false;
 
+        // ADT-Tweak-Start
+
         /// <summary>
         /// The temperature the charger will stop heating up at.
         /// </summary>
@@ -57,5 +59,7 @@ namespace Content.Server.Power.Components
         /// </remarks>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public int MinChargeSize = 1000;
+
+        // ADT-Tweak-End
     }
 }

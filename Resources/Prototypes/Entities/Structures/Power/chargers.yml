@@ -300,7 +300,8 @@
     whitelist:
       components:
       - BorgChassis
-      - Inventory #ADT tweak
+      - Inventory # ADT-Tweak
+      - Silicon # ADT-Tweak
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
