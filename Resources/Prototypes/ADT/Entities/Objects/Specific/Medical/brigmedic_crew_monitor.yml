@@ -1,0 +1,12 @@
+# ADT-Tweak - Brigmedic version monitor - security-only view
+- type: entity
+  id: HandheldCrewMonitorBrigmedic
+  parent: HandheldCrewMonitor
+  name: brigmedic crew monitor
+  description: A hand-held crew monitor showing security personnel only.
+  components:
+  - type: CrewMonitoringConsole
+    departments: [Security]
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/brigmedic_handheldcrewmonitor.rsi
+    state: scanner
