@@ -84,7 +84,7 @@
       AggroVisionRadius: !type:Single
         10
   # ADT-Tweak end
-
+  
 - type: entity
   id: MobWatcherLavaland
   parent: MobWatcherBase
