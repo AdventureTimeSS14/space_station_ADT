@@ -320,3 +320,15 @@
   id: VoxCry
   files:
     - /Audio/ADT/Voice/Vox/voxcry.ogg
+
+# Shadekin
+
+- type: soundCollection
+  id: Wurble
+  files:
+    - /Audio/ADT/Voice/Shadekin/wurble.ogg
+
+- type: soundCollection
+  id: Purse
+  files:
+    - /Audio/Effects/thudswoosh.ogg

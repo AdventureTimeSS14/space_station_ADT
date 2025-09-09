@@ -1869,13 +1869,6 @@ entities:
           - 2089
           - 2082
           - 2086
-- proto: ADTClothingHeadHatsBavarianHatRed
-  entities:
-  - uid: 6
-    components:
-    - type: Transform
-      pos: -8.293033,13.546783
-      parent: 2
 - proto: ADTClothingNeckInvisibleCloak
   entities:
   - uid: 2072
@@ -1964,13 +1957,6 @@ entities:
     components:
     - type: Transform
       pos: -7.5,10.5
-      parent: 2
-- proto: ADTSpiderStool
-  entities:
-  - uid: 13
-    components:
-    - type: Transform
-      pos: -8.5,14.5
       parent: 2
 - proto: ADTtelescopicBaton
   entities:

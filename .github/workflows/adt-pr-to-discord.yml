@@ -1,7 +1,7 @@
 name: Notify Discord on PR Merge
 
 on:
-  pull_request:
+  pull_request_target:
     types: [closed]
     branches: [master]
 
@@ -19,3 +19,4 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           GITHUB_EVENT_PATH: ${{ github.event_path }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
