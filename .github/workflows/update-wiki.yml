@@ -16,7 +16,7 @@ on:
       - 'Resources/Prototypes/Recipes/Reactions/**.yml'
       - 'RobustToolbox/'
       - 'Resources/Prototypes/ADT/Reagents/**.yml'
-      - 'Resources/Prototypes/adt/Chemistry/**.yml'
+      - 'Resources/Prototypes/ADT/Chemistry/**.yml'
       - 'Resources/Prototypes/ADT/Recipes/Reactions/**.yml'
 
 jobs:
