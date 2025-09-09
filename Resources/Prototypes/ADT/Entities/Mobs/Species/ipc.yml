@@ -118,6 +118,7 @@
     - SiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
+    - AnomalyHost
   - type: Inventory
     templateId: ipc
   - type: SizeAttributeWhitelist

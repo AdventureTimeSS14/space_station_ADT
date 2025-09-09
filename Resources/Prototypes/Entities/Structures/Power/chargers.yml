@@ -250,11 +250,13 @@
         visible: false
   - type: Charger
     chargeRate: 30
+    targetTemp: 380 # ADT-Tweak
     slotId: entity_storage
     whitelist:
       components:
       - BorgChassis
-      - Inventory #ADT tweak
+      - Inventory # ADT-Tweak
+      - Silicon # ADT-Tweak
   - type: Construction
     containers:
     - machine_parts
