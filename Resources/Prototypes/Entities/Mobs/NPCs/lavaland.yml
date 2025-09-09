@@ -8,6 +8,11 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+  # ADT-Tweak-comment-start
+  # - type: HTN
+  #   rootTask:
+  #     task: SimpleRangedHostileCompound
+  # ADT-Tweak-comment-end
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Lavaland/watcher.rsi
