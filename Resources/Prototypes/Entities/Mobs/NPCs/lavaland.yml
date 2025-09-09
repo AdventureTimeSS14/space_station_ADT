@@ -74,6 +74,7 @@
       path: /Audio/Animals/lizard_happy.ogg
   - type: Fauna # ADT-Tweak start
   - type: AshStormImmune 
+  # - type: GrabProtection # ADT-Tweak-Comment
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
