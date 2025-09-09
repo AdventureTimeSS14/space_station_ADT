@@ -25,10 +25,10 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public bool IsEmagged = false;
 
     /// <summary>
-    /// What version of the monitor this is (e.g., Full or SecurityOnly)
+    /// What departments this monitor can see. If empty, shows all departments.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public CrewMonitoringVersion Version = CrewMonitoringVersion.Full;
+    [DataField("departments")]
+    public List<CrewMonitoringDepartment> Departments = new();
 
     /// <summary>
     /// Emag sound effects.

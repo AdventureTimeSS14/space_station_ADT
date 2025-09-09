@@ -11,6 +11,10 @@ using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+// ADT-Tweak-Start
+using Robust.Shared.Prototypes;
+using Content.Shared.Roles;
+// ADT-Tweak-End
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -19,7 +23,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 
+
     // ADT-Tweak-Start
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     // ADT-Tweak-End
@@ -81,22 +87,27 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         // Update all sensors info
         var allSensors = component.ConnectedSensors.Values.ToList();
 
-        // Apply version-specific filtering
-        if (component.Version == CrewMonitoringVersion.SecurityOnly)
+        //ADT-Tweak-Start: Filtering by departments
+        if (component.Departments.Count > 0)
         {
-            allSensors = allSensors.Where(s =>
-                (s.JobDepartments != null && s.JobDepartments.Contains("Security")) ||
-                (!string.IsNullOrEmpty(s.Job) && (
-                    s.Job.Contains("Security", StringComparison.OrdinalIgnoreCase) ||
-                    s.Job.Contains("Officer", StringComparison.OrdinalIgnoreCase) ||
-                    s.Job.Contains("Brig", StringComparison.OrdinalIgnoreCase) ||
-                    s.Job.Contains("Warden", StringComparison.OrdinalIgnoreCase) ||
-                    s.Job.Contains("Detective", StringComparison.OrdinalIgnoreCase) ||
-                    s.Job.Contains("Captain", StringComparison.OrdinalIgnoreCase)
-                ))
-            ).ToList();
-        }
+            var allowedDepartmentNames = new List<string>();
+            foreach (var deptVersion in component.Departments)
+            {
+                var deptId = deptVersion.ToString();
+                if (_proto.TryIndex<DepartmentPrototype>(deptId, out var department))
+                {
+                    var localizedDeptName = Loc.GetString(department.Name);
+                    allowedDepartmentNames.Add(localizedDeptName);
+                }
+            }
 
+            if (allowedDepartmentNames.Count > 0)
+            {
+                allSensors = allSensors.Where(s => s.JobDepartments != null &&
+                    s.JobDepartments.Any(dept => allowedDepartmentNames.Contains(dept))).ToList();
+            }
+        }
+        // ADT-Tweak-End
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, component.IsEmagged)); // ADT-Tweak
     }
 
