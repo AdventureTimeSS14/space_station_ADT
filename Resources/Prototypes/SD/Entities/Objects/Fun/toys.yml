@@ -62,3 +62,33 @@
   - type: Sprite
     sprite: SD/Objects/Fun/toys.rsi
     state: plush_ZHETS
+
+- type: entity
+  parent: PlushieAtmosian
+  id: SDPlushieDiana
+  name: Diana plushie
+  description: It looks like a soft and cute atmos.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Fun/toys.rsi
+    state: plush_diana
+
+- type: entity
+  parent: BasePlushie
+  id: SDPlushieMelima
+  name: Melima plushie
+  description: It looks like a soft and cute elf girl.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Fun/toys.rsi
+    state: plush_melima
+
+- type: entity
+  parent: BasePlushie
+  id: SDPlushieSammy
+  name: Sammy plushie
+  description: wow.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Fun/toys.rsi
+    state: plush_sammy
