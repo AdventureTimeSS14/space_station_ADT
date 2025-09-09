@@ -8,7 +8,7 @@ namespace Content.Server.ADT.Silicon;
 [RegisterComponent]
 public sealed partial class SiliconEmitSoundOnDrainedComponent : Component
 {
-    [DataField]
+    [DataField(required: true)]
     public SoundSpecifier Sound = default!;
 
     [DataField]
