@@ -52,7 +52,7 @@
         Base: goliath_dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
-    baseSprintSpeed : 2.50
+    baseSprintSpeed : 2.50 #ADT‑Tweak
   - type: MobThresholds
     thresholds:
       0: Alive
