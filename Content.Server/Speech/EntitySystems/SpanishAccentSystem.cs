@@ -73,7 +73,7 @@ namespace Content.Server.Speech.EntitySystems
             //args.Message = Accentuate(args.Message);
             var message = args.Message;
 
-            // @"\b\b" вместо обычного "" нужно, чтобы не получалось ошибок по типу: "Siква"
+            // @"\b\b" вместо обычного "" нужно, чтобы не получалось ошибок по типу: "Siнные"
 
             message = Regex.Replace(message, @"\bЧто\b", "Que");
             message = Regex.Replace(message, @"\bЧТО\b", "QUE");
@@ -200,10 +200,6 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bСвинья\b", "Cerdo");
             message = Regex.Replace(message, @"\bСВИНЬЯ\b", "CERDO");
             message = Regex.Replace(message, @"\bсвинья\b", "cerdo");
-
-            message = Regex.Replace(message, @"\bТы\b", "Tu");
-            message = Regex.Replace(message, @"\bТЫ\b", "TU");
-            message = Regex.Replace(message, @"\bты\b", "tu");
 
             message = Regex.Replace(message, @"\bСпасибо\b", "Gracias");
             message = Regex.Replace(message, @"\bСПАСИБО\b", "GRACIAS");
@@ -382,9 +378,18 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bИдите нахуй\b", "Vete a la mierda");
             message = Regex.Replace(message, @"\bИДИТЕ НАХУЙ\b", "VETE A LA MIERDA");
             message = Regex.Replace(message, @"\bидите нахуй\b", "vete a la mierda");
+            message = Regex.Replace(message, @"\bПошел ты нахуй\b", "Vete a la mierda");
+            message = Regex.Replace(message, @"\bПОШЕЛ ТЫ НАХУЙ\b", "VETE A LA MIERDA");
+            message = Regex.Replace(message, @"\bпошел ты нахуй\b", "vete a la mierda");
             message = Regex.Replace(message, @"\bПошли вы нахуй\b", "Vete a la mierda");
             message = Regex.Replace(message, @"\bПОШЛИ ВЫ НАХУЙ\b", "VETE A LA MIERDA");
             message = Regex.Replace(message, @"\bпошли вы нахуй\b", "vete a la mierda");
+            message = Regex.Replace(message, @"\bПошёл ты нахуй\b", "Vete a la mierda");
+            message = Regex.Replace(message, @"\bПОШЁЛ ТЫ НАХУЙ\b", "VETE A LA MIERDA");
+            message = Regex.Replace(message, @"\bпошёл ты нахуй\b", "vete a la mierda");
+            message = Regex.Replace(message, @"\bИди ты нахуй\b", "Vete a la mierda");
+            message = Regex.Replace(message, @"\bИДИ ТЫ НАХУЙ\b", "VETE A LA MIERDA");
+            message = Regex.Replace(message, @"\bиди ты нахуй\b", "vete a la mierda");
             message = Regex.Replace(message, @"\bИдите вы нахуй\b", "Vete a la mierda");
             message = Regex.Replace(message, @"\bИДИТЕ ВЫ НАХУЙ\b", "VETE A LA MIERDA");
             message = Regex.Replace(message, @"\bидите вы нахуй\b", "vete a la mierda");
