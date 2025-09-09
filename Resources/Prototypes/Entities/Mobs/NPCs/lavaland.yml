@@ -154,7 +154,7 @@
     - id: PlasmaOre1 #ADT tweak
       maxAmount: 2
     - id: DiamondOre1 #ADT tweak
-      maxAmount: 2 #ADT tweak   
+      maxAmount: 2 #ADT tweak
 
 - type: entity
   id: MobWatcherPride
