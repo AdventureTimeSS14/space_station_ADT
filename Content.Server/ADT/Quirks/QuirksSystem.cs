@@ -10,12 +10,12 @@ namespace Content.Server.ADT.Traits;
 public sealed class QuirksSystem : SharedQuirksSystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<EntityStorageComponent, GetVerbsEvent<AlternativeVerb>>(OnGetHideVerbs);
-
     }
 
     private void OnGetHideVerbs(EntityUid uid, EntityStorageComponent comp, GetVerbsEvent<AlternativeVerb> args)
@@ -29,7 +29,6 @@ public sealed class QuirksSystem : SharedQuirksSystem
             return;
         if (comp.Contents.Contains(args.User))
             return;
-
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.User))
             return;
         if (TryComp<LockComponent>(uid, out var lockComponent) && lockComponent.Locked)

@@ -4,28 +4,21 @@
   description: job-description-magistrat
   playTimeTracker: JobMagistrat
   requirements:
-# ADT-Tweak-start
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 108000 # (30 hours)
+      time: 108000 # 30 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 198000 # 600000 -> 198000 (100h -> 55h)
+      time: 198000 # 55 hrs
     - !type:DepartmentTimeRequirement
       department: Juridical
-      time: 108000 # (30 hours)
-# ADT-Tweak-end
-    - !type:AgeRequirement #ADT-Tweak
+      time: 108000 # 30 hrs
+    - !type:AgeRequirement
       requiredAge: 30
-    # - !type:DepartmentTimeRequirement
-    #   department: Sponsor
-    #   time: 10
-    #ADT tweak start
     - !type:SpeciesRequirement
       inverted: true
       species:
       - Vox
-      #ADT tweak end
   startingGear: MagistratGear
   icon: "JobIconMagistrat"
   requireAdminNotify: true
@@ -48,32 +41,15 @@
 - type: startingGear
   id: MagistratGear
   equipment:
-#    jumpsuit: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
-#    back: ClothingBackpackIAAFilled
     shoes: ClothingShoesBootsLaceup
-    #mask: Ну что за косипор оставляет пустуе значения?
-    #outerClothing: ClothingOuterRobesJudge
     eyes: ClothingEyesGlassesCommand
-    #head: ClothingHeadHatPwig
     id: MagistratPDA
-    #gloves:
     ears: ClothingHeadsetMagistrat
     belt: ClothingBeltStorageWaistbag
-    #neck: ClothingNeckLawyerbadge
     pocket2: RubberStampMagisrat
   storage:
     back:
     - Flash
     - WeaponDisabler
     - Zipties
-  # ADT-TelescopicBaton
     - ADTtelescopicBaton
-  # ADT-TelescopicBaton
-#    pocket1: ADTtelescopicBaton
-#    underwearb: ClothingUnderwearBottomBoxersWhite
-#    socks: ClothingUnderwearSocksNormal
-#  underweart: ClothingUnderwearTopBraWhite
-#  underwearb: ClothingUnderwearBottomPantiesWhite
-#  innerClothingSkirt: ADTClothingUniformsJumpsuitWhiteDiplomatSuitL
-#  satchel: ClothingBackpackSatchelIAAFilled
-#  duffelbag: ClothingBackpackDuffelIAAFilled
