@@ -29,6 +29,7 @@
       - id: BoxBodyBag
       - id: ChemistryBottleEpinephrine
         amount: 1
+      - id: ADTHandheldCrewMonitorBrigmedic
 
 - type: entity
   id: LockerBrigmedicFilled
