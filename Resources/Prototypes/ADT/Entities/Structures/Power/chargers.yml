@@ -22,9 +22,6 @@
       - state: HV
       - state: MV
       - state: LV
-  - type: Icon
-    sprite: ADT/Structures/Machines/borgcharger.rsi
-    state: icon
   - type: Construction
     containers:
     - machine_parts
@@ -78,4 +75,10 @@
           Charged:
             visible: true
             state: borgcharger1
-
+  - type: EntityStorage
+    capacity: 1
+    whitelist:
+      components:
+      - BorgChassis
+      - Inventory
+      - Silicon
