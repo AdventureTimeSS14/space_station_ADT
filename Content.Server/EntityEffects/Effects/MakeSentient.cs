@@ -1,11 +1,9 @@
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
-using Content.Server.Chat.Systems; // ADT-tweak
 using Content.Shared.EntityEffects;
 using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Components; // ADT-tweak
 using Content.Shared.NPC.Systems; // ADT-tweak
-using Content.Shared.Chat; // ADT-tweak
 using Content.Shared.NPC.Prototypes; // ADT-tweak
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Language;
@@ -28,7 +26,7 @@ public sealed partial class MakeSentient : EntityEffect
         entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
 
-        // ADT Languages
+        // ADT Languages start
         var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
         if (!lang.Languages.ContainsKey("GalacticCommon"))
             lang.Languages.Add("GalacticCommon", LanguageKnowledge.Speak);
@@ -36,7 +34,7 @@ public sealed partial class MakeSentient : EntityEffect
             lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
         // ADT Languages end
 
-        ShowCognizineEffect(uid, entityManager); // ADT-tweak
+        MakeFriendlyToStation(uid, entityManager); // ADT-tweak
 
         // Stops from adding a ghost role to things like people who already have a mind
         if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
@@ -45,31 +43,18 @@ public sealed partial class MakeSentient : EntityEffect
         }
 
         // Don't add a ghost role to things that already have ghost roles
-        if (entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
+        if (!entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
         {
-            return;
+            ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
+            entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
+
+            var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
+            ghostRole.RoleName = entityData.EntityName;
+            ghostRole.RoleDescription = Loc.GetString("ghost-role-information-friendly-cognizine-description"); // ADT-tweak
         }
-
-        MakeFriendlyToStation(uid, entityManager); // ADT-tweak
-
-        ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
-        entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
-
-        var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
-        ghostRole.RoleName = entityData.EntityName;
-        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-friendly-cognizine-description"); // ADT-tweak
     }
 
     // ADT-tweak start
-    private void ShowCognizineEffect(EntityUid uid, IEntityManager entityManager)
-    {
-        var chatSystem = entityManager.System<ChatSystem>();
-        var entityName = entityManager.GetComponent<MetaDataComponent>(uid).EntityName;
-
-        var emoteMessage = Loc.GetString("cognizine-effect-emote", ("entity", entityName));
-        chatSystem.TryEmoteWithChat(uid, emoteMessage);
-    }
-
     private void MakeFriendlyToStation(EntityUid uid, IEntityManager entityManager)
     {
         var factionSystem = entityManager.System<NpcFactionSystem>();
@@ -86,7 +71,7 @@ public sealed partial class MakeSentient : EntityEffect
         foreach (var factionId in factionComp.Factions)
         {
             if (protoMan.TryIndex<NpcFactionPrototype>(factionId, out var factionProto) &&
-            factionProto.Hostile.Contains("NanoTrasen"))
+                factionProto.Hostile.Contains("NanoTrasen"))
             {
                 factionSystem.RemoveFaction(uid, factionId, false);
                 wasHostile = true;
