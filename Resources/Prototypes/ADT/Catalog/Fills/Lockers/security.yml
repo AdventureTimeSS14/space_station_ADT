@@ -66,6 +66,7 @@
       - id: ChemistryBottleEpinephrine
         amount: 1
       - id: BrigmedicDuffelbagClothing
+      - id: ADTHandheldCrewMonitorBrigmedic
       - id: ADTBookSRPsec
       - id: ADTBookSRPmed
       - id: ADTBookPCDsec
