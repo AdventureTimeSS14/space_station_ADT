@@ -39,7 +39,7 @@ public sealed partial class PressureDamageModifySystem : EntitySystem
         {
             pressure = MathF.Max(mixture.Pressure, 1f);
         }
-        if (pressure >= component.Pressure)
+        if (pressure >= component.MaxPressure && pressure >= component.MinPressure)
         {
             args.Damage *= component.ProjDamage;
         }
@@ -62,7 +62,7 @@ public sealed partial class PressureDamageModifySystem : EntitySystem
             {
                 pressure = MathF.Max(mixture.Pressure, 1f);
             }
-            if (pressure <= component.Pressure)
+            if (pressure <= component.MaxPressure && pressure >= component.MinPressure)
             {
                 _damage.TryChangeDamage(ent, component.AdditionalDamage);
             }

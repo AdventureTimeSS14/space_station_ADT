@@ -514,7 +514,7 @@
   description: uplink-mute-toxin-desc
   productEntity: ChemistryBottleMuteToxin
   cost:
-    Telecrystal: 2
+    Telecrystal: 1 # Tweak 2->1
   categories:
   - UplinkJob
   conditions:
@@ -600,7 +600,7 @@
   description: uplink-maid-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledMaid
   cost:
-    Telecrystal: 20
+    Telecrystal: 15 #Tweak 20->15
   categories:
     - UplinkPointless
 

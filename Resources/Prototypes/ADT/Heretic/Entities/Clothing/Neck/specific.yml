@@ -24,5 +24,8 @@
     - type: Clothing
       sprite: ADT/Heretic/eldritch_medalion.rsi
     - type: ThermalVisionItem
-    - type: ItemToggle
+      toggleable: false
+      slotFlags: NECK
+    - type: ThermalVision
+      color: "#998989"
 

@@ -1,0 +1,22 @@
+name: Notify Discord on PR Merge
+
+on:
+  pull_request_target:
+    types: [closed]
+    branches: [master]
+
+jobs:
+  notify-discord:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Notify Discord about merged PR
+        run: python3 Tools/ADT/pr_to_discord.py
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}

@@ -13,6 +13,8 @@ using Robust.Server.Containers;
 using Content.Shared.Whitelist;
 using Content.Shared.Inventory;
 using Content.Shared.PowerCell;
+using Content.Server.Storage.Components;
+using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -25,6 +27,7 @@ internal sealed class ChargerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!; // ADT-Tweak
     public override void Initialize()
     {
         SubscribeLocalEvent<ChargerComponent, ComponentStartup>(OnStartup);
@@ -48,7 +51,7 @@ internal sealed class ChargerSystem : EntitySystem
         using (args.PushGroup(nameof(ChargerComponent)))
         {
             // rate at which the charger charges
-            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int) component.ChargeRate)));
+            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int)component.ChargeRate)));
 
             // try to get contents of the charger
             if (!_container.TryGetContainer(uid, component.SlotId, out var container))
@@ -72,7 +75,7 @@ internal sealed class ChargerSystem : EntitySystem
                         continue;
 
                     var chargePercentage = (battery.CurrentCharge / battery.MaxCharge) * 100;
-                    args.PushMarkup(Loc.GetString("charger-content", ("chargePercentage", (int) chargePercentage)));
+                    args.PushMarkup(Loc.GetString("charger-content", ("chargePercentage", (int)chargePercentage)));
                 }
             }
         }
@@ -80,18 +83,27 @@ internal sealed class ChargerSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, ContainerManagerComponent>();
+        var query = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>(); // ADT-Tweak
         while (query.MoveNext(out var uid, out _, out var charger, out var containerComp))
         {
-            if (!_container.TryGetContainer(uid, charger.SlotId, out var container, containerComp))
+            // if (!_container.TryGetContainer(uid, charger.SlotId, out var container, containerComp)) // ADT-Tweak-Start
+            //     continue; // ADT-Tweak-End
+
+            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged || containerComp.Contents.ContainedEntities.Count == 0) // ADT-Tweak
                 continue;
 
-            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged || container.ContainedEntities.Count == 0)
-                continue;
-
-            foreach (var contained in container.ContainedEntities)
+            foreach (var contained in containerComp.Contents.ContainedEntities) // ADT-Tweak
             {
                 TransferPower(uid, contained, charger, frameTime);
+
+                // ADT-Tweak-Start
+                if (containerComp.Airtight)
+                {
+                    var curTemp = containerComp.Air.Temperature;
+
+                    containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
+                }
+                // ADT-Tweak-End
             }
         }
     }
@@ -250,6 +262,13 @@ internal sealed class ChargerSystem : EntitySystem
 
         _battery.SetCharge(batteryUid.Value, heldBattery.CurrentCharge + component.ChargeRate * frameTime, heldBattery);
         UpdateStatus(uid, component);
+
+        // ADT-Tweak-Start
+        if ((heldBattery.MaxCharge - heldBattery.CurrentCharge) * 1.2 + heldBattery.MaxCharge < component.MinChargeSize && component.BlowUp)
+        {
+            _explosion.QueueExplosion(uid, "Default", heldBattery.MaxCharge / 50, 1.5f, 200, user: targetEntity);
+        }
+        // ADT-Tweak-End
     }
 
     /// ADT tweak method fully rewrited

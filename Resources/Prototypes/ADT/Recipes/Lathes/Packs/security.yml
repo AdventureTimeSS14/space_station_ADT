@@ -29,11 +29,6 @@
   - ADT40mmGrenadeSmokeRecipe
 
 - type: latheRecipePack
-  id: ADTWeaponExperimentalPKAPack
-  recipes:
-  - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
-
-- type: latheRecipePack
   id: ADTMechEquipmentSecTechfabPack
   recipes:
   # - MechEquipmentArmorMelee Вырезано из-за неработоспособности

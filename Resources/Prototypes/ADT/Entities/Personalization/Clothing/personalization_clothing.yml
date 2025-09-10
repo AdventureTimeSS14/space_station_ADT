@@ -1145,3 +1145,74 @@
     sprite: ADT/Personalization/kiwi_jumpskirt.rsi
   - type: Clothing
     sprite: ADT/Personalization/kiwi_jumpskirt.rsi
+
+#Sir_talter
+- type: entity
+  parent: [ClothingOuterArmorBasic, BadgeOnClothing]
+  id: ADTClothingOuterArmorMinerSirtalter
+  name: plated explorer suit
+  description: This explorer suit is reinforced with goliath hides. The pinnacle of mining ingenuity and Lavaland's own madness in the field of defense.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalter_armorminer.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalter_armorminer.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.4
+        Piercing: 0.95
+        Heat: 0.6
+        Caustic: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetMinerSirtalter
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      badge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHelmetMinerSirtalter
+  name: explorers plated hood
+  description: A way to protect your head from danger as crazy as the mind of the person who came up with it.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mining_helmet_sirtalter.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mining_helmet_sirtalter.rsi
+  - type: IngestionBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformMiningSirtalter
+  name: mining uniform
+  description: mining uniform
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalter_mining_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalter_mining_uniform.rsi

@@ -78,16 +78,19 @@ public sealed class GunUpgradeSystem : EntitySystem
         if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Used))
             return;
 
-        if (GetCurrentUpgradeTags(ent).ToHashSet().IsSupersetOf(upgradeComponent.Tags))
-        {
-            _popup.PopupPredicted(Loc.GetString("upgradeable-gun-popup-already-present"), ent, args.User);
-            return;
-        }
+        //ADT tweak start
+        // if (GetCurrentUpgradeTags(ent).ToHashSet().IsSupersetOf(upgradeComponent.Tags))
+        // {
+        //     _popup.PopupPredicted(Loc.GetString("upgradeable-gun-popup-already-present"), ent, args.User);
+        //     return;
+        // }
+        //ADT tweak end
 
         _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
         _popup.PopupClient(Loc.GetString("gun-upgrade-popup-insert", ("upgrade", args.Used),("gun", ent.Owner)), args.User);
         _gun.RefreshModifiers(ent.Owner);
         args.Handled = _container.Insert(args.Used, _container.GetContainer(ent, ent.Comp.UpgradesContainerId));
+        _gun.RefreshModifiers(ent.Owner); // ADT-Tweak
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} inserted gun upgrade {ToPrettyString(args.Used)} into {ToPrettyString(ent.Owner)}.");
     }
