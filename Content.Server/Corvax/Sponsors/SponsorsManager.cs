@@ -59,7 +59,7 @@ public sealed class SponsorsManager
             return;
         }
 
-        var isExpired = info.ExpireDate <= DateTime.UtcNow;
+        var isExpired = info.ExpireDate.ToLocalTime() <= DateTime.Now;
 
         if (isExpired && info.AllowJob)
         {
