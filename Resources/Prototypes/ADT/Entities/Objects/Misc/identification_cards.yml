@@ -407,11 +407,11 @@
 
 - type: entity
   parent: SalvageIDCard
-  id: ADTExcavatorIDCard
-  name: excavator ID card
+  id: ADTMinerIDCard
+  name: miner ID card
   components:
   - type: IdCard
-    jobTitle: job-name-excavator
+    jobTitle: job-name-ADTMiner
 
 # Scientist
 

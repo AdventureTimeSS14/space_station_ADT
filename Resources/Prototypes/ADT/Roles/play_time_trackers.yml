@@ -42,3 +42,6 @@
 
 - type: playTimeTracker
   id: JobADTBarber
+
+- type: playTimeTracker
+  id: JobADTMiner
