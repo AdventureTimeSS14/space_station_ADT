@@ -14,7 +14,7 @@
   id: ADTHandheldCrewMonitorBlueshield
   parent: HandheldCrewMonitor
   name: blueshield crew monitor
-  description: A hand-held crew monitor showing security personnel only.
+  description: description: A hand-held crew monitor showing security and command personnel.
   components:
   - type: CrewMonitoringConsole
     departments: [Security, Command]
