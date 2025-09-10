@@ -469,7 +469,6 @@
     angle: 225
   - type: StaticPrice
     price: 7500
-  - type: Boomerang
 
 - type: entity
   name: fetid baghnakhs
