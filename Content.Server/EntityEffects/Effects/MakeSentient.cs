@@ -2,6 +2,8 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mind.Components;
+using Content.Shared.NPC.Components; // ADT-tweak
+using Content.Shared.NPC.Systems; // ADT-tweak
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Language;
 
@@ -43,6 +45,7 @@ public sealed partial class MakeSentient : EntityEffect
             return;
         }
 
+        MakeFriendlyToStation(uid, entityManager); // ADT-tweak
 
         ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
         entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
@@ -51,4 +54,46 @@ public sealed partial class MakeSentient : EntityEffect
         ghostRole.RoleName = entityData.EntityName;
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
     }
+
+    /// <summary>
+    /// ADT-tweak start
+    /// Делает моба дружественным к станции путем смены фракции
+    /// </summary>
+    private void MakeFriendlyToStation(EntityUid uid, IEntityManager entityManager)
+    {
+        var factionSystem = entityManager.System<NpcFactionSystem>();
+
+        if (!entityManager.TryGetComponent<NpcFactionMemberComponent>(uid, out var factionComp))
+        {
+            factionSystem.AddFaction(uid, "PetsNT");
+            return;
+        }
+
+        var hostileFactions = new[]
+        {
+            "SimpleHostile", "Xeno", "Dragon", "Syndicate",
+            "AllHostile", "Wizard", "ADTSpaceMobs"
+        };
+
+        bool wasHostile = false;
+
+        foreach (var hostileFaction in hostileFactions)
+        {
+            if (factionSystem.IsMember(uid, hostileFaction))
+            {
+                factionSystem.RemoveFaction(uid, hostileFaction, false);
+                wasHostile = true;
+            }
+        }
+
+        if (wasHostile)
+        {
+            factionSystem.AddFaction(uid, "PetsNT", true);
+        }
+        else
+        {
+            factionSystem.AddFaction(uid, "SimpleNeutral", true);
+        }
+    }
+    // ADT-tweak end
 }
