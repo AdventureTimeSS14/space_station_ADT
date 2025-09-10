@@ -314,10 +314,10 @@
   rules:
     # ADT-Sound-Update-Start
     - !type:NearbyAccessRule
-      count: 3
+      count: 5
       access:
         - Medical
-      range: 3
+      range: 4
     # ADT-Sound-Update-End
 
 - type: rules

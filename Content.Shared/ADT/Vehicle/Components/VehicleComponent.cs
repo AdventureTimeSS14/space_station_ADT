@@ -37,7 +37,7 @@ public sealed partial class VehicleComponent : Component
     /// <summary>
     /// The sound that the horn makes
     /// </summary>
-    [DataField("hornSound")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier? HornSound = new SoundPathSpecifier("/Audio/Effects/Vehicle/carhorn.ogg")
     {
@@ -49,20 +49,20 @@ public sealed partial class VehicleComponent : Component
 
     /// Use ambient sound component for the idle sound.
 
-    [DataField("hornAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? HornAction = "ADTActionVehicleHorn";
 
     /// <summary>
     /// The action for the horn (if any)
     /// </summary>
-    [DataField("hornActionEntity")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? HornActionEntity;
 
     /// <summary>
     /// Whether the vehicle has a key currently inside it or not.
     /// </summary>
-    [DataField("hasKey")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool HasKey;
 
@@ -70,45 +70,45 @@ public sealed partial class VehicleComponent : Component
     /// Determines from which side the vehicle will be displayed on top of the player.
     /// </summary>
 
-    [DataField("southOver")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool SouthOver;
 
-    [DataField("northOver")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool NorthOver;
 
-    [DataField("westOver")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool WestOver;
 
-    [DataField("eastOver")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool EastOver;
 
     /// <summary>
     /// What the y buckle offset should be in north / south
     /// </summary>
-    [DataField("northOverride")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public float NorthOverride;
 
     /// <summary>
     /// What the y buckle offset should be in north / south
     /// </summary>
-    [DataField("southOverride")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public float SouthOverride;
 
-    [DataField("autoAnimate")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool AutoAnimate = true;
 
-    [DataField("useHand")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool UseHand = true;
 
-    [DataField("hideRider")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool HideRider;
 }
