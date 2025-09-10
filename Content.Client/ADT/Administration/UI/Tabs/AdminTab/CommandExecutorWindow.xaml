@@ -6,37 +6,30 @@
 
     <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
 
-        <!-- Заголовок с описанием -->
         <Label Text="{Loc admin-command-executor-description}"
                StyleClasses="LabelBig"
                HorizontalAlignment="Center"
                Margin="0 0 0 10" />
 
-        <!-- Панель с текстовым полем для команд -->
         <PanelContainer StyleClasses="chatPanel" VerticalExpand="True" Margin="5">
             <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="8">
 
-                <!-- Инструкция -->
                 <Label Text="{Loc admin-command-executor-instruction}"
                        StyleClasses="LabelSmall"
                        Margin="0 0 0 5" />
 
-                <!-- Текстовое поле для команд -->
                 <TextEdit Name="CommandText"
                           VerticalExpand="True" />
 
             </BoxContainer>
         </PanelContainer>
 
-        <!-- Панель с кнопками -->
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
 
-            <!-- Кнопка очистки -->
             <Button Name="ClearButton"
                     Text="{Loc admin-command-executor-clear}"
                     MinWidth="100" />
 
-            <!-- Кнопка выполнения -->
             <Button Name="ExecuteButton"
                     Text="{Loc admin-command-executor-execute}"
                     HorizontalExpand="True"
@@ -44,11 +37,14 @@
 
         </BoxContainer>
 
-        <!-- Статус выполнения -->
         <Label Name="StatusLabel"
                Text="{Loc admin-command-executor-ready}"
                StyleClasses="LabelSmall"
                HorizontalAlignment="Center" />
+
+        <BoxContainer Orientation="Horizontal" SetHeight="20" Margin="0 5 0 0" SeparationOverride="10" HorizontalExpand="True">
+            <Label Text="{Loc admin-panel-footer-powered}" FontColorOverride="#e7ff10ff" HorizontalAlignment="Center" HorizontalExpand="True" StyleClasses="LabelSmall"/>
+        </BoxContainer>
 
     </BoxContainer>
 </DefaultWindow>
