@@ -6,6 +6,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Components; // ADT-tweak
 using Content.Shared.NPC.Systems; // ADT-tweak
 using Content.Shared.Chat; // ADT-tweak
+using Content.Shared.NPC.Prototypes; // ADT-tweak
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Language;
 
@@ -63,34 +64,31 @@ public sealed partial class MakeSentient : EntityEffect
     private void ShowCognizineEffect(EntityUid uid, IEntityManager entityManager)
     {
         var chatSystem = entityManager.System<ChatSystem>();
-        var emoteMessage = Loc.GetString("cognizine-effect-emote");
+        var entityName = entityManager.GetComponent<MetaDataComponent>(uid).EntityName;
 
+        var emoteMessage = Loc.GetString("cognizine-effect-emote", ("entity", entityName));
         chatSystem.TryEmoteWithChat(uid, emoteMessage);
     }
 
     private void MakeFriendlyToStation(EntityUid uid, IEntityManager entityManager)
     {
         var factionSystem = entityManager.System<NpcFactionSystem>();
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
 
-        if (!entityManager.HasComponent<NpcFactionMemberComponent>(uid))
+        if (!entityManager.TryGetComponent<NpcFactionMemberComponent>(uid, out var factionComp))
         {
             factionSystem.AddFaction(uid, "PetsNT");
             return;
         }
 
-        var hostileFactions = new[]
-        {
-            "SimpleHostile", "Xeno", "Dragon", "Syndicate",
-            "AllHostile", "Wizard", "ADTSpaceMobs"
-        };
-
         bool wasHostile = false;
 
-        foreach (var hostileFaction in hostileFactions)
+        foreach (var factionId in factionComp.Factions)
         {
-            if (factionSystem.IsMember(uid, hostileFaction))
+            if (protoMan.TryIndex<NpcFactionPrototype>(factionId, out var factionProto) &&
+            factionProto.Hostile.Contains("NanoTrasen"))
             {
-                factionSystem.RemoveFaction(uid, hostileFaction, false);
+                factionSystem.RemoveFaction(uid, factionId, false);
                 wasHostile = true;
             }
         }
