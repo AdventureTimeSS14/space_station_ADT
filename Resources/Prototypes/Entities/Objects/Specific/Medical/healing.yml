@@ -776,21 +776,6 @@
     - id: PillBicaridine
       amount: 5
 
-# ADT-Tweak start
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterAmbuzolPlus
-  suffix: AmbuzolPlus 5u, 5
-  components:
-  - type: Label
-    currentLabel: Амбузол+ 5u
-  - type: StorageFill
-    contents:
-    - id: PillAmbuzolPlus
-      amount: 5
-# ADT-Tweak end
-
 - type: entity
   name: pill
   suffix: Charcoal 10u

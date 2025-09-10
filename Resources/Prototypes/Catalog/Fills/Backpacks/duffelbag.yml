@@ -286,6 +286,12 @@
       # ADT-Tweak end
       - id: WeaponRevolverPython
       - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
+      # ADT-Tweak start
+      # - id: SyringeRomerol 
+      # - id: PillAmbuzolPlus # ADT-Tweak
+      # - id: PillAmbuzol
+      #   amount: 3
+      # ADT-Tweak end
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
