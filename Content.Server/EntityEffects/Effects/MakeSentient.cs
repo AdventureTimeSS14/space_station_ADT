@@ -1,9 +1,11 @@
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
+using Content.Server.Chat.Systems; // ADT-tweak
 using Content.Shared.EntityEffects;
 using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Components; // ADT-tweak
 using Content.Shared.NPC.Systems; // ADT-tweak
+using Content.Shared.Chat; // ADT-tweak
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Language;
 
@@ -25,13 +27,15 @@ public sealed partial class MakeSentient : EntityEffect
         entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
 
-        // ADT Languages start
+        // ADT Languages
         var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
         if (!lang.Languages.ContainsKey("GalacticCommon"))
             lang.Languages.Add("GalacticCommon", LanguageKnowledge.Speak);
         else
             lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
         // ADT Languages end
+
+        ShowCognizineEffect(uid, entityManager); // ADT-tweak
 
         // Stops from adding a ghost role to things like people who already have a mind
         if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
@@ -52,18 +56,23 @@ public sealed partial class MakeSentient : EntityEffect
 
         var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
         ghostRole.RoleName = entityData.EntityName;
-        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
+        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-friendly-cognizine-description"); // ADT-tweak
     }
 
-    /// <summary>
-    /// ADT-tweak start
-    /// Делает моба дружественным к станции путем смены фракции
-    /// </summary>
+    // ADT-tweak start
+    private void ShowCognizineEffect(EntityUid uid, IEntityManager entityManager)
+    {
+        var chatSystem = entityManager.System<ChatSystem>();
+        var emoteMessage = Loc.GetString("cognizine-effect-emote");
+
+        chatSystem.TryEmoteWithChat(uid, emoteMessage);
+    }
+
     private void MakeFriendlyToStation(EntityUid uid, IEntityManager entityManager)
     {
         var factionSystem = entityManager.System<NpcFactionSystem>();
 
-        if (!entityManager.TryGetComponent<NpcFactionMemberComponent>(uid, out var factionComp))
+        if (!entityManager.HasComponent<NpcFactionMemberComponent>(uid))
         {
             factionSystem.AddFaction(uid, "PetsNT");
             return;
@@ -87,13 +96,9 @@ public sealed partial class MakeSentient : EntityEffect
         }
 
         if (wasHostile)
-        {
             factionSystem.AddFaction(uid, "PetsNT", true);
-        }
         else
-        {
             factionSystem.AddFaction(uid, "SimpleNeutral", true);
-        }
     }
     // ADT-tweak end
 }
