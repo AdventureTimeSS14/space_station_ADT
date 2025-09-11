@@ -62,4 +62,4 @@
   - type: WiresVisuals
   - type: WiresPanel
   - type: StaticPrice
-    price: 1500
+    price: 150000 #ADT tweak
