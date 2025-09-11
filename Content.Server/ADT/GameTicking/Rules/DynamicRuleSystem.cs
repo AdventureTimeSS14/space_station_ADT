@@ -24,7 +24,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         base.Added(uid, component, gameRule, args);
         component.Chaos = (int)_random.NextFloat(component.MinChaos, component.MaxChaos);
         component.Chaos *= _player.PlayerCount / _player.MaxPlayers;
-        _chatManager.SendAdminAnnouncement($"Current chaos level: {component.Chaos}");
+        _chatManager.SendAdminAnnouncement(Loc.GetString("dynamic-chaos-announcement", ("chaos", component.Chaos)));
         //тяжело, но тут идёт механизм выбора раундстарт антагов
         for (int i = 0; i < 1000 && component.Chaos >= 10; i++)
         {
