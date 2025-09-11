@@ -70,7 +70,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var condition = ent.Comp.CurrentPath == "Void";
 
-        var power = condition ? 1.5f + ent.Comp.PathStage * 9f : 1.5f;
+        var power = condition ? 1.5f + ent.Comp.PathStage * 7f : 1.5f;
 
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
@@ -82,7 +82,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // repeating for both sides
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
-        foreach (var pookie in GetNearbyPeople(ent, power))
+        foreach (var pookie in GetNearbyPeople(ent, ent.Comp.PathStage / 3))
         {
             _stam.TakeStaminaDamage(pookie, power);
             if (condition) _voidcurse.DoCurse(pookie);
