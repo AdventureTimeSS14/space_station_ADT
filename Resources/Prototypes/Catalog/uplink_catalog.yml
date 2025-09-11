@@ -622,7 +622,7 @@
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
-    Telecrystal: 40
+    Telecrystal: 35 # ADT-Tweak (40 > 35)
   categories:
   - UplinkChemicals
   conditions:
