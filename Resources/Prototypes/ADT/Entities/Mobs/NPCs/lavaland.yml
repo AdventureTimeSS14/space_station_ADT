@@ -403,8 +403,6 @@
 - type: entity
   name: SimpleMobBaseLava
   parent:
-  - MobRespirator
-  - MobAtmosStandard
   - SimpleSpaceMobBase
   id: ADTSimpleMobBaselavaland # for lavaland
   suffix: AI
