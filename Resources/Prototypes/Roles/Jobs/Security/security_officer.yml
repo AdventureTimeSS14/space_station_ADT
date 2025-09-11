@@ -29,9 +29,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
   # ADT-Tweak-Start: добавляем выдачу компонента отметки персонала службы безопасности
   - !type:AddComponentSpecial
     components:
