@@ -1,0 +1,14 @@
+- type: entity
+  id: ChemistryBottleRomerol
+  suffix: romerol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-romerol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 30

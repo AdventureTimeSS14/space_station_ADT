@@ -22,3 +22,6 @@ ent-ADTBrutepackAdvanced1 = { ent-MedicatedSuture }
 ent-ADTOintmentAdvanced1 = { ent-RegenerativeMesh }
   .desc = { ent-RegenerativeMesh.desc }
   .suffix = { "ГраждоМед" }
+ent-PillCanisterAmbuzolPlus = баночка для таблеток
+    .suffix = Амбузол+ 5 ед, 5 шт
+    .desc = { ent-PillCanister.desc }

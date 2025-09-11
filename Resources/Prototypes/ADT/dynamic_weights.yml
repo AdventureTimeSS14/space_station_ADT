@@ -1,0 +1,6 @@
+- type: weightedRandom
+  id: DynamicRandom
+  weights:
+    DynamicHard: 0.33
+    DynamicMedium: 0.34
+    DynamicLight: 0.33

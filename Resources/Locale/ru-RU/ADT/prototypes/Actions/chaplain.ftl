@@ -5,7 +5,7 @@ action-chaplain-transfer = Рука молящегося
 action-chaplain-transfer-desc = Передайте выбранному последователю, либо священнику, часть своей [color=gold]силы веры.[/color]
 
 action-chaplain-holy-touch = Святое касание
-action-chaplain-holy-touch-desc = Освятите содержимое ёмкости. Требует [color=gold]2 силы веры.[/color]
+action-chaplain-holy-touch-desc = Освятите содержимое ёмкости или превратите свечу в волшебную. Требует [color=gold]2 силы веры.[/color]
 
 alerts-chaplain-name = [color=gold]Сила веры[/color]
 alerts-chaplain-desc = Сила, использующаяся лишь во благо.

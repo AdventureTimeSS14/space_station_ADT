@@ -34,7 +34,7 @@
       volume: -12
     collection: ADTAmbienceVault
   rules: ADTNearVault
-  priority: 4
+  priority: 2
 
 - type: rules
   id: ADTNearVault
@@ -44,7 +44,7 @@
       whitelist:
         tags:
           - ADTVaultAmbience
-      range: 2
+      range: 1
 
 - type: soundCollection
   id: ADTAmbienceVault
@@ -119,7 +119,7 @@
   id: ADTNearSecurity
   rules:
     - !type:NearbyAccessRule
-      count: 5
+      count: 7
       access:
         - Security
       range: 3
