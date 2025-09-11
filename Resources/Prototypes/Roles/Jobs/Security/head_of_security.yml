@@ -43,7 +43,13 @@
     components:
       - type: CommandStaff
       # - type: PhantomTyranyTarget # ADT Phantom
-      - type: SecurityStaff # goobstation
+   - !type:AddComponentSpecial
+     components:
+       - type: CommandStaff
+       # - type: PhantomTyranyTarget # ADT Phantom
+       # ADT-Tweak-Start: метка персонала службы безопасности
+       - type: SecurityStaff # goobstation
+       # ADT-Tweak-End
 
 - type: startingGear
   id: HoSGear
