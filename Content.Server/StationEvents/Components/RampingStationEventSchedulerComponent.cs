@@ -31,6 +31,14 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     [DataField]
     public float TimeUntilNextEvent;
 
+    // ADT-tweak start
+    [DataField("lastEventTime")]
+    public double LastEventTime = 0;
+
+    [DataField("eventFloodCounter")]
+    public int EventFloodCounter = 0;
+    // ADT-tweak end
+
     /// <summary>
     /// The gamerules that the scheduler can choose from
     /// </summary>
