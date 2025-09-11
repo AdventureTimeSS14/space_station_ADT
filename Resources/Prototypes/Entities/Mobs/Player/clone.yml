@@ -59,6 +59,23 @@
   - SpanishAccent
   - StutteringAccent
   - TTS # Corvax-TTS
+  # ADT-fix-clone-start
+  - LanguageSpeaker
+  - SpeechBarks
+  - SizeAttribute
+  - Hemophilia
+  - DeafTrait
+  - Monochromacy
+  - Frail
+  - SoftWalk
+  - Freerunning
+  - Sprinter
+  - FastLockers
+  - HardThrower
+  - FoodConsumptionSpeedModifier
+  - DrunkenResilience
+  - NyaAccent
+  # ADT-fix-clone-end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

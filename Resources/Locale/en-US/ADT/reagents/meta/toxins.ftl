@@ -1,0 +1,1 @@
+ghost-role-information-friendly-cognizine-description = You have become sentient thanks to cognizine. You are now friendly to the station crew and can interact with them. Try to find a way to communicate with people!

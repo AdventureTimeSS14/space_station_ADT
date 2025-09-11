@@ -11,7 +11,6 @@ public sealed class HoloCigarSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
