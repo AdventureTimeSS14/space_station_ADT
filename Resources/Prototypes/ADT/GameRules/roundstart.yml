@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseHereticRule
-  id: HereticGameRule
+  id: Heretic
   components:
   - type: HereticRule
   - type: GameRule
@@ -33,7 +33,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entity
   parent: BaseHereticRule
@@ -51,7 +50,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-      startingGear: HereticGear
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -198,7 +196,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entity
   id: DynamicHardGamerule
