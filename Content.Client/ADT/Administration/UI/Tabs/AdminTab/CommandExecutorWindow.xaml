@@ -1,5 +1,5 @@
 <DefaultWindow
-    x:Class="Content.Client.Administration.UI.Tabs.AdminTab.CommandExecutorWindow"
+    x:Class="Content.Client.Administration.UI.Tabs.AdminbusTab.CommandExecutorWindow"
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="{Loc admin-player-actions-window-command-executor}" MinSize="600 400">

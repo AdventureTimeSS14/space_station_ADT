@@ -20,7 +20,6 @@
             <!-- ADT-Tweak-Start -->
             <cc:UICommandButton Command="echo-chat-panel" Text="{Loc admin-player-actions-window-echo-chat-panel}" WindowType="{x:Type at:EchoChatPanelWindow}"/>
             <cc:UICommandButton Command="playtime-panel" Text="{Loc admin-player-actions-window-playtime-panel}" WindowType="{x:Type at:PlayTimeEditorWindow}" />
-            <cc:UICommandButton Command="command-executor" Text="{Loc admin-player-actions-window-command-executor}" WindowType="{x:Type at:CommandExecutorWindow}" />
             <!-- ADT-Tweak-End -->
         </GridContainer>
     </BoxContainer>

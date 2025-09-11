@@ -7,7 +7,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Input;
 using Robust.Shared.Utility;
 
-namespace Content.Client.Administration.UI.Tabs.AdminTab
+namespace Content.Client.Administration.UI.Tabs.AdminbusTab
 {
     [GenerateTypedNameReferences]
     public sealed partial class CommandExecutorWindow : DefaultWindow
