@@ -42,14 +42,14 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         {
             var allTags = _prot.Index<DatasetPrototype>(EligibleTagsDataset).Values.ToList();
 
-            if (allTags.Count < 4)
+            if (allTags.Count < 5)
             {
                 outstr = Loc.GetString("heretic-ritual-fail-not-enough-tags");
                 return false;
             }
 
             var selectedTags = new HashSet<string>();
-            while (selectedTags.Count < 4 && selectedTags.Count < allTags.Count)
+            while (selectedTags.Count < 5 && selectedTags.Count < allTags.Count)
             {
                 var tagIndex = _rand.Next(allTags.Count);
                 selectedTags.Add(allTags[tagIndex]);

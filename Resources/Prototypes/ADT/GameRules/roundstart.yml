@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseHereticRule
-  id: Heretic
+  id: HereticGameRule
   components:
   - type: HereticRule
   - type: GameRule
@@ -119,8 +119,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 4
-      playerRatio: 15
+      max: 4          
+      playerRatio: 15 
       blacklist:
         components:
         - AntagImmune
@@ -142,7 +142,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2
+      max: 2       
       playerRatio: 10
       blacklist:
         components:
@@ -207,7 +207,7 @@
   - type: DynamicRule
     maxEventsBeforeAntag: 8
     maxChaos: 120
-    minChaos: 20
+    minChaos: 80
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
@@ -258,8 +258,8 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 9
-    maxChaos: 70
-    minChaos: 10
+    maxChaos: 60
+    minChaos: 50
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
@@ -269,12 +269,12 @@
         cost: 20
         rerollChance: 0.5
       - id: HereticSoloGameRule
-        cost: 10
+        cost: 15
         rerollChance: 0.5
       - id: ChangelingDuoGameRule
-        cost: 10
+        cost: 15
       - id: TraitorDuoGameRule
-        cost: 10
+        cost: 15
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
@@ -310,23 +310,17 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 10
-    maxChaos: 50
-    minChaos: 10
+    maxChaos: 40
+    minChaos: 20
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
     roundstartRules:
       - id: Thief
         cost: 10
-      - id: HereticDuoGameRule
-        cost: 20
-        rerollChance: 0.5
       - id: ChangelingDuoGameRule
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
-      - id: HereticSoloGameRule
-        cost: 10
-        rerollChance: 0.5
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
