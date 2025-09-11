@@ -1,21 +1,13 @@
+using Content.Server.Stack;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Stacks;
 using Content.Shared.Throwing;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Collections;
-using Robust.Shared.Map;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Random;
-using Content.Server.Atmos.Components;
-using Content.Server.Stack;
-using System.Linq;
-using System.Numerics;
-
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 
@@ -26,9 +18,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly StackSystem _stacks = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-
-    private float CountToRadius;
-
 
     public override void Initialize()
     {
@@ -62,6 +51,7 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
                 _stacks.Use(uid, stackComp.Count, stackComp);
         }
     }
+
     private void OnProjectileHit(Entity<BsCrystalTeleportComponent> uid, ref ProjectileHitEvent args)
     {
         TryTeleport(args.Target, uid.Comp.TeleportRadiusThrow, uid.Comp.TeleportSound);
@@ -74,7 +64,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         return component.TeleportRadiusThrow;
     }
 
-
     private bool TryTeleport(EntityUid entity, float radius, SoundSpecifier sound)
     {
         var targetCoords = SelectRandomTileInRange(entity, radius);
@@ -84,10 +73,13 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         _audio.PlayPvs(sound, entity);
         return true;
     }
+
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius)
     {
-        EntityCoordinates coords = Transform(uid).Coordinates;
-        var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-radius, +radius), coords.Y + _random.NextFloat(-radius, +radius));
+        var coords = Transform(uid).Coordinates;
+        var newCoords = new EntityCoordinates(Transform(uid).ParentUid,
+        coords.X + _random.NextFloat(-radius, +radius),
+        coords.Y + _random.NextFloat(-radius, +radius));
 
         _transform.SetCoordinates(uid, newCoords);
         _transform.AttachToGridOrMap(uid, Transform(uid));
