@@ -5,17 +5,31 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.ADT.Chemistry;
 
 [UsedImplicitly]
+/// <summary>
+/// Условие для проверки наличия определённых компонентов у сущности.
+/// Используется в системе эффектов реагентов для ограничения действия на конкретные типы сущностей.
+/// </summary>
+[UsedImplicitly]
 public sealed partial class HasComponentCondition : EntityEffectCondition
 {
+    /// <summary>
+    /// Набор имён компонентов для проверки. Условие выполнится, если у сущности есть хотя бы один из них.
+    /// </summary>
     [DataField(required: true)]
     public HashSet<string> Components = new();
 
+    /// <summary>
+    /// Локализованное название компонента для отображения в руководстве.
+    /// </summary>
     [DataField(required: true)]
     public string GuidebookComponentName = default!;
 
+    /// <summary>
+    /// Инвертирует результат проверки условия.
+    /// </summary>
     [DataField]
     public bool Invert;
-
+}
     public override bool Condition(EntityEffectBaseArgs args)
     {
         var hasComp = false;
