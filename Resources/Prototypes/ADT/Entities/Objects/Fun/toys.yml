@@ -25,27 +25,6 @@
       - Payload
 
 - type: entity
-  parent: BaseItem
-  id: SkidAndPump
-  name: Skid&Pump
-  description: THIS IS SPOOKY MONTH!
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/skidandpump.rsi
-    state: icon
-  - type: Item
-    sprite: ADT/Objects/Fun/skidandpump.rsi
-  - type: AmbientSound
-    enabled: true
-    volume: -6
-    range: 9
-    sound:
-      path: /Audio/Items/Toys/scaryswings.ogg
-  - type: PointLight
-    radius: 1.4
-    color: "#ff7a06"
-
-- type: entity
   parent: BasePlushie
   id: ADTPlushieOctocat
   name: Octocat plushie
@@ -55,6 +34,41 @@
     sprite: ADT/Objects/Fun/toys.rsi
     state: plushie_git
   - type: Rotatable
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDamn
+  name: blyat plushie
+  description: what kind of dumbass put it "hilarious" here?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/toys.rsi
+    state: plushie_damn
+  - type: Rotatable
+
+- type: entity
+  parent: RevolverCapGun
+  id: ADTmklolgun
+  name: mk-rofl-58
+  description: Yeah, thats totaly fake gun.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: RevolverAmmoProvider
+    capacity: 10
+    chambers: [ True, True, True, True, True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null, null, null, null, null ]
+  - type: Item
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
 
 - type: entity
   parent: BaseItem
@@ -125,3 +139,4 @@
   - type: Tag
     tags:
     - Balloon
+

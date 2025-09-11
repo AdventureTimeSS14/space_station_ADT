@@ -1,0 +1,35 @@
+- type: entity
+  name: Cluwne
+  parent: MobCluwne
+  id: ADTMobCluwnePrank
+  description: The chaplain's familiar. Likes Bread.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-cluwne-prank-name
+    description: ghost-role-information-cluwne-prank-description
+    rules: ghost-role-information-cluwne-prank-rules
+  - type: GhostTakeoverAvailable
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: RandomMetadata
+    nameSegments:
+    - NamesClown
+  - type: TTS
+    voice: clockwerk_dota_2
+  - type: SpeechBarks
+    data:
+      proto: Jevil
+      sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-jevil.ogg
+      pitch: 1.1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Magic/staff_animation.ogg
+      params:
+        variation: 0.3

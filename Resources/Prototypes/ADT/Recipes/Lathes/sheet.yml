@@ -1,0 +1,7 @@
+- type: latheRecipe
+  id: ADTSheetBScrystal
+  result: ADTMaterialBScrystal1
+  miningPoints: 40
+  completetime: 0
+  materials:
+    ADTRawBSore: 100

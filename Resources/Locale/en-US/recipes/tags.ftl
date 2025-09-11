@@ -68,6 +68,12 @@ construction-graph-tag-match-stick = match stick
 construction-graph-tag-potato = a potato
 construction-graph-tag-wheat-bushel = wheat bushel
 construction-graph-tag-corgi-hide = corgi hide
+construction-graph-tag-crusader-helmet = crusader helmet
+construction-graph-tag-budget-insuls = budget insuls
+construction-graph-tag-bible = bible
+construction-graph-toolbox = toolbox
+construction-graph-heart = heart
+construction-graph-penguin-toy = penguin toy
 
 # toys
 construction-graph-tag-rubber-ducky = a rubber ducky

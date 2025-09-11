@@ -98,4 +98,17 @@
 - type: latheRecipePack
   id: ADTServiceHydroponics
   recipes:
-  - ADTAdvancedPlantAnalyzer  
+  - ADTAdvancedPlantAnalyzer
+
+- type: latheRecipePack
+  id: ADTWeaponLauncherHydraPack
+  recipes:
+  - ADTWeaponLauncherHydra
+  - GrenadeCleanade
+
+- type: latheRecipePack
+  id: ADTArcade
+  recipes:
+  - ADTBlockGameArcadeComputerCircuitboard
+  - ADTSpaceVillainArcadeComputerCircuitboard
+  - ADTMinesweeperCircuitboard

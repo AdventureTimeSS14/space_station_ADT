@@ -16,5 +16,5 @@
   description: A flatpack used for constructing a coldplate.
   components:
   - type: Flatpack
-    entity: ADTColdplateMachineCircuitboard
+    entity: ADTChemistryColdplate
 

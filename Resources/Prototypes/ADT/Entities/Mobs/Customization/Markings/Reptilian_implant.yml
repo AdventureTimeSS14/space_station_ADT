@@ -63,7 +63,7 @@
 
 - type: marking
   id: ReptilianImplantCybersunHandR
-  bodyPart: LHand
+  bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [Reptilian]
   sprites:

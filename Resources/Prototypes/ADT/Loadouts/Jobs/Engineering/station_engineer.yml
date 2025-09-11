@@ -27,3 +27,14 @@
   id: ADTEyeMeson
   equipment:
     eyes: ClothingEyesGlassesMeson
+
+# Jumpsuit
+- type: loadout
+  id: ADTClothingUniformJumpsuitTurtleneckYellow
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTurtleneckYellow
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtTurtleneckYellow
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckYellow

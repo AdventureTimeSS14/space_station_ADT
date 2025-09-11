@@ -1784,6 +1784,9 @@
     activatedDamage:
       types:
         Blunt: 0
+  - type: ItemTogglePrefix
+    prefixOn: on
+    prefixOff: off
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -2091,6 +2094,30 @@
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
+- type: entity
+  name: Argument
+  parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
+  id: ADTWeaponRevolverArgumentCouatl
+  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
+  suffix: Revolver, Personal, Couatl
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/couatl_argument.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 2
+  - type: RevolverAmmoProvider
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+  - type: Appearance
+  - type: StaticPrice
+    price: 1500
+  - type: Clothing
+    sprite: ADT/Personalization/couatl_argument.rsi
+
 #kugooergooer
 - type: entity
   parent: BasePlushie
@@ -2317,4 +2344,79 @@
           tags:
           - YV2Pistol
     sprite: ADT/Personalization/yv2recharger.rsi
+
+#KapitanOgonek
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieKapitanOgonek
+  name: Plushie Ray Kulakov
+  description: Plushie Ray Kulakov
+  suffix: Personal, KapitanOgonek
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_raykulakov
+
+#maksim_soko
+- type: entity
+  parent: BaseItem
+  id: ADTRingSoko
+  name: Ring Soko
+  description: Ring Soko
+  suffix: Personal, maksim_soko
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sokoring.rsi
+    state: icon
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
+  - type: StaticPrice
+    price: 1000
+  - type: Item
+    size: Tiny
+
+#Sir_talter
+- type: entity
+  name: proto-kinetic pistol
+  id: ADTWeaponProtoKineticPistolSirtalter
+  parent: ADTWeaponProtoKineticPistol
+  description: The Pistol trades base damage, and range, for double mod capacity, making it a truely customizable PKA.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+
+- type: entity
+  parent: WeaponKineticSpear
+  id: ADTWeaponKineticGlephSirtalter
+  name: kinetic spear
+  description: A long-ranged melee weapon which trades damage for a two-tile reach, similar to reagent/bone spears.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Personalization/sirtalter_crusher_spear-inhands.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
 #SPONSOR-ITEMS-END

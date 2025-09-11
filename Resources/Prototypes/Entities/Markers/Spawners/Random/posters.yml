@@ -100,21 +100,20 @@
       - ADTPosterContrabandLustTayaran # Спрайт от Празата
       - ADTPosterContrabandFearThem # Спрайт от Иллюми
       - ADTPosterContrabandSilence # Спрайт от Иллюми
-      - ADTPosterContrabandLustUma
+      # - ADTPosterContrabandLustUma
       - ADTPosterContrabandLustArDeco
       - ADTPosterDontSitDown
-      - ADTPosterTayarHalloween
       - ADTPosterLustyMoth
       - ADTPosterWatchOutChem
       - ADTPosterPanem
       - ADTPosterGasAttack
       - ADTPosterNoGood
-      - ADTPosterContrabandUmaHot
-      - ADTPosterContrabandUmaPress
-      - ADTPosterContrabandUmaSport
-      - ADTPosterContrabandUmaAndAzalia
-      - ADTPosterContrabandUmaRabbit
-      - ADTPosterContrabandUmaOnBeach
+      # - ADTPosterContrabandUmaHot
+      # - ADTPosterContrabandUmaPress
+      # - ADTPosterContrabandUmaSport
+      # - ADTPosterContrabandUmaAndAzalia
+      # - ADTPosterContrabandUmaRabbit
+      # - ADTPosterContrabandUmaOnBeach
       - ADTPosterContrabandGoobChuckler
       - ADTPosterContrabandGoobYakub
       #ADT tweak ^^^
@@ -184,8 +183,6 @@
       - ADTPosterLegitEfficiency
       - ADTPosterLegitGreatFood #спрайт от Празата
       - ADTPosterLegitTurnOnSensors #спрайт от Празата
-      - ADTPosterLegitOktoberfest #спрайт от Празата
-      - ADTPosterLegitOktoberfest2 #спрайт от Празата
       - ADTPosterPassTheBanana #спрайт от Уолтера
       - ADTPosterSingoPizza
       - ADTPosterPapersPlease

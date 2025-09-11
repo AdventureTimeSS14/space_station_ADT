@@ -21,6 +21,8 @@ using Content.Shared.Roles.Jobs;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -46,10 +48,16 @@ public sealed class HereticSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
+        // QWERTY's chaplain update//  Thats for buffing chaplain against heretic.
+        SubscribeLocalEvent<HereticComponent, ComponentStartup>(OnHereticStartup);
 
         SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
+    }
+    private void OnHereticStartup(EntityUid uid, HereticComponent component, ComponentStartup args)
+    {
+        EnsureComp<HolyDamageMultiplierComponent>(uid);
     }
 
     public override void Update(float frameTime)
@@ -121,7 +129,7 @@ public sealed class HereticSystem : EntitySystem
     private void OnUpdateTargets(Entity<HereticComponent> ent, ref EventHereticUpdateTargets args)
     {
         ent.Comp.SacrificeTargets = ent.Comp.SacrificeTargets
-            .Where(target => TryGetEntity(target.Entity, out var tent) && Exists(tent) && !EntityManager.IsQueuedForDeletion(tent.Value))
+            .Where(target => TryGetEntity(target.Entity, out var tent) && Exists(tent) && !HasComp<SacrificedComponent>(tent))
             .ToList();
         Dirty(ent); // update client
     }
@@ -155,7 +163,8 @@ public sealed class HereticSystem : EntitySystem
                 continue;
 
             // pick and take
-            var picked = _rand.PickAndTake(list);
+            var picked = _rand.Pick(list);
+            targets.Remove(picked);
             pickedTargets.Add(picked);
         }
 

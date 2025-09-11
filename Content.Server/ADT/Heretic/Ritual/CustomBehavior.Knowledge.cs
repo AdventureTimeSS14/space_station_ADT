@@ -3,8 +3,10 @@ using Content.Shared.Dataset;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
+using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Linq;
 using System.Text;
 using Robust.Server.Containers;
 
@@ -12,65 +14,112 @@ namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 {
-    private HashSet<ProtoId<TagPrototype>> _missingTags = new();
-    private List<EntityUid> _toDelete = new();
+    // я полностью переписала систему, при апстриме оставляем нашу версию
+    private static Dictionary<ProtoId<TagPrototype>, int> requiredTags = new();
+    private static List<string> requiredTagsLocale = new();
+    private List<EntityUid> toDelete = new();
 
     private IPrototypeManager _prot = default!;
     private IRobustRandom _rand = default!;
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
-    private TagSystem _tag = default!;
     private ContainerSystem _container = default!;
 
-    // this is basically a ripoff from hereticritualsystem
+    [ValidatePrototypeId<DatasetPrototype>]
+    public const string EligibleTagsDataset = "EligibleTags";
+
     public override bool Execute(RitualData args, out string? outstr)
     {
         _prot = IoCManager.Resolve<IPrototypeManager>();
         _rand = IoCManager.Resolve<IRobustRandom>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
-        _tag = args.EntityManager.System<TagSystem>();
         _container = args.EntityManager.System<ContainerSystem>();
 
         outstr = null;
 
-        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return false;
-
-        var requiredTags = _heretic.TryGetRequiredKnowledgeTags((args.Performer, heretic));
-
-        if (requiredTags == null)
-            return false;
-
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, 1.5f);
-
-        _toDelete.Clear();
-        _missingTags.Clear();
-        _missingTags.UnionWith(requiredTags);
-        foreach (var look in lookup)
+        if (requiredTags.Count == 0)
         {
-            if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
-                continue;
+            var allTags = _prot.Index<DatasetPrototype>(EligibleTagsDataset).Values.ToList();
 
-            if (_container.IsEntityInContainer(look))
-                continue;
-
-            _missingTags.RemoveWhere(tag =>
+            if (allTags.Count < 4)
             {
-                if (_tag.HasTag(tags, tag))
+                outstr = Loc.GetString("heretic-ritual-fail-not-enough-tags");
+                return false;
+            }
+
+            var selectedTags = new HashSet<string>();
+            while (selectedTags.Count < 4 && selectedTags.Count < allTags.Count)
+            {
+                var tagIndex = _rand.Next(allTags.Count);
+                selectedTags.Add(allTags[tagIndex]);
+            }
+
+            foreach (var tag in selectedTags)
+            {
+                var protoId = new ProtoId<TagPrototype>(tag);
+                requiredTags.Add(protoId, 1);
+                requiredTagsLocale.Add(Loc.GetString("names-eligibleTags-" + tag));
+            }
+        }
+
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
+
+        var workingRequiredTags = new Dictionary<ProtoId<TagPrototype>, int>(requiredTags);
+
+        foreach (var entity in lookup)
+        {
+
+            if (_container.IsEntityInContainer(entity))
+                continue;
+
+            if (!args.EntityManager.TryGetComponent<TagComponent>(entity, out var tagComponent))
+                continue;
+
+            var entityTags = tagComponent.Tags;
+
+            foreach (var requiredTag in workingRequiredTags.Keys.ToList())
+            {
+                if (workingRequiredTags[requiredTag] <= 0)
+                    continue;
+
+                if (entityTags.Contains(requiredTag))
                 {
-                    _toDelete.Add(look);
-                    return true;
+                    workingRequiredTags[requiredTag]--;
+                    toDelete.Add(entity);
+                    break;
                 }
 
                 return false;
-            });
+            };
         }
 
-        if (_missingTags.Count > 0)
+
+        var missingList = new List<ProtoId<TagPrototype>>();
+        foreach (var tag in workingRequiredTags)
         {
-            var missing = string.Join(", ", _missingTags);
-            outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", missing));
+            if (tag.Value > 0)
+                missingList.Add(tag.Key);
+        }
+
+        if (missingList.Count > 0)
+        {
+            var missingListLocaled = new List<string>();
+            foreach (var missingTag in missingList)
+            {
+                missingListLocaled.Add(Loc.GetString("names_eligibleTags-" + missingTag.Id));
+            }
+
+            var sb = new StringBuilder();
+            for (int i = 0; i < missingListLocaled.Count; i++)
+            {
+                if (i == missingListLocaled.Count - 1)
+                    sb.Append(missingListLocaled[i]);
+                else
+                    sb.Append($"{missingListLocaled[i]}, ");
+            }
+
+            outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", sb.ToString()));
             return false;
         }
 
@@ -79,15 +128,18 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        // delete all and reset
-        foreach (var ent in _toDelete)
+        foreach (var ent in toDelete)
+        {
             args.EntityManager.QueueDeleteEntity(ent);
-        _toDelete.Clear();
+        }
+        toDelete.Clear();
 
-        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-            return;
+        if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+        {
+            _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
+        }
 
-        _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
-        _heretic.GenerateRequiredKnowledgeTags((args.Performer, hereticComp));
+        requiredTags.Clear();
+        requiredTagsLocale.Clear();
     }
 }

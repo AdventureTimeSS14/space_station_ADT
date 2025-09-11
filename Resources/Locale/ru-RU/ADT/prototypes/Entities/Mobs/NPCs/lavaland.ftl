@@ -18,3 +18,7 @@ ent-ADTMobNightmareSpider = кошмарник
 
 ent-ADTMobShockSpider = паушок
     .desc = Маленький паушок. Ну что он может вам сделать?
+
+ent-ADTMobBSCrab = рудокраб
+    .desc = Рудный краб, состоящий из блюспейс кристалла.
+    .suffix = Блюспейс кристалл

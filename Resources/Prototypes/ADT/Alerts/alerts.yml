@@ -1,25 +1,3 @@
-# Simple Station
-
-- type: alert
-  id: Charge
-  icons:
-  - sprite: /Textures/ADT/Interface/Alerts/charge.rsi
-    state: charge-empty
-  - sprite: /Textures/ADT/Interface/Alerts/charge.rsi
-    state: charge0
-  - sprite: /Textures/ADT/Interface/Alerts/charge.rsi
-    state: charge1
-  - sprite: /Textures/ADT/Interface/Alerts/charge.rsi
-    state: charge2
-  - sprite: /Textures/ADT/Interface/Alerts/charge.rsi
-    state: charge3
-  - sprite: /Textures/ADT/Interface/Alerts/charge.rsi
-    state: charge4
-  name: alerts-charge-name
-  description: alerts-charge-desc
-  minSeverity: -1
-  maxSeverity: 4
-
 - type: alert
   id: ADTChaplain
   icons:
@@ -255,3 +233,11 @@
   description: alerts-modsuit-power-desc
   minSeverity: 0
   maxSeverity: 5
+
+- type: alert
+  id: ADTPickupHumans
+  icons:
+  - sprite: /Textures/ADT/Alerts/pickup_entity.rsi
+    state: take_entity
+  name: alerts-pickup-name
+  description: alerts-pickup-desc

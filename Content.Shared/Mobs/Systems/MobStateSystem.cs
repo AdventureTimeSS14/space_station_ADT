@@ -2,6 +2,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Systems; // ADT-Tweak
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
@@ -18,6 +19,7 @@ public partial class MobStateSystem : EntitySystem
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!; // ADT-Tweak
     private ISawmill _sawmill = default!;
 
     private EntityQuery<MobStateComponent> _mobStateQuery;

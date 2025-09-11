@@ -25,6 +25,15 @@ public interface IGameMapManager
     /// <returns>enumerator of map prototypes</returns>
     IEnumerable<GameMapPrototype> AllMaps();
 
+    // ADT-Tweak: ReWork Vote Map
+    /// <summary>
+    /// Registers the specified map as recently played.
+    /// This prevents the map from being selected again in
+    /// the next few rounds (based on ban depth const 'RecentMapBanDepth').
+    /// </summary>
+    /// <param name="mapId">The ID of the map that was played.</param>
+    void RegisterPlayedMap(string mapId);
+
     /// <summary>
     /// Gets the currently selected map
     /// </summary>

@@ -199,32 +199,6 @@
         Slash: 0.95
         Heat: 0.90
 
-
-    # halloween
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ADTJasonBomber
-  name: maniac bomber
-  description: maniac bomber
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Coats/jason.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ADTStudentBomber
-  name: student bomber
-  description: student bomber
-  suffix: Halloween
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/OuterClothing/Coats/hotline_student.rsi
 # Med
 
 - type: entity
@@ -424,7 +398,7 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/radiodemoncoat.rsi
 
-# Бомбер шахтёрам/утилям 
+# Бомбер шахтёрам/утилям
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -444,3 +418,84 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+
+# Одежда для Священника
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingCoatMonkRobe
+  name: monks robe
+  description: You can't find something better than being alone in the altruism of cross.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_monk.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_monk.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodMonk
+    requiredSlot:
+    - outerclothing
+    slot: head
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingCoatReligionLeader
+  name: religion leader's robe
+  description: A royaly religious piece of clothing, that going to show all of your progeny about their place.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_leader.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_leader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatHoodChaplainLeader
+    requiredSlot:
+    - outerclothing
+    slot: head
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingCoatClockworkRobe
+  name: clockwork robe
+  description: Gungf gur ebor-bs oenff tbq-bs pybpxjebx zrpunavfzf-naq-fuvg`
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/clockwork_robe.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/clockwork_robe.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatClockworkHood
+    requiredSlot:
+    - outerclothing
+    slot: head
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterSpiderRobe
+  name: spider ominous robe
+  description: Robe, thats weared by spider cults. Looks kinda familiar...
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_web.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_web.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatWebHood
+    slot: head
+
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterTechpriestRobe
+  name: tech-priest robe
+  description: From the moment I understood the weakness of my flesh, it disgusted me.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_techpriest.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/chaplain_techpriest.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHatTechpriestHood
+    slot: head

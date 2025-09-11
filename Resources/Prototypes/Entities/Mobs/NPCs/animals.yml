@@ -235,12 +235,6 @@
         Base: dead-0
       Dead:
         Base: dead-0
-  - type: Butcherable
-    spawned:
-    # - id: FoodMeatChicken # ADT CHANGES START
-    #   amount: 1
-    - id: ADTChickenBody
-      amount: 1 # ADT CHANGES END
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -3558,6 +3552,8 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
       sprite: Mobs/Animals/nymph.rsi
+  - type: VentCrawler # ADT tweak
+  - type: CanEscapeInventory # ADT tweak
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3597,8 +3593,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      30: Critical
-      60: Dead
+      50: Critical # ADT tweak
+      100: Dead # ADT tweak
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
@@ -3641,6 +3637,7 @@
   - type: LanguageSpeaker
     languages:
       RootSpeak: Speak
+      GalacticCommon: Speak
   # ADT End Tweak Nimf
 
 - type: entity
@@ -3654,6 +3651,7 @@
   - type: LanguageSpeaker
     languages:
       RootSpeak: Speak
+      GalacticCommon: Speak
 
 - type: entity
   name: reindeer buck

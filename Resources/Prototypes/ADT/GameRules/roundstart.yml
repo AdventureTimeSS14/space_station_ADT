@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseHereticRule
-  id: HereticGameRule
+  id: Heretic
   components:
   - type: HereticRule
   - type: GameRule
@@ -34,6 +34,24 @@
       mindComponents:
       - type: HereticRole
       startingGear: HereticGear # see Roles/Antags/heretic.yml
+
+- type: entity
+  parent: BaseHereticRule
+  id: HereticSoloGameRule
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 1
+      playerRatio: 15
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+      startingGear: HereticGear
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -101,8 +119,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 4          
-      playerRatio: 15 
+      max: 4
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
@@ -124,7 +142,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2       
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -181,3 +199,158 @@
       mindComponents:
       - type: HereticRole
       startingGear: HereticGear # see Roles/Antags/heretic.yml
+
+- type: entity
+  id: DynamicHardGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRule
+    maxEventsBeforeAntag: 8
+    maxChaos: 120
+    minChaos: 20
+    scheduledGameRules: !type:NestedSelector
+      tableId: RampingGameRulesTable
+    roundstartRules:
+      - id: Thief
+        cost: 10
+      - id: HereticDuoGameRule
+        cost: 20
+        rerollChance: 0.5
+      - id: HereticSoloGameRule
+        cost: 10
+        rerollChance: 0.5
+      - id: ChangelingDuoGameRule
+        cost: 10
+      - id: TraitorDuoGameRule
+        cost: 10
+      - id: TraitorLightGameRule
+        cost: 15
+      - id: ChangelingGameRule
+        cost: 25
+      - id: Heretic
+        cost: 30
+        rerollChance: 0.5
+      - id: Revolutionary
+        cost: 45
+      - id: Zombie
+        cost: 60
+    midroundAntags:
+      - id: DragonSpawn
+        cost: 100
+      - id: Pirates
+        cost: 120
+      - id: PhantomSpawn
+        cost: 110
+      # - id: MorphSpawn #TODO: Раскомментить после фикса
+      #   cost: 130
+      - id: NinjaSpawn
+        cost: 140
+      - id: KingRatMigration
+        cost: 90
+      - id: ParadoxCloneSpawn
+        cost: 90
+      - id: SleeperAgents
+        cost: 100
+
+- type: entity
+  id: DynamicMediumGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRule
+    maxEventsBeforeAntag: 9
+    maxChaos: 70
+    minChaos: 10
+    scheduledGameRules: !type:NestedSelector
+      tableId: RampingGameRulesTable
+    roundstartRules:
+      - id: Thief
+        cost: 10
+      - id: HereticDuoGameRule
+        cost: 20
+        rerollChance: 0.5
+      - id: HereticSoloGameRule
+        cost: 10
+        rerollChance: 0.5
+      - id: ChangelingDuoGameRule
+        cost: 10
+      - id: TraitorDuoGameRule
+        cost: 10
+      - id: TraitorLightGameRule
+        cost: 15
+      - id: ChangelingGameRule
+        cost: 25
+      - id: Heretic
+        cost: 30
+        rerollChance: 0.5
+      - id: Nukeops
+        cost: 50
+      - id: Revolutionary
+        cost: 35
+    midroundAntags:
+      - id: DragonSpawn
+        cost: 110
+      - id: Pirates
+        cost: 130
+      - id: PhantomSpawn
+        cost: 120
+      # - id: MorphSpawn #TODO: Раскомментить после фикса
+      #   cost: 140
+      - id: NinjaSpawn
+        cost: 150
+      - id: KingRatMigration
+        cost: 90
+      - id: ParadoxCloneSpawn
+        cost: 90
+      - id: SleeperAgents
+        cost: 110
+
+- type: entity
+  id: DynamicLightGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRule
+    maxEventsBeforeAntag: 10
+    maxChaos: 50
+    minChaos: 10
+    scheduledGameRules: !type:NestedSelector
+      tableId: ExtendedGameRulesTable
+    roundstartRules:
+      - id: Thief
+        cost: 10
+      - id: HereticDuoGameRule
+        cost: 20
+        rerollChance: 0.5
+      - id: ChangelingDuoGameRule
+        cost: 10
+      - id: TraitorDuoGameRule
+        cost: 10
+      - id: HereticSoloGameRule
+        cost: 10
+        rerollChance: 0.5
+      - id: TraitorLightGameRule
+        cost: 15
+      - id: ChangelingGameRule
+        cost: 25
+    midroundAntags:
+      - id: DragonSpawn
+        cost: 110
+      - id: Pirates
+        cost: 130
+      - id: PhantomSpawn
+        cost: 120
+      # - id: MorphSpawn #TODO: Раскомментить после фикса
+      #   cost: 140
+      - id: NinjaSpawn
+        cost: 150
+      - id: KingRatMigration
+        cost: 90
+      - id: ParadoxCloneSpawn
+        cost: 90
+      - id: SleeperAgents
+        cost: 110
+
+- type: entity
+  id: DynamicRandomGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRandomRule

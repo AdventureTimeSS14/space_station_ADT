@@ -16,6 +16,7 @@
     tags:
     - Sheet
     - NoPaint #ADT tweak
+    - ADTGlassSheet #ADT tweak
   - type: Material
   - type: Damageable
     damageContainer: Inorganic

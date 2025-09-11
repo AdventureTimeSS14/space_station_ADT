@@ -1827,7 +1827,8 @@ namespace Content.Client.Lobby.UI
 
             try
             {
-                var sponsorPrototypes = _sponsorsManager.TryGetInfo(out var sponsor) ? sponsor.AllowedMarkings : [];
+                //var sponsorPrototypes = _sponsorsManager.TryGetInfo(out var sponsor) ? sponsor.AllowedMarkings : [];
+                var sponsorPrototypes = Array.Empty<string>(); // TODO: Нужен рефактор спонсорки. Из-за строки выше ломаются импорты персонажей
                 var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!, sponsorPrototypes);
                 var oldProfile = Profile;
                 SetProfile(profile, CharacterSlot);

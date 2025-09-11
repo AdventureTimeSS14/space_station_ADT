@@ -1,0 +1,143 @@
+- type: entity
+  id: ADTGuideEveryJumpsuit
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: every_jumpsuit
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideEveryShoes
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: every_shoes
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideEveryHolyRobe
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: every_holy_robe
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideEveryCrab
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: every_crab
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideEveryOre
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: every_ore
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideAnyVest
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: any_vests
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideEveryFolder
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: every_folder
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideCluwneJumpsuit
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: cluwne_jumpsuit
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideCluwneMask
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: cluwne_mask
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideCluwneShoes
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: cluwne_shoes
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideCarpThing
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: carp_hydrated
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuidePetiteDeposit
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: petite_deposit
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideSmallDeposit
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: small_deposit
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideBigBoyDeposit
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: big_boy_deposit
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideAllOrNothingDeposit
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: all_or_nothing_deposit
+      drawdepth: Effects
+
+- type: entity
+  id: ADTGuideAllOrNothingerDeposit
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: ADT/Effects/guide_every.rsi
+      state: all_or_nothinger_deposit
+      drawdepth: Effects

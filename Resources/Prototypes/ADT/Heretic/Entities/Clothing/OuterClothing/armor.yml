@@ -28,3 +28,6 @@
     modifiers:
       Hard: 1.75
       Choke: 1.5
+  - type: ClothingGrantComponent
+    component:
+    - type: GrabProtection

@@ -661,9 +661,14 @@
   params:
     variation: 0.125
   sounds:
-    Scream: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+    Scream: 
+      collection: MaleResomiScreams
     Laugh:
-      collection: MaleLaugh
+      collection: ResomiLaughs 
+    Cough:
+      collection: ResomiCoughs
+    Sneeze:
+      collection: ResomiSneeze 
     Honk:
       collection: BikeHorn
     Whistle:
@@ -683,9 +688,13 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/ADT/Voice/Resomi/resomi_scream.ogg
+      collection: FemaleResomiScreams
     Laugh:
-      collection: FemaleLaugh
+      collection: ResomiLaughs 
+    Cough:
+      collection: ResomiCoughs
+    Sneeze:
+      collection: ResomiSneeze
     Honk:
       collection: BikeHorn
     Whistle:
@@ -698,3 +707,91 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+
+- type: emoteSounds
+  id: MaleShadekin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+    Spit:
+      collection: HumanSpits
+    Wurble:
+      path: /Audio/ADT/Voice/Shadekin/wurble.ogg
+
+- type: emoteSounds
+  id: FemaleShadekin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+    Spit:
+      collection: HumanSpits
+    Wurble:
+      path: /Audio/ADT/Voice/Shadekin/wurble.ogg
+
+- type: emoteSounds
+  id: ShadekinBodyEmotes
+  sounds:
+    Thump:
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+    Purse:
+      path: /Audio/Effects/thudswoosh.ogg

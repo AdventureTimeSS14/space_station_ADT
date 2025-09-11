@@ -280,7 +280,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: DamageOnInteract
-    damage: 
+    damage:
       types:
         Heat: 4
         Caustic: 4
@@ -307,7 +307,7 @@
             volume: -5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: DamageOnHit 
+  - type: DamageOnHit
     damage:
       types:
         Blunt: 5 # The nettle will "wilt" after 5 hits.
@@ -1520,7 +1520,6 @@
   - type: Tag
     tags:
     - Vegetable
-    - ADTAloe # ADT-Tweak
     - ADTMedicalAssemblerStuff # ADT-Tweak: Medical Assembler recipe stuff
   - type: FoodSequenceElement
     entries:
@@ -2399,6 +2398,8 @@
     seedId: bungo
   - type: SpaceGarbage
   - type: BadFood
+  - type: Item
+    size: Tiny
 
 - type: entity
   parent: FoodProduceBase
@@ -2684,6 +2685,7 @@
   - type: Item
     sprite: Objects/Specific/Hydroponics/cherry.rsi
     heldPrefix: pit
+    size: Tiny
   - type: Tag
     tags:
     - Recyclable

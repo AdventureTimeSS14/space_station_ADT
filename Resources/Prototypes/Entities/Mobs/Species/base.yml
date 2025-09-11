@@ -161,6 +161,7 @@
     state: icon
   - type: AnimationPlayer
   - type: Buckle
+  - type: CriminalRecord # ADT-Beepsky
   - type: CombatMode
     canDisarm: true
   - type: MeleeWeapon
@@ -246,6 +247,7 @@
   components:
   - type: OfferItem # ADT-Tweak
   - type: RadiationPopup # ADT-Tweak
+  - type: PickupHumans # ADT-Tweak
   - type: Barotrauma
     damage:
       types:

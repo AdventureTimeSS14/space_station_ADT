@@ -1,0 +1,4 @@
+file: icon-tweak-health-smite.png
+license: "All Rights Reserved"
+copyright: "© 2025 Шрёдька (Schrodinger71). All rights reserved."
+description: "Custom icon created for the tweak health smite feature. This file is the exclusive property of the author and may not be used, modified, or distributed without explicit written permission."

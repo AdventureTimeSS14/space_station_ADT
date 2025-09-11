@@ -219,6 +219,21 @@
   files:
     - /Audio/ADT/Voice/Resomi/resomi_scream.ogg
 
+- type: soundCollection
+  id: ResomiLaughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_laught.ogg
+
+- type: soundCollection
+  id: ResomiSneeze
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_sneeze.ogg
+
+- type: soundCollection
+  id: ResomiCoughs
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
+
 # Other
 - type: soundCollection
   id: HumanSpits
@@ -305,3 +320,15 @@
   id: VoxCry
   files:
     - /Audio/ADT/Voice/Vox/voxcry.ogg
+
+# Shadekin
+
+- type: soundCollection
+  id: Wurble
+  files:
+    - /Audio/ADT/Voice/Shadekin/wurble.ogg
+
+- type: soundCollection
+  id: Purse
+  files:
+    - /Audio/Effects/thudswoosh.ogg

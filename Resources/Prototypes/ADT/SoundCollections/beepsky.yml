@@ -1,0 +1,11 @@
+- type: soundCollection
+  id: ADTBeepskyTargetFound
+  files:
+    - /Audio/ADT/Voice/Silicon/Beepsky/criminal.ogg
+    - /Audio/ADT/Voice/Silicon/Beepsky/justice.ogg
+
+- type: soundCollection
+  id: ADTBeepskyTargetArrested
+  files:
+    - /Audio/ADT/Voice/Silicon/Beepsky/iamthelaw.ogg
+    - /Audio/ADT/Voice/Silicon/Beepsky/secureday.ogg

@@ -173,9 +173,9 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeMagnum # changed from Anti-material rifle rounds because it's a flintlock pistol not a Hristov
+        - CartridgeAntiMateriel  # ADT-Tweak
     capacity: 1
-    proto: CartridgeMagnum
+    proto: CartridgeAntiMateriel # ADT-Tweak
   - type: StaticPrice
     price: 0
 

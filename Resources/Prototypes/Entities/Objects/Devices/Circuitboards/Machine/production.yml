@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: AutolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: autolathe machine board
@@ -22,6 +22,7 @@
     stackRequirements:
       MatterBin: 3
       Glass: 1
+      ADTBScrystal: 3 #ADT Tweak
     tagRequirements:
       Igniter:
         amount: 1
@@ -57,6 +58,7 @@
     prototype: ProtolatheHyperConvection
     stackRequirements:
       MatterBin: 2
+      ADTBScrystal: 3 #ADT Tweak
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -160,6 +162,7 @@
     prototype: CircuitImprinterHyperConvection
     stackRequirements:
       MatterBin: 2
+      ADTBScrystal: 3 #ADT Tweak
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -862,6 +865,7 @@
     stackRequirements:
       Capacitor: 4
       Steel: 5
+      ADTBScrystalArt: 2 #ADT Tweak
 
 - type: entity
   id: GyroscopeMachineCircuitboard
@@ -1017,6 +1021,7 @@
     stackRequirements:
       MatterBin: 4
       Cable: 1
+      ADTBScrystal: 5 #ADTTweak
 
 - type: entity
   id: OreProcessorMachineCircuitboard
@@ -1232,6 +1237,7 @@
       stackRequirements:
         Capacitor: 2
         Steel: 5
+        ADTBScrystalArt: 5 #ADT Tweak
 
 - type: entity
   id: MailTeleporterMachineCircuitboard

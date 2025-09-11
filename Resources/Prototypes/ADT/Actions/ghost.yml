@@ -1,0 +1,14 @@
+- type: entity
+  id: ActionGhostInfo
+  name: View Station Info
+  description: View station information.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    icon:
+      sprite: ADT/Objects/Devices/pda.rsi
+      state: pda-ghost
+    checkCanInteract: false
+    event: !type:GhostInfoActionEvent
+
+

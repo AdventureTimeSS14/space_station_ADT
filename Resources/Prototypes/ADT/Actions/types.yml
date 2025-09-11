@@ -33,3 +33,18 @@
     icon:
       sprite: ADT/Interface/Actions/mod_menu.rsi
       state: icon
+
+- type: entity
+  id: ADTActionMorphGeras
+  name: Morph into Geras
+  description: Morphs you into a Geras - a miniature version of you which allows you to move fast, at the cost of your inventory.
+  components:
+    - type: InstantAction
+      itemIconStyle: BigAction
+      useDelay: 60 # prevent spam
+      priority: -20
+      checkCanInteract: true
+      icon:
+        sprite: Mobs/Aliens/slimes.rsi
+        state: blue_adult_slime
+      event: !type:MorphIntoGeras

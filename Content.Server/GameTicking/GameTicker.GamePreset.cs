@@ -27,6 +27,7 @@ public sealed partial class GameTicker
     /// Countdown to the preset being reset to the server default.
     /// </summary>
     public int? ResetCountdown;
+    public readonly Dictionary<string, int> PlayedPresets = new(); // ADT-Tweak
 
     private bool StartPreset(ICommonSession[] origReadyPlayers, bool force)
     {
