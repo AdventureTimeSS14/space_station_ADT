@@ -82,7 +82,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // repeating for both sides
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
-        foreach (var pookie in GetNearbyPeople(ent, ent.Comp.PathStage / 3))
+        foreach (var pookie in GetNearbyPeople(ent, ent.Comp.PathStage / 3f))
         {
             _stam.TakeStaminaDamage(pookie, power);
             if (condition) _voidcurse.DoCurse(pookie);
