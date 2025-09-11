@@ -4,7 +4,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Chemistry;
 
-[UsedImplicitly]
 /// <summary>
 /// Условие для проверки наличия определённых компонентов у сущности.
 /// Используется в системе эффектов реагентов для ограничения действия на конкретные типы сущностей.
@@ -29,7 +28,6 @@ public sealed partial class HasComponentCondition : EntityEffectCondition
     /// </summary>
     [DataField]
     public bool Invert;
-}
     public override bool Condition(EntityEffectBaseArgs args)
     {
         var hasComp = false;
