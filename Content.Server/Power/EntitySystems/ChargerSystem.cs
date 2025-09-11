@@ -83,29 +83,36 @@ internal sealed class ChargerSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>(); // ADT-Tweak
+        var query = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, ContainerManagerComponent>();
         while (query.MoveNext(out var uid, out _, out var charger, out var containerComp))
         {
-            // if (!_container.TryGetContainer(uid, charger.SlotId, out var container, containerComp)) // ADT-Tweak-Start
-            //     continue; // ADT-Tweak-End
-
-            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged || containerComp.Contents.ContainedEntities.Count == 0) // ADT-Tweak
+            if (!_container.TryGetContainer(uid, charger.SlotId, out var container, containerComp))
                 continue;
 
-            foreach (var contained in containerComp.Contents.ContainedEntities) // ADT-Tweak
+            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged || container.ContainedEntities.Count == 0)
+                continue;
+
+            foreach (var contained in container.ContainedEntities)
             {
                 TransferPower(uid, contained, charger, frameTime);
+            }
+        }
 
-                // ADT-Tweak-Start
+        // ADT-Tweak-Start
+        var query2 = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>();
+        while (query2.MoveNext(out var uid, out _, out var charger, out var containerComp))
+        {
+            foreach (var contained in containerComp.Contents.ContainedEntities)
+            {
                 if (containerComp.Airtight)
                 {
                     var curTemp = containerComp.Air.Temperature;
 
                     containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
                 }
-                // ADT-Tweak-End
             }
         }
+        // ADT-Tweak-End
     }
 
     private void OnPowerChanged(EntityUid uid, ChargerComponent component, ref PowerChangedEvent args)

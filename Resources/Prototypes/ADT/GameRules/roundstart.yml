@@ -348,3 +348,9 @@
         cost: 90
       - id: SleeperAgents
         cost: 110
+
+- type: entity
+  id: DynamicRandomGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRandomRule
