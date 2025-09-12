@@ -1,11 +1,11 @@
 - type: miningShopSection
   id: Crushers
-  name: Крашеры
+  name: ПКК
   entries:
-  - id: WeaponCrusherDagger
-    price: 550
+#  - id: WeaponCrusherDagger
+#    price: 550
   - id: WeaponCrusher
-    price: 750
+    price: 1050
   - id: WeaponKineticSpear
     price: 1050
   - id: WeaponKineticHammer
@@ -32,7 +32,7 @@
 
 - type: miningShopSection
   id: Motion
-  name: Передвижение
+  name: Выживание
   entries:
   - id: FultonBeacon
     price: 1000
@@ -42,6 +42,12 @@
     price: 900
   - id: WeaponGrapplingGun
     price: 750
+  - id: ADTShelterCapsule
+    price: 500
+  - id: ADTShelterCapsuleLuxury
+    price: 3500
+  - id: ADTShelterCapsuleBar
+    price: 10000
 
 - type: miningShopSection
   id: Medicine
@@ -50,13 +56,19 @@
   - id: SpaceMedipen
     price: 300
   - id: EmergencyMedipen
-    price: 150
+    price: 300
+  - id: BruteAutoInjector
+    price: 600
+  - id: BurnAutoInjector
+    price: 600
   - id: MedkitBruteFilled
     price: 900
   - id: MedkitBurnFilled
     price: 800
   - id: MedkitToxinFilled
     price: 1000
+  # - id: ADTPatchPackFilled
+  #   price: 400
 
 - type: miningShopSection
   id: EquipmentWearable
@@ -80,40 +92,37 @@
 #    price: 4000
   - id: ADTClothingJumpBoots
     price: 1500
+  - id: ClothingOuterHardsuitSpatio
+    price: 1000
+  - id: ClothingOuterHardsuitSalvage
+    price: 2500
   - id: ADTClothingModsuitBackMining
     price: 2500
-  - id: ADTModsuitModDrill
-    price: 1000
-  - id: ADTModsuitModStorageLarge
-    price: 500
-
 
 - type: miningShopSection
   id: EquipmentHand
-  name: Инвентарь
+  name: Раскопки
   entries:
   - id: Flare
     price: 75
   - id: Pickaxe
     price: 125
   - id: MiningDrill
-    price: 425
+    price: 500
   # - id: SeismicCharge временно в ауте
   #   price: 200
   - id: FireExtinguisherMini
     price: 150
   - id: ADTWeaponCutter
     price: 1000
-  - id: ADTShelterCapsule
-    price: 500
   - id: PowerCellHigh
     price: 650
   - id: Binoculars
     price: 450
-  - id: ADTShelterCapsuleLuxury
-    price: 3500
-  - id: ADTShelterCapsuleBar
-    price: 10000
+  - id: ADTModsuitModDrill
+    price: 1000
+  - id: ADTModsuitModStorageLarge
+    price: 500
 
 - type: miningShopSection
   id: Upgrades
@@ -134,8 +143,8 @@
   entries:
   - id: PlushieLizard
     price: 220 # CURSE
-  - id: SpaceCash5000
-    price: 2000
+  - id: SpaceCash1000
+    price: 2500
   - id: DrinkWhiskeyBottleFull
     price: 100
   - id: DrinkAbsintheBottleFull
@@ -148,3 +157,9 @@
     price: 400
   - id: CheckerBoard
     price: 400
+  - id: SoapNT
+    price: 400
+  - id: Cigar
+    price: 300
+  - id: CigarGoldCase
+    price: 1000
