@@ -13,18 +13,18 @@ def find_duplicates():
             path = os.path.join(root, file)
             with open(path, encoding="utf-8-sig", errors="replace") as f:
                 for lineno, line in enumerate(f, start=1):
+                    line = line.strip()
                     if not line or line.startswith("#") or "=" not in line:
                         continue
 
-                    key = line.split("=", 1)[0]
-
+                    key = line.split("=", 1)[0].strip()
                     DUPLICATES[key].append(f"{path}:{lineno}")
 
     has_duplicates = False
     for key, locations in DUPLICATES.items():
         if len(locations) > 1:
             has_duplicates = True
-            print(f"Duplicates found for key:{key}")
+            print(f"Duplicates found for key: {key}")
             for loc in locations:
                 print(f"  {loc}")
             print()
