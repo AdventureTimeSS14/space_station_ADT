@@ -130,7 +130,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-        Radiation: 0.5
+        Radiation: 0.3
         Caustic: 0.5
   - type: StaminaResistance
     damageCoefficient: 0.9
@@ -193,7 +193,7 @@
     modifiers:
       coefficients:
         Blunt: 0.7
-        Slash: 0.4
+        Slash: 0.5
         Piercing: 0.85
         Heat: 0.8
         Radiation: 0.8
@@ -405,7 +405,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: FireProtection
-    reduction: 1
+    reduction: 0.7
   - type: ClothingGrantComponent
     component:
     - type: GrabProtection
@@ -482,7 +482,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: FireProtection
-    reduction: 1
+    reduction: 0.9
   - type: ClothingGrantComponent
     component:
     - type: GrabProtection

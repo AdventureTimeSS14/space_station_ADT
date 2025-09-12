@@ -17,13 +17,13 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<TakenHumansComponent, MoveInputEvent>(OnMoveInput);
         SubscribeLocalEvent<TakenHumansComponent, EscapingDoAfterEvent>(OnEscape);
-
 
         SubscribeLocalEvent<TakenHumansComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<TakenHumansComponent, UpdateCanMoveEvent>(OnMoveAttempt);
