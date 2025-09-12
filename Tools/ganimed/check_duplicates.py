@@ -1,31 +1,53 @@
+#!/usr/bin/env python3
 import os
-import sys
-from collections import Counter
-import yaml
+from collections import defaultdict
 
-LOCALES = ["ru-RU", "en-US"]
-BASE_PATH = os.path.join("Content.Shared", "Localizations")
+# Путь к папке с локализациями
+LOCALE_DIR = "Resources/Locale"
 
-duplicates_found = False
+def find_duplicates():
+    has_duplicates = False
 
-for locale in LOCALES:
-    path = os.path.join(BASE_PATH, f"{locale}.yml")
-    if not os.path.exists(path):
-        continue
+    # Сканируем языковые папки (ru-RU, en-US)
+    for lang in os.listdir(LOCALE_DIR):
+        lang_path = os.path.join(LOCALE_DIR, lang)
+        if not os.path.isdir(lang_path):
+            continue
 
-    with open(path, encoding="utf-8") as f:
-        data = yaml.safe_load(f)
+        keys_seen = defaultdict(list)  # ключ: список файлов, где встречался
 
-    if not isinstance(data, dict):
-        continue
+        # Рекурсивно проходим по всем файлам
+        for root, _, files in os.walk(lang_path):
+            for file in files:
+                if not file.endswith(".ftl"):
+                    continue
 
-    counter = Counter(data.keys())
-    duplicates = [k for k, v in counter.items() if v > 1]
+                path = os.path.join(root, file)
+                with open(path, encoding="utf-8") as f:
+                    for lineno, line in enumerate(f, start=1):
+                        line = line.strip()
+                        if not line or line.startswith("#") or "=" not in line:
+                            continue
 
-    if duplicates:
-        duplicates_found = True
-        for d in duplicates:
-            print(f"Duplicate localization id '{d}' found in culture {locale}")
+                        key = line.split("=", 1)[0].strip()
+                        keys_seen[key].append(f"{path}:{lineno}")
 
-if duplicates_found:
-    sys.exit(1)
+        # Выводим дубликаты
+        duplicates = {k: v for k, v in keys_seen.items() if len(v) > 1}
+        if duplicates:
+            has_duplicates = True
+            print(f"\n❌ Duplicates in {lang}:")
+            for key, occurrences in duplicates.items():
+                print(f"  Key: {key}")
+                for occ in occurrences:
+                    print(f"    {occ}")
+
+    return has_duplicates
+
+if __name__ == "__main__":
+    import sys
+    if find_duplicates():
+        sys.exit(1)  # Ошибка для CI
+    else:
+        print("✅ No duplicates found.")
+        sys.exit(0)
