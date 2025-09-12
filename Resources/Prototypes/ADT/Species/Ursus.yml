@@ -30,6 +30,8 @@
   defaultLanguages:
   - GalacticCommon
   - Urs
+  uniqueLanguages:
+  - Urs
   minAge: 20
   maxAge: 80
   oldAge: 51
