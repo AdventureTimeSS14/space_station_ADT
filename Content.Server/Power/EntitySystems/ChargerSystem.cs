@@ -100,16 +100,13 @@ internal sealed class ChargerSystem : EntitySystem
 
         // ADT-Tweak-Start
         var query2 = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>();
-        while (query2.MoveNext(out var uid, out _, out var charger, out var containerComp))
+        while (query2.MoveNext(out _, out _, out var charger, out var containerComp))
         {
-            foreach (var contained in containerComp.Contents.ContainedEntities)
+            if (containerComp.Airtight)
             {
-                if (containerComp.Airtight)
-                {
-                    var curTemp = containerComp.Air.Temperature;
+                var curTemp = containerComp.Air.Temperature;
 
-                    containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
-                }
+                containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
             }
         }
         // ADT-Tweak-End

@@ -121,7 +121,7 @@ public sealed partial class AdminVerbSystem
             {
                 Text = superBoostSpeedName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Texture(new("ADT/Interface/Alerts/charge.rsi/charge4.png")),
+                Icon = new SpriteSpecifier.Texture(new("Interface/Alerts/walking.rsi/walking.png")),
                 Act = () =>
                 {
                     var hadSlipComponent = TryComp<SpeedBoostWakeComponent>(args.Target, out var _);
@@ -167,7 +167,7 @@ public sealed partial class AdminVerbSystem
                                     Spawn("Lightning", Transform(entity).Coordinates);
                                 }
                             }
-                    });
+                        });
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-smite-divine-delay-description")
