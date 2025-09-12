@@ -19,7 +19,7 @@ def find_duplicates():
                     continue
 
                 path = os.path.join(root, file)
-                with open(path, encoding="utf-8") as f:
+                with open(path, encoding="utf-8-sig", errors="replace") as f:
                     for lineno, line in enumerate(f, start=1):
                         line = line.strip()
                         if not line or line.startswith("#") or "=" not in line:
