@@ -28,6 +28,8 @@
   defaultLanguages:
   - GalacticCommon
   - Arkane
+  uniqueLanguages:
+  - Arkane
   minAge: 50
   maxAge: 350
   oldAge: 251
