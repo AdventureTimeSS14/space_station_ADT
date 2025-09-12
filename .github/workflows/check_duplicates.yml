@@ -1,4 +1,4 @@
-name: Localization Duplicate Checker
+name: Check YAML Duplicates
 
 on:
   push:
@@ -8,21 +8,21 @@ on:
 
 jobs:
   check-duplicates:
-    name: Check Localization Duplicates
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python 3.11
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: "3.11"
 
-      - name: Install Python dependencies
+      - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Run Duplicate Checker
+      - name: Run Duplicate Check
         run: |
-          python Tools/ganimed/check_duplicates.py
+          set -e
+          for file in $(find Content.Shared/Localizations -name "*.yml" -or -name "*.yaml"); do
+            python Tools/ganimed/check_duplicates.py "$file"
+          done

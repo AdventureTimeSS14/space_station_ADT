@@ -1,31 +1,27 @@
-import os
+import yaml
 import sys
 from collections import Counter
-import yaml
 
-LOCALES = ["ru-RU", "en-US"]
-BASE_PATH = os.path.join("Content.Shared", "Localizations")
+file = sys.argv[1]
 
-duplicates_found = False
+with open(file, encoding="utf-8") as f:
+    data = yaml.safe_load(f)
 
-for locale in LOCALES:
-    path = os.path.join(BASE_PATH, f"{locale}.yml")
-    if not os.path.exists(path):
-        continue
+keys = []
 
-    with open(path, encoding="utf-8") as f:
-        data = yaml.safe_load(f)
+def extract_keys(d, prefix=""):
+    if isinstance(d, dict):
+        for k, v in d.items():
+            extract_keys(v, prefix + k + ".")
+    else:
+        keys.append(prefix[:-1])
 
-    if not isinstance(data, dict):
-        continue
+extract_keys(data)
 
-    counter = Counter(data.keys())
-    duplicates = [k for k, v in counter.items() if v > 1]
+counter = Counter(keys)
+dups = [k for k, v in counter.items() if v > 1]
 
-    if duplicates:
-        duplicates_found = True
-        for d in duplicates:
-            print(f"Duplicate localization id '{d}' found in culture {locale}")
-
-if duplicates_found:
+if dups:
+    for k in dups:
+        print(f"{file}: {k}")
     sys.exit(1)
