@@ -92,8 +92,10 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             if (comp.MinPowerAccumulator >= comp.MinPowerRoof)
                 BlackEye(uid);
-            if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
-                TeleportRandomly(uid, comp);
+            // SD-tweak start
+            //if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
+            //    TeleportRandomly(uid, comp);
+            // SD-tweak end
         }
     }
 
