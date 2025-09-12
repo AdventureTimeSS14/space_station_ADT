@@ -100,7 +100,7 @@ internal sealed class ChargerSystem : EntitySystem
 
         // ADT-Tweak-Start
         var query2 = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>();
-        while (query2.MoveNext(out var _, out _, out var charger, out var containerComp))
+        while (query2.MoveNext(out _, out _, out var charger, out var containerComp))
         {
             if (containerComp.Airtight)
             {
