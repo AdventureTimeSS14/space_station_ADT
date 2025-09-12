@@ -19,13 +19,21 @@ def find_duplicates():
                     continue
 
                 path = os.path.join(root, file)
-                with open(path, encoding="utf-8-sig", errors="replace") as f:
+                try:
+                    f = open(path, encoding="utf-8")
+                except UnicodeDecodeError:
+                    f = open(path, encoding="cp1251")
+
+                with f:
                     for lineno, line in enumerate(f, start=1):
                         line = line.strip()
                         if not line or line.startswith("#") or "=" not in line:
                             continue
 
                         key = line.split("=", 1)[0].strip()
+                        if key.startswith("."):
+                            continue
+
                         keys_seen[key].append(f"{path}:{lineno}")
 
         duplicates = {k: v for k, v in keys_seen.items() if len(v) > 1}
