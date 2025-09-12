@@ -1,0 +1,1 @@
+dynamic-chaos-announcement = Текущий уровень хаоса: {$chaos}
