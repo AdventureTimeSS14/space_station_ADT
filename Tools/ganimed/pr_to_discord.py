@@ -20,6 +20,28 @@ CHANGELOG_RE = re.compile(
     re.IGNORECASE | re.MULTILINE
 )
 
+TIMEOUT = 620  # seconds
+
+
+def smart_capitalize(text):
+    text = text.strip()
+    parts = re.split(r'([.!?])', text)
+    result = []
+    capitalize_next = True
+    for part in parts:
+        if not part:
+            continue
+        if capitalize_next and part.strip():
+            part = part.strip()
+            result.append(part[0].upper() + part[1:])
+            capitalize_next = False
+        else:
+            result.append(part.strip())
+        if part in ".!?":
+            capitalize_next = True
+    return ' '.join(result)
+
+
 def is_inside_comment(text, match_start):
     comment_starts = [m.start() for m in re.finditer(r'<!--', text)]
     comment_ends = [m.start() for m in re.finditer(r'-->', text)]
@@ -28,6 +50,7 @@ def is_inside_comment(text, match_start):
         if end_candidates and start < match_start < end_candidates[0]:
             return True
     return False
+
 
 def extract_changelog(text):
     match = CHANGELOG_RE.search(text)
@@ -44,7 +67,7 @@ def extract_changelog(text):
         line_content = line[1:].strip()
         for key in EMOJI_MAP:
             if line_content.lower().startswith(f"{key}:"):
-                desc = line_content[len(key)+1:].strip().capitalize()
+                desc = smart_capitalize(line_content[len(key) + 1:].strip())
                 groups[key].append(f"{EMOJI_MAP[key]} {desc}")
                 break
 
@@ -61,6 +84,7 @@ def extract_changelog(text):
         grouped_output.pop()
     return "\n".join(grouped_output)
 
+
 def extract_coauthors(pr_body):
     coauthors = []
     for line in pr_body.splitlines():
@@ -74,17 +98,16 @@ def extract_coauthors(pr_body):
                 continue
     return coauthors
 
+
 def split_changelog_by_items(changelog, chunk_size=4096):
     parts = []
     current = ""
-
     items = changelog.split("\n\n")
     for item in items:
         item = item.strip()
         if not item:
             continue
         item_text = item + "\n\n"
-
         if len(item_text) > chunk_size:
             start = 0
             while start < len(item_text):
@@ -102,23 +125,19 @@ def split_changelog_by_items(changelog, chunk_size=4096):
                     parts.append(current)
                 current = ""
             current += item_text
-
     if current:
         parts.append(current)
-
     return parts
+
 
 def create_embeds(changelog, author_name, author_avatar, branch, coauthors=None):
     chunks = split_changelog_by_items(changelog)
     embeds = []
-
     if coauthors is None:
         coauthors = []
-
     footer_text = f"🆑 {author_name}"
     if coauthors:
         footer_text += ", " + ", ".join(c["name"] for c in coauthors)
-
     for i, part in enumerate(chunks):
         embed = {
             "description": f"\u200b\n{part}",
@@ -131,8 +150,24 @@ def create_embeds(changelog, author_name, author_avatar, branch, coauthors=None)
         if i == 0:
             embed["title"] = "⭐ Обновление"
         embeds.append(embed)
-
     return embeds
+
+
+def test_discord_webhook(url):
+    try:
+        resp = requests.get(url, timeout=5)
+        if resp.status_code in (401, 403, 404):
+            print(f"❌ Discord webhook invalid or no permission (HTTP {resp.status_code}).")
+            return False
+        print(f"ℹ️ Discord webhook reachable (HTTP {resp.status_code}).")
+        return True
+    except requests.Timeout:
+        print("⏳ Timeout while testing Discord webhook.")
+        return False
+    except requests.RequestException as e:
+        print(f"❌ Error testing Discord webhook: {e}")
+        return False
+
 
 def main():
     event_path = os.environ.get("GITHUB_EVENT_PATH")
@@ -140,7 +175,10 @@ def main():
     token = os.environ.get("GITHUB_TOKEN")
 
     if not event_path or not webhook_url:
-        print("Missing required environment variables.")
+        print("❌ Missing required environment variables.")
+        return
+
+    if not test_discord_webhook(webhook_url):
         return
 
     with open(event_path, 'r', encoding='utf-8') as f:
@@ -148,7 +186,7 @@ def main():
 
     pr = event.get("pull_request")
     if not pr or not pr.get("merged"):
-        print("PR not merged or no pull request data.")
+        print("ℹ️ PR not merged or no pull request data.")
         return
 
     body = pr.get("body", "")
@@ -158,7 +196,7 @@ def main():
 
     match = CHANGELOG_RE.search(body)
     if not match or is_inside_comment(body, match.start()):
-        print("No valid changelog found. Skipping PR.")
+        print("ℹ️ No valid changelog found. Skipping PR.")
         return
 
     alias = match.group(1)
@@ -172,37 +210,22 @@ def main():
 
     changelog = extract_changelog(body)
     if not changelog:
-        print("No valid changelog after extraction. Skipping PR.")
+        print("ℹ️ No valid changelog after extraction. Skipping PR.")
         return
-
-    coauthors_raw = extract_coauthors(body)
-    if token and coauthors_raw:
-        for name, email in coauthors_raw:
-            user_req = requests.get(
-                f"https://api.github.com/search/users?q={email}+in:email",
-                headers={"Authorization": f"Bearer {token}"}
-            )
-            if user_req.ok:
-                result = user_req.json()
-                if result.get("total_count", 0) > 0:
-                    user = result["items"][0]
-                    coauthor_profiles.append({
-                        "name": user["login"],
-                        "avatar": user["avatar_url"]
-                    })
-                else:
-                    coauthor_profiles.append({"name": name, "avatar": None})
-            else:
-                coauthor_profiles.append({"name": name, "avatar": None})
 
     embeds = create_embeds(changelog, author_display, avatar_url, branch, coauthors=coauthor_profiles)
     headers = {"Content-Type": "application/json"}
 
     for embed in embeds:
         payload = {"embeds": [embed]}
-        response = requests.post(webhook_url, headers=headers, data=json.dumps(payload))
-        if response.status_code >= 400:
-            print(f"❌ Failed to send webhook: {response.status_code} - {response.text}")
+        try:
+            print(f"📤 Sending to Discord ({len(json.dumps(payload))} bytes)")
+            response = requests.post(webhook_url, headers=headers, data=json.dumps(payload), timeout=TIMEOUT)
+            if response.status_code >= 400:
+                print(f"❌ Failed to send webhook: {response.status_code} - {response.text}")
+                return
+        except requests.Timeout:
+            print("⏳ Timeout sending to Discord")
             return
 
     if token:
@@ -210,13 +233,17 @@ def main():
         pr_number = pr["number"]
         label_url = f"https://api.github.com/repos/{repo}/issues/{pr_number}/labels"
         headers["Authorization"] = f"Bearer {token}"
-        label_response = requests.post(label_url, headers=headers, json={"labels": ["CL: Valid"]})
-        if label_response.status_code >= 400:
-            print(f"❌ Failed to add label: {label_response.status_code} - {label_response.text}")
-        else:
-            print("✅ Label [CL: Valid] added.")
+        try:
+            label_response = requests.post(label_url, headers=headers, json={"labels": ["CL: Valid"]}, timeout=TIMEOUT)
+            if label_response.status_code >= 400:
+                print(f"❌ Failed to add label: {label_response.status_code} - {label_response.text}")
+            else:
+                print("✅ Label [CL: Valid] added.")
+        except requests.Timeout:
+            print("⏳ Timeout adding label.")
 
     print("✅ Webhook sent successfully.")
+
 
 if __name__ == "__main__":
     main()

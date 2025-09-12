@@ -1,3 +1,0 @@
-geras-popup-cant-use = Я не могу сконцентрироваться!
-geras-popup-morph-message-user = Ты обращаешься к силам Гераса...
-geras-popup-morph-message-others = {entity} начинает меняться под действием сил Гераса!

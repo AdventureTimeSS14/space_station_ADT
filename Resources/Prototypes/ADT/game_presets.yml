@@ -75,6 +75,7 @@
   name: dynamic-hard-title
   description: dynamic-hard-description
   showInVote: false
+  minPlayers: 20 # Ganimed-Tweak
   rules:
     - DynamicHardGamerule
     - MeteorSwarmScheduler
@@ -89,6 +90,7 @@
   name: dynamic-low-title
   description: dynamic-low-description
   showInVote: false
+  minPlayers: 5 # Ganimed-Tweak
   rules:
     - DynamicLightGamerule
     - MeteorSwarmScheduler
@@ -102,6 +104,7 @@
   name: dynamic-medium-title
   description: dynamic-medium-description
   showInVote: false
+  minPlayers: 10 # Ganimed-Tweak
   rules:
     - DynamicMediumGamerule
     - MeteorSwarmScheduler

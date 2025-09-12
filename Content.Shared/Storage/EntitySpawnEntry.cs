@@ -58,6 +58,11 @@ public partial struct EntitySpawnEntry
 
     [DataField] public int Amount = 1;
 
+    // Ganimed edit start
+    [DataField("inheritParentForensics")]
+    public bool InheritParentForensics = true;
+    // Ganimed edit end
+
     /// <summary>
     ///     How many of this can be spawned, in total.
     ///     If this is lesser or equal to <see cref="Amount"/>, it will spawn <see cref="Amount"/> exactly.
@@ -104,7 +109,7 @@ public static class EntitySpawnCollection
             if (entry.PrototypeId == null)
                 continue;
 
-            var amount = (int) entry.GetAmount(random);
+            var amount = (int)entry.GetAmount(random);
 
             for (var i = 0; i < amount; i++)
             {
@@ -131,7 +136,7 @@ public static class EntitySpawnCollection
                     break;
 
                 // Dice roll succeeded, add item and break loop
-                var amount = (int) entry.GetAmount(random);
+                var amount = (int)entry.GetAmount(random);
 
                 for (var i = 0; i < amount; i++)
                 {
@@ -158,7 +163,7 @@ public static class EntitySpawnCollection
             if (entry.SpawnProbability != 1f && !random.Prob(entry.SpawnProbability))
                 continue;
 
-            var amount = (int) entry.GetAmount(random);
+            var amount = (int)entry.GetAmount(random);
 
             for (var i = 0; i < amount; i++)
             {

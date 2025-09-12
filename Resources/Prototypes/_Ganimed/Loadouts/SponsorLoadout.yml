@@ -1,0 +1,21 @@
+- type: loadout
+  id: Agzamovstunbatonloadout
+  storage:
+    back:
+    - StunbatonAgzamov
+  effects:
+    - !type:SponsorLoadoutEffect
+      tier: 3
+    - !type:JobRestrictedLoadoutEffect
+      whitelistJobs: [ Detective, HeadOfSecurity, SecurityCadet, SecurityOfficer, Warden ]
+      
+- type: loadout
+  id: AsukaShipKnifeloadout
+  storage:
+    back:
+    - ShipKnife
+  effects:
+    - !type:SponsorLoadoutEffect
+      tier: 3
+    - !type:JobRestrictedLoadoutEffect
+      whitelistJobs: [ Detective, HeadOfSecurity, SecurityCadet, SecurityOfficer, Warden ]

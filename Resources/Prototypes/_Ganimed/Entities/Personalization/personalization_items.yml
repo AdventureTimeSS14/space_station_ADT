@@ -1,0 +1,103 @@
+- type: entity
+  name: Agzamov stun baton
+  parent: Stunbaton
+  id: StunbatonAgzamov
+  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  suffix: Sponsor, Agzamov
+  components:
+  - type: Tag # goob edit
+    tags:
+    - Stunbaton
+  - type: Sprite
+    sprite: _Ganimed/Personalization/agzamov_stunbaton.rsi
+    layers:
+    - state: stunbaton_off
+    - state: stunbaton_on
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: stunbaton_on_light
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2.0
+    angle: 60
+    animation: WeaponArcThrust
+  - type: StaminaDamageOnCollide
+    damage: 25
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: Item
+    size: Small
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: Clothing
+    sprite: _Ganimed/Personalization/agzamov_stunbaton.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    inhandVisuals:
+      left:
+      - state: inhand-left-light
+        shader: unshaded
+      right:
+      - state: inhand-right-light
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    radius: 1.1
+    energy: 0.5
+    color: "#FF3D3D"
+    netsync: false
+  - type: ItemTogglePointLight
+  
+- type: entity
+  name: Ship knife
+  parent: BaseKnife
+  id: ShipKnife
+  description: This blood-red knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
+  components:
+  - type: Tag
+    tags:
+    - CombatKnife
+    - Knife
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Ship_knife.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 2
+    damage:
+      types:
+        Slash: 5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 5
+        Piercing: 15
+  - type: Item
+    sprite: _Ganimed/Personalization/Ship_knife.rsi
+  - type: ThrowingAngle
+    angle: 225
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck
