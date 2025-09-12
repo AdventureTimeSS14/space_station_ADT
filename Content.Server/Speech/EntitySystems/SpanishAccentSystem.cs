@@ -124,7 +124,7 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bхорошо\b", "bueno");
             message = Regex.Replace(message, @"\bХороши\b", "Buenos");
             message = Regex.Replace(message, @"\bХОРОШИ\b", "BUENOS");
-            message = Regex.Replace(message, @"\bхороши\b", "Buenos");
+            message = Regex.Replace(message, @"\bхороши\b", "buenos");
 
             message = Regex.Replace(message, @"\bОтлично\b", "Excelente");
             message = Regex.Replace(message, @"\bОТЛИЧНО\b", "EXCELENTE");
