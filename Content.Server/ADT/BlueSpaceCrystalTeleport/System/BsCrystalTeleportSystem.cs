@@ -1,21 +1,13 @@
+using Content.Server.Stack;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Stacks;
 using Content.Shared.Throwing;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Collections;
-using Robust.Shared.Map;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Random;
-using Content.Server.Atmos.Components;
-using Content.Server.Stack;
-using System.Linq;
-using System.Numerics;
-
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.BlueSpaceCrystalTeleport;
 
@@ -27,9 +19,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     [Dependency] private readonly StackSystem _stacks = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedPickupHumansSystem _pickupsys = default!;
-
-    private float CountToRadius;
-
 
     public override void Initialize()
     {
@@ -68,7 +57,6 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     }
 
 
-
     private bool TryTeleport(EntityUid entity, float radius, SoundSpecifier sound)
     {
         var targetCoords = SelectRandomTileInRange(entity, radius);
@@ -78,6 +66,7 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         _audio.PlayPvs(sound, entity);
         return true;
     }
+
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius)
     {
         var coords = Transform(uid).Coordinates;

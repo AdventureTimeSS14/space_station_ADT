@@ -1,0 +1,62 @@
+- type: startingGear
+  id: ADTCBURNGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCBURN
+    shoes: ClothingShoesBootsMag
+    id: CBURNPDA
+    pocket2: WeaponLaserGun
+    belt: ClothingBeltAssault
+    suitstorage: WeaponShotgunEnforcer
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - CrowbarOrange
+    - Chainsaw
+    - MedkitCombatFilled
+    - MagazineShotgunIncendiary
+    - MagazineShotgunIncendiary
+    - MagazineShotgun
+    - GrenadeFlashBang
+    - PillAmbuzolPlus
+    - SpaceCash500
+    - BoxShotgunIncendiary
+    - BoxLethalshot
+
+- type: startingGear
+  id: ADTCmndCBURNGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackDuffelCBURN
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitCBURNLeader
+    shoes: ADTClothingShoesBootsMagERT
+    id: CBURNPDA
+    pocket1: WeaponPulsePistol
+    pocket2: DoubleEmergencyOxygenTankFilled
+    suitstorage: WeaponShotgunBulldog
+    belt: ADTClothingBeltMilitaryWebbingCBURNFilled
+    underwearb: ADTClothingUnderwearBottomBriefsWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksComfyGrey
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - JawsOfLife
+    - Chainsaw
+    - MedkitCombatFilled
+    - GrenadeFlashBang
+    - PillAmbuzolPlus
+    - RubberStampCentcom
+    - SpaceCash1000
+    - ADTertRevolutionaryMechUplink
