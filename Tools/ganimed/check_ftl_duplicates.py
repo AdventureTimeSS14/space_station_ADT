@@ -1,22 +1,18 @@
-#!/usr/bin/env python3
 import os
 from collections import defaultdict
 
-# Путь к папке с локализациями
 LOCALE_DIR = "Resources/Locale"
 
 def find_duplicates():
     has_duplicates = False
 
-    # Сканируем языковые папки (ru-RU, en-US)
     for lang in os.listdir(LOCALE_DIR):
         lang_path = os.path.join(LOCALE_DIR, lang)
         if not os.path.isdir(lang_path):
             continue
 
-        keys_seen = defaultdict(list)  # ключ: список файлов, где встречался
+        keys_seen = defaultdict(list)
 
-        # Рекурсивно проходим по всем файлам
         for root, _, files in os.walk(lang_path):
             for file in files:
                 if not file.endswith(".ftl"):
@@ -32,7 +28,6 @@ def find_duplicates():
                         key = line.split("=", 1)[0].strip()
                         keys_seen[key].append(f"{path}:{lineno}")
 
-        # Выводим дубликаты
         duplicates = {k: v for k, v in keys_seen.items() if len(v) > 1}
         if duplicates:
             has_duplicates = True
