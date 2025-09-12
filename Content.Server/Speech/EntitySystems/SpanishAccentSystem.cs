@@ -73,11 +73,7 @@ namespace Content.Server.Speech.EntitySystems
             //args.Message = Accentuate(args.Message);
             var message = args.Message;
 
-            // @"\b\b" вместо обычного "" нужно, чтобы не получалось ошибок по типу: "Siнные"
-
-            message = Regex.Replace(message, @"\bЧто\b", "Que");
-            message = Regex.Replace(message, @"\bЧТО\b", "QUE");
-            message = Regex.Replace(message, @"\bчто\b", "que");
+            // @"\b\b" вместо обычного "" нужно, чтобы не было ошибок при замене.
 
             message = Regex.Replace(message, @"\bЗачем\b", "Para que");
             message = Regex.Replace(message, @"\bЗАЧЕМ\b", "PARA QUE");
@@ -150,45 +146,61 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bХОРОШИ\b", "BUENOS");
             message = Regex.Replace(message, @"\bхороши\b", "Buenos");
 
-            message = Regex.Replace(message, @"\bМой\b", "Mi");
-            message = Regex.Replace(message, @"\bМОЙ\b", "MI");
-            message = Regex.Replace(message, @"\bмой\b", "mi");
-            message = Regex.Replace(message, @"\bМое\b", "Mi");
-            message = Regex.Replace(message, @"\bМОЕ\b", "MI");
-            message = Regex.Replace(message, @"\bмое\b", "mi");
-            message = Regex.Replace(message, @"\bМоё\b", "Mi");
-            message = Regex.Replace(message, @"\bМОЁ\b", "MI");
-            message = Regex.Replace(message, @"\bмоё\b", "mi");
-
-            message = Regex.Replace(message, @"\bМои\b", "Mis");
-            message = Regex.Replace(message, @"\bМОИ\b", "MIS");
-            message = Regex.Replace(message, @"\bмои\b", "mis");
-
-            message = Regex.Replace(message, @"\bДа\b", "Si");
-            message = Regex.Replace(message, @"\bДА\b", "SI");
-            message = Regex.Replace(message, @"\bда\b", "si");
-
-            message = Regex.Replace(message, @"\bНет\b", "No");
-            message = Regex.Replace(message, @"\bНЕТ\b", "NO");
-            message = Regex.Replace(message, @"\bнет\b", "no");
-
             message = Regex.Replace(message, @"\bОтлично\b", "Excelente");
             message = Regex.Replace(message, @"\bОТЛИЧНО\b", "EXCELENTE");
             message = Regex.Replace(message, @"\bотлично\b", "excelente");
 
+            message = Regex.Replace(message, @"\bВеликолепно\b", "Magnificamente");
+            message = Regex.Replace(message, @"\bВЕЛИКОЛЕПНО\b", "MAGNIFICAMENTE");
+            message = Regex.Replace(message, @"\bвеликолепно\b", "magnificamente");
+            message = Regex.Replace(message, @"\bВеликолепный\b", "Magnifico");
+            message = Regex.Replace(message, @"\bВЕЛИКОЛЕПНЫЙ\b", "MAGNIFICO");
+            message = Regex.Replace(message, @"\bвеликолепный\b", "magnifico");
+            message = Regex.Replace(message, @"\bВеликолепна\b", "Magnifica");
+            message = Regex.Replace(message, @"\bВЕЛИКОЛЕПНА\b", "MAGNIFICA");
+            message = Regex.Replace(message, @"\bвеликолепна\b", "magnifica");
+            message = Regex.Replace(message, @"\bВеликолепная\b", "Magnifica");
+            message = Regex.Replace(message, @"\bВЕЛИКОЛЕПНАЯ\b", "MAGNIFICA");
+            message = Regex.Replace(message, @"\bвеликолепная\b", "magnifica");
+
+            message = Regex.Replace(message, @"\bЗамечательно\b", "Maravillosamente");
+            message = Regex.Replace(message, @"\bЗАМЕЧАТЕЛЬНО\b", "maravillosamente");
+            message = Regex.Replace(message, @"\bзамечательно\b", "maravillosamente");
+            message = Regex.Replace(message, @"\bЗамечательный\b", "Admirable");
+            message = Regex.Replace(message, @"\bЗАМЕЧАТЕЛЬНЫЙ\b", "ADMIRABLE");
+            message = Regex.Replace(message, @"\bзамечательный\b", "admirable");
+            message = Regex.Replace(message, @"\bЗамечательна\b", "Admirable");
+            message = Regex.Replace(message, @"\bЗАМЕЧАТЕЛЬНА\b", "ADMIRABLE");
+            message = Regex.Replace(message, @"\bзамечательна\b", "admirable");
+            message = Regex.Replace(message, @"\bЗамечательная\b", "Admirable");
+            message = Regex.Replace(message, @"\bЗАМЕЧАТЕЛЬНАЯ\b", "ADMIRABLE");
+            message = Regex.Replace(message, @"\bзамечательная\b", "admirable");
+
             message = Regex.Replace(message, @"\bВосхитительно\b", "Maravilloso");
             message = Regex.Replace(message, @"\bВОСХИТИТЕЛЬНО\b", "MARAVILLOSO");
             message = Regex.Replace(message, @"\bвосхитительно\b", "maravilloso");
+            message = Regex.Replace(message, @"\bВосхитительный\b", "Maravilloso");
+            message = Regex.Replace(message, @"\bВОСХИТИТЕЛЬНЫЙ\b", "MARAVILLOSO");
+            message = Regex.Replace(message, @"\bвосхитительный\b", "maravilloso");
             message = Regex.Replace(message, @"\bВосхитительна\b", "Maravillosa");
             message = Regex.Replace(message, @"\bВОСХИТИТЕЛЬНА\b", "MARAVILLOSA");
             message = Regex.Replace(message, @"\bвосхитительна\b", "maravillosa");
+            message = Regex.Replace(message, @"\bВосхитительная\b", "Maravillosa");
+            message = Regex.Replace(message, @"\bВОСХИТИТЕЛЬНАЯ\b", "MARAVILLOSA");
+            message = Regex.Replace(message, @"\bвосхитительная\b", "maravillosa");
 
             message = Regex.Replace(message, @"\bПрекрасно\b", "Hermoso");
             message = Regex.Replace(message, @"\bПРЕКРАСНО\b", "HERMOSO");
             message = Regex.Replace(message, @"\bпрекрасно\b", "hermoso");
+            message = Regex.Replace(message, @"\bПрекрасный\b", "Hermoso");
+            message = Regex.Replace(message, @"\bПРЕКРАСНЫЙ\b", "HERMOSO");
+            message = Regex.Replace(message, @"\bпрекрасный\b", "hermoso");
             message = Regex.Replace(message, @"\bПрекрасна\b", "Hermosa");
             message = Regex.Replace(message, @"\bПРЕКРАСНА\b", "HERMOSA");
             message = Regex.Replace(message, @"\bпрекрасна\b", "hermosa");
+            message = Regex.Replace(message, @"\bПрекрасная\b", "Hermosa");
+            message = Regex.Replace(message, @"\bПРЕКРАСНАЯ\b", "HERMOSA");
+            message = Regex.Replace(message, @"\bпрекрасная\b", "hermosa");
 
             message = Regex.Replace(message, @"\bАссистент\b", "Asistente");
             message = Regex.Replace(message, @"\bАССИСТЕНТ\b", "ASISTENTE");
@@ -217,10 +229,6 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bЧЕЛОВЕК\b", "PERSONA");
             message = Regex.Replace(message, @"\bчеловек\b", "persona");
 
-            message = Regex.Replace(message, @"\bСтоять\b", "Parar");
-            message = Regex.Replace(message, @"\bСТОЯТЬ\b", "PARAR");
-            message = Regex.Replace(message, @"\bстоять\b", "parar");
-
             message = Regex.Replace(message, @"\bПривет\b", "Hola");
             message = Regex.Replace(message, @"\bПРИВЕТ\b", "HOLA");
             message = Regex.Replace(message, @"\bпривет\b", "hola");
@@ -246,36 +254,40 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bдо свидания\b", "hasta la vista");
 
             message = Regex.Replace(message, @"\bСб\b", "Policia");
-            message = Regex.Replace(message, @"\bСБ\b", "POLICIA");
+            message = Regex.Replace(message, @"\bСБ\b", "Policia");
             message = Regex.Replace(message, @"\bсб\b", "policia");
 
             message = Regex.Replace(message, @"\bСи\b", "Jefe ingeniero");
-            message = Regex.Replace(message, @"\bСИ\b", "JEFE INGENIERO");
-            message = Regex.Replace(message, @"\bси\b", "Jefe ingeniero");
+            message = Regex.Replace(message, @"\bСИ\b", "Jefe ingeniero");
+            message = Regex.Replace(message, @"\bси\b", "jefe ingeniero");
 
-            message = Regex.Replace(message, @"\bГВ\b", "Jefe medico");
             message = Regex.Replace(message, @"\bГв\b", "Jefe medico");
+            message = Regex.Replace(message, @"\bГВ\b", "Jefe medico");
             message = Regex.Replace(message, @"\bгв\b", "jefe medico");
 
-            message = Regex.Replace(message, @"\bНР\b", "Mentor");
-            message = Regex.Replace(message, @"\bНр\b", "Mentor");
-            message = Regex.Replace(message, @"\bнр\b", "mentor");
-
-            message = Regex.Replace(message, @"\bМы\b", "Nosotros");
-            message = Regex.Replace(message, @"\bМЫ\b", "NOSOTROS");
-            message = Regex.Replace(message, @"\bмы\b", "nosotros");
+            message = Regex.Replace(message, @"\bНр\b", "Director cientifico");
+            message = Regex.Replace(message, @"\bНР\b", "Director cientifico");
+            message = Regex.Replace(message, @"\bнр\b", "director cientifico");
 
             message = Regex.Replace(message, @"\bКадет\b", "Cadete");
             message = Regex.Replace(message, @"\bКАДЕТ\b", "CADETE");
             message = Regex.Replace(message, @"\bкадет\b", "cadete");
-
             message = Regex.Replace(message, @"\bКадеты\b", "Cadetes");
             message = Regex.Replace(message, @"\bКАДЕТЫ\b", "CADETES");
             message = Regex.Replace(message, @"\bкадеты\b", "cadetes");
+            message = Regex.Replace(message, @"\bКадета\b", "Cadete");
+            message = Regex.Replace(message, @"\bКАДЕТА\b", "CADETE");
+            message = Regex.Replace(message, @"\bкадета\b", "cadete");
 
             message = Regex.Replace(message, @"\bОфицер\b", "Oficial");
             message = Regex.Replace(message, @"\bОФИЦЕР\b", "OFICIAL");
             message = Regex.Replace(message, @"\bофицер\b", "oficial");
+            message = Regex.Replace(message, @"\bОфицеры\b", "Oficialilad");
+            message = Regex.Replace(message, @"\bОФИЦЕРЫ\b", "OFICIALILAD");
+            message = Regex.Replace(message, @"\bофицеры\b", "oficialidad");
+            message = Regex.Replace(message, @"\bОфицера\b", "Oficial");
+            message = Regex.Replace(message, @"\bОФИЦЕРА\b", "OFICIAL");
+            message = Regex.Replace(message, @"\bофицера\b", "oficial");
 
             message = Regex.Replace(message, @"\bКлоун\b", "Payaso");
             message = Regex.Replace(message, @"\bКЛОУН\b", "PAYASO");
@@ -287,15 +299,15 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bКЛОУНА\b", "PAYASO");
             message = Regex.Replace(message, @"\bклоуна\b", "payaso");
 
-            message = Regex.Replace(message, @"\bВульпа\b", "Zorra");
-            message = Regex.Replace(message, @"\bВУЛЬПА\b", "ZORRA");
-            message = Regex.Replace(message, @"\bвульпа\b", "zorra");
             message = Regex.Replace(message, @"\bВульпы\b", "Zorros");
             message = Regex.Replace(message, @"\bВУЛЬПЫ\b", "ZORROS");
             message = Regex.Replace(message, @"\bвульпы\b", "zorros");
             message = Regex.Replace(message, @"\bВульп\b", "Zorro");
             message = Regex.Replace(message, @"\bВУЛЬП\b", "ZORRO");
             message = Regex.Replace(message, @"\bвульп\b", "zorro");
+            message = Regex.Replace(message, @"\bВульпа\b", "Zorra");
+            message = Regex.Replace(message, @"\bВУЛЬПА\b", "ZORRA");
+            message = Regex.Replace(message, @"\bвульпа\b", "zorra");
 
             message = Regex.Replace(message, @"\bИстребить\b", "Exterminar");
             message = Regex.Replace(message, @"\bИСТРЕБИТЬ\b", "EXTERMINAR");
@@ -329,17 +341,16 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bВОДЫ\b", "AGUA");
             message = Regex.Replace(message, @"\bводы\b", "agua");
 
-            message = Regex.Replace(message, @"\bГП\b", "Jefe de personal");
             message = Regex.Replace(message, @"\bГп\b", "Jefe de personal");
+            message = Regex.Replace(message, @"\bГП\b", "Jefe de personal");
             message = Regex.Replace(message, @"\bгп\b", "jefe de personal");
 
+            message = Regex.Replace(message, @"\bГсб\b", "Jefe de seguridad");
             message = Regex.Replace(message, @"\bГСБ\b", "Jefe de seguridad");
-            message = Regex.Replace(message, @"\bГлава Службы Безопасности\b", "Jefe de seguridad");
             message = Regex.Replace(message, @"\bгсб\b", "jefe de seguridad");
 
-            message = Regex.Replace(message, @"\bКМ\b", "Intendente");
             message = Regex.Replace(message, @"\bКм\b", "Intendente");
-            message = Regex.Replace(message, @"\bКвартирмейстер\b", "Intendente");
+            message = Regex.Replace(message, @"\bКМ\b", "Intendente");
             message = Regex.Replace(message, @"\bкм\b", "intendente");
 
             message = Regex.Replace(message, @"\bЯо\b", "Operativos nucleares");
@@ -355,6 +366,11 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bТеррористы\b", "Terroristas");
             message = Regex.Replace(message, @"\bТЕРРОРИСТЫ\b", "TERRORISTAS");
             message = Regex.Replace(message, @"\bтеррористы\b", "terroristas");
+            message = Regex.Replace(message, @"\bТеррориста\b", "Terrorista");
+            message = Regex.Replace(message, @"\bТЕРРОРИСТА\b", "TERRORISTA");
+            message = Regex.Replace(message, @"\bтеррориста\b", "terrorista");
+
+            // Ругательства
 
             message = Regex.Replace(message, @"\bПохуй\b", "Me importa un carajo");
             message = Regex.Replace(message, @"\bПОХУЙ\b", "ME IMPORTA UN CARAJO");
@@ -404,6 +420,12 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bСука\b", "Perra");
             message = Regex.Replace(message, @"\bСУКА\b", "PERRA");
             message = Regex.Replace(message, @"\bсука\b", "perra");
+            message = Regex.Replace(message, @"\bСуку\b", "Perro");
+            message = Regex.Replace(message, @"\bСУКУ\b", "PERRO");
+            message = Regex.Replace(message, @"\bсуку\b", "perro");
+            message = Regex.Replace(message, @"\bСуки\b", "Perros");
+            message = Regex.Replace(message, @"\bСУКИ\b", "PERROS");
+            message = Regex.Replace(message, @"\bсуки\b", "perros");
 
             message = Regex.Replace(message, @"\bИдиот\b", "Idiota");
             message = Regex.Replace(message, @"\bИДИОТ\b", "IDIOTA");
@@ -411,6 +433,9 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bИдиоты\b", "Idiota");
             message = Regex.Replace(message, @"\bИДИОТЫ\b", "IDIOTA");
             message = Regex.Replace(message, @"\bидиоты\b", "idiota");
+            message = Regex.Replace(message, @"\bИдиотов\b", "Idiotas");
+            message = Regex.Replace(message, @"\bИДИОТОВ\b", "IDIOTAS");
+            message = Regex.Replace(message, @"\bидиотов\b", "idiotas");
 
             message = Regex.Replace(message, @"\bПидор\b", "Cabron");
             message = Regex.Replace(message, @"\bПИДОР\b", "CABRON");
@@ -418,12 +443,18 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bПидоры\b", "Maricones");
             message = Regex.Replace(message, @"\bПИДОРЫ\b", "MARICONES");
             message = Regex.Replace(message, @"\bпидоры\b", "maricones");
+            message = Regex.Replace(message, @"\bПидора\b", "Cabron");
+            message = Regex.Replace(message, @"\bПИДОРА\b", "CABRON");
+            message = Regex.Replace(message, @"\bпидора\b", "cabron");
             message = Regex.Replace(message, @"\bПидорас\b", "Maricon");
             message = Regex.Replace(message, @"\bПИДОРАС\b", "MARICON");
             message = Regex.Replace(message, @"\bпидорас\b", "maricon");
             message = Regex.Replace(message, @"\bПидорасы\b", "Maricones");
             message = Regex.Replace(message, @"\bПИДОРАСЫ\b", "MARICONES");
             message = Regex.Replace(message, @"\bпидорасы\b", "maricones");
+            message = Regex.Replace(message, @"\bПидораса\b", "Maricon");
+            message = Regex.Replace(message, @"\bПИДОРАСА\b", "MARICON");
+            message = Regex.Replace(message, @"\bпидораса\b", "maricon");
 
             message = Regex.Replace(message, @"\bМразь\b", "Canalla");
             message = Regex.Replace(message, @"\bМРАЗЬ\b", "CANALLA");
@@ -438,9 +469,15 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bЕбланы\b", "Gilipollas");
             message = Regex.Replace(message, @"\bЕБЛАНЫ\b", "GILIPOLLAS");
             message = Regex.Replace(message, @"\bебланы\b", "gilipollas");
+            message = Regex.Replace(message, @"\bЕблана\b", "Gilipollas");
+            message = Regex.Replace(message, @"\bЕБЛАНА\b", "GILIPOLLAS");
+            message = Regex.Replace(message, @"\bеблана\b", "gilipollas");
             message = Regex.Replace(message, @"\bЕбланище\b", "Cabron");
             message = Regex.Replace(message, @"\bЕБЛАНИЩЕ\b", "CABRON");
             message = Regex.Replace(message, @"\bебланище\b", "cabron");
+            message = Regex.Replace(message, @"\bЕбланища\b", "Cabron");
+            message = Regex.Replace(message, @"\bЕБЛАНИЩА\b", "CABRON");
+            message = Regex.Replace(message, @"\bебланища\b", "cabron");
 
             message = Regex.Replace(message, @"\bУебок\b", "Hijo de puta");
             message = Regex.Replace(message, @"\bУЕБОК\b", "HIJO DE PUTA");
@@ -448,12 +485,24 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bУёбок\b", "Hijo de puta");
             message = Regex.Replace(message, @"\bУЁБОК\b", "HIJO DE PUTA");
             message = Regex.Replace(message, @"\bуёбок\b", "hijo de puta");
+            message = Regex.Replace(message, @"\bУебка\b", "Hijo de puta");
+            message = Regex.Replace(message, @"\bУЕБКА\b", "HIJO DE PUTA");
+            message = Regex.Replace(message, @"\bуебка\b", "hijo de puta");
+            message = Regex.Replace(message, @"\bУёбка\b", "Hijo de puta");
+            message = Regex.Replace(message, @"\bУЁБКА\b", "HIJO DE PUTA");
+            message = Regex.Replace(message, @"\bуёбка\b", "hijo de puta");
             message = Regex.Replace(message, @"\bУебки\b", "Hijos de puta");
             message = Regex.Replace(message, @"\bУЕБКИ\b", "HIJOS DE PUTA");
             message = Regex.Replace(message, @"\bуебки\b", "hijos de puta");
             message = Regex.Replace(message, @"\bУёбки\b", "Hijos de puta");
             message = Regex.Replace(message, @"\bУЁБКИ\b", "HIJOS DE PUTA");
             message = Regex.Replace(message, @"\bуёбки\b", "hijos de puta");
+            message = Regex.Replace(message, @"\bУебков\b", "Hijos de puta");
+            message = Regex.Replace(message, @"\bУЕБКОВ\b", "HIJOS DE PUTA");
+            message = Regex.Replace(message, @"\bуебков\b", "hijos de puta");
+            message = Regex.Replace(message, @"\bУёбков\b", "Hijos de puta");
+            message = Regex.Replace(message, @"\bУЁБКОВ\b", "HIJOS DE PUTA");
+            message = Regex.Replace(message, @"\bуёбков\b", "hijos de puta");
 
             message = Regex.Replace(message, @"\bНахуя\b", "Para que mierda");
             message = Regex.Replace(message, @"\bНАХУЯ\b", "PARA QUE MIERDA");
