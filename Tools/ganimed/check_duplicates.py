@@ -1,27 +1,53 @@
-import yaml
-import sys
-from collections import Counter
+#!/usr/bin/env python3
+import os
+from collections import defaultdict
 
-file = sys.argv[1]
+# Путь к папке с локализациями
+LOCALE_DIR = "Resources/Locale"
 
-with open(file, encoding="utf-8") as f:
-    data = yaml.safe_load(f)
+def find_duplicates():
+    has_duplicates = False
 
-keys = []
+    # Сканируем языковые папки (ru-RU, en-US)
+    for lang in os.listdir(LOCALE_DIR):
+        lang_path = os.path.join(LOCALE_DIR, lang)
+        if not os.path.isdir(lang_path):
+            continue
 
-def extract_keys(d, prefix=""):
-    if isinstance(d, dict):
-        for k, v in d.items():
-            extract_keys(v, prefix + k + ".")
+        keys_seen = defaultdict(list)  # ключ: список файлов, где встречался
+
+        # Рекурсивно проходим по всем файлам
+        for root, _, files in os.walk(lang_path):
+            for file in files:
+                if not file.endswith(".ftl"):
+                    continue
+
+                path = os.path.join(root, file)
+                with open(path, encoding="utf-8") as f:
+                    for lineno, line in enumerate(f, start=1):
+                        line = line.strip()
+                        if not line or line.startswith("#") or "=" not in line:
+                            continue
+
+                        key = line.split("=", 1)[0].strip()
+                        keys_seen[key].append(f"{path}:{lineno}")
+
+        # Выводим дубликаты
+        duplicates = {k: v for k, v in keys_seen.items() if len(v) > 1}
+        if duplicates:
+            has_duplicates = True
+            print(f"\n❌ Duplicates in {lang}:")
+            for key, occurrences in duplicates.items():
+                print(f"  Key: {key}")
+                for occ in occurrences:
+                    print(f"    {occ}")
+
+    return has_duplicates
+
+if __name__ == "__main__":
+    import sys
+    if find_duplicates():
+        sys.exit(1)  # Ошибка для CI
     else:
-        keys.append(prefix[:-1])
-
-extract_keys(data)
-
-counter = Counter(keys)
-dups = [k for k, v in counter.items() if v > 1]
-
-if dups:
-    for k in dups:
-        print(f"{file}: {k}")
-    sys.exit(1)
+        print("✅ No duplicates found.")
+        sys.exit(0)
