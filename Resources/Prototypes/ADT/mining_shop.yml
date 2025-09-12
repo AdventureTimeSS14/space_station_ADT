@@ -48,7 +48,7 @@
     price: 3500
   - id: ADTShelterCapsuleBar
     price: 10000
-    
+
 - type: miningShopSection
   id: Medicine
   name: Медицина
@@ -67,8 +67,8 @@
     price: 800
   - id: MedkitToxinFilled
     price: 1000
-  - id: ADTPatchPackFilled
-    price: 400
+  # - id: ADTPatchPackFilled
+  #   price: 400
 
 - type: miningShopSection
   id: EquipmentWearable
@@ -122,8 +122,8 @@
   - id: ADTModsuitModDrill
     price: 1000
   - id: ADTModsuitModStorageLarge
-    price: 500 
-    
+    price: 500
+
 - type: miningShopSection
   id: Upgrades
   name: Улучшения
