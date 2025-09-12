@@ -3,6 +3,8 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
 using Content.Server.StationEvents;
+using Content.Server.Database;
+using Robust.Shared.Player;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -11,6 +13,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -20,8 +23,8 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     {
         base.Added(uid, component, gameRule, args);
         component.Chaos = (int)_random.NextFloat(component.MinChaos, component.MaxChaos);
-
-        _chatManager.SendAdminAnnouncement($"Current chaos level: {component.Chaos}");
+        component.Chaos *= _player.PlayerCount / _player.MaxPlayers;
+        _chatManager.SendAdminAnnouncement(Loc.GetString("dynamic-chaos-announcement", ("chaos", component.Chaos)));
         //тяжело, но тут идёт механизм выбора раундстарт антагов
         for (int i = 0; i < 1000 && component.Chaos >= 10; i++)
         {
