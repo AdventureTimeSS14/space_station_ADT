@@ -27,7 +27,7 @@
     - нах
     - вах
 
-# Spoken by moths.
+# Spoken by arachnids and spiders.
 - type: language
   id: Arachnid
   roundstart: true
@@ -396,7 +396,7 @@
     - "'eirr"
     - ghh
 
-# Spoken by the Nian race.
+# Spoken by moths of the Nian race.
 - type: language
   id: Nian
   roundstart: true
@@ -478,13 +478,16 @@
     color: "#5773ff"
     whisperColor: "#7c8acc"
     replacement:
-    - "0"
-    - "1"
-    - "2"
+    - "бип"
+    - "буп"
+    - "пип"
+    - "пу"
+    - "и-и"
+    - "м-м"
     verbs:
       chat-speech-verb-suffix-exclamation-strong: [ громко констатирует, громко сообщает ]
       chat-speech-verb-suffix-exclamation: [ громко констатирует, громко сообщает ]
-      Default: [ констатирует, сообщает, докладывает ]
+      Default: [ констатирует, сообщает, chat-speech-verb-robotic-1, chat-speech-verb-electricity-2 ]
     font: Pixelizer
     fontSize: 15
 
@@ -504,7 +507,7 @@
     verbs:
       chat-speech-verb-suffix-exclamation-strong: [ громко констатирует, громко сообщает ]
       chat-speech-verb-suffix-exclamation: [ громко констатирует, громко сообщает ]
-      Default: [ констатирует, сообщает, докладывает ]
+      Default: [ констатирует, сообщает, chat-speech-verb-robotic-1, chat-speech-verb-robotic-2, chat-speech-verb-robotic-3 ]
     font: Pixelizer
     fontSize: 14
 
@@ -540,7 +543,7 @@
 # Spoken by the Ursus race.
 - type: language
   id: Urs
-  roundstart: true
+  roundstart: false # Ganimed-Tweak
   uiColor: "#b36b00"
   parent: BaseVocalLanguage
   speech: !type:Generic
@@ -575,7 +578,7 @@
 # Spoken by the Arkane race.
 - type: language
   id: Arkane
-  roundstart: true
+  roundstart: false # Ganimed-Tweak
   uiColor: "#e478ff"
   parent: BaseVocalLanguage
   speech: !type:Generic
@@ -629,7 +632,7 @@
     - дрг
     - эйе
 
-# Spoken by the Dwarf race.
+# Spoken by the Lizards and Tajarans.
 - type: language
   id: CintaTaj
   roundstart: true
@@ -843,7 +846,7 @@
     - ниф
     - ви
     verbs:
-      Default: [ хонкает ]
+      Default: [ хонкает, chat-speech-verb-cluwne-1 ]
 
   # Resomi language
 - type: language
@@ -870,27 +873,34 @@
     whisperColor: "#d1f069"
     replacement:
     - ja
+    - si
     - ne
     - in
     - er
     - sie
     - ber
     - flu
+    - cos
     - en
     - hi
     - ge
     - im
     - i
+    - e
+    - y
     - und
     - mir
     - ka
-    - die
-    - zah
+    - di
+    - los
     - den
-    - ble
+    - idad
     - ie
     - vi
+    - il
+    - erra
     - aus
     - das
-    - son
+    - sol
     - mal
+    - ale
