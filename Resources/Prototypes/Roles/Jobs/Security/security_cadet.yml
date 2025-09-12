@@ -38,7 +38,7 @@
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58
-    pocket2: BookSpaceLaw # Corvax-HyperLink
+    pocket2: ADTBookSpaceLaw #ADT-WikiBooks
   storage:
     back:
     - Flash
