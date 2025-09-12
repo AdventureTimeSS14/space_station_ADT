@@ -67,8 +67,8 @@
     price: 800
   - id: MedkitToxinFilled
     price: 1000
-  # - id: ADTPatchPackFilled
-  #   price: 400
+  - id: ADTPatchPackFilled
+    price: 400
 
 - type: miningShopSection
   id: EquipmentWearable
