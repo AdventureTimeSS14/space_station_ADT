@@ -5,6 +5,7 @@
   abstract: true
   id: ADTPlayerSiliconBase # For player controlled silicons
   components:
+    - type: PassiveHolyHealing
     - type: Reactive
       groups:
         Acidic: [Touch]
@@ -280,6 +281,7 @@
     - type: Cuffable
     - type: AnimationPlayer
     - type: Buckle
+    - type: CriminalRecord # ADT-Beepsky
     - type: CreamPied
     - type: Stripping
     - type: Strippable

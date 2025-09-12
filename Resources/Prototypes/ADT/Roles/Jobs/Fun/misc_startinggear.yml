@@ -44,3 +44,65 @@
     belt: ClothingBeltUtility
     pocket1: AppraisalTool
     outerClothing: ClothingOuterCoatGentle
+
+# Syndicate Surpricer Gear - No Headset
+- type: startingGear
+  id: SyndicateSurpricerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    head: ClothingHeadHelmetSwatSyndicate
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterArmorBasic
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  inhand:
+    - CombatKnife
+  storage:
+    back:
+    - BoxSurvival
+
+# Drone Antag
+- type: startingGear
+  id: ADTAntagDroneGearMiner
+  equipment:
+    back: ClothingBackpackAntagDroneMiner
+    belt: OreBagAntagDrone
+  # inhand:
+  #   - MiningDrill
+  #   - WeaponProtoKineticAccelerator
+  #   - JawsOfLife
+  #   - PowerDrill
+  #   - OreBag
+
+- type: startingGear
+  id: ADTAntagDroneGearEngineer
+  equipment:
+    back: ClothingBackpackAntagDroneEngineer
+    belt: OreBagAntagDrone
+  # inhand:
+  #   - WelderIndustrial
+  #   - JawsOfLife
+  #   - PowerDrill
+  #   - Multitool
+  #   - trayScanner
+  #   - OreBag
+
+- type: startingGear
+  id: ADTAntagDroneGearCharger
+  equipment:
+    back: ClothingBackpackAntagDroneCharger
+    belt: OreBagAntagDrone
+  # inhand:
+  #   - JawsOfLife
+
+# Hermit (not Purple)
+- type: startingGear
+  id: ADTHemritEquipment
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombat
+    id: ADTNocardClearPDA
+    pocket2: RadioHandheld

@@ -49,7 +49,7 @@
   id: QuartermasterGear
   equipment:
     id: QuartermasterPDA
-    ears: ClothingHeadsetQM
+    # ears: ClothingHeadsetQM # ADT tweak
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
   storage:

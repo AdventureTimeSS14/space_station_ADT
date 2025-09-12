@@ -37,13 +37,12 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
     {
         var damageableSystem = args.EntityManager.System<DamageableSystem>();
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-
-        for (var i = 0; i < Max; i++)
+        for (int i = 0; i < Max; i++)
         {
             // YES!!! ASH!!!
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
-                var prot = (ProtoId<DamageGroupPrototype>) "Burn";
+                var prot = (ProtoId<DamageGroupPrototype>)"Burn";
                 var dmgtype = prototypeManager.Index(prot);
                 damageableSystem.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 3984f), true);
             }

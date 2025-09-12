@@ -22,13 +22,6 @@ ent-ADTClothingUnderwearSocksThigh = высокие чулки
 ent-ADTClothingUnderwearSocksLaceThigh = кружевные чулки
     .desc = Красивые кружевные чулки.
 
-ent-ADTClothingUnderwearSocksHeart = носки с сердечками
-    .desc = Теплый и милый подарок для любимого.
-    .suffix = { "День Святого Валентина" }
-ent-ADTClothingUnderwearSocksStockingsHeart = длинные чулки с сердечками
-    .desc = Теплый и милый подарок для любимой.
-    .suffix = { "День Святого Валентина" }
-
 ent-ADTClothingUnderwearSocksRabbit = носки с кроликами
     .desc = Теплый и необычные носочки в виде кроликов.
 
@@ -58,9 +51,9 @@ ent-ADTClothingUnderwearSocksKneeComfyRed = красные чулки
 ent-ADTClothingUnderwearSocksKneeComfyViolet = фиолетовые чулки
     .desc = Комфортные фиолетовые чулочки.
 
-ent-ADTClothingUnderwearSocksAzure = лазурные носки 
+ent-ADTClothingUnderwearSocksAzure = лазурные носки
     .desc = Обычные лазурные носки.
-ent-ADTClothingUnderwearSocksKneeAzure = лазурные гольфы 
+ent-ADTClothingUnderwearSocksKneeAzure = лазурные гольфы
     .desc = Обычные лазурные гольфы.
 ent-ADTClothingUnderwearSocksThighAzure = лазурные чулки
     .desc = Обычные лазурные чулки.
@@ -70,14 +63,14 @@ ent-ADTClothingUnderwearSocksBlack = чёрные носки
 ent-ADTClothingUnderwearSocksKneeBlack = чёрные гольфы
     .desc = Обычные чёрные гольфы.
 ent-ADTClothingUnderwearSocksThighBlack = чёрные чулки
-    .desc = Обычные чёрные чулки. 
+    .desc = Обычные чёрные чулки.
 
 ent-ADTClothingUnderwearSocksCaptain = капитанские носки
     .desc = Носки для капитанов станций НТ.
 ent-ADTClothingUnderwearSocksKneeCaptain = капитанские гольфы
     .desc = Гольфы для капитанов станций НТ.
 ent-ADTClothingUnderwearSocksThighCaptain = капитанские чулки
-    .desc = Чулки для капитанов станций НТ. 
+    .desc = Чулки для капитанов станций НТ.
 
 ent-ADTClothingUnderwearSocksCentcom = носки представителей ЦентКом
     .desc = Носки для представителей ЦК.
@@ -86,17 +79,12 @@ ent-ADTClothingUnderwearSocksKneeCentcom = гольфы представител
 ent-ADTClothingUnderwearSocksThighCentcom = чулки представителей ЦентКом
     .desc = Чулки для представителей ЦК. Да... Даже некоторые из них носят чулки...
 
-ent-ADTClothingUnderwearSocksKneeCreepy = страшные гольфы
-    .desc = Гольфы, что точно подойдут для Хеллоуина.
-ent-ADTClothingUnderwearSocksThighCreepy = страшные чулки
-    .desc = Чулки, что точно подойдут для Хеллоуина. 
-
 ent-ADTClothingUnderwearSocksCyan = голубые носки
     .desc = Обычные голубые носки.
 ent-ADTClothingUnderwearSocksKneeCyan = голубые гольфы
     .desc = Обычные голубые гольфы.
 ent-ADTClothingUnderwearSocksThighCyan = голубые чулки
-    .desc = Обычные голубые чулки. 
+    .desc = Обычные голубые чулки.
 
 ent-ADTClothingUnderwearSocksFurr = пушистые носки
     .desc = Обычные пушистые носки. Очень тёплые.
@@ -183,7 +171,7 @@ ent-ADTClothingUnderwearSocksYellow = жёлтые носки
     .desc = Обычные жёлтые носки.
 ent-ADTClothingUnderwearSocksKneeYellow = жёлтые гольфы
     .desc = Обычные жёлтые гольфы.
-ent-ADTClothingUnderwearSocksThighYellow = жёлтые чулки 
+ent-ADTClothingUnderwearSocksThighYellow = жёлтые чулки
     .desc = Обычные жёлтые чулки.
 
 ent-ADTClothingUnderwearSocksPink = розовые носки

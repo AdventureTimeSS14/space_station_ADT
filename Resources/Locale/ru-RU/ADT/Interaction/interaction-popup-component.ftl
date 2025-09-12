@@ -7,3 +7,5 @@ petting-success-singularity = Вы гладите { $target }, и Вселенн
 petting-failure-singularity = Вы пытаетесь погладить { $target }, но { POSS-ADJ($target) } гравитация почти втягивает вас внутрь.
 petting-success-supermatter = Вы гладите { $target }, чувствуя, как ваше тело начинает светиться изнутри.
 petting-failure-supermatter = Вы тянетесь к { $target }, но { POSS-ADJ($target) } излучение мгновенно обжигает вашу руку.
+petting-success-secbot = Вы гладите {THE($target)} по {POSS-ADJ($target)} гладкому телу правосудия.
+petting-failure-secbot  = Вы тянетесь к { $target }, но { POSS-ADJ($target) } занят правосудием.

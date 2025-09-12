@@ -150,7 +150,7 @@ public sealed class BloodstreamSystem : EntitySystem
                 // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                 _drunkSystem.TryApplyDrunkenness(
                     uid,
-                    (float) bloodstream.UpdateInterval.TotalSeconds * 2,
+                    (float)bloodstream.UpdateInterval.TotalSeconds * 2,
                     applySlur: false);
                 _stutteringSystem.DoStutter(uid, bloodstream.UpdateInterval * 2, refresh: false);
 
@@ -206,13 +206,32 @@ public sealed class BloodstreamSystem : EntitySystem
         // TODO probably cache this or something. humans get hurt a lot
         if (!_prototypeManager.TryIndex<DamageModifierSetPrototype>(ent.Comp.DamageBleedModifiers, out var modifiers))
             return;
+        // Start ADT Tweak
+        // Get the Metaphysical damage group prototype
+        DamageGroupPrototype? metaGroup = null;
+        _prototypeManager.TryIndex<DamageGroupPrototype>("Metaphysical", out metaGroup);
 
-        var bloodloss = DamageSpecifier.ApplyModifierSet(args.DamageDelta, modifiers);
+        // Filter out damage types that belong to the Metaphysical group
+        var filteredDamage = new DamageSpecifier();
+        foreach (var (type, value) in args.DamageDelta.DamageDict)
+        {
+            // Skip damage types in the Metaphysical group
+            if (metaGroup != null && metaGroup.DamageTypes.Contains(type))
+                continue;
+
+            filteredDamage.DamageDict.Add(type, value);
+        }
+
+        // If no damage left after filtering, return
+        if (filteredDamage.Empty)
+            return;
+        // End ADT Tweak
+
+        var bloodloss = DamageSpecifier.ApplyModifierSet(filteredDamage, modifiers);
 
         if (bloodloss.Empty)
             return;
 
-        // Does the calculation of how much bleed rate should be added/removed, then applies it
         var oldBleedAmount = ent.Comp.BleedAmount;
         var total = bloodloss.GetTotal();
         var totalFloat = total.Float();
@@ -242,6 +261,7 @@ public sealed class BloodstreamSystem : EntitySystem
                 ent, PopupType.Medium);
         }
     }
+
     /// <summary>
     ///     Shows text on health examine, based on bleed rate and blood level.
     /// </summary>
@@ -405,7 +425,7 @@ public sealed class BloodstreamSystem : EntitySystem
             _alertsSystem.ClearAlert(uid, component.BleedingAlert);
         else
         {
-            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            var severity = (short)Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
             _alertsSystem.ShowAlert(uid, component.BleedingAlert, severity);
         }
 

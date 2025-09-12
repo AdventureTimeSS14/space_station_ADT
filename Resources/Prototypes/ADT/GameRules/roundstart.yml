@@ -19,7 +19,7 @@
 
 - type: entity
   parent: BaseHereticRule
-  id: HereticGameRule
+  id: Heretic
   components:
   - type: HereticRule
   - type: GameRule
@@ -227,7 +227,7 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
-      - id: HereticGameRule
+      - id: Heretic
         cost: 30
         rerollChance: 0.5
       - id: Revolutionary
@@ -279,7 +279,7 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
-      - id: HereticGameRule
+      - id: Heretic
         cost: 30
         rerollChance: 0.5
       - id: Nukeops
@@ -348,3 +348,9 @@
         cost: 90
       - id: SleeperAgents
         cost: 110
+
+- type: entity
+  id: DynamicRandomGamerule
+  parent: BaseGameRule
+  components:
+  - type: DynamicRandomRule

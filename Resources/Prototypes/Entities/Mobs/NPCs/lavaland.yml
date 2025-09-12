@@ -1,16 +1,18 @@
 - type: entity
   name: watcher
   id: MobWatcherBase
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ ADTSimpleMobBaselavaland, FlyingMobBase ] #ADT‑Tweak: Сменил перент на наш (SimpleSpaceMobBase - > ADTSimpleMobBaselavaland)
   abstract: true
   description: It's like it's staring right through you.
   components:
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-  - type: HTN
-    rootTask:
-      task: SimpleRangedHostileCompound
+  # ADT-Tweak-comment-start
+  # - type: HTN
+  #   rootTask:
+  #     task: SimpleRangedHostileCompound
+  # ADT-Tweak-comment-end
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Lavaland/watcher.rsi
@@ -74,7 +76,16 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: Fauna # ADT-Tweak start
-  - type: AshStormImmune
+  - type: AshStormImmune 
+  # - type: GrabProtection # ADT-Tweak-Comment
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        2
+      AggroVisionRadius: !type:Single
+        10
   # ADT-Tweak end
   
 - type: entity

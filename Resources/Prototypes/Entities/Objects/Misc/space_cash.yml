@@ -94,6 +94,10 @@
   - type: Currency
     price:
       SpaceCash: 1
+  - type: Tag
+    tags:
+      - ADTMoneyForGamble
+      - SpaceCash
   # ADT-Economy-End
 
 - type: material

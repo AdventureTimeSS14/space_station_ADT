@@ -1,8 +1,9 @@
 - type: entity
-  id: ADTBookSpaceLaw
+  id: ADTBookBaseHyperLink
   parent: BaseItem
-  name: space law
-  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  name: hyperbook
+  abstract: true
+  description: You shouldn't see this in the game.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/books.rsi
@@ -23,7 +24,20 @@
       collection: Punch
     damage:
       types:
-        Blunt: 1
+        Blunt: 3
+
+- type: entity
+  id: ADTBookSpaceLaw
+  parent: ADTBookBaseHyperLink
+  name: space law
+  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/books.rsi
+    layers:
+    - state: KZ
+  - type: HyperLink
+    url: https://wiki.adventurestation.space/%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD#%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD
 
 # procedures
 # procedures
@@ -31,7 +45,7 @@
 
 - type: entity
   id: ADTBookPCDsec
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: security procedures
   description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
   components:
@@ -39,13 +53,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: PCD_SEC
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/security
 # Corvax-HyperLink
@@ -58,7 +65,7 @@
 
 - type: entity
   id: ADTBookPCDcmd
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: command procedures
   description: A set of Nanotrasen guidelines for keeping personnel order on their space stations.
   components:
@@ -66,13 +73,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: PCD_CMD
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/command # Ganimed Tweak
 # Corvax-HyperLink
@@ -85,7 +85,7 @@
 
 - type: entity
   id: ADTBookPCDjrd
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: juridical procedures
   description: A set of Nanotrasen guidelines for keeping juridical order on their space stations.
   components:
@@ -93,13 +93,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: PCD_JRD
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/law # Ganimed Tweak
 # Corvax-HyperLink
@@ -116,7 +109,7 @@
 
 - type: entity
   id: ADTBookSRPcmd
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: command procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -124,13 +117,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_CMD
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/command # Ganimed Tweak
 # Corvax-HyperLink
@@ -143,7 +129,7 @@
 
 - type: entity
   id: ADTBookSRPcrg
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: cargo procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -151,13 +137,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_CRG
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/supply # Ganimed Tweak
 # Corvax-HyperLink
@@ -170,7 +149,7 @@
 
 - type: entity
   id: ADTBookSRPeng
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: engineering procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -178,13 +157,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_ENG
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/engineering # Ganimed Tweak
 # Corvax-HyperLink
@@ -197,7 +169,7 @@
 
 - type: entity
   id: ADTBookSRPjrd
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: juridical procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -205,13 +177,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_JRD
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/law # Ganimed Tweak
 # Corvax-HyperLink
@@ -224,7 +189,7 @@
 
 - type: entity
   id: ADTBookSRPmed
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: medical procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -232,13 +197,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_MED
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/medical # Ganimed Tweak
 # Corvax-HyperLink
@@ -251,7 +209,7 @@
 
 - type: entity
   id: ADTBookSRPrnd
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: rnd procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -259,13 +217,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_RND
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/science # Ganimed Tweak
 # Corvax-HyperLink
@@ -278,7 +229,7 @@
 
 - type: entity
   id: ADTBookSRPsec
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: security procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -286,13 +237,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_SEC
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/security # Ganimed Tweak
 # Corvax-HyperLink
@@ -305,7 +249,7 @@
 
 - type: entity
   id: ADTBookSRPsrv
-  parent: BaseItem
+  parent: ADTBookBaseHyperLink
   name: service procedures
   description: A set of Nanotrasen guidelines.
   components:
@@ -313,13 +257,6 @@
     sprite: ADT/Objects/Misc/books.rsi
     layers:
     - state: CRP_SRV
-  - type: Tag
-    tags:
-    - Book
-  - type: UserInterface
-    interfaces:
-      enum.HyperLinkUiKey.Key:
-        type: HyperLinkBoundUserInterface
   - type: HyperLink
     url: https://wiki.station-enterprise.space/ru/game/sop/service # Ganimed Tweak
 # Corvax-HyperLink

@@ -1,14 +1,4 @@
 - type: cargoProduct
-  id: ADTFunOktoberfestClothes
-  icon:
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/oktoberfest_dirndlblue.rsi
-    state: icon
-  product: ADTCrateFunOktoberfestClothes
-  cost: 750
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
   id: ADTFunATV
   icon:
     sprite: Objects/Vehicles/atv.rsi
@@ -35,17 +25,6 @@
   product: ADTRingsCrate
   category: cargoproduct-category-name-fun
   cost: 8000
-
-- type: cargoProduct
-  id: ADTFunHalloweenCloth
-  icon:
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: pennywise
-  product: ADTCrateHalloweenCloth
-  cost: 4250
-  category: cargoproduct-category-name-fun
-  group: market
-
 - type: cargoProduct
   id: ADTFunSprayPaints
   icon:

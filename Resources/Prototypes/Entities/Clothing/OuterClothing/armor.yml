@@ -28,6 +28,12 @@
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase] # ADT-Tweak
   id: ClothingOuterArmorBasic
+  components:
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTArmorSacrafice
+### End ADT Tweak
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -41,6 +47,11 @@
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
+### Start ADT Tweak
+  - type: Tag
+    tags:
+      - ADTArmorSacrafice
+### End ADT Tweak
 
 - type: entity
   parent: ClothingOuterArmorBase

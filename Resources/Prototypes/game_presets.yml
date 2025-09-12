@@ -3,7 +3,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: true
+  showInVote: false #ADT tweak
   description: survival-description
   rules:
     - MeteorSwarmScheduler
@@ -181,6 +181,7 @@
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
+  bannedRound: 1 #ADT tweak
 
 - type: gamePreset
   id: Nukeops

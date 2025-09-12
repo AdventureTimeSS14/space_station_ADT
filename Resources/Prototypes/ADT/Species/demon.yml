@@ -44,7 +44,7 @@
     Chest: MobDemonTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Tail: MobDemonTail
+    Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobDemonLArm
     RArm: MobDemonRArm
@@ -78,7 +78,8 @@
       required: false
     Tail:
       points: 1
-      required: false
+      required: true
+      defaultMarkings: [ MobDemonTailColor ]
     Snout:
       points: 2
       required: false

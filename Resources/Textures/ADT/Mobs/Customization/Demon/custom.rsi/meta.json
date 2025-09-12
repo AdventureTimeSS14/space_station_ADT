@@ -56,18 +56,6 @@
             "directions": 4
         },
         {
-            "name": "demon_tail",
-            "directions": 4
-        },
-        {
-            "name": "long",
-            "directions": 4
-        },
-        {
-            "name": "up",
-            "directions": 4
-        },
-        {
             "name": "ears_elf",
             "directions": 4
         },
@@ -77,6 +65,10 @@
         },
         {
             "name": "horns_capricorn",
+            "directions": 4
+        },
+        {
+            "name": "horns_devil_one",
             "directions": 4
         },
         {

@@ -2,6 +2,6 @@
   id: ADTSheetBScrystal
   result: ADTMaterialBScrystal1
   miningPoints: 40
-  completetime: 2
+  completetime: 0
   materials:
     ADTRawBSore: 100

@@ -29,3 +29,11 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerSupermatter
+
+## Minesweeper
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: MinesweeperCircuitboard
+  components:
+    - type: ComputerBoard
+      prototype: MinesweeperArcade
