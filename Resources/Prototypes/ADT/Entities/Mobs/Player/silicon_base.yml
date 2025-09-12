@@ -5,7 +5,6 @@
   abstract: true
   id: ADTPlayerSiliconBase # For player controlled silicons
   components:
-    - type: PassiveHolyHealing
     - type: Reactive
       groups:
         Acidic: [Touch]
