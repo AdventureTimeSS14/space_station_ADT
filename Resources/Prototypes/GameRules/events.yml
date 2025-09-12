@@ -656,8 +656,6 @@
     reoccurrenceDelay: 20
     duration: 1
     startAnnouncement: station-event-ion-storm-start-announcement # Ganimed edit
-    startAudio:
-      path: /Audio/Corvax/Adminbuse/i-storm1.ogg
   - type: IonStormRule
 
 - type: entity
