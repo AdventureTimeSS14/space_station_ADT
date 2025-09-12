@@ -313,20 +313,6 @@ namespace Content.Server.Speech.EntitySystems
             message = Regex.Replace(message, @"\bИСТРЕБИТЬ\b", "EXTERMINAR");
             message = Regex.Replace(message, @"\bистребить\b", "exterminar");
 
-            message = Regex.Replace(message, @"\bСжечь\b", "Quemar");
-            message = Regex.Replace(message, @"\bСЖЕЧЬ\b", "QUEMAR");
-            message = Regex.Replace(message, @"\bсжечь\b", "quemar");
-
-            message = Regex.Replace(message, @"\bУбить\b", "Matar");
-            message = Regex.Replace(message, @"\bУБИТЬ\b", "MATAR");
-            message = Regex.Replace(message, @"\bубить\b", "matar");
-            message = Regex.Replace(message, @"\bУбили\b", "Mataron");
-            message = Regex.Replace(message, @"\bУБИЛИ\b", "MATARON");
-            message = Regex.Replace(message, @"\bубили\b", "mataron");
-            message = Regex.Replace(message, @"\bУбейте\b", "Maten");
-            message = Regex.Replace(message, @"\bУБЕЙТЕ\b", "MATEN");
-            message = Regex.Replace(message, @"\bубейте\b", "maten");
-
             message = Regex.Replace(message, @"\bПиво\b", "Cerveza");
             message = Regex.Replace(message, @"\bПИВО\b", "CERVEZA");
             message = Regex.Replace(message, @"\bпиво\b", "cerveza");
