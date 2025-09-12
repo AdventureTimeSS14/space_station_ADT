@@ -123,6 +123,20 @@ public sealed partial class ShadekinSystem : EntitySystem
     {
         _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
         _action.AddAction(uid, ref comp.ActionEntity, comp.ActionProto);
+
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        {
+            var eye = humanoid.EyeColor;
+            if (eye.R == 0f && eye.G == 0f && eye.B == 0f)
+            {
+                comp.Blackeye = true;
+                comp.PowerLevelGainEnabled = false;
+                comp.PowerLevel = 0f;
+                Dirty(uid, humanoid);
+                _action.RemoveAction(comp.ActionEntity);
+                _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), 0);
+            }
+        }
     }
 
     private void OnTeleport(EntityUid uid, ShadekinComponent comp, ShadekinTeleportActionEvent args)
@@ -138,8 +152,11 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         args.Handled = true;
 
-        if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
-            _pulling.TryStopPull(puller.Pulling.Value, pullable);
+        if (TryComp<PullerComponent>(uid, out var puller))
+        {
+            if (puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                _pulling.TryStopPull(puller.Pulling.Value, pullable);
+        }
 
         _transform.SetCoordinates(uid, args.Target);
         _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
