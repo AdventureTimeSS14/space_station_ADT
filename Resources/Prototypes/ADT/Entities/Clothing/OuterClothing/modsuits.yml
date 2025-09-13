@@ -397,7 +397,7 @@
     walkModifier: 1
     sprintModifier: 1
   - type: FireProtection
-    reduction: 1
+    reduction: 0.7
   - type: ClothingGrantComponent
     component:
     - type: GrabProtection
@@ -474,7 +474,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: FireProtection
-    reduction: 1
+    reduction: 0.9
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
