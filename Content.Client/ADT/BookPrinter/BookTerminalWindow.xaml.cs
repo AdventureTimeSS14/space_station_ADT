@@ -35,12 +35,10 @@ namespace Content.Client.ADT.BookPrinter
         {
             ClearCooldownUI();
 
-            if (!state.IsUploadAvailable)
+            if (!state.IsUploadAvailable && !state.IsCooldownEnabled)
             {
                 AddCooldownLabel(Loc.GetString("book-printer-upload-blocked"), "LabelSubText");
-            }
-            else if (!state.IsCooldownEnabled)
-            {
+
                 var timeText = FormatCooldownTime(state.CooldownRemaining);
                 AddCooldownLabel(Loc.GetString("book-printer-upload-blocked"), "LabelBig");
                 AddCooldownLabel(Loc.GetString("book-printer-cooldown-remaining", ("time", timeText)), "LabelSubText");
@@ -79,11 +77,14 @@ namespace Content.Client.ADT.BookPrinter
             if (state.CooldownDuration.TotalSeconds <= 0)
                 return;
 
+            var progressPercent = (state.CooldownDuration.TotalSeconds - state.CooldownRemaining.TotalSeconds) / state.CooldownDuration.TotalSeconds * 100;
+
             var progressBar = new ProgressBar
             {
                 Name = "cooldown_progressbar",
                 MinValue = 0,
                 MaxValue = 100,
+                Value = (float)progressPercent,
                 Margin = new Thickness(0, 2, 0, 2),
                 HorizontalExpand = true
             };
@@ -117,7 +118,7 @@ namespace Content.Client.ADT.BookPrinter
             EjectButton.Disabled = castState.BookName is null || castState.WorkProgress is not null;
             CopyPasteButton.Disabled = !castState.RoutineAllowed || castState.WorkProgress is not null;
 
-            if (_infoPanelEntry != null && (castState.BookEntries == null || !castState.BookEntries.Contains(_infoPanelEntry)))
+            if (_infoPanelEntry != null && (castState.BookEntries == null || !castState.BookEntries.Any(e => e.Id == _infoPanelEntry.Id)))
                 HideInfoPanel();
         }
 
@@ -133,7 +134,7 @@ namespace Content.Client.ADT.BookPrinter
             if (castState.BookEntries is null)
                 return;
 
-            foreach (var entry in castState.BookEntries.OrderBy(r => r.Name))
+            foreach (var entry in castState.BookEntries.OrderBy(r => r.Id))
             {
                 var row = new BoxContainer { Orientation = LayoutOrientation.Horizontal };
                 var display = $"#{entry.Id} {CutDescription(entry.Name ?? "")}";
