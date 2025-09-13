@@ -81,16 +81,23 @@ public sealed class ShadekinTintSystem : EntitySystem
             return;
 
         // Eye color
-        comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
+        if (!(layer.Color.R * 255f <= 30f && layer.Color.R * 255f <= 30f && layer.Color.R * 255f <= 30f))
+        {
+            comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
 
-        // 1/3 = 0.333...
-        // intensity = min + (power / max)
-        // intensity = intensity / 0.333
-        // intensity = clamp intensity min, max
-        const float min = 0.45f;
-        const float max = 0.75f;
-        comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
-
+            // 1/3 = 0.333...
+            // intensity = min + (power / max)
+            // intensity = intensity / 0.333
+            // intensity = clamp intensity min, max
+            const float min = 0.45f;
+            const float max = 0.75f;
+            comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
+        }
+        else
+        {
+            comp.TintColor = new Vector3(0f, 0f, 0f);
+            comp.TintIntensity = 0f;
+        }
         UpdateShader(comp.TintColor, comp.TintIntensity);
     }
 
