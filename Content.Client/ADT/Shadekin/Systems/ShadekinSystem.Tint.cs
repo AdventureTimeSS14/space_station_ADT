@@ -81,7 +81,7 @@ public sealed class ShadekinTintSystem : EntitySystem
             return;
 
         // Eye color
-        if (!(layer.Color.R * 255f <= 30f && layer.Color.R * 255f <= 30f && layer.Color.R * 255f <= 30f))
+        if (!(comp.Blackeye))
         {
             comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
 

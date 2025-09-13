@@ -108,7 +108,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
             {
                 var eye = humanoid.EyeColor;
-                if ((eye.R * 255f <= 45f && eye.G * 255f <= 45f && eye.B * 255f <= 45f) && !(comp.Blackeye))
+                if ((eye.R * 255f <= 30f && eye.G * 255f <= 30f && eye.B * 255f <= 30f) && !(comp.Blackeye))
                 {
                     comp.Blackeye = true;
                     comp.PowerLevelGainEnabled = false;
