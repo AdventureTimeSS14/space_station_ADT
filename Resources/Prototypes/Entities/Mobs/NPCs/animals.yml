@@ -255,9 +255,15 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: HTN # ADT tweak
-    rootTask: # ADT tweak
-      task: RuminantCompound # ADT tweak
+  # ADT-Tweak Start
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 2
+  # ADT-Tweak End
 
 - type: entity
   parent: MobChicken
