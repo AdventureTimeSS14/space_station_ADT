@@ -11,6 +11,157 @@ namespace Content.Server.Speech.EntitySystems
         private readonly Dictionary<string, string> _replacements = new();
         private Regex? _replaceRegex;
 
+        // New field for TTS pronunciations
+        private readonly Dictionary<string, string> _pronunciations = new()
+        {
+            {"para que", "пара кэ"},
+            {"por que", "пор кэ"},
+            {"como", "комо"},
+            {"asi", "аси"},
+            {"me", "мэ"},
+            {"por favor", "пор фавор"},
+            {"por favor, hazlo", "пор фавор, асло"},
+            {"amigo", "амиго"},
+            {"al amigo", "аль амиго"},
+            {"amigos", "амигос"},
+            {"amiguito", "амигито"},
+            {"amiga", "амига"},
+            {"a la amiga", "а ла амига"},
+            {"amigas", "амигас"},
+            {"amiguita", "амигита"},
+            {"companero", "компаньэро"},
+            {"al companero", "аль компанэеро"},
+            {"companeros", "компаньэрос"},
+            {"hermano", "эрмано"},
+            {"al hermano", "аль эрмано"},
+            {"hermanos", "эрманос"},
+            {"hermana", "эрмана"},
+            {"al hermana", "аль эрмана"},
+            {"hermanas", "эрманас"},
+            {"padre", "падрэ"},
+            {"al padre", "аль падрэ"},
+            {"padres", "падрэс"},
+            {"bien", "бьен"},
+            {"bueno", "буэно"},
+            {"buena", "буэна"},
+            {"buenos", "буэнос"},
+            {"excelente", "эхсэлентэ"},
+            {"magnificamente", "магнификаментэ"},
+            {"magnifico", "магнифико"},
+            {"magnificos", "магнификос"},
+            {"magnifica", "магнифика"},
+            {"estupendo", "эступендо"},
+            {"estupendos", "эступендос"},
+            {"maravillosamente", "маравийосаментэ"},
+            {"maravilloso", "маравийосо"},
+            {"maravillosos", "маравийосос"},
+            {"maravillosa", "маравийоса"},
+            {"hermosamente", "эрмосаментэ"},
+            {"hermoso", "эрмосо"},
+            {"hermosos", "эрмосос"},
+            {"hermosa", "эрмоса"},
+            {"asistente", "асистентэ"},
+            {"ayudante", "айудантэ"},
+            {"cerdo", "сэрдо"},
+            {"cerdos", "сэрдос"},
+            {"gracias", "грасиас"},
+            {"mujer", "мухэр"},
+            {"oye", "ойэ"},
+            {"persona", "персона"},
+            {"hola", "ола"},
+            {"buenos dias", "буэнос диас"},
+            {"buenas tardes", "буэнас тардэс"},
+            {"buenas noches", "буэнас ночэс"},
+            {"adios", "адиос"},
+            {"adios a todos", "адиос а тодос"},
+            {"hasta la vista", "аста ла виста"},
+            {"payaso", "пайасо"},
+            {"al payaso", "аль пайасо"},
+            {"payasos", "пайасос"},
+            {"payasito", "пайасито"},
+            {"al payasito", "аль пайасито"},
+            {"payasitos", "пайаситос"},
+            {"vamos", "вамос"},
+            {"zorras", "соррас"},
+            {"zorro", "сорро"},
+            {"zorra", "сорра"},
+            {"al zorra", "аль сорра"},
+            {"exterminar", "экстерминар"},
+            {"cerveza", "сэрвэса"},
+            {"agua", "агуа"},
+            {"agente", "ахентэ"},
+            {"al agente", "аль ахентэ"},
+            {"agentes", "ахентэс"},
+            {"operativos nucleares", "оперативос нуклеарэс"},
+            {"operativo", "оперативо"},
+            {"al operativo", "аль оперативо"},
+            {"operativos", "оперативос"},
+            {"terrorista", "террориста"},
+            {"terroristas", "террористас"},
+            {"corporacion", "корпорасьон"},
+            {"corporaciones", "корпорасьонэс"},
+            {"capitan", "капитан"},
+            {"al capitan", "аль капитан"},
+            {"jefe ingeniero", "хэфэ инхэньэро"},
+            {"jefe medico", "хэфэ мэдико"},
+            {"director cientifico", "директор сиэнтифико"},
+            {"jefe de personal", "хэфэ дэ персонал"},
+            {"jefe de seguridad", "хэфэ дэ сэгуридад"},
+            {"intendente", "интендэнтэ"},
+            {"policia", "полисиа"},
+            {"de seguridad", "дэ сэгуридад"},
+            {"seguras", "сэгурас"},
+            {"segura", "сэгура"},
+            {"al segura", "аль сэгура"},
+            {"segurata", "сэгурата"},
+            {"al segurata", "аль сэгурата"},
+            {"seguratas", "сэгуратас"},
+            {"cadete", "кадэтэ"},
+            {"cadetes", "кадэтэс"},
+            {"al cadete", "аль кадэтэ"},
+            {"oficial", "офисиал"},
+            {"oficiales", "офисиалэс"},
+            {"al oficial", "аль офисиал"},
+            {"agente de asuntos internos", "ахентэ дэ асунтос интернос"},
+            {"magistrado", "магистрадо"},
+            {"al magistrado", "аль магистрадо"},
+            {"magistrados", "магистрадос"},
+            {"oficial del escudo azul", "офисиал дэль эскудо асуль"},
+            {"comando central", "командо сэнтрал"},
+            {"puta madre", "пута мадрэ"},
+            {"de puta madre", "дэ пута мадрэ"},
+            {"vete a la mierda", "вэтэ а ла мьерда"},
+            {"vayanse a la mierda", "байансэ а ла мьерда"},
+            {"mierda", "мьерда"},
+            {"perra", "пэрра"},
+            {"perras", "пэррас"},
+            {"al perra", "аль пэрра"},
+            {"perrita", "пэррита"},
+            {"idiota", "идиота"},
+            {"idiotas", "идиотас"},
+            {"al idiota", "аль идиота"},
+            {"cabron", "каброн"},
+            {"cabrones", "кабронэс"},
+            {"al cabron", "аль каброн"},
+            {"maricon", "марикон"},
+            {"maricones", "мариконэс"},
+            {"al maricon", "аль марикон"},
+            {"canalla", "канайя"},
+            {"canallas", "канайяс"},
+            {"gilipollas", "хилипойяс"},
+            {"al gilipollas", "аль хилипойяс"},
+            {"hijo de puta", "ихо дэ пута"},
+            {"hijos de puta", "ихос дэ пута"},
+            {"al hijos de puta", "аль ихос дэ пута"},
+            {"importa un carajo", "импорта ун карахо"},
+            {"importa un bledo", "импорта ун блэдо"},
+            {"no me importa", "но мэ импорта"},
+            {"para que mierda", "пара кэ мьерда"},
+            {"hostia puta", "остиа пута"}
+        };
+
+        private Regex? _pronounceRegex;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -339,7 +490,6 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("ахуеть", "hostia puta");
             _replacements.Add("охуеть", "hostia puta");
             _replacements.Add("ахуй", "hostia puta");
-            _replacements.Add("пиздец", "hostia puta");
 
             _replacements.Add("хуйня", "mierda");
 
@@ -347,7 +497,24 @@ namespace Content.Server.Speech.EntitySystems
             var pattern = @"\b(" + string.Join("|", orderedKeys.Select(Regex.Escape)) + @")\b";
             _replaceRegex = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
+            var orderedPronounceKeys = _pronunciations.Keys.OrderByDescending(k => k.Length).ToList();
+            var pronouncePattern = @"\b(" + string.Join("|", orderedPronounceKeys.Select(Regex.Escape)) + @")\b";
+            _pronounceRegex = new Regex(pronouncePattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
             SubscribeLocalEvent<SpanishAccentComponent, AccentGetEvent>(OnAccent);
+        }
+
+        public string GetPronunciation(string message)
+        {
+            return _pronounceRegex!.Replace(message, match =>
+            {
+                string key = match.Value.ToLowerInvariant();
+                if (_pronunciations.TryGetValue(key, out var pron))
+                {
+                    return pron;
+                }
+                return match.Value;
+            });
         }
 
         public string Accentuate(string message)
