@@ -465,3 +465,26 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
+
+# Главный Врач
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackSMO
+  name: SMO MOD control unit
+  description: Made SMO
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/smo.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitSMO
+      gloves: ADTClothingHandsModsuitSMO
+      outerClothing: ADTClothingOuterModsuitBodySMO
+      shoes: ADTClothingModsuitShoesSMO
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
