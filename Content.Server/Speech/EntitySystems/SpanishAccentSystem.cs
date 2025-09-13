@@ -270,6 +270,10 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("пошёл ты нахуй", "vete a la mierda");
             _replacements.Add("иди ты нахуй", "vete a la mierda");
             _replacements.Add("идите вы нахуй", "vayanse a la mierda");
+            _replacements.Add("съеби", "vete a la mierda");
+            _replacements.Add("съебите", "vayanse a la mierda");
+            _replacements.Add("съебись", "vete a la mierda");
+            _replacements.Add("съебитесь", "vayanse a la mierda");
 
             _replacements.Add("блять", "mierda");
             _replacements.Add("бля", "mierda");
@@ -335,6 +339,7 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("ахуеть", "hostia puta");
             _replacements.Add("охуеть", "hostia puta");
             _replacements.Add("ахуй", "hostia puta");
+            _replacements.Add("пиздец", "hostia puta");
 
             _replacements.Add("хуйня", "mierda");
 
