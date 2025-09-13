@@ -103,3 +103,36 @@
   parent: BaseToolBox
   id: ToolboxArtistic
   result: ToolboxArtistic
+
+- type: latheRecipe
+  id: ClothingHeadHatHardhatWhite
+  result: ClothingHeadHatHardhatWhite
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+
+- type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
+  id: ClothingHeadHatHardhatYellow
+  result: ClothingHeadHatHardhatYellow
+
+- type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
+  id: ClothingHeadHatHardhatRed
+  result: ClothingHeadHatHardhatRed
+
+- type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
+  id: ClothingHeadHatHardhatOrange
+  result: ClothingHeadHatHardhatOrange
+
+- type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
+  id: ClothingHeadHatHardhatBlue
+  result: ClothingHeadHatHardhatBlue
+
+- type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
+  id: ClothingHeadHatHardhatYellowDark
+  result: ClothingHeadHatHardhatYellowDark
