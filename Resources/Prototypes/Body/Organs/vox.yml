@@ -35,7 +35,7 @@
       - Paper
       - VoxFood
       - Vegetable
-      - Cake
+      - Cake        # ADT-Tweak
 
 - type: entity
   parent: OrganHumanLiver

@@ -137,8 +137,6 @@ public sealed partial class ShadekinSystem : EntitySystem
     {
         _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
         _action.AddAction(uid, ref comp.ActionEntity, comp.ActionProto);
-
-
     }
 
     private void OnTeleport(EntityUid uid, ShadekinComponent comp, ShadekinTeleportActionEvent args)
@@ -273,6 +271,7 @@ public sealed partial class ShadekinSystem : EntitySystem
         comp.Blackeye = true;
         comp.PowerLevelGainEnabled = false;
         comp.PowerLevel = 0f;
+        Dirty(uid, comp);
         _stamina.TakeStaminaDamage(uid, 150f);
 
         if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
