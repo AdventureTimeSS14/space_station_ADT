@@ -474,6 +474,180 @@
   conditions:
     - !type:TileNotBlocked
 
+# sofa-office-black
+
+- type: construction
+  name: construction-name-black-office-sofa-left-side
+  id: ADTSofaOfficeBlackLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficeblackleft
+  category: construction-category-furniture
+  description: construction-desc-black-office-sofa-left-side
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-office-sofa-right-side
+  id: ADTSofaOfficeBlackRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficeblackright
+  category: construction-category-furniture
+  description: construction-desc-black-office-sofa-right-side
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-office-sofa-middle
+  id: ADTSofaOfficeBlackMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficeblackmiddle
+  category: construction-category-furniture
+  description: construction-desc-black-office-sofa-middle
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-office-sofa-left-corner
+  id: ADTSofaOfficeBlackLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficeblackleftcorner
+  category: construction-category-furniture
+  description: construction-desc-black-office-sofa-left-corner
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_leftcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-office-sofa-right-corner
+  id: ADTSofaOfficeBlackRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficeblackrightcorner
+  category: construction-category-furniture
+  description: construction-desc-black-office-sofa-right-corner
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_rightcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# sofa-office-white
+
+- type: construction
+  name: construction-name-white-office-sofa-left-side
+  id: ADTSofaOfficeWhiteLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficewhiteleft
+  category: construction-category-furniture
+  description: construction-desc-white-office-sofa-left-side
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_left
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-white-office-sofa-right-side
+  id: ADTSofaOfficeWhiteRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficewhiteright
+  category: construction-category-furniture
+  description: construction-desc-white-office-sofa-right-side
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_right
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-white-office-sofa-middle
+  id: ADTSofaOfficeWhiteMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficewhitemiddle
+  category: construction-category-furniture
+  description: construction-desc-white-office-sofa-middle
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-white-office-sofa-left-corner
+  id: ADTSofaOfficeWhiteLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficewhiteleftcorner
+  category: construction-category-furniture
+  description: construction-desc-white-office-sofa-left-corner
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_leftcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-white-office-sofa-right-corner
+  id: ADTSofaOfficeWhiteRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofaofficewhiterightcorner
+  category: construction-category-furniture
+  description: construction-desc-white-office-sofa-right-corner
+  icon:
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_rightcorner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 # Chairs
 # From Yuna
 

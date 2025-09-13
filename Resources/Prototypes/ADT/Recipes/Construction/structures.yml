@@ -70,3 +70,99 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  
+- type: construction
+  id: ADTSteelDarkSingleStairs
+  graph: ADTSteelDarkSingleStairs
+  startNode: start
+  targetNode: adtsteeldarksinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: ADTSteelSingleStairs
+  graph: ADTSteelSingleStairs
+  startNode: start
+  targetNode: adtsteelsinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: ADTSteelWhiteSingleStairs
+  graph: ADTSteelWhiteSingleStairs
+  startNode: start
+  targetNode: adtsteelwhitesinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: ADTWoodBlackSingleStairs
+  graph: ADTWoodBlackSingleStairs
+  startNode: start
+  targetNode: adtwoodblacksinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: ADTWoodDarkSingleStairs
+  graph: ADTWoodDarkSingleStairs
+  startNode: start
+  targetNode: adtwooddarksinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: ADTWoodSingleStairs
+  graph: ADTWoodSingleStairs
+  startNode: start
+  targetNode: adtwoodsinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: ADTWoodLightSingleStairs
+  graph: ADTWoodLightSingleStairs
+  startNode: start
+  targetNode: adtwoodlightsinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+    
+- type: construction
+  id: ADTWoodRedSingleStairs
+  graph: ADTWoodRedSingleStairs
+  startNode: start
+  targetNode: adtwoodredsinglestairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

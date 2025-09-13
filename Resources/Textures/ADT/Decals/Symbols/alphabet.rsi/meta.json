@@ -1,0 +1,161 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Taken from https://github.com/ss220-space/Paradise. Modified by maksim21612 (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "dash"
+        },
+        {
+            "name": "eng_d"
+        },
+        {
+            "name": "eng_b_rus_v"
+        },
+        {
+            "name": "eng_c_rus_s"
+        },
+        {
+            "name": "eng_f"
+        },
+        {
+            "name": "eng_g"
+        },
+        {
+            "name": "eng_h_rus_n"
+        },
+        {
+            "name": "eng_i"
+        },
+        {
+            "name": "eng_j"
+        },
+        {
+            "name": "eng_l"
+        },
+        {
+            "name": "eng_n"
+        },
+        {
+            "name": "eng_p_rus_r"
+        },
+        {
+            "name": "eng_q"
+        },
+        {
+            "name": "eng_r"
+        },
+        {
+            "name": "eng_rus_a"
+        },
+        {
+            "name": "eng_rus_e"
+        },
+        {
+            "name": "eng_rus_k"
+        },
+        {
+            "name": "eng_rus_m"
+        },
+        {
+            "name": "eng_rus_o"
+        },
+        {
+            "name": "eng_rus_t"
+        },
+        {
+            "name": "eng_s"
+        },
+        {
+            "name": "eng_u"
+        },
+        {
+            "name": "eng_v"
+        },
+        {
+            "name": "eng_w"
+        },
+        {
+            "name": "eng_x_rus_kh"
+        },
+        {
+            "name": "eng_y"
+        },
+        {
+            "name": "eng_z"
+        },
+        {
+            "name": "exclamation_mark"
+        },
+        {
+            "name": "full_stop"
+        },
+        {
+            "name": "rus_ch"
+        },
+        {
+            "name": "rus_d"
+        },
+        {
+            "name": "rus_e"
+        },
+        {
+            "name": "rus_f"
+        },
+        {
+            "name": "rus_g"
+        },
+        {
+            "name": "rus_hard_sign"
+        },
+        {
+            "name": "rus_i"
+        },
+        {
+            "name": "rus_io"
+        },
+        {
+            "name": "rus_l"
+        },
+        {
+            "name": "rus_p"
+        },
+        {
+            "name": "rus_sch"
+        },
+        {
+            "name": "rus_sh"
+        },
+        {
+            "name": "rus_soft_sign"
+        },
+        {
+            "name": "rus_ts"
+        },
+        {
+            "name": "rus_u"
+        },
+        {
+            "name": "rus_y"
+        },
+        {
+            "name": "rus_ya"
+        },
+        {
+            "name": "rus_yu"
+        },
+        {
+            "name": "rus_z"
+        },
+        {
+            "name": "rus_zh"
+        },
+        {
+            "name": "rus_b"
+        }
+    ]
+}

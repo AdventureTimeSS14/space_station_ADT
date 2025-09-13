@@ -56,8 +56,17 @@ construction-name-deckchair = шезлонг
 construction-name-bonfire = костер
 construction-name-disco-ball = диско-шар
 construction-name-altar = алтарь обращения
-
-# Описания
+construction-name-black-office-sofa-left-side = левая сторона коричневого дивана
+construction-name-black-office-sofa-right-side = правая сторона коричневого дивана
+construction-name-black-office-sofa-middle = средняя часть коричневого дивана
+construction-name-black-office-sofa-left-corner = левый угол коричневого дивана
+construction-name-black-office-sofa-right-corner = правый угол коричневого дивана
+construction-name-white-office-sofa-left-side = левая сторона коричневого дивана
+construction-name-white-office-sofa-right-side = правая сторона коричневого дивана
+construction-name-white-office-sofa-middle = средняя часть коричневого дивана
+construction-name-white-office-sofa-left-corner = левый угол коричневого дивана
+construction-name-white-office-sofa-right-corner = правый угол коричневого дивана
+#Описания
 construction-desc-sofa-left-side = Выглядит удобно.
 construction-desc-sofa-middle = Выглядит удобно.
 construction-desc-sofa-right-side = Выглядит удобно.
@@ -119,3 +128,13 @@ construction-desc-deckchair = Шезлонг для равномерного з�
 construction-desc-bonfire = Только не замерзни.
 construction-desc-disco-ball = Упадет в 2470 году.
 construction-desc-altar = Заготовка для алтаря религии. Стоит попробовать вставить в него какой-нибудь материал.
+construction-desc-black-office-sofa-left-side = Выглядит удобно.
+construction-desc-black-office-right-side = Выглядит удобно.
+construction-desc-black-office-middle = Выглядит удобно.
+construction-desc-black-office-left-corner = Выглядит удобно.
+construction-desc-black-office-right-corner = Выглядит удобно.
+construction-desc-white-office-sofa-left-side = Выглядит удобно.
+construction-desc-white-office-sofa-right-side = Выглядит удобно.
+construction-desc-white-office-sofa-middle = Выглядит удобно.
+construction-desc-white-office-sofa-left-corner = Выглядит удобно.
+construction-desc-white-office-sofa-right-corner = Выглядит удобно.
