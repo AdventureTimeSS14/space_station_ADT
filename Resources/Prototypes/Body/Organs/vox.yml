@@ -35,6 +35,7 @@
       - Paper
       - VoxFood
       - Vegetable
+      - Cake
 
 - type: entity
   parent: OrganHumanLiver

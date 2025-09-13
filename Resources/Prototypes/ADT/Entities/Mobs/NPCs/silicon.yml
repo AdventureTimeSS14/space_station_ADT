@@ -60,6 +60,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 4
   - type: NPCRetaliation
     attackMemoryLength: 15
   - type: FactionException
