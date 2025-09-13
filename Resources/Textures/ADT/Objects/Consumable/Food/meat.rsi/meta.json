@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "[shadekin] Modified from meat by discord:filokini, [-wurst] Created by discord:Празат Д.В. aka [767Sikon] (prazat911)",
+    "copyright": "[shadekin] Modified from meat by discord:filokini, [-wurst] Created by discord:Празат Д.В. aka [767Sikon] (prazat911), smoked-sausage/smoked-sausage-slice sprited by orange6775 (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -18,6 +18,12 @@
         },
         {
             "name": "shadekincutlet-cooked"
+        },
+        {
+            "name": "smoked-sausage"
+        },
+        {
+            "name": "smoked-sausage-slice"
         }
     ]
 }

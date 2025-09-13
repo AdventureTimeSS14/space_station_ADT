@@ -1,0 +1,38 @@
+<Document>
+
+# Основы
+
+Большая часть блюд требуют для своего приготовления некоторые из ниже перечисленных ингредиентов, будь это тесто, масло или сыр.
+
+  ## Тесто:
+  <Box>
+    <GuideEntityEmbed Entity="FoodDough" Caption="тесто"/>
+    <GuideEntityEmbed Entity="FoodDoughTortilla" Caption="тесто тортильи"/>
+    <GuideEntityEmbed Entity="FoodDoughCotton" Caption="хлопковое тесто"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="FoodCakeBatter" Caption="тесто для торта"/>
+    <GuideEntityEmbed Entity="FoodDoughPie" Caption="тесто для пирога"/>
+  </Box>
+  - [color=#a4885c]Тесто[/color] - смешайте 15 мука и 10 вода.
+  - [color=#a4885c]Тесто тортильи[/color] - смешайте 15 кукурузная мука и 10 вода.
+  - [color=#a4885c]Хлопковое тесто[/color] - смешайте 10 волокно, 5 мука и 10 вода.
+  - [color=#a4885c]Тесто для торта[/color] - смешайте 15 мука, 12 сырое яйцо, 5 сахар и 5 молоко.
+  - [color=#a4885c]тесто для пирога[/color] - смешайте 15 мука, 12 сырое яйцо и 5 столовая соль.
+
+  ## Другое:
+  <Box>
+    <GuideEntityEmbed Entity="FoodSnackChocolateBar" Caption="плитка шоколада"/>
+    <GuideEntityEmbed Entity="FoodButter" Caption="брусок сливочного масла"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="FoodCheese" Caption="головка сыра"/>
+    <GuideEntityEmbed Entity="FoodChevre" Caption="брусок козьего сыра"/>
+  </Box>
+  - [color=#a4885c]Плитка шоколада[/color] - смешайте 4 какао-порошок, 2 сахар и 2 молоко.
+  - [color=#a4885c]Головка сыра[/color] - смешайте 40 молоко и 5 универсальный фермент.
+  - [color=#a4885c]Брусок козьего сыра[/color] - смешайте 10 козье молоко и 5 универсальный фермент.
+  - [color=#a4885c]Брусок сливочного масла[/color] - смешайте 15 молоко и 5 столовая соль.
+
+<GuideMicrowaveGroupEmbed Group="Base"/>
+</Document>
