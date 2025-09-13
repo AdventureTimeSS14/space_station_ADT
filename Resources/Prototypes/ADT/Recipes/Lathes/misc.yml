@@ -113,42 +113,26 @@
     Glass: 100
 
 - type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatYellow
   result: ClothingHeadHatHardhatYellow
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
 
 - type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatRed
   result: ClothingHeadHatHardhatRed
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
 
 - type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatOrange
   result: ClothingHeadHatHardhatOrange
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
 
 - type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatBlue
   result: ClothingHeadHatHardhatBlue
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
 
 - type: latheRecipe
+  parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatYellowDark
   result: ClothingHeadHatHardhatYellowDark
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-
