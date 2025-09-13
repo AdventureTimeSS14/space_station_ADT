@@ -456,3 +456,28 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
+  id: ADTClothingHeadHelmetHardsuitIanHero
+  name: шлем скафандра корги
+  description: вам определённо хочется погладить его по голове
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/ian_hero.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/ian_hero.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    color: orange
+    radius: 7
+    energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
