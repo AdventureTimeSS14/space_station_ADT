@@ -1,0 +1,15 @@
+#forks: addet by Prunt
+- type: entity
+  id: ADTToyAI
+  name: Station AI Core (Portable)
+  description: A portable toy version of the station's AI, containing the intelligence of the core.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toys.rsi
+    state: AI
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/toys.rsi
+    heldPrefix: AI
+  - type: MindContainer
+    showExamineInfo: true
