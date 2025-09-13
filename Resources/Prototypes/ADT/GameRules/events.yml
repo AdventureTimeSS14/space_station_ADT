@@ -98,3 +98,17 @@
     duration: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Nonstation/voxbase.yml
+
+- type: entity
+  id: IanHeroEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 10 # 10 default
+    reoccurrenceDelay: 30
+    duration: 1
+  - type: LoadMapRule
+    mapPath: /Maps/ADTMaps/Shuttles/Ian.yml
+  - type: IanHeroEvent

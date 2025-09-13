@@ -281,3 +281,26 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
+
+- type: entity
+  id: ADTSpawnPointIanHero
+  name: ianhero spawn point
+  suffix: hero
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ianhero-name
+    description: ghost-role-information-ianhero-description
+    rules: ghost-role-information-ianhero-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobIanHero
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+
