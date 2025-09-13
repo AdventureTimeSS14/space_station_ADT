@@ -195,7 +195,8 @@
   solids:
     FoodMeat: 1
   recipeType:
-  - Microwave
+  #- Microwave - до разморозки рецептов еды от Визардов
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodMeatClown
@@ -207,7 +208,8 @@
     ClothingMaskClown: 1
     FoodMeat: 1
   recipeType:
-  - Microwave
+  #- Microwave - до разморозки рецептов еды от Визардов
+  - Oven
 
 - type: microwaveMealRecipe
   id: ADTFoodSoupUzbekPilafRecipe
