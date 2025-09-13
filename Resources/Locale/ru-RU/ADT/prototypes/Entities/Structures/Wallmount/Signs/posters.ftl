@@ -92,94 +92,6 @@ ent-ADTPosterNoGood = Где-то, но не тут
 ent-ADTPosterGasAttack = Газовая атака!
     .desc = НТ предупреждает о тритиевых гранатах у синдиката, а так же о саботаже атмоса от вражеских агентов!
 
-ent-ADTPosterHappyHalloween = Счастливого Хеллоуина!
-    .suffix = Хеллоуин
-    .desc = Плакат, поздравляющий персонал станции с праздником.
-
-ent-ADTPosterHappyHalloween2 = { ent-ADTPosterHappyHalloween }
-    .suffix = { ent-ADTPosterHappyHalloween.suffix }
-    .desc =  { ent-ADTPosterHappyHalloween.desc }
-
-ent-ADTPosterHappyHalloween3 = { ent-ADTPosterHappyHalloween }
-    .suffix = { ent-ADTPosterHappyHalloween.suffix }
-    .desc =  { ent-ADTPosterHappyHalloween.desc }
-
-ent-ADTPosterTayarHalloween = хеллоуинская таярочка
-    .suffix = Хеллоуин
-    .desc = Плакат к Хеллоуину, изображающий таяранку в довольно откровенном наряде. А это точно одобрено комиссией NT по медиа и пропаганде?
-
-ent-ADTPosterHalloweenSpooky = плакат "Страшненько"
-    .suffix = Хеллоуин
-    .desc = Постер, напоминающий о том, что начинается празднование Хеллоуина.
-
-ent-ADTPosterHalloweenYummy = плакат "Вкуснятина!"
-    .suffix = Хеллоуин
-    .desc = "Подойди-ка поближе.."
-
-ent-ADTPosterHalloweenSpider = настенный паук
-    .suffix = Хеллоуин
-    .desc = Расслабьтесь, на этот раз - он ненастоящий.
-
-ent-ADTPosterHalloweenSpiderWeb1 = паутина
-    .suffix = Хеллоуин
-    .desc = Дом паука Аркадия.
-
-ent-ADTPosterHalloweenSpiderWeb2 = паутина
-    .suffix = Хеллоуин
-    .desc = Дом паука Аркадия.
-
-ent-ADTPosterHalloweenTrianglesBlackOrange1 = черно-оранжевые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesBlackOrange2 = черно-оранжевые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesBlackOrange3 = черно-оранжевые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesBlackWhite1 = черно-белые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesBlackWhite2 = черно-белые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesBlackWhite3 = черно-белые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesOrangeYellow1 = оранжево-желтые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesOrangeYellow2 = оранжево-желтые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesOrangeYellow3 = оранжево-желтые флажки
-    .suffix = Хеллоуин
-    .desc = Скромное украшение к Хеллоину.
-
-ent-ADTPosterHalloweenTrianglesHappy1 = флажки "Счастливого Хеллоуина"
-    .suffix = Хеллоуин
-    .desc = Счаст..
-
-ent-ADTPosterHalloweenTrianglesHappy2 = флажки "Счастливого Хеллоуина"
-    .suffix = Хеллоуин
-    .desc = ...ливого
-
-ent-ADTPosterHalloweenTrianglesHappy3 = флажки "Счастливого Хеллоуина"
-    .suffix = Хеллоуин
-    .desc = Хелло..
-
-ent-ADTPosterHalloweenTrianglesHappy4 = флажки "Счастливого Хеллоуина"
-    .suffix = Хеллоуин
-    .desc = ...уина!
-
 ent-ADTPosterGerbBKF = флаг ВКФ
     .desc = Повешенный на стене флаг Военно-Космического Флота СССП.
     .suffix = { "СССП" }
@@ -279,3 +191,12 @@ ent-ADTPosterContrabandGoobChuckler = Хохотун
 
 ent-ADTPosterContrabandGoobYakub = Постер Якуба
     .desc = Ваши якубские способности к трюкнологии, вложенные в вас Якубом, усиливаются, когда вы смотрите на постер.
+
+
+ent-ADTPosterHalloweenSpiderWeb1 = паутина
+    .suffix = Хеллоуин
+    .desc = Дом паука Аркадия.
+
+ent-ADTPosterHalloweenSpiderWeb2 = паутина
+    .suffix = Хеллоуин
+    .desc = Дом паука Аркадия.

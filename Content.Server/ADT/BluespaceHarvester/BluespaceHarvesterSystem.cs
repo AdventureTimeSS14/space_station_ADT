@@ -38,6 +38,7 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
 
     private float _updateTimer;
     private const float UpdateTime = 1.0f;
+    private EntityUid? _activeHarvester;
 
     public override void Initialize()
     {
@@ -62,11 +63,21 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
         var query = EntityQueryEnumerator<BluespaceHarvesterComponent, PowerConsumerComponent>();
         while (query.MoveNext(out var uid, out var harvester, out var consumer))
         {
-            var ent = (uid, harvester);
+            if (_activeHarvester == uid && harvester.CurrentLevel == 0)
+            {
+                _activeHarvester = null;
+            }
 
-            // We start only after manual switching on.
-            if (harvester is { Reseted: false, CurrentLevel: 0 })
-                harvester.Reseted = true;
+            if (_activeHarvester != null && _activeHarvester != uid)
+            {
+                UpdateUI(uid, harvester);
+                continue;
+            }
+
+            if (_activeHarvester == null && harvester.CurrentLevel > 0)
+            {
+                _activeHarvester = uid;
+            }
 
             // The HV wires cannot transmit a lot of electricity so quickly,
             // which is why it will not start.
@@ -123,7 +134,21 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
 
     private void OnTargetLevel(Entity<BluespaceHarvesterComponent> harvester, ref BluespaceHarvesterTargetLevelMessage args)
     {
-        // If we switch off, we don't need to be switched on.
+        if (_activeHarvester != null && _activeHarvester != harvester.Owner)
+        {
+            UpdateUI(harvester.Owner, harvester.Comp);
+            return;
+        }
+
+        if (args.TargetLevel == 0)
+        {
+            Reset(harvester.Owner, harvester.Comp);
+            return;
+        }
+
+        if (_activeHarvester == null)
+            _activeHarvester = harvester.Owner;
+
         if (!harvester.Comp.Reseted && harvester.Comp.CurrentLevel != 0)
             return;
 
@@ -135,6 +160,9 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
     private void OnBuy(Entity<BluespaceHarvesterComponent> harvester, ref BluespaceHarvesterBuyMessage args)
     {
         if (!harvester.Comp.Reseted)
+            return;
+
+        if (_activeHarvester != harvester.Owner)
             return;
 
         if (!TryGetCategory(harvester.Owner, args.Category, out var info, harvester.Comp))
@@ -370,6 +398,10 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
         harvester.Danger += harvester.DangerFromReset;
         harvester.Reseted = true;
         harvester.TargetLevel = 0;
+        harvester.CurrentLevel = 0;
+
+        if (_activeHarvester == uid)
+            _activeHarvester = null;
     }
 
     private bool Emagged(EntityUid uid)

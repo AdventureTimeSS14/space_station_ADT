@@ -2,36 +2,32 @@
   id: BaseMobIPC
   parent: PlayerSiliconHumanoidBase
   name: Урист МакПозитроник
-  #description: [mob_ipc-desc]
   abstract: true
   components:
   - type: PickupHumans
   - type: MobIpc
   - type: InteractionPopup
     interactSuccessString: petting-success-ipc
-    #interactFailureString: petting-failure-cleanbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: SiliconEmitSoundOnDrained
     sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg"
-    interval: 15
-    playChance: 1
+    minInterval: 8
+    maxInterval: 12
     popUp: silicon-power-low
   - type: MobState
     allowedStates:
       - Alive
-      #- Critical
       - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      125: Dead # Нёрф КПБ - смерть с 125, крита нет
-      #180: Dead
+      125: Dead
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
       Dead: BorgDead
-    allowRevives: true # Для воскрешения достаточно починить урон. - ss220.
+    allowRevives: true
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -77,7 +73,7 @@
     color: "#a8d8ff"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    radius: 3 # 6 Далеко
+    radius: 3
   - type: Wires
     boardName: "ipc-board-name"
     layoutId: IPC
@@ -89,12 +85,10 @@
   - type: ActiveRadio
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
-# - type: UnblockableSpeech
-# - type: EmotePanel
   - type: ContentEye
     maxZoom: 1.0,1.0
   - type: LightningTarget
-    priority: 4 # Всё ещё угараю с того, что приоритет КПБ выше чем у катушек теслы
+    priority: 4
     lightningExplode: false
   - type: Vocal
     sounds:
@@ -108,7 +102,6 @@
     sound:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
   - type: TTS # Corvax-TTS
-  # Frontier - languages mechanic
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -116,7 +109,6 @@
       RobotTalk: Speak
   - type: Tag
     tags:
-    # - ShoesRequiredStepTriggerImmune
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
@@ -125,10 +117,11 @@
     - ADTSiliconEmotes
     - SiliconEmotes
     - ADTIgnoreChokeSpeechBlocking
-    - Unimplantable # ADT-Tweak
+    - Unimplantable
+    - AnomalyHost
   - type: Inventory
     templateId: ipc
-  - type: SizeAttributeWhitelist # Frontier
+  - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.1
     short: true
@@ -138,7 +131,7 @@
   - type: BloodCough
     postingSayDamage: blood-cough-ipc
   - type: TimeDespawnDamage
-  - type: OfferItem # ADT-Tweak
+  - type: OfferItem
   - type: UserInterface
     interfaces:
       enum.IpcScreenUiKey.Key:

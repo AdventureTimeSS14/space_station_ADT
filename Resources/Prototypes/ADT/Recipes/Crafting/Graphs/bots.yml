@@ -6,11 +6,11 @@
     edges:
     - to: bot
       steps:
-      - tag: StunBaton
+      - tag: Stunbaton
         icon:
           sprite: Objects/Weapons/Melee/stunbaton.rsi
           state: stunbaton_off
-        name: construction-graph-tag-stunbaton 
+        name: construction-graph-tag-stunbaton
         doAfter: 2
       - tag: ProximitySensor
         icon:
