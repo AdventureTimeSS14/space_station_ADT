@@ -6,9 +6,9 @@
             Title="{Loc 'book-printer-title'}"
             SetSize="600 550"
             MinSize="600 550">
-  <BoxContainer Orientation="Horizontal" Margin="8">
+  <BoxContainer Orientation="Horizontal" Margin="8" HorizontalExpand="True" VerticalExpand="True">
     <!-- Основная панель -->
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 8 0">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 8 0">
       <!-- Заголовок списка книг -->
       <PanelContainer Margin="0 0 0 8">
         <PanelContainer.PanelOverride>
@@ -61,7 +61,7 @@
       </PanelContainer>
 
       <!-- Информационная панель -->
-      <PanelContainer MinSize="0 120" MaxSize="0 200">
+      <PanelContainer SizeFlagsStretchRatio="1" MinSize="0 120">
         <PanelContainer.PanelOverride>
           <gfx:StyleBoxFlat BackgroundColor="#1e1e22" BorderThickness="1" BorderColor="#404040"/>
         </PanelContainer.PanelOverride>
@@ -69,7 +69,7 @@
                       Orientation="Vertical"
                       HorizontalExpand="True"
                       Margin="8">
-          <Label Text="{Loc 'book-printer-window-no-book-loaded-text'}" HorizontalAlignment="Center"/>
+          <Label Text="{Loc 'book-printer-window-no-book-loaded-text'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </BoxContainer>
       </PanelContainer>
     </BoxContainer>
