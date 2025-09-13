@@ -504,4 +504,4 @@
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: FireProtection
-    reduction: 0
+    reduction: 0.1
