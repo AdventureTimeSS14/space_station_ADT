@@ -242,7 +242,7 @@ namespace Content.Server.ADT.BookPrinter
             if (message.Actor is not { Valid: true } entity || Deleted(entity))
                 return;
 
-            if (IsAuthorized(bookPrinter, entity, bookPrinter) && TryLowerCartridgeCharge(bookPrinter))
+            if (IsAuthorized(bookPrinter, entity, bookPrinter))
                 SetupTask(bookPrinter, "Clearing");
 
             UpdateUiState(bookPrinter);
@@ -262,12 +262,6 @@ namespace Content.Server.ADT.BookPrinter
                 var content = GetContent(bookContainer.Value);
                 if (content is not null)
                 {
-                    if (!TryLowerCartridgeCharge(bookPrinter))
-                    {
-                        UpdateUiState(bookPrinter);
-                        return;
-                    }
-
                     UploadBookContent(content);
                     _globalCooldown.RegisterUpload();
                 }

@@ -149,6 +149,7 @@ namespace Content.Client.ADT.BookPrinter
                     Margin = new Thickness(6, 0, 0, 0),
                     Disabled = castState.WorkProgress is not null
                 };
+
                 button2.OnPressed += _ => ShowBookInfo(entry);
 
                 row.AddChild(button);
@@ -163,10 +164,10 @@ namespace Content.Client.ADT.BookPrinter
             if (text is null)
                 return "";
 
-            if (text.Length <= 10)
+            if (text.Length <= 15)
                 return text;
 
-            return text.Substring(0, 9) + "...";
+            return text.Substring(0, 14) + "...";
         }
 
         public void UpdateContainerInfo(BookPrinterBoundUserInterfaceState state)
