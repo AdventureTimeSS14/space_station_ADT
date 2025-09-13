@@ -11,7 +11,7 @@ namespace Content.Server.Speech.EntitySystems
         private readonly Dictionary<string, string> _replacements = new();
         private Regex? _replaceRegex;
 
-        // New field for TTS pronunciations
+        // Инструкции для TTS-а, чтобы слова произносились правильно
         private readonly Dictionary<string, string> _pronunciations = new()
         {
             {"para que", "пара кэ"},
@@ -160,6 +160,7 @@ namespace Content.Server.Speech.EntitySystems
             {"hostia puta", "остиа пута"}
         };
 
+        // Испанский акцент
         private Regex? _pronounceRegex;
 
         public override void Initialize()
