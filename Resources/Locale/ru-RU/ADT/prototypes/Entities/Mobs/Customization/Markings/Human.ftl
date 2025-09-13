@@ -113,3 +113,5 @@ marking-ADTLegTwistingRight = Скрученный шрам, правая ног
 marking-ADTLegTwistingRight-leg_r_twisting = Скрученный шрам, правая нога
 marking-ADTTorsoIncision = Разрез на туловище
 marking-ADTTorsoIncision-torso_incision = Разрез на туловище
+marking-ADTFeatheredEars = Пернатые уши (Пангари)
+marking-ADTFeatheredWings = Пернатые крылья (Пангари)
