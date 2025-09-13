@@ -4,6 +4,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
+  - type: VentCrawler # ADT tweak
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00
@@ -174,7 +175,7 @@
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
   - type: Item # ADT Tweak
-    size: Normal # ADT Tweak
+    size: Normal # ADT Tweak 
   - type: VentCrawler # ADT tweak
   - type: CombatMode
   - type: MovementSpeedModifier
