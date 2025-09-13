@@ -158,7 +158,7 @@ namespace Content.Server.Speech.EntitySystems
             {"no me importa", "но мэ им-пор-та"},
             {"para que mierda", "пара кэ мьерда"},
             {"hostia puta", "остиа пута"}
-        };е
+        };
 
         // Испанский акцент
         private Regex? _pronounceRegex;
