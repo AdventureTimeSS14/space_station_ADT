@@ -154,45 +154,25 @@ namespace Content.Client.ADT.BookPrinter
 
             if (!state.IsUploadAvailable && state.IsCooldownEnabled)
             {
-                // Панель кулдауна
-                var cooldownPanel = new PanelContainer
-                {
-                    Margin = new Thickness(0, 4, 0, 4)
-                };
-                cooldownPanel.PanelOverride = new StyleBoxFlat
-                {
-                    BackgroundColor = new Color(60, 40, 30),
-                    BorderThickness = new Thickness(1),
-                    BorderColor = new Color(120, 80, 60)
-                };
-
-                var cooldownContainer = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Vertical,
-                    Margin = new Thickness(8, 8, 8, 8)
-                };
-
                 var timeText = FormatCooldownTime(state.CooldownRemaining);
                 var blockedLabel = new Label
                 {
                     Text = Loc.GetString("book-printer-window-cooldown-blocked-with-icon", ("text", Loc.GetString("book-printer-upload-blocked"))),
                     HorizontalAlignment = HAlignment.Center,
-                    Margin = new Thickness(0, 0, 0, 4),
-                    StyleClasses = { StyleNano.StyleClassLabelBig }
+                    Margin = new Thickness(0, 0, 0, 4)
                 };
 
                 var timeLabel = new Label
                 {
                     Text = Loc.GetString("book-printer-window-cooldown-time-with-icon", ("text", Loc.GetString("book-printer-cooldown-remaining", ("time", timeText)))),
                     HorizontalAlignment = HAlignment.Center,
-                    Margin = new Thickness(0, 0, 0, 8),
-                    StyleClasses = { StyleNano.StyleClassLabelSubText }
+                    Margin = new Thickness(0, 0, 0, 8)
                 };
 
-                cooldownContainer.AddChild(blockedLabel);
-                cooldownContainer.AddChild(timeLabel);
+                ContainerInfo.Children.Add(blockedLabel);
+                ContainerInfo.Children.Add(timeLabel);
 
-                // Добавляем прогресс-бар
+                // Добавляем прогресс-бар если есть длительность
                 if (state.CooldownDuration.TotalSeconds > 0)
                 {
                     var progressPercent = (state.CooldownDuration.TotalSeconds - state.CooldownRemaining.TotalSeconds) / state.CooldownDuration.TotalSeconds * 100;
@@ -205,12 +185,9 @@ namespace Content.Client.ADT.BookPrinter
                         HorizontalExpand = true,
                         MinSize = new Vector2(0, 8)
                     };
-                    cooldownContainer.AddChild(progressBar);
+                    ContainerInfo.Children.Add(progressBar);
                 }
-
-                cooldownPanel.AddChild(cooldownContainer);
-                ContainerInfo.Children.Add(cooldownPanel);
-                return; // Не показываем другую информацию во время кулдауна
+                return;
             }
 
             UpdateContainerInfoContent(state);
@@ -218,104 +195,53 @@ namespace Content.Client.ADT.BookPrinter
 
         public void UpdateContainerInfoContent(BookPrinterBoundUserInterfaceState state)
         {
-
             if (state.WorkProgress is not null)
             {
-                // Панель прогресса работы
-                var workPanel = new PanelContainer
-                {
-                    Margin = new Thickness(0, 4, 0, 4)
-                };
-                workPanel.PanelOverride = new StyleBoxFlat
-                {
-                    BackgroundColor = new Color(60, 60, 30),
-                    BorderThickness = new Thickness(1),
-                    BorderColor = new Color(120, 120, 60)
-                };
-
                 var workLabel = new Label
                 {
                     Text = Loc.GetString("book-printer-window-working", ("progress", (int)(100.0f * (1 - state.WorkProgress)))),
-                    HorizontalAlignment = HAlignment.Center,
-                    Margin = new Thickness(8, 8, 8, 8)
+                    HorizontalAlignment = HAlignment.Center
                 };
-
-                workPanel.AddChild(workLabel);
-                ContainerInfo.Children.Add(workPanel);
+                ContainerInfo.Children.Add(workLabel);
                 return;
             }
 
             if (state.BookName is null)
             {
-                // Панель "нет книги"
-                var noBookPanel = new PanelContainer
-                {
-                    Margin = new Thickness(0, 4, 0, 4)
-                };
-                noBookPanel.PanelOverride = new StyleBoxFlat
-                {
-                    BackgroundColor = new Color(40, 40, 40),
-                    BorderThickness = new Thickness(1),
-                    BorderColor = new Color(80, 80, 80)
-                };
-
                 var noBookLabel = new Label
                 {
                     Text = Loc.GetString("book-printer-window-no-book-loaded-text"),
-                    HorizontalAlignment = HAlignment.Center,
-                    Margin = new Thickness(8, 8, 8, 8)
+                    HorizontalAlignment = HAlignment.Center
                 };
-
-                noBookPanel.AddChild(noBookLabel);
-                ContainerInfo.Children.Add(noBookPanel);
+                ContainerInfo.Children.Add(noBookLabel);
             }
             else
             {
-                // Панель с информацией о книге
-                var bookPanel = new PanelContainer
-                {
-                    Margin = new Thickness(0, 4, 0, 4)
-                };
-                bookPanel.PanelOverride = new StyleBoxFlat
-                {
-                    BackgroundColor = new Color(45, 45, 50),
-                    BorderThickness = new Thickness(1),
-                    BorderColor = new Color(80, 80, 85)
-                };
-
                 var bookPreview = new SpriteView
                 {
                     Scale = new Vector2(2, 2),
                     OverrideDirection = Direction.South,
                     VerticalAlignment = VAlignment.Center,
-                    SizeFlagsStretchRatio = 1,
-                    Margin = new Thickness(8, 8, 8, 8)
+                    SizeFlagsStretchRatio = 1
                 };
                 if (_entMan.TryGetEntity(state.BookEntity, out var bookEntity))
                     bookPreview.SetEntity(bookEntity);
 
                 var bookLabel = new Label
                 {
-                    Text = Loc.GetString("book-printer-window-book-name-with-icon", ("name", CutDescription(state.BookName))),
-                    StyleClasses = { StyleNano.StyleClassLabelBig },
-                    Margin = new Thickness(0, 0, 0, 4)
+                    Text = Loc.GetString("book-printer-window-book-name-with-icon", ("name", CutDescription(state.BookName)))
                 };
 
                 var bookSublabel = new Label
                 {
-                    Text = $"{CutDescription(state.BookDescription)}",
-                    StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
-                    Margin = new Thickness(0, 0, 0, 8)
+                    Text = CutDescription(state.BookDescription),
+                    StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
                 };
 
                 var boxInfo = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
-                    Margin = new Thickness(8, 8, 8, 8),
-                    Children = {
-                        bookLabel,
-                        bookSublabel
-                    }
+                    Children = { bookLabel, bookSublabel }
                 };
 
                 var bookContainer = new BoxContainer
@@ -324,52 +250,30 @@ namespace Content.Client.ADT.BookPrinter
                     Children = { bookPreview, boxInfo }
                 };
 
-                bookPanel.AddChild(bookContainer);
-                ContainerInfo.Children.Add(bookPanel);
+                ContainerInfo.Children.Add(bookContainer);
             }
 
-            // Панель состояния картриджа
-            var cartridgePanel = new PanelContainer
-            {
-                Margin = new Thickness(0, 4, 0, 4)
-            };
-
+            // Состояние картриджа
             if (state.CartridgeCharge is null)
             {
-                cartridgePanel.PanelOverride = new StyleBoxFlat
-                {
-                    BackgroundColor = new Color(60, 30, 30),
-                    BorderThickness = new Thickness(1),
-                    BorderColor = new Color(120, 60, 60)
-                };
                 var noCartridgeLabel = new Label
                 {
                     Text = Loc.GetString("book-printer-window-no-cartridge-with-icon", ("text", Loc.GetString("book-printer-window-no-cartridge-loaded-text"))),
                     FontColorOverride = Color.LightCoral,
-                    HorizontalAlignment = HAlignment.Center,
-                    Margin = new Thickness(8, 8, 8, 8)
+                    HorizontalAlignment = HAlignment.Center
                 };
-                cartridgePanel.AddChild(noCartridgeLabel);
-                ContainerInfo.Children.Add(cartridgePanel);
+                ContainerInfo.Children.Add(noCartridgeLabel);
                 return;
             }
             else if (state.CartridgeCharge <= -10.0f)
             {
-                cartridgePanel.PanelOverride = new StyleBoxFlat
-                {
-                    BackgroundColor = new Color(60, 30, 30),
-                    BorderThickness = new Thickness(1),
-                    BorderColor = new Color(120, 60, 60)
-                };
                 var emptyCartridgeLabel = new Label
                 {
                     Text = Loc.GetString("book-printer-window-cartridge-empty-with-icon", ("text", Loc.GetString("book-printer-window-cartridge-empty"))),
                     FontColorOverride = Color.LightCoral,
-                    HorizontalAlignment = HAlignment.Center,
-                    Margin = new Thickness(8, 8, 8, 8)
+                    HorizontalAlignment = HAlignment.Center
                 };
-                cartridgePanel.AddChild(emptyCartridgeLabel);
-                ContainerInfo.Children.Add(cartridgePanel);
+                ContainerInfo.Children.Add(emptyCartridgeLabel);
                 return;
             }
 
@@ -380,25 +284,16 @@ namespace Content.Client.ADT.BookPrinter
                               chargePercent > 20 ? Loc.GetString("book-printer-window-cartridge-low-icon") :
                               Loc.GetString("book-printer-window-cartridge-empty-icon");
 
-            cartridgePanel.PanelOverride = new StyleBoxFlat
-            {
-                BackgroundColor = new Color(30, 60, 30),
-                BorderThickness = new Thickness(1),
-                BorderColor = new Color(60, 120, 60)
-            };
-
             var chargeLabel = new Label
             {
                 Text = Loc.GetString("book-printer-window-cartridge-charge-with-icon",
                     ("icon", chargeIcon),
                     ("text", Loc.GetString("book-printer-window-cartridge-charge", ("charge", chargePercent)))),
                 FontColorOverride = chargeColor,
-                HorizontalAlignment = HAlignment.Center,
-                Margin = new Thickness(8, 8, 8, 8)
+                HorizontalAlignment = HAlignment.Center
             };
 
-            cartridgePanel.AddChild(chargeLabel);
-            ContainerInfo.Children.Add(cartridgePanel);
+            ContainerInfo.Children.Add(chargeLabel);
         }
 
         public void ShowBookInfo(SharedBookPrinterEntry entry)
