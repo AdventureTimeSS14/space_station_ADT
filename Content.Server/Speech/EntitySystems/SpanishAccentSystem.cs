@@ -422,8 +422,8 @@ namespace Content.Server.Speech.EntitySystems
 
             _replacements.Add("урод", "monstruo");
             _replacements.Add("урода", "monstruo");
-            _replacements.Add("уроды", "al monstruo");
-            _replacements.Add("уроду", "monstruo");
+            _replacements.Add("уроды", "monstruos");
+            _replacements.Add("уроду", "al monstruo");
             _replacements.Add("уродов", "monstruos");
             _replacements.Add("уродина", "monstruo");
             _replacements.Add("уродины", "monstruos");
@@ -505,7 +505,8 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("мразе", "canalla");
             _replacements.Add("мрази", "canallas");
 
-            _replacements.Add("мерзацев", "canalla");
+            _replacements.Add("мерзавец", "canalla");
+            _replacements.Add("мерзавцев", "canallas");
             _replacements.Add("мерзавцы", "canallas");
             _replacements.Add("мерзавца", "canalla");
             _replacements.Add("мерзавцу", "al canalla");
@@ -561,7 +562,10 @@ namespace Content.Server.Speech.EntitySystems
         //ADT-Tweak-Start
         public string GetPronunciation(string message)
         {
-            return _pronounceRegex!.Replace(message, match =>
+            if (_pronounceRegex == null)
+                return message;
+
+            return _pronounceRegex.Replace(message, match =>
             {
                 string key = match.Value.ToLowerInvariant();
                 if (_pronunciations.TryGetValue(key, out var pron))
@@ -634,7 +638,13 @@ namespace Content.Server.Speech.EntitySystems
             //ADT-Tweak-Start
             var message = args.Message;
 
-            message = _replaceRegex!.Replace(message, match =>
+            if (_replaceRegex == null)
+            {
+                args.Message = Accentuate(message);
+                return;
+            }
+
+            message = _replaceRegex.Replace(message, match =>
             {
                 string matchedText = match.Value;
                 string key = matchedText.ToLowerInvariant();
