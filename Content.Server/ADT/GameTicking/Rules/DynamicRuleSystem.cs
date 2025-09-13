@@ -27,7 +27,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 
         if (_player.MaxPlayers > 0)
         {
-            float playerRatio = (float)_player.PlayerCount / _player.MaxPlayers;
+            float playerRatio = (float)_player.PlayerCount / 60;
             component.Chaos = Math.Max(1, (int)(component.Chaos * playerRatio));
         }
         else
@@ -45,17 +45,16 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
                 continue;
             if (component.Chaos - rule.Cost < 0)
             {
-                //быстро просматривает, каких ещё антагов можно добавить антагов
                 foreach (var antag in component.RoundstartRules)
                 {
-                    if (component.Chaos - antag.Cost >= 0) // Исправлено: >= вместо <
+                    if (component.Chaos - antag.Cost < 0)
                     {
-                        component.Chaos -= antag.Cost; // Вычитаем стоимость
+                        component.Chaos -= antag.Cost;
                         component.AddedRules.Add(antag.Id);
                         break;
                     }
                 }
-                break; // Выходим из основного цикла, если не можем добавить больше антагов
+                break;
             }
             else
             {
