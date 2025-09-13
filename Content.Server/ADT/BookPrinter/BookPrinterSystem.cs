@@ -44,6 +44,7 @@ namespace Content.Server.ADT.BookPrinter
         private readonly GlobalBookPrinterCooldownManager _globalCooldown = new();
         private float _uiUpdateTimer = 0.0f;
         private const float UiUpdateInterval = 1.0f;
+        private const string BookTag = "Book";
 
         public override void Initialize()
         {
@@ -66,6 +67,12 @@ namespace Content.Server.ADT.BookPrinter
         {
             base.Update(frameTime);
 
+            _uiUpdateTimer += frameTime;
+            var needsUiUpdate = _uiUpdateTimer >= UiUpdateInterval;
+
+            if (needsUiUpdate)
+                _uiUpdateTimer = 0.0f;
+
             var query = EntityQueryEnumerator<BookPrinterComponent, ApcPowerReceiverComponent>();
             while (query.MoveNext(out var uid, out var printer, out var receiver))
             {
@@ -81,6 +88,11 @@ namespace Content.Server.ADT.BookPrinter
                     printer.WorkTimeRemaining -= frameTime * printer.TimeMultiplier;
                     if (printer.WorkTimeRemaining <= 0.0f)
                         ProcessTask((uid, printer));
+
+                    if (needsUiUpdate)
+                    {
+                        UpdateUiState((uid, printer));
+                    }
                 }
             }
         }
@@ -202,6 +214,7 @@ namespace Content.Server.ADT.BookPrinter
                 cartridgeCharge,
                 workProgress,
                 bookPrinter.Comp.PrintBookEntry is not null,
+                _globalCooldown.IsCooldownEnabled(),
                 cooldownInfo.remaining,
                 cooldownInfo.duration,
                 _globalCooldown.IsUploadAvailable());
@@ -369,7 +382,7 @@ namespace Content.Server.ADT.BookPrinter
                 var newName = Loc.GetString("book-printer-unknown-name-blank");
                 var newDesc = Loc.GetString("book-printer-unknown-description-blank");
 
-                if (_tag.HasTag(item.Value, "Book"))
+                if (_tag.HasTag(item.Value, BookTag))
                 {
                     newName = Loc.GetString("book-printer-book-name-blank");
                     newDesc = Loc.GetString("book-printer-book-description-blank");

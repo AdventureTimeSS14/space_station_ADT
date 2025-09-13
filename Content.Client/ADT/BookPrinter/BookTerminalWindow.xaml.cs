@@ -35,11 +35,11 @@ namespace Content.Client.ADT.BookPrinter
         {
             ClearCooldownUI();
 
-            if (state.IsUploadAvailable)
+            if (!state.IsUploadAvailable)
             {
-                AddCooldownLabel(Loc.GetString("book-printer-upload-available"), "LabelSubText");
+                AddCooldownLabel(Loc.GetString("book-printer-upload-blocked"), "LabelSubText");
             }
-            else
+            else if (!state.IsCooldownEnabled)
             {
                 var timeText = FormatCooldownTime(state.CooldownRemaining);
                 AddCooldownLabel(Loc.GetString("book-printer-upload-blocked"), "LabelBig");
@@ -69,7 +69,7 @@ namespace Content.Client.ADT.BookPrinter
                 Text = text,
                 Name = $"cooldown_label_{ContainerInfo.ChildCount}",
                 StyleClasses = { styleClass },
-                HorizontalAlignment = Control.HAlignment.Center
+                HorizontalAlignment = HAlignment.Center
             };
             ContainerInfo.AddChild(label);
         }
@@ -79,14 +79,11 @@ namespace Content.Client.ADT.BookPrinter
             if (state.CooldownDuration.TotalSeconds <= 0)
                 return;
 
-            var progressPercent = (state.CooldownDuration.TotalSeconds - state.CooldownRemaining.TotalSeconds) / state.CooldownDuration.TotalSeconds * 100;
-
             var progressBar = new ProgressBar
             {
                 Name = "cooldown_progressbar",
                 MinValue = 0,
                 MaxValue = 100,
-                Value = (float)progressPercent,
                 Margin = new Thickness(0, 2, 0, 2),
                 HorizontalExpand = true
             };

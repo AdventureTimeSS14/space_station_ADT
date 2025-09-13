@@ -16,13 +16,14 @@ namespace Content.Shared.ADT.BookPrinter
         public readonly float? CartridgeCharge;
         public readonly float? WorkProgress;
         public readonly bool CopyPaste;
+        public readonly bool IsCooldownEnabled;
         public readonly TimeSpan CooldownRemaining;
         public readonly TimeSpan CooldownDuration;
         public readonly bool IsUploadAvailable;
 
         public BookPrinterBoundUserInterfaceState(string? bookName, string? bookDescription, NetEntity? bookEntity,
         List<SharedBookPrinterEntry>? bookEntries, bool routineAllowed = false, float? cartridgeCharge = null,
-        float? workProgress = null, bool copyPaste = false, TimeSpan cooldownRemaining = default,
+        float? workProgress = null, bool copyPaste = false, bool isCooldownEnabled = false, TimeSpan cooldownRemaining = default,
         TimeSpan cooldownDuration = default, bool isUploadAvailable = true)
         {
             BookName = bookName;
@@ -33,6 +34,7 @@ namespace Content.Shared.ADT.BookPrinter
             CartridgeCharge = cartridgeCharge;
             WorkProgress = workProgress;
             CopyPaste = copyPaste;
+            IsCooldownEnabled = isCooldownEnabled;
             CooldownRemaining = cooldownRemaining;
             CooldownDuration = cooldownDuration;
             IsUploadAvailable = isUploadAvailable;
@@ -69,7 +71,7 @@ namespace Content.Shared.ADT.BookPrinter
     }
 
     [Serializable, NetSerializable]
-    public class SharedBookPrinterEntry
+    public sealed class SharedBookPrinterEntry
     {
         public int Id { get; set; } = default!;
         public string Name { get; set; } = default!;
@@ -90,7 +92,7 @@ namespace Content.Shared.ADT.BookPrinter
     }
 
     [Serializable, NetSerializable]
-    public class SharedStampedData
+    public sealed class SharedStampedData
     {
         public int Id { get; set; } = default!;
         public string Name { get; set; } = default!;

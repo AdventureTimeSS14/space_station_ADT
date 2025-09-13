@@ -21,11 +21,9 @@ namespace Content.Server.ADT.BookPrinter
 
         public bool IsUploadAvailable()
         {
-            // Если кулдаун отключён в конфигурации
             if (!_cfg.GetCVar(ADTCCVars.BookPrinterUploadCooldownEnabled))
                 return true;
 
-            // Если ещё не было загрузок
             if (_lastUploadTime == null)
                 return true;
 

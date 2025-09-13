@@ -20,6 +20,5 @@ book-printer-unknown-name-blank = текстовый носитель
 book-printer-unknown-description-blank = Когда-то здесь был осмысленный текст. Теперь же, здесь лишь напоминание о нём.
 book-printer-upload-blocked = Загрузка заблокирована
 book-printer-cooldown-remaining = Осталось: { $time }
-book-printer-cooldown-progress = Прогресс: { $percent }%
 book-printer-info-panel-title = Информация о книге
 book-printer-view = Просмотр
