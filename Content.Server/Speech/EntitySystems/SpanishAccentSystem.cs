@@ -1,13 +1,16 @@
 using System.Text;
 using Content.Server.Speech.Components;
+//ADT-Tweak-Start
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Linq;
+//ADT-Tweak-End
 
 namespace Content.Server.Speech.EntitySystems
 {
     public sealed class SpanishAccentSystem : EntitySystem
     {
+        //ADT-Tweak-Start
         private readonly Dictionary<string, string> _replacements = new();
         private Regex? _replaceRegex;
 
@@ -170,9 +173,11 @@ namespace Content.Server.Speech.EntitySystems
 
         // Испанский акцент
         private Regex? _pronounceRegex;
+        //ADT-Tweak-End
 
         public override void Initialize()
         {
+            //ADT-Tweak-Start
             base.Initialize();
 
             _replacements.Add("зачем", "para que");
@@ -548,10 +553,12 @@ namespace Content.Server.Speech.EntitySystems
             var orderedPronounceKeys = _pronunciations.Keys.OrderByDescending(k => k.Length).ToList();
             var pronouncePattern = @"\b(" + string.Join("|", orderedPronounceKeys.Select(Regex.Escape)) + @")\b";
             _pronounceRegex = new Regex(pronouncePattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            //ADT-Tweak-End
 
             SubscribeLocalEvent<SpanishAccentComponent, AccentGetEvent>(OnAccent);
         }
 
+        //ADT-Tweak-Start
         public string GetPronunciation(string message)
         {
             return _pronounceRegex!.Replace(message, match =>
@@ -564,6 +571,7 @@ namespace Content.Server.Speech.EntitySystems
                 return match.Value;
             });
         }
+        //ADT-Tweak-End
 
         public string Accentuate(string message)
         {
@@ -613,7 +621,7 @@ namespace Content.Server.Speech.EntitySystems
                 {
                     msg.Append(s);
                 }
-                else
+                else //ADT-Tweak
                 {
                     msg.Append(s.Insert(s.Length - s.TrimStart().Length, toInsert.ToString()));
                 }
@@ -623,6 +631,7 @@ namespace Content.Server.Speech.EntitySystems
 
         private void OnAccent(EntityUid uid, SpanishAccentComponent component, AccentGetEvent args)
         {
+            //ADT-Tweak-Start
             var message = args.Message;
 
             message = _replaceRegex!.Replace(message, match =>
@@ -676,6 +685,7 @@ namespace Content.Server.Speech.EntitySystems
             message = Accentuate(message);
 
             args.Message = message;
+            //ADT-Tweak-End
         }
     }
 }
