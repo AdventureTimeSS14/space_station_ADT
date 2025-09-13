@@ -37,10 +37,10 @@ namespace Content.Server.Speech.EntitySystems
             {"al companero", "аль компаньээро"},
             {"companeros", "компаньээро-с"},
             {"hermano", "эрмано"},
-            {"al hermano", "аль эрмаано"},
+            {"al hermano", "аль эрмано"},
             {"hermanos", "эрмано-с"},
             {"hermana", "эрмана"},
-            {"al hermana", "аль эрмаана"},
+            {"al hermana", "аль эрмана"},
             {"hermanas", "эрмана-с"},
             {"padre", "падрэ"},
             {"al padre", "аль падрэ"},
@@ -96,7 +96,7 @@ namespace Content.Server.Speech.EntitySystems
             {"agente", "ахьентэ"},
             {"al agente", "аль ахьентэ"},
             {"agentes", "ахьентэ-с"},
-            {"operativos nucleares", "оперативо-с нуклеа-рэс"},
+            {"operativos nucleares", "оперативо-с нуклеар-эс"},
             {"operativo", "оперативо"},
             {"al operativo", "аль оперативо"},
             {"operativos", "оперативо-с"},
@@ -132,9 +132,9 @@ namespace Content.Server.Speech.EntitySystems
             {"magistrados", "магистрадо-с"},
             {"oficial del escudo azul", "офисиал дэль эскудо асуль"},
             {"comando central", "командо сэнтрал"},
-            {"monstruo", "монструо"},
-            {"al monstruo", "аль монструо"},
-            {"monstruos", "монструо-с"},
+            {"monstruo", "мон-струо"},
+            {"al monstruo", "аль мон-струо"},
+            {"monstruos", "мон-струо-с"},
             {"bastardo", "бастардо"},
             {"al bastardo", "аль бастардо"},
             {"bastardos", "бастардо-с"},
@@ -163,7 +163,7 @@ namespace Content.Server.Speech.EntitySystems
             {"al gilipollas", "аль хилипойя-с"},
             {"hijo de puta", "ихо дэ пута"},
             {"hijos de puta", "ихос дэ пута"},
-            {"al hijos de puta", "аль ихос дэ пута"},
+            {"a los hijos de puta", "а лос ихос дэ пута"},
             {"importa un carajo", "им-пор-та ун карахо"},
             {"importa un bledo", "им-пор-та ун блэдо"},
             {"no me importa", "но мэ им-пор-та"},
@@ -527,8 +527,8 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("уёбки", "hijos de puta");
             _replacements.Add("уебков", "hijos de puta");
             _replacements.Add("уёбков", "hijos de puta");
-            _replacements.Add("уебку", "al hijos de puta");
-            _replacements.Add("уёбку", "al hijos de puta");
+            _replacements.Add("уебку", "a los hijos de puta");
+            _replacements.Add("уёбку", "a los hijos de puta");
 
             _replacements.Add("похуй", "importa un carajo");
             _replacements.Add("поебать", "importa un carajo");
