@@ -1,0 +1,389 @@
+- type: entity
+  parent: CrateBaseSecure
+  id: ADTCrateReinforcementsSecure
+  name: secure reinforcements crate
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/weapon.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/weapon.rsi
+  # - type: StorageFill
+  #   contents:
+  #     - id: WeaponSubMachineGunWt550
+  #       amount: 2
+  #     - id: MagazinePistolSubMachineGunTopMounted
+  #       amount: 4
+
+#Боеприпасы
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsAmmo
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineBoxRifleBig
+        amount: 5
+      - id: MagazineBoxPistol
+        amount: 5
+      - id: MagazineBoxLightRifleBig
+        amount: 5
+      - id: BoxLethalshot
+        amount: 5
+      - id: MagazineBoxMagnum
+        amount: 3
+      - id: MagazineBoxAntiMateriel
+        amount: 2
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsExplosives
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ExGrenade
+        amount: 10
+      - id: EmpGrenade
+        amount: 5
+      - id: GrenadeIncendiary
+        amount: 5
+      - id: GrenadeShrapnel
+        amount: 5
+      - id: C4
+        amount: 5
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcements40mmGrenade
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADT40mmGrenadeBlast
+        amount: 15
+      - id: ADT40mmGrenadeHEAT
+        amount: 5
+      - id: ADT40mmGrenadeEMP
+        amount: 5
+      - id: ADT40mmGrenadeSmoke
+        amount: 5
+        
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsRocket
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTCartridgeFragRocket
+        amount: 15
+      - id: ADTCartridgeBlastRocket
+        amount: 15
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsGAU32Ammo
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTShipGunMagazineGAU32
+        amount: 20
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsDS30Ammo
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTShipGunMagazineDS30
+        amount: 20
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsD100Ammo
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTShipBattle100mmHEShell
+        amount: 20
+      - id: ADTShipBattle100mmEMPShell
+        amount: 5
+      - id: ADTShipBattle100mmAPShell
+        amount: 5
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsMk155Ammo
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTShipBattle155mmHEShell
+        amount: 20
+      - id: ADTShipBattle155mmEMPShell
+        amount: 5
+      - id: ADTShipBattle155mmAPShell
+        amount: 5
+
+#Гражданские припасы
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsMedicine
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedkitCombatFilled
+        amount: 10
+      - id: EmergencyMedipen
+        amount: 5
+      - id: ADTHemostasisAutoInjector
+        amount: 5
+      - id: CombatMedipen
+        amount: 10
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsSteelPlasteel
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetSteel
+        amount: 20
+      - id: SheetPlasteel
+        amount: 10
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsGlassPlastic
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetPlastic
+        amount: 15
+      - id: SheetGlass
+        amount: 15
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsRareMaterials
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetPlasma
+        amount: 6
+      - id: SheetUranium
+        amount: 6
+      - id: IngotGold
+        amount: 6
+      - id: IngotSilver
+        amount: 6
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsFood
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTFoodSnackChocolateBarNutsPack
+        amount: 15
+      - id: DrinkEnergyDrinkCan
+        amount: 15
+
+#Оружие
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsBasicWeaponTSF
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponRifleTAR60SF
+        amount: 3
+      - id: WeaponShotgunEnforcer
+        amount: 2
+      - id: ADTMagazineRifleAR12
+        amount: 9
+      - id: BoxLethalshot
+        amount: 6
+      - id: MagazineBoxRifleBig
+        amount: 3
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsBasicWeaponKMT
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponRifleAR12
+        amount: 3
+      - id: WeaponShotgunEnforcer
+        amount: 2
+      - id: ADTMagazineRifleAR12
+        amount: 9
+      - id: BoxLethalshot
+        amount: 6
+      - id: MagazineBoxRifleBig
+        amount: 3
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsWeaponxC67
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponRifleXC67
+        amount: 2
+      - id: ADTMagazineRifleExtended
+        amount: 8
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsWeaponHristov
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSniperHristov
+        amount: 1
+      - id: MagazineBoxAntiMateriel
+        amount: 4
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsWeaponL6
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponLightMachineGunL6
+        amount: 1
+      - id: MagazineLightRifleBox
+        amount: 2
+      - id: MagazineBoxLightRifleBig
+        amount: 2
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsWeaponChinaLake
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponLauncherChinaLake
+        amount: 1
+      - id: ADT40mmGrenadeBlast
+        amount: 15
+      - id: ADT40mmGrenadeHEAT
+        amount: 5
+      - id: ADT40mmGrenadeSmoke
+        amount: 5
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsWeaponRPG
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTWeaponLauncherRocket
+        amount: 1
+      - id: ADTCartridgeFragRocket
+        amount: 8
+      - id: ADTCartridgeBlastRocket
+        amount: 8
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsWeaponAvdLaspistols
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponAdvancedLaser
+        amount: 3
+
+#Для мехов
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsMechAmmo
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTBoxAmmoGranade
+        amount: 5
+      - id: ADTBoxAmmoAC2Ultra
+        amount: 5
+      - id: ADTBoxAmmoScattershot
+        amount: 5
+      - id: PowerCellHigh
+        amount: 5
+      - id: ADTBoxAmmoHades
+        amount: 5
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsSabreAmmo
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTBoxAmmoGranade
+        amount: 6
+      - id: ADTBoxAmmoSpaceFighterGAU32
+        amount: 6
+      - id: ADTBoxAmmoSpaceFighterDS30
+        amount: 6
+      - id: PowerCellHigh
+        amount: 6
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsMechGunBasic
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMechGunImmolatorLaser
+        amount: 1
+      - id: ADTMechGunScattershot
+        amount: 1
+      - id: ADTMechGunUltraAC2
+        amount: 1
+      - id: PowerCellHigh
+        amount: 3
+      - id: ADTBoxAmmoAC2Ultra
+        amount: 3
+      - id: ADTBoxAmmoScattershot
+        amount: 3
+
+- type: entity
+  parent: ADTCrateReinforcementsSecure
+  id: ADTCrateReinforcementsMechGunAdvanced
+  name: secure reinforcements crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTMechGunSolarisLaserCannon
+        amount: 1
+      - id: ADTMechGunSRM8
+        amount: 1
+      - id: ADTMechGunFNX99Hades
+        amount: 1
+      - id: PowerCellHigh
+        amount: 3
+      - id: ADTBoxAmmoHades
+        amount: 3
+      - id: ADTBoxAmmoGranade
+        amount: 3
