@@ -17,7 +17,7 @@
   description: A hand-held crew monitor showing security and command personnel.
   components:
   - type: CrewMonitoringConsole
-    departments: [Security, Command]
+    departments: [Security, Command, CentralCommand]
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/blueshield_handheldcrewmonitor.rsi
     state: scanner
