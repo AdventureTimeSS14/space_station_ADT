@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:prazat911, feathered_ears and feathered_wings created by discord: pangaari",
+    "copyright": "Created by discord:prazat911",
     "size": {
         "x": 32,
         "y": 32
@@ -297,14 +297,6 @@
         },
         {
             "name": "tattoo_serpenttemptation",
-            "directions": 4
-        },
-        {
-            "name": "feathered_ears",
-            "directions": 4
-        },
-        {
-            "name": "feathered_wings",
             "directions": 4
         }
     ]

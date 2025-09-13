@@ -52,23 +52,3 @@
     state: milky_horns
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_horns_secondary
-
-# Заказец Пагалини start
-- type: marking
-  id: ADTFeatheredEars
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: []
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: feathered_ears
-
-- type: marking
-  id: ADTFeatheredWings
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
-  sprites:
-  - sprite: ADT/Mobs/Customization/Human/custom.rsi
-    state: feathered_wings
-# Заказец Пагалини end
