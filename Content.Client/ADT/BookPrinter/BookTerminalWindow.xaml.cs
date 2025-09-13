@@ -35,10 +35,8 @@ namespace Content.Client.ADT.BookPrinter
         {
             ClearCooldownUI();
 
-            if (!state.IsUploadAvailable && !state.IsCooldownEnabled)
+            if (!state.IsUploadAvailable && state.IsCooldownEnabled)
             {
-                AddCooldownLabel(Loc.GetString("book-printer-upload-blocked"), "LabelSubText");
-
                 var timeText = FormatCooldownTime(state.CooldownRemaining);
                 AddCooldownLabel(Loc.GetString("book-printer-upload-blocked"), "LabelBig");
                 AddCooldownLabel(Loc.GetString("book-printer-cooldown-remaining", ("time", timeText)), "LabelSubText");

@@ -94,6 +94,10 @@ namespace Content.Server.ADT.BookPrinter
                         UpdateUiState((uid, printer));
                     }
                 }
+                else if (needsUiUpdate && _globalCooldown.IsCooldownEnabled())
+                {
+                    UpdateUiState((uid, printer));
+                }
             }
         }
 
@@ -253,11 +257,17 @@ namespace Content.Server.ADT.BookPrinter
             if (message.Actor is not { Valid: true } entity || Deleted(entity))
                 return;
 
-            if (IsAuthorized(bookPrinter, entity, bookPrinter) && TryLowerCartridgeCharge(bookPrinter))
+            if (IsAuthorized(bookPrinter, entity, bookPrinter))
             {
                 var content = GetContent(bookContainer.Value);
                 if (content is not null)
                 {
+                    if (!TryLowerCartridgeCharge(bookPrinter))
+                    {
+                        UpdateUiState(bookPrinter);
+                        return;
+                    }
+
                     UploadBookContent(content);
                     _globalCooldown.RegisterUpload();
                 }

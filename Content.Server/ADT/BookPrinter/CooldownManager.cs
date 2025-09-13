@@ -1,7 +1,4 @@
-// Content.Server/ADT/BookPrinter/GlobalBookPrinterCooldownManager.cs (НОВЫЙ ФАЙЛ)
-using System;
 using Robust.Shared.Configuration;
-using Robust.Shared.IoC;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.CCVar;
 
