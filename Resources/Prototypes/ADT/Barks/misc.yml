@@ -61,13 +61,6 @@
   roundStart: false
 
 - type: speechBark
-  id: GrannyTheGranny
-  name: bark-granny-name # @@@ QWERTY barks update
-  sound:
-    collection: ADTGrannyTheGranny
-  roundStart: false
-
-- type: speechBark
   id: Gaster
   name: bark-gaster-name # @@@ QWERTY barks update
   sound:
