@@ -48,3 +48,8 @@
   id: ADTPurpleGloves
   equipment:
     gloves: ClothingHandsGlovesColorPurple
+
+- type: loadout
+  id: ADTBrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown

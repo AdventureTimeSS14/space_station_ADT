@@ -1,0 +1,45 @@
+# Head
+- type: loadout
+  id: ADTHatSoftRed
+  equipment:
+    head: ClothingHeadHatRedsoft
+
+- type: loadout
+  id: ADTHatSoftGreen
+  equipment:
+    head: ClothingHeadHatGreensoft
+
+- type: loadout
+  id: ADTHatSoftWhite
+  equipment:
+    head: ClothingHeadHatMimesoft
+
+- type: loadout
+  id: ADTHatSoftBlack
+  equipment:
+    head: ClothingHeadHatBlacksoft
+
+- type: loadout
+  id: ADTHatSoftGrey
+  equipment:
+    head: ClothingHeadHatGreysoft
+
+- type: loadout
+  id: ADTHatSoftBlue
+  equipment:
+    head: ClothingHeadHatBluesoft
+
+- type: loadout
+  id: ADTHatSoftOrange
+  equipment:
+    head: ClothingHeadHatOrangesoft
+
+- type: loadout
+  id: ADTHatSoftPurple
+  equipment:
+    head: ClothingHeadHatPurplesoft
+
+- type: loadout
+  id: ADTHatSoftYellow
+  equipment:
+    head: ClothingHeadHatYellowsoft

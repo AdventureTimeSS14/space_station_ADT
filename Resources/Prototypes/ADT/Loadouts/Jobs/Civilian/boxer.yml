@@ -1,0 +1,60 @@
+# PDA
+
+- type: loadout
+  id: ADTBoxerPDA
+  equipment:
+    id: BoxerPDA
+
+- type: loadout
+  id: ADTKaratekaPDA
+  equipment:
+    id: ADTKaratekaPDA
+
+- type: loadout
+  id: ADTKickboxerPDA
+  equipment:
+    id: ADTKickboxerPDA
+
+- type: loadout
+  id: ADTSavatistPDA
+  equipment:
+    id: ADTSavatistPDA
+
+- type: loadout
+  id: ADTHandToHandCombatMasterPDA
+  equipment:
+    id: ADTHandToHandCombatMasterPDA
+
+- type: loadout
+  id: ADTMMAFighterPDA
+  equipment:
+    id: ADTMMAFighterPDA
+
+- type: loadout
+  id: ADTJudoistPDA
+  equipment:
+    id: ADTJudoistPDA
+
+- type: loadout
+  id: ADTCoachPDA
+  equipment:
+    id: ADTCoachPDA
+
+- type: loadout
+  id: ADTGladiatorPDA
+  equipment:
+    id: ADTGladiatorPDA
+
+# Jumpsuit
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitGladiator
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+
+# Head
+
+- type: loadout
+  id: ADTClothingHeadHatGladiator
+  equipment:
+    head: ClothingHeadHatGladiator

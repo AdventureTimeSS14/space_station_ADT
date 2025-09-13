@@ -8,3 +8,57 @@
   id: ADTMixologistPDA
   equipment:
     id: ADTMixologistPDA
+
+- type: loadout
+  id: ADTTavernkeepPDA
+  equipment:
+    id: ADTTavernkeepPDA
+
+- type: loadout
+  id: ADTBaristaPDA
+  equipment:
+    id: ADTBaristaPDA
+
+# Jumpsuit
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitBartenderRed
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBartenderRed
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitBartenderGreen
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBartenderGreen
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtBartenderRed
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtBartenderRed
+
+- type: loadout
+  id: ADTClothingUniformJumpskirtBartenderGreen
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtBartenderGreen
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitBartenderVest
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBartenderVest
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitBartenderVestRed
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBartenderVestRed
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitBartenderVestGreen
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitBartenderVestGreen
+
+# Outer clothing
+
+- type: loadout
+  id: ADTClothingOuterApronBarista
+  equipment:
+    outerClothing: ADTClothingOuterApronBarista

@@ -1,3 +1,12 @@
+- type: loadoutEffectGroup
+  id: ADTAbyssClown
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 3600 #1 час
+
 # PDA
 - type: loadout
   id: ClownPDA
@@ -13,3 +22,63 @@
   id: ADTFoolPDA
   equipment:
     id: ADTFoolPDA
+
+- type: loadout
+  id: ADTClothingShoesClownAbyss
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTAbyssClown
+  equipment:
+    shoes: ADTClothingShoesClownAbyss
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitClownAbyss
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTAbyssClown
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitClownAbyss
+
+- type: loadout
+  id: ClothingMaskClown
+  equipment:
+    mask: ClothingMaskClown
+
+- type: loadout
+  id: ADTClothingMaskClownAbyss
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTAbyssClown
+  equipment:
+    mask: ADTClothingMaskClownAbyss
+
+- type: loadout
+  id: BikeHorn
+  equipment:
+    pocket1: BikeHorn
+
+- type: loadout
+  id: ADTBikeHornAbyss
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTAbyssClown
+  equipment:
+    pocket1: ADTBikeHornAbyss
+
+- type: loadout
+  id: ClownRecorder
+  equipment:
+    pocket2: ClownRecorder
+
+- type: loadout
+  id: ToyHammer
+  equipment:
+    pocket2: ToyHammer
+
+- type: loadout
+  id: ADTToyHammerAbyss
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTAbyssClown
+  equipment:
+    pocket2: ADTToyHammerAbyss
