@@ -164,6 +164,24 @@
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
         factor: -0.5
+    #ADT-tweak-start
+    Poison:
+      effects:
+      - !type:MovespeedModifier
+        conditions:
+        - !type:OrganType
+          type: Slime
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Slime
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-salt"]
+        probability: 0.3
+    #ADT-tweak-end
 
 - type: reagent
   id: Syrup

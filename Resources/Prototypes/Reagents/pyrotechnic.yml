@@ -168,10 +168,28 @@
         conditions:
         - !type:OrganType
           type: Vox
+      #ADT-tweak-start
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        amount: 1
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+      #ADT-tweak-end
     Poison:
       effects:
       - !type:HealthChange
         conditions:
+        #ADT-tweak-start
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         - !type:OrganType
           type: Vox
           shouldHave: false
@@ -180,6 +198,23 @@
             Poison: 1
       - !type:FlammableReaction
         multiplier: 0.4
+    #ADT-tweak-start
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.05
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          groups:
+            Brute: -1
+    #ADT-tweak-end
 
 - type: reagent
   id: Fluorosurfactant
