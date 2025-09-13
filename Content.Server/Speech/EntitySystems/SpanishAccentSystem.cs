@@ -176,12 +176,6 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("террористы", "terroristas");
             _replacements.Add("террориста", "terrorista");
 
-            _replacements.Add("товарищ", "companero");
-            _replacements.Add("товарищу", "al companero");
-            _replacements.Add("товарища", "companero");
-            _replacements.Add("товарищи", "companeros");
-            _replacements.Add("товарищей", "companeros");
-
             _replacements.Add("корпорация", "corporacion");
             _replacements.Add("корпорации", "corporaciones");
             _replacements.Add("корпораций", "corporaciones");
