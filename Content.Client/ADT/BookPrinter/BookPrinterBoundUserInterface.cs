@@ -33,7 +33,6 @@ namespace Content.Client.ADT.BookPrinter
             _window.UploadButton.OnPressed += _ => SendMessage(new BookPrinterUploadMessage());
             _window.CopyPasteButton.OnPressed += _ => SendMessage(new BookPrinterCopyPasteMessage());
 
-
             _window.OpenCentered();
             _window.OnClose += Close;
 
@@ -58,6 +57,11 @@ namespace Content.Client.ADT.BookPrinter
             _lastState = castState;
 
             _window?.UpdateState(castState);
+        }
+
+        public void ShowBookInfo(SharedBookPrinterEntry entry)
+        {
+            _window?.ShowBookInfo(entry);
         }
 
         [Obsolete]

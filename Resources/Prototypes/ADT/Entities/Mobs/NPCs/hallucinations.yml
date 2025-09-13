@@ -7,7 +7,6 @@
   suffix: DO NOT MAP
   categories: [ HideSpawnMenu ]
   components:
-  #- type: Hallucination
   - type: Fixtures
     fixtures:
       fix1:
@@ -32,7 +31,6 @@
   suffix: DO NOT MAP
   categories: [ HideSpawnMenu ]
   components:
-  #- type: LingHallucination
   - type: Fixtures
     fixtures:
       fix1:
@@ -335,3 +333,49 @@
     radius: 1
     softness: 5
     energy: -1
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTSMHallucinationDarkmatter
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Structures/Power/Supermatter/DARKMATTER.rsi
+    layers:
+    - state: supermatter
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Supermatter/calm.ogg
+  - type: TimedDespawn
+    lifetime: 15.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTSMHallucinationCrystallBeing
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/supermatter.rsi
+    layers:
+    - state: supermatter
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Supermatter/delamming.ogg
+  - type: TimedDespawn
+    lifetime: 10.0

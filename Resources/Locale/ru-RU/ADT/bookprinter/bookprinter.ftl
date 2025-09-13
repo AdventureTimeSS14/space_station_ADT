@@ -18,3 +18,7 @@ book-printer-book-name-blank = книга
 book-printer-book-description-blank = Простой бумажный носитель. Так и ждёт, чтобы его страницы наполнились смыслом.
 book-printer-unknown-name-blank = текстовый носитель
 book-printer-unknown-description-blank = Когда-то здесь был осмысленный текст. Теперь же, здесь лишь напоминание о нём.
+book-printer-upload-blocked = Загрузка заблокирована
+book-printer-cooldown-remaining = Осталось: { $time }
+book-printer-info-panel-title = Информация о книге
+book-printer-view = Просмотр

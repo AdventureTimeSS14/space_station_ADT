@@ -330,6 +330,7 @@ namespace Content.Server.Database
         // ADT-BookPrinter-Start
         #region BookPrinter
 
+        Task<bool> DeleteBookPrinterEntryAsync(int bookId);
         Task<List<BookPrinterEntry>> GetBookPrinterEntriesAsync();
         Task UploadBookPrinterEntryAsync(BookPrinterEntry bookEntry);
 
@@ -1071,16 +1072,22 @@ namespace Content.Server.Database
 
         // ADT-BookPrinter-Start
         public Task<List<BookPrinterEntry>> GetBookPrinterEntriesAsync()
-		{
-			DbReadOpsMetric.Inc();
+        {
+            DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetBookPrinterEntries());
-		}
+        }
+
+        public Task<bool> DeleteBookPrinterEntryAsync(int bookId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteBookPrinterEntryAsync(bookId));
+        }
 
         public Task UploadBookPrinterEntryAsync(BookPrinterEntry bookEntry)
-		{
-			DbReadOpsMetric.Inc();
+        {
+            DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.UploadBookPrinterEntry(bookEntry));
-		}
+        }
         // ADT-BookPrinter-Start
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {

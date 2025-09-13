@@ -1,15 +1,6 @@
 - type: inventoryTemplate
   id: ghost
   slots:
-    - name: id
-      slotTexture: id
-      fullTextureName: template_small
-      slotFlags: IDCARD
-      slotGroup: SecondHotbar
-      stripTime: 6
-      uiWindowPos: 2,2
-      strippingWindowPos: 2,3
-      displayName: ID
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING
