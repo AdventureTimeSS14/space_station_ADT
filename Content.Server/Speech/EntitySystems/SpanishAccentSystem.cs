@@ -47,9 +47,14 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("брат", "hermano");
             _replacements.Add("брату", "al hermano");
             _replacements.Add("брата", "hermano");
-            _replacements.Add("браток", "hermano");
             _replacements.Add("братья", "hermanos");
             _replacements.Add("братьев", "hermanos");
+
+            _replacements.Add("сестра", "hermana");
+            _replacements.Add("сестре", "al hermana");
+            _replacements.Add("сестры", "hermana");
+            _replacements.Add("сёстры", "hermanas");
+            _replacements.Add("сестёр", "hermanas");
 
             _replacements.Add("отец", "padre");
             _replacements.Add("отцу", "al padre");
@@ -130,6 +135,10 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("клуне", "al payasito");
             _replacements.Add("клуни", "payasitos");
             _replacements.Add("клунь", "payasitos");
+
+            _replacements.Add("поехали", "vamos");
+            _replacements.Add("пошли", "vamos");
+            _replacements.Add("давай", "vamos");
 
             _replacements.Add("вульпы", "zorras");
             _replacements.Add("вульп", "zorro");
@@ -240,6 +249,20 @@ namespace Content.Server.Speech.EntitySystems
 
             // Ругательства
 
+            _replacements.Add("чёрт", "puta madre");
+            _replacements.Add("черт", "puta madre");
+            _replacements.Add("блядь", "puta madre");
+            _replacements.Add("мудак", "puta madre");
+            _replacements.Add("ублюдок", "puta madre");
+
+            _replacements.Add("ахуенно", "de puta madre");
+            _replacements.Add("охуенно", "de puta madre");
+            _replacements.Add("ахуительно", "de puta madre");
+            _replacements.Add("охуительно", "de puta madre");
+            _replacements.Add("зашибись", "de puta madre");
+            _replacements.Add("пиздато", "de puta madre");
+            _replacements.Add("заебись", "de puta madre");
+
             _replacements.Add("пошел нахуй", "vete a la mierda");
             _replacements.Add("пошли нахуй", "vayanse a la mierda");
             _replacements.Add("пошёл нахуй", "vete a la mierda");
@@ -309,6 +332,10 @@ namespace Content.Server.Speech.EntitySystems
 
             _replacements.Add("нахера", "para que mierda");
             _replacements.Add("нахуя", "para que mierda");
+
+            _replacements.Add("ахуеть", "hostia puta");
+            _replacements.Add("охуеть", "hostia puta");
+            _replacements.Add("ахуй", "hostia puta");
 
             _replacements.Add("хуйня", "mierda");
 
