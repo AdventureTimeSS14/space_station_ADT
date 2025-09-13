@@ -40,12 +40,12 @@ namespace Content.Client.ADT.BookPrinter
             _window.OnPrintBookButtonMouseEntered += (args, button) =>
             {
                 if (_lastState is not null)
-                    _window.UpdateContainerInfo(_lastState);
+                    _window.UpdateContainerInfoWithCooldown(_lastState);
             };
             _window.OnPrintBookButtonMouseExited += (args, button) =>
             {
                 if (_lastState is not null)
-                    _window.UpdateContainerInfo(_lastState);
+                    _window.UpdateContainerInfoWithCooldown(_lastState);
             };
         }
 

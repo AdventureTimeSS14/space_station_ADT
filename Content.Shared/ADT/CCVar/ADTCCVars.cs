@@ -270,9 +270,9 @@ public sealed class ADTCCVars
 
 
     public static readonly CVarDef<float> BookPrinterUploadCooldown =
-        CVarDef.Create("adt.bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("bookprinter.upload_cooldown", 3600.0f, CVar.SERVERONLY | CVar.ARCHIVE);
 
     public static readonly CVarDef<bool> BookPrinterUploadCooldownEnabled =
-        CVarDef.Create("adt.bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
 }
 
