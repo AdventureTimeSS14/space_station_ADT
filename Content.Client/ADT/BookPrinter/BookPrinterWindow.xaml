@@ -6,42 +6,70 @@
             Title="{Loc 'book-printer-title'}"
             SetSize="525 475"
             MinSize="525 475">
-    <BoxContainer Orientation="Vertical">
-        <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True" MinSize="0 250">
-            <BoxContainer Orientation="Vertical" Name="BooksList" Access="Public">
-            </BoxContainer>
-        </ScrollContainer>
-        <Control MinSize="0 10"/>
-        <BoxContainer Orientation="Horizontal">
-            <Label Text="{Loc 'book-printer-window-book-label'}"/>
-			<Control MinSize="10 0"/>
-            <Button Name="UploadButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-upload-button'}"
-                    StyleClasses="OpenRight"/>
-            <Button Name="ClearButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-clear-button'}"
-                    StyleClasses="OpenBoth"/>
-            <Button Name="CopyPasteButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-copy-button'}"
-                    StyleClasses="OpenBoth"/>
-            <Button Name="EjectButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-eject-button'}"
-                    StyleClasses="OpenLeft"/>
+  <BoxContainer Orientation="Horizontal">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+      <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True" MinSize="0 250">
+        <BoxContainer Orientation="Vertical" Name="BooksList" Access="Public">
         </BoxContainer>
-        <Control MinSize="0 10"/>
-            <PanelContainer SizeFlagsStretchRatio="6" MinSize="0 100">
-            <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
-            </PanelContainer.PanelOverride>
-            <BoxContainer Name="ContainerInfo"
-                          Orientation="Vertical"
-                          HorizontalExpand="True">
-                <Label Text="{Loc 'book-printer-window-no-book-loaded-text'}"/>
-            </BoxContainer>
-        </PanelContainer>
+      </ScrollContainer>
+      <Control MinSize="0 10"/>
+      <BoxContainer Orientation="Horizontal">
+        <Label Text="{Loc 'book-printer-window-book-label'}"/>
+        <Control MinSize="10 0"/>
+        <Button Name="UploadButton"
+                Access="Public"
+                Text="{Loc 'book-printer-window-upload-button'}"
+                StyleClasses="OpenRight"/>
+        <Button Name="ClearButton"
+                Access="Public"
+                Text="{Loc 'book-printer-window-clear-button'}"
+                StyleClasses="OpenBoth"/>
+        <Button Name="CopyPasteButton"
+                Access="Public"
+                Text="{Loc 'book-printer-window-copy-button'}"
+                StyleClasses="OpenBoth"/>
+        <Button Name="EjectButton"
+                Access="Public"
+                Text="{Loc 'book-printer-window-eject-button'}"
+                StyleClasses="OpenLeft"/>
+      </BoxContainer>
+      <Control MinSize="0 10"/>
+      <PanelContainer SizeFlagsStretchRatio="6" MinSize="0 100">
+        <PanelContainer.PanelOverride>
+          <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Name="ContainerInfo"
+                      Orientation="Vertical"
+                      HorizontalExpand="True">
+          <Label Text="{Loc 'book-printer-window-no-book-loaded-text'}"/>
+        </BoxContainer>
+      </PanelContainer>
     </BoxContainer>
+    <PanelContainer Name="BookInfoPanel" Access="Public" Visible="False" MinSize="300 0" Margin="8 0 0 0">
+      <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" BorderThickness="1" BorderColor="#3e3e3e"/>
+      </PanelContainer.PanelOverride>
+
+      <BoxContainer Orientation="Vertical" Margin="10">
+        <BoxContainer Orientation="Horizontal">
+          <Label Text="{Loc 'book-printer-info-panel-title'}" StyleClasses="LabelHeading" HorizontalExpand="True"/>
+          <Button Name="CloseInfoPanelButton" Access="Public" Text="✕" MinSize="20 20" MaxSize="20 20"/>
+        </BoxContainer>
+
+        <PanelContainer MinSize="0 1" Margin="0 6 0 6">
+          <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#3e3e3e" />
+          </PanelContainer.PanelOverride>
+        </PanelContainer>
+
+        <Label Name="InfoBookId" Access="Public" StyleClasses="LabelSmall" Margin="4 0 0 0" />
+        
+        <Label Name="InfoBookTitle" Access="Public" StyleClasses="LabelBig" Text="" Margin="0 0 0 8"/>
+
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinSize="0 200">
+          <RichTextLabel Name="InfoBookContent" Access="Public" Margin="4"/>
+        </ScrollContainer>
+      </BoxContainer>
+    </PanelContainer>
+  </BoxContainer>
 </DefaultWindow>

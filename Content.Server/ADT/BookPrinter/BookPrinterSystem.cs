@@ -41,6 +41,9 @@ namespace Content.Server.ADT.BookPrinter
         [Dependency] private readonly TagSystem _tag = default!;
 
         public readonly List<SharedBookPrinterEntry> BookPrinterEntries = new();
+        private readonly GlobalBookPrinterCooldownManager _globalCooldown = new();
+        private float _uiUpdateTimer = 0.0f;
+        private const float UiUpdateInterval = 1.0f;
 
         public override void Initialize()
         {
@@ -90,12 +93,12 @@ namespace Content.Server.ADT.BookPrinter
 
             _appearanceSystem.SetData(ent, BookPrinterVisualLayers.Working, workInProgress);
 
-            if (EntityManager.TryGetComponent<BookPrinterVisualsComponent>(ent, out BookPrinterVisualsComponent? visualsComp))
+            if (TryComp<BookPrinterVisualsComponent>(ent, out var visualsComp))
             {
                 visualsComp.DoWorkAnimation = workInProgress;
             }
 
-            if (cartridge is not null && EntityManager.TryGetComponent<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
+            if (cartridge is not null && TryComp<BookPrinterCartridgeComponent>(cartridge, out var cartridgeComp))
             {
                 _appearanceSystem.SetData(ent, BookPrinterVisualLayers.Slotted, true);
                 _appearanceSystem.SetData(ent, BookPrinterVisualLayers.Full, cartridgeComp.CurrentCharge == cartridgeComp.FullCharge);
@@ -163,9 +166,7 @@ namespace Content.Server.ADT.BookPrinter
         private void OnPowerChanged(EntityUid uid, BookPrinterComponent component, ref PowerChangedEvent args)
         {
             FlushTask((uid, component));
-
             SetLockOnAllSlots((uid, component), !args.Powered);
-
             UpdateVisuals((uid, component));
         }
 
@@ -190,14 +191,21 @@ namespace Content.Server.ADT.BookPrinter
             float? workProgress = bookPrinter.Comp.WorkTimeRemaining > 0.0f && bookPrinter.Comp.WorkType is not null ?
                                     bookPrinter.Comp.WorkTimeRemaining / bookPrinter.Comp.WorkTime : null;
 
-            var state = new BookPrinterBoundUserInterfaceState(bookName,
-                            bookDescription,
-                            GetNetEntity(bookContainer),
-                            BookPrinterEntries,
-                            IsRoutineAllowed(bookPrinter),
-                            cartridgeCharge,
-                            workProgress,
-                            bookPrinter.Comp.PrintBookEntry is not null);
+            var cooldownInfo = GetGlobalCooldownInfo();
+
+            var state = new BookPrinterBoundUserInterfaceState(
+                bookName,
+                bookDescription,
+                GetNetEntity(bookContainer),
+                BookPrinterEntries,
+                IsRoutineAllowed(bookPrinter),
+                cartridgeCharge,
+                workProgress,
+                bookPrinter.Comp.PrintBookEntry is not null,
+                cooldownInfo.remaining,
+                cooldownInfo.duration,
+                _globalCooldown.IsUploadAvailable());
+
             _userInterfaceSystem.SetUiState(bookPrinter.Owner, BookPrinterUiKey.Key, state);
             UpdateVisuals(bookPrinter);
         }
@@ -236,7 +244,10 @@ namespace Content.Server.ADT.BookPrinter
             {
                 var content = GetContent(bookContainer.Value);
                 if (content is not null)
+                {
                     UploadBookContent(content);
+                    _globalCooldown.RegisterUpload();
+                }
                 SetupTask(bookPrinter, "Uploading");
             }
 
@@ -441,7 +452,6 @@ namespace Content.Server.ADT.BookPrinter
                 return null;
 
             var paperComp = EnsureComp<PaperComponent>(item.Value);
-            var metadata = EnsureComp<MetaDataComponent>(item.Value);
 
             var sharedStamps = new List<SharedStampedData>();
 
@@ -499,7 +509,19 @@ namespace Content.Server.ADT.BookPrinter
             _popupSystem.PopupEntity(Loc.GetString("book-printer-component-access-denied"), uid);
             return false;
         }
+
+        public (bool enabled, TimeSpan remaining, TimeSpan duration) GetGlobalCooldownInfo()
+        {
+            return (
+                _globalCooldown.IsCooldownEnabled(),
+                _globalCooldown.GetRemainingCooldown(),
+                _globalCooldown.GetCooldownDuration()
+            );
+        }
+
+        public void ResetGlobalCooldown()
+        {
+            _globalCooldown.ResetCooldown();
+        }
     }
 }
-
-

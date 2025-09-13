@@ -9,7 +9,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.ADT.BookPrinter
@@ -17,17 +16,92 @@ namespace Content.Client.ADT.BookPrinter
     [GenerateTypedNameReferences]
     public sealed partial class BookPrinterWindow : DefaultWindow
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
         public event Action<BaseButton.ButtonEventArgs, PrintBookButton>? OnPrintBookButtonPressed;
         public event Action<GUIMouseHoverEventArgs, PrintBookButton>? OnPrintBookButtonMouseEntered;
         public event Action<GUIMouseHoverEventArgs, PrintBookButton>? OnPrintBookButtonMouseExited;
 
+        private SharedBookPrinterEntry? _infoPanelEntry;
 
         public BookPrinterWindow()
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
+
+            CloseInfoPanelButton.OnPressed += _ => HideInfoPanel();
+        }
+
+        private void UpdateCooldownUI(BookPrinterBoundUserInterfaceState state)
+        {
+            ClearCooldownUI();
+
+            if (state.IsUploadAvailable)
+            {
+                AddCooldownLabel(Loc.GetString("book-printer-upload-available"), "LabelSubText");
+            }
+            else
+            {
+                var timeText = FormatCooldownTime(state.CooldownRemaining);
+                AddCooldownLabel(Loc.GetString("book-printer-upload-blocked"), "LabelBig");
+                AddCooldownLabel(Loc.GetString("book-printer-cooldown-remaining", ("time", timeText)), "LabelSubText");
+
+                AddCooldownProgressBar(state);
+            }
+        }
+
+        private void ClearCooldownUI()
+        {
+            var toRemove = new List<Control>();
+            foreach (Control child in ContainerInfo.Children)
+            {
+                if (child.Name?.StartsWith("cooldown_") == true)
+                    toRemove.Add(child);
+            }
+
+            foreach (var control in toRemove)
+                ContainerInfo.RemoveChild(control);
+        }
+
+        private void AddCooldownLabel(string text, string styleClass)
+        {
+            var label = new Label
+            {
+                Text = text,
+                Name = $"cooldown_label_{ContainerInfo.ChildCount}",
+                StyleClasses = { styleClass },
+                HorizontalAlignment = Control.HAlignment.Center
+            };
+            ContainerInfo.AddChild(label);
+        }
+
+        private void AddCooldownProgressBar(BookPrinterBoundUserInterfaceState state)
+        {
+            if (state.CooldownDuration.TotalSeconds <= 0)
+                return;
+
+            var progressPercent = (state.CooldownDuration.TotalSeconds - state.CooldownRemaining.TotalSeconds) / state.CooldownDuration.TotalSeconds * 100;
+
+            var progressBar = new ProgressBar
+            {
+                Name = "cooldown_progressbar",
+                MinValue = 0,
+                MaxValue = 100,
+                Value = (float)progressPercent,
+                Margin = new Thickness(0, 2, 0, 2),
+                HorizontalExpand = true
+            };
+
+            ContainerInfo.AddChild(progressBar);
+        }
+
+        private string FormatCooldownTime(TimeSpan timeSpan)
+        {
+            if (timeSpan.Hours > 0)
+                return $"{timeSpan.Hours}ч {timeSpan.Minutes:D2}м {timeSpan.Seconds:D2}с";
+            else if (timeSpan.Minutes > 0)
+                return $"{timeSpan.Minutes}м {timeSpan.Seconds:D2}с";
+            else
+                return $"{timeSpan.Seconds}с";
         }
 
         public void UpdateState(BoundUserInterfaceState state)
@@ -35,15 +109,19 @@ namespace Content.Client.ADT.BookPrinter
             var castState = (BookPrinterBoundUserInterfaceState)state;
             UpdateContainerInfo(castState);
             UpdateBooksList(castState);
+            UpdateCooldownUI(castState);
 
             CopyPasteButton.Text = Loc.GetString(castState.CopyPaste
                                     ? "book-printer-window-paste-button"
                                     : "book-printer-window-copy-button");
 
-            UploadButton.Disabled = !castState.RoutineAllowed || castState.WorkProgress is not null;
+            UploadButton.Disabled = !castState.RoutineAllowed || castState.WorkProgress is not null || !castState.IsUploadAvailable;
             ClearButton.Disabled = !castState.RoutineAllowed || castState.WorkProgress is not null;
             EjectButton.Disabled = castState.BookName is null || castState.WorkProgress is not null;
             CopyPasteButton.Disabled = !castState.RoutineAllowed || castState.WorkProgress is not null;
+
+            if (_infoPanelEntry != null && (castState.BookEntries == null || !castState.BookEntries.Contains(_infoPanelEntry)))
+                HideInfoPanel();
         }
 
         public void UpdateBooksList(BoundUserInterfaceState state)
@@ -58,15 +136,29 @@ namespace Content.Client.ADT.BookPrinter
             if (castState.BookEntries is null)
                 return;
 
-
             foreach (var entry in castState.BookEntries.OrderBy(r => r.Name))
             {
-                var button = new PrintBookButton(entry, CutDescription(entry.Name ?? ""));
+                var row = new BoxContainer { Orientation = LayoutOrientation.Horizontal };
+                var display = $"#{entry.Id} {CutDescription(entry.Name ?? "")}";
+                var button = new PrintBookButton(entry, display);
                 button.OnPressed += args => OnPrintBookButtonPressed?.Invoke(args, button);
                 button.OnMouseEntered += args => OnPrintBookButtonMouseEntered?.Invoke(args, button);
                 button.OnMouseExited += args => OnPrintBookButtonMouseExited?.Invoke(args, button);
                 button.Disabled = !castState.RoutineAllowed || castState.WorkProgress is not null;
-                BooksList.AddChild(button);
+
+                var button2 = new Button
+                {
+                    Text = Loc.GetString("book-printer-view"),
+                    MinSize = new Vector2(70, 0),
+                    Margin = new Thickness(6, 0, 0, 0),
+                    Disabled = castState.WorkProgress is not null
+                };
+                button2.OnPressed += _ => ShowBookInfo(entry);
+
+                row.AddChild(button);
+                row.AddChild(button2);
+
+                BooksList.AddChild(row);
             }
         }
 
@@ -75,10 +167,10 @@ namespace Content.Client.ADT.BookPrinter
             if (text is null)
                 return "";
 
-            if (text.Length <= 47)
+            if (text.Length <= 10)
                 return text;
 
-            return text.Substring(0, 47) + "...";
+            return text.Substring(0, 9) + "...";
         }
 
         public void UpdateContainerInfo(BookPrinterBoundUserInterfaceState state)
@@ -97,7 +189,6 @@ namespace Content.Client.ADT.BookPrinter
             }
             else
             {
-
                 var bookPreview = new SpriteView
                 {
                     Scale = new Vector2(2, 2),
@@ -133,7 +224,6 @@ namespace Content.Client.ADT.BookPrinter
                     Orientation = LayoutOrientation.Horizontal,
                     Children = { bookPreview, boxInfo }
                 });
-
             }
 
             if (state.CartridgeCharge is null)
@@ -147,6 +237,32 @@ namespace Content.Client.ADT.BookPrinter
                 return;
             }
             ContainerInfo.Children.Add(new Label { Text = Loc.GetString("book-printer-window-cartridge-charge", ("charge", (int)(100 * state.CartridgeCharge))) });
+        }
+
+        public void ShowBookInfo(SharedBookPrinterEntry entry)
+        {
+            _infoPanelEntry = entry;
+
+            InfoBookTitle.Text = entry.Name ?? string.Empty;
+            InfoBookId.Text = $"#{entry.Id}";
+
+            var content = entry.Content ?? string.Empty;
+            if (content.Length > 2000)
+                content = content[..2000] + "...";
+
+            InfoBookContent.SetMessage(content);
+
+            if (!BookInfoPanel.Visible)
+            {
+                BookInfoPanel.Visible = true;
+                SetSize = new Vector2(MathF.Max(SetSize.X, 800), SetSize.Y);
+                MinSize = new Vector2(MathF.Max(MinSize.X, 800), MinSize.Y);
+            }
+        }
+
+        private void HideInfoPanel()
+        {
+            BookInfoPanel.Visible = false;
         }
     }
 
