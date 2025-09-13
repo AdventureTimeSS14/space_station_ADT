@@ -129,6 +129,12 @@ namespace Content.Server.Speech.EntitySystems
             {"magistrados", "магистрадо-с"},
             {"oficial del escudo azul", "офисиал дэль эскудо асуль"},
             {"comando central", "командо сэнтрал"},
+            {"monstruo", "монструо"},
+            {"al monstruo", "аль монструо"},
+            {"monstruos", "монструо-с"},
+            {"bastardo", "бастардо"},
+            {"al bastardo", "аль бастардо"},
+            {"bastardos", "бастардо-с"},
             {"puta madre", "пута мадрэ"},
             {"de puta madre", "дэ пута мадрэ"},
             {"vete a la mierda", "вэтэ а ла мьерда"},
@@ -148,6 +154,7 @@ namespace Content.Server.Speech.EntitySystems
             {"maricones", "марикон-эс"},
             {"al maricon", "аль марикон"},
             {"canalla", "канайя"},
+            {"al canalla", "аль канайя"},
             {"canallas", "канайя-с"},
             {"gilipollas", "хилипойя-с"},
             {"al gilipollas", "аль хилипойя-с"},
@@ -300,6 +307,10 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("поехали", "vamos");
             _replacements.Add("пошли", "vamos");
             _replacements.Add("давай", "vamos");
+            _replacements.Add("идем", "vamos");
+            _replacements.Add("вперед", "vamos");
+            _replacements.Add("идём", "vamos");
+            _replacements.Add("вперёд", "vamos");
 
             _replacements.Add("вульпы", "zorras");
             _replacements.Add("вульп", "zorro");
@@ -404,11 +415,35 @@ namespace Content.Server.Speech.EntitySystems
 
             // Ругательства
 
+            _replacements.Add("урод", "monstruo");
+            _replacements.Add("урода", "monstruo");
+            _replacements.Add("уроды", "al monstruo");
+            _replacements.Add("уроду", "monstruo");
+            _replacements.Add("уродов", "monstruos");
+            _replacements.Add("уродина", "monstruo");
+            _replacements.Add("уродины", "monstruos");
+            _replacements.Add("уродине", "al monstruo");
+            _replacements.Add("уродин", "monstruos");
+            _replacements.Add("чудище", "monstruo");
+            _replacements.Add("чудища", "monstruos");
+            _replacements.Add("чудищу", "al monstruo");
+            _replacements.Add("чудищей", "monstruos");
+            _replacements.Add("чудовище", "monstruo");
+            _replacements.Add("чудовища", "monstruos");
+            _replacements.Add("чудовищу", "al monstruo");
+            _replacements.Add("чудовищей", "monstruos");
+
             _replacements.Add("чёрт", "puta madre");
             _replacements.Add("черт", "puta madre");
+            _replacements.Add("чертям", "puta madre");
             _replacements.Add("блядь", "puta madre");
             _replacements.Add("мудак", "puta madre");
-            _replacements.Add("ублюдок", "puta madre");
+
+            _replacements.Add("ублюдок", "bastardo");
+            _replacements.Add("ублюдки", "bastardos");
+            _replacements.Add("ублюдка", "bastardo");
+            _replacements.Add("ублюдку", "al bastardo");
+            _replacements.Add("ублюдков", "bastardos");
 
             _replacements.Add("ахуенно", "de puta madre");
             _replacements.Add("охуенно", "de puta madre");
@@ -464,6 +499,12 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("мразь", "canalla");
             _replacements.Add("мразе", "canalla");
             _replacements.Add("мрази", "canallas");
+
+            _replacements.Add("мерзацев", "canalla");
+            _replacements.Add("мерзавцы", "canallas");
+            _replacements.Add("мерзавца", "canalla");
+            _replacements.Add("мерзавцу", "al canalla");
+            _replacements.Add("мерзавцов", "canallas");
 
             _replacements.Add("еблан", "gilipollas");
             _replacements.Add("ебланы", "gilipollas");
