@@ -61,7 +61,7 @@
       </PanelContainer>
 
       <!-- Информационная панель -->
-      <PanelContainer VerticalExpand="True">
+      <PanelContainer MinSize="0 120" MaxSize="0 200">
         <PanelContainer.PanelOverride>
           <gfx:StyleBoxFlat BackgroundColor="#1e1e22" BorderThickness="1" BorderColor="#404040"/>
         </PanelContainer.PanelOverride>

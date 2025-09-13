@@ -142,10 +142,10 @@ namespace Content.Client.ADT.BookPrinter
             if (text is null)
                 return "";
 
-            if (text.Length <= 15)
+            if (text.Length <= 26)
                 return text;
 
-            return text.Substring(0, 14) + "...";
+            return text.Substring(0, 25) + "...";
         }
 
         public void UpdateContainerInfoWithCooldown(BookPrinterBoundUserInterfaceState state)
