@@ -109,3 +109,5 @@
   - type: Sprite
     sprite: ADT/Objects/Specific/Hydroponics/coffeebeans.rsi # Corvax-Resprite: Fix path
     state: dried
+  - type: Extractable
+    grindableSolutionName: food

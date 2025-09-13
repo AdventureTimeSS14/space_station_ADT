@@ -6,4 +6,7 @@ research-technology-kinetic-modifications = Кинетические модиф�
 
 research-technology-crystal-manipulation = Манипуляция кристаллами
 
+research-technology-clowning-utilities = Клоунские утилиты
+
 research-technology-advanced-energy = Продвинутая энергия 
+
