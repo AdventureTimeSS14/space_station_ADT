@@ -154,7 +154,7 @@ namespace Content.Server.ADT.BookPrinter
             return bookContainer is not null &&
                 cartridgeContainer is not null &&
                 TryComp<BookPrinterCartridgeComponent>(cartridgeContainer, out var cartridgeComp) &&
-                cartridgeComp.CurrentCharge > bookPrinter.Comp.CartridgeUsage &&
+                cartridgeComp.CurrentCharge > 0 &&
                 cartridgeComp.FullCharge > bookPrinter.Comp.CartridgeUsage;
         }
 
