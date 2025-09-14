@@ -1,3 +1,6 @@
+using System.Linq;
+using Content.Server.Popups;
+using Robust.Shared.Map.Components;
 using Content.Shared.ADT.Shadekin.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
@@ -27,11 +30,17 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.ADT.Components.PickupHumans;
+using Content.Shared.Construction.Components;
+using Content.Shared.Tag;
 
 namespace Content.Server.ADT.Shadekin;
 
+
 public sealed partial class ShadekinSystem : EntitySystem
 {
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -147,6 +156,25 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (HasComp<MechPilotComponent>(uid))
             return;
 
+        // Use EntityLookupSystem to get all entities in a radius at the target position
+
+        // Convert to map coordinates using both EntityManager and TransformSystem
+        var mapCoords = args.Target.ToMap(EntityManager, _transform);
+        var allEntities = new List<EntityUid>();
+        foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+            allEntities.Add(ent);
+
+        // Only those that do NOT have AnchorableComponent (e.g. people, mobs, etc.)
+        var blockingEntities = allEntities.Where(e => (HasComp<AnchorableComponent>(e) || HasComp<TagComponent>(e))).ToList();
+
+
+        // Block teleport if any anchored entity is present
+        if (blockingEntities.Any())
+        {
+            TryUseAbility(uid, 0);
+            return;
+        }
+
         if (!TryUseAbility(uid, 50))
             return;
 
@@ -204,22 +232,35 @@ public sealed partial class ShadekinSystem : EntitySystem
         while (!coordsValid)
         {
             var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-5f, 5f), coords.Y + _random.NextFloat(-5f, 5f));
-            if (_interaction.InRangeUnobstructed(uid, newCoords, -1f))
-            {
-                TryUseAbility(uid, 40, false);
-                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
-                    TryComp<PullableComponent>(puller.Pulling, out var pullable))
-                    _pulling.TryStopPull(puller.Pulling.Value, pullable);
+            if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
+                continue;
 
-                _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
-                _transform.SetCoordinates(uid, newCoords);
-                _transform.AttachToGridOrMap(uid, Transform(uid));
-                _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
-                _audio.PlayPvs(comp.SoundTransition, uid);
-                comp.MaxedPowerAccumulator = 0f;
+            // Use EntityLookupSystem to get all entities in a radius at the random position
+            var mapCoords = newCoords.ToMap(EntityManager, _transform);
+            var allEntities = new List<EntityUid>();
+            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+                allEntities.Add(ent);
 
-                coordsValid = true;
-            }
+            // Only those that have AnchorableComponent or TagComponent (blockers)
+            var blockingEntities = allEntities.Where(e => (HasComp<AnchorableComponent>(e) || HasComp<TagComponent>(e))).ToList();
+
+            // Block teleport if any anchored or tagged entity is present
+            if (blockingEntities.Any())
+                continue;
+
+            TryUseAbility(uid, 40, false);
+            if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
+                TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                _pulling.TryStopPull(puller.Pulling.Value, pullable);
+
+            _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
+            _transform.SetCoordinates(uid, newCoords);
+            _transform.AttachToGridOrMap(uid, Transform(uid));
+            _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
+            _audio.PlayPvs(comp.SoundTransition, uid);
+            comp.MaxedPowerAccumulator = 0f;
+
+            coordsValid = true;
         }
     }
 
@@ -231,19 +272,32 @@ public sealed partial class ShadekinSystem : EntitySystem
         while (!coordsValid)
         {
             var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-range, range), coords.Y + _random.NextFloat(-range, range));
-            if (_interaction.InRangeUnobstructed(uid, newCoords, -1f))
-            {
-                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
-                    TryComp<PullableComponent>(puller.Pulling, out var pullable))
-                    _pulling.TryStopPull(puller.Pulling.Value, pullable);
+            if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
+                continue;
 
-                _transform.SetCoordinates(uid, newCoords);
-                _transform.AttachToGridOrMap(uid, Transform(uid));
-                _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
-                _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Shadekin/shadekin-transition.ogg"), uid);
+            // Use EntityLookupSystem to get all entities in a radius at the random position
+            var mapCoords = newCoords.ToMap(EntityManager, _transform);
+            var allEntities = new List<EntityUid>();
+            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+                allEntities.Add(ent);
 
-                coordsValid = true;
-            }
+            // Only those that have AnchorableComponent or TagComponent (blockers)
+            var blockingEntities = allEntities.Where(e => (HasComp<AnchorableComponent>(e) || HasComp<TagComponent>(e))).ToList();
+
+            // Block teleport if any anchored or tagged entity is present
+            if (blockingEntities.Any())
+                continue;
+
+            if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
+                TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                _pulling.TryStopPull(puller.Pulling.Value, pullable);
+
+            _transform.SetCoordinates(uid, newCoords);
+            _transform.AttachToGridOrMap(uid, Transform(uid));
+            _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Shadekin/shadekin-transition.ogg"), uid);
+
+            coordsValid = true;
         }
     }
 
