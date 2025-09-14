@@ -72,12 +72,15 @@
         acts: ["Destruction"]
   - type: ItemSlots
     slots:
-       bookSlot:
+      bookSlot:
         whitelistFailPopup: book-printer-component-cannot-put-entity-message
         whitelist:
           tags:
           - Book
-       cartridgeSlot:
+        blacklist:
+          components:
+            - GrantAllLanguagesOnUse
+      cartridgeSlot:
         whitelist:
           components:
           - BookPrinterCartridge
