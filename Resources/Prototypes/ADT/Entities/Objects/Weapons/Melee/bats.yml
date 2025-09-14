@@ -18,12 +18,8 @@
     damageFolded:
       types:
         Blunt: 0
-    staminaDamageFolded: 0
-    staminaDamageOpen: 25
     sizeOpened: Normal
     sizeClosed: Small
-  - type: StaminaDamageOnHit
-    damage: 0
   - type: MeleeWeapon
     damage:
       types:

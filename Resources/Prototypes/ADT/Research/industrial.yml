@@ -92,7 +92,6 @@
   requiredTech:
   - SalvageEquipment
   # Fuck you new RnD console
-  - AdvSalvageWeapons
 
 - type: technology
   id: ADTAdvancedEnergy
