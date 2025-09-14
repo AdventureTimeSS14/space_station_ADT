@@ -38,6 +38,6 @@ namespace Content.Server.ADT.BookPrinter.Components
         public float TimeMultiplier = 1.0f;
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public float CartridgeUsage = 1.0f;
+        public float CartridgeUsage = 5.0f;
     }
 }

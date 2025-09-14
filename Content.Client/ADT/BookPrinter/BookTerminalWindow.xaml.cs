@@ -187,6 +187,7 @@ namespace Content.Client.ADT.BookPrinter
                     };
                     ContainerInfo.Children.Add(progressBar);
                 }
+                UpdateContainerInfoContent(state);
                 return;
             }
 

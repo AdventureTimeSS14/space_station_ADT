@@ -2,7 +2,9 @@
 
 using System.Linq;
 using JetBrains.Annotations;
+using Content.Server.Administration.Logs;
 using Content.Server.ADT.BookPrinter.Components;
+using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -10,7 +12,9 @@ using Content.Shared.ADT.BookPrinter;
 using Content.Shared.ADT.BookPrinter.Components;
 using Content.Shared.Examine;
 using Content.Shared.Audio;
+using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Database;
 using Content.Shared.Paper;
 using Content.Shared.Power;
 using Content.Shared.Tag;
@@ -29,10 +33,12 @@ namespace Content.Server.ADT.BookPrinter
     [UsedImplicitly]
     public sealed partial class BookPrinterSystem : EntitySystem
     {
+        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -264,6 +270,8 @@ namespace Content.Server.ADT.BookPrinter
                 {
                     UploadBookContent(content);
                     _globalCooldown.RegisterUpload();
+                    _chatManager.SendAdminAnnouncement("\nВНИМАНИЕ!\n" + $"Была выложена книга с следующим названием: {content.Name}. Автор: {EntityManager.ToPrettyString(entity):player}");
+                    _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{EntityManager.ToPrettyString(entity):player} uploaded book with this name: {content.Name}");
                 }
                 SetupTask(bookPrinter, "Uploading");
             }
