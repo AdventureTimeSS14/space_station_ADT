@@ -16,10 +16,8 @@ public sealed class IanHeroEvent : StationEventSystem<IanHeroEventComponent>
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
-        var announcement = Loc.GetString("ian-hero-event-announcement");
-
         _chatSystem.DispatchGlobalAnnouncement(
-            message: announcement,
+            message: Loc.GetString("ian-hero-event-announcement"),
             sender: Loc.GetString("ian-hero-event-sender"),
             colorOverride: Color.DarkOrange
         );
