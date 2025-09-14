@@ -66,7 +66,7 @@ construction-name-white-office-sofa-right-side = правая сторона  б
 construction-name-white-office-sofa-middle = средняя часть белого офисного дивана
 construction-name-white-office-sofa-left-corner = левый угол  белого офисного дивана
 construction-name-white-office-sofa-right-corner = правый угол  белого офисного дивана
-#Описания
+# Описания
 construction-desc-sofa-left-side = Выглядит удобно.
 construction-desc-sofa-middle = Выглядит удобно.
 construction-desc-sofa-right-side = Выглядит удобно.
