@@ -69,7 +69,8 @@ namespace Content.Server.Speech.EntitySystems
             {"cerdo", "сэрдо"},
             {"cerdos", "сэрдо-с"},
             {"gracias", "гра-сиа-с"},
-            {"mujer", "мухэр"},
+            {"muchas gracias", "му-час гра-сиа-с"},
+            { "mujer", "мухэр"},
             {"oye", "ойэ"},
             {"persona", "пэрсона"},
             {"hola", "оола"},
@@ -284,6 +285,9 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("свиньи", "cerdos");
 
             _replacements.Add("спасибо", "gracias");
+            _replacements.Add("спасибо большое", "muchas gracias");
+            _replacements.Add("большое спасибо", "muchas gracias");
+
             _replacements.Add("женщина", "mujer");
             _replacements.Add("эй", "oye");
             _replacements.Add("человек", "persona");
