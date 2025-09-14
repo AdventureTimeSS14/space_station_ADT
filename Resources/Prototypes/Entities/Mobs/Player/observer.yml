@@ -98,6 +98,7 @@
     - ClothingUniformJumpsuitMime
     - ClothingUniformJumpsuitChaplain
     - ClothingUniformJumpsuitParamedic
+    - ClothingUniformJumpsuitPirate
     - ADTClothingUniformJumpsuitBlueshield
     - ADTClothingUniformJumpsuitGreenSuitLawyer
     - ADTClothingUniformJumpsuitBarber
@@ -146,6 +147,7 @@
     tags:
     - AllowGhostShownByEvent
   - type: GhostInfo # ADT-Tweak
+
 
 - type: entity
   id: ActionGhostBoo
