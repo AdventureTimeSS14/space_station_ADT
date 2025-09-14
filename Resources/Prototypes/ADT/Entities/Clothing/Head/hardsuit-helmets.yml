@@ -460,8 +460,8 @@
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
   id: ADTClothingHeadHelmetHardsuitIanHero
-  name: шлем скафандра корги
-  description: вам определённо хочется погладить его по голове
+  name: ADTClothingHeadHelmetHardsuitIanHero-name
+  description: ADTClothingHeadHelmetHardsuitIanHero-desc
   components:
   - type: Sprite
     sprite: ADT/Clothing/Head/Hardsuits/ian_hero.rsi

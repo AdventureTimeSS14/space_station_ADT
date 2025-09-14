@@ -549,7 +549,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ADTIanHeroHardsuit
-  name: скафандр корги
+  name: ADTIanHeroHardsuit-name
   description: скафандр для самого милого супергероя
   components:
   - type: Sprite
@@ -577,5 +577,4 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitIanHero
-  - type: StaticPrice
-    price: 0
+  - type: CargoSellBlacklist

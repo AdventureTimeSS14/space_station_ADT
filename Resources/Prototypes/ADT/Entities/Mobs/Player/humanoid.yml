@@ -911,7 +911,7 @@
     - ChemistryBottleNocturine
   
 - type: entity
-  name: Молниеносный Иан
+  name: ADTMobIanHero-name
   parent: MobHuman
   id: ADTMobIanHero
   components:
