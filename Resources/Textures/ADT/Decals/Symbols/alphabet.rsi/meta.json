@@ -156,6 +156,12 @@
         },
         {
             "name": "rus_b"
+        },
+        {
+            "name": "rus_jj"
+        },
+        {
+            "name": "question_mark"
         }
     ]
 }
