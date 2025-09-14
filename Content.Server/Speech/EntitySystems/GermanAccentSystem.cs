@@ -113,6 +113,8 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"terrorist", "террорист"},
             {"terroristen", "террористэн"},
             {"korporation", "корпорацион"},
+            {"unternehmen", "унтернэмен"},
+            {"zum unternehmen", "цум унтернэмен"},
             {"führer", "фюрэр"},
             {"führer'a", "фюрэр'а"},
             {"chief", "чиф"},
@@ -376,6 +378,13 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("корпорация", "korporation");
             _replacements.Add("корпорации", "korporation");
             _replacements.Add("корпораций", "korporation");
+            _replacements.Add("корпорацию", "korporation");
+
+            _replacements.Add("корпорат", "unternehmen");
+            _replacements.Add("корпорату", "zum unternehmen");
+            _replacements.Add("корпората", "unternehmen");
+            _replacements.Add("корпораты", "unternehmen");
+            _replacements.Add("корпоратов", "unternehmen");
 
             // Командование
 

@@ -105,6 +105,9 @@ namespace Content.Server.Speech.EntitySystems
             {"terroristas", "тэррориста-с"},
             {"corporación", "корпорасьон"},
             {"corporaciones", "корпорасьон-эс"},
+            {"empresario", "эмпресарйо"},
+            {"al empresario", "аль эмпресарйо"},
+            {"al empresarios", "эмпресарйо-с"},
             {"capitán", "капитан"},
             {"al capitán", "аль капитан"},
             {"jefe ingeniero", "хэфэ ин-хэ-нь-э-ро"},
@@ -358,6 +361,13 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("корпорация", "corporación");
             _replacements.Add("корпорации", "corporaciones");
             _replacements.Add("корпораций", "corporaciones");
+            _replacements.Add("корпорацию", "corporación");
+
+            _replacements.Add("корпорат", "empresario");
+            _replacements.Add("корпорату", "al empresario");
+            _replacements.Add("корпората", "empresario");
+            _replacements.Add("корпораты", "empresarios");
+            _replacements.Add("корпоратов", "empresarios");
 
             // Командование
 
