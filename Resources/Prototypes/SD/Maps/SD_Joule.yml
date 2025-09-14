@@ -1,0 +1,82 @@
+- type: gameMap
+  id: SD_Joule
+  mapName: 'Joule Station'
+  mapPath: /Maps/SDMaps/SDStations/SD_Joule.yml
+  maxRandomOffset: 0
+  minPlayers: 0
+  stations:
+    SD_Joule:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0}SV {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '-'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
+        - type: StationJobs
+          availableJobs:
+            Boxer: [ 2, 2 ]
+            CargoTechnician: [ 4, 4 ]
+            Passenger: [ -1, -1 ]
+            Bartender: [ 1, 2 ]
+            Botanist: [ 3, 4 ]
+            Chef: [ 1, 2 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 2, 3 ]
+            Mime: [ 1, 1 ]
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 4, 4 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 3, 4 ]
+            Chemist: [ 2, 2 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 4, 4 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ]
+            Chaplain: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 4, 4 ]
+            Musician: [ 2, 2 ]
+            AtmosphericTechnician: [ 2, 3 ]
+            TechnicalAssistant: [ 4, 4 ]
+            ResearchAssistant: [ 3, 3 ]
+            Reporter: [ 2, 2 ]
+            MedicalIntern: [ 3, 3 ]
+            ServiceWorker: [ 3, 4 ]
+            SecurityCadet: [ 3, 4 ]
+            Psychologist: [ -1, -1 ]
+            Detective: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+            Magistrat: [ 1, 1 ] #ADT-Roles
+            Lawyer: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            ADTRoboticist: [ 1, 2 ] #ADT-Roles
+            ADTPathologist: [ 1, 1 ] #ADT-Roles
+            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            Brigmedic: [ 1, 1 ] #ADT-Roles
+            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            Pilot: [-1, -1]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 3 ]
+      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
+        # - type: StationGoal
+        #   goals:
+        #   - Shuttle
+        #   - SolarPanels
+        #   - Artifacts
+        #   - Bank
+        #   - Zoo
+        #   - MiningOutpost
+        #   - XenobiologyRepair
+        #   - VirusologyAmbusol
