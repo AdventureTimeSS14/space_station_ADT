@@ -134,7 +134,6 @@
     interfaces:
       enum.GhostInfoUiKey.Key:
         type: GhostInfoBoundUserInterface
-  - type: GhostInfo
   # ADT-Tweak-end
 
 # proto for player ghosts specifically
@@ -146,6 +145,7 @@
   - type: Tag
     tags:
     - AllowGhostShownByEvent
+  - type: GhostInfo # ADT-Tweak
 
 - type: entity
   id: ActionGhostBoo
