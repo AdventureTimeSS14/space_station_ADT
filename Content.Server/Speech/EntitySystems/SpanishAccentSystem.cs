@@ -239,6 +239,7 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("хороший", "bueno");
             _replacements.Add("хорошая", "buena");
             _replacements.Add("хороши", "buenos");
+            _replacements.Add("хорошие", "buenos");
             _replacements.Add("хороших", "buenos");
             _replacements.Add("хорошего", "buenos");
 

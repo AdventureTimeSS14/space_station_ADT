@@ -156,19 +156,19 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("прошу прощение", "entschuldigung");
             _replacements.Add("прошу прощения", "entschuldigung");
 
-            _replacements.Add("друг", "freund");
-            _replacements.Add("другу", "zum freund");
-            _replacements.Add("друга", "freund");
-            _replacements.Add("друзья", "freunde");
-            _replacements.Add("друзей", "freunde");
-            _replacements.Add("дружок", "kleiner freund");
+            _replacements.Add("друг", "der Freund");
+            _replacements.Add("другу", "dem Freund");
+            _replacements.Add("друга", "den Freund");
+            _replacements.Add("друзья", "die Freunde");
+            _replacements.Add("друзей", "die Freunde");
+            _replacements.Add("дружок", "kleiner Freund");
 
-            _replacements.Add("подруга", "freundin");
-            _replacements.Add("подруге", "zur freundin");
-            _replacements.Add("подругу", "freundin");
-            _replacements.Add("подруги", "freundinnen");
-            _replacements.Add("подруг", "freundinnen");
-            _replacements.Add("подружка", "kleine freundin");
+            _replacements.Add("подруга", "die Freundin");
+            _replacements.Add("подруге", "der Freundin");
+            _replacements.Add("подругу", "die Freundin");
+            _replacements.Add("подруги", "die Freundinnen");
+            _replacements.Add("подруг", "die Freundinnen");
+            _replacements.Add("подружка", "kleine Freundin");
 
             _replacements.Add("товарищ", "kamerad");
             _replacements.Add("товарищу", "zum kameraden");
@@ -182,11 +182,11 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("братья", "brüder");
             _replacements.Add("братьев", "brüder");
 
-            _replacements.Add("сестра", "schwester");
-            _replacements.Add("сестре", "zur schwester");
-            _replacements.Add("сестры", "schwester");
-            _replacements.Add("сёстры", "schwestern");
-            _replacements.Add("сестёр", "schwestern");
+            _replacements.Add("сестра", "die Schwester");
+            _replacements.Add("сестре", "der Schwester");
+            _replacements.Add("сестры", "die Schwestern");
+            _replacements.Add("сёстры", "die Schwestern");
+            _replacements.Add("сестёр", "die Schwestern");
 
             _replacements.Add("отец", "vater");
             _replacements.Add("отцу", "zum vater");
@@ -197,8 +197,9 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("хорошо", "gut");
             _replacements.Add("хорош", "gut");
             _replacements.Add("хороша", "gut");
-            _replacements.Add("хороший", "gut");
-            _replacements.Add("хорошая", "gut");
+            _replacements.Add("хороший", "guter");
+            _replacements.Add("хорошая", "gute");
+            _replacements.Add("хорошие", "gute");
             _replacements.Add("хороши", "gut");
             _replacements.Add("хороших", "gut");
             _replacements.Add("хорошего", "gut");
@@ -293,12 +294,12 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("сжечь", "verbrennen");
 
             _replacements.Add("убить", "töten");
-            _replacements.Add("убил", "töten");
+            _replacements.Add("убил", "getötet");
             _replacements.Add("убили", "töten");
-            _replacements.Add("убью", "töten");
+            _replacements.Add("убью", "werde töten");
             _replacements.Add("убила", "töten");
             _replacements.Add("убьют", "töten");
-            _replacements.Add("убейте", "töten");
+            _replacements.Add("убейте", "tötet");
 
             _replacements.Add("пиво", "bier");
             _replacements.Add("пива", "bier");
@@ -431,20 +432,20 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("пиздато", "scheiß geil");
             _replacements.Add("заебись", "scheiß geil");
 
-            _replacements.Add("пошел нахуй", "leck mich");
-            _replacements.Add("пошли нахуй", "leck mich");
-            _replacements.Add("пошёл нахуй", "leck mich");
-            _replacements.Add("иди нахуй", "leck mich");
-            _replacements.Add("идите нахуй", "leck mich");
-            _replacements.Add("пошел ты нахуй", "leck mich");
-            _replacements.Add("пошли вы нахуй", "leck mich");
-            _replacements.Add("пошёл ты нахуй", "leck mich");
-            _replacements.Add("иди ты нахуй", "leck mich");
-            _replacements.Add("идите вы нахуй", "leck mich");
-            _replacements.Add("съеби", "leck mich");
-            _replacements.Add("съебите", "leck mich");
-            _replacements.Add("съебись", "leck mich");
-            _replacements.Add("съебитесь", "leck mich");
+            _replacements.Add("пошел нахуй", "verpiss dich");
+            _replacements.Add("пошли нахуй", "verpiss dich");
+            _replacements.Add("пошёл нахуй", "verpiss dich");
+            _replacements.Add("иди нахуй", "verpiss dich");
+            _replacements.Add("идите нахуй", "verpiss dich");
+            _replacements.Add("пошел ты нахуй", "verpiss dich");
+            _replacements.Add("пошли вы нахуй", "verpiss dich");
+            _replacements.Add("пошёл ты нахуй", "verpiss dich");
+            _replacements.Add("иди ты нахуй", "verpiss dich");
+            _replacements.Add("идите вы нахуй", "verpiss dich");
+            _replacements.Add("съеби", "verpiss dich");
+            _replacements.Add("съебите", "verpiss dich");
+            _replacements.Add("съебись", "verpiss dich");
+            _replacements.Add("съебитесь", "verpiss dich");
 
             _replacements.Add("блять", "scheiße");
             _replacements.Add("бля", "scheiße");
