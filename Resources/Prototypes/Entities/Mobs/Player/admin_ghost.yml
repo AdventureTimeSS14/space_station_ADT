@@ -55,10 +55,6 @@
       enum.GeneralStationRecordConsoleKey.Key:
       # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
-      # ADT start
-      enum.GhostInfoUiKey.Key:
-        type: GhostInfoBoundUserInterface
-      # ADT end
   - type: IntrinsicUI
     uis:
       enum.SolarControlConsoleUiKey.Key:
