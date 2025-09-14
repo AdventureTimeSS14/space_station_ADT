@@ -13,7 +13,9 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
     {
         private readonly Dictionary<string, string> _replacements = new();
         private Regex? _replaceRegex;
+        //ADT-Tweak-End
 
+        //ADT-Tweak-Start
         // Инструкции для TTS-а, чтобы слова произносились правильно
         private readonly Dictionary<string, string> _pronunciations = new()
         {
@@ -433,14 +435,14 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("магистрата", "magistrat");
             _replacements.Add("магистраты", "magistrate");
             _replacements.Add("магистратов", "magistrate");
-            //ADT-Tweak-End
 
-            //ADT-Tweak-Start
             _replacements.Add("осщ", "blauer schild offizier");
             _replacements.Add("цк", "zentrales kommando");
 
             // Ругательства
+            //ADT-Tweak-End
 
+            //ADT-Tweak-Start
             _replacements.Add("урод", "monster");
             _replacements.Add("урода", "monster");
             _replacements.Add("уроды", "monster");
