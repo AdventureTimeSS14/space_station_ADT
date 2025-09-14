@@ -1,10 +1,8 @@
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
-//ADT-Tweak-Start
 using System.Text;
 using System.Globalization;
 using System.Linq;
-//ADT-Tweak-End
 
 namespace Content.Server.Speech.EntitySystems
 {
