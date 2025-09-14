@@ -484,7 +484,7 @@
 
 ##Углы
 - type: entity
-  name: Black office sofa right corner
+  name: black office sofa right corner
   id: ADTSofaOfficeBlackRightCorner
   parent: ADTSofaBase
   components:
@@ -496,7 +496,7 @@
     node: adtsofaofficeblackrightcorner
 
 - type: entity
-  name: brown sofa left corner
+  name: black sofa left corner
   id: ADTSofaOfficeBlackLeftCorner
   parent: ADTSofaBase
   components:
