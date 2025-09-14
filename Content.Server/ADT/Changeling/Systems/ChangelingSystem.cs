@@ -467,7 +467,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             component.StoredDNA.Add(newHumanoidData.Value);
         }
-
+        Dirty(uid, component);
         return;
     }
 
@@ -576,6 +576,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             component.StoredDNA.Add(newHumanoidData.Value);
         }
 
+        Dirty(uid, component);
         return true;
     }
 

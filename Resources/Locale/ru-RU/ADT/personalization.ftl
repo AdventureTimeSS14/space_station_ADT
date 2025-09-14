@@ -650,3 +650,6 @@ ent-ADTClothingHeadHelmetMinerSirtalter = череп молодого дрейк
 ent-ADTClothingUniformMiningSirtalter = комбинезон исследователя
     .desc = Комбинезон шахтёра с устаревшим дизайном, который использовался НТ во времена первых исследований Лазиса Ардакса и фронтира. Ткань пропитана кровью, а по общему состоянию можно сказать, что использовали его в экстремальных условиях не один год.
     .suffix = { "Именное, Sir_talter" }
+
+marking-ADTFeatheredEarsPangaari = Пернатые уши (Именное, Pangaari)
+marking-ADTFeatheredWingsPangaari = Пернатые крылья ( Именное, Pangaari)

@@ -82,7 +82,8 @@
 - type: speechBark
   id: Mettaton
   name: bark-mettaton-name
-  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-metta.ogg
+  sound:
+    collection: ADTMettaton
 
 - type: speechBark
   id: Papyrus
@@ -119,8 +120,13 @@
   name: bark-underswap-sans-name
   sound: /Audio/ADT/Voice/Vocal-Barks/underswap-sans.ogg
 
+- type: speechBark
+  id: Temmie
+  name: bark-temmie-name
+  sound:
+    collection: ADTtemmie
 
-# UNY some new shit brah @@@ QWERTY barks addont folder
+# UNY some new shit brah @@@ QWERTY barks addon folder
 
 - type: speechBark
   id: Ace
@@ -181,12 +187,19 @@
 - type: speechBark
   id: Rudolph
   name: bark-rudolph-name
-  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-roxlscaard.ogg
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-rudolph.ogg
 
 - type: speechBark
   id: RoxlsCaard
   name: bark-roxlscaard-name
-  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-roxlscaard.ogg
+  sound:
+    collection: ADTRouxlsKaard
+
+- type: speechBark
+  id: MrAntTenna
+  name: bark-tenna-name
+  sound:
+    collection: ADTMrAntTennaBark
 
 - type: speechBark
   id: Ralsei
@@ -218,8 +231,152 @@
   name: bark-berdly-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-berdly.ogg
 
-### The end of the Addon for roundstart.yml. @@@ QWERTY barks addont folder
+- type: speechBark
+  id: NoellesMom
+  name: bark-noellesmom-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-noellemom.ogg
 
+- type: speechBark
+  id: GersonBoom
+  name: bark-gersonboom-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-gerson.ogg
+
+- type: speechBark
+  id: Jackenstein
+  name: bark-jackenstein-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-jackenstein.ogg
+### Okay, thats only deltarune. Now its time for other fangames.
+### Deltarune: Chapter Rewritten
+
+- type: speechBark
+  id: Charkis
+  name: bark-charkis-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltaruneREwritten_charkis.ogg
+
+- type: speechBark
+  id: Junkil
+  name: bark-junkil-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltaruneREwritten_junkil.ogg
+
+- type: speechBark
+  id: Scampton
+  name: bark-scampton-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/deltaruneREwritten_scamton.ogg
+
+### TS!Underswap
+
+- type: speechBark
+  id: TSUndAlphys
+  name: bark-TSUAlphys-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_alphys.ogg
+
+- type: speechBark
+  id: Bugerpant
+  name: bark-bugerpant-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_bugerpant.ogg
+
+- type: speechBark
+  id: CoffinK
+  name: bark-CoffinK-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_coffin_k.ogg
+
+- type: speechBark
+  id: Crossbones
+  name: bark-crossbones-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_crossbones.ogg
+
+- type: speechBark
+  id: Harry
+  name: bark-harry-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_harry.ogg
+
+- type: speechBark
+  id: Larry
+  name: bark-larry-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_larry.ogg
+
+- type: speechBark
+  id: Mettalot
+  name: bark-mettalot-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_mettalot.ogg
+
+- type: speechBark
+  id: Moldrick
+  name: bark-moldrick-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_moldrick.ogg
+
+- type: speechBark
+  id: SGTSplosion
+  name: bark-splosion-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_sgt_splosion.ogg
+
+### Minecraft note blocks
+
+- type: speechBark
+  id: MinecraftBass
+  name: bark-minecraftbass-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bass.ogg
+
+- type: speechBark
+  id: MinecraftBassAttack
+  name: bark-minecraftbassattack-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bassattack.ogg
+
+- type: speechBark
+  id: MinecraftBell
+  name: bark-minecraftbell-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bell.ogg
+
+- type: speechBark
+  id: MinecraftBit
+  name: bark-minecraftbit-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bit.ogg
+
+- type: speechBark
+  id: MinecraftCowBell
+  name: bark-minecraftcowbell-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_cow_bell.ogg
+
+- type: speechBark
+  id: MinecraftDidgeridoo
+  name: bark-minecraftdidgeridoo-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_didgeridoo.ogg
+
+- type: speechBark
+  id: MinecraftFlute
+  name: bark-minecraftflute-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_flute.ogg
+
+- type: speechBark
+  id: MinecraftGuitar
+  name: bark-minecraftguitar-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_guitar.ogg
+
+- type: speechBark
+  id: MinecraftHarp
+  name: bark-minecraftharp-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_harp.ogg
+
+- type: speechBark
+  id: MinecraftIceChime
+  name: bark-minecrafticechime-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_icechime.ogg
+
+- type: speechBark
+  id: MinecraftIronXylophone
+  name: bark-minecraftironxylophone-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_iron_xylophone.ogg
+
+- type: speechBark
+  id: MinecraftPling
+  name: bark-minecraftpling-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_pling.ogg
+
+- type: speechBark
+  id: MinecraftXylobone
+  name: bark-minecraftxylobone-name
+  sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_xylobone.ogg
+### THATS actual end for my addon and update /// QWERTY :)
 # Weh
 - type: speechBark
   id: Weh

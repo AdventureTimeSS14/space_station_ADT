@@ -3,12 +3,47 @@
   copyright: "Original sound from https://github.com/deathride58/Citadel-Station-13/"
   source: "https://github.com/deathride58/Citadel-Station-13/"
 
-- files: ["undertale-alphy.ogg", "undertale-asgore.ogg", "undertale-chrip-1.ogg", "undertale-chrip-2.ogg", "undertale-flowey.ogg", "undertale-metta.ogg", "undertale-papyrus.ogg", "undertale-sans.ogg", "undertale-synth-1.ogg", "undertale-synth-2.ogg", "undertale-toriel.ogg"]
+- files: ["undertale-alphy.ogg", "undertale-asgore.ogg", "undertale-chrip-1.ogg", "undertale-chrip-2.ogg", "undertale-flowey.ogg", "undertale-metta.ogg", "undertale-papyrus.ogg", "undertale-sans.ogg", "undertale-synth-1.ogg", "undertale-synth-2.ogg", "undertale-toriel.ogg", "undertale_mettaton_1.ogg", "undertale_mettaton_2.ogg", "undertale_mettaton_3.ogg", "undertale_mettaton_4.ogg", "undertale_mettaton_5.ogg", "undertale_mettaton_6.ogg", "undertale_mettaton_7.ogg", "undertale_mettaton_8.ogg", "undertale_mettaton_9.ogg", "undertale_temmie_1.ogg", "undertale_temmie_2.ogg", "undertale_temmie_3.ogg", "undertale_temmie_4.ogg", "undertale_temmie_5.ogg", "undertale_temmie_6.ogg", "undertale_gaster_1.ogg", "undertale_gaster_2.ogg", "undertale_gaster_3.ogg", "undertale_gaster_4.ogg", "undertale_gaster_5.ogg", "undertale_gaster_6.ogg", "undertale_gaster_7.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Original sound by Toby Fox"
   source: "https://store.steampowered.com/app/391540/Undertale/"
+
+- files: ["deltarune-gerson.ogg", "deltarune-jackenstein.ogg", "deltarune-noellemom.ogg", "deltarune-berdly.ogg", "deltarune-jevil.ogg", "deltarune-lancer.ogg", "deltarune-noelle.ogg", "deltarune-queen.ogg", "deltarune-ralsei.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound by Toby Fox"
+  source: "https://store.steampowered.com/app/1671210/DELTARUNE/"
+
+- files: ["deltaruneREwritten_charkis.ogg", "deltaruneREwritten_scamton_the_great.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Sad_Bread for 'deltarune rewritten Scamton the great' game."
+  source: "https://gamejolt.com/@Sad_Bread_Official"
+
+- files: ["ts_underswap_alphys.ogg", "ts_underswap_bugerpant.ogg", "ts_underswap_coffin_k.ogg", "ts_underswap_crossbones.ogg", "ts_underswap_harry.ogg", "ts_underswap_larry.ogg", "ts_underswap_mettalot.ogg", "ts_underswap_moldrick.ogg", "ts_underswap_sgt_splosion.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Team Switched for 'TS!UNDERSWAP' game."
+  source: "https://gamejolt.com/games/tsunderswap/160094"
+
+- files: ["undertale-yellow-ace.ogg", "undertale-yellow-axis.ogg", "undertale-yellow-ceroba.ogg", "undertale-yellow-chujin.ogg", "undertale-yellow-davl.ogg", "undertale-yellow-ed.ogg", "undertale-yellow-martlet.ogg", "undertale-yellow-mooch.ogg", "undertale-yellow-moray.ogg", "undertale-yellow-starlo.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Team Undertale Yellow for 'Undertale Yellow' game."
+  source: "https://gamejolt.com/games/UndertaleYellow/136925"
+
+- files: ["granny_1.ogg", "granny_2.ogg", "granny_3.ogg", "granny_4.ogg", "granny_5.ogg", "granny_6.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by DVloper for 'Granny' game."
+  source: "https://gamejolt.com/games/Junkil/788602"
+
+- files: ["minecraft_bass.ogg", "minecraft_bassattack.ogg", "minecraft_bell.ogg", "minecraft_bit.ogg", "minecraft_cow_bell.ogg", "minecraft_didgeridoo.ogg", "minecraft_flute.ogg", "minecraft_guitar.ogg", "minecraft_harp.ogg", "minecraft_icechime.ogg", "minecraft_iron_xylophone.ogg", "minecraft_pling.ogg", "minecraft_xylobone.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Mojang Studios."
+  source: "https://www.minecraft.net/en-us"
 
 - files: ["noise-bark.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Original sound from https://zvukipro.com/situacii/387-zvuki-belogo-shuma.html"
   source: "https://zvukipro.com/situacii/387-zvuki-belogo-shuma.html"
+
+- files: ["underverse_fatal_error_sans_1.ogg", "underverse_fatal_error_sans_2.ogg", "underverse_fatal_error_sans_3.ogg", "underverse_fatal_error_sans_4.ogg", "underverse_fatal_error_sans_5.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds made by Jakei for UNDERVERSE series."
+  source: "https://www.youtube.com/@Jakeiartwork/videos"
