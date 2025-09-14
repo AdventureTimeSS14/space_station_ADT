@@ -101,10 +101,10 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             OnKeySelected?.Invoke(cast);
         };
 
-        RecordListing.OnItemDeselected += _ =>
-        {
-            OnKeySelected?.Invoke(null);
-        };
+        // RecordListing.OnItemDeselected += _ =>
+        // {
+        //     OnKeySelected?.Invoke(null);
+        // };
 
         FilterType.OnItemSelected += eventArgs =>
         {
