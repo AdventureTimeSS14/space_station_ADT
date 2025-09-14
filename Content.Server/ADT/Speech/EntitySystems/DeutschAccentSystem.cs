@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Content.Server.Speech.EntitySystems
 {
-    public sealed class DeutchAccentSystem : EntitySystem
+    public sealed class DeutschAccentSystem : EntitySystem
     {
         private readonly Dictionary<string, string> _replacements = new();
         private Regex? _replaceRegex;
@@ -14,7 +14,111 @@ namespace Content.Server.Speech.EntitySystems
         // Инструкции для TTS-а, чтобы слова произносились правильно
         private readonly Dictionary<string, string> _pronunciations = new()
         {
-            {"para qué", "пара кэ"},
+            {"wozu", "воцу"},
+            {"warum", "варум"},
+            {"wie", "ви"},
+            {"so", "зо"},
+            {"mir", "мир"},
+            {"was", "вас"},
+            {"ja", "я"},
+            {"nein", "найт"},
+            {"sehr", "зэр"},
+            {"du", "ду"},
+            {"stehen", "штээн"},
+            {"wir", "вир"},
+            {"mein", "майт"},
+            {"meine", "майнэ"},
+            {"bitte", "биттэ"},
+            {"bitte sehr", "биттэ зэр"},
+            {"bitte, bitte sehr", "биттэ, биттэ зэр"},
+            {"entschuldigung", "энтшульдигунг"},
+            {"freund", "фройнд"},
+            {"zum freund", "цум фройнд"},
+            {"freunde", "фройндэ"},
+            {"freundchen", "фройндхен"},
+            {"freundin", "фройндин"},
+            {"zur freundin", "цур фройндин"},
+            {"freundinnen", "фройндиннен"},
+            {"freundinchen", "фройндинхен"},
+            {"kamerad", "камерад"},
+            {"zum kameraden", "цум камераден"},
+            {"kameraden", "камераден"},
+            {"bruder", "брудер"},
+            {"zum bruder", "цум брудер"},
+            {"brüder", "брюдер"},
+            {"schwester", "швестер"},
+            {"zur schwester", "цур швестер"},
+            {"schwestern", "швестерн"},
+            {"vater", "фатер"},
+            {"zum vater", "цум фатер"},
+            {"väter", "фэтер"},
+            {"gut", "гут"},
+            {"ausgezeichnet", "ауфгецайхнет"},
+            {"prächtig", "прэхтих"},
+            {"prächtiger", "прэхтигер"},
+            {"prächtige", "прэхтигэ"},
+            {"prächtigen", "прэхтиген"},
+            {"prächtiges", "прэхтигес"},
+            {"herrlich", "хэррлих"},
+            {"herrlicher", "хэррлихер"},
+            {"herrliche", "хэррлихэ"},
+            {"herrlichen", "хэррлихен"},
+            {"herrlicher", "хэррлихер"},
+            {"herrliche", "хэррлихэ"},
+            {"herrliche", "хэррлихэ"},
+            {"wunderbar", "вундербар"},
+            {"wunderbarer", "вундербарер"},
+            {"wunderbare", "вундербарэ"},
+            {"wunderbaren", "вундербарен"},
+            {"wunderbarer", "вундербарер"},
+            {"schön", "шён"},
+            {"schöner", "шёнер"},
+            {"schöne", "шёнэ"},
+            {"schönen", "шёнен"},
+            {"schöner", "шёнер"},
+            {"schöne", "шёнэ"},
+            {"schöne", "шёнэ"},
+            {"assistent", "ассистент"},
+            {"schwein", "швайн"},
+            {"danke", "данкэ"},
+            {"danke schön", "данкэ шён"},
+            {"danke vielmals", "данкэ фильмальс"},
+            {"frau", "фрау"},
+            {"hey", "хай"},
+            {"mensch", "менш"},
+            {"hallo", "халло"},
+            {"guten tag", "гутен таг"},
+            {"guten morgen", "гутен морген"},
+            {"guten abend", "гутен абенд"},
+            {"gute nacht", "гутэ нахт"},
+            {"tschüss", "чюсс"},
+            {"auf wiedersehen", "ауф видерзэен"},
+            {"clown", "клоун"},
+            {"vamos", "фамос"},
+            {"los", "лос"},
+            {"mannhund", "манхунд"},
+            {"vertilgen", "фертильген"},
+            {"verbrennen", "фербреннен"},
+            {"töten", "тётен"},
+            {"bier", "бир"},
+            {"wasser", "вассер"},
+            {"agent", "агент"},
+            {"zum agenten", "цум агентен"},
+            {"agenten", "агентен"},
+            {"nukleare agenten", "нуклеарэ агентен"},
+            {"einsatzkräfte", "айнзацкрэфтэ"},
+            {"terrorist", "террорист"},
+            {"terroristen", "террористен"},
+            {"korporation", "корпорацион"},
+            {"führer", "фюрер"},
+            {"führer'a", "фюрер'а"},
+            {"chief", "чиф"},
+            {"chefarzt", "шефарцт"},
+            {"doktorvater", "докторфатер"},
+            {"leiter des personals", "лайтер дес персональс"},
+            {"leiter des sicherheitsdienstes", "лайтер дес зихерхайтсдинстес"},
+            {"quartiermeister", "квартирмайстер"},
+            {"polizei", "полицай"},
         };
 
         // Немецкий акцент
@@ -28,7 +132,7 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("почему", "warum");
             _replacements.Add("как", "wie");
             _replacements.Add("так", "so");
-            _replacements.Add("мне", "me");
+            _replacements.Add("мне", "mir");
             _replacements.Add("что", "was");
             _replacements.Add("да", "ja");
             _replacements.Add("нет", "nein");
@@ -40,98 +144,98 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("мой", "mein");
             _replacements.Add("моё", "mein");
             _replacements.Add("мои", "meine");
-            _replacements.Add("моей", "mein");
-            _replacements.Add("моих", "mein");
-            _replacements.Add("моего", "mein");
+            _replacements.Add("моей", "meiner");
+            _replacements.Add("моих", "meiner");
+            _replacements.Add("моего", "meines");
 
-            _replacements.Add("пожалуйста", "bitte sehr");
+            _replacements.Add("пожалуйста", "bitte");
             _replacements.Add("ну пожалуйста", "bitte, bitte sehr");
 
-            _replacements.Add("простите", "perdón");
-            _replacements.Add("извините", "perdón");
-            _replacements.Add("прошу прощение", "perdón");
-            _replacements.Add("прошу прощения", "perdón");
+            _replacements.Add("простите", "entschuldigung");
+            _replacements.Add("извините", "entschuldigung");
+            _replacements.Add("прошу прощение", "entschuldigung");
+            _replacements.Add("прошу прощения", "entschuldigung");
 
-            _replacements.Add("друг", "amigo");
-            _replacements.Add("другу", "al amigo");
-            _replacements.Add("друга", "amigo");
-            _replacements.Add("друзья", "amigos");
-            _replacements.Add("друзей", "amigos");
-            _replacements.Add("дружок", "amiguito");
+            _replacements.Add("друг", "freund");
+            _replacements.Add("другу", "zum freund");
+            _replacements.Add("друга", "freund");
+            _replacements.Add("друзья", "freunde");
+            _replacements.Add("друзей", "freunde");
+            _replacements.Add("дружок", "kleiner freund");
 
-            _replacements.Add("подруга", "amiga");
-            _replacements.Add("подруге", "a la amiga");
-            _replacements.Add("подругу", "amiga");
-            _replacements.Add("подруги", "amigas");
-            _replacements.Add("подруг", "amigas");
-            _replacements.Add("подружка", "amiguita");
+            _replacements.Add("подруга", "freundin");
+            _replacements.Add("подруге", "zur freundin");
+            _replacements.Add("подругу", "freundin");
+            _replacements.Add("подруги", "freundinnen");
+            _replacements.Add("подруг", "freundinnen");
+            _replacements.Add("подружка", "kleine freundin");
 
-            _replacements.Add("товарищ", "compañero");
-            _replacements.Add("товарищу", "al compañero");
-            _replacements.Add("товарища", "compañero");
-            _replacements.Add("товарищи", "compañeros");
-            _replacements.Add("товарищей", "compañeros");
+            _replacements.Add("товарищ", "kamerad");
+            _replacements.Add("товарищу", "zum kameraden");
+            _replacements.Add("товарища", "kamerad");
+            _replacements.Add("товарищи", "kameraden");
+            _replacements.Add("товарищей", "kameraden");
 
-            _replacements.Add("брат", "hermano");
-            _replacements.Add("брату", "al hermano");
-            _replacements.Add("брата", "hermano");
-            _replacements.Add("братья", "hermanos");
-            _replacements.Add("братьев", "hermanos");
+            _replacements.Add("брат", "bruder");
+            _replacements.Add("брату", "zum bruder");
+            _replacements.Add("брата", "bruder");
+            _replacements.Add("братья", "brüder");
+            _replacements.Add("братьев", "brüder");
 
-            _replacements.Add("сестра", "hermana");
-            _replacements.Add("сестре", "a la hermana");
-            _replacements.Add("сестры", "hermana");
-            _replacements.Add("сёстры", "hermanas");
-            _replacements.Add("сестёр", "hermanas");
+            _replacements.Add("сестра", "schwester");
+            _replacements.Add("сестре", "zur schwester");
+            _replacements.Add("сестры", "schwester");
+            _replacements.Add("сёстры", "schwestern");
+            _replacements.Add("сестёр", "schwestern");
 
-            _replacements.Add("отец", "padre");
-            _replacements.Add("отцу", "al padre");
-            _replacements.Add("отца", "padre");
-            _replacements.Add("отцы", "padres");
-            _replacements.Add("отцов", "padres");
+            _replacements.Add("отец", "vater");
+            _replacements.Add("отцу", "zum vater");
+            _replacements.Add("отца", "vater");
+            _replacements.Add("отцы", "väter");
+            _replacements.Add("отцов", "väter");
 
             _replacements.Add("хорошо", "gut");
-            _replacements.Add("хорош", "bueno");
-            _replacements.Add("хороша", "buena");
-            _replacements.Add("хороший", "bueno");
-            _replacements.Add("хорошая", "buena");
-            _replacements.Add("хороши", "buenos");
-            _replacements.Add("хороших", "buenos");
-            _replacements.Add("хорошего", "buenos");
+            _replacements.Add("хорош", "gut");
+            _replacements.Add("хороша", "gut");
+            _replacements.Add("хороший", "gut");
+            _replacements.Add("хорошая", "gut");
+            _replacements.Add("хороши", "gut");
+            _replacements.Add("хороших", "gut");
+            _replacements.Add("хорошего", "gut");
 
             _replacements.Add("отлично", "ausgezeichnet");
 
-            _replacements.Add("великолепно", "magníficamente");
-            _replacements.Add("великолепен", "magnífico");
-            _replacements.Add("великолепные", "magníficos");
-            _replacements.Add("великолепных", "magníficos");
-            _replacements.Add("великолепный", "magnífico");
-            _replacements.Add("великолепна", "magnífica");
-            _replacements.Add("великолепная", "magnífica");
+            _replacements.Add("великолепно", "prächtig");
+            _replacements.Add("великолепен", "prächtiger");
+            _replacements.Add("великолепные", "prächtige");
+            _replacements.Add("великолепных", "prächtigen");
+            _replacements.Add("великолепный", "prächtiger");
+            _replacements.Add("великолепна", "prächtige");
+            _replacements.Add("великолепная", "prächtige");
 
-            _replacements.Add("замечательно", "estupendo");
-            _replacements.Add("замечателен", "estupendo");
-            _replacements.Add("замечательные", "estupendos");
-            _replacements.Add("замечательных", "estupendos");
-            _replacements.Add("замечательный", "estupendo");
-            _replacements.Add("замечательна", "estupendo");
-            _replacements.Add("замечательная", "estupendo");
+            _replacements.Add("замечательно", "herrlich");
+            _replacements.Add("замечателен", "herrlicher");
+            _replacements.Add("замечательные", "herrliche");
+            _replacements.Add("замечательных", "herrlichen");
+            _replacements.Add("замечательный", "herrlicher");
+            _replacements.Add("замечательна", "herrliche");
+            _replacements.Add("замечательная", "herrliche");
 
-            _replacements.Add("восхитительно", "wunderschoen");
-            _replacements.Add("восхитителен", "maravilloso");
-            _replacements.Add("восхитительные", "maravillosos");
-            _replacements.Add("восхитительных", "maravillosos");
-            _replacements.Add("восхитительный", "maravilloso");
-            _replacements.Add("восхитительна", "maravillosa");
-            _replacements.Add("восхитительная", "maravillosa");
+            _replacements.Add("восхитительно", "wunderbar");
+            _replacements.Add("восхитителен", "wunderbarer");
+            _replacements.Add("восхитительные", "wunderbare");
+            _replacements.Add("восхитительных", "wunderbaren");
+            _replacements.Add("восхитительный", "wunderbarer");
+            _replacements.Add("восхитительна", "wunderbare");
+            _replacements.Add("восхитительная", "wunderbare");
 
-            _replacements.Add("прекрасно", "schon");
-            _replacements.Add("прекрасен", "hermoso");
-            _replacements.Add("прекрасные", "hermosos");
-            _replacements.Add("прекрасных", "hermosos");
-            _replacements.Add("прекрасный", "hermoso");
-            _replacements.Add("прекрасна", "hermosa");
-            _replacements.Add("прекрасная", "hermosa");
+            _replacements.Add("прекрасно", "schön");
+            _replacements.Add("прекрасен", "schöner");
+            _replacements.Add("прекрасные", "schöne");
+            _replacements.Add("прекрасных", "schönen");
+            _replacements.Add("прекрасный", "schöner");
+            _replacements.Add("прекрасна", "schöne");
+            _replacements.Add("прекрасная", "schöne");
 
             _replacements.Add("ассистент", "assistent");
             _replacements.Add("ассистуха", "assistent");
@@ -156,10 +260,10 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("добрый вечер", "guten abend");
             _replacements.Add("доброй ночи", "gute nacht");
 
-            _replacements.Add("пока", "adiós");
-            _replacements.Add("прощай", "adiós");
-            _replacements.Add("прощайте", "adiós a todos");
-            _replacements.Add("до свидания", "hasta la vista");
+            _replacements.Add("пока", "tschüss");
+            _replacements.Add("прощай", "tschüss");
+            _replacements.Add("прощайте", "tschüss");
+            _replacements.Add("до свидания", "auf wiedersehen");
 
             _replacements.Add("клоун", "clown");
             _replacements.Add("клоуну", "clown");
@@ -171,19 +275,19 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("клуни", "clown");
             _replacements.Add("клунь", "clown");
 
-            _replacements.Add("поехали", "vamos");
-            _replacements.Add("пошли", "vamos");
-            _replacements.Add("давай", "vamos");
-            _replacements.Add("идем", "vamos");
-            _replacements.Add("вперед", "vamos");
-            _replacements.Add("идём", "vamos");
-            _replacements.Add("вперёд", "vamos");
+            _replacements.Add("поехали", "los");
+            _replacements.Add("пошли", "los");
+            _replacements.Add("давай", "los");
+            _replacements.Add("идем", "los");
+            _replacements.Add("вперед", "los");
+            _replacements.Add("идём", "los");
+            _replacements.Add("вперёд", "los");
 
-            _replacements.Add("вульпы", "mann hund");
-            _replacements.Add("вульп", "mann hund");
-            _replacements.Add("вульпа", "mann hund");
-            _replacements.Add("вульпу", "mann hund");
-            _replacements.Add("вульпе", "mann hund");
+            _replacements.Add("вульпы", "mannhund");
+            _replacements.Add("вульп", "mannhund");
+            _replacements.Add("вульпа", "mannhund");
+            _replacements.Add("вульпу", "mannhund");
+            _replacements.Add("вульпе", "mannhund");
 
             _replacements.Add("истребить", "vertilgen");
             _replacements.Add("сжечь", "verbrennen");
@@ -202,11 +306,11 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("вода", "wasser");
             _replacements.Add("воды", "wasser");
 
-            _replacements.Add("агент", "agente");
-            _replacements.Add("агенту", "al agente");
-            _replacements.Add("агента", "agente");
-            _replacements.Add("агенты", "agentes");
-            _replacements.Add("агентов", "agentes");
+            _replacements.Add("агент", "agent");
+            _replacements.Add("агенту", "zum agenten");
+            _replacements.Add("агента", "agent");
+            _replacements.Add("агенты", "agenten");
+            _replacements.Add("агентов", "agenten");
 
             _replacements.Add("яо", "nukleare agenten");
             _replacements.Add("ядерные оперативники", "nukleare agenten");
@@ -239,7 +343,7 @@ namespace Content.Server.Speech.EntitySystems
 
             _replacements.Add("си", "chief");
             _replacements.Add("гв", "chefarzt");
-            _replacements.Add("нр", "doktorvater");
+            _replacements.Add("нр", "forschungsleiter");
             _replacements.Add("гп", "leiter des personals");
             _replacements.Add("гсб", "leiter des sicherheitsdienstes");
             _replacements.Add("км", "quartiermeister");
@@ -247,17 +351,16 @@ namespace Content.Server.Speech.EntitySystems
             // Служба Безопасности
 
             _replacements.Add("сб", "polizei");
-            _replacements.Add(" сб", " de seguridad");
-            _replacements.Add("сбух", "seguras");
-            _replacements.Add("сбуха", "segura");
-            _replacements.Add("сбухе", "al segura");
-            _replacements.Add("сбуху", "segura");
-            _replacements.Add("сбухи", "seguras");
-            _replacements.Add("сбшник", "segurata");
-            _replacements.Add("сбшника", "segurata");
-            _replacements.Add("сбшнику", "al segurata");
-            _replacements.Add("сбшники", "seguratas");
-            _replacements.Add("сбшников", "seguratas");
+            _replacements.Add("сбух", "sicherheit");
+            _replacements.Add("сбуха", "sicherheit");
+            _replacements.Add("сбухе", "sicherheit");
+            _replacements.Add("сбуху", "sicherheit");
+            _replacements.Add("сбухи", "sicherheit");
+            _replacements.Add("сбшник", "sicherheitsbeamter");
+            _replacements.Add("сбшника", "sicherheitsbeamter");
+            _replacements.Add("сбшнику", "zum sicherheitsbeamten");
+            _replacements.Add("сбшники", "sicherheitsbeamte");
+            _replacements.Add("сбшников", "sicherheitsbeamte");
 
             _replacements.Add("кадет", "kadett");
             _replacements.Add("кадеты", "kadetten");
@@ -278,56 +381,55 @@ namespace Content.Server.Speech.EntitySystems
 
             // Центральное Командование
 
-            _replacements.Add("авд", "agente de asuntos internos");
+            _replacements.Add("авд", "interner affairs agent");
+            _replacements.Add("магистрат", "magistrat");
+            _replacements.Add("магистрату", "zum magistrat");
+            _replacements.Add("магистрата", "magistrat");
+            _replacements.Add("магистраты", "magistrate");
+            _replacements.Add("магистратов", "magistrate");
 
-            _replacements.Add("магистрат", "magistrado");
-            _replacements.Add("магистрату", "al magistrado");
-            _replacements.Add("магистрата", "magistrado");
-            _replacements.Add("магистраты", "magistrados");
-            _replacements.Add("магистратов", "magistrados");
-
-            _replacements.Add("осщ", "oficial del escudo azul");
-            _replacements.Add("цк", "comando central");
+            _replacements.Add("осщ", "blauer schild offizier");
+            _replacements.Add("цк", "zentrales kommando");
 
             // Ругательства
 
-            _replacements.Add("урод", "monstruo");
-            _replacements.Add("урода", "monstruo");
-            _replacements.Add("уроды", "monstruos");
-            _replacements.Add("уроду", "al monstruo");
-            _replacements.Add("уродов", "monstruos");
-            _replacements.Add("уродина", "monstruo");
-            _replacements.Add("уродины", "monstruos");
-            _replacements.Add("уродине", "al monstruo");
-            _replacements.Add("уродин", "monstruos");
-            _replacements.Add("чудище", "monstruo");
-            _replacements.Add("чудища", "monstruos");
-            _replacements.Add("чудищу", "al monstruo");
-            _replacements.Add("чудищей", "monstruos");
-            _replacements.Add("чудовище", "monstruo");
-            _replacements.Add("чудовища", "monstruos");
-            _replacements.Add("чудовищу", "al monstruo");
-            _replacements.Add("чудовищей", "monstruos");
+            _replacements.Add("урод", "monster");
+            _replacements.Add("урода", "monster");
+            _replacements.Add("уроды", "monster");
+            _replacements.Add("уроду", "zum monster");
+            _replacements.Add("уродов", "monster");
+            _replacements.Add("уродина", "monster");
+            _replacements.Add("уродины", "monster");
+            _replacements.Add("уродине", "zum monster");
+            _replacements.Add("уродин", "monster");
+            _replacements.Add("чудище", "monster");
+            _replacements.Add("чудища", "monster");
+            _replacements.Add("чудищу", "zum monster");
+            _replacements.Add("чудищей", "monster");
+            _replacements.Add("чудовище", "monster");
+            _replacements.Add("чудовища", "monster");
+            _replacements.Add("чудовищу", "zum monster");
+            _replacements.Add("чудовищей", "monster");
 
-            _replacements.Add("чёрт", "puta madre");
-            _replacements.Add("черт", "puta madre");
-            _replacements.Add("чертям", "puta madre");
-            _replacements.Add("блядь", "puta madre");
-            _replacements.Add("мудак", "puta madre");
+            _replacements.Add("чёрт", "verdammt");
+            _replacements.Add("черт", "verdammt");
+            _replacements.Add("чертям", "verdammt");
+            _replacements.Add("блядь", "scheiße");
+            _replacements.Add("мудак", "arschloch");
 
-            _replacements.Add("ублюдок", "bastardo");
-            _replacements.Add("ублюдки", "bastardos");
-            _replacements.Add("ублюдка", "bastardo");
-            _replacements.Add("ублюдку", "al bastardo");
-            _replacements.Add("ублюдков", "bastardos");
+            _replacements.Add("ублюдок", "bastard");
+            _replacements.Add("ублюдки", "bastarde");
+            _replacements.Add("ублюдка", "bastard");
+            _replacements.Add("ублюдку", "zum bastard");
+            _replacements.Add("ублюдков", "bastarde");
 
-            _replacements.Add("ахуенно", "de puta madre");
-            _replacements.Add("охуенно", "de puta madre");
-            _replacements.Add("ахуительно", "de puta madre");
-            _replacements.Add("охуительно", "de puta madre");
-            _replacements.Add("зашибись", "de puta madre");
-            _replacements.Add("пиздато", "de puta madre");
-            _replacements.Add("заебись", "de puta madre");
+            _replacements.Add("ахуенно", "scheiß geil");
+            _replacements.Add("охуенно", "scheiß geil");
+            _replacements.Add("ахуительно", "scheiß geil");
+            _replacements.Add("охуительно", "scheiß geil");
+            _replacements.Add("зашибись", "scheiß geil");
+            _replacements.Add("пиздато", "scheiß geil");
+            _replacements.Add("заебись", "scheiß geil");
 
             _replacements.Add("пошел нахуй", "leck mich");
             _replacements.Add("пошли нахуй", "leck mich");
@@ -344,9 +446,9 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("съебись", "leck mich");
             _replacements.Add("съебитесь", "leck mich");
 
-            _replacements.Add("блять", "scheibe");
-            _replacements.Add("бля", "scheibe");
-            _replacements.Add("бляха", "scheibe");
+            _replacements.Add("блять", "scheiße");
+            _replacements.Add("бля", "scheiße");
+            _replacements.Add("бляха", "scheiße");
 
             _replacements.Add("сука", "hündin");
             _replacements.Add("суку", "hündin");
@@ -376,20 +478,20 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("мразе", "dreckskerl");
             _replacements.Add("мрази", "dreckskerl");
 
-            _replacements.Add("мерзавец", "canalla");
-            _replacements.Add("мерзавцев", "canallas");
-            _replacements.Add("мерзавцы", "canallas");
-            _replacements.Add("мерзавца", "canalla");
-            _replacements.Add("мерзавцу", "al canalla");
-            _replacements.Add("мерзавцов", "canallas");
+            _replacements.Add("мерзавец", "schurke");
+            _replacements.Add("мерзавцев", "schurken");
+            _replacements.Add("мерзавцы", "schurken");
+            _replacements.Add("мерзавца", "schurke");
+            _replacements.Add("мерзавцу", "zum schurke");
+            _replacements.Add("мерзавцов", "schurken");
 
-            _replacements.Add("еблан", "ficker");
-            _replacements.Add("ебланы", "ficker");
-            _replacements.Add("еблана", "ficker");
-            _replacements.Add("еблану", "ficker");
-            _replacements.Add("ебланов", "ficker");
-            _replacements.Add("ебланище", "scheißkerl");
-            _replacements.Add("ебланища", "scheißkerl");
+            _replacements.Add("еблан", "trottel");
+            _replacements.Add("ебланы", "trottel");
+            _replacements.Add("еблана", "trottel");
+            _replacements.Add("еблану", "trottel");
+            _replacements.Add("ебланов", "trottel");
+            _replacements.Add("ебланище", "trottel");
+            _replacements.Add("ебланища", "trottel");
 
             _replacements.Add("уебок", "wichser");
             _replacements.Add("уёбок", "wichser");
@@ -402,20 +504,20 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("уебку", "wichser");
             _replacements.Add("уёбку", "wichser");
 
-            _replacements.Add("похуй", "scheib");
-            _replacements.Add("поебать", "scheib");
-            _replacements.Add("похую", "scheib");
-            _replacements.Add("похер", "importa un bledo");
-            _replacements.Add("плевать", "ist mir egal");
+            _replacements.Add("похуй", "scheißegal");
+            _replacements.Add("поебать", "scheißegal");
+            _replacements.Add("похую", "scheißegal");
+            _replacements.Add("похер", "scheißegal");
+            _replacements.Add("плевать", "egal");
 
-            _replacements.Add("нахера", "fick dich");
-            _replacements.Add("нахуя", "fick dich");
+            _replacements.Add("нахера", "zum teufel");
+            _replacements.Add("нахуя", "zum teufel");
 
-            _replacements.Add("ахуеть", "hostia puta");
-            _replacements.Add("охуеть", "hostia puta");
-            _replacements.Add("ахуй", "hostia puta");
+            _replacements.Add("ахуеть", "scheiße");
+            _replacements.Add("охуеть", "scheiße");
+            _replacements.Add("ахуй", "scheiße");
 
-            _replacements.Add("хуйня", "mierda");
+            _replacements.Add("хуйня", "scheiße");
 
             var orderedKeys = _replacements.Keys.OrderByDescending(k => k.Length).ToList();
             var pattern = @"\b(" + string.Join("|", orderedKeys.Select(Regex.Escape)) + @")\b";
@@ -425,7 +527,7 @@ namespace Content.Server.Speech.EntitySystems
             var pronouncePattern = @"\b(" + string.Join("|", orderedPronounceKeys.Select(Regex.Escape)) + @")\b";
             _pronounceRegex = new Regex(pronouncePattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
-            SubscribeLocalEvent<SpanishAccentComponent, AccentGetEvent>(OnAccent);
+            SubscribeLocalEvent<DeutschAccentComponent, AccentGetEvent>(OnAccent);
         }
 
         public string GetPronunciation(string message)
@@ -469,7 +571,7 @@ namespace Content.Server.Speech.EntitySystems
             return msg.ToString();
         }
 
-        private void OnAccent(EntityUid uid, SpanishAccentComponent component, AccentGetEvent args)
+        private void OnAccent(EntityUid uid, DeutschAccentComponent component, AccentGetEvent args)
         {
             var message = args.Message;
 
