@@ -337,6 +337,10 @@
 - type: entity
   parent: ADTBaseEntityHallucination
   id: ADTSMHallucinationDarkmatter
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -360,6 +364,10 @@
 - type: entity
   parent: ADTBaseEntityHallucination
   id: ADTSMHallucinationCrystallBeing
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
