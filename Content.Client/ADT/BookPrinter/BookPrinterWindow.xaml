@@ -4,44 +4,132 @@
             xmlns="https://spacestation14.io"
             xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
             Title="{Loc 'book-printer-title'}"
-            SetSize="525 475"
-            MinSize="525 475">
-    <BoxContainer Orientation="Vertical">
-        <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True" MinSize="0 250">
-            <BoxContainer Orientation="Vertical" Name="BooksList" Access="Public">
-            </BoxContainer>
-        </ScrollContainer>
-        <Control MinSize="0 10"/>
-        <BoxContainer Orientation="Horizontal">
-            <Label Text="{Loc 'book-printer-window-book-label'}"/>
-			<Control MinSize="10 0"/>
-            <Button Name="UploadButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-upload-button'}"
-                    StyleClasses="OpenRight"/>
-            <Button Name="ClearButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-clear-button'}"
-                    StyleClasses="OpenBoth"/>
-            <Button Name="CopyPasteButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-copy-button'}"
-                    StyleClasses="OpenBoth"/>
-            <Button Name="EjectButton"
-                    Access="Public"
-                    Text="{Loc 'book-printer-window-eject-button'}"
-                    StyleClasses="OpenLeft"/>
+            SetSize="600 550"
+            MinSize="600 550">
+  <BoxContainer Orientation="Horizontal" Margin="8" HorizontalExpand="True" VerticalExpand="True">
+    <!-- Основная панель -->
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 8 0">
+      <!-- Заголовок списка книг -->
+      <PanelContainer Margin="0 0 0 8">
+        <PanelContainer.PanelOverride>
+          <gfx:StyleBoxFlat BackgroundColor="#2a2a2e" BorderThickness="1" BorderColor="#404040"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Horizontal" Margin="8">
+          <Label Text="{Loc 'book-printer-window-book-label'}" HorizontalExpand="True"/>
+          <Label Text="{Loc 'book-printer-window-book-icon'}" Margin="4 0 0 0"/>
         </BoxContainer>
-        <Control MinSize="0 10"/>
-            <PanelContainer SizeFlagsStretchRatio="6" MinSize="0 100">
-            <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
-            </PanelContainer.PanelOverride>
-            <BoxContainer Name="ContainerInfo"
-                          Orientation="Vertical"
-                          HorizontalExpand="True">
-                <Label Text="{Loc 'book-printer-window-no-book-loaded-text'}"/>
-            </BoxContainer>
-        </PanelContainer>
+      </PanelContainer>
+
+      <!-- Список книг -->
+      <PanelContainer VerticalExpand="True" Margin="0 0 0 8">
+        <PanelContainer.PanelOverride>
+          <gfx:StyleBoxFlat BackgroundColor="#1e1e22" BorderThickness="1" BorderColor="#404040"/>
+        </PanelContainer.PanelOverride>
+        <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True" Margin="4">
+          <BoxContainer Orientation="Vertical" Name="BooksList" Access="Public" Margin="4">
+          </BoxContainer>
+        </ScrollContainer>
+      </PanelContainer>
+
+      <!-- Панель управления -->
+      <PanelContainer Margin="0 0 0 8">
+        <PanelContainer.PanelOverride>
+          <gfx:StyleBoxFlat BackgroundColor="#2a2a2e" BorderThickness="1" BorderColor="#404040"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Horizontal" Margin="8">
+          <Button Name="UploadButton"
+                  Access="Public"
+                  Text="{Loc 'book-printer-window-upload-button'}"
+                  StyleClasses="OpenRight"
+                  MinSize="80 32"/>
+          <Button Name="ClearButton"
+                  Access="Public"
+                  Text="{Loc 'book-printer-window-clear-button'}"
+                  StyleClasses="OpenBoth"
+                  MinSize="80 32"/>
+          <Button Name="CopyPasteButton"
+                  Access="Public"
+                  Text="{Loc 'book-printer-window-copy-button'}"
+                  StyleClasses="OpenBoth"
+                  MinSize="80 32"/>
+          <Button Name="EjectButton"
+                  Access="Public"
+                  Text="{Loc 'book-printer-window-eject-button'}"
+                  StyleClasses="OpenLeft"
+                  MinSize="80 32"/>
+        </BoxContainer>
+      </PanelContainer>
+
+      <!-- Информационная панель -->
+      <PanelContainer SizeFlagsStretchRatio="1" MinSize="0 120">
+        <PanelContainer.PanelOverride>
+          <gfx:StyleBoxFlat BackgroundColor="#1e1e22" BorderThickness="1" BorderColor="#404040"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Name="ContainerInfo"
+                      Orientation="Vertical"
+                      HorizontalExpand="True"
+                      Margin="8">
+          <Label Text="{Loc 'book-printer-window-no-book-loaded-text'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </BoxContainer>
+      </PanelContainer>
     </BoxContainer>
+
+    <!-- Панель информации о книге -->
+    <PanelContainer Name="BookInfoPanel" Access="Public" Visible="False" MinSize="320 0">
+      <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#1e1e22" BorderThickness="2" BorderColor="#505050"/>
+      </PanelContainer.PanelOverride>
+
+      <BoxContainer Orientation="Vertical" Margin="12">
+        <!-- Заголовок панели -->
+        <PanelContainer Margin="0 0 0 8">
+          <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#2a2a2e" BorderThickness="1" BorderColor="#404040"/>
+          </PanelContainer.PanelOverride>
+          <BoxContainer Orientation="Horizontal" Margin="8">
+            <Label Text="{Loc 'book-printer-info-panel-title'}" HorizontalExpand="True"/>
+            <Button Name="CloseInfoPanelButton"
+                    Access="Public"
+                    Text="{Loc 'book-printer-window-close-icon'}"
+                    MinSize="24 24"
+                    MaxSize="24 24"
+                    StyleClasses="OpenLeft"/>
+          </BoxContainer>
+        </PanelContainer>
+
+        <!-- Разделитель -->
+        <PanelContainer MinSize="0 2" Margin="0 4 0 8">
+          <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#404040" />
+          </PanelContainer.PanelOverride>
+        </PanelContainer>
+
+        <!-- ID книги -->
+        <PanelContainer Margin="0 0 0 8">
+          <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#2a2a2e" BorderThickness="1" BorderColor="#404040"/>
+          </PanelContainer.PanelOverride>
+          <Label Name="InfoBookId" Access="Public" Margin="8" HorizontalAlignment="Center"/>
+        </PanelContainer>
+
+        <!-- Заголовок книги -->
+        <PanelContainer Margin="0 0 0 8">
+          <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#2a2a2e" BorderThickness="1" BorderColor="#404040"/>
+          </PanelContainer.PanelOverride>
+          <Label Name="InfoBookTitle" Access="Public" Margin="8" HorizontalAlignment="Center"/>
+        </PanelContainer>
+
+        <!-- Контент книги -->
+        <PanelContainer VerticalExpand="True">
+          <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1a1a1e" BorderThickness="1" BorderColor="#404040"/>
+          </PanelContainer.PanelOverride>
+          <ScrollContainer VerticalExpand="True" HScrollEnabled="False" Margin="4">
+            <RichTextLabel Name="InfoBookContent" Access="Public" Margin="8"/>
+          </ScrollContainer>
+        </PanelContainer>
+      </BoxContainer>
+    </PanelContainer>
+  </BoxContainer>
 </DefaultWindow>
