@@ -146,7 +146,8 @@
   - type: Tag
     tags:
     - AllowGhostShownByEvent
-  - type: GhostInfo
+  - type: GhostInfo # ADT-Tweak
+
 
 - type: entity
   id: ActionGhostBoo
