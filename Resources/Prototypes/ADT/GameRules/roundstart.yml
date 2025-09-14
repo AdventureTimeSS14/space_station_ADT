@@ -344,4 +344,6 @@
   id: DynamicRandomGamerule
   parent: BaseGameRule
   components:
+  - type: GameRule
+    minPlayers: 30
   - type: DynamicRandomRule

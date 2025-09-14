@@ -74,7 +74,7 @@
     - dynamichard
   name: dynamic-hard-title
   description: dynamic-hard-description
-  showInVote: true
+  showInVote: false
   rules:
     - DynamicHardGamerule
     - MeteorSwarmScheduler
@@ -88,7 +88,7 @@
     - dynamiclight
   name: dynamic-low-title
   description: dynamic-low-description
-  showInVote: true
+  showInVote: false
   rules:
     - DynamicLightGamerule
     - MeteorSwarmScheduler
@@ -101,7 +101,7 @@
     - dynamicmedium
   name: dynamic-medium-title
   description: dynamic-medium-description
-  showInVote: true
+  showInVote: false
   rules:
     - DynamicMediumGamerule
     - MeteorSwarmScheduler
@@ -115,7 +115,7 @@
     - dynamicrandom
   name: dynamic-random-title
   description: dynamic-random-description
-  showInVote: false
+  showInVote: true
   rules:
     - DynamicRandomGamerule
   bannedRound: 2

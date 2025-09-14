@@ -69,7 +69,6 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
         foreach (var entity in lookup)
         {
-
             if (_container.IsEntityInContainer(entity))
                 continue;
 
@@ -89,11 +88,8 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
                     toDelete.Add(entity);
                     break;
                 }
-
-                return false;
-            };
+            }
         }
-
 
         var missingList = new List<ProtoId<TagPrototype>>();
         foreach (var tag in workingRequiredTags)
