@@ -1,11 +1,14 @@
-using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
 using System.Text;
+using Content.Server.Speech.Components;
+using System.Text.RegularExpressions;
+//ADT-Tweak-Start
 using System.Globalization;
 using System.Linq;
+//ADT-Tweak-End
 
-namespace Content.Server.Speech.EntitySystems
+namespace Content.Server.Speech.EntitySystems //ADT-Tweak
 {
+    //ADT-Tweak-Start
     public sealed class GermanAccentSystem : EntitySystem
     {
         private readonly Dictionary<string, string> _replacements = new();
@@ -155,14 +158,20 @@ namespace Content.Server.Speech.EntitySystems
             {"egal", "э-галь"},
             {"zum teufel", "цум тойфэль"}
         };
+        //ADT-Tweak-End
 
+        //ADT-Tweak-Start
         // Немецкий акцент
         private Regex? _pronounceRegex;
+        //ADT-Tweak-End
 
+        //ADT-Tweak-Start
         public override void Initialize()
         {
             base.Initialize();
+            //ADT-Tweak-End
 
+            //ADT-Tweak-Start
             _replacements.Add("зачем", "wozu");
             _replacements.Add("почему", "warum");
             _replacements.Add("как", "wie");
@@ -424,7 +433,9 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("магистрата", "magistrat");
             _replacements.Add("магистраты", "magistrate");
             _replacements.Add("магистратов", "magistrate");
+            //ADT-Tweak-End
 
+            //ADT-Tweak-Start
             _replacements.Add("осщ", "blauer schild offizier");
             _replacements.Add("цк", "zentrales kommando");
 
@@ -568,12 +579,16 @@ namespace Content.Server.Speech.EntitySystems
         }
 
         public string GetPronunciation(string message)
+        //ADT-Tweak-End
         {
+            //ADT-Tweak-Start
             if (_pronounceRegex == null)
                 return message;
 
             return _pronounceRegex.Replace(message, match =>
+            //ADT-Tweak-End
             {
+                //ADT-Tweak-Start
                 string key = match.Value.ToLowerInvariant();
                 if (_pronunciations.TryGetValue(key, out var pron))
                 {
@@ -581,30 +596,40 @@ namespace Content.Server.Speech.EntitySystems
                 }
                 return match.Value;
             });
+            //ADT-Tweak-End
         }
 
-        public string Accentuate(string message)
+        public string Accentuate(string message) //ADT-Tweak
         {
+            //ADT-Tweak-Start
             message = ReplacePunctuation(message);
             return message;
+            //ADT-Tweak-End
         }
 
-        private string ReplacePunctuation(string message)
+        private string ReplacePunctuation(string message) //ADT-Tweak
         {
+            //ADT-Tweak-Start
             var sentences = AccentSystem.SentenceRegex.Split(message);
             var msg = new StringBuilder();
             foreach (var s in sentences)
+            //ADT-Tweak-End
             {
+                //ADT-Tweak-Start
                 var toInsert = new StringBuilder();
                 if (toInsert.Length == 0)
+                //ADT-Tweak-End
                 {
+                    //ADT-Tweak-Start
                     msg.Append(s);
                 }
                 else
                 {
                     msg.Append(s.Insert(s.Length - s.TrimStart().Length, toInsert.ToString()));
+                    //ADT-Tweak-End
                 }
             }
+            //ADT-Tweak-Start
             return msg.ToString();
         }
 
@@ -613,18 +638,24 @@ namespace Content.Server.Speech.EntitySystems
             var message = args.Message;
 
             if (_replaceRegex == null)
+            //ADT-Tweak-End
             {
+                //ADT-Tweak-Start
                 args.Message = Accentuate(message);
                 return;
+                //ADT-Tweak-End
             }
 
+            //ADT-Tweak-Start
             message = _replaceRegex.Replace(message, match =>
             {
                 string matchedText = match.Value;
                 string key = matchedText.ToLowerInvariant();
                 if (!_replacements.TryGetValue(key, out var baseRep))
                     return matchedText;
+                //ADT-Tweak-End
 
+                //ADT-Tweak-Start
                 bool allUpper = true;
                 bool restAreLower = true;
                 bool firstIsUpper = false;
@@ -670,5 +701,6 @@ namespace Content.Server.Speech.EntitySystems
 
             args.Message = message;
         }
+        //ADT-Tweak-End
     }
 }
