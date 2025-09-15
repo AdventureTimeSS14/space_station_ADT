@@ -245,11 +245,7 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
-  # ADT-Tweak Start
-  - type: Body
-    prototype: Human # !!! Другие расы ДОЛЖНЫ переопределить этот prototype на свой
-  - type: MobState
-  # ADT-Tweak End
+  - type: MobState # ADT-Tweak
   - type: OfferItem # ADT-Tweak
   - type: RadiationPopup # ADT-Tweak
   - type: PickupHumans # ADT-Tweak
