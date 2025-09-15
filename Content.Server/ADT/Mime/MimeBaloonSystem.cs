@@ -43,7 +43,7 @@ public sealed class MimeBaloonSystem : EntitySystem
         if (!TryComp<HandsComponent>(args.Performer, out var handsComponent))
             return;
 
-        var message = Loc.GetString("mime-baloon-popup", ("entity", uid));
+        var message = Loc.GetString("mime-baloon-emote", ("entity", uid));
         var name = Name(args.Performer);
         var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
         ("entityName", name),
