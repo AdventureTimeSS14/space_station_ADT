@@ -8,6 +8,6 @@
     checkCanInteract: true
     itemIconStyle: BigAction
     icon:
-      sprite: ADT/Objects/Fun/Balloon
+      sprite: ADT/Objects/Fun/Balloon.rsi
       state: icon
     event: !type:SpawnBaloonEvent
