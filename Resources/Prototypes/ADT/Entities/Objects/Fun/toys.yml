@@ -77,11 +77,11 @@
   description: Ballon.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     state: icon
   - type: Item
     size: Small
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     heldPrefix: icon
   - type: Damageable
     damageContainer: Inorganic
@@ -99,11 +99,11 @@
   description: NT Ballon.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     state: nt-balloon
   - type: Item
     size: Small
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     heldPrefix: nt
   - type: Tag
     tags:
@@ -116,11 +116,11 @@
   description: corgi Ballon.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     state: corgi-balloon
   - type: Item
     size: Small
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     heldPrefix: corgi
   - type: Tag
     tags:
@@ -133,11 +133,11 @@
   description: clown Ballon.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     state: clown-balloon
   - type: Item
     size: Small
-    sprite: ADT/Objects/Fun/Balloon
+    sprite: ADT/Objects/Fun/Balloon.rsi
     heldPrefix: clown
   - type: Tag
     tags:

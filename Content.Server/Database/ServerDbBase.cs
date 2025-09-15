@@ -1608,18 +1608,24 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await using var db = await GetDb();
 
             var book = await db.DbContext.BookPrinterEntry
+                .Include(b => b.StampedBy)
                 .Where(b => b.Id == bookId)
                 .FirstOrDefaultAsync();
 
             if (book == null)
                 return false;
 
+            if (book.StampedBy != null && book.StampedBy.Any())
+            {
+                db.DbContext.RemoveRange(book.StampedBy);
+            }
+
             db.DbContext.BookPrinterEntry.Remove(book);
             await db.DbContext.SaveChangesAsync();
 
             return true;
         }
-
+        
         protected async Task<List<BookPrinterEntry>> GetBookPrinterEntriesImpl(DbGuard db)
         {
             return await db.DbContext.BookPrinterEntry
