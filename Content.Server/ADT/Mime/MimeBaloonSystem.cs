@@ -6,6 +6,9 @@ using Content.Server.Actions;
 using Robust.Server.Player;
 using Content.Shared.Chat;
 using Robust.Shared.Utility;
+using Content.Shared.Hands.Components;
+using Content.Server.Popups;
+using Content.Server.Hands.Systems;
 
 public sealed class MimeBaloonSystem : EntitySystem
 {
@@ -13,6 +16,8 @@ public sealed class MimeBaloonSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly HandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {
@@ -35,14 +40,15 @@ public sealed class MimeBaloonSystem : EntitySystem
 
     private void OnSpawnBaloonMime(EntityUid uid, MimeBaloonComponent component, SpawnBaloonEvent args)
     {
-        var xform = Transform(args.Performer);
+        if (!TryComp<HandsComponent>(args.Performer, out var handsComponent))
+            return;
 
         var message = Loc.GetString("mime-baloon-popup", ("entity", uid));
         var name = Name(args.Performer);
         var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
-            ("entityName", name),
-            ("entity", args.Performer),
-            ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
+        ("entityName", name),
+        ("entity", args.Performer),
+        ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
 
         if (_playerManager.TryGetSessionByEntity(args.Performer, out var session))
         {
@@ -50,7 +56,16 @@ public sealed class MimeBaloonSystem : EntitySystem
         }
 
         var randomPickPrototype = _random.Pick(component.ListPrototypesBaloon);
-        Spawn(randomPickPrototype, xform.Coordinates);
+
+        var balloon = Spawn(randomPickPrototype, Transform(args.Performer).Coordinates);
+
+        if (!_handsSystem.TryPickupAnyHand(args.Performer, balloon))
+        {
+            QueueDel(balloon);
+            _popup.PopupEntity(Loc.GetString("mime-baloon-fail"), args.Performer, args.Performer);
+            return;
+        }
+
         _action.StartUseDelay(component.Action);
     }
 }

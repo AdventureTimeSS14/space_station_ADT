@@ -88,6 +88,9 @@
   - type: Tag
     tags:
     - Balloon
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/Misc/baloon-inflating.ogg
 
 - type: entity
   parent: ADTBalloon
