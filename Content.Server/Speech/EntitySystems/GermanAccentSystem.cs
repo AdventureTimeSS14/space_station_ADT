@@ -630,8 +630,9 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             //ADT-Tweak-End
         }
 
-        private void OnAccent(EntityUid uid, GermanAccentComponent component, AccentGetEvent args)
+        private void OnAccent(EntityUid uid, GermanAccentComponent component, AccentGetEvent args) //ADT-Tweak
         {
+            //ADT-Tweak-Start
             var message = args.Message;
 
             if (_replaceRegex == null)
