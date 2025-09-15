@@ -1,15 +1,19 @@
 using Content.Server.ADT.Mime;
 using Content.Shared.ADT.Mime;
-using Content.Server.Popups;
+using Content.Server.Chat.Managers;
 using Robust.Shared.Random;
 using Content.Server.Actions;
+using Robust.Server.Player;
+using Content.Shared.Chat;
+using Robust.Shared.Utility;
 
 public sealed class MimeBaloonSystem : EntitySystem
 {
-
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -31,13 +35,21 @@ public sealed class MimeBaloonSystem : EntitySystem
 
     private void OnSpawnBaloonMime(EntityUid uid, MimeBaloonComponent component, SpawnBaloonEvent args)
     {
-
         var xform = Transform(args.Performer);
 
-        _popupSystem.PopupEntity(Loc.GetString("mime-baloon-popup", ("entity", uid)), uid);
+        var message = Loc.GetString("mime-baloon-popup", ("entity", uid));
+        var name = Name(args.Performer);
+        var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
+            ("entityName", name),
+            ("entity", args.Performer),
+            ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
+
+        if (_playerManager.TryGetSessionByEntity(args.Performer, out var session))
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, args.Performer, false, session.Channel);
+        }
 
         var randomPickPrototype = _random.Pick(component.ListPrototypesBaloon);
-
         Spawn(randomPickPrototype, xform.Coordinates);
         _action.StartUseDelay(component.Action);
     }
