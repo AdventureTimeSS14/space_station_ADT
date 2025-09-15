@@ -58,8 +58,7 @@ namespace Content.Server.Power.Components
         ///     Charging a battery too small will detonate it, becoming more likely as it fills.
         /// </remarks>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public int MinChargeSize = 1000;
-
+        public int MinChargeSize = 700;
         // ADT-Tweak-End
     }
 }

@@ -2,9 +2,7 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Shared.Administration;
-using Robust.Server.Player;
 using Robust.Shared.Console;
-using Robust.Shared.IoC;
 
 namespace Content.Server.ADT.BookPrinter.Commands
 {
@@ -62,7 +60,7 @@ namespace Content.Server.ADT.BookPrinter.Commands
         {
             if (args.Length == 1)
             {
-                return CompletionResult.FromHintOptions(new[] { "<ID книги>" }, "ID книги для удаления");
+                return CompletionResult.FromHintOptions(["<ID книги>"], "ID книги для удаления");
             }
 
             return CompletionResult.Empty;
