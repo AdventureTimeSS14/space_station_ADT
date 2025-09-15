@@ -62,15 +62,15 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"gut", "гут"},
             {"guter", "гу-тэр"},
             {"gute", "гу-тэ"},
-            {"ausgezeichnet", "аусгэцай-хьнэт"},
+            {"ausgezeichnet", "аусгэцайх-нэт"},
             {"prächtig", "прэхьтихь"},
             {"prächtiger", "прэхьтих-эр"},
             {"prächtige", "прэхьтихэ"},
             {"prächtigen", "прэхьтих-эн"},
-            {"herrlich", "хер-лихь"},
-            {"herrlicher", "хер-лих-эр"},
-            {"herrliche", "хер-лихэ"},
-            {"herrlichen", "хер-лих-эн"},
+            {"herrlich", "хер-лишь"},
+            {"herrlicher", "хер-лишь-эр"},
+            {"herrliche", "хер-лишьэ"},
+            {"herrlichen", "хер-лишь-эн"},
             {"wunderbar", "вун-дэрбар"},
             {"wunderbarer", "вун-дэрбар-эр"},
             {"wunderbare", "вун-дэрбарэ"},
@@ -81,6 +81,8 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"schönen", "шёнэн"},
             {"assistent", "асси-стент"},
             {"schwein", "швайн"},
+            {"dem schwein", "дэм швайн"},
+            {"die schweine", "ди швайнэ"},
             {"danke", "данкэ"},
             {"danke schön", "данкэ шён"},
             {"danke vielmals", "данкэ филь-мальс"},
@@ -88,7 +90,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"hey", "хай"},
             {"mensch", "менш"},
             {"hallo", "хаъло"},
-            {"guten tag", "гутэн так"},
+            {"guten tag", "гутэн таг"},
             {"guten morgen", "гутэн моргэн"},
             {"guten abend", "гутэн аб-энт"},
             {"gute nacht", "гутэ нахт"},
@@ -97,7 +99,10 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"clown", "клаун"},
             {"clownchen", "клаун-хэн"},
             {"los", "лос"},
-            {"mannhund", "манхунд"},
+            {"die mannhunde", "ди ман-хундэ"},
+            {"den mannhund", "дэн ман-хунд"},
+            {"der mannhund", "дэр ман-хунд"},
+            {"dem mannhund", "дэм ман-хунд"},
             {"vertilgen", "фэртильгэн"},
             {"verbrennen", "фэрбреннэн"},
             {"töten", "тётэн"},
@@ -121,7 +126,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"chefarzt", "шеф-арцт"},
             {"forschungsleiter", "фор-шунгсляйтэр"},
             {"leiter des personals", "ляйтэр дэс перзональс"},
-            {"leiter des sicherheitsdienstes", "ляйтэр дэс зихэрхайтсдинстэс"},
+            {"leiter des sicherheitsdienstes", "ляйтэр дэс зи-хэр-хайтс-динст"},
             {"quartiermeister", "квартирмайстэр"},
             {"polizei", "полицай"},
             {"sicherheit", "зихэрхайт"},
@@ -138,7 +143,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"zum magistrat", "цум магистрат"},
             {"magistrate", "магистрат-э"},
             {"blauer schild offizier", "блауэр шильд оффицир"},
-            {"zentrales kommando", "централэс коммандо"},
+            {"zentrales kommando", "централэс ком-ман-до"},
             {"monster", "мон-стэр"},
             {"zum monster", "цум мон-стэр"},
             {"verdammt", "фэрдамт"},
@@ -151,7 +156,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"verpiss dich", "фэрписс дих"},
             {"hündin", "хюндин"},
             {"dummkopf", "думкопф"},
-            {"schwuchtel", "швухтэль"},
+            {"schwuchtel", "швух-тэль"},
             {"dreckskerl", "дреск-кэрль"},
             {"schurke", "шурк-э"},
             {"zum schurke", "цум шурк-э"},
@@ -291,9 +296,9 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("ассистуха", "assistent");
 
             _replacements.Add("свинья", "schwein");
-            _replacements.Add("свинье", "schwein");
+            _replacements.Add("свинье", "dem schwein");
             _replacements.Add("свиней", "schwein");
-            _replacements.Add("свиньи", "schwein");
+            _replacements.Add("свиньи", "die schweine");
 
             _replacements.Add("спасибо", "danke");
             _replacements.Add("спасибо большое", "danke schön");
@@ -333,11 +338,11 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("идём", "los");
             _replacements.Add("вперёд", "los");
 
-            _replacements.Add("вульпы", "mannhund");
-            _replacements.Add("вульп", "mannhund");
-            _replacements.Add("вульпа", "mannhund");
-            _replacements.Add("вульпу", "mannhund");
-            _replacements.Add("вульпе", "mannhund");
+            _replacements.Add("вульпы", "die mannhunde"); // mannhund дословно - человек-собака
+            _replacements.Add("вульп", "den mannhund");
+            _replacements.Add("вульпа", "der mannhund");
+            _replacements.Add("вульпу", "dem mannhund");
+            _replacements.Add("вульпе", "dem mannhund");
 
             _replacements.Add("истребить", "vertilgen");
             _replacements.Add("сжечь", "verbrennen");
