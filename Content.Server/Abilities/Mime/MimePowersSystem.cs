@@ -111,7 +111,21 @@ namespace Content.Server.Abilities.Mime
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
+            //ADT-Tweak-Start
+            //_popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid); - избавляемся от popup-ов и заменяем их emote
+            var message = Loc.GetString("mime-invisible-wall-emote", ("entity", uid));
+            var name = Name(uid);
+            var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
+                ("entityName", name),
+                ("entity", uid),
+                ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
+
+            if (_playerManager.TryGetSessionByEntity(uid, out var session))
+            {
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, uid, false, session.Channel);
+            }
+            //ADT-Tweak-End
+
             // Make sure we set the invisible wall to despawn properly
             Spawn(component.WallPrototype, _turf.GetTileCenter(tile.Value));
             // Handle args so cooldown works
