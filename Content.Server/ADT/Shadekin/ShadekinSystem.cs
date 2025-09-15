@@ -38,6 +38,7 @@ namespace Content.Server.ADT.Shadekin;
 
 public sealed partial class ShadekinSystem : EntitySystem
 {
+    [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
@@ -165,7 +166,10 @@ public sealed partial class ShadekinSystem : EntitySystem
             allEntities.Add(ent);
 
         // Only those that do NOT have AnchorableComponent (e.g. people, mobs, etc.)
-        var blockingEntities = allEntities.Where(e => (HasComp<AnchorableComponent>(e) || HasComp<TagComponent>(e))).ToList();
+        var blockingEntities = allEntities.Where(e =>
+            HasComp<AnchorableComponent>(e)
+            || _tagSystem.HasTag(e, "Table")
+        ).ToList();
 
 
         // Block teleport if any anchored entity is present
@@ -242,7 +246,10 @@ public sealed partial class ShadekinSystem : EntitySystem
                 allEntities.Add(ent);
 
             // Only those that have AnchorableComponent or TagComponent (blockers)
-            var blockingEntities = allEntities.Where(e => (HasComp<AnchorableComponent>(e) || HasComp<TagComponent>(e))).ToList();
+            var blockingEntities = allEntities.Where(e =>
+                HasComp<AnchorableComponent>(e)
+                || _tagSystem.HasTag(e, "Table")
+            ).ToList();
 
             // Block teleport if any anchored or tagged entity is present
             if (blockingEntities.Any())
@@ -282,7 +289,10 @@ public sealed partial class ShadekinSystem : EntitySystem
                 allEntities.Add(ent);
 
             // Only those that have AnchorableComponent or TagComponent (blockers)
-            var blockingEntities = allEntities.Where(e => (HasComp<AnchorableComponent>(e) || HasComp<TagComponent>(e))).ToList();
+            var blockingEntities = allEntities.Where(e =>
+                HasComp<AnchorableComponent>(e)
+                || _tagSystem.HasTag(e, "Table")
+            ).ToList();
 
             // Block teleport if any anchored or tagged entity is present
             if (blockingEntities.Any())
