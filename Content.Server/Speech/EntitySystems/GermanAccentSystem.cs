@@ -2,7 +2,6 @@ using System.Text;
 using Content.Server.Speech.Components;
 using System.Text.RegularExpressions;
 //ADT-Tweak-Start
-using System.Globalization;
 using System.Linq;
 //ADT-Tweak-End
 
