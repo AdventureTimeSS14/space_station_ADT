@@ -1,21 +1,14 @@
 using Content.Server.ADT.Mime;
 using Content.Shared.ADT.Mime;
-using Content.Server.Popups;
 using Robust.Shared.Random;
 using Content.Server.Actions;
-using Robust.Shared.Utility;
 using Content.Server.Chat.Managers;
 using Content.Server.Hands.Systems;
-using Content.Shared.ADT.Mime;
 using Content.Shared.Chat;
-using Content.Shared.Hands.Components;
 using Robust.Server.Player;
-using Robust.Shared.Random;
 
 public sealed class MimeBaloonSystem : EntitySystem
 {
-
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
