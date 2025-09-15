@@ -4,7 +4,7 @@
   description: Spawn baloon
   components:
   - type: InstantAction
-    useDelay: 15 # Увеличено до 15 во избежание спама.
+    useDelay: 15
     checkCanInteract: true
     itemIconStyle: BigAction
     icon:

@@ -28,19 +28,6 @@ namespace Content.Server.Abilities.Mime
 
         [DataField("invisibleWallActionEntity")] public EntityUid? InvisibleWallActionEntity;
 
-        //ADT-Tweak-Start
-        /// <summary>
-        /// Список воздушных шаров, доступных для создания.
-        /// </summary>
-        [DataField("balloonPrototypes")]
-        public List<string> BalloonPrototypes = ["ADTBalloon", "ADTBalloonNT", "ADTBalloonCorgi", "ADTBalloonClown"];
-
-        [DataField("balloonAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? BalloonAction = "ADTActionBaloonOfMime";
-
-        [DataField("balloonActionEntity")] public EntityUid? BalloonActionEntity;
-        //ADT-Tweak-End
-
         // The vow zone lies below
         public bool VowBroken = false;
 
