@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.Popups;
 using Robust.Shared.Map.Components;
 using Content.Shared.ADT.Shadekin.Components;
 using Robust.Shared.Timing;
@@ -39,7 +38,6 @@ namespace Content.Server.ADT.Shadekin;
 public sealed partial class ShadekinSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -157,25 +155,20 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (HasComp<MechPilotComponent>(uid))
             return;
 
-        // Use EntityLookupSystem to get all entities in a radius at the target position
-
-        // Convert to map coordinates using both EntityManager and TransformSystem
         var mapCoords = args.Target.ToMap(EntityManager, _transform);
         var allEntities = new List<EntityUid>();
         foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
             allEntities.Add(ent);
 
-        // Only those that do NOT have AnchorableComponent (e.g. people, mobs, etc.)
         var blockingEntities = allEntities.Where(e =>
             HasComp<AnchorableComponent>(e)
             || _tagSystem.HasTag(e, "Table")
         ).ToList();
 
-
-        // Block teleport if any anchored entity is present
         if (blockingEntities.Any())
         {
             TryUseAbility(uid, 0);
+            args.Handled = true;
             return;
         }
 
@@ -239,19 +232,16 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
                 continue;
 
-            // Use EntityLookupSystem to get all entities in a radius at the random position
             var mapCoords = newCoords.ToMap(EntityManager, _transform);
             var allEntities = new List<EntityUid>();
             foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
                 allEntities.Add(ent);
 
-            // Only those that have AnchorableComponent or TagComponent (blockers)
             var blockingEntities = allEntities.Where(e =>
                 HasComp<AnchorableComponent>(e)
                 || _tagSystem.HasTag(e, "Table")
             ).ToList();
 
-            // Block teleport if any anchored or tagged entity is present
             if (blockingEntities.Any())
                 continue;
 
