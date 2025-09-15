@@ -401,9 +401,17 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("си", "chief");
             _replacements.Add("гв", "chefarzt");
             _replacements.Add("нр", "forschungsleiter");
+            _replacements.Add("нра", "forschungsleiter");
+            _replacements.Add("нр-а", "forschungsleiter");
+            _replacements.Add("нру", "forschungsleiter");
+            _replacements.Add("нр-у", "forschungsleiter");
             _replacements.Add("гп", "leiter des personals");
             _replacements.Add("гсб", "leiter des sicherheitsdienstes");
             _replacements.Add("км", "quartiermeister");
+            _replacements.Add("кма", "quartiermeister");
+            _replacements.Add("км-а", "quartiermeister");
+            _replacements.Add("кму", "quartiermeister");
+            _replacements.Add("км-у", "quartiermeister");
 
             // Служба Безопасности
 

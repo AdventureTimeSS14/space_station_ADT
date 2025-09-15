@@ -113,9 +113,11 @@ namespace Content.Server.Speech.EntitySystems
             {"jefe ingeniero", "хэфэ ин-хэ-нь-э-ро"},
             {"jefe médico", "хэфэ мэдико"},
             {"director científico", "дирэктор сиэнтифико"},
+            {"al director científico", "аль дирэктор сиэнтифико"},
             {"jefe de personal", "хэфэ дэ пэрсон-нал"},
             {"jefe de seguridad", "хэфэ дэ сэгуридад"},
             {"intendente", "интендэнтэ"},
+            {"al intendente", "аль интендэнтэ"},
             {"policía", "полисиа"},
             {"de seguridad", "дэ сэгуридад"},
             {"seguras", "сэгура-с"},
@@ -384,9 +386,17 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("си", "jefe ingeniero");
             _replacements.Add("гв", "jefe médico");
             _replacements.Add("нр", "director científico");
+            _replacements.Add("нра", "director científico");
+            _replacements.Add("нр-а", "director científico");
+            _replacements.Add("нру", "al director científico");
+            _replacements.Add("нр-у", "al director científico");
             _replacements.Add("гп", "jefe de personal");
             _replacements.Add("гсб", "jefe de seguridad");
             _replacements.Add("км", "intendente");
+            _replacements.Add("кма", "intendente");
+            _replacements.Add("км-а", "intendente");
+            _replacements.Add("кму", "al intendente");
+            _replacements.Add("км-у", "al intendente");
 
             // Служба Безопасности
 
