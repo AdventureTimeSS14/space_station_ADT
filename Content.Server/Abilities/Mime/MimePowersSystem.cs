@@ -106,11 +106,9 @@ namespace Content.Server.Abilities.Mime
             //ADT-Tweak-Start
             _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
             var message = Loc.GetString("mime-invisible-wall-emote", ("entity", uid));
-            var name = Name(uid);
             var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
-                ("entityName", name),
-                ("entity", uid),
-                ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
+                ("entityName", Name(uid)),
+                ("message", message));
 
             if (_playerManager.TryGetSessionByEntity(uid, out var session))
             {
