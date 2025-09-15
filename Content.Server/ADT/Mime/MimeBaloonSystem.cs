@@ -43,20 +43,7 @@ public sealed class MimeBaloonSystem : EntitySystem
         if (!TryComp<HandsComponent>(args.Performer, out var handsComponent))
             return;
 
-        var message = Loc.GetString("mime-baloon-emote", ("entity", uid));
-        var name = Name(args.Performer);
-        var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
-        ("entityName", name),
-        ("entity", args.Performer),
-        ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
-
-        if (_playerManager.TryGetSessionByEntity(args.Performer, out var session))
-        {
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, args.Performer, false, session.Channel);
-        }
-
         var randomPickPrototype = _random.Pick(component.ListPrototypesBaloon);
-
         var balloon = Spawn(randomPickPrototype, Transform(args.Performer).Coordinates);
 
         if (!_handsSystem.TryPickupAnyHand(args.Performer, balloon))
@@ -64,6 +51,18 @@ public sealed class MimeBaloonSystem : EntitySystem
             QueueDel(balloon);
             _popup.PopupEntity(Loc.GetString("mime-baloon-fail"), args.Performer, args.Performer);
             return;
+        }
+
+        var message = Loc.GetString("mime-baloon-emote", ("entity", uid));
+        var name = Name(args.Performer);
+        var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
+            ("entityName", name),
+            ("entity", args.Performer),
+            ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
+
+        if (_playerManager.TryGetSessionByEntity(args.Performer, out var session))
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, args.Performer, false, session.Channel);
         }
 
         _action.StartUseDelay(component.Action);
