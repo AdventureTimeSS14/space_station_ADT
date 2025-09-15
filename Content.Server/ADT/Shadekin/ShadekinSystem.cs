@@ -272,19 +272,16 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
                 continue;
 
-            // Use EntityLookupSystem to get all entities in a radius at the random position
             var mapCoords = newCoords.ToMap(EntityManager, _transform);
             var allEntities = new List<EntityUid>();
             foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
                 allEntities.Add(ent);
 
-            // Only those that have AnchorableComponent or TagComponent (blockers)
             var blockingEntities = allEntities.Where(e =>
                 HasComp<AnchorableComponent>(e)
                 || _tagSystem.HasTag(e, "Table")
             ).ToList();
 
-            // Block teleport if any anchored or tagged entity is present
             if (blockingEntities.Any())
                 continue;
 

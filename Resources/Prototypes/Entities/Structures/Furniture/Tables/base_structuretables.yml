@@ -59,8 +59,9 @@
         - TableMask
         layer:
         - TableLayer
-  # ADT-Tweak
+  # ADT-Tweak Start
   - type: Tag
     tags:
     - Table
-  # ADT-Tweak
+    - ForceFixRotations
+  # ADT-Tweak End
