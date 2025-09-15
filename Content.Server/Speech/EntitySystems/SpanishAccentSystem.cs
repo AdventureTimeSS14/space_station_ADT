@@ -574,11 +574,11 @@ namespace Content.Server.Speech.EntitySystems
 
             var orderedKeys = _replacements.Keys.OrderByDescending(k => k.Length).ToList();
             var pattern = @"\b(" + string.Join("|", orderedKeys.Select(Regex.Escape)) + @")\b";
-            _replaceRegex = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            _replaceRegex = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
             var orderedPronounceKeys = _pronunciations.Keys.OrderByDescending(k => k.Length).ToList();
             var pronouncePattern = @"\b(" + string.Join("|", orderedPronounceKeys.Select(Regex.Escape)) + @")\b";
-            _pronounceRegex = new Regex(pronouncePattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            _pronounceRegex = new Regex(pronouncePattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
             //ADT-Tweak-End
 
             SubscribeLocalEvent<SpanishAccentComponent, AccentGetEvent>(OnAccent);
@@ -587,7 +587,7 @@ namespace Content.Server.Speech.EntitySystems
         //ADT-Tweak-Start
         public string GetPronunciation(string message)
         {
-            if (_pronounceRegex == null)
+            if (string.IsNullOrEmpty(message) || _pronounceRegex == null)
                 return message;
 
             return _pronounceRegex.Replace(message, match =>

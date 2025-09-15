@@ -593,11 +593,11 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
 
             var orderedKeys = _replacements.Keys.OrderByDescending(k => k.Length).ToList();
             var pattern = @"\b(" + string.Join("|", orderedKeys.Select(Regex.Escape)) + @")\b";
-            _replaceRegex = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            _replaceRegex = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
             var orderedPronounceKeys = _pronunciations.Keys.OrderByDescending(k => k.Length).ToList();
             var pronouncePattern = @"\b(" + string.Join("|", orderedPronounceKeys.Select(Regex.Escape)) + @")\b";
-            _pronounceRegex = new Regex(pronouncePattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            _pronounceRegex = new Regex(pronouncePattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
             SubscribeLocalEvent<GermanAccentComponent, AccentGetEvent>(OnAccent);
         }
@@ -606,7 +606,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
         //ADT-Tweak-End
         {
             //ADT-Tweak-Start
-            if (_pronounceRegex == null)
+            if (string.IsNullOrEmpty(message) || _pronounceRegex == null)
                 return message;
 
             return _pronounceRegex.Replace(message, match =>
@@ -626,35 +626,8 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
         public string Accentuate(string message) //ADT-Tweak
         {
             //ADT-Tweak-Start
-            message = ReplacePunctuation(message);
             return message;
             //ADT-Tweak-End
-        }
-
-        private string ReplacePunctuation(string message) //ADT-Tweak
-        {
-            //ADT-Tweak-Start
-            var sentences = AccentSystem.SentenceRegex.Split(message);
-            var msg = new StringBuilder();
-            foreach (var s in sentences)
-            //ADT-Tweak-End
-            {
-                //ADT-Tweak-Start
-                var toInsert = new StringBuilder();
-                if (toInsert.Length == 0)
-                //ADT-Tweak-End
-                {
-                    //ADT-Tweak-Start
-                    msg.Append(s);
-                }
-                else
-                {
-                    msg.Append(s.Insert(s.Length - s.TrimStart().Length, toInsert.ToString()));
-                    //ADT-Tweak-End
-                }
-            }
-            //ADT-Tweak-Start
-            return msg.ToString();
         }
 
         private void OnAccent(EntityUid uid, GermanAccentComponent component, AccentGetEvent args)
