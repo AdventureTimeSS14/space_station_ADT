@@ -303,7 +303,9 @@ namespace Content.Server.Speech.EntitySystems
             _replacements.Add("добрый вечер", "buenas tardes");
             _replacements.Add("доброй ночи", "buenas noches");
 
+            _replacements.Add("пока ", "пока "); // Чтобы не было ошибок с: "пока что"; "пока я/он/они"
             _replacements.Add("пока", "adiós");
+            _replacements.Add("пока пока", "adiós");
             _replacements.Add("прощай", "adiós");
             _replacements.Add("прощайте", "adiós a todos");
             _replacements.Add("до свидания", "hasta la vista");
@@ -400,7 +402,7 @@ namespace Content.Server.Speech.EntitySystems
             // Служба Безопасности
 
             _replacements.Add("сб", "policía");
-            _replacements.Add(" сб", " de seguridad");
+            _replacements.Add(" сб", " de seguridad"); // Чтобы офицер СБ произносилось как: "oficial de seguridad"
             _replacements.Add("сбух", "seguras");
             _replacements.Add("сбуха", "segura");
             _replacements.Add("сбухе", "al segura");

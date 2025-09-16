@@ -314,7 +314,9 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("добрый вечер", "guten abend");
             _replacements.Add("доброй ночи", "gute nacht");
 
+            _replacements.Add("пока ", "пока "); // Чтобы не было ошибок с: "пока что"; "пока я/он/они"
             _replacements.Add("пока", "tschüss");
+            _replacements.Add("пока пока", "tschüss");
             _replacements.Add("прощай", "tschüss");
             _replacements.Add("прощайте", "tschüss");
             _replacements.Add("до свидания", "auf wiedersehen");
