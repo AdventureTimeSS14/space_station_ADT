@@ -210,19 +210,19 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("прошу прощение", "entschuldigung");
             _replacements.Add("прошу прощения", "entschuldigung");
 
-            _replacements.Add("друг", "der Freund");
-            _replacements.Add("другу", "dem Freund");
-            _replacements.Add("друга", "den Freund");
-            _replacements.Add("друзья", "die Freunde");
-            _replacements.Add("друзей", "die Freunde");
-            _replacements.Add("дружок", "kleiner Freund");
+            _replacements.Add("друг", "der freund");
+            _replacements.Add("другу", "dem freund");
+            _replacements.Add("друга", "den freund");
+            _replacements.Add("друзья", "die freunde");
+            _replacements.Add("друзей", "die freunde");
+            _replacements.Add("дружок", "kleiner freund");
 
-            _replacements.Add("подруга", "die Freundin");
-            _replacements.Add("подруге", "der Freundin");
-            _replacements.Add("подругу", "die Freundin");
-            _replacements.Add("подруги", "die Freundinnen");
-            _replacements.Add("подруг", "die Freundinnen");
-            _replacements.Add("подружка", "kleine Freundin");
+            _replacements.Add("подруга", "die freundin");
+            _replacements.Add("подруге", "der freundin");
+            _replacements.Add("подругу", "die freundin");
+            _replacements.Add("подруги", "die freundinnen");
+            _replacements.Add("подруг", "die freundinnen");
+            _replacements.Add("подружка", "kleine freundin");
 
             _replacements.Add("товарищ", "kamerad");
             _replacements.Add("товарищу", "zum kameraden");
@@ -236,11 +236,11 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("братья", "brüder");
             _replacements.Add("братьев", "brüder");
 
-            _replacements.Add("сестра", "die Schwester");
-            _replacements.Add("сестре", "der Schwester");
-            _replacements.Add("сестры", "die Schwestern");
-            _replacements.Add("сёстры", "die Schwestern");
-            _replacements.Add("сестёр", "die Schwestern");
+            _replacements.Add("сестра", "die schwester");
+            _replacements.Add("сестре", "der schwester");
+            _replacements.Add("сестры", "die schwestern");
+            _replacements.Add("сёстры", "die schwestern");
+            _replacements.Add("сестёр", "die schwestern");
 
             _replacements.Add("отец", "vater");
             _replacements.Add("отцу", "zum vater");
@@ -691,7 +691,11 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
                 }
                 else if (titleCase && baseRep.Length > 0)
                 {
-                    rep = Char.ToUpperInvariant(baseRep[0]) + baseRep.Substring(1);
+                    rep = string.Join(' ',
+                        baseRep.Split(' ')
+                               .Select(w => w.Length > 0
+                                   ? char.ToUpperInvariant(w[0]) + w.Substring(1)
+                                   : w));
                 }
 
                 return rep;
