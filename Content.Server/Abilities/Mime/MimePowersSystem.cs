@@ -14,12 +14,8 @@ using Content.Shared.Speech.Muting;
 //ADT-Tweak-Start
 using Robust.Shared.Utility;
 using Content.Server.Chat.Managers;
-using Content.Server.Hands.Systems;
-using Content.Shared.ADT.Mime;
 using Content.Shared.Chat;
-using Content.Shared.Hands.Components;
 using Robust.Server.Player;
-using Robust.Shared.Random;
 //ADT-Tweak-End
 
 namespace Content.Server.Abilities.Mime
@@ -34,10 +30,8 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         //ADT-Tweak-Start
-        [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly HandsSystem _handsSystem = default!;
         //ADT-Tweak-End
 
         public override void Initialize()
@@ -45,7 +39,6 @@ namespace Content.Server.Abilities.Mime
             base.Initialize();
             SubscribeLocalEvent<MimePowersComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<MimePowersComponent, InvisibleWallActionEvent>(OnInvisibleWall);
-            SubscribeLocalEvent<MimePowersComponent, SpawnBaloonEvent>(OnSpawnBalloon); //ADT-Tweak
 
             SubscribeLocalEvent<MimePowersComponent, BreakVowAlertEvent>(OnBreakVowAlert);
             SubscribeLocalEvent<MimePowersComponent, RetakeVowAlertEvent>(OnRetakeVowAlert);
@@ -82,7 +75,6 @@ namespace Content.Server.Abilities.Mime
 
             _alertsSystem.ShowAlert(uid, component.VowAlert);
             _actionsSystem.AddAction(uid, ref component.InvisibleWallActionEntity, component.InvisibleWallAction, uid);
-            _actionsSystem.AddAction(uid, ref component.BalloonActionEntity, component.BalloonAction, uid); //ADT-Tweak
         }
 
         /// <summary>
@@ -112,13 +104,11 @@ namespace Content.Server.Abilities.Mime
             }
 
             //ADT-Tweak-Start
-            //_popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid); - избавляемся от popup-ов и заменяем их emote
+            _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
             var message = Loc.GetString("mime-invisible-wall-emote", ("entity", uid));
-            var name = Name(uid);
             var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
-                ("entityName", name),
-                ("entity", uid),
-                ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
+                ("entityName", Name(uid)),
+                ("message", message));
 
             if (_playerManager.TryGetSessionByEntity(uid, out var session))
             {
@@ -131,41 +121,6 @@ namespace Content.Server.Abilities.Mime
             // Handle args so cooldown works
             args.Handled = true;
         }
-
-        //ADT-Tweak-Start
-        private void OnSpawnBalloon(EntityUid uid, MimePowersComponent component, SpawnBaloonEvent args)
-        {
-            if (!component.Enabled)
-                return;
-
-            if (!TryComp<HandsComponent>(args.Performer, out var handsComponent))
-                return;
-
-            var randomPickPrototype = _random.Pick(component.BalloonPrototypes);
-            var balloon = Spawn(randomPickPrototype, Transform(args.Performer).Coordinates);
-
-            if (!_handsSystem.TryPickupAnyHand(args.Performer, balloon))
-            {
-                QueueDel(balloon);
-                _popupSystem.PopupEntity(Loc.GetString("mime-baloon-fail"), args.Performer, args.Performer);
-                return;
-            }
-
-            var message = Loc.GetString("mime-baloon-emote", ("entity", uid));
-            var name = Name(args.Performer);
-            var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
-                ("entityName", name),
-                ("entity", args.Performer),
-                ("message", FormattedMessage.RemoveMarkupOrThrow(message)));
-
-            if (_playerManager.TryGetSessionByEntity(args.Performer, out var session))
-            {
-                _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, args.Performer, false, session.Channel);
-            }
-
-            _actionsSystem.StartUseDelay(component.BalloonActionEntity);
-        }
-        //ADT-Tweak-End
 
         private void OnBreakVowAlert(Entity<MimePowersComponent> ent, ref BreakVowAlertEvent args)
         {
@@ -203,7 +158,6 @@ namespace Content.Server.Abilities.Mime
             _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
-            _actionsSystem.RemoveAction(uid, mimePowers.BalloonActionEntity); //ADT-Tweak
         }
 
         /// <summary>
@@ -234,7 +188,6 @@ namespace Content.Server.Abilities.Mime
             _alertsSystem.ClearAlert(uid, mimePowers.VowBrokenAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowAlert);
             _actionsSystem.AddAction(uid, ref mimePowers.InvisibleWallActionEntity, mimePowers.InvisibleWallAction, uid);
-            _actionsSystem.AddAction(uid, ref mimePowers.BalloonActionEntity, mimePowers.BalloonAction, uid); //ADT-Tweak
         }
     }
 }
