@@ -18713,7 +18713,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: ADT_Cluster
+      id: SD_Joule
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: SupermatterSpreaderGrid
