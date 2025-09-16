@@ -12,7 +12,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Shared.Speech.Muting;
 //ADT-Tweak-Start
-using Robust.Shared.Utility;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Robust.Server.Player;
@@ -103,8 +102,8 @@ namespace Content.Server.Abilities.Mime
                 return;
             }
 
-            //ADT-Tweak-Start
             _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
+            //ADT-Tweak-Start
             var message = Loc.GetString("mime-invisible-wall-emote", ("entity", uid));
             var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
                 ("entityName", Name(uid)),

@@ -6,6 +6,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Hands.Systems;
 using Content.Shared.Chat;
 using Robust.Server.Player;
+using Content.Server.Popups;
 
 public sealed class MimeBaloonSystem : EntitySystem
 {
@@ -14,6 +15,7 @@ public sealed class MimeBaloonSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -43,7 +45,9 @@ public sealed class MimeBaloonSystem : EntitySystem
 
         if (!_handsSystem.TryPickupAnyHand(args.Performer, balloon))
         {
-            Spawn(randomPickPrototype, Transform(args.Performer).Coordinates);
+            QueueDel(balloon);
+            _popupSystem.PopupEntity(Loc.GetString("mime-baloon-fail"), args.Performer, args.Performer);
+            return;
         }
 
         var message = Loc.GetString("mime-baloon-emote", ("entity", uid));
