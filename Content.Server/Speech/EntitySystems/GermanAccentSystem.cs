@@ -137,6 +137,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             {"kadettchen", "кадет-хэн"},
             {"kadettchenen", "кадет-хэн-эн"},
             {"offizier", "оффицир"},
+            {"offiziere", "оффицир-э"},
             {"interner affairs agent", "интернэр эффэрс агент"},
             {"magistrat", "магистрат"},
             {"zum magistrat", "цум магистрат"},
@@ -445,10 +446,10 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("кадетиков", "kadettchen");
 
             _replacements.Add("офицер", "offizier");
-            _replacements.Add("офицеры", "offizier");
+            _replacements.Add("офицеры", "offiziere");
             _replacements.Add("офицера", "offizier");
             _replacements.Add("офицеру", "offizier");
-            _replacements.Add("офицеров", "offizier");
+            _replacements.Add("офицеров", "offiziere");
 
             // Центральное Командование
 
