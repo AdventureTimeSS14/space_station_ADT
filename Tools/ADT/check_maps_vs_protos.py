@@ -149,7 +149,7 @@ def _find_proto_references_in_component(component_data: dict, known_ids: set[str
             if value.isdigit():
                 return
             # Пропускаем очевидно не прототипы
-            if value.startswith('n') and value[1:].isdigit():  # entity ID типа n12345
+            if value.startswith('n') and value[1:].isdigit():
                 return
 
             # Проверяем, является ли строка ссылкой на прототип
