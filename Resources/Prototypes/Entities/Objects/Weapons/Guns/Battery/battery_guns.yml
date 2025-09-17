@@ -177,11 +177,11 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-#ADT-tweak start
+# ADT-tweak start
   - type: Construction
     graph: WeaponMakeshiftLaserGraph
     node: weaponlaser
-#ADT-tweak end
+# ADT-tweak end
 
 - type: entity
   name: tesla gun
