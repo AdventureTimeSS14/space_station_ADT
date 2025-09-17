@@ -1,6 +1,8 @@
 import os
 import sys
 import yaml
+import time
+from pathlib import Path
 
 
 class IgnoreUnknownTagsConstructor(yaml.SafeLoader):
@@ -61,42 +63,58 @@ def _load_yaml_any(file_path: str):
     except yaml.YAMLError as e:
         print(f"Ошибка парсинга YAML {file_path}: {e}")
         return None
+    except Exception as e:
+        print(f"Неожиданная ошибка при обработке {file_path}: {e}")
+        return None
 
 
 def collect_entity_ids(prototypes_root: str) -> set[str]:
     ids: set[str] = set()
-    for subdir, _, files in os.walk(prototypes_root):
-        for file in files:
-            if not file.endswith('.yml'):
-                continue
-            file_path = os.path.join(subdir, file)
-            data = _load_yaml_any(file_path)
-            if data is None:
-                # Ошибка уже залогирована
-                continue
+    yml_files = list(Path(prototypes_root).rglob('*.yml'))
+    total_files = len(yml_files)
+    print(f"Обрабатываю {total_files} файлов прототипов...")
 
-            if not data:
-                continue
+    for i, file_path in enumerate(yml_files, 1):
+        if i % 100 == 0 or i == total_files:
+            print(f"Прогресс: {i}/{total_files} файлов обработано")
 
-            if isinstance(data, dict):
-                # Единичный документ типа entity
-                if data.get('type') == 'entity' and 'id' in data:
-                    ids.add(str(data.get('id')))
-            elif isinstance(data, list):
-                for item in data:
-                    if isinstance(item, dict) and item.get('type') == 'entity' and 'id' in item:
-                        ids.add(str(item.get('id')))
+        data = _load_yaml_any(str(file_path))
+        if data is None:
+            # Ошибка уже залогирована
+            continue
+
+        if not data:
+            continue
+
+        if isinstance(data, dict):
+            # Единичный документ типа entity
+            if data.get('type') == 'entity' and 'id' in data:
+                ids.add(str(data.get('id')))
+        elif isinstance(data, list):
+            for item in data:
+                if isinstance(item, dict) and item.get('type') == 'entity' and 'id' in item:
+                    ids.add(str(item.get('id')))
+
+    print(f"Найдено {len(ids)} уникальных entity ID")
     return ids
 
 
 def collect_missing_map_protos(maps_root: str, known_ids: set[str]) -> dict[str, list[str]]:
     missing_by_file: dict[str, list[str]] = {}
-    for subdir, _, files in os.walk(maps_root):
-        for file in files:
-            if not file.endswith('.yml'):
-                continue
-            file_path = os.path.join(subdir, file)
-            data = _load_yaml_any(file_path)
+    yml_files = list(Path(maps_root).rglob('*.yml'))
+    total_files = len(yml_files)
+    print(f"Обрабатываю {total_files} файлов карт...")
+
+    for i, file_path in enumerate(yml_files, 1):
+        if i % 50 == 0 or i == total_files:
+            print(f"Прогресс карт: {i}/{total_files} файлов обработано")
+
+        # Показываем текущий файл для диагностики
+        if i <= 10 or i % 100 == 0:
+            print(f"  Обрабатываю: {file_path.name}")
+
+        try:
+            data = _load_yaml_any(str(file_path))
             if data is None:
                 # Ошибка уже залогирована
                 continue
@@ -118,7 +136,11 @@ def collect_missing_map_protos(maps_root: str, known_ids: set[str]) -> dict[str,
             if missing:
                 # Уникализируем и сортируем для стабильности вывода
                 uniq_sorted = sorted(set(missing))
-                missing_by_file[file_path] = uniq_sorted
+                missing_by_file[str(file_path)] = uniq_sorted
+
+        except Exception as e:
+            print(f"Критическая ошибка при обработке карты {file_path}: {e}")
+            continue
 
     return missing_by_file
 
@@ -137,8 +159,17 @@ def main() -> int:
         print(f"Папка с картами не найдена: {maps_root}")
         return 2
 
+    print("=== Сбор entity ID из прототипов ===")
+    start_time = time.time()
     known_ids = collect_entity_ids(prototypes_root)
+    proto_time = time.time() - start_time
+    print(f"Сбор прототипов занял {proto_time:.1f} секунд")
+
+    print("\n=== Проверка карт на отсутствующие прототипы ===")
+    start_time = time.time()
     missing = collect_missing_map_protos(maps_root, known_ids)
+    maps_time = time.time() - start_time
+    print(f"Проверка карт заняла {maps_time:.1f} секунд")
 
     if not missing:
         print("Все карты: все entity proto существуют в проекте.")
