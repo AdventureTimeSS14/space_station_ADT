@@ -48,9 +48,10 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 1500
+    price: 500
   - type: Appearance
   - type: Stack
+    count: 10
     stackType: ADTBScrystal
     baseLayer: base
     layerStates:
@@ -98,6 +99,7 @@
     price: 1500
   - type: Appearance
   - type: Stack
+    count: 10
     stackType: ADTBScrystalArt
   - type: Item
     size: Small

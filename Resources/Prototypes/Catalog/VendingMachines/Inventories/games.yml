@@ -21,6 +21,11 @@
     ADTFunCardsBoxFull36: 3 # ADT playng card
     ADTFunPokerBox: 3 # ADT playng card
   contrabandInventory:
+#ADT-Tweak start
+    ADTToyBlasterGunGreen: 1
+    ADTToyBlasterGunRed: 1
+    ADTToyBlasterGunBlue: 1
+#ADT-Tweak end
     Basketball: 1
     FoodSnackBoritos: 3
     DrinkSpaceMountainWindCan: 3

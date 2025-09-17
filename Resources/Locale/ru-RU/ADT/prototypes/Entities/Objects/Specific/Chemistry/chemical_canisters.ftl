@@ -110,3 +110,5 @@ ent-ADTDrinkMeadCanister = канистра (медовуха)
     .desc = { ent-ADTCanister.desc }
 ent-ADTDrinkAppleLiqueurCanister = канистра (яблочный ликёр)
     .desc = { ent-ADTCanister.desc }
+ent-ADTCanisterDrinkSpaceLube = канистра (космическая смазка)
+    .desc = Ох блять...

@@ -10,8 +10,8 @@
     ClothingOuterWinterMime: 1
     ADTClothingOuterClothingBox: 2 #ADT tweak
     ADTClothingOuterWinterLongMime: 1 #ADT tweak
-    ADTClothingUniformJumpsuitOldDark: 1 # ADT tweak 
-    ADTClothingOuterCoatXCoat: 1 # ADT tweak 
+    ADTClothingUniformJumpsuitOldDark: 1 # ADT tweak
+    ADTClothingOuterCoatXCoat: 1 # ADT tweak
     ClothingOuterWinterMusician: 1
     ClothingMaskJoy: 2
     ClothingHeadHatCardborg: 2
@@ -63,6 +63,7 @@
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1
     ToyFigurineMusician: 1
+    ADTToyBlasterGunBlue: 1 #ADT-tweak
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1

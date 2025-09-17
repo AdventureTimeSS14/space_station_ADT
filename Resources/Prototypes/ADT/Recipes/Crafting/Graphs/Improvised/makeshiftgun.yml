@@ -1,0 +1,28 @@
+- type: constructionGraph
+  id: WeaponMakeshiftLaserGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: weaponlaser
+          steps:
+            - tag: PowerCell
+              name: construction-graph-tag-power-cell
+              icon:
+                sprite: Objects/Power/power_cells.rsi
+                state: small
+            - tag: ADTToyBlaster
+              name: construction-graph-tag-toy-blaster
+              icon:
+                sprite: ADT/Objects/Fun/toyweapon/blueblaster.rsi
+                state: icon
+            - material: Steel
+              amount: 10
+            - material: MetalRod
+              amount: 5
+            - material: Capacitor
+            - material: Cable
+              amount: 15
+              doAfter: 12
+    - node: weaponlaser
+      entity: WeaponMakeshiftLaser

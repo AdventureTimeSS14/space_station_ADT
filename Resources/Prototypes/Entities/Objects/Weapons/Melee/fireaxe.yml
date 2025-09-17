@@ -95,6 +95,7 @@
   - type: Item
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
   - type: ComboWeapon
+    swapSound: /Audio/ADT/Entities/skin_drop.ogg
     availableMoves:
       - actionsNeeds:
           - ProtectiveWideHit

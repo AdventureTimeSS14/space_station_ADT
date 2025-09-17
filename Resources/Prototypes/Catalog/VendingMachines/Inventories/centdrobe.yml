@@ -13,7 +13,7 @@
     ClothingHeadHatCentcom: 3
     ClothingHeadHatCentcomcap: 3
     ClothingMaskGasCentcom: 3
-    ClothingHeadsetCentCom: 3
+    #ClothingHeadsetCentCom: 3 #ADT-tweak
     ClothingOuterWinterCentcom: 3
     ClothingOuterCoatExpensive: 1
     ClothingNeckScarfStripedCentcom: 3

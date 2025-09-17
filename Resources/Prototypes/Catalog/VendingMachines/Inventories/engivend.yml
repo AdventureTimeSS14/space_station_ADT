@@ -2,7 +2,7 @@
   id: EngiVendInventory
   startingInventory:
     ClothingEyesGlassesMeson: 4
-    ADTClothingEyesWelding: 4 #ADT tweak
+    ADTClothingEyesWelding: 4 #ADT-Tweak
     ClothingHeadHatWelding: 6
     CrowbarYellow: 8
     Multitool: 4
@@ -11,7 +11,6 @@
     ClothingHandsGlovesColorYellow: 6
     BoxInflatable: 2
     ClothingHeadHatCone: 4
-    ADTClothingBeltUtilityWebbing: 5 # ADT-Tweak
   contrabandInventory:
     CowToolboxFilled: 1
     DrinkBeerCan: 3

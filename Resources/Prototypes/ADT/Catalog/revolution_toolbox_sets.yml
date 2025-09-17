@@ -9,6 +9,14 @@
   - ADTEmagHandMade
   - WeaponPistolMk58
   - ToolboxSyndicateFilled
+  - ToolboxSyndicateFilled
+  - ClothingBeltUtilityEngineering
+  - ClothingBeltUtilityEngineering
+  - ClothingBeltUtilityEngineering
+  - ClothingBeltUtilityEngineering
+  - ClothingHeadHatWelding
+  - ClothingHeadHatWelding
+  - ClothingHeadHatWelding
 
 - type: thiefBackpackSet
   id: ADTSubversion
@@ -18,21 +26,12 @@
     sprite: /Textures/Objects/Weapons/Grenades/modular.rsi
     state: no-trigger
   content:
-  - JugPotassium
-  - JugPotassium
-  - JugPotassium
-  - JugSulfur
+  - ADTRevBlueprint
+  - ADTChemMasterFlatpack
+  - ADTChemDispenserFlatpack
   - ADTJugCharcoal
-  - TimerTrigger
-  - TimerTrigger
-  - TimerTrigger
-  - SignalTrigger
-  - SignalTrigger
-  - SignalTrigger
-  - ChemicalPayload
-  - ChemicalPayload
-  - ChemicalPayload
-  - ChemicalPayload
+  - ADTJugCharcoal
+  - ADTJugCharcoal
   - RemoteSignallerAdvanced
 
 - type: thiefBackpackSet
@@ -56,14 +55,25 @@
     sprite: /Textures/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
     state: bolt-open
   content:
-  - WeaponShotgunHandmade
-  - WeaponShotgunHandmade
-  - WeaponShotgunHandmade
-  - WeaponMakeshiftLaser
-  - WeaponMakeshiftLaser
-  - WeaponMakeshiftLaser
+  - WeaponShotgunSawn
+  - WeaponShotgunSawn
+  - BoxLethalshot
   - WeaponRevolverInspector
+  - WeaponRevolverInspector
+  - WeaponRevolverPirate
+  - WeaponRifleAk
+  - ADTAttachmentSuppressor
+  - ADTAttachmentSuppressor
+  - ADTAttachmentSuppressor
+  - ADTAttachmentSuppressor
+  - ADTAttachmentLaserSight
+  - ADTAttachmentLaserSight
   - Chainsaw
+  - Cutlass
+  - FireAxe
+  - FireAxe
+  - Sledgehammer
+  - Sledgehammer
 
 - type: thiefBackpackSet
   id: ADTPrinting
@@ -89,13 +99,34 @@
     sprite: /Textures/Clothing/Mask/clown.rsi
     state: icon
   content:
-  - DrinkSpaceLube
-  - DrinkSpaceLube
+  - ADTCanisterDrinkSpaceLube
+  - ADTCanisterDrinkSpaceLube
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - FoodPieBananaCream
+  - FoodPieBananaCream
   - FoodPieBananaCream
   - FoodPieBananaCream
   - SoapOmega
+  - SoapOmega
+  - SoapOmega
+  - ClothingBackpackDuffelSyndicateCostumeClown
+  - ClothingBackpackDuffelSyndicateCostumeClown
+  - ClothingBackpackDuffelSyndicateCostumeClown
+  - ClothingBackpackDuffelSyndicateCostumeClown
   - ClothingShoesGaloshes
-  - ClothingMaskClown
+  - ClothingShoesGaloshes
+  - ClothingShoesGaloshes
+  - ClothingShoesGaloshes
+  - ClothingShoesGaloshes
+  - ClothingShoesGaloshes
+  - ClothingShoesGaloshes
+  - ClothingMaskClownSecurity
+  - ClothingMaskClownSecurity
+  - ClothingMaskClownSecurity
+  - ClothingMaskClownSecurity
+  - ClothingMaskClownSecurity
+  - ClothingMaskClownSecurity
 
 - type: thiefBackpackSet
   id: ADTDisarm
@@ -105,10 +136,48 @@
     sprite: /Textures/Objects/Weapons/Melee/stunbaton.rsi
     state: stunbaton_off
   content:
+  - ADTClothingOuterArmorVestHidden
+  - ADTClothingOuterArmorVestHidden
+  - ADTClothingOuterArmorVestHidden
+  - ADTClothingOuterArmorVestHidden
+  - ADTClothingOuterArmorVestHidden
+  - ADTClothingOuterArmorVestHidden
+  - ClothingOuterArmorBasic
+  - ClothingOuterArmorBasic
+  - ClothingOuterArmorBasic
   - BoxZiptie
   - Bola
   - Bola
-  - Stunprod
-  - Stunprod
-  - SyringeEphedrine
-  - SyringeEphedrine
+  - Bola
+  - Bola
+  - Bola
+  - Bola
+  - Stunbaton
+  - Stunbaton
+  - Stunbaton
+  - ADTBookPTCR
+  - ADTBookPTCR
+  - ADTBookPTCR
+  - ADTStimulantBox
+  - ADTStimulantBox
+
+- type: thiefBackpackSet
+  id: ADTMedRev
+  name: revolution-toolbox-category-medrev-name
+  description: revolution-toolbox-category-medrev-description
+  sprite:
+    sprite: /Textures/ADT/Objects/Fun/figurines.rsi
+    state: brigmedic
+  content:
+  - MedkitCombatFilled
+  - MedkitCombatFilled
+  - MedkitCombatFilled
+  - MedkitAdvancedFilled
+  - DefibrillatorCompact
+  - DefibrillatorCompact
+  - DefibrillatorCompact
+  - ADTStasisBedFlatpack
+  - ADTStasisBedFlatpack
+  - ADTStasisBedFlatpack
+  - RollerBedSpawnFolded
+  - RollerBedSpawnFolded

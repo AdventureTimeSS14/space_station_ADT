@@ -135,6 +135,6 @@ ent-XenoArtifactEffectCreationGasAmmonia = аммиачный газ
 ent-XenoArtifactEffectCreationGasFrezon = фрезоновый газ
     .desc = Выделяет фреон
 ent-XenoArtifactEffectCreationGasNitrousOxide = веселящий газ
-    .desc = Выделяет закись азота
+    .desc = Выделяет оксид азота
 ent-XenoArtifactEffectCreationGasCarbonDioxide = углекислый газ
     .desc = Выделяет углекислый газ

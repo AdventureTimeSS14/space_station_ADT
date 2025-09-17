@@ -13,7 +13,7 @@
     materialComposition:
       Plastic: 100
   - type: StaticPrice
-    price: 75
+    price: 50 #ADT-tweak
   - type: Tag
     tags:
     - Figurine

@@ -164,6 +164,14 @@
         orGroup: GiftPool
       - id: GlockenspielInstrument
         orGroup: GiftPool
+#ADT-tweak start
+      - id: ADTToyBlasterGunRed
+        orGroup: GiftPool
+      - id: ADTToyBlasterGunGreen
+        orGroup: GiftPool
+      - id: ADTToyBlasterGunBlue
+        orGroup: GiftPool
+#ADT-Tweak end
       - id: RecorderInstrument
         orGroup: GiftPool
       - id: FluteInstrument

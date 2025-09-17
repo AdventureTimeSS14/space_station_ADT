@@ -1160,3 +1160,18 @@
       orGroup: ADTYupi6
     - id: ADTYupiPacketWatermelon
       orGroup: ADTYupi6
+
+- type: entity
+  parent: BoxCardboard
+  name: box Stimulant
+  id: ADTStimulantBox
+  description: a box of stimulants
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTStimulantAutoInjector
+        amount: 8
+  - type: Sprite
+    sprite: Objects/Storage/boxicons.rsi
+    state: box_of_doom
+
