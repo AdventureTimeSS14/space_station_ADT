@@ -50,6 +50,7 @@ marking-DemonHornsBuffalo = Аркана, рога (Бычьи)
 marking-DemonHornsBuffalo-horns_buffalo = Рога
 marking-DemonHornsCarpicorn = Аркана, рога (Козерожьи)
 marking-DemonHornsCarpicorn-horns_capricorn = Рога
+marking-DemonHornsDevilOne = Аркана, рога (Дьявольское Одно)
 marking-DemonHornsDevil = Аркана, рога (Дьявольские)
 marking-DemonHornsDevil-horns_devil = Рога
 marking-DemonHornsDevil2 = Аркана, рога (Дьявольские, 2)

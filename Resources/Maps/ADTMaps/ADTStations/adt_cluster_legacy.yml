@@ -5174,13 +5174,13 @@ entities:
     - type: Transform
       pos: 17.5,-4.5
       parent: 2
-- proto: ADTClothingHandsRabbitGloves
-  entities:
-  - uid: 51
-    components:
-    - type: Transform
-      pos: 19.485144,-34.59882
-      parent: 2
+# - proto: ADTClothingHandsRabbitGloves
+#   entities:
+#   - uid: 51
+#     components:
+#     - type: Transform
+#       pos: 19.485144,-34.59882
+#       parent: 2
 - proto: ADTClothingHeadHatBeretBlueshield
   entities:
   - uid: 52

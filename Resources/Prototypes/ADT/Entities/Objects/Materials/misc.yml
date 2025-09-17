@@ -27,16 +27,16 @@
     softness: 3
 
 - type: entity
-  parent: BaseItem
+  parent: MaterialBase
   id: ADTMaterialBScrystal
   name: Bluespace crystal
   description: Just a bluespace crystal that was not combined with plasma and diamond. It has limited functionality, but with a certain manipulation of the crystal it can distort space, expanding, for example, it inside small objects, and also move jumps shuttles into bluespace
   suffix: Full
   components:
-  - type: Material
   - type: PhysicalComposition
     materialComposition:
       ADTBScrystal: 100
+  - type: Material
   - type: Tag
     tags:
     - ADTBSCrystal
@@ -45,8 +45,6 @@
     layers:
     - state: crystal
       map: [ "base" ]
-  - type: StaticPrice
-    price: 0
   - type: StackPrice
     price: 500
   - type: Appearance
@@ -62,8 +60,6 @@
     size: Small
     heldPrefix: crystal
     sprite: ADT/Objects/Materials/crystal.rsi
-    shape:
-    - 0,0,2,2
 
 - type: entity
   parent: ADTMaterialBScrystal
@@ -93,10 +89,8 @@
     layers:
     - state: crystal
       map: [ "base" ]
-  - type: StaticPrice
-    price: 0
   - type: StackPrice
-    price: 1500
+    price: 500
   - type: Appearance
   - type: Stack
     count: 10
@@ -105,8 +99,6 @@
     size: Small
     heldPrefix: crystal
     sprite: ADT/Objects/Materials/crystal_art.rsi
-    shape:
-    - 0,0,2,2
 
 - type: entity
   parent: ADTMaterialBScrystalArt

@@ -51,6 +51,19 @@
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
+  - type: CombatModePickupWhitelist
+    blacklist:
+      tags:
+        - Cartridge
+        - Trash
+        - Write
+        - Document
+        - Paper
+        - Figurine
+        - Payload
+        - ClothMade
+        - Mouse
+        - Candle
   # ADT tweak end
 
 - type: entity

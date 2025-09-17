@@ -59,6 +59,8 @@
     ClothingShoesBootsCowboyBrown: 1
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
+    ADTBoxTeto: 1 # ADT tweak
+    BoxPerformer: 1 # ADT tweak
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1

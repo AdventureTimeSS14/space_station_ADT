@@ -5,3 +5,12 @@
 - type: statusEffect
   id: BreathingBlocked
   alwaysAllowed: true
+
+- type: statusEffect
+  id: ADTHallucinations
+
+- type: statusEffect
+  id: ADTStarvation
+
+- type: statusEffect
+  id: SeeingStatic

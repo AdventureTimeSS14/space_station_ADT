@@ -1,20 +1,4 @@
 - type: entity
-  id: ADTIndustrialSMESMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: Industrial SMES machine board
-  description: A machine printed circuit board for a SMES.
-  components:
-    - type: MachineBoard
-      prototype: ADTIndustrialSMESEmpty
-      stackRequirements:
-        Capacitor: 4
-        CableHV: 30
-      componentRequirements:
-        PowerCell:
-          amount: 16
-          defaultPrototype: PowerCellSmall
-
-- type: entity
   id: ADTUniversalPipeDispenserCircuitboard
   parent: BaseMachineCircuitboard
   name: universal pipe dispenser board
@@ -36,7 +20,6 @@
 # Ganimed-Book-Printer-Start
 - type: entity
   id: ADTBookPrinterMachineCircuitboard
-  categories: [ HideSpawnMenu ]
   parent: BaseMachineCircuitboard
   name: book printer machine board
   components:

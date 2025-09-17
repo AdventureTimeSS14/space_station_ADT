@@ -1,15 +1,21 @@
 using Content.Server.ADT.Mime;
 using Content.Shared.ADT.Mime;
-using Content.Server.Popups;
 using Robust.Shared.Random;
 using Content.Server.Actions;
+using Content.Server.Chat.Managers;
+using Content.Server.Hands.Systems;
+using Content.Shared.Chat;
+using Robust.Server.Player;
+using Content.Server.Popups;
 
 public sealed class MimeBaloonSystem : EntitySystem
 {
-
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -31,14 +37,29 @@ public sealed class MimeBaloonSystem : EntitySystem
 
     private void OnSpawnBaloonMime(EntityUid uid, MimeBaloonComponent component, SpawnBaloonEvent args)
     {
-
-        var xform = Transform(args.Performer);
-
-        _popupSystem.PopupEntity(Loc.GetString("mime-baloon-popup", ("entity", uid)), uid);
+        if (!EntityManager.TryGetComponent<MetaDataComponent>(args.Performer, out var metaDataComponent))
+            return;
 
         var randomPickPrototype = _random.Pick(component.ListPrototypesBaloon);
+        var balloon = Spawn(randomPickPrototype, Transform(args.Performer).Coordinates);
 
-        Spawn(randomPickPrototype, xform.Coordinates);
+        if (!_handsSystem.TryPickupAnyHand(args.Performer, balloon))
+        {
+            QueueDel(balloon);
+            _popupSystem.PopupEntity(Loc.GetString("mime-baloon-fail"), args.Performer, args.Performer);
+            return;
+        }
+
+        var message = Loc.GetString("mime-baloon-emote", ("entity", uid));
+        var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
+            ("entityName", metaDataComponent.EntityName),
+            ("message", message));
+
+        if (_playerManager.TryGetSessionByEntity(args.Performer, out var session))
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, args.Performer, false, session.Channel);
+        }
+
         _action.StartUseDelay(component.Action);
     }
 }

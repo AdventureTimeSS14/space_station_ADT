@@ -123,7 +123,7 @@ public sealed class ChaplainSystem : EntitySystem
 
         component.Power += amount;
 
-        FixedPoint2.Min(component.Power, component.PowerRegenCap);
+        component.Power = FixedPoint2.Min(component.Power, component.PowerRegenCap);
 
         _alerts.ShowAlert(uid, _proto.Index(component.Alert), (short) Math.Clamp(Math.Round(component.Power.Float()), 0, 5));
 
@@ -305,8 +305,40 @@ public sealed class ChaplainSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!TryUseAbility(uid, component, component.HolyWaterCost))
+        if (component.Power < component.HolyWaterCost)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("chaplain-not-enough-power"), uid, uid);
             return;
+        }
+
+        if (TryComp<MetaDataComponent>(target, out var metaData) && metaData.EntityPrototype != null)
+        {
+            var entityId = metaData.EntityPrototype.ID;
+
+            if (entityId.Contains("Candle") && !entityId.EndsWith("Infinite"))
+            {
+                var newPrototypeId = entityId + "Infinite";
+                if (!_proto.HasIndex<EntityPrototype>(newPrototypeId))
+                {
+                    _popupSystem.PopupEntity(
+                        Loc.GetString("chaplain-holy-touch-fail-self", ("target", Identity.Entity(target, EntityManager))),
+                        uid,
+                        uid);
+                    return;
+                }
+                var transform = Transform(target);
+                var newCandle = Spawn(newPrototypeId, transform.Coordinates);
+
+                var newTransform = Transform(newCandle);
+                newTransform.LocalRotation = transform.LocalRotation;
+
+                Del(target);
+                ChangePowerAmount(uid, -component.HolyWaterCost, component);
+                _popupSystem.PopupEntity(Loc.GetString("chaplain-candle-transform-success", ("target", Identity.Entity(newCandle, EntityManager))), uid, uid);
+                _audio.PlayPvs(component.HolyWaterSoundPath, uid);
+                return;
+            }
+        }
 
         if (TryComp<SolutionContainerManagerComponent>(target, out var solutionContainer) && solutionContainer.Containers != null && !HasComp<BodyComponent>(target))
         {
@@ -337,17 +369,15 @@ public sealed class ChaplainSystem : EntitySystem
 
             if (success)
             {
-
+                ChangePowerAmount(uid, -component.HolyWaterCost, component);
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
                 _audio.PlayPvs(component.HolyWaterSoundPath, uid);
             }
-
             else
             {
-                ChangePowerAmount(uid, component.HolyWaterCost, component);
                 _popupSystem.PopupEntity(Loc.GetString("chaplain-holy-water-nothing", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-                return;
             }
+            return;
         }
 
         if (HasComp<PhantomComponent>(target) || HasComp<RevenantComponent>(target))

@@ -133,6 +133,7 @@
       XenoCollectiveMind: Speak
   - type: CollectiveMindRank
     rankName: collective-mind-burrower-rank
+  - type: GrabProtection
   # ADT tweak end
 
 - type: entity
