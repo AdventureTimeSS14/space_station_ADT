@@ -12,11 +12,11 @@
     FlashlightLantern: 5
     ClothingHandsGlovesColorYellowBudget: 3
     SprayPainter: 3
-#ADT-Tweak start
+# ADT-Tweak start
     CableHVStack: 3
     CableMVStack: 3
     CableApcStack: 3
-#ADT-Tweak end
+# ADT-Tweak end
   # Some engineer forgot to take the multitool out the youtool when working on it, happens.
   contrabandInventory:
     Multitool: 1
