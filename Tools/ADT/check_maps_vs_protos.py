@@ -136,6 +136,48 @@ def resolve_migration(proto: str, migration: dict[str, str | None], max_depth: i
     return current
 
 
+def _find_proto_references_in_component(component_data: dict, known_ids: set[str], migration: dict[str, str | None]) -> list[str]:
+    """Рекурсивно ищет ссылки на прототипы в компонентах сущности"""
+    missing: list[str] = []
+
+    def _check_value(value):
+        if isinstance(value, str):
+            # Пропускаем пустые строки и слишком короткие
+            if not value or len(value) < 3:
+                return
+            # Пропускаем числовые строки (entity IDs)
+            if value.isdigit():
+                return
+            # Пропускаем очевидно не прототипы
+            if value.startswith('n') and value[1:].isdigit():  # entity ID типа n12345
+                return
+
+            # Проверяем, является ли строка ссылкой на прототип
+            if value in known_ids:
+                return  # Существующий прототип
+            resolved = resolve_migration(value, migration)
+            if resolved is None:
+                return  # Миграция удаляет объект
+            if resolved not in known_ids:
+                missing.append(value)
+        elif isinstance(value, dict):
+            for v in value.values():
+                _check_value(v)
+        elif isinstance(value, list):
+            for v in value:
+                _check_value(v)
+
+    for key, value in component_data.items():
+        # Проверяем известные поля, которые могут содержать ссылки на прототипы
+        if key in ['prototype', 'prototypeId', 'spawn', 'spawnPrototype', 'entity', 'target', 'source']:
+            _check_value(value)
+        # Также проверяем все строковые значения на случай, если они являются прототипами
+        elif isinstance(value, str) and len(value) > 3:  # Эвристика: прототипы обычно длиннее 3 символов
+            _check_value(value)
+
+    return missing
+
+
 def collect_missing_map_protos(maps_root: str, known_ids: set[str], migration: dict[str, str | None]) -> dict[str, list[str]]:
     missing_by_file: dict[str, list[str]] = {}
     yml_files = list(Path(maps_root).rglob('*.yml'))
@@ -154,26 +196,40 @@ def collect_missing_map_protos(maps_root: str, known_ids: set[str], migration: d
 
             missing: list[str] = []
             for entity in entities:
-                if not (isinstance(entity, dict) and 'proto' in entity):
+                if not isinstance(entity, dict):
                     continue
-                original_proto = str(entity['proto'])
-                # Учитываем миграции
-                resolved = resolve_migration(original_proto, migration_local)
-                if resolved is None:
-                    # Миграция удаляет объект -> не считаем отсутствующим
-                    continue
-                if resolved not in known_ids_local:
-                    # Репортим исходный ID, чтобы было ясно что ломается на карте
-                    missing.append(original_proto)
 
-            if not missing:
+                # Проверяем proto
+                if 'proto' in entity:
+                    original_proto = str(entity['proto'])
+                    # Учитываем миграции
+                    resolved = resolve_migration(original_proto, migration_local)
+                    if resolved is None:
+                        # Миграция удаляет объект -> не считаем отсутствующим
+                        continue
+                    if resolved not in known_ids_local:
+                        # Репортим исходный ID, чтобы было ясно что ломается на карте
+                        missing.append(original_proto)
+
+                # Проверяем компоненты на ссылки на прототипы
+                for component_name, component_data in entity.items():
+                    if component_name == 'proto' or not isinstance(component_data, dict):
+                        continue
+
+                    # Ищем ссылки на прототипы в компонентах
+                    missing.extend(_find_proto_references_in_component(component_data, known_ids_local, migration_local))
+
+            # Фильтруем пустые и некорректные значения
+            filtered_missing = [m for m in missing if m and m.strip() and len(m.strip()) > 2]
+
+            if not filtered_missing:
                 return None
 
             # Отладочная информация для проблемных файлов
             if file_path_str.endswith('plasma.yml'):
-                print(f"DEBUG plasma.yml: найдено {len(missing)} отсутствующих прототипов (с учётом миграций): {missing}")
+                print(f"DEBUG plasma.yml: найдено {len(filtered_missing)} отсутствующих прототипов (с учётом миграций): {filtered_missing}")
 
-            return (file_path_str, sorted(set(missing)))
+            return (file_path_str, sorted(set(filtered_missing)))
         except Exception as e:
             print(f"Критическая ошибка при обработке карты {file_path_str}: {e}")
             return None
