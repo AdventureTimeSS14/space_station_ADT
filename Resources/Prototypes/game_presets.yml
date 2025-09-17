@@ -189,7 +189,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  showInVote: true #ADT-Tweak
+  showInVote: true # ADT-Tweak
   rules:
     - Nukeops
     - DummyNonAntagChance
@@ -199,7 +199,7 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
-  bannedRound: 4 #ADT-Tweak
+  bannedRound: 4 # ADT-Tweak
 
 - type: gamePreset
   id: Revolutionary
