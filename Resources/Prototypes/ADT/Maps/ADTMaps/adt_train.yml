@@ -1,6 +1,6 @@
 - type: gameMap
   id: ADT_Train
-  mapName: 'Cluster Legacy'
+  mapName: 'Train'
   mapPath: /Maps/ADTMaps/ADTStations/adt_train.yml
   minPlayers: 1
   maxPlayers: 50
