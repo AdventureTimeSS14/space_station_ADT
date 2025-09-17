@@ -255,7 +255,7 @@
     sprite: Clothing/Mask/clown_security.rsi
   - type: Clothing
     sprite: Clothing/Mask/clown_security.rsi
-  - type: FlashImmunity #ADT-tweak buff
+  - type: FlashImmunity # ADT-tweak
   - type: Armor
     modifiers:
       coefficients:
