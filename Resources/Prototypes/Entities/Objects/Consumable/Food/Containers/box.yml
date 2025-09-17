@@ -530,14 +530,14 @@
     contents:
       - id: ToyMouse
         orGroup: GiftPool
-#ADT-tweak start
+# ADT-tweak start
       - id: ADTToyBlasterGunRed
         orGroup: GiftPool
       - id: ADTToyBlasterGunGreen
         orGroup: GiftPool
       - id: ADTToyBlasterGunBlue
         orGroup: GiftPool
-#ADT-tweak end
+# ADT-tweak end
       - id: ToyAi
         orGroup: GiftPool
       - id: ToyNuke
