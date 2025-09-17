@@ -16,7 +16,7 @@ def _ignore_unknown_multi(loader, tag_suffix, node):
 
 
 # Универсально игнорируем любые пользовательские теги, включая !type:*
-yaml.add_constructor('!type:Dummy', _ignore_unknown, Loader=IgnoreUnknownTagsConstructor)  # якорь не обязателен, но оставим
+yaml.add_constructor('!type:Dummy', _ignore_unknown, Loader=IgnoreUnknownTagsConstructor)
 yaml.add_multi_constructor('!type:', _ignore_unknown_multi, Loader=IgnoreUnknownTagsConstructor)
 yaml.add_multi_constructor('!', _ignore_unknown_multi, Loader=IgnoreUnknownTagsConstructor)
 
