@@ -102,7 +102,7 @@ public sealed class BankCartridgeSystem : EntitySystem
 
         if (TryComp<BankTransactionHistoryComponent>(cartridgeUid, out var historyComp))
         {
-            state.TransactionHistory = historyComp.Transactions;
+            state.TransactionHistory = new List<BankTransaction>(historyComp.Transactions);
         }
 
         if (component.AccountId != null && _bankCardSystem.TryGetAccount(component.AccountId.Value, out var account))
