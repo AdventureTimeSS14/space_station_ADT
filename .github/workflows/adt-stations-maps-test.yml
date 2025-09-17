@@ -1,0 +1,16 @@
+name: ADT Stations maps test
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  adt-stations-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore SpaceStation14.sln
+      - name: Test only ADTStations mapping test
+        run: dotnet test .\Content.IntegrationTests\Content.IntegrationTests.csproj -c Release --filter "FullyQualifiedName~Content.IntegrationTests.Tests.Mapping.ADTStationsMappingLoadTest"
