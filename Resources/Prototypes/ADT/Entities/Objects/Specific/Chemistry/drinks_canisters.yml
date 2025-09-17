@@ -558,6 +558,7 @@
   - type: Tag
     tags:
       - ADTBluespaceCoffeine
+
 - type: entity
   parent: ADTReagentCanister
   id: ADTCanisterDrinkSpaceLube
