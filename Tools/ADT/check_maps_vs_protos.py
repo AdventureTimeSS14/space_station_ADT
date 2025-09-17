@@ -3,9 +3,13 @@ import sys
 import yaml
 import time
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# Попытка использовать C-бэкэнд для ускорения, если доступен
+BaseLoader = getattr(yaml, 'CSafeLoader', yaml.SafeLoader)
 
 
-class IgnoreUnknownTagsConstructor(yaml.SafeLoader):
+class IgnoreUnknownTagsConstructor(BaseLoader):
     pass
 
 
@@ -105,42 +109,56 @@ def collect_missing_map_protos(maps_root: str, known_ids: set[str]) -> dict[str,
     total_files = len(yml_files)
     print(f"Обрабатываю {total_files} файлов карт...")
 
-    for i, file_path in enumerate(yml_files, 1):
-        if i % 50 == 0 or i == total_files:
-            print(f"Прогресс карт: {i}/{total_files} файлов обработано")
-
-        # Показываем текущий файл для диагностики
-        if i <= 10 or i % 100 == 0:
-            print(f"  Обрабатываю: {file_path.name}")
-
+    # Параллельная обработка карт
+    def parse_map_and_find_missing(file_path_str: str, known_ids_local: set[str]) -> tuple[str, list[str]] | None:
         try:
-            data = _load_yaml_any(str(file_path))
-            if data is None:
-                # Ошибка уже залогирована
-                continue
-
+            data = _load_yaml_any(file_path_str)
             if not (data and isinstance(data, dict)):
-                continue
+                return None
             entities = data.get('entities')
             if not (entities and isinstance(entities, list)):
-                continue
+                return None
 
             missing: list[str] = []
             for entity in entities:
                 if not (isinstance(entity, dict) and 'proto' in entity):
                     continue
                 proto = str(entity['proto'])
-                if proto not in known_ids:
+                if proto not in known_ids_local:
                     missing.append(proto)
 
-            if missing:
-                # Уникализируем и сортируем для стабильности вывода
-                uniq_sorted = sorted(set(missing))
-                missing_by_file[str(file_path)] = uniq_sorted
-
+            if not missing:
+                return None
+            return (file_path_str, sorted(set(missing)))
         except Exception as e:
-            print(f"Критическая ошибка при обработке карты {file_path}: {e}")
-            continue
+            print(f"Критическая ошибка при обработке карты {file_path_str}: {e}")
+            return None
+
+    # Кол-во воркеров: из env MAP_CHECK_WORKERS или по числу CPU (но не более 8 по умолчанию)
+    try:
+        workers_env = int(os.environ.get('MAP_CHECK_WORKERS', '0'))
+    except ValueError:
+        workers_env = 0
+    max_workers = workers_env if workers_env > 0 else max(1, min(8, (os.cpu_count() or 2)))
+
+    # Небольшой прогресс-лог на старте
+    for i, fp in enumerate(yml_files[:10], 1):
+        print(f"  Обрабатываю: {fp.name}")
+
+    # Используем ThreadPoolExecutor, чтобы избежать pickle-проблем на Windows
+    # и не передавать большой набор known_ids в каждый процесс.
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(parse_map_and_find_missing, str(fp), known_ids): fp for fp in yml_files}
+        processed = 0
+        for future in as_completed(futures):
+            processed += 1
+            if processed % 50 == 0 or processed == total_files:
+                print(f"Прогресс карт: {processed}/{total_files} файлов обработано")
+            result = future.result()
+            if result is None:
+                continue
+            file_path_str, miss = result
+            missing_by_file[file_path_str] = miss
 
     return missing_by_file
 
