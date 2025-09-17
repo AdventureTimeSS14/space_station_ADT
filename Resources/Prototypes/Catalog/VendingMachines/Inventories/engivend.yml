@@ -2,7 +2,7 @@
   id: EngiVendInventory
   startingInventory:
     ClothingEyesGlassesMeson: 4
-    ADTClothingEyesWelding: 4 #ADT-Tweak
+    ADTClothingEyesWelding: 4 # ADT-Tweak
     ClothingHeadHatWelding: 6
     CrowbarYellow: 8
     Multitool: 4
