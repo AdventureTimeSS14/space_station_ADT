@@ -69,7 +69,7 @@
   components:
     - type: Spellbook
       spellActions:
-        ActionSpawnMagicarpSpell: 3 #ADT-Tweak
+        ActionSpawnMagicarpSpell: 3 # ADT-Tweak
 
 - type: entity
   id: ForceWallSpellbook
@@ -113,7 +113,7 @@
         color: gold
     - type: Spellbook
       spellActions:
-        ActionBlink: 3 #ADT-Tweak
+        ActionBlink: 3 # ADT-Tweak
 
 - type: entity
   id: SmiteBook
@@ -136,7 +136,7 @@
       - state: overlay_blood
     - type: Spellbook
       spellActions:
-        ActionSmiteNoReq: 3 #ADT-Tweak
+        ActionSmiteNoReq: 3 # ADT-Tweak
 
 - type: entity
   id: KnockSpellbook
@@ -182,7 +182,7 @@
         shader: unshaded
     - type: Spellbook
       spellActions:
-        ActionFireball: 3 #ADT-Tweak
+        ActionFireball: 3 # ADT-Tweak
 
 - type: entity
   id: ScrollRunes
@@ -197,9 +197,9 @@
     - state: spell_default
   - type: Spellbook
     spellActions:
-#ADT-Tweak start
+# ADT-Tweak start
       ActionFlashRune: 3
       ActionExplosionRune: 3
       ActionIgniteRune: 3
       ActionStunRune: 3
-#ADT-Tweak end
+# ADT-Tweak end
