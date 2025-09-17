@@ -194,6 +194,21 @@ def collect_missing_map_protos(maps_root: str, known_ids: set[str], migration: d
             if not (entities and isinstance(entities, list)):
                 return None
 
+            # Собираем локальные ID сущностей на карте (uid/идентификаторы), чтобы валидировать меж-сущностные ссылки
+            local_entity_ids: set[int] = set()
+            for ent in entities:
+                if not isinstance(ent, dict):
+                    continue
+                # На картах SS14 обычно используется поле uid (int)
+                uid_val = ent.get('uid')
+                if isinstance(uid_val, int):
+                    local_entity_ids.add(uid_val)
+                # Иногда встречаются альтернативные ключи
+                for alt_key in ('eid', 'localId'):
+                    v = ent.get(alt_key)
+                    if isinstance(v, int):
+                        local_entity_ids.add(v)
+
             missing: list[str] = []
             for entity in entities:
                 if not isinstance(entity, dict):
@@ -219,15 +234,55 @@ def collect_missing_map_protos(maps_root: str, known_ids: set[str], migration: d
                     # Ищем ссылки на прототипы в компонентах
                     missing.extend(_find_proto_references_in_component(component_data, known_ids_local, migration_local))
 
+                    # Проверяем меж-сущностные ссылки (device links и т.д.) на валидные local uid
+                    def _check_entity_ref(val):
+                        # Числовой uid
+                        if isinstance(val, int):
+                            if local_entity_ids and val not in local_entity_ids:
+                                missing.append(f"invalid-entity-link:{val}")
+                            return
+                        # Строковый uid
+                        if isinstance(val, str):
+                            s = val.strip()
+                            if s.isdigit():
+                                iv = int(s)
+                                if local_entity_ids and iv not in local_entity_ids:
+                                    missing.append(f"invalid-entity-link:{iv}")
+                            # Формат n12345 встречается в логах, но в картах обычно не хранится; пропускаем
+
+                    # Наиболее типичные поля со ссылками на другие сущности
+                    if local_entity_ids:
+                        for key, value in component_data.items():
+                            if key in (
+                                'target', 'targets', 'source', 'sources',
+                                'linked', 'links', 'devices', 'entities',
+                                'receivers', 'transmitters', 'inputs', 'outputs'
+                            ):
+                                if isinstance(value, list):
+                                    for v in value:
+                                        _check_entity_ref(v)
+                                else:
+                                    _check_entity_ref(value)
+
             # Фильтруем пустые и некорректные значения
-            filtered_missing = [m for m in missing if m and m.strip() and len(m.strip()) > 2]
+            def _valid_issue(m: str) -> bool:
+                if not m:
+                    return False
+                ms = m.strip()
+                if not ms:
+                    return False
+                if ms.startswith('invalid-entity-link:'):
+                    return True
+                return len(ms) > 2
+
+            filtered_missing = [m for m in missing if _valid_issue(m)]
 
             if not filtered_missing:
                 return None
 
             # Отладочная информация для проблемных файлов
             if file_path_str.endswith('plasma.yml'):
-                print(f"DEBUG plasma.yml: найдено {len(filtered_missing)} отсутствующих прототипов (с учётом миграций): {filtered_missing}")
+                print(f"DEBUG plasma.yml: найдено {len(filtered_missing)} проблем (отсутствующие прототипы/ссылки): {filtered_missing}")
 
             return (file_path_str, sorted(set(filtered_missing)))
         except Exception as e:
