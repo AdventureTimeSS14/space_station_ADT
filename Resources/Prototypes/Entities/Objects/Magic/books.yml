@@ -92,7 +92,7 @@
         color: gold
     - type: Spellbook
       spellActions:
-        ActionForceWall: 3 #ADT-Tweak
+        ActionForceWall: 3 # ADT-Tweak
 
 - type: entity
   id: BlinkBook
