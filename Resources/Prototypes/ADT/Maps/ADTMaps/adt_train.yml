@@ -3,7 +3,7 @@
   mapName: 'Train'
   mapPath: /Maps/ADTMaps/ADTStations/adt_train.yml
   minPlayers: 1
-  maxPlayers: 50
+  maxPlayers: 60
   stations:
     ADT_Train:
       stationProto: StandardNanotrasenStation
