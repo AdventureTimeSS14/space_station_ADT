@@ -188,16 +188,16 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.7 #ADT-tweak
+    damageCoefficient: 0.7 # ADT-tweak
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-#ADT-tweak start
+# ADT-tweak start
         Piercing: 0.4
         Heat: 0.9
-#ADT-tweak end
+# ADT-tweak end
         Radiation: 0.3
         Caustic: 0.8
   - type: ClothingSpeedModifier
