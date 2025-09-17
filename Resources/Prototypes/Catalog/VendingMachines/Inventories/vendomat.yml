@@ -14,7 +14,7 @@
   contrabandInventory:
     ProximitySensor: 1
     LeftArmBorg: 1
-#ADT-tweak start
+# ADT-tweak start
     ADTToyBlasterGunRed: 1
     LightHeadBorg: 1
-#ADT-tweak end
+# ADT-tweak end
