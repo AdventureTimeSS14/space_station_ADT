@@ -139,6 +139,12 @@
     - AnomalyHost
   - type: Inventory
     templateId: ipc
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.1
