@@ -37,6 +37,7 @@ public sealed class BankCardSystem : EntitySystem
     [Dependency] private readonly JobSystem _job = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
+    [Dependency] private readonly BankTransactionHistorySystem _transactionHistory = default!;
 
     private const int SalaryDelay = 2700;
 
@@ -75,7 +76,7 @@ public sealed class BankCardSystem : EntitySystem
     private void PaySalary()
     {
         foreach (var account in _accounts.Where(account =>
-                     account.Mind is {Comp.UserId: not null, Comp.CurrentEntity: not null} &&
+                     account.Mind is { Comp.UserId: not null, Comp.CurrentEntity: not null } &&
                      _playerManager.TryGetSessionById(account.Mind.Value.Comp.UserId!.Value, out _) &&
                      !_mobState.IsDead(account.Mind.Value.Comp.CurrentEntity!.Value)))
         {
@@ -202,28 +203,34 @@ public sealed class BankCardSystem : EntitySystem
         return 0;
     }
 
-    public bool TryChangeBalance(int accountId, int amount)
+    public bool TryChangeBalance(int accountId, int amount, BankTransactionType transactionType = BankTransactionType.Unknown, string description = "", string? details = null)
     {
         if (!TryGetAccount(accountId, out var account) || account.Balance + amount < 0)
             return false;
 
-        // if (account.CommandBudgetAccount)
-        // {
-        //     while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
-        //     {
-        //         if (acc.BankAccount.AccountId != accountId)
-        //             continue;
-
-        //         _cargo.UpdateBankAccount((uid, acc), amount);
-        //         return true;
-        //     }
-        // }
-
         account.Balance += amount;
-        if (account.CartridgeUid != null)
-            _bankCartridge.UpdateUiState(account.CartridgeUid.Value);
+
+        if (string.IsNullOrEmpty(description))
+        {
+            description = transactionType switch
+            {
+                BankTransactionType.AtmDeposit => "Внесение наличных",
+                BankTransactionType.AtmWithdraw => "Снятие наличных",
+                BankTransactionType.Purchase => "Покупка товара",
+                BankTransactionType.Transfer => "Банковский перевод",
+                BankTransactionType.Salary => "Выплата зарплаты",
+                BankTransactionType.EftposPayment => "Оплата картой",
+                _ => "Банковская операция"
+            };
+        }
+
+        _transactionHistory.RecordTransaction(accountId, transactionType, amount, account.Balance, description, details);
 
         return true;
     }
-}
 
+    public bool TryChangeBalance(int accountId, int amount)
+    {
+        return TryChangeBalance(accountId, amount, BankTransactionType.Unknown);
+    }
+}

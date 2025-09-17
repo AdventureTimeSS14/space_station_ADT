@@ -95,7 +95,8 @@ public sealed class BankCartridgeSystem : EntitySystem
         var state = new BankCartridgeUiState
         {
             AccountLinkResult = component.AccountLinkResult,
-            AccountLinkMessage = accountLinkMessage
+            AccountLinkMessage = accountLinkMessage,
+            TransactionHistory = new List<BankTransaction>()
         };
 
         if (component.AccountId != null && _bankCardSystem.TryGetAccount(component.AccountId.Value, out var account))
@@ -103,7 +104,13 @@ public sealed class BankCartridgeSystem : EntitySystem
             state.Balance = account.Balance;
             state.AccountId = account.AccountId;
             state.OwnerName = account.Name;
+
+            if (TryComp<BankTransactionHistoryComponent>(cartridgeUid, out var historyComp))
+            {
+                state.TransactionHistory = new List<BankTransaction>(historyComp.Transactions);
+            }
         }
+
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }
 

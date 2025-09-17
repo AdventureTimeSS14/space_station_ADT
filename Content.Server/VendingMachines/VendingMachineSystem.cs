@@ -384,7 +384,8 @@ namespace Content.Server.VendingMachines
                             || account.Balance < price)
                             continue;
 
-                        _bankCard.TryChangeBalance(bankCard.AccountId.Value, -price);
+                        _bankCard.TryChangeBalance(bankCard.AccountId.Value, -price, BankTransactionType.Purchase,
+                            $"Покупка: {entry.ID}", $"Автомат #{uid}");
                         success = true;
                         break;
                     }

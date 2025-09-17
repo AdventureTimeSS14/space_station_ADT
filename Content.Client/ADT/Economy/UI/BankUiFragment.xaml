@@ -4,27 +4,49 @@
 
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8">
-        <BoxContainer Name="LinkedAccount" Orientation="Vertical" Visible="False">
-            <RichTextLabel Name="LinkedAccountNumberLabel" />
-            <RichTextLabel Name="LinkedAccountNameLabel" />
-            <RichTextLabel Name="LinkedAccountBalanceLabel" />
+
+        <BoxContainer Name="TabContainer" Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 8">
+            <Button Name="AccountTabButton" Text="{Loc 'bank-program-ui-tab-account'}"
+                    HorizontalExpand="True" StyleClasses="TabButton" />
+            <Button Name="HistoryTabButton" Text="{Loc 'bank-program-ui-tab-history'}"
+                    HorizontalExpand="True" StyleClasses="TabButton" />
         </BoxContainer>
-        <RichTextLabel Name="NoLinkedAccountLabel" Visible="False" />
-        <controls:StripeBack>
-            <Button Name="AccountLinkButton" HorizontalExpand="True" HorizontalAlignment="Center"
-                    Text="{Loc 'bank-program-ui-link-account'}" />
-            <BoxContainer Name="AccountLink" Orientation="Vertical" Visible="False" HorizontalExpand="True"
-                          Margin="0 5 0 5">
-                <RichTextLabel Name="AccountLinkMessageLabel" />
-                <GridContainer HorizontalExpand="True" Columns="2" Rows="2">
-                    <LineEdit Name="AccountLineEdit" HorizontalExpand="True"
-                              PlaceHolder="{Loc 'bank-program-ui-account-number'}" />
-                    <Button Name="LinkConfirmButton" Text="{Loc 'bank-program-ui-link-confirm'}" />
-                    <LineEdit Name="PinLineEdit" HorizontalExpand="True" PlaceHolder="PIN" />
-                    <Button Name="LinkCancelButton" Text="{Loc 'bank-program-ui-link-cancel'}" />
-                </GridContainer>
+
+        <BoxContainer Name="AccountTab" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Name="LinkedAccount" Orientation="Vertical" Visible="False">
+                <RichTextLabel Name="LinkedAccountNumberLabel" />
+                <RichTextLabel Name="LinkedAccountNameLabel" />
+                <RichTextLabel Name="LinkedAccountBalanceLabel" />
             </BoxContainer>
-        </controls:StripeBack>
-        <RichTextLabel Name="AccountLinkResultLabel" Visible="False" />
+            <RichTextLabel Name="NoLinkedAccountLabel" Visible="False" />
+            <controls:StripeBack>
+                <Button Name="AccountLinkButton" HorizontalExpand="True" HorizontalAlignment="Center"
+                        Text="{Loc 'bank-program-ui-link-account'}" />
+                <BoxContainer Name="AccountLink" Orientation="Vertical" Visible="False" HorizontalExpand="True"
+                              Margin="0 5 0 5">
+                    <RichTextLabel Name="AccountLinkMessageLabel" />
+                    <GridContainer HorizontalExpand="True" Columns="2" Rows="2">
+                        <LineEdit Name="AccountLineEdit" HorizontalExpand="True"
+                                  PlaceHolder="{Loc 'bank-program-ui-account-number'}" />
+                        <Button Name="LinkConfirmButton" Text="{Loc 'bank-program-ui-link-confirm'}" />
+                        <LineEdit Name="PinLineEdit" HorizontalExpand="True" PlaceHolder="PIN" />
+                        <Button Name="LinkCancelButton" Text="{Loc 'bank-program-ui-link-cancel'}" />
+                    </GridContainer>
+                </BoxContainer>
+            </controls:StripeBack>
+            <RichTextLabel Name="AccountLinkResultLabel" Visible="False" />
+        </BoxContainer>
+
+        <BoxContainer Name="HistoryTab" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Visible="False">
+            <RichTextLabel Name="HistoryTitleLabel" Text="{Loc 'bank-program-ui-transaction-history'}"
+                          StyleClasses="LabelHeading" />
+            <ScrollContainer HorizontalExpand="True" VerticalExpand="True"
+                           HScrollEnabled="False" VScrollEnabled="True">
+                <BoxContainer Name="TransactionList" Orientation="Vertical" HorizontalExpand="True" />
+            </ScrollContainer>
+            <RichTextLabel Name="NoTransactionsLabel" Text="{Loc 'bank-program-ui-no-transactions'}"
+                          Visible="False" HorizontalAlignment="Center" />
+        </BoxContainer>
+
     </BoxContainer>
 </ui1:BankUiFragment>

@@ -11,6 +11,7 @@ public sealed class BankCartridgeUiState : BoundUserInterfaceState
     public string OwnerName = string.Empty;
     public string AccountLinkMessage = string.Empty;
     public string AccountLinkResult = string.Empty;
+    public List<BankTransaction> TransactionHistory = new();
 }
 
 [Serializable, NetSerializable]
@@ -24,4 +25,22 @@ public sealed class BankAccountLinkMessage : CartridgeMessageEvent
         AccountId = accountId;
         Pin = pin;
     }
+}
+
+[Serializable, NetSerializable]
+public sealed class BankTabSwitchMessage : CartridgeMessageEvent
+{
+    public BankTab Tab;
+
+    public BankTabSwitchMessage(BankTab tab)
+    {
+        Tab = tab;
+    }
+}
+
+[Serializable, NetSerializable]
+public enum BankTab : byte
+{
+    Account = 0,
+    History = 1
 }

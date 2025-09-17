@@ -12,3 +12,7 @@ bank-program-ui-link-program = Аккаунт будет привязан к п�
 bank-program-ui-link-id-card = Аккаунт будет привязан к ID карте.
 bank-program-ui-link-no-id-card = [color=red]ID карта отсутствует.[/color]
 bank-program-ui-link-id-card-linked = [color=red]К ID карте уже привязан аккаунт: { $account }[/color]
+bank-program-ui-tab-account = Аккаунт
+bank-program-ui-tab-history = История
+bank-program-ui-transaction-history = История транзакций
+bank-program-ui-no-transactions = [color=gray]История транзакций пуста[/color]

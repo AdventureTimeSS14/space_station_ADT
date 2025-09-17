@@ -29,8 +29,10 @@ public sealed class EftposSystem : EntitySystem
             bankCard.AccountId == component.BankAccountId || component.Amount <= 0 || bankCard.CommandBudgetCard)
             return;
 
-        if (_bankCardSystem.TryChangeBalance(bankCard.AccountId!.Value, -component.Amount) &&
-            _bankCardSystem.TryChangeBalance(component.BankAccountId.Value, component.Amount))
+        if (_bankCardSystem.TryChangeBalance(bankCard.AccountId!.Value, -component.Amount, BankTransactionType.EftposPayment,
+            $"Оплата через EFTPOS: {component.Amount}₽", $"Терминал #{uid}") &&
+            _bankCardSystem.TryChangeBalance(component.BankAccountId.Value, component.Amount, BankTransactionType.EftposPayment,
+            $"Поступление с EFTPOS: {component.Amount}₽", $"Терминал #{uid}"))
         {
             _popupSystem.PopupEntity(Loc.GetString("eftpos-transaction-success"), uid);
             _audioSystem.PlayPvs(component.SoundApply, uid);
