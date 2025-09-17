@@ -26,7 +26,8 @@ public sealed class BankCartridgeSystem : EntitySystem
 
     private void OnInstall(EntityUid uid, BankCartridgeComponent component, CartridgeAddedEvent args)
     {
-        component.Loader = args.Loader;
+        EnsureComp<BankTransactionHistoryComponent>(uid);
+        UpdateUiState(uid, args.Loader, component);
     }
 
     private void OnAccountLink(EntityUid uid, BankCartridgeComponent component, BankAccountLinkMessage args)
@@ -99,16 +100,16 @@ public sealed class BankCartridgeSystem : EntitySystem
             TransactionHistory = new List<BankTransaction>()
         };
 
+        if (TryComp<BankTransactionHistoryComponent>(cartridgeUid, out var historyComp))
+        {
+            state.TransactionHistory = historyComp.Transactions;
+        }
+
         if (component.AccountId != null && _bankCardSystem.TryGetAccount(component.AccountId.Value, out var account))
         {
             state.Balance = account.Balance;
             state.AccountId = account.AccountId;
             state.OwnerName = account.Name;
-
-            if (TryComp<BankTransactionHistoryComponent>(cartridgeUid, out var historyComp))
-            {
-                state.TransactionHistory = new List<BankTransaction>(historyComp.Transactions);
-            }
         }
 
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);

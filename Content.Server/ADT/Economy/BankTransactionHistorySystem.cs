@@ -5,9 +5,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Economy;
 
-/// <summary>
-/// Система управления историей банковских транзакций
-/// </summary>
 public sealed class BankTransactionHistorySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -19,9 +16,6 @@ public sealed class BankTransactionHistorySystem : EntitySystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
-    /// <summary>
-    /// Записывает новую транзакцию в историю аккаунта
-    /// </summary>
     public void RecordTransaction(int accountId, BankTransactionType type, int amount, int balanceAfter, string description, string? details = null)
     {
         var transaction = new BankTransaction
@@ -34,37 +28,28 @@ public sealed class BankTransactionHistorySystem : EntitySystem
             Details = details
         };
 
-        // Находим все картриджи, связанные с этим аккаунтом
         var query = EntityQueryEnumerator<BankCartridgeComponent>();
         while (query.MoveNext(out var uid, out var cartridge))
         {
             if (cartridge.AccountId != accountId)
                 continue;
 
-            // Получаем или создаем компонент истории транзакций
             var historyComp = EnsureComp<BankTransactionHistoryComponent>(uid);
 
-            // Добавляем новую транзакцию
             historyComp.Transactions.Add(transaction);
 
-            // Удаляем старые транзакции, если превышен лимит
             if (historyComp.Transactions.Count > historyComp.MaxTransactions)
             {
                 var toRemove = historyComp.Transactions.Count - historyComp.MaxTransactions;
                 historyComp.Transactions.RemoveRange(0, toRemove);
             }
 
-            // Помечаем компонент как измененный для сетевой синхронизации
             Dirty(uid, historyComp);
 
-            // Обновляем UI картриджа
             _bankCartridgeSystem.UpdateUiState(uid);
         }
     }
 
-    /// <summary>
-    /// Получает историю транзакций для аккаунта
-    /// </summary>
     public List<BankTransaction> GetTransactionHistory(int accountId)
     {
         var query = EntityQueryEnumerator<BankCartridgeComponent, BankTransactionHistoryComponent>();
@@ -79,9 +64,6 @@ public sealed class BankTransactionHistorySystem : EntitySystem
         return new List<BankTransaction>();
     }
 
-    /// <summary>
-    /// Очищает всю историю транзакций при перезапуске раунда
-    /// </summary>
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         var query = EntityQueryEnumerator<BankTransactionHistoryComponent>();
