@@ -756,6 +756,10 @@
   metabolisms:
     Drink:
       effects:
+      # ADT-Tweak start
+      - !type:SatiateThirst
+        factor: 1337
+      # ADT-Tweak end
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
