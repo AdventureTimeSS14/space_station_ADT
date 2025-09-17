@@ -103,14 +103,47 @@ def collect_entity_ids(prototypes_root: str) -> set[str]:
     return ids
 
 
-def collect_missing_map_protos(maps_root: str, known_ids: set[str]) -> dict[str, list[str]]:
+def load_migration_map(repo_root: str) -> dict[str, str | None]:
+    migration_path = os.path.join(repo_root, 'Resources', 'migration.yml')
+    migration: dict[str, str | None] = {}
+    if not os.path.isfile(migration_path):
+        return migration
+
+    data = _load_yaml_any(migration_path)
+    if isinstance(data, dict):
+        for k, v in data.items():
+            key = str(k)
+            val = None if v is None else str(v)
+            migration[key] = val
+    return migration
+
+
+def resolve_migration(proto: str, migration: dict[str, str | None], max_depth: int = 10) -> str | None:
+    current = proto
+    visited: set[str] = set()
+    depth = 0
+    while current in migration and depth < max_depth:
+        if current in visited:
+            break
+        visited.add(current)
+        mapped = migration.get(current)
+        if mapped is None:
+            return None
+        if mapped == current:
+            break
+        current = mapped
+        depth += 1
+    return current
+
+
+def collect_missing_map_protos(maps_root: str, known_ids: set[str], migration: dict[str, str | None]) -> dict[str, list[str]]:
     missing_by_file: dict[str, list[str]] = {}
     yml_files = list(Path(maps_root).rglob('*.yml'))
     total_files = len(yml_files)
     print(f"Обрабатываю {total_files} файлов карт...")
 
     # Параллельная обработка карт
-    def parse_map_and_find_missing(file_path_str: str, known_ids_local: set[str]) -> tuple[str, list[str]] | None:
+    def parse_map_and_find_missing(file_path_str: str, known_ids_local: set[str], migration_local: dict[str, str | None]) -> tuple[str, list[str]] | None:
         try:
             data = _load_yaml_any(file_path_str)
             if not (data and isinstance(data, dict)):
@@ -123,12 +156,23 @@ def collect_missing_map_protos(maps_root: str, known_ids: set[str]) -> dict[str,
             for entity in entities:
                 if not (isinstance(entity, dict) and 'proto' in entity):
                     continue
-                proto = str(entity['proto'])
-                if proto not in known_ids_local:
-                    missing.append(proto)
+                original_proto = str(entity['proto'])
+                # Учитываем миграции
+                resolved = resolve_migration(original_proto, migration_local)
+                if resolved is None:
+                    # Миграция удаляет объект -> не считаем отсутствующим
+                    continue
+                if resolved not in known_ids_local:
+                    # Репортим исходный ID, чтобы было ясно что ломается на карте
+                    missing.append(original_proto)
 
             if not missing:
                 return None
+
+            # Отладочная информация для проблемных файлов
+            if file_path_str.endswith('plasma.yml'):
+                print(f"DEBUG plasma.yml: найдено {len(missing)} отсутствующих прототипов (с учётом миграций): {missing}")
+
             return (file_path_str, sorted(set(missing)))
         except Exception as e:
             print(f"Критическая ошибка при обработке карты {file_path_str}: {e}")
@@ -148,7 +192,7 @@ def collect_missing_map_protos(maps_root: str, known_ids: set[str]) -> dict[str,
     # Используем ThreadPoolExecutor, чтобы избежать pickle-проблем на Windows
     # и не передавать большой набор known_ids в каждый процесс.
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(parse_map_and_find_missing, str(fp), known_ids): fp for fp in yml_files}
+        futures = {executor.submit(parse_map_and_find_missing, str(fp), known_ids, migration): fp for fp in yml_files}
         processed = 0
         for future in as_completed(futures):
             processed += 1
@@ -185,7 +229,13 @@ def main() -> int:
 
     print("\n=== Проверка карт на отсутствующие прототипы ===")
     start_time = time.time()
-    missing = collect_missing_map_protos(maps_root, known_ids)
+    migration = load_migration_map(repo_root)
+    if migration:
+        print(f"Загружена миграция: {len(migration)} записей")
+    else:
+        print("Миграция не найдена или пуста")
+
+    missing = collect_missing_map_protos(maps_root, known_ids, migration)
     maps_time = time.time() - start_time
     print(f"Проверка карт заняла {maps_time:.1f} секунд")
 
@@ -197,9 +247,13 @@ def main() -> int:
     total_missing = 0
     for file_path, protos in sorted(missing.items()):
         total_missing += len(protos)
-        print(f"{file_path} [{len(protos)}]: {', '.join(protos)}")
+        if protos:
+            protos_str = ', '.join(protos)
+            print(f"{file_path} [{len(protos)}]: {protos_str}")
+        else:
+            print(f"{file_path} [0]: <пустые ссылки>")
 
-    print(f"Итого отсутствующих ссылок: {total_missing}")
+    print(f"\nИтого отсутствующих ссылок: {total_missing}")
     return 1
 
 
