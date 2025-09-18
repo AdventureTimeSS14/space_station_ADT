@@ -79,11 +79,6 @@ ent-ADTClothingUnderwearSocksKneeCentcom = гольфы представител
 ent-ADTClothingUnderwearSocksThighCentcom = чулки представителей ЦентКом
     .desc = Чулки для представителей ЦК. Да... Даже некоторые из них носят чулки...
 
-ent-ADTClothingUnderwearSocksKneeCreepy = страшные гольфы
-    .desc = Гольфы, что точно подойдут для Хеллоуина.
-ent-ADTClothingUnderwearSocksThighCreepy = страшные чулки
-    .desc = Чулки, что точно подойдут для Хеллоуина.
-
 ent-ADTClothingUnderwearSocksCyan = голубые носки
     .desc = Обычные голубые носки.
 ent-ADTClothingUnderwearSocksKneeCyan = голубые гольфы
