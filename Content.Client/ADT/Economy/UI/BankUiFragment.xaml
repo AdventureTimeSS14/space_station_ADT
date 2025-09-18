@@ -39,7 +39,7 @@
 
         <BoxContainer Name="HistoryTab" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Visible="False">
             <RichTextLabel Name="HistoryTitleLabel" Text="{Loc 'bank-program-ui-transaction-history'}"
-                          StyleClasses="LabelHeading" />
+                        StyleClasses="LabelHeading" />
             <ScrollContainer HorizontalExpand="True" VerticalExpand="True"
                            HScrollEnabled="False" VScrollEnabled="True">
                 <BoxContainer Name="TransactionList" Orientation="Vertical" HorizontalExpand="True" />

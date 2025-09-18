@@ -19,18 +19,10 @@ public sealed partial class BankTransactionHistoryComponent : Component
 public sealed record BankTransaction
 {
     public TimeSpan Timestamp { get; init; }
-
     public BankTransactionType Type { get; init; }
-
     public int Amount { get; init; }
-
     public int BalanceAfter { get; init; }
-
-    /// <summary>
-    /// Описание транзакции
-    /// </summary>
     public string Description { get; init; } = string.Empty;
-
     public string? Details { get; init; }
 }
 
