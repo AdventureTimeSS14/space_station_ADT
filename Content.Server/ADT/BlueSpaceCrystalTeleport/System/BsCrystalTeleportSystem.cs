@@ -70,7 +70,11 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
     }
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius)
     {
-        if (HasComp<TakenHumansComponent>(uid) && TryComp<PickupHumansComponent>(uid, out var pickupComp)) { _pickupsys.DropFromHands(pickupComp.User, pickupComp.Target); }
+        if (HasComp<TakenHumansComponent>(uid)
+        && TryComp<PickupHumansComponent>(uid, out var pickupComp))
+        {
+             _pickupsys.DropFromHands(pickupComp.User, pickupComp.Target);
+        }
         EntityCoordinates coords = Transform(uid).Coordinates;
         var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-radius, +radius), coords.Y + _random.NextFloat(-radius, +radius));
 
