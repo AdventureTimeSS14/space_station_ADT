@@ -49,9 +49,9 @@
           bounds: "-0.4,-0.3,0.4,0.3"
         density: 190
         mask:
-        - TabletopMachineMask
+        - MachineMask
         layer:
-        - TabletopMachineLayer
+        - MachineLayer
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: ActivatableUIRequiresPower
