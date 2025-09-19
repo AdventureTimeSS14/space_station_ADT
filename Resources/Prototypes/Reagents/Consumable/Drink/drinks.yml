@@ -756,6 +756,8 @@
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 2.1
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
