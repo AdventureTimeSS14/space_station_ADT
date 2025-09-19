@@ -697,7 +697,7 @@
 
 - type: loadoutGroup
   id: ADTMinerOuterClothing
-  name: loadout-miner-outerclothing
+  name: loadout-miner-outerclothing-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -705,8 +705,14 @@
   - ADTNeckSalvageSpecialistEBomber
 
 - type: loadoutGroup
+  id: ADTMinerPDA
+  name: loadout-miner-id-adt
+  loadouts:
+  - ADTMinerPDA
+
+- type: loadoutGroup
   id: ADTMinerShoes
-  name: loadout-miner-shoes
+  name: loadout-miner-shoes-adt
   loadouts:
   - SalvageBoots
   - CargoWinterBoots

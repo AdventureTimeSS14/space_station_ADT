@@ -41,8 +41,9 @@ loadout-miner-jumpsuit-adt = Шахтёр, комбинезон
 loadout-miner-backpack = Шахтёр, рюкзак
 loadout-miner-ears-adt = Шахтёр, ухо
 loadout-miner-neck-adt = Шахтёр, шея
-loadout-miner-outerclothing = Шахтёр, верхняя одежда
-loadout-miner-shoes = Шахтёр, обувь
+loadout-miner-outerclothing-adt = Шахтёр, верхняя одежда
+loadout-miner-shoes-adt = Шахтёр, обувь
+loadout-miner-id-adt = Шахтёр, ID
 
 # Chaplain
 loadout-chaplain-blessedbook-adt = Священник, священная книга
