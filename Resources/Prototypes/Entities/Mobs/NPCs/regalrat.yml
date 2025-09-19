@@ -4,6 +4,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
+  - type: VentCrawler # ADT tweak
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00

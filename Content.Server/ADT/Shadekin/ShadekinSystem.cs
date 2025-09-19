@@ -39,7 +39,6 @@ public sealed partial class ShadekinSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -107,7 +106,7 @@ public sealed partial class ShadekinSystem : EntitySystem
                 comp.MinPowerAccumulator = Math.Clamp(comp.MinPowerAccumulator - 1f, 0f, comp.MinPowerRoof);
             }
 
-            if ((comp.MinPowerAccumulator >= comp.MinPowerRoof) && !(comp.Blackeye))
+            if ((comp.MinPowerAccumulator >= comp.MinPowerRoof) && !comp.Blackeye)
                 BlackEye(uid);
 
             if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
