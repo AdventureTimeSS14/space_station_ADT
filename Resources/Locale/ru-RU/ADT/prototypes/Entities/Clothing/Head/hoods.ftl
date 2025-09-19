@@ -34,3 +34,6 @@ ent-ADTClothingHeadHatWebHood = зловещий паучий капюшон
 
 ent-ADTClothingHeadHatTechpriestHood = капюшон техно-жреца
     .desc = Выглядит механически. В ней ты будешь выглядеть как культист сумасшедшего Нар'Си-Ратварского культа.
+
+ent-ADTClothingHeadHatHoodChaplainHoodWhite = светлый капюшон священника
+    .desc = Максимальное благоверие в этой звёздной системе.

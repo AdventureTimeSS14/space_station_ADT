@@ -95,3 +95,6 @@ ent-ADTClothingMaskPaperBlack = бумажная маска
 
 ent-ADTMFDoomMask = маска MF-Doom
     .desc = «Я постоянно слышу эти странные звуки, доносящиеся из кухни... ОХРЕНЕТЬ! это же Слендермен!»
+
+ent-ADTClothingMaskClownAbyss = глубоководная клоунская маска
+    .desc = Слава красному носу.

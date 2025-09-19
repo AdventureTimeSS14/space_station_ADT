@@ -17,7 +17,7 @@
 - type: startingGear
   id: BoxerGear
   equipment:
-    id: BoxerPDA
+    #id: BoxerPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
     shoes: ClothingShoesColorRed
     belt: ClothingBeltChampion

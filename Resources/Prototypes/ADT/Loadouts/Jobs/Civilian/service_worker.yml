@@ -1,0 +1,11 @@
+# PDA
+
+- type: loadout
+  id: ADTServiceWorkerPDA
+  equipment:
+    id: ServiceWorkerPDA
+
+- type: loadout
+  id: ADTWaiterPDA
+  equipment:
+    id: ADTWaiterPDA

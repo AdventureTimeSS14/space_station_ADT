@@ -16,6 +16,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
+  - type: Item
+    size: Small
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -32,6 +34,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
+  - type: Item
+    size: Small
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -48,6 +52,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
+  - type: Item
+    size: Small
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -64,6 +70,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
+  - type: Item
+    size: Small
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -80,6 +88,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
+  - type: Item
+    size: Small
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -96,3 +106,26 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: ClothingShoesClownBase
+  id: ADTClothingShoesClownAbyss
+  name: clown shoes from abyss
+  description: "The prankster's standard-issue clowning shoes. Damn they're huge!"
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Specific/clown_abyss.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Specific/clown_abyss.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+      params:
+        variation: 0.17
+  # for H.O.N.K. construction
+  - type: Tag
+    tags:
+    - ClownShoes
+    - WhitelistChameleon

@@ -68,3 +68,6 @@ ent-ClothingHeadHatBeretCommand = берет командования
 
 ent-ClothingHeadHatCommandSoft = кепка командования
     .desc = Бейсболка расцветки командования.
+
+ent-ADTClothingHeadHatChefRed = красный поварской колпак
+    .desc = Прямиком из космо-Италии!

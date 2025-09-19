@@ -22,7 +22,7 @@
   id: ServiceWorkerGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: ServiceWorkerPDA
+    #id: ServiceWorkerPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   #storage:
     #back:

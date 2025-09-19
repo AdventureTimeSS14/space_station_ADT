@@ -516,3 +516,14 @@
     spawned:
     - id: MaterialCloth1
       amount: 2
+
+- type: entity
+  parent: ClothingHeadHatChef
+  id: ADTClothingHeadHatChefRed
+  name: red chef's hat
+  description: Straight from space-Italy!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi

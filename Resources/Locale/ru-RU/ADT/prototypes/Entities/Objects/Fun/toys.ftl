@@ -22,3 +22,6 @@ ent-ADTBalloonCorgi = воздушный шар корги
 
 ent-ADTBalloonClown = воздушный шар клоуна
     .desc = Воображаемый друг мима.
+
+ent-ADTToyHammerAbyss = игрушечный молот
+    .desc = Несмертельный, но жутко бесит.
