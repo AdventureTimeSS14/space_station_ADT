@@ -17,3 +17,5 @@ job-description-senior-officer = Обучайте новых офицеров о
 job-description-guard-officer = Помогайте смотрителю в обеспечении надлежащего ухода за арестантами.
 
 job-description-ADTbarber = Создайте самый модный hair look на станции!
+
+job-description-ADTminer = Добывайте ценные минералы с Лаваленда для дальнейшей переработки и снабжения станции ресурсами.

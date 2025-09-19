@@ -104,7 +104,7 @@ public sealed class MiningVoucherSystem : EntitySystem
             return;
 
         var kit = _proto.Index(ent.Comp.Kits[index]);
-        var xform = Transform(ent);
+        var xform = Transform(user);
 
         switch (ent.Comp.TypeDrop)
         {
