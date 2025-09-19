@@ -5572,13 +5572,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 17.710754,13.876238
       parent: 2
-- proto: ADTFoodSnackBrains
-  entities:
-  - uid: 13443
-    components:
-    - type: Transform
-      pos: 72.46734,-6.4891644
-      parent: 2
+# - proto: ADTFoodSnackBrains
+#   entities:
+#   - uid: 13443
+#     components:
+#     - type: Transform
+#       pos: 72.46734,-6.4891644
+#       parent: 2
 - proto: ADTGlassBlueShieldAirlockLocked
   entities:
   - uid: 78
