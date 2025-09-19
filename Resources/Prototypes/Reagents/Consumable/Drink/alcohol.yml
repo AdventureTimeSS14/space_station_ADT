@@ -885,13 +885,11 @@
   metabolisms:
     Drink:
       effects:
-      # ADT-Tweak start
       - !type:SatiateThirst
-        factor: 228
+        factor: 1.2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 228
-      # ADT-Tweak end
+        amount: 0.12
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -1972,13 +1970,11 @@
   metabolisms:
     Drink:
       effects:
-      # ADT-Tweak start
       - !type:SatiateThirst
-        factor: 1488
+        factor: 1.5
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 1488
-      # ADT-Tweak end
+        amount: 0.05
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -2154,13 +2150,11 @@
   metabolisms:
     Drink:
       effects:
-      # ADT-Tweak start
       - !type:SatiateThirst
-        factor: 666
+        factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 666
-      # ADT-Tweak end
+        amount: 0.1
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold

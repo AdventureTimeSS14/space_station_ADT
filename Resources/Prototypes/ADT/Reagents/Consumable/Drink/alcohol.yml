@@ -483,10 +483,10 @@
     Drink:
       effects:
       - !type:SatiateThirst
-        factor: 999999
+        factor: 3
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 999999
+        amount: 0.2
       - !type:PopupMessage
         conditions:
           - !type:ReagentThreshold
