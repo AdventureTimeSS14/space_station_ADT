@@ -15,6 +15,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Cellular: 0.5

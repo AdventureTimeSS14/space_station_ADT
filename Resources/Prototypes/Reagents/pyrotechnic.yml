@@ -30,6 +30,13 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         damage:
           types:
             Heat: 2
@@ -56,6 +63,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Heat: 2
@@ -76,6 +87,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Heat: 3
@@ -107,6 +122,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Heat: 2
@@ -175,10 +194,17 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Poison: 1
       - !type:FlammableReaction
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         multiplier: 0.4
 
 - type: reagent
