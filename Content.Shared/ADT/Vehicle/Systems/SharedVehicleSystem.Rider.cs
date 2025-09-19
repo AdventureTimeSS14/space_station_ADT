@@ -2,6 +2,7 @@ using Content.Shared.Hands;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Vehicle.Components;
 using Robust.Shared.GameStates;
+using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.Vehicle;
 
@@ -12,6 +13,7 @@ public abstract partial class SharedVehicleSystem
         SubscribeLocalEvent<RiderComponent, ComponentGetState>(OnRiderGetState);
         SubscribeLocalEvent<RiderComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
+        SubscribeLocalEvent<RiderComponent, ShotAttemptedEvent>(OnShootAttempt);
     }
 
     private void OnRiderGetState(EntityUid uid, RiderComponent component, ref ComponentGetState args)
@@ -37,5 +39,10 @@ public abstract partial class SharedVehicleSystem
     {
         if (component.Vehicle != null)
             args.Cancelled = true;
+    }
+
+    private void OnShootAttempt(EntityUid uid, RiderComponent component, ref ShotAttemptedEvent args)
+    {
+        args.Cancel();
     }
 }

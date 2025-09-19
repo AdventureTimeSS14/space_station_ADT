@@ -6712,13 +6712,13 @@ entities:
     - type: Transform
       pos: 105.868416,-19.514471
       parent: 2
-- proto: ADTFoodSnackNukieCake
-  entities:
-  - uid: 13600
-    components:
-    - type: Transform
-      pos: 50.47386,32.483337
-      parent: 2
+# - proto: ADTFoodSnackNukieCake
+#   entities:
+#   - uid: 13600
+#     components:
+#     - type: Transform
+#       pos: 50.47386,32.483337
+#       parent: 2
 - proto: ADTKitchenAssembler
   entities:
   - uid: 10104

@@ -383,7 +383,7 @@
     children:
     - id: ADTHosVoucher # ADT tweak
 #    - id: WeaponEnergyShotgun ADT tweak Дробовик для смотрителя
-    - id: BookSpaceLaw
+    - id: ADTBookSpaceLaw #ADT-WikiBooks
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50

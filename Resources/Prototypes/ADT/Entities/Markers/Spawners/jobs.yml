@@ -119,18 +119,6 @@
       - state: seniorofficer
 
 - type: entity
-  id: SpawnPointADTSecborg
-  parent: ADTSpawnPointJobBase
-  name: secborg
-  components:
-    - type: SpawnPoint
-      job_id: ADTSecBorg
-    - type: Sprite
-      layers:
-        - state: green
-        - state: secborg
-
-- type: entity
   id: SpawnPointADTGuardOfficer
   parent: ADTSpawnPointJobBase
   name: spawn job guard oficcer

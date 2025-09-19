@@ -1,11 +1,10 @@
 using Content.Server.ADT.Salvage.Components;
 using Content.Server.Interaction;
-using Content.Shared.Access.Systems;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Chasm;
 using Content.Shared.Inventory;
-using Content.Shared.Lathe;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -33,21 +32,25 @@ public sealed class PreventChasmFallingSystem : EntitySystem
     private void OnBeforeFall(EntityUid uid, PreventChasmFallingComponent comp, ref BeforeChasmFallingEvent args)
     {
         args.Cancelled = true;
-        bool coordsValid = false;
-        EntityCoordinates coords = Transform(args.Entity).Coordinates;
+        var coordsValid = false;
+        var coords = Transform(args.Entity).Coordinates;
 
         while (!coordsValid)
         {
-            var newCoords = new EntityCoordinates(Transform(args.Entity).ParentUid, coords.X + _random.NextFloat(-5f, 5f), coords.Y + _random.NextFloat(-5f, 5f));
+            var newCoords = new EntityCoordinates(Transform(args.Entity).ParentUid, coords.X +
+                _random.NextFloat(-5f, 5f), coords.Y +
+                _random.NextFloat(-5f, 5f));
+
             if (_interaction.InRangeUnobstructed(args.Entity, newCoords, -1f) && _lookup.GetEntitiesInRange<ChasmComponent>(newCoords, 1f).Count <= 0)
             {
                 _transform.SetCoordinates(args.Entity, newCoords);
                 _transform.AttachToGridOrMap(args.Entity, Transform(args.Entity));
-                _audio.PlayPvs("/Audio/Items/Mining/fultext_launch.ogg", args.Entity);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/Mining/fultext_launch.ogg"), args.Entity);
+
                 if (args.Entity != uid)
                     QueueDel(uid);
+
                 coordsValid = true;
-                break;
             }
         }
     }

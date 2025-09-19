@@ -21,8 +21,8 @@ JobADTSeniorEngineer = бригадир
 job-name-senior-officer = офицер-инструктор
 JobADTSeniorOfficer = офицер-инструктор
 
-job-name-ADTBlueShieldOfficer = офицер синего щита
-JobADTBlueShieldOfficer = офицер синего щита
+job-name-ADTBlueShieldOfficer = офицер синий щит
+JobADTBlueShieldOfficer = офицер синий щит
 
 job-name-ussp-army-private = Военнослужащий СССП
 job-name-ussp-army-officer = Офицер СССП
@@ -34,9 +34,6 @@ job-name-ADTSpaceSecOfficer = офицер SPACE SEC
 job-name-ADTSpaceSecPilot = пилот SPACE SEC
 job-name-ADTSpaceSecCommander = командир SPACE SEC
 job-name-ADTSpaceSecService = сотрудник SPACE SEC
-
-job-name-ADTSecBorg = киборг службы безопасности
-JobADTSecBorg = киборг службы безопасности
 
 job-name-guard-officer = надзиратель
 ADTGuardOfficer = надзиратель
@@ -50,8 +47,6 @@ member-space-sec = сотрудник SPACE SEC
 trader-tsf = торговец
 
 job-name-ADTbarber = парикмахер
-
-# Alternate job names start
 
 # Engineering
 
@@ -116,5 +111,3 @@ job-name-field-doctor = полевой врач
 # Juridical
 
 job-name-adt-lawyer = юрист
-
-# Alternate job names end

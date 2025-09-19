@@ -11,9 +11,9 @@
               doAfter: 5
             - material: ReinforcedGlass
               amount: 10
-              doAfter: 5	
+              doAfter: 5
             - material: Cable
               amount: 2
               doAfter: 5
     - node: ADTCompShield
-      entity: ADTFullRiotShield  
+      entity: ADTFullRiotShield
