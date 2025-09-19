@@ -162,6 +162,7 @@
   - type: SpawnPoint
     job_id: ADTMiner
   - type: Sprite
+    sprite: Markers/jobs.rsi
     layers:
       - state: green
-      - state: cargo_tech
+      - state: miner
