@@ -104,7 +104,7 @@
     sprite: Structures/Machines/silo.rsi
     state: silo
   product: CrateMaterialSilo
-  cost: 6500 #ADTTweak
+  cost: 30000 #ADTTweak
   category: cargoproduct-category-name-materials
   group: market
 

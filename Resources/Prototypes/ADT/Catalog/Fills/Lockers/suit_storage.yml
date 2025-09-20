@@ -4,10 +4,17 @@
   parent: SuitStorageBase
   suffix: Blueshield
   components:
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackBlueShield
+    - ADTBlueshieldSuit
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ADTClothingModsuitBackBlueShield
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["BlueShield"]]

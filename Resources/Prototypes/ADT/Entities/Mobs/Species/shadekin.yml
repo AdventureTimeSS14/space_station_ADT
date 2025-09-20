@@ -23,6 +23,10 @@
   - type: Body
     prototype: Shadekin
     requiredLegs: 2
+  - type: Speech
+    allowedEmotes: ['Thump']
+  - type: BodyEmotes
+    soundsId: ShadekinBodyEmotes
   - type: Puller
     needsHands: false
     grabStats:
@@ -175,9 +179,9 @@
   - type: Shadekin
   - type: Vocal
     sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: MaleHuman
+      Male: MaleShadekin
+      Female: FemaleShadekin
+      Unsexed: MaleShadekin
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: petting-success-soft-floofy
@@ -292,6 +296,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - ADTIgnoreChokeSpeechBlocking
+    - ADTShadekinEmotes
 
 - type: entity
   save: false

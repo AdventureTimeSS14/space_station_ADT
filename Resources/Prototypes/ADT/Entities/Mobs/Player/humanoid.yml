@@ -611,6 +611,8 @@
     - type: GhostRole
       name: ghost-role-information-cmnd-cburn-agent-name
       description: ghost-role-information-cmnd-cburn-agent-description
+      raffle:
+        settings: short
       # ADT-tweak-start
       requirements:
       - !type:DepartmentTimeRequirement
@@ -907,3 +909,26 @@
     - BoxSurvivalNitrogen
     - ChemistryBottleNocturine
     - ChemistryBottleNocturine
+  
+- type: entity
+  name: ADTMobIanHero-name
+  parent: MobHuman
+  id: ADTMobIanHero
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ADTRoleMobIanHeroGear]
+
+- type: startingGear
+  id: ADTRoleMobIanHeroGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorOrange
+    gloves: ClothingHandsGlovesColorYellow
+    back: PortableRecharger
+    ears: ClothingHeadsetGrey
+    shoes: ClothingShoesBootsSpeed
+    id: ADTVisitorPDA
+    belt: ClothingBeltChampion
+    outerClothing: ClothingOuterSuitIan
+    suitstorage: WeaponTeslaGun

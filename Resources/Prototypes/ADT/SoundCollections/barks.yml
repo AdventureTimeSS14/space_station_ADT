@@ -1,0 +1,73 @@
+- type: soundCollection
+  id: ADTMrAntTennaBark
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-03.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-04.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-05.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-06.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-07.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-08.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-09.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-tenna-10.ogg
+
+- type: soundCollection
+  id: ADTRouxlsKaard
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-rouxls-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-rouxls-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/deltarune-rouxls-03.ogg
+
+- type: soundCollection
+  id: ADTSkeletonBark
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-03.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-04.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-05.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/skeleton-06.ogg
+
+- type: soundCollection
+  id: ADTGaster
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_gaster_1.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_gaster_2.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_gaster_3.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_gaster_4.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_gaster_5.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_gaster_6.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_gaster_7.ogg
+
+- type: soundCollection
+  id: ADTtemmie
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_temmie_1.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_temmie_2.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_temmie_3.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_temmie_4.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_temmie_5.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_temmie_6.ogg
+
+- type: soundCollection
+  id: ADTMettaton
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_1.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_2.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_3.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_4.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_5.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_6.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_7.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_8.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/undertale_mettaton_9.ogg
+
+- type: soundCollection
+  id: ADTFatalErrorSans
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_1.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_2.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_3.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_4.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_5.ogg
