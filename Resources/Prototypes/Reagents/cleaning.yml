@@ -37,6 +37,35 @@
   tileReactions:
     - !type:CleanTileReaction {}
     - !type:CleanDecalsReaction {}
+  #ADT-tweak-start
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        damage:
+          types:
+            Poison: 1
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -1
+      - !type:ChemCleanBloodstream
+        cleanseRate: 3
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+  #ADT-tweak-end
 
 - type: reagent
   id: SoapReagent
@@ -49,7 +78,7 @@
   boilingPoint: 100.0
   meltingPoint: 60.0
   metabolisms:
-    # Start ADT tweak
+    #ADT-tweak-start
     Narcotic:
       effects:
       - !type:GenericStatusEffect
@@ -68,25 +97,36 @@
         type: Add
         time: 9
         refresh: false
-  # End ADT tweak
+    #ADT-tweak-end
     Food:
       effects:
       - !type:ChemVomit
         conditions:
-        # Start ADT tweak
+        #ADT-tweak-start
         - !type:OrganType
           type: Drask
           shouldHave: false
-        # End ADT tweak
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         - !type:ReagentThreshold
           min: 6
         probability: 0.20
+      #ADT-tweak-start
       - !type:SatiateHunger
         conditions:
         - !type:OrganType
           type: Drask
           shouldHave: true
         factor: 2
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        factor: 2
+      #ADT-tweak-end
     Drink:
       effects:
       - !type:ChemVomit
@@ -95,10 +135,25 @@
         - !type:OrganType
           type: Drask
           shouldHave: false
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
           min: 6
         probability: 0.20
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -0.5
+    #ADT-tweak-end
 
 - type: reagent
   id: SpaceLube

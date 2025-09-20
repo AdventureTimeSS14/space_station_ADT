@@ -4,6 +4,11 @@
   id: ShardBase
   description: It's a shard of some unknown material.
   components:
+  #ADT-tweak-start
+  - type: Food
+    transferAmount: 5
+  - type: BadFood
+  #ADT-tweak-end
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
@@ -100,10 +105,10 @@
       - GlassShard
       - Trash
   - type: Extractable
-    grindableSolutionName: shardglass
+    grindableSolutionName: food #ADT-tweak
   - type: SolutionContainerManager
     solutions:
-      shardglass:
+      food: #ADT-tweak
         reagents:
         - ReagentId: Silicon
           Quantity: 5 #Half of the value of regular glass. TECHNICALLY, welding a single shard of glass gives you the full thing back with just 1 sheet, but that is stupid so I am making it half.
@@ -136,10 +141,10 @@
       - ReinforcedGlassShard
       - Trash
   - type: Extractable
-    grindableSolutionName: shardrglass
+    grindableSolutionName: food #ADT-tweak
   - type: SolutionContainerManager
     solutions:
-      shardrglass:
+      food: #ADT-tweak
         reagents:
         - ReagentId: Silicon
           Quantity: 5 #I don't care enough to divide all of the reinforced glass materials by 2 because reinforced glass shards are due for removal anyways.
@@ -172,10 +177,10 @@
       - PlasmaGlassShard
       - Trash
   - type: Extractable
-    grindableSolutionName: shardpglass
+    grindableSolutionName: food #ADT-tweak
   - type: SolutionContainerManager
     solutions:
-      shardpglass:
+      food: #ADT-tweak
         reagents:
         - ReagentId: Silicon
           Quantity: 5
@@ -212,10 +217,10 @@
       - UraniumGlassShard
       - Trash
   - type: Extractable
-    grindableSolutionName: sharduglass
+    grindableSolutionName: food #ADT-tweak
   - type: SolutionContainerManager
     solutions:
-      sharduglass:
+      food: #ADT-tweak
         reagents:
         - ReagentId: Silicon
           Quantity: 5
@@ -246,10 +251,10 @@
       - ClockworkGlassShard
       - Trash
   - type: Extractable
-    grindableSolutionName: shardcglass
+    grindableSolutionName: food #ADT-tweak
   - type: SolutionContainerManager
     solutions:
-      shardcglass:
+      food: #ADT-tweak
         reagents:
         - ReagentId: Silicon
           Quantity: 5
