@@ -79,6 +79,11 @@
     - BalloonNT
     - BalloonCorgi
     - BoxDonkSoftBox
+#ADT-tweak start
+    - ADTToyBlasterGunRed
+    - ADTToyBlasterGunGreen
+    - ADTToyBlasterGunBlue
+#ADT-tweak end
     - BoxCartridgeCap
     - BeachBall
     - CandyBucket

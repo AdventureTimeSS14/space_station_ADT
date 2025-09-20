@@ -193,6 +193,12 @@
       prob: 0.05
     - id: ADTTonfaBlueprint
       prob: 0.03
+    - id: ADTToyBlasterGunRed
+      prob: 0.20
+    - id: ADTToyBlasterGunBlue
+      prob: 0.15
+    - id: ADTToyBlasterGunGreen
+      prob: 0.10
     #ADT tweak end
 
 - type: entity

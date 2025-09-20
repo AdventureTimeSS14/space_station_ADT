@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ADTChemDispenserFlatpack
+  name: chem dispenser flatpack
+  description: A flatpack used for constructing a chem dispenser.
+  components:
+  - type: Flatpack
+    entity: ChemDispenser
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTChemMasterFlatpack
+  name: chem master flatpack
+  description: A flatpack used for constructing a chem dispenser.
+  components:
+  - type: Flatpack
+    entity: ChemMaster
+
+- type: entity
+  parent: BaseFlatpack
+  id: ADTStasisBedFlatpack
+  name: stasis bed flatpack
+  description: A flatpack used for constructing a stasis bed.
+  components:
+  - type: Flatpack
+    entity: StasisBed
