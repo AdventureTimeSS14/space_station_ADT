@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  id: MobForgottenGodBase
+  id: ADTMobForgottenGodBase
   name: The Forgotten God
   description: Your mind begins to bubble and ooze as it tries to comprehend what it sees.
   components:
@@ -13,8 +13,8 @@
       shader: unshaded
 
 - type: entity
-  parent: MobForgottenGodBase
-  id: MobForgottenGodSpawn
+  parent: ADTMobForgottenGodBase
+  id: ADTMobForgottenGodSpawn
   suffix: ДАЖЕ НЕ ТРОГАТЬ, Спавн
   components:
   - type: Sprite
@@ -24,11 +24,11 @@
   - type: TimedDespawn
     lifetime: 4.25
   - type: SpawnOnDespawn
-    prototype: MobForgottenGod
+    prototype: ADTMobForgottenGod
 
 - type: entity
-  parent: [MobForgottenGodBase, BaseMob]
-  id: MobForgottenGod
+  parent: [ADTMobForgottenGodBase, BaseMob]
+  id: ADTMobForgottenGod
   suffix: ДАЖЕ НЕ ТРОГАТЬ
   components:
   - type: CargoSellBlacklist
@@ -89,8 +89,8 @@
     intensity: 2
 
 - type: entity
-  parent: MobForgottenGodBase
-  id: MobForgottenGodSpawnAnnounce
+  parent: ADTMobForgottenGodBase
+  id: ADTMobForgottenGodSpawnAnnounce
   suffix: ДАЖЕ НЕ ТРОГАТЬ, Спавн с объявлением
   components:
   - type: Sprite
@@ -100,11 +100,11 @@
   - type: TimedDespawn
     lifetime: 4.25
   - type: SpawnOnDespawn
-    prototype: MobForgottenGodAnnounce
+    prototype: ADTMobForgottenGodAnnounce
 
 - type: entity
-  parent: [MobForgottenGodBase, BaseMob]
-  id: MobForgottenGodAnnounce
+  parent: [ADTMobForgottenGodBase, BaseMob]
+  id: ADTMobForgottenGodAnnounce
   suffix: ДАЖЕ НЕ ТРОГАТЬ, Объявление
   components:
   - type: AnnounceOnSpawn
