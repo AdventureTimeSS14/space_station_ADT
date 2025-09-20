@@ -41,10 +41,13 @@ public sealed class SharedModSuitModSystem : EntitySystem
     }
     private void OnActivate(EntityUid uid, ModSuitComponent component, ModModulActivateMessage args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
             return;
-
+        if (mod.Active)
+            return;
         ActivateModule(uid, module, mod, component);
         Dirty(module, mod);
         Dirty(uid, component);
@@ -56,6 +59,8 @@ public sealed class SharedModSuitModSystem : EntitySystem
             return;
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
+            return;
+        if (!mod.Active)
             return;
 
         DeactivateModule(uid, module, mod, component);
