@@ -36,6 +36,7 @@
   text: "/ServerInfo/ADT/Guidebook/Service/FoodRecipes.xml"
   filterEnabled: True
   children:
+  - BaseRecipes #ADT-Tweak
   - PizzaRecipes
   - SavoryRecipes
   - BreadRecipes
@@ -48,10 +49,20 @@
   - BarsAndCookiesRecipes
   - CakeRecipes
   - SaladRecipes
-  - HolidayRecipes  #ADT-Tweak
+  #ADT-Tweak-Start
+  - IcecreamRecipes
+  - HolidayRecipes
+  #ADT-Tweak-End
   - OtherRecipes
 # - MedicinalRecipes
   - SecretRecipes
+
+#ADT-Tweak Start
+- type: guideEntry
+  id: BaseRecipes
+  name: guide-entry-base-recipes
+  text: "/ServerInfo/ADT/Guidebook/Service/BaseRecipes.xml"
+#ADT-Tweak End
 
 - type: guideEntry
   id: PizzaRecipes
@@ -126,6 +137,12 @@
   filterEnabled: True
 
 #ADT-Tweak Start
+- type: guideEntry
+  id: IcecreamRecipes
+  name: guide-entry-icecream-recipes
+  text: "/ServerInfo/ADT/Guidebook/Service/IcecreamRecipes.xml"
+  filterEnabled: True
+
 - type: guideEntry
   id: HolidayRecipes
   name: guide-entry-holiday-recipes

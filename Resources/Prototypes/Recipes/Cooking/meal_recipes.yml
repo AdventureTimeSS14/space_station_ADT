@@ -16,7 +16,7 @@
   name: cotton bun recipe
   result: FoodCottonBun
   time: 5
-  group: Breads
+  group: Moth #ADT-Tweak
   solids:
     FoodDoughCottonSlice: 1
 
@@ -996,9 +996,14 @@
   name: world peazza recipe
   result: FoodPizzaWorldpeas
   time: 30
+  group: Pizza #ADT-Tweak
   solids:
     FoodDoughFlat: 1
     FoodWorldPeas: 3
+  #ADT-Tweak Start
+  recipeType:
+  - Oven
+  #ADT-Tweak End
 
 #Italian
 - type: microwaveMealRecipe
@@ -1535,7 +1540,7 @@
   name: baklava recipe
   result: FoodPieBaklava
   time: 15
-  group: BarsAndCookies
+  group: Pie #ADT-Tweak
   solids:
     FoodDoughPie: 1
     FoodSnackPistachios: 1 #i'd rather use a botany crop but we don't have nuts yet
@@ -2459,6 +2464,7 @@
   name: warm moth-pocket recipe
   result: FoodDonkpocketMothWarm
   time: 5
+  group: Moth #ADT-Tweak
   solids:
     FoodDonkpocketMoth: 1
 
@@ -3246,6 +3252,7 @@
   name: cotton grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwichCotton
   time: 10
+  group: Moth #ADT-Tweak
   solids:
     FoodBreadCottonSlice: 2
     FoodCheeseSlice: 1
