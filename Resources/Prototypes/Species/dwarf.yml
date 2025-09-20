@@ -16,7 +16,7 @@
   - Имеют врождённый нюх на минералы, позволяющий чувствовать их в радиусе 4 тайлов
   cons:
   - Задыхаются в два раза быстрее человека
-  description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Dwarf.xml"
   defaultLanguages:
   - GalacticCommon
   - Dwarf
