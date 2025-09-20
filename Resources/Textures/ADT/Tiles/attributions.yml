@@ -47,3 +47,28 @@
   license: "CC-BY-SA-3.0"
   copyright: "Adventure Time MRP Server"
   source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["cult.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "SS1984"
+  source: "https://github.com/ss220-space/Paradise"
+
+- files: ["cultfire.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "SS1984"
+  source: "https://github.com/ss220-space/Paradise"
+
+- files: ["culthell.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "SS1984"
+  source: "https://github.com/ss220-space/Paradise"
+
+- files: ["wood_black_broken.png", "wood_large_black_broken.png", "wood_chess_black_broken.png", "wood_parquet_black_broken.png", "wood_light_broken.png", "wood_large_light_broken.png", "wood_chess_light_broken.png", "wood_parquet_light_broken.png", "wood_dark_broken.png", "wood_large_dark_broken.png", "wood_chess_dark_broken.png", "wood_parquet_dark_broken.png", "wood_red_broken.png", "wood_large_red_broken.png", "wood_chess_red_broken.png", "wood_parquet_red_broken.png", "wood_large_broken.png", "wood_chess_broken.png", "wood_parquet_broken.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "tgstation, Wood tiles are new tg tiles, resprited by Meowstushka, modified by Ko4erga and maksim21612 (discord); resprited by prazat911 (discord)"
+  source: "https://github.com/tgstation/tgstation/"
+
+- files: ["sepia.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "SS1984"
+  source: "https://github.com/ss220-space/Paradise"

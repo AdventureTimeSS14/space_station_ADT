@@ -58,3 +58,11 @@ ent-ADTDigitalBlueWallIndestructible = синяя цифровая стена
 
 ent-ADTRadiationUraniumWall = урановая стена
     .desc = Вам кажется или эта стена, сделанная из чистого урана, светится?
+
+ent-ADTAbductorWall = инопланетная стена
+    .desc = Удерживает серых человечков внутри, а скот снаружи.
+    .suffix = Неразрушимый
+
+ent-ADTAbductorWallDiagonal = диагональная укреплённая стена
+    .desc = Удерживает серых человечков внутри, а скот снаружи.
+    .suffix = Неразрушимый, диагональный
