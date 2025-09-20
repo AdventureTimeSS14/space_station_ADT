@@ -86,10 +86,12 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    color: "#a8d8ff"
+    color: "#ffffff"
     mask: /Textures/Effects/LightMasks/cone.png
+    offset: 0,-0.3
     autoRot: true
     radius: 3
+    energy: 2
   - type: Wires
     boardName: "ipc-board-name"
     layoutId: IPC
@@ -137,6 +139,12 @@
     - AnomalyHost
   - type: Inventory
     templateId: ipc
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.1

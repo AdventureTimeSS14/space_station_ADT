@@ -133,9 +133,9 @@
     id: SalvagePDA
 
 - type: loadout
-  id: ADTExcavatorPDA
+  id: ADTMinerPDA
   equipment:
-    id: ADTExcavatorPDA
+    id: ADTMinerPDA
 
 # OuterClothing
 
