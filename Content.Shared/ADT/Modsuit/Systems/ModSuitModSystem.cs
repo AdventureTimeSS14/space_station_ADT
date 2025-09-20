@@ -191,7 +191,7 @@ public sealed class SharedModSuitModSystem : EntitySystem
             _ => ExamineColor.Green
         };
 
-        args.PushMarkup(Loc.GetString("modsuit-mod-description-weight",
+        args.PushMarkup(Loc.GetString("modsuit-mod-description-complexity",
             ("complexity", GetColor(complexityColor, mod.Complexity.ToString("0")))));
         args.PushMarkup(Loc.GetString("modsuit-mod-description-energy",
             ("energy", GetColor(energyColor, mod.EnergyUsing.ToString("0.0")))));
