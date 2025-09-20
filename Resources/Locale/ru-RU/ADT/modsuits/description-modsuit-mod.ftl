@@ -1,2 +1,2 @@
 modsuit-mod-description-weight = Сложность модуля: {$complexity}
-modsuit-mod-description-energy = Потребление электропитания модуля: {$energy}
+modsuit-mod-description-energy = Энергопотребление модуля: {$energy}
