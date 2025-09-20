@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made from not_so_big_chungus",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "violet"
+        },
+        {
+            "name": "blue"
+        },
+        {
+            "name": "darkblue"
+        },
+        {
+            "name": "red"
+        },
+        {
+            "name": "green"
+        },
+        {
+            "name": "yellow"
+        },
+        {
+            "name": "orange"
+        }
+    ]
+}

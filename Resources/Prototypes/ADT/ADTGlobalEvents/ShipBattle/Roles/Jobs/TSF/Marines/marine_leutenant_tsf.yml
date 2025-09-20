@@ -40,7 +40,7 @@
   id: ADTBattleShipMarineLeutenantTSFGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformMarineLeutenantTSF
-    back: ADTShipBattleClothingBlackBackpackJetTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSFMarineLeutenant
     shoes: ADTShipBattleClothingShoesBootsMagFleetOfficer
     # head: ADTShipBattleClothingHeadHatExOfficerTSF
     # eyes: ClothingEyesGlassesSecurity
@@ -54,9 +54,9 @@
     underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
-  storage:
-    back:
-    - BoxSurvivalEngineering
-    - CrowbarRed
-    - SpaceCash500
-    - ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantTSF
+  # storage:
+  #   back:
+  #   - BoxSurvivalEngineering
+  #   - CrowbarRed
+  #   - SpaceCash500
+  #   - ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantTSF
