@@ -40,6 +40,7 @@ chem-master-window-amount-placeholder = Кол-во переносимого в�
 chem-master-window-set-amount-label = Применить
 chem-master-window-save-as-frequent-label = Добавить шаблон
 chem-master-window-sort-method-Amount-text = Сортировка по количеству
+chem-master-window-sort-method-Alphabetical-text = Сортировка по алфавиту
 chem-master-window-sort-method-Time-text = Последний добавленный реагент
 chem-master-window-transferring-label =    Перенести: [color={$color}]{$quantity}[/color] ед.
 chem-master-window-transferring-default-label =    Перенести: [color=#ffffff]50[/color] ед.

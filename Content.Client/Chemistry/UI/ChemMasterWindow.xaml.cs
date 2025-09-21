@@ -24,20 +24,22 @@ namespace Content.Client.Chemistry.UI
     public sealed partial class ChemMasterWindow : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        //ADT-Tweak Start
         public event Action<BaseButton.ButtonEventArgs, ReagentButton, int, bool>? OnReagentButtonPressed;
         public event Action<int>? OnAmountButtonPressed;
         public event Action<int>? OnSortMethodChanged;
         public event Action<int>? OnTransferAmountChanged;
         public event Action<List<int>>? OnUpdateAmounts;
-
+        //ADT-Tweak End
         public readonly Button[] PillTypeButtons;
-
+        //ADT-Tweak Start
         private List<int> _amounts = new();
 
         private const string TransferringAmountColor = "#ffffff";
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
         private ChemMasterBoundUserInterfaceState? _lastState;
         private int _transferAmount = 50;
+        // ADT-Tweak
 
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
 
@@ -112,6 +114,10 @@ namespace Content.Client.Chemistry.UI
                 (int) ReagentSortMethod.Amount);
 
             SortMethod.AddItem(
+                Loc.GetString("chem-master-window-sort-method-Alphabetical-text"),
+                (int) ReagentSortMethod.Alphabetical);
+
+            SortMethod.AddItem(
                 Loc.GetString("chem-master-window-sort-method-Time-text"),
                 (int) ReagentSortMethod.Time);
 
@@ -120,6 +126,11 @@ namespace Content.Client.Chemistry.UI
             PillSortMethod.AddItem(Loc.GetString(
                     "chem-master-window-sort-method-Amount-text"),
                 (int) ReagentSortMethod.Amount);
+
+            PillSortMethod.AddItem(
+                Loc.GetString("chem-master-window-sort-method-Alphabetical-text"),
+                (int) ReagentSortMethod.Alphabetical);
+
             PillSortMethod.AddItem(
                 Loc.GetString("chem-master-window-sort-method-Time-text"),
                 (int) ReagentSortMethod.Time);
@@ -222,12 +233,12 @@ namespace Content.Client.Chemistry.UI
             if (_lastState == null)
                 return;
 
-            UpdatePanelInfo(_lastState);
+            UpdateState(_lastState);
         }
 
         private bool ValidateAmount(string newText, bool invokeEvent = true)
         {
-            if (string.IsNullOrWhiteSpace(newText) || !int.TryParse(newText, out int amount))
+            if (string.IsNullOrWhiteSpace(newText) || !int.TryParse(newText, out int amount) || amount <= 0)
             {
                 AmountLineEdit.SetText(string.Empty);
                 return false;
@@ -274,7 +285,14 @@ namespace Content.Client.Chemistry.UI
             if (!addReagentButtons)
                 return null; // Return an empty list if reagentTransferButton creation is disabled.
 
-            var text = BufferTransferButton.Pressed ? "transfer" : "discard";
+            // ADT-Tweak-Start: Use the appropriate toggle (buffer vs. pill) when determining the text
+            var isTransfer = isBuffer
+                ? BufferTransferButton.Pressed
+                : PillBufferTransferButton.Pressed;
+            var text = isTransfer
+                ? "transfer"
+                : "discard";
+            // ADT-Tweak-End
 
             var reagentTransferButton = MakeReagentButton(
                 Loc.GetString($"chem-master-window-{text}-button"),
@@ -303,12 +321,15 @@ namespace Content.Client.Chemistry.UI
             HandleSortMethodChange(castState.SortMethod);
             SetAmountText(castState.TransferringAmount.ToString(), false);
 
-            if (_amounts != castState.Amounts)
+            // ADT-Tweak-Start: compare list contents instead of references
+            if (!_amounts.SequenceEqual(castState.Amounts))
             {
                 _amounts = castState.Amounts;
                 _amounts.Sort();
                 CreateAmountButtons();
             }
+            // ADT-Tweak-End
+
 
             BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
@@ -405,10 +426,17 @@ namespace Content.Client.Chemistry.UI
             };
             bufferHBox.AddChild(bufferVol);
 
-            var bufferReagents = state.BufferReagents.OrderBy(x => x.Reagent.Prototype);
-
+            var bufferReagents = state.BufferReagents;
             if (_currentSortMethod == ReagentSortMethod.Amount)
-                bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity);
+                bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity).ToList();
+            else if (_currentSortMethod == ReagentSortMethod.Alphabetical)
+                bufferReagents = bufferReagents.OrderBy(x => {
+                    _prototypeManager.TryIndex(x.Reagent.Prototype, out ReagentPrototype? proto);
+                    var localized = proto?.LocalizedName ?? string.Empty;
+                    return localized;
+                }).ToList();
+            else
+                bufferReagents = bufferReagents.OrderBy(x => x.Reagent.Prototype).ToList();
 
             HandleBuffer(_currentSortMethod == ReagentSortMethod.Time ? state.BufferReagents : bufferReagents, false);
         }
@@ -438,10 +466,17 @@ namespace Content.Client.Chemistry.UI
             };
             bufferHBox.AddChild(bufferVol);
 
-            var bufferReagents = state.PillBufferReagents.OrderBy(x => x.Reagent.Prototype);
-
+            var bufferReagents = state.PillBufferReagents;
             if (_currentSortMethod == ReagentSortMethod.Amount)
-                bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity);
+                bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity).ToList();
+            else if (_currentSortMethod == ReagentSortMethod.Alphabetical)
+                bufferReagents = bufferReagents.OrderBy(x => {
+                    _prototypeManager.TryIndex(x.Reagent.Prototype, out ReagentPrototype? proto);
+                    var localized = proto?.LocalizedName ?? string.Empty;
+                    return localized;
+                }).ToList();
+            else
+                bufferReagents = bufferReagents.OrderBy(x => x.Reagent.Prototype).ToList();
 
             HandleBuffer(_currentSortMethod == ReagentSortMethod.Time ? state.PillBufferReagents : bufferReagents, true);
         }
@@ -531,7 +566,7 @@ namespace Content.Client.Chemistry.UI
             var rowColor1 = Color.FromHex("#1B1B1E");
             var rowColor2 = Color.FromHex("#202025");
             var currentRowColor = (rowCount % 2 == 1) ? rowColor1 : rowColor2;
-            if ((reagentColor == default(Color))|(!addReagentButtons))
+            if ((reagentColor == default(Color)) || (!addReagentButtons))
             {
                 reagentColor = currentRowColor;
             }
