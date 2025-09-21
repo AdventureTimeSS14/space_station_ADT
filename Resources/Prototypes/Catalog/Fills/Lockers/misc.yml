@@ -198,7 +198,7 @@
     - id: ADTToyBlasterGunBlue
       prob: 0.11
     - id: ADTToyBlasterGunGreen
-      prob: 0.10
+      prob: 0.085
     #ADT tweak end
 
 - type: entity
