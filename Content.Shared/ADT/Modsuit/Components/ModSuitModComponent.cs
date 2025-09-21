@@ -50,3 +50,10 @@ public sealed partial class ModSuitModComponent : Component
     [AutoNetworkedField]
     public TimeSpan Ejecttick;
 }
+
+public enum ExamineColor
+{
+    Red,
+    Yellow,
+    Green
+}
