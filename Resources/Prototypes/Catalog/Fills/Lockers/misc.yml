@@ -196,7 +196,7 @@
     - id: ADTToyBlasterGunRed
       prob: 0.13
     - id: ADTToyBlasterGunBlue
-      prob: 0.15
+      prob: 0.11
     - id: ADTToyBlasterGunGreen
       prob: 0.10
     #ADT tweak end
