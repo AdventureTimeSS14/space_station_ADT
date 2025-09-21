@@ -40,3 +40,31 @@
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   spawn: ADTBSore1
   maxCount: 30
+
+## NewBFUU by M&B (еблан какой-то)
+- type: entity
+  parent: OreBase
+  id: ADTGibtonite
+  suffix: Full
+  name: Bluespace ore
+  description: rock wirh pieces of bluespace ore
+  components:
+  - type: Stack
+    stackType: ADTBSoreStack
+  - type: Sprite
+    sprite: ADT/Objects/Materials/BS_ore.rsi
+    layers:
+    - state: BS_ore
+      map: [ "base" ]
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ADTRawBSore: 800
+  - type: Extractable
+    grindableSolutionName: ADTBSore
+  - type: Item
+    heldPrefix: ADTBSore
+  - type: Tag
+    tags:
+      - ADTBSore
+      - Ore
