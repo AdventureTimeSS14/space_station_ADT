@@ -1,14 +1,14 @@
-ent-MobForgottenGodBase = Забытый Бог
+ent-ADTMobForgottenGodBase = Забытый Бог
     .desc = Ваш разум закипает и бурлит, пытаясь осмыслить увиденное.
-ent-MobForgottenGodSpawn = { ent-MobForgottenGodBase }
-    .desc = { ent-MobForgottenGodBase.desc }
-ent-MobForgottenGod = { ent-MobForgottenGodBase }
-    .desc = { ent-MobForgottenGodBase.desc }
+ent-ADTMobForgottenGodSpawn = { ent-ADTMobForgottenGodBase }
+    .desc = { ent-ADTMobForgottenGodBase.desc }
+ent-ADTMobForgottenGod = { ent-ADTMobForgottenGodBase }
+    .desc = { ent-ADTMobForgottenGodBase.desc }
 
-ent-MobForgottenGodSpawnAnnounce = { ent-MobForgottenGodBase }
-    .desc = { ent-MobForgottenGodBase.desc }
-ent-MobForgottenGodAnnounce = { ent-MobForgottenGodBase }
-    .desc = { ent-MobForgottenGodBase.desc }
+ent-ADTMobForgottenGodSpawnAnnounce = { ent-ADTMobForgottenGodBase }
+    .desc = { ent-ADTMobForgottenGodBase.desc }
+ent-ADTMobForgottenGodAnnounce = { ent-ADTMobForgottenGodBase }
+    .desc = { ent-ADTMobForgottenGodBase.desc }
 
 forgotten-has-risen = Целостность пространства и времени нарушена... Из бездонной червоточины Нечто пробралось в наш мир.
 
