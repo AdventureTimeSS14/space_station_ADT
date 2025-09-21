@@ -22,3 +22,9 @@
         damage:
           types:
             Cellular: 0.5
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+        conditions:
+        - !type:OrganType
+            type: Novakid

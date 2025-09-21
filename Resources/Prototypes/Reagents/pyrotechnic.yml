@@ -31,9 +31,11 @@
       effects:
       - !type:HealthChange
         conditions:
+        # ADT-Tweak Start
         - !type:OrganType
           type: Novakid
           shouldHave: false
+        # ADT-Tweak End
         - !type:OrganType
           type: Vox
           shouldHave: false
@@ -41,6 +43,14 @@
           types:
             Heat: 2
             Poison: 1
+        # ADT-Tweak Start
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+        conditions:
+        - !type:OrganType
+            type: Novakid
+        # ADT-Tweak End
 
 - type: reagent
   id: Napalm
@@ -58,21 +68,43 @@
       methods: [ Touch ]
       effects:
       - !type:FlammableReaction
+        # ADT-Tweak Start
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: False
+        # ADT-Tweak End
         multiplier: 0.4
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
         conditions:
+        # ADT-Tweak Start
         - !type:OrganType
           type: Novakid
           shouldHave: false
+        # ADT-Tweak End
         damage:
           types:
             Heat: 2
             Poison: 1
             Caustic: 0.5 # based off napalm being an irritant
+      # ADT-Tweak Start
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+        conditions:
+        - !type:OrganType
+            type: Novakid
+        # ADT-Tweak End
       - !type:FlammableReaction
+        # ADT-Tweak Start
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        # ADT-Tweak End
         multiplier: 0.4
 
 - type: reagent
@@ -95,7 +127,21 @@
           types:
             Heat: 3
             Poison: 1
+        # ADT-Tweak Start
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+        conditions:
+        - !type:OrganType
+            type: Novakid
+        # ADT-Tweak End
       - !type:FlammableReaction
+        # ADT-Tweak Start
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
+        # ADT-Tweak End
         multiplier: 0.1
       - !type:AdjustTemperature
         amount: 6000
@@ -131,7 +177,21 @@
             Heat: 2
             Poison: 1
             Caustic: 0.5 # CLF3 is corrosive
+        # ADT-Tweak Start
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.6
+        conditions:
+        - !type:OrganType
+            type: Novakid
+        # ADT-Tweak End
       - !type:FlammableReaction
+        # ADT-Tweak Start
+        conditions:
+        - !type:OrganType
+            type: Novakid
+            shouldHave: false
+        # ADT-Tweak End
         multiplier: 0.2
       - !type:AdjustTemperature
         amount: 6000
@@ -200,11 +260,21 @@
         damage:
           types:
             Poison: 1
+        # ADT-Tweak Start
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+        conditions:
+        - !type:OrganType
+            type: Novakid
+        # ADT-Tweak End
       - !type:FlammableReaction
+        # ADT-Tweak Start
         conditions:
         - !type:OrganType
           type: Novakid
           shouldHave: false
+        # ADT-Tweak End
         multiplier: 0.4
 
 - type: reagent
