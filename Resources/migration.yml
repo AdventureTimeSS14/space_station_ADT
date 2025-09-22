@@ -727,3 +727,6 @@ ADTIconAdventureTime: null
 #Ganimed 2025-06-14
 ADTPoweredShuttleLight: AlwaysPoweredWallLight
 ADTPoweredShuttleLightLED: AlwaysPoweredWallLight
+ADTPoweredShuttleLightRed: AlwaysPoweredWallLight
+ADTPoweredShuttleLightOrange: AlwaysPoweredWallLight
+ADTPoweredShuttleLightSodium: AlwaysPoweredWallLight
