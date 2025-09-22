@@ -215,10 +215,10 @@ namespace Content.Client.Chemistry.UI
 
         private void HandleSortMethodChange(int newSortMethod)
         {
-            if (newSortMethod == (int) _currentSortMethod)
+            if (newSortMethod == (int)_currentSortMethod)
                 return;
 
-            _currentSortMethod = (ReagentSortMethod) newSortMethod;
+            _currentSortMethod = (ReagentSortMethod)newSortMethod;
             SortMethod.SelectId(newSortMethod);
             PillSortMethod.SelectId(newSortMethod);
 
@@ -313,17 +313,15 @@ namespace Content.Client.Chemistry.UI
         /// <param name="state">State data sent by the server.</param>
         public void UpdateState(BoundUserInterfaceState state)
         {
-            var castState = (ChemMasterBoundUserInterfaceState) state;
+            var castState = (ChemMasterBoundUserInterfaceState)state;
 
-
-            if (castState.UpdateLabel)
-                LabelLine = GenerateLabel(castState);
 
             _lastState = castState; // ADT-Tweak
-
-            // Ensure the Panel Info is updated, including UI elements for Buffer Volume, Output Container and so on
-            UpdatePanelInfo(castState);
+            // Сначала применяем метод сортировки, затем строим панели
             HandleSortMethodChange(castState.SortMethod);   // ADT-Tweak
+            UpdatePanelInfo(castState);
+            if (castState.UpdateLabel)
+                LabelLine = GenerateLabel(castState);
             SetAmountText(castState.TransferringAmount.ToString(), false);  // ADT-Tweak
 
             // ADT-Tweak-Start: compare list contents instead of references
@@ -339,7 +337,7 @@ namespace Content.Client.Chemistry.UI
             BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
-            CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0;;
+            CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0; ;
             CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0;
 
             UpdateDosageFields(castState);
@@ -384,7 +382,7 @@ namespace Content.Client.Chemistry.UI
                 return "";
 
             var buffer = Tabs.CurrentTab == 0 ? state.BufferReagents : state.PillBufferReagents;    // ADT-Tweak
-            var reagent = buffer.OrderBy(r => r.Quantity).First().Reagent;  // ADT-Tweak
+            var reagent = buffer.OrderByDescending(r => r.Quantity).First().Reagent;  // ADT-Tweak
             _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? proto);
             return proto?.LocalizedName ?? "";
         }
@@ -438,7 +436,8 @@ namespace Content.Client.Chemistry.UI
             if (_currentSortMethod == ReagentSortMethod.Amount)
                 bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity).ToList();
             else if (_currentSortMethod == ReagentSortMethod.Alphabetical)
-                bufferReagents = bufferReagents.OrderBy(x => {
+                bufferReagents = bufferReagents.OrderBy(x =>
+                {
                     _prototypeManager.TryIndex(x.Reagent.Prototype, out ReagentPrototype? proto);
                     var localized = proto?.LocalizedName ?? string.Empty;
                     return localized;
