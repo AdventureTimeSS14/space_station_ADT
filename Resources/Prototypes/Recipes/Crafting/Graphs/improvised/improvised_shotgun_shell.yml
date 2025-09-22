@@ -12,12 +12,12 @@
             - material: Plastic
               amount: 1
               doAfter: 0.5
-            - tag: GlassShard
-              name: construction-graph-tag-glass-shard
-              icon:
-                sprite: Objects/Materials/Shards/shard.rsi
-                state: shard1
-              doAfter: 0.5
+           # - tag: GlassShard
+           #   name: construction-graph-tag-glass-shard
+           #   icon:
+           #     sprite: Objects/Materials/Shards/shard.rsi
+           #     state: shard1
+            #    doAfter: 0.5
             - tag: GlassShard
               name: construction-graph-tag-glass-shard
               icon:
@@ -36,6 +36,24 @@
                 sprite: Objects/Tools/matches.rsi
                 state: match_unlit
               doAfter: 0.5
+          #  - tag: Matchstick
+          #    name: construction-graph-tag-match-stick
+          #    icon:
+          #      sprite: Objects/Tools/matches.rsi
+           #     state: match_unlit
+          #    doAfter: 0.5
+         #   - tag: Matchstick
+         #     name: construction-graph-tag-match-stick
+         #     icon:
+         #       sprite: Objects/Tools/matches.rsi
+         #       state: match_unlit
+         #     doAfter: 0.5
+         #   - tag: Matchstick
+          #    name: construction-graph-tag-match-stick
+          #    icon:
+          #      sprite: Objects/Tools/matches.rsi
+          #      state: match_unlit
+          #    doAfter: 0.5
             - tag: Matchstick
               name: construction-graph-tag-match-stick
               icon:
