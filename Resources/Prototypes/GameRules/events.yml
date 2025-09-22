@@ -613,12 +613,12 @@
     weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-#    startAnnouncement: station-event-communication-interception # ganimed testmerge: no sleeper agents announcement
-#    startAudio:
-#      path: /Audio/Announcements/intercept.ogg
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
-#  - type: AlertLevelInterceptionRule # ganimed testmerge: no sleeper agents announcement
+  - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ TraitorSleeper ]

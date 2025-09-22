@@ -494,7 +494,7 @@
 # Borgs
 - type: language
   id: BorgTalk
-  roundstart: true
+  roundstart: false # Ganimed-Tweak
   uiColor: "#9faffc"
   parent: BaseVocalLanguage
   speech: !type:Generic
