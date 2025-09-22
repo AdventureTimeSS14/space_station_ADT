@@ -199,7 +199,7 @@
     belt: ADTClothingBeltMedicalSecurityFilled
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
-    pocket1: HandheldCrewMonitor
+    pocket1: DTHandheldCrewMonitorBlueshield
   inhand: 
     - ADTBaseWeaponCaseNTBS
   # innerClothingSkirt: ClothingUniformJumpskirtBlueshield

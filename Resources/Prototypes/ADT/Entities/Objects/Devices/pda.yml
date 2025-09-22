@@ -530,11 +530,11 @@
 
 - type: entity
   parent: SalvagePDA
-  id: ADTExcavatorPDA
-  name: excavator PDA
+  id: ADTMinerPDA
+  name: miner PDA
   components:
   - type: Pda
-    id: ADTExcavatorIDCard
+    id: ADTMinerIDCard
 
 # Scientist
 

@@ -2,6 +2,7 @@ using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Shared.PowerCell;
+using Content.Shared.Examine;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -16,6 +17,7 @@ public sealed class SharedModSuitModSystem : EntitySystem
 
         SubscribeLocalEvent<ModSuitModComponent, BeforeRangedInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<ModSuitModComponent, ModModulesUiStateReadyEvent>(OnGetUIState);
+        SubscribeLocalEvent<ModSuitModComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<ModSuitComponent, ModModuleRemoveMessage>(OnEject);
         SubscribeLocalEvent<ModSuitComponent, ModModulActivateMessage>(OnActivate);
@@ -41,10 +43,13 @@ public sealed class SharedModSuitModSystem : EntitySystem
     }
     private void OnActivate(EntityUid uid, ModSuitComponent component, ModModulActivateMessage args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
             return;
-
+        if (mod.Active)
+            return;
         ActivateModule(uid, module, mod, component);
         Dirty(module, mod);
         Dirty(uid, component);
@@ -56,6 +61,8 @@ public sealed class SharedModSuitModSystem : EntitySystem
             return;
         var module = GetEntity(args.Module);
         if (!TryComp<ModSuitModComponent>(module, out var mod))
+            return;
+        if (!mod.Active)
             return;
 
         DeactivateModule(uid, module, mod, component);
@@ -154,5 +161,39 @@ public sealed class SharedModSuitModSystem : EntitySystem
             _mod.UpdateUserInterface(modSuit, modcomp);
         });
         return true;
+    }
+
+    public string GetColor(ExamineColor color, string text)
+    {
+        var colorCode = color switch
+        {
+            ExamineColor.Red => "red",
+            ExamineColor.Yellow => "yellow",
+            _ => "green"
+        };
+
+        return $"[color={colorCode}]{text}[/color]";
+    }
+
+    private void OnExamine(EntityUid uid, ModSuitModComponent mod, ref ExaminedEvent args)
+    {
+        var complexityColor = mod.Complexity switch
+        {
+            > 2 => ExamineColor.Red,
+            > 1 => ExamineColor.Yellow,
+            _ => ExamineColor.Green
+        };
+
+        var energyColor = mod.EnergyUsing switch
+        {
+            > 0.2f => ExamineColor.Red,
+            > 0.1f => ExamineColor.Yellow,
+            _ => ExamineColor.Green
+        };
+
+        args.PushMarkup(Loc.GetString("modsuit-mod-description-complexity",
+            ("complexity", GetColor(complexityColor, mod.Complexity.ToString("0")))));
+        args.PushMarkup(Loc.GetString("modsuit-mod-description-energy",
+            ("energy", GetColor(energyColor, mod.EnergyUsing.ToString("0.0")))));
     }
 }

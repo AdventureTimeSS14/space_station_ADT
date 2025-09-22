@@ -12,7 +12,7 @@
   femaleFirstNames: NamesReptilianFemale #как у reptilian
   naming: FirstDashFirst #как у reptilian
   category: Unusual
-  description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Kobalt.xml"
   pros:
   - Получают на 5% меньше урона уколами.
   - Получают на 10% меньше урона порезами.

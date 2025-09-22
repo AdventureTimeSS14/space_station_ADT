@@ -653,8 +653,75 @@
   maxLimit: 1
   loadouts:
   - ADTClothingUniformJumpsuitSalvageSpecialist
+
+# ШАХТЁР
+- type: loadoutGroup
+  id: ADTMinerJumpsuit
+  name: loadout-miner-jumpsuit-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
   - ADTUniformJumpsuitExplorer
 
+- type: loadoutGroup
+  id: ADTMinerBackpack
+  name: loadout-miner-backpack
+  loadouts:
+  - SalvageSpecialistBackpack
+  - SalvageSpecialistSatchel
+  - SalvageSpecialistDuffel
+
+- type: loadoutGroup
+  id: ADTMinerSpecialistEars
+  name: loadout-miner-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadsetCargo
+  - ADTClothingHeadsetMining
+
+# Плащи
+- type: loadoutGroup
+  id: ADTMinerSpecialistNeck
+  name: loadout-miner-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTNeckSalvageSpecialistCCape
+  - ADTNeckSalvageSpecialistSCape
+  - ADTNeckSalvageSpecialistGCape
+  - ADTNeckSalvageSpecialistPCape
+  - ADTNeckSalvageSpecialistECape
+  - ADTNeckSalvageSpecialistDCape
+  - ADTNeckSalvageSpecialistRCape
+
+- type: loadoutGroup
+  id: ADTMinerOuterClothing
+  name: loadout-miner-outerclothing-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SalvageSpecialistWintercoat
+  - ADTNeckSalvageSpecialistEBomber
+
+- type: loadoutGroup
+  id: ADTMinerPDA
+  name: loadout-miner-id-adt
+  loadouts:
+  - ADTMinerPDA
+
+- type: loadoutGroup
+  id: ADTMinerShoes
+  name: loadout-miner-shoes-adt
+  loadouts:
+  - SalvageBoots
+  - CargoWinterBoots
+  - ADTFootWrapsW
+  - ADTFootWrapsHighW
+  - ADTFootWrapsBr
+  - ADTFootWrapsHighBr
+  - ADTFootWrapsBl
+  - ADTFootWrapsHighBl
 
 # Плащи
 - type: loadoutGroup
@@ -781,7 +848,6 @@
   maxLimit: 1
   loadouts:
   - SalvagePDA
-  - ADTExcavatorPDA
 
 - type: loadoutGroup
   id: ADTClownPDA
