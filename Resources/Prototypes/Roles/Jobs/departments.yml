@@ -6,6 +6,7 @@
   roles:
   - CargoTechnician
   - Quartermaster
+  - ADTMiner # ADT tweak
   - SalvageSpecialist
 
 - type: department
