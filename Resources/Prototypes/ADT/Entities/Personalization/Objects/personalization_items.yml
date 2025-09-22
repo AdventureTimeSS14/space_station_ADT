@@ -2120,7 +2120,7 @@
 
 #kugooergooer
 - type: entity
-  parent: BasePlushie
+  parent: BaseFigurine
   id: ADTPlushieGiPatter
   name: Plushie GiPatter
   description: Plushie GiPatter
@@ -2129,25 +2129,37 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_gipatter
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # - type: EmitSoundOnUse
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # - type: EmitSoundOnActivate
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    damage:
+      types:
+        Blunt: 0
+  # - type: EmitSoundOnTrigger
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: SpeakOnTrigger
+    pack: FigurinesGiPatter
+
+- type: localizedDataset
+  id: FigurinesGiPatter
+  values:
+    prefix: figurines-gipatter-
+    count: 3
 
 #BLAD
 - type: entity
