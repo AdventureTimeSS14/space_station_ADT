@@ -10,7 +10,7 @@
               name: construction-graph-tag-power-cell
               icon:
                 sprite: Objects/Power/power_cells.rsi
-                state: small
+                state: medium
             - tag: ADTToyBlaster
               name: construction-graph-tag-toy-blaster
               icon:

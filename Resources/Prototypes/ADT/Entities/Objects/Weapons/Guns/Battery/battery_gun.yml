@@ -360,7 +360,7 @@
 - type: entity
   name: toy blaster
   parent: [BaseWeaponBatterySmall]
-  id: ToyBlasterGun
+  id: ADTToyBlasterGun
   abstract: true
   components:
   - type: Sprite
@@ -395,7 +395,7 @@
 
 - type: entity
   name: red toy blaster
-  parent: [ToyBlasterGun]
+  parent: [ADTToyBlasterGun]
   id: ADTToyBlasterGunRed
   description: A hastily converted laser blaster shoots simple 30 watt lasers.
   components:
@@ -413,7 +413,7 @@
 
 - type: entity
   name: blue toy blaster
-  parent: [ToyBlasterGun]
+  parent: [ADTToyBlasterGun]
   id: ADTToyBlasterGunBlue
   description: A hastily converted laser blaster shoots simple 30 watt lasers.
   components:
@@ -431,7 +431,7 @@
 
 - type: entity
   name: green toy blaster
-  parent: [ToyBlasterGun]
+  parent: [ADTToyBlasterGun]
   id: ADTToyBlasterGunGreen
   description: A hastily converted laser blaster shoots simple 30 watt lasers.
   components:

@@ -370,7 +370,6 @@
         prob: 0.5 # ADT tweak
         orGroup: Giftpool
       - id: RevolverCapGun
-      - id: ADTToyBlasterGunGreen # ADT-tweak
       - id: BalloonNT
       - id: ClothingShoesClownLarge
       - id: ClothingHeadHatMagician
@@ -378,6 +377,15 @@
       - id: ClothingShoesSkates
       - id: RubberChicken
       #ADT tweak start
+      - id: ADTToyBlasterGunGreen
+        orGroup: Blaster
+        prob: 0.33
+      - id: ADTToyBlasterGunRed
+        orGroup: Blaster
+        prob: 0.34
+      - id: ADTToyBlasterGunBlue
+        orGroup: Blaster
+        prob: 0.33
       - id: FunnyPaint
         orGroup: Paint
         prob: 0.5

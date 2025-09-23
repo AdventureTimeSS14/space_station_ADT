@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"license": "CC-BY-SA-3.0",
-	"copyright": "Taken from vgstation at https://github.com/vgstation-coders/vgstation13/commit/125c975f1b3bf9826b37029e9ab5a5f89e975a7e, upgraded by discord:prazat911",
+	"copyright": "Taken from vgstation at https://github.com/vgstation-coders/vgstation13/commit/125c975f1b3bf9826b37029e9ab5a5f89e975a7e, upgraded by discord:prazat911, toy blaster made armorkillerd",
 	"size": {
 		"x": 32,
 		"y": 32
@@ -27,38 +27,6 @@
 		},
 		{
 			"name": "mag-unshaded-4"
-		},
-		{
-			"name": "inhand-left-0",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-0",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-1",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-1",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-2",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-2",
-			"directions": 4
-		},
-		{
-			"name": "inhand-left-3",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right-3",
-			"directions": 4
 		},
 		{
 			"name": "inhand-left",
