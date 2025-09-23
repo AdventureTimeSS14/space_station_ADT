@@ -275,6 +275,34 @@ ent-ADTClothingUniformJumpsuitMGDGuard = бронированный костюм
     .desc = Состоит из прочного бронежилета "Тактика" а также защиты для коленей и локтей, состоящих из кевлара.
     .suffix = { "MG&D" }
 
+ent-ADTClothingUniformJumpsuitRomanticSuit = красно-белый костюм
+    .desc = Модный романтичный костюм.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitTurtleHeart = водолазка с сердцем
+    .desc = Милая забавная водолазка.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitDarkMan = темный мужской костюм
+    .desc = Стильные темные брюки и пиджак с красной оторочкой.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitBrightMan = светлый мужской костюм
+    .desc = Стильные светлые брюки и красный верх.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitCupidon = одеяние купидона
+    .desc = На 50% мифическое одеяние, на 50% - обернутая вокруг тела простыня.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitRedSweaterHeart = красный свитер с сердечком
+    .desc = Теплый, красный, с любовью.
+    .suffix = { "День Святого Валентина" }
+
+ent-ADTClothingUniformJumpsuitWhiteSweaterHeart = белый свитер с сердечком
+    .desc = Теплый, белый, с любовью.
+    .suffix = { "День Святого Валентина" }
+
 ent-ADTCapitanUSSPUniform = униформа капитана флота СССП
     .desc = Стандартная повседневная униформа капитана космического флота СССП
     .suffix = { "СССП" }

@@ -1,4 +1,40 @@
 - type: entity
+  id: ADTCandyBox
+  parent: BaseStorageItem
+  name: candy box
+  description: I give you my heart!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: chocobox
+  - type: Item
+    size: Small
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,1,2
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackCandyLove
+      amount: 1
+    - id: ADTFoodSnackMinichoco1Bar
+      amount: 1
+    - id: ADTFoodSnackMinichoco2Bar
+      amount: 1
+    - id: ADTFoodSnackMinichoco3Bar
+      amount: 1
+    - id: ADTFoodSnackMinichoco4
+      amount: 1
+    - id: ADTFoodSnackMinichoco5
+      amount: 1
+
+- type: entity
   parent: ADTFoodPackGummies
   id: ADTFoodPackGummiesFilled
   name: pack of gummies

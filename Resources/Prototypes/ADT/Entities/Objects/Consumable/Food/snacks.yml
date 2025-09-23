@@ -500,3 +500,227 @@
   components:
   - type: Sprite
     state: two-trash
+
+ #Закуски ко Дню Святого Валентина
+- type: entity
+  name: candy
+  parent: BaseItem
+  id: ADTFoodSnackMinichoco1Bar
+  description: For you!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco1
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodSnackMinichoco1
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: candy
+  parent: BaseItem
+  id: ADTFoodSnackMinichoco2Bar
+  description: For you!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco2
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodSnackMinichoco2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: candy
+  parent: BaseItem
+  id: ADTFoodSnackMinichoco3Bar
+  description: For you!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco3
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodSnackMinichoco3
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: FoodSnackBase
+  id: ADTFoodSnackCandyLove
+  description: Love is as sweet as ever!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: candy_love
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco1
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco1-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco2
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco2-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco3
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco3-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco4
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco4-open
+
+- type: entity
+  name: a lollipop in the shape of a heart
+  parent: ADTFoodSnackCandyLove
+  id: ADTFoodSnackMinichoco5
+  description: Love is as sweet as ever!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Service/loveday_candy.rsi
+    state: minichoco5-open
+
+- type: entity
+  name: banana in chocolate
+  parent: FoodDonutBase
+  id: ADTFoodBananChocolate
+  description: Goes great with a mason jar of hippie's delight.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - banana
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/banana_in_choco.rsi
+    state: in-dark-choco
+
+- type: entity
+  name: banana in pink chocolate
+  parent: FoodDonutBase
+  id: ADTFoodBananChocolatePink
+  description: Goes great with a mason jar of hippie's delight.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - banana
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/banana_in_choco.rsi
+    state: in-pink-choco
+
+- type: entity
+  name: brown eclair
+  parent: FoodDonutBase
+  id: ADTFoodEclairBrown
+  description: Goes great with a mason jar of hippie's delight.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    state: eclairs_brown
+
+- type: entity
+  name: chocolate eclair
+  parent: FoodDonutBase
+  id: ADTFoodEclairChocolate
+  description: Goes great with a mason jar of hippie's delight.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    state: eclairs_chocolate
+
+- type: entity
+  name: pink eclair
+  parent: FoodDonutBase
+  id: ADTFoodEclairPink
+  description: Goes great with a mason jar of hippie's delight.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    state: eclairs_pink
+
+- type: entity
+  name: white eclair
+  parent: FoodDonutBase
+  id: ADTFoodEclairWhite
+  description: Goes great with a mason jar of hippie's delight.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - creamy
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Snacks/eclairs.rsi
+    state: eclairs_white

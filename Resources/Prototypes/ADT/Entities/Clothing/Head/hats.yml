@@ -318,6 +318,19 @@
     heatingCoefficient: 1.025
     coolingCoefficient: 0.5
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadRomanticHat
+  name: wide red and white hat
+  description: I take off my hat out of respect for you!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/romantic_hat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/romantic_hat.rsi
+  - type: StaticPrice
+    price: 10
+
 # USSP USSP
 
 - type: entity
