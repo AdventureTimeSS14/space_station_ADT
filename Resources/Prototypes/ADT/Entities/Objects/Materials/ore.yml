@@ -43,28 +43,45 @@
 
 ## NewBFUU by M&B (еблан какой-то)
 - type: entity
-  parent: OreBase
+  parent: BaseStructureDynamic
   id: ADTGibtonite
   suffix: Full
   name: Bluespace ore
   description: rock wirh pieces of bluespace ore
   components:
-  - type: Stack
-    stackType: ADTBSoreStack
+  - type: Appearance
   - type: Sprite
-    sprite: ADT/Objects/Materials/BS_ore.rsi
+    sprite: ADT/Objects/Materials/gibtonite.rsi
     layers:
-    - state: BS_ore
-      map: [ "base" ]
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      ADTRawBSore: 800
-  - type: Extractable
-    grindableSolutionName: ADTBSore
+    - state: gibtonite   # 0 слой, базовый камень
+      map: ["enum.GibtonitState.gibtonite"]
+      visible: false
+    - state: active    # 1 слой, загорается когда Active = true
+      visible: false
+      map: ["enum.GibtonitState.active"]
+    - state: normal      # 3 слой, дефолт
+      visible: false
+      map: ["enum.GibtonitState.normal"]
+    - state: ohfuck      # 4 слой, для опасного состояния
+      visible: false
+      map: ["enum.GibtonitState.ohfuck"]
   - type: Item
     heldPrefix: ADTBSore
-  - type: Tag
-    tags:
-      - ADTBSore
-      - Ore
+  - type: MultiHandedItem
+  - type: Damageable
+  - type: RequireProjectileTarget
+  - type: Gibtonite
+    extracted: true    # помечаем, что это уже руда
+    elapsed: 0          # сюда будет передаваться значение от камня
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
