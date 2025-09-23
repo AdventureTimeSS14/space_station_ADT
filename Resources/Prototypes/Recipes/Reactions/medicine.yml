@@ -215,14 +215,25 @@
 - type: reaction
   id: Ambuzol
   reactants:
-    Dylovene:
-      amount: 1
-    Ammonia:
+    #ADT-tweak-start
+    #сделала всё для предотвращения маштабной сварки амбузола, увы
+    # Dylovene:
+    #   amount: 1
+    # Ammonia:
+    #   amount: 1
+    # ZombieBlood:
+    #   amount: 1
+    Diphenylmethylamine:
       amount: 1
     ZombieBlood:
-      amount: 2
+      amount: 1
+    Opporozidone:
+      amount: 1
+    Phalanximine:
+      amount: 1
+    #ADT-tweak-end
   products:
-    Ambuzol: 4
+    Ambuzol: 5 #ADT-tweak 4->5
 
 - type: reaction
   id: AmbuzolPlus

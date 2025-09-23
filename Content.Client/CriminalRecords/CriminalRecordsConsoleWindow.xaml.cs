@@ -100,10 +100,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             OnKeySelected?.Invoke(cast);
         };
 
-        RecordListing.OnItemDeselected += _ =>
-        {
-            OnKeySelected?.Invoke(null);
-        };
+        // ADT-Tweak
+        // RecordListing.OnItemDeselected += _ =>
+        // {
+        //     OnKeySelected?.Invoke(null);
+        // };
+        // ADT-Tweak
 
         FilterType.OnItemSelected += eventArgs =>
         {

@@ -1,14 +1,11 @@
 using Content.Shared.Popups;
 using Content.Shared.ADT.Paint;
-using Content.Shared.Sprite;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.Humanoid;
 using Robust.Shared.Utility;
 using Content.Shared.Verbs;
-using Content.Shared.SubFloor;
 using Content.Shared.Whitelist;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.EntitySystems;
@@ -22,7 +19,7 @@ public sealed class PaintSystem : SharedPaintSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -68,6 +65,7 @@ public sealed class PaintSystem : SharedPaintSystem
         };
         args.Verbs.Add(verb);
     }
+
     private void PrepPaint(EntityUid uid, PaintComponent component, EntityUid target, EntityUid user)
     {
 
@@ -107,7 +105,7 @@ public sealed class PaintSystem : SharedPaintSystem
         }
 
 
-        if (TryPaint(entity, target))
+        if (PaintCapacity(entity))
         {
             EnsureComp<ColorPaintedComponent>(target, out ColorPaintedComponent? paint);
             EnsureComp<AppearanceComponent>(target);
@@ -146,20 +144,20 @@ public sealed class PaintSystem : SharedPaintSystem
             args.Handled = true;
             return;
         }
-
-        if (!TryPaint(entity, target))
+        else
         {
             _popup.PopupEntity(Loc.GetString("paint-empty", ("used", args.Used)), args.User, args.User, PopupType.Medium);
             return;
         }
     }
 
-    private bool TryPaint(Entity<PaintComponent> reagent, EntityUid target)
+    private bool PaintCapacity(Entity<PaintComponent> reagent)
     {
         if (_solutionContainer.TryGetSolution(reagent.Owner, reagent.Comp.Solution, out _, out var solution))
         {
             var quantity = solution.RemoveReagent(reagent.Comp.Reagent, reagent.Comp.ConsumptionUnit);
-            if (quantity > 0)// checks quantity of solution is more than 0.
+
+            if (quantity > 0)
                 return true;
 
             if (quantity < 1)

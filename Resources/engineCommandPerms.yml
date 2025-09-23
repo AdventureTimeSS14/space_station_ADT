@@ -95,6 +95,7 @@
   - listplayers
   - tp
   - tpto
+  - command-executor # ADT-Tweak
 
 - Flags: FUN
   Commands:

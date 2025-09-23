@@ -39,7 +39,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Content.Shared.GrabProtection;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -402,10 +402,13 @@ public abstract partial class PullingSystem
 
     public bool TryIncreaseGrabStageOrStopPulling(Entity<PullerComponent> puller, Entity<PullableComponent> pullable)
     {
+        if (HasComp<GrabProtectionComponent>(pullable.Owner))
+            return TryStopPull(pullable, pullable.Comp, puller);
         if (puller.Comp.Pulling != pullable.Owner)
             return TryStartPull(puller, pullable);
         if (!_combat.IsInCombatMode(puller.Owner))
             return TryStopPull(pullable, pullable.Comp, puller);
+
         if (!HasComp<MobStateComponent>(pullable))
             return TryStopPull(pullable, pullable.Comp, puller);
 
@@ -433,6 +436,11 @@ public abstract partial class PullingSystem
             return false;
 
         if (puller.Comp.NextStageChange > _timing.CurTime)
+            return false;
+
+        var ev = new ModifyGrabStageTimeEvent(puller.Comp.Stage + 1);
+        RaiseLocalEvent(pullable.Owner, ref ev);
+        if (ev.Cancelled)
             return false;
 
         // Check if the puller has enough hands to progress to the next stage
@@ -509,8 +517,13 @@ public abstract partial class PullingSystem
         if (puller.Comp.NextStageChange > _timing.CurTime)
             return false;
 
+        if (HasComp<GrabProtectionComponent>(pullable.Owner))
+            return false;
+
+        var targetStage = puller.Comp.Stage + direction;
+
         // Check if the puller has enough hands to progress to the next stage
-        if (puller.Comp.GrabStats.TryGetValue(puller.Comp.Stage + direction, out var stats))
+        if (puller.Comp.GrabStats.TryGetValue(targetStage, out var stats))
         {
             var freeableHands = 0;
             if (TryComp<HandsComponent>(puller, out var hands))
@@ -526,11 +539,7 @@ public abstract partial class PullingSystem
 
         if (!_net.IsServer)
             return true;
-
-        var ev = new ModifyGrabStageTimeEvent(puller.Comp.Stage + direction);
-        RaiseLocalEvent(pullable, ref ev);
-
-        var time = puller.Comp.GrabStats[puller.Comp.Stage + direction].SetStageTime * ev.Modifier;
+        var time = puller.Comp.GrabStats[targetStage].SetStageTime;
 
         var doAfterArgs = new DoAfterArgs(EntityManager, puller, time, new SetGrabStageDoAfterEvent(direction), puller)
         {

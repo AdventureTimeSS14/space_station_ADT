@@ -99,7 +99,6 @@ public sealed class MorphSystem : SharedMorphSystem
             var transform = Transform(uid);
             _transform.SetCoordinates(entity, transform.Coordinates);
         }
-        container.EmptyContainer(component.Container);
     }
     private void OnInit(EntityUid uid, MorphComponent component, MapInitEvent args)
     {
@@ -232,7 +231,7 @@ public sealed class MorphSystem : SharedMorphSystem
     private void OnMimicryRadialMenu(EntityUid uid, MorphComponent component, MorphOpenRadialMenuEvent args)
     {
         // Инциализируем контейнер мимикрии
-        component.Container = container.EnsureContainer<Container>(uid, component.MimicryContainerId);
+        component.MimicryContainer = container.EnsureContainer<Container>(uid, component.MimicryContainerId);
 
         if (!TryComp<UserInterfaceComponent>(uid, out var uic))
             return;
@@ -284,9 +283,6 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnDevourAction(EntityUid uid, MorphComponent component, MorphDevourActionEvent args)
     {
-        // Инциализируем контейнер морфика
-        component.Container = container.EnsureContainer<Container>(uid, component.ContainerId);
-
         //делаю отдельный код т.к. уже готовая система дракона совсем не подходити
         if (_whitelistSystem.IsWhitelistFailOrNull(component.DevourWhitelist, args.Target))
             return;
@@ -354,11 +350,13 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (!TryComp<MobThresholdsComponent>(args.Target, out var state) || !_threshold.TryGetDeadThreshold(args.Target.Value, out var health))
         {
+            //ЭТО ОТВЕЧАЕТ ЗА КУШАНИЕ ПРЕДМЕТОВ. НЕ ПЕРЕПУТАТЬ.
             health = -component.EatWeaponHungerReq;
             _hunger.ModifyHunger(uid, (float)health.Value, hunger);
             _audioSystem.PlayPvs(component.SoundDevour, uid);
-            _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(args.Target.Value, MapCoordinates.Nullspace.Position));
             component.ContainedCreatures.Add(args.Target.Value);
+            component.ContainedCreatures.Add(args.Target.Value);
+            _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
             return;
         }
         if (state.CurrentThresholdState != MobState.Dead)
@@ -373,6 +371,7 @@ public sealed class MorphSystem : SharedMorphSystem
         _damageable.TryChangeDamage(uid, damage_burn);
         _hunger.ModifyHunger(uid, (float)health.Value / 3.5f, hunger);
         _audioSystem.PlayPvs(component.SoundDevour, uid);
-        container.Insert(args.Target.Value, component.Container);
+        component.ContainedCreatures.Add(args.Target.Value);
+        _transform.SetCoordinates(args.Target.Value, new EntityCoordinates(EntityUid.Invalid, Vector2.Zero));
     }
 }

@@ -117,7 +117,7 @@
     - id: BookScientistsGuidebook
     - id: BookSecurity
     - id: BookSpaceEncyclopedia
-    - id: BookSpaceLaw
+    - id: ADTBookSpaceLaw #ADT-WikiBooks
     - id: BookTheBookOfControl
 
 - type: entityTable

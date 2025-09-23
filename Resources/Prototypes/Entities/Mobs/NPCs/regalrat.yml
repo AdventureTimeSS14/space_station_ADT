@@ -129,6 +129,7 @@
   - type: Sharp
   - type: TTS # Corvax-TTS
     voice: dude
+  - type: GrabProtection #ADT tweak
 
 - type: entity
   id: MobRatKingBuff
@@ -174,6 +175,8 @@
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
+  - type: Item # ADT Tweak
+    size: Normal # ADT Tweak
   - type: VentCrawler # ADT tweak
   - type: CombatMode
   - type: MovementSpeedModifier

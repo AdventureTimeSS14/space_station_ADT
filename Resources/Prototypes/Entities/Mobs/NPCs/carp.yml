@@ -94,6 +94,7 @@
       languages:
         GalacticCommon: Speak
         CarpCollectiveMind: Speak
+    - type: GrabProtection
     # End ADT Tweak
 
 - type: entity

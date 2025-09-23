@@ -67,6 +67,7 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
+  - type: GrabProtection #ADT tweak
 
 - type: entity
   name: space bear
@@ -196,7 +197,6 @@
   parent: MobSpaceBasic
   description: It's so glowing, it looks dangerous.
   components:
-  - type: VentCrawler # ADT tweak
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/spacespider.rsi

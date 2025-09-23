@@ -28,6 +28,15 @@
       tags:
       - Trash
     isSpecialDigestibleExclusive: false
+      - Fruit
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+      - VoxFood
+      - Vegetable
+      - Cake        # ADT-Tweak
 
 - type: entity
   parent: OrganHumanLiver

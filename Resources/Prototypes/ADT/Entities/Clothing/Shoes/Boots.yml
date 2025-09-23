@@ -39,17 +39,6 @@
 
 - type: entity
   parent: ClothingShoesBaseButcherable
-  id: ADTClothingShoesBootsSollux
-  name: Highboots
-  description: a pair of highboot to walk on blood puddles
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Shoes/Boots/sollux_captor.rsi
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
   id: ADTClothingShoesRomanSandales
   name: Roman sandales
   description: The old Roman sandals are still reliable and stylish.
@@ -117,6 +106,11 @@
     sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSpurs
+      params:
+        variation: 0.09
 
 - type: entity
   parent: ADTClothingShoesJackbootsCowboyBrown
@@ -127,6 +121,11 @@
     sprite: Clothing/Shoes/Boots/cowboybootsblack.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/cowboybootsblack.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSpurs
+      params:
+        variation: 0.09
 
 - type: entity
   parent: ADTClothingShoesJackbootsCowboyBrown
@@ -137,6 +136,11 @@
     sprite: Clothing/Shoes/Boots/cowboybootswhite.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/cowboybootswhite.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSpurs
+      params:
+        variation: 0.09
 
 - type: entity
   parent: ADTClothingShoesJackbootsCowboyBrown
@@ -147,3 +151,8 @@
     sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSpurs
+      params:
+        variation: 0.09

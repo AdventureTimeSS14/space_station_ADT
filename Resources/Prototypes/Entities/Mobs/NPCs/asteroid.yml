@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMobAsteroid
   parent:
-  - BaseMob
+  - ADTSimpleMobBaselavaland #ADT-Tweak: сменил перент на наш для удобства
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
@@ -49,10 +49,12 @@
         Base: goliath_dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
-    baseSprintSpeed : 2.00
-  - type: Bloodstream
-    bloodMaxVolume: 350
-    chemicalMaxVolume: 0
+    baseSprintSpeed : 2.50 #ADT‑Tweak
+  # ADT-Commented-start
+  # - type: Bloodstream
+  #   bloodMaxVolume: 350
+  #   chemicalMaxVolume: 0
+  # ADT-Commented-end
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -65,8 +67,8 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 12   #ADT-Tweak 15>>12
-        Piercing: 5 #ADT-Tweak 10>>5
+        Slash: 15
+        Blunt: 10  #ADT-Tweak Piercing -> Blunt
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -76,9 +78,9 @@
       task: GoliathCompound
     blackboard:
       VisionRadius: !type:Single
-        6
+        10 #ADT-Tweak 6>>10
       AggroVisionRadius: !type:Single
-        10
+        15 #ADT-Tweak 10>>15
       NavSmash: !type:Bool
         true
   - type: NPCUseActionOnTarget
@@ -96,7 +98,7 @@
     - id: MaterialGoliathHide1
       amount: 1 # ADT tweak 3>>1
     # ADT tweak start
-    - id: MaterialBones1 
+    - id: MaterialBones1
       maxAmount: 5
     # ADT tweak end
   - type: Fauna # ADT tweak

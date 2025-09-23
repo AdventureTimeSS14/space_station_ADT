@@ -217,7 +217,7 @@
       - id: BookMedicalReferenceBook
       - id: BookHowToSurvive
       - id: BookChemicalCompendium
-      - id: BookSpaceLaw
+      - id: ADTBookSpaceLaw #ADT-WikiBooks
 
 - type: entity
   id: CrateServiceSodaDispenser

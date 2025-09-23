@@ -322,7 +322,10 @@ public abstract class SharedPickupHumansSystem : EntitySystem
 
     private void OnTeleportShadekin(EntityUid uid, PickupHumansComponent comp, ShadekinTeleportActionEvent args)
     {
-        DropFromHands(comp.User, args.Performer);
+        if (comp.User != EntityUid.Invalid)
+        {
+            DropFromHands(comp.User, uid);
+        }
     }
 
 

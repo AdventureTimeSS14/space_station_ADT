@@ -6,6 +6,7 @@
   roles:
   - CargoTechnician
   - Quartermaster
+  - ADTMiner # ADT tweak
   - SalvageSpecialist
 
 - type: department
@@ -31,7 +32,7 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
-  - ADTBarber # ADT tweak
+  - ADTBarber # ADT-Tweak
 
 - type: department
   id: CentralCommand
@@ -58,7 +59,10 @@
   color: "#334E6D"
   roles:
   - Captain
-  - Magistrat # ADT tweak
+  # ADT-Tweak
+  - ADTBlueShieldOfficer
+  - Magistrat
+  # ADT-Tweak
   - IAA # Corvax-IAA
   - ChiefEngineer
   - ChiefMedicalOfficer
@@ -75,7 +79,6 @@
   # - ERTSecurity
   # - ERTEngineer
   # - DeathSquad
-  - ADTBlueShieldOfficer # ADT-Roles
   primary: false
   weight: 100
 
@@ -90,7 +93,7 @@
   - SeniorEngineer # Corvax-MentorRoles
   - StationEngineer
   - TechnicalAssistant
-  - ADTSeniorEngineer # ADT Role
+  - ADTSeniorEngineer # ADT-Tweak
 
 - type: department
   id: Medical
@@ -104,8 +107,10 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - ADTPathologist # ADT Role
-  - ADTSeniorPhysician # ADT Role
+  # ADT-Tweak
+  - ADTPathologist
+  - ADTSeniorPhysician
+  # ADT-Tweak
 
 - type: department
   id: Security
@@ -117,13 +122,14 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
-  - SeniorOfficer # Corvax-MentorRoles
-  - Pilot # Corvax-Pilot
+  # - Pilot # Corvax-Pilot
   - Detective
   - Warden
-  - Brigmedic # ADT rework brigmedic
-  - ADTSeniorOfficer # ADT Role
-  - ADTGuardOfficer # ADT Role
+  # ADT-Tweak
+  - Brigmedic
+  - ADTSeniorOfficer
+  - ADTGuardOfficer
+  # ADT-Tweak
 
 - type: department
   id: Science
@@ -135,8 +141,10 @@
   - SeniorResearcher # Corvax-MentorRoles
   - Scientist
   - ResearchAssistant
-  - ADTRoboticist # ADT-Roles
-  - ADTSeniorResearcher # ADT-Roles
+  # ADT-Tweak
+  - ADTRoboticist
+  - ADTSeniorResearcher
+  # ADT-Tweak
 
 - type: department
   id: Silicon
@@ -158,6 +166,6 @@
   - Reporter
   - Zookeeper
   - Psychologist
-  - Pilot # Corvax-Pilot
-  - ADTBarber # ADT tweak
+  # - Pilot # Corvax-Pilot
+  - ADTBarber # ADT-Tweak
   primary: false

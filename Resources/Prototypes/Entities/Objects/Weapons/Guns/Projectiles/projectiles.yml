@@ -460,6 +460,11 @@
         Heat: 0
   - type: ChangeTemperatureOnCollide
     heat: 50000
+  #ADT‑Tweak start
+  - type: IgniteOnCollide
+    fireStacks: 1
+    count: 10
+  #ADT‑Tweak end
 
 - type: entity
   name: scorching bolt

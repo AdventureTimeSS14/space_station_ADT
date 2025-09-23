@@ -144,12 +144,24 @@
   parent: SuitStorageBase
   suffix: Station Engineer
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillEngineerHardsuit
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingShoesBootsMag
+  #     - id: ADTClothingModsuitBackEngineering #ADT tweak
+        - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Engineering"]]
+  # ADT-Tweak-start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackEngineering
+    - ClothingOuterHardsuitEngineering
+  # ADT-Tweak-end
 
 #Atmospherics hardsuit
 - type: entity
@@ -157,12 +169,23 @@
   parent: SuitStorageBase
   suffix: Atmospheric Technician
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillAtmosphericsHardsuit
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+  #     - id: ADTClothingModsuitBackAtmos #ADT-tweak
+        - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
+  # ADT-Tweak-start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAtmos
+    - ClothingOuterHardsuitAtmos
+  # ADT-Tweak-end
 
 #Security hardsuit
 - type: entity
@@ -170,12 +193,23 @@
   parent: SuitStorageBase
   suffix: Security
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillSuitStorageSecurity
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+  #     - id: ADTClothingModsuitBackSecurity #ADT-tweak
+        - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
+  # ADT-Tweak-start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackSecurity
+    - ClothingOuterHardsuitSecurity
+  # ADT-Tweak-end
 
 - type: entityTable
   id: FillSuitStorageSecurity
@@ -191,12 +225,30 @@
   parent: SuitStorageBase
   suffix: Chief Engineer
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillChiefEngineerHardsuit
+  #ADT-Tweak start
+  #- type: EntityTableContainerFill
+  #  containers:
+  #    entity_storage: !type:NestedSelector
+  #      tableId: FillChiefEngineerHardsuit
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasAtmos
+    - id: ClothingShoesBootsMagAdv
+    - id: JetpackVoidFilled
+    - id: OxygenTankFilled
+  #ADT-Tweak end
   - type: AccessReader
     access: [["ChiefEngineer"]]
+  # ADT-Tweak-start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAdvanced
+    - ClothingOuterHardsuitEngineeringWhite
+  # ADT-Tweak-end
 
 #CMO's hardsuit
 - type: entity
@@ -230,12 +282,29 @@
   parent: SuitStorageBase
   suffix: Head of Security
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillHeadOfSecurityHardsuit
+  #ADT-Tweak-start
+  #  - type: EntityTableContainerFill
+  #  containers:
+  #   entity_storage: !type:NestedSelector
+  #      tableId: FillHeadOfSecurityHardsuit
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSwat
+    - id: JetpackSecurityFilled
+    - id: OxygenTankFilled
+  #ADT-Tweak end
   - type: AccessReader
     access: [["HeadOfSecurity"]]
+  # ADT-Tweak-start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackSafeguard
+    - ClothingOuterHardsuitSecurityRed
+  # ADT-Tweak
 
 #Warden's hardsuit
 - type: entity

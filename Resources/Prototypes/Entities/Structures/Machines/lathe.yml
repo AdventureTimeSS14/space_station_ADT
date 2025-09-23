@@ -221,13 +221,13 @@
     #ADT-tweak-start
     - ADTRCDPack
     - ADTPKAPack
-    - ADTWeaponExperimentalPKAPack
     - ADTServiceHydroponics
     - ADTAdvancedMedicalMiscPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
     - ADTPhantomPack
     - ADTWeaponLauncherHydraPack
+    - ADTPowerPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
@@ -290,6 +290,8 @@
     - ShuttleBoards
     # ADT-tweak-start
     - ADTBluespaceHarvesterPack
+    - ADTArcade
+    - ADTIndustrialCharger
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:

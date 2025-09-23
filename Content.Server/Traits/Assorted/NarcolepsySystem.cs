@@ -1,6 +1,9 @@
+using Content.Shared.ADT.Crawling; // ADT-Tweak
+using Content.Shared.Standing; // ADT-Tweak
 using Content.Shared.Bed.Sleep;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
+using Content.Shared.Buckle.Components; // ADT-Tweak
 
 namespace Content.Server.Traits.Assorted;
 
@@ -11,6 +14,7 @@ public sealed class NarcolepsySystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // ADT-Tweak
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -54,6 +58,15 @@ public sealed class NarcolepsySystem : EntitySystem
             narcolepsy.NextIncidentTime += duration;
 
             _statusEffects.TryAddStatusEffectDuration(uid, SleepingSystem.StatusEffectForcedSleeping, TimeSpan.FromSeconds(duration));
+
+            // ADT-Tweak-start
+            if (TryComp<StrapComponent>(uid, out var strap) && strap.BuckledEntities.Count > 0)
+            {
+                continue;
+            }
+
+            _standing.Down(uid, dropHeldItems: false);
+            // ADT-Tweak-end
         }
     }
 }

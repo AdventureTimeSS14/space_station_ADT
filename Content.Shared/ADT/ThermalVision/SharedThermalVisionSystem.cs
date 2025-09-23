@@ -146,11 +146,12 @@ public abstract class SharedThermalVisionSystem : EntitySystem
         if (!_timing.ApplyingState)
         {
             var nightVision = EnsureComp<ThermalVisionComponent>(user);
+            if (TryComp<ThermalVisionComponent>(item, out var thermal))
+            {
+                nightVision.Color = thermal.Color;
+            }
             nightVision.State = ThermalVisionState.Full;
             Dirty(user, nightVision);
-
-            var eyeDamage = EnsureComp<DamageEyesOnFlashedComponent>(user);
-            Dirty(user, eyeDamage);
         }
 
         _actions.SetToggled(item.Comp.Action, true);
@@ -177,7 +178,6 @@ public abstract class SharedThermalVisionSystem : EntitySystem
             !nightVision.Innate)
         {
             RemCompDeferred<ThermalVisionComponent>(user.Value);
-            RemCompDeferred<DamageEyesOnFlashedComponent>(user.Value);
         }
     }
 }

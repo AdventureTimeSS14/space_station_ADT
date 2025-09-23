@@ -32,7 +32,7 @@
   storage:
     back:
     - RubberStampLawyer
-    - BookSpaceLaw
+    - ADTBookSpaceLaw #ADT-WikiBooks
 
 - type: chameleonOutfit
   id: LawyerChameleonOutfit

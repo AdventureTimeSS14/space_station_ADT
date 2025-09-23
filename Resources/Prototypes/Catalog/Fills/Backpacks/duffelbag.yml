@@ -291,12 +291,21 @@
   components:
   - type: StorageFill
     contents:
-      - id: SyringeRomerol
+      # ADT-Tweak start
+      - id: LauncherSyringe 
+      - id: MiniSyringe
+        amount: 6
+      - id: ChemistryBottleRomerol
+      - id: PillCanisterAmbuzolPlus
+      # ADT-Tweak end
       - id: WeaponRevolverPython
       - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
-      - id: PillAmbuzolPlus
-      - id: PillAmbuzol
-        amount: 3
+      # ADT-Tweak start
+      # - id: SyringeRomerol 
+      # - id: PillAmbuzolPlus # ADT-Tweak
+      # - id: PillAmbuzol
+      #   amount: 3
+      # ADT-Tweak end
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

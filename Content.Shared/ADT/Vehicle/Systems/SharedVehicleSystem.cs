@@ -5,7 +5,6 @@ using Content.Shared.Actions;
 using Content.Shared.Audio;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Hands;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
@@ -14,14 +13,12 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Vehicle.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Vehicle;
 
@@ -33,7 +30,6 @@ namespace Content.Shared.Vehicle;
 public abstract partial class SharedVehicleSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
@@ -49,6 +45,12 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
     private const string KeySlot = "key_slot";
 
+    [ValidatePrototypeId<TagPrototype>]
+    private const string DoorDump = "DoorBumpOpener";
+
+    [ValidatePrototypeId<TagPrototype>]
+    private const string Key = "VehicleKey";
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -56,9 +58,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         InitializeRider();
 
         SubscribeLocalEvent<VehicleComponent, ComponentStartup>(OnVehicleStartup);
+        SubscribeLocalEvent<VehicleComponent, StrapAttemptEvent>(OnBuckleAttempt);
         SubscribeLocalEvent<VehicleComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<VehicleComponent, UnstrappedEvent>(OnUnBuckled);
-
         SubscribeLocalEvent<VehicleComponent, HonkActionEvent>(OnHonkAction);
         SubscribeLocalEvent<VehicleComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<VehicleComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
@@ -106,30 +108,30 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         _modifier.RefreshMovementSpeedModifiers(uid);
     }
 
-    /// <summary>
-    /// Give the user the rider component if they're buckling to the vehicle,
-    /// otherwise remove it.
-    /// </summary>
-    private void OnBuckled(EntityUid uid, VehicleComponent component, ref StrappedEvent args)
+    private void OnBuckleAttempt(EntityUid uid, VehicleComponent component, ref StrapAttemptEvent args)
     {
-        // Add Rider
         var rider = args.Buckle.Owner;
         if (component.UseHand == true)
         {
-            // Add a virtual item to rider's hand, unbuckle if we can't.
+            // Add a virtual item to rider's hand, cancel if we can't.
             if (!_virtualItemSystem.TrySpawnVirtualItemInHand(uid, rider))
             {
-                _buckle.TryUnbuckle(rider, uid, true);
+                args.Cancelled = true;
                 return;
             }
         }
+    }
+
+    private void OnBuckled(EntityUid uid, VehicleComponent component, ref StrappedEvent args)
+    {
+        var rider = args.Buckle.Owner;
+
         // Set up the rider and vehicle with each other
         EnsureComp<InputMoverComponent>(uid);
         var riderComp = EnsureComp<RiderComponent>(rider);
         component.Rider = rider;
         component.LastRider = component.Rider;
-        if (_netManager.IsServer)
-            Dirty(uid, component);
+        Dirty(uid, component);
         Appearance.SetData(uid, VehicleVisuals.HideRider, true);
 
         _mover.SetRelay(rider, uid);
@@ -152,28 +154,24 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _joints.ClearJoints(rider);
 
-        _tagSystem.AddTag(uid, "DoorBumpOpener");
+        _tagSystem.AddTag(uid, DoorDump);
     }
 
     private void OnUnBuckled(EntityUid uid, VehicleComponent component, ref UnstrappedEvent args)
     {
-        // Remove rider
         var rider = args.Buckle.Owner;
 
-        // Clean up actions and virtual items
         _actionsSystem.RemoveProvidedActions(rider, uid);
 
         if (component.UseHand == true)
             _virtualItemSystem.DeleteInHandsMatching(rider, uid);
 
-
-        // Entity is no longer riding
         RemComp<RiderComponent>(rider);
         RemComp<RelayInputMoverComponent>(rider);
-        _tagSystem.RemoveTag(uid, "DoorBumpOpener");
+        _tagSystem.RemoveTag(uid, DoorDump);
 
         Appearance.SetData(uid, VehicleVisuals.HideRider, false);
-        // Reset component
+
         component.Rider = null;
         Dirty(uid, component);
     }
@@ -188,7 +186,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         // TODO: Need audio refactor maybe, just some way to null it when the stream is over.
         // For now better to just not loop to keep the code much cleaner.
-        vehicle.HonkPlayingStream = _audioSystem.PlayPredicted(vehicle.HornSound, uid, uid)?.Entity;
+        vehicle.HonkPlayingStream = _audioSystem.PlayPredicted(vehicle.HornSound, uid, args.Performer)?.Entity;
         args.Handled = true;
     }
 
@@ -199,7 +197,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     private void OnEntInserted(EntityUid uid, VehicleComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container.ID != KeySlot ||
-            !_tagSystem.HasTag(args.Entity, "VehicleKey"))
+            !_tagSystem.HasTag(args.Entity, Key))
             return;
 
         // Enable vehicle

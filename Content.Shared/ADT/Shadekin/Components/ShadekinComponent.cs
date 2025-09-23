@@ -1,5 +1,6 @@
 using System.Numerics;
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.Shadekin.Components;
 
@@ -47,6 +48,10 @@ public sealed partial class ShadekinComponent : Component
     public float TintIntensity = 0.65f;
     #endregion
 
+    #region Sound
+    [DataField]
+    public SoundSpecifier SoundTransition = new SoundPathSpecifier("/Audio/ADT/Shadekin/shadekin-transition.ogg");
+    #endregion
 
     #region Power level
     /// <summary>
@@ -55,10 +60,11 @@ public sealed partial class ShadekinComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float PowerLevel
     {
-        get => _powerLevel;
-        set => _powerLevel = Math.Clamp(value, PowerThresholds[ShadekinPowerThreshold.Min], PowerThresholds[ShadekinPowerThreshold.Max]);
+        get => GoodPowerLevel;
+        set => GoodPowerLevel = Math.Clamp(value, PowerThresholds[ShadekinPowerThreshold.Min], PowerThresholds[ShadekinPowerThreshold.Max]);
     }
-    public float _powerLevel = 150f;
+
+    public float GoodPowerLevel = 150f;
 
     /// <summary>
     ///     Don't let PowerLevel go above this value.
@@ -118,6 +124,7 @@ public sealed partial class ShadekinComponent : Component
     #endregion
 
     #region Actions
+    [DataField]
     public string ActionProto = "ActionShadekinTeleport";
     public EntityUid? ActionEntity;
     #endregion

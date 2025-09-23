@@ -998,7 +998,7 @@
     stackRequirements:
       Manipulator: 4
       Cable: 1
-      ADTBScrystal: 5 #ADTTweak
+      # ADTBScrystal: 5 #ADTTweak
 
 - type: entity
   id: OreProcessorMachineCircuitboard

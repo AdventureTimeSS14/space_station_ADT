@@ -218,7 +218,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasAtmos
-    - id: ADTClothingModsuitBackAdvanced #ADT tweak
+    - id: ADTClothingModsuitBackAdvanced #ADT-tweak
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
@@ -385,7 +385,7 @@
     children:
     - id: ADTHosVoucher # ADT tweak
 #    - id: WeaponEnergyShotgun ADT tweak Дробовик для смотрителя
-    - id: BookSpaceLaw
+    - id: ADTBookSpaceLaw #ADT-WikiBooks
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50
@@ -408,7 +408,7 @@
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
     - id: BookBusido # Corvax-Books
-    - id: ADTBookPTCR #ADT tweak
+    - id: ADTBookPTCR #ADT-tweak
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPsec
@@ -426,7 +426,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ADTClothingModsuitBackSafeguard #ADT tweak
+    - id: ADTClothingModsuitBackSafeguard #ADT-tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 

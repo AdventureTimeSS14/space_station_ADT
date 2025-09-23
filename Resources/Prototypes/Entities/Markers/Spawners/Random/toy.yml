@@ -12,7 +12,6 @@
       rarePrototypes:
         - FoamBlade
         - PlushieGhost
-        - SkidAndPump
       rareChance: 0.03
       prototypes:
         - PlushieBee
