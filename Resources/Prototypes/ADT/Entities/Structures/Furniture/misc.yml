@@ -47,3 +47,114 @@
   - type: Construction
     graph: ADTDiscoBallGraph
     node: adtdiscoball
+
+
+    # halloween
+
+- type: entity
+  id: ADTHalloweenPumpkinLight1
+  parent: PottedPlantBase
+  name: pumpkin light
+  description: pumpkin light
+  suffix: Halloween
+  components:
+  - type: Sprite
+    drawdepth: Overdoors
+    offset: "0.0,0.3"
+    sprite: ADT/Structures/Furniture/pumpkin_light.rsi
+    state: pumpkin_light1
+    noRot: true
+  - type: PointLight
+    netsync: false
+    enabled: true
+    radius: 3
+    energy: 0.5
+    color: "#fbffb8"
+  #- type: Construction
+  #  graph: pumpkin_light1
+  #  node: pumpkinlight1
+
+- type: entity
+  id: ADTHalloweenPumpkinLight2
+  parent: ADTHalloweenPumpkinLight1
+  name: pumpkin light
+  description: pumpkin light
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: pumpkin_light2
+  #- type: Construction
+  #  graph: pumpkin_light2
+  #  node: pumpkinlight2
+
+- type: entity
+  id: ADTHalloweenPumpkinLight3
+  parent: ADTHalloweenPumpkinLight1
+  name: pumpkin light
+  description: pumpkin light
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: pumpkin_light3
+  #- type: Construction
+  #  graph: pumpkin_light3
+  #  node: pumpkinlight3
+
+- type: entity
+  id: ADTHalloweenPumpkinLight4
+  parent: ADTHalloweenPumpkinLight1
+  name: pumpkin light
+  description: pumpkin light
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: pumpkin_light4
+  #- type: Construction
+  #  graph: pumpkin_light4
+  #  node: pumpkinlight4
+
+- type: entity
+  id: ADTHalloweenPumpkinLight5
+  parent: ADTHalloweenPumpkinLight1
+  name: pumpkin light
+  description: pumpkin light
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: pumpkin_light5
+
+# carved
+
+- type: entity
+  id: ADTHalloweenCarvedPumpkinCube
+  parent: PottedPlantBase
+  name: pumpkin
+  description: pumpkin
+  suffix: Halloween
+  components:
+  - type: Sprite
+    drawdepth: Overdoors
+    offset: "0.0,0.3"
+    sprite: ADT/Structures/Furniture/pumpkin_carved.rsi
+    state: carved_cube
+    noRot: true
+
+- type: entity
+  id: ADTHalloweenCarvedPumpkinSmile
+  parent: ADTHalloweenCarvedPumpkinCube
+  name: pumpkin
+  description: pumpkin
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: carved_smile
+
+- type: entity
+  id: ADTHalloweenCarvedPumpkinWily
+  parent: ADTHalloweenCarvedPumpkinCube
+  name: pumpkin
+  description: pumpkin
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: carved_wily

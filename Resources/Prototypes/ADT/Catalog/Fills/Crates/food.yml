@@ -21,3 +21,23 @@
       amount: 3
     - id: ADTFoodBakedBrezelVanilla
       amount: 3
+
+# halloween
+
+- type: entity
+  id: ADTCrateHalloweenFood
+  parent: CratePlastic
+  name: halloween candy crate
+  description: halloween candy crate
+  suffix: Halloween
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTBoxHalloweenCandy
+      amount: 4
+    - id: ADTHalloweenCandyBowl
+    - id: ADTHalloweenSmileCandyBowl
+    - id: ADTHalloweenNTCandyBowl
+    - id: ADTHalloweenSyndieCandyBowl
+    - id: ADTHalloweenZombieCandyBowl
+    - id: ADTHalloweenSealCandyBowl

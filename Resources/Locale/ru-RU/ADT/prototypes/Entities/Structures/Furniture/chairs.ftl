@@ -41,5 +41,9 @@ ent-ADTArmchairBlue = синее кресло
 ent-ADTArmchairBlue2 = { ent-ADTArmchairBlue }
     .desc = { ent-ADTArmchairWhite.desc }
 
+ent-ADTSpiderStool = паучий стул
+    .suffix = Хеллоуин
+    .desc = Выглядит страшноватенько.
+
 ent-ADTBarberChair = парикмахерское кресло
     .desc = Очень удобное кресло, предназначенное для работы парикмахера.
