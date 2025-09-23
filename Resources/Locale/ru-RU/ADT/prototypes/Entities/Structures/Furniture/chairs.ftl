@@ -7,6 +7,10 @@ ent-ADTChairRed = красный деревянный стул
 ent-ADTChairWhite = белый деревянный стул
     .desc = { ent-ADTChairPizzeria }
 
+ent-ADTChairOktoberfest = роскошный праздничный стул
+    .desc = Комфортнейший стул для праздника пива.
+    .suffix = { "Октоберфест" }
+
 ent-ADTArmchairWhite = белое кресло
     .desc = Выглядит крайне комфортно.
 
