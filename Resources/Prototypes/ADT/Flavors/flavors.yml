@@ -206,6 +206,22 @@
   flavorType: Base
   description: flavor-base-adtvanilla
 
+#на вкус как.. Отсутствие сортировки
+- type: flavor
+  id: ADTmandarin
+  flavorType: Base
+  description: flavor-base-mandarin
+
+- type: flavor
+  id: ADTChocolateDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTChocolateDrinkFlavor
+
+- type: flavor
+  id: ADTCocoaDrinkFlavor
+  flavorType: Complex
+  description: flavor-complex-ADTCocoaDrink
+
 # CHIPPIN' IN!!! Алкогольные Коктейли от QWERTY
 - type: flavor
   id: ADTteqilaoldfashion

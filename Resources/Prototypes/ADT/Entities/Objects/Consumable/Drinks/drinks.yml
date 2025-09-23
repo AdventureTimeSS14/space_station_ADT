@@ -573,6 +573,25 @@
       sprite: ADT/Objects/Consumable/Drinks/glyfidstout.rsi
       state: icon
 
+
+- type: entity
+  parent: DrinkGlassBase
+  id: ADTDrinkCocoaGlass
+  name: hot cocoa
+  description: A heated drink consisting cocoa powder.
+  components:
+    - type: Drink
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTCocoaDrink
+              Quantity: 30
+    - type: Sprite
+      sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+
+
 - type: entity
   parent: DrinkGlass
   id: ADTDrinkOrangeTeaGlass
@@ -624,58 +643,58 @@
   parent: DrinkGlass
   id: ADTTeqilaOldFashionGlass
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTTeqilaOldFashion
-              Quantity: 30
-    - type: Icon
-      sprite: Corvax/Objects/Consumable/Drinks/oldFashioned.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTTeqilaOldFashion
+          Quantity: 30
+  - type: Icon
+    sprite: Corvax/Objects/Consumable/Drinks/oldFashioned.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: ADTJackieWellesGlass
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTJackieWelles
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTJackieWelles
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: ADTTheSilverhandGlass
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTTheSilverhand
-              Quantity: 30
-    - type: Icon
-      sprite: ADT/Objects/Consumable/Drinks/silverhand.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTTheSilverhand
+          Quantity: 30
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/silverhand.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: ADTCoffeeBonBonGlass
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: ADTCoffeeBonBon
-              Quantity: 30
-    - type: Icon
-      sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTCoffeeBonBon
+          Quantity: 30
+  - type: Icon
+    sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
+    state: icon

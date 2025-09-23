@@ -57,6 +57,62 @@
   recipeType:
   - Assembler
 
+# курятинка
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedChicken
+  name: baked chicken
+  result: ADTFoodMeatChickenBaked
+  time: 25
+  group: Savory
+  solids:
+    ADTChickenBody: 1
+  reagents:
+    BbqSauce: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedStuffedChicken
+  name: baked stuffed chicken
+  result: ADTFoodMeatChickenBakedWithVegetables
+  time: 30
+  group: Savory
+  solids:
+    ADTChickenBody: 1
+    FoodPlate: 1
+    FoodCabbage: 1
+    FoodTomato: 1
+    FoodPotato: 1
+    FoodCorn: 1
+    FoodMeatCutlet: 2
+  reagents:
+    BbqSauce: 5
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedChickenLeg
+  name: baked chicken leg
+  result: ADTFoodMeatChickenBakedLeg
+  time: 5
+  group: Savory
+  solids:
+    ADTFoodMeatChickenLeg: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBakedChickenWing
+  name: baked chicken wing
+  result: ADTFoodMeatChickenBakedWing
+  time: 5
+  group: Savory
+  solids:
+    ADTFoodMeatChickenWing: 1
+  recipeType:
+  - Oven
+
 # Sh4zik tea packs, Starting below
 
 - type: microwaveMealRecipe
