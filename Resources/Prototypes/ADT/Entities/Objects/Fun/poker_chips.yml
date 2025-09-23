@@ -347,8 +347,6 @@
     contents:
     - id: ADTFunCardsBoxFull54
       amount: 1
-    - id: d6Dice
-      amount: 2
     - id: ADTFunCasinoChip1stack
       amount: 4
     - id: ADTFunCasinoChip5stack

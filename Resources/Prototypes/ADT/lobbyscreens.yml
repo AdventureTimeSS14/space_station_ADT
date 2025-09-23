@@ -73,3 +73,7 @@
 - type: lobbyBackground
   id: cqmime
   background: /Textures/ADT/LobbyScreens/cqcm1.webp
+
+- type: lobbyBackground
+  id: luckyratsalvagers
+  background: /Textures/ADT/LobbyScreens/luckyratsalvagers.webp
