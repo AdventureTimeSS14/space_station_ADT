@@ -668,31 +668,31 @@
     - id: ADTClothingHeadHatHoodRedhat
     - id: ADTClothingUniformJumpSkirtRedHat
 
-- type: entity
-  id: ADTBoxSollux
-  parent: ADTBoxNightmareClown
-  name: sollux box
-  description: sollux box
-  suffix: Halloweeen
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
-    state: sollux
-    #layers:
-    #- state: base
-    #- state: harry
-  - type: StorageFill
-    contents:
-    - id: ADTClothingEyesGlassesSollux
-    - id: ADTClothingHeadHatHornsSollux
-    - id: ADTClothingShoesBootsSollux
-    - id: ADTClothingUniformJumpsuitSollux
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,3,2
-  - type: Item
-    size: Large
+# - type: entity
+#   id: ADTBoxSollux
+#   parent: ADTBoxNightmareClown
+#   name: sollux box
+#   description: sollux box
+#   suffix: Halloweeen
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
+#     state: sollux
+#     #layers:
+#     #- state: base
+#     #- state: harry
+#   - type: StorageFill
+#     contents:
+#     - id: ADTClothingEyesGlassesSollux
+#     - id: ADTClothingHeadHatHornsSollux
+#     - id: ADTClothingShoesBootsSollux
+#     - id: ADTClothingUniformJumpsuitSollux
+#   - type: Storage
+#     maxItemSize: Normal
+#     grid:
+#     - 0,0,3,2
+#   - type: Item
+#     size: Large
 
 # Bad Police
 
