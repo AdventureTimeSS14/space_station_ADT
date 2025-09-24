@@ -265,10 +265,10 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatChicken
-      amount: 2
+  # - type: Butcherable
+  #   spawned:
+  #   - id: FoodMeatChicken
+  #     amount: 2
   # ADT-Tweak End
 
 - type: entity
