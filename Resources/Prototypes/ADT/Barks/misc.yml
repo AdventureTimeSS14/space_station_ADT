@@ -4,12 +4,12 @@
   sound: /Audio/ADT/Voice/Vocal-Barks/noise-bark.ogg
   roundStart: false
 
-- type: speechBark
-  id: SkeletonBarkOne
-  name: bark-skeleton-first-name # @@@ QWERTY barks update
-  sound:
-    collection: ADTSkeletonBark  # Новое обновление от старого любителя барков @@@ QWERTY
-  roundStart: false
+# - type: speechBark
+#   id: SkeletonBarkOne
+#   name: bark-skeleton-first-name # @@@ QWERTY barks update
+#   sound:
+#     collection: ADTSkeletonBark  # Новое обновление от старого любителя барков @@@ QWERTY
+#   roundStart: false
 
 - type: speechBark
   id: CanineVoice
@@ -53,16 +53,16 @@
   sound: /Audio/ADT/Voice/Vocal-Barks/oneshot-robot.ogg
   roundStart: false
 
-- type: speechBark
-  id: FatalErrorSans
-  name: bark-fatalerror-sans-name # @@@ QWERTY barks update
-  sound:
-    collection: ADTFatalErrorSans
-  roundStart: false
+# - type: speechBark
+#   id: FatalErrorSans
+#   name: bark-fatalerror-sans-name # @@@ QWERTY barks update
+#   sound:
+#     collection: ADTFatalErrorSans
+#   roundStart: false
 
-- type: speechBark
-  id: Gaster
-  name: bark-gaster-name # @@@ QWERTY barks update
-  sound:
-    collection: ADTGaster
-  roundStart: false
+# - type: speechBark
+#   id: Gaster
+#   name: bark-gaster-name # @@@ QWERTY barks update
+#   sound:
+#     collection: ADTGaster
+#   roundStart: false

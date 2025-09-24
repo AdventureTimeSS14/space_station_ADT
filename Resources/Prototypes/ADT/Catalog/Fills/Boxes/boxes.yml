@@ -826,8 +826,8 @@
       amount: 1
     - id: ADTRadioDemonShoes
       amount: 1
-    - id: ADTRadioDemonMonocle
-      amount: 1
+    # - id: ADTRadioDemonMonocle
+    #   amount: 1
 
 - type: entity
   parent: ADTFoodPackGummies
