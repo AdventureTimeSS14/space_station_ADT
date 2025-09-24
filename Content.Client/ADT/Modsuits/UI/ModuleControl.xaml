@@ -1,22 +1,26 @@
 <Control xmlns="https://spacestation14.io"
-         xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls">
-    <Button Disabled="True"
-            Margin="0"
-            HorizontalExpand="True"
-            VerticalExpand="True"
-            StyleClasses="ButtonSquare"
-            ModulateSelfOverride="#101A2899">
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+         xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls.FancyButton">
+    <PanelContainer Margin="0"
+                HorizontalExpand="True"
+                VerticalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#101A2899" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4">
             <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
                 <BoxContainer Orientation="Horizontal"
                             HorizontalExpand="True"
-                            VerticalAlignment="Center">
+                            VerticalExpand="True"
+                            VerticalAlignment="Center"
+                            SizeFlagsStretchRatio="1">
                     <SpriteView
                         Name="EquipmentView"
                         OverrideDirection="South"
-                        MinSize="32 32"
-                        SetSize="32 32"
-                        Scale="1 1"
+                        MinSize="48 48"
+                        SetSize="48 48"
+                        Scale="2 2"
                         RectClipContent="True"/>
                     <RichTextLabel Name="EquipmentName"
                                 VerticalAlignment="Center"
@@ -24,28 +28,33 @@
                                 MaxWidth="100"/>
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal"
+                            HorizontalExpand="True"
+                            VerticalExpand="True"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
-                            Margin="0 0 10 0">
+                            Margin="0 0 10 0"
+                            SizeFlagsStretchRatio="3">
                     <BoxContainer Orientation="Vertical"
                                 Margin="0 0 10 0">
-                        <Button Name="ActivateButton"
-                              Text="✔ Activate"
+                        <adt:FancyButton Name="ActivateButton"
+                              VerticalExpand="True"
                               Margin="0 0 0 5"
-                              Access="Public"
-                              StyleClasses="ButtonSquare"/>
-                        <Button Name="DeactivateButton"
-                              Text="✖ Deactivate"
+                              SetHeight="32"
+                              SetWidth="128"
+                              Access="Public"/>
+                        <adt:FancyButton Name="DeactivateButton"
+                              VerticalExpand="True"
                               Margin="0 0 0 5"
-                              Access="Public"
-                              StyleClasses="ButtonSquare"/>
+                              SetHeight="32"
+                              SetWidth="128"
+                              Access="Public"/>
                     </BoxContainer>
-                    <BoxContainer Orientation="Vertical">
-                        <Button Name="EjectButton"
-                              Text="⚠Eject"
-                              Access="Public"
-                              StyleClasses="ButtonSquare"/>
-                    </BoxContainer>
+                    <adt:FancyButton Name="EjectButton"
+                          VerticalExpand="True"
+                          VerticalAlignment="Top"
+                          SetWidth="100"
+                          SetHeight="32"
+                          Access="Public"/>
                 </BoxContainer>
             </BoxContainer>
             <customControls:HSeparator Name="Separator"
@@ -56,5 +65,5 @@
                          HorizontalExpand="True"
                          VerticalExpand="True"/>
         </BoxContainer>
-    </Button>
+    </PanelContainer>
 </Control>

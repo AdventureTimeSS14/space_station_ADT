@@ -60,7 +60,7 @@ public sealed partial class ModSuitMenu : FancyWindow
 
         LockButton.Text = modComp.UserName != null ? Loc.GetString("mod-lock") : Loc.GetString("mod-locked");
         ModUsername.Text = modComp.UserName != null ? Loc.GetString("mod-user") + modComp.UserName : Loc.GetString("mod-no-user");
-        switch (_modsuit.GetAttachedToggleStatus(_mod, modComp))
+        switch (_modsuit.GetPartsToggleStatus(_mod, modComp))
         {
             case ModSuitAttachedStatus.NoneToggled:
                 ModState.ModulateSelfOverride = new Color(0.86f, 0.22f, 0.22f, 0.7f);
@@ -79,44 +79,24 @@ public sealed partial class ModSuitMenu : FancyWindow
 
     public void UpdateModuleView(ModBoundUiState state)
     {
-        if (!_ent.TryGetComponent<ModSuitComponent>(_mod, out var modComp))
-            return;
-
         EquipmentControlContainer.RemoveAllChildren();
-        var list = state.EquipmentStates.Keys;
-        foreach (var item in list)
+
+        foreach (var item in state.EquipmentStates)
         {
-            var ent = _ent.GetEntity(item);
-            if (!_ent.TryGetComponent<ModSuitModComponent>(ent, out var modulecomp))
-                continue;
+            var ent = _ent.GetEntity(item.Key);
+
             if (!_ent.TryGetComponent<MetaDataComponent>(ent, out var metaData))
                 continue;
 
             var uicomp = _ent.GetComponentOrNull<UIFragmentComponent>(ent);
             var ui = uicomp?.Ui?.GetUIFragmentRoot();
 
+            var control = new ModuleControl(ent, metaData.EntityName, item.Value, ui);
 
-            var control = new ModuleControl(ent, metaData.EntityName, ui);
-
-            control.EjectButton.ModulateSelfOverride = new Color(0.18f, 0.25f, 0.35f, 1f);
-            control.EjectButton.Text = Loc.GetString("mod-eject");
-            if (modulecomp.Active)
-            {
-                control.ActivateButton.Text = Loc.GetString("mod-activate-nonactive");
-                control.DeactivateButton.Text = Loc.GetString("mod-deactivate-active");
-                control.ActivateButton.ModulateSelfOverride = new Color(0.04f, 0.06f, 0.10f, 1f);
-                control.DeactivateButton.ModulateSelfOverride = new Color(0.18f, 0.25f, 0.35f, 1f);
-            }
-            else
-            {
-                control.ActivateButton.Text = Loc.GetString("mod-activate-active");
-                control.DeactivateButton.Text = Loc.GetString("mod-deactivate-nonactive");
-                control.ActivateButton.ModulateSelfOverride = new Color(0.18f, 0.25f, 0.35f, 1f);
-                control.DeactivateButton.ModulateSelfOverride = new Color(0.04f, 0.06f, 0.10f, 1f);
-            }
             control.OnRemoveButtonPressed += () => OnRemoveButtonPressed?.Invoke(ent);
             control.OnActivateButtonPressed += () => OnActivateButtonPressed?.Invoke(ent);
             control.OnDeactivateButtonPressed += () => OnDeactivateButtonPressed?.Invoke(ent);
+
             EquipmentControlContainer.AddChild(control);
         }
     }
