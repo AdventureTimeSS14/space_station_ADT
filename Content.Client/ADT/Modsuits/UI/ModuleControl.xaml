@@ -6,7 +6,7 @@
                 HorizontalExpand="True"
                 VerticalExpand="True">
         <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#101A2899" />
+            <gfx:StyleBoxFlat BackgroundColor="#00000000" />
         </PanelContainer.PanelOverride>
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4">
             <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
