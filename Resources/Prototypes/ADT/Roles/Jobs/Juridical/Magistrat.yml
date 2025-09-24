@@ -41,7 +41,7 @@
 - type: startingGear
   id: MagistratGear
   equipment:
-    # shoes: ClothingShoesBootsLaceup different shoes in loadouts
+    # shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesCommand
     id: MagistratPDA
     ears: ClothingHeadsetMagistrat
