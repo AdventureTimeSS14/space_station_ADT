@@ -185,7 +185,7 @@ public sealed partial class ModSuitSystem
 
         UpdateCellDraw(ent);
 
-        if (GetPartsToggleStatus(ent.Owner, ent.Comp) == ModSuitAttachedStatus.AllToggled)
+        if (GetPartsToggleStatus(ent.Owner, ent.Comp) == ModSuitAttachedStatus.AllToggled && _timing.IsFirstTimePredicted && _netMan.IsClient)
             _audio.PlayGlobal(ent.Comp.FullyEnabledSound, user);
 
         if (updateUi)

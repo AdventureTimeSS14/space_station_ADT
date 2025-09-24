@@ -119,6 +119,9 @@ public sealed partial class ModSuitSystem
 
     private void OnGetActions(Entity<ModSuitComponent> ent, ref GetItemActionsEvent args)
     {
+        if (!_netMan.IsServer)
+            return;
+
         if (!_inventorySystem.InSlotWithFlags(ent.Owner, ent.Comp.RequiredFlags))
             return;
 
@@ -274,7 +277,7 @@ public sealed partial class ModSuitSystem
     {
         UpdateUserInterface(entity.Owner, entity.Comp);
 
-        if (!args.Args.FoundBattery.HasValue)
+        if (args.Args.FoundBattery.HasValue)
             return;
 
         if (_itemSlotsSystem.TryGetSlot(entity.Owner, "cell_slot", out ItemSlot? slot))
