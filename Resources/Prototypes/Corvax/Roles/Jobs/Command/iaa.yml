@@ -42,7 +42,7 @@
 - type: startingGear
   id: IAAGear
   equipment:
-    # shoes: ClothingShoesColorBlack different shoes in loadouts
+    # shoes: ClothingShoesColorBlack ADT-Tweak
     id: IAAPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetIAA
