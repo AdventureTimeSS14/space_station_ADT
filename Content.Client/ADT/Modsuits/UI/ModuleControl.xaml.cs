@@ -14,7 +14,7 @@ public sealed partial class ModuleControl : Control
     public event Action? OnActivateButtonPressed;
     public event Action? OnDeactivateButtonPressed;
 
-    public ModuleControl(EntityUid entity, string itemName, bool active, Control? fragment)
+    public ModuleControl(EntityUid entity, string itemName, bool active, (Color, Color, Color, Color) buttonColors, Control? fragment)
     {
         RobustXamlLoader.Load(this);
 
@@ -27,10 +27,10 @@ public sealed partial class ModuleControl : Control
             CustomControlContainer.AddChild(fragment);
         }
 
-        StartupButtons(active);
+        StartupButtons(active, buttonColors);
     }
 
-    private void StartupButtons(bool active)
+    private void StartupButtons(bool active, (Color, Color, Color, Color) colors)
     {
         var activateText = active ? Loc.GetString("mod-activate-nonactive") : Loc.GetString("mod-activate-active");
         var deactivateText = active ? Loc.GetString("mod-deactivate-active") : Loc.GetString("mod-deactivate-nonactive");
@@ -43,17 +43,9 @@ public sealed partial class ModuleControl : Control
         ActivateButton.Button.Disabled = active;
         DeactivateButton.Button.Disabled = !active;
 
-        (ActivateButton.Color, DeactivateButton.Color, EjectButton.Color) =
-                    (Color.FromHex("#121923ff"), Color.FromHex("#121923ff"), Color.FromHex("#121923ff"));
-
-        (ActivateButton.DisabledColor, DeactivateButton.DisabledColor, EjectButton.DisabledColor) =
-                    (Color.FromHex("#04060aFF"), Color.FromHex("#04060aFF"), Color.FromHex("#04060aFF"));
-
-        (ActivateButton.HoveredColor, DeactivateButton.HoveredColor, EjectButton.HoveredColor) =
-                    (Color.FromHex("#153b66"), Color.FromHex("#153b66"), Color.FromHex("#153b66"));
-
-        (ActivateButton.BorderColor, DeactivateButton.BorderColor, EjectButton.BorderColor) =
-                    (Color.FromHex("#153b66"), Color.FromHex("#153b66"), Color.FromHex("#153b66"));
+        (ActivateButton.Color, ActivateButton.DisabledColor, ActivateButton.HoveredColor, ActivateButton.BorderColor) = colors;
+        (DeactivateButton.Color, DeactivateButton.DisabledColor, DeactivateButton.HoveredColor, DeactivateButton.BorderColor) = colors;
+        (EjectButton.Color, EjectButton.DisabledColor, EjectButton.HoveredColor, EjectButton.BorderColor) = colors;
 
         ActivateButton.UpdateColor();
         DeactivateButton.UpdateColor();

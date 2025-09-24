@@ -17,11 +17,17 @@ public sealed partial class ModSuitComponent : Component
 {
     #region GUI
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string BackgroundPath = "/Textures/ADT/Interface/Backgrounds/Modsuits/nanotrasen_background.png";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Color BackpanelsColor = new Color(0.06f, 0.1f, 0.16f, 0.6f);
+
+    [DataField]
+    public Color ScrollColor = new Color(0.06f, 0.1f, 0.16f, 0.6f);
+
+    [DataField]
+    public List<Color> ButtonColors = new() { Color.FromHex("#121923ff"), Color.FromHex("#04060aFF"), Color.FromHex("#153b66"), Color.FromHex("#153b66") };
 
     #endregion gui
 

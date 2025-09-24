@@ -20,6 +20,7 @@ public sealed partial class ModSuitMenu : FancyWindow
     private readonly ModSuitSystem _modsuit = default!;
     private readonly SpriteSystem spriteSystem = default!;
     private EntityUid _mod;
+    private List<Color> _buttonColors = new() { Color.FromHex("#121923ff"), Color.FromHex("#04060aFF"), Color.FromHex("#153b66"), Color.FromHex("#153b66") };
 
     public event Action<EntityUid>? OnRemoveButtonPressed;
     public event Action<EntityUid>? OnActivateButtonPressed;
@@ -31,7 +32,6 @@ public sealed partial class ModSuitMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         _modsuit = _ent.System<ModSuitSystem>();
         spriteSystem = _ent.System<SpriteSystem>();
-
     }
 
     public void SetEntity(EntityUid uid)
@@ -45,18 +45,18 @@ public sealed partial class ModSuitMenu : FancyWindow
         if (!_ent.TryGetComponent<ModSuitComponent>(_mod, out var modComp))
             return;
 
+        _buttonColors = modComp.ButtonColors;
+
         ModComplex.Text = Loc.GetString("mod-module-space", ("complexity", modComp.CurrentComplexity), ("maxcomplexity", modComp.MaxComplexity)) + Environment.NewLine +
         Loc.GetString("mod-energy-waste", ("energy", modComp.ModEnergyBaseUsing.ToString("0.0")));
-        var styleBox = new StyleBoxFlat
-        {
-            BackgroundColor = modComp.BackpanelsColor
-        };
-        UsernamePanel.PanelOverride = styleBox;
-        ComplexityPanel.PanelOverride = styleBox;
-        StatePanel.PanelOverride = styleBox;
-        ScrollPanel.PanelOverride = styleBox;
-        BackTexture.Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new(modComp.BackgroundPath)));
+        var backpanelsStyle = new StyleBoxFlat(modComp.BackpanelsColor);
+        var scrollStyle = new StyleBoxFlat(modComp.ScrollColor);
 
+        UsernamePanel.PanelOverride = backpanelsStyle;
+        ComplexityPanel.PanelOverride = backpanelsStyle;
+        StatePanel.PanelOverride = backpanelsStyle;
+        ScrollPanel.PanelOverride = scrollStyle;
+        BackTexture.Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new(modComp.BackgroundPath)));
 
         LockButton.Text = modComp.UserName != null ? Loc.GetString("mod-lock") : Loc.GetString("mod-locked");
         ModUsername.Text = modComp.UserName != null ? Loc.GetString("mod-user") + modComp.UserName : Loc.GetString("mod-no-user");
@@ -91,7 +91,8 @@ public sealed partial class ModSuitMenu : FancyWindow
             var uicomp = _ent.GetComponentOrNull<UIFragmentComponent>(ent);
             var ui = uicomp?.Ui?.GetUIFragmentRoot();
 
-            var control = new ModuleControl(ent, metaData.EntityName, item.Value, ui);
+            var colors = (_buttonColors[0], _buttonColors[1], _buttonColors[2], _buttonColors[3]);
+            var control = new ModuleControl(ent, metaData.EntityName, item.Value, colors, ui);
 
             control.OnRemoveButtonPressed += () => OnRemoveButtonPressed?.Invoke(ent);
             control.OnActivateButtonPressed += () => OnActivateButtonPressed?.Invoke(ent);
