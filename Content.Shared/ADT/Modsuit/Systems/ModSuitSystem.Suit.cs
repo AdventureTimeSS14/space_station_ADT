@@ -72,8 +72,12 @@ public sealed partial class ModSuitSystem
 
         Dirty(ent);
 
-        _cell.QueueUpdate(ent.Owner);
-        _cell.SetDrawEnabled(ent.Owner, false);
+        if (HasComp<PowerCellDrawComponent>(ent))
+        {
+            _cell.QueueUpdate(ent.Owner);
+            _cell.SetDrawEnabled(ent.Owner, false);
+        }
+
         UpdateUserInterface(ent.Owner, ent.Comp);
     }
 
