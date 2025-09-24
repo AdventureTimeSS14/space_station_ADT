@@ -139,7 +139,7 @@
     - id: ADTBunnyDancerBox
     - id: ADTPayDayBox
     - id: ADTChainSawManBox
-    - id: ADTBoxSollux
+    # - id: ADTBoxSollux
     - id: ADTBoxRedHat
     - id: ADTBoxBadPolice
     - id: ADTBoxLethalCompany

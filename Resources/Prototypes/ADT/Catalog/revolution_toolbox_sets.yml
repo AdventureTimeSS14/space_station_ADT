@@ -46,7 +46,7 @@
   - ADTPassagerRDIDCard
   - ADTCustomLawCircuitBoard
   - HandheldCrewMonitor
-  - ADTBoxSollux
+  # - ADTBoxSollux
 
 - type: thiefBackpackSet
   id: ADTGunsmith
