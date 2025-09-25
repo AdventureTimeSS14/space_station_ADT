@@ -72,7 +72,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
             damage = (float)(dmgComp.TotalDamage + damage) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
-            _dmg.SetAllDamage(args.Target, dmgComp, damage);
+            _damageable.SetAllDamage(args.Target, dmgComp, damage);
             args.Handled = true;
         }
     }
@@ -88,7 +88,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         // heal teammates, mostly ghouls
-        _dmg.SetAllDamage((EntityUid)args.Target, dmg, 0);
+        _damageable.SetAllDamage((EntityUid)args.Target, dmg, 0);
         args.Handled = true;
     }
     private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)

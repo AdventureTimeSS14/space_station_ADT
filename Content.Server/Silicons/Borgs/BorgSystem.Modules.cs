@@ -265,9 +265,9 @@ public sealed partial class BorgSystem
 
             var handId = $"{uid}-item{component.HandCounter}";
             component.HandCounter++;
-            _hands.AddHand(chassis, handId, HandLocation.Middle, hands);
-            _hands.DoPickup(chassis, hands.Hands[handId], item, hands);
-            if (hands.Hands[handId].HeldEntity != item)
+            _hands.AddHand((chassis, hands), handId, HandLocation.Middle);
+            _hands.DoPickup(chassis, handId, item, hands);
+            if (_hands.TryGetHeldItem((chassis, hands), handId, out var heldEntity) && heldEntity != item)
             {
                 // If we didn't pick up our expected item, delete the hand.  No free hands!
                 _hands.RemoveHand(chassis, handId);
@@ -304,7 +304,7 @@ public sealed partial class BorgSystem
             foreach (var (hand, item) in component.DroppableProvidedItems)
             {
                 QueueDel(item.Item1);
-                _hands.RemoveHand(chassis, hand, hands);
+                _hands.RemoveHand(chassis, hand);
             }
             component.DroppableProvidedItems.Clear();
             // End ADT: droppable items
@@ -324,14 +324,14 @@ public sealed partial class BorgSystem
         // ADT: remove all items from borg hands directly, not from the provided items set
         foreach (var (handId, _) in component.DroppableProvidedItems)
         {
-            _hands.TryGetHand(chassis, handId, out var hand, hands);
-            if (hand?.HeldEntity != null)
+            _hands.TryGetHand(chassis, handId, out var hand);
+            if (_hands.TryGetHeldItem((chassis, hands), handId, out var heldEntity))
             {
-                RemComp<UnremoveableComponent>(hand.HeldEntity.Value);
-                _container.Insert(hand.HeldEntity.Value, component.ProvidedContainer);
+                RemComp<UnremoveableComponent>(heldEntity.Value);
+                _container.Insert(heldEntity.Value, component.ProvidedContainer);
             }
 
-            _hands.RemoveHand(chassis, handId, hands);
+            _hands.RemoveHand(chassis, handId);
         }
         component.DroppableProvidedItems.Clear();
         // End ADT

@@ -76,33 +76,7 @@ public sealed class BibleSystem : EntitySystem
             _damageableSystem.TryChangeDamage(user, component.DamageOnUntrainedUse, true, origin: uid);
             _delay.TryResetDelay((uid, useDelay));
 
-            foreach (var entity in _remQueue)
-            {
-                RemComp<SummonableRespawningComponent>(entity);
-            }
-            _remQueue.Clear();
-
-            var query = EntityQueryEnumerator<SummonableRespawningComponent, SummonableComponent>();
-            while (query.MoveNext(out var uid, out var _, out var summonableComp))
-            {
-                summonableComp.Accumulator += frameTime;
-                if (summonableComp.Accumulator < summonableComp.RespawnTime)
-                {
-                    continue;
-                }
-                // Clean up the old body
-                if (summonableComp.Summon != null)
-                {
-                    Del(summonableComp.Summon.Value);
-                    summonableComp.Summon = null;
-                }
-                summonableComp.AlreadySummoned = false;
-                _popupSystem.PopupEntity(Loc.GetString("bible-summon-respawn-ready", ("book", uid)), uid, PopupType.Medium);
-                _audio.PlayPvs(summonableComp.SummonSound, uid);
-                // Clean up the accumulator and respawn tracking component
-                summonableComp.Accumulator = 0;
-                _remQueue.Enqueue(uid);
-            }
+            return;
         }
 
         // Tries to use chaplain's energy
@@ -171,7 +145,7 @@ public sealed class BibleSystem : EntitySystem
             checkPhantom = true;
         }
 
-        // If the body is controlled by a phantom 
+        // If the body is controlled by a phantom
         if (TryComp<ControlledComponent>(target, out var controlled) && controlled.Key == "Phantom")
         {
             var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-controlled-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
@@ -209,18 +183,10 @@ public sealed class BibleSystem : EntitySystem
             var othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
             _popupSystem.PopupEntity(othersMessage, user, Filter.PvsExcept(user), true, PopupType.Medium);
 
-            // Make this familiar the component's summon
-            var familiar = Spawn(component.SpecialItemPrototype, position.Coordinates);
-            component.Summon = familiar;
-
-            // If this is going to use a ghost role mob spawner, attach it to the bible.
-            if (HasComp<GhostRoleMobSpawnerComponent>(familiar))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("bible-summon-requested"), user, user, PopupType.Medium);
-                _transform.SetParent(familiar, uid);
-            }
-            component.AlreadySummoned = true;
-            _actionsSystem.RemoveAction(user, component.SummonActionEntity);
+            var selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
+            _popupSystem.PopupEntity(selfMessage, user, user, PopupType.Large);
+            _audio.PlayPvs(component.HealSoundPath, user);
+            _delay.TryResetDelay((uid, useDelay));
         }
     }
 
@@ -298,4 +264,3 @@ public sealed class BibleSystem : EntitySystem
         summonable.AlreadySummoned = false;
     }
 }
-

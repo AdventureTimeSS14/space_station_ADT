@@ -52,6 +52,8 @@ public sealed class GhostKickCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly GhostKickManager _ghostKick = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
     public override string Command => "ghostkick";
 
@@ -71,6 +73,7 @@ public sealed class GhostKickCommand : LocalizedEntityCommands
             shell.WriteError(Loc.GetString($"shell-target-player-does-not-exist"));
             return;
         }
+
         // ADT-Tweak-start
         if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions))
         {

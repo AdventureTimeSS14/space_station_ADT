@@ -8,7 +8,6 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
@@ -50,7 +49,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
@@ -153,14 +151,15 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            if(!TryComp<HandsComponent>(ent, out var handsComp))
+            if (!TryComp<HandsComponent>(ent, out var handsComp))
                 return;
-            foreach (var hand in handsComp.Hands.Values)
+
+            foreach (var hand in _hands.EnumerateHands((ent, handsComp)))
             {
-                if (hand.HeldEntity == null)
+                if (!_hands.TryGetHeldItem((ent, handsComp), hand, out var heldEntity))
                     continue;
-                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
-                    QueueDel(hand.HeldEntity);
+                if (HasComp<MansusGraspComponent>(heldEntity))
+                    QueueDel(heldEntity);
             }
             ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;

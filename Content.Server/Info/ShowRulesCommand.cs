@@ -42,11 +42,13 @@ public sealed class ShowRulesCommand : LocalizedCommands
             return;
         }
 
-        if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions)) // ADT-Tweak
+        // ADT-Tweak-Start
+        if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions))
         {
-            shell.WriteError($"You not permission for showrule '{target}'.");
+            shell.WriteError($"You not permission for showrule '{args[0]}'.");
             return;
         }
+        // ADT-Tweak-End
         var coreRules = _configuration.GetCVar(CCVars.RulesFile);
         var message = new SendRulesInformationMessage
             { PopupTime = seconds, CoreRules = coreRules, ShouldShowRules = true };

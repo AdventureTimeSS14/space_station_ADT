@@ -114,8 +114,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         }
 
         if (TryComp(parent, out ActorComponent? actor))
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
-        if (TryComp(Transform(uid).ParentUid, out ActorComponent? actor))
         {
             // ADT Languages start
             if (_language.CanUnderstand(Transform(uid).ParentUid, args.Language))

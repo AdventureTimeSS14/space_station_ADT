@@ -19,6 +19,10 @@ namespace Content.Client.Administration.UI.Tabs
             EndRound.OnPressed += _ => _console.ExecuteCommand("endround");
             RestartRound.OnPressed += _ => _console.ExecuteCommand("restartround");
             RestartRoundNow.OnPressed += _ => _console.ExecuteCommand("restartroundnow");
+            // ADT-Tweak-Start
+            DelayStart.OnPressed += _ => _console.ExecuteCommand("delaystart");
+            ReadyAll.OnPressed += _ => _console.ExecuteCommand("readyall");
+            // ADT-Tweak-End
         }
     }
 }

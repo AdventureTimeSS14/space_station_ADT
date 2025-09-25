@@ -11,8 +11,8 @@
         <controls:ConfirmButton Name="RestartRound" Text="{Loc administration-ui-round-tab-restart-round}" />
         <controls:ConfirmButton Name="RestartRoundNow" Text="{Loc administration-ui-round-tab-restart-round-now}" />
 		<!-- ADT-Tweak-Start -->
-		<controls:ConfirmButton Command="delaystart" Text="{Loc administration-ui-round-tab-pause-lobby}" />
-		<controls:ConfirmButton Command="readyall" Text="{Loc administration-ui-round-tab-readyall-lobby}" />
+		<controls:ConfirmButton Name="DelayStart" Text="{Loc administration-ui-round-tab-pause-lobby}" />
+		<controls:ConfirmButton Name="ReadyAll" Text="{Loc administration-ui-round-tab-readyall-lobby}" />
 		<!-- ADT-Tweak-End -->
     </GridContainer>
 </Control>

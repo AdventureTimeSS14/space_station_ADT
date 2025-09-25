@@ -39,7 +39,6 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -155,16 +154,16 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (component.Essence <= 0)
         {
-            // ADT Revenant shield ability start
+            // ADT-Tweak-Start
             if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
             {
                 shield.Used = true;
-                _statusEffects.TryRemoveStatusEffect(uid, "Stun");
-                _statusEffects.TryRemoveStatusEffect(uid, "Corporeal");
+                _status.TryRemoveStatusEffect(uid, "Stun");
+                _status.TryRemoveStatusEffect(uid, "Corporeal");
                 ChangeEssenceAmount(uid, 50, allowDeath: false);
                 return true;
             }
-            // ADT Revenant shield ability end
+            // ADT-Tweak-End
 
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             QueueDel(uid);
@@ -192,7 +191,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
         ChangeEssenceAmount(uid, -abilityCost, component, false);
 
-        _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
+        _status.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
         _stun.TryAddStunDuration(uid, TimeSpan.FromSeconds(debuffs.X));
 
         return true;
