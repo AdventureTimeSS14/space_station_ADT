@@ -13,7 +13,7 @@
         - type: StationCargoShuttle
           path: /Maps/ADTMaps/Shuttles/genesis.yml
         - type: StationNameSetup
-          mapNameTemplate: '{0}TRAIN {1}'
+          mapNameTemplate: '{0}TRN {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '-'
