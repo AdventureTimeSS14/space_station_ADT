@@ -226,7 +226,7 @@
         type: SuitStorageBoundUserInterface
   - type: SuitStorage
     options:
-    - ADTClothingModsuitBackSMO
+    - ADTClothingModsuitBackCMO
     - ClothingOuterHardsuitMedical
 # ADT-Tweak-end
   - type: AccessReader
