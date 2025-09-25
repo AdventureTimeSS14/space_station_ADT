@@ -64,7 +64,7 @@ marking-ADTScreenCuteSmirking = Милое (Ухмыляющееся)
 marking-ADTScreenCuteCryed = Милое (Плачущее)
 marking-ADTScreenCuteLaughing = Милое (Смеющееся)
 marking-ADTScreenCuteQuestioningly = Милое (Вопросительное)
-marking-ADTScreenCuteUnsurprised = Милое (Неудивлённо)
+marking-ADTScreenCuteUnsurprised = Милое (Неудивлённое)
 
 marking-RobotAntennaTv = ТВ
 marking-RobotAntennaTesla = Тесла
