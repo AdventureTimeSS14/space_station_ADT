@@ -480,16 +480,16 @@
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
-  id: ADTClothingOuterModsuitBodySMO
-  name: SMO MOD chestplate
+  id: ADTClothingOuterModsuitBodyCMO
+  name: CMO MOD chestplate
   description: A chestplate for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/OuterClothing/Modsuit/smo.rsi
+    sprite: ADT/Clothing/OuterClothing/Modsuit/cmo.rsi
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/OuterClothing/Modsuit/smo.rsi
+    sprite: ADT/Clothing/OuterClothing/Modsuit/cmo.rsi
     slots: [ OUTERCLOTHING ]
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg

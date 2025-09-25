@@ -469,21 +469,21 @@
 # Главный Врач
 - type: entity
   parent: ADTClothingModsuitBackBase
-  id: ADTClothingModsuitBackSMO
-  name: SMO MOD control unit
-  description: Made SMO
+  id: ADTClothingModsuitBackCMO
+  name: CMO MOD control unit
+  description: Made CMO
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Back/Modsuit/smo.rsi
+    sprite: ADT/Clothing/Back/Modsuit/cmo.rsi
     state: icon
   - type: ModSuit
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:
-      head: ADTClothingHeadHelmetModsuitSMO
-      gloves: ADTClothingHandsModsuitSMO
-      outerClothing: ADTClothingOuterModsuitBodySMO
-      shoes: ADTClothingModsuitShoesSMO
+      head: ADTClothingHeadHelmetModsuitCMO
+      gloves: ADTClothingHandsModsuitCMO
+      outerClothing: ADTClothingOuterModsuitBodyCMO
+      shoes: ADTClothingModsuitShoesCMO
     startingModules:
       - ADTModsuitModStorageLarge
       - ADTModsuitModLight

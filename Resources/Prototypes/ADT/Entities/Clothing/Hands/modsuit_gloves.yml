@@ -235,13 +235,13 @@
 
 - type: entity
   parent: ADTClothingHandsModsuitBase
-  id: ADTClothingHandsModsuitSMO
-  name: smo MOD gauntlets
+  id: ADTClothingHandsModsuitCMO
+  name: CMO MOD gauntlets
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Modsuit/smo.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/cmo.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Hands/Modsuit/smo.rsi
+    sprite: ADT/Clothing/Hands/Modsuit/cmo.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 3

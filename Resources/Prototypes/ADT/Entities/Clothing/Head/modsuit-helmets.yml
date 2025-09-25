@@ -382,16 +382,16 @@
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
-  id: ADTClothingHeadHelmetModsuitSMO
-  name: SMO MOD helmet
+  id: ADTClothingHeadHelmetModsuitCMO
+  name: CMO MOD helmet
   description: A helmet for a MODsuit.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Modsuit/smo.rsi
+    sprite: ADT/Clothing/Head/Modsuit/cmo.rsi
     layers:
     - state: icon
   - type: Clothing
-    sprite: ADT/Clothing/Head/Modsuit/smo.rsi
+    sprite: ADT/Clothing/Head/Modsuit/cmo.rsi
     clothingVisuals:
       head:
       - state: equipped-head
