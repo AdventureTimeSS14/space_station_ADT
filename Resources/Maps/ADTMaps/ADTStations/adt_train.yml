@@ -20033,7 +20033,7 @@ entities:
     - type: NavMap
     - type: FTLDestination
     - type: BecomesStation
-      id: Train
+      id: ADT_Train
     - type: SupermatterSpreaderGrid
   - uid: 4
     mapInit: true
