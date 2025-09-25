@@ -8,10 +8,3 @@
     - !type:OverallPlaytimeRequirement
       time: 270000 #75 hrs
   guides: [ Heretics ]
-
-- type: startingGear
-  id: HereticGear
-  storage:
-    back:
-    - CodexCicatrix
-    - OrganHumanHeart

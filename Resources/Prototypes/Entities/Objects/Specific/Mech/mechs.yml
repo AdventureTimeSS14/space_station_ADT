@@ -114,14 +114,15 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: NpcFactionMember # ADT tweak stary
+  - type: NpcFactionMember # ADT-tweak-start
     factions:
     - NanoTrasen
   - type: MobThresholds
     thresholds:
       0: Alive
       1000: Critical
-  - type: MobState # ADT tweak end
+  - type: MobState
+  - type: GrabProtection # ADT-tweak-end
 
 - type: entity
   id: MechRipley

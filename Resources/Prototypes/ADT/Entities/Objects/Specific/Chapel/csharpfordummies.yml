@@ -1,0 +1,16 @@
+- type: entity
+  id: ADTCsharpForDummies
+  parent: BaseItem
+  name: C-sharp for dummies
+  description: A book, which going to give you perfect knowlegdge to shitcode.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/csharp_for_dummies.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: GrantLanguageOnUse
+    language: Dev
+  - type: Tag
+    tags:
+    - Book

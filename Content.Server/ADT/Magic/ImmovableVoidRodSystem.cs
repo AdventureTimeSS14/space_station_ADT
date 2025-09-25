@@ -59,7 +59,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         var power = 1f;
         if (ent.Comp.User != null && ent.Comp.User.Value.Comp.CurrentPath == "Void")
             // ascended void heretic will give 6 SECONDS OF STUN :bluesurprised:
-            power += ent.Comp.User.Value.Comp.PathStage / 2f;
+            power += ent.Comp.User.Value.Comp.PathStage / 2.1f;
 
         _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(power), false);
         _voidcurse.DoCurse(args.OtherEntity);

@@ -1,9 +1,9 @@
-using Content.Shared.ADT.Crawling; // Ganimed edit
-using Content.Shared.Standing; // Ganimed edit
+using Content.Shared.ADT.Crawling; // ADT-Tweak
+using Content.Shared.Standing; // ADT-Tweak
 using Content.Shared.Bed.Sleep;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
-using Content.Shared.Buckle.Components; // Ganimed edit
+using Content.Shared.Buckle.Components; // ADT-Tweak
 
 namespace Content.Server.Traits.Assorted;
 
@@ -18,7 +18,7 @@ public sealed class NarcolepsySystem : EntitySystem
 
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!; // Ganimed edit
+    [Dependency] private readonly StandingStateSystem _standing = default!; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -60,16 +60,17 @@ public sealed class NarcolepsySystem : EntitySystem
             // Make sure the sleep time doesn't cut into the time to next incident.
             narcolepsy.NextIncidentTime += duration;
 
-            // Ganimed edit start
-            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
-
+            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey,
+                TimeSpan.FromSeconds(duration), false);
+            
+            // ADT-Tweak-start
             if (TryComp<StrapComponent>(uid, out var strap) && strap.BuckledEntities.Count > 0)
             {
                 continue;
             }
 
             _standing.Down(uid, dropHeldItems: false);
-            // Ganimed edit end
+            // ADT-Tweak-end
         }
     }
 }

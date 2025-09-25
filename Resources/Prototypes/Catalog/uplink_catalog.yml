@@ -21,9 +21,9 @@
   productEntity: WeaponRevolverPythonAP
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 3 #ADT-tweak 2->3
   cost:
-    Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
+    Telecrystal: 5 #ADT-tweak 4->5
   categories:
   - UplinkWeaponry
 
@@ -88,9 +88,9 @@
   productEntity: ThrowingKnivesKit
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2 # ADT-Tweak 3>2
+    Telecrystal: 1 # ADT-Tweak 2->1
   cost:
-    Telecrystal: 4 # ADT-Tweak 6>4
+    Telecrystal: 3 # ADT-Tweak 4->3
   categories:
     - UplinkWeaponry
 
@@ -115,9 +115,9 @@
   productEntity: ClothingHandsKnuckleDustersSyndicate
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # ADT-Tweak 3->2
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # ADT-Tweak 6->5
   categories:
   - UplinkWeaponry
 
@@ -128,9 +128,9 @@
   productEntity: ToolboxElectricalTurretFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2 # ADT-Tweak 6>4
+    Telecrystal: 4 # ADT-Tweak 2->4
   cost:
-    Telecrystal: 4 # ADT-Tweak 6>4
+    Telecrystal: 6 # ADT-Tweak 4->6
   categories:
   - UplinkWeaponry
   conditions:
@@ -622,7 +622,7 @@
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
-    Telecrystal: 40
+    Telecrystal: 35 # ADT-Tweak (40 > 35)
   categories:
   - UplinkChemicals
   conditions:
@@ -1137,9 +1137,9 @@
   productEntity: BoxHoloparasite
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 6 # ADT-Tweak 8>6
+    Telecrystal: 8 # ADT-Tweak 6->8
   cost:
-    Telecrystal: 10 # ADT-Tweak 14>10
+    Telecrystal: 12 # ADT-Tweak 10->12
   categories:
   - UplinkAllies
   conditions:
@@ -1871,7 +1871,7 @@
   description: uplink-balloon-desc
   productEntity: BalloonSyn
   cost:
-    Telecrystal: 20
+    Telecrystal: 10 # ADT-Tweak 20->10
   categories:
   - UplinkPointless
 

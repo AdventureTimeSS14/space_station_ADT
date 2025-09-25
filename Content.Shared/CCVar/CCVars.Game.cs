@@ -404,10 +404,17 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> GameHostnameInTitlebar =
         CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
 
+    // ADT-Tweak-Start
+    /// <summary>
+    ///     The prototype to use for dynamic random.
+    /// </summary>
+    public static readonly CVarDef<string> DynamicRandomWeightPrototype =
+        CVarDef.Create("game.dynamic_weight_prototype", "DynamicRandom", CVar.SERVERONLY);
+    //ADT-Tweak-End
+
     /// <summary>
     ///     Should automatic map and preset votes be created in the lobby when a round restarts?
     /// </summary>
     public static readonly CVarDef<bool> LobbyAutoVotes =
         CVarDef.Create("game.lobby_auto_votes", true);
-
 }

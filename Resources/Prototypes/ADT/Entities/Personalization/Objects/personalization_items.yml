@@ -2120,7 +2120,7 @@
 
 #kugooergooer
 - type: entity
-  parent: BasePlushie
+  parent: BaseFigurine
   id: ADTPlushieGiPatter
   name: Plushie GiPatter
   description: Plushie GiPatter
@@ -2129,25 +2129,37 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_gipatter
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # - type: EmitSoundOnUse
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  # - type: EmitSoundOnActivate
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    damage:
+      types:
+        Blunt: 0
+  # - type: EmitSoundOnTrigger
+  #   sound:
+  #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: SpeakOnTrigger
+    pack: FigurinesGiPatter
+
+- type: localizedDataset
+  id: FigurinesGiPatter
+  values:
+    prefix: figurines-gipatter-
+    count: 3
 
 #BLAD
 - type: entity
@@ -2356,4 +2368,67 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_raykulakov
+
+#maksim_soko
+- type: entity
+  parent: BaseItem
+  id: ADTRingSoko
+  name: Ring Soko
+  description: Ring Soko
+  suffix: Personal, maksim_soko
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sokoring.rsi
+    state: icon
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
+  - type: StaticPrice
+    price: 1000
+  - type: Item
+    size: Tiny
+
+#Sir_talter
+- type: entity
+  name: proto-kinetic pistol
+  id: ADTWeaponProtoKineticPistolSirtalter
+  parent: ADTWeaponProtoKineticPistol
+  description: The Pistol trades base damage, and range, for double mod capacity, making it a truely customizable PKA.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    size: Small
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalterpkpistol.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+
+- type: entity
+  parent: WeaponKineticSpear
+  id: ADTWeaponKineticGlephSirtalter
+  name: kinetic spear
+  description: A long-ranged melee weapon which trades damage for a two-tile reach, similar to reagent/bone spears.
+  suffix: Personal, Sir_talter
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: ADT/Personalization/sirtalter_crusher_spear-inhands.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/sirtalter_crusher_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
 #SPONSOR-ITEMS-END

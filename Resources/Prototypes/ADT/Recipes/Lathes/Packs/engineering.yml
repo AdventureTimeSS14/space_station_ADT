@@ -19,11 +19,6 @@
   - GasPipeFourway
 
 - type: latheRecipePack
-  id: ADTEnergyBoardsPack
-  recipes:
-  - ADTIndustrialSMESMachineCircuitboard
-
-- type: latheRecipePack
   id: ADTMicsStaticPack
   recipes:
   - StorageCanister
@@ -39,3 +34,19 @@
   - ToolboxElectrical
   - ToolboxMechanical
   - ToolboxArtistic
+  - ClothingHeadHatHardhatWhite
+  - ClothingHeadHatHardhatYellow
+  - ClothingHeadHatHardhatRed
+  - ClothingHeadHatHardhatOrange
+  - ClothingHeadHatHardhatBlue
+  - ClothingHeadHatHardhatYellowDark
+
+- type: latheRecipePack
+  id: ADTPowerPack
+  recipes: 
+  - ADTPowerCellHyperRecipe
+
+- type: latheRecipePack
+  id: ADTIndustrialCharger
+  recipes: 
+  - ADTIndustrialChargerCircuitboard

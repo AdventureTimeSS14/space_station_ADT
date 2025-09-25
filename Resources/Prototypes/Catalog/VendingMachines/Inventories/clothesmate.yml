@@ -12,7 +12,6 @@
     #ADTClothingUniformWhiteSweaterHeart: 2 # TODO: Добавить вещи святого валентина
     #ADTClothingOuterRedCardigan: 2
     #ADTClothingOuterBlackCardigan: 2
-    #ADTClothingUnderwearSocksHeart: 2
     #ADTClothingUnderwearStockingsHeart: 2
 # Конец одежда на 14 февраля
     ClothingBackpack: 5
@@ -112,13 +111,13 @@
     ClothingUnderSocksBee: 2
     ClothingUnderSocksCoder: 1
     ADTClothingUnderwearSocksAzure: 2
-    ADTClothingUnderwearSocksKneeAzure: 2 
+    ADTClothingUnderwearSocksKneeAzure: 2
     ADTClothingUnderwearSocksThighAzure: 2
     ADTClothingUnderwearSocksBlack: 2
     ADTClothingUnderwearSocksKneeBlack: 2
     ADTClothingUnderwearSocksThighBlack: 2
     ADTClothingUnderwearSocksCyan: 2
-    ADTClothingUnderwearSocksKneeCyan: 2 
+    ADTClothingUnderwearSocksKneeCyan: 2
     ADTClothingUnderwearSocksThighCyan: 2
     ADTClothingUnderwearSocksFurr: 2
     ADTClothingUnderwearSocksKneeFurr: 2
@@ -137,7 +136,6 @@
     ADTClothingUnderwearSocksThighOrange: 2
     ADTClothingUnderwearSocksPink: 2
     ADTClothingUnderwearSocksKneePink: 2
-    ADTClothingUnderwearSocksKneeCreepy: 2
     ADTClothingUnderwearSocksThighCreepy: 2
     ADTClothingUnderwearSocksKneeFishnet: 2
     ADTClothingUnderwearSocksFullFishnet: 2

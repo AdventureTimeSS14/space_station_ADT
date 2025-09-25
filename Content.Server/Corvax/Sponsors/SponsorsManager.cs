@@ -69,7 +69,31 @@ public sealed class SponsorsManager : ISponsorsManager // Ganimed-Sponsors
     private async Task OnConnecting(NetConnectingArgs e)
     {
         var info = await LoadSponsorInfo(e.UserId);
-        if (info?.Tier == null || info.ExpireDate <= DateTime.Now)
+
+        if (info == null)
+        {
+            _cachedSponsors.Remove(e.UserId);
+            return;
+        }
+
+        var isExpired = info.ExpireDate.ToLocalTime() <= DateTime.Now;
+
+        if (isExpired && info.AllowJob)
+        {
+            info = new SponsorInfo
+            {
+                CharacterName = info.CharacterName,
+                Tier = null,
+                OOCColor = null,
+                HavePriorityJoin = false,
+                ExtraSlots = 0,
+                AllowedMarkings = Array.Empty<string>(),
+                ExpireDate = info.ExpireDate,
+                AllowJob = true
+            };
+        }
+
+        else if (isExpired || info.Tier == null)
         {
             _cachedSponsors.Remove(e.UserId);
             return;

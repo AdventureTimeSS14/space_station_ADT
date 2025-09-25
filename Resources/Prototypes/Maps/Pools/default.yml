@@ -20,10 +20,10 @@
 
 # ADT Maps Базовые Актуальные
   - ADT_Bagel
+  - ADT_Barratry
   - ADT_Box
   - ADT_Cluster
-  - ADT_Cluster_Legacy
-  - ADT_Gemini
+  - ADT_Origin
   - ADT_Fland
   - ADT_Marathon
   - ADT_Meta
@@ -31,6 +31,7 @@
   - ADT_Packed
   - ADT_Aspid
   - ADT_Kerberos
+  - ADT_Train
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
@@ -44,6 +45,8 @@
   # - ADT_Packed #В рамках уменьшения числа карт
   # - ADT_Train #В рамках уменьшения числа карт
   # - ADT_Delta Выведена из-за наличия Кербероса
+  # - ADT_Gemini Пока Кэш не доделает
+  # - ADT_Cluster_Legacy Пока Кэш не сделает
 
 # ADT Halloween (Не забудьте отключить обычные)
   # - ADT_TrainHalloween

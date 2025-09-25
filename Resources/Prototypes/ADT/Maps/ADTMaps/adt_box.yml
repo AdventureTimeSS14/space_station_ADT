@@ -13,7 +13,9 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '-'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
+          emergencyShuttlePath: /Maps/ADTMaps/Shuttles/adt_emergency.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
             # command
@@ -62,6 +64,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 6, 6 ]
             CargoTechnician: [ 3, 3 ]
+            ADTMiner: [ 2, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

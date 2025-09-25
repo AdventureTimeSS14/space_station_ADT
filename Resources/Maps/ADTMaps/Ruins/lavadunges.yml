@@ -11954,7 +11954,7 @@ entities:
     - type: Transform
       pos: 113.531425,-37.42454
       parent: 1
-- proto: Forgotten God rune
+- proto: ADTForgottenGodrune
   entities:
   - uid: 55
     components:

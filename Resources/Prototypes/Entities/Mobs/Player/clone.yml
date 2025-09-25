@@ -46,6 +46,7 @@
   - OwOAccent
   - ParrotAccent
   - PirateAccent
+  - SickTeethAccent
   # - ReplacementAccent
   # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
   # TODO: AddAccentClothingComponent should use an inventory relay event.
@@ -58,7 +59,7 @@
   - SpanishAccent
   - StutteringAccent
   - TTS # Corvax-TTS
-# Ganimed-Traits-Fix-Start
+  # ADT-fix-clone-start
   - LanguageSpeaker
   - SpeechBarks
   - SizeAttribute
@@ -74,7 +75,7 @@
   - FoodConsumptionSpeedModifier
   - DrunkenResilience
   - NyaAccent
-# Ganimed-Traits-Fix-End
+  # ADT-fix-clone-end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

@@ -14,7 +14,9 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '-'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
+          emergencyShuttlePath: /Maps/ADTMaps/Shuttles/adt_emergency.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
             Boxer: [ 2, 2 ]

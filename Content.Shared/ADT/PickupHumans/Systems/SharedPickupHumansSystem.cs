@@ -10,6 +10,7 @@ using Content.Shared.Interaction;
 using Content.Shared.ActionBlocker;
 // using Content.Shared.Throwing; // TODO: Сделать небольшой бросок
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.ADT.Shadekin;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
@@ -48,6 +49,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         SubscribeLocalEvent<PickupHumansComponent, GetVerbsEvent<AlternativeVerb>>(AddPickupVerb);
         SubscribeLocalEvent<PickupHumansComponent, PickupHumansDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<PickupHumansComponent, InteractHandEvent>(OnPickupInteract);
+        SubscribeLocalEvent<PickupHumansComponent, ShadekinTeleportActionEvent>(OnTeleportShadekin);
 
         SubscribeLocalEvent<PickupingHumansComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<PickupingHumansComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -315,6 +317,15 @@ public abstract class SharedPickupHumansSystem : EntitySystem
             return;
 
         DropFromHands(pickupHumansComponent.User, pickupHumansComponent.Target);
+    }
+
+
+    private void OnTeleportShadekin(EntityUid uid, PickupHumansComponent comp, ShadekinTeleportActionEvent args)
+    {
+        if (comp.User != EntityUid.Invalid)
+        {
+            DropFromHands(comp.User, uid);
+        }
     }
 
 

@@ -1,0 +1,18 @@
+- type: entity
+  id: ADTPhilosopherstone
+  parent: BaseItem
+  name: philosopher's stone
+  description: Have brass decorative lines and some vines in some spots. Looks like something, thats connected to space gods.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chapel/philosophersstone.rsi
+    layers:
+      - state: icon
+  - type: Item
+    size: Normal
+    sprite: ADT/Objects/Specific/Chapel/philosophersstone.rsi
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTGodHand
+    sound:
+      path: /Audio/Effects/holy.ogg

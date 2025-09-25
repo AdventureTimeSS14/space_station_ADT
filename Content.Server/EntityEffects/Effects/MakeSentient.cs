@@ -2,6 +2,9 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mind.Components;
+using Content.Shared.NPC.Components; // ADT-tweak
+using Content.Shared.NPC.Systems; // ADT-tweak
+using Content.Shared.NPC.Prototypes; // ADT-tweak
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Language;
 
@@ -31,6 +34,8 @@ public sealed partial class MakeSentient : EntityEffect
             lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
         // ADT Languages end
 
+        MakeFriendlyToStation(uid, entityManager); // ADT-tweak
+
         // Stops from adding a ghost role to things like people who already have a mind
         if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
         {
@@ -38,17 +43,45 @@ public sealed partial class MakeSentient : EntityEffect
         }
 
         // Don't add a ghost role to things that already have ghost roles
-        if (entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
+        if (!entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
         {
+            ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
+            entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
+
+            var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
+            ghostRole.RoleName = entityData.EntityName;
+            ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
+        }
+    }
+
+    // ADT-tweak start
+    private void MakeFriendlyToStation(EntityUid uid, IEntityManager entityManager)
+    {
+        var factionSystem = entityManager.System<NpcFactionSystem>();
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+
+        if (!entityManager.TryGetComponent<NpcFactionMemberComponent>(uid, out var factionComp))
+        {
+            factionSystem.AddFaction(uid, "PetsNT");
             return;
         }
 
+        bool wasHostile = false;
 
-        ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
-        entityManager.EnsureComponent<GhostTakeoverAvailableComponent>(uid);
+        foreach (var factionId in factionComp.Factions)
+        {
+            if (protoMan.TryIndex<NpcFactionPrototype>(factionId, out var factionProto) &&
+                factionProto.Hostile.Contains("NanoTrasen"))
+            {
+                factionSystem.RemoveFaction(uid, factionId, false);
+                wasHostile = true;
+            }
+        }
 
-        var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
-        ghostRole.RoleName = entityData.EntityName;
-        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
+        if (wasHostile)
+            factionSystem.AddFaction(uid, "PetsNT", true);
+        else
+            factionSystem.AddFaction(uid, "SimpleNeutral", true);
     }
+    // ADT-tweak end
 }

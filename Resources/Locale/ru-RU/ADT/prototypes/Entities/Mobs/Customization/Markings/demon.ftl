@@ -7,12 +7,14 @@ marking-DemonElfEars = Аркана, уши (Эльфийские)
 marking-DemonElfEars-ears_elf = Уши
 
 # Хвост
-marking-DemomTail1 = Аркана, хвост (Демонические)
-marking-DemomTail1-demon_tail = Хвост
-marking-DemomTailLong = Аркана, хвост (Длинный демонические)
-marking-DemomTailLong-long = Хвост
-marking-DemomTailUp = Аркана, хвост (Демонические вверх)
-marking-DemomTailUp-up = Хвост
+marking-DemonTail1 = Аркана, хвост (Демонический)
+marking-DemonTailLong = Аркана, хвост (Длинный демонический)
+marking-DemonTailUp = Аркана, хвост (Демонический вверх)
+marking-DemonTailAnimated = Аркана, хвост (Движущийся демонический)
+marking-DemonTail1Animated = Аркана, хвост (Движущийся)
+marking-DemonTailLongAnimated = Аркана, хвост (Движущийся длинный демонический)
+marking-DemonTailUpAnimated = Аркана, хвост (Движущийся)
+marking-MobDemonTailColor = Аркана, хвост (Обычный)
 
 # Туловище
 marking-DemonChestCowSpots = Аркана, туловище (Коровьи пятна)
@@ -48,6 +50,7 @@ marking-DemonHornsBuffalo = Аркана, рога (Бычьи)
 marking-DemonHornsBuffalo-horns_buffalo = Рога
 marking-DemonHornsCarpicorn = Аркана, рога (Козерожьи)
 marking-DemonHornsCarpicorn-horns_capricorn = Рога
+marking-DemonHornsDevilOne = Аркана, рога (Дьявольское Одно)
 marking-DemonHornsDevil = Аркана, рога (Дьявольские)
 marking-DemonHornsDevil-horns_devil = Рога
 marking-DemonHornsDevil2 = Аркана, рога (Дьявольские, 2)

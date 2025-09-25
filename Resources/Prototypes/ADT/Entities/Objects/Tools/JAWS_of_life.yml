@@ -1,0 +1,35 @@
+- type: entity
+  name: jaws of life
+  parent: JawsOfLife
+  id: ADTJAWSofLife
+  description: A set of jaws of life, compressed... Oh god, what is that?...
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/jaws_of_life.rsi
+  - type: ToolTileCompatible
+    delay: 0.5
+  - type: Prying
+    speedModifier: 2
+  - type: Tool
+    useSound: /Audio/Items/crowbar.ogg
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: ADT/Objects/Tools/jaws_of_life.rsi
+          state: jaws_pry
+        useSound: /Audio/Items/crowbar.ogg
+        changeSound: /Audio/ADT/Items/JAWSofLife/change_claws_meat.ogg
+      - behavior: Cutting
+        sprite:
+          sprite: ADT/Objects/Tools/jaws_of_life.rsi
+          state: jaws_cutter
+        useSound: /Audio/Effects/bite.ogg
+        changeSound: /Audio/ADT/Items/JAWSofLife/change_claws_meat.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 12
+    soundHit:
+      path: /Audio/Effects/bite.ogg

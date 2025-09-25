@@ -1,0 +1,73 @@
+- type: gameMap
+  id: ADT_Origin
+  mapName: 'Origin Station'
+  mapPath: /Maps/ADTMaps/ADTStations/adt_origin.yml
+  maxRandomOffset: 0
+  minPlayers: 50
+  stations:
+    ADT_Origin:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0}ORG {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '-'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/ADTMaps/Shuttles/adt_emergency.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
+        - type: StationJobs
+          availableJobs:
+            Boxer: [ 2, 2 ]
+            CargoTechnician: [ 4, 4 ]
+            ADTMiner: [ 2, 3 ]
+            Passenger: [ -1, -1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 3, 4 ]
+            Chef: [ 1, 2 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 2 ]
+            Mime: [ 1, 1 ]
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 5, 5 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 5, 5 ]
+            Chemist: [ 2, 2 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 6, 6 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 6, 6 ]
+            Chaplain: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 6, 6 ]
+            Musician: [ 2, 2 ]
+            AtmosphericTechnician: [ 2, 3 ]
+            TechnicalAssistant: [ 3, 3 ]
+            ResearchAssistant: [ 3, 3 ]
+            Reporter: [ 2, 2 ]
+            MedicalIntern: [ 3, 3 ]
+            ServiceWorker: [ 3, 3 ]
+            SecurityCadet: [ 3, 3 ]
+            Psychologist: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+            Magistrat: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            ADTRoboticist: [ 1, 2 ]
+            ADTPathologist: [ 1, 1 ]
+            ADTBlueShieldOfficer: [ 1, 1 ]
+            ADTSeniorPhysician: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            ADTSeniorEngineer: [ 1, 1 ]
+            ADTSeniorResearcher: [ 1, 1 ]
+            ADTSeniorOfficer: [ 1, 1 ]
+            ADTGuardOfficer: [ 1, 1 ]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 3 ]

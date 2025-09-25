@@ -11,3 +11,15 @@
   - type: ConditionalSpawner
     prototypes:
       - Supermatter
+
+- type: entity
+  name: Tesla Spawner
+  id: ADTTeslaSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - TeslaEnergyBall

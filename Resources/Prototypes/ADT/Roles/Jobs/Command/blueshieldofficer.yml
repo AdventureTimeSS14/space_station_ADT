@@ -16,7 +16,6 @@
       time: 36000 #10 hrs Ganimed-RoleTime
     - !type:AgeRequirement
       requiredAge: 21
-    # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true
       species:
@@ -47,7 +46,6 @@
     - Medical
     - Engineering
     - Cargo
-    # - Centcom
     - BlueShield
   special:
   - !type:AddImplantSpecial
@@ -196,17 +194,12 @@
 - type: startingGear
   id: ADTBlueShieldOfficerGear
   equipment:
-    # head: ADTClothingHeadHatBeretBlueshieldBlack
     eyes: ADTClothingEyesGlassesBlueshield
-    ears: ADTClothingHeadsetBlueshield
-    # jumpsuit: ADTClothingUniformJumpsuitBlueshield
-    # back: ADTClothingBlueshieldBackpack
     shoes: ClothingShoesBootsCombatFilled
-    outerClothing: ADTClothingBlueshieldArmor
     belt: ADTClothingBeltMedicalSecurityFilled
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
-    pocket1: HandheldCrewMonitor
+    pocket1: ADTHandheldCrewMonitorBlueshield
   inhand: 
     - ADTBaseWeaponCaseNTBS
   # innerClothingSkirt: ClothingUniformJumpskirtBlueshield

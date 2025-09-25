@@ -24,8 +24,6 @@
   id: ADTBaseMedicalPDA
   abstract: true
   components:
-  - type: ItemToggle
-    onUse: false
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -532,11 +530,11 @@
 
 - type: entity
   parent: SalvagePDA
-  id: ADTExcavatorPDA
-  name: excavator PDA
+  id: ADTMinerPDA
+  name: miner PDA
   components:
   - type: Pda
-    id: ADTExcavatorIDCard
+    id: ADTMinerIDCard
 
 # Scientist
 

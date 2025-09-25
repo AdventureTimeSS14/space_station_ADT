@@ -84,6 +84,11 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    # ADT tweak start
+    - ADTBlockGameArcadeComputerCircuitboard
+    - ADTSpaceVillainArcadeComputerCircuitboard
+    - ADTMinesweeperCircuitboard
+    # ADT tweak end
   position: 3,0 # ADT Research Console Rework
 
 - type: technology
@@ -260,11 +265,13 @@
     state: icon
   discipline: CivilianServices
   tier: 2
-  cost: 4000
+  cost: 5000
   recipeUnlocks:
   - PushHorn
   # ADT Research Console Rework start
-  position: 2,2
+  position: 6,-1
+  requiredTech:
+  - ADTProtectionPseudoscience
   # ADT Research Console Rework end
 
 # Tier 3

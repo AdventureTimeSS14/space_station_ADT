@@ -83,7 +83,7 @@
     shoes: ClothingShoesColorBrown
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
-    ears: ClothingHeadsetAltCommand
+    # ears: ClothingHeadsetAltCommand # ADT tweak
     belt: BoxFolderClipboard
   storage:
     back:
