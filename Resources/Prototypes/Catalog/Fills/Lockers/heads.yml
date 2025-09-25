@@ -90,7 +90,7 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
-    - id: ADTClothingModsuitBackCaptain
+    - id: ADTClothingModsuitBackCaptain # ADT tweak
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
