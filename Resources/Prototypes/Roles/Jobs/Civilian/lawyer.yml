@@ -24,7 +24,7 @@
 - type: startingGear
   id: LawyerGear
   equipment:
-    shoes: ClothingShoesBootsLaceup
+    # shoes: ClothingShoesBootsLaceup ADT-Tweak
     # id: LawyerPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetLawyer
   inhand:
