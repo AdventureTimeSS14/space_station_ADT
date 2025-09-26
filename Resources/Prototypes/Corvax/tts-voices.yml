@@ -158,7 +158,6 @@
   sex: Female
 
 - type: ttsVoice
-  sex: Male
   speaker: neco
   id: neco
   name: Неко-Арк 2

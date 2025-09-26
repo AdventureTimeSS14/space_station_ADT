@@ -3,10 +3,6 @@
   id: FlaskBase
   abstract: true
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
   - type: Sprite
     state: icon
     sprite: Objects/Consumable/Drinks/flask.rsi

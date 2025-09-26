@@ -171,7 +171,6 @@
       maxAngle: 32
       fireRate: 6 # ADT tweak
       burstFireRate: 8 # ADT nerf
-      selectedMode: FullAuto # ADT tweak
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       selectedMode: Burst

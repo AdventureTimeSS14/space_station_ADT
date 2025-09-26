@@ -7,11 +7,6 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
-  # Corvax-SpeciesAgeLore-Start
-  youngAge: 60
-  oldAge: 300
-  maxAge: 600
-  # Corvax-SpeciesAgeLore-End
   # ADT start
   pros:
   - Не получают вреда от алкоголя.
