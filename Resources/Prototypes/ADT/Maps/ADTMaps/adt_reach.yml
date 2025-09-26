@@ -59,8 +59,9 @@
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 1, 2 ]
             CargoTechnician: [ 1, 1 ]
+            ADTMiner: [ 2, 3 ] # ADT-Roles
             #civillian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
@@ -72,4 +73,3 @@
             Magistrat: [ 1, 1 ] #ADT-Roles
             #silicon
             Borg: [ 1, 2 ]
-
