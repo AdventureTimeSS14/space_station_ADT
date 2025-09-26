@@ -83,7 +83,7 @@
     bonusDamage:
       types:
         Slash: 10
-  - type: PressureDamageMoАdify
+  - type: PressureDamageModify
     additionalDamage:
       types:
         Blunt: 10
