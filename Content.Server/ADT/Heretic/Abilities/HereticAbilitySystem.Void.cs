@@ -70,7 +70,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var condition = ent.Comp.CurrentPath == "Void";
 
-        var power = condition ? 1.5f + ent.Comp.PathStage * 7f : 1.5f;
+        var power = condition ? 1.1f + ent.Comp.PathStage * 1.5f : 1.1f;
 
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
