@@ -34,19 +34,18 @@
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 1, 1 ]
-            TechnicalAssistant: [ 2, 2 ]
+            TechnicalAssistant: [ 1, 2 ]
             ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 1 ]
             MedicalDoctor: [ 1, 1 ]
-            MedicalIntern: [ 2, 2 ]
-            ADTPathologist: [ 1, 1 ] #ADT-Roles
+            MedicalIntern: [ 1, 2 ]
             ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 1, 1 ]
-            ResearchAssistant: [ 2, 2 ]
+            ResearchAssistant: [ 1, 2 ]
             ADTRoboticist: [ 1, 1 ] #ADT-Roles
             ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
             #security
