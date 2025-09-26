@@ -20,7 +20,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
+    [Dependency] private readonly IStateManager _stateManager = default!; // Ganimed edit
     public override void Initialize()
     {
         base.Initialize();
