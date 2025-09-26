@@ -282,7 +282,6 @@ public sealed class AdminSystem : EntitySystem
             antag,
             roleType?.ID,
             sponsorInfo,
-            roleType,
             subtype,
             sortWeight,
             GetNetEntity(session?.AttachedEntity),

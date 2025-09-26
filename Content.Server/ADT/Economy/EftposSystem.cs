@@ -50,8 +50,8 @@ public sealed class EftposSystem : EntitySystem
         if (!TryComp(args.Actor, out HandsComponent? hands))
             return;
 
-        var held = _handsSystem.GetActiveHandEntity(args.Actor);
-        if (held == null || !TryComp(held.Value, out BankCardComponent? bankCard))
+        var held = _handsSystem.GetActiveItem(args.Actor);
+        if (held == null || !TryComp<BankCardComponent>(held.Value, out var bankCard))
             return;
 
         if (component.BankAccountId == null)

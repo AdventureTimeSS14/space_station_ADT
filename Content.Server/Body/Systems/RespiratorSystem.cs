@@ -69,8 +69,8 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RespiratorComponent>();
-        while (query.MoveNext(out var uid, out var respirator))
+        var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>(); // ADT-Tweak
+        while (query.MoveNext(out var uid, out var respirator, out var body))
         {
             if (_gameTiming.CurTime < respirator.NextUpdate)
                 continue;
