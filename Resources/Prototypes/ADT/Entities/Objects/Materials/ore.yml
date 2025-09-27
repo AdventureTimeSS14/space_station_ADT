@@ -40,3 +40,48 @@
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   spawn: ADTBSore1
   maxCount: 30
+
+## NewBFUU by M&B (еблан какой-то)
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTGibtonite
+  suffix: Full
+  name: Bluespace ore
+  description: rock wirh pieces of bluespace ore
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Objects/Materials/gibtonite.rsi
+    layers:
+    - state: gibtonite   # 0 слой, базовый камень
+      map: ["enum.GibtonitState.gibtonite"]
+      visible: false
+    - state: active    # 1 слой, загорается когда Active = true
+      visible: false
+      map: ["enum.GibtonitState.active"]
+    - state: normal      # 3 слой, дефолт
+      visible: false
+      map: ["enum.GibtonitState.normal"]
+    - state: ohfuck      # 4 слой, для опасного состояния
+      visible: false
+      map: ["enum.GibtonitState.ohfuck"]
+  - type: Item
+    heldPrefix: ADTBSore
+  - type: MultiHandedItem
+  - type: Damageable
+  - type: RequireProjectileTarget
+  - type: Gibtonite
+    extracted: true    # помечаем, что это уже руда
+    elapsed: 0          # сюда будет передаваться значение от камня
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer

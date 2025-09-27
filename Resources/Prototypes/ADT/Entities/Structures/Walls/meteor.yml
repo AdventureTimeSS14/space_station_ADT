@@ -157,3 +157,25 @@
           state: rock_snow_north
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_snow_west
+
+- type: entity
+  id: ADTMeteorRockGibtonite
+  parent: MeteorRock
+  description: 
+  suffix: Gibtonite
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreBS
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_bsore
