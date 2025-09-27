@@ -2,7 +2,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenStatic
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -23,7 +23,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenBreakout
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -34,7 +34,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenEight
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -95,7 +95,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenOrange
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -126,7 +126,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenShower
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -137,7 +137,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenYellow
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -148,7 +148,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenScroll
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -169,7 +169,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenRgb
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -180,7 +180,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenGlider
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -191,7 +191,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenRainbowhoriz
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -202,7 +202,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenBsod
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -213,7 +213,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenRedtext
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -224,7 +224,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenSinewave
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -235,7 +235,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenSquarewave
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -246,7 +246,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenEcgwave
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -287,7 +287,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenLoading
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -298,7 +298,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenWindowsxp
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -309,7 +309,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenTetris
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -320,7 +320,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenTv
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -331,7 +331,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenTextdrop
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -342,7 +342,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenStars
   bodyPart: FacialHair
   markingCategory: FacialHair
@@ -353,7 +353,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  #sponsorOnly: true # Corvax-Sponsors
+  #sponsorOnly: false # Corvax-Sponsors
   id: ScreenRainbowdiag
   bodyPart: FacialHair
   markingCategory: FacialHair

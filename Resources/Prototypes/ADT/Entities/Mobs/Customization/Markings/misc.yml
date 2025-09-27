@@ -3,7 +3,7 @@
   id: AugmentsAugArmRight
   bodyPart: RArm
   markingCategory: Arms
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_augarm
@@ -12,7 +12,7 @@
   id: AugmentsAugHandRigh
   bodyPart: RHand
   markingCategory: Arms
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_aughand
@@ -21,7 +21,7 @@
   id: AugmentsAugArmLeft
   bodyPart: LArm
   markingCategory: Arms
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_augarm
@@ -30,7 +30,7 @@
   id: AugmentsAugHandLeft
   bodyPart: LHand
   markingCategory: Arms
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_aughand
@@ -39,7 +39,7 @@
   id: AugmentsAugTorso
   bodyPart: Chest
   markingCategory: Chest
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: augtorso_m
@@ -48,7 +48,7 @@
   id: AugmentsAugLegRight
   bodyPart: RLeg
   markingCategory: Legs
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_augleg
@@ -57,7 +57,7 @@
   id: AugmentsAugFootRight
   bodyPart: RFoot
   markingCategory: Legs
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: r_augfoot
@@ -66,7 +66,7 @@
   id: AugmentsAugLegLeft
   bodyPart: LLeg
   markingCategory: Legs
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_augleg
@@ -75,7 +75,7 @@
   id: AugmentsAugFootLeft
   bodyPart: LFoot
   markingCategory: Legs
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/augments/augbody.rsi
       state: l_augfoot
@@ -167,7 +167,7 @@
   id: Malstrem
   bodyPart: Eyes
   markingCategory: Head
-  sponsorOnly: true
+  sponsorOnly: false
   coloring:
     default:
       type:
@@ -194,7 +194,7 @@
   id: Terminator
   bodyPart: Eyes
   markingCategory: Head
-  sponsorOnly: true
+  sponsorOnly: false
   coloring:
     default:
       type:
