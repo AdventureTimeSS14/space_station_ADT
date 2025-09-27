@@ -377,6 +377,15 @@
       - id: ClothingShoesSkates
       - id: RubberChicken
       #ADT tweak start
+      - id: ADTToyBlasterGunGreen
+        orGroup: Blaster
+        prob: 0.33
+      - id: ADTToyBlasterGunRed
+        orGroup: Blaster
+        prob: 0.34
+      - id: ADTToyBlasterGunBlue
+        orGroup: Blaster
+        prob: 0.33
       - id: FunnyPaint
         orGroup: Paint
         prob: 0.5

@@ -558,3 +558,19 @@
   - type: Tag
     tags:
       - ADTBluespaceCoffeine
+
+- type: entity
+  parent: ADTReagentCanister
+  id: ADTCanisterDrinkSpaceLube
+  name: spacelube canister
+  description: oh fuck
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: SpaceLube
+          Quantity: 600
+  - type: Drink
+  - type: Label
+    currentLabel: reagent-name-space-Lube
