@@ -14,7 +14,7 @@
   femaleLastNames: LastFemaleUrs
   naming: firstlast
   category: Unusual
-  #sponsorOnly: true # Пока снимаем до решения проблем
+  #sponsorOnly: false # Пока снимаем до решения проблем
   description: "/ServerInfo/ADT/SpeciesDescriptions/Urs.xml"
   pros:
   - Имеют возможность запасать больший запас калорий в организме (примерно в 2 раза).

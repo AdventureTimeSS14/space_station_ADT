@@ -39,6 +39,7 @@
       collection: FootstepHull
   - type: Tag
     tags:
+    - Table   # ADT-Tweak
     - ForceFixRotations
 
 - type: entity
@@ -58,3 +59,9 @@
         - TableMask
         layer:
         - TableLayer
+  # ADT-Tweak Start
+  - type: Tag
+    tags:
+    - Table
+    - ForceFixRotations
+  # ADT-Tweak End

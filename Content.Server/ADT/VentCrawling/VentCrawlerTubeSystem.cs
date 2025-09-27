@@ -72,6 +72,12 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         if (!component.AllowInventory && IsHoldingItems(args.Args.Used.Value))
             return;
 
+        if (_containerSystem.IsEntityInContainer(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("attempt-climb-vent-in-container"), uid);
+            return;
+        }
+
         TryInsert(args.Args.Target.Value, args.Args.Used.Value);
 
         args.Handled = true;

@@ -336,7 +336,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [TajaranSpecies]
-  sponsorOnly: true
+  sponsorOnly: false
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
       state: patch_SPONSOR_ONLY

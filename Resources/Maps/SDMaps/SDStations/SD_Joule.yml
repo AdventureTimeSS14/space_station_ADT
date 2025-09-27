@@ -4,7 +4,7 @@ meta:
   engineVersion: 255.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/03/2025 16:44:38
+  time: 09/23/2025 06:29:51
   entityCount: 22445
 maps:
 - 1
@@ -123,7 +123,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Joulestation
+      name: Joule Station
     - type: Transform
     - type: Map
       mapPaused: True
@@ -164,6 +164,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
+      name: Joule Station
     - type: Transform
       pos: -0.484375,-0.5
       parent: 1
@@ -18713,7 +18714,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: SD_Joule
+      id: ADT_Cluster
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: SupermatterSpreaderGrid
@@ -21133,7 +21134,7 @@ entities:
       pos: -9.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -259281.94
+      secondsUntilStateChange: -259344.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21464,7 +21465,7 @@ entities:
       pos: -1.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -290959.66
+      secondsUntilStateChange: -291022.22
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22378,7 +22379,7 @@ entities:
       pos: -34.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -258351.38
+      secondsUntilStateChange: -258413.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -70419,7 +70420,7 @@ entities:
       pos: -1.5,-8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -149593.95
+      secondsUntilStateChange: -149656.52
       state: Opening
   - uid: 9648
     components:
@@ -70428,7 +70429,7 @@ entities:
       pos: -1.5,-10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -149594.42
+      secondsUntilStateChange: -149656.98
       state: Opening
 - proto: CurtainsGreenOpen
   entities:
@@ -70453,7 +70454,7 @@ entities:
       pos: -1.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150099.95
+      secondsUntilStateChange: -150162.52
       state: Opening
   - uid: 9652
     components:
@@ -70467,7 +70468,7 @@ entities:
       pos: -11.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -181307.22
+      secondsUntilStateChange: -181369.78
       state: Opening
   - uid: 9654
     components:
@@ -70476,7 +70477,7 @@ entities:
       pos: -12.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -181306.72
+      secondsUntilStateChange: -181369.28
       state: Opening
 - proto: CurtainsOrangeOpen
   entities:
@@ -150178,7 +150179,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -251128
+      secondsUntilStateChange: -251190.56
       state: Opening
     - type: Airlock
       autoClose: False

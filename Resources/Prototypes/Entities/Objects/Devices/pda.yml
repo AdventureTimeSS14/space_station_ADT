@@ -934,6 +934,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - LogProbeCartridge
+    - ADTWalletCartridge # ADT-Economy
 
 - type: entity
   parent: BaseSecurityPDA

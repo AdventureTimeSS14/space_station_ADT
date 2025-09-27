@@ -22,9 +22,21 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
+
         component.Chaos = (int)_random.NextFloat(component.MinChaos, component.MaxChaos);
-        component.Chaos *= _player.PlayerCount / _player.MaxPlayers;
+
+        if (_player.MaxPlayers > 0)
+        {
+            float playerRatio = (float)_player.PlayerCount / 60;
+            component.Chaos = Math.Max(1, (int)(component.Chaos * playerRatio));
+        }
+        else
+        {
+            component.Chaos = Math.Max(1, component.Chaos);
+        }
+
         _chatManager.SendAdminAnnouncement(Loc.GetString("dynamic-chaos-announcement", ("chaos", component.Chaos)));
+
         //тяжело, но тут идёт механизм выбора раундстарт антагов
         for (int i = 0; i < 1000 && component.Chaos >= 10; i++)
         {
@@ -33,15 +45,16 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
                 continue;
             if (component.Chaos - rule.Cost < 0)
             {
-                //быстро просматривает, каких ещё антагов можно добавить антагов
                 foreach (var antag in component.RoundstartRules)
                 {
                     if (component.Chaos - antag.Cost < 0)
                     {
+                        component.Chaos -= antag.Cost;
                         component.AddedRules.Add(antag.Id);
                         break;
                     }
                 }
+                break;
             }
             else
             {
@@ -64,6 +77,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     {
         base.Ended(uid, component, gameRule, args);
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -107,6 +121,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
             scheduler.EventsBeforeAntag--;
         }
     }
+    
     // public int CheckChaos()
     // {
     //     var chaos = 5; //изначально не нулевой для спавна мини-антагов
@@ -121,7 +136,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     //     var alarms = EntityQueryEnumerator<AirAlarmComponent>();
     //     while (alarms.MoveNext(out var uid, out var alarm))
     //     {
-    //         if (alarm.State != AtmosAlarmType.Normal || alarm.State != AtmosAlarmType.Invalid)
+    //         if (alarm.State != AtmosAlarmType.Normal && alarm.State != AtmosAlarmType.Invalid) // Исправлено: && вместо ||
     //             chaos--;
     //     }
     //     return chaos;
