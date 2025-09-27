@@ -26,7 +26,7 @@ public sealed partial class FriendlyFireSystem
         if (toggleable.Comp.Action is not { } action)
             return;
 
-        _actions.RemoveAction(toggleable, action);
+        _actions.RemoveAction(toggleable.Owner, action);
     }
 
     private void OnToggleAction(Entity<FriendlyFireToggleableComponent> toggleable, ref ToggleActionEvent args)

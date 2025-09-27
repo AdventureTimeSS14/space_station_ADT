@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Client.Chemistry.EntitySystems;
-using Content.Server.Medical.Components;
+using Content.Shared.Medical.Healing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
@@ -41,12 +41,13 @@ public sealed class MedicalRecipeDataSystem : SharedMedicalGuideDataSystem
 
     public void ReloadRecipes()
     {
-        // TODO: add this code to the list of known recipes because this is spaghetti
         _sources.Clear();
 
-        // Recipes
         foreach (var recipe in _protoMan.EnumeratePrototypes<FoodRecipePrototype>())
         {
+            if (recipe.HideInGuidebook)
+                continue;
+
             MicrowaveRecipeType recipeType = (MicrowaveRecipeType)recipe.RecipeType;
             if (recipeType.HasFlag(MicrowaveRecipeType.MedicalAssembler))
             {
@@ -60,7 +61,6 @@ public sealed class MedicalRecipeDataSystem : SharedMedicalGuideDataSystem
         {
             var proto = _protoMan.Index<EntityPrototype>(result);
             ReagentQuantity[] reagents = [];
-            // Hack: assume 
             if (proto.TryGetComponent<SolutionContainerManagerComponent>(out var manager, _componentFactory))
                 reagents = manager?.Solutions?.FirstOrNull()?.Value?.Contents?.ToArray() ?? [];
 

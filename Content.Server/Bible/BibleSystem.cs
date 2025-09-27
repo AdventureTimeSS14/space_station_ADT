@@ -145,7 +145,7 @@ public sealed class BibleSystem : EntitySystem
             checkPhantom = true;
         }
 
-        // If the body is controlled by a phantom 
+        // If the body is controlled by a phantom
         if (TryComp<ControlledComponent>(target, out var controlled) && controlled.Key == "Phantom")
         {
             var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-controlled-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
@@ -264,4 +264,3 @@ public sealed class BibleSystem : EntitySystem
         summonable.AlreadySummoned = false;
     }
 }
-

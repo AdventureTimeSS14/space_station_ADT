@@ -29,6 +29,8 @@ public sealed partial class SiliconDownOnDeadComponent : Component
     [DataField("deadBuffer")]
     public float DeadBuffer { get; set; } = 2.5f;
 
+    public TimeSpan Time = TimeSpan.FromSeconds(60);
+
     /// <summary>
     ///     Is this Silicon currently dead?
     /// </summary>

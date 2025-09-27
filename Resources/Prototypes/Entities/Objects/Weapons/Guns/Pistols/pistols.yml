@@ -100,6 +100,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000
 # ADT TWEAK START
   - type: AttachableHolder
     slots:
@@ -201,6 +203,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1500
 # ADT TWEAK START
   - type: AttachableHolder
     slots:

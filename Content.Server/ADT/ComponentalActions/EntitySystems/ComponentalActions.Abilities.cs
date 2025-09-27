@@ -40,16 +40,6 @@ public sealed partial class ComponentalActionsSystem
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
@@ -220,7 +210,7 @@ public sealed partial class ComponentalActionsSystem
         _damageableSystem.TryChangeDamage(uid, damage_burn);
         _bloodstreamSystem.TryModifyBloodLevel(uid, component.RegenerateBloodVolumeHealAmount); // give back blood and remove bleeding
         _bloodstreamSystem.TryModifyBleedAmount(uid, component.RegenerateBleedReduceAmount);
-        _audioSystem.PlayPvs(component.HealSound, uid, AudioParams.Default.WithVolume(component.HealVolume));
+        _audio.PlayPvs(component.HealSound, uid, AudioParams.Default.WithVolume(component.HealVolume));
 
         args.Handled = true;
     }
@@ -249,7 +239,7 @@ public sealed partial class ComponentalActionsSystem
         var sprintSpeed = component.Active ? component.BaseSprintSpeed : component.SpeedModifier;
         var walkSpeed = component.Active ? component.BaseWalkSpeed : component.SpeedModifier;
 
-        _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
+        _movementSpeed.ChangeBaseSpeed(uid, walkSpeed, sprintSpeed, movementSpeed.Acceleration, movementSpeed);
 
         component.Active = !component.Active;
 

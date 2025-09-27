@@ -3,14 +3,12 @@ using Content.Shared.VoiceMask;
 using Content.Shared.ADT.SpeechBarks;
 using Robust.Shared.Configuration;
 using Content.Shared.Inventory;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.VoiceMask;
 
 public partial class VoiceMaskSystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!; // Переименовано
 
     private void InitializeBarks()
     {
@@ -21,7 +19,7 @@ public partial class VoiceMaskSystem
 
     private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, ref InventoryRelayedEvent<TransformSpeakerBarkEvent> args)
     {
-        if (!_protoManager.TryIndex<BarkPrototype>(component.BarkId, out var proto)) // Исправлено
+        if (!_proto.TryIndex<BarkPrototype>(component.BarkId, out var proto)) // Исправлено
             return;
 
         args.Args.Data.Pitch = Math.Clamp(component.BarkPitch, _cfg.GetCVar(ADTCCVars.BarksMinPitch), _cfg.GetCVar(ADTCCVars.BarksMaxPitch));
@@ -30,7 +28,7 @@ public partial class VoiceMaskSystem
 
     private void OnChangeBark(EntityUid uid, VoiceMaskComponent component, VoiceMaskChangeBarkMessage message)
     {
-        if (!_protoManager.HasIndex<BarkPrototype>(message.Proto)) // Добавлена проверка
+        if (!_proto.HasIndex<BarkPrototype>(message.Proto)) // Добавлена проверка
         {
             _popupSystem.PopupEntity(Loc.GetString("voice-mask-voice-popup-invalid"), uid);
             return;

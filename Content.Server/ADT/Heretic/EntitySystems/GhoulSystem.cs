@@ -70,7 +70,7 @@ public sealed partial class GhoulSystem : EntitySystem
             _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
         }
 
-        MakeSentientCommand.MakeSentient(ent, EntityManager);
+        MakeSentientCommand.MakeSentient(ent, EntityManager, _mind);
 
         if (!HasComp<GhostRoleComponent>(ent) && !hasMind)
         {

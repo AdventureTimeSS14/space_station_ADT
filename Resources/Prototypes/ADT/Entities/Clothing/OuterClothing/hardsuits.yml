@@ -104,7 +104,7 @@
     damageCoefficient: 0.5
 
 - type: entity
-  parent: ClothingOuterHardsuitBasic
+  parent: ClothingOuterHardsuitBase
   id: ADTClothingOuterERTRiotHardsuit
   name: Cheap Riot ERT suit
   description: The cheapest ERT hardsuit choice, designed especially for economy and anti-riot actions

@@ -143,6 +143,8 @@
       rmc-aslot-rail: -0.0325, -0.0325
       rmc-aslot-barrel: 0.75, 0
 # ADT TWEAK END
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   name: Drozd
@@ -169,14 +171,14 @@
       maxAngle: 32
       fireRate: 6 # ADT tweak
       burstFireRate: 8 # ADT nerf
-      selectedMode: FullAuto # ADT tweak
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      selectedMode: Burst
       availableModes:
         - Burst
         - FullAuto # ADT tweak
       shotsPerBurst: 3
-      burstCooldown: 0.25
+      burstCooldown: 0.375
     - type: ItemSlots
       slots:
         gun_magazine:
@@ -198,7 +200,7 @@
               - CartridgePistol
     - type: MagazineVisuals
       magState: mag
-      steps: 1
+      steps: 5
       zeroVisible: true
     - type: Appearance
   # ADT TWEAK START

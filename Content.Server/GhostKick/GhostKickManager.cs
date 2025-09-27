@@ -13,7 +13,7 @@ namespace Content.Server.GhostKick;
 
 // Handles logic for "ghost kicking".
 // Basically we boot the client off the server without telling them, so the game shits itself.
-// Hilariously isn't it?
+// Hilarious, isn't it?
 
 public sealed class GhostKickManager
 {
@@ -48,33 +48,32 @@ public sealed class GhostKickManager
 }
 
 [AdminCommand(AdminFlags.Moderator)]
-public sealed class GhostKickCommand : IConsoleCommand
+public sealed class GhostKickCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly GhostKickManager _ghostKick = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    public string Command => "ghostkick";
-    public string Description => "Kick a client from the server as if their network just dropped.";
-    public string Help => "Usage: ghostkick <Player> [Reason]";
+    [Dependency] private readonly IAdminManager _adminManager = default!;
 
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override string Command => "ghostkick";
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length < 1)
         {
-            shell.WriteError("Need at least one argument");
+            shell.WriteError(Loc.GetString($"shell-need-exactly-one-argument"));
             return;
         }
 
         var playerName = args[0];
-        var reason = args.Length > 1 ? args[1] : "Ghost kicked by console";
+        var reason = args.Length > 1 ? args[1] : Loc.GetString($"cmd-ghostkick-default-reason");
 
-        var players = IoCManager.Resolve<IPlayerManager>();
-        var ghostKick = IoCManager.Resolve<GhostKickManager>();
-
-        if (!players.TryGetSessionByUsername(playerName, out var player))
+        if (!_playerManager.TryGetSessionByUsername(playerName, out var player))
         {
-            shell.WriteError($"Unable to find player: '{playerName}'.");
+            shell.WriteError(Loc.GetString($"shell-target-player-does-not-exist"));
             return;
         }
+
         // ADT-Tweak-start
         if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions))
         {
@@ -87,6 +86,7 @@ public sealed class GhostKickCommand : IConsoleCommand
             $"[АДМИНАБУЗ] {shell.Player?.Name} used the command ghostkick on '{playerName}'."
         );
         // ADT-Tweak-end
-        ghostKick.DoDisconnect(player.Channel, reason);
+
+        _ghostKick.DoDisconnect(player.Channel, reason);
     }
 }

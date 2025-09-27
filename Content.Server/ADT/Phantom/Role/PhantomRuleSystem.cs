@@ -117,7 +117,7 @@ public sealed class PhantomRuleSystem : GameRuleSystem<PhantomRuleComponent>
         {
             var stunTime = TimeSpan.FromSeconds(4);
             RemComp<VesselComponent>(uid);
-            _sharedStun.TryParalyze(vessel, stunTime, true);
+            _sharedStun.TryUpdateParalyzeDuration(vessel, stunTime);
         }
         foreach (var cursed in component.CursedVessels)
         {

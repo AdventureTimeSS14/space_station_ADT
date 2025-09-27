@@ -1,5 +1,5 @@
 loadout-group-inventory = Мой инвентарь
-loadout-group-chief-engineer-backpack = Рюкзак старшего инженера
+
 # Security
 loadout-group-brigmedic-head = Бригмедик, голова
 loadout-group-brigmedic-jumpsuit = Бригмедик, комбинезон
