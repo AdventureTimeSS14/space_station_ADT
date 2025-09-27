@@ -1,6 +1,9 @@
 job-name-ADTPathologist = патологоанатом
 JobADTPathologist = патологоанатом
 
+job-name-ADTMiner = шахтёр
+JobADTMiner = шахтёр
+
 JobRoboticist = робототехник
 
 job-name-magistrat = магистрат
@@ -57,7 +60,6 @@ job-name-mechanic = механик
 job-name-intendant = интендант
 job-name-postman = почтальон
 job-name-inventory-associate = кладовщик
-job-name-excavator = шахтёр
 
 # Medical
 

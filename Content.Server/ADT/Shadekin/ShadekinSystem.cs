@@ -1,3 +1,5 @@
+using System.Linq;
+using Robust.Shared.Map.Components;
 using Content.Shared.ADT.Shadekin.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
@@ -27,11 +29,16 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.ADT.Components.PickupHumans;
+using Content.Shared.Construction.Components;
+using Content.Shared.Tag;
 
 namespace Content.Server.ADT.Shadekin;
 
+
 public sealed partial class ShadekinSystem : EntitySystem
 {
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -99,12 +106,25 @@ public sealed partial class ShadekinSystem : EntitySystem
                 comp.MinPowerAccumulator = Math.Clamp(comp.MinPowerAccumulator - 1f, 0f, comp.MinPowerRoof);
             }
 
-            if (comp.MinPowerAccumulator >= comp.MinPowerRoof)
+            if ((comp.MinPowerAccumulator >= comp.MinPowerRoof) && !comp.Blackeye)
                 BlackEye(uid);
-            // SD-tweak start
-            //if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
-            //    TeleportRandomly(uid, comp);
-            // SD-tweak end
+
+            if (!HasComp<TakenHumansComponent>(uid) && comp.MaxedPowerAccumulator >= comp.MaxedPowerRoof)
+                TeleportRandomly(uid, comp);
+
+            if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            {
+                var eye = humanoid.EyeColor;
+                if ((eye.R * 255f <= 30f && eye.G * 255f <= 30f && eye.B * 255f <= 30f) && !(comp.Blackeye))
+                {
+                    comp.Blackeye = true;
+                    comp.PowerLevelGainEnabled = false;
+                    comp.PowerLevel = 0f;
+                    Dirty(uid, humanoid);
+                    _action.RemoveAction(comp.ActionEntity);
+                    _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), 0);
+                }
+            }
         }
     }
 
@@ -134,13 +154,33 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (HasComp<MechPilotComponent>(uid))
             return;
 
+        var mapCoords = args.Target.ToMap(EntityManager, _transform);
+        var allEntities = new List<EntityUid>();
+        foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+            allEntities.Add(ent);
+
+        var blockingEntities = allEntities.Where(e =>
+            HasComp<AnchorableComponent>(e)
+            || _tagSystem.HasTag(e, "Table")
+        ).ToList();
+
+        if (blockingEntities.Any())
+        {
+            TryUseAbility(uid, 0);
+            args.Handled = true;
+            return;
+        }
+
         if (!TryUseAbility(uid, 50))
             return;
 
         args.Handled = true;
 
-        if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
-            _pulling.TryStopPull(puller.Pulling.Value, pullable);
+        if (TryComp<PullerComponent>(uid, out var puller))
+        {
+            if (puller.Pulling != null && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                _pulling.TryStopPull(puller.Pulling.Value, pullable);
+        }
 
         _transform.SetCoordinates(uid, args.Target);
         _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
@@ -188,22 +228,35 @@ public sealed partial class ShadekinSystem : EntitySystem
         while (!coordsValid)
         {
             var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-5f, 5f), coords.Y + _random.NextFloat(-5f, 5f));
-            if (_interaction.InRangeUnobstructed(uid, newCoords, -1f))
-            {
-                TryUseAbility(uid, 40, false);
-                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
-                    TryComp<PullableComponent>(puller.Pulling, out var pullable))
-                    _pulling.TryStopPull(puller.Pulling.Value, pullable);
+            if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
+                continue;
 
-                _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
-                _transform.SetCoordinates(uid, newCoords);
-                _transform.AttachToGridOrMap(uid, Transform(uid));
-                _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
-                _audio.PlayPvs(comp.SoundTransition, uid);
-                comp.MaxedPowerAccumulator = 0f;
+            var mapCoords = newCoords.ToMap(EntityManager, _transform);
+            var allEntities = new List<EntityUid>();
+            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+                allEntities.Add(ent);
 
-                coordsValid = true;
-            }
+            var blockingEntities = allEntities.Where(e =>
+                HasComp<AnchorableComponent>(e)
+                || _tagSystem.HasTag(e, "Table")
+            ).ToList();
+
+            if (blockingEntities.Any())
+                continue;
+
+            TryUseAbility(uid, 40, false);
+            if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
+                TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                _pulling.TryStopPull(puller.Pulling.Value, pullable);
+
+            _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 4));
+            _transform.SetCoordinates(uid, newCoords);
+            _transform.AttachToGridOrMap(uid, Transform(uid));
+            _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
+            _audio.PlayPvs(comp.SoundTransition, uid);
+            comp.MaxedPowerAccumulator = 0f;
+
+            coordsValid = true;
         }
     }
 
@@ -215,19 +268,32 @@ public sealed partial class ShadekinSystem : EntitySystem
         while (!coordsValid)
         {
             var newCoords = new EntityCoordinates(Transform(uid).ParentUid, coords.X + _random.NextFloat(-range, range), coords.Y + _random.NextFloat(-range, range));
-            if (_interaction.InRangeUnobstructed(uid, newCoords, -1f))
-            {
-                if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
-                    TryComp<PullableComponent>(puller.Pulling, out var pullable))
-                    _pulling.TryStopPull(puller.Pulling.Value, pullable);
+            if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
+                continue;
 
-                _transform.SetCoordinates(uid, newCoords);
-                _transform.AttachToGridOrMap(uid, Transform(uid));
-                _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
-                _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Shadekin/shadekin-transition.ogg"), uid);
+            var mapCoords = newCoords.ToMap(EntityManager, _transform);
+            var allEntities = new List<EntityUid>();
+            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+                allEntities.Add(ent);
 
-                coordsValid = true;
-            }
+            var blockingEntities = allEntities.Where(e =>
+                HasComp<AnchorableComponent>(e)
+                || _tagSystem.HasTag(e, "Table")
+            ).ToList();
+
+            if (blockingEntities.Any())
+                continue;
+
+            if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
+                TryComp<PullableComponent>(puller.Pulling, out var pullable))
+                _pulling.TryStopPull(puller.Pulling.Value, pullable);
+
+            _transform.SetCoordinates(uid, newCoords);
+            _transform.AttachToGridOrMap(uid, Transform(uid));
+            _colorFlash.RaiseEffect(Color.DarkCyan, new List<EntityUid>() { uid }, Filter.Pvs(uid, entityManager: EntityManager));
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Shadekin/shadekin-transition.ogg"), uid);
+
+            coordsValid = true;
         }
     }
 
@@ -255,6 +321,7 @@ public sealed partial class ShadekinSystem : EntitySystem
         comp.Blackeye = true;
         comp.PowerLevelGainEnabled = false;
         comp.PowerLevel = 0f;
+        Dirty(uid, comp);
         _stamina.TakeStaminaDamage(uid, 150f);
 
         if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))

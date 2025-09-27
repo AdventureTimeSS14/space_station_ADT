@@ -188,4 +188,4 @@
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
     pocket1: ADTBlueshieldVoucher
-    pocket2: HandheldCrewMonitor
+    pocket2: ADTHandheldCrewMonitorBlueshield

@@ -337,6 +337,9 @@
     maxItemSize: Huge
     grid:
     - 0,0,8,4
+    whitelist:
+      tags:
+        - ADTCardPlay
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -344,8 +347,6 @@
     contents:
     - id: CardBoxBlack
       amount: 1
-    - id: d6Dice
-      amount: 2
     - id: ADTFunCasinoChip1stack
       amount: 4
     - id: ADTFunCasinoChip5stack

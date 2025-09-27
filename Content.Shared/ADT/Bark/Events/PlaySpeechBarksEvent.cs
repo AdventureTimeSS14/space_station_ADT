@@ -1,26 +1,23 @@
 using Robust.Shared.Serialization;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.SpeechBarks;
 
 [Serializable, NetSerializable]
-// ReSharper disable once InconsistentNaming
 public sealed class PlaySpeechBarksEvent : EntityEventArgs
 {
     public NetEntity? Source;
     public string? Message;
-    public string Sound;
-    // public string ExclaimSound;
-    // public string AskSound;
+    public SoundSpecifier SoundSpecifier;
     public float Pitch;
     public float LowVar;
     public float HighVar;
     public bool IsWhisper;
+
     public PlaySpeechBarksEvent(
         NetEntity source,
         string? message,
-        string sound,
-        // string exclaimSound,
-        // string askSound,
+        SoundSpecifier soundSpecifier,
         float pitch,
         float lowVar,
         float highVar,
@@ -28,9 +25,7 @@ public sealed class PlaySpeechBarksEvent : EntityEventArgs
     {
         Source = source;
         Message = message;
-        Sound = sound;
-        // ExclaimSound = exclaimSound;
-        // AskSound = askSound;
+        SoundSpecifier = soundSpecifier;
         Pitch = pitch;
         LowVar = lowVar;
         HighVar = highVar;

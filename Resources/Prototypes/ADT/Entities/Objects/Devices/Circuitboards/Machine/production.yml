@@ -20,7 +20,6 @@
 # Ganimed-Book-Printer-Start
 - type: entity
   id: ADTBookPrinterMachineCircuitboard
-  categories: [ HideSpawnMenu ]
   parent: BaseMachineCircuitboard
   name: book printer machine board
   components:
