@@ -1,0 +1,48 @@
+- type: entity
+  name: plasma halberd
+  parent: BaseItem
+  id: SD_BSOHalberd
+  description: A special plasma halberd made for the station's Blueshield officer.
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Melee/halberd.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    range: 2
+    damage:
+      types:
+        Slash: 10
+        Heat: 5
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+        Heat: 15
+        Structural: 50
+  - type: Item
+    size: Ginormous
+  - type: Reflect
+    reflectProb: .35
+    spread: 135
+  - type: Clothing
+    sprite: SD/Objects/Weapons/Melee/halberd.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage #ADT_Tweak - чтобы вешать на спину
+  - type: Tool
+    qualities:
+      - Prying  # ADT-Axe-Great-Return
+  - type: Prying
+    pryPowered: true # SD tweak
+  - type: UseDelay
+    delay: 1
