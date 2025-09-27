@@ -1,32 +1,4 @@
 - type: entity
-  id: ADTStatueBeerMessiahLeft
-  parent: BaseStructure
-  name: statue of a beer messiah
-  suffix: Октоберфест, Левая
-  description: statue of a beer messiah
-  components:
-  - type: Sprite
-    noRot: true
-    sprite: ADT/Structures/Decoration/Statues/beer_messiah.rsi
-    state: beer_messiah_left
-    drawdepth: Mobs
-    offset: "0.0,0.5"
-
-- type: entity
-  id: ADTStatueBeerMessiahRight
-  parent: BaseStructure
-  name: statue of a beer messiah
-  suffix: Октоберфест, Правая
-  description: statue of a beer messiah
-  components:
-  - type: Sprite
-    noRot: true
-    sprite: ADT/Structures/Decoration/Statues/beer_messiah.rsi
-    state: beer_messiah_right
-    drawdepth: Mobs
-    offset: "0.0,0.5"
-
-- type: entity
   id: ADTStatueCryingAngel
   parent: BaseStructureDynamic
   name: crying angel
