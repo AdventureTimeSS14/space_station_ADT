@@ -39,7 +39,7 @@
   id: ADTBattleShipGunnerKMTGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformGunnerKMT
-    back: ADTShipBattleClothingBlackBackpackJetKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMTGunner
     shoes: ADTShipBattleClothingShoesBootsMagFleet
     head: ADTShipBattleClothingHeadHatGunnerKMT
     # eyes: ClothingEyesHudMedical
@@ -53,9 +53,43 @@
     underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
+  # storage:
+  #   back:
+  #   - BoxSurvivalEngineering
+  #   - CrowbarRed
+  #   - SpaceCash500
+  #   - ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT
+
+- type: startingGear
+  id: ADTBattleShipGunnerKMTGearReinforcement
+  equipment:
+    jumpsuit: ADTShipBattleClothingUniformGunnerKMT
+    back: ADTShipBattleClothingBlackBackpackJetKMT
+    shoes: ADTShipBattleClothingShoesBootsMagFleet
+    head: ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT
+    # eyes: ClothingEyesHudMedical
+    gloves: ADTShipBattleClothingHandsGlovesGunnerBlack
+    outerClothing: ADTShipBattleClothingOuterHardsuitGunnerKMT
+    id: ADTShipBattleDogtagMarineKMT
+    ears: ADTShipBattleClothingHeadsetMarineKMT
+    belt: ADTShipBattleClothingBeltWarbelt
+    pocket1: DoubleEmergencyOxygenTankFilled
+    # pocket2: ADTBaseUplinkBOBERT
+    underwearb: ADTClothingUnderwearBottomBoxersWhite
+    underweart: ADTClothingUnderwearTopTShirt
+    socks: ADTClothingUnderwearSocksBlack
+  inhand:
+    - WeaponSubMachineGunWt550
   storage:
     back:
     - BoxSurvivalEngineering
     - CrowbarRed
     - SpaceCash500
-    - ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT
+    - MedkitCombatFilled
+    - WeaponPistolMk58
+    - MagazinePistol
+    - MagazinePistol
+    - MagazinePistolSubMachineGunTopMounted
+    - MagazinePistolSubMachineGunTopMounted
+    - HandheldGPSBasic
+    - HandHeldMassScanner
