@@ -569,6 +569,7 @@ entities:
     - type: RadiationGridResistance
     - type: IFF
       color: '#964B00FF'
+    - type: CargoShuttle
 - proto: ADTPoweredShuttleLight
   entities:
   - uid: 3
