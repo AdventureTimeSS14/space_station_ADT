@@ -698,3 +698,35 @@
   - type: Icon
     sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkSuperScoutGlass
+  suffix: SuperScout
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTSuperScoutBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/superbeer.rsi
+      state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTDrinkFunnyClownGlass
+  suffix: Funnyclown
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: ADTFunnyClownBeer
+              Quantity: 30
+    - type: Icon
+      sprite: ADT/Objects/Consumable/Drinks/clownbeer.rsi
+      state: icon

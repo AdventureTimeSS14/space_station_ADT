@@ -872,3 +872,56 @@
           visualType: Medium
           messages: ["generic-reagent-effect-silverhand-terrorist"]
           probability: 0.1
+
+- type: reagent
+  id: ADTSuperScoutBeer
+  name: super-scout-name
+  parent: BaseAlcohol
+  desc: super-scout-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_superscoutbeer # tastes much more like a radioactive burn and stomach ulcer
+  color: "#fce303"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 320
+        amount: 2500
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/superbeer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ADTFunnyClownBeer
+  name: funny-clown-name
+  parent: BaseAlcohol
+  desc: funny-clown-desc
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: adt_funnyclownbeer # tastes like an bear and burning car
+  color: "#fc0390"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
+  metamorphicSprite:
+    sprite: ADT/Objects/Consumable/Drinks/clownbeer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
