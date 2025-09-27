@@ -206,6 +206,16 @@
   flavorType: Base
   description: flavor-base-adtvanilla
 
+- type: flavor
+  id: adt_superscoutbeer
+  flavorType: Base
+  description: flavor-base-adtsuperscout
+
+- type: flavor
+  id: adt_funnyclownbeer
+  flavorType: Base
+  description: flavor-base-adtfunnyclown
+
 #на вкус как.. Отсутствие сортировки
 - type: flavor
   id: ADTmandarin

@@ -165,3 +165,11 @@ ent-ADTTheSilverhandGlass = { ent-DrinkGlass }
 ent-ADTCoffeeBonBonGlass = { ent-DrinkGlass }
     .suffix = Кофе бон-бон
     .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkSuperScoutGlass = { ent-DrinkGlass }
+    .suffix = Пиво "Супер Скаут", Октоберфест
+    .desc = { ent-DrinkGlass.desc }
+
+ent-ADTDrinkFunnyClownGlass = { ent-DrinkGlass }
+    .suffix = Пиво "смешное бананопиво", Октоберфест
+    .desc = { ent-DrinkGlass.desc }
