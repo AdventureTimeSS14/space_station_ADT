@@ -60,12 +60,12 @@ construction-name-black-office-sofa-left-side = левая сторона чёр
 construction-name-black-office-sofa-right-side = правая сторона чёрного офисного дивана
 construction-name-black-office-sofa-middle = средняя часть чёрного офисного дивана
 construction-name-black-office-sofa-left-corner = левый угол чёрного офисного дивана
-construction-name-black-office-sofa-right-corner = правый угол  чёрного офисного дивана
-construction-name-white-office-sofa-left-side = левая сторона  белого офисного дивана
-construction-name-white-office-sofa-right-side = правая сторона  белого офисного дивана
+construction-name-black-office-sofa-right-corner = правый угол чёрного офисного дивана
+construction-name-white-office-sofa-left-side = левая сторона белого офисного дивана
+construction-name-white-office-sofa-right-side = правая сторона белого офисного дивана
 construction-name-white-office-sofa-middle = средняя часть белого офисного дивана
-construction-name-white-office-sofa-left-corner = левый угол  белого офисного дивана
-construction-name-white-office-sofa-right-corner = правый угол  белого офисного дивана
+construction-name-white-office-sofa-left-corner = левый угол белого офисного дивана
+construction-name-white-office-sofa-right-corner = правый угол белого офисного дивана
 # Описания
 construction-desc-sofa-left-side = Выглядит удобно.
 construction-desc-sofa-middle = Выглядит удобно.
