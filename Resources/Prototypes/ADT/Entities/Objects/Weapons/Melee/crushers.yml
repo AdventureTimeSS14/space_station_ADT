@@ -127,7 +127,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 20
+        Blunt: 10
         Slash: 5
     soundHit:
       collection: MetalThud
@@ -152,7 +152,7 @@
     minPressure: -1
     additionalDamage:
       types:
-        Blunt: 10
+        Blunt: 20
         Slash: 15
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_hammer.rsi
