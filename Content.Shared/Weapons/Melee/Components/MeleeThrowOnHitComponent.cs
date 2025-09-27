@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Shared.Damage;
-using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

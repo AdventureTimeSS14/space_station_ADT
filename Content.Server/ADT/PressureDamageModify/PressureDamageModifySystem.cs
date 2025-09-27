@@ -15,7 +15,7 @@ namespace Content.Server.ADT.PressureDamageModify;
 
 public sealed partial class PressureDamageModifySystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!; // ADT-Changeling-Tweak
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -23,21 +23,23 @@ public sealed partial class PressureDamageModifySystem : EntitySystem
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<PressureDamageModifyComponent, ProjectileHitEvent>(OnProjectileHit);
+
         SubscribeLocalEvent<PressureDamageModifyComponent, MeleeHitEvent>(OnMeleeHit);
     }
-
     private void OnProjectileHit(EntityUid uid, PressureDamageModifyComponent component, ref ProjectileHitEvent args)
     {
-        // Получаем давление в точке попадания (цель)
-        var pressure = GetPressureAt(args.Target);
+        var pressure = 1f;
 
-        if (!IsPressureInRange(pressure, component))
+        if (_atmosphereSystem.GetContainingMixture(uid) is {} mixture)
+        {
+            pressure = MathF.Max(mixture.Pressure, 1f);
+        }
+        if (pressure <= component.MaxPressure && pressure >= component.MinPressure)
         {
             args.Damage *= component.ProjDamage;
         }
@@ -45,36 +47,25 @@ public sealed partial class PressureDamageModifySystem : EntitySystem
 
     private void OnMeleeHit(EntityUid uid, PressureDamageModifyComponent component, MeleeHitEvent args)
     {
-        if (!args.IsHit || !args.HitEntities.Any() || component.AdditionalDamage == null)
+        if (!args.IsHit ||
+            !args.HitEntities.Any() ||
+            component.AdditionalDamage == null)
         {
             return;
         }
 
-        foreach (var target in args.HitEntities)
+        foreach (var ent in args.HitEntities)
         {
-            var pressure = GetPressureAt(target);
+            var pressure = 1f;
 
-            if (IsPressureInRange(pressure, component))
+            if (_atmosphereSystem.GetContainingMixture(uid) is {} mixture)
             {
-                _damage.TryChangeDamage(target, component.AdditionalDamage);
+                pressure = MathF.Max(mixture.Pressure, 1f);
+            }
+            if (pressure <= component.MaxPressure && pressure >= component.MinPressure)
+            {
+                _damage.TryChangeDamage(ent, component.AdditionalDamage);
             }
         }
-    }
-
-    private float GetPressureAt(EntityUid entity)
-    {
-        var pressure = 1f;
-
-        if (_atmosphereSystem.GetContainingMixture(entity) is { } mixture)
-        {
-            pressure = MathF.Max(mixture.Pressure, 1f);
-        }
-
-        return pressure;
-    }
-
-    private bool IsPressureInRange(float pressure, PressureDamageModifyComponent component)
-    {
-        return pressure >= component.MinPressure && pressure <= component.MaxPressure;
     }
 }
