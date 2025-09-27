@@ -42,11 +42,11 @@
 - type: startingGear
   id: IAAGear
   equipment:
-    shoes: ClothingShoesColorBlack
+    # shoes: ClothingShoesColorBlack ADT-Tweak
     id: IAAPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetIAA
-    pocket2: BookSpaceLaw
+    pocket2: ADTBookSpaceLaw #ADT-WikiBooks
   inhand:
     - BriefcaseIAAFilled
     - ADTbureaucratCane # ADT-Tweak

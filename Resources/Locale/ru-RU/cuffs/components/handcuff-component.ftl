@@ -8,14 +8,14 @@ handcuff-component-start-cuffing-self-observer = { $user } начинает за
 handcuff-component-start-cuffing-target-message = Вы начинаете заковывать { $targetName }.
 handcuff-component-start-cuffing-by-other-message = { $otherName } начинает заковывать вас!
 handcuff-component-cuff-observer-success-message =
-    { $user } { GENDER($user) ->
-        [male] заковал
-        [female] заковала
-        [epicene] заковали
-       *[neuter] заковало
-    } { $target }.
+    { $target } { GENDER($target) ->
+        [male] закован
+        [female] закована
+        [epicene] закованы
+       *[neuter] заковано
+    } { $user }.
 handcuff-component-cuff-self-observer-success-message =
-    { $user } { GENDER($user) ->
+    { $target } { GENDER($target) ->
         [male] заковал
         [female] заковала
         [epicene] заковали

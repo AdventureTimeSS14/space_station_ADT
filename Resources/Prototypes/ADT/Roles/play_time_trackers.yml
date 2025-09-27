@@ -26,9 +26,6 @@
   id: JobBrigmedic
 
 - type: playTimeTracker
-  id: ADTJobSecBorg
-
-- type: playTimeTracker
   id: JobTimePatrol
 
 - type: playTimeTracker
@@ -42,3 +39,6 @@
 
 - type: playTimeTracker
   id: JobADTBarber
+
+- type: playTimeTracker
+  id: JobADTMiner

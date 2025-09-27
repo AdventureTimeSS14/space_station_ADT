@@ -482,34 +482,34 @@
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 3
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      - !type:PopupMessage
-        conditions:
-          - !type:ReagentThreshold
-            min: 5
-            max: 15
-        type: Local
-        visualType: Medium
-        messages: ["generic-reagent-effect-themartinez-cool"]
-        probability: 0.1
-      - !type:PopupMessage
-        conditions:
-          - !type:ReagentThreshold
-            min: 15
-            max: 20
-        type: Local
-        visualType: Medium
-        messages: ["generic-reagent-effect-silverhand-riot"]
-        probability: 0.1
-      - !type:PopupMessage
-        conditions:
-          - !type:ReagentThreshold
-            min: 20
-        type: Local
-        visualType: Medium
-        messages: ["generic-reagent-effect-silverhand-terrorist"]
-        probability: 0.1
+        - !type:SatiateThirst
+          factor: 2
+        - !type:AdjustReagent
+          reagent: Ethanol
+          amount: 0.2
+        - !type:PopupMessage
+          conditions:
+            - !type:ReagentThreshold
+              min: 5
+              max: 15
+          type: Local
+          visualType: Medium
+          messages: ["generic-reagent-effect-themartinez-cool"]
+          probability: 0.1
+        - !type:PopupMessage
+          conditions:
+            - !type:ReagentThreshold
+              min: 15
+              max: 20
+          type: Local
+          visualType: Medium
+          messages: ["generic-reagent-effect-silverhand-riot"]
+          probability: 0.1
+        - !type:PopupMessage
+          conditions:
+            - !type:ReagentThreshold
+              min: 20
+          type: Local
+          visualType: Medium
+          messages: ["generic-reagent-effect-silverhand-terrorist"]
+          probability: 0.1

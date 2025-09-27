@@ -1,0 +1,61 @@
+- type: startingGear
+  id: SpaceSecCadet
+  equipment:
+    jumpsuit: ADTSpaceSecUniformCadet
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    id: ADTSpaceSecCadetIDCard
+    ears: ADTSpaceSecClothingHeadset
+    neck: ADTSpaceSecToken
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterArmorBasic
+
+- type: startingGear
+  id: SpaceSecCommander
+  equipment:
+    jumpsuit: ADTSpaceSecUniformCommander
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    id: ADTSpaceSecCommanderIDCard
+    ears: ADTSpaceSecClothingHeadsetFull
+    neck: ADTSpaceSecToken
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasic
+
+- type: startingGear
+  id: SpaceSecOfficer
+  equipment:
+    jumpsuit: ADTSpaceSecUniformOfficer
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    id: ADTSpaceSecOfficerIDCard
+    ears: ADTSpaceSecClothingHeadset
+    neck: ADTSpaceSecToken
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBulletproof
+
+- type: startingGear
+  id: SpaceSecPilot
+  equipment:
+    jumpsuit: ADTSpaceSecUniformPilot
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    id: ADTSpaceSecPilotIDCard
+    ears: ADTSpaceSecClothingHeadsetFull
+    neck: ADTSpaceSecToken
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasic
+
+- type: startingGear
+  id: SpaceSecService
+  equipment:
+    jumpsuit: ADTSpaceSecUniformService
+    back: ClothingBackpackSatchelFilled
+    shoes: ClothingShoesColorBlack
+    id: ADTSpaceSecServiceIDCard
+    ears: ADTSpaceSecClothingHeadset
+    neck: ADTSpaceSecToken

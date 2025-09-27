@@ -9,6 +9,23 @@ public enum CrewMonitoringUIKey
     Key
 }
 
+// ADT-Tweak-Start
+[Serializable, NetSerializable]
+public enum CrewMonitoringDepartment
+{
+    Cargo,
+    Civilian,
+    CentralCommand,
+    Command,
+    Engineering,
+    Medical,
+    Security,
+    Science,
+    Silicon,
+    Specific
+}
+// ADT-Tweak-End
+
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringState : BoundUserInterfaceState
 {
