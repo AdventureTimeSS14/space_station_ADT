@@ -1,0 +1,89 @@
+- type: decal
+  id: ADTNumber0
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_0
+
+- type: decal
+  id: ADTNumber1
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_1
+
+- type: decal
+  id: ADTNumber2
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_2
+
+- type: decal
+  id: ADTNumber3
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_3
+
+- type: decal
+  id: ADTNumber4
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_4
+
+- type: decal
+  id: ADTNumber5
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_5
+
+- type: decal
+  id: ADTNumber6
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_6
+
+- type: decal
+  id: ADTNumber7
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_7
+
+- type: decal
+  id: ADTNumber8
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_8
+
+- type: decal
+  id: ADTNumber9
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/numbers.rsi
+    state: number_9
