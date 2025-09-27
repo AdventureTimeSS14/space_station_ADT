@@ -132,18 +132,36 @@
     Poison:
       effects:
       - !type:HealthChange
-      # Start ADT tweak: Novakid
+        # Start ADT tweak: Novakid
         conditions:
         - !type:OrganType
           type: Novakid
           shouldHave: false
-      # End ADT tweak
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        # End ADT tweak
         damage:
           types:
             Poison: 3
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
+    # Start ADT tweak
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          groups:
+            Brute: -0.5
+            Burn: -0.5
+          types:
+            Poison: -0.5
+    # End ADT tweak
     Gas:
       # Start ADT tweak: Novakid
       effects:
@@ -155,6 +173,9 @@
         conditions:
         - !type:OrganType
           type: Novakid
+          shouldHave: false
+        - !type:OrganType
+          type: Slime
           shouldHave: false
         - !type:ReagentThreshold
           reagent: Plasma
@@ -168,6 +189,9 @@
         conditions:
         - !type:OrganType
           type: Novakid
+          shouldHave: false
+        - !type:OrganType
+          type: Slime
           shouldHave: false
         - !type:ReagentThreshold
           reagent: Plasma
@@ -205,6 +229,9 @@
         - !type:OrganType
           type: Novakid
           shouldHave: false
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Plasma
           min: 1
@@ -221,6 +248,11 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
+          #ADT-tweak-start
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+          #ADT-tweak-end
         - !type:ReagentThreshold
           min: 1.5
         clear: True
@@ -251,12 +283,24 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Radiation: 3
     Gas:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -267,10 +311,27 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
+          #ADT-tweak-start
+          - !type:OrganType
+            type: Slime
+            shouldHave: false
+          #ADT-tweak-end
           - !type:ReagentThreshold
             min: 1.5
         clear: True
         time: 5
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Radiation: -3
+    #ADT-tweak-end
 
 - type: reagent
   id: CarbonDioxide
