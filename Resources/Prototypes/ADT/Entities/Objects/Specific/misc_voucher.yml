@@ -44,6 +44,7 @@
   - type: MiningVoucher
     kits:
     - WeaponSaberRevBlueshield
+    - WeaponHalberdBlueshield # SD tweak
     typeDropPlace: ThisPlace
     typeDrop: Rocket
 
