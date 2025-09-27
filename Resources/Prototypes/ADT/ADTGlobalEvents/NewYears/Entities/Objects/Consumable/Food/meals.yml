@@ -1,0 +1,211 @@
+#новогодние блюда
+
+- type: entity
+  name: olivier salad
+  parent: FoodBowlBase
+  id: ADTFoodOlivierSalad
+  description: olivier salad
+  suffix: New Year
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTOlivier
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
+    layers:
+    - state: bowl
+    - state: olivier
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Vitamin
+          Quantity: 3
+
+- type: entity
+  name: jellied meat
+  parent: ADTFoodMealBase
+  id: ADTFoodJelliedMeat
+  description: jellied meat
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
+    layers:
+    #- state: plate_small
+    - state: jellymeat
+  - type: FlavorProfile
+    flavors:
+      - ADTJellymeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 8
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 5
+    # trash: FoodPlateSmall
+
+- type: entity
+  name: herring under furcoat
+  parent: ADTFoodMealBase
+  id: ADTFoodHerringUnderFurcoat
+  description: herring under furcoat
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
+    layers:
+    - state: plate_small
+    - state: herring
+  - type: FlavorProfile
+    flavors:
+      - ADTHerringUnderFurcoat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 6
+    # trash: FoodPlateSmall
+
+- type: entity
+  name: ham
+  parent: ADTFoodMealBase
+  id: ADTFoodMeatHam
+  description: ham
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
+    layers:
+    - state: plate
+    - state: ham
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Protein
+          Quantity: 6
+  - type: SliceableFood
+    count: 6
+    slice: ADTFoodMeatHamPiece
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 4
+    # trash: FoodPlate
+
+- type: entity
+  name: ham piece
+  parent: ADTFoodMealBase
+  id: ADTFoodMeatHamPiece
+  description: ham piece
+  suffix: New Year
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
+    layers:
+    - state: hampiece
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 1
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 6
+
+- type: entity
+  name: pudding
+  parent: FoodCakeBase
+  id: ADTFoodCakePudding
+  description: pudding
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
+    layers:
+    #- state: plate_small
+    - state: pudding
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 6
+    # trash: FoodPlateSmall
+
+- type: entity
+  name: christmas pudding
+  parent: FoodCakeBase
+  id: ADTFoodCakePuddingChristmas
+  description: christmas pudding
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearfood.rsi
+    layers:
+    #- state: plate_small
+    - state: christmaspudding
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Item
+    size: Normal
+  - type: Food
+    transferAmount: 6
+    # trash: FoodPlateSmall

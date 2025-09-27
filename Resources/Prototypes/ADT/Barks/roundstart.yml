@@ -79,11 +79,11 @@
   name: bark-flowey-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-flowey.ogg
 
-- type: speechBark
-  id: Mettaton
-  name: bark-mettaton-name
-  sound:
-    collection: ADTMettaton
+# - type: speechBark
+#   id: Mettaton
+#   name: bark-mettaton-name
+#   sound:
+#     collection: ADTMettaton
 
 - type: speechBark
   id: Papyrus
@@ -120,11 +120,11 @@
   name: bark-underswap-sans-name
   sound: /Audio/ADT/Voice/Vocal-Barks/underswap-sans.ogg
 
-- type: speechBark
-  id: Temmie
-  name: bark-temmie-name
-  sound:
-    collection: ADTtemmie
+# - type: speechBark
+#   id: Temmie
+#   name: bark-temmie-name
+#   sound:
+#     collection: ADTtemmie
 
 # UNY some new shit brah @@@ QWERTY barks addon folder
 
@@ -189,17 +189,17 @@
   name: bark-rudolph-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-rudolph.ogg
 
-- type: speechBark
-  id: RoxlsCaard
-  name: bark-roxlscaard-name
-  sound:
-    collection: ADTRouxlsKaard
+# - type: speechBark
+#   id: RoxlsCaard
+#   name: bark-roxlscaard-name
+#   sound:
+#     collection: ADTRouxlsKaard
 
-- type: speechBark
-  id: MrAntTenna
-  name: bark-tenna-name
-  sound:
-    collection: ADTMrAntTennaBark
+# - type: speechBark
+#   id: MrAntTenna
+#   name: bark-tenna-name
+#   sound:
+#     collection: ADTMrAntTennaBark
 
 - type: speechBark
   id: Ralsei

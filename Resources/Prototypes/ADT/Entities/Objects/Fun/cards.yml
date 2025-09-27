@@ -133,6 +133,9 @@
       - id: ADTFunCardQueenOfSpades
       - id: ADTFunCardBlackJoker
       - id: ADTFunCardRedJoker
+  - type: Tag
+    tags:
+      - ADTCardPlay
 
 - type: entity
   name: chemistry bag
@@ -181,7 +184,9 @@
       - id: ADTFunCardJackOfSpades
       - id: ADTFunCardKingOfSpades
       - id: ADTFunCardQueenOfSpades
-
+  - type: Tag
+    tags:
+      - ADTCardPlay
 
 #пики
 - type: entity
