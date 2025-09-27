@@ -9,7 +9,6 @@
   id: ADTBaseMobSpeciesOrganicUnRotting
   abstract: true
   components:
-  - type: MobState # ADT-Tweak
   - type: OfferItem
   - type: PickupHumans
   - type: RadiationPopup
