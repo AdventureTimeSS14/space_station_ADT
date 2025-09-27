@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseItem
+  id: ADTRoulette
+  name: roulette
+  description: Roulette for entertainment. You can twist it.
+  components:
+  - type: Sprite
+    sprite: Objects/Tanks/oxygen.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Roulette
