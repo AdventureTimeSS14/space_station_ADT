@@ -71,5 +71,4 @@ public sealed partial class TechnologyInfoPanel : Control
     {
         BuyAction?.Invoke(Prototype);
     }
-
 }

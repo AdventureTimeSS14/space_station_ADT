@@ -349,7 +349,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         {
             if (item is not ResearchConsoleItem research)
                 continue;
-            LayoutContainer.SetPosition(item, _position + (research.Prototype.Position * 150));
+            LayoutContainer.SetPosition(item, _position + research.Prototype.Position * 150);
         }
     }
 
