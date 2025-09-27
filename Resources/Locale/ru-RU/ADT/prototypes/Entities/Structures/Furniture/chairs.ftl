@@ -2,10 +2,10 @@ ent-ADTChairPizzeria = черный стул для пиццерии
     .desc = Хорошо подойдет для маленького кафе.
 
 ent-ADTChairRed = красный деревянный стул
-    .desc = { ent-ADTChairPizzeria }
+    .desc = Комфортный красный стул с белой спинкой и сидалищем
 
 ent-ADTChairWhite = белый деревянный стул
-    .desc = { ent-ADTChairPizzeria }
+    .desc = Комфортный белый стул с белой спинкой и сидалищем
 
 ent-ADTArmchairWhite = белое кресло
     .desc = Выглядит крайне комфортно.
