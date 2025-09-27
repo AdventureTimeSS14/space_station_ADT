@@ -885,11 +885,6 @@
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 1.2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.12
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -1970,11 +1965,6 @@
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 1.5
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -2150,11 +2140,6 @@
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
