@@ -1,5 +1,5 @@
 - type: entity
-  id: SBBigBox
+  id: ADTSBBigBox
   name: Combat Security cardboard box
   parent: BigBox
   description: Kept ya waiting, huh?
@@ -14,7 +14,7 @@
       map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
-  id: MedBigBox
+  id: ADTMedBigBox
   name: medical cardboard box
   parent: BigBox
   description: Kept ya waiting, huh?
