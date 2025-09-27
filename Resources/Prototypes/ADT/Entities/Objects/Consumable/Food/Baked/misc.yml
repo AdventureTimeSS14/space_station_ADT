@@ -1,4 +1,300 @@
 - type: entity
+  name: brezel
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezel
+  description: The usual pretzel, a popular snack at Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    layers:
+    - state: brezel
+  - type: FlavorProfile
+    flavors:
+      - bun
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with poppy seeds
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelPoppySeeds
+  description: The brezel with poppy seeds, a popular snack at Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    layers:
+    - state: brezel_poppy
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - adt_poppy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with salt
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelSalt
+  description: The brezel with salt, a popular snack at Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    layers:
+    - state: brezel_salt
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - salty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with chocolate
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelChocolate
+  description: The brezel with chocolate, a sweet snack for Oktoberfest.
+  suffix: Oktoberfest
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    layers:
+    - state: brezel_chocolate
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - chocolate
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: brezel with vanilla
+  parent: FoodBakedBase
+  id: ADTFoodBakedBrezelVanilla
+  description: Brezel with vanilla glaze, a sweet snack for Oktoberfest
+  suffix: Oktoberfest
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
+    layers:
+    - state: brezel_vanilla
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - sweet
+      - adt_vanilla
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: ADTCandy-pretzelName
+  parent: ADTFoodBakedBrezelVanilla
+  id: ADTFoodBakedBrezelPumpkin
+  description: ADTCandy-pretzelDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
+    state: pretzelpump
+
+- type: entity
+  name: ADTCandy-muffinName
+  parent: FoodBakedBase
+  id: ADTFoodBakedMuffinPumpkin
+  description: ADTCandy-muffinDesc
+  suffix: Halloween
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
+    state: muffin_pumpkin
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - sweet
+      - adt_vanilla
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+    - ADTCandies
+
+# Кулич все таки не торт
+
+- type: entity
+  name: kulich small
+  parent: FoodBakedBase
+  id: ADTFoodKulichSmall
+  description: kulich small
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    state: small
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+
+- type: entity
+  name: kulich big
+  parent: FoodBakedBase
+  id: ADTFoodKulichBig
+  description: kulich big
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    state: big
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: kulich cheesy
+  parent: FoodBakedBase
+  id: ADTFoodKulichCheesy
+  description: kulich cheesy
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    state: cheesy
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+    # - ADTCarnivoreFriendlyFood
+  - type: Item
+    size: Small
+
+- type: entity
+  name: sweet roll
+  parent: FoodBakedBase
+  id: ADTFoodSweetRoll
+  description: sweet roll
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/easter.rsi
+    state: sweetroll
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+  - type: Item
+    size: Small
+
+- type: entity
   name: berried delight
   parent: FoodBakedBase
   id: ADTFoodBerriedDelight

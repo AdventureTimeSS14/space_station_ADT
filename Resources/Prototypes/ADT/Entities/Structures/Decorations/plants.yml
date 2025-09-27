@@ -1,0 +1,22 @@
+    # halloween
+
+- type: entity
+  id: ADTHalloweenPottedPlant1
+  parent: PottedPlantBase
+  name: halloween potted plant
+  description: halloween potted plant
+  suffix: Halloween
+  components:
+  - type: Sprite
+    drawdepth: Overdoors
+    offset: "0.0,0.3"
+    sprite: ADT/Structures/Decoration/Plants/potted_plant_helloween.rsi
+    state: plant1
+    noRot: true
+
+- type: entity
+  id: ADTHalloweenPottedPlant2
+  parent: ADTHalloweenPottedPlant1
+  components:
+  - type: Sprite
+    state: plant2
