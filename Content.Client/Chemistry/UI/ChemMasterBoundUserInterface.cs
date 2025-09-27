@@ -57,6 +57,7 @@ namespace Content.Client.Chemistry.UI
             _window.OnSortMethodChanged += sortMethod => SendMessage(new ChemMasterSortMethodUpdated(sortMethod));
             _window.OnTransferAmountChanged += amount => SendMessage(new ChemMasterTransferringAmountUpdated(amount));
             _window.OnUpdateAmounts += amounts => SendMessage(new ChemMasterAmountsUpdated(amounts));
+            _window.OnTransferAllPressed += (reagent, isBuffer, isOutput) => SendMessage(new ChemMasterReagentAmountButtonMessage(reagent, int.MaxValue, isBuffer, isOutput));
             //ADT-Tweak-End
         }
 

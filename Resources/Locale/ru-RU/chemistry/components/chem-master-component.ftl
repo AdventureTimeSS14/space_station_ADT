@@ -37,7 +37,7 @@ chem-master-window-sort-type-latest = Сорт. по: Сначала новые
 
 ## ADT-Tweak NewChemMasterUI
 chem-master-window-amount-placeholder = Кол-во переносимого вещества:
-chem-master-window-set-amount-label = Применить
+chem-master-window-delete-as-frequent-label = Удалить шаблон
 chem-master-window-save-as-frequent-label = Добавить шаблон
 chem-master-window-sort-method-Amount-text = Сортировка по количеству
 chem-master-window-sort-method-Alphabetical-text = Сортировка по алфавиту

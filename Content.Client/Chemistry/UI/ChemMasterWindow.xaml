@@ -141,7 +141,7 @@
             <RichTextLabel Name="AmountLabel" Text="{Loc 'chem-master-window-transferring-default-label'}"  Margin="0 0 7 0" />
             <LineEdit MinSize="140 0" Name="AmountLineEdit" Access="Public" PlaceHolder="{Loc 'chem-master-window-amount-placeholder'}" />
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                <Button Name="SetAmountButton" Text="{Loc 'chem-master-window-set-amount-label'}" HorizontalExpand="True" StyleClasses="OpenRight"/>
+                <Button Name="DeleteAsFrequentButton" Text="{Loc 'chem-master-window-delete-as-frequent-label'}" HorizontalExpand="True" StyleClasses="OpenRight" ToggleMode="True"/>
                 <Button Name="SaveAsFrequentButton" Text="{Loc 'chem-master-window-save-as-frequent-label'}" HorizontalExpand="True" StyleClasses="OpenLeft"/>
             </BoxContainer>
             <Control MinSize="0 5" />

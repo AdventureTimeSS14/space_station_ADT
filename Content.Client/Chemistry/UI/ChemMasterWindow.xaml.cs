@@ -30,8 +30,12 @@ namespace Content.Client.Chemistry.UI
         public event Action<int>? OnSortMethodChanged;
         public event Action<int>? OnTransferAmountChanged;
         public event Action<List<int>>? OnUpdateAmounts;
+        public event Action<ReagentId, bool, bool>? OnTransferAllPressed;
+        public bool IsOutputTab => Tabs.CurrentTab == 1;
+        private bool _deleteMode = false;
         //ADT-Tweak End
         public readonly Button[] PillTypeButtons;
+
         //ADT-Tweak Start
         private List<int> _amounts = new();
 
@@ -55,7 +59,7 @@ namespace Content.Client.Chemistry.UI
             AmountLabel.HorizontalAlignment = HAlignment.Center;
             AmountLineEdit.OnTextEntered += SetAmount;
 
-            SetAmountButton.OnPressed += _ => SetAmountText(AmountLineEdit.Text);
+            DeleteAsFrequentButton.OnPressed += HandleDeleteModeToggled;
             SaveAsFrequentButton.OnPressed += HandleSaveAsFrequentPressed;
             //ADT-Tweak End
             // Pill type selection buttons, in total there are 20 pills.
@@ -145,7 +149,6 @@ namespace Content.Client.Chemistry.UI
             PillBufferDiscardButton.OnPressed += HandleDiscardTransferPress;
 
             CreateAmountButtons();
-            OnAmountButtonPressed += amount => SetAmountText(amount.ToString());
             //ADT-Tweak End
         }
 
@@ -174,7 +177,7 @@ namespace Content.Client.Chemistry.UI
                     HorizontalExpand = true
                 };
 
-                button.OnPressed += _ => OnAmountButtonPressed?.Invoke(amount);
+                button.OnPressed += _ => HandleAmountButtonPressed(amount);
                 AmountButtons.AddChild(button);
             }
         }
@@ -187,7 +190,28 @@ namespace Content.Client.Chemistry.UI
 
             _amounts.Add(amount);
             _amounts.Sort();
+            CreateAmountButtons();
             OnUpdateAmounts?.Invoke(_amounts);
+        }
+
+        private void HandleDeleteModeToggled(BaseButton.ButtonEventArgs args)
+        {
+            _deleteMode = DeleteAsFrequentButton.Pressed;
+        }
+
+        private void HandleAmountButtonPressed(int amount)
+        {
+            if (_deleteMode)
+            {
+                _amounts.Remove(amount);
+                CreateAmountButtons();
+                OnUpdateAmounts?.Invoke(_amounts);
+            }
+            else
+            {
+                OnAmountButtonPressed?.Invoke(amount);
+                SetAmountText(amount.ToString());
+            }
         }
 
         private void HandleDiscardTransferPress(BaseButton.ButtonEventArgs args)
@@ -616,7 +640,12 @@ namespace Content.Client.Chemistry.UI
 
             // ADT-Tweak Start
             if (reagentButtonConstructor != null)
+            {
                 rowContainer.AddChild(reagentButtonConstructor);
+                var transferAllButton = new Button() { Text = Loc.GetString("chem-master-window-buffer-all-amount"), StyleClasses = { StyleBase.ButtonOpenLeft } };
+                transferAllButton.OnPressed += _ => OnTransferAllPressed?.Invoke(reagent, isBuffer, IsOutputTab);
+                rowContainer.AddChild(transferAllButton);
+            }
             // ADT-Tweak End
             //Apply panencontainer to allow for striped rows
             return new PanelContainer
@@ -639,7 +668,7 @@ namespace Content.Client.Chemistry.UI
         public ReagentId Id { get; set; }
         public ReagentButton(string text, ReagentId id, bool isBuffer)
         {
-            AddStyleClass(StyleBase.ButtonOpenLeft);
+            AddStyleClass(StyleBase.ButtonSquare); // ADT-Tweak
             Text = text;
             Id = id;
             IsBuffer = isBuffer;

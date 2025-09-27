@@ -170,18 +170,24 @@ namespace Content.Server.Chemistry.EntitySystems
 
             if (fromBuffer) // Buffer to container
             {
-                amount = FixedPoint2.Min(amount, containerSolution.AvailableVolume);
                 var solution = isOutput ? pillBufferSolution : bufferSolution;
-
+                // ADT-Tweak Start
+                var available = solution.GetReagentQuantity(id);
+                if (amount == int.MaxValue) amount = available; // Transfer all
+                amount = FixedPoint2.Min(amount, available, containerSolution.AvailableVolume);
+                // ADT-Tweak End
                 amount = solution.RemoveReagent(id, amount, preserveOrder: true);
                 _solutionContainerSystem.TryAddReagent(containerEntity.Value, id, amount, out _);
             }
             else // Container to buffer
             {
-                amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
+                // ADT-Tweak Start
+                var available = containerSolution.GetReagentQuantity(id);
+                if (amount == int.MaxValue) amount = available; // Transfer all
+                amount = FixedPoint2.Min(amount, available);
                 if (bufferSolution.MaxVolume.Value > 0)    //ADT-Tweak - chemicalbuffer if no limit
-                    amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id), bufferSolution.AvailableVolume);
-
+                    amount = FixedPoint2.Min(amount, available, bufferSolution.AvailableVolume);
+                // ADT-Tweak End
                 _solutionContainerSystem.RemoveReagent(containerEntity.Value, id, amount);
 
                 var solution = isOutput ? pillBufferSolution : bufferSolution;
@@ -201,8 +207,11 @@ namespace Content.Server.Chemistry.EntitySystems
                     return;
 
                 var solution = isOutput ? pillBufferSolution : bufferSolution;
-
-                amount = FixedPoint2.Min(amount, solution.GetReagentQuantity(id));
+                // ADT-Tweak Start
+                var available = solution.GetReagentQuantity(id);
+                if (amount == int.MaxValue) amount = available; // Discard all
+                amount = FixedPoint2.Min(amount, available);
+                // ADT-Tweak End
                 solution.RemoveReagent(id, amount, preserveOrder: true);
             }
             else
@@ -212,8 +221,11 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (container is null ||
                     !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerEntity, out var containerSolution))
                     return;
-
-                amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
+                // ADT-Tweak Start
+                var available = containerSolution.GetReagentQuantity(id);
+                if (amount == int.MaxValue) amount = available; // Discard all
+                amount = FixedPoint2.Min(amount, available);
+                // ADT-Tweak End
                 _solutionContainerSystem.RemoveReagent(containerEntity.Value, id, amount);
             }
 
