@@ -25,10 +25,17 @@
   parent: SuitStorageBase
   suffix: Brigmedic
   components:
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackBrigmedic
+    - ClothingOuterHardsuitBrigmedic
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitBrigmedic
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]

@@ -379,3 +379,92 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitCMO
+  name: CMO MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/cmo.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/cmo.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitCaptain
+  name: captain MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/captain.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/captain.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+  - type: PointLight
+    enabled: false
+    color: "#815ccc"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitWard
+  name: warden MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/warden.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/warden.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  - type: PointLight
+    enabled: false
+    color: "#5e73af"
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitBrigmedic
+  name: Brigmedic MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/brigmedic.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/brigmedic.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
