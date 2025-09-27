@@ -656,6 +656,7 @@
     weight: 8
     reoccurrenceDelay: 20
     duration: 1
+    maxOccurrences: 1 # Ganimed edit
     startAnnouncement: station-event-ion-storm-start-announcement # Ganimed edit
     startAudio:
       path: /Audio/Corvax/Adminbuse/i-storm1.ogg
