@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Damage;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Melee.Components;
