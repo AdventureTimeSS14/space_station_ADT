@@ -8,7 +8,7 @@
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   VerticalExpand="True">
-        <controls:StripeBack Name="StationNameContainer" MinSize="52 52">
+        <controls:StripeBack MinSize="52 52">
             <BoxContainer Name="DisciplinesContainer"
                         Orientation="Horizontal"
                         HorizontalAlignment="Stretch"
