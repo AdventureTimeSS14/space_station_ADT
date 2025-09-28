@@ -1046,7 +1046,6 @@
       - !type:SatiateHunger
         factor: -1
 
-  # Should heal quite literally everything, use in very small amounts
 - type: reagent
   id: Omnizine
   name: reagent-name-omnizine
@@ -1059,32 +1058,11 @@
     Medicine:
       effects:
       - !type:EvenHealthChange
-        # Start ADT tweak
-        conditions:
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: false
-        # End ADT tweak
         damage:
-          groups:
-            Burn: -2
-            Toxin: -2
-            Airloss: -2
-            Brute: -2
-      # Start ADT tweak
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: true
-        damage:
-          groups:
-            Burn: -2
-            Toxin: -2
-            Brute: -2
-          types:
-            Bloodloss: -1.5
-      # End ADT tweak
+          Burn: -2
+          Toxin: -2
+          Airloss: -2
+          Brute: -2
 
 - type: reagent
   id: Ultravasculine

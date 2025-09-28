@@ -21,7 +21,7 @@
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: EntityWorldTargetAction
+  - type: InstantAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -41,7 +41,7 @@
   name: "[color=red]Dragon Fire[/color]"
   description: fshhhhh
   components:
-  - type: EntityWorldTargetAction
+  - type: InstantAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -58,7 +58,7 @@
   name: "[color=red]Dragon Breath[/color]"
   description: fshhhhh
   components:
-  - type: EntityWorldTargetAction
+  - type: InstantAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi

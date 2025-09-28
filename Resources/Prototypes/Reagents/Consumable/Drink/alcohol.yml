@@ -225,17 +225,6 @@
         damage:
           types:
             Poison: 0.1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:Whitelist
-          list:
-            components:
-            - DrunkenResilience
-        damage:
-          groups:
-            Brute: -1
       # End ADT tweak
       - !type:ChemVomit
         probability: 0.04

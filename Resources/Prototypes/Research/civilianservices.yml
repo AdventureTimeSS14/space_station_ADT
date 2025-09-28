@@ -338,3 +338,8 @@
   recipeUnlocks:
   - LauncherSyringe
   - MiniSyringe
+  # ADT Research Console Rework start
+  position: 7,-1
+  requiredTech:
+  - ADTProtectionPseudoscience
+  # ADT Research Console Rework end

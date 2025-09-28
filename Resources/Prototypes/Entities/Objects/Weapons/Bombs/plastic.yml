@@ -104,7 +104,7 @@
         volume: -6
     startOnStick: false
     canToggleStartOnStick: true
-  # - type: TimerStartOnSignal
+  - type: TimerStartOnSignal
   - type: DeviceLinkSink
     ports:
     - Timer
