@@ -18,7 +18,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ItemToggleVisuals.Toggled:
+      ToggleableVisuals.Enabled:
         translatorLayer:
           True: { visible: true }
           False: { visible: false }

@@ -39,7 +39,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         enum.ToggleVisuals.Layer:
           True: {state: telescope_on}
           False: {state: telescope_off}
