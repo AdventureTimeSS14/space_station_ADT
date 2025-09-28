@@ -84,6 +84,7 @@
       types:
         Slash: 10
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
         Blunt: 10
@@ -148,6 +149,7 @@
   - type: GunRequiresWield
   - type: Wieldable
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
         Blunt: 20
@@ -200,6 +202,7 @@
     size: Normal
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
         Blunt: 10
@@ -255,6 +258,7 @@
       types:
         Slash: 10
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
         Blunt: 10
