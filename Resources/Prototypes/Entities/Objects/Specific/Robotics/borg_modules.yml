@@ -595,10 +595,6 @@
         components:
         - Electronics
         - MachineBoard
-    - id: CapacitorStockPart
-      whitelist:
-        components:
-        - StockPart
     # ADT end: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }

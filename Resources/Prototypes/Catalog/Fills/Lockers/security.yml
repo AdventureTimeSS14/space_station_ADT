@@ -106,43 +106,44 @@
     - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
       prob: 0.2
 
-- type: entity
-  id: LockerBrigmedicFilled
-  suffix: Brigmedic, Filled
-  parent: LockerBrigmedic
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerBrigmedic
-  - type: StorageFill
-    contents:
-      - id: FlashlightSeclite
-        prob: 0.8
-      - id: WeaponDisabler
-      - id: ClothingUniformJumpsuitSecGrey
-        prob: 0.3
-      - id: ClothingHeadHelmetBasic
-      - id: ClothingOuterArmorBasic
-      - id: ClothingBeltSecurityFilled
-      - id: Flash
-        prob: 0.5
-      - id: ClothingEyesGlassesSecurity
-      - id: ClothingHeadsetSecurity
-      - id: ClothingHandsGlovesColorBlack
-      - id: ClothingShoesBootsJack
-      - id: WeaponMeleeNeedle
-        prob: 0.1
-      - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
-        prob: 0.2
-      - id: HoloprojectorSecurity
-        prob: 0.6
-      - id: ADTBookSpaceLaw #ADT-WikiBooks
-        prob: 0.5
-    # ADT-WikiBooks-Start
-      - id: ADTBookSRPsec
-      - id: ADTBookPCDsec
-    # ADT-WikiBooks-End
+# moved to ADT
+# - type: entity
+#   id: LockerBrigmedicFilled
+#   suffix: Brigmedic, Filled
+#   parent: LockerBrigmedic
+#   components:
+#   - type: EntityTableContainerFill
+#     containers:
+#       entity_storage: !type:NestedSelector
+#         tableId: FillLockerBrigmedic
+#   - type: StorageFill
+#     contents:
+#       - id: FlashlightSeclite
+#         prob: 0.8
+#       - id: WeaponDisabler
+#       - id: ClothingUniformJumpsuitSecGrey
+#         prob: 0.3
+#       - id: ClothingHeadHelmetBasic
+#       - id: ClothingOuterArmorBasic
+#       - id: ClothingBeltSecurityFilled
+#       - id: Flash
+#         prob: 0.5
+#       - id: ClothingEyesGlassesSecurity
+#       - id: ClothingHeadsetSecurity
+#       - id: ClothingHandsGlovesColorBlack
+#       - id: ClothingShoesBootsJack
+#       - id: WeaponMeleeNeedle
+#         prob: 0.1
+#       - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
+#         prob: 0.2
+#       - id: HoloprojectorSecurity
+#         prob: 0.6
+#       - id: ADTBookSpaceLaw #ADT-WikiBooks
+#         prob: 0.5
+#     # ADT-WikiBooks-Start
+#       - id: ADTBookSRPsec
+#       - id: ADTBookPCDsec
+#     # ADT-WikiBooks-End
 
 # - type: entity
 #   id: LockerBrigmedicFilled

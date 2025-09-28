@@ -32,12 +32,6 @@
   components:
   - type: Stack
     stackType: GoldOre
-### Start ADT Tweak
-  - type: Tag
-    tags:
-    - ADTGoldOre
-    - Ore
-### End ADT Tweak
   - type: Sprite
     state: gold
   - type: Material
@@ -189,12 +183,6 @@
   components:
   - type: Stack
     stackType: SilverOre
-### Start ADT Tweak
-  - type: Tag
-    tags:
-    - ADTSilverOre
-    - Ore
-### End ADT Tweak
   - type: Sprite
     state: silver
   - type: Material
@@ -277,12 +265,6 @@
   - type: PhysicalComposition
     materialComposition:
       RawUranium: 300   #ADT_Tweak - повышено со 100
-### Start ADT Tweak
-  - type: Tag
-    tags:
-    - ADTUraniumOre
-    - Ore
-### End ADT Tweak
   - type: PointLight
     radius: 1.2
     energy: 0.8

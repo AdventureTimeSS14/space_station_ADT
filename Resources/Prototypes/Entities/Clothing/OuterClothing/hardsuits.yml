@@ -623,10 +623,6 @@
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
-# Start ADT Tweak
-  - type: StaminaResistance
-    damageCoefficient: 0.3
-# End ADT Tweak
   - type: ClothingSpeedModifier #ADT Nukiebuff
     walkModifier: 1
     sprintModifier: 1
@@ -704,10 +700,6 @@
         Heat: 0.1
         Radiation: 0.01
         Caustic: 0.5
-#ADT Tweak start
-  - type: StaminaResistance
-    damageCoefficient: 0.3
-#ADT Tweak end
   - type: Item
     size: Huge
   - type: Tag
@@ -750,10 +742,6 @@
         Heat: 0.5
         Radiation: 0.25
         Caustic: 0.4
-#ADT Tweak start
-  - type: StaminaResistance
-    damageCoefficient: 0.3 
-#ADT Tweak end
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

@@ -252,23 +252,23 @@
     shoes: ClothingShoesBootsMagAdv
 
 # Engineer
-- type: job
-  id: ERTEngineer
-  name: job-name-ertengineer
-  description: job-description-ertengineer
-  playTimeTracker: JobERTEngineer
-  setPreference: false
-  startingGear: ERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+# - type: job
+#   id: ERTEngineer
+#   name: job-name-ertengineer
+#   description: job-description-ertengineer
+#   playTimeTracker: JobERTEngineer
+#   setPreference: false
+#   startingGear: ERTEngineerGearEVA
+#   icon: "JobIconNanotrasen"
+#   supervisors: job-supervisors-centcom
+#   canBeAntag: false
+#   accessGroups:
+#   - AllAccess
+#   access:
+#   - CentralCommand
+#   special:
+#   - !type:AddImplantSpecial
+#     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTEngineerGear

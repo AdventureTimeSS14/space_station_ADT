@@ -61,7 +61,6 @@
     beepSound: /Audio/Machines/Nuke/general_beep.ogg
     startOnStick: true
     canToggleStartOnStick: true
-  - type: TriggerOnSignal #TimerStartOnSignal (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
   - type: DeviceLinkSink
     ports:
       - Trigger #Timer (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
@@ -105,7 +104,7 @@
         volume: -6
     startOnStick: false
     canToggleStartOnStick: true
-  - type: TimerStartOnSignal
+  # - type: TimerStartOnSignal
   - type: DeviceLinkSink
     ports:
     - Timer

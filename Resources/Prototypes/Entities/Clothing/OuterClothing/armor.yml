@@ -33,11 +33,8 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
-
 ### Start ADT Tweak
-  - type: Tag
-    tags:
-      - ADTArmorSacrafice
+    - ADTArmorSacrafice
 ### End ADT Tweak
 
 
@@ -277,10 +274,6 @@
         Piercing: 0.35
         Heat: 0.35
         Caustic: 0.5
-  #ADT tweak start
-  - type: StaminaResistance
-    damageCoefficient: 0.3
-#ADT tweak end
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
