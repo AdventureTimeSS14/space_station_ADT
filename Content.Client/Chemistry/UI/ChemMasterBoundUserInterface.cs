@@ -58,6 +58,8 @@ namespace Content.Client.Chemistry.UI
             _window.OnTransferAmountChanged += amount => SendMessage(new ChemMasterTransferringAmountUpdated(amount));
             _window.OnUpdateAmounts += amounts => SendMessage(new ChemMasterAmountsUpdated(amounts));
             _window.OnTransferAllPressed += (reagent, isBuffer, isOutput) => SendMessage(new ChemMasterReagentAmountButtonMessage(reagent, int.MaxValue, isBuffer, isOutput));
+            _window.OnBottleSlotSelected += slot => SendMessage(new ChemMasterSelectBottleSlotMessage(slot));
+            _window.OnToggleBottleFillPressed += slot => SendMessage(new ChemMasterToggleBottleFillMessage(slot));
             //ADT-Tweak-End
         }
 

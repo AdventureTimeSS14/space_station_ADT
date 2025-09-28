@@ -31,8 +31,12 @@ namespace Content.Client.Chemistry.UI
         public event Action<int>? OnTransferAmountChanged;
         public event Action<List<int>>? OnUpdateAmounts;
         public event Action<ReagentId, bool, bool>? OnTransferAllPressed;
+        public event Action<ReagentId>? OnChooseReagentPressed;
+        public event Action<int>? OnBottleSlotSelected;
+        public event Action<int>? OnToggleBottleFillPressed;
         public bool IsOutputTab => Tabs.CurrentTab == 1;
         private bool _deleteMode = false;
+        public readonly Button[] BottleStorageButtons;
         //ADT-Tweak End
         public readonly Button[] PillTypeButtons;
 
@@ -106,6 +110,22 @@ namespace Content.Client.Chemistry.UI
             PillNumber.InitDefaultButtons();
             BottleDosage.InitDefaultButtons();
             BottleNumber.InitDefaultButtons();      //ADT-Tweak
+
+            // ADT-Tweak Start - Bottle storage buttons
+            BottleStorageButtons = new Button[20];
+            for (int i = 0; i < 20; i++)
+            {
+                BottleStorageButtons[i] = new Button
+                {
+                    MinSize = new Vector2(40, 40),
+                    StyleClasses = { StyleBase.ButtonSquare },
+                    ToggleMode = true
+                };
+                var buttonIndex = i;
+                BottleStorageButtons[i].OnPressed += _ => OnToggleBottleFillPressed?.Invoke(buttonIndex);
+                BottleStorageGrid.AddChild(BottleStorageButtons[i]);
+            }
+            // ADT-Tweak End
 
             // Ensure label length is within the character limit.
             LabelLineEdit.IsValid = s => s.Length <= SharedChemMaster.LabelMaxLength;
@@ -367,7 +387,39 @@ namespace Content.Client.Chemistry.UI
             CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0;
 
             UpdateDosageFields(castState);
+            UpdateBottleStorage(castState); //ADT-Tweak
         }
+
+        //ADT-Tweak Start
+        private void UpdateBottleStorage(ChemMasterBoundUserInterfaceState state)
+        {
+            for (int i = 0; i < BottleStorageButtons.Length; i++)
+            {
+                var button = BottleStorageButtons[i];
+                var info = state.StoredBottles[i];
+                if (info != null)
+                {
+                    button.Text = $"{info.CurrentVolume}/{info.MaxVolume}";
+                    if (info.Reagents != null && info.Reagents.Any())
+                    {
+                        var reagent = info.Reagents.First();
+                        _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
+                        button.Modulate = proto?.SubstanceColor ?? Color.White;
+                    }
+                    else
+                    {
+                        button.Modulate = Color.White;
+                    }
+                }
+                else
+                {
+                    button.Text = Loc.GetString("chem-master-window-bottle-storage-empty");
+                    button.Modulate = Color.Gray;
+                }
+
+            }
+        }
+        //ADT-Tweak End
 
         private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state) =>
             (Tabs.CurrentTab == 0 ? state.BufferCurrentVolume : state.PillBufferCurrentVolume) ?? 0;
@@ -380,10 +432,12 @@ namespace Content.Client.Chemistry.UI
             PillDosage.Value = (int)Math.Min(bufferVolume, castState.PillDosageLimit);
             BottleDosage.Value = (int)Math.Min(bufferVolume, castState.BottleDosageLimit);
 
+            var storedBottlesCount = castState.StoredBottles.Count(b => b != null);         //ADT-Tweak
+
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
             PillNumber.IsValid = x => x >= 0;
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
-            BottleNumber.IsValid = x => x >= 0;
+            BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;   //ADT-Tweak
             BottleDosage.IsValid = x => x > 0 && x <= castState.BottleDosageLimit;
 
             // Avoid division by zero
@@ -393,7 +447,7 @@ namespace Content.Client.Chemistry.UI
                 PillNumber.Value = 0;
 
             if (BottleDosage.Value > 0)
-                BottleNumber.Value = bufferVolume / BottleDosage.Value;
+                BottleNumber.Value = Math.Min(bufferVolume / BottleDosage.Value, storedBottlesCount);   //ADT-Tweak
             else
                 BottleNumber.Value = 0;
             // ADT-Tweak End

@@ -49,3 +49,5 @@ chem-master-window-number-label = Кол-во:
 chem-master-window-notation-text = ХимМастер. Управляй мечтой.
 chem-master-window-version-text = v.1.1.0
 chem-master-window-sort-method-tooltip = Метод сортировки выбранного буфера.
+chem-master-window-bottle-storage-label = Хранилище бутылочек
+chem-master-window-bottle-storage-empty = Пусто

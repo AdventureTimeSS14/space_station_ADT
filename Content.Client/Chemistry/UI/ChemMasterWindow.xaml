@@ -111,9 +111,20 @@
                         </BoxContainer>
                     </BoxContainer>
                 </PanelContainer>
+                <!-- ADT-Tweak Bottle Storage Start-->
+                <BoxContainer Orientation="Vertical" Margin="0 10 0 0">
+                    <Label Text="{Loc 'chem-master-window-bottle-storage-label'}" />
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        </PanelContainer.PanelOverride>
+                        <GridContainer Name="BottleStorageGrid" Columns="5" Margin="4" />
+                    </PanelContainer>
+                </BoxContainer>
+                <!-- ADT-Tweak Bottle Storage End-->
             </BoxContainer>
         </TabContainer>
-        <!-- ADT-Tweak-NewChemMasterUI  Start -->
+        <!-- ADT-Tweak NewChemMasterUI Start -->
         <BoxContainer Orientation="Vertical" Margin="5 5 7 5" MinSize="300 0">
             <!-- Input container info -->
             <BoxContainer Orientation="Horizontal">

@@ -1,5 +1,6 @@
 using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Chemistry.Components
@@ -40,6 +41,19 @@ namespace Content.Server.Chemistry.Components
         {
             1, 5, 10, 15, 20, 25, 30, 50
         };
+
+        // Bottle storage
+        [DataField]
+        public List<EntityUid?> StoredBottles = new();
+
+        [DataField]
+        public int SelectedBottleSlot = -1;
+
+        [DataField]
+        public int SelectedBottleForFill = -1;
+
+        [DataField]
+        public List<ReagentId> SelectedReagentsForBottles = new();
         // ADT-Tweak-End
     }
 }
