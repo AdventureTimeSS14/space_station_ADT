@@ -8,7 +8,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi
   - type: ToggleClothing
@@ -30,7 +30,7 @@
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi
   - type: ToggleClothing

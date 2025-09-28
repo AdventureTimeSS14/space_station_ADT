@@ -26,7 +26,7 @@
     sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
   - type: TemperatureProtection
@@ -46,7 +46,7 @@
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
-        enum.ToggleVisuals.Layer:
+        enum.ToggleableVisuals.Layer:
           True: {state: icon-on}
           False: {state: icon}
 

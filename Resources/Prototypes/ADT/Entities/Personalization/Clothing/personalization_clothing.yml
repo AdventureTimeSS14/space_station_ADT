@@ -945,7 +945,7 @@
     sprite: ADT/Personalization/kringe-magboots.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Personalization/kringe-magboots.rsi
   - type: ToggleClothing
