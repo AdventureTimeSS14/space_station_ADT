@@ -79,6 +79,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectBottleSlotMessage>(OnSelectBottleSlotMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterChooseReagentMessage>(OnChooseReagentMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleBottleFillMessage>(OnToggleBottleFillMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterRowEjectMessage>(OnRowEjectMessage);
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnMapInit);
             // ADT-Tweak End
         }
@@ -222,7 +223,7 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnContainerInserted(Entity<ChemMasterComponent> chemMaster, ref EntInsertedIntoContainerMessage args)
         {
             // Always handle UI refresh on inserts.
-            if (args.Container?.ID == SharedChemMaster.InputSlotName)
+            if (args.Container?.ID == SharedChemMaster.OutputSlotName)
             {
                 var entity = args.Entity;
 
@@ -237,7 +238,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
                     try
                     {
-                        _itemSlotsSystem.TryEject(owner, SharedChemMaster.InputSlotName, null, out var ejected, excludeUserAudio: true);
+                        _itemSlotsSystem.TryEject(owner, SharedChemMaster.OutputSlotName, null, out var ejected, excludeUserAudio: true);
                         var moving = ejected ?? entity;
 
                         for (int row = 0; row < 4; row++)
@@ -253,7 +254,6 @@ namespace Content.Server.Chemistry.EntitySystems
                                     if (_itemSlotsSystem.TryInsert(owner, slotId, moving, null))
                                     {
                                         // Bottle moved successfully: pack into row-major order, update UI, and play feedback.
-                                        PackBottleSlots(chemMaster);
                                         UpdateUiState(chemMaster);
                                         ClickSound(chemMaster);
                                         return;
@@ -275,61 +275,27 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             // Insertions into other containers (e.g., bottleSlots) -> pack slots then refresh UI and feedback.
-            PackBottleSlots(chemMaster);
             UpdateUiState(chemMaster);
-            ClickSound(chemMaster);
         }
 
-        private void PackBottleSlots(Entity<ChemMasterComponent> chemMaster)
-        {
-            var owner = chemMaster.Owner;
-
-            if (_packing.Contains(owner))
-                return;
-
-            _packing.Add(owner);
-            try
-            {
-                // 1) Collect bottles currently present in any bottle slot.
-                var bottles = new List<EntityUid>(20);
-                for (int i = 0; i < 20; i++)
-                {
-                    var id = "bottleSlot" + i;
-                    if (_itemSlotsSystem.TryGetSlot(owner, id, out var slot) && slot.Item.HasValue)
-                        bottles.Add(slot.Item.Value);
-                }
-
-                // 2) Eject all bottles from all bottle slots so destinations are guaranteed empty.
-                for (int i = 0; i < 20; i++)
-                {
-                    var id = "bottleSlot" + i;
-                    if (_itemSlotsSystem.TryGetSlot(owner, id, out var slot) && slot.Item.HasValue)
-                        _itemSlotsSystem.TryEject(owner, slot, null, out _, excludeUserAudio: true);
-                }
-
-                // 3) Insert sequentially into bottleSlot0..N in order.
-                for (int i = 0; i < bottles.Count; i++)
-                {
-                    var desiredId = "bottleSlot" + i;
-                    _itemSlotsSystem.TryInsert(owner, desiredId, bottles[i], null, excludeUserAudio: true);
-                }
-            }
-            finally
-            {
-                _packing.Remove(owner);
-            }
-        }
 
         private void OnContainerRemoved(Entity<ChemMasterComponent> chemMaster, ref EntRemovedFromContainerMessage args)
         {
             // Skip transient removal updates during controlled relocation from input slot.
             if (_relocating.Contains(chemMaster.Owner))
                 return;
+            var owner = chemMaster.Owner;
+            // Determine which slot triggered the removal by container ID.
+            // Only repack if the removal came from one of the bottle grid slots (bottleSlot0..19).
+            var containerId = args.Container?.ID;
+            var removedFromBottleSlot = containerId != null && containerId.StartsWith("bottleSlot");
 
-            // If a bottle was removed, repack bottle slots.
-            var wasBottle = _solutionContainerSystem.TryGetSolution(args.Entity, SharedChemMaster.BottleSolutionName, out _, out _);
-            if (wasBottle)
-                PackBottleSlots(chemMaster);
+            if (removedFromBottleSlot)
+            {
+                var removeId = "bottleSlot" + containerId;
+                if (_itemSlotsSystem.TryGetSlot(owner, removeId, out var slot) && slot.Item.HasValue)
+                    _itemSlotsSystem.TryEject(owner, slot, null, out _, excludeUserAudio: true);
+            }
 
             // Always refresh UI (covers beaker removal and any other container content changes).
             UpdateUiState(chemMaster);
@@ -686,6 +652,22 @@ namespace Content.Server.Chemistry.EntitySystems
             }
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
+        }
+
+        private void OnRowEjectMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterRowEjectMessage message)
+        {
+            var row = message.Row;
+            var startSlot = row * 4;
+            var endSlot = startSlot + 3;
+            for (int slot = startSlot; slot <= endSlot; slot++)
+            {
+                if (slot >= chemMaster.Comp.StoredBottles.Count)
+                    continue;
+                var slotName = $"bottleSlot{slot}";
+                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotName, out var itemSlot))
+                    _itemSlotsSystem.TryEject(chemMaster.Owner, itemSlot, chemMaster.Owner, out _, excludeUserAudio: true);
+            }
+            UpdateUiState(chemMaster);
         }
 
         private void OnMapInit(EntityUid uid, ChemMasterComponent component, MapInitEvent args)

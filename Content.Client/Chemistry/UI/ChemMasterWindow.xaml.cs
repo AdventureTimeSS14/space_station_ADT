@@ -34,9 +34,13 @@ namespace Content.Client.Chemistry.UI
         public event Action<ReagentId>? OnChooseReagentPressed;
         public event Action<int>? OnBottleSlotSelected;
         public event Action<int>? OnToggleBottleFillPressed;
+        public event Action<int>? OnBottleSlotEjectPressed;
+        public event Action<int>? OnRowEjectPressed;
         public bool IsOutputTab => Tabs.CurrentTab == 1;
         private bool _deleteMode = false;
         public readonly Button[] BottleStorageButtons;
+        public readonly Button[] BottleEjectButtons;
+        public readonly Button[] RowEjectButtons;
         //ADT-Tweak End
         public readonly Button[] PillTypeButtons;
 
@@ -111,19 +115,72 @@ namespace Content.Client.Chemistry.UI
             BottleDosage.InitDefaultButtons();
             BottleNumber.InitDefaultButtons();      //ADT-Tweak
 
-            // ADT-Tweak Start - Bottle storage buttons
+            // ADT-Tweak Start - Bottle storage buttons with per-slot eject (eject on the right)
             BottleStorageButtons = new Button[20];
+            BottleEjectButtons = new Button[20];
             for (int i = 0; i < 20; i++)
             {
-                BottleStorageButtons[i] = new Button
+                var cell = new BoxContainer
                 {
-                    MinSize = new Vector2(40, 40),
-                    StyleClasses = { StyleBase.ButtonSquare },
-                    ToggleMode = true
+                    Orientation = LayoutOrientation.Horizontal,
+                    HorizontalExpand = true
                 };
+
+                // Match Reagent Dispenser card sizing:
+                // - MainButton fills available space (HorizontalExpand/VerticalExpand).
+                // - Eject button fixed width 20px, full height, OpenLeft style, with centered label glyph.
+                var mainButton = new Button
+                {
+                    HorizontalExpand = false,
+                    VerticalExpand = true,
+                    StyleClasses = { StyleBase.ButtonSquare },
+                    ToggleMode = true,
+                    MinSize = new Vector2(70, 0)
+                };
+
+                var ejectButton = new Button
+                {
+                    VerticalExpand = true,
+                    StyleClasses = { StyleBase.ButtonOpenLeft }
+                };
+                ejectButton.MinSize = new Vector2(20, 0);
+                ejectButton.MaxSize = new Vector2(20, float.MaxValue);
+
+                var ejectLabel = new Label
+                {
+                    Text = Loc.GetString("reagent-dispenser-window-eject-container-button"),
+                    VerticalAlignment = VAlignment.Center,
+                    HorizontalAlignment = HAlignment.Center,
+                    Margin = new Thickness(-7, -4, 0, 0)
+                };
+                ejectButton.AddChild(ejectLabel);
+
                 var buttonIndex = i;
-                BottleStorageButtons[i].OnPressed += _ => OnToggleBottleFillPressed?.Invoke(buttonIndex);
-                BottleStorageGrid.AddChild(BottleStorageButtons[i]);
+                mainButton.OnPressed += _ => OnToggleBottleFillPressed?.Invoke(buttonIndex);
+                ejectButton.OnPressed += _ => OnBottleSlotEjectPressed?.Invoke(buttonIndex);
+
+                BottleStorageButtons[i] = mainButton;
+                BottleEjectButtons[i] = ejectButton;
+
+                cell.AddChild(mainButton);
+                cell.AddChild(ejectButton);
+                BottleStorageGrid.AddChild(cell);
+            }
+
+            // Row eject buttons
+            RowEjectButtons = new Button[5];
+            for (int i = 0; i < 5; i++)
+            {
+                var rowEjectButton = new Button
+                {
+                    Text = $"Eject Row {i + 1}",
+                    StyleClasses = { StyleBase.ButtonCaution },
+                    VerticalExpand = true
+                };
+                int row = i;
+                rowEjectButton.OnPressed += _ => OnRowEjectPressed?.Invoke(row);
+                RowEjectButtons[i] = rowEjectButton;
+                RowEjectGrid.AddChild(rowEjectButton);
             }
             // ADT-Tweak End
 
@@ -417,6 +474,9 @@ namespace Content.Client.Chemistry.UI
                     button.Modulate = Color.Gray;
                 }
 
+                // Enable eject only if a bottle exists in the slot.
+                if (BottleEjectButtons != null && BottleEjectButtons.Length > i && BottleEjectButtons[i] != null)
+                    BottleEjectButtons[i].Disabled = info == null;
             }
         }
         //ADT-Tweak End

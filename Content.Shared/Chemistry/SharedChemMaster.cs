@@ -139,6 +139,17 @@ namespace Content.Shared.Chemistry
             Slot = slot;
         }
     }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterRowEjectMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Row;
+
+        public ChemMasterRowEjectMessage(int row)
+        {
+            Row = row;
+        }
+    }
     //ADT-Tweak End
 
     public enum ChemMasterMode

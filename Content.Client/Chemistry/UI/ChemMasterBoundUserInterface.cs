@@ -60,6 +60,9 @@ namespace Content.Client.Chemistry.UI
             _window.OnTransferAllPressed += (reagent, isBuffer, isOutput) => SendMessage(new ChemMasterReagentAmountButtonMessage(reagent, int.MaxValue, isBuffer, isOutput));
             _window.OnBottleSlotSelected += slot => SendMessage(new ChemMasterSelectBottleSlotMessage(slot));
             _window.OnToggleBottleFillPressed += slot => SendMessage(new ChemMasterToggleBottleFillMessage(slot));
+            // Per-slot eject: mimic dispenser card eject button behavior, addressing item slot by its ID (bottleSlot{index})
+            _window.OnBottleSlotEjectPressed += slot => SendMessage(new ItemSlotButtonPressedEvent($"bottleSlot{slot}"));
+            _window.OnRowEjectPressed += row => SendMessage(new ChemMasterRowEjectMessage(row));
             //ADT-Tweak-End
         }
 

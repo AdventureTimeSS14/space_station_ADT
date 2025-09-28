@@ -114,12 +114,15 @@
                 <!-- ADT-Tweak Bottle Storage Start-->
                 <BoxContainer Orientation="Vertical" Margin="0 10 0 0">
                     <Label Text="{Loc 'chem-master-window-bottle-storage-label'}" />
-                    <PanelContainer VerticalExpand="True" HorizontalExpand="True">
-                        <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
-                        </PanelContainer.PanelOverride>
-                        <GridContainer Name="BottleStorageGrid" Columns="5" Margin="4" />
-                    </PanelContainer>
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left">
+                        <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                            </PanelContainer.PanelOverride>
+                            <GridContainer Name="BottleStorageGrid" Columns="4" Margin="4" />
+                        </PanelContainer>
+                        <GridContainer Name="RowEjectGrid" Columns="1" Margin="4 4 4 0" VerticalAlignment="Top" />
+                    </BoxContainer>
                 </BoxContainer>
                 <!-- ADT-Tweak Bottle Storage End-->
             </BoxContainer>
