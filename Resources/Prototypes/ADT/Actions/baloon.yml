@@ -4,10 +4,10 @@
   description: Spawn baloon
   components:
   - type: InstantAction
-    useDelay: 10
+    useDelay: 15
     checkCanInteract: true
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Fun/toys.rsi
-      state: ntb
+      sprite: ADT/Objects/Fun/Balloon.rsi
+      state: icon
     event: !type:SpawnBaloonEvent

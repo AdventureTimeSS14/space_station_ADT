@@ -20,6 +20,7 @@ public sealed partial class ModSuitMenu : FancyWindow
     private readonly ModSuitSystem _modsuit = default!;
     private readonly SpriteSystem spriteSystem = default!;
     private EntityUid _mod;
+    private List<Color> _buttonColors = new() { Color.FromHex("#121923ff"), Color.FromHex("#04060aFF"), Color.FromHex("#153b66"), Color.FromHex("#153b66") };
 
     public event Action<EntityUid>? OnRemoveButtonPressed;
     public event Action<EntityUid>? OnActivateButtonPressed;
@@ -31,7 +32,6 @@ public sealed partial class ModSuitMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         _modsuit = _ent.System<ModSuitSystem>();
         spriteSystem = _ent.System<SpriteSystem>();
-
     }
 
     public void SetEntity(EntityUid uid)
@@ -45,22 +45,22 @@ public sealed partial class ModSuitMenu : FancyWindow
         if (!_ent.TryGetComponent<ModSuitComponent>(_mod, out var modComp))
             return;
 
+        _buttonColors = modComp.ButtonColors;
+
         ModComplex.Text = Loc.GetString("mod-module-space", ("complexity", modComp.CurrentComplexity), ("maxcomplexity", modComp.MaxComplexity)) + Environment.NewLine +
         Loc.GetString("mod-energy-waste", ("energy", modComp.ModEnergyBaseUsing.ToString("0.0")));
-        var styleBox = new StyleBoxFlat
-        {
-            BackgroundColor = modComp.BackpanelsColor
-        };
-        UsernamePanel.PanelOverride = styleBox;
-        ComplexityPanel.PanelOverride = styleBox;
-        StatePanel.PanelOverride = styleBox;
-        ScrollPanel.PanelOverride = styleBox;
-        BackTexture.Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new(modComp.BackgroundPath)));
+        var backpanelsStyle = new StyleBoxFlat(modComp.BackpanelsColor);
+        var scrollStyle = new StyleBoxFlat(modComp.ScrollColor);
 
+        UsernamePanel.PanelOverride = backpanelsStyle;
+        ComplexityPanel.PanelOverride = backpanelsStyle;
+        StatePanel.PanelOverride = backpanelsStyle;
+        ScrollPanel.PanelOverride = scrollStyle;
+        BackTexture.Texture = spriteSystem.Frame0(new SpriteSpecifier.Texture(new(modComp.BackgroundPath)));
 
         LockButton.Text = modComp.UserName != null ? Loc.GetString("mod-lock") : Loc.GetString("mod-locked");
         ModUsername.Text = modComp.UserName != null ? Loc.GetString("mod-user") + modComp.UserName : Loc.GetString("mod-no-user");
-        switch (_modsuit.GetAttachedToggleStatus(_mod, modComp))
+        switch (_modsuit.GetPartsToggleStatus(_mod, modComp))
         {
             case ModSuitAttachedStatus.NoneToggled:
                 ModState.ModulateSelfOverride = new Color(0.86f, 0.22f, 0.22f, 0.7f);
@@ -79,44 +79,25 @@ public sealed partial class ModSuitMenu : FancyWindow
 
     public void UpdateModuleView(ModBoundUiState state)
     {
-        if (!_ent.TryGetComponent<ModSuitComponent>(_mod, out var modComp))
-            return;
-
         EquipmentControlContainer.RemoveAllChildren();
-        var list = state.EquipmentStates.Keys;
-        foreach (var item in list)
+
+        foreach (var item in state.EquipmentStates)
         {
-            var ent = _ent.GetEntity(item);
-            if (!_ent.TryGetComponent<ModSuitModComponent>(ent, out var modulecomp))
-                continue;
+            var ent = _ent.GetEntity(item.Key);
+
             if (!_ent.TryGetComponent<MetaDataComponent>(ent, out var metaData))
                 continue;
 
             var uicomp = _ent.GetComponentOrNull<UIFragmentComponent>(ent);
             var ui = uicomp?.Ui?.GetUIFragmentRoot();
 
+            var colors = (_buttonColors[0], _buttonColors[1], _buttonColors[2], _buttonColors[3]);
+            var control = new ModuleControl(ent, metaData.EntityName, item.Value, colors, ui);
 
-            var control = new ModuleControl(ent, metaData.EntityName, ui);
-
-            control.EjectButton.ModulateSelfOverride = new Color(0.18f, 0.25f, 0.35f, 1f);
-            control.EjectButton.Text = Loc.GetString("mod-eject");
-            if (modulecomp.Active)
-            {
-                control.ActivateButton.Text = Loc.GetString("mod-activate-nonactive");
-                control.DeactivateButton.Text = Loc.GetString("mod-deactivate-active");
-                control.ActivateButton.ModulateSelfOverride = new Color(0.04f, 0.06f, 0.10f, 1f);
-                control.DeactivateButton.ModulateSelfOverride = new Color(0.18f, 0.25f, 0.35f, 1f);
-            }
-            else
-            {
-                control.ActivateButton.Text = Loc.GetString("mod-activate-active");
-                control.DeactivateButton.Text = Loc.GetString("mod-deactivate-nonactive");
-                control.ActivateButton.ModulateSelfOverride = new Color(0.18f, 0.25f, 0.35f, 1f);
-                control.DeactivateButton.ModulateSelfOverride = new Color(0.04f, 0.06f, 0.10f, 1f);
-            }
             control.OnRemoveButtonPressed += () => OnRemoveButtonPressed?.Invoke(ent);
             control.OnActivateButtonPressed += () => OnActivateButtonPressed?.Invoke(ent);
             control.OnDeactivateButtonPressed += () => OnDeactivateButtonPressed?.Invoke(ent);
+
             EquipmentControlContainer.AddChild(control);
         }
     }

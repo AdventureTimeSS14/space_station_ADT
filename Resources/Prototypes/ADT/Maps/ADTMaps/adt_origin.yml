@@ -21,6 +21,7 @@
           availableJobs:
             Boxer: [ 2, 2 ]
             CargoTechnician: [ 4, 4 ]
+            ADTMiner: [ 2, 3 ]
             Passenger: [ -1, -1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 3, 4 ]

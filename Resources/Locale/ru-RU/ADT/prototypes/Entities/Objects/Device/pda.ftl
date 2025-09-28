@@ -78,8 +78,8 @@ ent-ADTPostmanPDA = КПК почтальона
 ent-ADTInventoryAssociatePDA = КПК кладовщика
     .desc = КПК кладовщика
 
-ent-ADTExcavatorPDA = КПК шахтёра
-    .desc = КПК шахтёра
+ent-ADTMinerPDA = КПК шахтёра
+    .desc = Пахнет пеплом.
 
 ent-ADTLabTechPDA = КПК аналитика
     .desc = Часть устройства оплавлена после близкого знакомства с горячей плиткой.
