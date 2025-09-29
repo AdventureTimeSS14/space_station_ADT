@@ -1216,3 +1216,16 @@
     sprite: ADT/Personalization/sirtalter_mining_uniform.rsi
   - type: Clothing
     sprite: ADT/Personalization/sirtalter_mining_uniform.rsi
+
+#Farrellka и Melima
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformMelimaDress
+  name: MelimaDress
+  description: MelimaDress
+  suffix: Personal, Melima, Farrellka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/melima_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/melima_dress.rsi
