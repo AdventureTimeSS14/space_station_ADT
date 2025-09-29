@@ -1,0 +1,59 @@
+- type: entity
+  parent: ClothingHeadHatHardhatBlue
+  id: ClothingHeadHatHardhatBlueEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: ClothingHeadHatHardhatOrange
+  id: ClothingHeadHatHardhatOrangeEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: ClothingHeadHatHardhatRed
+  id: ClothingHeadHatHardhatRedEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: ClothingHeadHatHardhatWhite
+  id: ClothingHeadHatHardhatWhiteEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: ClothingHeadHatHardhatYellow
+  id: ClothingHeadHatHardhatYellowEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: ClothingHeadHatHardhatYellowDark
+  id: ClothingHeadHatHardhatYellowDarkEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

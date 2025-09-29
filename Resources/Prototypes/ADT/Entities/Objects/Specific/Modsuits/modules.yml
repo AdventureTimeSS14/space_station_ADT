@@ -16,10 +16,9 @@
     state: antigrav
   - type: ModSuitMod
     complexity: 1
-    slots:
-    - shoes
     components:
-    - type: AntiGravityClothing
+      shoes:
+      - type: AntiGravityClothing
     energyUsing: 0.1
 
 - type: entity
@@ -32,12 +31,12 @@
     state: apparatus
   - type: ModSuitMod
     complexity: 1
-    slots:
-    - head
     components:
-    - type: IngestionBlocker
+      head:
+      - type: IngestionBlocker
     removeComponents:
-    - type: IngestionBlocker #маленький костыль, связанный с тем, что первым делом добавляет, а не убирает компонент
+      head:
+      - type: IngestionBlocker #маленький костыль, связанный с тем, что первым делом добавляет, а не убирает компонент
     energyUsing: 0.2
 
 - type: entity
@@ -50,28 +49,27 @@
     state: drill
   - type: ModSuitMod
     energyUsing: 0.2
-    slots:
-    - gloves
     complexity: 2
     components:
-    - type: IngestionBlocker
-    - type: Tag
-      tags:
-      - Pickaxe
-    - type: StaminaDamageOnHit
-      damage: 1
-    - type: MeleeWeapon
-      autoAttack: true
-      angle: 0
-      wideAnimationRotation: -90
-      soundHit:
-        path: "/Audio/Items/drill_hit.ogg"
-      attackRate: 4
-      damage:
-        groups:
-          Brute: 3
-        types:
-          Structural: 15
+      gloves:
+      - type: IngestionBlocker
+      - type: Tag
+        tags:
+        - Pickaxe
+      - type: StaminaDamageOnHit
+        damage: 1
+      - type: MeleeWeapon
+        autoAttack: true
+        angle: 0
+        wideAnimationRotation: -90
+        soundHit:
+          path: "/Audio/Items/drill_hit.ogg"
+        attackRate: 4
+        damage:
+          groups:
+            Brute: 3
+          types:
+            Structural: 15
 
 - type: entity
   parent: ADTModsuitModBase
@@ -86,21 +84,22 @@
     slots:
     - MODcore
     components:
-    - type: MovementSpeedModifier
-      weightlessAcceleration: 1
-      weightlessFriction: 0.3
-      weightlessModifier: 1.2
-    - type: CanMoveInAir
-    - type: InputMover
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        volume: 5
-        temperature: 293.15
-        moles:
-          - 0.615413716 # oxygen
-    - type: Jetpack
-      moleUsage: 0
+      MODcore:
+      - type: MovementSpeedModifier
+        weightlessAcceleration: 1
+        weightlessFriction: 0.3
+        weightlessModifier: 1.2
+      - type: CanMoveInAir
+      - type: InputMover
+      - type: GasTank
+        outputPressure: 21.3
+        air:
+          volume: 5
+          temperature: 293.15
+          moles:
+            - 0.615413716 # oxygen
+      - type: Jetpack
+        moleUsage: 0
 
 - type: entity
   parent: ADTModsuitModBase
@@ -112,21 +111,20 @@
     state: magnet
   - type: ModSuitMod
     energyUsing: 0.2
-    slots:
-    - shoes
     components:
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-      mustEquip: false
-    - type: ComponentToggler
-      components:
-      - type: NoSlip
-    - type: Magboots
-    - type: ClothingSpeedModifier
-      walkModifier: 0.85
-      sprintModifier: 0.8
-    - type: ItemToggle
-      onUse: false
+      shoes:
+      - type: ToggleClothing
+        action: ActionToggleMagboots
+        mustEquip: false
+      - type: ComponentToggler
+        components:
+        - type: NoSlip
+      - type: Magboots
+      - type: ClothingSpeedModifier
+        walkModifier: 0.85
+        sprintModifier: 0.8
+      - type: ItemToggle
+        onUse: false
 
 - type: entity
   parent: ADTModsuitModBase
@@ -139,12 +137,11 @@
   - type: ModSuitMod
     energyUsing: 0.4
     complexity: 2
-    slots:
-    - head
     components:
-    - type: NightVisionItem
-      slotFlags: HEAD
-    - type: ItemToggle
+      head:
+      - type: NightVisionItem
+        slotFlags: HEAD
+      - type: ItemToggle
 
 - type: entity
   parent: ADTModsuitModBase
@@ -157,18 +154,17 @@
   - type: ModSuitMod
     energyUsing: 0.3
     complexity: 3
-    slots:
-    - gloves
     components:
-    - type: StaminaDamageOnHit
-      damage: 30
-    - type: MeleeWeapon
-      attackRate: 1.5
-      damage:
-        types:
-          Blunt: 0.4
-      animation: WeaponArcFist
-      mustBeEquippedToUse: true
+      gloves:
+      - type: StaminaDamageOnHit
+        damage: 30
+      - type: MeleeWeapon
+        attackRate: 1.5
+        damage:
+          types:
+            Blunt: 0.4
+        animation: WeaponArcFist
+        mustBeEquippedToUse: true
 
 - type: entity
   parent: ADTModsuitModBase
@@ -180,10 +176,9 @@
     state: noslip
   - type: ModSuitMod
     complexity: 2
-    slots:
-    - shoes
     components:
-    - type: NoSlip
+      shoes:
+      - type: NoSlip
 
 - type: entity
   parent: ADTModsuitModBase
@@ -196,17 +191,16 @@
   - type: ModSuitMod
     energyUsing: 0.3
     complexity: 3
-    slots:
-    - gloves
     components:
-    - type: MeleeThrowOnHit
-    - type: MeleeWeapon
-      attackRate: 1
-      damage:
-        types:
-          Blunt: 1
-      animation: WeaponArcFist
-      mustBeEquippedToUse: true
+      gloves:
+      - type: MeleeThrowOnHit
+      - type: MeleeWeapon
+        attackRate: 1
+        damage:
+          types:
+            Blunt: 1
+        animation: WeaponArcFist
+        mustBeEquippedToUse: true
 
 - type: entity
   parent: ADTModsuitModBase
@@ -219,12 +213,11 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 2
-    slots:
-    - head
     components:
-    - type: ShowJobIcons
-    - type: ShowMindShieldIcons
-    - type: ShowCriminalRecordIcons
+      head:
+      - type: ShowJobIcons
+      - type: ShowMindShieldIcons
+      - type: ShowCriminalRecordIcons
 
 - type: entity
   parent: ADTModsuitModBase
@@ -238,13 +231,12 @@
     energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
-    slots:
-    - MODcore
     components:
-    - type: Storage
-      grid:
-      - 0,0,6,3
-      maxItemSize: Huge
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,6,3
+        maxItemSize: Huge
 
 - type: entity
   parent: ADTModsuitModBase
@@ -258,16 +250,15 @@
     energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
-    slots:
-    - MODcore
     components:
-    - type: Storage
-      maxItemSize: Huge
-      grid:
-      - 0,0,7,4
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 0.9
+      MODcore:
+      - type: Storage
+        maxItemSize: Huge
+        grid:
+        - 0,0,7,4
+      - type: ClothingSpeedModifier
+        walkModifier: 1
+        sprintModifier: 0.9
 
 - type: entity
   parent: ADTModsuitModBase
@@ -281,14 +272,13 @@
     energyUsing: 0.1
     isInstantlyActive: true
     complexity: 3
-    slots:
-    - MODcore
     components:
-    - type: Storage
-      grid:
-      - 0,0,1,3
-      - 3,0,6,3
-      - 8,0,9,3
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,1,3
+        - 3,0,6,3
+        - 8,0,9,3
 
 - type: entity
   parent: ADTModsuitModBase
@@ -301,10 +291,9 @@
   - type: ModSuitMod
     energyUsing: 0.2
     complexity: 1
-    slots:
-    - head
     components:
-    - type: EyeProtection
+      head:
+      - type: EyeProtection
 
 - type: entity
   parent: ADTModsuitModBase
@@ -317,17 +306,16 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 4
-    slots:
-    - outerClothing
     components:
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.6
-          Slash: 0.6
-          Piercing: 0.7
-          Heat: 0.7
-          Radiation: 0.6
+      outerClothing:
+      - type: Armor
+        modifiers:
+          coefficients:
+            Blunt: 0.6
+            Slash: 0.6
+            Piercing: 0.7
+            Heat: 0.7
+            Radiation: 0.6
 
 - type: entity
   parent: ADTModsuitModBase
@@ -341,13 +329,12 @@
     energyUsing: 0.3
     isInstantlyActive: true
     complexity: 3
-    slots:
-    - MODcore
     components:
-    - type: Storage
-      maxItemSize: Huge
-      grid:
-      - 0,0,7,4
+      MODcore:
+      - type: Storage
+        maxItemSize: Huge
+        grid:
+        - 0,0,7,4
 
 - type: entity
   parent: ADTModsuitModBase
@@ -360,12 +347,11 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 2
-    slots:
-    - head
     components:
-    - type: TrayScanner
-      enabled: true
-      range: 10
+      head:
+      - type: TrayScanner
+        enabled: true
+        range: 10
 
 - type: entity
   parent: ADTModsuitModBase
@@ -378,10 +364,9 @@
   - type: ModSuitMod
     energyUsing: 0.2
     complexity: 2
-    slots:
-    - gloves
     components:
-    - type: Insulated
+      gloves:
+      - type: Insulated
 
 - type: entity
   parent: ADTModsuitModBase
@@ -394,10 +379,9 @@
   - type: ModSuitMod
     energyUsing: 0.3
     complexity: 3
-    slots:
-    - shoes
     components:
-    - type: Jumpboots
+      shoes:
+      - type: Jumpboots
 
 - type: entity
   parent: ADTModsuitModBase
@@ -410,42 +394,41 @@
   - type: ModSuitMod
     energyUsing: 0.1
     complexity: 1
-    slots:
-    - head
     components:
-    - type: ToggleableLightVisuals
-      clothingVisuals:
-        head:
-        - state: equipped-head-light
-          shader: unshaded
-    - type: Appearance
-    - type: HandheldLight
-      addPrefix: true
-      blinkingBehaviourId: blinking
-      radiatingBehaviourId: radiating
-    - type: LightBehaviour
-      behaviours:
-        - !type:FadeBehaviour
-          id: radiating
-          interpolate: Linear
-          maxDuration: 2.0
-          startValue: 3.0
-          endValue: 2.0
-          isLooped: true
-          reverseWhenFinished: true
-        - !type:PulseBehaviour
-          id: blinking
-          interpolate: Nearest
-          maxDuration: 1.0
-          minValue: 0.1
-          maxValue: 2.0
-          isLooped: true
-    - type: Battery
-      maxCharge: 600
-      startingCharge: 600
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 2
+      head:
+      - type: ToggleableLightVisuals
+        clothingVisuals:
+          head:
+          - state: equipped-head-light
+            shader: unshaded
+      - type: Appearance
+      - type: HandheldLight
+        addPrefix: true
+        blinkingBehaviourId: blinking
+        radiatingBehaviourId: radiating
+      - type: LightBehaviour
+        behaviours:
+          - !type:FadeBehaviour
+            id: radiating
+            interpolate: Linear
+            maxDuration: 2.0
+            startValue: 3.0
+            endValue: 2.0
+            isLooped: true
+            reverseWhenFinished: true
+          - !type:PulseBehaviour
+            id: blinking
+            interpolate: Nearest
+            maxDuration: 1.0
+            minValue: 0.1
+            maxValue: 2.0
+            isLooped: true
+      - type: Battery
+        maxCharge: 600
+        startingCharge: 600
+      - type: BatterySelfRecharger
+        autoRecharge: true
+        autoRechargeRate: 2
 
 - type: entity
   parent: ADTModsuitModBase
@@ -458,22 +441,21 @@
   - type: ModSuitMod
     isInstantlyActive: true
     complexity: 2
-    slots:
-    - outerClothing
     components:
-    - type: MagnetPickup
-      slotFlags: OUTERCLOTHING
-    - type: Storage
-      maxItemSize: Normal
-      grid:
-      - 0,0,9,5
-      quickInsert: true
-      areaInsert: true
-      whitelist:
-        tags:
-          - ArtifactFragment
-          - Ore
-    - type: Dumpable
+      outerClothing:
+      - type: MagnetPickup
+        slotFlags: OUTERCLOTHING
+      - type: Storage
+        maxItemSize: Normal
+        grid:
+        - 0,0,9,5
+        quickInsert: true
+        areaInsert: true
+        whitelist:
+          tags:
+            - ArtifactFragment
+            - Ore
+      - type: Dumpable
 
 - type: entity
   parent: ADTModsuitModBase
@@ -486,12 +468,11 @@
   - type: ModSuitMod
     energyUsing: 0.2
     complexity: 2
-    slots:
-    - outerClothing
     components:
-    - type: RadiationBlocker
-      resistance: 100
-    - type: RadiationProtection
+      outerClothing:
+      - type: RadiationBlocker
+        resistance: 100
+      - type: RadiationProtection
 
 - type: entity
   parent: ADTModsuitModBase
@@ -505,13 +486,12 @@
     energyUsing: 0.1
     isInstantlyActive: true
     complexity: 2
-    slots:
-    - MODcore
     components:
-    - type: Storage
-      grid:
-      - 0,0,8,4
-      maxItemSize: Huge
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,8,4
+        maxItemSize: Huge
 
 - type: entity
   parent: ADTModsuitModBase
@@ -524,10 +504,9 @@
   - type: ModSuitMod
     energyUsing: 0.2
     complexity: 1
-    slots:
-    - MODcore
     components:
-    - type: EmpContainerProtaction
+      MODcore:
+      - type: EmpContainerProtaction
 
 - type: entity
   parent: ADTModsuitModBase
@@ -539,15 +518,14 @@
     state: micriwave_beam
   - type: ModSuitMod
     complexity: 3
-    slots:
-    - MODcore
     components:
-    - type: MaterialStorage
-      storageLimit: 3000
-      materialWhiteList: [RawPlasma, Plasma]
-      canEjectStoredMaterials: false
-    - type: BatteryRecharge
-      multiplier: 1.25
+      MODcore:
+      - type: MaterialStorage
+        storageLimit: 3000
+        materialWhiteList: [RawPlasma, Plasma]
+        canEjectStoredMaterials: false
+      - type: BatteryRecharge
+        multiplier: 1.25
 
 - type: entity
   parent: ADTModsuitModBase
@@ -559,12 +537,11 @@
     state: micriwave_beam
   - type: ModSuitMod
     complexity: 3
-    slots:
-    - MODcore
     components:
-    - type: MaterialStorage
-      storageLimit: 3000
-      materialWhiteList: [Uranium]
-      canEjectStoredMaterials: false
-    - type: BatteryRecharge
-      multiplier: 3
+      MODcore:
+      - type: MaterialStorage
+        storageLimit: 3000
+        materialWhiteList: [Uranium]
+        canEjectStoredMaterials: false
+      - type: BatteryRecharge
+        multiplier: 3
