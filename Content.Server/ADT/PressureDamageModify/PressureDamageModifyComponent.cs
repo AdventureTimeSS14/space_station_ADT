@@ -9,7 +9,7 @@ public sealed partial class PressureDamageModifyComponent : Component
     /// only for projectiles, doesn`t work for melee damage
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("projDamage")]
-    public float ProjDamage = 0.2f;
+    public float ProjDamage = 0.1f;
 
     /// <summary>
     /// KPd, below which damage will diminishes.  0 kPa = 1 kPa

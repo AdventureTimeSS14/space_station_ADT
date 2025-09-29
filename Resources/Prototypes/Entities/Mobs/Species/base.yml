@@ -246,6 +246,7 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
+  - type: MobState # ADT-Tweak
   - type: OfferItem # ADT-Tweak
   - type: RadiationPopup # ADT-Tweak
   - type: PickupHumans # ADT-Tweak
