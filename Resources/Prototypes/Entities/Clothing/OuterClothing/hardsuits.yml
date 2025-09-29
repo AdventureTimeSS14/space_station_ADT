@@ -197,7 +197,7 @@
         Piercing: 0.5
         Heat: 0.7 #Goliath hide gets grilled instead of you
         Radiation: 0.3
-        Caustic: 0.8
+        Caustic: 0.7 # ADT-tweak
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

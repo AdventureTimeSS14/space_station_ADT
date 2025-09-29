@@ -17,7 +17,6 @@
               Blunt: 10
         - !type:ComboStunEffect
           stunTime: 2
-      useDelay: 4
 
 - type: entity
   id: ActionLungBlock
@@ -39,7 +38,7 @@
         - !type:ComboAudioEffect
           sound:
             collection: GenericHit
-      useDelay: 2
+      useDelay: 3
 
 - type: entity
   id: ActionNeckChop
@@ -59,7 +58,7 @@
             types:
               Blunt: 5
         - !type:ComboMuteEffect
-            time: 20
+            time: 10
         - !type:ComboAudioEffect
             sound:
               collection: GenericHit

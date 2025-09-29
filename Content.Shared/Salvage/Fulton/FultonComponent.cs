@@ -40,13 +40,11 @@ public sealed partial class FultonComponent : Component
         Components = new[]
         {
             "Item",
-            "Anchorable",
             // ADT-Tweak-Start
             "Machine",
             "Computer",
             "VendingMachine",
             "AtmosDevice",
-            "RadiationReceiver"
             // ADT-Tweak-End
         }
     };
