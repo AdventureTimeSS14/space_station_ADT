@@ -76,9 +76,11 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
+    # ADT-Tweak start
       types:
         Slash: 20
         Structural: 20
+    # ADT-Tweak end
   # Start ADT: Xeno Buff
  # - type: StaminaDamageOnHit
   #  damage: 10
@@ -203,8 +205,10 @@
       40: 0.7
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 15 # ADT Tweak
+  # ADT-Tweak start
+      types:  
+        Blunt: 15
+  # ADT-Tweak end
   # Start ADT: Xeno Buff
   #- type: StaminaDamageOnHit
   #  damage: 15
