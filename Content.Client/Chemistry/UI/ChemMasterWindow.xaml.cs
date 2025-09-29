@@ -53,6 +53,7 @@ namespace Content.Client.Chemistry.UI
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
         private ChemMasterBoundUserInterfaceState? _lastState;
         private int _transferAmount = 50;
+        private Label? _selectedReagentLabel = null;
         // ADT-Tweak
 
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
@@ -311,6 +312,44 @@ namespace Content.Client.Chemistry.UI
             WarningLabel.Visible = false;
         }
 
+        private void HandleReagentSelection(ReagentId reagentId, Button button)
+        {
+            var isCurrentlySelected = _lastState?.SelectedReagent?.Prototype == reagentId.Prototype;
+
+            if (isCurrentlySelected)
+            {
+                OnChooseReagentPressed?.Invoke(default(ReagentId));
+            }
+            else
+            {
+                OnChooseReagentPressed?.Invoke(reagentId);
+            }
+        }
+
+        private void UpdateReagentSelectionUI()
+        {
+            if (!string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype))
+            {
+                var selectedReagentQuantity = _lastState.PillBufferReagents
+                    .FirstOrDefault(r => r.Reagent == _lastState.SelectedReagent)
+                    .Quantity.Int();
+
+                if (selectedReagentQuantity > 0)
+                {
+                    PillDosage.Value = Math.Min(PillDosage.Value, selectedReagentQuantity);
+                    PillNumber.Value = selectedReagentQuantity / Math.Max(PillDosage.Value, 1);
+
+                    var bufferVolume = _lastState.PillBufferCurrentVolume?.Int() ?? 0;
+                    BottleDosage.Value = Math.Min(BottleDosage.Value, selectedReagentQuantity);
+                    var storedBottlesCount = _lastState.StoredBottles.Count(b => b != null);
+                    BottleNumber.Value = Math.Min(
+                        selectedReagentQuantity / Math.Max(BottleDosage.Value, 1),
+                        storedBottlesCount
+                    );
+                }
+            }
+        }
+
         private void HandleDeleteModeToggled(BaseButton.ButtonEventArgs args)
         {
             _deleteMode = DeleteAsFrequentButton.Pressed;
@@ -477,7 +516,6 @@ namespace Content.Client.Chemistry.UI
             // ADT-Tweak-End
 
 
-            BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
             CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0;;
@@ -509,11 +547,14 @@ namespace Content.Client.Chemistry.UI
                     }
                     // Enable toggle mode when bottle is present
                     button.ToggleMode = true;
+
+                    button.Pressed = state.SelectedBottleSlot == i || state.SelectedBottleForFill == i;
                 }
                 else
                 {
                     button.Text = Loc.GetString("chem-master-window-bottle-storage-empty");
                     button.Modulate = Color.Gray;
+                    button.Pressed = false;
                     // Disable toggle mode when slot is empty
                     button.ToggleMode = false;
                 }
@@ -528,7 +569,6 @@ namespace Content.Client.Chemistry.UI
         private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state) =>
             (Tabs.CurrentTab == 0 ? state.BufferCurrentVolume : state.PillBufferCurrentVolume) ?? 0;
 
-        //assign default values for pill and bottle fields.
         private void UpdateDosageFields(ChemMasterBoundUserInterfaceState castState)
         {
             // ADT-Tweak Start
@@ -799,6 +839,29 @@ namespace Content.Client.Chemistry.UI
             // ADT-Tweak Start
             if (reagentButtonConstructor != null)
             {
+                if (isBuffer && reagent != default(ReagentId))
+                {
+                    var chooseReagentButton = new Button()
+                    {
+                        Text = Loc.GetString("chem-master-window-choose-reagent-button"),
+                        StyleClasses = { StyleBase.ButtonSquare },
+                        MinSize = new Vector2(60, 0)
+                    };
+
+                    if (!string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype) && _lastState.SelectedReagent == reagent)
+                    {
+                        chooseReagentButton.Pressed = true;
+                        chooseReagentButton.Modulate = Color.Green;
+                    }
+
+                    chooseReagentButton.OnPressed += _ =>
+                    {
+                        HandleReagentSelection(reagent, chooseReagentButton);
+                    };
+
+                    rowContainer.AddChild(chooseReagentButton);
+                }
+
                 rowContainer.AddChild(reagentButtonConstructor);
                 var transferAllButton = new Button() { Text = Loc.GetString("chem-master-window-buffer-all-amount"), StyleClasses = { StyleBase.ButtonOpenLeft } };
                 transferAllButton.OnPressed += _ => OnTransferAllPressed?.Invoke(reagent, isBuffer, IsOutputTab);
@@ -818,6 +881,10 @@ namespace Content.Client.Chemistry.UI
             get => LabelLineEdit.Text;
             set => LabelLineEdit.Text = value;
         }
+
+        public ReagentId? SelectedReagentId => string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype)
+            ? null
+            : _lastState.SelectedReagent;
     }
 
     public sealed class ReagentButton : Button

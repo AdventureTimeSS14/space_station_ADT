@@ -130,6 +130,11 @@ namespace Content.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
+    public sealed class ChemMasterClearReagentSelectionMessage : BoundUserInterfaceMessage
+    {
+    }
+
+    [Serializable, NetSerializable]
     public sealed class ChemMasterToggleBottleFillMessage : BoundUserInterfaceMessage
     {
         public int Slot;
@@ -213,7 +218,8 @@ namespace Content.Shared.Chemistry
         List<ContainerInfo?> storedBottles,
         int selectedBottleSlot,
         int selectedBottleForFill,
-        List<ReagentId> selectedReagentsForBottles)
+        List<ReagentId> selectedReagentsForBottles,
+        ReagentId? selectedReagent)
         //ADT-Tweak End
         : BoundUserInterfaceState
     {
@@ -250,6 +256,7 @@ namespace Content.Shared.Chemistry
         public readonly int SelectedBottleSlot = selectedBottleSlot;
         public readonly int SelectedBottleForFill = selectedBottleForFill;
         public readonly List<ReagentId> SelectedReagentsForBottles = selectedReagentsForBottles;
+        public readonly ReagentId? SelectedReagent = selectedReagent;
         //ADT-Tweak End
     }
 

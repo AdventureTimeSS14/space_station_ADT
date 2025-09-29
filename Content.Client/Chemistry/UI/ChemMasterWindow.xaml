@@ -55,8 +55,6 @@
                         </BoxContainer>
                     </ScrollContainer>
                 </PanelContainer>
-                <Label Text="{Loc 'chem-master-window-buffer-label'}" HorizontalAlignment="Right"/>
-                <Label Name="BufferCurrentVolume" StyleClasses="LabelSecondaryColor" HorizontalAlignment="Right" />
 
                 <!-- Label for output (moved outside tabs) -->
                 <BoxContainer Orientation="Horizontal" Margin="0 10 0 0">

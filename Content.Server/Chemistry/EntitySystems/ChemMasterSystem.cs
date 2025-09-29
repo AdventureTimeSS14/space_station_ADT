@@ -78,6 +78,7 @@ namespace Content.Server.Chemistry.EntitySystems
             // ADT-Tweak Start
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectBottleSlotMessage>(OnSelectBottleSlotMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterChooseReagentMessage>(OnChooseReagentMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterClearReagentSelectionMessage>(OnClearReagentSelectionMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleBottleFillMessage>(OnToggleBottleFillMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterRowEjectMessage>(OnRowEjectMessage);
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnMapInit);
@@ -173,7 +174,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 storedBottlesInfo,
                 chemMaster.SelectedBottleSlot,
                 chemMaster.SelectedBottleForFill,
-                chemMaster.SelectedReagentsForBottles);
+                chemMaster.SelectedReagentsForBottles,
+                chemMaster.SelectedReagent);
             //ADT-Tweak End
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
@@ -626,14 +628,13 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnChooseReagentMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterChooseReagentMessage message)
         {
-            if (chemMaster.Comp.SelectedReagentsForBottles.Contains(message.Reagent))
-            {
-                chemMaster.Comp.SelectedReagentsForBottles.Remove(message.Reagent);
-            }
-            else
-            {
-                chemMaster.Comp.SelectedReagentsForBottles.Add(message.Reagent);
-            }
+            chemMaster.Comp.SelectedReagent = message.Reagent;
+            UpdateUiState(chemMaster);
+        }
+
+        private void OnClearReagentSelectionMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterClearReagentSelectionMessage message)
+        {
+            chemMaster.Comp.SelectedReagent = null;
             UpdateUiState(chemMaster);
         }
 

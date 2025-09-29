@@ -54,6 +54,9 @@ namespace Content.Server.Chemistry.Components
 
         [DataField]
         public List<ReagentId> SelectedReagentsForBottles = new();
+
+        [DataField]
+        public ReagentId? SelectedReagent = null;
         // ADT-Tweak-End
     }
 }

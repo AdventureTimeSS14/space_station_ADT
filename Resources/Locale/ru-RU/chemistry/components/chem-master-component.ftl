@@ -22,7 +22,6 @@ chem-master-window-buffer-low-text = Недостаточно раствора �
 chem-master-window-transfer-button = Перенести
 chem-master-window-discard-button = Уничтожить
 chem-master-window-packaging-text = Упаковка
-chem-master-current-text-label = Метка:
 chem-master-window-pills-label = Таблетка:
 chem-master-window-pill-type-label = Тип таблеток:
 chem-master-window-pills-number-label = Кол-во:
@@ -36,6 +35,7 @@ chem-master-window-sort-type-quantity = Сорт. по: Количество
 chem-master-window-sort-type-latest = Сорт. по: Сначала новые
 
 ## ADT-Tweak NewChemMasterUI
+chem-master-current-text-label = Метка для этикеровщика:
 chem-master-window-amount-placeholder = Кол-во переносимого вещества:
 chem-master-window-delete-as-frequent-label = Удалить шаблон
 chem-master-window-save-as-frequent-label = Добавить шаблон
@@ -58,3 +58,4 @@ chem-master-window-pills-tab = Таблетки
 chem-master-window-bottles-tab = Бутылочки
 chem-master-window-amount-too-much = Попробуйте меньшее количество!
 chem-master-window-amount-limit-reached = Слишком много кнопок!
+chem-master-window-choose-reagent-button = Выбрать
