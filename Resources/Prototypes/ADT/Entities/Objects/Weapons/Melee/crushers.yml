@@ -189,7 +189,7 @@
       types:
         Blunt: 2.5
         Slash: 2.5
-        Structural: 30
+        Structural: 10
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:
