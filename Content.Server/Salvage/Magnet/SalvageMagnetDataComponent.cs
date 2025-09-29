@@ -29,13 +29,13 @@ public sealed partial class SalvageMagnetDataComponent : Component
     /// How long salvage will be active for before despawning.
     /// </summary>
     [DataField]
-    public TimeSpan ActiveTime = TimeSpan.FromMinutes(4); /// ADT-Tweak
+    public TimeSpan ActiveTime = TimeSpan.FromMi7nutes(6);
 
     /// <summary>
     /// Cooldown between offerings after one ends.
     /// </summary>
     [DataField]
-    public TimeSpan OfferCooldown = TimeSpan.FromMinutes(1); /// ADT-Tweak
+    public TimeSpan OfferCooldown = TimeSpan.FromMinutes(3);
 
     /// <summary>
     /// Seeds currently offered
