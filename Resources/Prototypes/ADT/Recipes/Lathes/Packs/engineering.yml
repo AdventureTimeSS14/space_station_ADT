@@ -34,6 +34,12 @@
   - ToolboxElectrical
   - ToolboxMechanical
   - ToolboxArtistic
+  - ClothingHeadHatHardhatWhite
+  - ClothingHeadHatHardhatYellow
+  - ClothingHeadHatHardhatRed
+  - ClothingHeadHatHardhatOrange
+  - ClothingHeadHatHardhatBlue
+  - ClothingHeadHatHardhatYellowDark
 
 - type: latheRecipePack
   id: ADTPowerPack

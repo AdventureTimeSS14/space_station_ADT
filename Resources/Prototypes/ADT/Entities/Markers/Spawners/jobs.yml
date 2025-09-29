@@ -141,3 +141,16 @@
     layers:
       - state: green
       - state: barber
+
+- type: entity
+  id: SpawnPointADTMiner
+  parent: ADTSpawnPointJobBase
+  name: miner
+  components:
+  - type: SpawnPoint
+    job_id: ADTMiner
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: miner

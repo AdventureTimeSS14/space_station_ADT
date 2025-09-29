@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "size": {
+    "x": 36,
+    "y": 36
+  },
+  "copyright": "by ledniky, (discord:726481288713732147)",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "cardboard"
+    },
+    {
+      "name": "cardboard_open"
+    }
+  ]
+}

@@ -25,15 +25,24 @@ public sealed class ModSuitRadialBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<ModSuitRadialMenu>();
         _menu.SetEntity(Owner);
-        _menu.SendToggleClothingMessageAction += SendModSuitMessage;
 
-        var vpSize = _displayManager.ScreenSize;
+        _menu.SendToggleClothingMessageAction += SendModSuitMessage;
         _menu.OpenCentered();
+    }
+
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+
+        if (state is not RadialModBoundUiState)
+            return;
+
+        _menu?.RefreshUI();
     }
 
     private void SendModSuitMessage(EntityUid uid)
     {
-        var message = new ModSuitUiMessage(_entityManager.GetNetEntity(uid));
+        var message = new ToggleModSuitPartMessage(_entityManager.GetNetEntity(uid));
         SendPredictedMessage(message);
     }
 }
