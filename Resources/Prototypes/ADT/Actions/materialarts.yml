@@ -4,10 +4,12 @@
   description: Sweeps the legs out from under a target to knock them down for a few seconds.
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
+    - type: Action
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: legsweep
+      useDelay: 4
+    - type: InstantAction
       event: !type:PrepareMoveEvent
         name: подсечку
         comboEvents:
@@ -17,7 +19,6 @@
               Blunt: 10
         - !type:ComboStunEffect
           stunTime: 2
-      useDelay: 4
 
 - type: entity
   id: ActionLungBlock
@@ -25,10 +26,12 @@
   description: Sweeps the legs out from under a target to knock them down for a few seconds.
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
+    - type: Action
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: lungpunch
+      useDelay: 2
+    - type: InstantAction
       event: !type:PrepareMoveEvent
         name: удар по лёгким
         comboEvents:
@@ -39,7 +42,6 @@
         - !type:ComboAudioEffect
           sound:
             collection: GenericHit
-      useDelay: 2
 
 - type: entity
   id: ActionNeckChop
@@ -47,10 +49,12 @@
   description: Sweeps the legs out from under a target to knock them down for a few seconds.
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
+    - type: Action
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: neckchop
+      useDelay: 2
+    - type: InstantAction
       event: !type:PrepareMoveEvent
         name: отбить в горло
         comboEvents:
@@ -63,4 +67,3 @@
         - !type:ComboAudioEffect
             sound:
               collection: GenericHit
-      useDelay: 2

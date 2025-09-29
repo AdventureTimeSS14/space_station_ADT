@@ -36,13 +36,14 @@
   description: action-muscles-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type:  Action
     icon:
       sprite: ADT/Interface/Actions/muscles_implant.rsi
       state: icon
     itemIconStyle: BigAction
-    event: !type:ToggleMusclesEvent
     useDelay: 15
+  - type: InstantAction
+    event: !type:ToggleMusclesEvent
 
 - type: entity
   id: ActionMusclesJump
@@ -50,16 +51,17 @@
   description: action-jump-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 10
-    range: 16 # default examine-range.
-    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
     itemIconStyle: BigAction
-    checkCanAccess: false
-    repeat: true
     icon:
       sprite: ADT/Interface/Actions/muscles_implant.rsi
       state: jump-icon
+  - type: TargetAction
+    checkCanAccess: false
+    repeat: true
+    range: 16
+  - type: WorldTargetAction
     event: !type:JumpbootsActionEvent
 
 - type: entity
@@ -68,10 +70,11 @@
   description: action-stealth-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/stealth.rsi
       state: icon
     itemIconStyle: BigAction
-    event: !type:ToggleCompStealthEvent
     useDelay: 1
+  - type: InstantAction
+    event: !type:ToggleCompStealthEvent

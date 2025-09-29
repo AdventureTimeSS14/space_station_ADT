@@ -4,15 +4,17 @@
   description: action-poltergeist-malf-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/actions_poltergeist.rsi
       state: malf
     itemIconStyle: BigAction
-    event: !type:PoltergeistMalfunctionActionEvent
     useDelay: 45
+  - type: TargetAction
     canTargetSelf: false
     range: 3
+  - type: EntityTargetAction
+    event: !type:PoltergeistMalfunctionActionEvent
 
 - type: entity
   id: ActionPoltergeistNoisy
@@ -20,18 +22,20 @@
   description: action-poltergeist-noisy-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/actions_poltergeist.rsi
       state: noisy
     itemIconStyle: BigAction
+    useDelay: 30
+  - type: TargetAction
     whitelist:
       components:
       - Item
-    event: !type:PoltergeistNoisyActionEvent
-    useDelay: 30
     canTargetSelf: false
     range: 3
+  - type: EntityTargetAction
+    event: !type:PoltergeistNoisyActionEvent
 
 - type: entity
   id: ActionPoltergeistRestInPeace
@@ -39,11 +43,12 @@
   description: action-poltergeist-die-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_poltergeist.rsi
       state: peace-death
     itemIconStyle: BigAction
-    event: !type:PoltergeistRestInPeaceActionEvent
     useDelay: 1
+  - type: InstantAction
+    event: !type:PoltergeistRestInPeaceActionEvent
