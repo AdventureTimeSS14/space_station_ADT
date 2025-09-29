@@ -6,7 +6,7 @@
     sprite: /Textures/Objects/Tools/fulton.rsi
     state: extraction_pack
   spawn: Fulton1
-  maxCount: 5
+  maxCount: 5 # ADT-tweak 10 -> 5
 
 # Entities
 - type: entity
@@ -60,7 +60,7 @@
     size: Normal
   - type: Stack
     stackType: Fulton
-    count: 5
+    count: 5 # ADT-Tweak 10 -> 5
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Objects/Tools/fulton.rsi
