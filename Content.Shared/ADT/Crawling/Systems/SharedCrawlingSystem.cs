@@ -22,7 +22,9 @@ using Content.Shared.Coordinates;
 using Content.Shared.Climbing.Events;
 
 namespace Content.Shared.ADT.Crawling;
-
+/// <summary>
+/// после изменений от визардов, эта система стала костыльной, потому на TODO перекинуть её куда-то
+/// </summary>
 public abstract class SharedCrawlingSystem : EntitySystem
 {
     [Dependency] private readonly StandingStateSystem _standing = default!;
@@ -35,179 +37,45 @@ public abstract class SharedCrawlingSystem : EntitySystem
     [Dependency] private readonly BonkSystem _bonk = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
-
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CrawlerComponent, CrawlStandupDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<CrawlerComponent, StandAttemptEvent>(OnStandUp);
-        SubscribeLocalEvent<CrawlerComponent, DownAttemptEvent>(OnFall);
-        SubscribeLocalEvent<CrawlerComponent, StunnedEvent>(OnStunned);
-        SubscribeLocalEvent<CrawlerComponent, GetExplosionResistanceEvent>(OnGetExplosionResistance);
-        SubscribeLocalEvent<CrawlerComponent, CrawlingKeybindEvent>(ToggleCrawling);
+        SubscribeLocalEvent<StandingStateComponent, StoodEvent>(OnStood);
+        SubscribeLocalEvent<StandingStateComponent, DownedEvent>(OnDown);
+        SubscribeLocalEvent<StandingStateComponent, GetExplosionResistanceEvent>(OnExplosion);
 
-        SubscribeLocalEvent<CrawlingComponent, ComponentInit>(OnCrawlSlowdownInit);
-        SubscribeLocalEvent<CrawlingComponent, ComponentShutdown>(OnCrawlSlowRemove);
-        SubscribeLocalEvent<CrawlingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
-
-        SubscribeLocalEvent<CrawlerComponent, MapInitEvent>(OnCrawlerInit);
-
-        SubscribeLocalEvent<ClimbableComponent, AttemptClimbEvent>(OnClimbAttemptWhileCrawling);
-
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.ToggleCrawling,
-                InputCmdHandler.FromDelegate(ToggleCrawlingKeybind, handle: false))
-            .Register<SharedCrawlingSystem>();
+        SubscribeLocalEvent<StandingStateComponent, AttemptClimbEvent>(OnClimbAttemptWhileCrawling);
     }
 
-    private void ToggleCrawlingKeybind(ICommonSession? session)
+    private void OnDown(EntityUid uid, StandingStateComponent component, DownedEvent args)
     {
-        if (session?.AttachedEntity == null)
-            return;
-        var ev = new CrawlingKeybindEvent();
-        RaiseLocalEvent(session.AttachedEntity.Value, ev);
-    }
-
-    private void ToggleCrawling(EntityUid uid, CrawlerComponent component, CrawlingKeybindEvent args)
-    {
-        // should not start do after if the player is buckled to anything. Either that or we should unbuckle player. I'd prefer not starting do after at all
-        if (_buckle.IsBuckled(uid))
-            return;
-
-        // checks players standing state, downing player if they are standding and starts doafter with standing up if they are downed
-        switch (_standing.IsDown(uid))
-        {
-            case false:
-
-                var tablesNearby = _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f);
-
-                if (tablesNearby.Count > 0)
-                    return;
-                _standing.Down(uid, dropHeldItems: false);
-                // дропкик перенесён в отдельный компонент. По крайней мере пока-что
-                // if (!TryComp<CombatModeComponent>(uid, out var combatMode) ||
-                //     combatMode.IsInCombatMode)
-                // {
-                //     var targetTile = Vector2.Zero;
-
-                //     if (TryComp<PhysicsComponent>(uid, out var physics) && !_gravity.IsWeightless(uid))
-                //     {
-                //         var velocity = physics.LinearVelocity;
-
-                //         if (velocity.LengthSquared() > 0)
-                //         {
-                //             var direction = velocity.Normalized();
-
-                //             var currentPosition = uid.ToCoordinates();
-
-                //             var targetTileX = currentPosition.X + direction.X * 1;
-                //             var targetTileY = currentPosition.Y + direction.Y * 1;
-
-                //             int tileX = (int)MathF.Round(targetTileX);
-                //             int tileY = (int)MathF.Round(targetTileY);
-
-                //             targetTile = new Vector2(tileX, tileY);
-                //         }
-                //     }
-                //     EnsureComp<GrabThrownComponent>(uid);
-                //     _throwing.TryThrow(uid, targetTile, 8, animated: false, playSound: false, doSpin: false);
-                // }
-                break;
-            case true:
-                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.StandUpTime,
-                    new CrawlStandupDoAfterEvent(),
-                    uid, used: uid)
-                {
-                    BreakOnDamage = true
-                });
-                break;
-        }
-    }
-
-    private void OnDoAfter(EntityUid uid, CrawlerComponent component, CrawlStandupDoAfterEvent args)
-    {
-        if (args.Cancelled)
-            return;
-
-        var lookup = _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f);
-        if (lookup.Count != 0)
-        {
-            _bonk.TryBonk(uid, lookup.First(), source: uid);
-            return;
-        }
-
-        _standing.Stand(uid);
-    }
-
-    private void OnStandUp(EntityUid uid, CrawlerComponent component, StandAttemptEvent args)
-    {
-        if (args.Cancelled)
-            return;
-        RemCompDeferred<CrawlingComponent>(uid);
-        _alerts.ClearAlert(uid, component.CrawlingAlert);
-    }
-
-    private void OnFall(EntityUid uid, CrawlerComponent component, DownAttemptEvent args)
-    {
-        if (args.Cancelled)
-            return;
-        _alerts.ShowAlert(uid, component.CrawlingAlert);
-
-        EnsureComp<CrawlingComponent>(uid);
-    }
-
-    private void OnStunned(EntityUid uid, CrawlerComponent component, StunnedEvent args)
-    {
-        EnsureComp<CrawlingComponent>(uid);
-        _alerts.ShowAlert(uid, component.CrawlingAlert);
-    }
-
-    private void OnGetExplosionResistance(EntityUid uid, CrawlerComponent component,
-        ref GetExplosionResistanceEvent args)
-    {
-        // fall on explosion damage and lower explosion damage of crawling
-        if (_standing.IsDown(uid))
-            args.DamageCoefficient *= component.DownedDamageCoefficient;
-        else
-        {
-            var ev = new ExplosionDownAttemptEvent(args.ExplosionPrototype);
-            RaiseLocalEvent(uid, ref ev);
-            if (!ev.Cancelled)
-                _standing.Down(uid);
-        }
-    }
-
-    private void OnCrawlSlowdownInit(EntityUid uid, CrawlingComponent component, ComponentInit args)
-    {
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         _appearance.SetData(uid, CrawlingVisuals.Standing, false);
         _appearance.SetData(uid, CrawlingVisuals.Crawling, true);
     }
 
-    private void OnCrawlSlowRemove(EntityUid uid, CrawlingComponent component, ComponentShutdown args)
+    private void OnExplosion(EntityUid uid, StandingStateComponent component, GetExplosionResistanceEvent args)
     {
-        component.SprintSpeedModifier = 1f;
-        component.WalkSpeedModifier = 1f;
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
-        _appearance.SetData(uid, CrawlingVisuals.Crawling, false);
-        _appearance.SetData(uid, CrawlingVisuals.Standing, true);
+        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
     }
 
-    private void OnRefreshMovespeed(EntityUid uid, CrawlingComponent component, RefreshMovementSpeedModifiersEvent args)
+    private void OnStood(EntityUid uid, StandingStateComponent comp, ref StandAttemptEvent args)
     {
-        args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
-    }
-
-    private void OnCrawlerInit(EntityUid uid, CrawlerComponent comp, MapInitEvent args)
-    {
+        var lookup = _lookup.GetEntitiesInRange<ClimbableComponent>(Transform(uid).Coordinates, 0.25f);
+        if (lookup.Count != 0)
+        {
+            _bonk.TryBonk(uid, lookup.First(), source: uid);
+            args.Cancel();
+            return;
+        }
         _appearance.SetData(uid, CrawlingVisuals.Standing, true);
         _appearance.SetData(uid, CrawlingVisuals.Crawling, false);
     }
 
-    private void OnClimbAttemptWhileCrawling(EntityUid uid, ClimbableComponent comp, ref AttemptClimbEvent args)
+    private void OnClimbAttemptWhileCrawling(EntityUid uid, StandingStateComponent comp, ref AttemptClimbEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || comp.Standing)
             return;
 
         if (HasComp<CrawlingComponent>(args.Climber))

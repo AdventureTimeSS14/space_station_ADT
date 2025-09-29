@@ -115,7 +115,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         if (HasComp<PickupingHumansComponent>(args.User) || HasComp<TakenHumansComponent>(args.Target))
             return;
 
-        if (HasComp<CrawlingComponent>(args.User))
+        if (TryComp<StandingStateComponent>(uid, out var stand) && !stand.Standing)
             return;
 
         if (handComp.Count < component.HandsRequired || handComp.Count > component.HandsRequired)
@@ -165,7 +165,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
     /// </summary>
     private void StartPickupDoAfter(EntityUid uid, EntityUid target, PickupHumansComponent comp)
     {
-        if (HasComp<CrawlingComponent>(uid))
+        if (TryComp<StandingStateComponent>(uid, out var stand) && !stand.Standing)
             return;
 
         if (HasComp<PickupingHumansComponent>(target))
@@ -275,7 +275,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
 
     private bool CanPickup(EntityUid uid, EntityUid target, PickupHumansComponent? pickupComp)
     {
-        if (HasComp<CrawlingComponent>(uid))
+        if (TryComp<StandingStateComponent>(uid, out var stand) && !stand.Standing)
             return false;
 
         if (uid == target)

@@ -637,9 +637,6 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
-- function: ToggleCrawling
-  type: State
-  key: C #ADT Crawling
 - function: OfferItem # ADT-Tweak
   type: State
   key: F

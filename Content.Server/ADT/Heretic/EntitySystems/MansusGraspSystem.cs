@@ -30,6 +30,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Emp;
 using Content.Server.Actions;
+using Content.Shared.Standing;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -199,7 +200,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
                     // ultra stun if the person is looking away or laying down
                     var degrees = Transform(target).LocalRotation.Degrees - Transform(performer).LocalRotation.Degrees;
-                    if (HasComp<CrawlingComponent>(target) // laying down
+                    if (TryComp<StandingStateComponent>(target, out var crawl) && !crawl.Standing  // laying down
                     || (degrees >= 160 && degrees <= 210)) // looking back
                         _stamina.TakeStaminaDamage(target, 110f);
                     break;

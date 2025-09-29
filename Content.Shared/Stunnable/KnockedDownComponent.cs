@@ -17,7 +17,7 @@ public sealed partial class KnockedDownComponent : Component
     /// Should we try to stand up?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool AutoStand = true;
+    public bool AutoStand = false; //ADT tweak
 
     /// <summary>
     /// The Standing Up DoAfter.

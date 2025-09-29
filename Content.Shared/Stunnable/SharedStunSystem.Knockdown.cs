@@ -74,18 +74,19 @@ public abstract partial class SharedStunSystem
     }
 
     public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
+    {   //ADT-tweak-start 
+        // base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<KnockedDownComponent>();
+        // var query = EntityQueryEnumerator<KnockedDownComponent>();
 
-        while (query.MoveNext(out var uid, out var knockedDown))
-        {
-            if (!knockedDown.AutoStand || knockedDown.DoAfterId.HasValue || knockedDown.NextUpdate > GameTiming.CurTime)
-                continue;
+        // while (query.MoveNext(out var uid, out var knockedDown))
+        // {
+        //     if (!knockedDown.AutoStand || knockedDown.DoAfterId.HasValue || knockedDown.NextUpdate > GameTiming.CurTime)
+        //         continue;
 
-            TryStanding(uid);
-        }
+        //     TryStanding(uid);
+        // }
+        //ADT-tweak-end
     }
 
     private void OnRejuvenate(Entity<KnockedDownComponent> entity, ref RejuvenateEvent args)
@@ -111,7 +112,8 @@ public abstract partial class SharedStunSystem
         entity.Comp.FrictionModifier = 1f;
         entity.Comp.SpeedModifier = 1f;
 
-        _standingState.Stand(entity);
+        if (!HasComp<StandingStateComponent>(entity))
+            _standingState.Stand(entity);
         Alerts.ClearAlert(entity, KnockdownAlert);
     }
 
@@ -242,9 +244,17 @@ public abstract partial class SharedStunSystem
             TryKnockdown(playerEnt, DefaultKnockedDuration, true, false, false); // TODO: Unhardcode these numbers
             return;
         }
-
+        //ADT tweak start
+        else if (_standingState.IsDown(playerEnt))
+        {
+            ForceStandUp(playerEnt);
+            RemComp<KnockedDownComponent>(playerEnt);
+            _standingState.Stand(playerEnt);
+            return;
+        }
+        //ADT tweak end
         var stand = !component.DoAfterId.HasValue;
-        SetAutoStand(playerEnt, stand);
+        // SetAutoStand(playerEnt, stand); //ADT-tweak
 
         if (!stand || !TryStanding(playerEnt))
             CancelKnockdownDoAfter((playerEnt, component));
@@ -297,8 +307,8 @@ public abstract partial class SharedStunSystem
         var ev = new StandUpAttemptEvent(entity.Comp.AutoStand);
         RaiseLocalEvent(entity, ref ev);
 
-        if (ev.Autostand != entity.Comp.AutoStand)
-            SetAutoStand((entity.Owner, entity.Comp), ev.Autostand);
+        // if (ev.Autostand != entity.Comp.AutoStand) //ADT-tweak
+        //     SetAutoStand((entity.Owner, entity.Comp), ev.Autostand); //ADT-tweak
 
         if (ev.Message != null)
         {
@@ -317,7 +327,7 @@ public abstract partial class SharedStunSystem
             return false;
 
         _popup.PopupClient(Loc.GetString("knockdown-component-stand-no-room"), entity, entity, PopupType.SmallCaution);
-        SetAutoStand(entity.Owner);
+        //SetAutoStand(entity.Owner); //ADT-tweak
         return true;
 
     }
@@ -336,7 +346,7 @@ public abstract partial class SharedStunSystem
             return;
 
         // That way if we fail to stand, the game will try to stand for us when we are able to
-        SetAutoStand(entity, true);
+        // SetAutoStand(entity, true); //ADT-tweak
 
         if (!HasComp<StandingStateComponent>(entity) || StandingBlocked((entity, entity.Comp)))
             return;
@@ -477,6 +487,9 @@ public abstract partial class SharedStunSystem
             DirtyField(entity, entity.Comp, nameof(KnockedDownComponent.DoAfterId));
             return;
         }
+
+        RemComp<KnockedDownComponent>(entity); //ADT tweak
+        _standingState.Stand(entity); //ADT tweak
 
         RemComp<KnockedDownComponent>(entity);
 
