@@ -11,6 +11,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
+using System.Threading.Tasks;
 using Content.Shared.FixedPoint;
 using Robust.Client.Graphics;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
@@ -30,15 +31,29 @@ namespace Content.Client.Chemistry.UI
         public event Action<int>? OnSortMethodChanged;
         public event Action<int>? OnTransferAmountChanged;
         public event Action<List<int>>? OnUpdateAmounts;
+        public event Action<ReagentId, bool, bool>? OnTransferAllPressed;
+        public event Action<ReagentId>? OnChooseReagentPressed;
+        public event Action<int>? OnBottleSlotSelected;
+        public event Action<int>? OnToggleBottleFillPressed;
+        public event Action<int>? OnBottleSlotEjectPressed;
+        public event Action<int>? OnRowEjectPressed;
+        public bool IsOutputTab => Tabs.CurrentTab == 1;
+        private bool _deleteMode = false;
+        public readonly Button[] BottleStorageButtons;
+        public readonly Button[] BottleEjectButtons;
+        public readonly Button[] RowEjectButtons;
         //ADT-Tweak End
         public readonly Button[] PillTypeButtons;
+
         //ADT-Tweak Start
         private List<int> _amounts = new();
 
         private const string TransferringAmountColor = "#ffffff";
+        const int MaxAmountButtons = 24;
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
         private ChemMasterBoundUserInterfaceState? _lastState;
         private int _transferAmount = 50;
+        private Label? _selectedReagentLabel = null;
         // ADT-Tweak
 
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
@@ -55,7 +70,7 @@ namespace Content.Client.Chemistry.UI
             AmountLabel.HorizontalAlignment = HAlignment.Center;
             AmountLineEdit.OnTextEntered += SetAmount;
 
-            SetAmountButton.OnPressed += _ => SetAmountText(AmountLineEdit.Text);
+            DeleteAsFrequentButton.OnPressed += HandleDeleteModeToggled;
             SaveAsFrequentButton.OnPressed += HandleSaveAsFrequentPressed;
             //ADT-Tweak End
             // Pill type selection buttons, in total there are 20 pills.
@@ -103,11 +118,84 @@ namespace Content.Client.Chemistry.UI
             BottleDosage.InitDefaultButtons();
             BottleNumber.InitDefaultButtons();      //ADT-Tweak
 
+            // ADT-Tweak Start - Bottle storage buttons with per-slot eject (eject on the right)
+            BottleStorageButtons = new Button[20];
+            BottleEjectButtons = new Button[20];
+            RowEjectButtons = new Button[5];
+            for (int row = 0; row < 5; row++)
+            {
+                for (int col = 0; col < 4; col++)
+                {
+                    int i = row * 4 + col;
+                    var cell = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                        HorizontalExpand = true
+                    };
+
+                    // Match Reagent Dispenser card sizing:
+                    // - MainButton fills available space (HorizontalExpand/VerticalExpand).
+                    // - Eject button fixed width 20px, full height, OpenLeft style, with centered label glyph.
+                    var mainButton = new Button
+                    {
+                        HorizontalExpand = true,
+                        VerticalExpand = true,
+                        StyleClasses = { StyleBase.ButtonSquare },
+                        ToggleMode = true
+                    };
+
+                    var ejectButton = new Button
+                    {
+                        VerticalExpand = true,
+                        StyleClasses = { StyleBase.ButtonOpenLeft }
+                    };
+                    ejectButton.MinSize = new Vector2(20, 0);
+                    ejectButton.MaxSize = new Vector2(20, float.MaxValue);
+
+                    var ejectLabel = new Label
+                    {
+                        Text = Loc.GetString("chem-master-window-eject-container-button"),
+                        VerticalAlignment = VAlignment.Center,
+                        HorizontalAlignment = HAlignment.Center,
+                        Margin = new Thickness(-7, -4, 0, 0)
+                    };
+                    ejectButton.AddChild(ejectLabel);
+
+                    var buttonIndex = i;
+                    mainButton.OnPressed += _ => OnToggleBottleFillPressed?.Invoke(buttonIndex);
+                    ejectButton.OnPressed += _ => OnBottleSlotEjectPressed?.Invoke(buttonIndex);
+
+                    BottleStorageButtons[i] = mainButton;
+                    BottleEjectButtons[i] = ejectButton;
+
+                    cell.AddChild(mainButton);
+                    cell.AddChild(ejectButton);
+                    BottleStorageGrid.AddChild(cell);
+                }
+
+                // Add row eject button
+                var rowEjectButton = new Button
+                {
+                    Text = Loc.GetString("chem-master-window-eject-row-button"),
+                    StyleClasses = { StyleBase.ButtonCaution },
+                    VerticalExpand = true
+                };
+                int rowIndex = row;
+                rowEjectButton.OnPressed += _ => OnRowEjectPressed?.Invoke(rowIndex);
+                RowEjectButtons[row] = rowEjectButton;
+                BottleStorageGrid.AddChild(rowEjectButton);
+            }
+            // ADT-Tweak End
+
             // Ensure label length is within the character limit.
             LabelLineEdit.IsValid = s => s.Length <= SharedChemMaster.LabelMaxLength;
 
             Tabs.SetTabTitle(0, Loc.GetString("chem-master-window-input-tab"));
             Tabs.SetTabTitle(1, Loc.GetString("chem-master-window-output-tab"));
+
+            // Set titles for the new output tabs
+            OutputTabs.SetTabTitle(0, Loc.GetString("chem-master-window-pills-tab"));
+            OutputTabs.SetTabTitle(1, Loc.GetString("chem-master-window-bottles-tab"));
             //ADT-Tweak Start
 
             SortMethod.AddItem(
@@ -145,7 +233,6 @@ namespace Content.Client.Chemistry.UI
             PillBufferDiscardButton.OnPressed += HandleDiscardTransferPress;
 
             CreateAmountButtons();
-            OnAmountButtonPressed += amount => SetAmountText(amount.ToString());
             //ADT-Tweak End
         }
 
@@ -154,7 +241,9 @@ namespace Content.Client.Chemistry.UI
         {
             AmountButtons.DisposeAllChildren();
 
-            for (int i = 0; i < _amounts.Count; i++)
+            int buttonsToShow = Math.Min(_amounts.Count, MaxAmountButtons);
+
+            for (int i = 0; i < buttonsToShow; i++)
             {
                 var styleClass = StyleBase.ButtonOpenBoth;
                 var amount = _amounts[i];
@@ -174,20 +263,111 @@ namespace Content.Client.Chemistry.UI
                     HorizontalExpand = true
                 };
 
-                button.OnPressed += _ => OnAmountButtonPressed?.Invoke(amount);
+                button.OnPressed += _ => HandleAmountButtonPressed(amount);
                 AmountButtons.AddChild(button);
             }
         }
 
         private void HandleSaveAsFrequentPressed(BaseButton.ButtonEventArgs args)
         {
-            if (!int.TryParse(AmountLineEdit.Text, out var amount)
-                || _amounts.Any(a => amount == a))
+            if (!int.TryParse(AmountLineEdit.Text, out var amount))
+            {
+                ShowWarningMessage(Loc.GetString("chem-master-window-amount-too-much"));
                 return;
+            }
+
+            if (amount > 1000)  // Limit maximum amount to 1000
+            {
+                ShowWarningMessage(Loc.GetString("chem-master-window-amount-too-much"));
+                return;
+            }
+
+            if (_amounts.Any(a => amount == a))
+            {
+                ShowWarningMessage(Loc.GetString("chem-master-window-amount-too-much"));
+                return;
+            }
+
+            if (_amounts.Count >= MaxAmountButtons)  // Limit maximum number of templates to 28
+            {
+                ShowWarningMessage(Loc.GetString("chem-master-window-amount-limit-reached"));
+                return;
+            }
 
             _amounts.Add(amount);
             _amounts.Sort();
+            CreateAmountButtons();
             OnUpdateAmounts?.Invoke(_amounts);
+            AmountLineEdit.SetText(string.Empty);
+        }
+
+        private async void ShowWarningMessage(string message)
+        {
+            WarningLabel.Text = message;
+            WarningLabel.Visible = true;
+
+            // Clear the warning message after 3 seconds
+            await Task.Delay(3000);
+            WarningLabel.Text = string.Empty;
+            WarningLabel.Visible = false;
+        }
+
+        private void HandleReagentSelection(ReagentId reagentId, Button button)
+        {
+            var isCurrentlySelected = _lastState?.SelectedReagent?.Prototype == reagentId.Prototype;
+
+            if (isCurrentlySelected)
+            {
+                OnChooseReagentPressed?.Invoke(default(ReagentId));
+            }
+            else
+            {
+                OnChooseReagentPressed?.Invoke(reagentId);
+            }
+        }
+
+        private void UpdateReagentSelectionUI()
+        {
+            if (!string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype))
+            {
+                var selectedReagentQuantity = _lastState.PillBufferReagents
+                    .FirstOrDefault(r => r.Reagent == _lastState.SelectedReagent)
+                    .Quantity.Int();
+
+                if (selectedReagentQuantity > 0)
+                {
+                    PillDosage.Value = Math.Min(PillDosage.Value, selectedReagentQuantity);
+                    PillNumber.Value = selectedReagentQuantity / Math.Max(PillDosage.Value, 1);
+
+                    var bufferVolume = _lastState.PillBufferCurrentVolume?.Int() ?? 0;
+                    BottleDosage.Value = Math.Min(BottleDosage.Value, selectedReagentQuantity);
+                    var storedBottlesCount = _lastState.StoredBottles.Count(b => b != null);
+                    BottleNumber.Value = Math.Min(
+                        selectedReagentQuantity / Math.Max(BottleDosage.Value, 1),
+                        storedBottlesCount
+                    );
+                }
+            }
+        }
+
+        private void HandleDeleteModeToggled(BaseButton.ButtonEventArgs args)
+        {
+            _deleteMode = DeleteAsFrequentButton.Pressed;
+        }
+
+        private void HandleAmountButtonPressed(int amount)
+        {
+            if (_deleteMode)
+            {
+                _amounts.Remove(amount);
+                CreateAmountButtons();
+                OnUpdateAmounts?.Invoke(_amounts);
+            }
+            else
+            {
+                OnAmountButtonPressed?.Invoke(amount);
+                SetAmountText(amount.ToString());
+            }
         }
 
         private void HandleDiscardTransferPress(BaseButton.ButtonEventArgs args)
@@ -334,19 +514,59 @@ namespace Content.Client.Chemistry.UI
             // ADT-Tweak-End
 
 
-            BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
             CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0; ;
             CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0;
 
             UpdateDosageFields(castState);
+            UpdateBottleStorage(castState); //ADT-Tweak
         }
+
+        //ADT-Tweak Start
+        private void UpdateBottleStorage(ChemMasterBoundUserInterfaceState state)
+        {
+            for (int i = 0; i < BottleStorageButtons.Length; i++)
+            {
+                var button = BottleStorageButtons[i];
+                var info = state.StoredBottles[i];
+                if (info != null)
+                {
+                    button.Text = $"{info.CurrentVolume}/{info.MaxVolume}";
+                    if (info.Reagents != null && info.Reagents.Any())
+                    {
+                        var reagent = info.Reagents.First();
+                        _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
+                        button.Modulate = proto?.SubstanceColor ?? Color.White;
+                    }
+                    else
+                    {
+                        button.Modulate = Color.White;
+                    }
+                    // Enable toggle mode when bottle is present
+                    button.ToggleMode = true;
+
+                    button.Pressed = state.SelectedBottleSlot == i || state.SelectedBottleForFill == i;
+                }
+                else
+                {
+                    button.Text = Loc.GetString("chem-master-window-bottle-storage-empty");
+                    button.Modulate = Color.Gray;
+                    button.Pressed = false;
+                    // Disable toggle mode when slot is empty
+                    button.ToggleMode = false;
+                }
+
+                // Enable eject only if a bottle exists in the slot.
+                if (BottleEjectButtons != null && BottleEjectButtons.Length > i && BottleEjectButtons[i] != null)
+                    BottleEjectButtons[i].Disabled = info == null;
+            }
+        }
+        //ADT-Tweak End
 
         private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state) =>
             (Tabs.CurrentTab == 0 ? state.BufferCurrentVolume : state.PillBufferCurrentVolume) ?? 0;
 
-        //assign default values for pill and bottle fields.
         private void UpdateDosageFields(ChemMasterBoundUserInterfaceState castState)
         {
             // ADT-Tweak Start
@@ -354,10 +574,12 @@ namespace Content.Client.Chemistry.UI
             PillDosage.Value = (int)Math.Min(bufferVolume, castState.PillDosageLimit);
             BottleDosage.Value = (int)Math.Min(bufferVolume, castState.BottleDosageLimit);
 
+            var storedBottlesCount = castState.StoredBottles.Count(b => b != null);         //ADT-Tweak
+
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
             PillNumber.IsValid = x => x >= 0;
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
-            BottleNumber.IsValid = x => x >= 0;
+            BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;   //ADT-Tweak
             BottleDosage.IsValid = x => x > 0 && x <= castState.BottleDosageLimit;
 
             // Avoid division by zero
@@ -367,7 +589,7 @@ namespace Content.Client.Chemistry.UI
                 PillNumber.Value = 0;
 
             if (BottleDosage.Value > 0)
-                BottleNumber.Value = bufferVolume / BottleDosage.Value;
+                BottleNumber.Value = Math.Min(bufferVolume / BottleDosage.Value, storedBottlesCount);   //ADT-Tweak
             else
                 BottleNumber.Value = 0;
             // ADT-Tweak End
@@ -615,7 +837,35 @@ namespace Content.Client.Chemistry.UI
 
             // ADT-Tweak Start
             if (reagentButtonConstructor != null)
+            {
+                if (isBuffer && reagent != default(ReagentId))
+                {
+                    var chooseReagentButton = new Button()
+                    {
+                        Text = Loc.GetString("chem-master-window-choose-reagent-button"),
+                        StyleClasses = { StyleBase.ButtonSquare },
+                        MinSize = new Vector2(60, 0)
+                    };
+
+                    if (!string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype) && _lastState.SelectedReagent == reagent)
+                    {
+                        chooseReagentButton.Pressed = true;
+                        chooseReagentButton.Modulate = Color.Green;
+                    }
+
+                    chooseReagentButton.OnPressed += _ =>
+                    {
+                        HandleReagentSelection(reagent, chooseReagentButton);
+                    };
+
+                    rowContainer.AddChild(chooseReagentButton);
+                }
+
                 rowContainer.AddChild(reagentButtonConstructor);
+                var transferAllButton = new Button() { Text = Loc.GetString("chem-master-window-buffer-all-amount"), StyleClasses = { StyleBase.ButtonOpenLeft } };
+                transferAllButton.OnPressed += _ => OnTransferAllPressed?.Invoke(reagent, isBuffer, IsOutputTab);
+                rowContainer.AddChild(transferAllButton);
+            }
             // ADT-Tweak End
             //Apply panencontainer to allow for striped rows
             return new PanelContainer
@@ -630,6 +880,10 @@ namespace Content.Client.Chemistry.UI
             get => LabelLineEdit.Text;
             set => LabelLineEdit.Text = value;
         }
+
+        public ReagentId? SelectedReagentId => string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype)
+            ? null
+            : _lastState.SelectedReagent;
     }
 
     public sealed class ReagentButton : Button
@@ -638,7 +892,7 @@ namespace Content.Client.Chemistry.UI
         public ReagentId Id { get; set; }
         public ReagentButton(string text, ReagentId id, bool isBuffer)
         {
-            AddStyleClass(StyleBase.ButtonOpenLeft);
+            AddStyleClass(StyleBase.ButtonSquare); // ADT-Tweak
             Text = text;
             Id = id;
             IsBuffer = isBuffer;

@@ -106,6 +106,57 @@ namespace Content.Shared.Chemistry
         public readonly List<int> Amounts = amounts;
     }
 
+    //ADT-Tweak Start: Bottle buttons reagent transfer
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSelectBottleSlotMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterSelectBottleSlotMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterChooseReagentMessage : BoundUserInterfaceMessage
+    {
+        public ReagentId Reagent;
+
+        public ChemMasterChooseReagentMessage(ReagentId reagent)
+        {
+            Reagent = reagent;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterClearReagentSelectionMessage : BoundUserInterfaceMessage
+    {
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterToggleBottleFillMessage : BoundUserInterfaceMessage
+    {
+        public int Slot;
+
+        public ChemMasterToggleBottleFillMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterRowEjectMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Row;
+
+        public ChemMasterRowEjectMessage(int row)
+        {
+            Row = row;
+        }
+    }
+    //ADT-Tweak End
+
     public enum ChemMasterMode
     {
         Transfer,
@@ -162,7 +213,14 @@ namespace Content.Shared.Chemistry
         bool updateLabel,
         int sortMethod,
         int transferringAmount,
-        List<int> amounts)
+        List<int> amounts,
+        //ADT-Tweak Start: Bottle buttons reagent transfer
+        List<ContainerInfo?> storedBottles,
+        int selectedBottleSlot,
+        int selectedBottleForFill,
+        List<ReagentId> selectedReagentsForBottles,
+        ReagentId? selectedReagent)
+        //ADT-Tweak End
         : BoundUserInterfaceState
     {
         public readonly ContainerInfo? ContainerInfo = containerInfo;
@@ -192,6 +250,14 @@ namespace Content.Shared.Chemistry
         public readonly int TransferringAmount = transferringAmount;
 
         public readonly List<int> Amounts = amounts;
+
+        //ADT-Tweak Start: Bottle buttons reagent transfer
+        public readonly List<ContainerInfo?> StoredBottles = storedBottles;
+        public readonly int SelectedBottleSlot = selectedBottleSlot;
+        public readonly int SelectedBottleForFill = selectedBottleForFill;
+        public readonly List<ReagentId> SelectedReagentsForBottles = selectedReagentsForBottles;
+        public readonly ReagentId? SelectedReagent = selectedReagent;
+        //ADT-Tweak End
     }
 
     [Serializable, NetSerializable]

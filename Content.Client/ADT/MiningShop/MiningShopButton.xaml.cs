@@ -12,6 +12,7 @@ public sealed partial class MiningShopButton : Button
     public MiningShopButton()
     {
         RobustXamlLoader.Load(this);
+        MouseFilter = MouseFilterMode.Stop;
     }
 
     protected override void DrawModeChanged()

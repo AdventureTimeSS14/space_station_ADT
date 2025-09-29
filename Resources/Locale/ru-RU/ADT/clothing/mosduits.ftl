@@ -2,3 +2,4 @@ modsuit-remove-all-attached-first = Вначале вам нужно снять 
 modsuit-attach-tooltip = Надеть.
 modsuit-unattach-tooltip = Снять.
 modsuit-close-wires = В начале надо закрутить МОД.
+modsuit-locked-popup = МОД заблокирован.
