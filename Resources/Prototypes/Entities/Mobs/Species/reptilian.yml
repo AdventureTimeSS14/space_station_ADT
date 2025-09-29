@@ -150,9 +150,9 @@
   - type: InjectorsBlocker
   - type: SizeAttributeWhitelist
     tall: true
-    tallscale: 1.12
+    tallscale: 1.1 # Ganimed-Tweak
     short: true
-    shortscale: 0.98
+    shortscale: 0.9 # Ganimed-Tweak
   # ADT tweak end
 
 - type: entity

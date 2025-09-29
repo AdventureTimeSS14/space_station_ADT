@@ -78,7 +78,7 @@
   - type: TypingIndicator
     proto: spider
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
-    scale: 1.07, 1.07 # ADT tweak
+    scale: 1.05, 1.05 # ADT tweak
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -138,7 +138,7 @@
     tall: true
     tallscale: 1.15
     short: true
-    shortscale: 0.98
+    shortscale: 0.95 # Ganimed-Tweak
   # ADT tweak end
 
 - type: entity
@@ -152,7 +152,7 @@
     speciesId: arachnid
   # Start ADT tweak
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
-    scale: 1.07, 1.07 # ADT tweak
+    scale: 1.05, 1.05 # ADT tweak
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]

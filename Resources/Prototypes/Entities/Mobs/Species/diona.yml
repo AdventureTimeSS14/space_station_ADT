@@ -121,9 +121,9 @@
       DionaCollectiveMind: Speak
   - type: SizeAttributeWhitelist
     tall: true
-    tallscale: 1.08
+    tallscale: 1.1 # Ganimed-Tweak
     short: true
-    shortscale: 0.92
+    shortscale: 0.9 # Ganimed-Tweak
   - type: CollectiveMindRank
   # ADT tweak end
 

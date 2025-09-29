@@ -38,9 +38,9 @@
       SolCommon: Speak
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1.08
+    tallscale: 1.05 # Ganimed-Tweak
     short: true
-    shortscale: 0.92
+    shortscale: 0.95 # Ganimed-Tweak
   #End ADT tweak
 
 
