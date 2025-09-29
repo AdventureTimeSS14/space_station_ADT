@@ -22,8 +22,6 @@ public abstract class SharedComboSystem : EntitySystem
 
         SubscribeLocalEvent<ComboComponent, DisarmAttemptEvent>(OnDisarmUsed);
         SubscribeLocalEvent<ComboComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<ComboComponent, GrabStageChangedEvent>(OnGrab);
-        SubscribeLocalEvent<ComboComponent, CrawlingKeybindEvent>(ToggleCrawling);
 
         SubscribeLocalEvent<ComboComponent, ToggleCombatActionEvent>(OnCombatToggled);
     }
@@ -130,24 +128,24 @@ public abstract class SharedComboSystem : EntitySystem
         return false;
     }
 
-    private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
-    {
-        var userCoords = uid.ToCoordinates();
-        var targetCoords = comp.Target.ToCoordinates();
-        var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
+    // private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
+    // {
+    //     var userCoords = uid.ToCoordinates();
+    //     var targetCoords = comp.Target.ToCoordinates();
+    //     var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
 
-        if (diff >= 4 || diff <= -4)
-            return;
+    //     if (diff >= 4 || diff <= -4)
+    //         return;
 
-        comp.CurrestActions.Add(CombatAction.Crawl);
+    //     comp.CurrestActions.Add(CombatAction.Crawl);
 
-        if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
-        {
-            comp.CurrestActions.RemoveAt(0);
-        }
+    //     if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
+    //     {
+    //         comp.CurrestActions.RemoveAt(0);
+    //     }
 
-        TryDoCombo(uid, comp.Target, comp);
-    }
+    //     TryDoCombo(uid, comp.Target, comp);
+    // }
 
     private void OnCombatToggled(EntityUid uid, ComboComponent comp, ToggleCombatActionEvent args)
     {
