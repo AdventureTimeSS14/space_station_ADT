@@ -1229,3 +1229,16 @@
     sprite: ADT/Personalization/melima_dress.rsi
   - type: Clothing
     sprite: ADT/Personalization/melima_dress.rsi
+
+#kugooergooer
+- type: entity
+  parent: ClothingHeadHatHardhatArmored
+  id: ADTGiPatterHardhat
+  name: blue hardhat
+  suffix: Personal, kugooergooer
+  description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/blue_armored_hardhat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/blue_armored_hardhat.rsi
