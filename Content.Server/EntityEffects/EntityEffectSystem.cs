@@ -41,6 +41,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.StatusEffect;
+using Content.Server.ADT.Hallucinations;
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -76,6 +78,10 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    // ADT-Tweak-Start
+    [Dependency] private readonly HallucinationsSystem _hall = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    // ADT-Tweak-End
 
     public override void Initialize()
     {
@@ -127,6 +133,9 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PlantSpeciesChange>>(OnExecutePlantSpeciesChange);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
+        // ADT-Tweak-Start
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<HallucinationsReagentEffect>>(OnExecuteHallucinationsReagentEffect);
+        // ADT-Tweak-End
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -286,7 +295,7 @@ public sealed class EntityEffectSystem : EntitySystem
         if (!CanMetabolizePlant(args.Args.TargetEntity, out var plantHolderComp))
             return;
 
-        _plantHolder.AffectGrowth(args.Args.TargetEntity, (int) args.Effect.Amount, plantHolderComp);
+        _plantHolder.AffectGrowth(args.Args.TargetEntity, (int)args.Effect.Amount, plantHolderComp);
     }
 
     // Mutate reference 'val' between 'min' and 'max' by pretending the value
@@ -407,9 +416,9 @@ public sealed class EntityEffectSystem : EntitySystem
         if (seed == null)
             return;
         if (plantHolderComp.Age > seed.Maturation)
-            deviation = (int) Math.Max(seed.Maturation - 1, plantHolderComp.Age - _random.Next(7, 10));
+            deviation = (int)Math.Max(seed.Maturation - 1, plantHolderComp.Age - _random.Next(7, 10));
         else
-            deviation = (int) (seed.Maturation / seed.GrowthStages);
+            deviation = (int)(seed.Maturation / seed.GrowthStages);
         plantHolderComp.Age -= deviation;
         plantHolderComp.LastProduce = plantHolderComp.Age;
         plantHolderComp.SkipAging++;
@@ -520,7 +529,7 @@ public sealed class EntityEffectSystem : EntitySystem
             if (reagentArgs.Source == null)
                 return;
 
-            var spreadAmount = (int) Math.Max(0, Math.Ceiling((reagentArgs.Quantity / args.Effect.OverflowThreshold).Float()));
+            var spreadAmount = (int)Math.Max(0, Math.Ceiling((reagentArgs.Quantity / args.Effect.OverflowThreshold).Float()));
             var splitSolution = reagentArgs.Source.SplitSolution(reagentArgs.Source.Volume);
             var transform = Comp<TransformComponent>(reagentArgs.TargetEntity);
             var mapCoords = _xform.GetMapCoordinates(reagentArgs.TargetEntity, xform: transform);
@@ -651,7 +660,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
         if (args.Args is EntityEffectReagentArgs reagentArgs)
         {
-            range = MathF.Min((float) (reagentArgs.Quantity * args.Effect.EmpRangePerUnit), args.Effect.EmpMaxRange);
+            range = MathF.Min((float)(reagentArgs.Quantity * args.Effect.EmpRangePerUnit), args.Effect.EmpMaxRange);
         }
 
         _emp.EmpPulse(_xform.GetMapCoordinates(args.Args.TargetEntity, xform: transform),
@@ -666,7 +675,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
         if (args.Args is EntityEffectReagentArgs reagentArgs)
         {
-            intensity = MathF.Min((float) reagentArgs.Quantity * args.Effect.IntensityPerUnit, args.Effect.MaxTotalIntensity);
+            intensity = MathF.Min((float)reagentArgs.Quantity * args.Effect.IntensityPerUnit, args.Effect.MaxTotalIntensity);
         }
 
         _explosion.QueueExplosion(
@@ -778,7 +787,8 @@ public sealed class EntityEffectSystem : EntitySystem
         if (TryComp<BloodstreamComponent>(args.Args.TargetEntity, out var blood))
         {
             var amt = args.Effect.Amount;
-            if (args.Args is EntityEffectReagentArgs reagentArgs) {
+            if (args.Args is EntityEffectReagentArgs reagentArgs)
+            {
                 if (args.Effect.Scaled)
                     amt *= reagentArgs.Quantity.Float();
                 amt *= reagentArgs.Scale.Float();
@@ -829,7 +839,7 @@ public sealed class EntityEffectSystem : EntitySystem
             {
                 var quantity = ratio * amount / Atmospherics.BreathMolesToReagentMultiplier;
                 if (quantity < 0)
-                    quantity = Math.Max(quantity, -lung.Air[(int) gas]);
+                    quantity = Math.Max(quantity, -lung.Air[(int)gas]);
                 lung.Air.AdjustMoles(gas, quantity);
             }
         }
@@ -976,4 +986,29 @@ public sealed class EntityEffectSystem : EntitySystem
 
         _narcolepsy.AdjustNarcolepsyTimer(args.Args.TargetEntity, args.Effect.TimerReset);
     }
+
+    // ADT-Tweak-Start
+    private void OnExecuteHallucinationsReagentEffect(ref ExecuteEntityEffectEvent<HallucinationsReagentEffect> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs hallargs)
+            return;
+
+        var time = args.Effect.Time;
+        time *= hallargs.Scale.Float();
+
+        if (args.Effect.Type == HallucinationsMetabolismType.Add)
+        {
+            if (!_hall.StartHallucinations(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(args.Effect.Time), args.Effect.Refresh, args.Effect.Proto))
+                return;
+        }
+        else if (args.Effect.Type == HallucinationsMetabolismType.Remove)
+        {
+            _status.TryRemoveTime(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
+        }
+        else if (args.Effect.Type == HallucinationsMetabolismType.Set)
+        {
+            _status.TrySetTime(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
+        }
+    }
+    // ADT-Tweak-End
 }

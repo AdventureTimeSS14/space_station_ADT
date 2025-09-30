@@ -2,7 +2,7 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Chemistry;
+namespace Content.Shared.EntityEffects.EffectConditions;
 
 /// <summary>
 /// Условие для проверки наличия определённых компонентов у сущности.
