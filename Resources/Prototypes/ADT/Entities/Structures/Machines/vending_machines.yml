@@ -9,6 +9,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+  - type: DatasetVocalizer
+    dataset: PatholodrobeAds
   - type: Sprite
     sprite: ADT/Structures/Machines/VendingMachines/patholodrobe.rsi
     layers:
@@ -41,6 +43,8 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
+  - type: DatasetVocalizer
+    dataset: ClothesMateAds
   - type: Speech
   - type: Tag
     tags:
@@ -103,6 +107,8 @@
     denyState: deny-unshaded
     ejectState: eject-unshaded
     ejectDelay: 0.6
+  - type: DatasetVocalizer
+    dataset: PillAds
   - type: Speech
   - type: Sprite
     sprite: ADT/Structures/Machines/VendingMachines/pillomat.rsi
@@ -134,6 +140,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+  - type: DatasetVocalizer
+    dataset: MediDrobeAds
   - type: Sprite
     sprite: ADT/Structures/Machines/VendingMachines/paradrobe.rsi
     layers:
@@ -167,6 +175,8 @@
     priceMultiplier: 1.1
     ejectDelay: 0.6
     # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
+  - type: DatasetVocalizer
+    dataset: ADTCiviMedAds
   - type: Sprite
     sprite: ADT/Structures/Machines/VendingMachines/civimed.rsi
     layers:
@@ -202,6 +212,8 @@
     denyState: deny-unshaded
     priceMultiplier: 0.57 # ADT-Economy
     ejectDelay: 1
+  - type: DatasetVocalizer
+    dataset: IceCreammatAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite

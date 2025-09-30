@@ -55,7 +55,7 @@
     useDelay: 10
   - type: TargetAction
     range: 15
-  - type: InstantAction
+  - type: WorldTargetAction
     event: !type:AshDrakeFireActionEvent
 
 - type: entity
@@ -74,7 +74,7 @@
     useDelay: 9
   - type: TargetAction
     range: 15
-  - type: InstantAction
+  - type: WorldTargetAction
     event: !type:AshDrakeBreathActionEvent
 
 - type: entity
