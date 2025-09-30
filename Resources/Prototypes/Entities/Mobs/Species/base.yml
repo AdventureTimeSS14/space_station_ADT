@@ -225,7 +225,6 @@
     languages:
       GalacticCommon: Speak
   - type: SpeechBarks
-  - type: Crawler
   # ADT tweak end
 
 - type: entity
