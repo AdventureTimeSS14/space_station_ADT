@@ -78,8 +78,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
         if (args.Cancelled || comp.Standing)
             return;
 
-        if (HasComp<CrawlingComponent>(args.Climber))
-            args.Cancelled = true;
+        args.Cancelled = true;
     }
 }
 
