@@ -157,6 +157,9 @@
             "name": "pinpointer-station"
         },
         {
+            "name": "pinpointer-syndicate"
+        },
+        {
             "name": "inhand-left-base",
             "directions": 4
         },
