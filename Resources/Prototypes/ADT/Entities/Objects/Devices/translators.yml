@@ -14,12 +14,12 @@
       - state: translator
         shader: unshaded
         visible: false
-        map: [ "translatorLayer" ]
+        map: ["enum.ToggleableVisuals.Layer"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      ToggleableVisuals.Enabled:
-        translatorLayer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: HandheldTranslator
