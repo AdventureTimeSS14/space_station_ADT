@@ -1,11 +1,11 @@
 using Robust.Shared.Serialization;
+using Content.Shared.Standing;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
-using Content.Shared.ADT.Crawling;
 using Content.Shared.Inventory;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Coordinates;
@@ -93,10 +93,9 @@ public sealed partial class ComboFallEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        if (!entMan.HasComponent<CrawlerComponent>(target))
-            return;
-        var down = entMan.System<StandingStateSystem>();
-        down.Down(target, dropHeldItems: DropItems);
+        var standing = entMan.System<StandingStateSystem>();
+        if (!standing.IsDown(target))
+            standing.Down(target, dropHeldItems: DropItems);
     }
 }
 
