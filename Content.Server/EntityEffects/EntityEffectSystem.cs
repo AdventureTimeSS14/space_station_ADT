@@ -43,6 +43,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.StatusEffect;
 using Content.Server.ADT.Hallucinations;
+using Content.Server.ADT.Shadekin;
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -81,6 +82,7 @@ public sealed class EntityEffectSystem : EntitySystem
     // ADT-Tweak-Start
     [Dependency] private readonly HallucinationsSystem _hall = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly ShadekinSystem _shadekin = default!;
     // ADT-Tweak-End
 
     public override void Initialize()
@@ -135,6 +137,7 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
         // ADT-Tweak-Start
         SubscribeLocalEvent<ExecuteEntityEffectEvent<HallucinationsReagentEffect>>(OnExecuteHallucinationsReagentEffect);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<RandomTeleport>>(OnExecuteRandomTeleport);
         // ADT-Tweak-End
     }
 
@@ -1009,6 +1012,13 @@ public sealed class EntityEffectSystem : EntitySystem
         {
             _status.TrySetTime(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
         }
+    }
+    private void OnExecuteRandomTeleport(ref ExecuteEntityEffectEvent<RandomTeleport> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs shadekinargs)
+            return;
+
+        _shadekin.TeleportRandomlyNoComp(shadekinargs.TargetEntity, 2f);
     }
     // ADT-Tweak-End
 }

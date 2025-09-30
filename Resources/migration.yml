@@ -641,7 +641,8 @@ ClothingOuterHardsuitSalvage: ADTClothingModsuitBackMining
 ClothingOuterWinterCoat: ClothingOuterWinterCoatToggleable
 
 #ADT 2025-03-12
-ADTSmartFridgeMedical: SmartFridge
+ADTSmartFridge: SmartFridge
+ADTSmartFridgeMedical: SmartFridgeMedical
 
 # 2025-03-18
 EpinephrineChemistryBottle: ChemistryBottleEpinephrine
