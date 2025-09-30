@@ -42,7 +42,7 @@ public abstract class SharedCrawlingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StandingStateComponent, StoodEvent>(OnStood);
+        SubscribeLocalEvent<StandingStateComponent, StandAttemptEvent>(OnStood);
         SubscribeLocalEvent<StandingStateComponent, DownedEvent>(OnDown);
         SubscribeLocalEvent<StandingStateComponent, GetExplosionResistanceEvent>(OnExplosion);
 
