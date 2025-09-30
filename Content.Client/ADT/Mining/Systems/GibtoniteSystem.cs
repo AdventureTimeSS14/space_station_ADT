@@ -10,46 +10,47 @@ public sealed class GibtoniteSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<GibtoniteComponent, AppearanceChangeEvent>(ChangeAppearanceSprite);
+        SubscribeLocalEvent<GibtoniteComponent, AppearanceChangeEvent>(UpdateAppearanceSprite);
         SubscribeLocalEvent<GibtoniteComponent, ComponentStartup>(OnStartup);
     }
 
     private void OnStartup(EntityUid uid, GibtoniteComponent comp, ComponentStartup args)
     {
-        if (TryComp<SpriteComponent>(uid, out var sprite))
-        {
-            sprite.LayerSetVisible(0, true); // Спрайт гибтонита
-            sprite.LayerSetVisible(1, false); // Спрайт активности
-            sprite.LayerSetVisible(2, false); // Спрайт нормы
-            sprite.LayerSetVisible(3, false); // OHFUCK
-        }
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        if (sprite.LayerMapTryGet(GibtoniteVisuals.State, out var stateLayer))
+            sprite.LayerSetState(stateLayer, "gibtonite");
+
+        if (sprite.LayerMapTryGet(GibtoniteVisuals.Active, out var activeLayer))
+            sprite.LayerSetVisible(activeLayer, false);
     }
 
-    public void ChangeAppearanceSprite(EntityUid uid, GibtoniteComponent comp, ref AppearanceChangeEvent args)
+    private void UpdateAppearanceSprite(EntityUid uid, GibtoniteComponent comp, ref AppearanceChangeEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (_appearance.TryGetData<bool>(uid, GibtonitState.State, out var Active))
+        if (args.AppearanceData.TryGetValue(GibtoniteVisuals.Active, out var activeObj) && activeObj is bool isActive)
         {
-            if (comp.Active)
-            {
-                sprite.LayerSetVisible(1, true);
-            }
-        
-            switch (comp.State)
-            {
-                case GibtoniteState.OhFuck:
-                    sprite.LayerSetVisible(3, true);
-                    break;
+            if (sprite.LayerMapTryGet(GibtoniteVisuals.Active, out var activeLayer))
+                sprite.LayerSetVisible(activeLayer, isActive);
+        }
 
-                case GibtoniteState.Normal:
-                    sprite.LayerSetVisible(2, true);
-                    break;
+        if (args.AppearanceData.TryGetValue(GibtoniteVisuals.State, out var stateObj) && stateObj is GibtoniteState state)
+        {
+            if (sprite.LayerMapTryGet(GibtoniteVisuals.State, out var stateLayer))
+            {
+                string stateName = state switch
+                {
+                    GibtoniteState.Normal => "normal",
+                    GibtoniteState.OhFuck => "ohfuck",
+                    GibtoniteState.Nothing => "gibtonite",
+                    _ => "gibtonite"
+                };
 
-                default:
-                    sprite.LayerSetVisible(3, false);
-                    break;
+                sprite.LayerSetState(stateLayer, stateName);
+                sprite.LayerSetVisible(stateLayer, true);
             }
         }
     }

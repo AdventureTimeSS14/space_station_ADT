@@ -47,32 +47,25 @@
   id: ADTGibtonite
   suffix: Full
   name: Bluespace ore
-  description: rock wirh pieces of bluespace ore
+  description: rock with pieces of bluespace ore
   components:
   - type: Appearance
   - type: Sprite
     sprite: ADT/Objects/Materials/gibtonite.rsi
     layers:
-    - state: gibtonite   # 0 слой, базовый камень
-      map: ["enum.GibtonitState.gibtonite"]
-      visible: false
-    - state: active    # 1 слой, загорается когда Active = true
-      visible: false
-      map: ["enum.GibtonitState.active"]
-    - state: normal      # 3 слой, дефолт
-      visible: false
-      map: ["enum.GibtonitState.normal"]
-    - state: ohfuck      # 4 слой, для опасного состояния
-      visible: false
-      map: ["enum.GibtonitState.ohfuck"]
+      - state: gibtonite
+        map: ["enum.GibtoniteVisuals.State", "gibtonite"] # Base state
+      - state: active
+        visible: false
+        map: ["enum.GibtoniteVisuals.Active", true] # Active overlay
   - type: Item
     heldPrefix: ADTBSore
   - type: MultiHandedItem
   - type: Damageable
   - type: RequireProjectileTarget
   - type: Gibtonite
-    extracted: true    # помечаем, что это уже руда
-    elapsed: 0          # сюда будет передаваться значение от камня
+    extracted: true
+    elapsed: 0
   - type: InteractionOutline
   - type: Fixtures
     fixtures:

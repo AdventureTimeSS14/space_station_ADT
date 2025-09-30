@@ -13,7 +13,14 @@ public sealed partial class GibtoniteComponent : Component
     /// <summary>
     /// Активный ли гибтонит.
     /// </summary>
+    [DataField]
     public bool Active = false;
+
+    /// <summary>
+    /// Был ли гибтонит ударен. Можно подумать, что Active индентичная. Но нет, это нужно для добывания гибтонита.
+    /// </summary>
+    [DataField]
+    public bool Triggered = false;
 
     /// <summary>
     /// Состояние спрайта руды при Extracted.
@@ -66,6 +73,7 @@ public sealed partial class GibtoniteComponent : Component
     #endregion
 }
 
+[Serializable, NetSerializable]
 public enum GibtoniteState
 {
     OhFuck,
@@ -74,7 +82,8 @@ public enum GibtoniteState
 }
 
 [Serializable, NetSerializable]
-public enum GibtonitState : byte
+public enum GibtoniteVisuals : byte
 {
-    State,
+    Active,
+    State
 }

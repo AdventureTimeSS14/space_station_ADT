@@ -6,6 +6,9 @@ using Content.Shared.Mining.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
+using Content.Shared.Trigger;
+using Content.Server.Popups;
+using Content.Shared.Popups;
 
 namespace Content.Server.ADT.Mining.Systems;
 
@@ -15,6 +18,8 @@ public sealed class GibtoniteSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -29,25 +34,31 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     private void OnDamageChanged(EntityUid uid, GibtoniteComponent comp, ref DamageChangedEvent args)
     {
-        var triggered = false; // Нужно для проверки, был ли уже ударен гибтонит.
+        _popup.PopupEntity(Loc.GetString("gibtonit-get-damage"), uid, PopupType.LargeCaution);
+        // Если при ударе гибтонит уже был активен - моментальный BOOM BOOM BOOM
+        if (comp.Active)
+        {
+            Explosion(uid, comp);
+            return;
+        }
+        comp.Active = true;
 
-        if (!triggered && !comp.Active) // Проверка нужна, чтобы можно было вскопать гибтонит после дефьюза.
-        {
-            comp.Active = true;
-            if (!comp.Extracted) // Нам НЕ НУЖНО это для вскопанного гибтонита.
-            {
-                triggered = true;
-            }
-            StartTimer(uid, comp);
-            Dirty(uid, comp);
-        }
-        else
-        {
-            if (!comp.Extracted)
-            {
-                GetOre(uid, comp);
-            }
-        }
+        if (comp.Triggered)
+            GetOre(uid, comp);
+
+        if (!comp.Extracted)
+            comp.Triggered = true;
+
+        StartTimer(uid, comp);
+    }
+
+    private void UpdateAppearance(EntityUid uid, GibtoniteComponent comp, AppearanceComponent? appearance = null)
+    {
+        if (!Resolve(uid, ref appearance, false))
+            return;
+
+        _appearance.SetData(uid, GibtoniteVisuals.Active, comp.Active, appearance);
+        _appearance.SetData(uid, GibtoniteVisuals.State, comp.State, appearance);
     }
 
     /// <summary>
@@ -55,14 +66,18 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     public void StartTimer(EntityUid uid, GibtoniteComponent comp)
     {
+        UpdateAppearance(uid, comp);
+
         if (!comp.Extracted) // Опять, нам НЕ НУЖНО это для вскопанного гибтонита.
         {
             var randomNumb = _random.Next(5); // Немного рандома не помешает.
             comp.ReactionMaxTime -= randomNumb;
 
             comp.ReactionTime = _timing.CurTime;
-            comp.Active = true;
         }
+
+        if (!comp.Active)
+            return;
 
         Timer.Spawn(TimeSpan.FromSeconds(comp.ReactionMaxTime), () =>
         {
@@ -84,7 +99,7 @@ public sealed class GibtoniteSystem : EntitySystem
 
         var intensity = comp.Extracted
             ? Math.Clamp(power, comp.MinIntensity, comp.MaxIntensity) // на всякий.
-            : comp.MinIntensity;
+            : comp.MaxIntensity;
 
         if (comp.Extracted)
         {
@@ -95,7 +110,7 @@ public sealed class GibtoniteSystem : EntitySystem
                 >= 1.3f => GibtoniteState.Normal,
                 _ => GibtoniteState.Nothing
             };
-            Dirty(uid, comp);
+            UpdateAppearance(uid, comp);
         }
 
         if (!comp.Active)
@@ -110,8 +125,7 @@ public sealed class GibtoniteSystem : EntitySystem
             canCreateVacuum: true
         );
 
-        if (EntityManager.EntityExists(uid))
-            QueueDel(uid);
+        comp.Active = false;
     }
 
     /// <summary>
@@ -124,7 +138,10 @@ public sealed class GibtoniteSystem : EntitySystem
 
         comp.Active = false;
         comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds; // Считаем, сколько секунд осталось до взрыва.
-        Dirty(uid, comp);
+
+        _popup.PopupEntity(Loc.GetString("gibtonit-bombhasbeendefused"), uid, PopupType.MediumCaution);
+        StopAnimation(uid, comp);
+        UpdateAppearance(uid, comp);
     }
 
     /// <summary>
@@ -143,5 +160,17 @@ public sealed class GibtoniteSystem : EntitySystem
         }
 
         QueueDel(uid); // Типа вскопали лмао.
+    }
+
+    /// <summary>
+    /// Останавливает анимацию гибтонита, делая его “неактивным” визуально.
+    /// </summary>
+    private void StopAnimation(EntityUid uid, GibtoniteComponent comp, AppearanceComponent? appearance = null)
+    {
+        if (!Resolve(uid, ref appearance, false))
+            return;
+
+        // Деактивируем визуальный слой Primed
+        _appearance.SetData(uid, TriggerVisuals.VisualState, "Unprimed", appearance);
     }
 }
