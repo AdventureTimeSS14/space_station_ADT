@@ -35,7 +35,7 @@
     useDelay: 1
   - type: TargetAction
     range: 10
-  - type: InstantAction
+  - type: WorldTargetAction
     event: !type:GoliathSummonRandomTentacleAction
 
 # Мегафауна
