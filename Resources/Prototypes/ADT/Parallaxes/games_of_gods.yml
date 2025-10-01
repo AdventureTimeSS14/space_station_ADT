@@ -1,0 +1,17 @@
+- type: parallax
+  id: Cyber
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/Multiverse/purple_parallax.png"
+      scrolling: "0, 0"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/Multiverse/parallax_stars.png"
+      slowness: 0.6
+      scrolling: "0, -0.2"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+  layersLQUseHQ: false
