@@ -16,7 +16,7 @@
       - id: ClothingOuterWinterWarden
       - id: RubberStampWarden
       - id: DoorRemoteArmory
-      - id: ADTClothingModsuitBackWard # ADT tweak
+      - id: ADTClothingModsuitBackWard # ADT tweak ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: ADTBookSpaceLaw #ADT-WikiBooks
       - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
