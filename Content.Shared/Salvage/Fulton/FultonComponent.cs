@@ -41,7 +41,7 @@ public sealed partial class FultonComponent : Component
         {
             "Item",
             "Anchorable",
-            // ADT-Tweak-start
+            // ADT-Tweak-Start
             "Machine",
             "Computer",
             "VendingMachine",
