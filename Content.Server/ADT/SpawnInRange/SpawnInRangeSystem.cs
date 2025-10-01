@@ -43,7 +43,7 @@ public sealed partial class SpawnInRangeSystem : EntitySystem
             }
         }
 
-        if (component.SendFaxcords && TryComp<TransformComponent>(uid, out var mapform))
+        if (component.SendFaxCoords && TryComp<TransformComponent>(uid, out var mapform))
         {
             var coordstText = "";
             foreach (var coord in _spawnedPositions)
