@@ -1,5 +1,5 @@
 - type: parallax
-  id: Cyber
+  id: Multiverse
   layers:
     - texture:
         !type:ImageParallaxTextureSource
