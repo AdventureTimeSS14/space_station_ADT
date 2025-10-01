@@ -890,6 +890,10 @@
     layers:
     - state: default
     - state: idseniorengineer
+#ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorEngineer
+#ADT-Tweak-End
 
 - type: entity
   parent: ResearchIDCard
@@ -900,6 +904,10 @@
     layers:
     - state: default
     - state: idseniorresearcher
+#ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorResearcher
+#ADT-Tweak-End
 
 - type: entity
   parent: MedicalIDCard
@@ -910,6 +918,10 @@
     layers:
     - state: default
     - state: idseniorphysician
+#ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorPhysician
+#ADT-Tweak-End
 
 - type: entity
   parent: SecurityIDCard
@@ -920,6 +932,10 @@
     layers:
     - state: default
     - state: idseniorofficer
+#ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorOfficer
+#ADT-Tweak-End
 
 - type: entity
   parent: IDCardStandard
