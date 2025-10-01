@@ -96,6 +96,7 @@
       - id: WatermelonSeeds
       - id: PeaSeeds
       - id: CherrySeeds
+      - id: ADTMandarinSeeds # ADT Tweak
 
 - type: entity
   id: CrateHydroponicsTray

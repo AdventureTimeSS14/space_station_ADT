@@ -1,0 +1,23 @@
+#New Year
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSnowMaiden
+  name: snow maiden suit
+  description: A suit of a beautiful Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpskirt/snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpskirt/snow_maiden.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSchool
+  name: school uniform
+  description: Japan uniform fron Earth. It reminds me something...
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpskirt/uniform_school.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Uniforms/Jumpskirt/uniform_school.rsi #спрайты от Умы

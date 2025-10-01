@@ -63,6 +63,8 @@
             "name": "lemoon",
             "delays": [ [ 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15 ] ]
         },
-        { "name": "lemoon-slice" }
+        { "name": "lemoon-slice" },
+        { "name": "chocolate_heart" },
+        { "name": "chocolate-slice-heart" }
     ]
 }

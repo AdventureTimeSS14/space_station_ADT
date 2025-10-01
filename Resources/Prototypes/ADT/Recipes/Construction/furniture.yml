@@ -779,6 +779,50 @@
   conditions:
     - !type:TileNotBlocked
 
+# OctoberFest
+
+- type: construction
+  name: construction-name-oktoberfest-chair
+  id: ADTChairOktoberfestRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairoktoberfest
+  category: construction-category-furniture
+  description: construction-desc-oktoberfest-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-oktoberfest-table
+  id: ADTTableOktoberfestRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableoktoberfest
+  category: construction-category-furniture
+  description: construction-desc-oktoberfest-table
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-oktoberfest-orange-table
+  id: ADTTableOktoberfestOrangeRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableoktoberfestorange
+  category: construction-category-furniture
+  description: construction-desc-oktoberfest-orange-table
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 # Other
 
 - type: construction
