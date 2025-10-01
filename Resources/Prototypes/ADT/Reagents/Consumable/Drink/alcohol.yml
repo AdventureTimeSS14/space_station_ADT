@@ -482,6 +482,10 @@
         reagent: Nutriment
         amount: 0.2
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Poison: 0.3
