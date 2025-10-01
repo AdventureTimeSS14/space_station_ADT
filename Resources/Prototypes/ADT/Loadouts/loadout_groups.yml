@@ -145,7 +145,7 @@
   - CommonSatchel
   - CommonDuffel
   - ADTClothingBackpackSatchelLeather
-  
+
 # PATHOLOGIST
 
 - type: loadoutGroup
@@ -375,7 +375,7 @@
   minLimit: 0
   loadouts:
   - SeniorResearcherLabCoat
-  - ADTOuterClothingCoatsCrazySci 
+  - ADTOuterClothingCoatsCrazySci
 
 # BLUESHIELD
 
@@ -1045,12 +1045,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1116,12 +1114,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1184,12 +1180,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1564,12 +1558,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1635,12 +1627,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1705,12 +1695,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
@@ -1775,12 +1763,10 @@
   - ADTUnderwearSocksComfyGrey
   - ADTUnderwearSocksComfyRed
   - ADTUnderwearSocksComfyViolet
-  - ADTUnderwearSocksHeart
   - ADTUnderwearSocksBee
   - ADTUnderwearSocksBeeThigh
   - ADTUnderwearSocksCoder
   - ADTUnderwearStockingsLace
-  - ADTUnderwearStockingsHeart
   - ADTUnderwearStockingsBlack
   - ADTUnderwearStockingsComfyBlue
   - ADTUnderwearStockingsComfyGrey
