@@ -4,6 +4,9 @@ using Robust.Shared.Random;
 using Content.Server.Procedural;
 using System.Linq;
 using System.Collections.Generic;
+using Content.Server.Fax;
+using Content.Shared.Fax.Components;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.ADT.Generation;
 
@@ -11,8 +14,12 @@ public sealed partial class SpawnInRangeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly FaxSystem _fax = default!;
+    private const int MaxAttempts = 1000;
+    private const float MinDistanceFromOrigin = 40f;
+    private const float MinDistanceBetweenSpawns = 20f;
 
-    private readonly List<EntityCoordinates> _spawnedPositions = new();
+    private readonly List<Vector2> _spawnedPositions = new();
 
     public override void Initialize()
     {
@@ -24,53 +31,90 @@ public sealed partial class SpawnInRangeSystem : EntitySystem
     {
         _spawnedPositions.Clear();
 
-        foreach (var spawned in component.ProtosToSpawn)
+        if (component.ProtosToSpawn == null || component.ProtosToSpawn.Count == 0)
+            return;
+
+        foreach (var protoId in component.ProtosToSpawn)
         {
-            var coords = TryGetCords(uid, component.MaxX, component.MaxY, component.MinX, component.MinY);
-            int attempts = 0;
-            const int maxAttempts = 1000;
-
-            while (RetryCoords(coords, component.ClearRadiusAroundSpawned) && attempts < maxAttempts)
+            if (TryFindValidSpawnPosition(uid, component, out var coords))
             {
-                coords = TryGetCords(uid, component.MaxX, component.MaxY, component.MinX, component.MinY);
-                attempts++;
+                Spawn(protoId, coords);
+                _spawnedPositions.Add(coords.Position);
             }
+        }
 
-            if (attempts < maxAttempts)
+        if (component.SendFaxCoords && TryComp<TransformComponent>(uid, out var mapform))
+        {
+            var coordstText = "";
+            foreach (var coord in _spawnedPositions)
             {
-                Spawn(spawned, coords);
-                _spawnedPositions.Add(coords);
+                coordstText += coord.ToString() + Environment.NewLine;
             }
+            var printout = new FaxPrintout(
+                Loc.GetString("paper-lava-scan-start") + coordstText,
+                Loc.GetString("lava-fax-paper-name"),
+                null,
+                null,
+                "paper_stamp-centcom",
+                [new() { StampedName = Loc.GetString("stamp-component-stamped-name-lava-scan"), StampedColor = Color.FromHex("#0766a5ff") }]
+            );
+            Timer.Spawn(3000, () =>
+            {
+                var query = EntityQueryEnumerator<FaxMachineComponent>();
+                while (query.MoveNext(out var faxUid, out var fax))
+                {
+                    if (TryComp<TransformComponent>(faxUid, out var faxform) && faxform.MapID == mapform.MapID)
+                    {
+                        _fax.Receive(faxUid, printout, null, fax);
+                    }
+                }
+            });
         }
     }
 
-    private EntityCoordinates TryGetCords(EntityUid uid, float maxX, float maxY, float minX, float minY)
+    private bool TryFindValidSpawnPosition(EntityUid uid, SpawnInRangeComponent component, out EntityCoordinates coords)
     {
-        var randomX = _random.NextFloat(minX, maxX);
-        var randomY = _random.NextFloat(minY, maxY);
-        var coords1 = new Vector2(randomX, randomY);
-        var coords = new EntityCoordinates(uid, coords1);
-        return coords;
+        for (int attempt = 0; attempt < MaxAttempts; attempt++)
+        {
+            coords = GenerateRandomCoords(uid, component.MaxX, component.MaxY, component.MinX, component.MinY);
+
+            if (IsValidSpawnPosition(coords, component.ClearRadiusAroundSpawned))
+            {
+                return true;
+            }
+        }
+
+        coords = default;
+        return false;
     }
 
-    private bool RetryCoords(EntityCoordinates coords, float clearRadiusAroundSpawned)
+    private EntityCoordinates GenerateRandomCoords(EntityUid uid, float maxX, float maxY, float minX, float minY)
     {
+        var angle = _random.NextFloat(0, MathF.PI * 2);
+        var distance = _random.NextFloat(minX, maxX);
 
-        var distanceFromOrigin = Math.Sqrt(coords.X * coords.X + coords.Y * coords.Y);
-        if (distanceFromOrigin < 40)
-            return true;
+        var x = MathF.Cos(angle) * distance;
+        var y = MathF.Sin(angle) * distance;
+
+        return new EntityCoordinates(uid, x, y);
+    }
+
+    private bool IsValidSpawnPosition(EntityCoordinates coords, float clearRadius)
+    {
+        var position = coords.Position;
+
+        var distanceFromOriginSq = position.LengthSquared();
+        if (distanceFromOriginSq < MinDistanceFromOrigin * MinDistanceFromOrigin)
+            return false;
 
         foreach (var spawnedPos in _spawnedPositions)
         {
-            var dx = coords.X - spawnedPos.X;
-            var dy = coords.Y - spawnedPos.Y;
-            var distanceFromSpawned = Math.Sqrt(dx * dx + dy * dy);
-
-            if (distanceFromSpawned < 20)
-                return true;
+            var distanceSq = Vector2.DistanceSquared(position, spawnedPos);
+            if (distanceSq < MinDistanceBetweenSpawns * MinDistanceBetweenSpawns)
+                return false;
         }
 
-        return _lookup.GetEntitiesInRange(coords, clearRadiusAroundSpawned)
-                     .Any(lookup => HasComp<RoomFillComponent>(lookup));
+        return !_lookup.GetEntitiesInRange(coords, clearRadius)
+                       .Any(entity => HasComp<RoomFillComponent>(entity));
     }
 }
