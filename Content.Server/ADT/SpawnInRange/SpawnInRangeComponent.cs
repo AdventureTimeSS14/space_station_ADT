@@ -31,6 +31,9 @@ public sealed partial class SpawnInRangeComponent : Component
     [DataField, AutoNetworkedField]
     public float ClearRadiusAroundSpawned = 30;
 
+    /// <summary>
+    /// Отправлять ли координаты точек спавна на факс
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public bool SendFaxcords = true;
+    public bool SendFaxCoords = true;
 }
