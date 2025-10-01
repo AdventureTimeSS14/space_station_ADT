@@ -117,11 +117,11 @@
     - CanPilot
     - DoorBumpOpener
     - FootstepSound
-  # - type: SpeechBarks
-  #   data:
-  #     proto: SkeletonBarkOne
-  #     sound:
-  #       collection: ADTSkeletonBark
+  - type: SpeechBarks
+    data:
+      proto: SkeletonBarkOne
+      sound:
+        collection: ADTSkeletonBark
 # ADT-Tweak-end
 
 - type: entity

@@ -428,16 +428,6 @@
         effectProto: EffectRCDConstruct0
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
         powerCost: 3
-      - requiredTag: ADTSilverCandle
-        resultProto: ADTSilverCandleStick
-        effectProto: EffectRCDConstruct0
-        powerCost: 1
-        soundPath: /Audio/Items/Mining/fultext_launch.ogg
-      - requiredTag: ADTGoldCandle
-        resultProto: ADTGoldenCandleStick
-        effectProto: EffectRCDConstruct0
-        powerCost: 1
-        soundPath: /Audio/Items/Mining/fultext_launch.ogg
       - requiredTag: Bucket
         resultProto: PlushieRatvar
         effectProto: EffectRCDConstruct0

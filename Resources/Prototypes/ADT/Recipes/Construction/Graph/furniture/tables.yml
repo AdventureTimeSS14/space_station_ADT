@@ -69,24 +69,6 @@
               amount: 1
               doAfter: 1
 
-        - to: adttableoktoberfest
-          steps:
-            - tool: Screwing
-              doAfter: 1
-            - material: WoodPlank
-              amount: 1
-              doAfter: 1
-
-        - to: adttableoktoberfestorange
-          steps:
-            - tool: Screwing
-              doAfter: 1
-            - tool: Cutting
-              doAfter: 1
-            - material: WoodPlank
-              amount: 1
-              doAfter: 1
-
     - node: adttableroundplastic
       entity: ADTTableRoundPlastic
       edges:
@@ -140,30 +122,6 @@
 
     - node: adttablewhitewood
       entity: ADTTableWhiteWood
-      edges:
-        - to: adttableframe
-          completed:
-            - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 1
-
-    - node: adttableoktoberfest
-      entity: ADTTableOktoberfest
-      edges:
-        - to: adttableframe
-          completed:
-            - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 1
-
-    - node: adttableoktoberfestorange
-      entity: ADTTableOktoberfestOrange
       edges:
         - to: adttableframe
           completed:
