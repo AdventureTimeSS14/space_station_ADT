@@ -54,10 +54,10 @@
     sprite: ADT/Objects/Materials/gibtonite.rsi
     layers:
       - state: gibtonite
-        map: ["enum.GibtoniteVisuals.State", "gibtonite"] # Base state
+        visible: true
       - state: active
         visible: false
-        map: ["enum.GibtoniteVisuals.Active", true] # Active overlay
+        map: ["enum.GibtoniteVisuals.Active"]
   - type: Item
     heldPrefix: ADTBSore
   - type: MultiHandedItem
@@ -78,3 +78,69 @@
         - CrateMask
         layer:
         - MachineLayer
+
+- type: entity
+  parent: OreBase
+  id: ADTCopperOre
+  name: gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: CopperOre
+  - type: Sprite
+    state: copper
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawCopper: 300
+  - type: Item
+    heldPrefix: copper
+  - type: Extractable
+    grindableSolutionName: copper
+  - type: SolutionContainerManager
+    solutions:
+      copper:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 20
+
+- type: entity
+  parent: ADTCopperOre
+  id: ADTCopperOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: OreBase
+  id: ADTZincOre
+  name: gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ZincOre
+  - type: Sprite
+    state: zinc
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawZinc: 300
+  - type: Item
+    heldPrefix: zinc
+  - type: Extractable
+    grindableSolutionName: steel
+  - type: SolutionContainerManager
+    solutions:
+      steel:
+        reagents:
+        - ReagentId: Zinc
+          Quantity: 20
+
+- type: entity
+  parent: ADTZincOre
+  id: ADTZincOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

@@ -61,6 +61,9 @@
       - id: SheetSteel10
       - id: SheetPlastic10
       - id: SheetGlass10
+      - id: ADTSheetCopper  # ADT Tweak
+      - id: ADTSheetZinc  # ADT Tweak
+      - id: SheetBrass  # ADT Tweak
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled
       - id: MatterBinStockPart

@@ -125,7 +125,8 @@ public sealed class GibtoniteSystem : EntitySystem
             canCreateVacuum: true
         );
 
-        comp.Active = false;
+        if (EntityManager.EntityExists(uid))
+            QueueDel(uid);
     }
 
     /// <summary>
@@ -133,7 +134,7 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     private void OnItemInteract(EntityUid uid, GibtoniteComponent comp, ref InteractUsingEvent args)
     {
-        if (!HasComp<MiningScannerComponent>(args.Used) && comp.Extracted)
+        if (!HasComp<MiningScannerComponent>(args.Used) && !comp.Extracted)
             return;
 
         comp.Active = false;
@@ -158,8 +159,6 @@ public sealed class GibtoniteSystem : EntitySystem
             var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
             gibtoniteSystem.Explosion(ore, oreComp);
         }
-
-        QueueDel(uid); // Типа вскопали лмао.
     }
 
     /// <summary>

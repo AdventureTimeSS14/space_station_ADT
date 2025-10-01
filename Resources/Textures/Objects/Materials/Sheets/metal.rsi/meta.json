@@ -91,6 +91,23 @@
     {
       "name": "titanium-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "copper"
+    },
+    {
+      "name": "copper_2"
+    },
+    {
+      "name": "copper_3"
+    },
+    {
+      "name": "copper-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "copper-inhand-right",
+      "directions": 4
     }
   ]
 }

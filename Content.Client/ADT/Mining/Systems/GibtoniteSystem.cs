@@ -19,8 +19,9 @@ public sealed class GibtoniteSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
+        // Настройка слоёв при старте
         if (sprite.LayerMapTryGet(GibtoniteVisuals.State, out var stateLayer))
-            sprite.LayerSetState(stateLayer, "gibtonite");
+            sprite.LayerSetVisible(stateLayer, false);
 
         if (sprite.LayerMapTryGet(GibtoniteVisuals.Active, out var activeLayer))
             sprite.LayerSetVisible(activeLayer, false);
@@ -31,22 +32,30 @@ public sealed class GibtoniteSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
+        // 1. Active layer поверх всего
         if (args.AppearanceData.TryGetValue(GibtoniteVisuals.Active, out var activeObj) && activeObj is bool isActive)
         {
             if (sprite.LayerMapTryGet(GibtoniteVisuals.Active, out var activeLayer))
                 sprite.LayerSetVisible(activeLayer, isActive);
         }
 
+        // 2. State layer между base и active
         if (args.AppearanceData.TryGetValue(GibtoniteVisuals.State, out var stateObj) && stateObj is GibtoniteState state)
         {
-            if (sprite.LayerMapTryGet(GibtoniteVisuals.State, out var stateLayer))
+            if (!sprite.LayerMapTryGet(GibtoniteVisuals.State, out var stateLayer))
+                return;
+
+            if (state == GibtoniteState.Nothing)
+            {
+                sprite.LayerSetVisible(stateLayer, false);
+            }
+            else
             {
                 string stateName = state switch
                 {
                     GibtoniteState.Normal => "normal",
                     GibtoniteState.OhFuck => "ohfuck",
-                    GibtoniteState.Nothing => "gibtonite",
-                    _ => "gibtonite"
+                    _ => "normal"
                 };
 
                 sprite.LayerSetState(stateLayer, stateName);
