@@ -120,6 +120,10 @@
   category: Disabilities
   components:
   - type: Hemophilia
+  speciesBlacklist: # ADT Quirks
+  - IPC
+  quirk: true
+  cost: -2 # ADT Quirks
 
 # - type: trait
 #   id: ImpairedMobility

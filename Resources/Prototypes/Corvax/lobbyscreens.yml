@@ -110,9 +110,9 @@
   id: Xeno
   background: /Textures/Corvax/LobbyScreens/xeno.webp
 
-- type: lobbyBackground
-  id: ClownSpider
-  background: /Textures/Corvax/LobbyScreens/clownspider.png
+# - type: lobbyBackground
+#   id: ClownSpider
+#   background: /Textures/Corvax/LobbyScreens/clownspider.png
 
 #ADT tweak start
 # - type: lobbyBackground
@@ -190,9 +190,9 @@
   id: NukieWar
   background: /Textures/Corvax/LobbyScreens/nukie-war.webp
 
-- type: lobbyBackground
-  id: EngineersVsZombies
-  background: /Textures/Corvax/LobbyScreens/engineers-vs-zombies.png
+# - type: lobbyBackground
+#   id: EngineersVsZombies
+#   background: /Textures/Corvax/LobbyScreens/engineers-vs-zombies.png
 
 - type: lobbyBackground
   id: SillyIsland

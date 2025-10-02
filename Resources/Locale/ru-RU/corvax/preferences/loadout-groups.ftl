@@ -1,4 +1,6 @@
 loadout-group-inventory = Мой инвентарь
+# Engineering
+loadout-group-chief-engineer-backpack = Рюкзак старшего инженера
 
 # Security
 loadout-group-brigmedic-head = Бригмедик, голова

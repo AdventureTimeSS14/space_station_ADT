@@ -161,4 +161,4 @@
   id: ItemDetected
   name: signal-port-name-item-detected
   description: signal-port-description-item-detected
-  defaultLinks: [ Toggle, Trigger, Timer ]
+  defaultLinks: [ Toggle, Trigger] #, Timer ] (Откат)

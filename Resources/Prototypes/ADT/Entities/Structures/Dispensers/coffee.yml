@@ -105,10 +105,12 @@
   - type: Sprite
     state: command
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+        whitelist:
+        tags:
+        - DrinkBottle
+        - ChemDispensable
   - type: StorageFill
     contents:
     - id: DrinkCoffeeBluespaceJug
@@ -122,9 +124,11 @@
   - type: Sprite
     state: bluespace
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - ADTBluespaceCoffeine
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        tags:
+        - ADTBluespaceCoffeine
   - type: StorageFill
     contents:
     - id: DrinkCoffeeJug
@@ -140,10 +144,12 @@
   suffix: Filled, Common
   components:
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        tags:
+        - DrinkBottle
+        - ChemDispensable
   - type: StorageFill
     contents:
     - id: DrinkCoffeeJug
