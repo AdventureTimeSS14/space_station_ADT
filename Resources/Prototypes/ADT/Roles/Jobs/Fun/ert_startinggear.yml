@@ -53,21 +53,6 @@
     - SpaceCash500
     - ADTertMechUplink
 
-- type: job
-  id: ERTLeader
-  name: job-name-ertleader
-  description: job-description-ertleader
-  playTimeTracker: JobERTLeader
-  setPreference: false
-  startingGear: ADTERTLeaderGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-
 - type: startingGear
   id: ADTERTLeaderGearEVARiot
   equipment:
@@ -265,21 +250,6 @@
     - PinpointerNuclear
     - FlashlightSeclite
     - SpaceCash500
-
-- type: job
-  id: ERTSecurity
-  name: job-name-ertsecurity
-  description: job-description-ertsecurity
-  playTimeTracker: JobERTSecurity
-  setPreference: false
-  startingGear: ADTERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
 
 - type: startingGear
   id: ADTERTSecurityGearEVARiot

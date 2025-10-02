@@ -25,6 +25,7 @@
       state: absorb_dna
     itemIconStyle: BigAction
     priority: -60
+    useDelay: 5
   - type: TargetAction
   - type: EntityTargetAction
     whitelist:
@@ -32,7 +33,6 @@
       - Body
     canTargetSelf: false
     event: !type:LingAbsorbActionEvent
-    useDelay: 5
 
 - type: entity
   id: ActionChangelingTransform

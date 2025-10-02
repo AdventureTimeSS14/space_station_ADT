@@ -751,6 +751,22 @@ SpawnHonkBot: SpawnMobHonkBot
 CrateFoodPizzaLarge: CrateFoodPizza
 CrateFoodSoftdrinksLarge: CrateFoodSoftdrinks
 
+# # 2025-06-06
+# MagazineLightRifleMaxim: null
+# MagazineLightRiflePkBox: null
+# MagazineCaselessRifle10x24: null
+# BaseMagazineCaselessRifleShort: null
+# MagazineCaselessRifleShort: null
+# MagazineCaselessRifleShortPractice: null
+# BaseMagazineMagnumSubMachineGun: null
+# MagazineMagnumSubMachineGunEmpty: null
+# MagazineMagnumSubMachineGun: null
+# MagazineMagnumSubMachineGunPractice: null
+# MagazineMagnumSubMachineGunUranium: null
+# MagazineMagnumSubMachineGunPiercing: null
+# BoxMagazineMagnumSubMachineGun: null
+# BoxMagazineMagnumSubMachineGunPractice: null
+
 # 2025-06-09
 BarSignAlignTile: BarSign
 BarSignComboCafeAlignTile: BarSignComboCafe

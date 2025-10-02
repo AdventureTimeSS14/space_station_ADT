@@ -36,5 +36,5 @@
   equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
     mask: ClothingMaskBreath
-    neck: ClothingNeckLGBTPin
+    # neck: ClothingNeckLGBTPin # ADT-No-One-LGBTQ+Pin-Going-To-Stop-Us
     gloves: ClothingHandsGlovesColorBlack

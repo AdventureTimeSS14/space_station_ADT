@@ -9,8 +9,7 @@
     - type: MachineBoard
       prototype: ADTUniversalPipeDispenser
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 2
+        Manipulator: 4
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -27,7 +26,6 @@
     prototype: ADTBookPrinter
     stackRequirements:
       Manipulator: 2
-      MatterBin: 2
 # Ganimed-Book-Printer-End
 
 - type: entity
@@ -90,9 +88,8 @@
       prototype: ADTCoffeeMachineBluespace
       stackRequirements:
         Steel: 5
-        MatterBin: 3
         Plasma: 5
-
+        Manipulator: 3
         Glass: 5
       tagRequirements:
           GlassBeaker:
@@ -140,8 +137,7 @@
     - type: MachineBoard
       prototype: ADTAdvancedKitchenReagentGrinder
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 4
+        Manipulator: 6
         Plasma: 5
       tagRequirements:
         GlassBeaker:
@@ -246,8 +242,7 @@
       Glass: 15
       Steel: 15
       CableHV: 5
-      Manipulator: 5
-      MatterBin: 15
+      Manipulator: 20
       ADTBScrystalArt: 10
     tagRequirements:
       GlassBeaker:

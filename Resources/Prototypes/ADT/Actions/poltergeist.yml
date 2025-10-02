@@ -11,9 +11,9 @@
     itemIconStyle: BigAction
     useDelay: 45
   - type: TargetAction
-    canTargetSelf: false
     range: 3
   - type: EntityTargetAction
+    canTargetSelf: false
     event: !type:PoltergeistMalfunctionActionEvent
 
 - type: entity
@@ -29,12 +29,12 @@
     itemIconStyle: BigAction
     useDelay: 30
   - type: TargetAction
+    range: 3
+  - type: EntityTargetAction
     whitelist:
       components:
       - Item
     canTargetSelf: false
-    range: 3
-  - type: EntityTargetAction
     event: !type:PoltergeistNoisyActionEvent
 
 - type: entity

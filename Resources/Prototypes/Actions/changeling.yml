@@ -14,7 +14,7 @@
   - type: InstantAction
     event: !type:OnRetractableItemActionEvent
   - type: RetractableItemAction
-    spawnedPrototype: ArmBlade
+    spawnedPrototype: ADTArmBlade # ADT-Tweak
     summonSounds:
       collection: gib # Placeholder
     retractSounds:

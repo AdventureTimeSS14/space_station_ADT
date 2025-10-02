@@ -28,12 +28,12 @@
     useDelay: 1
     priority: -89
   - type: TargetAction
-    canTargetSelf: false
     range: 3
+  - type: EntityTargetAction
     whitelist:
       components:
       - Body
-  - type: EntityTargetAction
+    canTargetSelf: false
     event: !type:MakeHolderActionEvent
 
 #- type: entity
@@ -63,7 +63,6 @@
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: breath_in_back
     itemIconStyle: BigAction
-    event: !type:CycleVesselActionEvent
   - type: InstantAction
     event: !type:CycleVesselActionEvent
 

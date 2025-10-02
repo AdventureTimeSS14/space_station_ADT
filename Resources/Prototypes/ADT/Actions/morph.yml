@@ -66,7 +66,7 @@
   components:
   - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
-    event: !type:MorphVentOpenActionEvent
     priority: 6
   - type: TargetAction
   - type: EntityTargetAction
+    event: !type:MorphVentOpenActionEvent

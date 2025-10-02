@@ -27,15 +27,6 @@
     specialDigestible:
       tags:
         - Trash
-        - Fruit
-        - ReptilianFood
-        - Meat
-        - Pill
-        - Crayon
-        - Paper
-        - VoxFood
-        - Vegetable
-        - Cake        # ADT-Tweak
     isSpecialDigestibleExclusive: false
 
 - type: entity

@@ -47,7 +47,7 @@
   parent: ActionToggleMagboots
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi, state: icon }
     iconOn: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi/icon-on.png
 
@@ -56,6 +56,6 @@
   parent: ActionToggleMagboots
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi, state: icon }
     iconOn: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi/icon-on.png

@@ -21,10 +21,12 @@
     drawdepth: SmallObjects
     state: common
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        tags:
+        - DrinkBottle
+        - ChemDispensable
   - type: Transform
     noRot: false
   - type: GuideHelp

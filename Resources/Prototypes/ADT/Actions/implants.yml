@@ -4,13 +4,14 @@
   description: action-mantis-daggers-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/mantis_daggers.rsi
       state: icon
     itemIconStyle: BigAction
-    event: !type:ToggleMantisDaggersEvent
     useDelay: 1
+  - type: InstantAction
+    event: !type:ToggleMantisDaggersEvent
 
 - type: entity
   id: ActionToggleSundownerShields
@@ -18,7 +19,7 @@
   description: action-sundowner-shields-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/sundowner_shields.rsi
@@ -27,8 +28,9 @@
       sprite: ADT/Interface/Actions/sundowner_shields.rsi
       state: icon-ON
     itemIconStyle: BigAction
-    event: !type:ToggleSundownerShieldsEvent
     useDelay: 5
+  - type: InstantAction
+    event: !type:ToggleSundownerShieldsEvent
 
 - type: entity
   id: ActionToggleMuscles
@@ -36,7 +38,7 @@
   description: action-muscles-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type:  Action
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/muscles_implant.rsi
       state: icon
