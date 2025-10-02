@@ -320,21 +320,6 @@
     - FlashlightSeclite
     - SpaceCash500
 
-- type: job
-  id: ERTMedical
-  name: job-name-ertmedic
-  description: job-description-ertmedic
-  playTimeTracker: JobERTMedical
-  setPreference: false
-  startingGear: ADTERTMedicalGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-
 - type: startingGear
   id: ADTERTMedicalGearEVARiot
   equipment:
