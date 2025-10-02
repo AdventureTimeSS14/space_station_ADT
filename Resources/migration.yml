@@ -46,7 +46,7 @@ lanternextrabright: LanternFlash
 
 # 2023-08-04
 BoxMagazineLightRifleHighVelocity: BoxMagazineLightRifle
-BoxMagazineMagnumSubMachineGunHighVelocity: null
+BoxMagazineMagnumSubMachineGunHighVelocity: BoxMagazineMagnumSubMachineGun
 BoxMagazinePistolCaselessRifleHighVelocity: BoxMagazinePistolCaselessRifle
 BoxMagazinePistolHighCapacityHighVelocity: BoxMagazinePistolHighCapacity
 BoxMagazinePistolHighVelocity: BoxMagazinePistol
@@ -68,9 +68,9 @@ MagazineBoxMagnumHighVelocity: MagazineBoxMagnum
 MagazineBoxPistolHighVelocity: MagazineBoxPistol
 MagazineBoxRifleHighVelocity: MagazineBoxRifle
 MagazineCaselessRifleHighVelocity: MagazineCaselessRifle
-MagazineCaselessRifleShortHighVelocity: null
+MagazineCaselessRifleShortHighVelocity: MagazineCaselessRifleShort
 MagazineLightRifleHighVelocity: MagazineLightRifle
-MagazineMagnumSubMachineGunHighVelocity: null
+MagazineMagnumSubMachineGunHighVelocity: MagazineMagnumSubMachineGun
 MagazinePistolCaselessRifleHighVelocity: MagazinePistolCaselessRifle
 MagazinePistolHighCapacityHighVelocity: MagazinePistolHighCapacity
 MagazinePistolHighVelocity: MagazinePistol
@@ -315,11 +315,11 @@ MagazinePistolRubber: MagazinePistol
 MagazinePistolSubMachineGunRubber: MagazinePistolSubMachineGun
 MagazinePistolCaselessRifleRubber: MagazinePistolCaselessRifle
 MagazineMagnumRubber: MagazineMagnum
-MagazineMagnumSubMachineGunRubber: null
+MagazineMagnumSubMachineGunRubber: MagazineMagnumSubMachineGun
 MagazineLightRifleRubber: MagazineLightRifle
 MagazineRifleRubber: MagazineRifle
 MagazineCaselessRifleRubber: MagazineCaselessRifle
-MagazineCaselessRifleShortRubber: null
+MagazineCaselessRifleShortRubber: MagazineCaselessRifleShort
 SpeedLoaderPistolRubber: SpeedLoaderPistol
 SpeedLoaderMagnumRubber: SpeedLoaderMagnum
 MagazineBoxPistolRubber: MagazineBoxPistol
@@ -335,7 +335,7 @@ BoxMagazinePistolSubMachineGunRubber: BoxMagazinePistolSubMachineGun
 BoxMagazineLightRifleRubber: BoxMagazineLightRifle
 BoxMagazineRifleRubber: BoxMagazineRifle
 BoxMagazineCaselessRifleRubber: BoxMagazinePistolCaselessRifle
-BoxMagazineMagnumSubMachineGunRubber: null
+BoxMagazineMagnumSubMachineGunRubber: BoxMagazineMagnumSubMachineGun
 WeaponPistolMk58Nonlethal: WeaponPistolMk58
 WeaponPistolN1984Nonlethal: WeaponPistolN1984
 WeaponSubMachineGunDrozdRubber: WeaponSubMachineGunDrozd
@@ -750,22 +750,6 @@ SpawnHonkBot: SpawnMobHonkBot
 # 2025-06-01
 CrateFoodPizzaLarge: CrateFoodPizza
 CrateFoodSoftdrinksLarge: CrateFoodSoftdrinks
-
-# 2025-06-06
-MagazineLightRifleMaxim: null
-MagazineLightRiflePkBox: null
-MagazineCaselessRifle10x24: null
-BaseMagazineCaselessRifleShort: null
-MagazineCaselessRifleShort: null
-MagazineCaselessRifleShortPractice: null
-BaseMagazineMagnumSubMachineGun: null
-MagazineMagnumSubMachineGunEmpty: null
-MagazineMagnumSubMachineGun: null
-MagazineMagnumSubMachineGunPractice: null
-MagazineMagnumSubMachineGunUranium: null
-MagazineMagnumSubMachineGunPiercing: null
-BoxMagazineMagnumSubMachineGun: null
-BoxMagazineMagnumSubMachineGunPractice: null
 
 # 2025-06-09
 BarSignAlignTile: BarSign
