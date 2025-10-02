@@ -891,8 +891,10 @@
     layers:
     - state: default
     - state: idseniorengineer
-  - type: PresetIdCard # Corvax-MentorRoles
-    job: SeniorEngineer # Corvax-MentorRoles
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorEngineer
+# ADT-Tweak-End
 
 - type: entity
   parent: ResearchIDCard
@@ -903,8 +905,10 @@
     layers:
     - state: default
     - state: idseniorresearcher
-  - type: PresetIdCard # Corvax-MentorRoles
-    job: SeniorResearcher # Corvax-MentorRoles
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorResearcher
+# ADT-Tweak-End
 
 - type: entity
   parent: MedicalIDCard
@@ -915,8 +919,10 @@
     layers:
     - state: default
     - state: idseniorphysician
-  - type: PresetIdCard # Corvax-MentorRoles
-    job: SeniorPhysician # Corvax-MentorRoles
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorPhysician
+# ADT-Tweak-End
 
 - type: entity
   parent: SecurityIDCard
@@ -927,8 +933,10 @@
     layers:
     - state: default
     - state: idseniorofficer
-  - type: PresetIdCard # Corvax-MentorRoles
-    job: SeniorOfficer # Corvax-MentorRoles
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorOfficer
+# ADT-Tweak-End
 
 - type: entity
   parent: IDCardStandard
