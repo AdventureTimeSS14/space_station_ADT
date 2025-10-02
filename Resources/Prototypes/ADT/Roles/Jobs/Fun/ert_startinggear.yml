@@ -98,180 +98,7 @@
 #engie
 
 - type: startingGear
-  id: ERTLeaderGearEVA
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTLeader
-    back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMagAdv
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
-    neck: ClothingNeckMantleERTLeader # Corvax-Clothing
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTLeader
-    id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolN1984
-    pocket2: FlashlightSeclite
-  storage:
-    back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
-    - BoxZiptie
-    - CrowbarRed
-    - MagazineMagnum
-
-- type: startingGear
-  id: ERTLeaderGearEVALecter
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTLeader
-    back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMagAdv
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
-    neck: ClothingNeckMantleERTLeader # Corvax-Clothing
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTLeader
-    id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
-  inhand:
-  - WeaponRifleLecter
-  storage:
-    back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
-    - BoxZiptie
-    - CrowbarRed
-    - MagazineMagnum
-
-- type: chameleonOutfit
-  id: ERTLeaderChameleonOutfit
-  job: ERTLeader
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHelmetHardsuitERTLeader
-    neck: ClothingNeckBronzeheart
-
-# Chaplain
-- type: job
-  id: ERTChaplain
-  name: job-name-ertchaplain
-  description: job-description-ertchaplain
-  playTimeTracker: JobERTChaplain
-  setPreference: false
-  startingGear: ERTChaplainGear
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: BibleUser #Lets them heal with bibles
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-
-- type: startingGear
-  id: ERTChaplainGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTChaplain
-    back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesLeather
-    head: ClothingHeadHatFez
-    eyes: ClothingEyesGlasses
-    neck: ClothingNeckStoleChaplain
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorBasicSlim
-    id: ERTChaplainPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
-    pocket2: DrinkWaterBottleFull
-  storage:
-    back:
-    - BoxCandle
-    - BoxBodyBag
-    - DrinkWaterMelonJuiceJug
-    - Lantern
-    - Lantern
-    - Bible
-    - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - Lighter
-
-- type: startingGear
-  id: ERTChaplainGearEVA
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTChaplain
-    back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesBootsMagAdv
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlasses
-    neck: ClothingNeckStoleChaplain
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTChaplain
-    id: ERTChaplainPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
-    pocket2: DrinkWaterBottleFull
-  storage:
-    back:
-    - BoxCandle
-    - BoxBodyBag
-    - DrinkWaterMelonJuiceJug
-    - Lantern
-    - Lantern
-    - Bible
-    - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - Lighter
-
-- type: chameleonOutfit
-  id: ERTChaplainChameleonOutfit
-  job: ERTChaplain
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHelmetHardsuitERTChaplain
-    mask: ClothingMaskGasERT
-    outerClothing: ClothingOuterHardsuitERTChaplain
-    shoes: ClothingShoesBootsMagAdv
-
-# Engineer
-# - type: job
-#   id: ERTEngineer
-#   name: job-name-ertengineer
-#   description: job-description-ertengineer
-#   playTimeTracker: JobERTEngineer
-#   setPreference: false
-#   startingGear: ERTEngineerGearEVA
-#   icon: "JobIconNanotrasen"
-#   supervisors: job-supervisors-centcom
-#   canBeAntag: false
-#   accessGroups:
-#   - AllAccess
-#   access:
-#   - CentralCommand
-#   special:
-#   - !type:AddImplantSpecial
-#     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-
-- type: startingGear
-  id: ERTEngineerGear
+  id: ADTERTEngineerGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
@@ -336,22 +163,13 @@
     - FlashlightSeclite
     - SpaceCash500
 
-- type: chameleonOutfit
-  id: ERTEngineerChameleonOutfit
-  job: ERTEngineer
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHelmetHardsuitERTEngineer
-    neck: ClothingNeckEngineermedal
-
-# Security
 - type: job
   id: ERTEngineer
   name: job-name-ertengineer
   description: job-description-ertengineer
   playTimeTracker: JobERTEngineer
   setPreference: false
-  startingGear: ERTSecurityGearEVA
+  startingGear: ADTERTEngineerGearEVA
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -448,41 +266,6 @@
     - FlashlightSeclite
     - SpaceCash500
 
-- type: startingGear
-  id: ERTSecurityGearEVALecter
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTSecurity
-    back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMag
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTSecurity
-    id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
-  inhand:
-    - WeaponRifleLecter
-  storage:
-    back:
-    - WeaponDisabler
-    - MedicatedSuture
-    - RegenerativeMesh
-    - BoxZiptie
-    - CrowbarRed
-    - MagazinePistol
-
-- type: chameleonOutfit
-  id: ERTSecurityChameleonOutfit
-  job: ERTSecurity
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHelmetHardsuitERTSecurity
-    neck: ClothingNeckSecuritymedal
-
-# Medical
 - type: job
   id: ERTSecurity
   name: job-name-ertsecurity
@@ -582,15 +365,6 @@
     - FlashlightSeclite
     - SpaceCash500
 
-- type: chameleonOutfit
-  id: ERTMedicalChameleonOutfit
-  job: ERTMedical
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHelmetHardsuitERTMedical
-    neck: ClothingNeckStethoscope
-
-# Janitor
 - type: job
   id: ERTMedical
   name: job-name-ertmedic
@@ -690,11 +464,12 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
+    - PinpointerNuclear
+    - FlashlightSeclite
+    - SpaceCash500
 
-- type: chameleonOutfit
-  id: ERTJanitorChameleonOutfit
-  job: ERTJanitor
-  hasMindShield: true
+- type: startingGear
+  id: ADTERTJanitorGearEVARiot
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor

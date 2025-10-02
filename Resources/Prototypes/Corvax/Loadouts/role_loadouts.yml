@@ -18,34 +18,34 @@
   - GroupSpeciesBreathTool
 
 # Engineering
-- type: roleLoadout
-  id: JobSeniorEngineer
-  groups:
-  - GroupTankHarness
-  - SeniorEngineerHead
-  - SeniorEngineerJumpsuit
-  - SeniorEngineerBackpack
-  - SeniorEngineerOuterClothing
-  - SeniorEngineerShoes
-  - SurvivalExtended
-  - Trinkets
-  - GroupSpeciesBreathTool
+# - type: roleLoadout
+#   id: JobSeniorEngineer
+#   groups:
+#   - GroupTankHarness
+#   - SeniorEngineerHead
+#   - SeniorEngineerJumpsuit
+#   - SeniorEngineerBackpack
+#   - SeniorEngineerOuterClothing
+#   - SeniorEngineerShoes
+#   - SurvivalExtended
+#   - Trinkets
+#   - GroupSpeciesBreathTool
 
 # Science
-- type: roleLoadout
-  id: JobSeniorResearcher
-  groups:
-  - GroupTankHarness
-  - SeniorResearcherHead
-  - SeniorResearcherJumpsuit
-  - SeniorResearcherBackpack
-  - SeniorResearcherOuterClothing
-  - SeniorResearcherGloves
-  - SeniorResearcherShoes
-  - Glasses
-  - Survival
-  - Trinkets
-  - GroupSpeciesBreathTool
+# - type: roleLoadout
+#   id: JobSeniorResearcher
+#   groups:
+#   - GroupTankHarness
+#   - SeniorResearcherHead
+#   - SeniorResearcherJumpsuit
+#   - SeniorResearcherBackpack
+#   - SeniorResearcherOuterClothing
+#   - SeniorResearcherGloves
+#   - SeniorResearcherShoes
+#   - Glasses
+#   - Survival
+#   - Trinkets
+#   - GroupSpeciesBreathTool
 
 # Security
 - type: roleLoadout

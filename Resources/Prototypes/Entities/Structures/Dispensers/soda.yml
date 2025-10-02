@@ -15,6 +15,7 @@
     whitelist:
       tags:
       - DrinkBottle
+      - ChemDispensable
   - type: Transform
     noRot: false
   - type: Machine
@@ -31,22 +32,24 @@
   components:
   - type: StorageFill
     contents:
-    - id: DrinkCoconutWaterJug
-    - id: DrinkCoffeeJug
-    - id: DrinkColaBottleFull
-    - id: DrinkCreamCartonXL
-    - id: DrinkDrGibbJug
-    - id: DrinkEnergyDrinkJug
-    - id: DrinkGreenTeaJug
-    - id: DrinkIceJug
-    - id: DrinkJuiceLimeCartonXL
-    - id: DrinkJuiceOrangeCartonXL
-    - id: DrinkLemonLimeJug
-    - id: DrinkRootBeerJug
-    - id: DrinkSodaWaterBottleFull
-    - id: DrinkSpaceMountainWindBottleFull
-    - id: DrinkSpaceUpBottleFull
-    - id: DrinkSugarJug
-    - id: DrinkTeaJug
-    - id: DrinkTonicWaterBottleFull
-    - id: DrinkWaterMelonJuiceJug
+    # ADT-Tweak-Start
+    - id: ADTDrinkCoconutWaterCanister
+    - id: ADTDrinkCoffeeCanister
+    - id: ADTDrinkColaCanister
+    - id: ADTDrinkCreamCanister
+    - id: ADTDrinkDrGibbCanister
+    - id: ADTDrinkEnergyDrinkCanister
+    - id: ADTDrinkGreenTeaCanister
+    - id: ADTDrinkIceCanister
+    - id: ADTDrinkJuiceLimeCanister
+    - id: ADTDrinkJuiceOrangeCanister
+    - id: ADTDrinkLemonLimeCanister
+    - id: ADTDrinkRootBeerCanister
+    - id: ADTDrinkSodaWaterCanister
+    - id: ADTDrinkSpaceMountainWindCanister
+    - id: ADTDrinkSpaceUpCanister
+    - id: ADTDrinkSugarCanister
+    - id: ADTDrinkTeaCanister
+    - id: ADTDrinkTonicWaterCanister
+    - id: ADTDrinkJuiceWatermelonCanister
+    # ADT-Tweak-End

@@ -57,9 +57,9 @@
         sound:
           collection: MetalGlassBreak
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: SpecialCanister # ADT-Tweak
     grid:
-    - 0,0,19,5
+    - 0,0,19,9 # ADT-Tweak
   - type: ReagentDispenser
     beakerSlot:
       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message

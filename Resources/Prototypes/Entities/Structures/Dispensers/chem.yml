@@ -57,23 +57,25 @@
   - type: ReagentDispenser
   - type: StorageFill
     contents:
-      - id: JugAluminium
-      - id: JugCarbon
-      - id: JugChlorine
-      - id: JugCopper
-      - id: JugEthanol
-      - id: JugFluorine
-      - id: JugSugar
-      - id: JugHydrogen
-      - id: JugIodine
-      - id: JugIron
-      - id: JugLithium
-      - id: JugMercury
-      - id: JugNitrogen
-      - id: JugOxygen
-      - id: JugPhosphorus
-      - id: JugPotassium
-      - id: JugRadium
-      - id: JugSilicon
-      - id: JugSodium
-      - id: JugSulfur
+    # ADT-Tweak-Start
+    - id: ADTReagentCanisterAluminium
+    - id: ADTReagentCanisterCarbon
+    - id: ADTReagentCanisterChlorine
+    - id: ADTReagentCanisterCopper
+    - id: ADTReagentCanisterEthanol
+    - id: ADTReagentCanisterFluorine
+    - id: ADTReagentCanisterSugar
+    - id: ADTReagentCanisterHydrogen
+    - id: ADTReagentCanisterIodine
+    - id: ADTReagentCanisterIron
+    - id: ADTReagentCanisterLithium
+    - id: ADTReagentCanisterMercury
+    - id: ADTReagentCanisterNitrogen
+    - id: ADTReagentCanisterOxygen
+    - id: ADTReagentCanisterPhosphorus
+    - id: ADTReagentCanisterPotassium
+    - id: ADTReagentCanisterRadium
+    - id: ADTReagentCanisterSilicon
+    - id: ADTReagentCanisterSodium
+    - id: ADTReagentCanisterSulfur
+    # ADT-Tweak-End

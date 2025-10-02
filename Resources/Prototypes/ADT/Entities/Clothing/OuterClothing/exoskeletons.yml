@@ -47,6 +47,7 @@
   name: Toggle Speed Boots
   description: Toggles the speed boots on and off.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigItem
+  - type: InstantAction
     event: !type:ToggleActionEvent

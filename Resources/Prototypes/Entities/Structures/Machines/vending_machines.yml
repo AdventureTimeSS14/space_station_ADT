@@ -72,8 +72,6 @@
   - type: Anchorable
   - type: TypingIndicator
     proto: robot
-  - type: TTS # Corvax-TTS
-    voice: TrainingRobot
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending
@@ -1042,9 +1040,9 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    allForFree: true # ADT-Economy
   - type: DatasetVocalizer
     dataset: MegaSeedAds
-    allForFree: true # ADT-Economy
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
