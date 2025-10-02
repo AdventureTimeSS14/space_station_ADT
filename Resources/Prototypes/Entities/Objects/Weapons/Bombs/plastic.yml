@@ -104,7 +104,6 @@
         volume: -6
     startOnStick: false
     canToggleStartOnStick: true
-  - type: TimerStartOnSignal
   - type: DeviceLinkSink
     ports:
     - Trigger #Timer (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)

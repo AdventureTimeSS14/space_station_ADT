@@ -151,9 +151,9 @@
     useDelay: 20
     priority: -80
   - type: TargetAction
-    canTargetSelf: false
     range: 3
   - type: EntityTargetAction
+    canTargetSelf: false
     event: !type:BreakdownActionEvent
 
 - type: entity
@@ -217,9 +217,9 @@
     useDelay: 45
     priority: -80
   - type: TargetAction
-    canTargetSelf: false
     range: 3
   - type: EntityTargetAction
+    canTargetSelf: false
     event: !type:StarvationActionEvent
 
 - type: entity
@@ -270,9 +270,9 @@
     useDelay: 30
     priority: -80
   - type: TargetAction
-    canTargetSelf: false
     range: 3
   - type: EntityTargetAction
+    canTargetSelf: false
     event: !type:RepairActionEvent
 
 - type: entity
@@ -289,9 +289,9 @@
     useDelay: 60
     priority: -79
   - type: TargetAction
-    canTargetSelf: false
     range: 3
   - type: EntityTargetAction
+    canTargetSelf: false
     event: !type:BloodBlindingActionEvent
 
 - type: entity
