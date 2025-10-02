@@ -93,20 +93,20 @@ ent-ADTFoodSnackChocolateBarTwo = двойной батончик
     .desc = Выбирай, на чьей ты стороне?
 
 # Обертки
-ent-ADTFoodSnackChocolateTrashChoco = обертка от шоколадного батончика
-    .desc = Мусор
+ent-ADTFoodPacketChocolateTrashChoco = обертка от шоколадного батончика
+    .desc = Это мусор.
 
-ent-ADTFoodSnackChocolateTrashCoconut = обертка от Кокосового батончика
-    .desc = Мусор
+ent-ADTFoodPacketChocolateTrashCoconut = обертка от кокосового батончика
+    .desc = Это мусор.
 
-ent-ADTFoodSnackChocolateTrashEnergy = обертка от Энергетического батончика
-    .desc = Мусор
+ent-ADTFoodPacketChocolateTrashEnergy = обертка от энергетического батончика
+    .desc = Это мусор.
 
-ent-ADTFoodSnackChocolateTrashNuts = обертка от Шоколадного батончика с орехами
-    .desc = Мусор
+ent-ADTFoodPacketChocolateTrashNuts = обертка от батончика с орехами
+    .desc = Это мусор.
 
-ent-ADTFoodSnackChocolateTrashPink = обертка от Розовый шоколадного батончика
-    .desc = Мусор
+ent-ADTFoodPacketChocolateTrashPink = обертка от розового батончика
+    .desc = Это мусор.
 
-ent-ADTFoodSnackChocolateTrashTwo = обертка от Двойного батончика
-    .desc = Мусор
+ent-ADTFoodPacketChocolateTrashTwo = обертка от двойного батончика
+    .desc = Это мусор.
