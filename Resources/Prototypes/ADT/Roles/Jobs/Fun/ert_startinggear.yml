@@ -148,21 +148,6 @@
     - FlashlightSeclite
     - SpaceCash500
 
-- type: job
-  id: ERTEngineer
-  name: job-name-ertengineer
-  description: job-description-ertengineer
-  playTimeTracker: JobERTEngineer
-  setPreference: false
-  startingGear: ADTERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-
 - type: startingGear
   id: ADTERTEngineerGearEVARiot
   equipment:
