@@ -116,3 +116,6 @@ ent-ADTUSSPCombatKnifeBarzai = "Барзай"
 
 ent-ADTbureaucratCane = трость тринадцатого совета
     .desc = Та самая трость, лежавшая в руках лучших адвокатов, которые защищали легендарных личностей... По типу Джона Стейшена...?
+
+ent-ADTTacticBat = Тактическая бита
+    .desc = Raise up your bat for the burning fight!
