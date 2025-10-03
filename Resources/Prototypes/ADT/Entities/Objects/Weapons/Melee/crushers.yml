@@ -84,6 +84,7 @@
       types:
         Slash: 10
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
         Blunt: 10
@@ -126,7 +127,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 20
+        Blunt: 10
         Slash: 5
     soundHit:
       collection: MetalThud
@@ -148,9 +149,10 @@
   - type: GunRequiresWield
   - type: Wieldable
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
-        Blunt: 10
+        Blunt: 20
         Slash: 15
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_hammer.rsi
@@ -200,6 +202,7 @@
     size: Normal
     sprite: ADT/Objects/Weapons/Melee/Crushers/crusher_claws-inhands.rsi
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
         Blunt: 10
@@ -255,6 +258,7 @@
       types:
         Slash: 10
   - type: PressureDamageModify
+    minPressure: -1
     additionalDamage:
       types:
         Blunt: 10
