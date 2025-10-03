@@ -173,3 +173,33 @@
 #   path:
 #     path: /Audio/ADT/Jukebox/9May/zhuravli.ogg
 # END
+
+- type: jukebox
+  id: Oh_Its_You
+  name: Oh Its You - Pascal Michael Stiefel
+  path:
+    path: /Audio/ADT/Lobby/Oh_Its_You.ogg
+
+- type: jukebox
+  id: EWTRTWTFF
+  name: Everybody Wants To Rule The World - Tears For Fears
+  path:
+    path: /Audio/ADT/Jukebox/EWTRTWTFF.ogg
+
+- type: jukebox
+  id: EWTRTWTFF
+  name: Eye Of The Tiger - Survivor
+  path:
+    path: /Audio/ADT/Jukebox/EOFTTS.ogg
+
+- type: jukebox
+  id: EWTRTWTFF
+  name: Smooth Criminal - Michael Jackson
+  path:
+    path: /Audio/ADT/Jukebox/SCMJ.ogg
+
+- type: jukebox
+  id: phoenixright
+  name: Noriyuki Iwadare - Corner the Culprit
+  path:
+    path: /Audio/ADT/Lobby/Pursuit_Corner_the_Culprit_2004.ogg
