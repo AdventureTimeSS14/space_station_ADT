@@ -187,13 +187,13 @@
     path: /Audio/ADT/Jukebox/EWTRTWTFF.ogg
 
 - type: jukebox
-  id: EWTRTWTFF
+  id: EOFTTS
   name: Eye Of The Tiger - Survivor
   path:
     path: /Audio/ADT/Jukebox/EOFTTS.ogg
 
 - type: jukebox
-  id: EWTRTWTFF
+  id: SCMJ
   name: Smooth Criminal - Michael Jackson
   path:
     path: /Audio/ADT/Jukebox/SCMJ.ogg
