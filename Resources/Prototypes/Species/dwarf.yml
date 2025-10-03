@@ -15,8 +15,10 @@
   - Имеют нестандартные возрастные рамки (Молодые 20-50, Зрелые 51-100, Старые 101-150)
   - Имеют врождённый нюх на минералы, позволяющий чувствовать их в радиусе 4 тайлов
   cons:
+  - Имеют меньше ХП чем у людей
+  - Их граб куда слабее, чем у людей
   - Задыхаются в два раза быстрее человека
-  description: "/ServerInfo/ADT/SpeciesDescriptions/Unfinished.xml"
+  description: "/ServerInfo/ADT/SpeciesDescriptions/Dwarf.xml"
   defaultLanguages:
   - GalacticCommon
   - Dwarf
