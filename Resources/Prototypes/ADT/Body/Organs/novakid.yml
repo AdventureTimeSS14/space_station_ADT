@@ -43,7 +43,7 @@
   name: kidneys
   components:
   - type: Sprite
-    state: kidneys
+    state: kidney-l
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi #Don't mention it. Just for... being
   - type: Organ
   - type: Metabolizer
