@@ -191,6 +191,9 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
+        - !type:OrganType
+          type: Novakid
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -219,6 +222,16 @@
         - !type:ReagentThreshold
           min: 3
         - !type:OrganType
+          type: Novakid
+        damage:
+          types:
+            Heat: 0.75
+            Asphyxiation: 0.75
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 3
+        - !type:OrganType
           type: Drask
         damage:
           types:
@@ -234,20 +247,20 @@
         damage:
           groups:
             Brute: -1
-      # End ADT tweak
-      - !type:ChemVomit
+      - !type:ChemVomit 
         probability: 0.04
         conditions:
         - !type:ReagentThreshold
           reagent: Ethanol
           min: 12
-        # dwarves immune to vomiting from alcohol
-        - !type:OrganType
+        - !type:OrganType # dwarves immune to vomiting from alcohol 
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType
+          type: Novakid
           shouldHave: false
       - !type:Drunk
         boozePower: 2
-      # Start ADT tweak
         conditions:
         - !type:OrganType
           type: Drask

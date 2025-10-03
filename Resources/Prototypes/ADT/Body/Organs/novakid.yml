@@ -9,12 +9,13 @@
         stomach:
           maxVol: 50.0
     - type: Metabolizer
-      maxReagents: 5
+      maxReagents: 7
       metabolizerTypes: [ Novakid ]
 
 - type: entity
   id: ADTOrganNovakidLungs
   parent: OrganHumanLungs
+  categories: [ HideSpawnMenu ]
   suffix: "novakid"
   components:
   - type: Metabolizer
@@ -23,12 +24,44 @@
 - type: entity
   id: ADTOrganNovakidHeart
   parent: OrganAnimalHeart
+  categories: [ HideSpawnMenu ]
   suffix: "novakid"
   components:
   - type: Metabolizer
-    maxReagents: 2
+    maxReagents: 3
     metabolizerTypes: [ Novakid ]
     groups:
     - id: Medicine
     - id: Poison
     - id: Narcotic
+
+- type: entity
+  id: ADTOrganNovakidKidneys
+  parent: BaseHumanOrgan
+  categories: [ HideSpawnMenu ]
+  suffix: "novakid"
+  name: kidneys
+  components:
+  - type: Sprite
+    state: kidneys
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Novakid ]
+    removeEmpty: true
+
+- type: entity
+  id: ADTOrganNovakidLiver
+  parent: BaseAnimalOrgan
+  name: liver
+  categories: [ HideSpawnMenu ]
+  suffix: "novakid"
+  components:
+  - type: Sprite
+    state: liver
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Novakid ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1

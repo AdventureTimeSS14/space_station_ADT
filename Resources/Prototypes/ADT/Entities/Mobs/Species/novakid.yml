@@ -20,14 +20,15 @@
       types:
         Cold: 0.12
         Caustic: 0.08
+        Cellular: 0.05
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: ADTNovakid
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
-      300: Dead
+      110: Critical
+      325: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -82,9 +83,9 @@
       types:
         Heat: 5
   - type: Temperature
-    heatDamageThreshold: 450
+    heatDamageThreshold: 650
     coldDamageThreshold: 193  #starting temperature damage treshold
-    currentTemperature: 310.15
+    currentTemperature: 410.15
     specificHeat: 46
     coldDamage:
       types:
@@ -122,12 +123,12 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.25 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
+            Heat: 0.45 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
       - !type:PopupMessage
         type: Local
         visualType: Large
         messages: [ "novakid-hurt-by-water-popup" ]
-        probability: 0.25
+        probability: 0.35
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
