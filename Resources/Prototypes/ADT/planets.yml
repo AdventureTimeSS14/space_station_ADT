@@ -2,8 +2,10 @@
   id: Lavaland
   biome: LavaLand
   mapName: shuttle-destination-lavaland
-  mapLight: "#1F0E11"
+  mapLight: "#1a0005"
   addedComponents:
+  - type: RestrictedRange
+    range: 250
   - type: SpawnInRange
     protosToSpawn:
       - LavaDungeonRoomMarker
@@ -17,7 +19,20 @@
       - LavaDungeonRoomMarker
       - LavaDungeonRoomMarker
       - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
+      - LavaDungeonRoomMarker
       - BloodMinerDungeMarker
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
+      - ADTRandomTendrilSpawner
     minX: -250
     maxX: 250
     minY: -250
