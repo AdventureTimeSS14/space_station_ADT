@@ -47,6 +47,9 @@
     { "name": "genpop_door_5"},
     { "name": "genpop_door_6"},
     { "name": "genpop_door_7"},
-    { "name": "genpop_door_8"}
+    { "name": "genpop_door_8"},
+    { "name": "eng_evac_door"},
+    { "name": "eng"},
+    { "name": "eng_open"}
   ]
 }
