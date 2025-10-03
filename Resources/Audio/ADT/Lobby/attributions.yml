@@ -12,3 +12,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Honk! by SlendyMawn, Remastered by Scruq"
   source: "https://www.youtube.com/watch?v=ujY7djCJVwQ"
+
+  - files: ["Nebula.ogg"] 
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Youtube by The Grey Room converted by MP3 into OGG"
+  source: https://music.youtube.com/watch?v=hZBobaZEe0A&list=PL7lInNZ1uJxeIp5fh-2DNSm123kQvbkII
