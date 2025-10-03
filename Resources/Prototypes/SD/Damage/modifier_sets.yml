@@ -8,3 +8,18 @@
     Cold: 0.9
     Radiation: 0.7
     Asphyxiation: 1.2
+
+- type: damageModifierSet
+  id: SD_Synth
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Shock: 0.5
+    Heat: 0.8
+    Radiation: 0
+    Asphyxiation: 0
+    Cellular: 0
+    Poison: 0
+  flatReductions:
+    Blunt: 5

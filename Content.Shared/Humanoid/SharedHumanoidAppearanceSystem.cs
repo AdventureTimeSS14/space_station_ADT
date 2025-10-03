@@ -22,6 +22,7 @@ using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.ADT.Language;
+using Content.Shared._SD.RMC.Humanoid; // sd-edit
 
 namespace Content.Shared.Humanoid;
 
@@ -124,6 +125,17 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var identity = Identity.Entity(uid, EntityManager);
         var species = GetSpeciesRepresentation(component.Species).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
+
+        // SD-Edit start
+        if (TryComp<HumanoidRepresentationOverrideComponent>(uid, out var humanoidRepComp))
+        {
+            if (humanoidRepComp.Species != null) // RMC14 humanoid representation override comp
+                species = Loc.GetString(humanoidRepComp.Species).ToLower();
+
+            if (humanoidRepComp.Age != null)
+                age = Loc.GetString(humanoidRepComp.Age).ToLower();
+        }
+        // SD-Edit end
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
     }
