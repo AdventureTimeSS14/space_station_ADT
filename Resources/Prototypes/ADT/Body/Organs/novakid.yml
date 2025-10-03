@@ -44,6 +44,8 @@
   components:
   - type: Sprite
     state: kidneys
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi #Don't mention it. Just for... being
+  - type: Organ
   - type: Metabolizer
     maxReagents: 1
     metabolizerTypes: [ Novakid ]
@@ -58,6 +60,7 @@
   components:
   - type: Sprite
     state: liver
+    sprite: ADT/Mobs/Species/Shadekin/organs.rsi #Don't mention it. Just for... being
   - type: Organ
   - type: Metabolizer
     maxReagents: 1

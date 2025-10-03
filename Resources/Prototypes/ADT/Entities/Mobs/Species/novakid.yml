@@ -95,9 +95,10 @@
         Heat : 0.2 #per second, scales with temperature & other constants.
   - type: TemperatureSpeed
     thresholds:
-      273: 0.8
-      243: 0.6
-      220: 0.4
+      273: 0.75
+      243: 0.55
+      220: 0.35
+      150: 0.2
   - type: FlashImmunity
   - type: EyeProtection
   - type: MovementSpeedModifier

@@ -191,12 +191,14 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
+        #Start ADT Tweak
         - !type:OrganType
           type: Novakid
           shouldHave: false
         damage:
           types:
             Poison: 1
+        #End ADT Tweak
       # dwarves take less toxin damage and heal a marginal amount of brute
       - !type:HealthChange
         conditions:
@@ -253,7 +255,7 @@
         - !type:ReagentThreshold
           reagent: Ethanol
           min: 12
-        - !type:OrganType # dwarves immune to vomiting from alcohol 
+        - !type:OrganType # dwarves immune to vomiting from alcohol  
           type: Dwarf
           shouldHave: false
         - !type:OrganType
@@ -280,6 +282,9 @@
           shouldHave: false
         - !type:OrganType
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType
+          type: Novakid
           shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
