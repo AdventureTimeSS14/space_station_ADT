@@ -250,7 +250,7 @@
   - type: Pullable
   - type: Puller
     needsHands: false
-  - type: StandingState
+  # - type: StandingState #ADT-tweak зачем боргам ползать
   - type: Tag
     tags:
     - DoorBumpOpener
