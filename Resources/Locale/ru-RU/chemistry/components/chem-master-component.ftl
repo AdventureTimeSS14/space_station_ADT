@@ -58,3 +58,5 @@ chem-master-window-bottles-tab = Бутылочки
 chem-master-window-amount-too-much = Попробуйте меньшее количество!
 chem-master-window-amount-limit-reached = Слишком много кнопок!
 chem-master-window-choose-reagent-button = Выбрать
+chem-master-window-no-reagent-selected-text = Реагент не выбран.
+chem-master-window-selected-reagent-not-found-text = Выбранный реагент не найден в буфере.

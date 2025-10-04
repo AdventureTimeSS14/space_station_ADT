@@ -154,6 +154,28 @@ namespace Content.Shared.Chemistry
             Row = row;
         }
     }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterReagentToggledOnMessage : BoundUserInterfaceMessage
+    {
+        public readonly ReagentId Reagent;
+
+        public ChemMasterReagentToggledOnMessage(ReagentId reagent)
+        {
+            Reagent = reagent;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterReagentToggledOffMessage : BoundUserInterfaceMessage
+    {
+        public readonly ReagentId Reagent;
+
+        public ChemMasterReagentToggledOffMessage(ReagentId reagent)
+        {
+            Reagent = reagent;
+        }
+    }
     //ADT-Tweak End
 
     public enum ChemMasterMode

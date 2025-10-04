@@ -79,6 +79,8 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectBottleSlotMessage>(OnSelectBottleSlotMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterChooseReagentMessage>(OnChooseReagentMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterClearReagentSelectionMessage>(OnClearReagentSelectionMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentToggledOnMessage>(OnReagentToggledOnMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentToggledOffMessage>(OnReagentToggledOffMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleBottleFillMessage>(OnToggleBottleFillMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterRowEjectMessage>(OnRowEjectMessage);
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnMapInit);
@@ -433,7 +435,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
 
             var needed = message.Dosage * message.Number;
-            if (!WithdrawFromBuffer(chemMaster, needed, user, out var withdrawal))
+            if (!WithdrawSelectedReagentsFromBuffer(chemMaster, needed, user, out var withdrawal))
                 return;
 
             _labelSystem.Label(container, message.Label);
@@ -507,7 +509,7 @@ namespace Content.Server.Chemistry.EntitySystems
             var actualCount = (uint) Math.Min((int) message.Number, targets.Count);
             var needed = message.Dosage * actualCount;
 
-            if (!WithdrawFromBuffer(chemMaster, needed, user, out var withdrawal))
+            if (!WithdrawSelectedReagentsFromBuffer(chemMaster, needed, user, out var withdrawal))
                 return;
 
             for (int i = 0; i < actualCount; i++)
@@ -558,6 +560,77 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             outputSolution = solution.SplitSolution(neededVolume);
+            return true;
+        }
+
+        private bool WithdrawSelectedReagentsFromBuffer(
+            Entity<ChemMasterComponent> chemMaster,
+            FixedPoint2 neededVolume, EntityUid? user,
+            [NotNullWhen(returnValue: true)] out Solution? outputSolution)
+        {
+            outputSolution = null;
+
+            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
+                return false;
+
+            if (solution.Volume == 0)
+            {
+                if (user.HasValue)
+                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user.Value);
+                return false;
+            }
+
+            // Get selected reagents for creation
+            var selectedReagents = chemMaster.Comp.SelectedReagentsForBottles;
+
+            // Check if any reagents are selected
+            if (selectedReagents.Count == 0)
+            {
+                if (user.HasValue)
+                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-no-reagent-selected-text"), user.Value);
+                return false;
+            }
+
+            // Filter to only reagents that actually exist in the buffer
+            var availableReagents = new List<ReagentId>();
+            foreach (var reagent in selectedReagents)
+            {
+                if (solution.GetReagentQuantity(reagent) > 0)
+                {
+                    availableReagents.Add(reagent);
+                }
+            }
+
+            if (availableReagents.Count == 0)
+            {
+                if (user.HasValue)
+                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-selected-reagent-not-found-text"), user.Value);
+                return false;
+            }
+
+            // Calculate how much of each reagent we need
+            var amountPerReagent = neededVolume / availableReagents.Count;
+
+            // Create a new solution with the selected reagents
+            outputSolution = new Solution();
+
+            foreach (var reagent in availableReagents)
+            {
+                var availableQuantity = solution.GetReagentQuantity(reagent);
+
+                // Check if we have enough of this reagent
+                if (availableQuantity < amountPerReagent)
+                {
+                    if (user.HasValue)
+                        _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), user.Value);
+                    return false;
+                }
+
+                // Remove the reagent from buffer and add to output solution
+                var actualAmount = solution.RemoveReagent(reagent, amountPerReagent, preserveOrder: true);
+                outputSolution.AddReagent(reagent, actualAmount);
+            }
+
             return true;
         }
 
@@ -624,6 +697,21 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnClearReagentSelectionMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterClearReagentSelectionMessage message)
         {
             chemMaster.Comp.SelectedReagent = null;
+            UpdateUiState(chemMaster);
+        }
+
+        private void OnReagentToggledOnMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentToggledOnMessage message)
+        {
+            if (!chemMaster.Comp.SelectedReagentsForBottles.Contains(message.Reagent))
+            {
+                chemMaster.Comp.SelectedReagentsForBottles.Add(message.Reagent);
+            }
+            UpdateUiState(chemMaster);
+        }
+
+        private void OnReagentToggledOffMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentToggledOffMessage message)
+        {
+            chemMaster.Comp.SelectedReagentsForBottles.Remove(message.Reagent);
             UpdateUiState(chemMaster);
         }
 

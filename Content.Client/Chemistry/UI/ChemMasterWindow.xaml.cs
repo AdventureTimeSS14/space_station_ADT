@@ -33,6 +33,8 @@ namespace Content.Client.Chemistry.UI
         public event Action<List<int>>? OnUpdateAmounts;
         public event Action<ReagentId, bool, bool>? OnTransferAllPressed;
         public event Action<ReagentId>? OnChooseReagentPressed;
+        public event Action<ReagentId>? OnReagentToggledOn;
+        public event Action<ReagentId>? OnReagentToggledOff;
         public event Action<int>? OnBottleSlotSelected;
         public event Action<int>? OnToggleBottleFillPressed;
         public event Action<int>? OnBottleSlotEjectPressed;
@@ -310,6 +312,23 @@ namespace Content.Client.Chemistry.UI
             }
         }
 
+        private void HandleReagentToggle(ReagentId reagentId, Button button)
+        {
+            // Toggle the reagent selection
+            var isCurrentlyToggled = button.Pressed;
+
+            if (isCurrentlyToggled)
+            {
+                // Button was turned on - add to selected reagents
+                OnReagentToggledOn?.Invoke(reagentId);
+            }
+            else
+            {
+                // Button was turned off - remove from selected reagents
+                OnReagentToggledOff?.Invoke(reagentId);
+            }
+        }
+
         private void UpdateReagentSelectionUI()
         {
             if (!string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype))
@@ -320,16 +339,21 @@ namespace Content.Client.Chemistry.UI
 
                 if (selectedReagentQuantity > 0)
                 {
-                    PillDosage.Value = Math.Min(PillDosage.Value, selectedReagentQuantity);
-                    PillNumber.Value = selectedReagentQuantity / Math.Max(PillDosage.Value, 1);
+                    // Update dosage values based on selected reagent quantity
+                    PillDosage.Value = (int)Math.Min(PillDosage.Value, selectedReagentQuantity);
+                    BottleDosage.Value = (int)Math.Min(BottleDosage.Value, selectedReagentQuantity);
 
-                    var bufferVolume = _lastState.BufferCurrentVolume?.Int() ?? 0;
-                    BottleDosage.Value = Math.Min(BottleDosage.Value, selectedReagentQuantity);
+                    // Update number calculations based on selected reagent quantity
+                    if (PillDosage.Value > 0)
+                        PillNumber.Value = selectedReagentQuantity / PillDosage.Value;
+                    else
+                        PillNumber.Value = 0;
+
                     var storedBottlesCount = _lastState.StoredBottles.Count(b => b != null);
-                    BottleNumber.Value = Math.Min(
-                        selectedReagentQuantity / Math.Max(BottleDosage.Value, 1),
-                        storedBottlesCount
-                    );
+                    if (BottleDosage.Value > 0)
+                        BottleNumber.Value = Math.Min(selectedReagentQuantity / BottleDosage.Value, storedBottlesCount);
+                    else
+                        BottleNumber.Value = 0;
                 }
             }
         }
@@ -541,28 +565,63 @@ namespace Content.Client.Chemistry.UI
         private void UpdateDosageFields(ChemMasterBoundUserInterfaceState castState)
         {
             // ADT-Tweak Start
-            var bufferVolume = castState.BufferCurrentVolume?.Int() ?? 0;
-            PillDosage.Value = (int)Math.Min(bufferVolume, castState.PillDosageLimit);
-            BottleDosage.Value = (int)Math.Min(bufferVolume, castState.BottleDosageLimit);
-
             var storedBottlesCount = castState.StoredBottles.Count(b => b != null);         //ADT-Tweak
 
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
-            PillNumber.IsValid = x => x >= 0;
-            PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
-            BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;   //ADT-Tweak
-            BottleDosage.IsValid = x => x > 0 && x <= castState.BottleDosageLimit;
 
-            // Avoid division by zero
-            if (PillDosage.Value > 0)
-                PillNumber.Value = bufferVolume / PillDosage.Value;
-            else
-                PillNumber.Value = 0;
+            // Check if a reagent is selected
+            if (!string.IsNullOrEmpty(castState.SelectedReagent?.Prototype))
+            {
+                // Use only the selected reagent quantity instead of entire buffer volume
+                var selectedReagentQuantity = castState.BufferReagents
+                    .FirstOrDefault(r => r.Reagent == castState.SelectedReagent)
+                    .Quantity.Int();
 
-            if (BottleDosage.Value > 0)
-                BottleNumber.Value = Math.Min(bufferVolume / BottleDosage.Value, storedBottlesCount);   //ADT-Tweak
+                // Set dosage values based on selected reagent quantity
+                PillDosage.Value = (int)Math.Min(selectedReagentQuantity, castState.PillDosageLimit);
+                BottleDosage.Value = (int)Math.Min(selectedReagentQuantity, castState.BottleDosageLimit);
+
+                // Update validation to use selected reagent quantity
+                PillNumber.IsValid = x => x >= 0;
+                PillDosage.IsValid = x => x > 0 && x <= selectedReagentQuantity && x <= castState.PillDosageLimit;
+                BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;
+                BottleDosage.IsValid = x => x > 0 && x <= selectedReagentQuantity && x <= castState.BottleDosageLimit;
+
+                // Calculate numbers based on selected reagent quantity
+                if (PillDosage.Value > 0)
+                    PillNumber.Value = selectedReagentQuantity / PillDosage.Value;
+                else
+                    PillNumber.Value = 0;
+
+                if (BottleDosage.Value > 0)
+                    BottleNumber.Value = Math.Min(selectedReagentQuantity / BottleDosage.Value, storedBottlesCount);
+                else
+                    BottleNumber.Value = 0;
+            }
             else
-                BottleNumber.Value = 0;
+            {
+                // No reagent selected - use entire buffer volume (fallback behavior)
+                var bufferVolume = castState.BufferCurrentVolume?.Int() ?? 0;
+                PillDosage.Value = (int)Math.Min(bufferVolume, castState.PillDosageLimit);
+                BottleDosage.Value = (int)Math.Min(bufferVolume, castState.BottleDosageLimit);
+
+                // Use original validation logic when no reagent is selected
+                PillNumber.IsValid = x => x >= 0;
+                PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
+                BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;
+                BottleDosage.IsValid = x => x > 0 && x <= castState.BottleDosageLimit;
+
+                // Avoid division by zero
+                if (PillDosage.Value > 0)
+                    PillNumber.Value = bufferVolume / PillDosage.Value;
+                else
+                    PillNumber.Value = 0;
+
+                if (BottleDosage.Value > 0)
+                    BottleNumber.Value = Math.Min(bufferVolume / BottleDosage.Value, storedBottlesCount);
+                else
+                    BottleNumber.Value = 0;
+            }
             // ADT-Tweak End
         }
         /// <summary>
@@ -770,18 +829,18 @@ namespace Content.Client.Chemistry.UI
                     {
                         Text = Loc.GetString("chem-master-window-choose-reagent-button"),
                         StyleClasses = { StyleBase.ButtonSquare },
-                        MinSize = new Vector2(60, 0)
+                        MinSize = new Vector2(60, 0),
+                        ToggleMode = true
                     };
 
-                    if (!string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype) && _lastState.SelectedReagent == reagent)
-                    {
-                        chooseReagentButton.Pressed = true;
-                        chooseReagentButton.Modulate = Color.Green;
-                    }
+                    // Check if this reagent is currently selected (toggled on)
+                    var isSelected = _lastState?.SelectedReagentsForBottles?.Contains(reagent) ?? false;
+                    chooseReagentButton.Pressed = isSelected;
+                    chooseReagentButton.Modulate = isSelected ? Color.Green : Color.White;
 
                     chooseReagentButton.OnPressed += _ =>
                     {
-                        HandleReagentSelection(reagent, chooseReagentButton);
+                        HandleReagentToggle(reagent, chooseReagentButton);
                     };
 
                     rowContainer.AddChild(chooseReagentButton);
