@@ -98,6 +98,7 @@
   abstract: true
   components:
     - type: StatusIcon
+    - type: SSDIndicator
     - type: MobState
       allowedStates:
         - Alive
