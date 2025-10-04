@@ -27,6 +27,19 @@
   components:
   - type: Sprite
     state: sandwich
+  #ADT-Tweak-Start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+  #ADT-Tweak-End
 
 - type: entity
   name: strawberry ice-cream sandwich
@@ -36,6 +49,19 @@
   components:
   - type: Sprite
     state: sandwich-strawberry
+  #ADT-Tweak-Start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+  #ADT-Tweak-End
 
 - type: entity
   name: space freezy
