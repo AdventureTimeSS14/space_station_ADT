@@ -66,6 +66,7 @@
     whitelist:
       tags:
         - ADTCard
+        - ADTFunCardsBox
   - type: Dumpable
 
 - type: entity
