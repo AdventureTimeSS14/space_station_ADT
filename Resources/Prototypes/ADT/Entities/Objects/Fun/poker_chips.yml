@@ -345,8 +345,6 @@
       storagebase: !type:Container
   - type: StorageFill
     contents:
-    - id: ADTFunCardsBoxFull54
-      amount: 1
     - id: ADTFunCasinoChip1stack
       amount: 4
     - id: ADTFunCasinoChip5stack
