@@ -32,3 +32,20 @@
   icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
   color: "#1d55c4"
   price: 50 
+
+- type: material
+  id: Copper
+  stackEntity: ADTSheetCopper1
+  name: materials-copper
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: copper }
+  color: "#dd7d00"
+  price: 0.075
+
+- type: material
+  id: Zinc
+  stackEntity: ADTSheetZinc1
+  name: materials-zinc
+  unit: materials-unit-bar
+  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: zinc }
+  color: "#087a67"
+  price: 0.075
