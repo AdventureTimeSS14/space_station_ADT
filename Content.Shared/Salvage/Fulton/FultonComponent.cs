@@ -46,6 +46,7 @@ public sealed partial class FultonComponent : Component
             "Computer",
             "VendingMachine",
             "AtmosDevice",
+            "RadiationReceiver"
             // ADT-Tweak-End
         }
     };
