@@ -1,0 +1,69 @@
+#- type: entity
+#  id: ADTChickenWing
+#  name: chicken wing
+#  parent: PartAnimal
+#  noSpawn: true
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Mobs/Animals/chicken_parts.rsi
+#    layers:
+#    - state: torso_m
+#  - type: BodyPart
+#    partType: Hand
+#    symmetry: Left
+
+#- type: entity
+#  id: ADTChickenLeg
+#  name: chicken legs
+#  parent: PartAnimal
+#  noSpawn: true
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Mobs/Animals/chicken_parts.rsi
+#    layers:
+#    - state: l_leg
+#    - state: r_leg
+#  - type: BodyPart
+#    partType: Leg
+#  - type: MovementBodyPart
+
+- type: entity
+  id: ADTChickenBody
+  name: chicken body
+  parent: PartAnimal
+  # noSpawn: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Animals/chicken_parts.rsi
+    layers:
+    - state: torso_m
+  - type: BodyPart
+    partType: Torso
+  - type: Damageable
+    damageContainer: Biological
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 30
+        - ReagentId: Fat
+          Quantity: 20
+  - type: MovementBodyPart
+  - type: Item
+    size: Normal
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 2
+    - id: ADTFoodMeatChickenWing
+      amount: 2
+    - id: ADTFoodMeatChickenLeg
+      amount: 2
