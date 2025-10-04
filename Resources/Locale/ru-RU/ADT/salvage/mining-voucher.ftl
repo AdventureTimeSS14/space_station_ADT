@@ -61,3 +61,11 @@ hos-voucher-multiphase-description =
 hos-voucher-bat-name = Тактическая бита
 hos-voucher-bat-description =
     совершенная модель телескопической дубинки. Обладает повышенным уроном и может отбрасывать людей.
+
+# sd tweak
+
+
+blueshield-voucher-halberd-name = плазменная алебарда
+blueshield-voucher-halberd-description =
+    Оружие ближнего боя офицеров "Синего Щита"
+    Включает в себя плазменную алебарду, способную отражать пули и вскрывать запитанные шлюзы.

@@ -1,24 +1,24 @@
-    - type: gameMap
-      id: SD_Joule
-      mapName: 'Joule Station'
-      mapPath: /Maps/SDMaps/SDStations/SD_Joule.yml
-      maxRandomOffset: 0
-      minPlayers: 5
-      stations:
-        SD_Joule:
-          stationProto: StandardNanotrasenStation
-          components:
-            - type: StationNameSetup
-              mapNameTemplate: '{0}JL {1}'
-              nameGenerator:
-                !type:NanotrasenNameGenerator
-                prefixCreator: '-'
-            - type: StationEmergencyShuttle
-              emergencyShuttlePath: /Maps/ADTMaps/Shuttles/adt_emergency.yml
-            - type: StationCargoShuttle
-              path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
-            - type: StationJobs
-              availableJobs:
+- type: gameMap
+  id: SD_Joule
+  mapName: 'Joule Station'
+  mapPath: /Maps/SDMaps/SDStations/SD_Joule.yml
+  maxRandomOffset: 0
+  minPlayers: 5
+  stations:
+    SD_Joule:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0}SV {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '-'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
+        - type: StationJobs
+          availableJobs:
                 # service
                 HeadOfPersonnel: [ 1, 1 ]
                 Passenger: [ -1, -1 ]

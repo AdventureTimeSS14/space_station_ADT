@@ -1,0 +1,12 @@
+- type: entity
+  parent: IDCardStandard
+  id: SD_SynthIdCard
+  name: synth ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: PresetIdCard
+    job: SD_JobSynthetic
+  - type: Item
+    heldPrefix: silver

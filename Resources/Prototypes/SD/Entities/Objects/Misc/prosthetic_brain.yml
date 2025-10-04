@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: SD_OrganSynthBrain
+  name: brain
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Misc/prosthetic_brain.rsi
+    state: icon
+  - type: Organ
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+  - type: Item
+    size: Small

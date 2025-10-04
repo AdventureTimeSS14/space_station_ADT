@@ -365,7 +365,9 @@
     state: icon
   - type: ModSuit
     backpanelsColor: "#16050599"
+    scrollColor: "#00000000"
     backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    buttonColors: ["#231212", "#0a0404", "#661515", "#661515"]
     maxComplexity: 20
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalsyndi.ogg

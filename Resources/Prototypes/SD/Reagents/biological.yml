@@ -2,3 +2,12 @@
   id: DryableBlood
   parent: Blood
   color: "#75211b"
+
+- type: reagent
+  parent: Blood
+  id: SD_SynthBlood
+  name: sd-reagent-name-synth-blood
+  desc: sd-reagent-desc-synth-blood
+  physicalDesc: reagent-physical-desc-oily
+  color: "#EEEEEE"
+  flavor: funny

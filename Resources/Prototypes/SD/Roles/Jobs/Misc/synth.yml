@@ -1,0 +1,157 @@
+- type: job
+  id: SD_JobSynthetic
+  name: sd-job-name-synth
+  description: sd-job-description-synth
+  playTimeTracker: SD_JobSynthetic
+  requirements:
+  - !type:SpeciesRequirement
+      species:
+      - Human
+  startingGear: SD_GearSyntheticEquipped
+  canBeAntag: false
+  icon: "SD_JobIconSynth"
+  whitelisted: true
+  supervisors: job-supervisors-captain
+  accessGroups:
+  - AllAccess
+  - Silicon
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/SD/RMC/synthpunch1.ogg
+        params:
+          variation: 0.15
+          volume: -1
+      angle: 30
+      animation: WeaponArcFist
+      attackRate: 1
+      damage:
+        types:
+          Blunt: 35
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Dead
+      allowRevives: true
+    - type: MobState
+      allowedStates:
+      - Alive
+      - Dead
+    - type: Repairable
+      fuelCost: 10
+      selfRepairPenalty: 2
+      doAfterDelay: 3
+      damage:
+        types:
+          Blunt: -20
+          Slash: -20
+          Piercing: -20
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        25: 1
+    - type: Temperature
+      heatDamageThreshold: 600
+      coldDamageThreshold: 0
+    - type: TemperatureSpeed
+      thresholds:
+        220: 1
+    - type: Damageable
+      damageContainer: ADTSiliconDamageContainer
+      damageModifierSet: SD_Synth
+    - type: FireProtection
+      reduction: 0.15
+    - type: AddComponentsOnUse
+      components:
+        - type: Puller
+          grabStats:
+            None:
+              requiredHands: 1
+              doaftersToEscape: 0
+              movementSpeedModifier: 0.9
+              escapeAttemptTime: 0
+              setStageTime: 0
+            Soft:
+              requiredHands: 1
+              doaftersToEscape: 4
+              movementSpeedModifier: 0.8
+              escapeAttemptTime: 1.5
+              setStageTime: 0
+            Hard:
+              requiredHands: 1
+              doaftersToEscape: 6
+              movementSpeedModifier: 0.75
+              escapeAttemptTime: 1.5
+              setStageTime: 0.75
+            Choke:
+              requiredHands: 2
+              doaftersToEscape: 7
+              movementSpeedModifier: 0.7
+              escapeAttemptTime: 1.5
+              setStageTime: 1.25
+    - type: Synth
+      addComponents:
+      - type: EyeProtection
+      - type: Insulated
+      - type: ZombieImmune
+      - type: PressureImmunity
+      - type: NoSlip
+      - type: GrabProtection
+      - type: NightVision
+      - type: ShowHealthBars
+      - type: ShowHealthIcons
+      - type: ShowJobIcons
+      removeComponents:
+      - type: Hunger
+      - type: Thirst
+      - type: Perishable
+      - type: ThermalRegulator
+      - type: Stamina
+      - type: DamageForceSay
+      - type: Dna
+      - type: InjectableSolution
+      - type: PassiveDamage
+      - type: Muted
+
+- type: jobIcon
+  parent: JobIcon
+  id: SD_JobIconSynth
+  icon:
+    sprite: /Textures/SD/Interface/job_icons.rsi
+    state: synth
+  jobName: sd-job-name-synth
+
+- type: startingGear
+  id: SD_GearSyntheticEquipped
+  equipment:
+    shoes: ClothingShoesBootsWork
+    id: SD_SynthIdCard
+    ears: SD_ClothingHeadsetSynth
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    head: ClothingHeadHatHardhatWhite
+    outerClothing: ClothingOuterVestHazard
+    belt: ClothingBeltUtility
+    back: ADTClothingBackpackDuffelDurathead
+    mask: ClothingMaskGasAtmos
+  storage:
+    belt:
+    - RCDExperimental
+    - JawsOfLife
+    - PowerDrill
+    - WelderExperimental
+    - Multitool
+    - HolofanProjector
+
+#- type: entity
+#  parent: CMSpawnPointJobBase
+#  id: RMCSpawnPointSynth
+#  name: synthetic spawn point
+#  components:
+#  - type: SpawnPoint
+#    job_id: RMCJobSynthetic
+#  - type: Sprite
+#    state: syn_spawn
+
+- type: playTimeTracker
+  id: SD_JobSynthetic

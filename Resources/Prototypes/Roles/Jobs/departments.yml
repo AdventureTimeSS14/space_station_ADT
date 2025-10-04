@@ -6,6 +6,7 @@
   roles:
   - CargoTechnician
   - Quartermaster
+  - ADTMiner # ADT tweak
   - SalvageSpecialist
 
 - type: department
@@ -151,6 +152,7 @@
   roles:
   - Borg
   - StationAi
+  - SD_JobSynthetic # SD change
 
 - type: department
   id: Specific

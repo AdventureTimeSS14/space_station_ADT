@@ -201,6 +201,7 @@
   - type: Tag # goob edit
     tags:
     - Table
+    - ForceFixRotations # ADT-Tweak
 
 - type: entity
   id: TableReinforced
@@ -648,6 +649,8 @@
   - type: Tag
     tags:
     - Wooden
+    - Table   # ADT-Tweak
+    - ForceFixRotations # ADT-Tweak
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet

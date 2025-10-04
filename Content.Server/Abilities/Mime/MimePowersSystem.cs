@@ -11,6 +11,11 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Shared.Speech.Muting;
+//ADT-Tweak-Start
+using Content.Server.Chat.Managers;
+using Content.Shared.Chat;
+using Robust.Server.Player;
+//ADT-Tweak-End
 
 namespace Content.Server.Abilities.Mime
 {
@@ -23,6 +28,10 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly IMapManager _mapMan = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        //ADT-Tweak-Start
+        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        //ADT-Tweak-End
 
         public override void Initialize()
         {
@@ -94,6 +103,18 @@ namespace Content.Server.Abilities.Mime
             }
 
             _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
+            //ADT-Tweak-Start
+            var message = Loc.GetString("mime-invisible-wall-emote", ("entity", uid));
+            var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
+                ("entityName", Name(uid)),
+                ("message", message));
+
+            if (_playerManager.TryGetSessionByEntity(uid, out var session))
+            {
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, uid, false, session.Channel);
+            }
+            //ADT-Tweak-End
+
             // Make sure we set the invisible wall to despawn properly
             Spawn(component.WallPrototype, _turf.GetTileCenter(tile.Value));
             // Handle args so cooldown works
