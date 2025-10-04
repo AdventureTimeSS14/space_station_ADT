@@ -11,6 +11,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Coordinates;
+using Content.Client.Hands.Systems;
 
 namespace Content.Client.ADT.RPD;
 
@@ -21,8 +22,8 @@ public sealed class AlignRPDConstruction : PlacementMode
     private readonly SharedMapSystem _mapSystem;
     private readonly RPDSystem _rpdSystem;
     private readonly SharedTransformSystem _transformSystem;
+    private readonly HandsSystem _hands = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
 
     private const float SearchBoxSize = 2f;
@@ -39,6 +40,7 @@ public sealed class AlignRPDConstruction : PlacementMode
         _mapSystem = _entityManager.System<SharedMapSystem>();
         _rpdSystem = _entityManager.System<RPDSystem>();
         _transformSystem = _entityManager.System<SharedTransformSystem>();
+        _hands = _entityManager.System<HandsSystem>();
 
         ValidPlaceColor = ValidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
     }
