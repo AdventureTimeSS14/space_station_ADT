@@ -30,10 +30,6 @@
   categories:
   - UplinkWeaponry
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
     - !type:BuyerWhitelistCondition
       blacklist:
         components:
@@ -173,6 +169,17 @@
   productEntity: MagazineShotgun
   cost:
     Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: ADTUplinkMagazineCaselessRifle
+  name: uplink-Caseless-box-rifle-name
+  description: uplink-Caseless-box-rifle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi, state: base }
+  productEntity: MagazineBoxCaselessRifle
+  cost:
+    Telecrystal: 1
   categories:
   - UplinkAmmo
 

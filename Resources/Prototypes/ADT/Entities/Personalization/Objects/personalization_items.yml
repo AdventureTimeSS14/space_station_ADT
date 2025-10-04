@@ -1312,7 +1312,7 @@
     materialComposition:
       Plastic: 100
   - type: StaticPrice
-    price: 75
+    price: 50
   - type: UseDelay
     delay: 10
   - type: Speech

@@ -27,6 +27,8 @@
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
   - type: ComboWeapon
+    swapSound:
+      path: /Audio/ADT/Entities/helmet_drop.ogg
     availableMoves:
       - actionsNeeds:
           - OffensiveWideHit
@@ -113,7 +115,7 @@
     items:
     - id: ADTKatanacursed
     sound:
-      path: /Audio/Effects/bite.ogg
+      path: /Audio/Effects/demon_attack1.ogg
 
 - type: entity
   name: dagger plasma

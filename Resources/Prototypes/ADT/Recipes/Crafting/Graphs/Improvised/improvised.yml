@@ -124,6 +124,7 @@
   startNode: start
   targetNode: ADTgoldbat
   category: construction-category-weapons
+  objectType: Item
 
 - type: construction
   id: ADTCrackPipe
@@ -141,3 +142,10 @@
   category: construction-category-clothing
   objectType: Item
 
+- type: construction
+  id: WeaponMakeshiftLaserGraph
+  graph: WeaponMakeshiftLaserGraph
+  startNode: start
+  targetNode: weaponlaser
+  category: construction-category-weapons
+  objectType: Item

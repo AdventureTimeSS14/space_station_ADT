@@ -167,6 +167,7 @@
         blacklist: # ADT plasmacutters start
           components:
           - BatteryRecharge # ADT plasmacutters end
+          - BatterySelfRecharger # ADT-tweak
 
 - type: entity
   parent: BaseItemRecharger
@@ -195,6 +196,7 @@
           - PotatoBattery
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
+          - BatterySelfRecharger # ADT-tweak
 
 - type: entity
   parent: BaseItemRecharger
@@ -226,6 +228,12 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+      #ADT-tweak plasmacutters start
+        blacklist:
+          components:
+          - BatteryRecharge #ADT-tweak plasmacutters end
+          - BatterySelfRecharger # ADT-tweak
+
 
 - type: entity
   parent: BaseRecharger

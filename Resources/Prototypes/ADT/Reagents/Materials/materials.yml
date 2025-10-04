@@ -6,7 +6,6 @@
   color: "#d9d9d9"
   price: 0.01 # it's paper bro what do you expect?
 
-
 - type: material
   id: ADTRawBSore
   stackEntity: ADTBSore1
@@ -23,7 +22,7 @@
   unit: materials-unit-piece
   icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
   color: "#1d55c4"
-  price: 50 
+  price: 2.5
 
 - type: material
   id: ADTBScrystalArt
@@ -31,4 +30,4 @@
   unit: materials-unit-piece
   icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
   color: "#1d55c4"
-  price: 50 
+  price: 0

@@ -620,6 +620,9 @@
   id: ADTStamp
 
 - type: Tag
+  id: ADTToyBlaster
+
+- type: Tag
   id: ADTBadgeBronze
 
 - type: Tag
