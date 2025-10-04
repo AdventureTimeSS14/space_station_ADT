@@ -173,3 +173,21 @@
 #   path:
 #     path: /Audio/ADT/Jukebox/9May/zhuravli.ogg
 # END
+
+- type: jukebox
+  id: Nebula
+  name: Grey Room - Nebula
+  path:
+    path: /Audio/ADT/Lobby/Nebula.ogg
+
+- type: jukebox
+  id: DOS
+  name: Ampient(Polaroid studios) - Dream of Somewhere
+  path:
+    path: /Audio/ADT/Lobby/DOS.ogg
+
+- type: jukebox
+  id: IHYVA
+  name: Zeroh - I Hear Your Voice Again
+  path:
+    path: /Audio/ADT/Lobby/IHYVA.ogg

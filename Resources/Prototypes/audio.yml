@@ -221,6 +221,8 @@
     - /Audio/Ambience/spookyspace2.ogg
     - /Audio/Ambience/ambispace2.ogg
     - /Audio/Lobby/title2.ogg
+    - /Audio/ADT/Ambience/Music/CM.ogg #ADT-Tweak
+    - /Audio/ADT/Ambience/Music/CL.ogg #ADT-Tweak
 
 - type: soundCollection
   id: AmbienceSpooky
