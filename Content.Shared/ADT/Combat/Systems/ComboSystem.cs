@@ -22,6 +22,7 @@ public abstract class SharedComboSystem : EntitySystem
 
         SubscribeLocalEvent<ComboComponent, DisarmAttemptEvent>(OnDisarmUsed);
         SubscribeLocalEvent<ComboComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<ComboComponent, GrabStageChangedEvent>(OnGrab);
 
         SubscribeLocalEvent<ComboComponent, ToggleCombatActionEvent>(OnCombatToggled);
     }
