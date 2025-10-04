@@ -82,7 +82,7 @@
             - ADTMagazineRifleAR12
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifl
+        startingItem: CartridgeLightRifle
         priority: 1
         whitelist:
           tags:
