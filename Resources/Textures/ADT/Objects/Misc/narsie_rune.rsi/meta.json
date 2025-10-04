@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "taken from SS1984 https://github.com/ss220-space/Paradise. Modified by maksim21612 (discord)",
+    "size": {
+      "x": 96,
+      "y": 96
+    },
+    "states": [
+      {
+        "name": "narsie_pentagram_black"
+      },
+      {
+        "name": "narsie_pentagram_red"
+      }
+   ]
+}
