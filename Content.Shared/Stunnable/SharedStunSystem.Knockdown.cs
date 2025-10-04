@@ -248,6 +248,7 @@ public abstract partial class SharedStunSystem
         else if (_standingState.IsDown(playerEnt) && !HasComp<StunnedComponent>(playerEnt) && TryStanding(playerEnt))
         {
             ForceStandUp(playerEnt);
+            RemComp<KnockedDownComponent>(playerEnt);
             _standingState.Stand(playerEnt);
             return;
         }
