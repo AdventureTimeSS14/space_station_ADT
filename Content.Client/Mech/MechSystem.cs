@@ -27,8 +27,8 @@ public sealed partial class MechSystem : SharedMechSystem
         if (args.Sprite == null)
             return;
 
-        if (!_sprite.LayerExists((uid, args.Sprite), MechVisualLayers.Base))
-            return;
+        // if (!_sprite.LayerExists((uid, args.Sprite), MechVisualLayers.Base)) //ADT-tweak
+        //     return; //ADT-tweak
 
         var state = component.BaseState;
         var drawDepth = DrawDepth.Mobs;
