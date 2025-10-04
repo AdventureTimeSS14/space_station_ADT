@@ -50,6 +50,7 @@
     - Meat
     - Organ
     - Eyes
+    - Trash
 # ADT-Tweak end
 
 - type: entity
@@ -90,6 +91,7 @@
     - Meat
     - Organ
     - Lungs
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganAnimalStomach
@@ -124,6 +126,7 @@
     - Meat
     - Organ
     - Stomach
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganMouseStomach
@@ -162,6 +165,7 @@
     - Meat
     - Organ
     - Liver
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganAnimalHeart
@@ -187,6 +191,7 @@
     - Meat
     - Organ
     - Heart
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganAnimalKidneys
@@ -211,3 +216,4 @@
     - Meat
     - Organ
     - Kidneys
+    - Trash # ADT-Tweak

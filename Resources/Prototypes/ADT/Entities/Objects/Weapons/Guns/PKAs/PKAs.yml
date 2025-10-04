@@ -17,7 +17,6 @@
       tags:
       - PKAUpgrade
   - type: Gun
-    resetOnHandSelected: false
     fireRate: 0.5 # Tweak 0.3
   - type: ContainerContainer
     containers:
@@ -64,7 +63,6 @@
     capacity: 3
     count: 3
   - type: Gun
-    resetOnHandSelected: false
     burstCooldown: 2
     fireRate: 0.4 # Tweak 0.5 > 0.4
     selectedMode: Burst
@@ -115,7 +113,6 @@
     capacity: 1
     count: 1
   - type: Gun
-    resetOnHandSelected: false
     fireRate: 0.25 # Tweak 0.3 > 0.25
     angleDecay: 45
     minAngle: 2
@@ -153,7 +150,6 @@
     maxAngle: 0
   - type: GunRequiresWield
   - type: Gun
-    resetOnHandSelected: false
     fireRate: 0.3 # Tweak 0.3
   - type: ContainerContainer
     containers:
@@ -191,7 +187,6 @@
       tags:
       - PKAUpgrade
   - type: Gun
-    resetOnHandSelected: false
     fireRate: 0.4 # Tweak 0.4
   - type: ContainerContainer
     containers:
