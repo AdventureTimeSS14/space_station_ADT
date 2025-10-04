@@ -176,18 +176,18 @@
 
 - type: jukebox
   id: Nebula
-  name: Nebula - Grey Room
+  name: Grey Room - Nebula
   path:
     path: /Audio/ADT/Lobby/Nebula.ogg
 
 - type: jukebox
   id: DOS
-  name: Dream of Somewhere - Ampient(Polaroid studios)
+  name: Ampient(Polaroid studios) - Dream of Somewhere
   path:
     path: /Audio/ADT/Lobby/DOS.ogg
 
 - type: jukebox
   id: IHYVA
-  name: I Hear Your Voice Again - Zeroh
+  name: Zeroh - I Hear Your Voice Again
   path:
     path: /Audio/ADT/Lobby/IHYVA.ogg
