@@ -13,6 +13,7 @@
     tags:
     - HelmetEVA
     - WhitelistChameleon
+  - type: IdentityBlocker
 
 #Large EVA Helmet
 - type: entity
@@ -25,6 +26,7 @@
     sprite: Clothing/Head/Helmets/eva_large.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_large.rsi
+  - type: IdentityBlocker
 
 #Syndicate EVA Helmet
 - type: entity
@@ -37,6 +39,7 @@
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+  - type: IdentityBlocker
 
 #Cosmonaut Helmet
 - type: entity
@@ -49,6 +52,7 @@
     sprite: Clothing/Head/Helmets/cosmonaut.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/cosmonaut.rsi
+  - type: IdentityBlocker
 
 #Ancient Void Helmet
 - type: entity
@@ -61,6 +65,7 @@
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
+  - type: IdentityBlocker
 
 #Paramedic Void Helmet
 - type: entity
@@ -95,3 +100,4 @@
     radius: 5
     energy: 2
     color: "#00ffff"
+  - type: IdentityBlocker
