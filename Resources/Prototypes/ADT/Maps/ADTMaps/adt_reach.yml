@@ -1,0 +1,74 @@
+- type: gameMap
+  id: ADT_Reach
+  mapName: 'Reach'
+  mapPath: /Maps/ADTMaps/ADTStations/adt_reach.yml
+  minPlayers: 1
+  maxPlayers: 15
+  stations:
+    ADT_Reach:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/ADTMaps/Shuttles/adt_emergency.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
+        - type: StationNameSetup
+          mapNameTemplate: '{0}Reach {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '-'
+        - type: StationJobs
+          availableJobs:
+            # command
+            Captain: [ 1, 1 ]
+            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+            #service
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 1, 1 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 1, 1 ]
+            TechnicalAssistant: [ 1, 2 ]
+            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 1, 1 ]
+            MedicalDoctor: [ 1, 1 ]
+            MedicalIntern: [ 1, 2 ]
+            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 1, 1 ]
+            ResearchAssistant: [ 1, 2 ]
+            ADTRoboticist: [ 1, 1 ] #ADT-Roles
+            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            SecurityOfficer: [ 1, 1 ]
+            SecurityCadet: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ] #ADT-Roles
+            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+            #supply
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 2 ]
+            CargoTechnician: [ 1, 1 ]
+            ADTMiner: [ 2, 3 ] # ADT-Roles
+            #civillian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            # juridical
+            Lawyer: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            Magistrat: [ 1, 1 ] #ADT-Roles
+            #silicon
+            Borg: [ 1, 2 ]
