@@ -35,11 +35,6 @@ namespace Content.Client.Chemistry.UI
             _window.BufferDiscardButton.OnPressed += _ => SendMessage(
             //ADT-Tweak-Start
                 new ChemMasterSetModeMessage(ChemMasterMode.Discard));
-            _window.PillBufferTransferButton.OnPressed += _ => SendMessage(
-                new ChemMasterSetModeMessage(ChemMasterMode.Transfer));
-            _window.PillBufferDiscardButton.OnPressed += _ => SendMessage(
-            //ADT-Tweak-End
-                new ChemMasterSetModeMessage(ChemMasterMode.Discard));
             _window.CreatePillButton.OnPressed += _ => HandleCreatePillPressed();
             _window.CreateBottleButton.OnPressed += _ => HandleCreateBottlePressed(); //ADT-Tweak
 

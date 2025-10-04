@@ -102,10 +102,6 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryGetSolution(owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                 return;
 
-            //ADT-Tweak Start
-            if (!_solutionContainerSystem.TryGetSolution(owner, SharedChemMaster.PillBufferSolutionName, out _, out var pillBufferSolution))
-                return;
-
             // Initialize stored bottles list with correct size if needed
             if (chemMaster.StoredBottles.Count != 20)
             {
@@ -119,9 +115,6 @@ namespace Content.Server.Chemistry.EntitySystems
 
             var bufferReagents = bufferSolution.Contents;
             var bufferCurrentVolume = bufferSolution.Volume;
-
-            var pillBufferReagents = pillBufferSolution.Contents;
-            var pillBufferCurrentVolume = pillBufferSolution.Volume;
 
             // ADT-Tweak
             var storedBottlesInfo = new List<ContainerInfo?>();
@@ -161,9 +154,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.Mode,
                 BuildInputContainerInfo(container),
                 bufferReagents,
-                pillBufferReagents,
                 bufferCurrentVolume,
-                pillBufferCurrentVolume,
                 chemMaster.PillType,
                 chemMaster.PillDosageLimit,
                 chemMaster.BottleDosageLimit,
@@ -332,13 +323,12 @@ namespace Content.Server.Chemistry.EntitySystems
                 containerSoln = containerEntity;
             }
 
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution) ||
-                !_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.PillBufferSolutionName, out _, out var pillBufferSolution))
+            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                 return;
 
             if (fromBuffer) // Buffer to container
             {
-                var solution = isOutput ? pillBufferSolution : bufferSolution;
+                var solution = bufferSolution;
                 // ADT-Tweak Start
                 var available = solution.GetReagentQuantity(id);
                 if (amount == int.MaxValue) amount = available; // Transfer all
@@ -358,7 +348,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 // ADT-Tweak End
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
 
-                var solution = isOutput ? pillBufferSolution : bufferSolution;
+                var solution = bufferSolution;
                 solution.AddReagent(id, amount);
             }
 
@@ -370,11 +360,10 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             if (fromBuffer)
             {
-                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out var bufferEntity, out var bufferSolution) ||
-                    !_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.PillBufferSolutionName, out var pillBufferEntity, out var pillBufferSolution))
+                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out var bufferEntity, out var bufferSolution))
                     return;
 
-                var solution = isOutput ? pillBufferSolution : bufferSolution;
+                var solution = bufferSolution;
                 // ADT-Tweak Start
                 var available = solution.GetReagentQuantity(id);
                 if (amount == int.MaxValue) amount = available; // Discard all
@@ -550,7 +539,7 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             outputSolution = null;
 
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.PillBufferSolutionName, out _, out var solution))
+            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
                 return false;
 
             if (solution.Volume == 0)

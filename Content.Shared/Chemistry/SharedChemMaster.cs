@@ -11,7 +11,6 @@ namespace Content.Shared.Chemistry
     {
         public const uint PillTypes = 20;
         public const string BufferSolutionName = "buffer";
-        public const string PillBufferSolutionName = "pillBuffer";
         public const string InputSlotName = "beakerSlot";
         public const string OutputSlotName = "outputSlot";
         public const string PillSolutionName = "food";
@@ -204,9 +203,7 @@ namespace Content.Shared.Chemistry
         ChemMasterMode mode,
         ContainerInfo? containerInfo,
         IReadOnlyList<ReagentQuantity> bufferReagents,
-        IReadOnlyList<ReagentQuantity> pillBufferReagents,
         FixedPoint2 bufferCurrentVolume,
-        FixedPoint2 pillBufferCurrentVolume,
         uint selectedPillType,
         uint pillDosageLimit,
         uint bottleDosageLimit,
@@ -230,15 +227,9 @@ namespace Content.Shared.Chemistry
         /// </summary>
         public readonly IReadOnlyList<ReagentQuantity> BufferReagents = bufferReagents;
 
-        /// <summary>
-        /// A list of the reagents and their amounts within the buffer, if applicable.
-        /// </summary>
-        public readonly IReadOnlyList<ReagentQuantity> PillBufferReagents = pillBufferReagents;
-
         public readonly ChemMasterMode Mode = mode;
 
         public readonly FixedPoint2? BufferCurrentVolume = bufferCurrentVolume;
-        public readonly FixedPoint2? PillBufferCurrentVolume = pillBufferCurrentVolume;
         public readonly uint SelectedPillType = selectedPillType;
 
         public readonly uint PillDosageLimit = pillDosageLimit;
