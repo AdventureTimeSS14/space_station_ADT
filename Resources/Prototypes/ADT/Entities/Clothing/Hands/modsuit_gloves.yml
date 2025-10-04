@@ -232,3 +232,67 @@
   - type: Fiber
     fiberMaterial: fibers-advancedcarbon-adt
     fiberColor: fibers-bloodred-adt
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitCMO
+  name: CMO MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/cmo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/cmo.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-red
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitCaptain
+  name: captain MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/captain.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/captain.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-regal-blue
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitWard
+  name: warden MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/warden.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/warden.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitBrigmedic
+  name: Brigmedic MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/brigmedic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/brigmedic.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-white
