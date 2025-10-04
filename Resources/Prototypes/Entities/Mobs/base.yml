@@ -46,6 +46,7 @@
   - type: TTS # Corvax-TTS
   - type: RequireProjectileTarget
     active: False
+  - type: StunVisuals
   # ADT tweak start
   - type: CanEscapeMech
   - type: LanguageSpeaker
@@ -128,6 +129,8 @@
     - Shock
     - Cold
     - Caustic
+    - Asphyxiation
+    - Radiation
   - type: DamageOnHighSpeedImpact
     damage:
       types:

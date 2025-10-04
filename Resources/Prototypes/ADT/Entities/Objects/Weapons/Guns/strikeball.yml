@@ -32,6 +32,10 @@
         whitelist:
           tags:
             - ADTMagazineRifleBibis
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
 
 - type: entity
   id: ADTWeaponRifleXC67Bibis

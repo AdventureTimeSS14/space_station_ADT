@@ -3,28 +3,31 @@
   name: action-fishing-start
   description: action-fishing-start-desc
   components:
-  - type: WorldTargetAction
+  - type: Action
     icon:
       sprite: ADT/Objects/Specific/Fishing/fishing_lure.rsi
       state: icon
     sound:
       path: /Audio/ADT/Items/Fishing/fishing_rod_cast.ogg
     itemIconStyle: BigAction
-    event: !type:ThrowFishingLureActionEvent
     useDelay: 2.5
-    range: 15
+  - type: TargetAction
     checkCanAccess: false
+    range: 15
+  - type: WorldTargetAction
+    event: !type:ThrowFishingLureActionEvent
 
 - type: entity
   id: ActionStopFishing
   name: action-fishing-stop
   description: action-fishing-stop-desc
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: ADT/Objects/Specific/Fishing/goon_rod.rsi
       state: icon
     sound:
       path: /Audio/ADT/Items/Fishing/fishing_rod_reel.ogg
     itemIconStyle: NoItem
+  - type: InstantAction
     event: !type:PullFishingLureActionEvent

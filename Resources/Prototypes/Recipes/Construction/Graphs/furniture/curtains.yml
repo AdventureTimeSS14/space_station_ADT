@@ -83,7 +83,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: MaterialCloth1
               amount: 2
           steps:
@@ -94,7 +94,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: MaterialCloth1
               amount: 2
           steps:
@@ -107,7 +107,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemBlack
               amount: 1
           steps:
@@ -118,7 +118,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemBlack
               amount: 1
           steps:
@@ -130,7 +130,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemBlue
               amount: 1
           steps:
@@ -141,7 +141,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemBlue
               amount: 1
           steps:
@@ -154,7 +154,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemCyan
               amount: 1
           steps:
@@ -165,7 +165,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemCyan
               amount: 1
           steps:
@@ -178,7 +178,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemGreen
               amount: 1
           steps:
@@ -189,7 +189,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemGreen
               amount: 1
           steps:
@@ -202,7 +202,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemOrange
               amount: 1
           steps:
@@ -213,7 +213,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemOrange
               amount: 1
           steps:
@@ -226,7 +226,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemPink
               amount: 1
           steps:
@@ -237,7 +237,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemPink
               amount: 1
           steps:
@@ -250,7 +250,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemPurple
               amount: 1
           steps:
@@ -261,7 +261,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemPurple
               amount: 1
           steps:
@@ -274,7 +274,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemRed
               amount: 1
           steps:
@@ -285,7 +285,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemRed
               amount: 1
           steps:
@@ -298,7 +298,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemWhite
               amount: 1
           steps:
@@ -309,7 +309,7 @@
       edges:
         - to: start
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: FloorCarpetItemWhite
               amount: 1
           steps:

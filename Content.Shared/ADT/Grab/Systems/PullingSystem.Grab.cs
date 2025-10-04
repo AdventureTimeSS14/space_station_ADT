@@ -47,7 +47,6 @@ public abstract partial class PullingSystem
 {
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -107,7 +106,7 @@ public abstract partial class PullingSystem
             var toSpawn = newHands - oldHands;
             for (var i = 0; i < toSpawn; i++)
             {
-                if (_virtualItem.TrySpawnVirtualItemInHand(args.Pulling, uid, out var virtualItem, true))
+                if (_virtual.TrySpawnVirtualItemInHand(args.Pulling, uid, out var virtualItem, true))
                     puller.VirtualItems.Add(GetNetEntity(virtualItem.Value));
             }
         }
@@ -123,7 +122,7 @@ public abstract partial class PullingSystem
 
                 if (Exists(item) && !Terminating(item))
                 {
-                    _virtualItem.DeleteVirtualItem((item, Comp<VirtualItemComponent>(item)), uid);
+                    _virtual.DeleteVirtualItem((item, Comp<VirtualItemComponent>(item)), uid);
                     puller.VirtualItems.Remove(puller.VirtualItems.Last());
                 }
             }
@@ -207,9 +206,9 @@ public abstract partial class PullingSystem
             return;
         if (!TryComp<HandsComponent>(uid, out var hands))
             return;
-        foreach (var hand in hands.Hands)
+        foreach (var hand in hands.Hands.Keys)
         {
-            _handsSystem.TryDrop(uid, hand.Value);
+            _handsSystem.TryDrop((uid, hands), hand);
         }
     }
 
@@ -230,7 +229,7 @@ public abstract partial class PullingSystem
         var stunTime = TimeSpan.FromSeconds(2);
 
         _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 17));
-        _stun.TryParalyze(uid, stunTime, true);
+        _stun.TryUpdateParalyzeDuration(uid, stunTime);
         _audio.PlayPredicted(new SoundCollectionSpecifier("TrayHit"), uid, args.PuttingOnTable);
         TryStopPull(uid, comp);
 
@@ -334,7 +333,7 @@ public abstract partial class PullingSystem
         {
             var stunTime = TimeSpan.FromSeconds(1);
             _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 8));
-            _stun.TryParalyze(uid, stunTime, true);
+            _stun.TryUpdateParalyzeDuration(uid, stunTime);
             _audio.PlayPredicted(new SoundCollectionSpecifier("MetalThud"), uid, uid);
         }
 
@@ -348,7 +347,7 @@ public abstract partial class PullingSystem
             return;
 
         _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid, uid);
-        _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(2), true);
+        _stun.TryUpdateParalyzeDuration(args.Target, TimeSpan.FromSeconds(2));
         _stamina.TakeStaminaDamage(args.Target, 65f);
         _stamina.TakeStaminaDamage(uid, 65f);
         _standing.Down(uid);
@@ -357,7 +356,7 @@ public abstract partial class PullingSystem
         if (comp.CollideCounter < comp.MaxCollides)
             return;
 
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), true);
+        _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(2));
         if (!_gravity.IsWeightless(uid))
             _physics.SetLinearVelocity(uid, Vector2.Zero);
         if (TryComp<ThrownItemComponent>(uid, out var thrown))

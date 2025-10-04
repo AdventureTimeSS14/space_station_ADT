@@ -20,9 +20,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
-  - type: Tag
-    tags:
-    - VoxFood
   #ADT-Tweak start
   - type: Item
     size: Tiny

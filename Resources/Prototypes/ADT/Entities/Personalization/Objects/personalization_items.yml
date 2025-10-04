@@ -123,7 +123,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
@@ -246,7 +246,7 @@
     sprite: ADT/Objects/Weapons/Melee/telescopic_baton_kon.rsi
     layers:
     - state: telescope_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: SwitchableWeapon
     openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
     closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
@@ -275,8 +275,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: telescope_on}
           False: {state: telescope_off}
 
@@ -291,7 +291,7 @@
     sprite: ADT/Objects/Weapons/Melee/telescopic_baton_bob.rsi
     layers:
     - state: telescope_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: SwitchableWeapon
     openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
     closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
@@ -320,8 +320,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: telescope_on}
           False: {state: telescope_off}
 
@@ -462,7 +462,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
@@ -1608,7 +1608,7 @@
     sprite: ADT/Personalization/prazat_chainsword_icon.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
     - state: icon_chainsword
       visible: false
       map: [ "chainsword" ]
@@ -1670,8 +1670,8 @@
       - state: inhand-right-chainsword
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: icon_chainsword}
           False: {state: icon}
   - type: PointLight
@@ -1759,7 +1759,7 @@
     - state: stunbaton_off
     - state: stunbaton_on
       visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
     - state: stunbaton_on_light
       shader: unshaded
       visible: false
@@ -1821,8 +1821,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: StaticPrice
@@ -1905,7 +1905,7 @@
     sprite: ADT/Personalization/egflaer_folded_knife.rsi
     layers:
     - state: icon_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: SwitchableWeapon
     openSound: "/Audio/ADT/Weapons/Melee/egflaer_knife_opening.ogg"
     # closeSound: "/Audio/Items/sheath.ogg"
@@ -1934,8 +1934,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: icon_on}
           False: {state: icon_off}
   - type: Tag
@@ -2212,7 +2212,7 @@
     sprite: _Starlight/Objects/Weapons/Melee/doublestunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
 
 #KonnorSmith
 - type: entity

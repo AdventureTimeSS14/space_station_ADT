@@ -5,10 +5,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: ADT/Heretic/polymorphs.rsi
-    state: ash_jaunt
-    loop: false
+    layers:
+    - sprite: ADT/Heretic/polymorphs.rsi
+      drawdepth: WallMountedItems
+      state: ash_jaunt
+      loop: false
   - type: TimedDespawn
     lifetime: 1
 
@@ -19,10 +20,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: ADT/Heretic/polymorphs.rsi
-    state: ash_jaunt_end
-    loop: false
+    layers:
+    - sprite: ADT/Heretic/polymorphs.rsi
+      state: ash_jaunt_end
+      drawdepth: WallMountedItems
+      loop: false
   - type: TimedDespawn
     lifetime: 1
 
@@ -135,8 +137,12 @@
       collection: Punch
     animation: WeaponArcFist
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
     healRate: 15.0
     whitelist:

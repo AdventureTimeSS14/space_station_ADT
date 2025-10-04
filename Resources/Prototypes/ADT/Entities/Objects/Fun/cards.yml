@@ -66,6 +66,7 @@
     whitelist:
       tags:
         - ADTCard
+        - ADTCard
   - type: Dumpable
 
 - type: entity

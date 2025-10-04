@@ -1,7 +1,6 @@
 using Content.Shared._RMC14.Input;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Hands.Components;
-// using Content.Shared.Verbs;
+using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Input.Binding;
 
 namespace Content.Shared._RMC14.Weapons.Common;
@@ -10,12 +9,11 @@ public sealed class UniqueActionSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
 
     public override void Initialize()
     {
-        // SubscribeLocalEvent<UniqueActionComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
-
         CommandBinds.Builder
             .Bind(CMKeyFunctions.CMUniqueAction,
                 InputCmdHandler.FromDelegate(session =>
@@ -33,29 +31,12 @@ public sealed class UniqueActionSystem : EntitySystem
         CommandBinds.Unregister<UniqueActionSystem>();
     }
 
-    // private void OnGetVerbs(Entity<UniqueActionComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
-    // {
-    //     if (!args.CanAccess || !args.CanInteract)
-    //         return;
-
-    //     if (!_actionBlockerSystem.CanInteract(args.User, args.Target))
-    //         return;
-
-    //     var user = args.User;
-    //     args.Verbs.Add(new InteractionVerb
-    //     {
-    //         Act = () => TryUniqueAction(user, ent.Owner),
-    //         Text = "Unique action",
-    //     });
-    // }
-
     private void TryUniqueAction(EntityUid userUid)
     {
-        if (!_entityManager.TryGetComponent(userUid, out HandsComponent? handsComponent) ||
-            handsComponent.ActiveHandEntity == null)
+        if (!_hands.TryGetActiveItem(userUid, out var held))
             return;
 
-        TryUniqueAction(userUid, handsComponent.ActiveHandEntity.Value);
+        TryUniqueAction(userUid, held.Value);
     }
 
     private void TryUniqueAction(EntityUid userUid, EntityUid targetUid)

@@ -22,42 +22,24 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     // funny
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Threats = "IonStormThreats";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Objects = "IonStormObjects";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Crew = "IonStormCrew";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Adjectives = "IonStormAdjectives";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Verbs = "IonStormVerbs";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string NumberBase = "IonStormNumberBase";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string NumberMod = "IonStormNumberMod";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Areas = "IonStormAreas";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Feelings = "IonStormFeelings";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string FeelingsPlural = "IonStormFeelingsPlural";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Musts = "IonStormMusts";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Requires = "IonStormRequires";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Actions = "IonStormActions";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Allergies = "IonStormAllergies";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string AllergySeverities = "IonStormAllergySeverities";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Concepts = "IonStormConcepts";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Drinks = "IonStormDrinks";
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string Foods = "IonStormFoods";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Threats = "IonStormThreats";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Objects = "IonStormObjects";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Crew = "IonStormCrew";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Adjectives = "IonStormAdjectives";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Verbs = "IonStormVerbs";
+    private static readonly ProtoId<LocalizedDatasetPrototype> NumberBase = "IonStormNumberBase";
+    private static readonly ProtoId<LocalizedDatasetPrototype> NumberMod = "IonStormNumberMod";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Areas = "IonStormAreas";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Feelings = "IonStormFeelings";
+    private static readonly ProtoId<LocalizedDatasetPrototype> FeelingsPlural = "IonStormFeelingsPlural";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Musts = "IonStormMusts";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Requires = "IonStormRequires";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Actions = "IonStormActions";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Allergies = "IonStormAllergies";
+    private static readonly ProtoId<LocalizedDatasetPrototype> AllergySeverities = "IonStormAllergySeverities";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Concepts = "IonStormConcepts";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Drinks = "IonStormDrinks";
+    private static readonly ProtoId<LocalizedDatasetPrototype> Foods = "IonStormFoods";
 
     /// <summary>
     /// Randomly alters the laws of an individual silicon.

@@ -191,6 +191,9 @@ public sealed class FollowerSystem : EntitySystem
     /// <param name="entity">The entity to be followed</param>
     public void StartFollowingEntity(EntityUid follower, EntityUid entity)
     {
+        if (follower == entity || TerminatingOrDeleted(entity))
+            return;
+
         // ADT-Tweak-Start: Улучшаем смысл компонента
         if (HasComp<HideGhostWarpComponent>(entity))
         {

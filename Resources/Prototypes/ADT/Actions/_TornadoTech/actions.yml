@@ -3,8 +3,9 @@
   name: toggle friendly fire
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
+    - type: Action
       icon: { sprite: ADT/Interface/Actions/friendly_fire.rsi, state: "on" }
       iconOn: { sprite: ADT/Interface/Actions/friendly_fire.rsi, state: "off" }
-      event: !type:ToggleActionEvent
       useDelay: 1
+    - type: InstantAction
+      event: !type:ToggleActionEvent

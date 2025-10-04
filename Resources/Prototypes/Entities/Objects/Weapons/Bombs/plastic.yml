@@ -61,7 +61,6 @@
     beepSound: /Audio/Machines/Nuke/general_beep.ogg
     startOnStick: true
     canToggleStartOnStick: true
-  - type: TriggerOnSignal #TimerStartOnSignal (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
   - type: DeviceLinkSink
     ports:
       - Trigger #Timer (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
@@ -80,11 +79,13 @@
   - type: HolidayRsiSwap
     sprite:
       festive: Objects/Weapons/Bombs/c4gift.rsi
+  - type: StaticPrice
+    price: 625 # 5000 for a bundle of 8
 
 - type: entity
   name: seismic charge
   description: Concussion based explosive designed to destroy large amounts of rock.
-  parent: BasePlasticExplosive
+  parent: [ BasePlasticExplosive, BaseSecurityCargoContraband ]
   id: SeismicCharge
   components:
   - type: Sprite
@@ -103,10 +104,9 @@
         volume: -6
     startOnStick: false
     canToggleStartOnStick: true
-  - type: TriggerOnSignal
   - type: DeviceLinkSink
     ports:
-    - Trigger
+    - Trigger #Timer (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423)
   - type: Explosive
     explosionType: Cryo
     totalIntensity: 120

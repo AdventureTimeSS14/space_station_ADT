@@ -1,3 +1,4 @@
+# Command
 - type: roleLoadout
   id: JobIAA
   groups:
@@ -16,14 +17,45 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+# Engineering
+# - type: roleLoadout
+#   id: JobSeniorEngineer
+#   groups:
+#   - GroupTankHarness
+#   - SeniorEngineerHead
+#   - SeniorEngineerJumpsuit
+#   - SeniorEngineerBackpack
+#   - SeniorEngineerOuterClothing
+#   - SeniorEngineerShoes
+#   - SurvivalExtended
+#   - Trinkets
+#   - GroupSpeciesBreathTool
+
+# Science
+# - type: roleLoadout
+#   id: JobSeniorResearcher
+#   groups:
+#   - GroupTankHarness
+#   - SeniorResearcherHead
+#   - SeniorResearcherJumpsuit
+#   - SeniorResearcherBackpack
+#   - SeniorResearcherOuterClothing
+#   - SeniorResearcherGloves
+#   - SeniorResearcherShoes
+#   - Glasses
+#   - Survival
+#   - Trinkets
+#   - GroupSpeciesBreathTool
+
+# Security
 - type: roleLoadout
   id: JobPilot
   groups:
   - Inventory # Corvax-Loadouts
-  - SecurityJumpsuit
-  - SecurityOfficerNeckADT # ADT-Loadouts
+  - PilotHead
+  - PilotJumpsuit
   - SecurityBackpack
-  - SecurityOuterClothing
+  - PilotOuterClothing
   - SecurityBelt
   - SecurityShoes
   - SurvivalSecurity # ADT fix
@@ -34,3 +66,4 @@
   # ADT underwear tweak end
   - Trinkets
   - GroupSpeciesBreathTool
+

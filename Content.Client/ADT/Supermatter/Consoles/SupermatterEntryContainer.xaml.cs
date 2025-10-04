@@ -9,6 +9,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using System.Linq;
+using System.Numerics;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Client.ADT.Supermatter.Consoles;
 
@@ -34,8 +36,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     private readonly Color _colorTurquoise = Color.FromHex("#00fff7");
 
     // Arrow icons
-    private readonly string _arrowUp = "/Textures/ADT/Interface/arrows.rsi/arrow_up.png";
-    private readonly string _arrowDown = "/Textures/ADT/Interface/arrows.rsi/arrow_down.png";
+    private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
+    private readonly string _arrowDown = "/Textures/_EE/Interface/Supermatter/arrow_down.png";
 
     // Supermatter base values
     private readonly float _radiationBase;

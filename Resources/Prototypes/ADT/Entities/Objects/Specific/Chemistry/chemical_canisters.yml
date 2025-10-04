@@ -17,11 +17,11 @@
         map: [ "enum.SolutionContainerLayers.Fill" ]
         visible: false
   - type: Item
-    size: Ginormous
+    size: SpecialCanister
     sprite: ADT/Objects/Specific/Chemistry/canister.rsi
   - type: HeldSpeedModifier
-    walkModifier: 0.5
-    sprintModifier: 0.5
+    walkModifier: 0.3
+    sprintModifier: 0.3
   - type: MultiHandedItem
   - type: Label
   - type: SolutionContainerVisuals
@@ -31,6 +31,10 @@
     inHandsFillBaseName: -fill-
   - type: StaticPrice
     price: 180
+  - type: FitsInDispenser
+  - type: Tag
+    tags:
+    - ChemDispensable
 
 - type: entity
   parent: ADTReagentCanister

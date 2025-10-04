@@ -4,7 +4,7 @@
   name: Toggle nightvision
   description: Allows you to see even in complete darkness.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/nightvision.rsi
       state: icon_on
@@ -12,8 +12,9 @@
       sprite: ADT/Interface/Actions/nightvision.rsi
       state: icon_off
     itemIconStyle: BigAction
-    event: !type:ToggleActionEvent
     useDelay: 0.25
+  - type: InstantAction
+    event: !type:ToggleActionEvent
 
 - type: entity
   id: ActionToggleThermalVision
@@ -21,7 +22,7 @@
   name: Toggle thermalvision
   description: Allows you to see even in complete darkness.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/thermalvision.rsi
       state: icon_on
@@ -29,8 +30,9 @@
       sprite: ADT/Interface/Actions/thermalvision.rsi
       state: icon_off
     itemIconStyle: BigAction
-    event: !type:ToggleActionEvent
     useDelay: 0.25
+  - type: InstantAction
+    event: !type:ToggleActionEvent
 
 - type: entity
   id: ActionToggleMesonVision
@@ -38,7 +40,7 @@
   name: Toggle mesonvision
   description: Allows you to see even in complete darkness.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/mesonvision.rsi
       state: icon_on
@@ -46,6 +48,6 @@
       sprite: ADT/Interface/Actions/mesonvision.rsi
       state: icon_off
     itemIconStyle: BigAction
-    event: !type:ToggleActionEvent
     useDelay: 0.25
-
+  - type: InstantAction
+    event: !type:ToggleActionEvent

@@ -71,8 +71,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string MalfunctionSpark = "Spark";
+        private static readonly EntProtoId MalfunctionSpark = "Spark";
 
         private static readonly ProtoId<TagPrototype> MetalTag = "Metal";
         private static readonly ProtoId<TagPrototype> PlasticTag = "Plastic";
@@ -141,7 +140,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnActiveMicrowaveRemove(Entity<ActiveMicrowaveComponent> ent, ref EntRemovedFromContainerMessage args)
         {
-            EntityManager.RemoveComponentDeferred<ActivelyMicrowavedComponent>(args.Entity);
+            RemCompDeferred<ActivelyMicrowavedComponent>(args.Entity);
         }
 
         // Stop items from transforming through constructiongraphs while being microwaved.
@@ -590,6 +589,10 @@ namespace Content.Server.Kitchen.EntitySystems
                 var ev = new BeingMicrowavedEvent(uid, user, component.CanHeat, component.CanIrradiate); // ADT-Tweak: add CanHeat, CanIrradiate
                 RaiseLocalEvent(item, ev);
 
+                // TODO MICROWAVE SPARKS & EFFECTS
+                // Various microwaveable entities should probably spawn a spark, play a sound, and generate a pop=up.
+                // This should probably be handled by the microwave system, with fields in BeingMicrowavedEvent.
+
                 if (ev.Handled)
                 {
                     UpdateUserInterfaceState(uid, component);
@@ -800,7 +803,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (!HasContents(ent.Comp) || HasComp<ActiveMicrowaveComponent>(ent))
                 return;
 
-            _container.Remove(EntityManager.GetEntity(args.EntityID), ent.Comp.Storage);
+            _container.Remove(GetEntity(args.EntityID), ent.Comp.Storage);
             UpdateUserInterfaceState(ent, ent.Comp);
         }
 

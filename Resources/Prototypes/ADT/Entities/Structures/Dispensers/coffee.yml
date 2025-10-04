@@ -1,9 +1,9 @@
 - type: entity
   parent: [ReagentDispenserBase, BaseMachinePowered]
-  id: ADTCoffeeMachine
+  id: ADTCoffeeMachineEmpty
   name: coffee machine
   description: A coffee machine for a coffee break... Oh yeah? You want a break?
-  suffix: Filled, Common
+  suffix: Empty, Common
   components:
   - type: SpamEmitSoundRequirePower
   - type: SpamEmitSound
@@ -21,11 +21,12 @@
     drawdepth: SmallObjects
     state: common
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
-    pack: CoffeeMachineInventory
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        tags:
+        - DrinkBottle
+        - ChemDispensable
   - type: Transform
     noRot: false
   - type: GuideHelp
@@ -104,11 +105,15 @@
   - type: Sprite
     state: command
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
-    pack: CoffeeMachineCommandInventory
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        tags:
+        - DrinkBottle
+        - ChemDispensable
+  - type: StorageFill
+    contents:
+    - id: DrinkCoffeeBluespaceJug
 
 - type: entity
   parent: ADTCoffeeMachine
@@ -119,21 +124,34 @@
   - type: Sprite
     state: bluespace
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - ADTBluespaceCoffeine
-    pack: CoffeeMachineBluespaceInventory
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        tags:
+        - ADTBluespaceCoffeine
+  - type: StorageFill
+    contents:
+    - id: DrinkCoffeeJug
+    - id: ADTMilkJug
+    - id: DrinkCreamCartonXL
+    - id: DrinkCognacBottleFull
   - type: Machine
     board: ADTCoffeeMachineBluespaceCircuitboard
 
 - type: entity
-  parent: ADTCoffeeMachine
-  id: ADTCoffeeMachineEmpty
-  suffix: Empty, Common
+  parent: ADTCoffeeMachineEmpty
+  id: ADTCoffeeMachine
+  suffix: Filled, Common
   components:
   - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
-    pack: EmptyInventory
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        tags:
+        - DrinkBottle
+        - ChemDispensable
+  - type: StorageFill
+    contents:
+    - id: DrinkCoffeeJug
+    - id: ADTMilkJug
+    - id: DrinkCreamCartonXL

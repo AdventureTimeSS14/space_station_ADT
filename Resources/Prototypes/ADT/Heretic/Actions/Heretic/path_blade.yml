@@ -5,7 +5,7 @@
   description: Recover from all stuns and knockdowns, gaining short term pacifism.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     checkConsciousness: false
     useDelay: 10
@@ -13,6 +13,7 @@
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: realignment
+  - type: InstantAction
     event: !type:EventHereticRealignment
   - type: HereticAction
     requireMagicItem: true
@@ -24,12 +25,13 @@
   description: Summon three orbiting protecting blades around you.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: furious_steel
+  - type: InstantAction
     event: !type:EventHereticFuriousSteel
   - type: HereticAction
     requireMagicItem: true

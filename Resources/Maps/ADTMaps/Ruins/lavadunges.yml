@@ -48,9 +48,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: MapGrid
@@ -2562,8 +2560,6 @@ entities:
     - type: Transform
       pos: 93.5,14.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2743.1644045
     - type: PointLight
       enabled: True
 - proto: ADTMediumThruster
@@ -2890,8 +2886,6 @@ entities:
     - type: Transform
       pos: 135.5,-0.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2719.1644345
     - type: PointLight
       enabled: True
 - proto: ADTVendingMachinePrazatClothing
@@ -2901,8 +2895,6 @@ entities:
     - type: Transform
       pos: 97.5,17.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2775.1643925
     - type: PointLight
       enabled: True
 - proto: Airlock
@@ -15481,15 +15473,11 @@ entities:
     - type: Transform
       pos: 29.5,-30.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2636.1645585
   - uid: 2074
     components:
     - type: Transform
       pos: 25.5,-28.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2686.1644995
 - proto: SMESBasic
   entities:
   - uid: 5166
@@ -17228,8 +17216,6 @@ entities:
     - type: Transform
       pos: 106.5,17.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2753.1644935
     - type: AccessReader
       access: []
     - type: PointLight
@@ -17241,8 +17227,6 @@ entities:
     - type: Transform
       pos: 100.5,17.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2772.1644195
     - type: PointLight
       enabled: True
 - proto: VendingMachineClothing
@@ -17252,8 +17236,6 @@ entities:
     - type: Transform
       pos: 96.5,17.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2843.1644035
     - type: PointLight
       enabled: True
 - proto: VendingMachineCoffee
@@ -17263,8 +17245,6 @@ entities:
     - type: Transform
       pos: 13.5,7.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2861.1643885
     - type: PointLight
       enabled: True
 - proto: VendingMachineEngiDrobe
@@ -17288,8 +17268,6 @@ entities:
     - type: Transform
       pos: 30.5,-30.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2761.1644485
     - type: PointLight
       enabled: True
 - proto: VendingMachineSeeds
@@ -17299,8 +17277,6 @@ entities:
     - type: Transform
       pos: 28.5,-30.5
       parent: 1
-    - type: Advertise
-      nextAdvertisementTime: 2753.1644625
     - type: PointLight
       enabled: True
 - proto: VendingMachineSoda
@@ -17312,8 +17288,6 @@ entities:
       parent: 1
     - type: PointLight
       enabled: True
-    - type: Advertise
-      nextAdvertisementTime: 2666.1645104
 - proto: WallBasaltCobblebrick
   entities:
   - uid: 2333

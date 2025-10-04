@@ -7,7 +7,7 @@ namespace Content.Shared.ADT.Paint;
 /// Component applied to target entity when painted.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class PaintedComponent : Component
+public sealed partial class ColorPaintedComponent : Component
 {
     /// <summary>
     ///  Color of the paint.

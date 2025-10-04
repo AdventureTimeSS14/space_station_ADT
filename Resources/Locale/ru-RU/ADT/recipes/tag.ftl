@@ -91,7 +91,6 @@ construction-graph-tag-chess-red-wood-floor = красный шахматный 
 construction-graph-tag-galaxythistle = галакточертополох
 construction-graph-tag-poppy = мак
 construction-graph-tag-aloe = алоэ
-construction-graph-tag-ambrosia = амброзия
 
 # Платы
 construction-graph-door-electronics = микросхема шлюза

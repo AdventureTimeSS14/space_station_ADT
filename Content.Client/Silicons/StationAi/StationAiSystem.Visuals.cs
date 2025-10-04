@@ -10,14 +10,13 @@ namespace Content.Client.Silicons.StationAi;
 
 public sealed partial class StationAiSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
 
-    private void InitializeVisuals()
-    {
-        SubscribeLocalEvent<StationAiCoreComponent, AppearanceChangeEvent>(OnAppearanceChange);
-    }
+    // private void InitializeVisuals()
+    // {
+    //     SubscribeLocalEvent<StationAiCoreComponent, AppearanceChangeEvent>(OnAppearanceChange);
+    // }
 
     private void OnAppearanceChange(EntityUid uid, StationAiCoreComponent component, ref AppearanceChangeEvent args)
     {

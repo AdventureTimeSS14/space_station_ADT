@@ -2,8 +2,10 @@
   id: Bagel
   mapName: 'Bagel Station'
   mapPath: /Maps/bagel.yml
-  minPlayers: 35
-  maxPlayers: 80
+  # Corvax-start
+  minPlayers: 25
+  maxPlayers: 55
+  # Corvax-end
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation

@@ -45,3 +45,12 @@
   name: item-component-size-Ginormous
   defaultShape:
   - 0,0,5,5
+
+# ADT-Tweak-Start
+- type: itemSize
+  id: SpecialCanister
+  weight: 32
+  name: item-component-size-Ginormous
+  defaultShape:
+  - 0,0,1,1
+# ADT-Tweak-Start
