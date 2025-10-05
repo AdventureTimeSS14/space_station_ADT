@@ -25,7 +25,6 @@
 #    EnergyShotgunStealObjective: 0.5 # ADT objective
     ADTMobileDefibrillatorStealObjective: 1 # ADT Objective
     ADTX01StealObjective: 0.5 # ADT Objective
-    ADTStealSupermatterSliverObjective:: 0.5 # ADT Objective
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
