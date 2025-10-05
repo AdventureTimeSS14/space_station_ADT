@@ -3,7 +3,7 @@
   mapName: 'Joule Station'
   mapPath: /Maps/SDMaps/SDStations/SD_Joule.yml
   maxRandomOffset: 0
-  minPlayers: 0
+  minPlayers: 5
   stations:
     SD_Joule:
       stationProto: StandardNanotrasenStation
@@ -15,68 +15,66 @@
             prefixCreator: '-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
+        - type: StationCargoShuttle
+          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
-            Boxer: [ 2, 2 ]
-            CargoTechnician: [ 4, 4 ]
-            Passenger: [ -1, -1 ]
-            Bartender: [ 1, 2 ]
-            Botanist: [ 3, 4 ]
-            Chef: [ 1, 2 ]
-            Clown: [ 1, 1 ]
-            Janitor: [ 2, 3 ]
-            Mime: [ 1, 1 ]
-            Captain: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
-            ChiefEngineer: [ 1, 1 ]
-            StationEngineer: [ 4, 4 ]
-            ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 3, 4 ]
-            Chemist: [ 2, 2 ]
-            ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 4 ]
-            HeadOfSecurity: [ 1, 1 ]
-            SecurityOfficer: [ 4, 4 ]
-            Chaplain: [ 1, 1 ]
-            Warden: [ 1, 1 ]
-            Librarian: [ 1, 1 ]
-            Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 4, 4 ]
-            Musician: [ 2, 2 ]
-            AtmosphericTechnician: [ 2, 3 ]
-            TechnicalAssistant: [ 4, 4 ]
-            ResearchAssistant: [ 3, 3 ]
-            Reporter: [ 2, 2 ]
-            MedicalIntern: [ 3, 3 ]
-            ServiceWorker: [ 3, 4 ]
-            SecurityCadet: [ 3, 4 ]
-            Psychologist: [ -1, -1 ]
-            Detective: [ 1, 1 ]
-            Paramedic: [ 1, 1 ]
-            Magistrat: [ 1, 1 ] #ADT-Roles
-            Lawyer: [ 1, 1 ]
-            IAA: [ 1, 1 ]
-            ADTRoboticist: [ 1, 2 ] #ADT-Roles
-            ADTPathologist: [ 1, 1 ] #ADT-Roles
-            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
-            ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
-            Brigmedic: [ 1, 1 ] #ADT-Roles
-            ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
-            ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
-            ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
-            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
-            Pilot: [-1, -1]
-            #silicon
-            StationAi: [ 1, 1 ]
-            Borg: [ 2, 3 ]
-      #ADT-Tweak - стандартные цели заменены на транзит в рамках эксперимента
-        # - type: StationGoal
-        #   goals:
-        #   - Shuttle
-        #   - SolarPanels
-        #   - Artifacts
-        #   - Bank
-        #   - Zoo
-        #   - MiningOutpost
-        #   - XenobiologyRepair
-        #   - VirusologyAmbusol
+                # service
+                HeadOfPersonnel: [ 1, 1 ]
+                Passenger: [ -1, -1 ]
+                ServiceWorker: [ 3, 4 ]
+                Bartender: [ 2, 2 ]
+                Botanist: [ 3, 4 ]
+                Chef: [ 2, 2 ]
+                Clown: [ 1, 1 ]
+                Janitor: [ 3, 3 ]
+                Mime: [ 1, 1 ]
+                Chaplain: [ 1, 1 ]
+                Librarian: [ 1, 1 ]
+                Musician: [ 1, 1 ]
+                Reporter: [ 1, 2 ]
+                Zookeeper: [ 1, 1 ]
+                # command
+                Captain: [ 1, 1 ]
+                ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+                # engineering
+                ChiefEngineer: [ 1, 1 ]
+                AtmosphericTechnician: [ 3, 3 ]
+                StationEngineer: [ 4, 5 ]
+                TechnicalAssistant: [ 2, 3 ]
+                ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
+                # medical
+                ChiefMedicalOfficer: [ 1, 1 ]
+                Paramedic: [ 1, 1 ]
+                Chemist: [ 3, 3 ]
+                MedicalDoctor: [ 4, 5 ]
+                MedicalIntern: [ 3, 4 ]
+                Psychologist: [ 1, 1 ]
+                ADTPathologist: [ 1, 1 ] #ADT-Roles
+                ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
+                # science
+                ResearchDirector: [ 1, 1 ]
+                Scientist: [ 5, 6 ]
+                ResearchAssistant: [ 3, 4 ]
+                ADTRoboticist: [ 1, 2 ] #ADT-Roles
+                ADTSeniorResearcher: [ 1, 1 ] # ADT-roles
+                # security
+                HeadOfSecurity: [ 1, 1 ]
+                Warden: [ 1, 1 ]
+                Detective: [ 1, 1 ]
+                SecurityOfficer: [ 7, 8 ]
+                SecurityCadet: [ 4, 6 ]
+                Brigmedic: [ 1, 1 ] #ADT-Roles
+                ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
+                ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+                # cargo
+                Quartermaster: [ 1, 1 ]
+                SalvageSpecialist: [ 4, 4 ]
+                CargoTechnician: [ 4, 5 ]
+                # juridical
+                Lawyer: [ 1, 1 ]
+                IAA: [ 1, 1 ]
+                Magistrat: [ 1, 1 ] #ADT-Roles
+                #silicon
+                StationAi: [ 1, 1 ]
+                Borg: [ 2, 3 ]
