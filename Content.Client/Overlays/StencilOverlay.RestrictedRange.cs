@@ -48,7 +48,7 @@ public sealed partial class StencilOverlay
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
         worldHandle.DrawTextureRect(_blep!.Texture, worldBounds);
         var curTime = _timing.RealTime;
-        var sprite = _sprite.GetFrame(new SpriteSpecifier.Texture(new ResPath("/Textures/Parallaxes/noise.png")), curTime);
+        var sprite = _sprite.GetFrame(new SpriteSpecifier.Texture(new ResPath(rangeComp.Texturepath)), curTime); //ADT-tweak
 
         // Draw the rain
         worldHandle.UseShader(_protoManager.Index(StencilDraw).Instance());
