@@ -24,7 +24,7 @@
 
 - type: chameleonOutfit
   id: ADTBarberChameleonOutfit
-  job: ADTBarberGear
+  job: ADTBarber
   hasMindShield: true
   equipment:
     shoes: ClothingShoesColorBlack
