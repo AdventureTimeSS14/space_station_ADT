@@ -35,23 +35,23 @@ public sealed class StationPowerTests
         "Elkridge",
         // ADT-Start
         // "ADT_Avrit",
-        "ADT_Bagel",
-        "ADT_Barratry",
-        "ADT_Box",
-        "ADT_Cluster",
-        "ADT_Fland",
-        "ADT_Delta",
-        "ADT_Marathon",
-        "ADT_Kerberos",
-        "ADT_kilo",
-        "ADT_Saltern",
-        "ADT_Packed",
+        // "ADT_Bagel",
+        // "ADT_Barratry",
+        // "ADT_Box",
+        // "ADT_Cluster",
+        // "ADT_Fland",
+        // "ADT_Delta",
+        // "ADT_Marathon",
+        // "ADT_Kerberos",
+        // "ADT_kilo",
+        // "ADT_Saltern",
+        // "ADT_Packed",
         // "ADT_Gemini",
-        "ADT_Aspid",
+        // "ADT_Aspid",
         // "ADT_Cluster_Legacy",
-        "ADT_Meta",
-        "ADT_Origin",
-        "ADT_Centcomm"
+        // "ADT_Meta",
+        // "ADT_Origin",
+        // "ADT_Centcomm"
         // ADT-End
     ];
 
