@@ -42,7 +42,7 @@
         {
             "name": "snowfall_light",
             "delays": [[0.2, 0.2, 0.2]]
-        }
+        },
         {
             "name": "ashfal_lvery_light"
         }
