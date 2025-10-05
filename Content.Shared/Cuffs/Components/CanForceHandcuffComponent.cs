@@ -14,7 +14,7 @@ public sealed partial class CanForceHandcuffComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? Handcuffs;
 
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables, NonSerialized]
     public BaseContainer? Container;
 
     [DataField]
@@ -22,4 +22,4 @@ public sealed partial class CanForceHandcuffComponent : Component
 
     [DataField]
     public bool Complex = false;
-}   
+}
