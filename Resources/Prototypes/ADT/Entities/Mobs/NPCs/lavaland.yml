@@ -342,7 +342,7 @@
 #Crab
 - type: entity
   id: ADTMobBSCrab
-  parent: BaseMobAsteroid
+  parent: MobOreCrab
   name: Bluespace crab
   description: A crab made half from the ashes of Lavaland storms, a quarter flesh, a quarter bluespace. Aggressive on look.
   components:
@@ -360,10 +360,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 4.0
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      125: Dead 
   - type: MeleeWeapon
     damage:
       types:
@@ -379,9 +375,20 @@
         5
       AggroVisionRadius: !type:Single
         11
-  - type: Butcherable
-    spawned:
-    - id: ADTBSore1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTBSore1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Fauna
   - type: AshStormImmune
   - type: Gun
@@ -441,5 +448,5 @@
   - type: MobPrice
     price: 150
   - type: FloatingVisuals
-  - type: Fauna 
-  - type: AshStormImmune 
+  - type: Fauna
+  - type: AshStormImmune
