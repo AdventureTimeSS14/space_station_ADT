@@ -151,3 +151,48 @@
       - 1.1,2.5
       - 1.4,0.5
     thrust: 500
+
+- type: entity
+  id: ADTMediumLongThruster
+  parent: ADTMediumThruster
+  name: medium long thruster
+  description: Standard medium thruster.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-2.5,0.5,0.5"
+        density: 160
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: ApcPowerReceiver
+    powerLoad: 1200
+  - type: Sprite
+    sprite: ADT/Structures/Machines/Thrusters/medium_long_thruster.rsi
+    offset: 0, -1
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 2.7
+      scale: 0.7, 1
+  - type: Thruster
+    burnShape:
+      - -0.4,0.5
+      - -0.3,2.5
+      - 0.3,2.5
+      - 0.4,0.5
+    thrust: 170
