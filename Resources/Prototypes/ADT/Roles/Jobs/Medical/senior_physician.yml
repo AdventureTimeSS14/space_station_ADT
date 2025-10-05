@@ -29,8 +29,8 @@
     eyes: ADTClothingEyesGlassesMedChem
 
 - type: chameleonOutfit
-  id: ADTPathologistChameleonOutfit
-  job: ADTPathologist
+  id: ADTSeniorPhysicianChameleonOutfit
+  job: ADTSeniorPhysician
   hasMindShield: true
   equipment:
     ears: ClothingHeadsetMedical
