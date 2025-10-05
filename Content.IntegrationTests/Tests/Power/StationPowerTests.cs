@@ -34,10 +34,8 @@ public sealed class StationPowerTests
         "Oasis",
         "Gate",
         "Amber",
-        "Loop",
         "Plasma",
         "Elkridge",
-        "Convex",
         "Relic",
         // ADT-Start
         "ADT_Avrit",
