@@ -93,12 +93,10 @@ namespace Content.IntegrationTests.Tests
             "Amber",
             "Elkridge",
             "Plasma",
-            "Relic",
             "dm01-entryway",
             "Exo",
             // ADT-Start
             "ADT_Train",
-            "ADT_Avrit",
             "ADT_Bagel",
             "ADT_Barratry",
             "ADT_Box",
