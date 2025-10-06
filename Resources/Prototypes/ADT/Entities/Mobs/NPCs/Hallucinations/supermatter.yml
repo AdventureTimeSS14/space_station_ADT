@@ -1,0 +1,43 @@
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTSMHallucinationDarkmatter
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Structures/Power/Supermatter/DARKMATTER.rsi
+    layers:
+    - state: supermatter
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Supermatter/calm.ogg
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTSMHallucinationCrystallBeing
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/supermatter.rsi
+    layers:
+    - state: supermatter
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Supermatter/delamming.ogg
