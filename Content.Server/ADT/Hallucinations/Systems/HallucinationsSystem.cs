@@ -21,7 +21,6 @@ public sealed partial class HallucinationsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public static string HallucinatingKey = "Hallucinations";
@@ -193,8 +192,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
             foreach (var (ent, comp) in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(xform.MapPosition, range))
             {
-                var position = _transform.GetMapCoordinates(ent);
-                var newCoords = position.Offset(_random.NextVector2(stat.Range));
+                var newCoords = Transform(ent).MapPosition.Offset(_random.NextVector2(stat.Range));
 
                 if (stat.SpawnedCount >= stat.MaxSpawns)
                     continue;
@@ -207,8 +205,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
                 _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
             }
 
-            var newposition = _transform.GetMapCoordinates(uid);
-            var uidnewCoords = newposition.Offset(_random.NextVector2(stat.Range));
+            var uidnewCoords = Transform(uid).MapPosition.Offset(_random.NextVector2(stat.Range));
 
             if (stat.SpawnedCount >= stat.MaxSpawns)
                 continue;
@@ -249,8 +246,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
             foreach (var (ent, comp) in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(xform.MapPosition, range))
             {
-                var position = _transform.GetMapCoordinates(ent);
-                var newCoords = position.Offset(_random.NextVector2(stat.Range));
+                var newCoords = Transform(ent).MapPosition.Offset(_random.NextVector2(stat.Range));
 
                 if (stat.SpawnedCount >= stat.MaxSpawns)
                     continue;
@@ -263,8 +259,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
                 _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
             }
 
-            var newposition = _transform.GetMapCoordinates(uid);
-            var uidnewCoords = newposition.Offset(_random.NextVector2(stat.Range));
+            var uidnewCoords = Transform(uid).MapPosition.Offset(_random.NextVector2(stat.Range));
 
             if (stat.SpawnedCount >= stat.MaxSpawns)
                 continue;

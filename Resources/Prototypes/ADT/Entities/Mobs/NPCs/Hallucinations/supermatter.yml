@@ -1,9 +1,6 @@
 - type: entity
   parent: ADTBaseEntityHallucination
   id: ADTSMHallucinationDarkmatter
-  name: "???"
-  description: "???"
-  suffix: DO NOT MAP
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -19,13 +16,12 @@
     range: 15
     sound:
       path: /Audio/ADT/Supermatter/calm.ogg
+  - type: TimedDespawn
+    lifetime: 35.0
 
 - type: entity
   parent: ADTBaseEntityHallucination
   id: ADTSMHallucinationCrystallBeing
-  name: "???"
-  description: "???"
-  suffix: DO NOT MAP
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -41,3 +37,5 @@
     range: 15
     sound:
       path: /Audio/ADT/Supermatter/delamming.ogg
+  - type: TimedDespawn
+    lifetime: 30.0

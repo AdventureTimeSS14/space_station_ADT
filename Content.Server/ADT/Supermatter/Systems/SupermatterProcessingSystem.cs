@@ -38,7 +38,7 @@ public sealed partial class SupermatterSystem
 {
     /// <summary>
     /// Logging the first launch of supermatter
-    /// <summary>    
+    /// <summary>
     private bool CheckFirstPower(EntityUid uid, SupermatterComponent sm, GasMixture mix)
     {
         if (sm.Power > 0 && !sm.HasBeenPowered)
@@ -165,7 +165,7 @@ public sealed partial class SupermatterSystem
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
         }
 
-        var energy = sm.Power * _config.GetCVar(ADTCCVars.SupermatterReactionPowerModifier) * (1f - sm.PsyCoefficient * 0.2f) * 2 * frameTime;
+        var energy = sm.Power * _config.GetCVar(ADTCCVars.SupermatterReactionPowerModifier) * 1.6f * frameTime;
         var gasReleased = sm.GasStorage.Clone();
 
         gasReleased.Temperature += energy * sm.HeatModifier / _config.GetCVar(ADTCCVars.SupermatterThermalReleaseModifier);
@@ -240,7 +240,7 @@ public sealed partial class SupermatterSystem
 
         if (moles < _config.GetCVar(ADTCCVars.SupermatterMolePenaltyThreshold))
         {
-            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
+            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f), 0f) / 150f;
             totalDamage += sm.HeatHealing;
         }
         else

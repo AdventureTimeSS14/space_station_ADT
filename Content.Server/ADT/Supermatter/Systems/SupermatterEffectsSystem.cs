@@ -17,6 +17,7 @@ using Content.Shared.Radiation.Components;
 using Content.Shared.Light.Components;
 
 namespace Content.Server.ADT.Supermatter.Systems;
+
 public sealed partial class SupermatterSystem
 {
     /// <summary>
@@ -39,25 +40,21 @@ public sealed partial class SupermatterSystem
     }
 
     /// <summary>
-    /// Applies hallucinations and psychologist coefficient
+    /// Applies hallucinations
     /// </summary>
     public void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
-        var psyDiff = -0.007f;
-        var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 20f);
+        var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 35f);
 
         foreach (var mob in lookup)
         {
-            if (!_examine.InRangeUnOccluded(uid, mob, 20f) ||
+            if (!_examine.InRangeUnOccluded(uid, mob, 35f) ||
                 mob.Comp.CurrentState == MobState.Dead)
                 continue;
 
-            if (HasComp<SupermatterSootherComponent>(mob))
-                psyDiff = 0.007f;
-
-            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || 
+            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) ||
                 HasComp<SiliconLawBoundComponent>(mob) ||
-                HasComp<PermanentBlindnessComponent>(mob) || 
+                HasComp<PermanentBlindnessComponent>(mob) ||
                 HasComp<TemporaryBlindnessComponent>(mob))
                 continue;
 
@@ -74,17 +71,10 @@ public sealed partial class SupermatterSystem
             }
 
             var hallucinationKey = "ADTHallucination";
-            var hallucinationProto = "Supermatter";
-            var hallucinationDuration = TimeSpan.FromSeconds(10);
-            var refresh = true;
+            var hallucinationProto = "SupermatterPack";
 
-            _hallucinations.StartHallucinations(mob, hallucinationKey, hallucinationDuration, refresh, hallucinationProto);
+            _hallucinations.StartHallucinations(mob, hallucinationKey, TimeSpan.FromSeconds(100), true, hallucinationProto);
         }
-
-        sm.PsyCoefficient = Math.Clamp(sm.PsyCoefficient + psyDiff, 0f, 1f);
-
-        if (TryComp<AppearanceComponent>(uid, out var appearance))
-            _appearance.SetData(uid, SupermatterVisuals.Psy, sm.PsyCoefficient, appearance);
     }
 
     /// <summary>
