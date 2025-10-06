@@ -427,6 +427,11 @@
       - type: BatterySelfRecharger
         autoRecharge: true
         autoRechargeRate: 2
+      - type: PointLight
+        enabled: false
+        autoRot: true
+        radius: 7
+        mask: /Textures/Effects/LightMasks/cone.png
 
 - type: entity
   parent: ADTModsuitModBase
