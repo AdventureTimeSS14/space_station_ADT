@@ -72,5 +72,10 @@ public sealed partial class MimePowersComponent : Component
     [DataField]
     public LocId FailWriteMessage = "paper-component-illiterate-mime";
 
+    //ADT-Tweak-Start
+    [DataField("wallCount")]
+    public int WallCount = 1;
+    //ADT-Tweak-End
+
     public override bool SendOnlyToOwner => true;
 }
