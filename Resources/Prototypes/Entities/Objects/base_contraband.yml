@@ -67,6 +67,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ CentralCommand ]
+    criminalPoints: 3.5 # ADT-Beepsky
 
 - type: entity
   id: BaseCommandContraband
@@ -75,6 +76,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Command ]
+    criminalPoints: 3 # ADT-Beepsky
 
 - type: entity
   id: BaseSecurityContraband
@@ -83,6 +85,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
+    criminalPoints: 3 # ADT-Beepsky
 
 - type: entity
   id: BaseEngineeringContraband
@@ -91,6 +94,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Engineering ]
+    criminalPoints: 2 # ADT-Beepsky
 
 - type: entity
   id: BaseScienceContraband
@@ -99,6 +103,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Science ]
+    criminalPoints: 2 # ADT-Beepsky
 
 - type: entity
   id: BaseMedicalContraband
@@ -107,6 +112,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Medical ]
+    criminalPoints: 2 # ADT-Beepsky
 
 - type: entity
   id: BaseCivilianContraband
@@ -115,6 +121,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Civilian ]
+    criminalPoints: 2 # ADT-Beepsky
 
 - type: entity
   id: BaseCargoContraband
@@ -133,6 +140,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ CentralCommand, Command ]
+    criminalPoints: 3 # ADT-Beepsky
 
 - type: entity
   id: BaseSecurityCommandContraband
@@ -141,6 +149,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security, Command ]
+    criminalPoints: 3.5 # ADT-Beepsky
 
 - type: entity
   id: BaseSecurityScienceCommandContraband
@@ -149,6 +158,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security, Science, Command ]
+    criminalPoints: 3.25 # ADT-Beepsky
 
 - type: entity
   id: BaseSecurityEngineeringContraband
@@ -157,6 +167,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security, Engineering ]
+    criminalPoints: 3 # ADT-Beepsky
 
 - type: entity
   id: BaseSiliconScienceContraband
@@ -165,6 +176,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Science, Silicon ]
+    criminalPoints: 3 # ADT-Beepsky
 
 - type: entity
   id: BaseSecurityCargoContraband
@@ -173,6 +185,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security, Cargo ]
+    criminalPoints: 3.5 # ADT-Beepsky
 
 - type: entity
   id: BaseMedicalScienceContraband
@@ -181,6 +194,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Medical, Science ]
+    criminalPoints: 3 # ADT-Beepsky
 
 # contraband restricted by job by some degree
 - type: entity
@@ -191,6 +205,7 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Bartender ]
+    criminalPoints: 2 # ADT-Beepsky
 
 - type: entity
   id: BaseSecurityBartenderZookeeperContraband
@@ -200,6 +215,7 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Bartender, Zookeeper ]
+    criminalPoints: 2 # ADT-Beepsky
 
 - type: entity
   id: BaseSecurityLawyerContraband
@@ -209,6 +225,7 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Lawyer ]
+    criminalPoints: 2 # ADT-Beepsky
 
 - type: entity
   id: BaseJanitorContraband
@@ -217,6 +234,7 @@
   components:
   - type: Contraband
     allowedJobs: [ Janitor ]
+    criminalPoints: 2 # ADT-Beepsky
 
 # for ~objective items
 - type: entity
@@ -226,3 +244,4 @@
   - type: Contraband
     severity: GrandTheft
     allowedDepartments: [ Command ]
+    criminalPoints: 5 # ADT-Beepsky
