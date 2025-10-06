@@ -34,8 +34,6 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
         {"RotateSpeed", float.MaxValue},
         {"VisionRadius", 10f},
         {"AggroVisionRadius", 10f},
-        {SecuritronArrestRange, 12f}, // ADT-Beepsky
-        {SecuritronPatrolRange, 96f}, // ADT-Beepsky
     };
 
     /// <summary>
@@ -294,11 +292,6 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
     public const string FollowTarget = "FollowTarget";
     public const string Inventory = "Inventory";
     public const string MedibotInjectRange = "MedibotInjectRange";
-
-    // ADT-Beepsky-Start
-    public const string SecuritronArrestRange = "SecuritronArrestRange";
-    public const string SecuritronPatrolRange = "SecuritronPatrolRange";
-    // ADT-Beepsky-End
 
     public const string MeleeMissChance = "MeleeMissChance";
 

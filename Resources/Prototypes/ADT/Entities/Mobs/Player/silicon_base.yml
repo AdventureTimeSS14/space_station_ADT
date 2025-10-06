@@ -281,7 +281,6 @@
     - type: Cuffable
     - type: AnimationPlayer
     - type: Buckle
-    - type: CriminalRecord # ADT-Beepsky
     - type: CreamPied
     - type: Stripping
     - type: Strippable

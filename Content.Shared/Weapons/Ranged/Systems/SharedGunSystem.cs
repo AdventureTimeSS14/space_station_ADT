@@ -5,7 +5,6 @@ using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.CombatMode;
-using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -16,7 +15,6 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Security.Components;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
@@ -109,7 +107,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<GunComponent, GetCriminalPointsEvent>(OnCriminalPoints); // ADT-Beepksy-Start
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -161,16 +158,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.Target = GetEntity(msg.Target);
         AttemptShoot(user.Value, ent, gun);
     }
-
-    // ADT-Beepsky-Start
-    private void OnCriminalPoints(EntityUid uid, GunComponent component, GetCriminalPointsEvent args)
-    {
-        if (HasComp<PacifismAllowedGunComponent>(uid))
-            return;
-
-        args.Points *= component.CriminalPointMultiplier;
-    }
-    // ADT-Beepsky-End
 
     private void OnStopShootRequest(RequestStopShootEvent ev, EntitySessionEventArgs args)
     {
