@@ -72,3 +72,8 @@ ent-JugPlantBGone = { ent-Jug }
 ent-JugWeldingFuel = { ent-Jug }
     .desc = { ent-Jug.desc }
     .suffix = сварочное топливо
+# ADT-tweak start
+ent-ADTJugCharcoal = { ent-Jug }
+    .desc = { ent-Jug.desc }
+    .suffix = уголь
+# ADT-tweak end
