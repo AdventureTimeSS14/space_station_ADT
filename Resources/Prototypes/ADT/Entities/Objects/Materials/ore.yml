@@ -40,3 +40,107 @@
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   spawn: ADTBSore1
   maxCount: 30
+
+## NewBFUU by M&B (еблан какой-то)
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTGibtonite
+  suffix: Full
+  name: Bluespace ore
+  description: rock with pieces of bluespace ore
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Objects/Materials/gibtonite.rsi
+    layers:
+      - state: gibtonite
+        visible: true
+      - state: active
+        visible: false
+        map: ["enum.GibtoniteVisuals.Active"]
+  - type: Item
+    heldPrefix: ADTBSore
+  - type: MultiHandedItem
+  - type: Damageable
+  - type: RequireProjectileTarget
+  - type: Gibtonite
+    extracted: true
+    elapsed: 0
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: OreBase
+  id: ADTCopperOre
+  name: gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: CopperOre
+  - type: Sprite
+    state: copper
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawCopper: 300
+  - type: Item
+    heldPrefix: copper
+  - type: Extractable
+    grindableSolutionName: copper
+  - type: SolutionContainerManager
+    solutions:
+      copper:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 20
+
+- type: entity
+  parent: ADTCopperOre
+  id: ADTCopperOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: OreBase
+  id: ADTZincOre
+  name: gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ZincOre
+  - type: Sprite
+    state: zinc
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawZinc: 300
+  - type: Item
+    heldPrefix: zinc
+  - type: Extractable
+    grindableSolutionName: steel
+  - type: SolutionContainerManager
+    solutions:
+      steel:
+        reagents:
+        - ReagentId: Zinc
+          Quantity: 20
+
+- type: entity
+  parent: ADTZincOre
+  id: ADTZincOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
