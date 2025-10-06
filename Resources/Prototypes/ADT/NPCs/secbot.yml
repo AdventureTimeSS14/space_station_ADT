@@ -6,9 +6,6 @@
           task: ArrestWantedNearbyCompound
     - tasks:
         - !type:HTNCompoundTask
-          task: ArrestContrabandNearbyCompound
-    - tasks:
-        - !type:HTNCompoundTask
           task: MeleeCombatCompound
     - tasks:
         - !type:HTNCompoundTask
@@ -31,38 +28,6 @@
 
         - !type:HTNCompoundTask
           task: ArrestTargetCompound
-
-- type: htnCompound
-  id: ArrestContrabandNearbyCompound
-  branches:
-    - tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:PickNearbyContrabandOperator
-            targetKey: ContrabandTarget
-            targetMoveKey: ContrabandTargetCoordinates
-            targetFoundSoundKey: TargetFoundSound
-            excludedJobs:
-            - SecurityOfficer
-            - Warden
-            - HeadOfSecurity
-            - Detective
-            - SecurityCadet
-            - Brigmedic
-            - ADTGuardOfficer
-            - ADTSeniorOfficer
-            - ADTBlueShieldOfficer
-            - Captain
-            - CentralCommandOfficial
-            - CBURN
-
-        - !type:HTNPrimitiveTask
-          operator: !type:MoveToOperator
-            targetKey: ContrabandTargetCoordinates
-            pathfindInPlanning: false
-            removeKeyOnFinish: false
-
-        - !type:HTNCompoundTask
-          task: ArrestContrabandTargetCompound
 
 - type: htnCompound
   id: ArrestTargetCompound
@@ -90,33 +55,6 @@
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: StunTarget
-
-- type: htnCompound
-  id: ArrestContrabandTargetCompound
-  branches:
-    - preconditions:
-        - !type:TargetStunnedPrecondition
-          stunned: true
-          targetKey: ContrabandTarget
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:ForceHandcuffOperator
-            targetKey: ContrabandTarget
-            targetArrestedSoundKey: TargetArrestedSound
-        - !type:HTNPrimitiveTask
-          operator: !type:SendRadioOperator
-            message: securitron-contraband-arrested
-            radioChannel: Security
-            key: ContrabandTarget
-
-    - preconditions:
-        - !type:TargetStunnedPrecondition
-          stunned: false
-          targetKey: ContrabandTarget
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:MeleeOperator
-            targetKey: ContrabandTarget
 
 - type: htnCompound
   id: SecbotPatrolCompound
