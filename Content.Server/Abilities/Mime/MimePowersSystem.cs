@@ -105,28 +105,17 @@ namespace Content.Server.Abilities.Mime
             var wallPositions = new List<EntityCoordinates>();
 
             var dir = xform.LocalRotation.GetCardinalDir();
-            switch (dir)
+            var isVertical = dir == Direction.North || dir == Direction.South;
+
+            var half = component.WallCount / 2;
+            var start = -half;
+            var end = component.WallCount % 2 == 0 ? half - 1 : half;
+
+            for (int i = start; i <= end; i++)
             {
-                case Direction.North:
-                case Direction.South:
-                {
-                    for (int i = -(component.WallCount / 2); i <= component.WallCount / 2; i++)
-                    {
-                        var coords = _mapSystem.GridTileToLocal(xform.GridUid.Value, mapGrid, tileIndex + (i, 0));
-                        wallPositions.Add(coords);
-                    }
-                    break;
-                }
-                case Direction.East:
-                case Direction.West:
-                {
-                    for (int i = -(component.WallCount / 2); i <= component.WallCount / 2; i++)
-                    {
-                        var coords = _mapSystem.GridTileToLocal(xform.GridUid.Value, mapGrid, tileIndex + (0, i));
-                        wallPositions.Add(coords);
-                    }
-                    break;
-                }
+                var offset = isVertical ? (i, 0) : (0, i);
+                var coords = _mapSystem.GridTileToLocal(xform.GridUid.Value, mapGrid, tileIndex + offset);
+                wallPositions.Add(coords);
             }
 
             if (wallPositions.Count == 0)
