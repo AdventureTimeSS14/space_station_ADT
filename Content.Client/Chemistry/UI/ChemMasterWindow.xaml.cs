@@ -25,7 +25,8 @@ namespace Content.Client.Chemistry.UI
     public sealed partial class ChemMasterWindow : FancyWindow
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        //ADT-Tweak Start
+
+        // Events
         public event Action<BaseButton.ButtonEventArgs, ReagentButton, int, bool>? OnReagentButtonPressed;
         public event Action<int>? OnAmountButtonPressed;
         public event Action<int>? OnSortMethodChanged;
@@ -39,26 +40,42 @@ namespace Content.Client.Chemistry.UI
         public event Action<int>? OnToggleBottleFillPressed;
         public event Action<int>? OnBottleSlotEjectPressed;
         public event Action<int>? OnRowEjectPressed;
+        public event Action<int>? OnPillContainerSlotSelected;
+        public event Action<int>? OnTogglePillContainerFillPressed;
+        public event Action<int>? OnPillCanisterSelected;
+        public event Action<int>? OnPillCanisterEjected;
+
+        // UI State
         public bool IsOutputTab => OutputTabs.CurrentTab == 1; // True for bottles tab, false for pills tab
         private bool _deleteMode = false;
+
+        // ADT-Tweak: Pill container buttons (3 containers × 10 slots each = 30 buttons)
+        public readonly Button[] PillContainerStorageButtons;
+
+        // ADT-Tweak: Legacy bottle storage
         public readonly Button[] BottleStorageButtons;
         public readonly Button[] BottleEjectButtons;
         public readonly Button[] RowEjectButtons;
-        //ADT-Tweak End
+
         public readonly Button[] PillTypeButtons;
 
-        //ADT-Tweak Start
-        private List<int> _amounts = new();
-
+        // Configuration Constants
         private const string TransferringAmountColor = "#ffffff";
-        const int MaxAmountButtons = 24;
+        private const int MaxAmountButtons = 24;
+        private const int BottleStorageSlots = 20;
+        private const int PillContainerSlots = 30;
+        private const int PillCanistersCount = 3;
+        private const int PillsPerCanister = 10;
+        private const int BottlesPerRow = 4;
+        private const int BottleRows = 5;
+        private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
+
+        // State
+        private List<int> _amounts = new();
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
         private ChemMasterBoundUserInterfaceState? _lastState;
         private int _transferAmount = 50;
         private Label? _selectedReagentLabel = null;
-        // ADT-Tweak
-
-        private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
 
         /// <summary>
         /// Create and initialize the chem master UI client-side. Creates the basic layout,
@@ -119,6 +136,10 @@ namespace Content.Client.Chemistry.UI
             PillNumber.InitDefaultButtons();
             BottleDosage.InitDefaultButtons();
             BottleNumber.InitDefaultButtons();      //ADT-Tweak
+
+            // Add event handlers for interconnected pill controls
+            PillNumber.ValueChanged += HandlePillNumberChanged;
+            PillDosage.ValueChanged += HandlePillDosageChanged;
 
             // ADT-Tweak Start - Bottle storage buttons with per-slot eject (eject on the right)
             BottleStorageButtons = new Button[20];
@@ -186,6 +207,82 @@ namespace Content.Client.Chemistry.UI
                 rowEjectButton.OnPressed += _ => OnRowEjectPressed?.Invoke(rowIndex);
                 RowEjectButtons[row] = rowEjectButton;
                 BottleStorageGrid.AddChild(rowEjectButton);
+            }
+            // ADT-Tweak End
+
+            // ADT-Tweak Start - Pill container storage buttons (3x10 grid)
+            PillContainerStorageButtons = new Button[30];
+
+            for (int containerRow = 0; containerRow < 3; containerRow++)
+            {
+                for (int pillSlot = 0; pillSlot < 10; pillSlot++)
+                {
+                    int i = containerRow * 10 + pillSlot;
+
+                    // Main pill slot button only (no eject buttons)
+                    var mainButton = new Button
+                    {
+                        StyleClasses = { StyleBase.ButtonSquare },
+                        ToggleMode = true,
+                        Margin = new Thickness(2),
+                        MinSize = new Vector2(28, 28),
+                        MaxSize = new Vector2(28, 28)
+                    };
+
+                    var buttonIndex = i;
+                    mainButton.OnPressed += _ => OnTogglePillContainerFillPressed?.Invoke(buttonIndex);
+
+                    PillContainerStorageButtons[i] = mainButton;
+                    PillContainerStorageGrid.AddChild(mainButton);
+                }
+            }
+            // ADT-Tweak End
+
+            // ADT-Tweak Start - Pill canister selection and ejection buttons (3 of each)
+            var canisterButtonsGrid = this.FindControl<GridContainer>("PillCanisterChooseButtons");
+
+            for (int i = 0; i < 3; i++)
+            {
+                // Choose button (green) for selecting which pill canister to use
+                var chooseButton = new Button
+                {
+                    Text = $"Select {i + 1}",
+                    StyleClasses = { StyleBase.ButtonOpenBoth },
+                    MinSize = new Vector2(80, 30),
+                    MaxSize = new Vector2(80, 30),
+                    ToggleMode = true,
+                    HorizontalExpand = true
+                };
+                chooseButton.Modulate = Color.Green;
+
+                var ejectButton = new Button
+                {
+                    Text = $"Eject {i + 1}",
+                    StyleClasses = { StyleBase.ButtonOpenBoth },
+                    MinSize = new Vector2(80, 30),
+                    MaxSize = new Vector2(80, 30),
+                    HorizontalExpand = true
+                };
+                ejectButton.Modulate = Color.Red;
+
+                var buttonIndex = i;
+                chooseButton.OnPressed += _ => OnPillCanisterSelected?.Invoke(buttonIndex);
+                ejectButton.OnPressed += _ => OnPillCanisterEjected?.Invoke(buttonIndex);
+
+                // Create vertical container for choose and eject buttons
+                var verticalContainer = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical,
+                    HorizontalExpand = true
+                };
+                verticalContainer.AddChild(chooseButton);
+                verticalContainer.AddChild(ejectButton);
+
+                // Add to the grid container
+                if (canisterButtonsGrid != null)
+                {
+                    canisterButtonsGrid.AddChild(verticalContainer);
+                }
             }
             // ADT-Tweak End
 
@@ -327,31 +424,217 @@ namespace Content.Client.Chemistry.UI
                 // Button was turned off - remove from selected reagents
                 OnReagentToggledOff?.Invoke(reagentId);
             }
+
+            // Update dosage fields when reagent selection changes
+            UpdateDosageFieldsBasedOnSelection();
+        }
+
+        private void UpdateDosageFieldsBasedOnSelection()
+        {
+            if (_lastState == null)
+                return;
+
+            var selectedReagents = _lastState.SelectedReagentsForBottles ?? new List<ReagentId>();
+
+            // If no reagents are selected, reset values and disable controls
+            if (selectedReagents.Count == 0)
+            {
+                PillDosage.Value = 0;
+                BottleDosage.Value = 0;
+                PillNumber.Value = 0;
+                BottleNumber.Value = 0;
+
+                // Update validation to prevent input when no reagents selected
+                PillNumber.IsValid = x => false;
+                PillDosage.IsValid = x => false;
+                BottleNumber.IsValid = x => false;
+                BottleDosage.IsValid = x => false;
+                return;
+            }
+
+            // Calculate total available amount across all selected reagents (SUM, not divided)
+            var totalAvailableAmount = 0;
+            foreach (var reagent in selectedReagents)
+            {
+                var reagentQuantity = _lastState.BufferReagents
+                    .FirstOrDefault(r => r.Reagent == reagent)
+                    .Quantity.Int();
+                totalAvailableAmount += reagentQuantity;
+            }
+
+            if (totalAvailableAmount == 0)
+            {
+                // No reagents available in buffer
+                PillDosage.Value = 0;
+                BottleDosage.Value = 0;
+                PillNumber.Value = 0;
+                BottleNumber.Value = 0;
+                return;
+            }
+
+            // Calculate and validate pill creation values based on total available amount
+            RecalculatePillAmounts(totalAvailableAmount);
+
+            // Bottle calculations remain for bottles
+            var maxBottleDosage = Math.Min(totalAvailableAmount, _lastState.BottleDosageLimit);
+            BottleDosage.Value = (int)maxBottleDosage;
+
+            // Update validation based on total available amount
+            PillDosage.IsValid = x => x > 0 && x <= _lastState.PillDosageLimit && x <= totalAvailableAmount;
+            BottleDosage.IsValid = x => x > 0 && x <= totalAvailableAmount && x <= _lastState.BottleDosageLimit;
+
+            var storedBottlesCount = _lastState.StoredBottles.Count(b => b != null);
+            BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;
+
+            // Calculate bottle numbers based on total available amount
+            if (BottleDosage.Value > 0)
+                BottleNumber.Value = Math.Min(totalAvailableAmount / BottleDosage.Value, storedBottlesCount);
+            else
+                BottleNumber.Value = 0;
+        }
+
+        private void RecalculatePillAmounts(int totalReagentAmount)
+        {
+            if (_lastState == null)
+                return;
+
+            // First, determine how many pills we can create with current constraints
+            var maxPillCapacity = _lastState.PillDosageLimit;
+            var availableSlots = GetTotalAvailablePillSlots();
+
+            // Start with optimal distribution based on available reagents
+            var optimalPillNumber = (int)Math.Min(availableSlots, (long)totalReagentAmount / maxPillCapacity);
+            var optimalPillDosage = (int)maxPillCapacity;
+
+            // If we can fit all reagents into fewer pills, adjust accordingly
+            if (optimalPillNumber > 0 && (long)totalReagentAmount / optimalPillNumber < maxPillCapacity)
+            {
+                optimalPillDosage = totalReagentAmount / optimalPillNumber;
+            }
+            // If we can't fit all reagents, distribute across available slots
+            else if (availableSlots > 0)
+            {
+                optimalPillNumber = (int)Math.Min(30, totalReagentAmount);
+                optimalPillDosage = totalReagentAmount / optimalPillNumber;
+            }
+
+            // Set validated values
+            PillNumber.Value = optimalPillNumber;
+            PillDosage.Value = optimalPillDosage;
+
+            // Update validation for PillNumber
+            PillNumber.IsValid = x => x >= 1 && x <= 30 && x <= availableSlots && x <= totalReagentAmount;
+        }
+
+        private void HandlePillNumberChanged(ValueChangedEventArgs args)
+        {
+            var newValue = (int)args.Value;
+            if (_lastState == null || newValue <= 0)
+                return;
+
+            var selectedReagents = _lastState.SelectedReagentsForBottles ?? new List<ReagentId>();
+            var totalAvailableAmount = selectedReagents.Sum(reagent =>
+                _lastState.BufferReagents.FirstOrDefault(r => r.Reagent == reagent).Quantity.Int());
+
+            if (totalAvailableAmount == 0)
+                return;
+
+            // When PillNumber changes, recalculate PillDosage = total reagents / number of pills
+            var newDosage = Math.Min(totalAvailableAmount / newValue, _lastState.PillDosageLimit);
+
+            // Temporarily remove the event handler to prevent recursive updates
+            PillDosage.ValueChanged -= HandlePillDosageChanged;
+            PillDosage.Value = (int)newDosage;
+            PillDosage.ValueChanged += HandlePillDosageChanged;
+
+            // Update validation - ensure PillNumber * PillDosage <= total available amount
+            PillDosage.IsValid = x => x > 0 && x <= _lastState.PillDosageLimit && x <= totalAvailableAmount && (long)newValue * x <= totalAvailableAmount;
+        }
+
+        private void HandlePillDosageChanged(ValueChangedEventArgs args)
+        {
+            var newValue = (int)args.Value;
+            if (_lastState == null || newValue <= 0)
+                return;
+
+            var selectedReagents = _lastState.SelectedReagentsForBottles ?? new List<ReagentId>();
+            var totalAvailableAmount = selectedReagents.Sum(reagent =>
+                _lastState.BufferReagents.FirstOrDefault(r => r.Reagent == reagent).Quantity.Int());
+
+            if (totalAvailableAmount == 0)
+                return;
+
+            var availableSlots = GetTotalAvailablePillSlots();
+
+            // When PillDosage changes, recalculate PillNumber = min(total reagents / dosage, 30)
+            var maxPillsByReagents = (int)((long)totalAvailableAmount / newValue);
+            var newNumber = Math.Min(maxPillsByReagents, 30);
+
+            // Temporarily remove the event handler to prevent recursive updates
+            PillNumber.ValueChanged -= HandlePillNumberChanged;
+            PillNumber.Value = Math.Max(1, newNumber);
+            PillNumber.ValueChanged += HandlePillNumberChanged;
+
+            // Update validation - ensure PillNumber * PillDosage <= total available amount
+            PillNumber.IsValid = x => x >= 1 && x <= 30 && x <= maxPillsByReagents && (long)x * newValue <= totalAvailableAmount;
+        }
+
+        private int GetTotalAvailablePillSlots()
+        {
+            var totalSlots = 0;
+
+            for (int i = 0; i < 3; i++)
+            {
+                // Get stored pill containers info directly from state
+                if (_lastState != null &&
+                    _lastState.StoredPillContainers.Count > i &&
+                    _lastState.StoredPillContainers[i] != null)
+                {
+                    var containerInfo = _lastState.StoredPillContainers[i];
+                    var maxPills = 10; // Standard pill canister capacity
+                    var currentPills = containerInfo?.CurrentVolume.Int() ?? 0;
+                    var emptySlots = maxPills - currentPills;
+                    totalSlots += Math.Max(0, emptySlots);
+                }
+            }
+
+            return totalSlots;
         }
 
         private void UpdateReagentSelectionUI()
         {
-            if (!string.IsNullOrEmpty(_lastState?.SelectedReagent?.Prototype))
+            if (_lastState == null)
+                return;
+
+            var selectedReagents = _lastState.SelectedReagentsForBottles ?? new List<ReagentId>();
+
+            if (selectedReagents.Count > 0)
             {
-                var selectedReagentQuantity = _lastState.BufferReagents
-                    .FirstOrDefault(r => r.Reagent == _lastState.SelectedReagent)
-                    .Quantity.Int();
-
-                if (selectedReagentQuantity > 0)
+                // Calculate total available amount across all selected reagents
+                var totalAvailableAmount = 0;
+                foreach (var reagent in selectedReagents)
                 {
-                    // Update dosage values based on selected reagent quantity
-                    PillDosage.Value = (int)Math.Min(PillDosage.Value, selectedReagentQuantity);
-                    BottleDosage.Value = (int)Math.Min(BottleDosage.Value, selectedReagentQuantity);
+                    var reagentQuantity = _lastState.BufferReagents
+                        .FirstOrDefault(r => r.Reagent == reagent)
+                        .Quantity.Int();
+                    totalAvailableAmount += reagentQuantity;
+                }
 
-                    // Update number calculations based on selected reagent quantity
+                if (totalAvailableAmount > 0)
+                {
+                    // Update dosage values based on total available amount (not divided by reagent count)
+                    PillDosage.Value = (int)Math.Min(PillDosage.Value, totalAvailableAmount);
+                    BottleDosage.Value = (int)Math.Min(BottleDosage.Value, totalAvailableAmount);
+
+                    // Update number calculations based on total available amount
                     if (PillDosage.Value > 0)
-                        PillNumber.Value = selectedReagentQuantity / PillDosage.Value;
+                        PillNumber.Value = totalAvailableAmount / PillDosage.Value;
                     else
                         PillNumber.Value = 0;
 
                     var storedBottlesCount = _lastState.StoredBottles.Count(b => b != null);
                     if (BottleDosage.Value > 0)
-                        BottleNumber.Value = Math.Min(selectedReagentQuantity / BottleDosage.Value, storedBottlesCount);
+                        BottleNumber.Value = Math.Min(totalAvailableAmount / BottleDosage.Value, storedBottlesCount);
                     else
                         BottleNumber.Value = 0;
                 }
@@ -391,6 +674,36 @@ namespace Content.Client.Chemistry.UI
             }
         }
 
+        private void UpdatePillCanisterButtonStates()
+        {
+            if (_lastState == null)
+                return;
+
+            // Get the pill canister choose and eject buttons grids
+            var canisterButtonsGrid = this.FindControl<GridContainer>("PillCanisterChooseButtons");
+
+            if (canisterButtonsGrid != null)
+            {
+                // Update choose buttons state - each child is a BoxContainer with 2 buttons
+                var children = canisterButtonsGrid.Children.ToList();
+                for (int i = 0; i < Math.Min(3, children.Count); i++)
+                {
+                    var child = children[i];
+                    if (child is BoxContainer verticalContainer)
+                    {
+                        // First button is choose button
+                        var chooseButton = verticalContainer.Children.FirstOrDefault() as Button;
+                        if (chooseButton != null)
+                        {
+                            var isSelected = _lastState.SelectedPillCanisterForCreation == i;
+                            chooseButton.Pressed = isSelected;
+                            chooseButton.Modulate = isSelected ? Color.LimeGreen : Color.Green;
+                        }
+                    }
+                }
+            }
+        }
+
         private void HandleSortMethodChange(int newSortMethod)
         {
             if (newSortMethod == (int)_currentSortMethod)
@@ -404,8 +717,8 @@ namespace Content.Client.Chemistry.UI
 
         private void HandleChildPressed(OptionButton.ItemSelectedEventArgs args)
         {
-            HandleSortMethodChange(args.Id);
-            OnSortMethodChanged?.Invoke(args.Id);
+            HandleSortMethodChange((int)args.Id);
+            OnSortMethodChanged?.Invoke((int)args.Id);
         }
 
         private void SortUpdated()
@@ -511,11 +824,13 @@ namespace Content.Client.Chemistry.UI
 
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
-            CreateBottleButton.Disabled = castState.BufferReagents.Count == 0; ;
+            CreateBottleButton.Disabled = castState.BufferReagents.Count == 0;
             CreatePillButton.Disabled = castState.BufferReagents.Count == 0;
 
             UpdateDosageFields(castState);
+            UpdateDosageFieldsBasedOnSelection(); // Update based on current reagent selection
             UpdateBottleStorage(castState); //ADT-Tweak
+            UpdatePillContainerStorage(castState); //ADT-Tweak
         }
 
         //ADT-Tweak Start
@@ -559,6 +874,139 @@ namespace Content.Client.Chemistry.UI
         }
         //ADT-Tweak End
 
+        // ADT-Tweak Start: Pill container storage update
+        private void UpdatePillContainerStorage(ChemMasterBoundUserInterfaceState state)
+        {
+            for (int i = 0; i < PillContainerStorageButtons.Length; i++)
+            {
+                var button = PillContainerStorageButtons[i];
+
+                // Calculate which container and slot this button represents
+                var containerIndex = i / 10; // 0, 1, or 2
+                var slotIndex = i % 10;     // 0-9
+
+                if (containerIndex < state.StoredPillContainers.Count)
+                {
+                    var containerInfo = state.StoredPillContainers[containerIndex];
+
+                    if (containerInfo != null)
+                    {
+                        // Container is present - enable interaction and show pill contents
+                        var maxPills = (int)containerInfo.MaxVolume;
+                        var pillEntities = state.PillContainers[containerIndex];
+
+                        if (slotIndex < pillEntities.Count && pillEntities[slotIndex])
+                        {
+                            // This slot has a pill - show pill sprite from actual pill prototype
+                            button.Text = "";
+
+                            // Get the pill type from the state data
+                            if (containerIndex < state.PillTypes.Count &&
+                                slotIndex < state.PillTypes[containerIndex].Count)
+                            {
+                                var pillType = state.PillTypes[containerIndex][slotIndex];
+
+                                if (pillType > 0 && pillType <= 20) // Ensure pill type is valid (1-20)
+                                {
+                                    // Use the actual pill type from the pill entity
+                                    // Pill types are 1-indexed in sprites but might be 0-indexed in data
+                                    var spriteNumber = pillType + 1;
+                                    var specifier = new SpriteSpecifier.Rsi(new ResPath(PillsRsiPath), $"pill{spriteNumber}");
+
+                                    // Create texture rect for the pill sprite
+                                    var pillTexture = new TextureRect
+                                    {
+                                        Texture = specifier.Frame0(),
+                                        TextureScale = new Vector2(1.5f, 1.5f),
+                                        Stretch = TextureRect.StretchMode.KeepCentered,
+                                        HorizontalAlignment = HAlignment.Center,
+                                        VerticalAlignment = VAlignment.Center
+                                    };
+
+                                    // Clear existing children and add the pill texture
+                                    button.Children.Clear();
+                                    button.AddChild(pillTexture);
+                                    button.Modulate = Color.White;
+                                }
+                                else
+                                {
+                                    // Fallback to default pill sprite if pill type is 0 or invalid
+                                    var specifier = new SpriteSpecifier.Rsi(new ResPath(PillsRsiPath), "pill1");
+                                    var pillTexture = new TextureRect
+                                    {
+                                        Texture = specifier.Frame0(),
+                                        TextureScale = new Vector2(1.5f, 1.5f),
+                                        Stretch = TextureRect.StretchMode.KeepCentered,
+                                        HorizontalAlignment = HAlignment.Center,
+                                        VerticalAlignment = VAlignment.Center
+                                    };
+
+                                    button.Children.Clear();
+                                    button.AddChild(pillTexture);
+                                    button.Modulate = Color.White;
+                                }
+                            }
+                            else
+                            {
+                                // Fallback if pill type data is not available
+                                var specifier = new SpriteSpecifier.Rsi(new ResPath(PillsRsiPath), "pill1");
+                                var pillTexture = new TextureRect
+                                {
+                                    Texture = specifier.Frame0(),
+                                    TextureScale = new Vector2(1.5f, 1.5f),
+                                    Stretch = TextureRect.StretchMode.KeepCentered,
+                                    HorizontalAlignment = HAlignment.Center,
+                                    VerticalAlignment = VAlignment.Center
+                                };
+
+                                button.Children.Clear();
+                                button.AddChild(pillTexture);
+                                button.Modulate = Color.White;
+                            }
+                        }
+                        else if (slotIndex < maxPills)
+                        {
+                            // This slot is empty but available - show "X"
+                            button.Text = "X";
+                            button.Children.Clear();
+                            button.Modulate = Color.Gray;
+                        }
+                        else
+                        {
+                            // This slot is beyond container capacity
+                            button.Text = "";
+                            button.Children.Clear();
+                            button.Modulate = Color.DarkGray;
+                        }
+
+                        // Enable toggle mode when container is present
+                        button.ToggleMode = true;
+                        button.Pressed = state.SelectedPillContainerSlot == i || state.SelectedPillContainerForFill == i;
+                    }
+                    else
+                    {
+                        // No container in this slot - show "E" and disable
+                        button.Text = "E";
+                        button.Children.Clear();
+                        button.Modulate = Color.DarkGray;
+                        button.Pressed = false;
+                        button.ToggleMode = false;
+                    }
+                }
+                else
+                {
+                    // Beyond available containers - show "E" and disable
+                    button.Text = "E";
+                    button.Children.Clear();
+                    button.Modulate = Color.DarkGray;
+                    button.Pressed = false;
+                    button.ToggleMode = false;
+                }
+            }
+        }
+
+        // ADT-Tweak End
+
         private FixedPoint2 CurrentStateBufferVolume(ChemMasterBoundUserInterfaceState state) =>
             state.BufferCurrentVolume ?? 0;
 
@@ -569,34 +1017,53 @@ namespace Content.Client.Chemistry.UI
 
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
 
-            // Check if a reagent is selected
-            if (!string.IsNullOrEmpty(castState.SelectedReagent?.Prototype))
+            // Get selected reagents for creation
+            var selectedReagents = castState.SelectedReagentsForBottles ?? new List<ReagentId>();
+
+            // Check if any reagents are selected
+            if (selectedReagents.Count > 0)
             {
-                // Use only the selected reagent quantity instead of entire buffer volume
-                var selectedReagentQuantity = castState.BufferReagents
-                    .FirstOrDefault(r => r.Reagent == castState.SelectedReagent)
-                    .Quantity.Int();
+                // Calculate total available amount across all selected reagents
+                var totalAvailableAmount = 0;
+                foreach (var reagent in selectedReagents)
+                {
+                    var reagentQuantity = castState.BufferReagents
+                        .FirstOrDefault(r => r.Reagent == reagent)
+                        .Quantity.Int();
+                    totalAvailableAmount += reagentQuantity;
+                }
 
-                // Set dosage values based on selected reagent quantity
-                PillDosage.Value = (int)Math.Min(selectedReagentQuantity, castState.PillDosageLimit);
-                BottleDosage.Value = (int)Math.Min(selectedReagentQuantity, castState.BottleDosageLimit);
+                if (totalAvailableAmount > 0)
+                {
+                    // Set dosage values based on total available amount (not divided by reagent count)
+                    PillDosage.Value = (int)Math.Min(totalAvailableAmount, castState.PillDosageLimit);
+                    BottleDosage.Value = (int)Math.Min(totalAvailableAmount, castState.BottleDosageLimit);
 
-                // Update validation to use selected reagent quantity
-                PillNumber.IsValid = x => x >= 0;
-                PillDosage.IsValid = x => x > 0 && x <= selectedReagentQuantity && x <= castState.PillDosageLimit;
-                BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;
-                BottleDosage.IsValid = x => x > 0 && x <= selectedReagentQuantity && x <= castState.BottleDosageLimit;
+                    // Update validation to use total available amount
+                    PillNumber.IsValid = x => x >= 0;
+                    PillDosage.IsValid = x => x > 0 && x <= totalAvailableAmount && x <= castState.PillDosageLimit;
+                    BottleNumber.IsValid = x => x >= 0 && x <= storedBottlesCount;
+                    BottleDosage.IsValid = x => x > 0 && x <= totalAvailableAmount && x <= castState.BottleDosageLimit;
 
-                // Calculate numbers based on selected reagent quantity
-                if (PillDosage.Value > 0)
-                    PillNumber.Value = selectedReagentQuantity / PillDosage.Value;
+                    // Calculate numbers based on total available amount
+                    if (PillDosage.Value > 0)
+                        PillNumber.Value = totalAvailableAmount / PillDosage.Value;
+                    else
+                        PillNumber.Value = 0;
+
+                    if (BottleDosage.Value > 0)
+                        BottleNumber.Value = Math.Min(totalAvailableAmount / BottleDosage.Value, storedBottlesCount);
+                    else
+                        BottleNumber.Value = 0;
+                }
                 else
+                {
+                    // No reagents available in buffer
+                    PillDosage.Value = 0;
+                    BottleDosage.Value = 0;
                     PillNumber.Value = 0;
-
-                if (BottleDosage.Value > 0)
-                    BottleNumber.Value = Math.Min(selectedReagentQuantity / BottleDosage.Value, storedBottlesCount);
-                else
                     BottleNumber.Value = 0;
+                }
             }
             else
             {

@@ -24,6 +24,8 @@ using Content.Shared.Whitelist;
 using Content.Shared.Tag;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Labels.EntitySystems;
+using Content.Shared.Storage.Events;
+using Content.Shared.Storage.Components;
 // ADT-Tweak-End
 
 namespace Content.Server.Chemistry.EntitySystems
@@ -83,6 +85,11 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentToggledOffMessage>(OnReagentToggledOffMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleBottleFillMessage>(OnToggleBottleFillMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterRowEjectMessage>(OnRowEjectMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectPillContainerSlotMessage>(OnSelectPillContainerSlotMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterTogglePillContainerFillMessage>(OnTogglePillContainerFillMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterPillContainerSlotEjectMessage>(OnPillContainerSlotEjectMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterPillContainerRowEjectMessage>(OnPillContainerRowEjectMessage);
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectPillCanisterForCreationMessage>(OnSelectPillCanisterForCreationMessage);
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnMapInit);
             // ADT-Tweak End
         }
@@ -104,7 +111,15 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryGetSolution(owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                 return;
 
-            // Initialize stored bottles list with correct size if needed
+            // Initialize stored pill containers list with correct size if needed (3 containers)
+            if (chemMaster.StoredPillContainers.Count != 3)
+            {
+                chemMaster.StoredPillContainers.Clear();
+                for (int i = 0; i < 3; i++)
+                    chemMaster.StoredPillContainers.Add(null);
+            }
+
+            // Initialize stored bottles list with correct size if needed (legacy support)
             if (chemMaster.StoredBottles.Count != 20)
             {
                 chemMaster.StoredBottles.Clear();
@@ -118,9 +133,79 @@ namespace Content.Server.Chemistry.EntitySystems
             var bufferReagents = bufferSolution.Contents;
             var bufferCurrentVolume = bufferSolution.Volume;
 
-            // ADT-Tweak
+            // ADT-Tweak: Pill container storage
+            var storedPillContainersInfo = new List<ContainerInfo?>();
+            var pillContainers = new List<List<bool>>();
+            var pillTypes = new List<List<uint>>(); // ADT-Tweak: Pill types for each slot in each container
+            chemMaster.StoredPillContainers.Clear();
+
+            for (int i = 0; i < 3; i++)
+            {
+                var slotId = "pillContainerSlot" + i;
+
+                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                {
+                    var pillContainer = slot.Item.Value;
+
+                    // For pill containers, we need to check if they have storage component and count pills
+                    if (TryComp(pillContainer, out StorageComponent? storage))
+                    {
+                        var pillCount = storage.Container.ContainedEntities.Count;
+                        var maxPills = 10; // Standard pill canister capacity
+
+                        // Create bool list for occupied slots
+                        var slotStates = new List<bool>();
+                        var slotPillTypes = new List<uint>();
+
+                        for (int j = 0; j < maxPills; j++)
+                        {
+                            if (j < pillCount)
+                            {
+                                slotStates.Add(true);
+
+                                // Get the pill entity and its type
+                                var pillEntity = storage.Container.ContainedEntities.ElementAt(j);
+                                if (TryComp<PillComponent>(pillEntity, out var pillComponent))
+                                {
+                                    slotPillTypes.Add(pillComponent.PillType);
+                                }
+                                else
+                                {
+                                    slotPillTypes.Add(0); // Default pill type if no component found
+                                }
+                            }
+                            else
+                            {
+                                slotStates.Add(false);
+                                slotPillTypes.Add(0); // No pill in this slot
+                            }
+                        }
+
+                        pillContainers.Add(slotStates);
+                        pillTypes.Add(slotPillTypes);
+                        storedPillContainersInfo.Add(new ContainerInfo(Name(pillContainer), pillCount, maxPills));
+                    }
+                    else
+                    {
+                        // Create empty container info for pill containers without storage
+                        pillContainers.Add(Enumerable.Repeat(false, 10).ToList());
+                        pillTypes.Add(Enumerable.Repeat((uint)0, 10).ToList());
+                        storedPillContainersInfo.Add(new ContainerInfo(Name(pillContainer), 0, 10));
+                    }
+
+                    chemMaster.StoredPillContainers.Add(pillContainer);
+                }
+                else
+                {
+                    pillContainers.Add(Enumerable.Repeat(false, 10).ToList());
+                    pillTypes.Add(Enumerable.Repeat((uint)0, 10).ToList());
+                    storedPillContainersInfo.Add(null);
+                    chemMaster.StoredPillContainers.Add(null);
+                }
+            }
+
+            // ADT-Tweak: Legacy bottle storage
             var storedBottlesInfo = new List<ContainerInfo?>();
-            // Clear the stored bottles list to rebuild it in correct order
             chemMaster.StoredBottles.Clear();
 
             for (int i = 0; i < 20; i++)
@@ -164,11 +249,18 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.SortMethod,
                 chemMaster.TransferringAmount,
                 chemMaster.Amounts,
+                storedPillContainersInfo,
+                pillContainers,
+                pillTypes, // ADT-Tweak: Include pill types information
+                chemMaster.SelectedPillContainerSlot,
+                chemMaster.SelectedPillContainerForFill,
+                chemMaster.SelectedPillCanisterForCreation,
+                chemMaster.SelectedReagentsForBottles,
+                chemMaster.SelectedReagent,
                 storedBottlesInfo,
                 chemMaster.SelectedBottleSlot,
                 chemMaster.SelectedBottleForFill,
-                chemMaster.SelectedReagentsForBottles,
-                chemMaster.SelectedReagent);
+                chemMaster.SelectedReagentsForBottles);
             //ADT-Tweak End
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
@@ -217,6 +309,20 @@ namespace Content.Server.Chemistry.EntitySystems
         // ADT-Tweak Start: Bottle buttons reagent transfer
         private void OnContainerInserted(Entity<ChemMasterComponent> chemMaster, ref EntInsertedIntoContainerMessage args)
         {
+            // Check if this insertion is into one of our pill container slots
+            if (args.Container?.ID?.StartsWith("pillContainerSlot") == true)
+            {
+                UpdateUiState(chemMaster);
+                return;
+            }
+
+            // Check if this insertion is into one of our pill containers (storage)
+            if (IsPillContainerStorage(chemMaster, args.Container?.Owner))
+            {
+                UpdateUiState(chemMaster);
+                return;
+            }
+
             // Always handle UI refresh on inserts.
             if (args.Container?.ID == SharedChemMaster.OutputSlotName)
             {
@@ -276,6 +382,13 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnContainerRemoved(Entity<ChemMasterComponent> chemMaster, ref EntRemovedFromContainerMessage args)
         {
+            // Check if this removal is from one of our pill containers
+            if (IsPillContainerStorage(chemMaster, args.Container?.Owner))
+            {
+                UpdateUiState(chemMaster);
+                return;
+            }
+
             // Skip transient removal updates during controlled relocation from input slot.
             if (_relocating.Contains(chemMaster.Owner))
                 return;
@@ -294,6 +407,167 @@ namespace Content.Server.Chemistry.EntitySystems
 
             // Always refresh UI (covers beaker removal and any other container content changes).
             UpdateUiState(chemMaster);
+        }
+
+        /// <summary>
+        /// Checks if the given storage entity is one of our pill containers.
+        /// </summary>
+        private bool IsPillContainerStorage(Entity<ChemMasterComponent> chemMaster, EntityUid? storageEntity)
+        {
+            if (storageEntity == null)
+                return false;
+
+            // Check if the storage entity is in any of the 3 pill container slots
+            for (int i = 0; i < 3; i++)
+            {
+                if (chemMaster.Comp.StoredPillContainers.Count > i &&
+                    chemMaster.Comp.StoredPillContainers[i] == storageEntity)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Finds available empty slots for pill creation, either in the selected canister or all canisters.
+        /// Returns the total available slots and a list of (container, startSlot) pairs for filling.
+        /// </summary>
+        private (int totalAvailableSlots, List<(EntityUid container, int startSlot)> availableSlots) FindAvailablePillSlotsForCreation(Entity<ChemMasterComponent> chemMaster, int requestedPills)
+        {
+            var availableSlots = new List<(EntityUid, int)>();
+            var totalAvailableSlots = 0;
+
+            // If a specific canister is selected, only use that one
+            if (chemMaster.Comp.SelectedPillCanisterForCreation >= 0 && chemMaster.Comp.SelectedPillCanisterForCreation < 3)
+            {
+                var selectedContainerIndex = chemMaster.Comp.SelectedPillCanisterForCreation;
+                var slotId = "pillContainerSlot" + selectedContainerIndex;
+
+                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                {
+                    var pillContainer = slot.Item.Value;
+
+                    if (TryComp(pillContainer, out StorageComponent? storage))
+                    {
+                        var currentPillCount = storage.Container.ContainedEntities.Count;
+                        var maxPills = 10; // Standard pill canister capacity
+                        var emptySlotsInContainer = maxPills - currentPillCount;
+
+                        if (emptySlotsInContainer > 0)
+                        {
+                            totalAvailableSlots = Math.Min(emptySlotsInContainer, requestedPills);
+                            availableSlots.Add((pillContainer, currentPillCount)); // Start filling from where pills end
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // No canister selected - find slots across all canisters
+                for (int containerIndex = 0; containerIndex < 3 && totalAvailableSlots < requestedPills; containerIndex++)
+                {
+                    var slotId = "pillContainerSlot" + containerIndex;
+
+                    if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                    {
+                        var pillContainer = slot.Item.Value;
+
+                        if (TryComp(pillContainer, out StorageComponent? storage))
+                        {
+                            var currentPillCount = storage.Container.ContainedEntities.Count;
+                            var maxPills = 10; // Standard pill canister capacity
+                            var emptySlotsInContainer = maxPills - currentPillCount;
+                            var slotsNeeded = requestedPills - totalAvailableSlots;
+                            var slotsToUse = Math.Min(emptySlotsInContainer, slotsNeeded);
+
+                            if (slotsToUse > 0)
+                            {
+                                availableSlots.Add((pillContainer, currentPillCount)); // Start filling from where pills end
+                                totalAvailableSlots += slotsToUse;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return (totalAvailableSlots, availableSlots);
+        }
+
+        /// <summary>
+        /// Finds the first empty slot in any pill canister, prioritizing the selected canister.
+        /// Returns the container and slot index, or null if no empty slots found.
+        /// Kept for backward compatibility.
+        /// </summary>
+        private (EntityUid container, int slotIndex)? FindEmptyPillSlotPrioritizingSelected(Entity<ChemMasterComponent> chemMaster)
+        {
+            // First, try to use the selected pill canister if one is selected
+            if (chemMaster.Comp.SelectedPillCanisterForCreation >= 0 && chemMaster.Comp.SelectedPillCanisterForCreation < 3)
+            {
+                var selectedContainerIndex = chemMaster.Comp.SelectedPillCanisterForCreation;
+                var slotId = "pillContainerSlot" + selectedContainerIndex;
+
+                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                {
+                    var pillContainer = slot.Item.Value;
+
+                    if (TryComp(pillContainer, out StorageComponent? storage))
+                    {
+                        var currentPillCount = storage.Container.ContainedEntities.Count;
+                        var maxPills = 10; // Standard pill canister capacity
+
+                        // Check if there's an empty slot in the selected container
+                        for (int slotIndex = 0; slotIndex < maxPills; slotIndex++)
+                        {
+                            if (slotIndex >= currentPillCount)
+                            {
+                                // Found an empty slot in the selected container
+                                return (pillContainer, slotIndex);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // If no selected canister or selected canister is full, fall back to any available slot
+            return FindFirstEmptyPillSlot(chemMaster);
+        }
+
+        /// <summary>
+        /// Finds the first empty slot in any pill canister.
+        /// Returns the container and slot index, or null if no empty slots found.
+        /// </summary>
+        private (EntityUid container, int slotIndex)? FindFirstEmptyPillSlot(Entity<ChemMasterComponent> chemMaster)
+        {
+            // Check all 3 pill container slots
+            for (int containerIndex = 0; containerIndex < 3; containerIndex++)
+            {
+                var slotId = "pillContainerSlot" + containerIndex;
+
+                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                {
+                    var pillContainer = slot.Item.Value;
+
+                    if (TryComp(pillContainer, out StorageComponent? storage))
+                    {
+                        var currentPillCount = storage.Container.ContainedEntities.Count;
+                        var maxPills = 10; // Standard pill canister capacity
+
+                        // Check if there's an empty slot in this container
+                        for (int slotIndex = 0; slotIndex < maxPills; slotIndex++)
+                        {
+                            if (slotIndex >= currentPillCount)
+                            {
+                                // Found an empty slot
+                                return (pillContainer, slotIndex);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // No empty slots found in any pill canister
+            return null;
         }
         // ADT-Tweak End
 
@@ -409,22 +683,6 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnCreatePillsMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterCreatePillsMessage message)
         {
             var user = message.Actor;
-            var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
-
-            if (maybeContainer == null)
-            {
-                return;
-            }
-
-            if (maybeContainer is not { Valid: true } container
-                || !TryComp(container, out StorageComponent? storage))
-            {
-                return; // output can't fit pills
-            }
-
-            // Ensure the number is valid.
-            if (message.Number == 0 || !_storageSystem.HasSpace((container, storage)))
-                return;
 
             // Ensure the amount is valid.
             if (message.Dosage == 0 || message.Dosage > chemMaster.Comp.PillDosageLimit)
@@ -434,17 +692,69 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
-            var needed = message.Dosage * message.Number;
-            if (!WithdrawSelectedReagentsFromBuffer(chemMaster, needed, user, out var withdrawal))
+            // Calculate total reagent volume needed for all requested pills
+            var totalNeeded = message.Dosage * message.Number;
+
+            if (!WithdrawSelectedReagentsFromBuffer(chemMaster, totalNeeded, user, out var withdrawal))
                 return;
 
-            _labelSystem.Label(container, message.Label);
+            // Find available slots for storage (only used for canisters)
+            var (totalAvailableSlots, availableSlots) = FindAvailablePillSlotsForCreation(chemMaster, (int)message.Number);
 
-            for (var i = 0; i < message.Number; i++)
+            // Calculate how many pills can be stored in canisters vs. dropped on ground
+            var pillsToStore = Math.Min((int)message.Number, totalAvailableSlots);
+            var pillsToDrop = (int)message.Number - pillsToStore;
+
+            // Create pills that can fit in canisters
+            var pillIndex = 0;
+
+            foreach (var (container, startSlot) in availableSlots)
             {
-                var item = Spawn(PillPrototypeId, Transform(container).Coordinates);
-                _storageSystem.Insert(container, item, out _, user: user, storage);
-                _labelSystem.Label(item, message.Label);
+                if (!TryComp(container, out StorageComponent? targetStorage))
+                    continue;
+
+                var currentPillCount = targetStorage.Container.ContainedEntities.Count;
+                var maxPills = 10; // Standard pill canister capacity
+                var slotsAvailableInContainer = maxPills - currentPillCount;
+                var slotsToFillInContainer = Math.Min(slotsAvailableInContainer, pillsToStore - pillIndex);
+
+                for (int slotOffset = 0; slotOffset < slotsToFillInContainer && pillIndex < pillsToStore; slotOffset++)
+                {
+                    var item = Spawn(PillPrototypeId, Transform(container).Coordinates);
+
+                    var hasItemSolution = _solutionContainerSystem.EnsureSolutionEntity(
+                        (item, null),
+                        SharedChemMaster.PillSolutionName,
+                        out var itemSolution,
+                        message.Dosage);
+
+                    if (!hasItemSolution || itemSolution is null)
+                        continue;
+
+                    _solutionContainerSystem.TryAddSolution(itemSolution.Value, withdrawal.SplitSolution(message.Dosage));
+
+                    var pill = EnsureComp<PillComponent>(item);
+                    pill.PillType = chemMaster.Comp.PillType;
+                    Dirty(item, pill);
+
+                    // Insert pill into the canister
+                    _storageSystem.Insert(container, item, out _);
+                    _labelSystem.Label(item, message.Label);
+
+                    // Log pill creation by a user
+                    _adminLogger.Add(
+                        LogType.Action,
+                        LogImpact.Low,
+                        $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Value.Comp.Solution)}");
+
+                    pillIndex++;
+                }
+            }
+
+            // Create pills that cannot fit in canisters - drop them on the ground
+            for (int i = 0; i < pillsToDrop; i++)
+            {
+                var item = Spawn(PillPrototypeId, Transform(chemMaster.Owner).Coordinates);
 
                 var hasItemSolution = _solutionContainerSystem.EnsureSolutionEntity(
                     (item, null),
@@ -452,20 +762,29 @@ namespace Content.Server.Chemistry.EntitySystems
                     out var itemSolution,
                     message.Dosage);
 
-                if (!hasItemSolution || itemSolution is null)
-                    continue;
+                if (hasItemSolution && itemSolution is not null)
+                {
+                    _solutionContainerSystem.TryAddSolution(itemSolution.Value, withdrawal.SplitSolution(message.Dosage));
 
-                _solutionContainerSystem.TryAddSolution(itemSolution.Value, withdrawal.SplitSolution(message.Dosage));
+                    var pill = EnsureComp<PillComponent>(item);
+                    pill.PillType = chemMaster.Comp.PillType;
+                    Dirty(item, pill);
 
-                var pill = EnsureComp<PillComponent>(item);
-                pill.PillType = chemMaster.Comp.PillType;
-                Dirty(item, pill);
+                    _labelSystem.Label(item, message.Label);
 
-                // Log pill creation by a user
-                _adminLogger.Add(
-                    LogType.Action,
-                    LogImpact.Low,
-                    $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Value.Comp.Solution)}");
+                    // Log pill creation by a user
+                    _adminLogger.Add(
+                        LogType.Action,
+                        LogImpact.Low,
+                        $"{ToPrettyString(user):user} printed {ToPrettyString(item):pill} {SharedSolutionContainerSystem.ToPrettyString(itemSolution.Value.Comp.Solution)}");
+                }
+            }
+
+            // Show message if some pills could not be stored in canisters
+            if (pillsToDrop > 0)
+            {
+                _popupSystem.PopupCursor(Loc.GetString("chem-master-window-pills-dropped-text",
+                    ("dropped", pillsToDrop)), user);
             }
 
             UpdateUiState(chemMaster);
@@ -608,8 +927,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 return false;
             }
 
-            // Calculate how much of each reagent we need
-            var amountPerReagent = neededVolume / availableReagents.Count;
+            // Use the total needed volume (not divided by reagent count)
+            var totalNeededVolume = neededVolume;
 
             // Create a new solution with the selected reagents
             outputSolution = new Solution();
@@ -618,16 +937,20 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 var availableQuantity = solution.GetReagentQuantity(reagent);
 
-                // Check if we have enough of this reagent
-                if (availableQuantity < amountPerReagent)
+                // Check if we have enough of this reagent for the total needed volume
+                if (availableQuantity < totalNeededVolume)
                 {
                     if (user.HasValue)
                         _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), user.Value);
                     return false;
                 }
+            }
 
+            // If we get here, we have enough of all reagents, so withdraw from each
+            foreach (var reagent in availableReagents)
+            {
                 // Remove the reagent from buffer and add to output solution
-                var actualAmount = solution.RemoveReagent(reagent, amountPerReagent, preserveOrder: true);
+                var actualAmount = solution.RemoveReagent(reagent, totalNeededVolume, preserveOrder: true);
                 outputSolution.AddReagent(reagent, actualAmount);
             }
 
@@ -750,6 +1073,18 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnMapInit(EntityUid uid, ChemMasterComponent component, MapInitEvent args)
         {
+            // ADT-Tweak: Pill container slots (3 slots for pill containers)
+            for (int i = 0; i < 3; i++)
+            {
+                var slotId = "pillContainerSlot" + i;
+                ItemSlot slot = new();
+                var whitelist = new EntityWhitelist();
+                whitelist.Tags = new List<ProtoId<TagPrototype>> { "PillCanister" };
+                slot.Whitelist = whitelist;
+                _itemSlotsSystem.AddItemSlot(uid, slotId, slot);
+            }
+
+            // ADT-Tweak: Legacy bottle slots (20 slots for bottles)
             for (int i = 0; i < 20; i++)
             {
                 var slotId = "bottleSlot" + i;
@@ -760,6 +1095,103 @@ namespace Content.Server.Chemistry.EntitySystems
                 _itemSlotsSystem.AddItemSlot(uid, slotId, slot);
             }
         }
-        // ADT-Tweak-End
+
+
+
+        // ADT-Tweak Start: Pill container message handlers
+        private void OnSelectPillContainerSlotMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSelectPillContainerSlotMessage message)
+        {
+            if (message.Slot < 0 || message.Slot >= 30) // 3 containers × 10 slots each
+                return;
+
+            chemMaster.Comp.SelectedPillContainerSlot = message.Slot;
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
+        }
+
+        private void OnTogglePillContainerFillMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterTogglePillContainerFillMessage message)
+        {
+            if (message.Slot < 0 || message.Slot >= 30) // 3 containers × 10 slots each
+                return;
+
+            if (chemMaster.Comp.SelectedPillContainerForFill == message.Slot)
+            {
+                chemMaster.Comp.SelectedPillContainerForFill = -1;
+            }
+            else
+            {
+                chemMaster.Comp.SelectedPillContainerForFill = message.Slot;
+            }
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
+        }
+
+        private void OnPillContainerSlotEjectMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterPillContainerSlotEjectMessage message)
+        {
+            if (message.Slot < 0 || message.Slot >= 30) // 3 containers × 10 slots each
+                return;
+
+            // Calculate which container and slot this refers to
+            var containerIndex = message.Slot / 10;
+            var slotIndex = message.Slot % 10;
+
+            if (containerIndex < chemMaster.Comp.StoredPillContainers.Count &&
+                chemMaster.Comp.StoredPillContainers[containerIndex] is { } pillContainer &&
+                pillContainer != null)
+            {
+                // Try to eject a pill from the specific slot
+                if (TryComp(pillContainer, out StorageComponent? storage) &&
+                    storage.Container.ContainedEntities.Count > slotIndex)
+                {
+                    var pillToEject = storage.Container.ContainedEntities.ElementAt(slotIndex);
+                    _storageSystem.Insert(pillContainer, pillToEject, out _, user: chemMaster);
+                }
+            }
+
+            UpdateUiState(chemMaster);
+        }
+
+        private void OnPillContainerRowEjectMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterPillContainerRowEjectMessage message)
+        {
+            if (message.Row < 0 || message.Row >= 3)
+                return;
+
+            var startSlot = message.Row * 10;
+            var endSlot = startSlot + 9;
+
+            for (int slot = startSlot; slot <= endSlot; slot++)
+            {
+                if (slot >= 30) // Safety check
+                    continue;
+
+                // Calculate which container this slot belongs to
+                var containerIndex = slot / 10;
+
+                if (containerIndex < chemMaster.Comp.StoredPillContainers.Count &&
+                    chemMaster.Comp.StoredPillContainers[containerIndex] is { } pillContainer &&
+                    pillContainer != null)
+                {
+                    if (TryComp(pillContainer, out StorageComponent? storage) &&
+                        storage.Container.ContainedEntities.Count > (slot % 10))
+                    {
+                        var pillToEject = storage.Container.ContainedEntities.ElementAt(slot % 10);
+                        _storageSystem.Insert(pillContainer, pillToEject, out _, user: chemMaster);
+                    }
+                }
+            }
+
+            UpdateUiState(chemMaster);
+        }
+
+        private void OnSelectPillCanisterForCreationMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSelectPillCanisterForCreationMessage message)
+        {
+            if (message.CanisterIndex < 0 || message.CanisterIndex >= 3)
+                return;
+
+            chemMaster.Comp.SelectedPillCanisterForCreation = message.CanisterIndex;
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
+        }
+        // ADT-Tweak End
     }
 }

@@ -90,7 +90,6 @@
         whitelist:
           tags:
           - Bottle
-          - PillCanister
           - BoxCardboard # ADT-Tweak
   - type: SolutionContainerManager
     solutions:

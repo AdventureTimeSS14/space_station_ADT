@@ -42,7 +42,26 @@ namespace Content.Server.Chemistry.Components
             1, 5, 10, 15, 20, 25, 30, 50
         };
 
-        // Bottle storage
+        // ADT-Tweak: Pill container storage - 3 containers with 10 slots each (3x10 grid)
+        [DataField]
+        public List<EntityUid?> StoredPillContainers = new();
+
+        [DataField]
+        public int SelectedPillContainerSlot = -1;
+
+        [DataField]
+        public int SelectedPillContainerForFill = -1;
+
+        [DataField]
+        public int SelectedPillCanisterForCreation = -1;
+
+        [DataField]
+        public List<ReagentId> SelectedReagentsForPills = new();
+
+        [DataField]
+        public ReagentId? SelectedReagent = null;
+
+        // ADT-Tweak: Legacy bottle storage (keeping for backward compatibility)
         [DataField]
         public List<EntityUid?> StoredBottles = new();
 
@@ -54,9 +73,6 @@ namespace Content.Server.Chemistry.Components
 
         [DataField]
         public List<ReagentId> SelectedReagentsForBottles = new();
-
-        [DataField]
-        public ReagentId? SelectedReagent = null;
         // ADT-Tweak-End
     }
 }

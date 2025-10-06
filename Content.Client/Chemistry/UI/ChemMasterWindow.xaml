@@ -97,9 +97,9 @@
             <!-- Output TabContainer with vertical orientation -->
             <TabContainer Name="OutputTabs" Margin="0 0 0 0" HorizontalExpand="True" VerticalExpand="True">
                 <!-- Pills Tab -->
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
-                    <!-- Pills Creation Section -->
-                    <BoxContainer Orientation="Vertical" Margin="0 0 0 15">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5" SeparationOverride="10">
+                    <!-- Pills Creation Section (Left Side) -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 0 0">
 
                          <!-- Section Header -->
                         <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
@@ -144,8 +144,49 @@
                                 </BoxContainer>
                             </BoxContainer>
                         </PanelContainer>
-
                     </BoxContainer>
+
+                    <!-- ADT-Tweak: Pill Container Storage Grid (Right Side) -->
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="15 0 0 0" MinSize="300 0">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        </PanelContainer.PanelOverride>
+
+                        <BoxContainer Orientation="Vertical" Margin="20 15" HorizontalExpand="True">
+                            <!-- Section Header -->
+                            <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+                                <Label Text="Pill Containers"
+                                       StyleClasses="LabelHeadingBigger"
+                                       HorizontalAlignment="Center"
+                                       HorizontalExpand="True"
+                                       Margin="0 0 0 4" />
+                            </BoxContainer>
+
+                            <!-- Pill Canister Selection and Control Row -->
+                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 10">
+                                <!-- Left side: Choose buttons for each pill canister -->
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 10 0">
+                                    <Label Text="Select Canister:" StyleClasses="LabelSecondaryColor" Margin="0 0 0 5" />
+                                    <GridContainer Name="PillCanisterChooseButtons" Columns="3" HorizontalExpand="True">
+                                        <!-- 3 choose buttons will be generated in code (one for each canister slot) -->
+                                    </GridContainer>
+                                </BoxContainer>
+
+                                <!-- Right side: Eject buttons for each pill canister -->
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                    <Label Text="Eject Canister:" StyleClasses="LabelSecondaryColor" Margin="0 0 0 5" />
+                                    <GridContainer Name="PillCanisterEjectButtons" Columns="3" HorizontalExpand="True">
+                                        <!-- 3 eject buttons will be generated in code (one for each canister slot) -->
+                                    </GridContainer>
+                                </BoxContainer>
+                            </BoxContainer>
+
+                            <!-- 3x10 Pill Container Grid -->
+                            <GridContainer Name="PillContainerStorageGrid" Columns="10" Margin="8" HorizontalExpand="True" VerticalExpand="True">
+                                <!-- 30 buttons will be generated in code (3 containers × 10 slots each) -->
+                            </GridContainer>
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
 
                 <!-- Bottles Tab -->

@@ -60,3 +60,4 @@ chem-master-window-amount-limit-reached = Слишком много кнопок
 chem-master-window-choose-reagent-button = Выбрать
 chem-master-window-no-reagent-selected-text = Реагент не выбран.
 chem-master-window-selected-reagent-not-found-text = Выбранный реагент не найден в буфере.
+chem-master-window-pills-dropped-text = { $dropped } таблетка(-ки) выпали на землю.

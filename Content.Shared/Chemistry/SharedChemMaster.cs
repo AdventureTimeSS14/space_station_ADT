@@ -176,7 +176,63 @@ namespace Content.Shared.Chemistry
             Reagent = reagent;
         }
     }
-    //ADT-Tweak End
+
+    // ADT-Tweak Start: Pill container messages
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSelectPillContainerSlotMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterSelectPillContainerSlotMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterTogglePillContainerFillMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterTogglePillContainerFillMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterPillContainerSlotEjectMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterPillContainerSlotEjectMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterPillContainerRowEjectMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Row;
+
+        public ChemMasterPillContainerRowEjectMessage(int row)
+        {
+            Row = row;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSelectPillCanisterForCreationMessage : BoundUserInterfaceMessage
+    {
+        public readonly int CanisterIndex;
+
+        public ChemMasterSelectPillCanisterForCreationMessage(int canisterIndex)
+        {
+            CanisterIndex = canisterIndex;
+        }
+    }
+    // ADT-Tweak End
 
     public enum ChemMasterMode
     {
@@ -233,12 +289,20 @@ namespace Content.Shared.Chemistry
         int sortMethod,
         int transferringAmount,
         List<int> amounts,
-        //ADT-Tweak Start: Bottle buttons reagent transfer
+        //ADT-Tweak Start: Pill container storage
+        List<ContainerInfo?> storedPillContainers,
+        List<List<bool>> pillContainers,
+        List<List<uint>> pillTypes, // ADT-Tweak: Pill types for each slot in each container
+        int selectedPillContainerSlot,
+        int selectedPillContainerForFill,
+        int selectedPillCanisterForCreation,
+        List<ReagentId> selectedReagentsForPills,
+        ReagentId? selectedReagent,
+        //ADT-Tweak: Legacy bottle storage
         List<ContainerInfo?> storedBottles,
         int selectedBottleSlot,
         int selectedBottleForFill,
-        List<ReagentId> selectedReagentsForBottles,
-        ReagentId? selectedReagent)
+        List<ReagentId> selectedReagentsForBottles)
         //ADT-Tweak End
         : BoundUserInterfaceState
     {
@@ -264,12 +328,20 @@ namespace Content.Shared.Chemistry
 
         public readonly List<int> Amounts = amounts;
 
-        //ADT-Tweak Start: Bottle buttons reagent transfer
+        //ADT-Tweak Start: Pill container storage
+        public readonly List<ContainerInfo?> StoredPillContainers = storedPillContainers;
+        public readonly List<List<bool>> PillContainers = pillContainers;
+        public readonly List<List<uint>> PillTypes = pillTypes; // ADT-Tweak: Pill types for each slot in each container
+        public readonly int SelectedPillContainerSlot = selectedPillContainerSlot;
+        public readonly int SelectedPillContainerForFill = selectedPillContainerForFill;
+        public readonly int SelectedPillCanisterForCreation = selectedPillCanisterForCreation;
+        public readonly List<ReagentId> SelectedReagentsForPills = selectedReagentsForPills;
+        public readonly ReagentId? SelectedReagent = selectedReagent;
+        //ADT-Tweak: Legacy bottle storage
         public readonly List<ContainerInfo?> StoredBottles = storedBottles;
         public readonly int SelectedBottleSlot = selectedBottleSlot;
         public readonly int SelectedBottleForFill = selectedBottleForFill;
         public readonly List<ReagentId> SelectedReagentsForBottles = selectedReagentsForBottles;
-        public readonly ReagentId? SelectedReagent = selectedReagent;
         //ADT-Tweak End
     }
 

@@ -57,6 +57,11 @@ namespace Content.Client.Chemistry.UI
             // Per-slot eject: mimic dispenser card eject button behavior, addressing item slot by its ID (bottleSlot{index})
             _window.OnBottleSlotEjectPressed += slot => SendMessage(new ItemSlotButtonPressedEvent($"bottleSlot{slot}"));
             _window.OnRowEjectPressed += row => SendMessage(new ChemMasterRowEjectMessage(row));
+
+            // ADT-Tweak: Pill container event handlers
+            _window.OnPillContainerSlotSelected += slot => SendMessage(new ChemMasterSelectPillContainerSlotMessage(slot));
+            _window.OnTogglePillContainerFillPressed += slot => SendMessage(new ChemMasterTogglePillContainerFillMessage(slot));
+            _window.OnPillCanisterSelected += canisterIndex => SendMessage(new ChemMasterSelectPillCanisterForCreationMessage(canisterIndex));
             //ADT-Tweak-End
         }
 
