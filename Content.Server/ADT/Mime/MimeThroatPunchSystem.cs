@@ -77,12 +77,19 @@ public sealed class MimeThroatPunchSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        var toRemove = new List<EntityUid>();
+
         var query = EntityQueryEnumerator<RemoveMutedOnDelayComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime < comp.RemoveTime)
                 continue;
 
+            toRemove.Add(uid);
+        }
+
+        foreach (var uid in toRemove)
+        {
             RemComp<MutedComponent>(uid);
             RemComp<RemoveMutedOnDelayComponent>(uid);
             _alertsSystem.ClearAlert(uid, "Muted");

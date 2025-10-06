@@ -98,7 +98,8 @@ namespace Content.Server.Abilities.Mime
                 return;
 
             //ADT-Tweak-Start
-            if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
+            var gridUid = tile.Value.GridUid;
+            if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
                 return;
 
             var tileIndex = tile.Value.GridIndices;
@@ -114,7 +115,17 @@ namespace Content.Server.Abilities.Mime
             for (int i = start; i <= end; i++)
             {
                 var offset = isVertical ? (i, 0) : (0, i);
-                var coords = _mapSystem.GridTileToLocal(xform.GridUid.Value, mapGrid, tileIndex + offset);
+                var targetIndex = tileIndex + offset;
+
+                var targetTile = mapGrid.GetTileRef(targetIndex);
+
+                if (targetTile.Tile.IsEmpty)
+                    continue;
+
+                if (_turf.IsTileBlocked(targetTile, CollisionGroup.MobMask))
+                    continue;
+
+                var coords = _mapSystem.GridTileToLocal(gridUid, mapGrid, targetIndex);
                 wallPositions.Add(coords);
             }
 
