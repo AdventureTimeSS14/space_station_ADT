@@ -84,6 +84,14 @@
       - 0.1,1.2
       - 0.4,0.5
     thrust: 250
+  - type: Machine
+    board: ADTMachineMediumThrusterCircuitboard
+  - type: Construction
+    graph: ADTMachineUnassemble
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
 
 - type: entity
   id: ADTBigThruster
@@ -151,6 +159,14 @@
       - 1.1,2.5
       - 1.4,0.5
     thrust: 500
+  - type: Machine
+    board: ADTMachineBigThrusterCircuitboard
+  - type: Construction
+    graph: ADTMachineUnassemble
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
 
 - type: entity
   id: ADTMediumLongThruster
@@ -196,3 +212,11 @@
       - 0.3,2.5
       - 0.4,0.5
     thrust: 170
+  - type: Machine
+    board: ADTMachineMediumLongThrusterCircuitboard
+  - type: Construction
+    graph: ADTMachineUnassemble
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
