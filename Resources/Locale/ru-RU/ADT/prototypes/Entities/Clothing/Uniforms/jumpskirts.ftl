@@ -143,9 +143,6 @@ ent-ClothingUniformJumpskirtCommandGeneric = юбка командования
 ent-ADTClothingUniformDressVintage = винтажное платье
     .desc = Красивое винтажное платье для особых случаев.
 
-ent-ADTClothingUniformLillianDress = платье Лилиан
-    .desc = Элегантное платье с изысканным стилем.
-
 ent-ADTClothingUniformSwimBlack = чёрный купальник
     .desc = Стильный чёрный купальник для пляжа или бассейна.
 

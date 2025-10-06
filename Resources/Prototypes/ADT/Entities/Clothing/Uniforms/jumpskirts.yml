@@ -495,17 +495,6 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ADTClothingUniformLillianDress
-  name: lillian dress
-  description: An elegant dress with a sophisticated style.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/lillian_dress.rsi
-  - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpskirt/lillian_dress.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformSwimBlack
   name: black swimsuit
   description: A stylish black swimsuit for the beach or pool.
