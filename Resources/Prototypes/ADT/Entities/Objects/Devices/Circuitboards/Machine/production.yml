@@ -268,7 +268,6 @@
   id: ADTMachineMediumLongThrusterCircuitboard #1x3
   parent: BaseMachineCircuitboard
   name: medium long thruster board
-  description: A machine board for a Bluespace Harvester
   components:
   - type: Sprite
     state: supply
@@ -283,7 +282,6 @@
   id: ADTMachineBigThrusterCircuitboard #3x3
   parent: BaseMachineCircuitboard
   name: big thruster board
-  description: A machine board for a Bluespace Harvester
   components:
   - type: Sprite
     state: supply
@@ -298,7 +296,6 @@
   id: ADTMachineMediumThrusterCircuitboard #2x2
   parent: BaseMachineCircuitboard
   name: medium thruster board
-  description: A machine board for a Bluespace Harvester
   components:
   - type: Sprite
     state: supply
