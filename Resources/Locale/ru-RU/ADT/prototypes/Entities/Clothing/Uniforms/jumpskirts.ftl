@@ -139,3 +139,33 @@ ent-ADTClothingUniformJumpskirtTeto = юбка-костюм Тето
 
 ent-ClothingUniformJumpskirtCommandGeneric = юбка командования
     .desc = Обычная юбка-комбинезон расцветки командования, не связанная с каким-либо конкретным отделом.
+
+ent-ADTClothingUniformDressVintage = винтажное платье
+    .desc = Красивое винтажное платье для особых случаев.
+
+ent-ADTClothingUniformLillianDress = платье Лилиан
+    .desc = Элегантное платье с изысканным стилем.
+
+ent-ADTClothingUniformSwimBlack = чёрный купальник
+    .desc = Стильный чёрный купальник для пляжа или бассейна.
+
+ent-ADTClothingUniformSwimBlue = синий купальник
+    .desc = Яркий синий купальник, идеально подходящий для летних дней.
+
+ent-ADTClothingUniformSwimDarkGreen = тёмно-зелёный купальник
+    .desc = Тёмно-зелёный купальник с классическим видом.
+
+ent-ADTClothingUniformSwimGreen = зелёный купальник
+    .desc = Яркий зелёный купальник для смелых.
+
+ent-ADTClothingUniformSwimPurple = фиолетовый купальник
+    .desc = Красивый фиолетовый купальник с элегантным дизайном.
+
+ent-ADTClothingUniformSwimRed = красный купальник
+    .desc = Потрясающий красный купальник, который привлекает взгляды.
+
+ent-ADTClothingUniformTangoDressBlack = чёрное платье для танго
+    .desc = Элегантное чёрное платье для страстных танцев.
+
+ent-ADTClothingUniformTangoDressWhite = белое платье для танго
+    .desc = Грациозное белое платье для элегантных выступлений.
