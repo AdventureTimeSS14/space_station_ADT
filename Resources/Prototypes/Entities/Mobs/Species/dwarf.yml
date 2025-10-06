@@ -68,6 +68,11 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   # ADT tweak start
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      180: Dead
   - type: InnateMiningScannerViewer
     pingSound: null
     viewRange: 4
@@ -75,6 +80,32 @@
     languages:
       GalacticCommon: Speak
       Dwarf: Speak
+  - type: Puller  # дварфы мелкие, потому так
+    grabStats:
+      None:
+        requiredHands: 1
+        doaftersToEscape: 0
+        movementSpeedModifier: 0.8
+        escapeAttemptTime: 0
+        setStageTime: 0
+      Soft:
+        requiredHands: 1
+        doaftersToEscape: 1
+        movementSpeedModifier: 0.7
+        escapeAttemptTime: 1.1
+        setStageTime: 0
+      Hard:
+        requiredHands: 2
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.6
+        escapeAttemptTime: 1
+        setStageTime: 0.75
+      Choke:
+        requiredHands: 2
+        doaftersToEscape: 2
+        movementSpeedModifier: 0.55
+        escapeAttemptTime: 1.25
+        setStageTime: 1.25
   # ADT tweak end
 
 - type: entity

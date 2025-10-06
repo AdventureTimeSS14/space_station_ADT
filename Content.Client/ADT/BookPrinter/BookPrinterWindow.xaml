@@ -125,8 +125,8 @@
           <PanelContainer.PanelOverride>
             <gfx:StyleBoxFlat BackgroundColor="#1a1a1e" BorderThickness="1" BorderColor="#404040"/>
           </PanelContainer.PanelOverride>
-          <ScrollContainer VerticalExpand="True" HScrollEnabled="False" Margin="4">
-            <RichTextLabel Name="InfoBookContent" Access="Public" Margin="8"/>
+          <ScrollContainer VerticalExpand="True" HScrollEnabled="True" VScrollEnabled="True" Margin="4">
+            <RichTextLabel Name="InfoBookContent" Access="Public" Margin="8" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalExpand="True"/>
           </ScrollContainer>
         </PanelContainer>
       </BoxContainer>
