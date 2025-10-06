@@ -1,0 +1,31 @@
+- type: entity
+  id: ADTActionMimeFingerGun
+  name: Finger Gun
+  description: Shoot an invisible energy bolt from your finger!
+  components:
+  - type: WorldTargetAction
+    priority: -1
+    useDelay: 10
+    range: 15
+    icon:
+      sprite: ADT/Interface/Actions/mime.rsi
+      state: pistol
+    event: !type:MimeFingerGunActionEvent
+
+- type: entity
+  id: ADTActionMimeThroatPunch
+  name: Throat Punch
+  description: Silence your target with a swift strike to the throat!
+  components:
+  - type: EntityTargetAction
+    priority: -1
+    useDelay: 30
+    range: 1.5
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Body
+    icon:
+      sprite: ADT/Interface/Actions/mime.rsi
+      state: thhhh
+    event: !type:MimeThroatPunchActionEvent
