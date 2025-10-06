@@ -12,6 +12,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Shared.Speech.Muting;
 //ADT-Tweak-Start
+using Robust.Shared.Map.Components;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Robust.Server.Player;
@@ -29,6 +30,7 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         //ADT-Tweak-Start
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         //ADT-Tweak-End
@@ -90,17 +92,49 @@ namespace Content.Server.Abilities.Mime
             var xform = Transform(uid);
             // Get the tile in front of the mime
             var offsetValue = xform.LocalRotation.ToWorldVec();
-            var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-            var tile = coords.GetTileRef(EntityManager, _mapMan);
+            var directionPos = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan); //ADT-Tweak
+            var tile = directionPos.GetTileRef(EntityManager, _mapMan); //ADT-Tweak
             if (tile == null)
                 return;
 
-            // Check if the tile is blocked by a wall or mob, and don't create the wall if so
-            if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
+            //ADT-Tweak-Start
+            if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
+                return;
+
+            var tileIndex = tile.Value.GridIndices;
+            var wallPositions = new List<EntityCoordinates>();
+
+            var dir = xform.LocalRotation.GetCardinalDir();
+            switch (dir)
+            {
+                case Direction.North:
+                case Direction.South:
+                {
+                    for (int i = -(component.WallCount / 2); i <= component.WallCount / 2; i++)
+                    {
+                        var coords = _mapSystem.GridTileToLocal(xform.GridUid.Value, mapGrid, tileIndex + (i, 0));
+                        wallPositions.Add(coords);
+                    }
+                    break;
+                }
+                case Direction.East:
+                case Direction.West:
+                {
+                    for (int i = -(component.WallCount / 2); i <= component.WallCount / 2; i++)
+                    {
+                        var coords = _mapSystem.GridTileToLocal(xform.GridUid.Value, mapGrid, tileIndex + (0, i));
+                        wallPositions.Add(coords);
+                    }
+                    break;
+                }
+            }
+
+            if (wallPositions.Count == 0)
             {
                 _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-failed"), uid, uid);
                 return;
             }
+            //ADT-Tweak-End
 
             _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
             //ADT-Tweak-Start
@@ -113,11 +147,13 @@ namespace Content.Server.Abilities.Mime
             {
                 _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, uid, false, session.Channel);
             }
+
+            foreach (var wallCoords in wallPositions)
+            {
+                Spawn(component.WallPrototype, wallCoords);
+            }
             //ADT-Tweak-End
 
-            // Make sure we set the invisible wall to despawn properly
-            Spawn(component.WallPrototype, _turf.GetTileCenter(tile.Value));
-            // Handle args so cooldown works
             args.Handled = true;
         }
 
