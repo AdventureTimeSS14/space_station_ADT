@@ -27,8 +27,11 @@ namespace Content.Server.Abilities.Mime
         public string? InvisibleWallAction = "ActionMimeInvisibleWall";
 
         [DataField("invisibleWallActionEntity")] public EntityUid? InvisibleWallActionEntity;
+        //ADT-Tweak-Start
+        [DataField("wallCount")]
+        public int WallCount = 1;
+        //ADT-Tweak-End
 
-        // The vow zone lies below
         public bool VowBroken = false;
 
         /// <summary>
