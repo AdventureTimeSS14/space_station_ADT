@@ -528,7 +528,7 @@
   description: uplink-mime-enhanced-book-desc
   productEntity: ADTMimeEnhancedBook
   cost:
-    Telecrystal: 8
+    Telecrystal: 11
   categories:
   - UplinkJob
   conditions:
