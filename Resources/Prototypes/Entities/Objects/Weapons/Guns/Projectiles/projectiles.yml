@@ -901,7 +901,7 @@
     - type: Projectile
       damage:
         types:
-          Caustic: 30 # ADT-Tweak
+          Caustic: 30 # ADT-Tweak 12 -> 30
     - type: Sprite
       sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
       layers:
