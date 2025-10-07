@@ -17,14 +17,14 @@
         coefficients:
           Blunt: 0.9
           Slash: 0.9
-          Piercing: 4 # ADT shieldnerf
-          Heat: 4 # ADT shieldnerf
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
       activeBlockModifier:
         coefficients:
           Blunt: 0.8
           Slash: 0.8
-          Piercing: 4 # ADT shieldnerf
-          Heat: 4 # ADT shieldnerf
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
         flatReductions:
           Blunt: 1
           Slash: 1
@@ -75,14 +75,14 @@
         coefficients:
           Blunt: 0.7
           Slash: 0.7
-          Piercing: 4 # ADT shieldnerf
-          Heat: 4 # ADT shieldnerf
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
       activeBlockModifier:
         coefficients:
           Blunt: 0.5
           Slash: 0.5
-          Piercing: 4 # ADT shieldnerf
-          Heat: 4 # ADT shieldnerf
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
         flatReductions:
           Blunt: 1
           Slash: 1
