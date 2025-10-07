@@ -193,14 +193,9 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
-        #Start ADT Tweak
-        - !type:OrganType
-          type: Novakid
-          shouldHave: false
         damage:
           types:
             Poison: 1
-        #End ADT Tweak
       # dwarves take less toxin damage and heal a marginal amount of brute
       - !type:HealthChange
         conditions:
@@ -220,82 +215,18 @@
         damage:
           groups:
             Brute: -1
-      # Start ADT tweak
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 3
-        - !type:OrganType
-          type: Novakid
-        damage:
-          types:
-            Heat: 0.75
-            Asphyxiation: 0.75
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 3
-        - !type:OrganType
-          type: Drask
-        damage:
-          types:
-            Poison: 0.1
-      # End ADT tweak
-      - !type:ChemVomit
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 1
-        - !type:Whitelist
-          list:
-            components:
-            - DrunkenResilience
-        damage:
-          groups:
-            Brute: -1
       - !type:ChemVomit
         probability: 0.04
         conditions:
         - !type:ReagentThreshold
           reagent: Ethanol
           min: 12
-        - !type:OrganType # dwarves immune to vomiting from alcohol  
-          type: Dwarf
-          shouldHave: false
+        # dwarves immune to vomiting from alcohol
         - !type:OrganType
-          type: Novakid
+          type: Dwarf
           shouldHave: false
       - !type:Drunk
         boozePower: 2
-        conditions:
-        - !type:OrganType
-          type: Drask
-          shouldHave: false
-      - !type:Drunk
-        boozePower: 1
-        conditions:
-        - !type:OrganType
-          type: Drask
-          shouldHave: true
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-        - !type:OrganType
-          type: Drask
-          shouldHave: false
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
-        - !type:OrganType
-          type: Novakid
-          shouldHave: false
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-        probability: 0.05
-      # End ADT tweak
 
 - type: reagent
   id: Gin
