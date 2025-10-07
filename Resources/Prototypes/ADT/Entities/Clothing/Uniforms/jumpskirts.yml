@@ -492,6 +492,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/dress_vintage.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/dress_vintage.rsi
+  - type: StaticPrice
+    price: 85
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -503,6 +505,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_black.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_black.rsi
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -514,6 +518,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_blue.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_blue.rsi
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -525,6 +531,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_dark_green.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_dark_green.rsi
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -536,6 +544,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_green.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_green.rsi
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -547,6 +557,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_purp.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_purp.rsi
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -558,6 +570,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_red.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_red.rsi
+  - type: StaticPrice
+    price: 35
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -569,6 +583,8 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_black.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_black.rsi
+  - type: StaticPrice
+    price: 85
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -580,3 +596,5 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_white.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_white.rsi
+  - type: StaticPrice
+    price: 85

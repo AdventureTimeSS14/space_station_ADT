@@ -343,3 +343,20 @@
       - id: ADTClothingHeadTetoWig
       - id: FoodBreadBaguette
         amount: 2
+
+- type: entity
+  name: cow underwear set
+  parent: BoxCardboard
+  id: ADTBoxCowUnderwearSet
+  description: A complete set of cute cow-themed underwear. Moo!
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingUnderwearBottomPantiesCow
+      - id: ADTClothingUnderwearTopBraCow
+      - id: ADTClothingUnderwearSocksCow
+  - type: Sprite
+    layers:
+      - state: box
+  - type: StaticPrice
+    price: 35
