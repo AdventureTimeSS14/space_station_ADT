@@ -51,30 +51,29 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
 
-# нарушение дресс-кода в лодауте, забавно
-# - type: loadout
-#   id: ADTSecurityOfficerMogesBrown
-#   equipment:
-#     jumpsuit: ADTClothingJumpsuitSecOffMogesBrown
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: ADTSecurityVeteran
+- type: loadout
+  id: ADTSecurityOfficerMogesBrown
+  equipment:
+    jumpsuit: ADTClothingJumpsuitSecOffMogesBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
 
-# - type: loadout
-#   id: ADTSecurityOfficerMogesBlue
-#   equipment:
-#     jumpsuit: ADTClothingJumpsuitSecOffMogesBlue
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: ADTSecurityVeteran
+- type: loadout
+  id: ADTSecurityOfficerMogesBlue
+  equipment:
+    jumpsuit: ADTClothingJumpsuitSecOffMogesBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
 
-# - type: loadout
-#   id: ADTSecurityOfficerMogesGray
-#   equipment:
-#     jumpsuit: ADTClothingJumpsuitSecOffMogesGray
-#   effects:
-#   - !type:GroupLoadoutEffect
-#     proto: ADTSecurityVeteran
+- type: loadout
+  id: ADTSecurityOfficerMogesGray
+  equipment:
+    jumpsuit: ADTClothingJumpsuitSecOffMogesGray
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSecurityVeteran
 
 # OuterClothing
 - type: loadout
