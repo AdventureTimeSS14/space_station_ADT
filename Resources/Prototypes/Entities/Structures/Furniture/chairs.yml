@@ -48,7 +48,7 @@
         sound:
           collection: MetalBreak
   - type: StaticPrice
-    price: 50
+    price: 10 # ADT-tweak
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity
@@ -255,7 +255,7 @@
     tags:
     - Wooden
   - type: StaticPrice
-    price: 75
+    price: 25 # ADT-tweak
 
 - type: entity
   name: ritual chair

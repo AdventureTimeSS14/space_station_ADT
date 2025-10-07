@@ -291,6 +291,16 @@
     thresholds:
       0: Alive
       750: Dead # ADT Tweak
+# ADT-tweak start
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 2000
+      behaviors:
+      - !type:GibBehavior { }
+# ADT-tweak end
   - type: MovementSpeedModifier
     baseSprintSpeed: 2 # ADT Tweak
   - type: MeleeWeapon

@@ -167,14 +167,16 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.7 # ADT-tweak 0.3 -> 0.7
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.5
-        Heat: 0.7 #Goliath hide gets grilled instead of you
+# ADT-tweak start
+        Piercing: 0.4  # Piercing: 0.5 -> 0.4
+        Heat: 0.9     # Heat: 0.7 -> 0.9
+# ADT-tweak end
         Radiation: 0.3
         Caustic: 0.8
   - type: ClothingSpeedModifier

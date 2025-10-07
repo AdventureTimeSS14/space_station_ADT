@@ -65,6 +65,8 @@
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1
     ToyFigurineMusician: 1
+    ADTToyBlasterGunBlue: 1 # ADT-tweak
+  emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
     ClothingOuterDogi: 1
