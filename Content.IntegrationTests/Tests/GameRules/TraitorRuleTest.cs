@@ -27,26 +27,23 @@ public sealed class TraitorRuleTest
     [Test]
     public async Task TestTraitorObjectives()
     {
-        try
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings()
         {
-            await using var pair = await PoolManager.GetServerClient(new PoolSettings()
-            {
-                Dirty = true,
-                DummyTicker = false,
-                Connected = true,
-                InLobby = true,
-            });
-
-            var server = pair.Server;
-            var client = pair.Client;
-            var entMan = server.EntMan;
-            var protoMan = server.ProtoMan;
-            var compFact = server.ResolveDependency<IComponentFactory>();
-            var ticker = server.System<GameTicker>();
-            var mindSys = server.System<MindSystem>();
-            var roleSys = server.System<RoleSystem>();
-            var factionSys = server.System<NpcFactionSystem>();
-            var traitorRuleSys = server.System<TraitorRuleSystem>();
+            Dirty = true,
+            DummyTicker = false,
+            Connected = true,
+            InLobby = true,
+        });
+        var server = pair.Server;
+        var client = pair.Client;
+        var entMan = server.EntMan;
+        var protoMan = server.ProtoMan;
+        var compFact = server.ResolveDependency<IComponentFactory>();
+        var ticker = server.System<GameTicker>();
+        var mindSys = server.System<MindSystem>();
+        var roleSys = server.System<RoleSystem>();
+        var factionSys = server.System<NpcFactionSystem>();
+        var traitorRuleSys = server.System<TraitorRuleSystem>();
 
         // Look up the minimum player count and max total objective difficulty for the game rule
         var minPlayers = 1;

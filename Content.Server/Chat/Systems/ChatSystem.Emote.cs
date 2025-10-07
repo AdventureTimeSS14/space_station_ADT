@@ -173,7 +173,6 @@ public partial class ChatSystem
     /// <returns>True if the chat message should be displayed (because the emote was explicitly cancelled), false if it should not be.</returns>
     private bool TryEmoteChatInput(EntityUid uid, string textInput)
     {
-        consumed = false; // ganimed edit
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emote))
             return true;

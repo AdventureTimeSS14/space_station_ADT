@@ -7,12 +7,10 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.Configuration; // Ganimed edit
 using Robust.Shared.Audio;
 using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Content.Shared.CCVar; // Ganimed edit
 using static Robust.Client.UserInterface.Controls.LineEdit;
 
 namespace Content.Client.UserInterface.Systems.Chat.Widgets;
@@ -26,19 +24,10 @@ public partial class ChatBox : UIWidget
 
     private readonly ISawmill _sawmill;
     private readonly ChatUIController _controller;
-    private readonly IEntityManager _entManager;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Ganimed, EE - Chat stacking
-    [Dependency] private readonly ILocalizationManager _loc = default!; // Ganimed, EE - Chat stacking
 
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
-
-    // Ganimed, EE - Chat stacking
-    private int _chatStackAmount = 0;
-    private bool _chatStackEnabled => _chatStackAmount > 0;
-    private List<ChatStackData> _chatStackList;
-    // Ganimed, EE - Chat stacking
 
     public ChatBox()
     {
@@ -57,18 +46,6 @@ public partial class ChatBox : UIWidget
         _controller.MessageAdded += OnMessageAdded;
         _controller.HighlightsUpdated += OnHighlightsUpdated;
         _controller.RegisterChat(this);
-
-        // Ganimed, EE - Chat stacking
-        _chatStackList = new List<ChatStackData>(_chatStackAmount);
-        _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
-        // Evin-Tweak, End EE - Chat stacking
-    }
-
-    // Ganimed, EE - Chat stacking
-    private void UpdateChatStack(int value)
-    {
-        _chatStackAmount = value >= 0 ? value : 0;
-        Repopulate();
     }
 
     private void OnTextEntered(LineEditEventArgs args)
@@ -91,53 +68,7 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        // Ganimed, EE - Chat stacking
-        var index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
-
-        if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
-        {
-            TrackNewMessage(msg.WrappedMessage, color);
-            AddLine(msg.WrappedMessage, color);
-            return;
-        }
-
-        UpdateRepeatingLine(index);
-        // Ganimed, End EE - Chat stacking
-    }
-
-    /// <summary>
-    /// Removing and then adding instantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake.
-    /// With rapid enough updates, the whole chat becomes unreadable.
-    /// Adding first and then removing does not produce any visual effects.
-    /// The other option is to duplicate OutputPanel functionality and everything internal to the engine it relies on.
-    /// But OutputPanel relies on directly setting Control.Position for control embedding. (which is not exposed to Content.)
-    /// Thanks robustengine, very cool.
-    /// </summary>
-    /// <remarks>
-    /// zero index is the very last line in chat, 1 is the line before the last one, 2 is the line before that, etc.
-    /// </remarks>
-    // Ganimed, EE - Chat stacking
-    private void UpdateRepeatingLine(int index)
-    {
-        _chatStackList[index].RepeatCount++;
-        for (var i = index; i >= 0; i--)
-        {
-            var data = _chatStackList[i];
-            AddLine(data.WrappedMessage, data.ColorOverride, data.RepeatCount);
-            Contents.RemoveEntry(Index.FromEnd(index + 2));
-        }
-    }
-
-    // Ganimed, EE - Chat stacking
-    private void TrackNewMessage(string wrappedMessage, Color colorOverride)
-    {
-        if (!_chatStackEnabled)
-            return;
-
-        if (_chatStackList.Count == _chatStackList.Capacity)
-            _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
-
-        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride));
+        AddLine(msg.WrappedMessage, color);
     }
 
     private void OnHighlightsUpdated(string highlights)
@@ -153,7 +84,6 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         Contents.Clear();
-        _chatStackList = new List<ChatStackData>(_chatStackAmount); // Ganimed, EE - Chat stacking
 
         foreach (var message in _controller.History)
         {
@@ -183,24 +113,11 @@ public partial class ChatBox : UIWidget
 
     public void AddLine(string message, Color color)
     {
-        int sizeIncrease = 11;
-
-        var formatted = new FormattedMessage(4); // Ganimed, EE - Chat stacking - up from
+        var formatted = new FormattedMessage(3);
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
-
-        // Ganimed, EE - Chat stacking
-        if (repeat != 0)
-        {
-            var displayRepeat = repeat + 1;
-            formatted.AddMarkupOrThrow(_loc.GetString("chat-system-repeated-message-counter",
-                                ("count", displayRepeat),
-                                ("size", sizeIncrease)
-                                ));
-        }
         Contents.AddMessage(formatted);
-        // Ganimed, End EE - Chat stacking
     }
 
     public void Focus(ChatSelectChannel? channel = null)
@@ -295,19 +212,5 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(CCVars.ChatStackLastLines, UpdateChatStack); // Ganimed, EE - Chat stacking
-    }
-}
-
-// Ganimed, EE - StackChat
-public sealed partial class ChatStackData
-{
-    public string WrappedMessage;
-    public Color ColorOverride;
-    public int RepeatCount = 0;
-    public ChatStackData(string wrappedMessage, Color colorOverride)
-    {
-        WrappedMessage = wrappedMessage;
-        ColorOverride = colorOverride;
     }
 }
