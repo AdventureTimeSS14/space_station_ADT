@@ -31,8 +31,8 @@
   - ADT_Packed
   - ADT_Aspid
   - ADT_Kerberos
-  - ADT_Train
   - ADT_Reach
+  - ADT_Train
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
