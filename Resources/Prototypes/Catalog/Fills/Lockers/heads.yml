@@ -90,7 +90,7 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
-    - id: ADTClothingModsuitBackCaptain # ADT tweak ClothingOuterHardsuitCap
+    - id: ClothingOuterHardsuitCap
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
@@ -287,7 +287,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreathMedical
-    - id: ADTClothingModsuitBackCMO #ADT-Tweak ClothingOuterHardsuitMedical
+    - id: ClothingOuterHardsuitMedical
     - id: OxygenTankFilled
 
 # No hardsuit locker

@@ -211,24 +211,10 @@
   parent: SuitStorageBase
   suffix: Chief Medical Officer
   components:
-# ADT-Tweak-start
-  #- type: EntityTableContainerFill
-  #  containers:
-  #    entity_storage: !type:NestedSelector
-  #      tableId: FillChiefMedicalOfficerHardsuit
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: ClothingMaskBreathMedical
-  - type: UserInterface
-    interfaces:
-      enum.SuitStorageUiKey.Key:
-        type: SuitStorageBoundUserInterface
-  - type: SuitStorage
-    options:
-    - ADTClothingModsuitBackCMO
-    - ClothingOuterHardsuitMedical
-# ADT-Tweak-end
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillChiefMedicalOfficerHardsuit
   - type: AccessReader
     access: [ [ "ChiefMedicalOfficer" ] ]
 
@@ -284,17 +270,8 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitWarden
         - id: ClothingMaskBreath
-  # ADT Tweak start
-  - type: UserInterface
-    interfaces:
-      enum.SuitStorageUiKey.Key:
-        type: SuitStorageBoundUserInterface
-  - type: SuitStorage
-    options:
-    - ADTClothingModsuitBackWard
-    - ClothingOuterHardsuitWarden
-  # ADT Tweak end
   - type: AccessReader
     access: [["Armory"]]
 
@@ -304,25 +281,10 @@
   parent: SuitStorageBase
   suffix: Captain
   components:
-  # ADT-Tweak-start
-  #- type: EntityTableContainerFill
-  #  containers:
-  #    entity_storage: !type:NestedSelector
-  #      tableId: FillCaptainHardsuit
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: ClothingMaskGasCaptain
-        - id: JetpackCaptainFilled
-  - type: UserInterface
-    interfaces:
-      enum.SuitStorageUiKey.Key:
-        type: SuitStorageBoundUserInterface
-  - type: SuitStorage
-    options:
-    - ADTClothingModsuitBackCaptain
-    - ClothingOuterHardsuitCap
-  #ADT-Tweak-end
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCaptainHardsuit
   - type: AccessReader
     access: [["Captain"]]
 
