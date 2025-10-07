@@ -81,8 +81,6 @@
     state: jetpack_adv
   - type: ModSuitMod
     energyUsing: 20
-    slots:
-    - MODcore
     components:
       MODcore:
       - type: MovementSpeedModifier
