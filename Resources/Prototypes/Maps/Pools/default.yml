@@ -32,9 +32,9 @@
   - ADT_Aspid
   - ADT_Kerberos
   - ADT_Reach
+  - ADT_Train
 
 # ADT Maps Выведенные на переработку
-  # - ADT_Train до фикса всех бед
   # - ADT_Avrit требуется декорваксизация
   # - ADT_Alley до ремонта
   # - ADT_Astra в комментерии до ремапа
