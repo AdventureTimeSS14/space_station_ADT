@@ -317,7 +317,7 @@
         types:
           Blunt: 0
           Asphyxiation: 10 # Essentially Stopping all blood reaching a part of your body
-      ModifyBloodLevel: 20
+      modifyBloodLevel: 15
 # ADT-tweak end
       bloodlossModifier: -10 # Tourniquets stop bleeding
       delay: 0.5

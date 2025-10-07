@@ -8,7 +8,7 @@
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: legsweep
-      useDelay: 4
+      useDelay: 2
     - type: InstantAction
       event: !type:PrepareMoveEvent
         name: подсечку
@@ -19,7 +19,6 @@
               Blunt: 10
         - !type:ComboStunEffect
           stunTime: 1
-      useDelay: 2
 
 - type: entity
   id: ActionLungBlock
@@ -31,7 +30,7 @@
       icon:
         sprite: ADT/Interface/Actions/kravmaga.rsi
         state: lungpunch
-      useDelay: 2
+      useDelay: 3
     - type: InstantAction
       event: !type:PrepareMoveEvent
         name: удар по лёгким
@@ -43,7 +42,6 @@
         - !type:ComboAudioEffect
           sound:
             collection: GenericHit
-      useDelay: 3
 
 - type: entity
   id: ActionNeckChop
