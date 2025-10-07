@@ -60,6 +60,14 @@
             !type:PhysShapeCircle
             radius: 0.2
     - type: InteractionOutline
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: !type:GroupSelector
+          children:
+          - id: ADTFoodCactusBerry
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Wood
@@ -76,6 +84,14 @@
   parent: ADTLavaCactusOne
   id: ADTLavaCactusTwo
   components:
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: !type:GroupSelector
+          children:
+          - id: LavaCactusTwoGather
     - type: Sprite
       sprite: ADT/Structures/Specific/lavacactus.rsi
       state: cactus2
@@ -84,6 +100,14 @@
   parent: ADTLavaCactusOne
   id: ADTLavaCactusThree
   components:
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: !type:GroupSelector
+          children:
+          - id: LavaCactusThreeGather
     - type: Sprite
       sprite: ADT/Structures/Specific/lavacactus.rsi
       state: cactus3
@@ -92,6 +116,14 @@
   parent: ADTLavaCactusOne
   id: ADTLavaCactusFour
   components:
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+      loot:
+        All: !type:GroupSelector
+          children:
+          - id: LavaCactusFourGather
     - type: Sprite
       sprite: ADT/Structures/Specific/lavacactus.rsi
       state: cactus4
