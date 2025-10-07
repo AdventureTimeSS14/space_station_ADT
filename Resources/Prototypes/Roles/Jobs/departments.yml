@@ -43,7 +43,7 @@
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
-  # - ERTChaplain # adt tweak, надо сначала добавить эту роль
+  - ERTChaplain
   - ERTJanitor
   - ERTMedical
   - ERTSecurity

@@ -124,25 +124,19 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Stutter
-    - SeeingRainbows
     - Electrocution
     - Drunk
     - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
-    - Adrenaline # ADT-Medicine
+    - Adrenaline
     - ADTHallucinations # ADT-Tweak
     - ADTStarvation # ADT-Tweak
   - type: Body
@@ -230,7 +224,6 @@
     languages:
       GalacticCommon: Speak
   - type: SpeechBarks
-  - type: Crawler
   # ADT tweak end
 
 - type: entity
@@ -278,7 +271,7 @@
         Heat: 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      293: 0.8
+      293: 0.9
       260: 0.6 # ADT tweak
       230: 0.4 # ADT tweak
   - type: ThermalRegulator
@@ -304,6 +297,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+  - type: StunVisuals
   # Start-ADT Tweak
   - type: BloodCough
     postingSayDamage: blood-cough

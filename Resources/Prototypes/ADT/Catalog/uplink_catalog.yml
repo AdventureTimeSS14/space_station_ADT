@@ -187,7 +187,7 @@
   id: ADTUplinkMagazineLightRifle
   name: uplink-LightRifle-magazine-name
   description: uplink-LightRifle-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   productEntity: MagazineLightRifle
   cost:
     Telecrystal: 2
@@ -198,7 +198,7 @@
   id: ADTUplinkC20AmmoBundle
   name: uplink-C20-ammo-bundle-name
   description: uplink-C20-ammo-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: ADTClothingBackpackDuffelSyndicateFilledC20Ammo
   cost:
     Telecrystal: 6

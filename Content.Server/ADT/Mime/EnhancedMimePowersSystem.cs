@@ -1,4 +1,4 @@
-using Content.Server.Abilities.Mime;
+using Content.Shared.Abilities.Mime;
 using Content.Server.Popups;
 
 namespace Content.Server.ADT.Mime;

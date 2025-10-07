@@ -32,3 +32,10 @@
     - FlashlightSeclite
     - MiningVoucher
     - MiningSuitVoucher
+
+- type: chameleonOutfit
+  id: ADTMinerChameleonOutfit
+  job: ADTMiner
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesMeson
