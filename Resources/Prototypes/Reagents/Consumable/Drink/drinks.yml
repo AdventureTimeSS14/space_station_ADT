@@ -309,9 +309,27 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Poison: 1
+    #ADT-tweak-start
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -1
+    #ADT-tweak-end
 
 - type: reagent
   id: Lemonade
@@ -445,12 +463,21 @@
     Poison:
       effects:
       - !type:HealthChange
+        #ADT-tweak-start
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        #ADT-tweak-end
         damage:
           types:
             Radiation: 0.5
       # Start ADT tweak
       - !type:GenericStatusEffect
         conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         - !type:ReagentThreshold
           min: 4
         key: SeeingRainbows

@@ -43,6 +43,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
         damage:
           types:
             Poison: 3.5
@@ -52,6 +56,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 7
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
       - !type:PopupMessage
         visualType: MediumCaution
         type: Local
@@ -63,6 +70,62 @@
         conditions:
         - !type:ReagentThreshold
           min: 7
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Poison: -2
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          groups:
+            Brute: 2
+      - !type:Jitter
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.02
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 15
 
 - type: reagent
   id: ADTPlutoniumReactant
