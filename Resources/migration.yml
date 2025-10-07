@@ -828,4 +828,4 @@ ADTPoweredShuttleLightOrange: AlwaysPoweredWallLight
 ADTPoweredShuttleLightSodium: AlwaysPoweredWallLight
 
 # Ganimed 2025-07-10
-GhostBarSpawne: null
+GhostBarSpawner: null
