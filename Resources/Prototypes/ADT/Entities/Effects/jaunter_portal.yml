@@ -5,11 +5,15 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/wormhole.rsi
-    shader: unshaded
     layers:
     - map: [ "VisualLevel" ]
       state: wormhole
   - type: JaunterPortal
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 2
+    color: "#2233ff"
   - type: TimedDespawn
     lifetime: 15
   - type: Portal
@@ -22,13 +26,15 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/wormhole.rsi
-    shader: unshaded
     layers:
     - map: [ "VisualLevel" ]
       state: wormhole
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 2
+    color: "#2233ff"
   - type: JaunterKillPortal
   - type: TimedDespawn
     lifetime: 10
-  - type: Painted
-    enabled: true
-    color: '#FF0000'
+
