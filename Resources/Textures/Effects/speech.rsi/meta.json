@@ -1,7 +1,7 @@
 {
-    "version": 2,
+    "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c6e3401f2e7e1e55c57060cdf956a98ef1fefc24 | Moth sprites made by PuroSlavKing (Github) | Spider sprites made by PixelTheKermit (Github) | Lizard sprites made by AmalgoMyte (Github) | Diona and Gingerbread sprites made by YoungThugSS14 (Github) (fix by armorkillerd)",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c6e3401f2e7e1e55c57060cdf956a98ef1fefc24 | Moth sprites made by PuroSlavKing (Github) | Spider sprites made by PixelTheKermit (Github) | Lizard sprites made by AmalgoMyte (Github) | Diona, Gingerbread, and Regalsprites made by YoungThugSS14 (Github) | Xenoborg sprites by Samuka-c (Github)",
     "size": {
         "x": 32,
         "y": 32
@@ -29,27 +29,27 @@
         {
             "name": "alien3",
             "delays": [
-                    [
-                        0.2,
-                        0.3,
-                        0.3,
-                        0.5,
-                        0.5
-                    ]
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5,
+                    0.5
                 ]
+            ]
         },
         {
             "name": "alienroyal0",
             "delays": [
-                    [
-                        0.2,
-                        0.3,
-                        0.3,
-                        0.3,
-                        0.3,
-                        0.5
-                    ]
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.5
                 ]
+            ]
         },
         {
             "name": "alienroyal1"
@@ -77,6 +77,8 @@
                     0.2,
                     0.4,
                     0.4,
+                    0.4,
+                    0.4,
                     0.4
                 ]
             ]
@@ -86,19 +88,6 @@
         },
         {
             "name": "blob2"
-        },
-        {
-            "name": "blob3",
-            "delays": [
-                [
-                    1,
-                    1,
-                    0.1,
-                    1,
-                    0.6,
-                    1
-                ]
-            ]
         },
         {
             "name": "clock0",
@@ -150,11 +139,7 @@
                     0.2,
                     0.3,
                     0.3,
-                    0.5,
-                    0.3,
-                    0.3,
-                    0.2,
-                    0.2
+                    0.5
                 ]
             ]
         },
@@ -194,6 +179,18 @@
             "name": "diona2"
         },
         {
+            "name": "diona3",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
             "name": "gingerbread0",
             "delays": [
                 [
@@ -209,6 +206,18 @@
         },
         {
             "name": "gingerbread2"
+        },
+        {
+            "name": "gingerbread3",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5,
+                    0.5
+                ]
+            ]
         },
         {
             "name": "guardian0",
@@ -427,15 +436,31 @@
             "name": "machine2"
         },
         {
-            "name": "machine3",
+            "name": "regal0",
             "delays": [
                 [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "regal1"
+        },
+        {
+            "name": "regal2"
+        },
+        {
+            "name": "regal3",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5,
+                    0.5
                 ]
             ]
         },
@@ -467,48 +492,6 @@
                     0.2,
                     0.2,
                     0.2
-                ]
-            ]
-        },
-        {
-            "name": "signlang0",
-            "delays": [
-                [
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "signlang1",
-            "delays": [
-                [
-                    0.15,
-                    0.15,
-                    0.5,
-                    0.1
-                ]
-            ]
-        },
-        {
-            "name": "signlang2",
-            "delays": [
-                [
-                    0.15,
-                    0.15,
-                    0.5,
-                    0.1
-                ]
-            ]
-        },
-        {
-            "name": "signlang3",
-            "delays": [
-                [
-                    0.3,
-                    0.3
                 ]
             ]
         },
@@ -642,6 +625,7 @@
                     0.2,
                     0.2,
                     0.2,
+                    0.2,
                     0.2
                 ]
             ]
@@ -687,13 +671,33 @@
             ]
         },
         {
-            "name": "vox3",
+            "name": "xenoborg0",
             "delays": [
                 [
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.4
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "xenoborg1"
+        },
+        {
+            "name": "xenoborg2"
+        },
+        {
+            "name": "xenoborg3",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
                 ]
             ]
         }
