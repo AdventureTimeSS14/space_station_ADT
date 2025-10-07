@@ -201,4 +201,4 @@ ent-ADTClothingUnderwearSocksThighPurple = фиолетовые чулки
     .desc = Обычные фиолетовые чулки.
 
 ent-ADTClothingUnderwearSocksCow = коровьи носки
-    .desc = Милые коровье носки. Му-у-у!
+    .desc = Милые коровьи носки. Му-у-у!
