@@ -3,7 +3,6 @@ using Content.Server.Interaction;
 using Content.Shared.ADT.Salvage.Components;
 using Content.Shared.Chasm;
 using Content.Shared.Inventory;
-using Content.Shared.Damage.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -20,7 +19,6 @@ public sealed class PreventChasmFallingSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly JaunterSystem _jaunter = default!;
 
 
     public override void Initialize()
@@ -33,25 +31,28 @@ public sealed class PreventChasmFallingSystem : EntitySystem
 
     private void OnBeforeFall(EntityUid uid, PreventChasmFallingComponent comp, ref BeforeChasmFallingEvent args)
     {
-        // Cancel the fall and teleport the victim directly to a random station beacon with effects.
         args.Cancelled = true;
-        _jaunter.TeleportToRandomBeaconWithFx(args.Entity);
+        var coordsValid = false;
+        var coords = Transform(args.Entity).Coordinates;
 
-        // Apply post-teleport effects matching portal entry
-        if (TryComp<StaminaComponent>(args.Entity, out var stam))
+        while (!coordsValid)
         {
-            var need = MathF.Max(0.01f, stam.CritThreshold - stam.StaminaDamage);
-            var stamina = EntitySystem.Get<Content.Shared.Damage.Systems.SharedStaminaSystem>();
-            stamina.TakeStaminaDamage(args.Entity, need, stam);
+            var newCoords = new EntityCoordinates(Transform(args.Entity).ParentUid, coords.X +
+                _random.NextFloat(-5f, 5f), coords.Y +
+                _random.NextFloat(-5f, 5f));
+
+            if (_interaction.InRangeUnobstructed(args.Entity, newCoords, -1f) && _lookup.GetEntitiesInRange<ChasmComponent>(newCoords, 1f).Count <= 0)
+            {
+                _transform.SetCoordinates(args.Entity, newCoords);
+                _transform.AttachToGridOrMap(args.Entity, Transform(args.Entity));
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/Mining/fultext_launch.ogg"), args.Entity);
+
+                if (args.Entity != uid)
+                    QueueDel(uid);
+
+                coordsValid = true;
+            }
         }
-        var vomit = EntitySystem.Get<Content.Server.Medical.VomitSystem>();
-        vomit.Vomit(args.Entity);
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/Mining/fultext_launch.ogg"), args.Entity);
-
-        // Consume the jaunter if it is not the entity falling (e.g., in inventory).
-        if (args.Entity != uid)
-            QueueDel(uid);
     }
 
     private void Relay(EntityUid uid, InventoryComponent comp, ref BeforeChasmFallingEvent args)

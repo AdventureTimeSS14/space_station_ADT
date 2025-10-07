@@ -7,15 +7,14 @@ using Content.Shared.Warps;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Server.Medical;
-using Content.Shared.ADT.Paint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
@@ -35,7 +34,7 @@ public sealed class JaunterSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private const float InitialLifetime = 15f;
     private const float AfterEnterLifetime = 3f;
@@ -76,12 +75,13 @@ public sealed class JaunterSystem : EntitySystem
         var dest = GetRandomBeacon();
         if (dest == null)
         {
-            SpawnKillPortal(Transform(user).Coordinates);
+            SpawnKillPortal(user);
             return null;
         }
 
         var at = Transform(user).Coordinates;
-        var portal = Spawn("ADTJaunterPortal", at);
+        var spawnAt = FindFreeNearbyCoords(user, at, 2) ?? at;
+        var portal = Spawn("ADTJaunterPortal", spawnAt);
 
         // mark as jaunter portal and set initial lifetime
         var jp = EnsureComp<JaunterPortalComponent>(portal);
@@ -152,19 +152,56 @@ public sealed class JaunterSystem : EntitySystem
         return _random.Pick(candidates);
     }
 
-    public EntityUid SpawnKillPortal(EntityCoordinates at)
+    public EntityUid SpawnKillPortal(EntityUid user)
     {
-        var portal = Spawn("ADTJaunterBlackKillPortal", at);
-
-        // ensure Painted visual is active and black
-        var painted = EnsureComp<PaintedComponent>(portal);
-        EnsureComp<AppearanceComponent>(portal);
-        painted.Enabled = true;
-        painted.Color = Color.Black;
-        _appearance.SetData(portal, PaintVisuals.Painted, true);
-        Dirty(portal, painted);
-
+        var at = Transform(user).Coordinates;
+        var spawnAt = FindFreeNearbyCoords(user, at, 2) ?? at;
+        var portal = Spawn("ADTJaunterBlackKillPortal", spawnAt);
         return portal;
+    }
+
+    private EntityCoordinates? FindFreeNearbyCoords(EntityUid user, EntityCoordinates origin, int radius)
+    {
+        // Try a shuffled set of offsets within the radius; fall back to null if none found
+        var offsets = new List<(int dx, int dy)>();
+        for (var dy = -radius; dy <= radius; dy++)
+        {
+            for (var dx = -radius; dx <= radius; dx++)
+            {
+                if (dx == 0 && dy == 0)
+                    continue;
+                if (dx * dx + dy * dy > radius * radius)
+                    continue;
+                offsets.Add((dx, dy));
+            }
+        }
+
+        _random.Shuffle(offsets);
+
+        foreach (var (dx, dy) in offsets)
+        {
+            var candidate = new EntityCoordinates(origin.EntityId, origin.X + dx, origin.Y + dy);
+
+            // consider a small radius to check occupancy
+            var occupied = false;
+            foreach (var ent in _lookup.GetEntitiesInRange(candidate, 0.2f))
+            {
+                if (!TryComp<PhysicsComponent>(ent, out var phys))
+                    continue;
+                if (phys.CanCollide)
+                {
+                    occupied = true;
+                    break;
+                }
+            }
+
+            if (occupied)
+                continue;
+
+            return candidate;
+        }
+
+        return null;
     }
 
     private void OnPortalEntered(EntityUid uid, JaunterPortalComponent comp, ref StartCollideEvent args)

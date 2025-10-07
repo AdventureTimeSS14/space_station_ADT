@@ -1,7 +1,7 @@
 - type: entity
   id: ADTJaunterPortal
   name: jaunter portal
-  parent: ADTShadowPortal
+  parent: BasePortal
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/wormhole.rsi
@@ -18,7 +18,7 @@
 - type: entity
   id: ADTJaunterBlackKillPortal
   name: jaunter black portal
-  parent: ADTShadowPortal
+  parent: BasePortal
   components:
   - type: Sprite
     sprite: ADT/Structures/Specific/wormhole.rsi
@@ -31,6 +31,4 @@
     lifetime: 10
   - type: Painted
     enabled: true
-    color: '#000000'
-
-
+    color: '#FF0000'
