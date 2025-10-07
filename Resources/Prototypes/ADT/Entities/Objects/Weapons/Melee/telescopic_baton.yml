@@ -26,6 +26,7 @@
   - type: StaminaDamageOnHit
     damage: 0
   - type: MeleeWeapon
+    wideAnimationRotation: -135
     damage:
       types:
         Blunt: 2.4

@@ -156,9 +156,16 @@
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
     - id: HolofanProjector
-    - id: RCD
+    - id: ADTDoorRemoteFirefight # ADT-Atmos-Remote
+    # ADT-RPD-Start
+    - id: ADTRPD
     - id: RCDAmmo
+    # ADT-RPD-End
     - id: AirGrenade
+    # ADT-WikiBooks-Start
+    - id: ADTBookSRPeng
+    - id: ADTBookAtmosSupermatter
+    # ADT-WikiBooks-End
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
@@ -202,6 +209,9 @@
     - id: RCD
     - id: RCDAmmo
     - id: MetalFoamGrenade
+    # ADT-WikiBooks-Start
+    - id: ADTBookSRPeng
+    # ADT-WikiBooks-End
 
 - type: entityTable
   id: FillEngineerHardsuit

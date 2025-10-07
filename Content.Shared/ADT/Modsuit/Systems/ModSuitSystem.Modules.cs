@@ -149,7 +149,6 @@ public sealed partial class ModSuitSystem
             }
         }
 
-
         if (TryComp<PowerCellDrawComponent>(suit, out var celldraw))
         {
             suit.Comp.ModEnergyBaseUsing = (float)Math.Round(suit.Comp.ModEnergyBaseUsing - module.Comp.EnergyUsing, 3);

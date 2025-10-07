@@ -522,6 +522,20 @@
     whitelist:
     - Mime
 
+- type: listing
+  id: ADTuplinkMimeEnhancedBook
+  name: uplink-mime-enhanced-book-name
+  description: uplink-mime-enhanced-book-desc
+  productEntity: ADTMimeEnhancedBook
+  cost:
+    Telecrystal: 11
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+
 #UplinkImplants
 
 - type: listing

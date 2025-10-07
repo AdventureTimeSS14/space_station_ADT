@@ -66,7 +66,7 @@ public sealed partial class ModSuitSystem
         StartupModules(ent);
 
         if (_actionContainer.EnsureAction(ent, ref ent.Comp.ActionEntity, out var action, ent.Comp.Action))
-            _actionsSystem.SetEntityIcon(ent.Comp.ActionEntity.Value, ent);
+            _actionsSystem.SetEntityIcon(ent.Comp.ActionEntity.Value, action.EntityIcon);
 
         _actionContainer.EnsureAction(ent, ref ent.Comp.ActionMenuEntity, ent.Comp.MenuAction);
 
@@ -74,7 +74,7 @@ public sealed partial class ModSuitSystem
 
         if (HasComp<PowerCellDrawComponent>(ent))
         {
-            _cell.SetDrawEnabled(ent.Owner, true);
+            _cell.SetDrawEnabled(ent.Owner, false);
         }
 
         UpdateUserInterface(ent.Owner, ent.Comp);
@@ -394,7 +394,7 @@ public sealed partial class ModSuitSystem
 
         if (attachedCount <= 0)
         {
-            _cell.SetDrawEnabled(ent.Owner, true);
+            _cell.SetDrawEnabled(ent.Owner, false);
         }
         else
         {
