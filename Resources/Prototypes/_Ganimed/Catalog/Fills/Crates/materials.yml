@@ -7,23 +7,3 @@
     contents:
       - id: SheetUranium
         amount: 3
-
-- type: entity
-  id: CrateMaterialGold
-  name: gold crate
-  parent: CrateGenericSteel
-  components:
-  - type: StorageFill
-    contents:
-      - id: IngotGold
-        amount: 3
-
-- type: entity
-  id: CrateMaterialSilver
-  name: silver crate
-  parent: CrateGenericSteel
-  components:
-  - type: StorageFill
-    contents:
-      - id: IngotSilver
-        amount: 3
