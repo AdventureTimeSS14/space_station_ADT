@@ -213,3 +213,12 @@
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Top/t_shirt.rsi
 
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ADTClothingUnderwearTopBraCow
+  name: cow bra
+  description: Cute cow-themed bra. Moo!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Top/bra_cow.rsi
+
