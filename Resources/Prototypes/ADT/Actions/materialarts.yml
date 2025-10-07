@@ -16,7 +16,8 @@
             types:
               Blunt: 10
         - !type:ComboStunEffect
-          stunTime: 2
+          stunTime: 1
+      useDelay: 2
 
 - type: entity
   id: ActionLungBlock
