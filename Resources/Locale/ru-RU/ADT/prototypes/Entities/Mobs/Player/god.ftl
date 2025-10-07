@@ -18,3 +18,6 @@ ent-ADTMobCreatorGodSpawn = { ent-ADTMobCreatorGodBase }
     .desc = { ent-ADTMobCreatorGodBase.desc }
 ent-ADTMobCreatorGod = { ent-ADTMobCreatorGodBase }
     .desc = { ent-ADTMobCreatorGodBase.desc }
+
+ent-ADTMobVastnessGod = Μια ματιά στην απεραντοσύνη του διαστήματος
+    .desc = Φαίνεται ότι πηγαίνει βαθύτερα από οτιδήποτε θα μπορούσατε ποτέ να φανταστείτε. По телу ползут мурашки, ведь Ξέρει.

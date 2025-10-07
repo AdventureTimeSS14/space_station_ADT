@@ -8,7 +8,7 @@
     sprite: ADT/Objects/Weapons/Melee/tactic_bat.rsi
     layers:
     - state: bat_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: SwitchableWeapon
     openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
     closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"
@@ -32,8 +32,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: bat_on}
           False: {state: bat_off}
   - type: MeleeThrowOnHit

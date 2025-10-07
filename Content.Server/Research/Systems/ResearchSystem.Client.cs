@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Linq; // Ganimed edit
+using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Research.Components;
 
@@ -13,7 +13,7 @@ public sealed partial class ResearchSystem
         SubscribeLocalEvent<ResearchClientComponent, ComponentShutdown>(OnClientShutdown);
         SubscribeLocalEvent<ResearchClientComponent, BoundUIOpenedEvent>(OnClientUIOpen);
         SubscribeLocalEvent<ResearchClientComponent, ConsoleServerSelectionMessage>(OnConsoleSelect);
-        SubscribeLocalEvent<ResearchClientComponent, AnchorStateChangedEvent>(OnClientAnchorStateChanged); // Ganimed edit
+        SubscribeLocalEvent<ResearchClientComponent, AnchorStateChangedEvent>(OnClientAnchorStateChanged);
 
         SubscribeLocalEvent<ResearchClientComponent, ResearchClientSyncMessage>(OnClientSyncMessage);
         SubscribeLocalEvent<ResearchClientComponent, ResearchClientServerSelectedMessage>(OnClientSelected);
@@ -25,8 +25,11 @@ public sealed partial class ResearchSystem
 
     private void OnClientSelected(EntityUid uid, ResearchClientComponent component, ResearchClientServerSelectedMessage args)
     {
-        // Ganimed edit start
         if (!TryGetServerById(uid, args.ServerId, out var serveruid, out var serverComponent))
+            return;
+
+        // Validate that we can access this server.
+        if (!GetServers(uid).Contains((serveruid.Value, serverComponent)))
             return;
 
         if (!GetServers(uid).Contains((serveruid.Value, serverComponent)))
@@ -63,7 +66,7 @@ public sealed partial class ResearchSystem
 
     private void OnClientMapInit(EntityUid uid, ResearchClientComponent component, MapInitEvent args)
     {
-        var allServers = GetServers(uid).ToList(); // Ganimed edit
+        var allServers = GetServers(uid).ToList();
 
         if (allServers.Count > 0)
             RegisterClient(uid, allServers[0], component, allServers[0]);
@@ -79,7 +82,6 @@ public sealed partial class ResearchSystem
         UpdateClientInterface(uid, component);
     }
 
-    // Ganimed edit start
     private void OnClientAnchorStateChanged(Entity<ResearchClientComponent> ent, ref AnchorStateChangedEvent args)
     {
         if (args.Anchored)
@@ -97,7 +99,6 @@ public sealed partial class ResearchSystem
             UnregisterClient(ent, ent.Comp);
         }
     }
-    // Ganimed edit end
 
     private void UpdateClientInterface(EntityUid uid, ResearchClientComponent? component = null)
     {
@@ -106,14 +107,12 @@ public sealed partial class ResearchSystem
 
         TryGetClientServer(uid, out _, out var serverComponent, component);
 
-        // Ganimed edit start
         var names = GetServerNames(uid);
         var state = new ResearchClientBoundInterfaceState(
             names.Length,
             names,
             GetServerIds(uid),
             serverComponent?.Id ?? -1);
-        // Ganimed edit end
 
         _uiSystem.SetUiState(uid, ResearchClientUiKey.Key, state);
     }

@@ -36,3 +36,16 @@
 #ADT tweak end
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURNLeader
+
+# - type: entity
+#   parent: ClothingOuterHardsuitSecurity
+#   id: ClothingOuterHardsuitSecurityPilot
+#   name: security pilot hardsuit
+#   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+#   components:
+#   - type: Sprite
+#     sprite: Corvax/Clothing/OuterClothing/hardsuits/security-pilot.rsi
+#   - type: Clothing
+#     sprite: Corvax/Clothing/OuterClothing/hardsuits/security-pilot.rsi
+#   - type: ToggleableClothing
+#     clothingPrototype: ClothingHeadHelmetHardsuitSecurityPilot

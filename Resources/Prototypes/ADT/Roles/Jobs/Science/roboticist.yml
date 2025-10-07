@@ -20,3 +20,10 @@
     ears: ClothingHeadsetRobotics
     pocket1: BorgTranslatorImplanter
     belt: ClothingBeltUtilityEngineering
+
+- type: chameleonOutfit
+  id: ADTRoboticistChameleonOutfit
+  job: ADTRoboticist
+  hasMindShield: true
+  equipment:
+    ears: ClothingHeadsetRobotics

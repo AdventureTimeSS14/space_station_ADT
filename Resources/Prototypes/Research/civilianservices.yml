@@ -312,5 +312,35 @@
 #   position: 1,3
 #   requiredTech:
 #   - ADTCloning
+
+# - type: technology
+#   id: BluespaceChemistry
+#   name: research-technology-bluespace-chemistry
+#   icon:
+#     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
+#     state: beakerbluespace
+#   discipline: CivilianServices
+#   tier: 3
+#   cost: 10000
+#   recipeUnlocks:
+#   - BluespaceBeaker
+#   - SyringeBluespace
 #   # ADT Research Console Rework end
 
+- type: technology
+  id: LauncherSyringe
+  name: research-technology-launcher-syringe
+  icon:
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: syringe_gun
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - LauncherSyringe
+  - MiniSyringe
+  # ADT Research Console Rework start
+  position: 7,-1
+  requiredTech:
+  - ADTProtectionPseudoscience
+  # ADT Research Console Rework end

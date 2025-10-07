@@ -146,7 +146,7 @@
   desc: salvage-air-mod-dangerous-atmosphere
   gases:
     - 21.824779 # oxygen
-    - 72.10312 # nitrogen
+    - 0 # nitrogen #ADT tweak
     - 0
     - 0
     - 0
@@ -165,9 +165,9 @@
   cost: 2
   desc: salvage-air-mod-dangerous-atmosphere
   gases:
-    - 21.824779 # oxygen
-    - 77.10312 # nitrogen
-    - 10 # carbon dioxide
+    - 0 # oxygen #ADT tweak
+    - 33 # nitrogen #ADT tweak
+    - 4 # carbon dioxide #ADT tweak
   biomes:
     - Caves
     #- LowDesert
@@ -180,9 +180,9 @@
   cost: 3
   desc: salvage-air-mod-toxic-atmosphere
   gases:
-    - 21.824779 # oxygen
+    - 4 # oxygen #ADT tweak
     - 0
-    - 82.10312 # carbon dioxide
+    - 33 # carbon dioxide #ADT tweak
   biomes:
     - Caves
     - Snow
@@ -196,7 +196,7 @@
     - 0
     - 0
     - 0
-    - 103.927899 # plasma
+    - 33 # plasma #ADT tweak
   biomes:
     - Caves
     - Lava
@@ -206,10 +206,10 @@
   cost: 5
   desc: salvage-air-mod-volatile-atmosphere
   gases:
-    - 21.824779 # oxygen
+    - 33 # oxygen #ADT tweak
     - 0
     - 0
-    - 82.10312 # plasma
+    - 2 # plasma #ADT tweak
   biomes:
     - Caves
     - Lava
