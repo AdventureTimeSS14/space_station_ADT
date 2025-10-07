@@ -6,7 +6,7 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
-  access: # Corvax-MRP, ADT tweak
+  access:
   - Maintenance
 
 - type: startingGear
@@ -17,3 +17,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: PassengerChameleonOutfit
+  job: Passenger
+  equipment:
+    head: ClothingHeadHatWelding
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckMantle
+    outerClothing: ClothingOuterWinterCoat
+    gloves: ClothingHandsGlovesColorYellowBudget

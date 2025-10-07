@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Fishing.Components;
 using Content.Shared.ADT.Fishing.Systems;
+using Content.Shared.EntityTable;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Movement.Pulling.Components;
@@ -59,7 +60,7 @@ public sealed class FishingSystem : SharedFishingSystem
 
         Anchor(ent, attachedEnt);
 
-        var fish = spotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto).First();
+        var fish = spotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto, new EntityTableContext()).First();
 
         _proto.Index(fish).TryGetComponent(out FishComponent? fishComp, _compFactory);
 

@@ -420,8 +420,8 @@
             id: blinking
             interpolate: Nearest
             maxDuration: 1.0
-            minValue: 0.1
-            maxValue: 2.0
+            startValue: 0.1
+            endValue: 2.0
             isLooped: true
       - type: Battery
         maxCharge: 600
@@ -429,6 +429,11 @@
       - type: BatterySelfRecharger
         autoRecharge: true
         autoRechargeRate: 2
+      - type: PointLight
+        enabled: false
+        autoRot: true
+        radius: 7
+        mask: /Textures/Effects/LightMasks/cone.png
 
 - type: entity
   parent: ADTModsuitModBase

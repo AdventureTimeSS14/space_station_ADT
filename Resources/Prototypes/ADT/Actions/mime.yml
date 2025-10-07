@@ -3,13 +3,15 @@
   name: Finger Gun
   description: Shoot an invisible energy bolt from your finger!
   components:
-  - type: WorldTargetAction
-    priority: -1
-    useDelay: 10
-    range: 15
+  - type: Action
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
       state: pistol
+    priority: -1
+    useDelay: 10
+  - type: TargetAction
+    range: 15
+  - type: WorldTargetAction
     event: !type:MimeFingerGunActionEvent
 
 - type: entity
@@ -17,15 +19,17 @@
   name: Throat Punch
   description: Silence your target with a swift strike to the throat!
   components:
-  - type: EntityTargetAction
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/mime.rsi
+      state: thhhh
     priority: -1
     useDelay: 30
+  - type: TargetAction
     range: 1.5
+  - type: EntityTargetAction
     canTargetSelf: false
     whitelist:
       components:
       - Body
-    icon:
-      sprite: ADT/Interface/Actions/mime.rsi
-      state: thhhh
     event: !type:MimeThroatPunchActionEvent

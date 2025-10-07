@@ -64,7 +64,7 @@ public sealed class SwitchableWeaponSystem : EntitySystem
         }
 
         if (TryComp<AppearanceComponent>(ent.Owner, out var appearance))
-            _appearance.SetData(ent.Owner, ToggleVisuals.Toggled, ent.Comp.IsOpen, appearance);
+            _appearance.SetData(ent.Owner, ToggleableVisuals.Enabled, ent.Comp.IsOpen, appearance);
 
         // Change stamina damage according to state
         if (TryComp<StaminaDamageOnHitComponent>(ent.Owner, out var stamComp))
