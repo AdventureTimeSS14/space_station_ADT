@@ -68,7 +68,6 @@
     - id: ClothingOuterHardsuitWarden
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
->>>>>>> ADT/master
 
 - type: entity
   id: LockerSecurityFilled
@@ -212,7 +211,6 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
->>>>>>> ADT/master
 
 - type: entity
   id: ClosetBombFilled
