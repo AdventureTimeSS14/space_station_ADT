@@ -4,11 +4,9 @@
   description: Stop bleeding by licking your wounds
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
-    icon: { sprite: Mobs/Species/Human/organs.rsi, state: tongue }
-    priority: -1
-  - type: TargetAction
-    interactOnMiss: false
   - type: EntityTargetAction
     whitelist: { components: [ HumanoidAppearance ] }
+    interactOnMiss: false
+    icon: { sprite: Mobs/Species/Human/organs.rsi, state: tongue }
+    priority: -1
     event: !type:WoundLickingActionEvent

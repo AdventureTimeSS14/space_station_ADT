@@ -28,6 +28,6 @@ public abstract class SharedGhostRadioSystem : EntitySystem
         if (comp == null && !TryComp(radio, out comp))
             return;
 
-        _appearance.SetData(radio, ToggleableVisuals.Enabled, comp.Enabled);
+        _appearance.SetData(radio, ToggleVisuals.Toggled, comp.Enabled);
     }
 }

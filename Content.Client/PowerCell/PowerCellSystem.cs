@@ -9,7 +9,6 @@ namespace Content.Client.PowerCell;
 public sealed class PowerCellSystem : SharedPowerCellSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -45,18 +44,20 @@ public sealed class PowerCellSystem : SharedPowerCellSystem
         if (args.Sprite == null)
             return;
 
-        if (!_sprite.LayerExists((uid, args.Sprite), PowerCellVisualLayers.Unshaded))
+        if (!args.Sprite.TryGetLayer((int) PowerCellVisualLayers.Unshaded, out var unshadedLayer))
             return;
 
-        // If no appearance data is set, rely on whatever existing sprite state is set being correct.
-        if (!_appearance.TryGetData<byte>(uid, PowerCellVisuals.ChargeLevel, out var level, args.Component))
-            return;
+        if (_appearance.TryGetData<byte>(uid, PowerCellVisuals.ChargeLevel, out var level, args.Component))
+        {
+            if (level == 0)
+            {
+                unshadedLayer.Visible = false;
+                return;
+            }
 
-        var positiveCharge = level > 0;
-        _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, positiveCharge);
-
-        if (positiveCharge)
-            _sprite.LayerSetRsiState((uid, args.Sprite), PowerCellVisualLayers.Unshaded, $"o{level}");
+            unshadedLayer.Visible = true;
+            args.Sprite.LayerSetState(PowerCellVisualLayers.Unshaded, $"o{level}");
+        }
     }
 
     private enum PowerCellVisualLayers : byte

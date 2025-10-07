@@ -13,7 +13,6 @@
     tags:
     - SuitEVA
     - MonkeyWearable
-    - CorgiWearable
     - WhitelistChameleon
 
 #Syndicate EVA
@@ -32,8 +31,6 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-  - type: StaticPrice
-    price: 1000 # Helmet is 500
 
 #Emergency EVA
 - type: entity
@@ -59,12 +56,12 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+# ADT tweak start
   - type: Tag
     tags:
-    - CorgiWearable
-    - ScurretWearable
-    - MonkeyWearable
     - WhitelistChameleon
+    - MonkeyWearable
+# ADT tweak end
 
 #Prisoner EVA
 - type: entity
@@ -161,7 +158,3 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
-  - type: Tag
-    tags:
-    - CorgiWearable
-    - WhitelistChameleon

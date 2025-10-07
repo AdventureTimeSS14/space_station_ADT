@@ -20,8 +20,7 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
-    layers:
-      - map: [ "enum.ToggleableVisuals.Layer" ]
+    map: [ "enum.ToggleVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
   - type: Jumpboots
@@ -34,7 +33,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
           True: {state: icon-on}
           False: {state: icon}

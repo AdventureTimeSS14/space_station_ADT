@@ -44,6 +44,8 @@
     radius: 9
     softness: 2.1
     offset: "0, -0.9"
+  - type: HandheldLight
+    addPrefix: false
   - type: Appearance
   - type: Damageable
     damageContainer: Inorganic

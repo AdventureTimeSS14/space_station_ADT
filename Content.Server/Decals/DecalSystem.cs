@@ -29,6 +29,7 @@ namespace Content.Server.Decals
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
+        [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
         [Dependency] private readonly IParallelManager _parMan = default!;
         [Dependency] private readonly ChunkingSystem _chunking = default!;
         [Dependency] private readonly IConfigurationManager _conf = default!;
@@ -36,7 +37,6 @@ namespace Content.Server.Decals
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly TurfSystem _turf = default!;
 
         private readonly Dictionary<NetEntity, HashSet<Vector2i>> _dirtyChunks = new();
         private readonly Dictionary<ICommonSession, Dictionary<NetEntity, HashSet<Vector2i>>> _previousSentChunks = new();
@@ -160,45 +160,38 @@ namespace Content.Server.Decals
 
         private void OnTileChanged(ref TileChangedEvent args)
         {
+            if (!args.NewTile.IsSpace(_tileDefMan))
+                return;
+
             if (!TryComp(args.Entity, out DecalGridComponent? grid))
                 return;
 
+            var indices = GetChunkIndices(args.NewTile.GridIndices);
             var toDelete = new HashSet<uint>();
+            if (!grid.ChunkCollection.ChunkCollection.TryGetValue(indices, out var chunk))
+                return;
 
-            foreach (var change in args.Changes)
+            foreach (var (uid, decal) in chunk.Decals)
             {
-                if (!_turf.IsSpace(change.NewTile))
-                    continue;
-
-                var indices = GetChunkIndices(change.GridIndices);
-
-                if (!grid.ChunkCollection.ChunkCollection.TryGetValue(indices, out var chunk))
-                    continue;
-
-                toDelete.Clear();
-
-                foreach (var (uid, decal) in chunk.Decals)
+                if (new Vector2((int) Math.Floor(decal.Coordinates.X), (int) Math.Floor(decal.Coordinates.Y)) ==
+                    args.NewTile.GridIndices)
                 {
-                    if (new Vector2((int)Math.Floor(decal.Coordinates.X), (int)Math.Floor(decal.Coordinates.Y)) ==
-                        change.GridIndices)
-                    {
-                        toDelete.Add(uid);
-                    }
+                    toDelete.Add(uid);
                 }
-
-                if (toDelete.Count == 0)
-                    continue;
-
-                foreach (var decalId in toDelete)
-                {
-                    grid.DecalIndex.Remove(decalId);
-                    chunk.Decals.Remove(decalId);
-                }
-
-                DirtyChunk(args.Entity, indices, chunk);
-                if (chunk.Decals.Count == 0)
-                    grid.ChunkCollection.ChunkCollection.Remove(indices);
             }
+
+            if (toDelete.Count == 0)
+                return;
+
+            foreach (var decalId in toDelete)
+            {
+                grid.DecalIndex.Remove(decalId);
+                chunk.Decals.Remove(decalId);
+            }
+
+            DirtyChunk(args.Entity, indices, chunk);
+            if (chunk.Decals.Count == 0)
+                grid.ChunkCollection.ChunkCollection.Remove(indices);
         }
 
         private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
@@ -308,7 +301,7 @@ namespace Content.Server.Decals
             if (!TryComp(gridId, out MapGridComponent? grid))
                 return false;
 
-            if (_turf.IsSpace(_mapSystem.GetTileRef(gridId.Value, grid, coordinates)))
+            if (_mapSystem.GetTileRef(gridId.Value, grid, coordinates).IsSpace(_tileDefMan))
                 return false;
 
             if (!TryComp(gridId, out DecalGridComponent? comp))

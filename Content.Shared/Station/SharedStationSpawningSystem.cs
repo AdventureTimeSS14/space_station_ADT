@@ -63,6 +63,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
 
         EquipRoleName(entity, loadout, roleProto);
+        ApplyLoadoutExtras(entity, loadout);    // ADT SAI Custom
     }
 
     /// <summary>
@@ -131,7 +132,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 var equipmentStr = startingGear.GetGear(slot.Name);
                 if (!string.IsNullOrEmpty(equipmentStr))
                 {
-                    var equipmentEntity = Spawn(equipmentStr, xform.Coordinates);
+                    var equipmentEntity = EntityManager.SpawnEntity(equipmentStr, xform.Coordinates);
                     InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, silent: true, force: true);
                 }
             }
@@ -143,9 +144,9 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             var coords = xform.Coordinates;
             foreach (var prototype in inhand)
             {
-                var inhandEntity = Spawn(prototype, coords);
+                var inhandEntity = EntityManager.SpawnEntity(prototype, coords);
 
-                if (_handsSystem.TryGetEmptyHand((entity, handsComponent), out var emptyHand))
+                if (_handsSystem.TryGetEmptyHand(entity, out var emptyHand, handsComponent))
                 {
                     _handsSystem.TryPickup(entity, inhandEntity, emptyHand, checkActionBlocker: false, handsComp: handsComponent);
                 }
@@ -212,33 +213,14 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    ///     Gets all the gear for a given slot when passed a loadout.
-    /// </summary>
-    /// <param name="loadout">The loadout to look through.</param>
-    /// <param name="slot">The slot that you want the clothing for.</param>
-    /// <returns>
-    ///     If there is a value for the given slot, it will return the proto id for that slot.
-    ///     If nothing was found, will return null
-    /// </returns>
-    public string? GetGearForSlot(RoleLoadout? loadout, string slot)
+    // ADT SAI Custom start
+    public void ApplyLoadoutExtras(EntityUid uid, RoleLoadout loadout)
     {
-        if (loadout == null)
-            return null;
+        if (loadout.ExtraData.Count <= 0)
+            return;
 
-        foreach (var group in loadout.SelectedLoadouts)
-        {
-            foreach (var items in group.Value)
-            {
-                if (!PrototypeManager.TryIndex(items.Prototype, out var loadoutPrototype))
-                    return null;
-
-                var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);
-                if (gear != string.Empty)
-                    return gear;
-            }
-        }
-
-        return null;
+        var ev = new ApplyLoadoutExtrasEvent(uid, loadout.ExtraData);
+        RaiseLocalEvent(uid, ref ev);
     }
+    // ADT SAI Custom end
 }

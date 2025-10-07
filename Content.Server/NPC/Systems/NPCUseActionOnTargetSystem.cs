@@ -44,15 +44,35 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
         var act = weights.Pick();
         var actionEntity = user.Comp.ActionEntities.Keys.Where(x => Prototype(x)?.ID == act).First();
 
-        if (_actions.GetAction(actionEntity) is not { } action)
+        if (!_actions.TryGetActionData(actionEntity, out var action))
             return false;
 
         if (!_actions.ValidAction(action))
             return false;
 
-        _actions.SetEventTarget(action, target);
+        switch (action.BaseEvent)
+        {
+            case InstantActionEvent instant:
+                break;
+            case EntityTargetActionEvent entityTarget:
+                entityTarget.Target = target;
+                break;
+            case EntityWorldTargetActionEvent entityWorldTarget:
+                entityWorldTarget.Entity = target;
+                entityWorldTarget.Coords = Transform(target).Coordinates;
+                break;
+            case WorldTargetActionEvent worldTarget:
+                worldTarget.Target = Transform(target).Coordinates;
+                break;
+        }
 
-        _actions.PerformAction(user.Owner, action, predicted: false);
+        _actions.PerformAction(user,
+            null,
+            actionEntity,
+            action,
+            action.BaseEvent,
+            _timing.CurTime,
+            false);
 
         user.Comp.LastAction = _timing.CurTime;
 

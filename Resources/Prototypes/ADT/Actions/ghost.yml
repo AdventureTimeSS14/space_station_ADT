@@ -3,11 +3,12 @@
   name: View Station Info
   description: View station information.
   components:
-  - type: Action
+  - type: InstantAction
     itemIconStyle: BigAction
     icon:
       sprite: ADT/Objects/Devices/pda.rsi
       state: pda-ghost
     checkCanInteract: false
-  - type: InstantAction
     event: !type:GhostInfoActionEvent
+
+

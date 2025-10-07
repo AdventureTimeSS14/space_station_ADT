@@ -42,19 +42,9 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      5: Dead
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 30
-      behaviors:
-      - !type:GibBehavior
-        recursive: false
+      15: Dead
   - type: Stamina
     critThreshold: 15
-    animationThreshold: 5
   - type: MovementAlwaysTouching
   - type: DamageStateVisuals
     states:

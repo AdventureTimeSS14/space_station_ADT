@@ -4,14 +4,12 @@
   description: action-shadekin-teleport-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: WorldTargetAction
     icon:
       sprite: ADT/Interface/Actions/shadekin.rsi
       state: teleport
     itemIconStyle: BigAction
-    useDelay: 12
-  - type: TargetAction
+    event: !type:ShadekinTeleportActionEvent
     range: 7
     deselectOnMiss: false
-  - type: WorldTargetAction
-    event: !type:ShadekinTeleportActionEvent
+    useDelay: 12

@@ -340,7 +340,6 @@
   - type: Tag
     tags:
     - ClothMade
-    - Recyclable
     - PrisonUniform
     - WhitelistChameleon
 
@@ -527,8 +526,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
-  - type: StaticPrice
-    price: 500
 
 - type: entity
   parent: ClothingUniformSkirtBase

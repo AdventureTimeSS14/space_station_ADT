@@ -21,7 +21,8 @@ public abstract class ClothingSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ClothingComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<ClothingComponent, AfterAutoHandleStateEvent>(AfterAutoHandleState);
+        SubscribeLocalEvent<ClothingComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<ClothingComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<ClothingComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
 
@@ -64,14 +65,14 @@ public abstract class ClothingSystem : EntitySystem
                 if (!_invSystem.TryUnequip(userEnt, slotDef.Name, true, inventory: userEnt, checkDoafter: true))
                     continue;
 
-                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
+                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, true, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
                     continue;
 
                 _handsSystem.PickupOrDrop(userEnt, slotEntity.Value, handsComp: userEnt);
             }
             else
             {
-                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
+                if (!_invSystem.TryEquip(userEnt, toEquipEnt, slotDef.Name, true, inventory: userEnt, clothing: toEquipEnt, checkDoafter: true, triggerHandContact: true))
                     continue;
             }
 
@@ -83,7 +84,6 @@ public abstract class ClothingSystem : EntitySystem
     {
         component.InSlot = args.Slot;
         component.InSlotFlag = args.SlotFlags;
-        Dirty(uid, component);
 
         if ((component.Slots & args.SlotFlags) == SlotFlags.NONE)
             return;
@@ -108,12 +108,19 @@ public abstract class ClothingSystem : EntitySystem
 
         component.InSlot = null;
         component.InSlotFlag = null;
-        Dirty(uid, component);
     }
 
-    private void AfterAutoHandleState(Entity<ClothingComponent> ent, ref AfterAutoHandleStateEvent args)
+    private void OnGetState(EntityUid uid, ClothingComponent component, ref ComponentGetState args)
     {
-        _itemSys.VisualsChanged(ent.Owner);
+        args.State = new ClothingComponentState(component.EquippedPrefix);
+    }
+
+    private void OnHandleState(EntityUid uid, ClothingComponent component, ref ComponentHandleState args)
+    {
+        if (args.Current is not ClothingComponentState state)
+            return;
+
+        SetEquippedPrefix(uid, state.EquippedPrefix, component);
     }
 
     private void OnEquipDoAfter(Entity<ClothingComponent> ent, ref ClothingEquipDoAfterEvent args)

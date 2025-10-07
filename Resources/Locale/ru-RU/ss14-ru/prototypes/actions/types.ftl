@@ -1,13 +1,5 @@
-ent-BaseAction = { "" }
+ent-BaseSuicideAction = { "" }
     .desc = { "" }
-ent-BaseMentalAction = { ent-BaseAction }
-    .desc = { ent-BaseAction.desc }
-ent-BaseSuicideAction = { ent-BaseMentalAction }
-    .desc = { ent-BaseMentalAction.desc }
-ent-BaseImplantAction = { ent-BaseAction }
-    .desc = { ent-BaseAction.desc }
-ent-BaseToggleAction = { ent-BaseAction }
-    .desc = { ent-BaseAction.desc }
 ent-ActionScream = Крикнуть
     .desc = ААААААААААААААААААААААААА
 ent-ActionTurnUndead = Обратиться в зомби
@@ -32,14 +24,16 @@ ent-ActionActivateDnaScramblerImplant = Перемешать ДНК
     .desc = Меняет ваше имя и внешность случайным образом.
 ent-ActionToggleSuitPiece = Переключить элементы костюма
     .desc = Не забудьте экипировать важные части костюма, прежде чем приступать к действиям.
-ent-ActionCombatModeToggle =  [color=red]Боевой режим[/color]
+ent-ActionCombatModeToggle = [color=red]Боевой режим[/color]
     .desc = Войти в боевой режим
-ent-ActionCombatModeToggleOff = { ent-ActionCombatModeToggle }
-    .desc = { ent-ActionCombatModeToggle.desc }
+ent-ActionCombatModeToggleOff = [color=red]Боевой режим[/color]
+    .desc = Войти в боевой режим
 ent-ActionChangeVoiceMask = Изменить имя
     .desc = Измените имя, которое все слышат, на другое.
 ent-ActionVendingThrow = Выдать предмет
     .desc = Выдаёт случайный предмет из вашего инвентаря.
+ent-ActionArtifactActivate = Активировать артефакт
+    .desc = Немедленно активирует текущий узел артефакта.
 ent-ActionToggleBlock = Блокирование
     .desc = Поднимите или опустите свой щит.
 ent-ActionClearNetworkLinkOverlays = Очистить оверлей сетевых соединений
@@ -58,13 +52,7 @@ ent-ActionToggleEyes = Открыть/закрыть глаза
     .desc = Закройте глаза, чтобы защитить их, или откройте, чтобы насладиться яркими цветами.
 ent-ActionToggleWagging = Махать хвостом
     .desc = Начать/перестать махать хвостом.
-ent-FakeMindShieldToggleAction =  [color=green]Переключить фальшивый Щит разума[/color]
+ent-FakeMindShieldToggleAction = [color=green]Переключить фальшивый Щит разума[/color]
     .desc = Переключить трансляцию фальшивого Щита разума
 ent-ActionToggleParamedicSiren = Переключить сирену парамедика
     .desc = Включает или выключает сирену парамедика.
-ent-ActionGravityJump = Jump
-    .desc = Activating the advanced propulsion system, you propel yourself a short distance in the direction of your gaze.
-ent-ActionToggleRootable = Укоренение
-    .desc = Начните или прекратите укореняться к полу.
-ent-ActionChameleonController = Управление одеждой
-    .desc = Быстро смените весь свой наряд!

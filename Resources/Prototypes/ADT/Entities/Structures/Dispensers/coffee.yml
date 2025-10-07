@@ -1,9 +1,9 @@
 - type: entity
   parent: [ReagentDispenserBase, BaseMachinePowered]
-  id: ADTCoffeeMachineEmpty
+  id: ADTCoffeeMachine
   name: coffee machine
   description: A coffee machine for a coffee break... Oh yeah? You want a break?
-  suffix: Empty, Common
+  suffix: Filled, Common
   components:
   - type: SpamEmitSoundRequirePower
   - type: SpamEmitSound
@@ -20,12 +20,12 @@
     sprite: ADT/Structures/coffeemachine.rsi
     drawdepth: SmallObjects
     state: common
-  - type: Storage
-    openOnActivate: false
-    whitelist:
+  - type: ReagentDispenser
+    storageWhitelist:
       tags:
       - DrinkBottle
       - ChemDispensable
+    pack: CoffeeMachineInventory
   - type: Transform
     noRot: false
   - type: GuideHelp
@@ -103,12 +103,12 @@
   components:
   - type: Sprite
     state: command
-  - type: StorageFill
-    contents:
-    - id: DrinkCoffeeJug
-    - id: ADTMilkJug
-    - id: DrinkCreamCartonXL
-    - id: DrinkCognacBottleFull
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+      - ChemDispensable
+    pack: CoffeeMachineCommandInventory
 
 - type: entity
   parent: ADTCoffeeMachine
@@ -118,27 +118,22 @@
   components:
   - type: Sprite
     state: bluespace
-  - type: Storage
-    maxItemSize: Ginormous
-    openOnActivate: false
-    whitelist:
+  - type: ReagentDispenser
+    storageWhitelist:
       tags:
       - ADTBluespaceCoffeine
-    grid:
-    - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: DrinkCoffeeBluespaceJug
+    pack: CoffeeMachineBluespaceInventory
   - type: Machine
     board: ADTCoffeeMachineBluespaceCircuitboard
 
 - type: entity
-  parent: ADTCoffeeMachineEmpty
-  id: ADTCoffeeMachine
-  suffix: Filled, Common
+  parent: ADTCoffeeMachine
+  id: ADTCoffeeMachineEmpty
+  suffix: Empty, Common
   components:
-  - type: StorageFill
-    contents:
-    - id: DrinkCoffeeJug
-    - id: ADTMilkJug
-    - id: DrinkCreamCartonXL
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+      - ChemDispensable
+    pack: EmptyInventory

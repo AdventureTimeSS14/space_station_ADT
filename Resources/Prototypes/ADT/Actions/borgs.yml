@@ -3,11 +3,10 @@
   name: View Information
   description: View the information of your chassis and station.
   components:
-  - type: Action
+  - type: InstantAction
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Interface/Actions/actions_borg.rsi
       state: state-info
-    useDelay: 0.5
-  - type: InstantAction
     event: !type:BorgInfoActionEvent
+    useDelay: 0.5

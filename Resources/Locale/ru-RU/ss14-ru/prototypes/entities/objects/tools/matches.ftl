@@ -9,7 +9,3 @@ ent-Matchbox = спичечный коробок
     .desc = Небольшой коробок Почти-Но-Не-Совсем-Плазменных-Премиум-Спичек.
 ent-ADTMatchbox = спичечный коробок
     .desc = Новейший спичечный коробок с увеличенным объемом спичек!
-ent-GorlexMatchbox = Gorlex match box
-    .desc = A pneumatic match box styled after the Gorlex Marauders' equipment. Contains 24 matches.
-ent-GorlexMatchstick = match stick
-    .desc = A military grade match stick, used for lighting fine smokables and noncombatants alike.

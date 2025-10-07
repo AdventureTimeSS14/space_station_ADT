@@ -1,9 +1,0 @@
-stack-ground-cannabis-white = измельчённая конопля жизни
-stack-leaves-cannabis-white = сушёные листья конопли жизни
-stack-ground-meth-crystal = измельчённый кристалл дезоксиэфедрина
-stack-meth-crystal-shard = осколок кристалла дезоксиэфедрина
-stack-shard-meth-crystal-blue-sky = осколок кристалла дезоксиэфедрина "Голубое небо"
-stack-ground-meth-crystal-blue-sky = измельчённый кристалл дезоксиэфедрин "Голубое небо"
-stack-antibiotic-ointment = антибиотическая мазь
-stack-ectoplasm = эктоплазма
-stack-piastre = пиастры

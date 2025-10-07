@@ -150,8 +150,6 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
-  - type: GunSpreadModifier
-    spread: 0.6
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction
@@ -251,8 +249,6 @@
     soundGunshot:
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
     # ADT-Tweak-end
-  - type: GunSpreadModifier
-    spread: 0.6
   - type: Tag
     tags:
     - WeaponShotgunKammerer
@@ -276,8 +272,6 @@
     fireRate: 3
     soundGunshot: # Corvax-Guns
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_sawed.ogg
-  - type: GunSpreadModifier
-    spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction

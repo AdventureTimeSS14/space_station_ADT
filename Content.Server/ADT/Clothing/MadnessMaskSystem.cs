@@ -1,11 +1,13 @@
+using Content.Server.EntityEffects.Effects;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Drugs;
-using Content.Shared.Drugs;
+using Content.Shared.Drunk;
 using Content.Shared.Heretic;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
-using Content.Shared.Clothing.Components;
+using Content.Shared.Stunnable;
 using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Clothing;
@@ -44,8 +46,8 @@ public sealed partial class MadnessMaskSystem : EntitySystem
                 if (_random.Prob(.4f))
                     _jitter.DoJitter(look, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
 
-                // if (_random.Prob(.25f))
-                //     _statusEffect.TryAddStatusEffect<SeeingRainbowsComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
+                if (_random.Prob(.25f))
+                    _statusEffect.TryAddStatusEffect<SeeingRainbowsComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
             }
         }
     }

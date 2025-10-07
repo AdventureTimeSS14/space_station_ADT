@@ -112,8 +112,8 @@
         - !type:SnapToGrid
           southRotation: true
         steps:
-        - tag: MicroManipulatorStockPart
-          name: construction-graph-tag-micro-manipulator
+        - tag: CapacitorStockPart
+          name: construction-graph-tag-capacitor
           icon:
             sprite: Objects/Misc/stock_parts.rsi
             state: capacitor
@@ -262,7 +262,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: MicroManipulatorStockPart
+        prototype: CapacitorStockPart
         amount: 1
       steps:
       - tool: Prying

@@ -6,8 +6,9 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/sh4ziktea/teapack.rsi
-    layers:
-      - state: teabox
+    state: teabox
+    shape:
+    - 0,0,1,0
   - type: Storage
     maxItemSize: Tiny
     grid:

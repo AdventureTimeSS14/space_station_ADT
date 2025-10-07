@@ -5,27 +5,36 @@ using Robust.Shared.Containers;
 
 namespace Content.Client.Commands;
 
-public sealed class HideMechanismsCommand : LocalizedEntityCommands
+public sealed class HideMechanismsCommand : LocalizedCommands
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override string Command => "hidemechanisms";
 
+    public override string Description => LocalizationManager.GetString($"cmd-{Command}-desc", ("showMechanismsCommand", ShowMechanismsCommand.CommandName));
+
+    public override string Help => LocalizationManager.GetString($"cmd-{Command}-help", ("command", Command));
+
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var query = EntityManager.AllEntityQueryEnumerator<OrganComponent, SpriteComponent>();
+        var containerSys = _entityManager.System<SharedContainerSystem>();
+        var query = _entityManager.AllEntityQueryEnumerator<OrganComponent>();
 
-        while (query.MoveNext(out var uid, out _, out var sprite))
+        while (query.MoveNext(out var uid, out _))
         {
-            _spriteSystem.SetContainerOccluded((uid, sprite), false);
+            if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite))
+            {
+                continue;
+            }
+
+            sprite.ContainerOccluded = false;
 
             var tempParent = uid;
-            while (_containerSystem.TryGetContainingContainer((tempParent, null, null), out var container))
+            while (containerSys.TryGetContainingContainer((tempParent, null, null), out var container))
             {
                 if (!container.ShowContents)
                 {
-                    _spriteSystem.SetContainerOccluded((uid, sprite), true);
+                    sprite.ContainerOccluded = true;
                     break;
                 }
 

@@ -12,6 +12,7 @@ namespace Content.Shared.ADT.OfferItem;
 public abstract partial class SharedOfferItemSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -60,7 +61,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
 
         if (offerItem.Item is not null)
         {
-            if (!_hand.TryPickup(ent, offerItem.Item.Value, handsComp: hands))
+            if (!_hands.TryPickup(ent, offerItem.Item.Value, handsComp: hands))
             {
                 _popup.PopupClient(Loc.GetString("offer-item-full-hand"), ent, ent);
                 return;
@@ -130,7 +131,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
     /// </summary>
     protected void UnOffer(EntityUid uid, OfferItemComponent component)
     {
-        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHandId is null)
+        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHand is null)
             return;
 
         if (TryComp<OfferItemComponent>(component.Target, out var offerItem) && component.Target is not null)
@@ -189,7 +190,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         if (offerItem is null && !TryComp(component.Target, out offerItem))
             return;
 
-        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHandId is null ||
+        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHand is null ||
             component.Target is null)
             return;
 

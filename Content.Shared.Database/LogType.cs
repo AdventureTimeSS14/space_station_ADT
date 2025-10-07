@@ -469,19 +469,10 @@ public enum LogType
     /// </summary>
     ArtifactNode = 101,
 
-    /// <summary>
-    /// Damaging grid collision has occurred.
-    /// </summary>
-    ShuttleImpact = 102,
-
-    /// <summary>
-    /// Events relating to midi playback.
-    /// </summary>
-    Instrument = 103,
     // ADT Start
     /// <summary>
     /// A player grabbed another player
     /// </summary>
-    Grab = 104
+    Grab = 102
     /// ADT End
 }

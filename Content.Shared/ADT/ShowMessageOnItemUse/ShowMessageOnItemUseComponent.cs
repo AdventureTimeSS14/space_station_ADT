@@ -10,7 +10,7 @@ public sealed partial class MindFlushComponent : Component
 
     [DataField("duration")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan FlashDuration { get; set; } = TimeSpan.FromSeconds(10);
+    public int FlashDuration { get; set; } = 5000;
 
     [DataField("slowTo")]
     [ViewVariables(VVAccess.ReadWrite)]

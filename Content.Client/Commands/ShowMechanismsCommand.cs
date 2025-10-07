@@ -4,19 +4,23 @@ using Robust.Shared.Console;
 
 namespace Content.Client.Commands;
 
-public sealed class ShowMechanismsCommand : LocalizedEntityCommands
+public sealed class ShowMechanismsCommand : LocalizedCommands
 {
-    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!;
 
-    public override string Command => "showmechanisms";
+    public const string CommandName = "showmechanisms";
+
+    public override string Command => CommandName;
+
+    public override string Help => LocalizationManager.GetString($"cmd-{Command}-help", ("command", Command));
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var query = EntityManager.AllEntityQueryEnumerator<OrganComponent, SpriteComponent>();
+        var query = _entManager.AllEntityQueryEnumerator<OrganComponent, SpriteComponent>();
 
-        while (query.MoveNext(out var uid, out _, out var sprite))
+        while (query.MoveNext(out _, out var sprite))
         {
-            _spriteSystem.SetContainerOccluded((uid, sprite), false);
+            sprite.ContainerOccluded = false;
         }
     }
 }

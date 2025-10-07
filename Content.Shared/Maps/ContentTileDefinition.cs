@@ -15,7 +15,8 @@ namespace Content.Shared.Maps
     [Prototype("tile")]
     public sealed partial class ContentTileDefinition : IPrototype, IInheritingPrototype, ITileDefinition
     {
-        public static readonly ProtoId<ToolQualityPrototype> PryingToolQuality = "Prying";
+        [ValidatePrototypeId<ToolQualityPrototype>]
+        public const string PryingToolQuality = "Prying";
 
         public const string SpaceID = "Space";
 
@@ -46,12 +47,6 @@ namespace Content.Shared.Maps
         [DataField]
         public PrototypeFlags<ToolQualityPrototype> DeconstructTools { get; set; } = new();
 
-        /// <summary>
-        /// Effective mass of this tile for grid impacts.
-        /// </summary>
-        [DataField]
-        public float Mass = 800f;
-
         /// <remarks>
         /// Legacy AF but nice to have.
         /// </remarks>
@@ -73,11 +68,6 @@ namespace Content.Shared.Maps
         [DataField("friction")] public float Friction { get; set; } = 1f;
 
         [DataField("variants")] public byte Variants { get; set; } = 1;
-
-        /// <summary>
-        ///     Allows the tile to be rotated/mirrored when placed on a grid.
-        /// </summary>
-        [DataField] public bool AllowRotationMirror { get; set; } = false;
 
         /// <summary>
         /// This controls what variants the `variantize` command is allowed to use.

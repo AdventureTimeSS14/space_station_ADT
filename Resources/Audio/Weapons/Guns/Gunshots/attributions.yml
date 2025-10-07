@@ -1,4 +1,4 @@
-- files: ["water_spray.ogg"]
+﻿- files: ["water_spray.ogg"]
   license: "CC0-1.0"
   copyright: "Watering by elittle13. Converted to .OGG and MONO by EmoGarbage404 (github)"
   source: "https://freesound.org/people/elittle13/sounds/568558"
@@ -38,7 +38,7 @@
   copyright: "Taken from vgstation"
   source: "https://github.com/vgstation-coders/vgstation13/commit/23303188abe6fe31b114a218a1950d7325a23730"
 
-- files: ["estocshot.ogg"]
+- files: ["laser.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "machinegun-one-shot.wav by DeltaCode. Converted to .OGG and MONO by august-sun"
-  source: "https://freesound.org/people/DeltaCode/sounds/668347/"
+  copyright: "Made by Roni for Adventure Time"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT.git"

@@ -93,9 +93,9 @@ public sealed class TimeDespawnDamageSystem : EntitySystem
 
         if (TryComp(entity, out HandsComponent? hands))
         {
-            foreach (var hand in _hands.EnumerateHands(entity))
+            foreach (var hand in _hands.EnumerateHands(entity, hands))
             {
-                _hands.TryDrop(entity, hand, checkActionBlocker: false, doDropInteraction: false);
+                _hands.TryDrop(entity, hand, checkActionBlocker: false, doDropInteraction: false, handsComp: hands);
             }
         }
         QueueDel(entity);

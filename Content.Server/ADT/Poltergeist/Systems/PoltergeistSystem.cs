@@ -98,7 +98,7 @@ public sealed partial class PoltergeistSystem : EntitySystem
         {
             _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false);
             _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false);
-            _status.TryAddStatusEffect<StunnedStatusEffectComponent>(target, "SlowedDown", timeStatic, false);
+            _status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", timeStatic, false);
         }
 
         if (TryComp<BatteryComponent>(target, out var batteryComp))

@@ -92,9 +92,9 @@ public abstract class SharedPhantomSystem : EntitySystem
                 if (TryPrototype(item, out var proto) &&
                     proto.ID == action)
                 {
-                    var protoaction = _action.GetAction(item);
-                    if (protoaction != null)
+                    if (_action.TryGetActionData(item, out var data) && data.Cooldown != null)
                     {
+                        _action.SetCooldown(actionEntity, data.Cooldown.Value.Start, data.Cooldown.Value.End);
                         component.TempContainedActions.Remove(item);
                         QueueDel(item);
                     }

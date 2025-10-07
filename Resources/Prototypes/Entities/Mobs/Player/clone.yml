@@ -15,20 +15,13 @@
   - Fingerprint
   - NpcFactionMember
   # traits
-  - BlackAndWhiteOverlay
-  - Clumsy
-  - Hemophilia
-  # - ImpairedMobility #ADT tweak
   # - LegsParalyzed (you get healed)
-  - BlackAndWhiteOverlay
   - LightweightDrunk
-  - Muted
   - Narcolepsy
   - Pacified
   - PainNumbness
   - Paracusia
   - PermanentBlindness
-  - Snoring
   - Unrevivable
   # job specific
   - BibleUser
@@ -37,7 +30,6 @@
   - MindShield
   - MimePowers
   - SpaceNinja
-  - Thieving
   # accents
   - Accentless
   - BackwardsAccent
@@ -45,7 +37,6 @@
   - BleatingAccent
   - DamagedSiliconAccent
   - FrenchAccent
-  - FrontalLisp
   - GermanAccent
   - LizardAccent
   - MobsterAccent

@@ -94,7 +94,7 @@
     proto: CartridgeMagnum
   - type: Sprite
     layers:
-    - state: base
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -102,8 +102,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#9b0000"
       right:
       - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#9b0000"
 
 - type: entity
   id: MagazineMagnumPractice
@@ -115,22 +119,20 @@
     proto: CartridgeMagnumPractice
   - type: Sprite
     layers:
-    - state: base
+    - state: practice
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#dbdbdb"
+        color: "#ea5800"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#dbdbdb"
+        color: "#ea5800"
 
 - type: entity
   id: MagazineMagnumUranium
@@ -142,12 +144,10 @@
     proto: CartridgeMagnumUranium
   - type: Sprite
     layers:
-    - state: base
+    - state: uranium
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
@@ -169,12 +169,10 @@
     proto: CartridgeMagnumAP
   - type: Sprite
     layers:
-    - state: base
+    - state: piercing
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#540000"
   - type: Item
     inhandVisuals:
       left:
@@ -216,7 +214,7 @@
     proto: CartridgeMagnum
   - type: Sprite
     layers:
-    - state: base
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -224,8 +222,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#9b0000"
       right:
       - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#9b0000"
 
 - type: entity
   id: MagazineMagnumSubMachineGunPractice
@@ -236,22 +238,20 @@
     proto: CartridgeMagnumPractice
   - type: Sprite
     layers:
-    - state: base
+    - state: practice
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#dbdbdb"
+        color: "#ea5800"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#dbdbdb"
+        color: "#ea5800"
 
 - type: entity
   id: MagazineMagnumSubMachineGunUranium
@@ -262,12 +262,10 @@
     proto: CartridgeMagnumUranium
   - type: Sprite
     layers:
-    - state: base
+    - state: uranium
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
@@ -288,12 +286,10 @@
     proto: CartridgeMagnumAP
   - type: Sprite
     layers:
-    - state: base
+    - state: piercing
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#540000"
   - type: Item
     inhandVisuals:
       left:

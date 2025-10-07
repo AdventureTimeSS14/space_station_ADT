@@ -47,9 +47,6 @@
             "name": "mag-5"
         },
         {
-            "name": "stripe"
-        },
-        {
             "name": "inhand-left-mag",
             "directions": 4
         },

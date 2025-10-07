@@ -9,7 +9,6 @@
     FoodSnackEnergy: 1 # ADT-tweak 3 > 1
     ADTFoodSnackChocolateBarEnergyPack: 1 # ADT-tweak
     CigPackMixed: 2
-    DiscountDanLighter: 1
   contrabandInventory:
     FoodSnackDanDanNoodles: 3
     FoodBakedBunHoney: 3

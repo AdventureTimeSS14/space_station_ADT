@@ -81,7 +81,7 @@ ent-ClothingUniformJumpsuitParamedic = комбинезон парамедика
 ent-ClothingUniformJumpsuitBrigmedic = комбинезон бригмедика
     .desc = Форма, выдаваемая квалифицированным и прошедшим обучение лицам. Никого не волнует, что обучение продлилось полдня.
 ent-ClothingUniformJumpsuitPrisoner = комбинезон заключённого
-    .desc = Комбинезон, предназначенный для заключённых. Датчики костюма включены по умолчанию и не подлежат отключению.
+    .desc = Комбинезон, предназначенный для заключенных. Датчики костюма включены по умолчанию и не подлежат отключению.
 ent-ClothingUniformJumpsuitQM = комбинезон квартирмейстера
     .desc = Что Браун может сделать для вас?
 ent-ClothingUniformJumpsuitQMTurtleneck = водолазка квартирмейстера
@@ -136,6 +136,7 @@ ent-ClothingUniformJumpsuitCentcomFormal = торжественный костю
     .desc = Костюм для особых случаев.
 ent-ClothingUniformJumpsuitHosFormal = торжественный костюм главы службы безопасности
     .desc = Костюм для особых случаев.
+# Corvax-HiddenDesc-Start
 ent-ClothingUniformJumpsuitOperative = комбинезон оперативника
     .desc = Униформа элитных агентов Синдиката, выполняющих тактические операции в глубоком космосе.
 ent-ClothingUniformJumpsuitTacticool = тактический комбинезон

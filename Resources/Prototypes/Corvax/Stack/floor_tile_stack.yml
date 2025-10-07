@@ -1,0 +1,101 @@
+- type: stack
+  id: FloorTileItemWoodBlack
+  name: construction-graph-tag-black-wood-floor
+  spawn: FloorTileItemWoodBlack
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodDark
+  name: construction-graph-tag-dark-wood-floor
+  spawn: FloorTileItemWoodDark
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodLight
+  name: construction-graph-tag-light-wood-floor
+  spawn: FloorTileItemWoodLight
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodRed
+  name: construction-graph-tag-red-wood-floor
+  spawn: FloorTileItemWoodRed
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodLargeBlack
+  name: construction-graph-tag-large-black-wood-floor
+  spawn: FloorTileItemWoodLargeBlack
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodLargeDark
+  name: construction-graph-tag-large-dark-wood-floor
+  spawn: FloorTileItemWoodLargeDark
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodLargeLight
+  name: construction-graph-tag-large-light-wood-floor
+  spawn: FloorTileItemWoodLargeLight
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodLargeRed
+  name: construction-graph-tag-large-red-wood-floor
+  spawn: FloorTileItemWoodLargeRed
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodParquetBlack
+  name: construction-graph-tag-parquet-black-wood-floor
+  spawn: FloorTileItemWoodParquetBlack
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodParquetDark
+  name: construction-graph-tag-parquet-dark-wood-floor
+  spawn: FloorTileItemWoodParquetDark
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodParquetLight
+  name: construction-graph-tag-parquet-light-wood-floor
+  spawn: FloorTileItemWoodParquetLight
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodParquetRed
+  name: construction-graph-tag-parquet-red-wood-floor
+  spawn: FloorTileItemWoodParquetRed
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodChess
+  name: construction-graph-tag-chess-wood-floor
+  spawn: FloorTileItemWoodChess
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodChessBlack
+  name: construction-graph-tag-chess-black-wood-floor
+  spawn: FloorTileItemWoodChessBlack
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodChessDark
+  name: construction-graph-tag-chess-dark-wood-floor
+  spawn: FloorTileItemWoodChessDark
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodChessLight
+  name: construction-graph-tag-chess-light-wood-floor
+  spawn: FloorTileItemWoodChessLight
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemWoodChessRed
+  name: construction-graph-tag-chess-red-wood-floor
+  spawn: FloorTileItemWoodChessRed
+  maxCount: 30

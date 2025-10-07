@@ -44,6 +44,7 @@
   - type: StaminaDamageOnHit
     damage: 10
   - type: DamageStateVisuals
+    rotate: true
     states:
       Alive:
         Base: running

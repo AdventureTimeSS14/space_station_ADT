@@ -45,7 +45,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly SharedIdentitySystem _identity = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
 
-    public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
+    [ValidatePrototypeId<SpeciesPrototype>]
+    public const string DefaultSpecies = "Human";
     // Corvax-TTS-Start
     public const string DefaultVoice = "johnny";
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
@@ -158,7 +159,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
         HumanoidAppearanceComponent? targetHumanoid = null)
     {
-        if (!Resolve(source, ref sourceHumanoid, false) || !Resolve(target, ref targetHumanoid, false))
+        if (!Resolve(source, ref sourceHumanoid) || !Resolve(target, ref targetHumanoid))
             return;
 
         targetHumanoid.Species = sourceHumanoid.Species;

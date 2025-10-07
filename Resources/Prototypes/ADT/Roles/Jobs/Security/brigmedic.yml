@@ -39,9 +39,3 @@
     - Flash
     - MagazinePistol
 
-- type: chameleonOutfit
-  id: BrigmedicChameleonOutfit
-  job: Brigmedic
-  hasMindShield: true
-  equipment:
-    ears: ClothingHeadsetBrigmedic

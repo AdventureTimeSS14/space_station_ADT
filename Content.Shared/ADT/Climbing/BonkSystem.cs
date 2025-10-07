@@ -82,7 +82,7 @@ public sealed partial class BonkSystem : EntitySystem
         else
             _audioSystem.PlayPvs(bonkableComponent.BonkSound, bonkableUid);
 
-        _stunSystem.TryUpdateParalyzeDuration(user, bonkableComponent.BonkTime);
+        _stunSystem.TryParalyze(user, bonkableComponent.BonkTime, true);
 
         if (bonkableComponent.BonkDamage is { } bonkDmg)
             _damageableSystem.TryChangeDamage(user, bonkDmg, true, origin: user);

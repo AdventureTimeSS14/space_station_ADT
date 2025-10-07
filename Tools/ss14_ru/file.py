@@ -1,4 +1,4 @@
-import typing
+﻿import typing
 
 from fluent.syntax import ast
 from yamlmodels import YAMLElements

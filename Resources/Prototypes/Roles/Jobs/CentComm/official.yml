@@ -36,12 +36,3 @@
     back:
     - Flash #ADT-CustomADTLoadout
     - ADTtelescopicBaton #ADT-CustomADTLoadout
-
-
-- type: chameleonOutfit
-  id: CentralCommandOfficialOutfit
-  job: CentralCommandOfficial
-  hasMindShield: true
-  equipment:
-    neck: ClothingNeckScarfStripedCentcom
-    mask: ClothingMaskGasCentcom

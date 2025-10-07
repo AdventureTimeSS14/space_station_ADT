@@ -22,9 +22,6 @@ public sealed class DepartmentBanCommand : IConsoleCommand
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-
-    private ISawmill? _sawmill;
 
     public string Command => "departmentban";
     public string Description => Loc.GetString("cmd-departmentban-desc");
@@ -38,8 +35,7 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         uint minutes;
         if (!Enum.TryParse(_cfg.GetCVar(CCVars.DepartmentBanDefaultSeverity), out NoteSeverity severity))
         {
-            _sawmill ??= _log.GetSawmill("admin.department_ban");
-            _sawmill.Warning("Department ban severity could not be parsed from config! Defaulting to medium.");
+            Logger.WarningS("admin.department_ban", "Department ban severity could not be parsed from config! Defaulting to medium.");
             severity = NoteSeverity.Medium;
         }
 

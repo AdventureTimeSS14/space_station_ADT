@@ -1,11 +1,22 @@
 using Content.Shared.Actions;
+using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing;
 
 public abstract class SharedJumpbootsSystem : EntitySystem
 {
+    [Dependency] private readonly ClothingSpeedModifierSystem _clothingSpeedModifier = default!;
+    [Dependency] private readonly ClothingSystem _clothing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedActionsSystem _sharedActions = default!;
     [Dependency] private readonly SharedActionsSystem _actionContainer = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedContainerSystem _sharedContainer = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
 
     public override void Initialize()
     {

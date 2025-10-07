@@ -17,14 +17,12 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.Hands.EntitySystems;
-using Robust.Shared.Containers;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem
 {
-    [Dependency] private readonly SharedContainerSystem _сontainerSystem = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private void InitializeCombatAbilities()
@@ -91,7 +89,7 @@ public sealed partial class ChangelingSystem
             if (HasComp<ChangelingComponent>(ent))
                 continue;
 
-            _flashSystem.Flash(ent, uid, null, TimeSpan.FromSeconds(10), 0.8f, false);
+            _flashSystem.Flash(ent, uid, null, 6f * 1000f, 0.8f, false);
 
             if (!_mindSystem.TryGetMind(ent, out var _, out var mind))
                 continue;
@@ -124,7 +122,7 @@ public sealed partial class ChangelingSystem
         component.MusclesActive = !component.MusclesActive;
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
         if (!component.MusclesActive)
-            _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(4));
+            _stun.TryParalyze(uid, TimeSpan.FromSeconds(4), true);
 
     }
 
@@ -215,11 +213,12 @@ public sealed partial class ChangelingSystem
 
         if (!TryComp(uid, out HandsComponent? handsComponent))
             return;
-
-        if (handsComponent.ActiveHandId == null)
+        if (handsComponent.ActiveHand == null)
             return;
 
-        if (!_сontainerSystem.TryGetContainer(uid, handsComponent.ActiveHandId, out var handContainer))
+        var handContainer = handsComponent.ActiveHand.Container;
+
+        if (handContainer == null)
             return;
 
         if (component.LesserFormActive)

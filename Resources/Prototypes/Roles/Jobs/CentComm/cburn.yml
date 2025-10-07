@@ -47,11 +47,3 @@
     - MagazineShotgunIncendiary
     - SpaceCash500
     # ADT Tweak (Add) end
-
-- type: chameleonOutfit
-  id: CBURNChameleonOutfit
-  job: CBURN
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHelmetCBURN
-    neck: ClothingNeckScarfStripedBrown

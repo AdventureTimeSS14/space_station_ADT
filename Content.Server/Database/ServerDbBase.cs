@@ -11,7 +11,6 @@ using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
-using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -74,11 +73,7 @@ namespace Content.Server.Database
                 profiles[profile.Slot] = ConvertProfiles(profile);
             }
 
-            var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
-            foreach (var favorite in prefs.ConstructionFavorites)
-                constructionFavorites.Add(new ProtoId<ConstructionPrototype>(favorite));
-
-            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites);
+            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor));
         }
 
         public async Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
@@ -161,8 +156,7 @@ namespace Content.Server.Database
             {
                 UserId = userId.UserId,
                 SelectedCharacterSlot = 0,
-                AdminOOCColor = Color.Red.ToHex(),
-                ConstructionFavorites = [],
+                AdminOOCColor = Color.Red.ToHex()
             };
 
             prefs.Profiles.Add(profile);
@@ -171,7 +165,7 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-            return new PlayerPreferences(new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor), []);
+            return new PlayerPreferences(new[] {new KeyValuePair<int, ICharacterProfile>(0, defaultProfile)}, 0, Color.FromHex(prefs.AdminOOCColor));
         }
 
         public async Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)
@@ -195,19 +189,6 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-        }
-
-        public async Task SaveConstructionFavoritesAsync(NetUserId userId, List<ProtoId<ConstructionPrototype>> constructionFavorites)
-        {
-            await using var db = await GetDb();
-            var prefs = await db.DbContext.Preference.SingleAsync(p => p.UserId == userId.UserId);
-
-            var favorites = new List<string>(constructionFavorites.Count);
-            foreach (var favorite in constructionFavorites)
-                favorites.Add(favorite.Id);
-            prefs.ConstructionFavorites = favorites;
-
-            await db.DbContext.SaveChangesAsync();
         }
 
         private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)

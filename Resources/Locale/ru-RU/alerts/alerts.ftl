@@ -22,12 +22,10 @@ alerts-walking-name = Шаг
 alerts-walking-desc = Вы идёте шагом, двигаясь в медленном темпе.
 alerts-stunned-name = [color=yellow]Оглушены[/color]
 alerts-stunned-desc = Вы [color=yellow]оглушены[/color]! Что-то мешает вам двигаться или взаимодействовать с объектами.
-alerts-knockdown-name = [color=yellow]Knocked Down[/color]
-alerts-knockdown-desc = You're [color=yellow]Knocked Down[/color]! Something has slipped or pushed you over, encumbering your movement.
 alerts-handcuffed-name = [color=yellow]В наручниках[/color]
 alerts-handcuffed-desc = На вас [color=yellow]надели наручники[/color] и вы не можете использовать руки. Если кто-нибудь вас потащит, вы не сможете сопротивляться.
-alerts-ensnared-name = [color=yellow]Опутаны[/color]
-alerts-ensnared-desc = Ваши конечности [color=yellow]чем-то опутаны[/color], и это мешает вам двигаться.
+alerts-ensnared-name = [color=yellow]Захваченный[/color]
+alerts-ensnared-desc = Вы [color=yellow]попали в ловушку[/color], и это мешает вам двигаться.
 alerts-buckled-name = [color=yellow]Пристёгнуты[/color]
 alerts-buckled-desc = Вы к чему-то [color=yellow]пристёгнуты[/color]. Щёлкните по иконке чтобы отстегнуться, если на вас [color=yellow]не надеты наручники.[/color]
 alerts-crit-name = [color=red]Критическое состояние[/color]
@@ -74,7 +72,9 @@ alerts-suit-power-name = Заряд костюма
 alerts-suit-power-desc = Запас энергии вашего костюма космического ниндзя.
 alerts-magboots-name = Магнитные ботинки
 alerts-magboots-desc = Вы невосприимчивы к потокам ветра, но двигаетесь немного медленнее.
-alerts-rooted-name = Укоренены
-alerts-rooted-desc = Вы прикреплены к земле. Вы не можете подскользнуться, но вы будете впитывать все жидкости под вами.
-alerts-stealthy-name = Карманничество
-alerts-stealthy-desc = Определяет режим скрытой кражи. Нажмите для переключения.
+#alerts-revenant-essence-name = Эссенция
+#alerts-revenant-essence-desc = Сила душ. Поддерживает вас и используется при использовании способностей. Медленно восстанавливается с течением времени.
+#alerts-revenant-corporeal-name = Материальность
+#alerts-revenant-corporeal-desc = Вы физически воплотились. Окружающие могут видеть и наносить вам вред.
+alerts-modsuit-power-name = Заряд МОДсьюита
+alerts-modsuit-power-desc = Показывает, сколько заряда осталось у вашего МОДа.

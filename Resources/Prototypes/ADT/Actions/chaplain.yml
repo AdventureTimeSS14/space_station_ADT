@@ -4,20 +4,18 @@
   description: action-chaplain-believer-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_chaplain.rsi
       state: saint_fist
     itemIconStyle: BigAction
-    useDelay: 5
-    priority: -60
-  - type: TargetAction
-  - type: EntityTargetAction
     whitelist:
       components:
       - HumanoidAppearance
-    canTargetSelf: false
     event: !type:ChaplainMakeBelieverActionEvent
+    useDelay: 5
+    canTargetSelf: false
+    priority: -60
 
 - type: entity
   id: ActionChaplainTransfer
@@ -25,20 +23,18 @@
   description: action-chaplain-transfer-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_chaplain.rsi
       state: hand_of_wololo
     itemIconStyle: BigAction
-    useDelay: 30
-    priority: -59
-  - type: TargetAction
-  - type: EntityTargetAction
     whitelist:
       components:
       - Body
-    canTargetSelf: false
     event: !type:ChaplainPrayersHandActionEvent
+    useDelay: 30
+    canTargetSelf: false
+    priority: -59
 
 - type: entity
   id: ActionChaplainHolyWater
@@ -46,14 +42,15 @@
   description: action-chaplain-holy-touch-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_chaplain.rsi
       state: holy_touch
     itemIconStyle: BigAction
-    useDelay: 30
-    priority: -58
-  - type: TargetAction
-  - type: EntityTargetAction
-    canTargetSelf: false
+    #whitelist:
+    #  components:
+    #  - SolutionContainerManager
     event: !type:ChaplainHolyTouchActionEvent
+    useDelay: 30
+    canTargetSelf: false
+    priority: -58

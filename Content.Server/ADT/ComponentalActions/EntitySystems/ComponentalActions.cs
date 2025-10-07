@@ -51,6 +51,7 @@ public sealed partial class ComponentalActionsSystem : EntitySystem
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;

@@ -286,7 +286,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/black_anarchy.rsi
   - type: StaticPrice
-    price: 20
+    price: 2
 
 - type: entity
   parent: ClothingUniformBase

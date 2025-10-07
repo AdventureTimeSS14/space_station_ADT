@@ -1,0 +1,47 @@
+- type: reagentDispenserInventory
+  id: ChemDispenserStandardInventory
+  inventory:
+  # - JugAluminium #ADT_Tweak, бутылки заменены на канистры
+  # - JugCarbon
+  # - JugChlorine
+  # - JugCopper
+  # - JugEthanol
+  # - JugFluorine
+  # - JugSugar
+  # - JugHydrogen
+  # - JugIodine
+  # - JugIron
+  # - JugLithium
+  # - JugMercury
+  # - JugNitrogen
+  # - JugOxygen
+  # - JugPhosphorus
+  # - JugPotassium
+  # - JugRadium
+  # - JugSilicon
+  # - JugSodium
+  # - JugSulfur
+    - ADTReagentCanisterAluminium #ADT_Tweak, бутылки заменены на канистры
+    - ADTReagentCanisterCarbon
+    - ADTReagentCanisterChlorine
+    - ADTReagentCanisterCopper
+    - ADTReagentCanisterEthanol
+    - ADTReagentCanisterFluorine
+    - ADTReagentCanisterSugar
+    - ADTReagentCanisterHydrogen
+    - ADTReagentCanisterIodine
+    - ADTReagentCanisterIron
+    - ADTReagentCanisterLithium
+    - ADTReagentCanisterMercury
+    - ADTReagentCanisterNitrogen
+    - ADTReagentCanisterOxygen
+    - ADTReagentCanisterPhosphorus
+    - ADTReagentCanisterPotassium
+    - ADTReagentCanisterRadium
+    - ADTReagentCanisterSilicon
+    - ADTReagentCanisterSodium
+    - ADTReagentCanisterSulfur #ADT_Tweak, бутылки заменены на канистры
+
+
+- type: reagentDispenserInventory
+  id: EmptyInventory

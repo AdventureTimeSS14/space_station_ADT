@@ -4,15 +4,14 @@
   description: action-heretic-ash-passage-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: ashen_shift
-    checkCanInteract: false
-  - type: InstantAction
     event: !type:EventHereticAshenShift
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-jaunt
@@ -23,13 +22,12 @@
   description: action-heretic-ash-blast-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: volcano_blast
-  - type: InstantAction
     event: !type:EventHereticVolcanoBlast
   - type: HereticAction
     requireMagicItem: true
@@ -41,13 +39,12 @@
   description: Drains nearby heathens engulfed in flames of their life force.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: nightwatcher_rebirth
-  - type: InstantAction
     event: !type:EventHereticNightwatcherRebirth
   - type: HereticAction
     requireMagicItem: true
@@ -59,13 +56,12 @@
   description: Create a ring of fire around you.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 90
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: ashlord_rite1
-  - type: InstantAction
     event: !type:EventHereticFlames
   - type: HereticAction
     requireMagicItem: true
@@ -77,13 +73,12 @@
   description: Burn everything in a large distance.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: ashlord_rite2
-  - type: InstantAction
     event: !type:EventHereticCascade
   - type: HereticAction
     requireMagicItem: true

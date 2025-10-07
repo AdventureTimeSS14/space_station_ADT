@@ -71,10 +71,10 @@
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/singularity_1.rsi
+    shader: unshaded
     layers:
     - map: [ "VisualLevel" ]
       state: singularity_1
-      shader: unshaded
   - type: GravityWell
     maxRange: 1
     baseRadialAcceleration: 75

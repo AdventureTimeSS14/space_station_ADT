@@ -44,7 +44,7 @@ public sealed partial class GasTankComponent : Component, IGasMixtureHolder
     /// <summary>
     ///     Distributed pressure.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float OutputPressure = DefaultOutputPressure;
 
     /// <summary>
@@ -91,7 +91,7 @@ public sealed partial class GasTankComponent : Component, IGasMixtureHolder
     ///     Increases explosion for each scale kPa above threshold.
     /// </summary>
     [DataField]
-    public float TankFragmentScale = 2.25f * Atmospherics.OneAtmosphere;
+    public float TankFragmentScale = 2 * Atmospherics.OneAtmosphere;
 
     [DataField]
     public EntProtoId ToggleAction = "ActionToggleInternals";

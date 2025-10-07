@@ -21,12 +21,3 @@
     ears: ClothingHeadsetService
     pocket1: ADTRazor
     pocket2: BarberScissors
-
-- type: chameleonOutfit
-  id: ADTBarberChameleonOutfit
-  job: ADTBarber
-  hasMindShield: true
-  equipment:
-    shoes: ClothingShoesColorBlack
-    id: ADTBarberPDA
-    ears: ClothingHeadsetService

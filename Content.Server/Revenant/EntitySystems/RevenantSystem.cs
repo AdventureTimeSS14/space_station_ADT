@@ -35,20 +35,22 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly ExplosionSystem _explotions = default!;
 
-    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string RevenantShopId = "ActionRevenantShop";
 
     public override void Initialize()
     {
@@ -87,7 +89,7 @@ public sealed partial class RevenantSystem : EntitySystem
         _appearance.SetData(uid, RevenantVisuals.Harvesting, false);
         _appearance.SetData(uid, RevenantVisuals.Stunned, false);
 
-        if (_gameTicker.RunLevel == GameRunLevel.PostRound && TryComp<VisibilityComponent>(uid, out var visibility))
+        if (_ticker.RunLevel == GameRunLevel.PostRound && TryComp<VisibilityComponent>(uid, out var visibility))
         {
             _visibility.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
             _visibility.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
@@ -154,7 +156,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (component.Essence <= 0)
         {
-            // ADT-Tweak-Start
+            // ADT Revenant shield ability start
             if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
             {
                 shield.Used = true;
@@ -163,7 +165,7 @@ public sealed partial class RevenantSystem : EntitySystem
                 ChangeEssenceAmount(uid, 50, allowDeath: false);
                 return true;
             }
-            // ADT-Tweak-End
+            // ADT Revenant shield ability end
 
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             QueueDel(uid);
@@ -179,7 +181,7 @@ public sealed partial class RevenantSystem : EntitySystem
             return false;
         }
 
-        var tileref = _turf.GetTileRef(Transform(uid).Coordinates);
+        var tileref = Transform(uid).Coordinates.GetTileRef();
         if (tileref != null)
         {
             if (_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
@@ -191,8 +193,8 @@ public sealed partial class RevenantSystem : EntitySystem
 
         ChangeEssenceAmount(uid, -abilityCost, component, false);
 
-        _status.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
-        _stun.TryAddStunDuration(uid, TimeSpan.FromSeconds(debuffs.X));
+        _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
+        _stun.TryStun(uid, TimeSpan.FromSeconds(debuffs.X), false);
 
         return true;
     }

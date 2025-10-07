@@ -13,8 +13,6 @@ using Content.Shared.ADT.Economy;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
-using Content.Server.Vocalization.Systems;
-using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -70,7 +68,6 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage); //ADT-Economy
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
-            SubscribeLocalEvent<VendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
 
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
 
@@ -517,13 +514,14 @@ namespace Content.Server.VendingMachines
             }
 
             // Default spawn coordinates
-            var xform = Transform(uid);
-            var spawnCoordinates = xform.Coordinates;
+            var spawnCoordinates = Transform(uid).Coordinates;
 
             //Make sure the wallvends spawn outside of the wall.
+
             if (TryComp<WallMountComponent>(uid, out var wallMountComponent))
             {
-                var offset = (wallMountComponent.Direction + xform.LocalRotation - Math.PI / 2).ToVec() * WallVendEjectDistanceFromWall;
+
+                var offset = wallMountComponent.Direction.ToWorldVec() * WallVendEjectDistanceFromWall;
                 spawnCoordinates = spawnCoordinates.Offset(offset);
             }
             // ADT vending eject count start
@@ -654,11 +652,6 @@ namespace Content.Server.VendingMachines
                 args.Disabled = true;
                 component.NextEmpEject = _timing.CurTime;
             }
-        }
-
-        private void OnTryVocalize(Entity<VendingMachineComponent> ent, ref TryVocalizeEvent args)
-        {
-            args.Cancelled |= ent.Comp.Broken;
         }
     }
 }

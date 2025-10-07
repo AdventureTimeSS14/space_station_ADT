@@ -1,7 +1,7 @@
 using Content.Shared._RMC14.Wieldable.Components;
 using Content.Shared._RMC14.Wieldable.Events;
 using Content.Shared.Hands;
-using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -19,7 +19,6 @@ namespace Content.Shared._RMC14.Wieldable;
 
 public sealed class RMCWieldableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
@@ -121,15 +120,15 @@ public sealed class RMCWieldableSystem : EntitySystem
 
     private void RefreshModifiersOnParent(EntityUid wieldableUid)
     {
-        if (!TryComp(wieldableUid, out TransformComponent? xform) ||
-            !xform.ParentUid.Valid ||
-            _hands.GetActiveItem(xform.ParentUid) is not { } active ||
-            active != wieldableUid)
+        if (!TryComp(wieldableUid, out TransformComponent? transformComponent) ||
+            !transformComponent.ParentUid.Valid ||
+            !TryComp(transformComponent.ParentUid, out HandsComponent? handsComponent) ||
+            handsComponent.ActiveHandEntity != wieldableUid)
         {
             return;
         }
 
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(xform.ParentUid);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(transformComponent.ParentUid);
     }
     #endregion
 

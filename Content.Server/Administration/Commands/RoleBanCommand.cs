@@ -23,10 +23,7 @@ public sealed class RoleBanCommand : IConsoleCommand
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
-    [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-
-    private ISawmill? _sawmill;
 
     public string Command => "roleban";
     public string Description => Loc.GetString("cmd-roleban-desc");
@@ -40,8 +37,7 @@ public sealed class RoleBanCommand : IConsoleCommand
         uint minutes;
         if (!Enum.TryParse(_cfg.GetCVar(CCVars.RoleBanDefaultSeverity), out NoteSeverity severity))
         {
-            _sawmill ??= _log.GetSawmill("admin.role_ban");
-            _sawmill.Warning("Role ban severity could not be parsed from config! Defaulting to medium.");
+            Logger.WarningS("admin.role_ban", "Role ban severity could not be parsed from config! Defaulting to medium.");
             severity = NoteSeverity.Medium;
         }
 
@@ -91,7 +87,7 @@ public sealed class RoleBanCommand : IConsoleCommand
 
         if (!_proto.HasIndex<JobPrototype>(job))
         {
-            shell.WriteError(Loc.GetString("cmd-roleban-job-parse", ("job", job)));
+            shell.WriteError(Loc.GetString("cmd-roleban-job-parse",("job", job)));
             return;
         }
 

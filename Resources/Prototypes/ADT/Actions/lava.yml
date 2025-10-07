@@ -5,16 +5,15 @@
   description: action-pump-heart-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     icon:
       sprite: ADT/Objects/Specific/Lavaland/loot.rsi
       state: cursed_heart
     checkCanInteract: false
     checkConsciousness: false # Позволяет использовать сердце в крите, порт импрувмента отсюда: https://github.com/Rxup/space-station-14/pull/1351
     itemIconStyle: BigAction
-    useDelay: 1
-  - type: InstantAction
     event: !type:PumpHeartActionEvent
+    useDelay: 1
 
 # Фауна
 - type: entity
@@ -22,7 +21,7 @@
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: Action
+  - type: EntityWorldTargetAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -32,11 +31,9 @@
       state: goliath_tentacle_wiggle
     sound:
       path: "/Audio/Weapons/slash.ogg"
-    useDelay: 1
-  - type: TargetAction
-    range: 10
-  - type: WorldTargetAction
     event: !type:GoliathSummonRandomTentacleAction
+    useDelay: 1
+    range: 10
 
 # Мегафауна
 - type: entity
@@ -44,7 +41,7 @@
   name: "[color=red]Dragon Fire[/color]"
   description: fshhhhh
   components:
-  - type: Action
+  - type: EntityWorldTargetAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -52,18 +49,16 @@
     iconOn:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
       state: goliath_tentacle_wiggle
-    useDelay: 10
-  - type: TargetAction
-    range: 15
-  - type: WorldTargetAction
     event: !type:AshDrakeFireActionEvent
+    useDelay: 10
+    range: 15
 
 - type: entity
   id: ActionDrakeBreath
   name: "[color=red]Dragon Breath[/color]"
   description: fshhhhh
   components:
-  - type: Action
+  - type: EntityWorldTargetAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -71,38 +66,34 @@
     iconOn:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
       state: goliath_tentacle_wiggle
-    useDelay: 9
-  - type: TargetAction
-    range: 15
-  - type: WorldTargetAction
     event: !type:AshDrakeBreathActionEvent
+    useDelay: 9
+    range: 15
 
 - type: entity
   id: ActionDrakeMeteors
   name: "[color=red]Meteorites![/color]"
   description: fshhhhh
   components:
-  - type: Action
+  - type: InstantAction
     raiseOnUser: true
     icon:
       sprite: ADT/Objects/Specific/Lavaland/loot.rsi
       state: cursed_heart
     itemIconStyle: BigAction
-    useDelay: 10
-  - type: InstantAction
     event: !type:AshDrakeMeteoritesActionEvent
+    useDelay: 10
 
 - type: entity
   id: ActionDrakeSwoop
   name: "[color=red]Fly[/color]"
   description: fshhhhh
   components:
-  - type: Action
+  - type: InstantAction
     raiseOnUser: true
     icon:
       sprite: ADT/Objects/Specific/Lavaland/loot.rsi
       state: cursed_heart
     itemIconStyle: BigAction
-    useDelay: 60
-  - type: InstantAction
     event: !type:AshDrakeSwoopActionEvent
+    useDelay: 60

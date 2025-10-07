@@ -75,7 +75,7 @@
       - !type:SatiateHunger
         factor: 1
   footstepSound:
-    collection: FootstepSlime # makes sense
+    collection: FootstepBlood
     params:
       volume: 6
 
@@ -100,7 +100,7 @@
       - !type:SatiateThirst
         factor: 1
   footstepSound:
-    collection: FootstepSlime
+    collection: FootstepBlood
     params:
       volume: 6
 

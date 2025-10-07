@@ -26,7 +26,7 @@
     sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleableVisuals.Layer" ]
+      map: [ "enum.ToggleVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Clothing/Neck/Mantles/magmantle.rsi
   - type: TemperatureProtection
@@ -45,8 +45,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
           True: {state: icon-on}
           False: {state: icon}
 
@@ -56,7 +56,6 @@
   description: Toggles the personal gravity field on and off.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
-    itemIconStyle: BigItem
   - type: InstantAction
+    itemIconStyle: BigItem
     event: !type:ToggleActionEvent

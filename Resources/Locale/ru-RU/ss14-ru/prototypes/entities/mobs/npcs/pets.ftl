@@ -49,5 +49,3 @@ ent-MobMonkeyPunpun = Пун Пун
     .desc = Видный представитель обезьян с неограниченным доступом к алкоголю.
 ent-MobCrabAtmos = Тропико
     .desc = Благородный и непоколебимый защитник Атмосии. Viva!
-ent-MobPollyParrot = Polly the parrot
-    .desc = An expert in quantum cracker theory

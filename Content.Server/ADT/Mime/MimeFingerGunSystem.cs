@@ -1,4 +1,4 @@
-using Content.Shared.Abilities.Mime;
+using Content.Server.Abilities.Mime;
 using Content.Server.Chat.Managers;
 using Content.Server.Popups;
 using Content.Shared.Actions;

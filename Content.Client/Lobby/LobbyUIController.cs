@@ -35,6 +35,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IFileDialogManager _dialogManager = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
@@ -279,7 +280,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             _configurationManager,
             EntityManager,
             _dialogManager,
-            LogManager,
+            _logManager,
             _playerManager,
             _prototypeManager,
             _resourceCache,
@@ -380,7 +381,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
             }
         }
 
-        // _spawn.ApplyLoadoutExtras(uid, roleLoadout);    // ADT SAI Custom
+        _spawn.ApplyLoadoutExtras(uid, roleLoadout);    // ADT SAI Custom
     }
 
     /// <summary>
@@ -482,12 +483,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
 
             // ADT SAI Custom start
             // Applying loadout extras to dummy
-            // if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job?.ID)))
-            // {
-            //     var loadout = humanoid?.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job?.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
-            //     if (loadout != null)
-            //         _spawn.ApplyLoadoutExtras(dummyEnt, loadout);
-            // }
+            if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job?.ID)))
+            {
+                var loadout = humanoid?.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job?.ID), _playerManager.LocalSession, humanoid.Species, EntityManager, _prototypeManager);
+                if (loadout != null)
+                    _spawn.ApplyLoadoutExtras(dummyEnt, loadout);
+            }
             // ADT SAI Custom end
 
             return dummyEnt;

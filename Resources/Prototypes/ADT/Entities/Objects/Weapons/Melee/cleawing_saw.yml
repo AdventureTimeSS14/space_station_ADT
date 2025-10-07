@@ -8,7 +8,7 @@
     sprite: ADT/Objects/Weapons/Melee/cleaving_saw.rsi
     layers:
     - state: icon_off
-      map: [ "enum.ToggleableVisuals.Layer" ]
+      map: [ "enum.ToggleVisuals.Layer" ]
   - type: SwitchableWeapon
     damageOpen:
       types:
@@ -36,8 +36,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
           True: {state: icon_on}
           False: {state: icon_off}
   - type: ComponentToggler

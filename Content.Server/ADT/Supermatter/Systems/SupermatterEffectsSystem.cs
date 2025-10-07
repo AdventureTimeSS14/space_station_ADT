@@ -1,3 +1,4 @@
+using Content.Server.ADT.Hallucinations;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -6,9 +7,14 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using Robust.Shared.GameObjects;
 using Robust.Server.GameObjects;
-using System.Numerics;
+using Robust.Shared.Audio.Components;
+using Content.Shared.Radiation.Components;
+using Content.Shared.Light.Components;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 public sealed partial class SupermatterSystem
@@ -49,9 +55,9 @@ public sealed partial class SupermatterSystem
             if (HasComp<SupermatterSootherComponent>(mob))
                 psyDiff = 0.007f;
 
-            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) ||
+            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || 
                 HasComp<SiliconLawBoundComponent>(mob) ||
-                HasComp<PermanentBlindnessComponent>(mob) ||
+                HasComp<PermanentBlindnessComponent>(mob) || 
                 HasComp<TemporaryBlindnessComponent>(mob))
                 continue;
 

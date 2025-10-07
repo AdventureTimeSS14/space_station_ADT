@@ -25,7 +25,7 @@
     # ADT-Tweak-end
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostRoleMobSpawner

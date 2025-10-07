@@ -35,7 +35,7 @@ public sealed class SlippingWakeSystem : EntitySystem
 
         _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, boostedWalkSpeed, boostedSprintSpeed, movementSpeed.Acceleration, movementSpeed);
 
-        _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(comp.ParalyzeTime));
+        _stun.TryParalyze(uid, TimeSpan.FromSeconds(comp.ParalyzeTime), true);
 
         _movementSpeedModifierSystem?.ChangeBaseSpeed(uid, movementSpeed.BaseWalkSpeed, movementSpeed.BaseSprintSpeed, movementSpeed.Acceleration, movementSpeed);
     }

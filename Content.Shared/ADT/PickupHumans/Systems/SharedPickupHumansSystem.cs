@@ -115,10 +115,10 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         if (HasComp<PickupingHumansComponent>(args.User) || HasComp<TakenHumansComponent>(args.Target))
             return;
 
-        if (TryComp<StandingStateComponent>(uid, out var stand) && !stand.Standing)
+        if (HasComp<CrawlingComponent>(args.User))
             return;
 
-        if (handComp.Count < component.HandsRequired || handComp.Count > component.HandsRequired)
+        if (handComp.CountFreeHands() < component.HandsRequired || handComp.CountFreeHands() > component.HandsRequired)
             return;
 
         AlternativeVerb verb = new()
@@ -165,7 +165,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
     /// </summary>
     private void StartPickupDoAfter(EntityUid uid, EntityUid target, PickupHumansComponent comp)
     {
-        if (TryComp<StandingStateComponent>(uid, out var stand) && !stand.Standing)
+        if (HasComp<CrawlingComponent>(uid))
             return;
 
         if (HasComp<PickupingHumansComponent>(target))
@@ -275,7 +275,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
 
     private bool CanPickup(EntityUid uid, EntityUid target, PickupHumansComponent? pickupComp)
     {
-        if (TryComp<StandingStateComponent>(uid, out var stand) && !stand.Standing)
+        if (HasComp<CrawlingComponent>(uid))
             return false;
 
         if (uid == target)
@@ -295,7 +295,7 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         if (!HasComp<PickupHumansComponent>(uid) || !HasComp<PickupHumansComponent>(target))
             return false;
 
-        if (handComp.Count != pickupComp.HandsRequired)
+        if (handComp.CountFreeHands() != pickupComp.HandsRequired)
         {
             _popup.PopupEntity(Loc.GetString("popup-hands-required"), uid, uid);
             return false;

@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-import os
+﻿import os
 
 from fluent.syntax.parser import FluentParser
 from fluent.syntax.serializer import FluentSerializer

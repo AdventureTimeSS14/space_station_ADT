@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Shared.Access.Components;
-using Content.Shared.Actions.Components;
 using Content.Shared.Actions;
 using Content.Shared.Audio;
 using Content.Shared.Buckle;

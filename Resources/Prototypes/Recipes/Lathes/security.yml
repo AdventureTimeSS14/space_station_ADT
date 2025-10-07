@@ -84,18 +84,6 @@
     Plasma: 500
     Glass: 500
 
-- type: latheRecipe
-  id: ClothingBackpackHarmpack
-  result: ClothingBackpackHarmpack
-  categories:
-  - Clothing
-  completetime: 15
-  materials:
-    Steel: 2000
-    Plastic: 1000
-    Plasma: 500
-    Gold: 500
-
 # Shields
 - type: latheRecipe
   parent: BaseShieldRecipe
@@ -233,8 +221,7 @@
   materials:
     Steel: 1500
     Glass: 1000
-    Gold: 500
-    Uranium: 300
+    Gold: 850
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -243,7 +230,7 @@
   materials:
     Steel: 1250
     Plastic: 750
-    Gold: 350
+    Gold: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -253,7 +240,7 @@
     Steel: 1500
     Glass: 500
     Plastic: 250
-    Gold: 250
+    Gold: 100
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong

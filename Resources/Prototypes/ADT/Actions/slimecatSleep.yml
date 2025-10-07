@@ -4,11 +4,10 @@
   description: action-slimecat-sleep-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     icon:
       sprite: ADT/Mobs/slug-cat.rsi
       state: creek-rest
     itemIconStyle: BigAction
-    useDelay: 1
-  - type: InstantAction
     event: !type:SharedSlimeCatSleepActionEvent
+    useDelay: 1

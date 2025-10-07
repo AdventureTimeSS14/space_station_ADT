@@ -23,12 +23,10 @@
   - FoodPlateMuffinTin
   - FoodKebabSkewer
   - SprayBottle
-  - TrashBag
   - LightReplacer
   - MopItem
   - Holoprojector
   - WetFloorSign
-  - WireBrush
 
 - type: latheRecipePack
   id: ServiceBoardsStatic

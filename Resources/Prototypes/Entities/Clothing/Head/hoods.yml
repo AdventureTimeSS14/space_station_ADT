@@ -20,11 +20,12 @@
     tags:
     - WhitelistChameleon
   - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      Snout: HEAD
-      HeadTop: HEAD
-      HeadSide: HEAD
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -204,11 +205,6 @@
   - type: HideLayerClothing
     slots:
     - Hair
-  - type: Tag
-    tags:
-    - CorgiWearable
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase

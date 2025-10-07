@@ -206,19 +206,19 @@
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: OreGold
+      - requiredTag: ADTGoldOre
         requiredAmount: 5
         resultProto: MobSpawnGoldCrabFriendly
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: OreSilver
+      - requiredTag: ADTSilverOre
         requiredAmount: 5
         resultProto: MobSpawnSilverCrabFriendly
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: OreUranium
+      - requiredTag: ADTUraniumOre
         requiredAmount: 5
         resultProto: MobSpawnUraniumCrabFriendly
         effectProto: ADTEffectKudzu

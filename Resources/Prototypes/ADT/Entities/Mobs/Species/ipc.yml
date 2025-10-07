@@ -151,6 +151,7 @@
     short: true
     shortscale: 0.9
   - type: CanEnterCryostorage
+  - type: Crawler
   - type: BloodCough
     postingSayDamage: blood-cough-ipc
   - type: TimeDespawnDamage

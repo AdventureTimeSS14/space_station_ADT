@@ -7,7 +7,7 @@
     sprite: ADT/Clothing/OuterClothing/Exoskeletons/rnd_exoskeleton.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleableVisuals.Layer" ]
+      map: [ "enum.ToggleVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Exoskeletons/rnd_exoskeleton.rsi
   - type: ToggleClothing
@@ -18,8 +18,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
           True: {state: icon-on}
           False: {state: icon}
   - type: StaticPrice
@@ -47,7 +47,6 @@
   name: Toggle Speed Boots
   description: Toggles the speed boots on and off.
   components:
-  - type: Action
-    itemIconStyle: BigItem
   - type: InstantAction
+    itemIconStyle: BigItem
     event: !type:ToggleActionEvent

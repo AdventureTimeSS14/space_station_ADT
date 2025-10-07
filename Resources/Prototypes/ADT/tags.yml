@@ -205,6 +205,8 @@
 - type: Tag
   id: ADTGlassSheet
 
+- type: Tag
+  id: ADTGoldOre
 
 - type: Tag
   id: ADTBSore
@@ -214,6 +216,12 @@
 
 - type: Tag
   id: ADTQuarzOre
+
+- type: Tag
+  id: ADTUraniumOre
+
+- type: Tag
+  id: ADTSilverOre
 
 - type: Tag
   id: ADTCoalOre

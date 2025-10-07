@@ -1,8 +1,9 @@
 using Content.Server.Access.Components;
-using Content.Server.Humanoid.Systems;
 using Content.Server.PDA;
 using Content.Shared.Inventory;
+using Content.Shared.Mind.Components;
 using Content.Shared.PDA;
+using Content.Shared.Roles;
 
 namespace Content.Server.Access.Systems;
 
@@ -16,10 +17,10 @@ public sealed class IdBindSystem : EntitySystem
     {
         base.Initialize();
         //Activate on mind being added
-        SubscribeLocalEvent<IdBindComponent, MapInitEvent>(TryBind, after: [typeof(RandomHumanoidSystem)]);
+        SubscribeLocalEvent<IdBindComponent, MindAddedMessage>(TryBind);
     }
 
-    private void TryBind(Entity<IdBindComponent> ent, ref MapInitEvent args)
+    private void TryBind(Entity<IdBindComponent> ent, ref MindAddedMessage args)
     {
         if (!_cardSystem.TryFindIdCard(ent, out var cardId))
             return;
@@ -30,9 +31,9 @@ public sealed class IdBindSystem : EntitySystem
 
         if (!ent.Comp.BindPDAOwner)
         {
-            //Remove after running once
-            RemCompDeferred<IdBindComponent>(ent);
-            return;
+			//Remove after running once
+			RemCompDeferred<IdBindComponent>(ent);
+			return;
         }
 
         //Get PDA from main slot and set us as owner

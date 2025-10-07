@@ -29,4 +29,6 @@
     IngotSilver: 12
     RemoteSignaller: 5
     Igniter: 5
-    MicroManipulatorStockPart: 30
+    MatterBinStockPart: 20
+    CapacitorStockPart: 20
+    MicroManipulatorStockPart: 20

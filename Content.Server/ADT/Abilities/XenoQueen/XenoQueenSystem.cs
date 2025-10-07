@@ -110,22 +110,22 @@ namespace Content.Server.ADT.Abilities.XenoQueen
                 component.BloobCount -= args.Cost.Value;
                 var xform = Transform(uid);
                 // Get the tile in front of the Queen
-                // var offsetValue = xform.LocalRotation.ToWorldVec();
-                // var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-                // var tile = coords.GetTileRef(EntityManager, _mapMan);
-                // if (tile == null)
-                //     return;
+                var offsetValue = xform.LocalRotation.ToWorldVec();
+                var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
+                var tile = coords.GetTileRef(EntityManager, _mapMan);
+                if (tile == null)
+                    return;
 
-                // // Check if the tile is blocked by a wall or mob, and don't create the wall if so
-                // if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
-                // {
-                //     _popupSystem.PopupEntity(Loc.GetString("create-turret-failed"), uid, uid);
-                //     return;
-                // }
+                // Check if the tile is blocked by a wall or mob, and don't create the wall if so
+                if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable | CollisionGroup.Opaque))
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("create-turret-failed"), uid, uid);
+                    return;
+                }
 
                 _popupSystem.PopupEntity(Loc.GetString("create-turret"), uid);
                 // Make sure we set the xeno turret to despawn properly
-                Spawn(component.XenoTurret, xform.Coordinates);
+                Spawn(component.XenoTurret, _turf.GetTileCenter(tile.Value));
                 // Handle args so cooldown works
                 args.Handled = true;
             }

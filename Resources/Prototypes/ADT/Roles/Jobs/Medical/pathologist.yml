@@ -21,11 +21,3 @@
     id: ADTPathologistPDA
     ears: ClothingHeadsetMedical
     belt: BoxFolderClipboard
-
-- type: chameleonOutfit
-  id: ADTPathologistChameleonOutfit
-  job: ADTPathologist
-  hasMindShield: true
-  equipment:
-    ears: ClothingHeadsetMedical
-    belt: BoxFolderClipboard

@@ -12,6 +12,3 @@ changelog-button-new-entries = Обновления (!)
 changelog-tab-title-Changelog = Список изменений
 changelog-tab-title-1ChangelogADT = Время Приключений
 changelog-tab-title-Admin = Админское
-changelog-tab-title-Maps = Карты
-cmd-changelog-desc = Открыть историю обновлений.
-cmd-changelog-help = Использование: changelog

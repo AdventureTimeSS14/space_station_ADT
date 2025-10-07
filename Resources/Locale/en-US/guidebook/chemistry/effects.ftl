@@ -87,21 +87,6 @@ reagent-effect-guidebook-health-change =
                  }
     } { $changes }
 
-reagent-effect-guidebook-even-health-change =
-    { $chance ->
-        [1] { $healsordeals ->
-            [heals] Evenly heals
-            [deals] Evenly deals
-            *[both] Evenly modifies health by
-        }
-        *[other] { $healsordeals ->
-            [heals] evenly heal
-            [deals] evenly deal
-            *[both] evenly modify health by
-        }
-    } { $changes }
-
-
 reagent-effect-guidebook-status-effect =
     { $type ->
         [add]   { $chance ->
@@ -258,12 +243,6 @@ reagent-effect-guidebook-electrocute =
         *[other] electrocute
     } the metabolizer for {NATURALFIXED($time, 3)} {MANY("second", $time)}
 
-reagent-effect-guidebook-emote =
-    { $chance ->
-        [1] Will force
-        *[other] force
-    } the metabolizer to [bold][color=white]{$emote}[/color][/bold]
-
 reagent-effect-guidebook-extinguish-reaction =
     { $chance ->
         [1] Extinguishes
@@ -383,9 +362,6 @@ reagent-effect-guidebook-artifact-unlock =
         [1] Helps
         *[other] help
         } unlock an alien artifact.
-
-reagent-effect-guidebook-artifact-durability-restore =
-    Restores {$restored} durability in active alien artifact nodes.
 
 reagent-effect-guidebook-plant-attribute =
     { $chance ->

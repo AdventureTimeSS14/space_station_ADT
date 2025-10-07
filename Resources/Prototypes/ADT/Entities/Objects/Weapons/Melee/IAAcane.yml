@@ -8,7 +8,7 @@
     sprite: ADT/Objects/Weapons/Melee/battlecane.rsi
     layers:
     - state: cane_off
-      map: [ "enum.ToggleableVisuals.Layer" ]
+      map: [ "enum.ToggleVisuals.Layer" ]
   - type: ItemToggle
     soundActivate:
       collection: sparks
@@ -54,8 +54,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
           True: {state: cane_on}
           False: {state: cane_off}
   - type: StaticPrice

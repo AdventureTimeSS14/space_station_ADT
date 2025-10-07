@@ -88,6 +88,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedControlledSystem _controlled = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _netMan = default!;
@@ -97,6 +98,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
@@ -219,7 +221,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         if (TryComp<EyeComponent>(uid, out var eyeComponent))
             _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int) VisibilityFlags.PhantomVessel, eyeComponent);
 
-        component.HelpingHand = ContainerSystem.EnsureContainer<Container>(uid, "HelpingHand");
+        component.HelpingHand = _container.EnsureContainer<Container>(uid, "HelpingHand");
     }
 
     private void OnShutdown(EntityUid uid, PhantomComponent component, ComponentShutdown args)
@@ -259,7 +261,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 comp.SpeechTimer -= 1;
 
             if (comp.HelpingHandTimer <= 0 && comp.HelpingHand.ContainedEntities.Count > 0 && !Deleted(comp.TransferringEntity))
-                ContainerSystem.TryRemoveFromContainer(comp.TransferringEntity, true);
+                _container.TryRemoveFromContainer(comp.TransferringEntity, true);
 
             if (comp.Essence < comp.EssenceRegenCap && !CheckAltars(uid, comp) && comp.HasHaunted)
                 ChangeEssenceAmount(uid, comp.EssencePerSecond, comp, regenCap: true);
@@ -350,27 +352,27 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             return;
         }
 
-        // if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
-        // {
-        //     var ev = new RequestPhantomFreedomMenuEvent(GetNetEntity(uid));
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+        {
+            var ev = new RequestPhantomFreedomMenuEvent(GetNetEntity(uid));
 
-        //     foreach (var prototype in _proto.EnumeratePrototypes<EntityPrototype>())
-        //     {
-        //         if (!prototype.TryGetComponent<InstantActionComponent>(out var actionComp))
-        //             continue;
-        //         if (!prototype.TryGetComponent<TagComponent>(out var tag))
-        //             continue;
-        //         if (actionComp.Icon == null)
-        //             continue;
-        //         foreach (var whitelisted in tag.Tags.ToList())
-        //         {
-        //             if (whitelisted == "PhantomFreedom")
-        //                 ev.Prototypes.Add(prototype.ID);
-        //         }
-        //     }
-        //     ev.Prototypes.Sort();
-        //     RaiseNetworkEvent(ev, session);
-        // }
+            foreach (var prototype in _proto.EnumeratePrototypes<EntityPrototype>())
+            {
+                if (!prototype.TryGetComponent<InstantActionComponent>(out var actionComp))
+                    continue;
+                if (!prototype.TryGetComponent<TagComponent>(out var tag))
+                    continue;
+                if (actionComp.Icon == null)
+                    continue;
+                foreach (var whitelisted in tag.Tags.ToList())
+                {
+                    if (whitelisted == "PhantomFreedom")
+                        ev.Prototypes.Add(prototype.ID);
+                }
+            }
+            ev.Prototypes.Sort();
+            RaiseNetworkEvent(ev, session);
+        }
 
         args.Handled = true;
     }
@@ -712,133 +714,133 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         var chance = 0.2f;
         bool success = false;
 
-        // if (IsHolder(target, component))
-        // {
-        //     if (TryComp<StatusEffectsComponent>(target, out var status) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeHaunted, true, status))
-        //     {
-        //         if (!component.BreakdownOn)
-        //         {
-        //             UpdateEctoplasmSpawn(uid);
-        //             _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false, status);
-        //             _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false, status);
-        //             _status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", timeHaunted, false, status);
-        //             if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
-        //                 _audio.PlayGlobal(component.BreakdownSound, session);
-        //             if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetsession))
-        //                 _audio.PlayGlobal(component.BreakdownSound, targetsession);
+        if (IsHolder(target, component))
+        {
+            if (TryComp<StatusEffectsComponent>(target, out var status) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeHaunted, true, status))
+            {
+                if (!component.BreakdownOn)
+                {
+                    UpdateEctoplasmSpawn(uid);
+                    _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false, status);
+                    _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false, status);
+                    _status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", timeHaunted, false, status);
+                    if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
+                        _audio.PlayGlobal(component.BreakdownSound, session);
+                    if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetsession))
+                        _audio.PlayGlobal(component.BreakdownSound, targetsession);
 
-        //         }
-        //         else
-        //         {
-        //             args.Handled = true;
+                }
+                else
+                {
+                    args.Handled = true;
 
-        //             _status.TryRemoveStatusEffect(target, "SlowedDown");
-        //             _status.TryRemoveStatusEffect(target, "SeeingStatic");
-        //         }
-        //         component.BreakdownOn = !component.BreakdownOn;
-        //     }
+                    _status.TryRemoveStatusEffect(target, "SlowedDown");
+                    _status.TryRemoveStatusEffect(target, "SeeingStatic");
+                }
+                component.BreakdownOn = !component.BreakdownOn;
+            }
 
-        //     if (HasComp<MindShieldComponent>(target))
-        //     {
-        //         if (_random.Prob(chance))
-        //         {
-        //             UpdateEctoplasmSpawn(uid);
-        //             var stunTime = TimeSpan.FromSeconds(1);
-        //             RemComp<MindShieldComponent>(target);
-        //             _sharedStun.TryParalyze(target, stunTime, true);
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-target"), target, target, PopupType.MediumCaution);
-        //         }
-        //         else
-        //         {
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), target, target, PopupType.SmallCaution);
-        //         }
-        //         args.Handled = true;
-        //     }
-        // }
-        // else
-        // {
-        //     if (component.BreakdownOn)
-        //     {
-        //         var selfMessageActive = Loc.GetString("phantom-breakdown-fail-active");
-        //         _popup.PopupEntity(selfMessageActive, uid, uid);
-        //         return;
-        //     }
-        //     if (TryComp<PoweredLightComponent>(target, out var light))
-        //     {
-        //         _poweredLight.TryDestroyBulb(target, light);
-        //         success = true;
-        //     }
-        //     if (TryComp<ApcComponent>(target, out var apc))
-        //     {
-        //         _apcSystem.ApcToggleBreaker(target, apc);
-        //         success = true;
-        //     }
-        //     if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
-        //     {
-        //         _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false);
-        //         _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false);
-        //         _status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", timeStatic, false);
-        //         success = true;
-        //     }
+            if (HasComp<MindShieldComponent>(target))
+            {
+                if (_random.Prob(chance))
+                {
+                    UpdateEctoplasmSpawn(uid);
+                    var stunTime = TimeSpan.FromSeconds(1);
+                    RemComp<MindShieldComponent>(target);
+                    _sharedStun.TryParalyze(target, stunTime, true);
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-target"), target, target, PopupType.MediumCaution);
+                }
+                else
+                {
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), target, target, PopupType.SmallCaution);
+                }
+                args.Handled = true;
+            }
+        }
+        else
+        {
+            if (component.BreakdownOn)
+            {
+                var selfMessageActive = Loc.GetString("phantom-breakdown-fail-active");
+                _popup.PopupEntity(selfMessageActive, uid, uid);
+                return;
+            }
+            if (TryComp<PoweredLightComponent>(target, out var light))
+            {
+                _poweredLight.TryDestroyBulb(target, light);
+                success = true;
+            }
+            if (TryComp<ApcComponent>(target, out var apc))
+            {
+                _apcSystem.ApcToggleBreaker(target, apc);
+                success = true;
+            }
+            if (HasComp<StatusEffectsComponent>(target) && HasComp<BatteryComponent>(target) && _status.TryAddStatusEffect<SeeingStaticComponent>(target, "SeeingStatic", timeStatic, false))
+            {
+                _status.TryAddStatusEffect<KnockedDownComponent>(target, "KnockedDown", time, false);
+                _status.TryAddStatusEffect<StunnedComponent>(target, "Stun", time, false);
+                _status.TryAddStatusEffect<SlowedDownComponent>(target, "SlowedDown", timeStatic, false);
+                success = true;
+            }
 
-        //     if (TryComp<ContainerManagerComponent>(target, out var containerManagerComponent))
-        //     {
-        //         foreach (var container in containerManagerComponent.Containers.Values)
-        //         {
-        //             foreach (var entity in container.ContainedEntities)
-        //             {
-        //                 if (TryComp<PoweredLightComponent>(entity, out var entLight))
-        //                 {
-        //                     _poweredLight.TryDestroyBulb(entity, entLight);
-        //                     success = true;
-        //                 }
-        //                 if (TryComp<ApcComponent>(entity, out var entApc))
-        //                 {
-        //                     _apcSystem.ApcToggleBreaker(entity, entApc);
-        //                     success = true;
-        //                 }
-        //                 if (HasComp<StatusEffectsComponent>(entity) && HasComp<BatteryComponent>(entity) && _status.TryAddStatusEffect<SeeingStaticComponent>(entity, "SeeingStatic", timeStatic, false))
-        //                 {
-        //                     _status.TryAddStatusEffect<KnockedDownComponent>(entity, "KnockedDown", time, false);
-        //                     _status.TryAddStatusEffect<StunnedComponent>(entity, "Stun", time, false);
-        //                     _status.TryAddStatusEffect<SlowedDownComponent>(entity, "SlowedDown", timeStatic, false);
-        //                     success = true;
-        //                 }
-        //             }
-        //         }
-        //     }
+            if (TryComp<ContainerManagerComponent>(target, out var containerManagerComponent))
+            {
+                foreach (var container in containerManagerComponent.Containers.Values)
+                {
+                    foreach (var entity in container.ContainedEntities)
+                    {
+                        if (TryComp<PoweredLightComponent>(entity, out var entLight))
+                        {
+                            _poweredLight.TryDestroyBulb(entity, entLight);
+                            success = true;
+                        }
+                        if (TryComp<ApcComponent>(entity, out var entApc))
+                        {
+                            _apcSystem.ApcToggleBreaker(entity, entApc);
+                            success = true;
+                        }
+                        if (HasComp<StatusEffectsComponent>(entity) && HasComp<BatteryComponent>(entity) && _status.TryAddStatusEffect<SeeingStaticComponent>(entity, "SeeingStatic", timeStatic, false))
+                        {
+                            _status.TryAddStatusEffect<KnockedDownComponent>(entity, "KnockedDown", time, false);
+                            _status.TryAddStatusEffect<StunnedComponent>(entity, "Stun", time, false);
+                            _status.TryAddStatusEffect<SlowedDownComponent>(entity, "SlowedDown", timeStatic, false);
+                            success = true;
+                        }
+                    }
+                }
+            }
 
-        //     if (HasComp<MindShieldComponent>(target))
-        //     {
-        //         if (_random.Prob(chance))
-        //         {
-        //             var stunTime = TimeSpan.FromSeconds(4);
-        //             RemComp<MindShieldComponent>(target);
-        //             _sharedStun.TryParalyze(target, stunTime, true);
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-target"), target, target, PopupType.MediumCaution);
-        //         }
-        //         else
-        //         {
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
-        //             _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), target, target, PopupType.SmallCaution);
-        //         }
-        //         success = true;
-        //     }
-        //     if (success)
-        //     {
-        //         UpdateEctoplasmSpawn(uid);
-        //         args.Handled = true;
-        //         _audio.PlayPvs(component.BreakdownSound, target);
-        //     }
-        //     else
-        //     {
-        //         var selfMessage = Loc.GetString("phantom-breakdown-fail");
-        //         _popup.PopupEntity(selfMessage, uid, uid);
-        //     }
-        // }
+            if (HasComp<MindShieldComponent>(target))
+            {
+                if (_random.Prob(chance))
+                {
+                    var stunTime = TimeSpan.FromSeconds(4);
+                    RemComp<MindShieldComponent>(target);
+                    _sharedStun.TryParalyze(target, stunTime, true);
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-target"), target, target, PopupType.MediumCaution);
+                }
+                else
+                {
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
+                    _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), target, target, PopupType.SmallCaution);
+                }
+                success = true;
+            }
+            if (success)
+            {
+                UpdateEctoplasmSpawn(uid);
+                args.Handled = true;
+                _audio.PlayPvs(component.BreakdownSound, target);
+            }
+            else
+            {
+                var selfMessage = Loc.GetString("phantom-breakdown-fail");
+                _popup.PopupEntity(selfMessage, uid, uid);
+            }
+        }
     }
 
     private void OnStarvation(EntityUid uid, PhantomComponent component, StarvationActionEvent args)
@@ -919,7 +921,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
             var damage = new DamageSpecifier(_random.Pick(list), component.InjuryDamage);
             _damageableSystem.TryChangeDamage(mob, damage);
-            // _sharedStun.TryParalyze(mob, stunTime, true);
+            _sharedStun.TryParalyze(mob, stunTime, true);
         }
     }
 
@@ -1012,14 +1014,14 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             var stunTime = TimeSpan.FromSeconds(1);
             RemComp<MindShieldComponent>(target);
-            // _sharedStun.TryParalyze(target, stunTime, true);
+            _sharedStun.TryParalyze(target, stunTime, true);
             _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
             _popup.PopupEntity(Loc.GetString("phantom-mindshield-success-target"), target, target, PopupType.MediumCaution);
         }
         else
         {
             var stunTime = TimeSpan.FromSeconds(1);
-            // _sharedStun.TryParalyze(uid, stunTime, true);
+            _sharedStun.TryParalyze(uid, stunTime, true);
             _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-self", ("name", Identity.Entity(target, EntityManager))), uid, uid);
             _popup.PopupEntity(Loc.GetString("phantom-mindshield-fail-target"), uid, uid, PopupType.SmallCaution);
         }
@@ -1174,12 +1176,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         if (!TryUseAbility(uid, target))
             return;
 
-        // if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
-        // {
-        //     var selfMessage = Loc.GetString("phantom-blinding-noblood");
-        //     _popup.PopupEntity(selfMessage, uid, uid);
-        //     return;
-        // }
+        if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
+        {
+            var selfMessage = Loc.GetString("phantom-blinding-noblood");
+            _popup.PopupEntity(selfMessage, uid, uid);
+            return;
+        }
 
         if (!TryComp<StatusEffectsComponent>(target, out var status))
         {
@@ -1217,7 +1219,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         if (_mindSystem.TryGetMind(target, out _, out var targetMind) && targetMind.UserId != null && _player.TryGetSessionById(targetMind.UserId, out var targetSession))
             _audio.PlayGlobal(component.BlindingSound, targetSession);
 
-        // _bloodstreamSystem.TryModifyBleedAmount(target, component.BlindingBleed, bloodstream);
+        _bloodstreamSystem.TryModifyBleedAmount(target, component.BlindingBleed, bloodstream);
         _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, "TemporaryBlindness", component.BlindingTime, true);
         _blindable.AdjustEyeDamage((target, blindable), 3);
         var targetMessage = Loc.GetString("phantom-blinding-target");
@@ -2116,7 +2118,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         }
         StopHaunt(component.Owner, target, component);
         component.HelpingHandTimer = component.HelpingHandDuration;
-        ContainerSystem.Insert(target, component.HelpingHand, Transform(component.Owner));
+        _container.Insert(target, component.HelpingHand, Transform(component.Owner));
         component.TransferringEntity = target;
     }
 

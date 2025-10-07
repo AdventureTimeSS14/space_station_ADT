@@ -1,5 +1,5 @@
 - type: entity
-  name: деревянный паркет
+  name: tiles-wood-parquet
   parent: FloorTileItemBase
   id: FloorTileItemWoodParquet
   components:
@@ -17,7 +17,7 @@
     stackType: FloorTileWood
 
 - type: entity
-  name: деревянный чёрный пол
+  name: tiles-wood-black
   parent: FloorTileItemBase
   id: FloorTileItemWoodBlack
   components:
@@ -35,7 +35,7 @@
     stackType: FloorTileItemWoodBlack
 
 - type: entity
-  name: деревянный тёмный пол
+  name: tiles-wood-dark
   parent: FloorTileItemBase
   id: FloorTileItemWoodDark
   components:
@@ -53,7 +53,7 @@
     stackType: FloorTileItemWoodDark
 
 - type: entity
-  name: деревянный светлый пол
+  name: tiles-wood-light
   parent: FloorTileItemBase
   id: FloorTileItemWoodLight
   components:
@@ -71,7 +71,7 @@
     stackType: FloorTileItemWoodLight
 
 - type: entity
-  name: деревянный красный пол
+  name: tiles-wood-red
   parent: FloorTileItemBase
   id: FloorTileItemWoodRed
   components:

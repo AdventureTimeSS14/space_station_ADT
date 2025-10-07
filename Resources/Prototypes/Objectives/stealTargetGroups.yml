@@ -165,13 +165,13 @@
   name: steal-target-groups-forensic-scanner
   sprite:
     sprite: Objects/Devices/forensic_scanner.rsi
-    state: icon
+    state: forensicnew
 
 - type: stealTargetGroup
   id: FlippoEngravedLighter
   name: steal-target-groups-flippo-engraved-lighter
   sprite:
-    sprite: Objects/Tools/Lighters/lighters.rsi
+    sprite: Objects/Tools/lighters.rsi
     state: zippo_engraved_icon_base
 
 - type: stealTargetGroup
@@ -232,14 +232,12 @@
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
 
-# Corvax-StealTarget-start
-#- type: stealTargetGroup
-#  id: SalvageExpeditionsComputerCircuitboard
-#  name: steal-target-groups-salvage-expeditions-computer-circuitboard
-#  sprite:
-#    sprite: Objects/Misc/module.rsi
-#    state: cpu_supply
-# Corvax-StealTarget-end
+- type: stealTargetGroup
+  id: SalvageExpeditionsComputerCircuitboard
+  name: steal-target-groups-salvage-expeditions-computer-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_supply
 
 - type: stealTargetGroup
   id: CargoShuttleConsoleCircuitboard

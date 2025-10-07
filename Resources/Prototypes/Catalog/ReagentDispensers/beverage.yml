@@ -1,0 +1,92 @@
+- type: reagentDispenserInventory
+  id: SodaDispenserInventory
+  inventory:
+  # - DrinkCoconutWaterJug #ADT_Tweak, бутылки заменены на канистры
+  # - DrinkCoffeeJug
+  # - DrinkColaBottleFull
+  # - DrinkCreamCartonXL
+  # - DrinkDrGibbJug
+  # - DrinkEnergyDrinkJug
+  # - DrinkGreenTeaJug
+  # - DrinkIceJug
+  # - DrinkJuiceLimeCartonXL
+  # - DrinkJuiceOrangeCartonXL
+  # - DrinkLemonLimeJug
+  # - DrinkRootBeerJug
+  # - DrinkSodaWaterBottleFull
+  # - DrinkSpaceMountainWindBottleFull
+  # - DrinkSpaceUpBottleFull
+  # - DrinkSugarJug
+  # - DrinkTeaJug
+  # - DrinkTonicWaterBottleFull
+  # - DrinkWaterMelonJuiceJug
+    - ADTDrinkCoconutWaterCanister #ADT_Tweak, бутылки заменены на канистры
+    - ADTDrinkCoffeeCanister
+    - ADTDrinkColaCanister
+    - ADTDrinkCreamCanister
+    - ADTDrinkDrGibbCanister
+    - ADTDrinkEnergyDrinkCanister
+    - ADTDrinkGreenTeaCanister
+    - ADTDrinkIceCanister
+    - ADTDrinkJuiceLimeCanister
+    - ADTDrinkJuiceOrangeCanister
+    - ADTDrinkLemonLimeCanister
+    - ADTDrinkRootBeerCanister
+    - ADTDrinkSodaWaterCanister
+    - ADTDrinkSpaceMountainWindCanister
+    - ADTDrinkSpaceUpCanister
+    - ADTDrinkSugarCanister
+    - ADTDrinkTeaCanister
+    - ADTDrinkTonicWaterCanister
+    - ADTDrinkJuiceWatermelonCanister #ADT_Tweak, бутылки заменены на канистры
+
+
+- type: reagentDispenserInventory
+  id: BoozeDispenserInventory
+  inventory:
+  # - DrinkAleBottleFullGrowler #ADT_Tweak, бутылки заменены на канистры
+  # - DrinkBeerGrowler
+  # - DrinkCoffeeLiqueurBottleFull
+  # - DrinkCognacBottleFull
+  # - DrinkGinBottleFull
+  # - DrinkMeadJug
+  # - DrinkRumBottleFull
+  # - DrinkTequilaBottleFull
+  # - DrinkVermouthBottleFull
+  # - DrinkVodkaBottleFull
+  # - DrinkWhiskeyBottleFull
+  # - DrinkWineBottleFull
+    - ADTDrinkAleCanister #ADT_Tweak, бутылки заменены на канистры
+    - ADTDrinkBeerCanister
+    - ADTDrinkCoffeeLiqueurCanister
+    - ADTDrinkCognacCanister
+    - ADTDrinkGinCanister
+    - ADTDrinkMeadCanister
+    - ADTDrinkRumCanister
+    - ADTDrinkTequilaCanister
+    - ADTDrinkVermouthCanister
+    - ADTDrinkVodkaCanister
+    - ADTDrinkWhiskeyCanister
+    - ADTDrinkWineCanister #ADT_Tweak, бутылки заменены на канистры
+
+### Start ADT Tweak
+- type: reagentDispenserInventory
+  id: CoffeeMachineInventory
+  inventory:
+    - DrinkCoffeeJug
+    - ADTMilkJug
+    - DrinkCreamCartonXL
+
+- type: reagentDispenserInventory
+  id: CoffeeMachineBluespaceInventory
+  inventory:
+    - DrinkCoffeeBluespaceJug
+
+- type: reagentDispenserInventory
+  id: CoffeeMachineCommandInventory
+  inventory:
+    - DrinkCoffeeJug
+    - ADTMilkJug
+    - DrinkCreamCartonXL
+    - DrinkCognacBottleFull
+### End ADT Tweak

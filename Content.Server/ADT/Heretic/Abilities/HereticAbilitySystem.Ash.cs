@@ -88,7 +88,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         foreach (var look in lookup)
         {
-            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath
+            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
             || HasComp<GhoulComponent>(look))
                 continue;
 
@@ -103,7 +103,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                         dmgdict[key] -= 10f + power;
 
                     var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _damageable.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
                 }
 
                 if (flam.OnFire)

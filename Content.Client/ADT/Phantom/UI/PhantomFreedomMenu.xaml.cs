@@ -49,6 +49,18 @@ public sealed partial class PhantomFreedomMenu : RadialMenu
                 ID = proto.ID,
             };
 
+            if (proto.TryGetComponent(out InstantActionComponent? action) && action.Icon != null)
+            {
+                var tex = new TextureRect
+                {
+                    HorizontalAlignment = HAlignment.Center,
+                    VerticalAlignment = VAlignment.Center,
+                    Texture = _spriteSystem.Frame0(action.Icon ?? SpriteSpecifier.Invalid),
+                    TextureScale = new Vector2(1.5f, 1.5f),
+                    SetSize = new Vector2(48f, 48f),
+                };
+                button.AddChild(tex);
+            }
             parent.AddChild(button);
 
         }

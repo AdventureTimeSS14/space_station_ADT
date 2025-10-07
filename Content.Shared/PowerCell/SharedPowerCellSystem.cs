@@ -27,7 +27,7 @@ public abstract class SharedPowerCellSystem : EntitySystem
 
     private void OnMapInit(Entity<PowerCellDrawComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.NextUpdateTime = Timing.CurTime + ent.Comp.Delay;
+        QueueUpdate((ent, ent.Comp));
     }
 
     private void OnRejuvenate(EntityUid uid, PowerCellSlotComponent component, RejuvenateEvent args)
@@ -72,13 +72,19 @@ public abstract class SharedPowerCellSystem : EntitySystem
         RaiseLocalEvent(uid, new PowerCellChangedEvent(true), false);
     }
 
+    /// <summary>
+    /// Makes the draw logic update in the next tick.
+    /// </summary>
+    public void QueueUpdate(Entity<PowerCellDrawComponent?> ent)
+    {
+        if (Resolve(ent, ref ent.Comp))
+            ent.Comp.NextUpdateTime = Timing.CurTime;
+    }
+
     public void SetDrawEnabled(Entity<PowerCellDrawComponent?> ent, bool enabled)
     {
         if (!Resolve(ent, ref ent.Comp, false) || ent.Comp.Enabled == enabled)
             return;
-
-        if (enabled)
-            ent.Comp.NextUpdateTime = Timing.CurTime;
 
         ent.Comp.Enabled = enabled;
         Dirty(ent, ent.Comp);

@@ -112,7 +112,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             // apply gaming.
-            _damageable.SetAllDamage(pookie, dmgComp, damage);
+            _dmg.SetAllDamage(pookie, dmgComp, damage);
         }
 
         // stun close-mid range

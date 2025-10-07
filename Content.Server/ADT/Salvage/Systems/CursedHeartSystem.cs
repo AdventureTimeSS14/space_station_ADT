@@ -67,7 +67,7 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void Damage(EntityUid uid)
     {
-        _bloodstream.TryModifyBloodLevel(uid, -50);
+        _bloodstream.TryModifyBloodLevel(uid, -50, spill: false);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), uid, uid, PopupType.MediumCaution);
     }
 

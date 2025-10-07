@@ -50,13 +50,3 @@
   inhand:
     - BriefcaseIAAFilled
     - ADTbureaucratCane # ADT-Tweak
-
-#ADT tweak start
-- type: chameleonOutfit
-  id: IAAChameleonOutfit
-  job: IAA
-  hasMindShield: true
-  equipment:
-    eyes: ClothingEyesGlassesSunglasses
-    ears: ClothingHeadsetIAA
-#ADT tweak end

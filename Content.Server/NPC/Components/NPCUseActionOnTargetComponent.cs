@@ -1,5 +1,4 @@
 using Content.Server.NPC.Systems;
-using Content.Shared.Actions.Components;
 using Content.Shared.Actions;
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;

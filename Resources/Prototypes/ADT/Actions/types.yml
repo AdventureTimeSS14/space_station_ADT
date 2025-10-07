@@ -3,11 +3,10 @@
   name: Toggle Suit Piece
   description: Remember to equip the important pieces of your suit before going into action.
   components:
-  - type: Action
+  - type: InstantAction
     priority: -5
     itemIconStyle: BigItem
     useDelay: 1 # equip noise spam.
-  - type: InstantAction
     event: !type:ToggleModPartActionEvent
 
 - type: entity
@@ -15,13 +14,12 @@
   name: Toggle Brigmed Siren
   description: Toggles the Brigmed siren on and off.
   components:
-  - type: Action
+  - type: InstantAction
     icon:
       sprite: ADT/Clothing/OuterClothing/Hardsuits/brigmedic-praz.rsi
       state: icon-siren
     useDelay: 1
     itemIconStyle: BigAction
-  - type: InstantAction
     event: !type:ToggleActionEvent
 
 - type: entity
@@ -29,22 +27,21 @@
   name: Toggle Suit Piece
   description: Remember to equip the important pieces of your suit before going into action.
   components:
-  - type: Action
+  - type: InstantAction
     priority: -6
     itemIconStyle: BigItem
     useDelay: 1 # equip noise spam.
+    event: !type:ToggleModMenuActionEvent
     icon:
       sprite: ADT/Interface/Actions/mod_menu.rsi
       state: icon
-  - type: InstantAction
-    event: !type:ToggleModMenuActionEvent
 
 - type: entity
   id: ADTActionMorphGeras
   name: Morph into Geras
   description: Morphs you into a Geras - a miniature version of you which allows you to move fast, at the cost of your inventory.
   components:
-    - type: Action
+    - type: InstantAction
       itemIconStyle: BigAction
       useDelay: 60 # prevent spam
       priority: -20
@@ -52,5 +49,4 @@
       icon:
         sprite: Mobs/Aliens/slimes.rsi
         state: blue_adult_slime
-    - type: InstantAction
       event: !type:MorphIntoGeras

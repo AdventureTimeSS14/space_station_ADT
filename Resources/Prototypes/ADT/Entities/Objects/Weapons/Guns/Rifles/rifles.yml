@@ -92,10 +92,6 @@
       rmc-aslot-underbarrel: 0.25, -0.125
       rmc-aslot-rail: 0, 0
       rmc-aslot-barrel: 0.96875, 0
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
 
 - type: entity
   name: TAR-60SF

@@ -14,11 +14,8 @@ namespace Content.Client.Stealth;
 
 public sealed partial class StealthSystem : SharedStealthSystem
 {
-    private static readonly ProtoId<ShaderPrototype> Shader = "Stealth";
-
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
     private ShaderInstance _shader = default!;
@@ -27,7 +24,7 @@ public sealed partial class StealthSystem : SharedStealthSystem
     {
         base.Initialize();
 
-        _shader = _protoMan.Index(Shader).InstanceUnique();
+        _shader = _protoMan.Index<ShaderPrototype>("Stealth").InstanceUnique();
 
         SubscribeLocalEvent<StealthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);
@@ -54,7 +51,7 @@ public sealed partial class StealthSystem : SharedStealthSystem
             enabled = false;
         // ADT end
 
-        _sprite.SetColor((uid, sprite), Color.White);
+        sprite.Color = Color.White;
         sprite.PostShader = enabled ? _shader : null;
         sprite.GetScreenTexture = enabled;
         sprite.RaiseShaderEvent = enabled;
@@ -116,6 +113,6 @@ public sealed partial class StealthSystem : SharedStealthSystem
         _shader.SetParameter("visibility", visibility);
 
         visibility = MathF.Max(0, visibility);
-        _sprite.SetColor((uid, args.Sprite), new Color(visibility, visibility, 1, 1));
+        args.Sprite.Color = new Color(visibility, visibility, 1, 1);
     }
 }

@@ -53,17 +53,6 @@
     toolWhitelist:
       tags:
         - Pickaxe #ADT plasmacutters end
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 2000
 
 - type: entity
   abstract: true
@@ -389,14 +378,6 @@
           state: rock_asteroid_west
         # - state: rock_bananium #ADT tweak
         #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
-
-- type: entity
-  id: AsteroidRockBananiumCrab
-  parent: AsteroidRockBananium
-  suffix: Bananium Crab
-  components:
-  - type: OreVein
-    currentOre: OreBananiumCrab
 
 - type: entity
   id: AsteroidRockSalt

@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
-using Content.Shared.Speech;
+
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -136,21 +136,21 @@ public sealed class DeutschAccentSystem : EntitySystem
         message = Regex.Replace(message, "ПРИВЕТ", "HALLO");
         message = Regex.Replace(message, "привет", "hallo");
 
-        message = Regex.Replace(message, "Сб", "Polizei");
-        message = Regex.Replace(message, "СБ", "POLIZEI");
+        message = Regex.Replace(message, "Сб", "Polizei");  
+        message = Regex.Replace(message, "СБ", "POLIZEI");  
         message = Regex.Replace(message, "сб", "polizei");
 
-        message = Regex.Replace(message, "Си", "Chief");
-        message = Regex.Replace(message, "СИ", "Chief");
+        message = Regex.Replace(message, "Си", "Chief");  
+        message = Regex.Replace(message, "СИ", "Chief");  
         message = Regex.Replace(message, "си", "chief");
 
-        message = Regex.Replace(message, "ГВ", "Chefarzt");
-        message = Regex.Replace(message, "Гв", "Chefarzt");
-        message = Regex.Replace(message, "гв", "chefarzt");
+        message = Regex.Replace(message, "ГВ", "Chefarzt");  
+        message = Regex.Replace(message, "Гв", "Chefarzt");  
+        message = Regex.Replace(message, "гв", "chefarzt");  
 
-        message = Regex.Replace(message, "НР", "Doktorvater");
-        message = Regex.Replace(message, "Нр", "Doktorvater");
-        message = Regex.Replace(message, "нр", "doktorvater");
+        message = Regex.Replace(message, "НР", "Doktorvater");  
+        message = Regex.Replace(message, "Нр", "Doktorvater");  
+        message = Regex.Replace(message, "нр", "doktorvater"); 
 
         message = Regex.Replace(message, "Капитан", "Führer");
         message = Regex.Replace(message, "КАПИТАН", "FUHRER");

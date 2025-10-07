@@ -19,7 +19,9 @@ using Content.Shared.ADT.Traits;
 using Content.Shared.Storage.Components;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
+using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
+using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
@@ -37,6 +39,7 @@ using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -49,6 +52,7 @@ namespace Content.Server.Polymorph.Systems;
 
 public sealed partial class PolymorphSystem : EntitySystem
 {
+    [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -134,8 +138,8 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (_actions.AddAction(uid, ref component.Action, out var action, RevertPolymorphId))
         {
-            _actions.SetEntityIcon((component.Action.Value, action), component.Parent);
-            _actions.SetUseDelay(component.Action.Value, TimeSpan.FromSeconds(component.Configuration.Delay));
+            action.EntityIcon = component.Parent;
+            action.UseDelay = TimeSpan.FromSeconds(component.Configuration.Delay);
         }
     }
 
@@ -241,9 +245,9 @@ public sealed partial class PolymorphSystem : EntitySystem
                 ("child", Identity.Entity(child, EntityManager))),
                 child);
 
-        _mindSystem.MakeSentient(child);
+        MakeSentientCommand.MakeSentient(child, EntityManager);
 
-        var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
+        var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
         polymorphedComp.Configuration = configuration;
         AddComp(child, polymorphedComp);
@@ -642,20 +646,21 @@ public sealed partial class PolymorphSystem : EntitySystem
         _metaData.SetEntityName(actionId.Value, Loc.GetString("polymorph-self-action-name", ("target", entProto.Name)), metaDataCache);
         _metaData.SetEntityDescription(actionId.Value, Loc.GetString("polymorph-self-action-description", ("target", entProto.Name)), metaDataCache);
 
-        if (_actions.GetAction(actionId) is not {} action)
+        if (!_actions.TryGetActionData(actionId, out var baseAction))
             return;
 
-        _actions.SetIcon((action, action.Comp), new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity));
-        _actions.SetEvent(action, new PolymorphActionEvent(id));
+        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity);
+        if (baseAction is InstantActionComponent action)
+            action.Event = new PolymorphActionEvent(id);
     }
 
     public void RemovePolymorphAction(ProtoId<PolymorphPrototype> id, Entity<PolymorphableComponent> target)
     {
-        if (target.Comp.PolymorphActions is not {} actions)
+        if (target.Comp.PolymorphActions == null)
             return;
 
-        if (actions.TryGetValue(id, out var action))
-            _actions.RemoveAction(target.Owner, action);
+        if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
+            _actions.RemoveAction(target, val);
     }
 
     // ADT-Changeling-Tweak-Start

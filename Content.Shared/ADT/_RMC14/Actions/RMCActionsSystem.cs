@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.FixedPoint;
 
@@ -18,8 +17,11 @@ public sealed class RMCActionsSystem : EntitySystem
         SubscribeLocalEvent<ActionSharedCooldownComponent, ActionPerformedEvent>(OnSharedCooldownPerformed);
 
         SubscribeLocalEvent<ActionCooldownComponent, RMCActionUseEvent>(OnCooldownUse);
-
-        SubscribeLocalEvent<ActionComponent, ActionReducedUseDelayEvent>(OnReducedUseDelayEvent);
+        
+        SubscribeLocalEvent<InstantActionComponent, ActionReducedUseDelayEvent>(OnReducedUseDelayEvent);
+        SubscribeLocalEvent<EntityTargetActionComponent, ActionReducedUseDelayEvent>(OnReducedUseDelayEvent);
+        SubscribeLocalEvent<WorldTargetActionComponent, ActionReducedUseDelayEvent>(OnReducedUseDelayEvent);
+        SubscribeLocalEvent<EntityWorldTargetActionComponent, ActionReducedUseDelayEvent>(OnReducedUseDelayEvent);
     }
 
     private void OnSharedCooldownPerformed(Entity<ActionSharedCooldownComponent> ent, ref ActionPerformedEvent args)
@@ -47,7 +49,7 @@ public sealed class RMCActionsSystem : EntitySystem
         }
     }
 
-    private void OnReducedUseDelayEvent(EntityUid uid, ActionComponent component, ActionReducedUseDelayEvent args)
+    private void OnReducedUseDelayEvent<T>(EntityUid uid, T component, ActionReducedUseDelayEvent args) where T : BaseActionComponent
     {
         if (!TryComp(uid, out ActionReducedUseDelayComponent? comp))
             return;
@@ -59,14 +61,17 @@ public sealed class RMCActionsSystem : EntitySystem
 
         if (TryComp(uid, out ActionSharedCooldownComponent? shared))
         {
-            comp.UseDelayBase ??= shared.Cooldown;
+            if (comp.UseDelayBase == null)
+                comp.UseDelayBase = shared.Cooldown;
 
             RefreshSharedUseDelay((uid, comp), shared);
             return;
         }
 
         // Should be fine to only set this once as the base use delay should remain constant
-        comp.UseDelayBase ??= component.UseDelay;
+        if (comp.UseDelayBase == null)
+            comp.UseDelayBase = component.UseDelay;
+
         RefreshUseDelay((uid, comp));
     }
 
@@ -94,7 +99,7 @@ public sealed class RMCActionsSystem : EntitySystem
 
     private void OnCooldownUse(Entity<ActionCooldownComponent> ent, ref RMCActionUseEvent args)
     {
-        _actions.SetIfBiggerCooldown(ent.Owner, ent.Comp.Cooldown);
+        _actions.SetIfBiggerCooldown(ent, ent.Comp.Cooldown);
     }
 
     public bool CanUseActionPopup(EntityUid user, EntityUid action)

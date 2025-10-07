@@ -107,7 +107,7 @@ public sealed class PaintSystem : SharedPaintSystem
 
         if (PaintCapacity(entity))
         {
-            EnsureComp<ColorPaintedComponent>(target, out ColorPaintedComponent? paint);
+            EnsureComp<PaintedComponent>(target, out PaintedComponent? paint);
             EnsureComp<AppearanceComponent>(target);
 
             paint.Color = entity.Comp.Color; // set the target color to the color specified in the spray paint yml.
@@ -129,7 +129,7 @@ public sealed class PaintSystem : SharedPaintSystem
                         if (_whitelist.IsWhitelistPass(entity.Comp.Blacklist, slotEnt.Value))
                             return;
 
-                        EnsureComp<ColorPaintedComponent>(slotEnt.Value, out ColorPaintedComponent? slotpaint);
+                        EnsureComp<PaintedComponent>(slotEnt.Value, out PaintedComponent? slotpaint);
                         EnsureComp<AppearanceComponent>(slotEnt.Value);
                         slotpaint.Color = entity.Comp.Color;
                         _appearanceSystem.SetData(slotEnt.Value, PaintVisuals.Painted, true);

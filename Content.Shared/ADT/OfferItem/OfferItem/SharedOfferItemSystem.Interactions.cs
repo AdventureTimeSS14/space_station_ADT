@@ -1,7 +1,6 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Hands.Components;
 using Content.Shared.Input;
-using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 
@@ -10,7 +9,6 @@ namespace Content.Shared.ADT.OfferItem;
 public abstract partial class SharedOfferItemSystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedHandsSystem _hand = default!;
 
     private void InitializeInteractions()
     {
@@ -40,10 +38,10 @@ public abstract partial class SharedOfferItemSystem
         if (!TryComp<OfferItemComponent>(uid, out var offerItem))
             return;
 
-        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHandId is null)
+        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHand is null)
             return;
 
-        offerItem.Item = _hand.GetActiveItem((uid, hands));
+        offerItem.Item = hands.ActiveHand.HeldEntity;
 
         if (!offerItem.IsInOfferMode)
         {
@@ -56,7 +54,7 @@ public abstract partial class SharedOfferItemSystem
             if (offerItem.Hand is null || offerItem.Target is null)
             {
                 offerItem.IsInOfferMode = true;
-                offerItem.Hand = hands.ActiveHandId;
+                offerItem.Hand = hands.ActiveHand.Name;
 
                 Dirty(uid, offerItem);
                 return;

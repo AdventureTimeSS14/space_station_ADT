@@ -10,9 +10,10 @@
     tags:
     - WhitelistChameleon
   - type: HideLayerClothing
-    layers:
-      HeadTop : HEAD
-      HeadSide : HEAD
+    slots:
+    - HeadTop
+    - HeadSide
+    - SnoutOverlay # ADT Tweak
 
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -57,9 +58,6 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -76,9 +74,6 @@
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #SWAT Helmet
 - type: entity
@@ -102,9 +97,6 @@
         Caustic: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.75
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -122,9 +114,6 @@
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -148,9 +137,6 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.95
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
@@ -177,9 +163,15 @@
         Slash: 0.95
         Piercing: 0.95
   - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      Snout: HEAD
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  #ADT-Tweak-Start
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
+  #ADT-Tweak-End
 
 #Janitorial Bombsuit Helmet
 - type: entity
@@ -193,9 +185,6 @@
     sprite: Clothing/Head/Helmets/janitor_bombsuit.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/janitor_bombsuit.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Cult Helmet
 - type: entity
@@ -216,9 +205,6 @@
         Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
@@ -241,9 +227,11 @@
   - type: IngestionBlocker
   - type: IdentityBlocker
   - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      Snout: HEAD
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
 
 #Knight Helmet
 - type: entity
@@ -258,9 +246,6 @@
     sprite: Clothing/Head/Helmets/templar.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
@@ -280,9 +265,6 @@
     sprite: Clothing/Head/Helmets/thunderdome.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/thunderdome.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Wizard Helmet
 - type: entity
@@ -297,9 +279,6 @@
     sprite: Clothing/Head/Helmets/wizardhelm.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
@@ -329,9 +308,15 @@
     - WhitelistChameleon
     - FireHelmet
   - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      Snout: HEAD
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  #ADT-Tweak-Start
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]
+  #ADT-Tweak-End
 
 #Atmos Fire Helmet
 - type: entity
@@ -359,11 +344,12 @@
     tags:
     - WhitelistChameleon
     - FireHelmet
-    - CorgiWearable
   - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      Snout: HEAD
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
   - type: BreathMask
   #ADT-Tweak-Start
   - type: CoveredSlot
@@ -388,9 +374,6 @@
         Slash: 0.5
         Piercing: 0.5
         Heat: 0.9
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
@@ -408,9 +391,6 @@
     sprite: Clothing/Head/Helmets/ert_leader.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_leader.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -427,9 +407,6 @@
     sprite: Clothing/Head/Helmets/ert_security.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_security.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -446,9 +423,6 @@
     sprite: Clothing/Head/Helmets/ert_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_medic.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -465,9 +439,6 @@
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -484,9 +455,6 @@
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -509,16 +477,12 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.85
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
   #ADT-Tweak-End
 
 #Bone Helmet
-#No need to hide the hair on this one
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMinorContraband ]
   id: ClothingHeadHelmetBone
@@ -537,7 +501,6 @@
     slots: [eyes, mask]
   #ADT-Tweak-End
 
-#Ironclad II Helmet
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMinorContraband ]
   id: ClothingHeadHelmetPodWars
@@ -548,9 +511,6 @@
     sprite: Clothing/Head/Helmets/podwars_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/podwars_helmet.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 #Justice Helmet
 - type: entity
@@ -591,8 +551,7 @@
     action: ActionToggleJusticeHelm
     mustEquip: false
   - type: ItemTogglePointLight
-  - type: ToggleableVisuals
-    spriteLayer: light
+  - type: ToggleableLightVisuals
     clothingVisuals:
       head:
       - state: on-equipped-HELMET
@@ -622,9 +581,6 @@
   - type: Construction
     graph: HelmetJustice
     node: helmet
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes]
@@ -639,18 +595,13 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
 
 - type: entity
-  parent: BaseAction
   id: ActionToggleJusticeHelm
   name: Toggle Justice Helm
   description: Toggles the justice helm on and off.
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 1
     itemIconStyle: BigItem
-  - type: InstantAction
     event: !type:ToggleActionEvent

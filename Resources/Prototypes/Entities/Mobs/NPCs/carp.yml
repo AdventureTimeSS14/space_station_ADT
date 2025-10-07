@@ -77,7 +77,6 @@
         - Carp
         - DoorBumpOpener
         - NoPaint # ADT tweak
-        - CannotSuicide
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
@@ -167,10 +166,6 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        30: Dead
 
 - type: entity
   name: space carp
@@ -191,7 +186,9 @@
       # ADT-Tweak-end
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
-      - MindRoleGhostRoleTeamAntagonistFlock
+      - MindRoleGhostRoleTeamAntagonist
+#      raffle:
+#        settings: short ADT tweak для быстрого захода на рольку
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask:
@@ -256,7 +253,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        82: Dead # Might seem random, but this brings up the hits to kill with a crusher mark to 3
+        150: Dead
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals
@@ -275,7 +272,8 @@
         - id: FoodMeatFish
           amount: 4
         - id: MaterialToothSharkminnow1
-          amount: 3
+          amount: 1
+          maxAmount: 3
     - type: MeleeWeapon
       damage:
         types:

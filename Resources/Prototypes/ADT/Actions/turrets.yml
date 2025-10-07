@@ -2,24 +2,22 @@
   id: ControlReturnAction
   name: Stop controlling turret
   components:
-  - type: Action
+  - type: InstantAction
     icon:
       sprite: ADT/Interface/Actions/actions_turret.rsi
       state: stop_control
-    useDelay: 1
-  - type: InstantAction
     event: !type:ControlReturnActionEvent {}
+    useDelay: 1
 
 - type: entity
   id: ActionTurretShowRadar
   name: Mass Scanner Interface
   description: View a Mass Scanner Interface.
   components:
-  - type: Action
+  - type: InstantAction
     icon:
       sprite: Objects/Tools/crowbar.rsi #заменить спрайт с монтировки на что то сносное
       state: icon
+    event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
     useDelay: 1
     checkCanInteract: false
-  - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }

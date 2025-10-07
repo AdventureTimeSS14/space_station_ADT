@@ -32,6 +32,12 @@
   components:
   - type: Stack
     stackType: GoldOre
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTGoldOre
+    - Ore
+### End ADT Tweak
   - type: Sprite
     state: gold
   - type: Material
@@ -48,10 +54,6 @@
           Quantity: 10
   - type: Item
     heldPrefix: gold
-  - type: Tag
-    tags:
-    - Ore
-    - OreGold
 
 - type: entity
   parent: GoldOre
@@ -162,10 +164,6 @@
           Quantity: 10
   - type: Item
     heldPrefix: plasma
-  - type: Tag
-    tags:
-    - Ore
-    - OrePlasma
 
 - type: entity
   parent: PlasmaOre
@@ -183,6 +181,12 @@
   components:
   - type: Stack
     stackType: SilverOre
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTSilverOre
+    - Ore
+### End ADT Tweak
   - type: Sprite
     state: silver
   - type: Material
@@ -199,10 +203,6 @@
           Quantity: 10
   - type: Item
     heldPrefix: silver
-  - type: Tag
-    tags:
-    - Ore
-    - OreSilver
 
 - type: entity
   parent: SilverOre
@@ -265,6 +265,12 @@
   - type: PhysicalComposition
     materialComposition:
       RawUranium: 300   #ADT_Tweak - повышено со 100
+### Start ADT Tweak
+  - type: Tag
+    tags:
+    - ADTUraniumOre
+    - Ore
+### End ADT Tweak
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -283,10 +289,6 @@
         canReact: false
   - type: Item
     heldPrefix: uranium
-  - type: Tag
-    tags:
-    - Ore
-    - OreUranium
 
 - type: entity
   parent: UraniumOre
@@ -329,10 +331,6 @@
           Quantity: 5
   - type: Item
     heldPrefix: bananium
-  - type: Tag
-    tags:
-    - Ore
-    - OreBananium
 
 - type: entity
   parent: BananiumOre
@@ -447,4 +445,3 @@
   components:
   - type: Stack
     count: 1
-

@@ -9,7 +9,6 @@
     - id: CargoSaleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
-    - id: SalvageJobBoardComputerCircuitboard
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -58,7 +57,7 @@
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
     - id: CommsComputerCircuitboard
-    - id: DoorRemoteCustom
+    - id: DoorRemoteCommand
     - id: MedalCase
     - id: NukeDisk
     - id: PinpointerNuclear
@@ -195,7 +194,6 @@
       amount: !type:RangeNumberSelector
         range: 1, 3
     - id: RubberStampCE
-    - id: MetalFoamGrenade
     # Start-ADT Tweak
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
@@ -466,6 +464,7 @@
   - type: StorageFill
     contents:
     - id: WeaponRevolverDeckard
+    - id: ClothingOuterHardsuitBasic
     - id: JetpackBlue
     # - id: SpaceCash1000 # ADT-Economy
     - id: BeachBall

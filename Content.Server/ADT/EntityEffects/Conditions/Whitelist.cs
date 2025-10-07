@@ -1,7 +1,9 @@
+using Content.Server.Temperature.Components;
+using Content.Shared.EntityEffects;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.EntityEffects.EffectConditions;
+namespace Content.Server.EntityEffects.EffectConditions;
 
 public sealed partial class Whitelist : EntityEffectCondition
 {

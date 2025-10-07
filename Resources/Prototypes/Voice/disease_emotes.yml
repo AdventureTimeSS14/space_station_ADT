@@ -35,7 +35,6 @@
   blacklist:
     tags:
     - SiliconEmotes
-    - Ipc # Corvax-Species
   chatMessages: ["chat-emote-msg-cough"]
   chatTriggers:
     - cough
@@ -86,7 +85,6 @@
   blacklist:
     tags:
     - SiliconEmotes
-    - Ipc # Corvax-Species
   chatMessages: ["chat-emote-msg-yawn"]
   chatTriggers:
     - yawn

@@ -74,8 +74,6 @@
     - state: cargo
     - state: icon-pka
   - type: ItemBorgModule
-    items:
-    - WeaponProtoKineticAccelerator
     droppableItems:
     - id: WeaponProtoKineticAccelerator
       whitelist:

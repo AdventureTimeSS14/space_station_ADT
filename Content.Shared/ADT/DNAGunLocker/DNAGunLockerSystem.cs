@@ -14,7 +14,9 @@ public sealed partial class SharedDNAGunLockerSystem : EntitySystem
 {
 
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
@@ -72,7 +74,7 @@ public sealed partial class SharedDNAGunLockerSystem : EntitySystem
         }
         dnaComp.GunOwner = user;
         _popup.PopupPredicted(Loc.GetString("gun-was-personalized"), uid, user);
-        _audio.PlayPredicted(dnaComp.LockSound, uid, user);
+        _audioSystem.PlayPredicted(dnaComp.LockSound, uid, user);
 
         Dirty(uid, dnaComp);
     }
@@ -87,7 +89,7 @@ public sealed partial class SharedDNAGunLockerSystem : EntitySystem
             // Установить пользователя как владельца
             dnaComp.GunOwner = user;
             _popup.PopupPredicted(Loc.GetString("gun-was-personalized"), uid, user);
-            _audio.PlayPredicted(dnaComp.LockSound, uid, user);
+            _audioSystem.PlayPredicted(dnaComp.LockSound, uid, user);
             return;
         }
         // Если владелец заходит в эту функцию
@@ -96,7 +98,7 @@ public sealed partial class SharedDNAGunLockerSystem : EntitySystem
             // Сбросить владельца
             dnaComp.GunOwner = null;
             _popup.PopupPredicted(Loc.GetString("gun-personalize-unlocked"), uid, user);
-            _audio.PlayPredicted(dnaComp.LockSound, uid, user);
+            _audioSystem.PlayPredicted(dnaComp.LockSound, uid, user);
             return;
         }
         // Если заходит другой пользователь, не владелец оружия

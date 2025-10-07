@@ -1,4 +1,4 @@
-action-name-wake = Разбудить
+action-name-wake = Проснуться
 sleep-onomatopoeia = Хррррр...
 sleep-examined = [color=lightblue]{ CAPITALIZE($target) } спит.[/color]
 wake-other-success = Вы разбудили { $target }.

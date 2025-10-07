@@ -73,7 +73,7 @@
   name: Hristov
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband, ADTBaseMagneticGun] # ADT TWEAK
   id: WeaponSniperHristov
-  description: For when you absolutely, positively need to make someone regret their life choices from a safe distance. Uses .60 anti-materiel ammo.
+  description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
@@ -109,8 +109,6 @@
             tags:
             - ADTAttachmentMagneticHarness
             - ADTAttachmentHristovScope
-  - type: StaticPrice
-    price: 3500
 
 - type: entity
   name: musket
@@ -149,7 +147,6 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: GunRequiresWield
 
 - type: entity
   name: flintlock pistol

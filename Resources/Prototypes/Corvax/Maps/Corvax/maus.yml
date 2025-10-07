@@ -5,7 +5,7 @@
 #   maxRandomOffset: 0
 #   randomRotation: false
 #   minPlayers: 0
-#   maxPlayers: 25
+#   maxPlayers: 35
 #   stations:
 #     Maus:
 #       stationProto: StandardNanotrasenStation
@@ -68,4 +68,3 @@
 #             # silicon
 #             StationAi: [ 1, 1 ]
 #             Borg: [ 1, 1 ]
-            

@@ -23,11 +23,19 @@
   - type: Metabolizer #Skreeeee!
     metabolizerTypes: [Vox]
   - type: Stomach
-    # Bird vs tags
+#Bird vs tags
     specialDigestible:
       tags:
-        - Trash
-    isSpecialDigestibleExclusive: false
+      - Trash
+      - Fruit
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+      - VoxFood
+      - Vegetable
+      - Cake        # ADT-Tweak
 
 - type: entity
   parent: OrganHumanLiver

@@ -7,7 +7,6 @@ namespace Content.Shared._RMC14.Sound;
 /// Simple sound emitter that emits sound on InstantAction
 /// </summary>
 [RegisterComponent]
-[AutoGenerateComponentState]
 public sealed partial class EmitSoundOnActionComponent : BaseEmitSoundComponent
 {
     /// <summary>
@@ -19,6 +18,6 @@ public sealed partial class EmitSoundOnActionComponent : BaseEmitSoundComponent
     ///     otherwise this might enable sound spamming, as use-delays are only initiated if the interaction was
     ///     handled.
     /// </remarks>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool Handle = true;
 }

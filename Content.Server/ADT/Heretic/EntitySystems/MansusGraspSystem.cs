@@ -1,5 +1,6 @@
 using Content.Server.Atmos.Commands;
 using Content.Server.Chat.Systems;
+using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
@@ -30,7 +31,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Emp;
 using Content.Server.Actions;
-using Content.Shared.Standing;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -200,7 +200,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
                     // ultra stun if the person is looking away or laying down
                     var degrees = Transform(target).LocalRotation.Degrees - Transform(performer).LocalRotation.Degrees;
-                    if (TryComp<StandingStateComponent>(target, out var crawl) && !crawl.Standing  // laying down
+                    if (HasComp<CrawlingComponent>(target) // laying down
                     || (degrees >= 160 && degrees <= 210)) // looking back
                         _stamina.TakeStaminaDamage(target, 110f);
                     break;
@@ -264,7 +264,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         if (TryComp<HandsComponent>(target, out var hands))
-            _hands.TryDrop(target, Transform(target).Coordinates);
+            _hands.TryDrop(target, Transform(target).Coordinates, handsComp: hands);
 
         SpendInfusionCharges(ent, charges: ent.Comp.MaxCharges); // spend all because RCHTHTRTH
     }

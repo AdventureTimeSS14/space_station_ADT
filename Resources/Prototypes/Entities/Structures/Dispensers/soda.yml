@@ -1,21 +1,21 @@
 - type: entity
   parent: ReagentDispenserBase
-  id: SodaDispenserEmpty
+  id: SodaDispenser
   name: soda dispenser
   description: A beverage dispenser with a selection of soda and several other common beverages. Has a single fill slot for containers.
-  suffix: Empty
+  suffix: Filled
   components:
   - type: Rotatable
   - type: Sprite
     sprite: Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: soda
-  - type: Storage
-    openOnActivate: false
-    whitelist:
+  - type: ReagentDispenser
+    storageWhitelist:
       tags:
       - DrinkBottle
-      - ChemDispensable
+      - ChemDispensable #ADT_Tweak
+    pack: SodaDispenserInventory
   - type: Transform
     noRot: false
   - type: Machine
@@ -26,30 +26,13 @@
     - Drinks
 
 - type: entity
-  parent: SodaDispenserEmpty
-  id: SodaDispenser
-  suffix: Filled
+  parent: SodaDispenser
+  id: SodaDispenserEmpty
+  suffix: Empty
   components:
-  - type: StorageFill
-    contents:
-    # ADT-Tweak-Start
-    - id: ADTDrinkCoconutWaterCanister
-    - id: ADTDrinkCoffeeCanister
-    - id: ADTDrinkColaCanister
-    - id: ADTDrinkCreamCanister
-    - id: ADTDrinkDrGibbCanister
-    - id: ADTDrinkEnergyDrinkCanister
-    - id: ADTDrinkGreenTeaCanister
-    - id: ADTDrinkIceCanister
-    - id: ADTDrinkJuiceLimeCanister
-    - id: ADTDrinkJuiceOrangeCanister
-    - id: ADTDrinkLemonLimeCanister
-    - id: ADTDrinkRootBeerCanister
-    - id: ADTDrinkSodaWaterCanister
-    - id: ADTDrinkSpaceMountainWindCanister
-    - id: ADTDrinkSpaceUpCanister
-    - id: ADTDrinkSugarCanister
-    - id: ADTDrinkTeaCanister
-    - id: ADTDrinkTonicWaterCanister
-    - id: ADTDrinkJuiceWatermelonCanister
-    # ADT-Tweak-End
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+      - ChemDispensable #ADT_Tweak
+    pack: EmptyInventory

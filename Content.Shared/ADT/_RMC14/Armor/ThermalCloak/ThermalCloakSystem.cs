@@ -1,7 +1,6 @@
 using Content.Shared._RMC14.Stealth;
 using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
-using Content.Shared.Actions.Events;
+using Content.Shared.Coordinates;
 using Content.Shared.Explosion.Components.OnTrigger;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
@@ -28,7 +27,6 @@ namespace Content.Shared._RMC14.Armor.ThermalCloak;
 /// </summary>
 public sealed class ThermalCloakSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -120,11 +118,11 @@ public sealed class ThermalCloakSystem : EntitySystem
 
             ent.Comp.Enabled = true;
             turnInvisible.Enabled = true;
-            if (HasComp<InstantActionComponent>(ent.Comp.Action) &&
-                TryComp(ent.Comp.Action, out ActionComponent? action))
+            if (TryComp<InstantActionComponent>(ent.Comp.Action, out var action))
             {
-                _actions.SetCooldown((ent.Comp.Action.Value, action), _timing.CurTime, _timing.CurTime + ent.Comp.Cooldown);
-                _actions.SetUseDelay((ent.Comp.Action.Value, action), ent.Comp.Cooldown);
+                action.Cooldown = (_timing.CurTime, _timing.CurTime + ent.Comp.Cooldown);
+                action.UseDelay = ent.Comp.Cooldown;
+                Dirty(ent.Comp.Action.Value, action);
             }
 
             turnInvisible.UncloakTime = _timing.CurTime; // Just in case
@@ -150,11 +148,11 @@ public sealed class ThermalCloakSystem : EntitySystem
 
             if (forced)
             {
-                if (HasComp<InstantActionComponent>(ent.Comp.Action) &&
-                    TryComp(ent.Comp.Action, out ActionComponent? action))
+                if (TryComp<InstantActionComponent>(ent.Comp.Action, out var action))
                 {
-                    _actions.SetCooldown((ent.Comp.Action.Value, action), _timing.CurTime, _timing.CurTime + ent.Comp.ForcedCooldown);
-                    _actions.SetUseDelay((ent.Comp.Action.Value, action), ent.Comp.ForcedCooldown);
+                    action.Cooldown = (_timing.CurTime, _timing.CurTime + ent.Comp.ForcedCooldown);
+                    action.UseDelay = ent.Comp.ForcedCooldown;
+                    Dirty(ent.Comp.Action.Value, action);
                 }
 
                 turnInvisible.UncloakTime = _timing.CurTime;
@@ -164,11 +162,11 @@ public sealed class ThermalCloakSystem : EntitySystem
             }
             else
             {
-                if (HasComp<InstantActionComponent>(ent.Comp.Action) &&
-                    TryComp(ent.Comp.Action, out ActionComponent? action))
+                if (TryComp<InstantActionComponent>(ent.Comp.Action, out var action))
                 {
-                    _actions.SetCooldown((ent.Comp.Action.Value, action), _timing.CurTime, _timing.CurTime + ent.Comp.Cooldown);
-                    _actions.SetUseDelay((ent.Comp.Action.Value, action), ent.Comp.Cooldown);
+                    action.Cooldown = (_timing.CurTime, _timing.CurTime + ent.Comp.Cooldown);
+                    action.UseDelay = ent.Comp.Cooldown;
+                    Dirty(ent.Comp.Action.Value, action);
                 }
 
                 turnInvisible.UncloakTime = _timing.CurTime;

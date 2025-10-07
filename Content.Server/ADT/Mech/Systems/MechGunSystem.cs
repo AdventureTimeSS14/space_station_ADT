@@ -59,7 +59,7 @@ public sealed class MechGunSystem : EntitySystem
         {
             if (TryComp<MechComponent>(args.User, out var pilot) && pilot.PilotSlot.ContainedEntity != null)
                 _mech.TryEject(args.User, pilot);
-            _stun.TryUpdateParalyzeDuration(args.User, TimeSpan.FromSeconds(10));
+            _stun.TryParalyze(args.User, TimeSpan.FromSeconds(10), true);
             _throwing.TryThrow(args.User, _random.NextVector2(), _random.Next(50));
             return;
         }

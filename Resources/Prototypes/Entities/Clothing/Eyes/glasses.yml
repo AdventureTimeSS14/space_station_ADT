@@ -67,10 +67,6 @@
   # - type: EyeProtection #ADT tweak
   - type: IdentityBlocker
     coverage: EYES
-  - type: Tag
-    tags:
-    - PetWearable
-    - WhitelistChameleon
   - type: ClothingGrantComponent #ADT-Tweak
     component:
     - type: SupermatterHallucinationImmune
@@ -134,8 +130,6 @@
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
   - type: VisionCorrection
   - type: IdentityBlocker
-  - type: StaticPrice
-    price: 500
 
 - type: entity
   parent: ClothingEyesBase
@@ -150,7 +144,6 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -167,7 +160,6 @@
   - type: Tag
     tags:
     - Sunglasses
-    - PetWearable
     - HamsterWearable
     - WhitelistChameleon
 
@@ -190,7 +182,6 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
     - WhitelistChameleon
   - type: GuideHelp
     guides:
@@ -215,7 +206,6 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -271,10 +261,6 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
-    - type: Tag
-      tags:
-      - PetWearable
-      - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
@@ -313,7 +299,7 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: NoirOverlay
+  - type: BlackAndWhiteOverlay
   - type: Tag
     tags:
     - HamsterWearable

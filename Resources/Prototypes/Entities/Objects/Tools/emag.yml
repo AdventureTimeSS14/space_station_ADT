@@ -41,7 +41,5 @@
   id: Emag
   suffix: Limited
   components:
-  - type: LimitedCharges
-  - type: AutoRecharge
-  - type: StaticPrice
-    price: 2500
+    - type: LimitedCharges
+    - type: AutoRecharge

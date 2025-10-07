@@ -4,15 +4,14 @@
   description: action-phantom-style-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: intent_set
     itemIconStyle: BigAction
-    priority: -90
-  - type: InstantAction
     event: !type:OpenPhantomStylesMenuActionEvent
+    priority: -90
 
 - type: entity
   id: ActionPhantomHaunt
@@ -20,21 +19,19 @@
   description: action-phantom-haunt-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: breath_in_back
     itemIconStyle: BigAction
-    useDelay: 1
-    priority: -89
-  - type: TargetAction
-    range: 3
-  - type: EntityTargetAction
     whitelist:
       components:
       - Body
-    canTargetSelf: false
     event: !type:MakeHolderActionEvent
+    useDelay: 1
+    canTargetSelf: false
+    range: 3
+    priority: -89
 
 #- type: entity
 #  id: ActionPhantomStopHaunt
@@ -57,14 +54,14 @@
   description: action-phantom-cycle-vessels-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: breath_in_back
     itemIconStyle: BigAction
-  - type: InstantAction
     event: !type:CycleVesselActionEvent
+    #useDelay: 1
 
 - type: entity
   id: ActionPhantomHauntVessel
@@ -72,16 +69,15 @@
   description: action-phantom-haunt-vessel-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: transition
     itemIconStyle: BigAction
+    event: !type:HauntVesselActionEvent
     #useDelay: 1
     priority: -87
-  - type: InstantAction
-    event: !type:HauntVesselActionEvent
 
 - type: entity
   id: ActionPhantomMakeVessel
@@ -89,16 +85,15 @@
   description: action-phantom-make-vessel-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: ghost_kiss
     itemIconStyle: BigAction
+    event: !type:MakeVesselActionEvent
     useDelay: 180
     priority: -88
-  - type: InstantAction
-    event: !type:MakeVesselActionEvent
 
 - type: entity
   id: ActionPhantomParalysis
@@ -106,21 +101,19 @@
   description: action-phantom-paralysis-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: paralysis
     itemIconStyle: BigAction
-    useDelay: 30
-    priority: -79
-  - type: TargetAction
-    range: 3
-  - type: EntityTargetAction
     whitelist:
       components:
       - Body
-    canTargetSelf: false
     event: !type:ParalysisActionEvent
+    useDelay: 30
+    canTargetSelf: false
+    range: 3
+    priority: -79
 
 - type: entity
   id: ActionPhantomCorporeal
@@ -128,14 +121,14 @@
   description: action-phantom-corporeal-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: im_here
     itemIconStyle: BigAction
-  - type: InstantAction
     event: !type:MaterializeActionEvent
+    #useDelay: 1
 
 - type: entity
   id: ActionPhantomBreakdown
@@ -143,18 +136,16 @@
   description: action-phantom-breakdown-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: breakdown
     itemIconStyle: BigAction
-    useDelay: 20
-    priority: -80
-  - type: TargetAction
-    range: 3
-  - type: EntityTargetAction
-    canTargetSelf: false
     event: !type:BreakdownActionEvent
+    useDelay: 20
+    canTargetSelf: false
+    range: 3
+    priority: -80
 
 - type: entity
   id: ActionPhantomShieldBreak
@@ -162,14 +153,14 @@
   description: action-phantom-shield-break-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: MS_broke
     itemIconStyle: BigAction
-  - type: InstantAction
     event: !type:ShieldBreakActionEvent
+    #useDelay: 1
 
 - type: entity
   id: ActionPhantomClaws
@@ -177,14 +168,14 @@
   description: action-phantom-claws-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: ghost_claws
     itemIconStyle: BigAction
-  - type: InstantAction
     event: !type:GhostClawsActionEvent
+    #useDelay: 1
 
 - type: entity
   id: ActionPhantomInjury
@@ -192,16 +183,15 @@
   description: action-phantom-injury-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: ghost_injury
     itemIconStyle: BigAction
+    event: !type:GhostInjuryActionEvent
     useDelay: 180
     priority: -77
-  - type: InstantAction
-    event: !type:GhostInjuryActionEvent
 
 - type: entity
   id: ActionPhantomStarvation
@@ -209,18 +199,16 @@
   description: action-phantom-starvation-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: thirst
     itemIconStyle: BigAction
-    useDelay: 45
-    priority: -80
-  - type: TargetAction
-    range: 3
-  - type: EntityTargetAction
-    canTargetSelf: false
     event: !type:StarvationActionEvent
+    useDelay: 45
+    canTargetSelf: false
+    range: 3
+    priority: -80
 
 - type: entity
   id: ActionPhantomHeal
@@ -228,16 +216,15 @@
   description: action-phantom-heal-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: recovery
     itemIconStyle: BigAction
+    event: !type:GhostHealActionEvent
     useDelay: 60
     priority: -79
-  - type: InstantAction
-    event: !type:GhostHealActionEvent
 
 - type: entity
   id: ActionPhantomPuppeter
@@ -245,16 +232,15 @@
   description: action-phantom-puppeter-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: oath
     itemIconStyle: BigAction
+    event: !type:PuppeterActionEvent
     useDelay: 240
     priority: -78
-  - type: InstantAction
-    event: !type:PuppeterActionEvent
 
 - type: entity
   id: ActionPhantomRepair
@@ -262,18 +248,16 @@
   description: action-phantom-repair-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: repair
     itemIconStyle: BigAction
-    useDelay: 30
-    priority: -80
-  - type: TargetAction
-    range: 3
-  - type: EntityTargetAction
-    canTargetSelf: false
     event: !type:RepairActionEvent
+    useDelay: 30
+    canTargetSelf: false
+    range: 3
+    priority: -80
 
 - type: entity
   id: ActionPhantomBlinding
@@ -281,18 +265,16 @@
   description: action-phantom-blinding-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: EntityTargetAction
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: torture
     itemIconStyle: BigAction
-    useDelay: 60
-    priority: -79
-  - type: TargetAction
-    range: 3
-  - type: EntityTargetAction
-    canTargetSelf: false
     event: !type:BloodBlindingActionEvent
+    useDelay: 60
+    canTargetSelf: false
+    range: 3
+    priority: -79
 
 - type: entity
   id: ActionPhantomPortal
@@ -300,16 +282,15 @@
   description: action-phantom-portal-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: help-portal
     itemIconStyle: BigAction
+    event: !type:PhantomPortalActionEvent
     useDelay: 5
     priority: -78
-  - type: InstantAction
-    event: !type:PhantomPortalActionEvent
 
 - type: entity
   id: ActionPhantomHelpingHand
@@ -317,16 +298,15 @@
   description: action-phantom-help-hand-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: helping-hand
     itemIconStyle: BigAction
+    event: !type:PhantomHelpingHelpActionEvent
     useDelay: 120
     priority: -77
-  - type: InstantAction
-    event: !type:PhantomHelpingHelpActionEvent
 
 - type: entity
   id: ActionPhantomPsycho
@@ -334,16 +314,15 @@
   description: action-phantom-psycho-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: psycho-epedemic
     itemIconStyle: BigAction
+    event: !type:PsychoEpidemicActionEvent
     useDelay: 45
     priority: -77
-  - type: InstantAction
-    event: !type:PsychoEpidemicActionEvent
 
 - type: entity
   id: ActionPhantomControl
@@ -351,16 +330,15 @@
   description: action-phantom-control-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: kukold
     itemIconStyle: BigAction
+    event: !type:PhantomControlActionEvent
     useDelay: 120
     priority: -78
-  - type: InstantAction
-    event: !type:PhantomControlActionEvent
 
 - type: entity
   id: ActionPhantomNightmare
@@ -368,16 +346,15 @@
   description: action-phantom-nightmare-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: cleansing
     itemIconStyle: BigAction
+    event: !type:NightmareFinaleActionEvent
     #useDelay: 1
     priority: -76
-  - type: InstantAction
-    event: !type:NightmareFinaleActionEvent
 
 - type: entity
   id: ActionPhantomTyrany
@@ -385,16 +362,15 @@
   description: action-phantom-tyrany-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: nightmare
     itemIconStyle: BigAction
+    event: !type:TyranyFinaleActionEvent
     #useDelay: 1
     priority: -76
-  - type: InstantAction
-    event: !type:TyranyFinaleActionEvent
 
 - type: entity
   id: ActionPhantomFreedom
@@ -402,16 +378,15 @@
   description: action-phantom-freedom-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: freedom
     itemIconStyle: BigAction
+    event: !type:FreedomFinaleActionEvent
     #useDelay: 1
     priority: -76
-  - type: InstantAction
-    event: !type:FreedomFinaleActionEvent
 
 - type: entity
   id: ActionPhantomOblivion
@@ -422,15 +397,14 @@
   - type: Tag
     tags:
     - PhantomFreedom
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: help-control-oblivion
     itemIconStyle: BigAction
-    #useDelay: 1
-  - type: InstantAction
     event: !type:FreedomOblivionFinaleActionEvent
+    #useDelay: 1
 
 - type: entity
   id: ActionPhantomDeathmatch
@@ -441,15 +415,14 @@
   - type: Tag
     tags:
     - PhantomFreedom
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: help-harm-massacre
     itemIconStyle: BigAction
-    #useDelay: 1
-  - type: InstantAction
     event: !type:FreedomDeathmatchFinaleActionEvent
+    #useDelay: 1
 
 - type: entity
   id: ActionPhantomHelpFin
@@ -460,15 +433,16 @@
   - type: Tag
     tags:
     - PhantomFreedom
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: help-coin
     itemIconStyle: BigAction
-    #useDelay: 1
-  - type: InstantAction
     event: !type:FreedomHelpFinaleActionEvent
+    #useDelay: 1
+
+
 
 - type: entity
   id: ActionPhantomPupHeal
@@ -476,15 +450,14 @@
   description: action-phantom-heal-self-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: recovery
     itemIconStyle: BigAction
-    useDelay: 120
-  - type: InstantAction
     event: !type:SelfGhostHealActionEvent
+    useDelay: 120
 
 - type: entity
   id: ActionPhantomPupClaws
@@ -492,12 +465,11 @@
   description: action-phantom-claws-self-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: ADT/Interface/Actions/actions_phantom.rsi
       state: ghost_claws
     itemIconStyle: BigAction
-    useDelay: 1
-  - type: InstantAction
     event: !type:SelfGhostClawsActionEvent
+    useDelay: 1

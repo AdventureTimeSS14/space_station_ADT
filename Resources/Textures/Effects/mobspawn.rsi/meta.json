@@ -64,20 +64,6 @@
             ]
         },
         {
-            "name": "crab_bananium",
-            "directions": 1,
-            "delays": [
-                [
-                    0.6,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3
-                ]
-            ]
-        },
-        {
             "name": "crab_iron",
             "directions": 1,
             "delays": [

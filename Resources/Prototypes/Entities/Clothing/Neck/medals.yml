@@ -12,7 +12,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -39,7 +38,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -64,7 +62,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -89,7 +86,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -114,7 +110,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -139,7 +134,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -164,7 +158,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI
@@ -191,7 +184,6 @@
   - type: Tag
     tags:
       - Medal
-      - WhitelistChameleon
     # ADT tweak start
   - type: CrewMedal
   - type: ActivatableUI

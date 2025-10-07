@@ -17,9 +17,4 @@ public sealed partial class RestrictedRangeComponent : Component
 
     [DataField]
     public EntityUid BoundaryEntity;
-    //ADT-tweak-start
-
-    [DataField]
-    public string Texturepath = "/Textures/Parallaxes/noise.png";
-    //ADT-tweak-end
 }

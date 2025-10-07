@@ -15,7 +15,6 @@ using Content.Shared.Strip.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -36,7 +35,8 @@ public abstract partial class InventorySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
 
-    private static readonly ProtoId<ItemSizePrototype> PocketableItemSize = "Small";
+    [ValidatePrototypeId<ItemSizePrototype>]
+    private const string PocketableItemSize = "Small";
 
     private void InitializeEquip()
     {
@@ -83,7 +83,7 @@ public abstract partial class InventorySystem
         if (!TryComp(actor, out InventoryComponent? inventory) || !TryComp<HandsComponent>(actor, out var hands))
             return;
 
-        var held = _handsSystem.GetActiveItem((actor, hands));
+        var held = hands.ActiveHandEntity;
         TryGetSlotEntity(actor, ev.Slot, out var itemUid, inventory);
 
         // attempt to perform some interaction
@@ -115,7 +115,7 @@ public abstract partial class InventorySystem
             return;
         }
 
-        if (!_handsSystem.CanDropHeld(actor, hands.ActiveHandId!, checkActionBlocker: false))
+        if (!_handsSystem.CanDropHeld(actor, hands.ActiveHand!, checkActionBlocker: false))
             return;
 
         RaiseLocalEvent(held.Value, new HandDeselectedEvent(actor));
@@ -286,21 +286,23 @@ public abstract partial class InventorySystem
         }
 
         var attemptEvent = new IsEquippingAttemptEvent(actor, target, itemUid, slotDefinition);
-        RaiseLocalEvent(actor, attemptEvent, true);
-
+        RaiseLocalEvent(target, attemptEvent, true);
         if (attemptEvent.Cancelled)
         {
             reason = attemptEvent.Reason ?? reason;
             return false;
         }
 
-        var targetAttemptEvent = new IsEquippingTargetAttemptEvent(actor, target, itemUid, slotDefinition);
-        RaiseLocalEvent(target, targetAttemptEvent, true);
-
-        if (targetAttemptEvent.Cancelled)
+        if (actor != target)
         {
-            reason = targetAttemptEvent.Reason ?? reason;
-            return false;
+            //reuse the event. this is gucci, right?
+            attemptEvent.Reason = null;
+            RaiseLocalEvent(actor, attemptEvent, true);
+            if (attemptEvent.Cancelled)
+            {
+                reason = attemptEvent.Reason ?? reason;
+                return false;
+            }
         }
 
         var itemAttemptEvent = new BeingEquippedAttemptEvent(actor, target, itemUid, slotDefinition);
@@ -522,21 +524,23 @@ public abstract partial class InventorySystem
         }
 
         var attemptEvent = new IsUnequippingAttemptEvent(actor, target, itemUid, slotDefinition);
-        RaiseLocalEvent(actor, attemptEvent, true);
-
+        RaiseLocalEvent(target, attemptEvent, true);
         if (attemptEvent.Cancelled)
         {
             reason = attemptEvent.Reason ?? reason;
             return false;
         }
 
-        var targetAttemptEvent = new IsUnequippingTargetAttemptEvent(actor, target, itemUid, slotDefinition);
-        RaiseLocalEvent(target, targetAttemptEvent, true);
-
-        if (targetAttemptEvent.Cancelled)
+        if (actor != target)
         {
-            reason = targetAttemptEvent.Reason ?? reason;
-            return false;
+            //reuse the event. this is gucci, right?
+            attemptEvent.Reason = null;
+            RaiseLocalEvent(actor, attemptEvent, true);
+            if (attemptEvent.Cancelled)
+            {
+                reason = attemptEvent.Reason ?? reason;
+                return false;
+            }
         }
 
         var itemAttemptEvent = new BeingUnequippedAttemptEvent(actor, target, itemUid, slotDefinition);

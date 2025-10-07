@@ -4,18 +4,17 @@
   description: action-shoot-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: WorldTargetAction
     useDelay: 10
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
     icon:
       sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
       state: icon
-    itemIconStyle: BigAction
-  - type: WorldTargetAction
     event: !type:CompProjectileActionEvent
-  - type: TargetAction
-    checkCanAccess: false
-    range: 16
-    repeat: true
 
 - type: entity
   id: CompActionHealAbomination
@@ -23,15 +22,14 @@
   description: action-heal-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     icon:
       sprite: ADT/Interface/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
     checkCanInteract: false
-    useDelay: 120
-  - type: InstantAction
     event: !type:CompHealActionEvent
+    useDelay: 120
 
 - type: entity
   id: CompActionJumpAbomination
@@ -39,15 +37,14 @@
   description: action-jump-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: WorldTargetAction
     useDelay: 35
+    range: 16 # default examine-range.
+    # ^ should probably add better validation that the clicked location is on the users screen somewhere,
     itemIconStyle: BigAction
+    checkCanAccess: false
+    repeat: true
     icon:
       sprite: Clothing/Shoes/Boots/combatboots.rsi
       state: icon
-  - type: TargetAction
-    checkCanAccess: false
-    range: 16
-    repeat: true
-  - type: WorldTargetAction
     event: !type:CompJumpActionEvent

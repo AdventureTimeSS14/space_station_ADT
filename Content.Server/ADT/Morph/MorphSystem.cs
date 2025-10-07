@@ -1,5 +1,5 @@
 using Content.Shared.Actions;
-using System.Numerics;
+using Robust.Shared.Timing;
 using Content.Shared.ADT.Morph;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Mobs.Systems;
@@ -38,7 +38,7 @@ using Content.Shared.Standing;
 using Content.Server.Body.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Shared.Body.Events;
+using System.Numerics;
 
 namespace Content.Server.ADT.Morph;
 
@@ -224,7 +224,7 @@ public sealed class MorphSystem : SharedMorphSystem
     {
         if (args.User == null)
             return;
-        _stun.TryKnockdown(args.User.Value, TimeSpan.FromSeconds(component.StunTimeInteract), false);
+        _stun.TryParalyze(args.User.Value, TimeSpan.FromSeconds(component.StunTimeInteract), false);
         _damageable.TryChangeDamage(args.User, component.DamageOnTouch);
         AmbushBreak(uid);
     }

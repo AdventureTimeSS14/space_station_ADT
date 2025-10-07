@@ -3,7 +3,6 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Vehicle.Components;
 using Robust.Shared.GameStates;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared.Vehicle;
 
@@ -15,7 +14,6 @@ public abstract partial class SharedVehicleSystem
         SubscribeLocalEvent<RiderComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<RiderComponent, ShotAttemptedEvent>(OnShootAttempt);
-        SubscribeLocalEvent<RiderComponent, AttemptMeleeEvent>(OnHitAttempt);
     }
 
     private void OnRiderGetState(EntityUid uid, RiderComponent component, ref ComponentGetState args)
@@ -46,9 +44,5 @@ public abstract partial class SharedVehicleSystem
     private void OnShootAttempt(EntityUid uid, RiderComponent component, ref ShotAttemptedEvent args)
     {
         args.Cancel();
-    }
-    private void OnHitAttempt(EntityUid uid, RiderComponent component, ref AttemptMeleeEvent args)
-    {
-        args.Cancelled = true;
     }
 }

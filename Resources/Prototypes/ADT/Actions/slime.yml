@@ -4,11 +4,10 @@
   description: action-slime-hair-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
+  - type: InstantAction
     icon:
       sprite: ADT/Interface/Actions/actions_slime.rsi
       state: hair
     itemIconStyle: BigAction
-    useDelay: 1
-  - type: InstantAction
     event: !type:SlimeHairActionEvent
+    useDelay: 1

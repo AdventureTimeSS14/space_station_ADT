@@ -42,13 +42,3 @@
     back:
     - Flash
     - MagazinePistol
-
-#ADT tweak start
-- type: chameleonOutfit
-  id: PilotChameleonOutfit
-  job: Pilot
-  hasMindShield: true
-  equipment:
-    eyes: ClothingEyesGlassesSecurity
-    head: ClothingHeadHatBeretSecurity
-#ADT tweak end

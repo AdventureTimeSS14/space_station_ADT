@@ -1,6 +1,6 @@
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using System.Numerics;
+using Content.Client.ADT.Overlays;
 using Content.Client.ADT.Overlays.Shaders;
 using Content.Shared.ADT.Shadekin.Components;
 using Robust.Client.GameObjects;
