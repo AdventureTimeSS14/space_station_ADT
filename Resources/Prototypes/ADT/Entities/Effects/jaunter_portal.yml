@@ -3,6 +3,12 @@
   name: jaunter portal
   parent: ADTShadowPortal
   components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/wormhole.rsi
+    shader: unshaded
+    layers:
+    - map: [ "VisualLevel" ]
+      state: wormhole
   - type: JaunterPortal
   - type: TimedDespawn
     lifetime: 15
@@ -14,6 +20,12 @@
   name: jaunter black portal
   parent: ADTShadowPortal
   components:
+  - type: Sprite
+    sprite: ADT/Structures/Specific/wormhole.rsi
+    shader: unshaded
+    layers:
+    - map: [ "VisualLevel" ]
+      state: wormhole
   - type: JaunterKillPortal
   - type: TimedDespawn
     lifetime: 10
