@@ -13,7 +13,7 @@
       layers:
       - state: shower
       - state: shower_on
-        map: [ "enum.ToggleVisuals.Layer" ]
+        map: [ "enum.ToggleableVisuals.Layer" ]
     - type: ItemToggle
       soundActivate:
         path: /Audio/_Ganimed/Items/shower_toggle.ogg
@@ -25,8 +25,8 @@
     - type: Appearance
     - type: GenericVisualizer
       visuals:
-       enum.ToggleVisuals.Toggled:
-          enum.ToggleVisuals.Layer:
+       enum.ToggleableVisuals.Toggled:
+          enum.ToggleableVisuals.Layer:
             True: {state: shower_on}
             False: {state: shower}
     - type: Rotatable
