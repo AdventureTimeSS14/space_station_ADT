@@ -37,4 +37,3 @@
   - type: JaunterKillPortal
   - type: TimedDespawn
     lifetime: 10
-
