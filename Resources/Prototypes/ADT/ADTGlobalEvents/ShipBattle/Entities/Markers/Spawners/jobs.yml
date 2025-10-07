@@ -1,0 +1,307 @@
+- type: entity
+  name: spawn point captain TSF
+  id: ADTShipBattleSpawnPointCaptainTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: captain_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipCaptainTSF
+
+- type: entity
+  name: spawn point captain KMT
+  id: ADTShipBattleSpawnPointCaptainKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: captain_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipCaptainKMT
+
+- type: entity
+  name: spawn point chief gunner TSF
+  id: ADTShipBattleSpawnPointChiefGunnerTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: chiefgunner_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipChiefGunnerTSF
+
+- type: entity
+  name: spawn point chief gunner KMT
+  id: ADTShipBattleSpawnPointChiefGunnerKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: chiefgunner_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipChiefGunnerKMT
+
+- type: entity
+  name: spawn point commander TSF
+  id: ADTShipBattleSpawnPointCommanderTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: commander_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipCommanderTSF
+
+- type: entity
+  name: spawn point commander KMT
+  id: ADTShipBattleSpawnPointCommanderKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: commander_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipCommanderKMT
+
+- type: entity
+  name: spawn point engineer TSF
+  id: ADTShipBattleSpawnPointEngineerTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: engineer_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipEngineerTSF
+
+- type: entity
+  name: spawn point engineer KMT
+  id: ADTShipBattleSpawnPointEngineerKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: engineer_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipEngineerKMT
+
+- type: entity
+  name: spawn point exofficer TSF
+  id: ADTShipBattleSpawnPointExecutionalOfficerTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: exofficer_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipExecutionalOfficerTSF
+
+- type: entity
+  name: spawn point exofficer KMT
+  id: ADTShipBattleSpawnPointExecutionalOfficerKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: exofficer_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipExecutionalOfficerKMT
+
+- type: entity
+  name: spawn point gunner TSF
+  id: ADTShipBattleSpawnPointGunnerTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: gunner_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipGunnerTSF
+
+- type: entity
+  name: spawn point gunner KMT
+  id: ADTShipBattleSpawnPointGunnerKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: gunner_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipGunnerKMT
+
+- type: entity
+  name: spawn point marine TSF
+  id: ADTShipBattleSpawnPointMarineTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: marine_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipMarineTSF
+
+- type: entity
+  name: spawn point marine KMT
+  id: ADTShipBattleSpawnPointMarineKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: marine_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipMarineKMT
+
+- type: entity
+  name: spawn point marine leutenant TSF
+  id: ADTShipBattleSpawnPointMarineLeutenantTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: marine_leutenant_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipMarineLeutenantTSF
+
+- type: entity
+  name: spawn point marine leutenant KMT
+  id: ADTShipBattleSpawnPointMarineLeutenantKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: marine_leutenant_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipMarineLeutenantKMT
+
+- type: entity
+  name: spawn point medic TSF
+  id: ADTShipBattleSpawnPointMedicTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: medic_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipMedicTSF
+
+- type: entity
+  name: spawn point medic KMT
+  id: ADTShipBattleSpawnPointMedicKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: medic_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipMedicKMT
+
+- type: entity
+  name: spawn point navigator TSF
+  id: ADTShipBattleSpawnPointNavigatorTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: navigator_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipNavigatorTSF
+
+- type: entity
+  name: spawn point navigator KMT
+  id: ADTShipBattleSpawnPointNavigatorKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: navigator_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipNavigatorKMT
+
+- type: entity
+  name: spawn point pilot TSF
+  id: ADTShipBattleSpawnPointPilotTSF
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: pilot_tsf
+  - type: SpawnPoint
+    job_id: ADTBattleShipPilotTSF
+
+- type: entity
+  name: spawn point pilot KMT
+  id: ADTShipBattleSpawnPointPilotKMT
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/ShipBattle/Markers/jobs.rsi
+        state: pilot_kmt
+  - type: SpawnPoint
+    job_id: ADTBattleShipPilotKMT

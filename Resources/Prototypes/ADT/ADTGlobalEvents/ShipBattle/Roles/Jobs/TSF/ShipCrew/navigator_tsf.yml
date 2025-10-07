@@ -40,7 +40,7 @@
   id: ADTBattleShipNavigatorTSFGear
   equipment:
     jumpsuit: ADTShipBattleClothingUniformGunnerTSF
-    back: ADTShipBattleClothingBlackBackpackJetTSF
+    back: ADTShipBattleClothingBlackBackpackJetTSFNavigator
     shoes: ADTShipBattleClothingShoesBootsMagFleet
     head: ADTShipBattleClothingHeadHatGunnerTSF
     # eyes: ClothingEyesGlassesSecurity
@@ -54,9 +54,9 @@
     underwearb: ADTClothingUnderwearBottomBoxersWhite
     underweart: ADTClothingUnderwearTopTShirt
     socks: ADTClothingUnderwearSocksBlack
-  storage:
-    back:
-    - BoxSurvivalEngineering
-    - CrowbarRed
-    - SpaceCash500
-    - ADTShipBattleClothingHeadHelmetHardsuitNavigatorTSF
+  # storage:
+  #   back:
+  #   - BoxSurvivalEngineering
+  #   - CrowbarRed
+  #   - SpaceCash500
+  #   - ADTShipBattleClothingHeadHelmetHardsuitNavigatorTSF

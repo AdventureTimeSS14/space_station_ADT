@@ -32,3 +32,5 @@
     MatterBinStockPart: 20
     CapacitorStockPart: 20
     MicroManipulatorStockPart: 20
+    Fulton: 20
+    FultonBeacon: 5

@@ -1,0 +1,408 @@
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFCaptain
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitCaptainTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFChiefGunner
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitChiefGunnerTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFCommander
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitCommanderTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFXO
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitExOfficerTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFMarineLeutenant
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFMarine
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitMarineTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFEngineer
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitEngineerTSF
+    - id: MedkitCombatFilled
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFGunner
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitGunnerTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFMedic
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitMedicTSF
+    - id: MedkitCombatFilled
+    - id: MedkitCombatFilled
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFNavigator
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitNavigatorTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetTSF
+  id: ADTShipBattleClothingBlackBackpackJetTSFPilot
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitPilotTSF
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+#KMT
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTCaptain
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitCaptainKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTChiefGunner
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitChiefGunnerKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTCommander
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitCommanderKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTXO
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitExOfficerKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTMarineLeutenant
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitMarineLeutenantKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTMarine
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitMarineKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTEngineer
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitEngineerKMT
+    - id: MedkitCombatFilled
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTGunner
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitGunnerKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTMedic
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitMedicKMT
+    - id: MedkitCombatFilled
+    - id: MedkitCombatFilled
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTNavigator
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitNavigatorKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+
+- type: entity
+  parent: ADTShipBattleClothingBlackBackpackJetKMT
+  id: ADTShipBattleClothingBlackBackpackJetKMTPilot
+  name: backpack jet
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalEngineering
+    - id: CrowbarRed
+    - id: SpaceCash500
+    - id: ADTShipBattleClothingHeadHelmetHardsuitPilotKMT
+    - id: MedkitCombatFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
