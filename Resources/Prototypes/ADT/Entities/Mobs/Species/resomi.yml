@@ -145,6 +145,8 @@
     languages:
       GalacticCommon: Speak
       Scratches: Speak
+  - type: Vore
+    remove: true
   - type: SizeAttributeWhitelist
     tall: true
     tallscale: 1.05
