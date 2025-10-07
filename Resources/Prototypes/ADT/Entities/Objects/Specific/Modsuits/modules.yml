@@ -429,9 +429,8 @@
         autoRechargeRate: 2
       - type: PointLight
         enabled: false
-        autoRot: true
-        radius: 7
-        mask: /Textures/Effects/LightMasks/cone.png
+        radius: 3.5
+        softness: 2
 
 - type: entity
   parent: ADTModsuitModBase
