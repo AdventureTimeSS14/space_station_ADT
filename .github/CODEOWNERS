@@ -12,32 +12,49 @@
 /Content.*/_Ganimed/ @CrimeMoot
 
 # YAML and prototypes
-*.yml @CrimeMoot @RedSpyy
-/Resources/Prototypes/ @CrimeMoot @RedSpyy
+*.yml @CrimeMoot @RedSpyy @HyperB1
+/Resources/Prototypes/ @CrimeMoot @RedSpyy @HyperB1
 
 # Localization
 *.ftl @HyperB1
 /Resources/Locale/ru-RU/ @HyperB1
 
+# Administration
+/Resources/ConfigPresets/ @CrimeMoot @RedSpyy @Yuoko
+/Content.*/Administration/ @CrimeMoot @RedSpyy @Yuoko
+
 # Head Mapper
 /Resources/Maps/** @AltMapper
 /Resources/Prototypes/Maps/** @AltMapper
-/Resources/Prototypes/_Ganimed/Maps/** @AltMapper
+/Resources/Prototypes/*/Maps/** @AltMapper
 
 # Sprites and design (Head Spriter vacant)
-# *.png
-# *meta.json
-# /Resources/Textures/
+*.png @HyperB1 @AltMapper
+*meta.json @HyperB1 @AltMapper
+/Resources/Textures/ @HyperB1 @AltMapper
 
-# Unique content
+# Species
+/Resources/Prototypes/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/Entities/Mobs/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Entities/Mobs/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/Entities/Mobs/Player/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Entities/Mobs/Player/ @AltMapper @Yuoko @HyperB1
+
+# Other unique content
+/Resources/Prototypes/Traits/ @CrimeMoot @HyperB1
+/Resources/Prototypes/*/Traits/ @CrimeMoot @HyperB1
+/Resources/Prototypes/Roles/ @HyperB1 @RedSpyy @Yuoko @AltMapper
+/Resources/Prototypes/*/Roles/ @HyperB1 @RedSpyy @Yuoko @AltMapper
 /Resources/Prototypes/Loadouts/ @HyperB1
-/Resources/Prototypes/_Ganimed/Loadouts/ @HyperB1
-/Resources/Prototypes/_Ganimed/Entities/Clothing/ @AltMapper
+/Resources/Prototypes/*/Loadouts/ @HyperB1
+/Resources/Prototypes/_Ganimed/Entities/Clothing/ @AltMapper @HyperB1
 /Resources/Prototypes/Entities/Objects/Weapons/ @RedSpyy
-/Resources/Prototypes/_Ganimed/Entities/Objects/Weapons/ @RedSpyy
+/Resources/Prototypes/*/Entities/Objects/Weapons/ @RedSpyy
+/Resources/Prototypes/GameRules/ @HyperB1 @AltMapper @CrimeMoot @Yuoko
 
 # Lore, Wiki, Guidebook & Rules
 *.xml @HyperB1
 /Resources/ServerInfo/ @AltMapper @Yuoko @HyperB1
 /Resources/Prototypes/Guidebook/ @AltMapper @Yuoko @HyperB1
-/Resources/Prototypes/_Ganimed/Guidebook/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Guidebook/ @AltMapper @Yuoko @HyperB1
