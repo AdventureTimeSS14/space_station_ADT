@@ -1,0 +1,24 @@
+- type: entity
+  id: ADTJaunterPortal
+  name: jaunter portal
+  parent: ADTShadowPortal
+  components:
+  - type: JaunterPortal
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  id: ADTJaunterBlackKillPortal
+  name: jaunter black portal
+  parent: ADTShadowPortal
+  components:
+  - type: JaunterKillPortal
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Painted
+    enabled: true
+    color: '#000000'
+
+
