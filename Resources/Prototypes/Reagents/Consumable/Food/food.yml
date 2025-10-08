@@ -71,9 +71,9 @@
         # probability: 0.5 ADT-Tweak
         damage:
           groups:
-            Brute: -0.6 #ADT-Tweak
+            Brute: -0.6 #ADT-Tweak -0.4 -> -0.6
       - !type:ModifyBloodLevel
-        amount: 2 # ADT-Tweak
+        amount: 2 # ADT-Tweak 1 -> 2
       - !type:SatiateHunger
   pricePerUnit: 3
 
