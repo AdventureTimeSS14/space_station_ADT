@@ -263,7 +263,7 @@
   - type: MachineBoard
     prototype: ADTMediumLongThruster
     stackRequirements:
-      Capacitor: 12
+      Manipulator: 12
       Steel: 15
       ADTBScrystalArt: 6
 
@@ -277,7 +277,7 @@
   - type: MachineBoard
     prototype: ADTBigThruster
     stackRequirements:
-      Capacitor: 36
+      Manipulator: 36
       Steel: 45
       ADTBScrystalArt: 18
 
@@ -291,6 +291,6 @@
   - type: MachineBoard
     prototype: ADTMediumThruster
     stackRequirements:
-      Capacitor: 16
+      Manipulator: 16
       Steel: 20
       ADTBScrystalArt: 8
