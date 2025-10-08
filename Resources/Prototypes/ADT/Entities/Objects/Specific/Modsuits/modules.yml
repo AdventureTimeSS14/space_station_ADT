@@ -80,7 +80,7 @@
   - type: Sprite
     state: jetpack_adv
   - type: ModSuitMod
-    energyUsing: 3.5
+    energyUsing: 20
     components:
       MODcore:
       - type: MovementSpeedModifier
