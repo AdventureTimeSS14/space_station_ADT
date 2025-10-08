@@ -1,20 +1,6 @@
-# ADT-Beepsky-Start
-- type: entity
-  id: BaseStunbaton
-  components:
-  - type: Stunbaton
-    energyPerUse: 50
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
-  - type: StaminaDamageOnHit
-    damage: 35
-    sound: /Audio/Weapons/egloves.ogg
-# ADT-Beepsky-End
-
 - type: entity
   name: stun baton
-  parent: [BaseItem, BaseSecurityContraband, BaseStunbaton]
+  parent: [BaseItem, BaseSecurityContraband]
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
@@ -25,9 +11,9 @@
     sprite: Objects/Weapons/Melee/stunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
-  # - type: Stunbaton
-  #   energyPerUse: 50
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Stunbaton
+    energyPerUse: 50
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -57,9 +43,9 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
-  # - type: StaminaDamageOnHit
-  #   damage: 35
-  # sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
   #ADT tweak start
   # TODO: сделать компонент StaminaDamageOnLand заместо этого
   # - type: StaminaDamageOnCollide
@@ -67,9 +53,9 @@
   #   sound: /Audio/Weapons/egloves.ogg
   #ADT tweak end
   - type: LandAtCursor # it deals stamina damage when thrown
-  # - type: Battery
-  #   maxCharge: 1000
-  #   startingCharge: 1000
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
   - type: UseDelay
   - type: Item
     heldPrefix: off
@@ -84,8 +70,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
   - type: StaticPrice
@@ -111,8 +97,7 @@
     guides:
     - Security
     - Antagonists
-  #ADT tweak start
-  - type: MeleeBlacklist
+  - type: MeleeBlacklist #ADT tweak start
     blacklist:
       tags:
       - ADTBatonBlocker
@@ -165,9 +150,9 @@
       sprite: Objects/Weapons/Melee/flash.rsi
       layers:
       - state: flash
-        map: [ "enum.FlashVisuals.BaseLayer" ]
+        map: [ "enum.FlashVisualLayers.BaseLayer" ]
       - state: flashing
-        map: [ "enum.FlashVisuals.LightLayer" ]
+        map: [ "enum.FlashVisualLayers.LightLayer" ]
         visible: false
         shader: unshaded
     - type: Flash
@@ -183,16 +168,18 @@
       size: Small
       sprite: Objects/Weapons/Melee/flash.rsi
     - type: UseDelay
+      delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
+    - type: UseDelayOnMeleeHit
     - type: StaticPrice
       price: 40
     - type: Appearance
     - type: GenericVisualizer
       visuals:
         enum.FlashVisuals.Burnt:
-          enum.FlashVisuals.BaseLayer:
+          enum.FlashVisualLayers.BaseLayer:
             True: {state: burnt}
         enum.FlashVisuals.Flashing:
-          enum.FlashVisuals.LightLayer:
+          enum.FlashVisualLayers.LightLayer:
             True: {visible: true}
             False: {visible: false}
     - type: GuideHelp

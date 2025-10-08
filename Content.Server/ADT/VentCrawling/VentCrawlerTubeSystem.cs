@@ -72,6 +72,12 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         if (!component.AllowInventory && IsHoldingItems(args.Args.Used.Value))
             return;
 
+        if (_containerSystem.IsEntityInContainer(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("attempt-climb-vent-in-container"), uid);
+            return;
+        }
+
         TryInsert(args.Args.Target.Value, args.Args.Used.Value);
 
         args.Handled = true;
@@ -204,16 +210,12 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
 
     private bool IsHoldingItems (EntityUid uid)
     {
-        if (_inventory.TryGetSlotEntity(uid, "outerClothing", out _) || _inventory.TryGetSlotEntity(uid, "back", out _))
+        if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var suit) || _inventory.TryGetSlotEntity(uid, "back", out var backpack))
         {
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-equiptment"), uid);
             return true;
         }
-        if (_hands.TryGetHand(uid, "right", out var rhand) && !rhand.IsEmpty){
-            _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
-            return true;
-        }
-        if (_hands.TryGetHand(uid, "left", out var lhand) && !lhand.IsEmpty)
+        if (_hands.EnumerateHeld(uid).Count() != 0)
         {
             _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
             return true;

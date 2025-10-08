@@ -15,6 +15,7 @@ using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable; // ADT-Tweak
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
@@ -89,6 +90,15 @@ public partial class MobStateSystem
             default:
                 throw new NotImplementedException();
         }
+
+        // ADT-Tweak-start
+        _moveMod.RefreshMovementSpeedModifiers(target);
+
+        if (state is MobState.Critical or MobState.Dead)
+        {
+            _moveMod.RefreshMovementSpeedModifiers(target);
+        }
+        // ADT-Tweak-end
     }
 
     private void OnStateEnteredSubscribers(EntityUid target, MobStateComponent component, MobState state)

@@ -100,6 +100,8 @@
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
 # ADT-Tweak-start
 # disable taking damage from fire, since its a fire breathing dragon. # also it can't be lit on fire
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
   - type: Flammable
     fireSpread: false
     canResistFire: true
@@ -120,7 +122,6 @@
 # ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-    - SlowedDown
     - Stutter
     # - Electrocution # ADT-Tweak - ъуъ
     # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
@@ -157,8 +158,12 @@
         Piercing: 15
         Slash: 15
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
     healRate: 7.5
     whitelist:
@@ -171,6 +176,7 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - StunImmune
   - type: Puller
     needsHands: false
   - type: ThermalVision #ADT tweak start
@@ -261,39 +267,55 @@
         Brute: 12
 
 - type: entity
+  parent: BaseAction
   id: ActionSpawnRift
   name: Summon Carp Rift
   description: Summons a carp rift that will periodically spawns carps.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/carp_rift.rsi
       state: icon
-    event: !type:DragonSpawnRiftActionEvent
     useDelay: 1
     priority: 3
+  - type: InstantAction
+    event: !type:DragonSpawnRiftActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionDevour
   name: "[color=red]Devour[/color]"
   description: Attempt to break a structure with your jaws or swallow a creature.
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon: { sprite : Interface/Actions/devour.rsi, state: icon }
     iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
-    event: !type:DevourActionEvent
+    itemIconStyle: BigAction
     priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+      - Door
+      tags:
+      - Wall
+    event: !type:DevourActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionDragonsBreath
   name: "[color=orange]Dragon's Breath[/color]"
   description: Spew out flames at anyone foolish enough to attack you!
   components:
-  - type: WorldTargetAction
-    # TODO: actual sprite
+  - type: Action
+    # TODO: actual sprite and iconOn
     icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
-    event: !type:ActionGunShootEvent
+    itemIconStyle: BigAction
     priority: 2
+  - type: TargetAction
     checkCanAccess: false
     range: 0
-    itemIconStyle: BigAction
+  - type: WorldTargetAction
+    event: !type:ActionGunShootEvent

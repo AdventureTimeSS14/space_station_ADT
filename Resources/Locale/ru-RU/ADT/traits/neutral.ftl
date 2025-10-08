@@ -15,3 +15,6 @@ trait-tall-desc = Вы немного выше других представит
 
 trait-short-name = Низкий
 trait-short-desc = Вы немного ниже других представителей своего вида.
+
+trait-sick-teeth-accent-name = Зубной дефект
+trait-sick-teeth-accent-desc = Проблемы с зубами меняют вашу речь: некоторые согласные звучат иначе.

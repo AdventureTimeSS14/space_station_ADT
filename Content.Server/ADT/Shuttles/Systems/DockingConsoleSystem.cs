@@ -103,7 +103,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 
     private void OnFTL(Entity<DockingConsoleComponent> ent, ref DockingConsoleFTLMessage args)
     {
-        if (ent.Comp.Shuttle is not {} shuttle || !TryComp<DockingShuttleComponent>(shuttle, out var docking))
+        if (ent.Comp.Shuttle is not { } shuttle || !TryComp<DockingShuttleComponent>(shuttle, out var docking))
             return;
 
         if (args.Index < 0 || args.Index > docking.Destinations.Count)
@@ -112,15 +112,16 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         var dest = docking.Destinations[args.Index];
         var map = dest.Map;
         // can't FTL if its already there or somehow failed whitelist
-        if (map == Transform(shuttle).MapID || !_shuttle.CanFTLTo(shuttle, map, ent))
+        if (!_shuttle.CanFTLTo(shuttle, map, ent))
             return;
 
-        if (FindLargestGrid(map) is not {} grid)
+        if (FindLargestGrid(map) is not { } grid)
             return;
 
         Log.Debug($"{ToPrettyString(args.Actor):user} is FTL-docking {ToPrettyString(shuttle):shuttle} to {ToPrettyString(grid):grid}");
 
         _shuttle.FTLToDock(shuttle, Comp<ShuttleComponent>(shuttle), grid, priorityTag: ent.Comp.DockTag);
+        UpdateConsolesUsing(shuttle);
     }
 
     private EntityUid? FindLargestGrid(MapId map)

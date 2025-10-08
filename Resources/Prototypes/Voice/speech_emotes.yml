@@ -8,7 +8,8 @@
   whitelist:
     components:
     - Vocal
-
+    tags:
+    - Ipc # Corvax-Species
 #  blacklist:
 #    tags:
 #    - SiliconEmotes ADT Tweak
@@ -114,6 +115,7 @@
   blacklist:
     tags:
     - SiliconEmotes
+    - Ipc # Corvax-Species
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -137,6 +139,7 @@
   blacklist:
     tags:
     - SiliconEmotes
+    - Ipc # Corvax-Species
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -377,6 +380,14 @@
     - стукнул своим хвостом
     - стукнула своим хвостом
     # Corvax-Localization-End
+    # ADT-emote-start
+    - стукает хвостом
+    - стукает своим хвостом
+    - шлепает хвостом
+    - шлепает своим хвостом
+    - ударяет хвостом
+    - ударяет своим хвостом
+    # ADT-emote-end
 
 - type: emote
   id: Salute
@@ -428,6 +439,12 @@
   name: chat-emote-name-deathgasp
   icon: Interface/Emotes/deathgasp.png
   chatMessages: ["chat-emote-msg-deathgasp-monkey"]
+
+- type: emote
+  id: ScurretDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["chat-emote-msg-deathgasp-scurret"]
 
 - type: emote
   id: Buzz

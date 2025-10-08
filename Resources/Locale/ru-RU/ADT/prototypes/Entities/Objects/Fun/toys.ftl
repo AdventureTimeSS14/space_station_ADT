@@ -2,9 +2,6 @@ ent-ADTPlushieUrs = плюшевый Урс
     .desc = Милая плюшевая игрушка Урса.
 ent-ADTBlackSharkPlushie = черная плюшевая акула
     .desc = Всего лишь от одного взгляда на неё вам становится не по себе, то ли от желания пожамкать её, то ли от страха.
-ent-SkidAndPump = Скид и Тыковка
-    .desc = Это ЖУТКИЙ МЕСЯЦ!
-    .suffix = Хеллоуин
 
 ent-ADTPlushieOctocat = плюшевый Октокот
     .desc = Он не любит книги.
@@ -25,3 +22,12 @@ ent-ADTBalloonCorgi = воздушный шар корги
 
 ent-ADTBalloonClown = воздушный шар клоуна
     .desc = Воображаемый друг мима.
+
+ent-ADTToyBlasterGunRed = игрушечный красный лазерный бластер
+    .desc = Крутецкий бластер из фильмов про пришельцев... Правда, они были наспех переделаны из старомодных лазерных бластеров, чтобы компания слишком быстро не ушла в убыток из-за нового типа лазерных винтовок.
+
+ent-ADTToyBlasterGunBlue = игрушечный синий лазерный бластер
+    .desc = {ent-ADTToyBlasterGunRed.desc}
+
+ent-ADTToyBlasterGunGreen = игрушечный зелёный лазерный бластер
+    .desc = {ent-ADTToyBlasterGunRed.desc}

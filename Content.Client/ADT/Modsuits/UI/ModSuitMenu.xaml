@@ -2,6 +2,7 @@
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       Title="{Loc 'base-mod-title'}"
+                      Resizable="False"
                       MinSize="450 540"
                       MaxSize="450 540"
                       SetSize="450 540">
@@ -28,7 +29,7 @@
                 <Label Name="ModComplex"
                        Text="base MOD"
                        VerticalAlignment="Center"
-                       Margin="0"
+                       Margin="4"
                        HorizontalExpand="True"
                        ModulateSelfOverride="#ffffff"/>
             </PanelContainer>
@@ -40,7 +41,7 @@
                 </PanelContainer.PanelOverride>
                 <Label Name="ModState"
                        VerticalAlignment="Center"
-                       Margin="0"
+                       Margin="4"
                        HorizontalExpand="True"
                        ModulateSelfOverride="#ffffff"/>
             </PanelContainer>

@@ -8,14 +8,14 @@ handcuff-component-start-cuffing-self-observer = { $user } начинает за
 handcuff-component-start-cuffing-target-message = Вы начинаете заковывать { $targetName }.
 handcuff-component-start-cuffing-by-other-message = { $otherName } начинает заковывать вас!
 handcuff-component-cuff-observer-success-message =
-    { $user } { GENDER($user) ->
-        [male] заковал
-        [female] заковала
-        [epicene] заковали
-       *[neuter] заковало
-    } { $target }.
+    { $target } { GENDER($target) ->
+        [male] закован
+        [female] закована
+        [epicene] закованы
+       *[neuter] заковано
+    } { $user }.
 handcuff-component-cuff-self-observer-success-message =
-    { $user } { GENDER($user) ->
+    { $target } { GENDER($target) ->
         [male] заковал
         [female] заковала
         [epicene] заковали
@@ -35,6 +35,4 @@ handcuff-component-cuff-interrupt-self-message = Вам помешали зак�
 handcuff-component-cuff-interrupt-other-message = Вы помешали { $otherName } заковать вас!
 handcuff-component-cuff-interrupt-buckled-message = Вы не можете пристегнуться в наручниках!
 handcuff-component-cuff-interrupt-unbuckled-message = Вы не можете отстегнуться в наручниках!
-handcuff-component-cannot-drop-cuffs = Вы не можете надеть наручники на { $target }
-
-force-handcuff-verb-get-data-text = Заковать
+handcuff-component-cannot-drop-cuffs = Вы не можете надеть наручники на { $target }.

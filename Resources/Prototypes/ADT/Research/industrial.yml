@@ -73,22 +73,39 @@
   cost: 10000
   recipeUnlocks:
     - ADTWeaponCutterAdv
-  position: 4,1
+  position: 5,1
   requiredTech:
-  - SalvageEquipment
+  - ADTSalvageWeapon
 
 - type: technology
-  id: ExperimentalPKA
-  name: research-technology-experimental-pka
+  id: ADTSalvageWeapon
+  name: research-technology-salvage-weapon
   icon:
-    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutter.rsi
     state: icon
   discipline: Industrial
   tier: 2
-  cost: 8500
+  cost: 7500
   recipeUnlocks:
-    - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
-  position: 5,1
+    - ADTWeaponCutter
+  position: 4,1
   requiredTech:
-  - AdvSalvageWeapons
+  - SalvageEquipment
+  # Fuck you new RnD console
+
+- type: technology
+  id: ADTAdvancedEnergy
+  name: research-technology-advanced-energy
+  icon:
+    sprite: Objects/Power/power_cells.rsi
+    state: hyper
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+    - ADTPowerCellHyperRecipe
+    - ADTIndustrialChargerCircuitboard
+  position: 0,-2
+  requiredTech:
+  - AdvancedPowercells
   # Fuck you new RnD console

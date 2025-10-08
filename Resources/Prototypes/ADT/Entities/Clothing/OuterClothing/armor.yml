@@ -201,7 +201,7 @@
         Slash: 0.7
         Piercing: 0.95
         Heat: 0.8
-        Caustic: 0.8
+        Caustic: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: ToggleableClothing
@@ -330,7 +330,7 @@
         Slash: 0.6
         Piercing: 0.95
         Heat: 0.75
-        Caustic: 0.8
+        Caustic: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: ToggleableClothing
@@ -410,7 +410,7 @@
         Slash: 0.4
         Piercing: 0.95
         Heat: 0.6
-        Caustic: 0.8
+        Caustic: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.70
   - type: ToggleableClothing

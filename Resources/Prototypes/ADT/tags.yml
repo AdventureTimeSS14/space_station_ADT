@@ -205,8 +205,6 @@
 - type: Tag
   id: ADTGlassSheet
 
-- type: Tag
-  id: ADTGoldOre
 
 - type: Tag
   id: ADTBSore
@@ -216,12 +214,6 @@
 
 - type: Tag
   id: ADTQuarzOre
-
-- type: Tag
-  id: ADTUraniumOre
-
-- type: Tag
-  id: ADTSilverOre
 
 - type: Tag
   id: ADTCoalOre
@@ -512,6 +504,9 @@
   id: ADTSlimeEmotes
 
 - type: Tag
+  id: ADTShadekinEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag
@@ -617,6 +612,9 @@
   id: ADTStamp
 
 - type: Tag
+  id: ADTToyBlaster
+
+- type: Tag
   id: ADTBadgeBronze
 
 - type: Tag
@@ -654,4 +652,3 @@
 
 - type: Tag
   id: ADTFullRiotShieldSyndi
-

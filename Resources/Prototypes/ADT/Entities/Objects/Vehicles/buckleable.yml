@@ -9,12 +9,10 @@
     volume: -10
     enabled: false
   - type: MovementSpeedModifier
-    weightlessModifier: 0
-    acceleration: 2
-    friction: 2
-    frictionNoInput: 6
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 6
+    baseAcceleration: 2.5
+    baseFriction: 0.2
+    baseSprintSpeed: 4
+    baseWalkSpeed: 1.5
   - type: Repairable
     fuelCost: 20
     doAfterDelay: 20

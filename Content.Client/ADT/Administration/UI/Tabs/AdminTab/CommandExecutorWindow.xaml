@@ -1,0 +1,50 @@
+<DefaultWindow
+    x:Class="Content.Client.Administration.UI.Tabs.AdminbusTab.CommandExecutorWindow"
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="{Loc admin-player-actions-window-command-executor}" MinSize="600 400">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="10">
+
+        <Label Text="{Loc admin-command-executor-description}"
+               StyleClasses="LabelBig"
+               HorizontalAlignment="Center"
+               Margin="0 0 0 10" />
+
+        <PanelContainer StyleClasses="chatPanel" VerticalExpand="True" Margin="5">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="8">
+
+                <Label Text="{Loc admin-command-executor-instruction}"
+                       StyleClasses="LabelSmall"
+                       Margin="0 0 0 5" />
+
+                <TextEdit Name="CommandText"
+                          VerticalExpand="True" />
+
+            </BoxContainer>
+        </PanelContainer>
+
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
+
+            <Button Name="ClearButton"
+                    Text="{Loc admin-command-executor-clear}"
+                    MinWidth="100" />
+
+            <Button Name="ExecuteButton"
+                    Text="{Loc admin-command-executor-execute}"
+                    HorizontalExpand="True"
+                    StyleClasses="ButtonBig" />
+
+        </BoxContainer>
+
+        <Label Name="StatusLabel"
+               Text="{Loc admin-command-executor-ready}"
+               StyleClasses="LabelSmall"
+               HorizontalAlignment="Center" />
+
+        <BoxContainer Orientation="Horizontal" SetHeight="20" Margin="0 5 0 0" SeparationOverride="10" HorizontalExpand="True">
+            <Label Text="{Loc admin-panel-footer-powered}" FontColorOverride="#e7ff10ff" HorizontalAlignment="Center" HorizontalExpand="True" StyleClasses="LabelSmall"/>
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>

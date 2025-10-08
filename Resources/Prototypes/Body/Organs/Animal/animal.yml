@@ -31,6 +31,28 @@
   components:
   - type: Gibbable
 
+# ADT-Tweak start
+- type: entity
+  id: OrganAnimalEyes
+  parent: BaseAnimalOrgan
+  name: eyes
+  description: "I see you!"
+  components:
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
+    - Trash
+# ADT-Tweak end
+
 - type: entity
   id: OrganAnimalLungs
   parent: BaseAnimalOrgan
@@ -69,6 +91,7 @@
     - Meat
     - Organ
     - Lungs
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganAnimalStomach
@@ -103,6 +126,7 @@
     - Meat
     - Organ
     - Stomach
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganMouseStomach
@@ -141,6 +165,7 @@
     - Meat
     - Organ
     - Liver
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganAnimalHeart
@@ -166,6 +191,7 @@
     - Meat
     - Organ
     - Heart
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganAnimalKidneys
@@ -190,3 +216,4 @@
     - Meat
     - Organ
     - Kidneys
+    - Trash # ADT-Tweak

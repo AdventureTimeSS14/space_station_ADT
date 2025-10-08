@@ -3,7 +3,7 @@
   background: /Textures/ADT/LobbyScreens/nanotrasen-3024.webp
 
 - type: lobbyBackground
-  id: Spider clan
+  id: SpiderСlan
   background: /Textures/ADT/LobbyScreens/spider-clan.webp
 
 - type: lobbyBackground
@@ -73,3 +73,7 @@
 - type: lobbyBackground
   id: cqmime
   background: /Textures/ADT/LobbyScreens/cqcm1.webp
+
+- type: lobbyBackground
+  id: luckyratsalvagers
+  background: /Textures/ADT/LobbyScreens/luckyratsalvagers.webp
