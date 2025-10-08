@@ -6,5 +6,5 @@ ent-SprayPainterRecharging = { ent-SprayPainter }
 ent-SprayPainterEmpty = { ent-SprayPainter }
     .suffix = Empty
     .desc = { ent-SprayPainter.desc }
-ent-SprayPainterAmmo = compressed paint
-    .desc = A cartridge of highly compressed paint, commonly used in spray painters.
+ent-SprayPainterAmmo = спрессованная краска
+    .desc = Картридж с высоко сжатой краской, обычно используемый в краскопультах.
