@@ -316,13 +316,6 @@
   - ArmorerRitual
 
 - type: hereticKnowledge
-  id: AshenEyesRitual
-  sideKnowledge: true
-  stage: 3
-  ritualPrototypes:
-  - AshenEyesRitual
-
-- type: hereticKnowledge
   id: PriestRitual
   sideKnowledge: true
   stage: 3
