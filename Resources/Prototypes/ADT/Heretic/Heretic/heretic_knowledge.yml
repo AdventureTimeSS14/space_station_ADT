@@ -49,6 +49,13 @@
   - ActionHereticJaunt
 
 - type: hereticKnowledge
+  id: AshenEyesRitual
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - AshenEyesRitual
+
+- type: hereticKnowledge
   id: MarkOfAsh
   path: Ash
   stage: 4
