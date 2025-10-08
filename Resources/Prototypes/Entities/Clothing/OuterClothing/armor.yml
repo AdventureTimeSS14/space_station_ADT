@@ -26,16 +26,14 @@
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
-  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase] # ADT-Tweak
+  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase, BadgeOnClothing] # ADT-Tweak
   id: ClothingOuterArmorBasic
   components:
   - type: Tag
     tags:
     - CorgiWearable
     - WhitelistChameleon
-### Start ADT Tweak
-    - ADTArmorSacrafice
-### End ADT Tweak
+    - ADTArmorSacrafice # ADT-Tweak
 
 
 #Alternate / slim basic armor vest
@@ -101,7 +99,7 @@
 
 #Detective's vest
 - type: entity
-  parent: [ClothingOuterArmorBase, BaseSecurityContraband]
+  parent: [ClothingOuterArmorBase, BaseSecurityContraband, BadgeOnClothing] # ADT-Tweak
   id: ClothingOuterVestDetective
   name: detective's vest
   description: A hard-boiled private investigator's armored vest.

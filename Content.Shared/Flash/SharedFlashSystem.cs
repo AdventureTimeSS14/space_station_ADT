@@ -262,6 +262,11 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("flash-protection"));
+        // ADT-Tweak-Start
+        if (ent.Comp.IncludeExamine)
+        {
+            args.PushMarkup(Loc.GetString("flash-protection"));
+        }
+        // ADT-Tweak-End
     }
 }

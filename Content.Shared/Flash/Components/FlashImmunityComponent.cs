@@ -15,4 +15,9 @@ public sealed partial class FlashImmunityComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
+
+    // ADT-Tweak-Start
+    [DataField]
+    public bool IncludeExamine = true;
+    // ADT-Tweak-End
 }
