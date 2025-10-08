@@ -68,7 +68,7 @@
     Food:
       effects:
       - !type:HealthChange
-        # probability: 0.5
+        # probability: 0.5 ADT-Tweak
         damage:
           groups:
             Brute: -0.6 #ADT-Tweak
