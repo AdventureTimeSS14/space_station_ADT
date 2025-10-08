@@ -14,8 +14,8 @@ public sealed partial class PassiveDamageComponent : Component
     /// <summary>
     /// The entitys' states that passive damage will apply in
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public List<MobState>? AllowedStates = null; // ADT tweak
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public List<MobState> AllowedStates = new();
 
     /// <summary>
     /// Damage / Healing per interval dealt to the entity every interval
