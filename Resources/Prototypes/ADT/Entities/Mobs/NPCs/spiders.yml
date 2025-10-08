@@ -118,6 +118,7 @@
     languages:
       Arachnid: Speak
   - type: SupermatterIgnore
+  - type: GrabProtection
 
 - type: entity
   name: hunter
