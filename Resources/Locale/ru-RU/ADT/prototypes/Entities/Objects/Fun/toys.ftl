@@ -22,3 +22,12 @@ ent-ADTBalloonCorgi = воздушный шар корги
 
 ent-ADTBalloonClown = воздушный шар клоуна
     .desc = Воображаемый друг мима.
+
+ent-ADTToyBlasterGunRed = игрушечный красный лазерный бластер
+    .desc = Крутецкий бластер из фильмов про пришельцев... Правда, они были наспех переделаны из старомодных лазерных бластеров, чтобы компания слишком быстро не ушла в убыток из-за нового типа лазерных винтовок.
+
+ent-ADTToyBlasterGunBlue = игрушечный синий лазерный бластер
+    .desc = {ent-ADTToyBlasterGunRed.desc}
+
+ent-ADTToyBlasterGunGreen = игрушечный зелёный лазерный бластер
+    .desc = {ent-ADTToyBlasterGunRed.desc}

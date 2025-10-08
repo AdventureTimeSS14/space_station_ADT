@@ -29,6 +29,7 @@
     size: Normal
   - type: DisarmMalus
   - type: ComboWeapon
+    swapSound: /Audio/Effects/thudswoosh.ogg
     availableMoves:
       - actionsNeeds:
           - OffensiveWideHit

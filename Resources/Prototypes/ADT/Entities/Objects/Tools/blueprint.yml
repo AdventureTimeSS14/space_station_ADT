@@ -17,3 +17,27 @@
   - type: Blueprint
     providedRecipes:
     - ADTHardsuitRaider
+
+- type: entity
+  parent: BaseBlueprint
+  id: ADTRevBlueprint
+  name: self-written blueprint
+  description: A blueprint with a remote signaller advanced and chemical payload with triggers. It can be inserted into an autolathe.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/blueprintmisc/revblueprint.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,0
+    storedSprite:
+      sprite: ADT/Objects/Tools/blueprintmisc/revblueprint.rsi
+      state: storage
+  - type: Blueprint
+    providedRecipes:
+    - SignallerAdvanced
+    - ChemicalPayload
+    - TimerTrigger
+    - SignalTrigger
+    - VoiceTrigger
