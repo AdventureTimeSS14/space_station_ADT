@@ -65,7 +65,7 @@
         components:
           - Hands
       loot:
-        All: !type:GroupSelector
+        All: !type:AllSelector
           children:
           - id: ADTFoodCactusBerry
           - id: ADTLavaCactusOneEmpty
@@ -90,7 +90,7 @@
         components:
           - Hands
       loot:
-        All: !type:GroupSelector
+        All: !type:AllSelector
           children:
           - id: ADTFoodCactusBerry
           - id: ADTLavaCactusTwoEmpty
@@ -107,7 +107,7 @@
         components:
           - Hands
       loot:
-        All: !type:GroupSelector
+        All: !type:AllSelector
           children:
           - id: ADTFoodCactusBerry
           - id: ADTLavaCactusThreeEmpty
@@ -124,7 +124,7 @@
         components:
           - Hands
       loot:
-        All: !type:GroupSelector
+        All: !type:AllSelector
           children:
           - id: ADTFoodCactusBerry
           - id: ADTLavaCactusFourEmpty
