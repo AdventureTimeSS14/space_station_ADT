@@ -178,7 +178,7 @@
         Heat: 0.9     # Heat: 0.7 -> 0.9
 # ADT-tweak end
         Radiation: 0.3
-        Caustic: 0.8
+        Caustic: 0.7 # ADT-tweak 0.8 -> 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
