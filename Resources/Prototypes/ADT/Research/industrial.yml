@@ -109,3 +109,20 @@
   requiredTech:
   - AdvancedPowercells
   # Fuck you new RnD console
+
+- type: technology
+  id: ADTAdvencedThruster
+  name: research-technology-advenced-thruster
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: supply
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ADTMachineMediumThrusterCircuitboard
+  - ADTMachineBigThrusterCircuitboard
+  - ADTMachineMediumLongThrusterCircuitboard
+  position: 4,2
+  requiredTech:
+  - Shuttlecraft

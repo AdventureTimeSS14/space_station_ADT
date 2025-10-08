@@ -1,0 +1,31 @@
+## Circuit imprinter
+
+
+- type: latheRecipe
+  parent: ThrusterMachineCircuitboard
+  abstract: true
+  id: BaseADTThruster
+  result: ADTMediumThruster
+  completetime: 10
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 100
+    Plasma: 100
+
+## Engineering
+
+- type: latheRecipe
+  parent: BaseADTThruster
+  id: ADTMachineMediumThrusterCircuitboard
+  result: ADTMachineMediumThrusterCircuitboard
+
+- type: latheRecipe
+  parent: BaseADTThruster
+  id: ADTMachineBigThrusterCircuitboard
+  result: ADTMachineBigThrusterCircuitboard
+
+- type: latheRecipe
+  parent: BaseADTThruster
+  id: ADTMachineMediumLongThrusterCircuitboard
+  result: ADTMachineMediumLongThrusterCircuitboard
