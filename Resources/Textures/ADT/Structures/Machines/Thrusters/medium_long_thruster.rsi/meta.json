@@ -4,9 +4,9 @@
     "x": 96,
     "y": 96
   },
-
-  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/obj/fluff/3x3.dmi",
+  
   "license": "CC-BY-SA-3.0",
+  "copyright": "base and thrust by ledniky, (discord:726481288713732147), thrust_burn_unshaded from thruster.rsi",
   "states": [
     {
       "name": "base",
