@@ -945,7 +945,7 @@
     sprite: ADT/Personalization/kringe-magboots.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Personalization/kringe-magboots.rsi
   - type: ToggleClothing
@@ -963,7 +963,7 @@
   parent: ActionToggleMagboots
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon }
     iconOn: ADT/Personalization/kringe-magboots.rsi/icon-on.png
 
@@ -1080,7 +1080,7 @@
 #rache11
 
 - type: entity
-  parent: [ClothingOuterHardsuitVoidParamed, BaseMedicalContraband] 
+  parent: [ClothingOuterHardsuitVoidParamed, BaseMedicalContraband]
   id: ADTClothingOuterHardsuitRachell
   name: Rachell paramedic void suit
   description: A void suit made for paramedics.

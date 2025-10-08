@@ -84,14 +84,6 @@ public enum RevenantVisuals : byte
     Harvesting,
 }
 
-[NetSerializable, Serializable]
-public enum RevenantVisualLayers : byte
-{
-    Digit1,
-    Digit2,
-    Digit3
-}
-
 // ADT Content start
 [NetSerializable, Serializable]
 [DataDefinition]
