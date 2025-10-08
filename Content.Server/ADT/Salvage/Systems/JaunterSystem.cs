@@ -1,20 +1,22 @@
 using Content.Server.ADT.Salvage.Components;
+using Content.Server.Medical;
+using Content.Shared.Body.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Pinpointer;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
 using Content.Shared.Warps;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Server.Medical;
-using Robust.Shared.GameStates;
-using Robust.Shared.Network;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Server.GameObjects;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Physics.Events;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
@@ -226,7 +228,10 @@ public sealed class JaunterSystem : EntitySystem
             _stamina.TakeStaminaDamage(args.OtherEntity, need, stam);
         }
 
-        _vomit.Vomit(args.OtherEntity);
+        if (HasComp<BodyComponent>(args.OtherEntity) && HasComp<HungerComponent>(args.OtherEntity))
+        {
+            _vomit.Vomit(args.OtherEntity);
+        }
 
         if (TryComp<TimedDespawnComponent>(uid, out var td))
         {
