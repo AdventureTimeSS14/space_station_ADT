@@ -226,7 +226,12 @@ public sealed class ReflectSystem : EntitySystem
 
         var msg = ContentLocalizationManager.FormatList(typeList);
 
-        args.PushMarkup(Loc.GetString("reflect-component-examine", ("value", value), ("type", msg)));
+        // ADT-Tweak-Start
+        if (ent.Comp.IncludeExamine)
+        {
+            args.PushMarkup(Loc.GetString("reflect-component-examine", ("value", value), ("type", msg)));
+        }
+        // ADT-Tweak-End
     }
     #endregion
 }

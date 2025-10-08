@@ -80,7 +80,7 @@
   - type: Sprite
     state: jetpack_adv
   - type: ModSuitMod
-    energyUsing: 3.5
+    energyUsing: 20
     components:
       MODcore:
       - type: MovementSpeedModifier
@@ -429,9 +429,8 @@
         autoRechargeRate: 2
       - type: PointLight
         enabled: false
-        autoRot: true
-        radius: 7
-        mask: /Textures/Effects/LightMasks/cone.png
+        radius: 3.5
+        softness: 2
 
 - type: entity
   parent: ADTModsuitModBase

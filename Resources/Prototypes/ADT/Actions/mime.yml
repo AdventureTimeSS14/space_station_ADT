@@ -7,7 +7,6 @@
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
       state: pistol
-    priority: -1
     useDelay: 10
   - type: TargetAction
     range: 15
@@ -23,7 +22,6 @@
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
       state: thhhh
-    priority: -1
     useDelay: 30
   - type: TargetAction
     range: 1.5

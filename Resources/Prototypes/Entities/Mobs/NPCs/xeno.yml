@@ -76,11 +76,14 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
-      groups:
-        Brute: 6
+    # ADT-Tweak start
+      types:
+        Slash: 20
+        Structural: 20
+    # ADT-Tweak end
   # Start ADT: Xeno Buff
-  - type: StaminaDamageOnHit
-    damage: 10
+ # - type: StaminaDamageOnHit
+  #  damage: 10
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
   - type: Fauna
@@ -160,9 +163,9 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 8
-  - type: StaminaDamageOnHit
-    damage: 12
+        Brute: 27
+  #- type: StaminaDamageOnHit
+  #  damage: 12
   # ADT End
   - type: Fixtures
     fixtures:
@@ -201,11 +204,13 @@
       40: 0.7
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 5 # ADT Tweak
+  # ADT-Tweak start
+      types:  
+        Blunt: 15
+  # ADT-Tweak end
   # Start ADT: Xeno Buff
-  - type: StaminaDamageOnHit
-    damage: 15
+  #- type: StaminaDamageOnHit
+  #  damage: 15
   # End ADT
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
@@ -251,10 +256,10 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 20 # ADT Tweak
+       Brute: 42 # ADT Tweak
   # Start ADT: Xeno Buff
-  - type: StaminaDamageOnHit
-    damage: 35
+  # - type: StaminaDamageOnHit
+  #  damage: 35
   # End ADT
   - type: Fixtures
     fixtures:
@@ -305,14 +310,17 @@
     baseSprintSpeed: 2 # ADT Tweak
   - type: MeleeWeapon
     damage:
-     groups:
-       Brute: 30 # ADT Tweak
+    # ADT-tweak start
+     types:
+       Slash: 27
+       Blunt: 10
+    # ADT-tweak end
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
   # Start ADT: Xeno Buff
-  - type: StaminaDamageOnHit
-    damage: 45 # 60
+  # - type: StaminaDamageOnHit
+  #  damage: 45 # 60
   # End ADT
   - type: Fixtures
     fixtures:
@@ -349,14 +357,16 @@
       100: Dead
     # ADT End
   - type: MovementSpeedModifier
-    baseSprintSpeed: 12.0 # ADT Tweak
+    baseSprintSpeed: 6.0 # ADT-Tweak
   - type: MeleeWeapon
     damage:
-     groups:
-       Brute: 5
+    # ADT-Tweak start
+     types:
+       Piercing: 13
+    # ADT-Tweak end
   # Start ADT: Xeno Buff
-  - type: StaminaDamageOnHit
-    damage: 5
+  # - type: StaminaDamageOnHit
+  #  damage: 5
   # End ADT
   - type: Fixtures
     fixtures:
@@ -422,7 +432,7 @@
     capacity: 1
     count: 1
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.35 # ADT-tweak 0.75 -> 0.35
     useKey: false
     selectedMode: FullAuto
     availableModes:
