@@ -1,0 +1,17 @@
+
+- type: font
+  id: NotoSansSC
+  path: /Fonts/NotoSans/NotoSansSC-Regular.ttf
+
+- type: font
+  id: Eatday
+  path: /Fonts/Eatday/Eatday.ttf
+
+- type: font # Bubblish (Slimes)
+  id: SourGummy
+  path: /Fonts/ADT/Sour_Gummy/SourGummy-Regular.ttf
+
+- type: font # Valyrian Standard (Harpies/Squackroaches)
+  id: Delius
+  path: /Fonts/ADT/Delius/Delius-Regular.ttf
+

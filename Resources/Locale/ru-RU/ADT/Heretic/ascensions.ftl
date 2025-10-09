@@ -83,3 +83,5 @@ heretic-ascension-rust =
     Означает Конец!
     Освидетельствуй мне,
     Звук победы, юнец.
+
+heretic-ascension-bingle = бунгл.

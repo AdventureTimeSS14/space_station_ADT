@@ -1,0 +1,22 @@
+- type: language
+  id: Bingle
+  roundstart: false
+  uiColor: "#33528d"
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    color: "#33528d"
+    whisperColor: "#7c8acc"
+    replacement:
+    - Бингл
+    - Бонгл
+    - БИНГЛ
+    - Бонг
+    - Бинг
+    - БОНГЛ
+    verbs:
+      chat-speech-verb-suffix-exclamation-strong: [ БИНГЛИТ, БОНГЛИТ ]
+      chat-speech-verb-suffix-exclamation: [ бинглит, бонглит ]
+      Default: [ бинглит, бонглит ]
+    font: Eatday
+    fontSize: 18
