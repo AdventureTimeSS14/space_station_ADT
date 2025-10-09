@@ -475,6 +475,11 @@
         lid_overlay:
           True: { visible: false }
           False: { visible: true }
+        # ADT-Tweak-Start
+        open_overlay:
+          True: { visible: true }
+          False: { visible: false }
+        # ADT-Tweak-End
   - type: OverrideSell
   - type: Fixtures
     fixtures:
@@ -503,6 +508,11 @@
     - state: overlay-closed
       color: "#ad8c27"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#ad8c27"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -533,6 +543,11 @@
     - state: overlay-closed
       color: "#92c7e8"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#92c7e8"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -563,6 +578,11 @@
     - state: overlay-closed
       color: "#ba4bf0"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#ba4bf0"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -593,6 +613,11 @@
     - state: overlay-closed
       color: "#c12d30"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#c12d30"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -623,6 +648,11 @@
     - state: overlay-closed
       color: "#53b723"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#53b723"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]

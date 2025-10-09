@@ -5,7 +5,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -105,7 +105,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 10 # 10 default
     reoccurrenceDelay: 30
     duration: 1

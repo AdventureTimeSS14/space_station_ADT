@@ -250,3 +250,47 @@
         defaultPrototype: Beaker
   - type: Item
     size: Normal
+
+# движки
+
+- type: entity
+  id: ADTMachineMediumLongThrusterCircuitboard #1x3
+  parent: BaseMachineCircuitboard
+  name: medium long thruster board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTMediumLongThruster
+    stackRequirements:
+      Manipulator: 12
+      Steel: 15
+      ADTBScrystalArt: 6
+
+- type: entity
+  id: ADTMachineBigThrusterCircuitboard #3x3
+  parent: BaseMachineCircuitboard
+  name: big thruster board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTBigThruster
+    stackRequirements:
+      Manipulator: 36
+      Steel: 45
+      ADTBScrystalArt: 18
+
+- type: entity
+  id: ADTMachineMediumThrusterCircuitboard #2x2
+  parent: BaseMachineCircuitboard
+  name: medium thruster board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTMediumThruster
+    stackRequirements:
+      Manipulator: 16
+      Steel: 20
+      ADTBScrystalArt: 8
