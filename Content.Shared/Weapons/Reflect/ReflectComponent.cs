@@ -54,6 +54,11 @@ public sealed partial class ReflectComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg", AudioParams.Default.WithVariation(0.05f));
+
+    // ADT-Tweak-Start
+    [DataField]
+    public bool IncludeExamine = true;
+    // ADT-Tweak-End
 }
 
 [Flags, Serializable, NetSerializable]

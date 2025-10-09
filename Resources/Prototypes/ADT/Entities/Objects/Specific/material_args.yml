@@ -155,6 +155,7 @@
       components:
         - type: Reflect
           reflectProb: 1
+          includeExamine: false
         - type: CantShoot
           popup: combo-cantshoot
         - type: Puller

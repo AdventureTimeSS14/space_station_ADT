@@ -12,9 +12,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
       - !type:AdjustReagent
         reagent: Theobromine
@@ -127,9 +127,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
       # Start ADT tweak
       - !type:AdjustTemperature
@@ -195,9 +195,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
+    collection: FootstepSlime
 
 - type: reagent
   id: IcedCoffee
@@ -218,9 +216,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
       # Start ADT tweak
       - !type:AdjustTemperature
@@ -438,9 +436,9 @@
       effects:
       - !type:SatiateThirst
         factor: 6
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 3.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 3
         type: Remove
     Poison:
       effects:
@@ -490,9 +488,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
 
 - type: reagent
@@ -586,18 +584,19 @@
         conditions:
         - !type:OrganType
           type: Novakid
+#ADT add ends
     Gas:
       effects:
       - !type:HealthChange
-        ignoreResistances: true
         scaleByQuantity: true
-        damage:
-          types:
-            Cold: 1.2 #Данный урон обусловлен тем, что есть такая вещь как регенерация, и челик очень плохо убивается. Возможны правки
+        ignoreResistances: true
         conditions:
         - !type:OrganType
-          type: Novakid
-#ADT add ends
+          type: Slime
+          shouldHave: true
+        damage:
+          types:
+            Heat: 3
 
 - type: reagent
   id: Ice

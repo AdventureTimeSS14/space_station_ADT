@@ -1,0 +1,151 @@
+- type: construction
+  id: ADTFullShield
+  graph: ADTShield
+  startNode: start
+  targetNode: ADTCompShield
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTPlasmaShiv
+  graph: ADTPShiv
+  startNode: start
+  targetNode: ADTCompPlasmaShiv
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTUraniumShiv
+  graph: ADTUShiv
+  startNode: start
+  targetNode: ADTCompUraniumShiv
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTUraniumSpear
+  graph: ADTUraniumSpear
+  startNode: start
+  targetNode: ADTCompUraniumSpear
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: SpearReinforcedPlasma
+  graph: ADTPSpear
+  startNode: start
+  targetNode: ADTCompPlasmaSpear
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTDaggerGlass
+  graph: ADTGDagger
+  startNode: start
+  targetNode: ADTCompGlassDager
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTDaggerRefGlass
+  graph: ADTGRDagger
+  startNode: start
+  targetNode: ADTCompGlassRefDager
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTDaggerPlasma
+  graph: ADTPDagger
+  startNode: start
+  targetNode: ADTCompPlasmaDager
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTDaggerUranium
+  graph: ADTUDagger
+  startNode: start
+  targetNode: ADTCompUranDager
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTEnergyCrossbow
+  graph: EnergyCrossbowGraph
+  startNode: start
+  targetNode: crossbow
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: HandmadeCrowbar
+  graph: ADTHandmadeCrowbarGraph
+  startNode: start
+  targetNode: HandmadeCrowbar
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: ADTBoneKnife
+  graph: ADTBKnife
+  startNode: start
+  targetNode: ADTBoneCompKnife
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoneMachete
+  graph: ADTBMachete
+  startNode: start
+  targetNode: ADTBoneCompMachete
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoneSword
+  graph: ADTBSword
+  startNode: start
+  targetNode: ADTBoneCompSword
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTWoodCross
+  graph: ADTWCross
+  startNode: start
+  targetNode: ADTWoodCompCross
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ADTgoldbat
+  graph: ADTGoldenBat
+  startNode: start
+  targetNode: ADTgoldbat
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTCrackPipe
+  graph: ADTCrackPipeGraph
+  startNode: start
+  targetNode: craft
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: VoiceMaskGraph
+  graph: VoiceMaskGraph
+  startNode: start
+  targetNode: voicemask
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: WeaponMakeshiftLaserGraph
+  graph: WeaponMakeshiftLaserGraph
+  startNode: start
+  targetNode: weaponlaser
+  category: construction-category-weapons
+  objectType: Item

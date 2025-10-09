@@ -2,31 +2,34 @@
 - type: entity
   id: ActionXenoQueenTurret
   name: Create Xeno turret
-  description: Create an xeno turret in front of you, if placeable there. 
+  description: Create an xeno turret in front of you, if placeable there.
   components:
-  - type: InstantAction
+  - type: Action
     priority: -1
     useDelay: 180
     icon:
       sprite: Objects/Weapons/Guns/Turrets/xenoturret.rsi
       state: icon
-    event: !type:EmptyXenoActionEvent 
+  - type: InstantAction
+    event: !type:EmptyXenoActionEvent
       cost: 25
 # Я не смог сделать отдельный ивент для спавнта турели. Он не видел прототип ивента.
 
 - type: entity
   id: ActionSpawnMobXenoQueen
   name: Spawn Queen
-  description: New offspring! 
+  description: New offspring!
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 1200
-    range: 4
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Aliens/Xenos/queen.rsi
       state: crit
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
     event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoQueen
@@ -40,13 +43,15 @@
   description: Standard xeno
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 60
-    range: 4
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Aliens/Xenos/burrower.rsi
       state: crit
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
     event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXeno
@@ -60,13 +65,15 @@
   description: Give birth to Spitter who will spit!
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 240
-    range: 4
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Aliens/Xenos/spitter.rsi
       state: crit
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
     event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoSpitter
@@ -80,13 +87,15 @@
   description: Give birth to a Praetorian who will fight for you!
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 300
-    range: 4
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Aliens/Xenos/praetorian.rsi
       state: crit
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
     event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoPraetorian
@@ -96,17 +105,19 @@
 
 - type: entity
   id: ActionSpawnMobXenoDrone
-  name: Just a Drone. Who needs it? 
+  name: Just a Drone. Who needs it?
   description: Give birth to a worker, Drone.
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 80
-    range: 4
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Aliens/Xenos/drone.rsi
       state: crit
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
     event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoDrone
@@ -120,13 +131,15 @@
   description: Give birth to death in the flesh!
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 480
-    range: 4
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Aliens/Xenos/ravager.rsi
       state: crit
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
     event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoRavager
@@ -140,13 +153,15 @@
   description: Give birth to the fastest larva!
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 120
-    range: 4
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Aliens/Xenos/runner.rsi
       state: crit
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
     event: !type:SpawnXenoQueenEvent
       prototypes:
       - id: MobXenoRunner

@@ -1,0 +1,15 @@
+- type: entity
+  id: ADTMimeEnhancedBook
+  name: Manual of Enhanced Pantomimes
+  description: This book is written by the great sages of pantomime!
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/books.rsi
+      layers:
+        - state: book_mime
+    - type: AddComponentsOnUse
+      components:
+        - type: EnhancedMimePowers
+    - type: UseDelay
+      delay: 1

@@ -9,7 +9,7 @@
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 4
-      - id: ClothingOuterHardsuitBrigmedic
+      - id: ADTClothingModsuitBackBrigmedic
       - id: ClothingHandsGlovesNitrile
       - id: BrigmedicDuffelbagClothing
       - id: MedkitFilled

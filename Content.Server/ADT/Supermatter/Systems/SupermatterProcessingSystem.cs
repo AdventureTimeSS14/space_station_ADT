@@ -30,7 +30,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
-using Vector4 = Robust.Shared.Maths.Vector4;
 
 namespace Content.Server.ADT.Supermatter.Systems;
 
