@@ -1,4 +1,3 @@
-
 namespace Content.Server.ADT.Salvage.Components;
 
 /// <summary>
@@ -16,7 +15,6 @@ public sealed partial class JaunterComponent : Component
 [RegisterComponent]
 public sealed partial class JaunterPortalComponent : Component
 {
-    public bool EnteredOnce;
 }
 
 /// <summary>
