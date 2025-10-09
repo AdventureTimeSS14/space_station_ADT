@@ -112,3 +112,20 @@
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/Ian.yml
   - type: IanHeroEvent
+
+- type: entity
+  parent: BaseGameRule
+  id: WormholesSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-wormholes-spawn-announcement
+    weight: 8
+    duration: 10
+    minimumPlayers: 15
+    earliestStart: 35
+    reoccurrenceDelay: 50
+  - type: RandomSpawnRule
+    prototype: ADTEventJaunterPortal
+    minCount: 60
+    maxCount: 150
