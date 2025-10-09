@@ -41,20 +41,12 @@
 - type: entity
   id: ADTEventJaunterPortal
   name: jaunter portal
-  parent: BasePortal
+  parent: ADTJaunterPortal
   components:
-  - type: Sprite
-    sprite: ADT/Structures/Specific/wormhole.rsi
-    layers:
-    - map: [ "VisualLevel" ]
-      state: wormhole
-  - type: JaunterPortal
   - type: PointLight
     enabled: true
     radius: 12
     energy: 4
     color: "#2233ff"
   - type: TimedDespawn
-    lifetime: 90
-  - type: Portal
-    canTeleportToOtherMaps: true
+    lifetime: 600

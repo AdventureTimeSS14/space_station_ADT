@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.StationEvents.Components;
 
 /// <summary>
-/// Spawns entities at random tiles on a station. ADT-Tweak
+/// Spawns entities at random tiles on a station. // ADT-Port-Europe
 /// </summary>
 [RegisterComponent, Access(typeof(RandomSpawnRule))]
 public sealed partial class RandomSpawnRuleComponent : Component
@@ -16,16 +16,17 @@ public sealed partial class RandomSpawnRuleComponent : Component
     [DataField("prototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = string.Empty;
 
-
+    // ADT-Port-Europe-Start 
     /// <summary>
-    /// Minimum number of entities to spawn | ADT-Europe-Port-Tweak
+    /// Minimum number of entities to spawn 
     /// </summary>
     [DataField]
     public int MinCount = 1;
 
     /// <summary>
-    /// Maximum number of entities to spawn | ADT-Europe-Port-Tweak
+    /// Maximum number of entities to spawn 
     /// </summary>
     [DataField]
     public int MaxCount = 1;
+    // ADT-Port-Europe-End
 }

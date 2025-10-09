@@ -6,12 +6,12 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!; // ADT-Europa-Port-Tweak
+    [Dependency] private readonly IRobustRandom _random = default!; // ADT-Port-Europe
     protected override void Started(EntityUid uid, RandomSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, comp, gameRule, args);
 
-        // ADT-Port-Europa-Tweak-Start
+        // ADT-Port-Europe-Start
         int spawnCount = _random.Next(comp.MinCount, comp.MaxCount + 1);
 
         for (int i = 0; i < spawnCount; i++)
@@ -21,7 +21,7 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
                 Sawmill.Info($"Spawning {comp.Prototype} at {coords}");
                 Spawn(comp.Prototype, coords);
             }
-            // ADT-Port-Europa-Tweak-End
+            // ADT-Port-Europa-End
         }
     }
 }
