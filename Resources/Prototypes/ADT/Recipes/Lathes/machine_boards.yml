@@ -4,7 +4,7 @@
 - type: latheRecipe
   parent: ThrusterMachineCircuitboard
   abstract: true
-  id: BaseADTThruster
+  id: ADTBaseThrusterCircuitboard
   result: ADTMediumThruster
   completetime: 10
   materials:
@@ -16,16 +16,16 @@
 ## Engineering
 
 - type: latheRecipe
-  parent: BaseADTThruster
+  parent: ADTBaseThrusterCircuitboard
   id: ADTMachineMediumThrusterCircuitboard
   result: ADTMachineMediumThrusterCircuitboard
 
 - type: latheRecipe
-  parent: BaseADTThruster
+  parent: ADTBaseThrusterCircuitboard
   id: ADTMachineBigThrusterCircuitboard
   result: ADTMachineBigThrusterCircuitboard
 
 - type: latheRecipe
-  parent: BaseADTThruster
+  parent: ADTBaseThrusterCircuitboard
   id: ADTMachineMediumLongThrusterCircuitboard
   result: ADTMachineMediumLongThrusterCircuitboard
