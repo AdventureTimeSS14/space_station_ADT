@@ -44,7 +44,7 @@
       - Bottle
       - Syringe
       - ChemDispensable
-      - ADTMedipen #ADT-Tweak 
+      - ADTMedipen # ADT-Tweak 
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower
