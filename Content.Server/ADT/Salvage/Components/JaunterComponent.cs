@@ -6,6 +6,10 @@ namespace Content.Server.ADT.Salvage.Components;
 [RegisterComponent]
 public sealed partial class JaunterComponent : Component
 {
+    [DataField]
+    public bool DeleteOnUse = true;
+
+    public bool BeaconMode = false;
 }
 
 /// <summary>

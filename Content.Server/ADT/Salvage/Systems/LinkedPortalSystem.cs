@@ -106,7 +106,7 @@ public sealed partial class JaunterPortalSystem : EntitySystem
         return true;
     }
 
-    private EntityUid? GetRandomBeacon()
+    public EntityUid? GetRandomBeacon()
     {
         var candidates = new List<EntityUid>();
         var query = EntityQueryEnumerator<WarpPointComponent, NavMapBeaconComponent, TransformComponent>();
