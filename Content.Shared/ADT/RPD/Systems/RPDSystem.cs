@@ -5,6 +5,7 @@ using Content.Shared.ADT.Construction;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
@@ -39,8 +40,10 @@ public class RPDSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 
@@ -129,13 +132,18 @@ public class RPDSystem : EntitySystem
         if (!location.IsValid(EntityManager))
             return;
 
-        if (!TryGetMapGridData(location, out var mapGridData))
+        var gridUid = _transform.GetGrid(location);
+
+        if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
             _popup.PopupClient(Loc.GetString("rpd-component-no-valid-grid"), uid, user);
             return;
         }
 
-        if (!IsRPDOperationStillValid(uid, component, mapGridData.Value, args.Target, args.User))
+        var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
+        var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
+
+        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User))
             return;
 
         if (!_net.IsServer)
@@ -169,8 +177,8 @@ public class RPDSystem : EntitySystem
         #endregion
 
         // Try to start the do after
-        var effect = Spawn(effectPrototype, mapGridData.Value.Location);
-        var ev = new RPDDoAfterEvent(GetNetCoordinates(mapGridData.Value.Location), component.ConstructionDirection, component.ProtoId, cost, EntityManager.GetNetEntity(effect));
+        var effect = Spawn(effectPrototype, location);
+        var ev = new RPDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ProtoId, cost, GetNetEntity(effect));
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
         {
@@ -202,38 +210,51 @@ public class RPDSystem : EntitySystem
 
         // Ensure the RPD operation is still valid
         var location = GetCoordinates(args.Event.Location);
+        var gridUid = _transform.GetGrid(location);
 
-        if (!TryGetMapGridData(location, out var mapGridData))
+        if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
             args.Cancel();
             return;
         }
 
-        if (!IsRPDOperationStillValid(uid, component, mapGridData.Value, args.Event.Target, args.Event.User))
+        var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
+        var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
+
+        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Event.Target, args.Event.User))
             args.Cancel();
     }
 
     private void OnDoAfter(EntityUid uid, RPDComponent component, RPDDoAfterEvent args)
     {
-        if (args.Cancelled && _net.IsServer)
-            QueueDel(EntityManager.GetEntity(args.Effect));
+        if (args.Cancelled)
+        {
+            if (_net.IsServer)
+                QueueDel(GetEntity(args.Effect));
+            return;
+        }
 
-        if (args.Handled || args.Cancelled || !_timing.IsFirstTimePredicted)
+        if (args.Handled)
             return;
 
         args.Handled = true;
 
         var location = GetCoordinates(args.Location);
 
-        if (!TryGetMapGridData(location, out var mapGridData))
+        var gridUid = _transform.GetGrid(location);
+
+        if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
 
+        var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
+        var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
+
         // Ensure the RPD operation is still valid
-        if (!IsRPDOperationStillValid(uid, component, mapGridData.Value, args.Target, args.User))
+        if (!IsRPDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User))
             return;
 
         // Finalize the operation
-        FinalizeRPDOperation(uid, component, mapGridData.Value, args.Direction, args.Target, args.User);
+        FinalizeRPDOperation(uid, component, gridUid.Value, mapGrid, position, args.Direction, args.Target, args.User);
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
@@ -245,11 +266,11 @@ public class RPDSystem : EntitySystem
         var uid = GetEntity(ev.NetEntity);
 
         // Determine if player that send the message is carrying the specified RPD in their active hand
-        if (session.SenderSession.AttachedEntity == null)
+        if (session.SenderSession.AttachedEntity is not { } player)
             return;
 
         if (!TryComp<HandsComponent>(session.SenderSession.AttachedEntity, out var hands) ||
-            uid != hands.ActiveHand?.HeldEntity)
+            uid != _hands.GetActiveItem((uid, hands)))
             return;
 
         if (!TryComp<RPDComponent>(uid, out var rpd))
@@ -264,7 +285,7 @@ public class RPDSystem : EntitySystem
 
     #region Entity construction/deconstruction rule checks
 
-    public bool IsRPDOperationStillValid(EntityUid uid, RPDComponent component, MapGridData mapGridData, EntityUid? target, EntityUid user, bool popMsgs = true)
+    public bool IsRPDOperationStillValid(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, EntityUid? target, EntityUid user, bool popMsgs = true)
     {
         // Update cached prototype if required
         UpdateCachedPrototype(uid, component);
@@ -290,7 +311,7 @@ public class RPDSystem : EntitySystem
 
         // Exit if the target / target location is obstructed
         var unobstructed = (target == null)
-            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(mapGridData.GridUid, mapGridData.Component, mapGridData.Position), popup: popMsgs)
+            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), popup: popMsgs)
             : _interaction.InRangeUnobstructed(user, target.Value, popup: popMsgs);
 
         if (!unobstructed)
@@ -299,17 +320,17 @@ public class RPDSystem : EntitySystem
         // Return whether the operation location is valid
         switch (component.CachedPrototype.Mode)
         {
-            case RpdMode.ConstructObject: return IsConstructionLocationValid(uid, component, mapGridData, user, popMsgs);
-            case RpdMode.Deconstruct: return IsDeconstructionStillValid(uid, component, mapGridData, target, user, popMsgs);
+            case RpdMode.ConstructObject: return IsConstructionLocationValid(uid, component, gridUid, tile, position, user, popMsgs);
+            case RpdMode.Deconstruct: return IsDeconstructionStillValid(uid, tile, target, user, popMsgs);
         }
 
         return false;
     }
 
-    private bool IsConstructionLocationValid(EntityUid uid, RPDComponent component, MapGridData mapGridData, EntityUid user, bool popMsgs = true)
+    private bool IsConstructionLocationValid(EntityUid uid, RPDComponent component, EntityUid gridUid, TileRef tile, Vector2i position, EntityUid user, bool popMsgs = true)
     {
         // Check rule: Must place on subfloor
-        if (component.CachedPrototype.ConstructionRules.Contains(RpdConstructionRule.MustBuildOnSubfloor) && !mapGridData.Tile.Tile.GetContentTileDefinition().IsSubFloor)
+        if (component.CachedPrototype.ConstructionRules.Contains(RpdConstructionRule.MustBuildOnSubfloor) && !_turf.GetContentTileDefinition(tile).IsSubFloor)
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rpd-component-must-build-on-subfloor-message"), uid, user);
@@ -324,7 +345,7 @@ public class RPDSystem : EntitySystem
         var isWall = component.CachedPrototype.ConstructionRules.Contains(RpdConstructionRule.IsWall);
 
         _intersectingEntities.Clear();
-        _lookup.GetLocalEntitiesIntersecting(mapGridData.GridUid, mapGridData.Position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
+        _lookup.GetLocalEntitiesIntersecting(gridUid, position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
 
         foreach (var ent in _intersectingEntities)
         {
@@ -359,7 +380,7 @@ public class RPDSystem : EntitySystem
         return true;
     }
 
-    private bool IsDeconstructionStillValid(EntityUid uid, RPDComponent component, MapGridData mapGridData, EntityUid? target, EntityUid user, bool popMsgs = true)
+    private bool IsDeconstructionStillValid(EntityUid uid, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true)
     {
         // Attempt to get, tile or not
         if (target == null)
@@ -389,7 +410,7 @@ public class RPDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRPDOperation(EntityUid uid, RPDComponent component, MapGridData mapGridData, Direction direction, EntityUid? target, EntityUid user)
+    private void FinalizeRPDOperation(EntityUid uid, RPDComponent component, EntityUid gridUid, MapGridComponent mapGrid, Vector2i position, Direction direction, EntityUid? target, EntityUid user)
     {
         if (!_net.IsServer)
             return;
@@ -400,7 +421,7 @@ public class RPDSystem : EntitySystem
         switch (component.CachedPrototype.Mode)
         {
             case RpdMode.ConstructObject:
-                var ent = Spawn(component.CachedPrototype.Prototype, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
+                var ent = Spawn(component.CachedPrototype.Prototype, _mapSystem.GridTileToLocal(gridUid, mapGrid, position));
 
                 switch (component.CachedPrototype.Rotation)
                 {
@@ -415,7 +436,7 @@ public class RPDSystem : EntitySystem
                         break;
                 }
 
-                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RPD to spawn {ToPrettyString(ent)} at {mapGridData.Position} on grid {mapGridData.GridUid}");
+                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RPD to spawn {ToPrettyString(ent)} at {position} on grid {gridUid}");
                 break;
 
             case RpdMode.Deconstruct:

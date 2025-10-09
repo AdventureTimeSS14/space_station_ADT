@@ -27,3 +27,11 @@
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
     eyes: ADTClothingEyesGlassesMedChem
+
+- type: chameleonOutfit
+  id: ADTSeniorPhysicianChameleonOutfit
+  job: ADTSeniorPhysician
+  hasMindShield: true
+  equipment:
+    ears: ClothingHeadsetMedical
+    eyes: ADTClothingEyesGlassesMedChem

@@ -5,6 +5,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Hands.Components;
+using Content.Server.Hands.Systems;
 
 namespace Content.Server.ADT.Economy;
 
@@ -14,6 +16,7 @@ public sealed class EftposSystem : EntitySystem
     [Dependency] private readonly BankCardSystem _bankCardSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly HandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {
@@ -44,8 +47,11 @@ public sealed class EftposSystem : EntitySystem
 
     private void OnLock(EntityUid uid, EftposComponent component, EftposLockMessage args)
     {
-        if (!TryComp(args.Actor, out HandsComponent? hands) ||
-            !TryComp(hands.ActiveHandEntity, out BankCardComponent? bankCard))
+        if (!TryComp(args.Actor, out HandsComponent? hands))
+            return;
+
+        var held = _handsSystem.GetActiveItem(args.Actor);
+        if (held == null || !TryComp<BankCardComponent>(held.Value, out var bankCard))
             return;
 
         if (component.BankAccountId == null)
@@ -60,7 +66,7 @@ public sealed class EftposSystem : EntitySystem
         }
 
         UpdateUiState(uid, component.BankAccountId != null, component.Amount,
-            GetOwner(hands.ActiveHandEntity.Value, component.BankAccountId));
+            GetOwner(held.Value, component.BankAccountId));
     }
 
     private string GetOwner(EntityUid uid, int? bankAccountId)
