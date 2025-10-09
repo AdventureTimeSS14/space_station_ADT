@@ -44,7 +44,7 @@
       - Bottle
       - Syringe
       - ChemDispensable
-      - ADTMedipen # ADT-Tweak
+      - ADTMedipen #ADT-Tweak 
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -122,7 +122,6 @@
 - type: entity
   parent: SmartFridge
   id: SmartFridgeMedical
-  name: SmartFridgeMedical #ADT-Tweak
   suffix: Medical
   components:
   - type: SmartFridge
