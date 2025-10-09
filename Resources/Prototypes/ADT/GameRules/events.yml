@@ -127,5 +127,5 @@
     reoccurrenceDelay: 50
   - type: RandomSpawnRule
     prototype: ADTEventJaunterPortal
-    minCount: 60
+    minCount: 50
     maxCount: 150
