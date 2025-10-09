@@ -1,1 +1,1 @@
-research-technology-advenced-thruster = Продвинутые двигатели
+research-technology-advanced-thruster = Продвинутые двигатели

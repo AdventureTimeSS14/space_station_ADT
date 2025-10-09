@@ -111,8 +111,8 @@
   # Fuck you new RnD console
 
 - type: technology
-  id: ADTAdvencedThruster
-  name: research-technology-advenced-thruster
+  id: ADTAdvancedThruster
+  name: research-technology-advanced-thruster
   icon:
     sprite: Objects/Misc/module.rsi
     state: supply
