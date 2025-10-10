@@ -23,3 +23,22 @@
     reflects:
       - Energy
 # sd-tweak-end
+
+- type: Tag
+  id: SD_CombatHarness
+
+- type: entity
+  parent: [ ClothingOuterStorageBase, AllowSuitStorageClothing ]
+  id: SD_ArmorSmartGunCombatHarness
+  name: MK-64 combat harness
+  description: A heavy protective vest designed to be worn with the MK-64 Smart Gun System. It has specially designed straps and reinforcement to carry the Smartgun and accessories.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/OuterClothing/Vests/smartharness.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1 # 2 slots
+  - type: Tag
+    tags:
+    - SD_CombatHarness

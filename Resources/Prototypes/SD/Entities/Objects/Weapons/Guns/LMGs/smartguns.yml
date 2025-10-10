@@ -1,0 +1,97 @@
+- type: entity
+  parent: BaseWeaponRifle
+  id: SD_SmartGunBase
+  name: base smartgun
+  description: A rooty, tooty, pointy and shooty.
+  abstract: true
+  components:
+  - type: GunRequiresWield
+  - type: WieldDelay
+    baseDelay: 1.2
+  - type: WieldableSpeedModifiers
+    baseWalk: 0.7
+    baseSprint: 0.7
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/ml66a.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: SD/Objects/Weapons/Guns/ml66a.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    minAngle: 0
+    maxAngle: 10
+    angleIncrease: 1
+    angleDecay: 1
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: GunWieldBonus # can only be fired wielded
+    minAngle: 0
+    maxAngle: 0
+    angleIncrease: 0
+    angleDecay: 0
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SD_MagazineSmartGun
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SD_MagazineSmartGun
+  - type: RMCMagneticItem
+  - type: GunRequireEquipped
+    whitelist:
+      tags:
+      - SD_CombatHarness
+
+- type: entity
+  parent: SD_SmartGunBase
+  id: SD_SmartGunStation
+  name: MK-64 "Comet"
+  description: An Aussec Armory production smart heavy machinegun. Uses special hypersonic bullets with correcting thrusters to break through any forcefields, material or not. Uses 7.92x115mm caliber rounds.
+
+
+- type: entity
+  parent: SD_SmartGunBase
+  id: SD_SmartGunDeathSquad
+  name: MK-ULTRA "Deserter"
+  description: Walday Armouries limited production smartgun model. Heavily regulated on most of the worlds, used only by rogue PMCs and top-secret corpo deathsquads. Uses 7.92x115 irradiated rounds.
+  suffix: Deathsquad only
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/ml79a.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SD_MagazineSmartGunRad
+  - type: Gun
+    fireRate: 7
+  - type: WieldableSpeedModifiers
+    baseWalk: 0.9
+    baseSprint: 0.9
