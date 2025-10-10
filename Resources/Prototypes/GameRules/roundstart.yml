@@ -189,7 +189,8 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    loodBrotherChance: 1
+    maxDifficulty: 8 #ADT-tweak
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 

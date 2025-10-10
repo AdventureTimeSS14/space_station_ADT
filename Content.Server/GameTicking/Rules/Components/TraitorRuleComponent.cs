@@ -35,6 +35,13 @@ public sealed partial class TraitorRuleComponent : Component
     /// </summary>
     [DataField]
     public bool GiveUplink = true;
+    //ADT-tweak-start
+    /// <summary>
+    /// Give this traitor an Uplink on spawn.
+    /// </summary>
+    [DataField]
+    public float BloodBrotherChance = 0.2f;
+    //ADT-tweak-start
 
     /// <summary>
     /// Give this traitor the codewords.

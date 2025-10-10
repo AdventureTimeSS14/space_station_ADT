@@ -21,6 +21,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Content.Shared.ADT.BloodBrothers;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -79,8 +80,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;
-
-        if (component.GiveUplink)
+        var bloodBrother = _random.Prob(component.BloodBrotherChance);//ADT-tweak
+        if (component.GiveUplink
+        && !bloodBrother)//ADT-tweak
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink start");
             // Calculate the amount of currency on the uplink.
@@ -108,11 +110,22 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             codewords = factionCodewords;
         }
 
-        if (component.GiveBriefing)
+        if (component.GiveBriefing && !bloodBrother) //ADT-tweak
         {
             _antag.SendBriefing(traitor, GenerateBriefing(codewords, code, issuer), null, component.GreetSoundNotification);
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Sent the Briefing");
         }
+        //ADT-tweak-start
+        else if (component.GiveBriefing && bloodBrother)
+        {
+            _antag.SendBriefing(traitor, Loc.GetString("brother-lead-briefing"), null, component.GreetSoundNotification);
+            Log.Debug($"MakeBrother {ToPrettyString(traitor)} - Sent the Briefing");
+            EnsureComp<BloodBrotherComponent>(traitor);
+            EnsureComp<BloodBrotherLeaderComponent>(traitor);
+            _npcFaction.AddFaction(traitor, "BloodBrotherFaction");
+            _npcFaction.AddFaction(traitor, "BloodBrotherLeaderFaction");
+        }
+        //ADT-tweak-end
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Adding TraitorMind");
         component.TraitorMinds.Add(mindId);

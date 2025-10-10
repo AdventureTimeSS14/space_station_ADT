@@ -22,6 +22,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly OutfitSystem _outfit = default!;
 
+    private static readonly EntProtoId DefaultBloodBrotherRule = "BloodBrother"; //ADT-tweak
     private static readonly EntProtoId DefaultTraitorRule = "Traitor";
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
     private static readonly EntProtoId DefaultNukeOpRule = "LoneOpsSpawn";
@@ -186,6 +187,22 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-changeling"),
         };
         args.Verbs.Add(changeling);
+        // ADT-Changeling-Tweak-End
+
+        // ADT-Changeling-Tweak-Start
+        Verb bloodBrother = new()
+        {
+            Text = traitorName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Interface/Misc/job_icons.rsi"), "BloodBrotherLead"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", traitorName, Loc.GetString("admin-verb-make-brother")),
+        };
+        args.Verbs.Add(bloodBrother);
         // ADT-Changeling-Tweak-End
 
         // Paradox clone
