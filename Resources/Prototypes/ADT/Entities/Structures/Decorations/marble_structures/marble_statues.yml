@@ -23,16 +23,16 @@
         behaviors:
           - !type:SpawnEntitiesBehavior
             spawn:
-              ADTmarble:
+              ADTmarble1:
                 min: 4
-                max: 7
+                max: 6
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/break_stone.ogg
               params:
-                volume: -3
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
