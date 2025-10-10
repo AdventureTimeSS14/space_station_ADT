@@ -203,3 +203,21 @@
   name: Noriyuki Iwadare - Corner the Culprit
   path:
     path: /Audio/ADT/Lobby/Pursuit_Corner_the_Culprit_2004.ogg
+
+- type: jukebox
+  id: Nebula
+  name: Grey Room - Nebula
+  path:
+    path: /Audio/ADT/Lobby/Nebula.ogg
+
+- type: jukebox
+  id: DOS
+  name: Ampient(Polaroid studios) - Dream of Somewhere
+  path:
+    path: /Audio/ADT/Lobby/DOS.ogg
+
+- type: jukebox
+  id: IHYVA
+  name: Zeroh - I Hear Your Voice Again
+  path:
+    path: /Audio/ADT/Lobby/IHYVA.ogg

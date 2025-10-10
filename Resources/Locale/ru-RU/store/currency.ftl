@@ -10,6 +10,7 @@ store-currency-display-debugdollar =
     }
 store-currency-display-telecrystal = ТК
 store-currency-display-stolen-essence = Украденная эссенция
+store-currency-display-silicon-memory = Память
 store-currency-display-wizcoin = Маг₭øин™
 
 store-currency-display-tradeunit = ЕТ
