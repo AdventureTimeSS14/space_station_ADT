@@ -145,7 +145,7 @@ public sealed partial class RevenantSystem : EntitySystem
         var shockDamage = new DamageSpecifier { DamageDict = { ["Shock"] = 20f } };
         _damage.TryChangeDamage(args.User, shockDamage);
     }
-    // ADT-Tweak. Система нанесения урона бьющим ревенанта людям
+    // ADT-Tweak end. Система нанесения урона бьющим ревенанта людям
 
     public bool ChangeEssenceAmount(EntityUid uid, FixedPoint2 amount, RevenantComponent? component = null, bool allowDeath = true, bool regenCap = false)
     {
