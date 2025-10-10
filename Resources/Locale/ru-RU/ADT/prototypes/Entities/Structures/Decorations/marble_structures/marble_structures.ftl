@@ -46,7 +46,7 @@ ent-ADTEyeMarble = статуя Первозданного Ока
 ent-ADTUndoneMarble = незаконченное творение
     .desc = Это может стать чем угодно, ведь автор не закончил его.
 
-ent-ADTAncestorMarble = статуя предка 
+ent-ADTAncestorMarble = статуя предка
     .desc = Кажется, многие существа произошли от этого гуманоида.
 
 ent-ADTPlafeimMarble = статуя плафеима
