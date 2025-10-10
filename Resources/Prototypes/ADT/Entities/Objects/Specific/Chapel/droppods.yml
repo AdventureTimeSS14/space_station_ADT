@@ -44,6 +44,6 @@
   components:
   - type: Droppod
     prototypes:
-      - ADTMechSeraphBattery
+      - ADTMechMarauder # SD-Tweak: КАКОЙ УЁБОК ДАЛ МЕХ ДЕДСКВАДА СТАНЦИИ
       - ADTMechGunScattershotCrate
       - ADTMechGunUltraAC2Crate

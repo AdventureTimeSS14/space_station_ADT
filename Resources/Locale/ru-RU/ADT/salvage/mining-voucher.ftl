@@ -69,3 +69,12 @@ blueshield-voucher-halberd-name = плазменная алебарда
 blueshield-voucher-halberd-description =
     Оружие ближнего боя офицеров "Синего Щита"
     Включает в себя плазменную алебарду, способную отражать пули и вскрывать запитанные шлюзы.
+
+hos-voucher-cqc = набор CQC
+hos-voucher-cqc-description =
+    Променяйте своё дальнее оружие на ближний бой с техникой CQC.
+    Теперь вы можете называть себя голым змеем.
+
+hos-voucher-shotgun = энергетический дробовик
+hos-voucher-shotgun-description =
+    Обычный дробовик, но теперь с батарейкой.

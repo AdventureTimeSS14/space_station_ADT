@@ -834,24 +834,21 @@
     - 0,0,3,1
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
-# ADT tweak start
-#  - type: Tag
-#    tags:
-#    - HighRiskItem
-# ADT tweak end
-# ADT tweak start - закомменчено в связи с временным выводом энергодробаша
-  # - type: StealTarget
-  #   stealGroup: WeaponEnergyShotgun
-# ADT tweak end - закомменчено в связи с временным выводом энергодробаша
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
     maxCharge: 1200
     startingCharge: 1200
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 24
-    autoRechargePause: true
-    autoRechargePauseTime: 30
+#  - type: BatterySelfRecharger
+#   autoRecharge: true
+#    autoRechargeRate: 24
+#    autoRechargePause: true
+#    autoRechargePauseTime: 30
+# sd-tweak - возвращение энергодробовика
 
 - type: entity
   name: temperature gun

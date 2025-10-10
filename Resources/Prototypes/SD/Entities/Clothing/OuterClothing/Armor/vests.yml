@@ -36,7 +36,7 @@
   - type: Sprite
     sprite: SD/Clothing/OuterClothing/Vests/smartharness.rsi
   - type: Storage
-    maxItemSize: Small
+    maxItemSize: Normal
     grid:
     - 0,0,3,1 # 2 slots
   - type: Tag
