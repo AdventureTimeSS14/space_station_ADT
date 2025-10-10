@@ -120,12 +120,14 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-wormholes-spawn-announcement
+    startAudio:
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 8
     duration: 10
     minimumPlayers: 15
     earliestStart: 35
-    reoccurrenceDelay: 50
+    reoccurrenceDelay: 60
   - type: RandomSpawnRule
     prototype: ADTEventJaunterPortal
-    minCount: 50
-    maxCount: 150
+    minCount: 100
+    maxCount: 300
