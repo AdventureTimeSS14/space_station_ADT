@@ -13,7 +13,6 @@ station-beacon-recreation-room-medbay = Комната отдыха МедБея
 station-beacon-storage-eng = Хранилище инженерного отдела
 station-beacon-smoking-room = Курилка
 station-beacon-mine = Шахтёрская
-station-beacon-vox = Комната для воксов
 station-beacon-interrogation = Допросная
 station-beacon-suits-sec = Скафандры СБ
 station-beacon-paramedic = Парамедик

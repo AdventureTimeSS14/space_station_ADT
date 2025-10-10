@@ -58,10 +58,6 @@ ent-ADTDefaultStationBeaconMine = { ent-DefaultStationBeaconSalvage }
     .suffix = Шахтёрская
     .desc = { ent-DefaultStationBeaconSalvage.desc }
 
-ent-ADTDefaultStationBeaconVox = { ent-DefaultStationBeaconService }
-    .suffix = Комната для воксов
-    .desc = { ent-DefaultStationBeaconService.desc }
-
 ent-ADTDefaultStationBeaconInterrogation = { ent-DefaultStationBeaconSecurity }
     .suffix = Допросная
     .desc = { ent-DefaultStationBeaconSecurity.desc }

@@ -1056,14 +1056,6 @@
     defaultText: station-beacon-mine
 
 - type: entity
-  parent: DefaultStationBeaconService
-  id: ADTDefaultStationBeaconVox
-  suffix: Vox
-  components:
-  - type: NavMapBeacon
-    defaultText: station-beacon-vox
-
-- type: entity
   parent: DefaultStationBeaconSecurity
   id: ADTDefaultStationBeaconInterrogation
   suffix: Interrogation
