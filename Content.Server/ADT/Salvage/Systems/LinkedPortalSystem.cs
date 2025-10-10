@@ -29,9 +29,6 @@ public sealed partial class JaunterPortalSystem : EntitySystem
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
-    private const float InitialLifetime = 15f;
-    private const float AfterEnterLifetime = 3f;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -54,9 +51,6 @@ public sealed partial class JaunterPortalSystem : EntitySystem
         var at = Transform(uid).Coordinates;
         var spawnAt = FindFreeNearbyCoords(at, 2) ?? at;
         var portal = Spawn("ADTJaunterPortal", spawnAt);
-
-        var td = EnsureComp<TimedDespawnComponent>(portal);
-        td.Lifetime = InitialLifetime;
 
         return portal;
     }
@@ -204,12 +198,12 @@ public sealed partial class JaunterPortalSystem : EntitySystem
 
         if (TryComp<TimedDespawnComponent>(uid, out var td))
         {
-            td.Lifetime = MathF.Min(td.Lifetime, AfterEnterLifetime);
+            td.Lifetime = MathF.Min(td.Lifetime, comp.AfterEnterLifetime);
         }
         else
         {
             var ntd = EnsureComp<TimedDespawnComponent>(uid);
-            ntd.Lifetime = AfterEnterLifetime;
+            ntd.Lifetime = comp.AfterEnterLifetime;
         }
     }
 }

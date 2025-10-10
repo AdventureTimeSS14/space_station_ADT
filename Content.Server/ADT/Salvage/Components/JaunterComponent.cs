@@ -10,7 +10,10 @@ public sealed partial class JaunterComponent : Component
 }
 
 [RegisterComponent]
-public sealed partial class JaunterPortalComponent : Component { }
+public sealed partial class JaunterPortalComponent : Component
+{
+    public float AfterEnterLifetime = 3f;
+}
 
 [RegisterComponent]
 public sealed partial class JaunterKillPortalComponent : Component { }
