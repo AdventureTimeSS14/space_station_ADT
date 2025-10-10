@@ -937,7 +937,7 @@
 # ADT Tweak Start
 - type: entity
   parent: DefaultStationBeaconCommand
-  id: DefaultStationBeaconCaptainToilet
+  id: ADTDefaultStationBeaconCaptainToilet
   suffix: Captain Toilet
   components:
   - type: NavMapBeacon
@@ -945,7 +945,7 @@
 
 - type: entity
   parent: DefaultStationBeacon
-  id: DefaultStationBeaconOldBar
+  id: ADTDefaultStationBeaconOldBar
   suffix: Old Bar
   components:
   - type: NavMapBeacon
@@ -953,7 +953,7 @@
 
 - type: entity
   parent: DefaultStationBeacon
-  id: DefaultStationBeaconOldLibrary
+  id: ADTDefaultStationBeaconOldLibrary
   suffix: Old Library
   components:
   - type: NavMapBeacon
@@ -961,7 +961,7 @@
 
 - type: entity
   parent: DefaultStationBeaconEngineering
-  id: DefaultStationBeaconCell
+  id: ADTDefaultStationBeaconCell
   suffix: Cell
   components:
   - type: NavMapBeacon
@@ -969,7 +969,7 @@
 
 - type: entity
   parent: DefaultStationBeaconEngineering
-  id: DefaultStationBeaconSuperMatter
+  id: ADTDefaultStationBeaconSuperMatter
   suffix: Super Matter
   components:
   - type: NavMapBeacon
@@ -977,7 +977,7 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconBathhouse
+  id: ADTDefaultStationBeaconBathhouse
   suffix: Bathhouse
   components:
   - type: NavMapBeacon
@@ -985,7 +985,7 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconRing
+  id: ADTDefaultStationBeaconRing
   suffix: Ring
   components:
   - type: NavMapBeacon
@@ -993,7 +993,7 @@
 
 - type: entity
   parent: DefaultStationBeaconCommand
-  id: DefaultStationBeaconBSO
+  id: ADTDefaultStationBeaconBSO
   suffix: BSO
   components:
   - type: NavMapBeacon
@@ -1001,7 +1001,7 @@
 
 - type: entity
   parent: DefaultStationBeaconSecurity
-  id: DefaultStationBeaconShootingRange
+  id: ADTDefaultStationBeaconShootingRange
   suffix: Shooting Range
   components:
   - type: NavMapBeacon
@@ -1009,7 +1009,7 @@
 
 - type: entity
   parent: DefaultStationBeaconScience
-  id: DefaultStationBeaconRecreationRoomRND
+  id: ADTDefaultStationBeaconRecreationRoomRND
   suffix: Recreation Room RND
   components:
   - type: NavMapBeacon
@@ -1017,7 +1017,7 @@
 
 - type: entity
   parent: DefaultStationBeaconSecurity
-  id: DefaultStationBeaconRecreationRoomSecurity
+  id: ADTDefaultStationBeaconRecreationRoomSecurity
   suffix: Recreation Room Security
   components:
   - type: NavMapBeacon
@@ -1025,7 +1025,7 @@
 
 - type: entity
   parent: DefaultStationBeaconMedbay
-  id: DefaultStationBeaconRecreationRoomMedbay
+  id: ADTDefaultStationBeaconRecreationRoomMedbay
   suffix: Recreation Room Medbay
   components:
   - type: NavMapBeacon
@@ -1033,7 +1033,7 @@
 
 - type: entity
   parent: DefaultStationBeaconEngineering
-  id: DefaultStationBeaconStorageEng
+  id: ADTDefaultStationBeaconStorageEng
   suffix: Storage Eng
   components:
   - type: NavMapBeacon
@@ -1041,7 +1041,7 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconSmokingRoom
+  id: ADTDefaultStationBeaconSmokingRoom
   suffix: Smoking Room
   components:
   - type: NavMapBeacon
@@ -1049,7 +1049,7 @@
 
 - type: entity
   parent: DefaultStationBeaconSalvage
-  id: DefaultStationBeaconMine
+  id: ADTDefaultStationBeaconMine
   suffix: Mine
   components:
   - type: NavMapBeacon
@@ -1057,7 +1057,7 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconVox
+  id: ADTDefaultStationBeaconVox
   suffix: Vox
   components:
   - type: NavMapBeacon
@@ -1065,7 +1065,7 @@
 
 - type: entity
   parent: DefaultStationBeaconSecurity
-  id: DefaultStationBeaconInterrogation
+  id: ADTDefaultStationBeaconInterrogation
   suffix: Interrogation
   components:
   - type: NavMapBeacon
@@ -1073,7 +1073,7 @@
 
 - type: entity
   parent: DefaultStationBeaconSecurity
-  id: DefaultStationBeaconSuitsSec
+  id: ADTDefaultStationBeaconSuitsSec
   suffix: Suits Sec
   components:
   - type: NavMapBeacon
@@ -1081,7 +1081,7 @@
 
 - type: entity
   parent: DefaultStationBeaconMedbay
-  id: DefaultStationBeaconCloning
+  id: ADTDefaultStationBeaconCloning
   suffix: Cloning
   components:
   - type: NavMapBeacon
@@ -1089,7 +1089,7 @@
 
 - type: entity
   parent: DefaultStationBeaconMedbay
-  id: DefaultStationBeaconVirology
+  id: ADTDefaultStationBeaconVirology
   suffix: Virology
   components:
   - type: NavMapBeacon
@@ -1097,7 +1097,7 @@
 
 - type: entity
   parent: DefaultStationBeaconSecurity
-  id: DefaultStationBeaconDockingAreaSec
+  id: ADTDefaultStationBeaconDockingAreaSec
   suffix: Docking Area Sec
   components:
   - type: NavMapBeacon
@@ -1105,7 +1105,7 @@
 
 - type: entity
   parent: DefaultStationBeaconSecurity
-  id: DefaultStationBeaconExecution
+  id: ADTDefaultStationBeaconExecution
   suffix: Execution
   components:
   - type: NavMapBeacon
@@ -1113,7 +1113,7 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconCrematorium
+  id: ADTDefaultStationBeaconCrematorium
   suffix: Crematorium
   components:
   - type: NavMapBeacon
@@ -1121,7 +1121,7 @@
 
 - type: entity
   parent: DefaultStationBeaconEngineering
-  id: DefaultStationBeaconShuttleArea
+  id: ADTDefaultStationBeaconShuttleArea
   suffix: Shuttle Area
   components:
   - type: NavMapBeacon
@@ -1129,7 +1129,7 @@
 
 - type: entity
   parent: DefaultStationBeaconService
-  id: DefaultStationBeaconPark
+  id: ADTDefaultStationBeaconPark
   suffix: Park
   components:
   - type: NavMapBeacon

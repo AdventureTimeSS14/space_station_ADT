@@ -1,103 +1,103 @@
-ent-DefaultStationBeaconCaptainToilet = { ent-DefaultStationBeaconCommand }
+ent-ADTDefaultStationBeaconCaptainToilet = { ent-DefaultStationBeaconCommand }
     .suffix = Туалет Капитана
     .desc = { ent-DefaultStationBeaconCommand.desc }
 
-ent-DefaultStationBeaconOldBar = { ent-DefaultStationBeacon }
+ent-ADTDefaultStationBeaconOldBar = { ent-DefaultStationBeacon }
     .suffix = Старый бар
     .desc = { ent-DefaultStationBeacon.desc }
 
-ent-DefaultStationBeaconOldLibrary = { ent-DefaultStationBeacon }
+ent-ADTDefaultStationBeaconOldLibrary = { ent-DefaultStationBeacon }
     .suffix = Старая библиотека
     .desc = { ent-DefaultStationBeacon.desc }
 
-ent-DefaultStationBeaconCell = { ent-DefaultStationBeaconEngineering }
+ent-ADTDefaultStationBeaconCell = { ent-DefaultStationBeaconEngineering }
     .suffix = Клетка для теслы и сингулярности
     .desc = { ent-DefaultStationBeaconEngineering.desc }
 
-ent-DefaultStationBeaconSuperMatter = { ent-DefaultStationBeaconEngineering }
+ent-ADTDefaultStationBeaconSuperMatter = { ent-DefaultStationBeaconEngineering }
     .suffix = СуперМаттерия
     .desc = { ent-DefaultStationBeaconEngineering.desc }
 
-ent-DefaultStationBeaconBathhouse = { ent-DefaultStationBeaconService }
+ent-ADTDefaultStationBeaconBathhouse = { ent-DefaultStationBeaconService }
     .suffix = Баня
     .desc = { ent-DefaultStationBeaconService.desc }
 
-ent-DefaultStationBeaconRing = { ent-DefaultStationBeaconService }
+ent-ADTDefaultStationBeaconRing = { ent-DefaultStationBeaconService }
     .suffix = Ринг
     .desc = { ent-DefaultStationBeaconService.desc }
 
-ent-DefaultStationBeaconBSO = { ent-DefaultStationBeaconCommand }
+ent-ADTDefaultStationBeaconBSO = { ent-DefaultStationBeaconCommand }
     .suffix = Комната ОСЩ
     .desc = { ent-DefaultStationBeaconCommand.desc }
 
-ent-DefaultStationBeaconShootingRange = { ent-DefaultStationBeaconSecurity }
+ent-ADTDefaultStationBeaconShootingRange = { ent-DefaultStationBeaconSecurity }
     .suffix = Стрельбище
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
-ent-DefaultStationBeaconRecreationRoomRND = { ent-DefaultStationBeaconScience }
+ent-ADTDefaultStationBeaconRecreationRoomRND = { ent-DefaultStationBeaconScience }
     .suffix = Комната отдыха РНД
     .desc = { ent-DefaultStationBeaconScience.desc }
 
-ent-DefaultStationBeaconRecreationRoomSecurity = { ent-DefaultStationBeaconSecurity }
+ent-ADTDefaultStationBeaconRecreationRoomSecurity = { ent-DefaultStationBeaconSecurity }
     .suffix = Комната отдыха СБ
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
-ent-DefaultStationBeaconRecreationRoomMedbay = { ent-DefaultStationBeaconMedbay }
+ent-ADTDefaultStationBeaconRecreationRoomMedbay = { ent-DefaultStationBeaconMedbay }
     .suffix = Комната отдыха МедБея
     .desc = { ent-DefaultStationBeaconMedbay.desc }
 
-ent-DefaultStationBeaconStorageEng = { ent-DefaultStationBeaconEngineering }
+ent-ADTDefaultStationBeaconStorageEng = { ent-DefaultStationBeaconEngineering }
     .suffix = Хранилище инженерного отдела
     .desc = { ent-DefaultStationBeaconEngineering.desc }
 
-ent-DefaultStationBeaconSmokingRoom = { ent-DefaultStationBeaconService }
+ent-ADTDefaultStationBeaconSmokingRoom = { ent-DefaultStationBeaconService }
     .suffix = Курилка
     .desc = { ent-DefaultStationBeaconService.desc }
 
-ent-DefaultStationBeaconMine = { ent-DefaultStationBeaconSalvage }
+ent-ADTDefaultStationBeaconMine = { ent-DefaultStationBeaconSalvage }
     .suffix = Шахтёрская
     .desc = { ent-DefaultStationBeaconSalvage.desc }
 
-ent-DefaultStationBeaconVox = { ent-DefaultStationBeaconService }
+ent-ADTDefaultStationBeaconVox = { ent-DefaultStationBeaconService }
     .suffix = Комната для воксов
     .desc = { ent-DefaultStationBeaconService.desc }
 
-ent-DefaultStationBeaconInterrogation = { ent-DefaultStationBeaconSecurity }
+ent-ADTDefaultStationBeaconInterrogation = { ent-DefaultStationBeaconSecurity }
     .suffix = Допросная
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
-ent-DefaultStationBeaconSuitsSec = { ent-DefaultStationBeaconSecurity }
+ent-ADTDefaultStationBeaconSuitsSec = { ent-DefaultStationBeaconSecurity }
     .suffix = Скафандры СБ
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
-ent-DefaultStationBeaconParamedic = { ent-DefaultStationBeaconMedbay }
+ent-ADTDefaultStationBeaconParamedic = { ent-DefaultStationBeaconMedbay }
     .suffix = Парамедик
     .desc = { ent-DefaultStationBeaconMedbay.desc }
 
-ent-DefaultStationBeaconCloning = { ent-DefaultStationBeaconMedbay }
+ent-ADTDefaultStationBeaconCloning = { ent-DefaultStationBeaconMedbay }
     .suffix = Клонирование
     .desc = { ent-DefaultStationBeaconMedbay.desc }
 
-ent-DefaultStationBeaconVirology = { ent-DefaultStationBeaconMedbay }
+ent-ADTDefaultStationBeaconVirology = { ent-DefaultStationBeaconMedbay }
     .suffix = Вирусология
     .desc = { ent-DefaultStationBeaconMedbay.desc }
 
-ent-DefaultStationBeaconDockingAreaSec = { ent-DefaultStationBeaconSecurity }
+ent-ADTDefaultStationBeaconDockingAreaSec = { ent-DefaultStationBeaconSecurity }
     .suffix = Стыковочная зона СБ
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
-ent-DefaultStationBeaconExecution = { ent-DefaultStationBeaconSecurity }
+ent-ADTDefaultStationBeaconExecution = { ent-DefaultStationBeaconSecurity }
     .suffix = Казнь
     .desc = { ent-DefaultStationBeaconSecurity.desc }
 
-ent-DefaultStationBeaconCrematorium = { ent-DefaultStationBeaconService }
+ent-ADTDefaultStationBeaconCrematorium = { ent-DefaultStationBeaconService }
     .suffix = Крематорий
     .desc = { ent-DefaultStationBeaconService.desc }
 
-ent-DefaultStationBeaconShuttleArea = { ent-DefaultStationBeaconEngineering }
+ent-ADTDefaultStationBeaconShuttleArea = { ent-DefaultStationBeaconEngineering }
     .suffix = Зона для постройки шаттлов 
     .desc = { ent-DefaultStationBeaconEngineering.desc }
 
-ent-DefaultStationBeaconPark = { ent-DefaultStationBeaconService }
+ent-ADTDefaultStationBeaconPark = { ent-DefaultStationBeaconService }
     .suffix = Парк
     .desc = { ent-DefaultStationBeaconService.desc }
