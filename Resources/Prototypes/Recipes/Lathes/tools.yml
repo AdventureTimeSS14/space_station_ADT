@@ -57,17 +57,22 @@
   - Parts
   completetime: 0.1
   materials:
-    Steel: 30
+    Copper: 30 #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: CableStack
   id: CableMVStack
   result: CableMVStack1
+  materials:    #ADT-BFUU-Tweak-start
+    Silver: 15  
+    Copper: 15  #ADT-BFUU-Tweak-end 
 
 - type: latheRecipe
   parent: CableStack
   id: CableHVStack
   result: CableHVStack1
+  materials: #ADT-BFUU-Tweak-start
+    Silver: 30 #ADT-BFUU-Tweak-end 
 
 - type: latheRecipe
   parent: BaseToolRecipe

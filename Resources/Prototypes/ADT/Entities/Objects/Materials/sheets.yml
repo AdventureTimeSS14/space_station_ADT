@@ -25,7 +25,7 @@
   - type: Appearance
   - type: FloorTile
     outputs:
-    - Plating
+    - PlatingBrass
   - type: Extractable
     grindableSolutionName: steel
   - type: SolutionContainerManager
@@ -38,8 +38,7 @@
           Quantity: 0.9
   - type: Tag
     tags:
-    - Sheet
-    - Metal
+      - ADTSheet
 
 - type: entity
   parent: ADTSheetCopper
@@ -100,10 +99,6 @@
           Quantity: 3.3
         - ReagentId: Carbon
           Quantity: 0.9
-  - type: Tag
-    tags:
-    - Sheet
-    - Metal
 
 - type: entity
   parent: ADTSheetZinc
@@ -128,3 +123,42 @@
   - type: Stack
     stackType: Zinc
     count: 1
+
+- type: entity
+  parent: SheetMetalBase
+  id: ADTSheetPlasteel
+  name: plasteel
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 100
+  - type: Stack
+    stackType: Plasteel
+    baseLayer: base
+    layerStates:
+    - plasteel
+    - plasteel_2
+    - plasteel_3
+  - type: Sprite
+    state: plasteel_3
+    layers:
+    - state: plasteel_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: plasteel
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: plasteel
+  - type: SolutionContainerManager
+    solutions:
+      plasteel:
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 10
+        - ReagentId: Iron
+          Quantity: 9
+        - ReagentId: Carbon
+          Quantity: 1
+        canReact: false

@@ -112,6 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - ADTSheet
   - type: StationAiWhitelist #ADT-Tweak
   - type: OreSiloClient
   - type: Lathe
