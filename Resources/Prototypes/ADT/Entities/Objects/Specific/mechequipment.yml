@@ -49,7 +49,7 @@
       - NonEnergy
   - type: Sprite
     noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/projectiles_tsd.rsi
     layers:
     - state: adtomnilaser
       shader: unshaded

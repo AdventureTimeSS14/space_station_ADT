@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Label
-    currentLabel: reagent-name-Charcoal
+    currentLabel: reagent-name-charcoal
   - type: SolutionContainerManager
     solutions:
       beaker:

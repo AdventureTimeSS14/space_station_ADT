@@ -16,6 +16,9 @@
       amount: 2
     Hydrogen:
       amount: 2
+    Plasma:
+      amount: 1
+      catalyst: true
   products:
     ADTMethanol: 3
 

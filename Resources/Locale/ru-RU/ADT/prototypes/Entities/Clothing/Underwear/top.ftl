@@ -60,3 +60,6 @@ ent-ADTClothingUnderwearTopMonokiniWhite = верх белого монокин�
 
 ent-ADTClothingUnderwearTopMonokiniBlack = верх черного монокини
     .desc = верх монокини, черного цвета
+
+ent-ADTClothingUnderwearTopBraCow = коровий лифчик
+    .desc = Милый коровий лифчик. Му-у-у!

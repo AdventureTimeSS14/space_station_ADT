@@ -3,11 +3,12 @@
   name: Spawn baloon
   description: Spawn baloon
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 15
     checkCanInteract: true
     itemIconStyle: BigAction
     icon:
       sprite: ADT/Objects/Fun/Balloon.rsi
       state: icon
+  - type: InstantAction
     event: !type:SpawnBaloonEvent

@@ -259,7 +259,7 @@
     damage:
       types:
         Bloodloss: -2.5 #lowers bloodloss damage  # ADT tweak было до этого -0.5
-    ModifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
+    modifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -311,10 +311,14 @@
       damageContainers:
         - Biological
       damage:
-        groups:
-          Brute: 5 # Tourniquets HURT!
+# ADT-tweak start
+#        groups:
+#          Brute: 5 # Tourniquets HURT!
         types:
-          Asphyxiation: 5 # Essentially Stopping all blood reaching a part of your body
+          Blunt: 0
+          Asphyxiation: 10 # Essentially Stopping all blood reaching a part of your body
+      modifyBloodLevel: 15
+# ADT-tweak end
       bloodlossModifier: -10 # Tourniquets stop bleeding
       delay: 0.5
       healingBeginSound:
@@ -353,7 +357,7 @@
         Blunt: 0 # благодаря этому дает лечить кровотек всегда ADT tweak
         Slash: -5
         Piercing: -10
-    bloodlossModifier: -10
+    bloodlossModifier: -5 # ADT-tweak -10 -> -5
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:

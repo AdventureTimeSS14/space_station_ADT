@@ -3,8 +3,9 @@
   name: revenant-shop-action
   description: revenant-shop-action-desc
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/Actions/shop.png
+  - type: InstantAction
     event: !type:RevenantShopActionEvent
 
 - type: entity
@@ -12,36 +13,39 @@
   name: revenant-defile
   description: revenant-defile-action-desc
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/revenant.rsi
       state: rev_corruption
     itemIconStyle: BigAction
-    event: !type:RevenantDefileActionEvent
     useDelay: 15
+  - type: InstantAction
+    event: !type:RevenantDefileActionEvent
 
 - type: entity
   id: ActionRevenantOverloadLights
   name: revenant-overload-lights
   description: revenant-overload-lights-action-desc
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/revenant.rsi
       state: rev_blackout
     itemIconStyle: BigAction
-    event: !type:RevenantOverloadLightsActionEvent
     useDelay: 20
+  - type: InstantAction
+    event: !type:RevenantOverloadLightsActionEvent
 
 #- type: entity
 #  id: ActionRevenantBlight
 #  name: Blight
 #  description: Costs 50 Essence.
 #  components:
-#  - type: InstantAction
+#  - type: Action
 #    icon: Interface/Actions/blight.png
-#    event: !type:RevenantBlightActionEvent
 #    useDelay: 20
+#  - type: InstantAction
+#    event: !type:RevenantBlightActionEvent
 
 - type: entity
   id: ActionRevenantMalfunction
@@ -49,13 +53,14 @@
   description: revenant-malfunction-action-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/revenant.rsi
       state: rev_malafucturing
     itemIconStyle: BigAction
-    event: !type:RevenantMalfunctionActionEvent
     useDelay: 20
+  - type: InstantAction
+    event: !type:RevenantMalfunctionActionEvent
 
     ## ADT revenant update
 
@@ -65,13 +70,14 @@
   description: revenant-hysteria-action-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/revenant.rsi
       state: rev_panic
     itemIconStyle: BigAction
-    event: !type:RevenantHysteriaActionEvent
     useDelay: 90
+  - type: InstantAction
+    event: !type:RevenantHysteriaActionEvent
 
 - type: entity
   id: ActionRevenantSmoke
@@ -79,13 +85,14 @@
   description: revenant-smoke-action-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/revenant.rsi
       state: rev_ghostsmoke
     itemIconStyle: BigAction
-    event: !type:RevenantGhostSmokeActionEvent
     useDelay: 25
+  - type: InstantAction
+    event: !type:RevenantGhostSmokeActionEvent
 
 - type: entity
   id: ActionRevenantLock
@@ -93,10 +100,11 @@
   description: revenant-lock-action-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Interface/Actions/revenant.rsi
       state: rev_airlock
     itemIconStyle: BigAction
-    event: !type:RevenantLockActionEvent
     useDelay: 25
+  - type: InstantAction
+    event: !type:RevenantLockActionEvent

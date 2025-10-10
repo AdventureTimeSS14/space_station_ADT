@@ -114,10 +114,6 @@
         type: WiresBoundUserInterface
   - type: ActivatableUIRequiresPower
   - type: StationAiWhitelist
-  - type: Advertise
-    pack: MinesweeperAds
-    minimumWait: 60 # Arcades are noisy
-    maximumWait: 240
   - type: SpeakOnUIClosed
     pack: MinesweeperGoodbyes
 
