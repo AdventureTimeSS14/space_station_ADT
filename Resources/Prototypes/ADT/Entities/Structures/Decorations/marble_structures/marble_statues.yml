@@ -21,8 +21,18 @@
           !type:DamageTrigger
           damage: 150
         behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble:
+                min: 4
+                max: 7
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -3
 
 - type: entity
   parent: ADTmarblelady
