@@ -237,7 +237,7 @@
     Plastic: 100
 
 # ADT-Tweak
-- type: latheRecipe 
+- type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: MedicalScannerMachineCircuitboard
   result: MedicalScannerMachineCircuitboard

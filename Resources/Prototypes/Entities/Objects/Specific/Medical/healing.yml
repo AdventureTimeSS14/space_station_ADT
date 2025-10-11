@@ -300,37 +300,49 @@
   name: tourniquet
   description: Stops bleeding! Hopefully.
   components:
-    - type: Tag
-      tags:
-        - SecBeltEquip
-    - type: Sprite
-      state: tourniquet
-    - type: Item
-      heldPrefix: tourniquet
-    - type: Healing
-      damageContainers:
-        - Biological
-      damage:
+  - type: Stack  #ADT TourniquetUp by ledniky
+    stackType: ADTTourniquet
+    count: 5
+  - type: Tag
+    tags:
+      - SecBeltEquip
+  - type: Sprite
+    state: tourniquet
+  - type: Item
+    heldPrefix: tourniquet
+  - type: Healing
+    damageContainers:
+      - Biological
+    damage:
 # ADT-tweak start
 #        groups:
 #          Brute: 5 # Tourniquets HURT!
-        types:
-          Blunt: 0
-          Asphyxiation: 10 # Essentially Stopping all blood reaching a part of your body
-      modifyBloodLevel: 15
+      types:
+        Blunt: 0
+        Asphyxiation: 10 # Essentially Stopping all blood reaching a part of your body
+    modifyBloodLevel: 15
 # ADT-tweak end
-      bloodlossModifier: -10 # Tourniquets stop bleeding
-      delay: 0.5
-      healingBeginSound:
-        path: "/Audio/Items/Medical/brutepack_begin.ogg"
-        params:
-          volume: 1.0
-          variation: 0.125
-      healingEndSound:
-        path: "/Audio/Items/Medical/brutepack_end.ogg"
-        params:
-          volume: 1.0
-          variation: 0.125
+    bloodlossModifier: -10 # Tourniquets stop bleeding
+    delay: 0.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+
+- type: entity #ADT TourniquetUp by ledniky
+  id: Tourniquet1
+  parent: Tourniquet
+  suffix: Single
+  components:
+    - type: Stack
+      stackType: ADTTourniquet
+      count: 1
 
 - type: entity
   name: roll of gauze

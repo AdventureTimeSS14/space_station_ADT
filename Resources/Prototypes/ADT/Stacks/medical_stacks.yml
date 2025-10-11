@@ -4,3 +4,10 @@
   icon: { sprite: "/Textures/ADT/Objects/Specific/Medical/medical.rsi", state: antib_ointment }
   spawn: ADTAntibioticOintment
   maxCount: 10
+
+- type: stack
+  id: ADTTourniquet
+  name: stack-tourniquet
+  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: gauze }
+  spawn: Tourniquet
+  maxCount: 5

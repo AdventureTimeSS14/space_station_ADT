@@ -34,11 +34,12 @@
 
 - type: latheRecipe
   id: ADTTourniquet
-  result: Tourniquet
+  result: Tourniquet1
   completetime: 1
   materials:
-    Cloth: 50
-    Plastic: 50
+    Steel: 15
+    Plastic: 15
+    Cloth: 15
 
 - type: latheRecipe
   id: ADTAntibioticOintment
@@ -47,4 +48,3 @@
   materials:
     Glass: 50
     Plastic: 50
-

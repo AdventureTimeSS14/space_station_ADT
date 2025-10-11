@@ -292,7 +292,7 @@
   - type: StorageFill
     contents:
       # ADT-Tweak start
-      - id: LauncherSyringe 
+      - id: LauncherSyringe
       - id: MiniSyringe
         amount: 6
       - id: ChemistryBottleRomerol
@@ -301,7 +301,7 @@
       - id: WeaponRevolverPython
       - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
       # ADT-Tweak start
-      # - id: SyringeRomerol 
+      # - id: SyringeRomerol
       # - id: PillAmbuzolPlus # ADT-Tweak
       # - id: PillAmbuzol
       #   amount: 3
@@ -318,7 +318,7 @@
       - id: DefibrillatorSyndicate
       - id: MedkitCombatFilled
         amount: 4
-      - id: Tourniquet
+      - id: Tourniquet1
         amount: 4
       - id: CombatMedipen
         amount: 4
