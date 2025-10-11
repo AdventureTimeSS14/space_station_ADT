@@ -189,21 +189,21 @@ public sealed partial class AdminVerbSystem
         args.Verbs.Add(changeling);
         // ADT-Changeling-Tweak-End
 
-        // ADT-Changeling-Tweak-Start
+        // ADT-blood-brothers-Tweak-Start
         Verb bloodBrother = new()
         {
-            Text = traitorName,
+            Text = Loc.GetString("admin-verb-make-brother"),
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Interface/Misc/job_icons.rsi"), "BloodBrotherLead"),
             Act = () =>
             {
-                _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
+                _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultBloodBrotherRule);
             },
             Impact = LogImpact.High,
             Message = string.Join(": ", traitorName, Loc.GetString("admin-verb-make-brother")),
         };
         args.Verbs.Add(bloodBrother);
-        // ADT-Changeling-Tweak-End
+        // ADT-blood-brothers-Tweak-End
 
         // Paradox clone
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");

@@ -347,3 +347,31 @@
   - type: GameRule
     minPlayers: 30
   - type: DynamicRandomRule
+
+- type: entity
+  parent: BaseTraitorRule
+  id: BloodBrother
+  components:
+  - type: GameRule
+    minPlayers: 5
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 4
+      playerRatio: 20
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: TraitorRule
+    bloodBrotherChance: 1
+  - type: AntagRandomObjectives
+    sets:
+    - groups: BloodBrothersObjectiveGroups
+    maxDifficulty: 12

@@ -30,7 +30,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.ADT.BloodBrothers;
 
-public sealed class BloodCoughSystem : EntitySystem
+public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;

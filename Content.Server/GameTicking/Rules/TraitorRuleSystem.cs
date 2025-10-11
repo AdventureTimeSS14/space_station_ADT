@@ -122,8 +122,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             Log.Debug($"MakeBrother {ToPrettyString(traitor)} - Sent the Briefing");
             EnsureComp<BloodBrotherComponent>(traitor);
             EnsureComp<BloodBrotherLeaderComponent>(traitor);
-            _npcFaction.AddFaction(traitor, "BloodBrotherFaction");
-            _npcFaction.AddFaction(traitor, "BloodBrotherLeaderFaction");
+            _npcFaction.AddFaction(traitor, component.BloodBrotherFaction);
+            _npcFaction.AddFaction(traitor, component.BloodBrotherLeaderFaction);
         }
         //ADT-tweak-end
 

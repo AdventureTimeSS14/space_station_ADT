@@ -6,6 +6,7 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
+    TraitorObjectiveGroupNukieDisk: 0.05  #Corvax
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -33,11 +34,10 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupState
   weights:
-    EscapeShuttleObjective: 1
+    EscapeShuttleObjective: 0.6 #ADT-tweak
     DieObjective: 0.05
-    HijackShuttleObjective: 0.02 #Corvax-Hijack
+    HijackShuttleObjective: 0.01 #Corvax-Hijack //ADT-tweak
     ADTDoCascade: 0.02 # ADT Objective
-    TraitorObjectiveGroupNukieDisk: 0.01 #ADT-tweak
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
