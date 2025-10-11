@@ -406,9 +406,6 @@
     sprintModifier: 1
   - type: FireProtection
     reduction: 0.7
-  - type: ClothingGrantComponent
-    component:
-    - type: GrabProtection
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -483,6 +480,3 @@
     damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.9
-  - type: ClothingGrantComponent
-    component:
-    - type: GrabProtection
