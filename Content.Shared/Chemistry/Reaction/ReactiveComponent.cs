@@ -22,6 +22,26 @@ public sealed partial class ReactiveComponent : Component
     /// </summary>
     [DataField("reactions", true, serverOnly: true)]
     public List<ReactiveReagentEffectEntry>? Reactions;
+
+    // ADT-Tweak-Start
+    /// <summary>
+    /// How many times can this component react, if not unlimited? - Goobstation
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int RemainingReactions = 1;
+
+    /// <summary>
+    /// Can this reaction activate unlimited times? - Goobstation
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool IsReactionsUnlimited = true;
+
+    /// <summary>
+    /// Will this reaction only react with one unit? - Goobstation
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool OneUnitReaction;
+    // ADT-Tweak-End
 }
 
 [DataDefinition]

@@ -294,3 +294,23 @@
       Manipulator: 16
       Steel: 20
       ADTBScrystalArt: 8
+
+- type: entity
+  id: ADTSlimeGrinderMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: slime grinder machine board
+  description: A machine printed circuit board for a slime grinder.
+  components: # Maybe change this recipe later.
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: SlimeGrinder
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+      Steel: 5
+    tagRequirements:
+      Knife:
+        amount: 2
+        defaultPrototype: KitchenKnife
+        examineName: construction-insert-info-examine-name-knife
