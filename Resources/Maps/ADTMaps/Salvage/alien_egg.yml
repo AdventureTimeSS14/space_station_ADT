@@ -3,9 +3,9 @@ meta:
   category: Grid
   engineVersion: 265.0.0
   forkId: ADT
-  forkVersion: ae321146ac3a374279e3b93960781952ee5ff1f6
-  time: 10/09/2025 17:46:43
-  entityCount: 87
+  forkVersion: e41a306799a5dfeb06eec1475d788841623195f1
+  time: 10/11/2025 20:24:58
+  entityCount: 90
 maps: []
 grids:
 - 1
@@ -244,6 +244,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-0.5
       parent: 1
+- proto: AmmoTechFabCircuitboard
+  entities:
+  - uid: 90
+    components:
+    - type: Transform
+      pos: 3.421901,1.2722422
+      parent: 1
 - proto: BlastDoorXenoOpen
   entities:
   - uid: 83
@@ -277,12 +284,26 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,1.5
       parent: 1
+- proto: ClothingOuterHardsuitMaxim
+  entities:
+  - uid: 88
+    components:
+    - type: Transform
+      pos: -1.8531716,-1.5585023
+      parent: 1
 - proto: DrinkAlienBrainHemorrhage
   entities:
   - uid: 76
     components:
     - type: Transform
       pos: -1.531168,-1.3953012
+      parent: 1
+- proto: LootSpawnerArmoryArmorOnly
+  entities:
+  - uid: 89
+    components:
+    - type: Transform
+      pos: 4.5,-0.5
       parent: 1
 - proto: PlushieXeno
   entities:
