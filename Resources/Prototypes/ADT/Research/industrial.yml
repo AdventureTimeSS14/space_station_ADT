@@ -121,7 +121,7 @@
   cost: 15000
   recipeUnlocks:
   - ADTMachineMediumThrusterCircuitboard
-  - ADTMachineBigThrusterCircuitboard
+    - ADTMachineBigThrusterCircuitboard
   - ADTMachineMediumLongThrusterCircuitboard
   position: 4,2
   requiredTech:
