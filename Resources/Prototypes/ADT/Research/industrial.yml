@@ -120,7 +120,7 @@
   tier: 3
   cost: 15000
   recipeUnlocks:
-  - ADTMachineMediumThrusterCircuitboard
+    - ADTMachineMediumThrusterCircuitboard
     - ADTMachineBigThrusterCircuitboard
     - ADTMachineMediumLongThrusterCircuitboard
   position: 4,2
