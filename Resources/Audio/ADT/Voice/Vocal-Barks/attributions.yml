@@ -47,3 +47,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Sounds made by Jakei for UNDERVERSE series."
   source: "https://www.youtube.com/@Jakeiartwork/videos"
+
+- files: ["microsoft-sam-01", "microsoft-sam-02", "microsoft-sam-03", "microsoft-sam-04", "microsoft-sam-05", "microsoft-sam-06"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Unlumy by using https://discordier.github.io/sam/"
+  source: "https://discordier.github.io/sam/"
