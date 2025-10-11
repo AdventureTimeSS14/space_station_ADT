@@ -486,7 +486,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: MaterialBSCrystal1
+        entity: ADTMaterialBScrystal1
         number: 3
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
