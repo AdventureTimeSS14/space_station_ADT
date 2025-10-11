@@ -114,8 +114,8 @@
   id: ADTAdvancedThruster
   name: research-technology-advanced-thruster
   icon:
-    sprite: Objects/Misc/module.rsi
-    state: supply
+    sprite: ADT/Structures/Machines/Thrusters/big_thruster.rsi
+    state: icon
   discipline: Industrial
   tier: 3
   cost: 15000
