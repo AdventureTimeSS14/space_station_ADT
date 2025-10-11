@@ -33,6 +33,7 @@
   - ADT_Kerberos
   - ADT_Reach
   - ADT_Train
+  - ADT_Silly
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
