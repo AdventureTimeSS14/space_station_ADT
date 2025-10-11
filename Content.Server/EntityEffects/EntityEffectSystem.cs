@@ -1093,21 +1093,22 @@ public sealed class EntityEffectSystem : EntitySystem
                 _respirator.UpdateSaturation(entity, args.Effect.Factor, resp);
     }
 
-    public void OnRandomTeleportNearby(ExecuteEntityEffectEvent<RandomTeleportNearby> args)
+    public void OnRandomTeleportNearby(ref ExecuteEntityEffectEvent<RandomTeleportNearby> args)
     {
         if (args.Args is not EntityEffectReagentArgs reagentArgs)
             return;
 
         var uid = reagentArgs.TargetEntity;
         var xform = _xform.GetMapCoordinates(uid);
+        var range = args.Effect.Range;
 
-        var entities = _lookupSystem.GetEntitiesInRange<MobStateComponent>(xform, args.Effect.Range);
+        var entities = _lookupSystem.GetEntitiesInRange<MobStateComponent>(xform, range);
 
         if (entities.Count == 0)
             return;
 
         var canTarget = entities
-            .Where(entity => entity != null && _examineSystemShared.InRangeUnOccluded(uid, entity, args.Effect.Range))
+            .Where(entity => entity != null && _examineSystemShared.InRangeUnOccluded(uid, entity, range))
             .ToHashSet();
 
         if (canTarget.Count == 0)

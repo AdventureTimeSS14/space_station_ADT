@@ -33,3 +33,15 @@
   icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
   spawn: ADTMaterialBScrystalArt1
   maxCount: 10
+
+- type: stack
+  id: FloorTileItemBluespace
+  name: stack-bluespace-tile
+  spawn: FloorTileItemBluespace
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemSepia
+  name: stack-sepia-tile
+  spawn: FloorTileItemSepia
+  maxCount: 30

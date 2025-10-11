@@ -11,7 +11,7 @@ public sealed partial class SpeciesChange : EntityEffect
     /// <summary>
     ///     What sex is the consumer changed to? If not set then swap between male/female.
     /// </summary>
-    [DataField("sex")]
+    [DataField("newSpecies")]
     public ProtoId<SpeciesPrototype>? NewSpecies;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
