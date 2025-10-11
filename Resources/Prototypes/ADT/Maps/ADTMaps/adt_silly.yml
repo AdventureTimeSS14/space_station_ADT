@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Silly
   mapName: 'Silly Island'
-  mapPath: /Maps/ADTMaps/adt_silly.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_silly.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
