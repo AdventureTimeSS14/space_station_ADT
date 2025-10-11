@@ -181,3 +181,9 @@
     species: IPC
   - type: Inventory
     templateId: ipc
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
