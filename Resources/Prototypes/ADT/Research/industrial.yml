@@ -122,7 +122,7 @@
   recipeUnlocks:
   - ADTMachineMediumThrusterCircuitboard
     - ADTMachineBigThrusterCircuitboard
-  - ADTMachineMediumLongThrusterCircuitboard
+    - ADTMachineMediumLongThrusterCircuitboard
   position: 4,2
   requiredTech:
   - Shuttlecraft
