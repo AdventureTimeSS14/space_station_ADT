@@ -11,11 +11,11 @@ ent-ADTDefaultStationBeaconOldLibrary = { ent-DefaultStationBeacon }
     .desc = { ent-DefaultStationBeacon.desc }
 
 ent-ADTDefaultStationBeaconCell = { ent-DefaultStationBeaconEngineering }
-    .suffix = Клетка для теслы и сингулярности
+    .suffix = Клетка сдерживания
     .desc = { ent-DefaultStationBeaconEngineering.desc }
 
 ent-ADTDefaultStationBeaconSuperMatter = { ent-DefaultStationBeaconEngineering }
-    .suffix = СуперМаттерия
+    .suffix = Суперматерия
     .desc = { ent-DefaultStationBeaconEngineering.desc }
 
 ent-ADTDefaultStationBeaconBathhouse = { ent-DefaultStationBeaconService }

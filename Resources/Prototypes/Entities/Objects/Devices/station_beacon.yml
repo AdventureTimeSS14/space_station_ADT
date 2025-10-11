@@ -1080,12 +1080,13 @@
     defaultText: station-beacon-cloning
 
 - type: entity
-  parent: DefaultStationBeaconMedbay
+  parent: DefaultStationBeacon
   id: ADTDefaultStationBeaconVirology
   suffix: Virology
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-virology
+    color: "#198019"
 
 - type: entity
   parent: DefaultStationBeaconSecurity

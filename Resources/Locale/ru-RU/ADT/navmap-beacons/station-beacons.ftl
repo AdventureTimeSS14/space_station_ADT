@@ -1,8 +1,8 @@
 station-beacon-captain-toilet = Туалет Капитана
 station-beacon-old-bar = Старый бар
 station-beacon-old-library = Старая библиотека
-station-beacon-cell = Клетка для теслы и сингулярности
-station-beacon-supermatter = СуперМаттерия
+station-beacon-cell = Клетка сдерживания
+station-beacon-supermatter = Суперматерия
 station-beacon-bathhouse = Баня
 station-beacon-ring = Ринг
 station-beacon-bso = Комната ОСЩ
