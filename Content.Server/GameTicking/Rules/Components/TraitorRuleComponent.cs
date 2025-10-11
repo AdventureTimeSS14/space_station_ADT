@@ -83,7 +83,7 @@ public sealed partial class TraitorRuleComponent : Component
     ///     Path to antagonist alert sound.
     /// </summary>
     [DataField]
-    public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/traitor_start.ogg");
+    public SoundSpecifier GreetSoundNotification = new SoundCollectionSpecifier("ADTTraitorStart"); //ADT-tweak
 
     /// <summary>
     /// The amount of TC traitors start with.

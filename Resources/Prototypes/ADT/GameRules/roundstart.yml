@@ -227,10 +227,12 @@
       - id: Heretic
         cost: 30
         rerollChance: 0.5
+      - id: BloodBrother
+        cost: 20
       - id: Revolutionary
         cost: 45
-      - id: Zombie
-        cost: 60
+      # - id: Zombie вернуть после баффов
+      #   cost: 60
     midroundAntags:
       - id: DragonSpawn
         cost: 100
@@ -276,6 +278,8 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
+      - id: BloodBrother
+        cost: 25
       - id: Heretic
         cost: 30
         rerollChance: 0.5
@@ -318,6 +322,8 @@
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
+      - id: BloodBrother
+        cost: 25
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
@@ -353,14 +359,14 @@
   id: BloodBrother
   components:
   - type: GameRule
-    minPlayers: 5
+    minPlayers: 20
     delay:
       min: 240
       max: 420
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
-    - prefRoles: [ Traitor ]
+    - prefRoles: [ BloodBrotherLeader ]
       max: 4
       playerRatio: 20
       blacklist:

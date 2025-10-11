@@ -71,8 +71,8 @@ public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
         }
 
         _npcFaction.AddFaction(ev.Target, "BloodBrotherFaction");
-        EnsureComp<BloodBrotherComponent>(ev.Target);
-
+        EnsureComp<BloodBrotherComponent>(ev.Target, out var brocomp);
+        brocomp.Leader = uid;
         if (ev.User != null)
         {
             _adminLogManager.Add(LogType.Mind,
@@ -87,5 +87,6 @@ public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
 
         _antag.SendBriefing(ev.Target, Loc.GetString("brother-briefing"), Color.Red, comp.StartSound);
         comp.ConvertedCount++;
+        Dirty(ev.Target, brocomp);
     }
 }

@@ -7,7 +7,7 @@ using Content.Shared.ADT.BloodBrothers;
 namespace Content.Client.ADT.BloodBrothers;
 
 /// <summary>
-/// Used for the client to get status icons from other revs.
+/// Used for the client to get status icons from other brothers.
 /// </summary>
 public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
 {
@@ -23,7 +23,7 @@ public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
 
     private void GetBlotherIcon(Entity<BloodBrotherComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (HasComp<BloodBrotherLeaderComponent>(ent))
+        if (!TryComp<BloodBrotherComponent>(ent, out var brother) || brother.Leader != ent.Comp.Leader)
             return;
 
         if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
@@ -32,6 +32,8 @@ public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
 
     private void GetBrotherLeadIcon(Entity<BloodBrotherLeaderComponent> ent, ref GetStatusIconsEvent args)
     {
+        if (!TryComp<BloodBrotherComponent>(ent, out var brother) || brother.Leader != ent.Owner)
+            return;
         if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
