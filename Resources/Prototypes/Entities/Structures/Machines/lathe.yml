@@ -292,6 +292,7 @@
     - ADTBluespaceHarvesterPack
     - ADTArcade
     - ADTIndustrialCharger
+    - ADTAdvancedThruster
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -602,6 +603,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -773,3 +775,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+  - type: OreSiloClient

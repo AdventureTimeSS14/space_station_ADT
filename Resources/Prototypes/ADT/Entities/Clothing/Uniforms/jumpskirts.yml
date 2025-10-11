@@ -481,3 +481,120 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/teto.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/teto.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformDressVintage
+  name: vintage dress
+  description: A beautiful vintage dress for special occasions.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/dress_vintage.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/dress_vintage.rsi
+  - type: StaticPrice
+    price: 85
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimBlack
+  name: black swimsuit
+  description: A stylish black swimsuit for the beach or pool.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_black.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimBlue
+  name: blue swimsuit
+  description: A bright blue swimsuit perfect for summer days.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_blue.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimDarkGreen
+  name: dark green swimsuit
+  description: A dark green swimsuit with a classic look.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_dark_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_dark_green.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimGreen
+  name: green swimsuit
+  description: A vibrant green swimsuit for the bold.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_green.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimPurple
+  name: purple swimsuit
+  description: A beautiful purple swimsuit with elegant design.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_purp.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_purp.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformSwimRed
+  name: red swimsuit
+  description: A stunning red swimsuit that catches the eye.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/swim_red.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformTangoDressBlack
+  name: black tango dress
+  description: An elegant black tango dress for passionate dances.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_black.rsi
+  - type: StaticPrice
+    price: 85
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformTangoDressWhite
+  name: white tango dress
+  description: A graceful white tango dress for elegant performances.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/tango_dress_white.rsi
+  - type: StaticPrice
+    price: 85

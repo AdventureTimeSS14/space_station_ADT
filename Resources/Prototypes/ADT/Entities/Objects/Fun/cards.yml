@@ -66,75 +66,77 @@
     whitelist:
       tags:
         - ADTCard
+        - ADTCard
   - type: Dumpable
 
-# SD Tweak
-
-# - type: entity
-#  name: chemistry bag
-#  id: ADTFunCardsBoxFull54
-#  parent: ADTFunCardsBox
-#  description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
-#  suffix: Full
-#  components:
-#  - type: Item
-#    size: Small
-#  - type: StorageFill
-#    contents:
-#      - id: ADTFunCardClubs2
-#      - id: ADTFunCardClubs3
-#      - id: ADTFunCardClubs4
-#      - id: ADTFunCardClubs5
-#      - id: ADTFunCardClubs6
-#      - id: ADTFunCardClubs7
-#      - id: ADTFunCardClubs8
-#      - id: ADTFunCardClubs9
-#      - id: ADTFunCardClubs10
-#      - id: ADTFunCardAceOfClubs
-#      - id: ADTFunCardJackOfClubs
-#      - id: ADTFunCardQueenOfClubs
-#      - id: ADTFunCardKingOfClubs
-#      - id: ADTFunCardDimonds2
-#      - id: ADTFunCardDimonds3
-#      - id: ADTFunCardDimonds4
-#      - id: ADTFunCardDimonds5
-#      - id: ADTFunCardDimonds6
-#      - id: ADTFunCardDimonds7
-#      - id: ADTFunCardDimonds8
-#      - id: ADTFunCardDimonds9
-#      - id: ADTFunCardDimonds10
-#      - id: ADTFunCardAceOfDimonds
-#      - id: ADTFunCardJackOfDimonds
-#      - id: ADTFunCardKingOfDimonds
-#      - id: ADTFunCardQueenOfDimonds
-#      - id: ADTFunCardHearts2
-#      - id: ADTFunCardHearts3
-#      - id: ADTFunCardHearts4
-#      - id: ADTFunCardHearts5
-#      - id: ADTFunCardHearts6
-#      - id: ADTFunCardHearts7
-#      - id: ADTFunCardHearts8
-#      - id: ADTFunCardHearts9
-#      - id: ADTFunCardHearts10
-#      - id: ADTFunCardAceOfHearts
-#      - id: ADTFunCardJackOfHearts
-#      - id: ADTFunCardKingOfHearts
-#      - id: ADTFunCardQueenOfHearts
-#      - id: ADTFunCardSpades2
-#      - id: ADTFunCardSpades3
-#      - id: ADTFunCardSpades4
-#      - id: ADTFunCardSpades5
-#      - id: ADTFunCardSpades6
-#      - id: ADTFunCardSpades7
-#      - id: ADTFunCardSpades8
-#      - id: ADTFunCardSpades9
-#      - id: ADTFunCardSpades10
-#      - id: ADTFunCardAceOfSpades
-#      - id: ADTFunCardJackOfSpades
-#      - id: ADTFunCardKingOfSpades
-#      - id: ADTFunCardQueenOfSpades
-#      - id: ADTFunCardBlackJoker
-#      - id: ADTFunCardRedJoker
+- type: entity
+  name: chemistry bag
+  id: ADTFunCardsBoxFull54
+  parent: ADTFunCardsBox
+  description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+      - ADTCardPlay
+  - type: Item
+    size: Small
+  - type: StorageFill
+    contents:
+      - id: ADTFunCardClubs2
+      - id: ADTFunCardClubs3
+      - id: ADTFunCardClubs4
+      - id: ADTFunCardClubs5
+      - id: ADTFunCardClubs6
+      - id: ADTFunCardClubs7
+      - id: ADTFunCardClubs8
+      - id: ADTFunCardClubs9
+      - id: ADTFunCardClubs10
+      - id: ADTFunCardAceOfClubs
+      - id: ADTFunCardJackOfClubs
+      - id: ADTFunCardQueenOfClubs
+      - id: ADTFunCardKingOfClubs
+      - id: ADTFunCardDimonds2
+      - id: ADTFunCardDimonds3
+      - id: ADTFunCardDimonds4
+      - id: ADTFunCardDimonds5
+      - id: ADTFunCardDimonds6
+      - id: ADTFunCardDimonds7
+      - id: ADTFunCardDimonds8
+      - id: ADTFunCardDimonds9
+      - id: ADTFunCardDimonds10
+      - id: ADTFunCardAceOfDimonds
+      - id: ADTFunCardJackOfDimonds
+      - id: ADTFunCardKingOfDimonds
+      - id: ADTFunCardQueenOfDimonds
+      - id: ADTFunCardHearts2
+      - id: ADTFunCardHearts3
+      - id: ADTFunCardHearts4
+      - id: ADTFunCardHearts5
+      - id: ADTFunCardHearts6
+      - id: ADTFunCardHearts7
+      - id: ADTFunCardHearts8
+      - id: ADTFunCardHearts9
+      - id: ADTFunCardHearts10
+      - id: ADTFunCardAceOfHearts
+      - id: ADTFunCardJackOfHearts
+      - id: ADTFunCardKingOfHearts
+      - id: ADTFunCardQueenOfHearts
+      - id: ADTFunCardSpades2
+      - id: ADTFunCardSpades3
+      - id: ADTFunCardSpades4
+      - id: ADTFunCardSpades5
+      - id: ADTFunCardSpades6
+      - id: ADTFunCardSpades7
+      - id: ADTFunCardSpades8
+      - id: ADTFunCardSpades9
+      - id: ADTFunCardSpades10
+      - id: ADTFunCardAceOfSpades
+      - id: ADTFunCardJackOfSpades
+      - id: ADTFunCardKingOfSpades
+      - id: ADTFunCardQueenOfSpades
+      - id: ADTFunCardBlackJoker
+      - id: ADTFunCardRedJoker
 
 #- type: entity
 #  name: chemistry bag

@@ -143,13 +143,15 @@
   id: ActionBloodMinerShoot
   name: shoot kinetic
   components:
-  - type: WorldTargetAction
-    event: !type:ActionGunShootEvent
+  - type: Action
     useDelay: 5
     priority: 2
+    itemIconStyle: BigAction
+  - type: TargetAction
     checkCanAccess: false
     range: 0
-    itemIconStyle: BigAction
+  - type: WorldTargetAction
+    event: !type:ActionGunShootEvent
 
 - type: entity
   name: blood miner spawner

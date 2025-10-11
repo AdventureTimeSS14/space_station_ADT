@@ -6,6 +6,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
+using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -131,14 +132,14 @@ public sealed partial class CargoSystem
 
     #region Station
 
-    private bool SellPallets(EntityUid gridUid, out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
+    private bool SellPallets(EntityUid gridUid, EntityUid station, out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
     {
         GetPalletGoods(gridUid, out var toSell, out goods);
 
         if (toSell.Count == 0)
             return false;
 
-        var ev = new EntitySoldEvent(toSell);
+        var ev = new EntitySoldEvent(toSell, station);
         RaiseLocalEvent(ref ev);
 
         foreach (var ent in toSell)
@@ -216,11 +217,11 @@ public sealed partial class CargoSystem
     {
         var xform = Transform(uid);
 
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<StationBankAccountComponent>(station, out var bankAccount))
-        {
-            return;
-        }
+        // if (_station.GetOwningStation(uid) is not { } station)
+        //     // !TryComp<StationBankAccountComponent>(station, out var bankAccount))
+        // {
+        //     return;
+        // }
 
         if (xform.GridUid is not { } gridUid)
         {
@@ -230,7 +231,24 @@ public sealed partial class CargoSystem
             return;
         }
 
-        if (!SellPallets(gridUid, out var goods))
+        //ADT-tweak-start
+        if (component.CurrencyProto != null)
+        {
+            var stackPrototype = _protoMan.Index<StackPrototype>(component.CurrencyProto);
+            if (SellPallets(gridUid, gridUid, out var goodsmy))
+            {
+                var totalprice = 0;
+                foreach (var (_, sellComponent, value) in goodsmy)
+                {
+                    Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
+                    totalprice += (int)Math.Round(value);
+                }
+                _stack.Spawn(totalprice, stackPrototype, xform.Coordinates);
+                _audio.PlayPvs(ApproveSound, uid);
+            }
+        }
+        //ADT-tweak-end
+        if (_station.GetOwningStation(uid) is not { } station || !SellPallets(gridUid, station, out var goods) || !TryComp<StationBankAccountComponent>(station, out var bankAccount)) //ADT tweak
             return;
 
         var baseDistribution = CreateAccountDistribution((station, bankAccount));
@@ -267,4 +285,4 @@ public sealed partial class CargoSystem
 /// deleted but after the price has been calculated.
 /// </summary>
 [ByRefEvent]
-public readonly record struct EntitySoldEvent(HashSet<EntityUid> Sold);
+public readonly record struct EntitySoldEvent(HashSet<EntityUid> Sold, EntityUid Station);

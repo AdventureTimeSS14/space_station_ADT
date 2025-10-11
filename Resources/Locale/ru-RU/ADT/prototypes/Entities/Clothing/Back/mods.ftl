@@ -38,12 +38,21 @@ ent-ADTClothingModsuitBackSyndicateElite = элитный МОД синдика�
     .desc = Элитный костюм, усовершенствованный Cybersun Industries и предлагающий повышенные показатели брони.
 
 ent-ADTClothingModsuitBackSyndicateCommander = МОД "Меркурий"
-    .desc = Сильно улучшенная версия обычного МОДа синдиката, что выполшена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.
+    .desc = Сильно улучшенная версия обычного МОДа синдиката, что выполнена по заказу элитного бойца с годами службы за спиной. Обладает значительно повышенной бронёй и фактором стиля.
 
-ent-ADTClothingModsuitBackSyndicateContractor = МОД контратника
-    .desc = Верх технологичности Триглава. Для агентов Waffle.Co . Полагается встроенный модуль выпечки вафель. Все права защищены.
+ent-ADTClothingModsuitBackCMO = МОД "Гиппократ"
+    .desc = Продвинутая версия костюма от DeForest Medical Corporation, имеющая 99.99% защиту от всех болезней и вирусов.
 
-# Понятия не имею где прописать части мода. Пропишу тут
+ent-ADTClothingModsuitBackCaptain = роскошный МОД "Магнат"
+    .desc = Элегантный и сверхпрочный костюм для капитанов NanoTrasen. Защищает от ударов, порезов, огня и кислоты, обладает большой вместимостью и высокой мобильностью.
+
+ent-ADTClothingModsuitBackWard = защитный МОД
+    .desc = Усовершенствованный защитный костюм Apadyne Technologies обеспечивает более высокую огнестойкость по сравнению со стандартной моделью.
+
+ent-ADTClothingModsuitBackBrigmedic = МОД "Ангел-Хранитель"
+    .desc = Более защищенная версия костюма от DeForest Medical Corporation, произведенная специально для полевых врачей. К сожалению, крылья слишком малы для полета.
+
+# Понятие не имею где прописать части мода. Пропишу тут
 
 ent-ADTActionToggleMODPiece = Переключить элементы MOD
 
@@ -63,8 +72,10 @@ ent-ADTClothingHeadHelmetModsuitBso = шлем МОДа офицера сине�
 ent-ADTClothingHeadHelmetModsuitAdvanced = продвинутый шлем МОДа
 ent-ADTClothingHeadHelmetModsuitSyndicateElite = элитный шлем МОДа
 ent-ADTClothingHeadHelmetModsuitSyndicateCommander = шлем МОДа "Меркурий"
-ent-ADTClothingHeadHelmetModsuitSyndicateContractor = шлем МОДа контрактника
-    .desc = Выглядит угрожающе.
+ent-ADTClothingHeadHelmetModsuitCMO = шлем МОДа "Гиппократ"
+ent-ADTClothingHeadHelmetModsuitCaptain = шлем роскошного МОДа "Магнат"
+ent-ADTClothingHeadHelmetModsuitWard = шлем защитного МОДа
+ent-ADTClothingHeadHelmetModsuitBrigmedic = шлем МОДа "Ангел-Хранитель"
 
 # Оболочка
 ent-ADTClothingOuterModsuitBodyBase = Базовая оболочка МОДа
@@ -82,8 +93,10 @@ ent-ADTClothingOuterModsuitBodyAdvanced = оболочка продвинуто�
 ent-ADTClothingOuterModsuitBodyBso = оболочка МОДа офицера синего щита
 ent-ADTClothingOuterModsuitBodySyndicateElite = элитная оболочка МОДа
 ent-ADTClothingOuterModsuitBodySyndicateCommander = оболочка МОДа "Меркурий"
-ent-ADTClothingOuterModsuitBodySyndicateContractor = нагрудник МОДа контрактника
-    .desc = Довольно легкий и прочный, материал так просто не определить.
+ent-ADTClothingOuterModsuitBodyCMO = оболочка МОДа "Гиппократ"
+ent-ADTClothingOuterModsuitBodyCaptain = оболочка роскошного МОДа "Магнат"
+ent-ADTClothingOuterModsuitBodyWard = оболочка защитного МОДа
+ent-ADTClothingOuterModsuitBodyBrigmedic = оболочка МОДа "Ангел-Хранитель"
 
 # Ботинки
 ent-ADTClothingModsuitShoesBase = Базовые ботинки МОДа
@@ -101,8 +114,10 @@ ent-ADTClothingModsuitBso = ботинки МОДа офицера синего 
 ent-ADTClothingModsuitShoesAdvanced = ботинки продвинутого МОДа
 ent-ADTClothingModsuitShoesSyndicateElite = ботинки элитного МОДа
 ent-ADTClothingModsuitShoesSyndicateCommander = ботинки МОДа "Меркурий"
-ent-ADTClothingModsuitShoesSyndicateContractor = поножи МОДа контрактника
-    .desc = Удобные кроксы.
+ent-ADTClothingModsuitShoesCMO = ботинки МОДа "Гиппократ"
+ent-ADTClothingModsuitShoesCaptain = ботинки роскошного МОДа "Магнат"
+ent-ADTClothingModsuitShoesWard = ботинки защитного МОДа
+ent-ADTClothingModsuitShoesBrigmedic = ботинки МОДа "Ангел-Хранитель"
 
 # Перчатки
 ent-ADTClothingHandsModsuitBase = Базовые перчатки МОДа
@@ -119,5 +134,7 @@ ent-ADTClothingHandsModsuitSafeguard = перчатки МОДа "Диктато
 ent-ADTClothingHandsModsuitAdvanced = перчатки продвинутого МОДа
 ent-ADTClothingHandsModsuitSyndicateElite = перчатки элитного МОДа
 ent-ADTClothingHandsModsuitSyndicateCommander = перчатки МОДа "Меркурий"
-ent-ADTClothingHandsModsuitSyndicateContractor = перчатки МОДа контрактника
-    .desc = Гладкие на ощупь.
+ent-ADTClothingHandsModsuitCMO = перчатки МОДа "Гиппократ"
+ent-ADTClothingHandsModsuitCaptain = перчатки роскошного МОДа "Магнат"
+ent-ADTClothingHandsModsuitWard = перчатки защитного МОДа
+ent-ADTClothingHandsModsuitBrigmedic = перчатки МОДа "Ангел-Хранитель"

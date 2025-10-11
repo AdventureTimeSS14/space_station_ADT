@@ -86,21 +86,6 @@
     - MagazineMagnum
     - FlashlightSeclite
 
-- type: job
-  id: ERTLeader
-  name: job-name-ertleader
-  description: job-description-ertleader
-  playTimeTracker: JobERTLeader
-  setPreference: false
-  startingGear: ADTERTLeaderGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-
 - type: startingGear
   id: ADTERTLeaderGearEVARiot
   equipment:
@@ -216,21 +201,6 @@
     - SpaceCash500
     - HandHeldMassScanner
 
-- type: job
-  id: ERTEngineer
-  name: job-name-ertengineer
-  description: job-description-ertengineer
-  playTimeTracker: JobERTEngineer
-  setPreference: false
-  startingGear: ADTERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-
 - type: startingGear
   id: ADTERTEngineerGearEVARiot
   equipment:
@@ -323,21 +293,6 @@
     - SpaceCash500
     - Truncheon
 
-- type: job
-  id: ERTSecurity
-  name: job-name-ertsecurity
-  description: job-description-ertsecurity
-  playTimeTracker: JobERTSecurity
-  setPreference: false
-  startingGear: ADTERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
-
 - type: startingGear
   id: ADTERTSecurityGearEVARiot
   equipment:
@@ -427,21 +382,6 @@
     - SpaceCash500
     - HandheldHealthAnalyzer
     - DefibrillatorCompact
-
-- type: job
-  id: ERTMedical
-  name: job-name-ertmedic
-  description: job-description-ertmedic
-  playTimeTracker: JobERTMedical
-  setPreference: false
-  startingGear: ADTERTMedicalGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
 
 - type: startingGear
   id: ADTERTMedicalGearEVARiot
@@ -552,21 +492,6 @@
     - SyringeCryostasis
     - BoxBottle
     - BoxMouthSwab
-
-- type: job
-  id: ERTJanitor
-  name: job-name-ertjanitor
-  description: job-description-ertjanitor
-  playTimeTracker: JobERTJanitor
-  setPreference: false
-  startingGear: ADTERTJanitorGearEVA
-  icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  accessGroups:
-  - AllAccess
-  access:
-  - CentralCommand
 
 - type: startingGear
   id: ADTERTJanitorGearEVARiot
