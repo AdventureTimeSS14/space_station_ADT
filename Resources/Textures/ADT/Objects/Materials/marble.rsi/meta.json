@@ -11,6 +11,14 @@
             "name": "icon"
         },
         {
+            "name": "marble-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "marble-inhand-right",
+            "directions": 4
+        },
+        {
             "name": "marble2"
         },
         {
