@@ -358,6 +358,12 @@
   - type: Sharp
   - type: Execution
     doAfterDuration: 3.0
+  - type: HolyDamage
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Holy: 2
+        Blunt: 1.5
 
 - type: entity
   name: bananahilator
