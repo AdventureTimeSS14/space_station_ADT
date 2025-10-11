@@ -50,6 +50,20 @@
   mapPath: /Maps/ADTMaps/Salvage/syndicate_small.yml
   sizeString: salvage-map-wreck-size-small
 
+- type: salvageMap
+  id: ADT_AlienEggSmall
+  mapPath: /Maps/ADTMaps/Salvage/alien_egg.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_RatvarMicro
+  mapPath: /Maps/ADTMaps/Salvage/ratvar_micro.yml
+  sizeString: salvage-map-wreck-size-small
+
+- type: salvageMap
+  id: ADT_ShuttleOnAsteroidSmall
+  mapPath: /Maps/ADTMaps/Salvage/shuttle_on_asteroid.yml
+  sizeString: salvage-map-wreck-size-small
 
 # "Medium"-class maps - Max size square: 15x15, indicated size: 7.5
 
@@ -119,6 +133,12 @@
   id: ADT_SyndicateLarge
   mapPath: /Maps/ADTMaps/Salvage/syndicate_large.yml
   sizeString: salvage-map-wreck-size-large
+
+  - type: salvageMap
+  id: ADT_StationAlienLarge
+  mapPath: /Maps/ADTMaps/Salvage/station_alien.yml
+  sizeString: salvage-map-wreck-size-large
+
 
 # maps from ruins
 

@@ -3,9 +3,9 @@ meta:
   category: Map
   engineVersion: 255.1.0
   forkId: ADT
-  forkVersion: 845334aa88f83862ff4b9f6878652c16aec435b6
-  time: 09/20/2025 09:19:21
-  entityCount: 27398
+  forkVersion: 5e1070a348ffadefe79e68cc185ac2daa78ceac4
+  time: 10/07/2025 12:49:21
+  entityCount: 27411
 maps:
 - 1
 grids:
@@ -121,7 +121,9 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
+    - type: PhysicsMap
     - type: GridTree
+    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -25545,7 +25547,7 @@ entities:
       pos: 10.5,-221.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -232710.02
+      secondsUntilStateChange: -233086.44
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25977,7 +25979,7 @@ entities:
       pos: -8.5,-43.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -59124.05
+      secondsUntilStateChange: -59500.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26502,7 +26504,7 @@ entities:
       pos: -2.5,-293.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17699.748
+      secondsUntilStateChange: -18076.176
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -88282,7 +88284,7 @@ entities:
       pos: -11.5,-282.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -751.0231
+      secondsUntilStateChange: -1127.4513
       state: Closing
   - uid: 12342
     components:
@@ -88304,7 +88306,7 @@ entities:
       pos: -4.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -389245.97
+      secondsUntilStateChange: -389622.4
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
@@ -158248,6 +158250,83 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-247.5
+      parent: 2
+  - uid: 27399
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-6.5
+      parent: 2
+  - uid: 27400
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,-42.5
+      parent: 2
+  - uid: 27401
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-73.5
+      parent: 2
+  - uid: 27402
+    components:
+    - type: Transform
+      pos: -7.5,-60.5
+      parent: 2
+  - uid: 27403
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,-60.5
+      parent: 2
+  - uid: 27404
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-99.5
+      parent: 2
+  - uid: 27405
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-84.5
+      parent: 2
+  - uid: 27406
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-116.5
+      parent: 2
+  - uid: 27407
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-118.5
+      parent: 2
+  - uid: 27408
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,-120.5
+      parent: 2
+  - uid: 27409
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-151.5
+      parent: 2
+  - uid: 27410
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-167.5
+      parent: 2
+  - uid: 27411
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-167.5
       parent: 2
 - proto: StationMapAssembly
   entities:
