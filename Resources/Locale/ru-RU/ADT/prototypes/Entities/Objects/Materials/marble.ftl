@@ -4,6 +4,10 @@ ent-ADTmarble = мрамор
 
 ent-ADTmarble1 = мрамор
     .desc = Какой булыжник!? Это мрамор итальянский!
-    .suffix = 1
+    .suffix = Один
+
+ent-ADTmarble5 = мрамор
+    .desc = Какой булыжник!? Это мрамор итальянский!
+    .suffix = 5
 
 stack-ADTmarble = мрамор

@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: MarbleStatueLady
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marblestatueLady
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marblestatueLady
+      entity: ADTmarblelady
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10

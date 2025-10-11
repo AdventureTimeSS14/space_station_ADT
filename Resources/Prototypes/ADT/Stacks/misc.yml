@@ -35,7 +35,7 @@
   maxCount: 10
 
 - type: stack
-  id: ADTMarbleStack
+  id: ADTmarbleStack
   name: stack-ADTmarble
   icon: { sprite: ADT/Objects/Materials/marble.rsi, state: icon }
   spawn: ADTmarble1

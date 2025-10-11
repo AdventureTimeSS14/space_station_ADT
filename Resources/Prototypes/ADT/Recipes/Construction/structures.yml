@@ -70,3 +70,29 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+
+- type: construction
+  id: ADTMarbleLady
+  graph: MarbleStatueLady
+  startNode: start
+  targetNode: marblestatueLady
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleLady
+  graph: MarbleStatueLadyFlower
+  startNode: start
+  targetNode: marblestatueLadyFlower
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked

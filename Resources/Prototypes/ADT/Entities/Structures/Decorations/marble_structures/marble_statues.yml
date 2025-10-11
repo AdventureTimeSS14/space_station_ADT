@@ -33,6 +33,9 @@
               path: /Audio/Effects/break_stone.ogg
               params:
                 volume: -2
+  - type: Construction
+    graph: MarbleStatueLady
+    node: marblestatueLady
 
 - type: entity
   parent: ADTmarblelady
@@ -45,6 +48,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marblelady_flower.rsi
     state: marlady_flowers
+  - type: Construction
+    graph: MarbleStatueLadyFlower
+    node: marblestatueLadyFlower
 
 - type: entity
   parent: ADTmarblelady

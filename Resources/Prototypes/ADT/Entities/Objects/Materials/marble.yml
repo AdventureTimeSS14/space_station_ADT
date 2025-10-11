@@ -17,7 +17,7 @@
       map: [ "base" ]
   - type: Stack
     count: 10
-    stackType: ADTMarbleStack
+    stackType: ADTmarbleStack
     baseLayer: base
     layerStates:
     - icon
@@ -34,3 +34,12 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: ADTmarble
+  id: ADTmarble5
+  name: marble
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
