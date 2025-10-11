@@ -63,8 +63,8 @@
         cost: 600
       - id: MobDragon
         cost: 700
-      # - id: ADTMorphGhostRole
-      #   cost: 700
+      - id: ADTMorphGhostRole
+        cost: 700
   - type: Transform
     anchored: true
   - type: Physics

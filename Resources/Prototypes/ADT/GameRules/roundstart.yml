@@ -238,8 +238,8 @@
         cost: 120
       - id: PhantomSpawn
         cost: 110
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 130
+      - id: MorphSpawn
+        cost: 130
       - id: NinjaSpawn
         cost: 140
       - id: KingRatMigration
@@ -290,8 +290,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 140
+      - id: MorphSpawn
+        cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
@@ -329,8 +329,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 140
+      - id: MorphSpawn
+        cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
@@ -347,3 +347,31 @@
   - type: GameRule
     minPlayers: 30
   - type: DynamicRandomRule
+
+- type: entity
+  parent: BaseTraitorRule
+  id: BloodBrother
+  components:
+  - type: GameRule
+    minPlayers: 5
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 4
+      playerRatio: 20
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: TraitorRule
+    bloodBrotherChance: 1
+  - type: AntagRandomObjectives
+    sets:
+    - groups: BloodBrothersObjectiveGroups
+    maxDifficulty: 12

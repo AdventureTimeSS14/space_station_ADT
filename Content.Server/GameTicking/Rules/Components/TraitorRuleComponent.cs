@@ -35,6 +35,17 @@ public sealed partial class TraitorRuleComponent : Component
     /// </summary>
     [DataField]
     public bool GiveUplink = true;
+    //ADT-tweak-start
+    /// <summary>
+    /// Шанс на бразерс вместо трейтора
+    /// </summary>
+    [DataField]
+    public float BloodBrotherChance = 0f;
+    [DataField]
+    public ProtoId<NpcFactionPrototype> BloodBrotherFaction = "BloodBrotherFaction";
+    [DataField]
+    public ProtoId<NpcFactionPrototype> BloodBrotherLeaderFaction = "BloodBrotherLeaderFaction";
+    //ADT-tweak-start
 
     /// <summary>
     /// Give this traitor the codewords.

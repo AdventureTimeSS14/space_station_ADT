@@ -1,0 +1,22 @@
+- type: antag
+  id: BloodBrotherLeader
+  name: role-subtype-brother-lead
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-syndicate-agent-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 130h
+
+- type: antag
+  id: BloodBrother
+  name: role-subtype-brother
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-syndicate-agent-objective
+
+- type: startingGear
+  id: BloodBrotherLeaderGear
+  storage:
+    back:
+    - Flash

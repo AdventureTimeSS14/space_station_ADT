@@ -43,8 +43,8 @@ namespace Content.Server.StationEvents
         {
             base.Update(frameTime);
 
-            if (!_event.EventsEnabled)
-                return;
+        // if (!_event.EventsEnabled) //ADT-tweak
+        //     return; //ADT-tweak
 
             var query = EntityQueryEnumerator<BasicStationEventSchedulerComponent, GameRuleComponent>();
             while (query.MoveNext(out var uid, out var eventScheduler, out var gameRule))
