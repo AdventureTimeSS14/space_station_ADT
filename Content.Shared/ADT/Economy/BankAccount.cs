@@ -15,12 +15,14 @@ public sealed class BankAccount
     public string Name = string.Empty;
     public ProtoId<CargoAccountPrototype>? AccountPrototype;
     public EntityUid? CartridgeUid;
+    public List<TransactionsHistory> History;
 
     public BankAccount(int accountId, int balance, IRobustRandom random)
     {
         AccountId = accountId;
         Balance = balance;
         AccountPin = random.Next(1000, 10000);
+        History = new List<TransactionsHistory>();
     }
 }
 

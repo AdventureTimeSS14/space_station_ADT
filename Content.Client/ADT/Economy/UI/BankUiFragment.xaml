@@ -1,13 +1,23 @@
 <ui1:BankUiFragment xmlns="https://spacestation14.io"
                    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                   xmlns:ui1="clr-namespace:Content.Client.ADT.Economy.UI">
+                   xmlns:ui1="clr-namespace:Content.Client.ADT.Economy.UI"
+                   Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
 
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8">
+    <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8">
         <BoxContainer Name="LinkedAccount" Orientation="Vertical" Visible="False">
             <RichTextLabel Name="LinkedAccountNumberLabel" />
             <RichTextLabel Name="LinkedAccountNameLabel" />
             <RichTextLabel Name="LinkedAccountBalanceLabel" />
+            <BoxContainer Name="TransactionHistoryContainer" Orientation="Vertical" Margin="0 10 0 0">
+                <Label Text="{Loc 'bank-program-ui-transaction-history'}" Margin="0 0 0 5" />
+                <PanelContainer StyleClasses="AngleRect">
+                    <ScrollContainer MinSize="0 100" Margin="5">
+                        <BoxContainer Name="TransactionHistoryList" Orientation="Vertical" />
+                    </ScrollContainer>
+                </PanelContainer>
+            </BoxContainer>
         </BoxContainer>
         <RichTextLabel Name="NoLinkedAccountLabel" Visible="False" />
         <controls:StripeBack>
@@ -26,5 +36,26 @@
             </BoxContainer>
         </controls:StripeBack>
         <RichTextLabel Name="AccountLinkResultLabel" Visible="False" />
-    </BoxContainer>
+        <controls:StripeBack>
+            <Button Name="TransferButton" HorizontalExpand="True" HorizontalAlignment="Center"
+                    Text="{Loc 'bank-program-ui-transfer-money'}" Visible="False" />
+            <BoxContainer Name="TransferForm" Orientation="Vertical" Visible="False" HorizontalExpand="True"
+                          Margin="0 5 0 5">
+                <Label Text="{Loc 'bank-program-ui-transfer-title'}" Margin="0 0 0 5" />
+                <GridContainer HorizontalExpand="True" Columns="2" Rows="3">
+                    <LineEdit Name="TargetAccountLineEdit" HorizontalExpand="True"
+                              PlaceHolder="{Loc 'bank-program-ui-target-account'}" />
+                    <LineEdit Name="TransferAmountLineEdit" HorizontalExpand="True"
+                              PlaceHolder="{Loc 'bank-program-ui-transfer-amount'}" />
+                    <LineEdit Name="TransferPinLineEdit" HorizontalExpand="True"
+                              PlaceHolder="PIN" />
+                    <Button Name="TransferConfirmButton" Text="{Loc 'bank-program-ui-transfer-confirm'}" />
+                    <BoxContainer />
+                    <Button Name="TransferCancelButton" Text="{Loc 'bank-program-ui-transfer-cancel'}" />
+                </GridContainer>
+            </BoxContainer>
+        </controls:StripeBack>
+        <RichTextLabel Name="TransferResultLabel" Visible="False" />
+        </BoxContainer>
+    </ScrollContainer>
 </ui1:BankUiFragment>

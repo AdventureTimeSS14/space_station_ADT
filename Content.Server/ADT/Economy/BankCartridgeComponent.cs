@@ -10,4 +10,6 @@ public sealed partial class BankCartridgeComponent : Component
     public EntityUid? Loader;
 
     public string AccountLinkResult = string.Empty;
+
+    public string TransferResult = string.Empty;
 }
