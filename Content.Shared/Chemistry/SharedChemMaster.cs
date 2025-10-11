@@ -44,14 +44,16 @@ namespace Content.Shared.Chemistry
     public sealed class ChemMasterReagentAmountButtonMessage : BoundUserInterfaceMessage
     {
         public readonly ReagentId ReagentId;
-        public readonly ChemMasterReagentAmount Amount;
+        public readonly int Amount;
         public readonly bool FromBuffer;
+        public readonly bool IsOutput;
 
-        public ChemMasterReagentAmountButtonMessage(ReagentId reagentId, ChemMasterReagentAmount amount, bool fromBuffer)
+        public ChemMasterReagentAmountButtonMessage(ReagentId reagentId, int amount, bool fromBuffer, bool isOutput)
         {
             ReagentId = reagentId;
             Amount = amount;
             FromBuffer = fromBuffer;
+            IsOutput = isOutput;
         }
     }
 
@@ -74,56 +76,168 @@ namespace Content.Shared.Chemistry
     public sealed class ChemMasterOutputToBottleMessage : BoundUserInterfaceMessage
     {
         public readonly uint Dosage;
+        public readonly uint Number;
         public readonly string Label;
 
-        public ChemMasterOutputToBottleMessage(uint dosage, string label)
+        public ChemMasterOutputToBottleMessage(uint dosage, uint number, string label)
         {
             Dosage = dosage;
+            Number = number;
             Label = label;
         }
     }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSortMethodUpdated(int sortMethod) : BoundUserInterfaceMessage
+    {
+        public readonly int SortMethod = sortMethod;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterTransferringAmountUpdated(int transferringAmount) : BoundUserInterfaceMessage
+    {
+        public readonly int TransferringAmount = transferringAmount;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterAmountsUpdated(List<int> amounts) : BoundUserInterfaceMessage
+    {
+        public readonly List<int> Amounts = amounts;
+    }
+
+    //ADT-Tweak Start: Bottle buttons reagent transfer
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSelectBottleSlotMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterSelectBottleSlotMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterChooseReagentMessage : BoundUserInterfaceMessage
+    {
+        public ReagentId Reagent;
+
+        public ChemMasterChooseReagentMessage(ReagentId reagent)
+        {
+            Reagent = reagent;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterClearReagentSelectionMessage : BoundUserInterfaceMessage
+    {
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterToggleBottleFillMessage : BoundUserInterfaceMessage
+    {
+        public int Slot;
+
+        public ChemMasterToggleBottleFillMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterRowEjectMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Row;
+
+        public ChemMasterRowEjectMessage(int row)
+        {
+            Row = row;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterReagentToggledOnMessage : BoundUserInterfaceMessage
+    {
+        public readonly ReagentId Reagent;
+
+        public ChemMasterReagentToggledOnMessage(ReagentId reagent)
+        {
+            Reagent = reagent;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterReagentToggledOffMessage : BoundUserInterfaceMessage
+    {
+        public readonly ReagentId Reagent;
+
+        public ChemMasterReagentToggledOffMessage(ReagentId reagent)
+        {
+            Reagent = reagent;
+        }
+    }
+
+    // ADT-Tweak Start: Pill container messages
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSelectPillContainerSlotMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterSelectPillContainerSlotMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterTogglePillContainerFillMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterTogglePillContainerFillMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterPillContainerSlotEjectMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Slot;
+
+        public ChemMasterPillContainerSlotEjectMessage(int slot)
+        {
+            Slot = slot;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterPillContainerRowEjectMessage : BoundUserInterfaceMessage
+    {
+        public readonly int Row;
+
+        public ChemMasterPillContainerRowEjectMessage(int row)
+        {
+            Row = row;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSelectPillCanisterForCreationMessage : BoundUserInterfaceMessage
+    {
+        public readonly int CanisterIndex;
+
+        public ChemMasterSelectPillCanisterForCreationMessage(int canisterIndex)
+        {
+            CanisterIndex = canisterIndex;
+        }
+    }
+    // ADT-Tweak End
 
     public enum ChemMasterMode
     {
         Transfer,
         Discard,
-    }
-
-    public enum ChemMasterSortingType : byte
-    {
-        None = 0,
-        Alphabetical = 1,
-        Quantity = 2,
-        Latest = 3,
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class ChemMasterSortingTypeCycleMessage : BoundUserInterfaceMessage;
-
-
-    public enum ChemMasterReagentAmount
-    {
-        U1 = 1,
-        U5 = 5,
-        U10 = 10,
-        U15 = 15,
-        U20 = 20,
-        U25 = 25,
-        U30 = 30,
-        U50 = 50,
-        U100 = 100,
-        All,
-    }
-
-    public static class ChemMasterReagentAmountToFixedPoint
-    {
-        public static FixedPoint2 GetFixedPoint(this ChemMasterReagentAmount amount)
-        {
-            if (amount == ChemMasterReagentAmount.All)
-                return FixedPoint2.MaxValue;
-            else
-                return FixedPoint2.New((int)amount);
-        }
     }
 
     /// <summary>
@@ -163,42 +277,72 @@ namespace Content.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChemMasterBoundUserInterfaceState : BoundUserInterfaceState
+    public sealed class ChemMasterBoundUserInterfaceState(
+        ChemMasterMode mode,
+        ContainerInfo? containerInfo,
+        IReadOnlyList<ReagentQuantity> bufferReagents,
+        FixedPoint2 bufferCurrentVolume,
+        uint selectedPillType,
+        uint pillDosageLimit,
+        uint bottleDosageLimit,
+        bool updateLabel,
+        int sortMethod,
+        int transferringAmount,
+        List<int> amounts,
+        //ADT-Tweak Start: Pill container storage
+        List<ContainerInfo?> storedPillContainers,
+        List<List<bool>> pillContainers,
+        List<List<uint>> pillTypes, // ADT-Tweak: Pill types for each slot in each container
+        int selectedPillContainerSlot,
+        int selectedPillContainerForFill,
+        int selectedPillCanisterForCreation,
+        List<ReagentId> selectedReagentsForPills,
+        ReagentId? selectedReagent,
+        //ADT-Tweak: Legacy bottle storage
+        List<ContainerInfo?> storedBottles,
+        int selectedBottleSlot,
+        int selectedBottleForFill,
+        List<ReagentId> selectedReagentsForBottles)
+        //ADT-Tweak End
+        : BoundUserInterfaceState
     {
-        public readonly ContainerInfo? InputContainerInfo;
-        public readonly ContainerInfo? OutputContainerInfo;
+        public readonly ContainerInfo? ContainerInfo = containerInfo;
 
         /// <summary>
         /// A list of the reagents and their amounts within the buffer, if applicable.
         /// </summary>
-        public readonly IReadOnlyList<ReagentQuantity> BufferReagents;
+        public readonly IReadOnlyList<ReagentQuantity> BufferReagents = bufferReagents;
 
-        public readonly ChemMasterMode Mode;
+        public readonly ChemMasterMode Mode = mode;
 
-        public readonly ChemMasterSortingType SortingType;
+        public readonly FixedPoint2? BufferCurrentVolume = bufferCurrentVolume;
+        public readonly uint SelectedPillType = selectedPillType;
 
-        public readonly FixedPoint2? BufferCurrentVolume;
-        public readonly uint SelectedPillType;
+        public readonly uint PillDosageLimit = pillDosageLimit;
+        public readonly uint BottleDosageLimit = bottleDosageLimit;
 
-        public readonly uint PillDosageLimit;
+        public readonly bool UpdateLabel = updateLabel;
 
-        public readonly bool UpdateLabel;
+        public readonly int SortMethod = sortMethod;
+        public readonly int TransferringAmount = transferringAmount;
 
-        public ChemMasterBoundUserInterfaceState(
-            ChemMasterMode mode, ChemMasterSortingType sortingType, ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,
-            IReadOnlyList<ReagentQuantity> bufferReagents, FixedPoint2 bufferCurrentVolume,
-            uint selectedPillType, uint pillDosageLimit, bool updateLabel)
-        {
-            InputContainerInfo = inputContainerInfo;
-            OutputContainerInfo = outputContainerInfo;
-            BufferReagents = bufferReagents;
-            Mode = mode;
-            SortingType = sortingType;
-            BufferCurrentVolume = bufferCurrentVolume;
-            SelectedPillType = selectedPillType;
-            PillDosageLimit = pillDosageLimit;
-            UpdateLabel = updateLabel;
-        }
+        public readonly List<int> Amounts = amounts;
+
+        //ADT-Tweak Start: Pill container storage
+        public readonly List<ContainerInfo?> StoredPillContainers = storedPillContainers;
+        public readonly List<List<bool>> PillContainers = pillContainers;
+        public readonly List<List<uint>> PillTypes = pillTypes; // ADT-Tweak: Pill types for each slot in each container
+        public readonly int SelectedPillContainerSlot = selectedPillContainerSlot;
+        public readonly int SelectedPillContainerForFill = selectedPillContainerForFill;
+        public readonly int SelectedPillCanisterForCreation = selectedPillCanisterForCreation;
+        public readonly List<ReagentId> SelectedReagentsForPills = selectedReagentsForPills;
+        public readonly ReagentId? SelectedReagent = selectedReagent;
+        //ADT-Tweak: Legacy bottle storage
+        public readonly List<ContainerInfo?> StoredBottles = storedBottles;
+        public readonly int SelectedBottleSlot = selectedBottleSlot;
+        public readonly int SelectedBottleForFill = selectedBottleForFill;
+        public readonly List<ReagentId> SelectedReagentsForBottles = selectedReagentsForBottles;
+        //ADT-Tweak End
     }
 
     [Serializable, NetSerializable]
