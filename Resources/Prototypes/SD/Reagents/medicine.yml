@@ -256,52 +256,52 @@
 
 # Лекарства от механических
 
-- type: reagent
-  id: SDSalicylicAcid
-  name: reagent-name-salicylic-acid
-  group: Medicine
-  desc: reagent-desc-salicylic-acid
-  physicalDesc: reagent-physical-desc-pungent
-  flavor: medicine
-  color: "#e8cb4e"
-  plantMetabolism:
-    - !type:PlantAdjustWeeds
-      amount: -4
-    - !type:PlantAdjustHealth
-      amount: -10
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -4
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 25
-        - !type:ReagentThreshold
-          max: 5.5
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -1.5
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 25
-          inverse: true
-        - !type:ReagentThreshold
-          max: 5.5
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: 3
-        conditions:
-        - !type:ReagentThreshold
-          min: 5.5
+# - type: reagent
+#   id: SDSalicylicAcid
+#   name: reagent-name-salicylic-acid
+#   group: Medicine
+#   desc: reagent-desc-salicylic-acid
+#   physicalDesc: reagent-physical-desc-pungent
+#   flavor: medicine
+#   color: "#e8cb4e"
+#   plantMetabolism:
+#     - !type:PlantAdjustWeeds
+#       amount: -4
+#     - !type:PlantAdjustHealth
+#       amount: -10
+#   metabolisms:
+#     Medicine:
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           groups:
+#             Brute: -4
+#         conditions:
+#         - !type:TypedDamageThreshold
+#           damage:
+#             groups:
+#               Brute: 25
+#         - !type:ReagentThreshold
+#           max: 5.5
+#       - !type:HealthChange
+#         damage:
+#           groups:
+#             Brute: -1.5
+#         conditions:
+#         - !type:TypedDamageThreshold
+#           damage:
+#             groups:
+#               Brute: 25
+#           inverse: true
+#         - !type:ReagentThreshold
+#           max: 5.5
+#       - !type:HealthChange
+#         damage:
+#           groups:
+#             Brute: 3
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 5.5
 
 # Лекарства от физических
 

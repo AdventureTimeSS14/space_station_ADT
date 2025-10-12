@@ -45,20 +45,20 @@
   products:
     SDSynthcells: 3
 
-- type: reaction
-  id: SDSalicylicAcid
-  minTemp: 370
-  reactants:
-    TranexamicAcid:
-      amount: 1
-    FluorosulfuricAcid:
-      amount: 1
-    SodiumHydroxide:
-      amount: 1
-    Bicaridine:
-      amount: 1
-  products:
-    SDSalicylicAcid: 4
+# - type: reaction
+#   id: SDSalicylicAcid
+#   minTemp: 370
+#   reactants:
+#     TranexamicAcid:
+#       amount: 1
+#     FluorosulfuricAcid:
+#       amount: 1
+#     SodiumHydroxide:
+#       amount: 1
+#     Bicaridine:
+#       amount: 1
+#   products:
+#     SDSalicylicAcid: 4
 
 - type: reaction
   id: SDOxandrolone

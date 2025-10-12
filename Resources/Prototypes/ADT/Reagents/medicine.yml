@@ -459,18 +459,18 @@
             Blunt: -0.5
             Piercing: -0.5
             Slash: -0.5
-        conditions:
+        # conditions:
         # - !type:HasComponentOnEquipmentCondition
-          components:
-          - type: PressureProtection # не работает сквозь скафандры!
-          invert: true
-      - !type:ModifyBleedAmount
-        amount: -1
-        conditions:
+        #   components:
+        #   - type: PressureProtection # не работает сквозь скафандры!
+        #   invert: true
+      # - !type:ModifyBleedAmount
+      #   amount: -1
+        # conditions:
         # - !type:HasComponentOnEquipmentCondition
-          components:
-          - type: PressureProtection
-          invert: true
+        #   components:
+        #   - type: PressureProtection
+        #   invert: true
   # SD tweak end
   metabolisms:
     Medicine:
