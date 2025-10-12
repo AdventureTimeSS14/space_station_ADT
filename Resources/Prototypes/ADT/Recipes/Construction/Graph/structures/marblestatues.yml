@@ -67,7 +67,7 @@
         - to: marblestand
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 7
               doAfter: 15
     - node: marblestand
       entity: ADTmarbleStand
@@ -76,7 +76,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -92,7 +92,7 @@
         - to: marbleMan
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 8
               doAfter: 15
     - node: marbleMan
       entity: ADTmarbleMan
@@ -101,7 +101,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -117,7 +117,7 @@
         - to: marbleManDamage
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 8
               doAfter: 15
     - node: marbleManDamage
       entity: ADTmarbleManDamage
@@ -126,7 +126,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -167,7 +167,7 @@
         - to: marbleKnight
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 9
               doAfter: 15
     - node: marbleKnight
       entity: ADTKnightMarble
@@ -176,7 +176,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -192,7 +192,7 @@
         - to: marbleHunter
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 9
               doAfter: 15
     - node: marbleHunter
       entity: ADTHunterMarble
@@ -201,7 +201,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -217,7 +217,7 @@
         - to: marbleMachine
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 9
               doAfter: 15
     - node: marbleMachine
       entity: ADTMachineMarble
@@ -226,7 +226,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -242,7 +242,7 @@
         - to: marbleLegionary
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 9
               doAfter: 15
     - node: marbleLegionary
       entity: ADTLegionaryMarble
@@ -251,7 +251,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -267,7 +267,7 @@
         - to: marbleBird
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 6
               doAfter: 15
     - node: marbleBird
       entity: ADTBirdMarble
@@ -276,7 +276,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 4
           steps:
             - tool: Prying
               doAfter: 10
@@ -292,7 +292,7 @@
         - to: marbleCunning
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 8
               doAfter: 15
     - node: marbleCunning
       entity: ADTCunningMarble
@@ -301,7 +301,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
@@ -317,7 +317,7 @@
         - to: marbleScientist
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 7
               doAfter: 15
     - node: marbleScientist
       entity: ADTScientistMarble
@@ -326,7 +326,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 5
           steps:
             - tool: Prying
               doAfter: 10
@@ -342,7 +342,7 @@
         - to: marbleEye
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 7
               doAfter: 15
     - node: marbleEye
       entity: ADTEyeMarble
@@ -351,7 +351,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 5
           steps:
             - tool: Prying
               doAfter: 10
@@ -367,7 +367,7 @@
         - to: marbleAncestor
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 6
               doAfter: 15
     - node: marbleAncestor
       entity: ADTAncestorMarble
@@ -376,7 +376,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 5
           steps:
             - tool: Prying
               doAfter: 10
@@ -392,7 +392,7 @@
         - to: marblePlafeim
           steps:
             - material: ADTmarbleStack
-              amount: 10
+              amount: 9
               doAfter: 15
     - node: marblePlafeim
       entity: ADTPlafeimMarble
@@ -401,7 +401,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: ADTmarble1
-              amount: 7
+              amount: 6
           steps:
             - tool: Prying
               doAfter: 10
