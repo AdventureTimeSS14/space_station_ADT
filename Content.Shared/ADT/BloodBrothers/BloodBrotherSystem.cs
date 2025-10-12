@@ -1,6 +1,3 @@
-using Content.Shared.Standing;
-using Robust.Shared.Timing;
-
 namespace Content.Shared.ADT.BloodBrothers
 {
     public abstract class SharedBloodBrothersSystem : EntitySystem
@@ -36,6 +33,7 @@ namespace Content.Shared.ADT.BloodBrothers
             {
                 comp.Leader = uid;
             }
+            Dirty(uid, comp);
         }
     }
 }
