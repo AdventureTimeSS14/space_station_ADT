@@ -460,14 +460,14 @@
             Piercing: -0.5
             Slash: -0.5
         conditions:
-        - !type:HasComponentOnEquipmentCondition
+        # - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # не работает сквозь скафандры!
           invert: true
       - !type:ModifyBleedAmount
         amount: -1
         conditions:
-        - !type:HasComponentOnEquipmentCondition
+        # - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection
           invert: true
