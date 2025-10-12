@@ -96,3 +96,42 @@
   canRotate: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleStand
+  graph: MarbleStand
+  startNode: start
+  targetNode: marblestand
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleMan
+  graph: MarbleMan
+  startNode: start
+  targetNode: marbleMan
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: true
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleManDamage
+  graph: MarbleManDamage
+  startNode: start
+  targetNode: marbleManDamage
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: true
+  conditions:
+    - !type:TileNotBlocked

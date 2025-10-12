@@ -74,7 +74,11 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_stand.rsi
+    offset: "0.0,0.0"
     state: marstand
+  - type: Construction
+    graph: MarbleStand
+    node: marblestand
 
 - type: entity
   parent: ADTmarblelady
@@ -86,7 +90,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marbleman.rsi
+    offset: "0.0,0.0"
     state: marman
+    graph: MarbleMan
+    node: marbleMan
 
 - type: entity
   parent: ADTmarblelady
@@ -98,7 +105,10 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marblemandamage.rsi
+    offset: "0.0,0.0"
     state: marmandmg
+    graph: MarbleManDamage
+    node: marbleManDamage
 
 - type: entity
   parent: ADTmarblelady
