@@ -92,6 +92,7 @@
     sprite: ADT/Structures/Decoration/marble_structures/marbleman.rsi
     offset: "0.0,0.0"
     state: marman
+  - type: Construction
     graph: MarbleMan
     node: marbleMan
 
@@ -107,6 +108,7 @@
     sprite: ADT/Structures/Decoration/marble_structures/marblemandamage.rsi
     offset: "0.0,0.0"
     state: marmandmg
+  - type: Construction
     graph: MarbleManDamage
     node: marbleManDamage
 
