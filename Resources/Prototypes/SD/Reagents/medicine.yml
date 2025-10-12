@@ -323,25 +323,25 @@
         damage:
           groups:
             Burn: -4
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 25
-        - !type:ReagentThreshold
-          max: 5.5
+        # conditions:
+        # - !type:TypedDamageThreshold
+        #   damage:
+        #     groups:
+        #       Burn: 25
+        # - !type:ReagentThreshold
+        #   max: 5.5
       - !type:HealthChange
         damage:
           groups:
             Burn: -1.5
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 25
-          inverse: true
-        - !type:ReagentThreshold
-          max: 5.5
+        # conditions:
+        # - !type:TypedDamageThreshold
+        #   damage:
+        #     groups:
+        #       Burn: 25
+        #   inverse: true
+        # - !type:ReagentThreshold
+        #   max: 5.5
       - !type:HealthChange
         damage:
           groups:
