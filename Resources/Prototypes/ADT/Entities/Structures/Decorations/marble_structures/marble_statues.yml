@@ -273,6 +273,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_ancestor.rsi
     state: marble_ancestor
+  - type: Construction
+    graph: MarbleAncestor
+    node: marbleAncestor
 
 - type: entity
   parent: ADTmarblelady
@@ -285,6 +288,10 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_plafeim.rsi
     state: marble_plafeim
+  - type: Construction
+    graph: MarblePlafeim
+    node: marblePlafeim
+
 
 - type: entity
   parent: ADTmarblelady

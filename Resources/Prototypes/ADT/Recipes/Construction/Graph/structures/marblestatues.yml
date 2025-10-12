@@ -355,3 +355,53 @@
           steps:
             - tool: Prying
               doAfter: 10
+
+- type: constructionGraph
+  id: MarbleAncestor
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleAncestor
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleAncestor
+      entity: ADTAncestorMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarblePlafeim
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marblePlafeim
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marblePlafeim
+      entity: ADTPlafeimMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10

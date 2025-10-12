@@ -252,3 +252,29 @@
   canRotate: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleAncestor
+  graph: MarbleAncestor
+  startNode: start
+  targetNode: marbleAncestor
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarblePlafeim
+  graph: MarblePlafeim
+  startNode: start
+  targetNode: marblePlafeim
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
