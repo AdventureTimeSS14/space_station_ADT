@@ -60,6 +60,7 @@
     Steel: 500
     Plastic: 250
     Cloth: 500
+    Copper: 400 #ADTTweak
 
 - type: latheRecipe
   id: ClothingEyesHudSecurity
@@ -70,6 +71,7 @@
   materials:
     Steel: 300
     Glass: 200
+    Copper: 100 #ADTTweak
 
 - type: latheRecipe
   id: PortableRecharger
@@ -83,6 +85,7 @@
     Plastic: 1000
     Plasma: 500
     Glass: 500
+    Copper: 3000 #ADTTweak
 
 # Shields
 - type: latheRecipe
@@ -168,6 +171,7 @@
   materials:
     Steel: 300
     Plastic: 300
+    Copper: 400 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeMelee
@@ -194,6 +198,7 @@
     Steel: 500
     Glass: 100
     Plastic: 200
+    Copper: 600 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipePractice
@@ -203,6 +208,7 @@
     Steel: 1800
     Glass: 400
     Plastic: 250
+    Copper: 700 #ADTTweak
 
 # Long Guns
 - type: latheRecipe
@@ -213,6 +219,7 @@
     Steel: 2000
     Glass: 800
     Plastic: 500
+    Copper: 3000 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -222,6 +229,7 @@
     Steel: 1500
     Glass: 1000
     Gold: 850
+    Copper: 2000 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -231,6 +239,7 @@
     Steel: 1250
     Plastic: 750
     Gold: 500
+    Copper: 1500 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -241,6 +250,7 @@
     Glass: 500
     Plastic: 250
     Gold: 100
+    Copper: 2000 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -251,6 +261,7 @@
     Glass: 500
     Plastic: 500
     Gold: 500
+    Copper: 2000 #ADTTweak
 
 # Sidearms
 - type: latheRecipe
@@ -261,6 +272,7 @@
     Steel: 300
     Glass: 200
     Plastic: 200
+    Copper: 300 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeSidearm
@@ -270,6 +282,7 @@
     Steel: 1000
     Glass: 500
     Plastic: 500
+    Copper: 1500 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeSidearm
@@ -278,6 +291,7 @@
   materials:
     Steel: 2000
     Gold: 500
+    Copper: 1000 #ADTTweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeSidearm
@@ -286,3 +300,4 @@
   materials:
     Plastic: 100
     Steel: 400
+    Copper: 100 #ADTTweak

@@ -8,6 +8,7 @@
     Plastic: 250
     Gold: 50
     Plasma: 500
+    Copper: 400
 
 - type: latheRecipe
   id: ADTBorgModuleDisabler
@@ -19,6 +20,7 @@
     Plastic: 250
     Gold: 50
     Plasma: 50
+    Copper: 500
 
 - type: latheRecipe
   id: ADTBorgModuleDetention
@@ -28,6 +30,7 @@
     Steel: 500
     Glass: 500
     Plastic: 250
+    Copper: 500
 
 - type: latheRecipe
   id: ADTBorgModuleRPD
@@ -38,6 +41,7 @@
     Glass: 500
     Plastic: 250
     Gold: 50
+    Copper: 250
 
 - type: latheRecipe
   id: ADTCustomLawCircuitBoard
@@ -48,6 +52,7 @@
     Glass: 500
     Plastic: 250
     Gold: 50
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitHelmet
@@ -90,6 +95,7 @@
     Glass: 200
     Plastic: 250
     Silver: 200
+    Copper: 400
 
 - type: latheRecipe
   id: ADTModsuitPlateCosmohonk
@@ -99,6 +105,7 @@
     Steel: 1000
     Glass: 200
     Plastic: 250
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitPlateEngineering
@@ -109,6 +116,7 @@
     Glass: 200
     Plastic: 250
     Silver: 200
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitPlateMedical
@@ -119,6 +127,7 @@
     Glass: 200
     Plastic: 250
     Gold: 200
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitPlateSecurity
@@ -130,6 +139,7 @@
     Plastic: 250
     Silver: 200
     Gold: 200
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitPlateStandard
@@ -139,6 +149,7 @@
     Steel: 1000
     Glass: 200
     Plastic: 250
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitPlateCience
@@ -149,6 +160,7 @@
     Glass: 200
     Plastic: 250
     Gold: 500
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitPlateMining
@@ -159,6 +171,7 @@
     Glass: 200
     Plastic: 250
     Gold: 200
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitAssembly
@@ -175,6 +188,7 @@
   materials:
     Steel: 1000
     Plastic: 250
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModApparatus
@@ -184,6 +198,7 @@
     Steel: 100
     Plastic: 250
     Gold: 200
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModDrill
@@ -193,6 +208,7 @@
     Steel: 1000
     Plastic: 250
     Glass: 200
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModJetpack
@@ -202,6 +218,7 @@
     Steel: 1000
     Plastic: 250
     Glass: 200
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModMagboot
@@ -211,6 +228,7 @@
     Steel: 1000
     Plastic: 250
     Gold: 100
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModNightVision
@@ -221,6 +239,7 @@
     Plastic: 250
     Gold: 100
     Silver: 200
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModStun
@@ -230,6 +249,7 @@
     Steel: 1000
     Plastic: 400
     Gold: 100
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModPowerKick
@@ -240,6 +260,7 @@
     Plastic: 400
     Gold: 500
     Silver: 600
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModSechud
@@ -249,6 +270,7 @@
     Steel: 100
     Plastic: 400
     Glass: 500
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModStorage
@@ -259,6 +281,7 @@
     Plastic: 400
     Glass: 500
     Silver: 100
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModWelding
@@ -268,6 +291,7 @@
     Steel: 500
     Plastic: 400
     Glass: 500
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModArmor
@@ -278,6 +302,7 @@
     Plastic: 400
     Glass: 500
     Silver: 300
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModStorageLarge
@@ -288,6 +313,7 @@
     Plastic: 800
     Glass: 1000
     Silver: 200
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModTray
@@ -296,6 +322,7 @@
   materials:
     Steel: 200
     Plastic: 800
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModIsulation
@@ -306,6 +333,7 @@
     Plastic: 800
     Glass: 300
     Silver: 200
+    Copper: 200
 
 - type: latheRecipe
   id: ADTModsuitModJump
@@ -314,6 +342,7 @@
   materials:
     Steel: 1000
     Plastic: 800
+    Copper: 200
 
 # - type: latheRecipe
 #   id: ADTModsuitModNoslip
@@ -335,6 +364,7 @@
     Gold: 100
     Plasma: 50
     Silver: 400
+    Copper: 500
 
 - type: latheRecipe
   id: ADTModsuitModEmpProtection
@@ -345,3 +375,4 @@
     Plastic: 800
     Glass: 1000
     Silver: 200
+    Copper: 800

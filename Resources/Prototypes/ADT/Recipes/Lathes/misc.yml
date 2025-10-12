@@ -20,6 +20,7 @@
   materials:
     Steel: 50
     Plastic: 150
+    Copper: 200
 
 - type: latheRecipe
   id: TapeRecorder
@@ -28,6 +29,7 @@
   materials:
     Steel: 250
     Plastic: 250
+    Copper: 250
 
 - type: latheRecipe
   parent: BaseLightRecipe

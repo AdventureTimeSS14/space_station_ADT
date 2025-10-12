@@ -15,3 +15,12 @@
   icon: { sprite: Objects/Materials/ore.rsi, state: zinc }
   color: "#087a67"
   price: 0.075
+
+- type: material
+  id: RawLead
+  stackEntity: ADTLeadOre1
+  name: materials-raw-lead
+  unit: materials-unit-chunk
+  icon: { sprite: Objects/Materials/ore.rsi, state: lead }
+  color: "#087a67"
+  price: 0.075

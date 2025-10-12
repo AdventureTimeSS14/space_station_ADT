@@ -144,3 +144,37 @@
   components:
   - type: Stack
     count: 1
+
+#prototype by uwu owo IwI Firemix
+- type: entity
+  parent: OreBase
+  id: ADTLeadOre
+  name: lead ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: LeadOre
+  - type: Sprite
+    state: lead
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawLead: 300
+  - type: Item
+    heldPrefix: lead
+  - type: Extractable
+    grindableSolutionName: lead
+  - type: SolutionContainerManager
+    solutions:
+      lead:
+        reagents:
+        - ReagentId: Lead
+          Quantity: 20
+
+- type: entity
+  parent: ADTLeadOre
+  id: ADTLeadOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

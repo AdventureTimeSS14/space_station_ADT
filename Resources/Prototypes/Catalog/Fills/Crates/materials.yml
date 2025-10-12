@@ -179,6 +179,8 @@
     - id: SheetSteel
     - id: SheetGlass
     - id: SheetPlastic
+    - id: ADTSheetCopper #ADT-BFUU-Tweak-start
+    - id: ADTSheetZinc #ADT-BFUU-Tweak-end
 
 #- type: entity
 #  id: CrateMaterialHFuelTank

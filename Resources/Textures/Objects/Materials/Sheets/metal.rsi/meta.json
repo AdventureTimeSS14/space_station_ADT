@@ -108,6 +108,23 @@
     {
       "name": "copper-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "lead"
+    },
+    {
+      "name": "lead_2"
+    },
+    {
+      "name": "lead_3"
+    },
+    {
+      "name": "lead-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "lead-inhand-left",
+      "directions": 4
     }
   ]
 }

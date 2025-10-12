@@ -39,3 +39,17 @@
   minGroupSize: 10
   maxGroupSize: 15
   radius: 4
+
+- type: biomeMarkerLayer
+  id: OreLead
+  entityMask:
+    AsteroidRock: AsteroidRockLead
+    WallRock: WallRockLead
+    WallRockBasalt: WallRockBasaltLead
+    WallRockChromite: WallRockChromiteLead
+    WallRockSand: WallRockSandLead
+    WallRockSnow: WallRockSnowLead
+  maxCount: 30
+  minGroupSize: 10
+  maxGroupSize: 15
+  radius: 4

@@ -15,7 +15,7 @@
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   color: "#a8ccd7"
   price: 0.075
-  
+
 - type: material
   id: ADTBScrystal
   stackEntity: ADTMaterialBScrystal1
@@ -23,7 +23,7 @@
   unit: materials-unit-piece
   icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
   color: "#1d55c4"
-  price: 50 
+  price: 50
 
 - type: material
   id: ADTBScrystalArt
@@ -31,7 +31,7 @@
   unit: materials-unit-piece
   icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
   color: "#1d55c4"
-  price: 50 
+  price: 50
 
 - type: material
   id: Copper
@@ -48,4 +48,14 @@
   unit: materials-unit-bar
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: zinc }
   color: "#087a67"
+  price: 0.075
+
+
+- type: material
+  id: Lead
+  stackEntity: ADTSheetLead1
+  name: materials-lead
+  unit: materials-unit-bar
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: lead }
+  color: "#08287a"
   price: 0.075

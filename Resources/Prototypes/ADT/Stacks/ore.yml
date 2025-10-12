@@ -11,3 +11,10 @@
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: zinc }
   spawn: ADTZincOre1
   maxCount: 30
+
+- type: stack
+  id: LeadOre
+  name: lead ore
+  icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: lead }
+  spawn: ADTLeadOre1
+  maxCount: 30

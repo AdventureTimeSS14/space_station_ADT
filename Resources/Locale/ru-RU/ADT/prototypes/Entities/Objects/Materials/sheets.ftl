@@ -16,3 +16,13 @@ ent-ADTSheetZinc10 = цинк
 ent-ADTSheetZinc1 = цинк
     .suffix = Один
     .desc = { ent-ADTSheetZinc.desc }
+
+ent-ADTSheetLead = свинец
+    .suffix = Полный
+    .desc = Свинец, отлично подходит для изготовления снарядов
+ent-ADTSheetLead10 = свинец
+    .suffix = 10
+    .desc = { ent-ADTSheetLead.desc }
+ent-ADTSheetLead1 = свинец
+    .suffix = Один
+    .desc = { ent-ADTSheetLead.desc }

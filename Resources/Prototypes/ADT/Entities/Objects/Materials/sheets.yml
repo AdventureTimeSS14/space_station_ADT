@@ -1,5 +1,71 @@
 - type: entity
   parent: SheetMetalBase
+  id: ADTSheetLead
+  name: lead
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Lead: 100
+  - type: Stack
+    stackType: Lead
+    baseLayer: base
+    layerStates:
+    - lead
+    - lead_2
+    - lead_3
+  - type: Sprite
+    state: lead_3
+    layers:
+    - state: lead_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: lead
+  - type: Appearance
+  - type: FloorTile
+    outputs:
+    - PlatingBrass
+  - type: Extractable
+    grindableSolutionName: steel
+  - type: SolutionContainerManager
+    solutions:
+      steel:
+        reagents:
+        - ReagentId: Lead
+          Quantity: 8.8
+        - ReagentId: Carbon
+          Quantity: 0.9
+  - type: Tag
+    tags:
+      - ADTSheet
+
+- type: entity
+  parent: ADTSheetLead
+  id: ADTSheetLead10
+  name: lead
+  suffix: 10
+  components:
+  - type: Sprite
+    state: lead
+  - type: Stack
+    stackType: Lead
+    count: 10
+
+- type: entity
+  parent: ADTSheetLead
+  id: ADTSheetLead1
+  name: lead
+  suffix: Single
+  components:
+  - type: Sprite
+    state: lead
+  - type: Stack
+    stackType: Lead
+    count: 1
+
+- type: entity
+  parent: SheetMetalBase
   id: ADTSheetCopper
   name: copper
   suffix: Full

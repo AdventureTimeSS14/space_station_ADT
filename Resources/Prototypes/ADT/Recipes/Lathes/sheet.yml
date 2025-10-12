@@ -39,3 +39,20 @@
   materials:
     RawZinc: 3000
     Coal: 1000
+
+- type: latheRecipe
+  id: SheetLead
+  result: ADTSheetLead1
+  completetime: 0
+  miningPoints: 1
+  materials:
+    RawLead: 100
+    Coal: 30
+
+- type: latheRecipe
+  id: SheetLead30
+  result: ADTSheetLead
+  completetime: 2
+  materials:
+    RawLead: 3000
+    Coal: 1000
