@@ -161,13 +161,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: ADTSpawnMobBeepsky
-  entities:
-  - uid: 79
-    components:
-    - type: Transform
-      pos: 1.5,-3.5
-      parent: 1
 - proto: CableApcExtension
   entities:
   - uid: 87
