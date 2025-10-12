@@ -20,7 +20,6 @@
               amount: 10
             - material: MetalRod
               amount: 5
-            - material: Capacitor
             - material: Cable
               amount: 15
               doAfter: 12

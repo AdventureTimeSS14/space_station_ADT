@@ -57,14 +57,14 @@
     sprite: Structures/Power/Generation/Singularity/collector.rsi
     state: static
   - type: RadiationCollector
-    chargeModifier: 7500
+    chargeModifier: 15000
     radiationReactiveGases:
       - reactantPrototype: Plasma
         powerGenerationEfficiency: 1.2 # ADT-Tweak
-        reactantBreakdownRate: 0.0001
+        reactantBreakdownRate: 0.0002
       - reactantPrototype: BZ # ADT-Tweak start
         powerGenerationEfficiency: 1.6 
-        reactantBreakdownRate: 0.00005 # ADT-Tweak end
+        reactantBreakdownRate: 0.0001 # ADT-Tweak end
   - type: RadiationReceiver
   - type: PowerSupplier
   - type: Anchorable

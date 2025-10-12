@@ -4,12 +4,16 @@
     "x": 96,
     "y": 96
   },
+
   "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/obj/fluff/3x3.dmi",
   "license": "CC-BY-SA-3.0",
   "states": [
     {
       "name": "base",
       "directions": 4
+    },
+    {
+      "name": "icon"
     },
     {
       "name": "thrust",
