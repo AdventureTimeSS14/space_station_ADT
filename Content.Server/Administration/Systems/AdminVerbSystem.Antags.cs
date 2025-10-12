@@ -23,7 +23,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly OutfitSystem _outfit = default!;
 
     private static readonly EntProtoId DefaultBloodBrotherRule = "BloodBrother"; //ADT-tweak
-    private static readonly EntProtoId DefaultTraitorRule = "Traitor";
+    private static readonly EntProtoId DefaultTraitorRule = "TraitorOnly"; //ADT-tweak
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
     private static readonly EntProtoId DefaultNukeOpRule = "LoneOpsSpawn";
     private static readonly EntProtoId DefaultRevsRule = "Revolutionary";

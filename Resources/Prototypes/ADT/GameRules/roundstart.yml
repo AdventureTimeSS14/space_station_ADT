@@ -381,3 +381,25 @@
     sets:
     - groups: BloodBrothersObjectiveGroups
     maxDifficulty: 12
+
+#этот геймрул сделан только для выдачи трейтора
+- type: entity
+  parent: BaseTraitorRule
+  id: TraitorOnly
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 1
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: TraitorRule
+    bloodBrotherChance: 0
