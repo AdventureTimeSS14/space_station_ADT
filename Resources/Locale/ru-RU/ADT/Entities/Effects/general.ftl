@@ -6,3 +6,6 @@ ent-ADTJaunterPortal = червоточина
 
 ent-ADTJaunterBlackKillPortal = червоточина..?
     .desc = Интересно, куда оно ведёт?
+
+ent-ADTEventJaunterPortal = штормовая червоточина
+    .desc = Кажется, шторм из таких штук надвигается на вас с высокой скоростью.

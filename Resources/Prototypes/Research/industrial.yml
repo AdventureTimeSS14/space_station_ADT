@@ -14,7 +14,7 @@
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
-  - ClothingShoesBootsJump
+  # - ClothingShoesBootsJump ADT tweak
 # ADT Research Console Rework start
   position: 3,0
   requiredTech:

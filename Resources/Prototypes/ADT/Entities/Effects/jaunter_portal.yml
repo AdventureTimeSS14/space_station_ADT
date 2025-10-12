@@ -37,3 +37,16 @@
   - type: JaunterKillPortal
   - type: TimedDespawn
     lifetime: 10
+
+- type: entity
+  id: ADTEventJaunterPortal
+  name: jaunter portal
+  parent: ADTJaunterPortal
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 12
+    energy: 4
+    color: "#2233ff"
+  - type: TimedDespawn
+    lifetime: 600

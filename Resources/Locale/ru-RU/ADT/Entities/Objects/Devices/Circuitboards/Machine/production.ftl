@@ -1,5 +1,5 @@
-ent-ADTMachineMediumLongThrusterCircuitboard = средний длинный двигатель (машинная плата)
+ent-ADTMachineMediumLongThrusterCircuitboard = средний длинный ракетный двигатель (машинная плата)
 
-ent-ADTMachineBigThrusterCircuitboard = большой двигатель (машинная плата)
+ent-ADTMachineBigThrusterCircuitboard = большой ракетный двигатель (машинная плата)
 
-ent-ADTMachineMediumThrusterCircuitboard = средний двигатель (машинная плата)
+ent-ADTMachineMediumThrusterCircuitboard = средний ракетный двигатель (машинная плата)
