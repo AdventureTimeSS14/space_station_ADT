@@ -22,6 +22,7 @@ using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
 using Content.Shared.ADT.BloodBrothers;
+using Content.Shared.Bed.Cryostorage;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -120,8 +121,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         {
             _antag.SendBriefing(traitor, Loc.GetString("brother-lead-briefing"), null, component.GreetSoundNotification);
             Log.Debug($"MakeBrother {ToPrettyString(traitor)} - Sent the Briefing");
+            EnsureComp<BloodBrotherLeaderComponent>(traitor); //лидера ВСЕГДА должно выдавать прежде чем простого брата
             EnsureComp<BloodBrotherComponent>(traitor);
-            EnsureComp<BloodBrotherLeaderComponent>(traitor);
+            RemComp<CanEnterCryostorageComponent>(traitor);
             _npcFaction.AddFaction(traitor, component.BloodBrotherFaction);
             _npcFaction.AddFaction(traitor, component.BloodBrotherLeaderFaction);
         }

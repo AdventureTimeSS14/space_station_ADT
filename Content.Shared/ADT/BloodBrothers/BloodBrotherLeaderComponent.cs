@@ -1,6 +1,4 @@
 using Robust.Shared.GameStates;
-using Content.Shared.Antag;
-using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
@@ -19,9 +17,10 @@ namespace Content.Shared.ADT.BloodBrothers
         /// Sound that plays when you are chosen. (Placeholder until I find something cool I guess)
         /// </summary>
         [DataField]
-        public SoundSpecifier StartSound = new SoundPathSpecifier("/Audio/Ambience/Antag/headrev_start.ogg");
+        public SoundSpecifier StartSound = new SoundCollectionSpecifier("ADTTraitorStart");
 
         public int ConvertedCount = 0;
+        [DataField]
         public int MaxConvertedCount = 4;
     }
 }
