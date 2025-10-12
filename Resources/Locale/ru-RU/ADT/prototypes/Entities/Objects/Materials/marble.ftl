@@ -11,3 +11,5 @@ ent-ADTmarble5 = мрамор
     .suffix = 5
 
 stack-ADTmarble = мрамор
+
+materials-marble = мрамор

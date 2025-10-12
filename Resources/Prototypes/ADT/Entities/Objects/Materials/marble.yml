@@ -25,6 +25,8 @@
     - marblemat3
   - type: Appearance
   - type: PhysicalComposition
+    materialComposition:
+      ADTMarbleMaterial: 100
 
 - type: entity
   parent: ADTmarble
