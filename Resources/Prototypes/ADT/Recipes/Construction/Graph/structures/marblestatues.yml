@@ -130,3 +130,228 @@
           steps:
             - tool: Prying
               doAfter: 10
+
+- type: constructionGraph
+  id: MarblePeacemaker
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marblePeacemaker
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marblePeacemaker
+      entity: ADTpeacemakermarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleKnight
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleKnight
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleKnight
+      entity: ADTKnightMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleHunter
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleHunter
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleHunter
+      entity: ADTHunterMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleMachine
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleMachine
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleMachine
+      entity: ADTMachineMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleLegionary
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleLegionary
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleLegionary
+      entity: ADTLegionaryMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleBird
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleBird
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleBird
+      entity: ADTBirdMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleCunning
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleCunning
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleCunning
+      entity: ADTCunningMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleScientist
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleScientist
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleScientist
+      entity: ADTScientistMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: MarbleEye
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: marbleEye
+          steps:
+            - material: ADTmarbleStack
+              amount: 10
+              doAfter: 15
+    - node: marbleEye
+      entity: ADTEyeMarble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 7
+          steps:
+            - tool: Prying
+              doAfter: 10

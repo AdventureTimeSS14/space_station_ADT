@@ -76,6 +76,9 @@
     sprite: ADT/Structures/Decoration/marble_structures/marble_stand.rsi
     offset: "0.0,0.0"
     state: marstand
+    drawdepth: SmallObjects
+  - type: PlaceableSurface
+    isPlaceable: True
   - type: Construction
     graph: MarbleStand
     node: marblestand
@@ -123,6 +126,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/peacemaker.rsi
     state: peacemaker
+  - type: Construction
+    graph: MarblePeacemaker
+    node: marblePeacemaker
 
 - type: entity
   parent: ADTmarblelady
@@ -135,6 +141,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_knight.rsi
     state: marble_knight
+  - type: Construction
+    graph: MarbleKnight
+    node: marbleKnight
 
 - type: entity
   parent: ADTmarblelady
@@ -147,6 +156,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_hunter.rsi
     state: marble_hunter
+  - type: Construction
+    graph: MarbleHunter
+    node: marbleHunter
 
 - type: entity
   parent: ADTmarblelady
@@ -159,6 +171,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_machine.rsi
     state: marble_machine
+  - type: Construction
+    graph: MarbleMachine
+    node: marbleMachine
 
 - type: entity
   parent: ADTmarblelady
@@ -171,6 +186,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_legionary.rsi
     state: marble_legionary
+  - type: Construction
+    graph: MarbleLegionary
+    node: marbleLegionary
 
 - type: entity
   parent: ADTmarblelady
@@ -183,6 +201,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_bird.rsi
     state: marble_bird
+  - type: Construction
+    graph: MarbleBird
+    node: marbleBird
 
 - type: entity
   parent: ADTmarblelady
@@ -195,6 +216,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_cunning.rsi
     state: marble_cunning
+  - type: Construction
+    graph: MarbleCunning
+    node: marbleCunning
 
 - type: entity
   parent: ADTmarblelady
@@ -207,6 +231,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_scientist.rsi
     state: marble_scientist
+  - type: Construction
+    graph: MarbleScientist
+    node: marbleScientist
 
 - type: entity
   parent: ADTmarblelady
@@ -219,6 +246,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_eye.rsi
     state: marble_eye
+  - type: Construction
+    graph: MarbleEye
+    node: marbleEye
 
 - type: entity
   parent: ADTmarblelady
