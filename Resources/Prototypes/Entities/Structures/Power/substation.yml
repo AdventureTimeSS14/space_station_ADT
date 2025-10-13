@@ -247,12 +247,12 @@
   - type: ContainerFill
     containers:
       board: [ WallmountSubstationElectronics ]
-      manipulator: [ MicroManipulatorStockPart ]
+      capacitor: [ CapacitorStockPart ] # ADT-Tweak revert wiz pr 37725
       powercell: [ PowerCellSmall ]
   - type: ContainerContainer
     containers:
       board: !type:Container
-      manipulator: !type:Container
+      capacitor: !type:Container # ADT-Tweak revert wiz pr 37725
       powercell: !type:Container
 
       # Construction Frame

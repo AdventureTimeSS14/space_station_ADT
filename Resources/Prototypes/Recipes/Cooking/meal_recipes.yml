@@ -442,7 +442,7 @@
   group: Savory
   solids:
     FoodBreadBun: 1
-    MicroManipulatorStockPart: 2
+    CapacitorStockPart: 2 # ADT-Tweak revert wiz pr 37725
     # i would add steel to this recipe but the microwave explodes
   #ADT-Tweak Start
   recipeType:
@@ -3312,4 +3312,3 @@
     Fiber: 10
   solids:
     FoodCakePlain: 1
-    

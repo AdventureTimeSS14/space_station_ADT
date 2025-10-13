@@ -19,6 +19,18 @@
     Steel: 50
     Plastic: 50
 
+# ADT-Tweak-start revert wiz pr 37725
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: CapacitorStockPart
+  result: CapacitorStockPart
+
+- type: latheRecipe
+  parent: BaseStockPartRecipe
+  id: MatterBinStockPart
+  result: MatterBinStockPart
+# ADT-Tweak-end revert wiz pr 37725
+
 - type: latheRecipe
   parent: BaseStockPartRecipe
   id: MicroManipulatorStockPart

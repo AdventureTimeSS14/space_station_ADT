@@ -225,6 +225,10 @@
 - type: Tag
   id: CanPilot
 
+# ADT-Tweak revert wiz pr 37725
+- type: Tag
+  id: CapacitorStockPart
+
 - type: Tag
   id: CaptainSabre
 

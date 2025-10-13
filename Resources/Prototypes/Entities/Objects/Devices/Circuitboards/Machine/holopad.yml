@@ -7,6 +7,6 @@
     - type: MachineBoard
       prototype: Holopad
       stackRequirements:
-        Manipulator: 4
+        Capacitor: 4 # ADT-Tweak revert wiz pr 37725
         Cable: 4
         Glass: 2

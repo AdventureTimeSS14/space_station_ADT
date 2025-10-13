@@ -45,6 +45,8 @@
           state: icon
     - type: RandomSpawner
       rarePrototypes:
+        - CapacitorStockPart # ADT-Tweak revert wiz pr 37725
+        - MatterBinStockPart # ADT-Tweak revert wiz pr 37725
         - MicroManipulatorStockPart
         - CableHVStack10
         - WelderIndustrial

@@ -46,7 +46,7 @@
         doAfter: 1
     - to: memory_cell
       steps:
-      - material: Manipulator
+      - tag: CapacitorStockPart # ADT-Tweak revert wiz pr 37725
         amount: 2
       - material: Cable
         amount: 2
@@ -98,7 +98,7 @@
         doAfter: 2
       completed:
       - !type:SpawnPrototype
-        prototype: MicroManipulatorStockPart
+        prototype: CapacitorStockPart # ADT-Tweak revert wiz pr 37725
       - !type:SpawnPrototype
         prototype: CableApcStack1
         amount: 2
