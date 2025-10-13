@@ -179,10 +179,10 @@
       map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
   - type: Gibtonite
     extracted: false
-  
+
 #Lead
 - type: entity
-  id: AsteroidRockLead
+  id: ADTAsteroidRockLead
   parent: AsteroidRock
   description: An ore vein rich with lead.
   suffix: Lead
@@ -205,7 +205,7 @@
           state: rock_asteroid_west
 
 - type: entity
-  id: MeteorRockLead
+  id: ADTMeteorRockLead
   parent: MeteorRock
   description: An ore vein rich with lead.
   suffix: Lead
@@ -227,7 +227,7 @@
           state: rock_asteroid_west
 
 - type: entity
-  id: IronRockLead
+  id: ADTIronRockLead
   parent: IronRock
   description: An ore vein rich with lead.
   suffix: Lead
@@ -250,7 +250,7 @@
           state: ironrock_west
 
 - type: entity
-  id: WallRockBasaltLead
+  id: ADTWallRockBasaltLead
   parent: WallRockBasalt
   description: An ore vein rich with lead.
   suffix: Lead
@@ -273,7 +273,7 @@
           state: rock_wall_west
 
 - type: entity
-  id: WallRockSnowLead
+  id: ADTWallRockSnowLead
   parent: WallRockSnow
   description: An ore vein rich with lead.
   suffix: Lead
@@ -296,7 +296,7 @@
           state: rock_snow_west
 
 - type: entity
-  id: WallRockSandLead
+  id: ADTWallRockSandLead
   parent: WallRockSand
   description: An ore vein rich with lead.
   suffix: Lead
@@ -319,7 +319,7 @@
           state: rock_sand_west
 
 - type: entity
-  id: WallRockChromiteLead
+  id: ADTWallRockChromiteLead
   parent: WallRockChromite
   description: An ore vein rich with lead.
   suffix: Lead
@@ -342,7 +342,7 @@
           state: rock_chromite_west
 
 - type: entity
-  id: WallRockAndesiteLead
+  id: ADTWallRockAndesiteLead
   parent: WallRockAndesite
   description: An ore vein rich with lead.
   suffix: Lead

@@ -12,7 +12,7 @@ copper-ore = рудная медь
 
 zinc-ore = рудный цинк
 
-lead-ore = рудной свинец
+lead-ore = рудный свинец
 
 ent-ADTCopperOre = рудная медь
     .desc = { ent-OreBase.desc }
