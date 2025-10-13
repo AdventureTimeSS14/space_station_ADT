@@ -29,7 +29,6 @@ namespace Content.Server.GameTicking.Rules;
 public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
-    public ProtoId<NpcFactionPrototype> BloodBrotherFaction = "BloodBrotherFaction"; //ADT-tweak
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;

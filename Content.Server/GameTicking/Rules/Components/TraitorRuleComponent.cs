@@ -45,6 +45,8 @@ public sealed partial class TraitorRuleComponent : Component
     /// </summary>
     [DataField]
     public float BloodBrotherChance = 0.2f;
+    public ProtoId<NpcFactionPrototype> BloodBrotherFaction = "BloodBrotherFaction"; //ADT-tweak
+    public ProtoId<NpcFactionPrototype> BloodBrotherLeaderFaction = "BloodBrotherLeaderFaction"; //ADT-tweak
     // ADT-Tweak-End
 
     /// <summary>
