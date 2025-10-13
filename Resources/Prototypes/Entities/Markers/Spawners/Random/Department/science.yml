@@ -63,7 +63,6 @@
       - id: SheetGlass10
       - id: ADTSheetCopper  # ADT Tweak
       - id: ADTSheetZinc  # ADT Tweak
-      - id: SheetBrass  # ADT Tweak
       - id: ADTSheetLead # ADT Tweak
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled

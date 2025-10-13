@@ -8,6 +8,8 @@
     Glass: 1400
     Plasma: 500
     Copper: 1000
+    Zinc: 500
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTGygaxLArm
@@ -17,6 +19,8 @@
     Steel: 1800
     Glass: 1100
     Copper: 1000
+    Zinc: 800
+    Lead: 1100
 
 - type: latheRecipe
   id: ADTGygaxLLeg
@@ -26,6 +30,8 @@
     Steel: 1800
     Glass: 1100
     Copper: 1000
+    Zinc: 800
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTGygaxRLeg
@@ -35,6 +41,8 @@
     Steel: 1800
     Glass: 1100
     Copper: 1000
+    Zinc: 800
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTGygaxRArm
@@ -44,6 +52,8 @@
     Steel: 1800
     Glass: 1100
     Copper: 1000
+    Zinc: 800
+    Lead: 1100
 
 - type: latheRecipe
   id: ADTGygaxArmorPlates
@@ -53,6 +63,8 @@
     Steel: 2000
     Plasteel: 1500
     Copper: 1000
+    Zinc: 1000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTGygaxHead
@@ -63,6 +75,8 @@
     Glass: 400
     Plasma: 500
     Copper: 1000
+    Zinc: 500
+    Lead: 800
 
 - type: latheRecipe
   id: ADTGygaxCentralElectronics
@@ -94,6 +108,7 @@
     Glass: 1200
     Plasma: 200
     Copper: 1000
+    Zinc: 200
 
 - type: latheRecipe
   id: ADTOdysseusLArm
@@ -103,6 +118,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTOdysseusLLeg
@@ -112,6 +128,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTOdysseusRLeg
@@ -121,6 +138,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTOdysseusRArm
@@ -130,6 +148,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 500
 
 # - type: latheRecipe
 #   id: ADTOdysseusArmorPlates
@@ -148,6 +167,7 @@
     Steel: 500
     Glass: 300
     Copper: 500
+    Zinc: 300
 
 - type: latheRecipe
   id: ADTOdysseusCentralElectronics
@@ -183,6 +203,7 @@
     Plasma: 600
     ADTBScrystal: 400
     Copper: 1000
+    Zinc: 200
 
 #Кларк
 - type: latheRecipe
@@ -194,6 +215,7 @@
     Silver: 1000
     Plasma: 1500
     Copper: 1000
+    Zinc: 200
 
 - type: latheRecipe
   id: ADTClarkeLArm
@@ -203,6 +225,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 300
 
 - type: latheRecipe
   id: ADTClarkeRArm
@@ -212,6 +235,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 300
 
 - type: latheRecipe
   id: ADTClarkeLTread
@@ -221,6 +245,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTClarkeRTread
@@ -230,6 +255,7 @@
     Steel: 1000
     Glass: 500
     Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTClarkeHead
@@ -239,6 +265,7 @@
     Steel: 1000
     Glass: 1000
     Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: ADTClarkeCentralElectronics
@@ -271,6 +298,8 @@
     Silver: 1500
     Plasteel: 3000
     Copper: 3000
+    Zinc: 1500
+    Lead: 3000
 
 - type: latheRecipe
   id: ADTDurandLArm
@@ -281,6 +310,8 @@
     Silver: 500
     Plasteel: 500
     Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandLLeg
@@ -291,6 +322,8 @@
     Silver: 500
     Plasteel: 500
     Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandRLeg
@@ -301,6 +334,8 @@
     Silver: 500
     Plasteel: 500
     Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandRArm
@@ -311,6 +346,8 @@
     Silver: 500
     Plasteel: 500
     Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandArmorPlates
@@ -321,6 +358,8 @@
     Plasteel: 4000
     Silver: 1000
     Copper: 1000
+    Zinc: 1000
+    Lead: 2000
 
 - type: latheRecipe
   id: ADTDurandHead
@@ -332,6 +371,8 @@
     Silver: 1000
     Plasteel: 500
     Copper: 1000
+    Zinc: 1000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTDurandCentralElectronics
@@ -363,6 +404,8 @@
     Glass: 3000
     Plasma: 3000
     Copper: 3000
+    Zinc: 2000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTPhazonLArm
@@ -373,6 +416,8 @@
     Glass: 500
     Plasma: 500
     Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonLLeg
@@ -383,6 +428,8 @@
     Glass: 500
     Plasma: 500
     Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonRLeg
@@ -393,6 +440,8 @@
     Glass: 500
     Plasma: 500
     Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonRArm
@@ -403,6 +452,8 @@
     Glass: 500
     Plasma: 500
     Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonArmorPlates
@@ -413,6 +464,8 @@
     Plasteel: 4000
     Plasma: 1000
     Copper: 1000
+    Zinc: 2000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTPhazonHead
@@ -423,6 +476,8 @@
     Glass: 1500
     Plasma: 1000
     Copper: 1000
+    Zinc: 1000
+    Lead: 2000
 
 - type: latheRecipe
   id: ADTPhazonCentralElectronics
@@ -501,6 +556,7 @@
     Silver: 300
     Plasma: 600
     Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: MechEquipmentArmorRange
@@ -511,6 +567,7 @@
     Plastic: 150
     Glass: 300
     Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: MechEquipmentArmorMelee
@@ -521,6 +578,7 @@
     Plastic: 150
     Glass: 300
     Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: MechEquipmentDrill
@@ -531,6 +589,7 @@
     Plastic: 150
     Glass: 300
     Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: MechEquipmentDiamondDrill
@@ -542,6 +601,7 @@
     Glass: 300
     Diamond: 500
     Copper: 1000
+    Zinc: 1000
 
 # - type: latheRecipe
 #   id: MechEquipmentGravipult
@@ -564,6 +624,7 @@
     Plastic: 1000
     Gold: 500
     Copper: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunPeacemakerDisabler
@@ -574,6 +635,7 @@
     Plastic: 1000
     Gold: 500
     Copper: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunSolarisLaserCannon
@@ -585,6 +647,7 @@
     Gold: 500
     Plasma: 750
     Copper: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunTeslaCannon
@@ -596,6 +659,7 @@
     Silver: 500
     Plasma: 1000
     Copper: 4000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunScattershot

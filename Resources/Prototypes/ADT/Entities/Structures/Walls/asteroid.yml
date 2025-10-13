@@ -29,36 +29,6 @@
         state: rock_west
 
 - type: entity
-  id: WallRockZinc
-  parent: WallRock
-  description: An ore vein rich with zinc.
-  suffix: Zinc
-  components:
-  - type: EntityRemap
-    mask:
-      AsteroidRock: AsteroidRockZinc
-      WallRockBasalt: WallRockBasaltZinc
-      WallRockChromite: WallRockChromiteZinc
-      WallRockSand: WallRockSandZinc
-      WallRockSnow: WallRockSnowZinc
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreZinc
-  - type: Sprite
-    layers:
-      - state: rock_zinc
-        map: [ "enum.MiningScannerVisualLayers.Overlay" ]
-      - state: rock
-      - map: [ "enum.EdgeLayer.South" ]
-        state: rock_south
-      - map: [ "enum.EdgeLayer.East" ]
-        state: rock_east
-      - map: [ "enum.EdgeLayer.North" ]
-        state: rock_north
-      - map: [ "enum.EdgeLayer.West" ]
-        state: rock_west
-
-- type: entity
   id: AsteroidRockCopper
   parent: AsteroidRock
   description: An ore vein rich with copper.
@@ -240,6 +210,37 @@
           state: rock_andesite_north
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_andesite_west
+
+
+- type: entity
+  id: WallRockZinc
+  parent: WallRock
+  description: An ore vein rich with zinc.
+  suffix: Zinc
+  components:
+  - type: EntityRemap
+    mask:
+      AsteroidRock: AsteroidRockZinc
+      WallRockBasalt: WallRockBasaltZinc
+      WallRockChromite: WallRockChromiteZinc
+      WallRockSand: WallRockSandZinc
+      WallRockSnow: WallRockSnowZinc
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreZinc
+  - type: Sprite
+    layers:
+      - state: rock_zinc
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
 
 - type: entity
   id: AsteroidRockZinc
@@ -423,3 +424,179 @@
           state: rock_andesite_north
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_andesite_west
+
+
+- type: entity
+  id: WallRockGibtonit
+  parent: [WallRock,ADTBaseRockGibtonite]
+  description: An ore vein rich with Gibtonite.
+  suffix: Gibtonite
+  components:
+  - type: EntityRemap
+    mask:
+      AsteroidRock: AsteroidRockGibtonit
+      WallRockBasalt: WallRockBasaltGibtonit
+      WallRockChromite: WallRockChromiteGibtonit
+      WallRockSand: WallRockSandGibtonit
+      WallRockSnow: WallRockSnowGibtonit
+  - type: Sprite
+    layers:
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      - state: gibtonite_inactive
+        visible: false
+        map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: AsteroidRockGibtonit
+  parent: [AsteroidRock,ADTBaseRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: MeteorRockGibtonit
+  parent: [MeteorRock,ADTBaseRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: WallRockBasaltGibtonit
+  parent: [WallRockBasalt,ADTBaseRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: WallRockSnowGibtonit
+  parent: [WallRockSnow,ADTBaseRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      layers:
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: WallRockSandGibtonit
+  parent: [WallRockSand,ADTBaseRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: WallRockChromiteGibtonit
+  parent: [WallRockChromite,ADTBaseRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      layers:
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: WallRockAndesiteGibtonit
+  parent: [WallRockAndesite,ADTBaseRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]

@@ -46,8 +46,8 @@
   parent: BaseStructureDynamic
   id: ADTGibtonite
   suffix: Full
-  name: Bluespace ore
-  description: rock with pieces of bluespace ore
+  name: Gibtonite ore
+  description: rock with pieces of gibtonite
   components:
   - type: Appearance
   - type: Sprite
@@ -82,7 +82,7 @@
 - type: entity
   parent: OreBase
   id: ADTCopperOre
-  name: gold ore
+  name: copper ore
   suffix: Full
   components:
   - type: Stack
@@ -115,7 +115,7 @@
 - type: entity
   parent: OreBase
   id: ADTZincOre
-  name: gold ore
+  name: zinc ore
   suffix: Full
   components:
   - type: Stack

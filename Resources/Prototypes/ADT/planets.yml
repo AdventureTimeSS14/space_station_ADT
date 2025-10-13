@@ -63,6 +63,7 @@
   - OreCopper
   - OreZinc
   - OreLead
+  - OreGibtonit
 
 - type: planet
   id: GlacierSurface
