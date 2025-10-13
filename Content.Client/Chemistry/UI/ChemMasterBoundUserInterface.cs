@@ -62,6 +62,12 @@ namespace Content.Client.Chemistry.UI
             _window.OnPillContainerSlotSelected += slot => SendMessage(new ChemMasterSelectPillContainerSlotMessage(slot));
             _window.OnTogglePillContainerFillPressed += slot => SendMessage(new ChemMasterTogglePillContainerFillMessage(slot));
             _window.OnPillCanisterSelected += canisterIndex => SendMessage(new ChemMasterSelectPillCanisterForCreationMessage(canisterIndex));
+            _window.OnPillCanisterEjected += canisterIndex => SendMessage(new ItemSlotButtonPressedEvent($"pillContainerSlot{canisterIndex}"));
+
+            // ADT-Tweak: Reagent amount selection handlers
+            _window.OnSelectReagentAmount += (reagent, amount) => SendMessage(new ChemMasterSelectReagentAmountMessage(reagent, amount));
+            _window.OnRemoveReagentAmount += (reagent, amount) => SendMessage(new ChemMasterRemoveReagentAmountMessage(reagent, amount));
+            _window.OnClearReagentAmount += reagent => SendMessage(new ChemMasterClearReagentAmountMessage(reagent));
             //ADT-Tweak-End
         }
 

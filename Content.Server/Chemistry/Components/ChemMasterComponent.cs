@@ -56,12 +56,9 @@ namespace Content.Server.Chemistry.Components
         public int SelectedPillCanisterForCreation = -1;
 
         [DataField]
-        public List<ReagentId> SelectedReagentsForPills = new();
-
-        [DataField]
         public ReagentId? SelectedReagent = null;
 
-        // ADT-Tweak: Legacy bottle storage (keeping for backward compatibility)
+        // ADT-Tweak: Legacy bottle storage
         [DataField]
         public List<EntityUid?> StoredBottles = new();
 
@@ -73,6 +70,10 @@ namespace Content.Server.Chemistry.Components
 
         [DataField]
         public List<ReagentId> SelectedReagentsForBottles = new();
+
+        // ADT-Tweak: Reagent selection amounts tracking
+        [DataField]
+        public Dictionary<ReagentId, int> SelectedReagentAmounts { get; set; } = new();
         // ADT-Tweak-End
     }
 }

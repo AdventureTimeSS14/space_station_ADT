@@ -36,6 +36,9 @@ namespace Content.Client.Chemistry.UI
         public event Action<ReagentId>? OnChooseReagentPressed;
         public event Action<ReagentId>? OnReagentToggledOn;
         public event Action<ReagentId>? OnReagentToggledOff;
+        public event Action<ReagentId, int>? OnSelectReagentAmount;
+        public event Action<ReagentId, int>? OnRemoveReagentAmount;
+        public event Action<ReagentId>? OnClearReagentAmount;
         public event Action<int>? OnBottleSlotSelected;
         public event Action<int>? OnToggleBottleFillPressed;
         public event Action<int>? OnBottleSlotEjectPressed;
@@ -76,6 +79,7 @@ namespace Content.Client.Chemistry.UI
         private ChemMasterBoundUserInterfaceState? _lastState;
         private int _transferAmount = 50;
         private Label? _selectedReagentLabel = null;
+        private int _selectedBottleIndex = -1;
 
         /// <summary>
         /// Create and initialize the chem master UI client-side. Creates the basic layout,
@@ -210,16 +214,34 @@ namespace Content.Client.Chemistry.UI
             }
             // ADT-Tweak End
 
-            // ADT-Tweak Start - Pill container storage buttons (3x10 grid)
+            // ADT-Tweak Start - Pill container storage with integrated controls (3 rows × 12 columns: choose, 10 pills, eject per row)
             PillContainerStorageButtons = new Button[30];
+            var chooseButtons = new Button[3];
+            var ejectButtons = new Button[3];
 
             for (int containerRow = 0; containerRow < 3; containerRow++)
             {
+                // Choose button for this row
+                var chooseButton = new Button
+                {
+                    Text = $"Выбрать",
+                    StyleClasses = { StyleBase.ButtonOpenBoth },
+                    MinSize = new Vector2(60, 30),
+                    MaxSize = new Vector2(60, 30),
+                    ToggleMode = true,
+                    HorizontalExpand = true
+                };
+
+                var chooseIndex = containerRow;
+                chooseButton.OnPressed += _ => OnPillCanisterSelected?.Invoke(chooseIndex);
+                chooseButtons[containerRow] = chooseButton;
+                PillContainerStorageGrid.AddChild(chooseButton);
+
+                // 10 pill slot buttons for this row
                 for (int pillSlot = 0; pillSlot < 10; pillSlot++)
                 {
                     int i = containerRow * 10 + pillSlot;
 
-                    // Main pill slot button only (no eject buttons)
                     var mainButton = new Button
                     {
                         StyleClasses = { StyleBase.ButtonSquare },
@@ -235,54 +257,21 @@ namespace Content.Client.Chemistry.UI
                     PillContainerStorageButtons[i] = mainButton;
                     PillContainerStorageGrid.AddChild(mainButton);
                 }
-            }
-            // ADT-Tweak End
 
-            // ADT-Tweak Start - Pill canister selection and ejection buttons (3 of each)
-            var canisterButtonsGrid = this.FindControl<GridContainer>("PillCanisterChooseButtons");
-
-            for (int i = 0; i < 3; i++)
-            {
-                // Choose button (green) for selecting which pill canister to use
-                var chooseButton = new Button
-                {
-                    Text = $"Select {i + 1}",
-                    StyleClasses = { StyleBase.ButtonOpenBoth },
-                    MinSize = new Vector2(80, 30),
-                    MaxSize = new Vector2(80, 30),
-                    ToggleMode = true,
-                    HorizontalExpand = true
-                };
-                chooseButton.Modulate = Color.Green;
-
+                // Eject button for this row
                 var ejectButton = new Button
                 {
-                    Text = $"Eject {i + 1}",
-                    StyleClasses = { StyleBase.ButtonOpenBoth },
-                    MinSize = new Vector2(80, 30),
-                    MaxSize = new Vector2(80, 30),
+                    Text = $"Извлечь",
+                    StyleClasses = { StyleBase.ButtonCaution },
+                    MinSize = new Vector2(60, 30),
+                    MaxSize = new Vector2(60, 30),
                     HorizontalExpand = true
                 };
-                ejectButton.Modulate = Color.Red;
 
-                var buttonIndex = i;
-                chooseButton.OnPressed += _ => OnPillCanisterSelected?.Invoke(buttonIndex);
-                ejectButton.OnPressed += _ => OnPillCanisterEjected?.Invoke(buttonIndex);
-
-                // Create vertical container for choose and eject buttons
-                var verticalContainer = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Vertical,
-                    HorizontalExpand = true
-                };
-                verticalContainer.AddChild(chooseButton);
-                verticalContainer.AddChild(ejectButton);
-
-                // Add to the grid container
-                if (canisterButtonsGrid != null)
-                {
-                    canisterButtonsGrid.AddChild(verticalContainer);
-                }
+                var ejectIndex = containerRow;
+                ejectButton.OnPressed += _ => OnPillCanisterEjected?.Invoke(ejectIndex);
+                ejectButtons[containerRow] = ejectButton;
+                PillContainerStorageGrid.AddChild(ejectButton);
             }
             // ADT-Tweak End
 
@@ -679,26 +668,19 @@ namespace Content.Client.Chemistry.UI
             if (_lastState == null)
                 return;
 
-            // Get the pill canister choose and eject buttons grids
-            var canisterButtonsGrid = this.FindControl<GridContainer>("PillCanisterChooseButtons");
+            // Update choose buttons state - choose buttons are now in the unified PillContainerStorageGrid at indices 0, 12, 24
+            var pillGrid = this.FindControl<GridContainer>("PillContainerStorageGrid");
 
-            if (canisterButtonsGrid != null)
+            if (pillGrid != null)
             {
-                // Update choose buttons state - each child is a BoxContainer with 2 buttons
-                var children = canisterButtonsGrid.Children.ToList();
-                for (int i = 0; i < Math.Min(3, children.Count); i++)
+                for (int i = 0; i < 3; i++)
                 {
-                    var child = children[i];
-                    if (child is BoxContainer verticalContainer)
+                    var chooseButton = pillGrid.Children.ElementAt(i * 12) as Button;
+                    if (chooseButton != null)
                     {
-                        // First button is choose button
-                        var chooseButton = verticalContainer.Children.FirstOrDefault() as Button;
-                        if (chooseButton != null)
-                        {
-                            var isSelected = _lastState.SelectedPillCanisterForCreation == i;
-                            chooseButton.Pressed = isSelected;
-                            chooseButton.Modulate = isSelected ? Color.LimeGreen : Color.Green;
-                        }
+                        var isSelected = _lastState.SelectedPillCanisterForCreation == i;
+                        chooseButton.Pressed = isSelected;
+                        chooseButton.Modulate = isSelected ? Color.LimeGreen : Color.Green;
                     }
                 }
             }
@@ -803,8 +785,7 @@ namespace Content.Client.Chemistry.UI
         {
             var castState = (ChemMasterBoundUserInterfaceState)state;
 
-
-            _lastState = castState; // ADT-Tweak
+            _lastState = castState; // ADT-Tweak - Move assignment earlier
             // Сначала применяем метод сортировки, затем строим панели
             HandleSortMethodChange(castState.SortMethod);   // ADT-Tweak
             UpdatePanelInfo(castState);
@@ -831,6 +812,7 @@ namespace Content.Client.Chemistry.UI
             UpdateDosageFieldsBasedOnSelection(); // Update based on current reagent selection
             UpdateBottleStorage(castState); //ADT-Tweak
             UpdatePillContainerStorage(castState); //ADT-Tweak
+            UpdatePillCanisterButtonStates(); //ADT-Tweak
         }
 
         //ADT-Tweak Start
@@ -870,6 +852,60 @@ namespace Content.Client.Chemistry.UI
                 // Enable eject only if a bottle exists in the slot.
                 if (BottleEjectButtons != null && BottleEjectButtons.Length > i && BottleEjectButtons[i] != null)
                     BottleEjectButtons[i].Disabled = info == null;
+            }
+
+            // Update selected bottle index and contents display
+            _selectedBottleIndex = state.SelectedBottleForFill;
+            UpdateBottleContents(state);
+        }
+
+        private void UpdateBottleContents(ChemMasterBoundUserInterfaceState state)
+        {
+            BottleContentsInfo.Children.Clear();
+
+            if (_selectedBottleIndex < 0 || _selectedBottleIndex >= state.StoredBottles.Count || state.StoredBottles[_selectedBottleIndex] == null)
+            {
+                BottleContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-no-bottle-selected-text") });
+                return;
+            }
+
+            var bottleInfo = state.StoredBottles[_selectedBottleIndex];
+            if (bottleInfo == null) // Safety check to avoid null reference warning
+            {
+                BottleContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-no-bottle-selected-text") });
+                return;
+            }
+
+            // Header
+            var headerHBox = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Horizontal
+            };
+            headerHBox.AddChild(new Label { Text = $"{bottleInfo.DisplayName}: " });
+            headerHBox.AddChild(new Label
+            {
+                Text = $"{bottleInfo.CurrentVolume}/{bottleInfo.MaxVolume}",
+                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
+            });
+            BottleContentsInfo.AddChild(headerHBox);
+
+            // Check if bottle has reagents
+            if (bottleInfo.Reagents == null || !bottleInfo.Reagents.Any())
+            {
+                BottleContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-bottle-empty-text") });
+                return;
+            }
+
+            // Reagents
+            int rowCount = 0;
+            foreach (var reagent in bottleInfo.Reagents)
+            {
+                _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
+                var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
+                var reagentColor = proto?.SubstanceColor ?? default(Color);
+
+                var row = BuildReagentRow(reagentColor, rowCount++, name, reagent.Reagent, reagent.Quantity, false, true);
+                BottleContentsInfo.AddChild(row);
             }
         }
         //ADT-Tweak End
@@ -1287,30 +1323,88 @@ namespace Content.Client.Chemistry.UI
                 }
             };
 
-            // ADT-Tweak Start
+            // ADT-Tweak Start: Reagent selection with amount tracking
             if (reagentButtonConstructor != null)
             {
                 if (isBuffer && reagent != default(ReagentId))
                 {
-                    var chooseReagentButton = new Button()
+                    // Left container for selected amount display
+                    var leftContainer = new BoxContainer
                     {
-                        Text = Loc.GetString("chem-master-window-choose-reagent-button"),
+                        Orientation = LayoutOrientation.Vertical,
+                        VerticalExpand = true,
+                        MinWidth = 120,
+                        HorizontalExpand = true
+                    };
+                    // Always show the container for consistent layout
+                    var selectedLabel = new Label
+                    {
+                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                        HorizontalAlignment = HAlignment.Left,
+                        VerticalAlignment = VAlignment.Center,
+                        HorizontalExpand = true
+                    };
+
+                    // Check if this reagent has a selected amount
+                    if (_lastState != null && _lastState.SelectedReagentAmounts != null)
+                    {
+                        // Directly use the dictionary value instead of TryGetValue
+                        if (_lastState.SelectedReagentAmounts.TryGetValue(reagent, out var selectedAmount) && selectedAmount > 0)
+                        {
+                            selectedLabel.Text = $"Выбрано {selectedAmount}u";
+                        }
+                        else
+                        {
+                            selectedLabel.Text = "Пусто"; // Empty but still takes space
+                        }
+                    }
+                    else
+                    {
+                        selectedLabel.Text = "Пусто"; // Empty but still takes space
+                    }
+
+                    leftContainer.AddChild(selectedLabel);
+
+                    rowContainer.AddChild(leftContainer);
+
+                    // Buttons container
+                    var buttonsContainer = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                        VerticalExpand = true
+                    };
+
+                    // Select button (Выбрать)
+                    var selectButton = new Button()
+                    {
+                        Text = "Выбрать",
                         StyleClasses = { StyleBase.ButtonSquare },
-                        MinSize = new Vector2(60, 0),
-                        ToggleMode = true
+                        MinSize = new Vector2(60, 0)
                     };
 
-                    // Check if this reagent is currently selected (toggled on)
-                    var isSelected = _lastState?.SelectedReagentsForBottles?.Contains(reagent) ?? false;
-                    chooseReagentButton.Pressed = isSelected;
-                    chooseReagentButton.Modulate = isSelected ? Color.Green : Color.White;
-
-                    chooseReagentButton.OnPressed += _ =>
+                    selectButton.OnPressed += _ =>
                     {
-                        HandleReagentToggle(reagent, chooseReagentButton);
+                        OnSelectReagentAmount?.Invoke(reagent, _transferAmount);
                     };
 
-                    rowContainer.AddChild(chooseReagentButton);
+                    buttonsContainer.AddChild(selectButton);
+
+                    // Remove button (Убрать)
+                    var removeButton = new Button()
+                    {
+                        Text = "Убрать",
+                        StyleClasses = { StyleBase.ButtonSquare },
+                        MinSize = new Vector2(60, 0)
+                    };
+
+                    removeButton.OnPressed += _ =>
+                    {
+                        OnRemoveReagentAmount?.Invoke(reagent, _transferAmount);
+                    };
+
+                    buttonsContainer.AddChild(removeButton);
+
+                    rowContainer.AddChild(buttonsContainer);
                 }
 
                 rowContainer.AddChild(reagentButtonConstructor);

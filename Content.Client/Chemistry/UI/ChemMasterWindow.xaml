@@ -35,7 +35,7 @@
 
                     <!-- Label for output -->
                     <BoxContainer Orientation="Horizontal" Margin="0 10 0 0">
-                        <Label Text="{Loc 'chem-master-current-text-label'}" />
+                        <Label Text="{Loc 'chem-master-window-current-text-label'}" />
                         <Control HorizontalExpand="True" MinSize="50 0"/>
                         <LineEdit Name="LabelLineEdit" SetWidth="455"/>
                     </BoxContainer>
@@ -147,7 +147,7 @@
                     </BoxContainer>
 
                     <!-- ADT-Tweak: Pill Container Storage Grid (Right Side) -->
-                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="15 0 0 0" MinSize="300 0">
+                        <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="15 0 0 0" MinSize="300 0">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                         </PanelContainer.PanelOverride>
@@ -162,28 +162,9 @@
                                        Margin="0 0 0 4" />
                             </BoxContainer>
 
-                            <!-- Pill Canister Selection and Control Row -->
-                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 10">
-                                <!-- Left side: Choose buttons for each pill canister -->
-                                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 10 0">
-                                    <Label Text="Select Canister:" StyleClasses="LabelSecondaryColor" Margin="0 0 0 5" />
-                                    <GridContainer Name="PillCanisterChooseButtons" Columns="3" HorizontalExpand="True">
-                                        <!-- 3 choose buttons will be generated in code (one for each canister slot) -->
-                                    </GridContainer>
-                                </BoxContainer>
-
-                                <!-- Right side: Eject buttons for each pill canister -->
-                                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                                    <Label Text="Eject Canister:" StyleClasses="LabelSecondaryColor" Margin="0 0 0 5" />
-                                    <GridContainer Name="PillCanisterEjectButtons" Columns="3" HorizontalExpand="True">
-                                        <!-- 3 eject buttons will be generated in code (one for each canister slot) -->
-                                    </GridContainer>
-                                </BoxContainer>
-                            </BoxContainer>
-
-                            <!-- 3x10 Pill Container Grid -->
-                            <GridContainer Name="PillContainerStorageGrid" Columns="10" Margin="8" HorizontalExpand="True" VerticalExpand="True">
-                                <!-- 30 buttons will be generated in code (3 containers × 10 slots each) -->
+                            <!-- Pill Container Storage Grid -->
+                            <GridContainer Name="PillContainerStorageGrid" Columns="12" Margin="8" HorizontalExpand="True" VerticalExpand="True">
+                                <!-- Will be populated in code: choose button, 10 pill buttons, eject button per row -->
                             </GridContainer>
                         </BoxContainer>
                     </PanelContainer>
@@ -233,12 +214,29 @@
                         </PanelContainer>
                     </BoxContainer>
 
-                    <!-- Bottle Storage Grid -->
+                    <!-- Bottle Storage Grid and Contents -->
                     <PanelContainer VerticalExpand="True" HorizontalExpand="True">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                         </PanelContainer.PanelOverride>
-                        <GridContainer Name="BottleStorageGrid" Columns="5" Margin="8" />
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                            <!-- Left side: Bottle Storage Grid -->
+                            <GridContainer Name="BottleStorageGrid" Columns="5" Margin="8" HorizontalExpand="True" MinSize="200 0" />
+
+                            <!-- Right side: Selected Bottle Contents -->
+                            <PanelContainer Margin="8 8 8 8" MinSize="250 150" MaxSize="250 150">
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                                </PanelContainer.PanelOverride>
+
+                                <ScrollContainer HorizontalExpand="True" MinSize="250 150" MaxSize = "250 150">
+                                    <!-- Selected bottle reagent list -->
+                                    <BoxContainer Name="BottleContentsInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
+                                        <Label Text="{Loc 'chem-master-window-no-bottle-selected-text'}" />
+                                    </BoxContainer>
+                                </ScrollContainer>
+                            </PanelContainer>
+                        </BoxContainer>
                     </PanelContainer>
                 </BoxContainer>
             </TabContainer>

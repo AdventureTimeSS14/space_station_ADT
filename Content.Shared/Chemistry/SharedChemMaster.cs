@@ -232,6 +232,44 @@ namespace Content.Shared.Chemistry
             CanisterIndex = canisterIndex;
         }
     }
+
+    // ADT-Tweak: Reagent amount selection messages
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterSelectReagentAmountMessage : BoundUserInterfaceMessage
+    {
+        public readonly ReagentId Reagent;
+        public readonly int Amount;
+
+        public ChemMasterSelectReagentAmountMessage(ReagentId reagent, int amount)
+        {
+            Reagent = reagent;
+            Amount = amount;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterRemoveReagentAmountMessage : BoundUserInterfaceMessage
+    {
+        public readonly ReagentId Reagent;
+        public readonly int Amount;
+
+        public ChemMasterRemoveReagentAmountMessage(ReagentId reagent, int amount)
+        {
+            Reagent = reagent;
+            Amount = amount;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterClearReagentAmountMessage : BoundUserInterfaceMessage
+    {
+        public readonly ReagentId Reagent;
+
+        public ChemMasterClearReagentAmountMessage(ReagentId reagent)
+        {
+            Reagent = reagent;
+        }
+    }
     // ADT-Tweak End
 
     public enum ChemMasterMode
@@ -296,13 +334,13 @@ namespace Content.Shared.Chemistry
         int selectedPillContainerSlot,
         int selectedPillContainerForFill,
         int selectedPillCanisterForCreation,
-        List<ReagentId> selectedReagentsForPills,
         ReagentId? selectedReagent,
         //ADT-Tweak: Legacy bottle storage
         List<ContainerInfo?> storedBottles,
         int selectedBottleSlot,
         int selectedBottleForFill,
-        List<ReagentId> selectedReagentsForBottles)
+        List<ReagentId> selectedReagentsForBottles,
+        Dictionary<ReagentId, int> selectedReagentAmounts)
         //ADT-Tweak End
         : BoundUserInterfaceState
     {
@@ -335,13 +373,13 @@ namespace Content.Shared.Chemistry
         public readonly int SelectedPillContainerSlot = selectedPillContainerSlot;
         public readonly int SelectedPillContainerForFill = selectedPillContainerForFill;
         public readonly int SelectedPillCanisterForCreation = selectedPillCanisterForCreation;
-        public readonly List<ReagentId> SelectedReagentsForPills = selectedReagentsForPills;
         public readonly ReagentId? SelectedReagent = selectedReagent;
         //ADT-Tweak: Legacy bottle storage
         public readonly List<ContainerInfo?> StoredBottles = storedBottles;
         public readonly int SelectedBottleSlot = selectedBottleSlot;
         public readonly int SelectedBottleForFill = selectedBottleForFill;
         public readonly List<ReagentId> SelectedReagentsForBottles = selectedReagentsForBottles;
+        public readonly Dictionary<ReagentId, int> SelectedReagentAmounts = selectedReagentAmounts;
         //ADT-Tweak End
     }
 
