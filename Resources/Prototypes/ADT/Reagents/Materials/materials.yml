@@ -31,3 +31,10 @@
   icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
   color: "#1d55c4"
   price: 0
+
+- type: material
+  id: ADTMarbleMaterial
+  stackEntity: ADTmarble1
+  name: materials-marble
+  icon: { sprite: ADT/Objects/Materials/marble.rsi, state: icon }
+  price: 0.5
