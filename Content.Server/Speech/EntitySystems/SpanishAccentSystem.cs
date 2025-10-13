@@ -1,5 +1,6 @@
 using System.Text;
 using Content.Server.Speech.Components;
+using Content.Shared.Speech;
 //ADT-Tweak-Start
 using System.Text.RegularExpressions;
 using System.Linq;

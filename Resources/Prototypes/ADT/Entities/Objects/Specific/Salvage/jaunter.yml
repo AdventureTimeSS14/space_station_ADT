@@ -9,4 +9,5 @@
     state: icon
   - type: Item
     size: Small
+  - type: Jaunter
   - type: PreventChasmFalling

@@ -331,6 +331,20 @@
       orGroup: ADTYupi6
 
 - type: entity
+  parent: BoxCardboard
+  name: box Stimulant
+  id: ADTStimulantBox
+  description: a box of stimulants
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTStimulantAutoInjector
+        amount: 8
+  - type: Sprite
+    sprite: Objects/Storage/boxicons.rsi
+    state: box_of_doom
+
+- type: entity
   name: kasane teto bag
   parent: ClothingBackpackDuffel
   id: ADTBoxTeto
@@ -343,3 +357,20 @@
       - id: ADTClothingHeadTetoWig
       - id: FoodBreadBaguette
         amount: 2
+
+- type: entity
+  name: cow underwear set
+  parent: BoxCardboard
+  id: ADTBoxCowUnderwearSet
+  description: A complete set of cute cow-themed underwear. Moo!
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingUnderwearBottomPantiesCow
+      - id: ADTClothingUnderwearTopBraCow
+      - id: ADTClothingUnderwearSocksCow
+  - type: Sprite
+    layers:
+      - state: box
+  - type: StaticPrice
+    price: 35

@@ -65,7 +65,10 @@
         components:
           - Hands
       loot:
-        All: LavaCactusOneGather
+        All: !type:AllSelector
+          children:
+          - id: ADTFoodCactusBerry
+          - id: ADTLavaCactusOneEmpty
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Wood
@@ -87,7 +90,10 @@
         components:
           - Hands
       loot:
-        All: LavaCactusTwoGather
+        All: !type:AllSelector
+          children:
+          - id: ADTFoodCactusBerry
+          - id: ADTLavaCactusTwoEmpty
     - type: Sprite
       sprite: ADT/Structures/Specific/lavacactus.rsi
       state: cactus2
@@ -101,7 +107,10 @@
         components:
           - Hands
       loot:
-        All: LavaCactusThreeGather
+        All: !type:AllSelector
+          children:
+          - id: ADTFoodCactusBerry
+          - id: ADTLavaCactusThreeEmpty
     - type: Sprite
       sprite: ADT/Structures/Specific/lavacactus.rsi
       state: cactus3
@@ -115,7 +124,10 @@
         components:
           - Hands
       loot:
-        All: LavaCactusFourGather
+        All: !type:AllSelector
+          children:
+          - id: ADTFoodCactusBerry
+          - id: ADTLavaCactusFourEmpty
     - type: Sprite
       sprite: ADT/Structures/Specific/lavacactus.rsi
       state: cactus4
@@ -177,44 +189,3 @@
     - type: Sprite
       sprite: ADT/Structures/Specific/lavacactus.rsi
       state: cactus4p
-
-# Drop s kaktusa s yagodami i ego vidov
-- type: entityLootTable
-  id: LavaCactusOneGather
-  entries:
-  - id: ADTFoodCactusBerry
-    amount: 1
-    maxAmount: 1
-  - id: ADTLavaCactusOneEmpty
-    amount: 1
-    maxAmount: 1
-
-- type: entityLootTable
-  id: LavaCactusTwoGather
-  entries:
-  - id: ADTFoodCactusBerry
-    amount: 1
-    maxAmount: 1
-  - id: ADTLavaCactusTwoEmpty
-    amount: 1
-    maxAmount: 1
-
-- type: entityLootTable
-  id: LavaCactusThreeGather
-  entries:
-  - id: ADTFoodCactusBerry
-    amount: 1
-    maxAmount: 1
-  - id: ADTLavaCactusThreeEmpty
-    amount: 1
-    maxAmount: 1
-
-- type: entityLootTable
-  id: LavaCactusFourGather
-  entries:
-  - id: ADTFoodCactusBerry
-    amount: 1
-    maxAmount: 1
-  - id: ADTLavaCactusFourEmpty
-    amount: 1
-    maxAmount: 1

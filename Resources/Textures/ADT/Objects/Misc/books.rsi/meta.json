@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "drawn by discord: prazat911 (PCD books were redrawn by juuungarik)",
+  "copyright": "drawn by discord: prazat911 (PCD books were redrawn by juuungarik) state book_mime by Minokaa",
   "size": {
     "x": 32,
     "y": 32
@@ -45,6 +45,9 @@
         },
         {
             "name": "new-cocktail-book"
+        },
+        {
+            "name": "book_mime"
         }
     ]
 }
