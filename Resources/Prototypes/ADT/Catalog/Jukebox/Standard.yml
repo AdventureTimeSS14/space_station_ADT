@@ -1,4 +1,64 @@
 - type: jukebox
+  id: HotlineCrystals
+  name: Hotline Miami - Crystals
+  path:
+    path: /Audio/ADT/Jukebox/HM_Crystals.ogg
+
+- type: jukebox
+  id: HotlineDaisuke
+  name: Hotline Miami - Daisuke
+  path:
+    path: /Audio/ADT/Jukebox/HM_Daisuke.ogg
+
+- type: jukebox
+  id: HotlineHydrogen
+  name: Hotline Miami - Hydrogen
+  path:
+    path: /Audio/ADT/Jukebox/HM_Hydrogen.ogg
+
+- type: jukebox
+  id: HotlineItsSafeNow
+  name: Hotline Miami - Its Safe Now
+  path:
+    path: /Audio/ADT/Jukebox/HM_ItsSafeNow.ogg
+
+- type: jukebox
+  id: HotlineMusik
+  name: Hotline Miami - Musik
+  path:
+    path: /Audio/ADT/Jukebox/HM_Musik.ogg
+
+- type: jukebox
+  id: HotlineParis
+  name: Hotline Miami - Paris
+  path:
+    path: /Audio/ADT/Jukebox/HM_Paris.ogg
+
+- type: jukebox
+  id: Hotline2Blizzard
+  name: Hotline Miami 2 - Blizzard
+  path:
+    path: /Audio/ADT/Jukebox/HM2_Blizzard.ogg
+
+- type: jukebox
+  id: Hotline2MsMinnie
+  name: Hotline Miami 2 - Ms. Minnie
+  path:
+    path: /Audio/ADT/Jukebox/HM2_MsMinnie.ogg
+
+- type: jukebox
+  id: Hotline2Run
+  name: Hotline Miami 2 - Run
+  path:
+    path: /Audio/ADT/Jukebox/HM2_Run.ogg
+
+- type: jukebox
+  id: Hotline2Sexualizer
+  name: Hotline Miami 2 - Sexualizer
+  path:
+    path: /Audio/ADT/Jukebox/HM2_Sexualizer.ogg
+
+- type: jukebox
   id: lateraligator
   name: Silverman Sound Studios - Later Alligator
   path:
