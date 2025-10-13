@@ -6,9 +6,12 @@ using Content.Shared.Mining.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
+using Content.Shared.Tag;
 using Content.Shared.Trigger;
 using Content.Server.Popups;
 using Content.Shared.Popups;
+using Robust.Shared.Prototypes;
+using Content.Server.Kitchen.Components;
 
 namespace Content.Server.ADT.Mining.Systems;
 
@@ -20,6 +23,9 @@ public sealed class GibtoniteSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> PlasticKnife = "Plastic";
 
     public override void Initialize()
     {
@@ -156,15 +162,28 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     private void OnItemInteract(EntityUid uid, GibtoniteComponent comp, ref InteractUsingEvent args)
     {
-        if (!HasComp<MiningScannerComponent>(args.Used) && !comp.Extracted) // Дефьюзить можно только камень.
-            return;
+        if (HasComp<MiningScannerComponent>(args.Used))
+        {
+            if (comp.Extracted)
+                return;
 
-        comp.Active = false;
-        comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds; // Считаем, сколько секунд осталось до взрыва.
+            comp.Active = false;
+            comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds; // Считаем, сколько секунд осталось до взрыва.
 
-        _popup.PopupEntity(Loc.GetString("gibtonit-bombhasbeendefused"), uid, PopupType.MediumCaution);
-        StopAnimation(uid, comp);
-        UpdateAppearance(uid, comp);
+            _popup.PopupEntity(Loc.GetString("gibtonit-bombhasbeendefused"), uid, PopupType.MediumCaution);
+            StopAnimation(uid, comp);
+            UpdateAppearance(uid, comp);
+        }
+
+        else if (HasComp<SharpComponent>(args.Used))
+        {
+            if (!comp.Extracted)
+                return;
+
+            if (!_tag.HasTag(args.Used, PlasticKnife))
+                comp.Active = true;
+                Explosion(uid, comp);
+        }
     }
 
     /// <summary>

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "all textirehttps://github.com/ss220-space/Paradise/blob/4c873f9c895d97ae37b9d74f51895e40320e2fdd/icons/obj/mining.dmi. ohfuck modified by M1and1B",
+    "copyright": "all textures from https://github.com/ss220-space/Paradise/blob/4c873f9c895d97ae37b9d74f51895e40320e2fdd/icons/obj/mining.dmi. gibtonite-shard and Ohfuck modified by M1and1B",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,9 @@
         {
             "name": "ohfuck",
             "delays": [[0.1, 0.1, 0.1, 0.1]] 
+        },
+        {
+            "name": "gibtonite-shard"
         }
     ]
 }

@@ -66,6 +66,9 @@
   - type: Gibtonite
     extracted: true
     elapsedTime: 0
+  - type: SliceableFood
+    slice: ADTGibtoniteShard
+    count: 3
   - type: InteractionOutline
   - type: Fixtures
     fixtures:
@@ -78,6 +81,23 @@
         - CrateMask
         layer:
         - MachineLayer
+  - type: SupermatterImmune #На будущее.
+
+- type: entity
+  parent: BaseItem
+  id: ADTGibtoniteShard
+  name: Gibtonite Shard womp womp
+  description: write here something cool pls.
+  components:
+  - type: Item
+    sprite: ADT/Objects/Materials/gibtonite.rsi
+    size: Tiny
+  - type: Sprite
+    layers:
+      - sprite:  ADT/Objects/Materials/gibtonite.rsi
+        state: gibtonite-shard
+  - type: Sharp
+  - type: SupermatterImmune
 
 - type: entity
   parent: OreBase
