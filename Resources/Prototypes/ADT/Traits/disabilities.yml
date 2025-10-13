@@ -1,17 +1,4 @@
 - type: trait
-  id: ADTHemophilia
-  name: trait-hemophilia-name
-  description: trait-hemophilia-desc
-  category: Quirks
-  components:
-    - type: Hemophilia
-      modifier: 0.01
-  cost: -2
-  speciesBlacklist:
-  - IPC
-  quirk: true
-
-- type: trait
   id: ADTDeaf
   name: trait-deaf-name
   description: trait-deaf-description

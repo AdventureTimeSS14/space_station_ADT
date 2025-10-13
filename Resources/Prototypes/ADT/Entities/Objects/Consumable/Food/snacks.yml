@@ -279,7 +279,7 @@
   - type: SpawnItemsOnUse
     items:
       - id: ADTFoodPacketChocolateTrashChoco
-      - id: ADTFoodSnackChocolateBarCoconut
+      - id: ADTFoodSnackChocolateBarChoco
 
 - type: entity
   name: chocolate bar

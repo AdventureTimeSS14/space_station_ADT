@@ -41,5 +41,10 @@
             <Button Name="ApplyTotalButton" Text="{Loc admin-time-panel-window-add-to-overall}" HorizontalExpand="True" />
         </BoxContainer>
 
+        <!-- Футер -->
+        <BoxContainer Orientation="Horizontal" SetHeight="20" Margin="0 5 0 0" SeparationOverride="10" HorizontalExpand="True">
+            <Label Text="{Loc admin-panel-footer-powered}" FontColorOverride="#e7ff10ff" HorizontalAlignment="Center" HorizontalExpand="True" StyleClasses="LabelSmall"/>
+        </BoxContainer>
+
     </BoxContainer>
 </DefaultWindow>

@@ -6,15 +6,13 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 102000 # 28,33 hrs #ADT-RoleTime
-    # ADT Restrict Start
+      time: 102000 # 28,33 hrs
     - !type:SpeciesRequirement
       inverted: true
       species:
       - Resomi
       - Vox
       - Shadekin
-  # ADT RESTRICT End
   startingGear: GuardOfficerGear
   icon: "JobIconADTGuardOfficer"
   supervisors: job-supervisors-hos
@@ -41,3 +39,11 @@
     back:
     - Flash
     - MagazinePistol
+
+- type: chameleonOutfit
+  id: ADTGuardOfficerChameleonOutfit
+  job: ADTGuardOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity

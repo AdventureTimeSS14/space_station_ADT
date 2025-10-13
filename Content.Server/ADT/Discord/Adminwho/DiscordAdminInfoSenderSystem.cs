@@ -103,6 +103,7 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
         var countPlayerMax = _cfg.GetCVar(CCVars.SoftMaxPlayers);
         var mapName = _gameMapManager.GetSelectedMap();
         var selectGameRule = _gameTicker.CurrentPreset;
+        var panicBunker = _cfg.GetCVar(CCVars.PanicBunkerEnabled);
 
         var embed = new WebhookEmbed
         {
@@ -121,6 +122,10 @@ public sealed class DiscordAdminInfoSenderSystem : EntitySystem
             embed.Fields.Add(new WebhookEmbedField { Name = "Карта", Value = mapName.MapName, Inline = true });
         if (selectGameRule != null)
             embed.Fields.Add(new WebhookEmbedField { Name = "Режим", Value = Loc.GetString(selectGameRule.ModeTitle), Inline = true });
+        if (panicBunker)
+            embed.Fields.Add(new WebhookEmbedField { Name = "Бункер", Value = "Включен", Inline = true });
+        else
+            embed.Fields.Add(new WebhookEmbedField { Name = "Бункер", Value = "Выключен", Inline = true });
 
         var payload = new WebhookPayload
         {

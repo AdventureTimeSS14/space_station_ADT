@@ -1,0 +1,29 @@
+name: Map proto references check
+
+on:
+  pull_request:
+    branches: [ "**" ]
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  check-maps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --quiet pyyaml
+      - name: Run map vs proto check
+        run: |
+          python Tools/ADT/check_maps_vs_protos.py

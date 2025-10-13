@@ -30,10 +30,6 @@
   categories:
   - UplinkWeaponry
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
     - !type:BuyerWhitelistCondition
       blacklist:
         components:
@@ -177,10 +173,21 @@
   - UplinkAmmo
 
 - type: listing
+  id: ADTUplinkMagazineCaselessRifle
+  name: uplink-Caseless-box-rifle-name
+  description: uplink-Caseless-box-rifle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi, state: base }
+  productEntity: MagazineBoxCaselessRifle
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: ADTUplinkMagazineLightRifle
   name: uplink-LightRifle-magazine-name
   description: uplink-LightRifle-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   productEntity: MagazineLightRifle
   cost:
     Telecrystal: 2
@@ -191,7 +198,7 @@
   id: ADTUplinkC20AmmoBundle
   name: uplink-C20-ammo-bundle-name
   description: uplink-C20-ammo-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: ADTClothingBackpackDuffelSyndicateFilledC20Ammo
   cost:
     Telecrystal: 6
@@ -514,7 +521,21 @@
   description: uplink-mute-toxin-desc
   productEntity: ChemistryBottleMuteToxin
   cost:
-    Telecrystal: 2
+    Telecrystal: 1 # Tweak 2->1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+
+- type: listing
+  id: ADTuplinkMimeEnhancedBook
+  name: uplink-mime-enhanced-book-name
+  description: uplink-mime-enhanced-book-desc
+  productEntity: ADTMimeEnhancedBook
+  cost:
+    Telecrystal: 11
   categories:
   - UplinkJob
   conditions:
@@ -600,7 +621,7 @@
   description: uplink-maid-bundle-desc
   productEntity: ADTClothingBackpackDuffelSyndicateFilledMaid
   cost:
-    Telecrystal: 20
+    Telecrystal: 15 #Tweak 20->15
   categories:
     - UplinkPointless
 

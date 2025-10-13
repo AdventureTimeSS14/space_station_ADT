@@ -1,3 +1,6 @@
+using System.Linq;
+using Content.Server.Body.Systems;
+using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Changeling;
 using Content.Shared.Mobs.Components;
@@ -60,6 +63,8 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     {
         var lookupSystem = args.EntityManager.System<EntityLookupSystem>();
 
+        uids = new();
+
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
             outstr = string.Empty;
@@ -74,15 +79,17 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         // get all the dead ones
-        foreach (var found in res)
+        foreach (var look in res)
         {
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(found, out var mobstate) // only mobs
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(found) // only humans
-            || OnlyTargets && !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(found))) // only targets
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
+            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+            || OnlyTargets
+                && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
+                && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics
                 continue;
 
-            if (mobstate.CurrentState == MobState.Dead)
-                uids.Add(found);
+            if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
+                uids.Add(look);
         }
 
         if (uids.Count < Min)
