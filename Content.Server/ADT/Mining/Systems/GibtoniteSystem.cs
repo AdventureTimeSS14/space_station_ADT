@@ -27,31 +27,62 @@ public sealed class GibtoniteSystem : EntitySystem
 
         SubscribeLocalEvent<GibtoniteComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<GibtoniteComponent, InteractUsingEvent>(OnItemInteract);
+        SubscribeLocalEvent<GibtoniteComponent, ComponentInit>(OnInit);
+    }
+
+    private void OnInit(EntityUid uid, GibtoniteComponent comp, ComponentInit args)
+    {
+        RandomTimer(comp);
     }
 
     /// <summary>
-    /// Мне НЕ НРАВИТСЯ как выглядит этот метод. Но ничего лучше я не придумал, так-что сойдет.
+    /// Генерация рандомного времени для гибтонита.
     /// </summary>
+    private void RandomTimer(GibtoniteComponent comp)
+    {
+        if (!comp.Extracted) // Для руды нам это НЕ НУЖНО.
+        {
+            var randomNumb = _random.Next(5);
+            comp.ReactionMaxTime -= randomNumb;
+        }
+
+        comp.ReactionTime = _timing.CurTime;
+    }
+
     private void OnDamageChanged(EntityUid uid, GibtoniteComponent comp, ref DamageChangedEvent args)
     {
         _popup.PopupEntity(Loc.GetString("gibtonit-get-damage"), uid, PopupType.LargeCaution);
-        // Если при ударе гибтонит уже был активен - моментальный BOOM BOOM BOOM
-        if (comp.Active)
+
+        if (comp.Active) // Если при ударе гибтонит уже был активен - моментальный BOOM BOOM BOOM
         {
             Explosion(uid, comp);
             return;
         }
-        comp.Active = true;
 
-        if (comp.Triggered)
-            GetOre(uid, comp);
+        Activate(uid, comp);
+    }
 
-        if (!comp.Extracted)
+    private void Activate(EntityUid uid, GibtoniteComponent comp)
+    {
+        if (comp.Triggered) // Если камень до этого уже ударили - дропаем руду.
+        {
+            if (!comp.Active)
+            {
+                GetOre(uid, comp);
+                return;
+            }
+        }
+
+        if (!comp.Extracted) // Запись того, что камень ударили впервые.
             comp.Triggered = true;
 
+        comp.Active = true;
         StartTimer(uid, comp);
     }
 
+    /// <summary>
+    /// Обработка спрайтов для вскопанного гибтонита.
+    /// </summary>
     private void UpdateAppearance(EntityUid uid, GibtoniteComponent comp, AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref appearance, false))
@@ -66,19 +97,10 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     public void StartTimer(EntityUid uid, GibtoniteComponent comp)
     {
-        UpdateAppearance(uid, comp);
-
-        if (!comp.Extracted) // Опять, нам НЕ НУЖНО это для вскопанного гибтонита.
-        {
-            var randomNumb = _random.Next(5); // Немного рандома не помешает.
-            comp.ReactionMaxTime -= randomNumb;
-
-            comp.ReactionTime = _timing.CurTime;
-        }
-
         if (!comp.Active)
             return;
 
+        UpdateAppearance(uid, comp);
         Timer.Spawn(TimeSpan.FromSeconds(comp.ReactionMaxTime), () =>
         {
             if (!EntityManager.EntityExists(uid) || !comp.Active)
@@ -134,7 +156,7 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     private void OnItemInteract(EntityUid uid, GibtoniteComponent comp, ref InteractUsingEvent args)
     {
-        if (!HasComp<MiningScannerComponent>(args.Used) && !comp.Extracted)
+        if (!HasComp<MiningScannerComponent>(args.Used) && !comp.Extracted) // Дефьюзить можно только камень.
             return;
 
         comp.Active = false;
@@ -157,19 +179,19 @@ public sealed class GibtoniteSystem : EntitySystem
             oreComp.ReactionElapsedTime = comp.ReactionElapsedTime; // Нужно для модификатора взрыва у выкопанного гибтонита.
             oreComp.ReactionMaxTime -= comp.ReactionElapsedTime - 1; // Устанавливаем макс. время для выкопанного гибтонита. -1 Нужно для более удобной игры шахетерам aka подушка безопасности.
             var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
+
             gibtoniteSystem.Explosion(ore, oreComp);
         }
     }
 
     /// <summary>
-    /// Останавливает анимацию гибтонита, делая его “неактивным” визуально.
+    /// Остановка анимации гибтонита в камне.
     /// </summary>
     private void StopAnimation(EntityUid uid, GibtoniteComponent comp, AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref appearance, false))
             return;
 
-        // Деактивируем визуальный слой Primed
         _appearance.SetData(uid, TriggerVisuals.VisualState, "Unprimed", appearance);
     }
 }

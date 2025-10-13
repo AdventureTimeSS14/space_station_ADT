@@ -10,6 +10,7 @@ public sealed class GibtoniteSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<GibtoniteComponent, AppearanceChangeEvent>(UpdateAppearanceSprite);
         SubscribeLocalEvent<GibtoniteComponent, ComponentStartup>(OnStartup);
     }
@@ -19,7 +20,6 @@ public sealed class GibtoniteSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        // Настройка слоёв при старте
         if (sprite.LayerMapTryGet(GibtoniteVisuals.State, out var stateLayer))
             sprite.LayerSetVisible(stateLayer, false);
 
@@ -32,14 +32,12 @@ public sealed class GibtoniteSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        // 1. Active layer поверх всего
         if (args.AppearanceData.TryGetValue(GibtoniteVisuals.Active, out var activeObj) && activeObj is bool isActive)
         {
             if (sprite.LayerMapTryGet(GibtoniteVisuals.Active, out var activeLayer))
                 sprite.LayerSetVisible(activeLayer, isActive);
         }
 
-        // 2. State layer между base и active
         if (args.AppearanceData.TryGetValue(GibtoniteVisuals.State, out var stateObj) && stateObj is GibtoniteState state)
         {
             if (!sprite.LayerMapTryGet(GibtoniteVisuals.State, out var stateLayer))

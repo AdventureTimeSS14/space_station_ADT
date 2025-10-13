@@ -160,68 +160,7 @@
 
 #NEW BFUU
 - type: entity
-  id: ADTMeteorRockGibtonite
-  parent: MeteorRock
-  description:
-  suffix: Gibtonite
-  components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: ADTOreBS
-    - type: Sprite
-      layers:
-        - state: rock_asteroid
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_asteroid_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_asteroid_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_asteroid_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_asteroid_west
-        - state: rock_bsore
-
-- type: entity
-  abstract: true
-  id: ADTBaseRockGibtonite
-  suffix: Gibtonite
-  components:
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.Trigger.TriggerVisuals.VisualState:
-        "gib":
-          Primed:
-            state: gibtonite_active
-            shader: unshaded
-            visible: true
-          Unprimed:
-            state: gibtonite_inactive
-            visible: false
-  - type: OnUseTimerTrigger
-    examinable: false
-    beepInterval: 0.4
-    beepSound:
-      collection: GlassCrack
-  - type: RandomTimerTrigger
-    min: 8
-    max: 10
-  - type: ExplodeOnTrigger
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 3
-      behaviors:
-      - !type:TimerStartBehavior
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-  - type: Gibtonite
-    extracted: false
-
-- type: entity
-  parent: [ ADTBaseRockGibtonite, AsteroidRock ]
+  parent: [ BaseRockGibtonite, AsteroidRock ]
   id: ADTAsteroidRockGibtonite
   components:
   - type: Sprite
@@ -238,6 +177,9 @@
     - state: gibtonite_inactive
       visible: false
       map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+  - type: Gibtonite
+    extracted: false
+  
 #Lead
 - type: entity
   id: AsteroidRockLead
