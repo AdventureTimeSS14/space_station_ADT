@@ -65,7 +65,7 @@
   - type: RequireProjectileTarget
   - type: Gibtonite
     extracted: true
-    elapsed: 0
+    elapsedTime: 0
   - type: InteractionOutline
   - type: Fixtures
     fixtures:
