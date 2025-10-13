@@ -1,5 +1,3 @@
-using Content.Shared.Revolutionary.Components;
-using Content.Shared.Revolutionary;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.BloodBrothers;
@@ -18,11 +16,11 @@ public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BloodBrotherComponent, GetStatusIconsEvent>(GetBlotherIcon);
+        SubscribeLocalEvent<BloodBrotherComponent, GetStatusIconsEvent>(GetBrotherIcon);
         SubscribeLocalEvent<BloodBrotherLeaderComponent, GetStatusIconsEvent>(GetBrotherLeadIcon);
     }
 
-    private void GetBlotherIcon(Entity<BloodBrotherComponent> ent, ref GetStatusIconsEvent args)
+    private void GetBrotherIcon(Entity<BloodBrotherComponent> ent, ref GetStatusIconsEvent args)
     {
         var player = _player.LocalEntity;
 
