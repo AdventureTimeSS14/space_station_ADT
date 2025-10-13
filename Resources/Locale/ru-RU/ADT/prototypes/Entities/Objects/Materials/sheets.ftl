@@ -1,3 +1,9 @@
+copper = медь
+
+zinc = цинк
+
+lead = свинец
+
 ent-ADTSheetCopper = медь
     .suffix = Полный
     .desc = Лист меди, служит хорошим электропроводником.

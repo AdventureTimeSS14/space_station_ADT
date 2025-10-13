@@ -7,7 +7,7 @@
 
 - type: stack
   id: Zinc
-  name: copper
+  name: zinc
   icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: zinc }
   spawn: ADTSheetZinc1
   maxCount: 30
