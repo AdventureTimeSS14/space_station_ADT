@@ -365,7 +365,9 @@
     state: icon
   - type: ModSuit
     backpanelsColor: "#16050599"
+    scrollColor: "#00000000"
     backgroundPath: "/Textures/ADT/Interface/Backgrounds/Modsuits/syndie_background.png"
+    buttonColors: ["#231212", "#0a0404", "#661515", "#661515"]
     maxComplexity: 20
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalsyndi.ogg
@@ -465,3 +467,94 @@
       - ADTModsuitModLight
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
+
+# Главный Врач
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackCMO
+  name: CMO MOD control unit
+  description: Made CMO
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/cmo.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitCMO
+      gloves: ADTClothingHandsModsuitCMO
+      outerClothing: ADTClothingOuterModsuitBodyCMO
+      shoes: ADTClothingModsuitShoesCMO
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+
+# Капитан
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackCaptain
+  name: Captain MOD control unit
+  description: Made Captain
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/captain.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitCaptain
+      gloves: ADTClothingHandsModsuitCaptain
+      outerClothing: ADTClothingOuterModsuitBodyCaptain
+      shoes: ADTClothingModsuitShoesCaptain
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModIsulation
+
+# Смотритель
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackWard
+  name: Warden MOD control unit
+  description: Made Ward
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/warden.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitWard
+      gloves: ADTClothingHandsModsuitWard
+      outerClothing: ADTClothingOuterModsuitBodyWard
+      shoes: ADTClothingModsuitShoesWard
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModLight
+      - ADTModsuitModIsulation
+
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackBrigmedic
+  name: Brigmedic MOD control unit
+  description: Made Brigmedic
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/brigmedic.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitBrigmedic
+      gloves: ADTClothingHandsModsuitBrigmedic
+      outerClothing: ADTClothingOuterModsuitBodyBrigmedic
+      shoes: ADTClothingModsuitShoesBrigmedic
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModLight

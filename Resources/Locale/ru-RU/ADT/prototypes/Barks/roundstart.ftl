@@ -1,4 +1,4 @@
-﻿bark-human1-name = Стандарт 1
+bark-human1-name = Стандарт 1
 bark-human2-name = Стандарт 2
 bark-human3-name = Стандарт 3
 bark-guitar-muted-low-name = Гитара (Низкий)
@@ -73,3 +73,4 @@ bark-minecraftpling-name = Синтезатор (Minecraft)
 bark-minecraftxylobone-name = Ксилофон (Minecraft)
 bark-weh-name = weh
 bark-merp-name = merp
+bark-sam-name = TTS Сэм (Microsoft)

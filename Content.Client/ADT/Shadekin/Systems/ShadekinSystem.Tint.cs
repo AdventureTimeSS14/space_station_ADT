@@ -1,6 +1,6 @@
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Content.Client.ADT.Overlays;
+using System.Numerics;
 using Content.Client.ADT.Overlays.Shaders;
 using Content.Shared.ADT.Shadekin.Components;
 using Robust.Client.GameObjects;
@@ -81,16 +81,23 @@ public sealed class ShadekinTintSystem : EntitySystem
             return;
 
         // Eye color
-        comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
+        if (!comp.Blackeye)
+        {
+            comp.TintColor = new Vector3(layer.Color.R, layer.Color.G, layer.Color.B);
 
-        // 1/3 = 0.333...
-        // intensity = min + (power / max)
-        // intensity = intensity / 0.333
-        // intensity = clamp intensity min, max
-        const float min = 0.45f;
-        const float max = 0.75f;
-        comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
-
+            // 1/3 = 0.333...
+            // intensity = min + (power / max)
+            // intensity = intensity / 0.333
+            // intensity = clamp intensity min, max
+            const float min = 0.45f;
+            const float max = 0.75f;
+            comp.TintIntensity = Math.Clamp(min + (comp.PowerLevel / comp.PowerLevelMax) * 0.333f, min, max);
+        }
+        else
+        {
+            comp.TintColor = new Vector3(0f, 0f, 0f);
+            comp.TintIntensity = 0f;
+        }
         UpdateShader(comp.TintColor, comp.TintIntensity);
     }
 
