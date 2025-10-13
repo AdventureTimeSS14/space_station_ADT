@@ -121,9 +121,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -20033,7 +20031,7 @@ entities:
     - type: NavMap
     - type: FTLDestination
     - type: BecomesStation
-      id: Train
+      id: ADT_Train
     - type: SupermatterSpreaderGrid
   - uid: 4
     mapInit: true
@@ -159593,9 +159591,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,-27.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: SurveillanceCamera
       id: 'Переходный коридор | Вагон 01: Зона Прибытия/Эвакуации'
   - uid: 22906

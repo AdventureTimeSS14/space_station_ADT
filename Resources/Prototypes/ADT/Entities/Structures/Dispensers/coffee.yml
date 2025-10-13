@@ -1,9 +1,9 @@
 - type: entity
   parent: [ReagentDispenserBase, BaseMachinePowered]
-  id: ADTCoffeeMachine
+  id: ADTCoffeeMachineEmpty
   name: coffee machine
   description: A coffee machine for a coffee break... Oh yeah? You want a break?
-  suffix: Filled, Common
+  suffix: Empty, Common
   components:
   - type: SpamEmitSoundRequirePower
   - type: SpamEmitSound
@@ -20,12 +20,12 @@
     sprite: ADT/Structures/coffeemachine.rsi
     drawdepth: SmallObjects
     state: common
-  - type: ReagentDispenser
-    storageWhitelist:
+  - type: Storage
+    openOnActivate: false
+    whitelist:
       tags:
       - DrinkBottle
       - ChemDispensable
-    pack: CoffeeMachineInventory
   - type: Transform
     noRot: false
   - type: GuideHelp
@@ -103,12 +103,12 @@
   components:
   - type: Sprite
     state: command
-  - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
-    pack: CoffeeMachineCommandInventory
+  - type: StorageFill
+    contents:
+    - id: DrinkCoffeeJug
+    - id: ADTMilkJug
+    - id: DrinkCreamCartonXL
+    - id: DrinkCognacBottleFull
 
 - type: entity
   parent: ADTCoffeeMachine
@@ -118,22 +118,27 @@
   components:
   - type: Sprite
     state: bluespace
-  - type: ReagentDispenser
-    storageWhitelist:
+  - type: Storage
+    maxItemSize: Ginormous
+    openOnActivate: false
+    whitelist:
       tags:
       - ADTBluespaceCoffeine
-    pack: CoffeeMachineBluespaceInventory
+    grid:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+    - id: DrinkCoffeeBluespaceJug
   - type: Machine
     board: ADTCoffeeMachineBluespaceCircuitboard
 
 - type: entity
-  parent: ADTCoffeeMachine
-  id: ADTCoffeeMachineEmpty
-  suffix: Empty, Common
+  parent: ADTCoffeeMachineEmpty
+  id: ADTCoffeeMachine
+  suffix: Filled, Common
   components:
-  - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
-    pack: EmptyInventory
+  - type: StorageFill
+    contents:
+    - id: DrinkCoffeeJug
+    - id: ADTMilkJug
+    - id: DrinkCreamCartonXL

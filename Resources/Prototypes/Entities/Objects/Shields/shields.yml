@@ -17,14 +17,14 @@
         coefficients:
           Blunt: 0.9
           Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
       activeBlockModifier:
         coefficients:
           Blunt: 0.8
           Slash: 0.8
-          Piercing: 0.8
-          Heat: 0.8
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
         flatReductions:
           Blunt: 1
           Slash: 1
@@ -75,14 +75,14 @@
         coefficients:
           Blunt: 0.7
           Slash: 0.7
-          Piercing: 2 # ADT shieldnerf
-          Heat: 2 # ADT shieldnerf
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
       activeBlockModifier:
         coefficients:
           Blunt: 0.5
           Slash: 0.5
-          Piercing: 2 # ADT shieldnerf
-          Heat: 2 # ADT shieldnerf
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
         flatReductions:
           Blunt: 1
           Slash: 1
@@ -355,7 +355,7 @@
 
 - type: entity
   name: mirror shield
-  parent: BaseShield
+  parent: [ BaseShield, BaseMagicalContraband ]
   id: MirrorShield
   description: Eerily glows red... you hear the geometer whispering
   components:
@@ -436,7 +436,7 @@
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
@@ -589,7 +589,7 @@
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
@@ -630,4 +630,4 @@
                   min: 2
                   max: 2
     - type: StaticPrice
-      price: 250
+      price: 150

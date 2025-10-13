@@ -39,3 +39,14 @@
     contents:
       - id: ADTSheetLead
         amount: 3
+
+- type: entity
+  id: ADTCrateMaterialMarble
+  parent: CrateGenericSteel
+  name: marble crate
+  description: 30 blocks of marble.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTmarble
+        amount: 3

@@ -42,7 +42,7 @@
 - type: startingGear
   id: IAAGear
   equipment:
-    shoes: ClothingShoesColorBlack
+    # shoes: ClothingShoesColorBlack ADT-Tweak
     id: IAAPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetIAA
@@ -50,3 +50,13 @@
   inhand:
     - BriefcaseIAAFilled
     - ADTbureaucratCane # ADT-Tweak
+
+#ADT tweak start
+- type: chameleonOutfit
+  id: IAAChameleonOutfit
+  job: IAA
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    ears: ClothingHeadsetIAA
+#ADT tweak end

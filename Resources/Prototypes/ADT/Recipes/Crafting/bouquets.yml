@@ -1,0 +1,39 @@
+- type: construction
+  id: ADTObjectWhiteBouquet
+  graph: ADTObjectWhiteBouquet
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: ADTObjectYellowBouquet
+  graph: ADTObjectYellowBouquet
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: ADTObjectRoseBouquet
+  graph: ADTObjectRoseBouquet
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: ADTObjectLiliacBouquet
+  graph: ADTObjectLiliacBouquet
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: ADTObjectBlackBouquet
+  graph: ADTObjectBlackBouquet
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item
