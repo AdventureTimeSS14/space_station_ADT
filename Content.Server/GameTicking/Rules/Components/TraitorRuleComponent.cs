@@ -39,13 +39,13 @@ public sealed partial class TraitorRuleComponent : Component
     /// <summary>
     /// Шанс на бразерс вместо трейтора
     /// </summary>
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Вероятность того, что предатель станет лидером кровных братьев вместо получения аплинка.
+    /// </summary>
     [DataField]
-    public float BloodBrotherChance = 0f;
-    [DataField]
-    public ProtoId<NpcFactionPrototype> BloodBrotherFaction = "BloodBrotherFaction";
-    [DataField]
-    public ProtoId<NpcFactionPrototype> BloodBrotherLeaderFaction = "BloodBrotherLeaderFaction";
-    //ADT-tweak-start
+    public float BloodBrotherChance = 0.2f;
+    // ADT-Tweak-End
 
     /// <summary>
     /// Give this traitor the codewords.
@@ -83,7 +83,7 @@ public sealed partial class TraitorRuleComponent : Component
     ///     Path to antagonist alert sound.
     /// </summary>
     [DataField]
-    public SoundSpecifier GreetSoundNotification = new SoundCollectionSpecifier("ADTTraitorStart"); //ADT-tweak
+    public SoundSpecifier GreetSoundNotification = new SoundCollectionSpecifier("ADTTraitorStart"); // ADT-Tweak: изменена коллекция звуков приветствия
 
     /// <summary>
     /// The amount of TC traitors start with.
