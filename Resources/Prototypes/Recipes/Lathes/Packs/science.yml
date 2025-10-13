@@ -39,7 +39,6 @@
   # - ClothingShoesBootsMoon # ADT-Tweak - убираем луноходы
   # - ClothingShoesBootsSpeed # ADT tweak
   - ADTClothingOuterExoskeletonBase #ADT tweak
-  - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
