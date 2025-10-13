@@ -82,6 +82,24 @@
   - type: Construction
     graph: MarbleStand
     node: marblestand
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 3
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -204,6 +222,24 @@
   - type: Construction
     graph: MarbleBird
     node: marbleBird
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 3
+                max: 4
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -234,6 +270,24 @@
   - type: Construction
     graph: MarbleScientist
     node: marbleScientist
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 4
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -249,6 +303,24 @@
   - type: Construction
     graph: MarbleEye
     node: marbleEye
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 4
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -276,6 +348,24 @@
   - type: Construction
     graph: MarbleAncestor
     node: marbleAncestor
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 3
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
