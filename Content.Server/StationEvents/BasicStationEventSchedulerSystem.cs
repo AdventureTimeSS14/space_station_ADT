@@ -43,7 +43,7 @@ namespace Content.Server.StationEvents
         {
             base.Update(frameTime);
 
-        // ADT-Tweak-Start: [Краткое пояснение причины]
+        // ADT-Tweak-Start: фикс ломания ивентов
         // if (!_event.EventsEnabled)
         //     return;
         // ADT-Tweak-End
