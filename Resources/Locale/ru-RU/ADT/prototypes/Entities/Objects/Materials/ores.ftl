@@ -7,6 +7,13 @@ materials-zinc = цинк
 materials-brass = латунь
 materials-lead = свинец
 
+
+copper-ore = рудная медь
+
+zinc-ore = рудный цинк
+
+lead-ore = рудной свинец
+
 ent-ADTCopperOre = рудная медь
     .desc = { ent-OreBase.desc }
     .suffix = Полный

@@ -56,9 +56,6 @@ ent-ADTAsteroidRockGibtonite = { ent-WallRock }
     .desc = Рудная жила, богатая гибтонитом.
     .suffic = Гибтонит
 
-ent-WallRockLead = { ent-WallRock }
-    .desc = Рудная жила, богатая свинцом.
-    .suffix = Свинец
 ent-AsteroidRockLead = { ent-WallRock }
     .desc = Рудная жила, богатая свинцом.
     .suffix = Свинец
