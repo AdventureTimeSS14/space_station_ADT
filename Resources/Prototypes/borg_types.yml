@@ -157,9 +157,11 @@
 
   defaultModules:
   - BorgModuleTool
-  - BorgModuleChemical
+  # ADT-Tweak-Start: "MedborgModuleUpdate"
+  - ADTBorgModuleChemical
   - BorgModuleTopicals
-  - BorgModuleRescue
+  - ADTBorgModuleRescue
+  # ADT-Tweak-end
 
   radioChannels:
   - Science

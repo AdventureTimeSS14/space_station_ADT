@@ -103,7 +103,7 @@
       state: generic
   - type: RandomSpawner
     rarePrototypes:
-    - BorgModuleAdvancedChemical
+    - ADTBorgModuleAdvancedChemical # ADT-Tweak: "MedborgModuleUpdate"
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
 

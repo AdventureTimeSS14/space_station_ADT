@@ -106,8 +106,14 @@
   cost: 5000
   recipeUnlocks:
   # - BorgModuleAdvancedTreatment # В прототипах такого не найдено
-  - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
-  - BorgModuleAdvancedChemical
+  # - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
+  # закомментил строчку выше тк дефиб уже есть в другом исследовании # ADT-Tweak "MedborgModuleUpdate"
+  # ADT-Tweak-Start: "MedborgModuleUpdate"   # новые модули сделал отдельно в папке ADT
+  - BorgModuleTopicals
+  - ADTBorgModuleRescue
+  - ADTBorgModuleAdvancedChemical
+  - ADTBorgModuleChemical
+  # ADT-Tweak-end
   position: 3,-1
   requiredTech:
   - ADTMedicalMODsuit

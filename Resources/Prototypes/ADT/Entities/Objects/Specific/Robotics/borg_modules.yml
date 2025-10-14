@@ -83,3 +83,59 @@
         - PKA
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+
+# Borg Modules Update start
+
+- type: entity
+  id: ADTBorgModuleChemical
+  parent: BorgModuleChemical
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chem
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - Syringe
+    - Syringe
+    - ADTBorgDrinkGlass
+    - ADTBorgDrinkGlass
+    - ADTBorgDrinkGlass
+
+- type: entity
+  id: ADTBorgModuleAdvancedChemical
+  parent: BorgModuleChemical
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chemist
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgHypo
+    - BorgDropper
+    - BorgBeaker
+    - BorgBeaker
+    - HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+
+- type: entity
+  id: ADTBorgModuleRescue
+  parent: BorgModuleRescue
+  name: rescue cyborg module
+  components:
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandheldStationMapUnpowered
+    - WeaponGrapplingGun
+    - DefibrillatorOneHandedUnpowered
+
+# Borg Modules Update End
