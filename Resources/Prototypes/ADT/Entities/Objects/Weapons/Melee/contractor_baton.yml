@@ -42,6 +42,6 @@
   - type: GenericVisualizer
     visuals:
      enum.ToggleableVisuals.Enabled:
-        enum.ToggleVisuals.Layer:
+        enum.ToggleableVisuals.Layer: :
           True: {state: contractor_on}
           False: {state: contractor_off}
