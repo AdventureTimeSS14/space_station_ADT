@@ -24,7 +24,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: zinc_3
   product: CrateMaterialZinc
-  cost: 1000
+  cost: 2000
   category: Materials
   group: market
 
