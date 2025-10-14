@@ -6,7 +6,7 @@ lead = свинец
 
 ent-ADTSheetCopper = медь
     .suffix = Полный
-    .desc = Лист меди, служит хорошим электропроводником.
+    .desc = Слиток меди, служит хорошим электропроводником.
 ent-ADTSheetCopper10 = медь
     .suffix = 10
     .desc = { ent-ADTSheetCopper.desc }
