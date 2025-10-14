@@ -1,15 +1,12 @@
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared.DoAfter;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
-using Robust.Shared.Random;
 
 namespace Content.Shared.ADT.Hallucinations;
 
 [RegisterComponent]
 public sealed partial class HallucinationsDiseaseComponent : Component
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextSecond = TimeSpan.Zero;
@@ -44,9 +41,7 @@ public sealed partial class HallucinationsDiseaseComponent : Component
     public List<EntProtoId> Spawns = new();
 
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/ling-drugs.ogg")
-    {
-    };
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/ling-drugs.ogg");
 
     [DataField]
     public ushort Layer = 50;
