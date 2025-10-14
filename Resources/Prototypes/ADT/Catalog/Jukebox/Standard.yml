@@ -17,12 +17,6 @@
     path: /Audio/ADT/Jukebox/space_asshole_mono_jukebox.ogg
 
 - type: jukebox
-  id: HotlineCrystals
-  name: Hotline Miami - Crystals
-  path:
-    path: /Audio/ADT/Jukebox/HM_Crystals.ogg
-
-- type: jukebox
   id: HotlineDaisuke
   name: Hotline Miami - Daisuke
   path:
