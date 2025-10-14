@@ -20,7 +20,7 @@
     WallRockBasalt: ADTWallRockBasaltCopper
     WallRockChromite: ADTWallRockChromiteCopper
     WallRockSand: ADTWallRockSandCopper
-    WallRockSnow:ADT WallRockSnowCopper
+    WallRockSnow: ADTWallRockSnowCopper
   maxCount: 30
   minGroupSize: 10
   maxGroupSize: 15
@@ -63,7 +63,5 @@
     WallRockChromite: ADTWallRockChromiteGibtonit
     WallRockSand: ADTWallRockSandGibtonit
     WallRockSnow: ADTWallRockSnowGibtonit
-  maxCount: 6
-  minGroupSize: 1
-  maxGroupSize: 2
-  radius: 4
+  maxCount: 15
+  radius: 3
