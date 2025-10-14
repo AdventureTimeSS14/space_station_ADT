@@ -13,7 +13,7 @@
       WallRockSnow: ADTWallRockSnowCopper
   - type: OreVein
     oreChance: 1.0
-    currentOre: ADTADTOreCopper
+    currentOre: ADTCopperOre
   - type: Sprite
     layers:
       - state: rock_copper
@@ -36,7 +36,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -59,7 +59,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -81,7 +81,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -104,7 +104,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -127,7 +127,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -150,7 +150,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -173,7 +173,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -196,7 +196,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreCopper
+      currentOre: ADTCopperOre
     - type: Sprite
       layers:
         - state: rock_copper
@@ -220,14 +220,14 @@
   components:
   - type: EntityRemap
     mask:
-      AsteroidRock: AsteroidRockZinc
-      WallRockBasalt: WallRockBasaltZinc
-      WallRockChromite: WallRockChromiteZinc
-      WallRockSand: WallRockSandZinc
-      WallRockSnow: WallRockSnowZinc
+      AsteroidRock: ADTAsteroidRockZinc
+      WallRockBasalt: ADTWallRockBasaltZinc
+      WallRockChromite: ADTWallRockChromiteZinc
+      WallRockSand: ADTWallRockSandZinc
+      WallRockSnow: ADTWallRockSnowZinc
   - type: OreVein
     oreChance: 1.0
-    currentOre: ADTOreZinc
+    currentOre: ADTZincOre
   - type: Sprite
     layers:
       - state: rock_zinc
