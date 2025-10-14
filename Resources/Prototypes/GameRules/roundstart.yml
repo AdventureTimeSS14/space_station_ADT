@@ -184,12 +184,13 @@
   id: BaseTraitorRule
   components:
   - type: TraitorRule
+    bloodBrotherChance: 0.2 #ADT-tweak
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 8 #ADT-tweak
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 

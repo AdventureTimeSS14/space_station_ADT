@@ -112,6 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - ADTSheet #ADT-Tweak
   - type: StationAiWhitelist #ADT-Tweak
   - type: OreSiloClient
   - type: Lathe
@@ -194,6 +195,7 @@
         - Ingot
         - PhantomEctoplasm
         - ADTBSCrystal #ADT Tweak
+        - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: Lathe
     idleState: icon
@@ -304,6 +306,7 @@
         - RawMaterial
         - Ingot
         - ADTBSCrystal #ADT Tweak
+        - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: RequireProjectileTarget
 
@@ -364,6 +367,7 @@
       - RawMaterial
       - Ingot
       - ADTBSCrystal #ADT Tweak
+      - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: GuideHelp
     guides:
@@ -404,6 +408,7 @@
       tags:
         - Sheet
         - RawMaterial
+        - ADTSheet #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -464,6 +469,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
@@ -500,6 +506,7 @@
           - Sheet
           - RawMaterial
           - Ingot
+          - ADTSheet #ADT-Tweak
     - type: OreSiloClient
 
 - type: entity
