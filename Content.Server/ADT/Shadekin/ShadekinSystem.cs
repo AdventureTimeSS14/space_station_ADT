@@ -178,11 +178,12 @@ public sealed partial class ShadekinSystem : EntitySystem
         ).ToList();
 
         // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
+        var hasCollision = false;
+
         foreach (var ent in filteredEntities)
         {
             if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
             {
-                var hasCollision = false;
 
                 foreach (var fixture in fixturesComponent.Fixtures.Values)
                 {
@@ -202,12 +203,12 @@ public sealed partial class ShadekinSystem : EntitySystem
 
                 if (hasCollision)
                 {
-                    blockingEntities.Add(ent);
+                    break;
                 }
             }
         }
 
-        if (blockingEntities.Any())
+        if (hasCollision)
         {
             return;
         }
@@ -289,14 +290,13 @@ public sealed partial class ShadekinSystem : EntitySystem
                 _tagSystem.HasTag(ent, "Table") == false
             ).ToList();
 
-            var blockingEntities = new List<EntityUid>();
-
             // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
+            var hasCollision = false;
+
             foreach (var ent in filteredEntities)
             {
                 if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
                 {
-                    var hasCollision = false;
 
                     foreach (var fixture in fixturesComponent.Fixtures.Values)
                     {
@@ -317,13 +317,16 @@ public sealed partial class ShadekinSystem : EntitySystem
 
                     if (hasCollision)
                     {
-                        blockingEntities.Add(ent);
+                        break;
                     }
                 }
             }
 
-            if (blockingEntities.Any())
+            if (hasCollision)
+            {
                 continue;
+            }
+
 
             TryUseAbility(uid, 40, false);
             if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
@@ -372,11 +375,12 @@ public sealed partial class ShadekinSystem : EntitySystem
             var blockingEntities = new List<EntityUid>();
 
             // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
+            var hasCollision = false;
+
             foreach (var ent in filteredEntities)
             {
                 if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
                 {
-                    var hasCollision = false;
 
                     foreach (var fixture in fixturesComponent.Fixtures.Values)
                     {
@@ -396,12 +400,12 @@ public sealed partial class ShadekinSystem : EntitySystem
 
                     if (hasCollision)
                     {
-                        blockingEntities.Add(ent);
+                        break;
                     }
                 }
             }
 
-            if (blockingEntities.Any())
+            if (hasCollision)
                 continue;
 
             if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
