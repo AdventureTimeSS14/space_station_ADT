@@ -250,7 +250,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreZinc
+      currentOre: ADTZincOre
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -273,7 +273,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreZinc
+      currentOre: ADTZincOre
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -318,7 +318,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreZinc
+      currentOre: ADTZincOre
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -341,7 +341,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreZinc
+      currentOre: ADTZincOre
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -364,7 +364,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreZinc
+      currentOre: ADTZincOre
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -387,7 +387,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreZinc
+      currentOre: ADTZincOre
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -410,7 +410,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: ADTOreZinc
+      currentOre: ADTZincOre
     - type: Sprite
       layers:
         - state: rock_zinc
