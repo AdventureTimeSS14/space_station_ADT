@@ -11,12 +11,6 @@
     path: /Audio/ADT/Jukebox/A_Tense_Adventure.ogg
 
 - type: jukebox
-  id: Hotline2Blizzard
-  name: Hotline Miami 2 - Blizzard
-  path:
-    path: /Audio/ADT/Jukebox/HM2_Blizzard.ogg
-
-- type: jukebox
   id: SpaceAsshole
   name: Space Asshole - Chris Remo
   path:
@@ -63,12 +57,6 @@
   name: Scruq - horn
   path:
     path: /Audio/ADT/Lobby/horn.ogg
-
-- type: jukebox
-  id: HotlineHydrogen
-  name: Hotline Miami - Hydrogen
-  path:
-    path: /Audio/ADT/Jukebox/HM_Hydrogen.ogg
 
 - type: jukebox
   id: IHYVA
@@ -123,12 +111,6 @@
   name: Hotline Miami - Paris
   path:
     path: /Audio/ADT/Jukebox/HM_Paris.ogg
-
-- type: jukebox
-  id: Hotline2Run
-  name: Hotline Miami 2 - Run
-  path:
-    path: /Audio/ADT/Jukebox/HM2_Run.ogg
 
 - type: jukebox
   id: Hotline2Sexualizer
