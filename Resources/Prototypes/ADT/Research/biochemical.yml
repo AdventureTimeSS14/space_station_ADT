@@ -111,7 +111,7 @@
   # ADT-Tweak-Start: "MedborgModuleUpdate"   # новые модули сделал отдельно в папке ADT
   - BorgModuleTopicals
   - ADTBorgModuleRescue
-  - ADTBorgModuleAdvancedChemical
+  - ADTBorgModuleAdvancedChemical # позже сделаю отдельное исследование, а пока просто сделаю крафт подороже тк мне лень
   - ADTBorgModuleChemical
   # ADT-Tweak-end
   position: 3,-1

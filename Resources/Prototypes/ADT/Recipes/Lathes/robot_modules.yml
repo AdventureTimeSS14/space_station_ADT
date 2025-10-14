@@ -7,6 +7,11 @@
   parent: BaseGoldBorgModuleRecipe
   id: ADTBorgModuleAdvancedChemical
   result: ADTBorgModuleAdvancedChemical
+    materials:
+    Steel: 500
+    Glass: 700
+    Plastic: 300
+    Gold: 100
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
