@@ -31,6 +31,10 @@ using Content.Shared.Bed.Cryostorage;
 using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Construction.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Collision.Shapes;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -52,6 +56,7 @@ public sealed partial class ShadekinSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -156,18 +161,56 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         var mapCoords = args.Target.ToMap(EntityManager, _transform);
         var allEntities = new List<EntityUid>();
-        foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+        foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.35f))
             allEntities.Add(ent);
 
-        var blockingEntities = allEntities.Where(e =>
-            HasComp<AnchorableComponent>(e)
-            || _tagSystem.HasTag(e, "Table")
+        var blockingEntities = new List<EntityUid>();
+
+        // Создаем виртуальный мнимый хитбокс в координатах телепорта
+        var targetPosition = args.Target.ToMap(EntityManager, _transform).Position;
+        var virtualPlayerShape = new PhysShapeCircle(0.35f);
+        var virtualPlayerHitbox = virtualPlayerShape.ComputeAABB(new Transform(targetPosition, 0f), 0);
+
+        var filteredEntities = allEntities.Where(ent =>
+            ent != uid &&
+            HasComp<AnchorableComponent>(ent) &&
+            TryComp<PhysicsComponent>(ent, out var physics) && physics != null && physics.CollisionLayer != 0
         ).ToList();
+
+        // Проверяем коллизию мнимого хитбокса с отфильтрованными объектами
+        foreach (var ent in filteredEntities)
+        {
+            if (TryComp<PhysicsComponent>(ent, out var physics) && physics != null)
+            {
+                // Проверяем, что хитбокс не круглый
+                if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
+                {
+                    var hasCircleHitbox = false;
+                    foreach (var fixture in fixturesComponent.Fixtures.Values)
+                    {
+                        if (fixture.Shape is PhysShapeCircle)
+                        {
+                            hasCircleHitbox = true;
+                            break;
+                        }
+                    }
+                    if (hasCircleHitbox)
+                    {
+                        continue;
+                    }
+                }
+
+                var entityHitbox = _physics.GetWorldAABB(ent, body: physics);
+
+                if (virtualPlayerHitbox.Intersects(entityHitbox))
+                {
+                    blockingEntities.Add(ent);
+                }
+            }
+        }
 
         if (blockingEntities.Any())
         {
-            TryUseAbility(uid, 0);
-            args.Handled = true;
             return;
         }
 
@@ -233,13 +276,54 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             var mapCoords = newCoords.ToMap(EntityManager, _transform);
             var allEntities = new List<EntityUid>();
-            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.35f))
                 allEntities.Add(ent);
 
-            var blockingEntities = allEntities.Where(e =>
-                HasComp<AnchorableComponent>(e)
-                || _tagSystem.HasTag(e, "Table")
+            // Создаем мнимый круглый хитбокс в координатах телепорта
+            var targetPosition = newCoords.ToMap(EntityManager, _transform).Position;
+            var virtualPlayerShape = new PhysShapeCircle(0.35f);
+            var virtualPlayerHitbox = virtualPlayerShape.ComputeAABB(new Transform(targetPosition, 0f), 0);
+
+            var filteredEntities = allEntities.Where(ent =>
+                ent != uid &&
+                HasComp<AnchorableComponent>(ent) &&
+                TryComp<PhysicsComponent>(ent, out var physics) && physics != null && physics.CollisionLayer != 0 &&
+                _tagSystem.HasTag(ent, "Table") == false
             ).ToList();
+
+            var blockingEntities = new List<EntityUid>();
+
+            // Проверяем коллизию мнимого хитбокса с отфильтрованными объектами
+            foreach (var ent in filteredEntities)
+            {
+                if (TryComp<PhysicsComponent>(ent, out var physics) && physics != null)
+                {
+                    // Проверяем, что хитбокс не круглый
+                    if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
+                    {
+                        var hasCircleHitbox = false;
+                        foreach (var fixture in fixturesComponent.Fixtures.Values)
+                        {
+                            if (fixture.Shape is PhysShapeCircle)
+                            {
+                                hasCircleHitbox = true;
+                                break;
+                            }
+                        }
+                        if (hasCircleHitbox)
+                        {
+                            continue;
+                        }
+                    }
+
+                    var entityHitbox = _physics.GetWorldAABB(ent, body: physics);
+
+                    if (virtualPlayerHitbox.Intersects(entityHitbox))
+                    {
+                        blockingEntities.Add(ent);
+                    }
+                }
+            }
 
             if (blockingEntities.Any())
                 continue;
@@ -273,13 +357,54 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             var mapCoords = newCoords.ToMap(EntityManager, _transform);
             var allEntities = new List<EntityUid>();
-            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
+            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.35f))
                 allEntities.Add(ent);
 
-            var blockingEntities = allEntities.Where(e =>
-                HasComp<AnchorableComponent>(e)
-                || _tagSystem.HasTag(e, "Table")
+            // Создаем мнимый круглый хитбокс в координатах телепорта
+            var targetPosition = newCoords.ToMap(EntityManager, _transform).Position;
+            var virtualPlayerShape = new PhysShapeCircle(0.35f);
+            var virtualPlayerHitbox = virtualPlayerShape.ComputeAABB(new Transform(targetPosition, 0f), 0);
+
+            var filteredEntities = allEntities.Where(ent =>
+                ent != uid &&
+                HasComp<AnchorableComponent>(ent) &&
+                TryComp<PhysicsComponent>(ent, out var physics) && physics != null && physics.CollisionLayer != 0 &&
+                _tagSystem.HasTag(ent, "Table") == false
             ).ToList();
+
+            var blockingEntities = new List<EntityUid>();
+
+            // Проверяем коллизию виртуального хитбокса с отфильтрованными объектами
+            foreach (var ent in filteredEntities)
+            {
+                if (TryComp<PhysicsComponent>(ent, out var physics) && physics != null)
+                {
+                    // Проверяем, что хитбокс не круглый
+                    if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
+                    {
+                        var hasCircleHitbox = false;
+                        foreach (var fixture in fixturesComponent.Fixtures.Values)
+                        {
+                            if (fixture.Shape is PhysShapeCircle)
+                            {
+                                hasCircleHitbox = true;
+                                break;
+                            }
+                        }
+                        if (hasCircleHitbox)
+                        {
+                            continue;
+                        }
+                    }
+
+                    var entityHitbox = _physics.GetWorldAABB(ent, body: physics);
+
+                    if (virtualPlayerHitbox.Intersects(entityHitbox))
+                    {
+                        blockingEntities.Add(ent);
+                    }
+                }
+            }
 
             if (blockingEntities.Any())
                 continue;
