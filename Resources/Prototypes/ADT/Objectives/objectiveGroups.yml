@@ -63,3 +63,11 @@
   id: ChangelingObjectiveGroupAbsorbDna
   weights:
     DnaAbsorbObjective: 1
+
+- type: weightedRandom
+  id: BloodBrothersObjectiveGroups
+  weights:
+    TraitorObjectiveGroupSteal: 1
+    TraitorObjectiveGroupKill: 1
+    TraitorObjectiveGroupSocial: 0.5 #Involves helping/harming others without killing them or stealing their stuff
+    TraitorObjectiveGroupNukieDisk: 0.01  #Corvax
