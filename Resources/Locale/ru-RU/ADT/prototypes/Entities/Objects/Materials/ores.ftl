@@ -30,7 +30,7 @@ ent-ADTZincOre1 = { ent-ADTZincOre }
     .desc = { ent-OreBase.desc }
     .suffix = Один
 
-ent-ADTLeadOre = рудной свинец
+ent-ADTLeadOre = рудный свинец
     .desc = { ent-OreBase.desc }
     .suffix = Полный
 
