@@ -1,5 +1,5 @@
 - type: entity
-  id: WallRockCopper
+  id: ADTWallRockCopper
   parent: WallRock
   description: An ore vein rich with copper.
   suffix: Copper
@@ -29,7 +29,7 @@
         state: rock_west
 
 - type: entity
-  id: AsteroidRockCopper
+  id: ADTAsteroidRockCopper
   parent: AsteroidRock
   description: An ore vein rich with copper.
   suffix: Copper
@@ -52,7 +52,7 @@
           state: rock_asteroid_west
 
 - type: entity
-  id: MeteorRockCopper
+  id: ADTMeteorRockCopper
   parent: MeteorRock
   description: An ore vein rich with copper.
   suffix: Copper
@@ -74,7 +74,7 @@
           state: rock_asteroid_west
 
 - type: entity
-  id: IronRockCopper
+  id: ADTIronRockCopper
   parent: IronRock
   description: An ore vein rich with copper.
   suffix: Copper
@@ -97,7 +97,7 @@
           state: ironrock_west
 
 - type: entity
-  id: WallRockBasaltCopper
+  id: ADTWallRockBasaltCopper
   parent: WallRockBasalt
   description: An ore vein rich with copper.
   suffix: Copper
@@ -120,7 +120,7 @@
           state: rock_wall_west
 
 - type: entity
-  id: WallRockSnowCopper
+  id: ADTWallRockSnowCopper
   parent: WallRockSnow
   description: An ore vein rich with copper.
   suffix: Copper
@@ -143,7 +143,7 @@
           state: rock_snow_west
 
 - type: entity
-  id: WallRockSandCopper
+  id: ADTWallRockSandCopper
   parent: WallRockSand
   description: An ore vein rich with quartz.
   suffix: Copper
@@ -166,7 +166,7 @@
           state: rock_sand_west
 
 - type: entity
-  id: WallRockChromiteCopper
+  id: ADTWallRockChromiteCopper
   parent: WallRockChromite
   description: An ore vein rich with quartz.
   suffix: Copper
@@ -189,7 +189,7 @@
           state: rock_chromite_west
 
 - type: entity
-  id: WallRockAndesiteCopper
+  id: ADTWallRockAndesiteCopper
   parent: WallRockAndesite
   description: An ore vein rich with quartz.
   suffix: Copper
@@ -213,7 +213,7 @@
 
 
 - type: entity
-  id: WallRockZinc
+  id: ADTWallRockZinc
   parent: WallRock
   description: An ore vein rich with zinc.
   suffix: Zinc
@@ -243,7 +243,7 @@
         state: rock_west
 
 - type: entity
-  id: AsteroidRockZinc
+  id: ADTAsteroidRockZinc
   parent: AsteroidRock
   description: An ore vein rich with zinc.
   suffix: Zinc
@@ -266,7 +266,7 @@
           state: rock_asteroid_west
 
 - type: entity
-  id: MeteorRockZinc
+  id: ADTMeteorRockZinc
   parent: MeteorRock
   description: An ore vein rich with zinc.
   suffix: Zinc
@@ -288,7 +288,7 @@
           state: rock_asteroid_west
 
 - type: entity
-  id: IronRockZinc
+  id: ADTIronRockZinc
   parent: IronRock
   description: An ore vein rich with zinc.
   suffix: Zinc
@@ -311,7 +311,7 @@
           state: ironrock_west
 
 - type: entity
-  id: WallRockBasaltZinc
+  id: ADTWallRockBasaltZinc
   parent: WallRockBasalt
   description: An ore vein rich with zinc.
   suffix: Zinc
@@ -334,7 +334,7 @@
           state: rock_wall_west
 
 - type: entity
-  id: WallRockSnowZinc
+  id: ADTWallRockSnowZinc
   parent: WallRockSnow
   description: An ore vein rich with zinc.
   suffix: Zinc
@@ -357,7 +357,7 @@
           state: rock_snow_west
 
 - type: entity
-  id: WallRockSandZinc
+  id: ADTWallRockSandZinc
   parent: WallRockSand
   description: An ore vein rich with quartz.
   suffix: Zinc
@@ -380,7 +380,7 @@
           state: rock_sand_west
 
 - type: entity
-  id: WallRockChromiteZinc
+  id: ADTWallRockChromiteZinc
   parent: WallRockChromite
   description: An ore vein rich with quartz.
   suffix: Zinc
@@ -403,7 +403,7 @@
           state: rock_chromite_west
 
 - type: entity
-  id: WallRockAndesiteZinc
+  id: ADTWallRockAndesiteZinc
   parent: WallRockAndesite
   description: An ore vein rich with quartz.
   suffix: Zinc
@@ -427,7 +427,7 @@
 
 
 - type: entity
-  id: WallRockGibtonit
+  id: ADTWallRockGibtonit
   parent: [WallRock, ADTAsteroidRockGibtonite]
   description: An ore vein rich with Gibtonite.
   suffix: Gibtonite
@@ -455,7 +455,7 @@
         map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
 
 - type: entity
-  id: AsteroidRockGibtonit
+  id: ADTAsteroidRockGibtonit
   parent: [AsteroidRock,ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
@@ -476,7 +476,7 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
 
 - type: entity
-  id: MeteorRockGibtonit
+  id: ADTMeteorRockGibtonit
   parent: [MeteorRock,ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
@@ -497,7 +497,7 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
 
 - type: entity
-  id: WallRockBasaltGibtonit
+  id: ADTWallRockBasaltGibtonit
   parent: [WallRockBasalt,ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
@@ -518,7 +518,7 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
 
 - type: entity
-  id: WallRockSnowGibtonit
+  id: ADTWallRockSnowGibtonit
   parent: [WallRockSnow,ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
@@ -539,7 +539,7 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
 
 - type: entity
-  id: WallRockSandGibtonit
+  id: ADTWallRockSandGibtonit
   parent: [WallRockSand,ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
@@ -560,7 +560,7 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
 
 - type: entity
-  id: WallRockChromiteGibtonit
+  id: ADTWallRockChromiteGibtonit
   parent: [WallRockChromite,ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
@@ -581,7 +581,7 @@
           map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
 
 - type: entity
-  id: WallRockAndesiteGibtonit
+  id: ADTWallRockAndesiteGibtonit
   parent: [WallRockAndesite,ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
