@@ -11,3 +11,57 @@
   minGroupSize: 1
   maxGroupSize: 2
   radius: 4
+
+- type: biomeMarkerLayer
+  id: OreCopper
+  entityMask:
+    AsteroidRock: ADTAsteroidRockCopper
+    WallRock: ADTWallRockCopper
+    WallRockBasalt: ADTWallRockBasaltCopper
+    WallRockChromite: ADTWallRockChromiteCopper
+    WallRockSand: ADTWallRockSandCopper
+    WallRockSnow: ADTWallRockSnowCopper
+  maxCount: 30
+  minGroupSize: 10
+  maxGroupSize: 15
+  radius: 4
+
+- type: biomeMarkerLayer
+  id: OreZinc
+  entityMask:
+    AsteroidRock: ADTAsteroidRockZinc
+    WallRock: ADTWallRockZinc
+    WallRockBasalt: ADTWallRockBasaltZinc
+    WallRockChromite: ADTWallRockChromiteZinc
+    WallRockSand: ADTWallRockSandZinc
+    WallRockSnow: ADTWallRockSnowZinc
+  maxCount: 30
+  minGroupSize: 10
+  maxGroupSize: 15
+  radius: 4
+
+- type: biomeMarkerLayer
+  id: OreLead
+  entityMask:
+    AsteroidRock: ADTAsteroidRockLead
+    WallRock: ADTMeteorRockLead
+    WallRockBasalt: ADTWallRockBasaltLead
+    WallRockChromite: ADTWallRockChromiteLead
+    WallRockSand: ADTWallRockSandLead
+    WallRockSnow: ADTWallRockSnowLead
+  maxCount: 30
+  minGroupSize: 10
+  maxGroupSize: 15
+  radius: 4
+
+- type: biomeMarkerLayer
+  id: OreGibtonit
+  entityMask:
+    AsteroidRock: ADTAsteroidRockGibtonit
+    WallRock: ADTWallRockGibtonit
+    WallRockBasalt: ADTWallRockBasaltGibtonit
+    WallRockChromite: ADTWallRockChromiteGibtonit
+    WallRockSand: ADTWallRockSandGibtonit
+    WallRockSnow: ADTWallRockSnowGibtonit
+  maxCount: 15
+  radius: 3

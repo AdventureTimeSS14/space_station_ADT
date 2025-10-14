@@ -6,6 +6,7 @@
     Steel: 500
     Glass: 100
     Plastic: 50
+    Copper: 500
 
 - type: latheRecipe
   id: OuijaBoard
@@ -28,6 +29,7 @@
     Gold: 250
     Uranium: 1500
     Ectoplasm: 300
+    Copper: 1000
 
 - type: latheRecipe
   id: EctoPistol
@@ -41,6 +43,7 @@
     Gold: 1000
     Uranium: 500
     Ectoplasm: 150
+    Copper: 1000
 
 - type: latheRecipe
   id: PsiShield
@@ -54,6 +57,7 @@
     Gold: 1000
     Uranium: 500
     Ectoplasm: 400
+    Copper: 800
 
 - type: latheRecipe
   id: PhantomHud
@@ -65,6 +69,7 @@
     Silver: 500
     Gold: 100
     Ectoplasm: 200
+    Copper: 200
 
 - type: latheRecipe
   id: EctoShield
@@ -76,6 +81,7 @@
     Silver: 500
     Gold: 1000
     Ectoplasm: 300
+    Copper: 200
 
 - type: latheRecipe
   id: EctoBatterySmall
@@ -85,6 +91,8 @@
     Steel: 300
     Glass: 300
     Ectoplasm: 50
+    Copper: 300
+    Zinc: 300
 
 - type: latheRecipe
   id: EctoBattery
@@ -94,3 +102,5 @@
     Steel: 500
     Glass: 500
     Ectoplasm: 100
+    Copper: 400
+    Zinc: 400
