@@ -164,8 +164,6 @@ public sealed partial class ShadekinSystem : EntitySystem
         foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.35f))
             allEntities.Add(ent);
 
-        var blockingEntities = new List<EntityUid>();
-
         // Создаем мнимый круглый хитбокс в координатах телепорта
         var targetPosition = args.Target.ToMap(EntityManager, _transform).Position;
         var virtualPlayerShape = new PhysShapeCircle(0.35f);
@@ -371,8 +369,6 @@ public sealed partial class ShadekinSystem : EntitySystem
                 TryComp<PhysicsComponent>(ent, out var physics) && physics != null && physics.CollisionLayer != 0 &&
                 _tagSystem.HasTag(ent, "Table") == false
             ).ToList();
-
-            var blockingEntities = new List<EntityUid>();
 
             // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
             var hasCollision = false;
