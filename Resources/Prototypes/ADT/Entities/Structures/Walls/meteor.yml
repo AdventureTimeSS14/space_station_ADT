@@ -189,7 +189,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead
@@ -212,7 +212,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead
@@ -234,7 +234,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead
@@ -257,7 +257,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead
@@ -280,7 +280,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead
@@ -303,7 +303,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead
@@ -326,7 +326,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead
@@ -349,7 +349,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreLead
+      currentOre: ADTOreLead
     - type: Sprite
       layers:
         - state: rock_lead

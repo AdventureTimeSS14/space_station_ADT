@@ -44,7 +44,7 @@
   id: OreLead
   entityMask:
     AsteroidRock: ADTAsteroidRockLead
-    WallRock: ADTWallRockLead
+    WallRock: ADTMeteorRockLead
     WallRockBasalt: ADTWallRockBasaltLead
     WallRockChromite: ADTWallRockChromiteLead
     WallRockSand: ADTWallRockSandLead

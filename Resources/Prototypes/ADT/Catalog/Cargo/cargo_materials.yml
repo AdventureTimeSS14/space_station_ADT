@@ -11,7 +11,7 @@
 - type: cargoProduct
   id: MaterialCopper
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: Objects/Materials/ingots.rsi
     state: copper_3
   product: CrateMaterialCopper
   cost: 1000

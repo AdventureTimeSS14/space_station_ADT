@@ -1,7 +1,7 @@
 - type: stack
   id: Copper
   name: copper
-  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: copper }
+  icon: { sprite: /Textures/Objects/Materials/ingots.rsi, state: copper }
   spawn: ADTSheetCopper1
   maxCount: 30
 

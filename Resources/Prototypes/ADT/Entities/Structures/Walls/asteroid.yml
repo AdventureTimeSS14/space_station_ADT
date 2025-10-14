@@ -6,14 +6,14 @@
   components:
   - type: EntityRemap
     mask:
-      AsteroidRock: AsteroidRockCopper
-      WallRockBasalt: WallRockBasaltCopper
-      WallRockChromite: WallRockChromiteCopper
-      WallRockSand: WallRockSandCopper
-      WallRockSnow: WallRockSnowCopper
+      AsteroidRock: ADTAsteroidRockCopper
+      WallRockBasalt: ADTWallRockBasaltCopper
+      WallRockChromite: ADTWallRockChromiteCopper
+      WallRockSand: ADTWallRockSandCopper
+      WallRockSnow: ADTWallRockSnowCopper
   - type: OreVein
     oreChance: 1.0
-    currentOre: OreCopper
+    currentOre: ADTADTOreCopper
   - type: Sprite
     layers:
       - state: rock_copper
@@ -36,7 +36,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -59,7 +59,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -81,7 +81,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -104,7 +104,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -127,7 +127,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -150,7 +150,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -173,7 +173,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -196,7 +196,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreCopper
+      currentOre: ADTOreCopper
     - type: Sprite
       layers:
         - state: rock_copper
@@ -227,7 +227,7 @@
       WallRockSnow: WallRockSnowZinc
   - type: OreVein
     oreChance: 1.0
-    currentOre: OreZinc
+    currentOre: ADTOreZinc
   - type: Sprite
     layers:
       - state: rock_zinc
@@ -250,7 +250,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -273,7 +273,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -295,7 +295,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -318,7 +318,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -341,7 +341,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -364,7 +364,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -387,7 +387,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -410,7 +410,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: OreZinc
+      currentOre: ADTOreZinc
     - type: Sprite
       layers:
         - state: rock_zinc
@@ -434,11 +434,11 @@
   components:
   - type: EntityRemap
     mask:
-      AsteroidRock: AsteroidRockGibtonit
-      WallRockBasalt: WallRockBasaltGibtonit
-      WallRockChromite: WallRockChromiteGibtonit
-      WallRockSand: WallRockSandGibtonit
-      WallRockSnow: WallRockSnowGibtonit
+      AsteroidRock: ADTAsteroidRockGibtonit
+      WallRockBasalt: ADTWallRockBasaltGibtonit
+      WallRockChromite: ADTWallRockChromiteGibtonit
+      WallRockSand: ADTWallRockSandGibtonit
+      WallRockSnow: ADTWallRockSnowGibtonit
   - type: Sprite
     layers:
       - state: rock
