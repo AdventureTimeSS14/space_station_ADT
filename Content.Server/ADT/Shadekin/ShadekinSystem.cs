@@ -166,7 +166,7 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         var blockingEntities = new List<EntityUid>();
 
-        // Создаем виртуальный мнимый хитбокс в координатах телепорта
+        // Создаем мнимый круглый хитбокс в координатах телепорта
         var targetPosition = args.Target.ToMap(EntityManager, _transform).Position;
         var virtualPlayerShape = new PhysShapeCircle(0.35f);
         var virtualPlayerHitbox = virtualPlayerShape.ComputeAABB(new Transform(targetPosition, 0f), 0);
@@ -177,32 +177,30 @@ public sealed partial class ShadekinSystem : EntitySystem
             TryComp<PhysicsComponent>(ent, out var physics) && physics != null && physics.CollisionLayer != 0
         ).ToList();
 
-        // Проверяем коллизию мнимого хитбокса с отфильтрованными объектами
+        // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
         foreach (var ent in filteredEntities)
         {
-            if (TryComp<PhysicsComponent>(ent, out var physics) && physics != null)
+            if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
             {
-                // Проверяем, что хитбокс не круглый
-                if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
+                var hasCollision = false;
+
+                foreach (var fixture in fixturesComponent.Fixtures.Values)
                 {
-                    var hasCircleHitbox = false;
-                    foreach (var fixture in fixturesComponent.Fixtures.Values)
-                    {
-                        if (fixture.Shape is PhysShapeCircle)
-                        {
-                            hasCircleHitbox = true;
-                            break;
-                        }
-                    }
-                    if (hasCircleHitbox)
-                    {
+                    // Пропускаем круглые BB
+                    if (fixture.Shape is PhysShapeCircle)
                         continue;
+
+                    var entTransform = _physics.GetPhysicsTransform(ent);
+                    var fixtureHitbox = fixture.Shape.ComputeAABB(entTransform, 0);
+
+                    if (virtualPlayerHitbox.Intersects(fixtureHitbox))
+                    {
+                        hasCollision = true;
+                        break;
                     }
                 }
 
-                var entityHitbox = _physics.GetWorldAABB(ent, body: physics);
-
-                if (virtualPlayerHitbox.Intersects(entityHitbox))
+                if (hasCollision)
                 {
                     blockingEntities.Add(ent);
                 }
@@ -293,32 +291,31 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             var blockingEntities = new List<EntityUid>();
 
-            // Проверяем коллизию мнимого хитбокса с отфильтрованными объектами
+            // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
             foreach (var ent in filteredEntities)
             {
-                if (TryComp<PhysicsComponent>(ent, out var physics) && physics != null)
+                if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
                 {
-                    // Проверяем, что хитбокс не круглый
-                    if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
+                    var hasCollision = false;
+
+                    foreach (var fixture in fixturesComponent.Fixtures.Values)
                     {
-                        var hasCircleHitbox = false;
-                        foreach (var fixture in fixturesComponent.Fixtures.Values)
-                        {
-                            if (fixture.Shape is PhysShapeCircle)
-                            {
-                                hasCircleHitbox = true;
-                                break;
-                            }
-                        }
-                        if (hasCircleHitbox)
-                        {
+                        // Пропускаем круглые BB
+                        if (fixture.Shape is PhysShapeCircle)
                             continue;
+
+                        var entTransform = _physics.GetPhysicsTransform(ent);
+                        var fixtureHitbox = fixture.Shape.ComputeAABB(entTransform, 0);
+
+
+                        if (virtualPlayerHitbox.Intersects(fixtureHitbox))
+                        {
+                            hasCollision = true;
+                            break;
                         }
                     }
 
-                    var entityHitbox = _physics.GetWorldAABB(ent, body: physics);
-
-                    if (virtualPlayerHitbox.Intersects(entityHitbox))
+                    if (hasCollision)
                     {
                         blockingEntities.Add(ent);
                     }
@@ -374,32 +371,30 @@ public sealed partial class ShadekinSystem : EntitySystem
 
             var blockingEntities = new List<EntityUid>();
 
-            // Проверяем коллизию виртуального хитбокса с отфильтрованными объектами
+            // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
             foreach (var ent in filteredEntities)
             {
-                if (TryComp<PhysicsComponent>(ent, out var physics) && physics != null)
+                if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
                 {
-                    // Проверяем, что хитбокс не круглый
-                    if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
+                    var hasCollision = false;
+
+                    foreach (var fixture in fixturesComponent.Fixtures.Values)
                     {
-                        var hasCircleHitbox = false;
-                        foreach (var fixture in fixturesComponent.Fixtures.Values)
-                        {
-                            if (fixture.Shape is PhysShapeCircle)
-                            {
-                                hasCircleHitbox = true;
-                                break;
-                            }
-                        }
-                        if (hasCircleHitbox)
-                        {
+                        // Пропускаем круглые BB
+                        if (fixture.Shape is PhysShapeCircle)
                             continue;
+
+                        var entTransform = _physics.GetPhysicsTransform(ent);
+                        var fixtureHitbox = fixture.Shape.ComputeAABB(entTransform, 0);
+
+                        if (virtualPlayerHitbox.Intersects(fixtureHitbox))
+                        {
+                            hasCollision = true;
+                            break;
                         }
                     }
 
-                    var entityHitbox = _physics.GetWorldAABB(ent, body: physics);
-
-                    if (virtualPlayerHitbox.Intersects(entityHitbox))
+                    if (hasCollision)
                     {
                         blockingEntities.Add(ent);
                     }
