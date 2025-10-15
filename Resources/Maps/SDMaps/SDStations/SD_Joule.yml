@@ -123,7 +123,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Joule Station
+      name: Joule
     - type: Transform
     - type: Map
       mapPaused: True
