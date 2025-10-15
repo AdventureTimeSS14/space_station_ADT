@@ -785,7 +785,7 @@
 #    # ADT end: droppable borg items
 #  - type: BorgModuleIcon
 #    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
-#  # ADT-Tweak-End
+# ADT-Tweak-End
 # ADT-Tweak-End
 
 # science modules
