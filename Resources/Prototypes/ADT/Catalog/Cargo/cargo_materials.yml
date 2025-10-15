@@ -21,7 +21,7 @@
 - type: cargoProduct
   id: MaterialZinc
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: zinc_3
   product: CrateMaterialZinc
   cost: 2000
@@ -31,7 +31,7 @@
 - type: cargoProduct
   id: MaterialLead
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: lead_3
   product: CrateMaterialLead
   cost: 1500

@@ -15,7 +15,7 @@ public sealed partial class GibtoniteComponent : Component
     /// </summary>
     [DataField]
     public bool Active = false;
-
+    
     /// <summary>
     /// Был ли гибтонит ударен. Можно подумать, что Active индентичная. Но нет, это нужно для добывания гибтонита.
     /// </summary>

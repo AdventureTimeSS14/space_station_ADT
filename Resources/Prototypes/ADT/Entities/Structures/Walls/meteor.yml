@@ -160,7 +160,45 @@
 
 #NEW BFUU
 - type: entity
-  parent: [ BaseRockGibtonite, AsteroidRock ]
+  abstract: true
+  id: ADTBaseRockGibtonite
+  suffix: Gibtonite
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        "gib":
+          Primed:
+            state: gibtonite_active
+            shader: unshaded
+            visible: true
+          Unprimed:
+            state: gibtonite_inactive
+            visible: false
+  - type: OnUseTimerTrigger
+    examinable: false
+    beepInterval: 0.4
+    beepSound:
+      collection: GlassCrack
+  - type: RandomTimerTrigger
+    min: 8
+    max: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:TimerStartBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Gibtonite
+    extracted: false
+  
+- type: entity
+  parent: [ ADTBaseRockGibtonite, AsteroidRock ]
   id: ADTAsteroidRockGibtonite
   components:
   - type: Sprite
@@ -177,8 +215,6 @@
     - state: gibtonite_inactive
       visible: false
       map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
-  - type: Gibtonite
-    extracted: false
 
 #Lead
 - type: entity
