@@ -93,7 +93,7 @@
   id: SyndicateContractorGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    back: ADTClothingModsuitBackSyndicateContractor
+    back: ADTClothingModsuitBackSyndicate
     shoes: ClothingShoesBootsCombatFilled
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat

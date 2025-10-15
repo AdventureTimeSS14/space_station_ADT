@@ -8,7 +8,7 @@
     sprite: ADT/Objects/Weapons/Melee/contractor_baton.rsi
     layers:
     - state: contractor_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: SwitchableWeapon
     openSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/open_telescopichka.ogg"
     closeSound: "/Audio/ADT/Entities/Objects/Weapons/Melee/close_telescopichka.ogg"

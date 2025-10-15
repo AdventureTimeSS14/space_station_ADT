@@ -1,20 +1,20 @@
-# these are HEAVILY based on the Bingle free-agent ghostrole from GoobStation, but reflavored and reprogrammed to make them more Robust (and less of a meme.)
-# all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
-# the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 - type: entity
+  parent: BaseAction
   id: ActionReplicatorSpawnNest
   name: Manufacture Nest
   description: Create a new nest for your hive.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon: SD/Interface/Actions/spawn_nest.png
     useDelay: 20
+  - type: InstantAction
     event: !type:ReplicatorSpawnNestActionEvent
   - type: ConfirmableAction
     popup: replicator-nest-confirm
 
 - type: entity
+  parent: BaseAction
   id: BaseReplicatorLevelupAction
   components:
   - type: ConfirmableAction
@@ -26,10 +26,11 @@
   name: Downgrade (Replicator)
   description: Shed nanites. Reconfigure.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon: SD/Interface/Actions/replicator_level1.png
     useDelay: 20
+  - type: InstantAction
     event: !type:ReplicatorUpgradeActionEvent
       nextStage: MobReplicator
 
@@ -39,10 +40,11 @@
   name: Upgrade (Deconstructor)
   description: Gather nanites. Gain manipulation.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon: SD/Interface/Actions/replicator_level2.png
     useDelay: 20
+  - type: InstantAction
     event: !type:ReplicatorUpgradeActionEvent
       nextStage: MobReplicatorTier2
 
@@ -53,10 +55,11 @@
   name: Upgrade (Defender)
   description: Gather nanites. Gain weaponry.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon: SD/Interface/Actions/replicator_level2alt.png
     useDelay: 20
+  - type: InstantAction
     event: !type:ReplicatorUpgradeActionEvent
       nextStage: MobReplicatorTier2Alt
 
@@ -67,10 +70,10 @@
   name: Upgrade (Protector)
   description: Gather nanites. Become stronger.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon: SD/Interface/Actions/replicator_level3.png
     useDelay: 20
+  - type: InstantAction
     event: !type:ReplicatorUpgradeActionEvent
-      nextStage: MobReplicatorTier3
-
+    nextStage: MobReplicatorTier3

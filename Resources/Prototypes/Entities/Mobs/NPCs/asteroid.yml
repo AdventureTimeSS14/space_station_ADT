@@ -47,7 +47,7 @@
         Base: goliath
       Dead:
         Base: goliath_dead
-    bloodReagent: DryableBlood
+    # bloodReagent: DryableBlood
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.50 #ADT‑Tweak

@@ -8,8 +8,8 @@
       state: engineering
     - type: MachineBoard
       prototype: ADTUniversalPipeDispenser
-      stackRequirements:
-        Manipulator: 4
+      # stackRequirements:
+        # Manipulator: 4
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -24,8 +24,8 @@
   components:
   - type: MachineBoard
     prototype: ADTBookPrinter
-    stackRequirements:
-      Manipulator: 2
+    # stackRequirements:
+      # Manipulator: 2
 # Ganimed-Book-Printer-End
 
 - type: entity
@@ -89,7 +89,7 @@
       stackRequirements:
         Steel: 5
         Plasma: 5
-        Manipulator: 3
+        # Manipulator: 3
         Glass: 5
       tagRequirements:
           GlassBeaker:
@@ -137,7 +137,7 @@
     - type: MachineBoard
       prototype: ADTAdvancedKitchenReagentGrinder
       stackRequirements:
-        Manipulator: 6
+        # Manipulator: 6
         Plasma: 5
       tagRequirements:
         GlassBeaker:
@@ -157,7 +157,7 @@
     - type: MachineBoard
       prototype: ADTMedicalAssembler
       stackRequirements:
-        Manipulator: 1
+        # Manipulator: 1
         Steel: 5
         Glass: 2
         Cable: 4
@@ -215,7 +215,7 @@
     - type: MachineBoard
       prototype: ADTKitchenAssembler
       stackRequirements:
-        Manipulator: 2
+        # Manipulator: 2
         Glass: 2
         Cable: 2
       tagRequirements:
@@ -243,9 +243,9 @@
       Steel: 200
       Diamond: 20
       CableHV: 50
-      Manipulator: 20
-      Capacitor: 20
-      MatterBin: 40
+      # Manipulator: 20
+      # Capacitor: 20
+      # MatterBin: 40
     tagRequirements:
       GlassBeaker:
         amount: 5
@@ -265,7 +265,7 @@
   - type: MachineBoard
     prototype: ADTMediumLongThruster
     stackRequirements:
-      Manipulator: 12
+      # Manipulator: 12
       Steel: 15
       ADTBScrystalArt: 6
 
@@ -279,7 +279,7 @@
   - type: MachineBoard
     prototype: ADTBigThruster
     stackRequirements:
-      Manipulator: 36
+      # Manipulator: 36
       Steel: 45
       ADTBScrystalArt: 18
 
@@ -293,6 +293,6 @@
   - type: MachineBoard
     prototype: ADTMediumThruster
     stackRequirements:
-      Manipulator: 16
+      # Manipulator: 16
       Steel: 20
       ADTBScrystalArt: 8
