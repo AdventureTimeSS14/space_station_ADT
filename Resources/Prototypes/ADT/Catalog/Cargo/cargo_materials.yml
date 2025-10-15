@@ -7,3 +7,43 @@
   cost: 10000
   category: Materials
   group: market
+
+- type: cargoProduct
+  id: MaterialCopper
+  icon:
+    sprite: Objects/Materials/ingots.rsi
+    state: copper_3
+  product: CrateMaterialCopper
+  cost: 2000
+  category: Materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialZinc
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: zinc_3
+  product: CrateMaterialZinc
+  cost: 2000
+  category: Materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialLead
+  icon:
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: lead_3
+  product: CrateMaterialLead
+  cost: 1500
+  category: Materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialMarble
+  icon:
+    sprite: ADT/Objects/Materials/marble.rsi
+    state: marblemat3
+  product: ADTCrateMaterialMarble
+  cost: 3500
+  category: cargoproduct-category-name-materials
+  group: market

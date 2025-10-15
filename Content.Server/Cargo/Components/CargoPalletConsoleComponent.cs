@@ -6,4 +6,9 @@ namespace Content.Server.Cargo.Components;
 
 [RegisterComponent]
 [Access(typeof(CargoSystem))]
-public sealed partial class CargoPalletConsoleComponent : Component;
+public sealed partial class CargoPalletConsoleComponent : Component
+{ //ADT tweak start
+    [DataField]
+    public string? CurrencyProto = null;
+}
+//ADT tweak end

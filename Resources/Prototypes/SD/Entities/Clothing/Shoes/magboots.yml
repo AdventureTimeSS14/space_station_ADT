@@ -27,6 +27,6 @@
   parent: ActionToggleMagboots
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: SD/Clothing/Shoes/Boots/atmos_magboots.rsi, state: icon }
     iconOn: SD/Clothing/Shoes/Boots/atmos_magboots.rsi/icon-on.png

@@ -346,3 +346,12 @@
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Bottom/blueshield_panties.rsi
 
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ADTClothingUnderwearBottomPantiesCow
+  name: cow panties
+  description: Cute cow-themed panties. Moo!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Bottom/panties_cow.rsi
+

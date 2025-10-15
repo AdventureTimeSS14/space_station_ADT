@@ -2,7 +2,7 @@
   id: HumanHairAfro
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: afro
@@ -66,7 +66,7 @@
 - type: marking
   id: HumanHairLongBedhead
   bodyPart: Hair
-  markingCategory: Hair 
+  markingCategory: Hair
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long_bedhead
@@ -473,7 +473,7 @@
   id: HumanHairDrillruru
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: drillruru
@@ -764,7 +764,7 @@
   id: HumanHairMessy
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: messy
@@ -779,7 +779,7 @@
   id: HumanHairMohawk
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: d
@@ -787,7 +787,7 @@
   id: HumanHairNitori
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: nitori
@@ -802,7 +802,7 @@
   id: HumanHairUnshavenMohawk
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: unshaven_mohawk
@@ -817,7 +817,7 @@
   id: HumanHairOdango
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: odango
@@ -895,7 +895,7 @@
   id: HumanHairPompadour
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: pompadour
@@ -903,7 +903,7 @@
   id: HumanHairBigpompadour
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak 
+  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: bigpompadour
@@ -1397,26 +1397,33 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: longbow
+- type: marking
+  id: HumanHairLongWithBangs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Mobs/Customization/human_hair.rsi
+    state: longwithbangs
       # SD added start
-- type: marking
-  id: SDHumanHairSeph
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: seph_bayo
-- type: marking
-  id: SDHumanHairSephAlt
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: seph_bayo_alt
-- type: marking
-  id: SDHumanHairSephLong
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: seph_floorlength_braid
-      # SD added end
+# - type: marking
+#   id: SDHumanHairSeph
+#   bodyPart: Hair
+#   markingCategory: Hair
+#   sprites:
+#     - sprite: Mobs/Customization/human_hair.rsi
+#       state: seph_bayo
+# - type: marking
+#   id: SDHumanHairSephAlt
+#   bodyPart: Hair
+#   markingCategory: Hair
+#   sprites:
+#     - sprite: Mobs/Customization/human_hair.rsi
+#       state: seph_bayo_alt
+# - type: marking
+#   id: SDHumanHairSephLong
+#   bodyPart: Hair
+#   markingCategory: Hair
+#   sprites:
+#     - sprite: Mobs/Customization/human_hair.rsi
+#       state: seph_floorlength_braid
+#       # SD added end

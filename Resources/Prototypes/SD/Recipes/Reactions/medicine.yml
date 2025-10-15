@@ -21,15 +21,15 @@
   products:
     SDCalomel: 2
 
-- type: reaction
-  id: SDAmmoniatedMercury
-  reactants:
-    SDCalomel:
-      amount: 1
-    Ammonia:
-      amount: 1
-  products:
-    SDAmmoniatedMercury: 2
+# - type: reaction
+#   id: SDAmmoniatedMercury
+#   reactants:
+#     SDCalomel:
+#       amount: 1
+#     Ammonia:
+#       amount: 1
+#   products:
+#     SDAmmoniatedMercury: 2
 
 - type: reaction
   id: SDSynthcells
@@ -45,20 +45,20 @@
   products:
     SDSynthcells: 3
 
-- type: reaction
-  id: SDSalicylicAcid
-  minTemp: 370
-  reactants:
-    TranexamicAcid:
-      amount: 1
-    FluorosulfuricAcid:
-      amount: 1
-    SodiumHydroxide:
-      amount: 1
-    Bicaridine:
-      amount: 1
-  products:
-    SDSalicylicAcid: 4
+# - type: reaction
+#   id: SDSalicylicAcid
+#   minTemp: 370
+#   reactants:
+#     TranexamicAcid:
+#       amount: 1
+#     FluorosulfuricAcid:
+#       amount: 1
+#     SodiumHydroxide:
+#       amount: 1
+#     Bicaridine:
+#       amount: 1
+#   products:
+#     SDSalicylicAcid: 4
 
 - type: reaction
   id: SDOxandrolone

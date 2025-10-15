@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Paint;
 /// </summary>
 public abstract class SharedPaintSystem : EntitySystem
 {
-    public virtual void UpdateAppearance(EntityUid uid, PaintedComponent? component = null)
+    public virtual void UpdateAppearance(EntityUid uid, ColorPaintedComponent? component = null)
     {
     }
 }

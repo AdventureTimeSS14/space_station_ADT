@@ -52,8 +52,8 @@ public sealed class CMGunSystem : EntitySystem
         if (args.Handled ||
             !_container.TryGetContainer(gun.Owner, gun.Comp.ContainerID, out var container) ||
             container.ContainedEntities.Count <= 0 ||
-            !_hands.TryGetActiveHand(args.User, out var hand) ||
-            !hand.IsEmpty ||
+            _hands.GetActiveHand(args.User) is not { } hand ||
+            !_hands.HandIsEmpty(args.User, hand) ||
             !_hands.CanPickupToHand(args.User, container.ContainedEntities[0], hand))
         {
             return;

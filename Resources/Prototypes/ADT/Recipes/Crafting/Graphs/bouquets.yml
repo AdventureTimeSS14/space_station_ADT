@@ -1,0 +1,134 @@
+- type: constructionGraph
+  id: ADTObjectWhiteBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: done
+          steps:
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+              doAfter: 10
+    - node: done
+      entity: ADTObjectWhiteBouquet
+
+- type: constructionGraph
+  id: ADTObjectYellowBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: done
+          steps:
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+              doAfter: 10
+    - node: done
+      entity: ADTObjectYellowBouquet
+
+- type: constructionGraph
+  id: ADTObjectRoseBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: done
+          steps:
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+              doAfter: 10
+    - node: done
+      entity: ADTObjectRoseBouquet
+
+- type: constructionGraph
+  id: ADTObjectLiliacBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: done
+          steps:
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+              doAfter: 10
+    - node: done
+      entity: ADTObjectLiliacBouquet
+
+- type: constructionGraph
+  id: ADTObjectBlackBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: done
+          steps:
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: construction-graph-tag-flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+              doAfter: 10
+    - node: done
+      entity: ADTObjectBlackBouquet

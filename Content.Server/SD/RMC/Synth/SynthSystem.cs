@@ -29,8 +29,8 @@ public sealed class SynthSystem : SharedSynthSystem
         if (TryComp<BloodstreamComponent>(ent.Owner, out var bloodstream)) // These TryComps are so tests don't fail
         {
             // This makes it so the synth doesn't take bloodloss damage.
-            _bloodstream.SetBloodLossThreshold(ent.Owner, 0f, bloodstream);
-            _bloodstream.ChangeBloodReagent(ent.Owner, ent.Comp.NewBloodReagent, bloodstream);
+            _bloodstream.SetBloodLossThreshold(ent.Owner, 0f);
+            _bloodstream.ChangeBloodReagent(ent.Owner, ent.Comp.NewBloodReagent);
         }
 
         var repOverrideComp = EnsureComp<HumanoidRepresentationOverrideComponent>(ent);
