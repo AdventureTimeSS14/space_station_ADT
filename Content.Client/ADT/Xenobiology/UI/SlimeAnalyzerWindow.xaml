@@ -1,0 +1,52 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'slime-analyzer-title'}"
+    MinSize="300 250">
+
+    <ScrollContainer Margin="5 5 5 5" ReturnMeasure="True" VerticalExpand="True">
+        <BoxContainer Name="RootContainer" VerticalExpand="True" Orientation="Vertical">
+            <Label Name="NoSlimeDataText" Text="{Loc 'slime-analyzer-no-data'}" Visible="false" />
+
+            <BoxContainer Name="SlimeDataContainer" Margin="0 0 0 5" Orientation="Vertical">
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+                    <SpriteView OverrideDirection="South" Scale="2 2" Name="SlimeSpriteView" Access="Public" SetSize="64 64" />
+                    <TextureRect Name="NoDataTex" Access="Public" SetSize="64 64" Visible="false" Stretch="KeepAspectCentered" TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
+                    <BoxContainer Margin="5 0 0 0" Orientation="Vertical" VerticalAlignment="Top">
+                        <RichTextLabel Name="SlimeTypeLabel" SetWidth="150" />
+                        <Label Name="SlimeStageLabel" VerticalAlignment="Top" StyleClasses="LabelSubText" />
+                    </BoxContainer>
+                    <Label Margin="0 0 5 0" HorizontalExpand="True" HorizontalAlignment="Right" VerticalExpand="True"
+                           VerticalAlignment="Top" Name="ScanModeLabel" Text="{Loc 'slime-analyzer-scanning'}" />
+                </BoxContainer>
+
+                <PanelContainer StyleClasses="LowDivider" />
+
+                <GridContainer Margin="0 5 0 0" Columns="2">
+                    <Label Text="{Loc 'slime-analyzer-hunger'}" />
+                    <BoxContainer Orientation="Horizontal">
+                        <ProgressBar Name="HungerBar" MinValue="0" MaxValue="1" VerticalAlignment="Center" HorizontalExpand="True" />
+                        <Label Name="HungerText" Margin="5 0 0 0" />
+                    </BoxContainer>
+                    <Label Text="{Loc 'slime-analyzer-mutation'}" />
+                    <Label Name="MutationChanceLabel" />
+                    <Label Text="{Loc 'slime-analyzer-special-mutation'}" />
+                    <Label Name="SpecialChanceLabel" />
+                </GridContainer>
+            </BoxContainer>
+
+            <PanelContainer StyleClasses="LowDivider" />
+
+            <BoxContainer
+                Name="MutationsContainer"
+                Margin="0 5 0 5"
+                Orientation="Vertical">
+                <Label Text="{Loc 'slime-analyzer-mutations'}" StyleClasses="LabelBold" />
+                <BoxContainer Name="MutationsList" Orientation="Vertical" />
+            </BoxContainer>
+        </BoxContainer>
+    </ScrollContainer>
+</controls:FancyWindow>

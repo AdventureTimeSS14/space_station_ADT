@@ -44,6 +44,10 @@ using Robust.Shared.Random;
 using Content.Shared.StatusEffect;
 using Content.Server.ADT.Hallucinations;
 using Content.Server.ADT.Shadekin;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Examine;
+using Content.Server.Teleportation;
+using Content.Shared.Mobs.Components;
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -83,6 +87,9 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly HallucinationsSystem _hall = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly ShadekinSystem _shadekin = default!;
+    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private readonly ExamineSystemShared _examineSystemShared = default!;
+    [Dependency] private readonly TeleportSystem _teleport = default!;
     // ADT-Tweak-End
 
     public override void Initialize()
@@ -136,8 +143,13 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
         // ADT-Tweak-Start
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<DoSmokeEntityEffect>>(OnDoSmokeEntityEffect);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<HallucinationsReagentEffect>>(OnExecuteHallucinationsReagentEffect);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<RandomTeleport>>(OnExecuteRandomTeleport);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ExtinguishNearby>>(OnExtinguishNearby);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<IgniteNearby>>(OnIgniteNearby);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<OxygenateNearby>>(OnOxygenateNearby);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<RandomTeleportNearby>>(OnRandomTeleportNearby);
         // ADT-Tweak-End
     }
 
@@ -993,32 +1005,117 @@ public sealed class EntityEffectSystem : EntitySystem
     // ADT-Tweak-Start
     private void OnExecuteHallucinationsReagentEffect(ref ExecuteEntityEffectEvent<HallucinationsReagentEffect> args)
     {
-        if (args.Args is not EntityEffectReagentArgs hallargs)
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
             return;
 
         var time = args.Effect.Time;
-        time *= hallargs.Scale.Float();
+        time *= reagentArgs.Scale.Float();
 
         if (args.Effect.Type == HallucinationsMetabolismType.Add)
         {
-            if (!_hall.StartHallucinations(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(args.Effect.Time), args.Effect.Refresh, args.Effect.Proto))
+            if (!_hall.StartHallucinations(reagentArgs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(args.Effect.Time), args.Effect.Refresh, args.Effect.Proto))
                 return;
         }
         else if (args.Effect.Type == HallucinationsMetabolismType.Remove)
         {
-            _status.TryRemoveTime(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
+            _status.TryRemoveTime(reagentArgs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
         }
         else if (args.Effect.Type == HallucinationsMetabolismType.Set)
         {
-            _status.TrySetTime(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
+            _status.TrySetTime(reagentArgs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
         }
     }
     private void OnExecuteRandomTeleport(ref ExecuteEntityEffectEvent<RandomTeleport> args)
     {
-        if (args.Args is not EntityEffectReagentArgs shadekinargs)
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
             return;
 
-        _shadekin.TeleportRandomlyNoComp(shadekinargs.TargetEntity, 2f);
+        _shadekin.TeleportRandomlyNoComp(reagentArgs.TargetEntity, 2f);
+    }
+
+    private void OnDoSmokeEntityEffect(ref ExecuteEntityEffectEvent<DoSmokeEntityEffect> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        if (!TryComp(reagentArgs.TargetEntity, out TransformComponent? xform))
+            return;
+
+        var mapCoords = _xform.GetMapCoordinates(reagentArgs.TargetEntity, xform);
+
+
+        if (!_mapManager.TryFindGridAt(mapCoords, out _, out var grid)
+            || !grid.TryGetTileRef(xform.Coordinates, out var tileRef)
+            || tileRef.Tile.IsEmpty)
+            return;
+
+        if (_spreader.RequiresFloorToSpread(args.Effect.SmokePrototype.ToString()) && _turf.IsSpace(tileRef))
+            return;
+
+        var coords = grid.MapToGrid(mapCoords);
+        var ent = SpawnAtPosition(args.Effect.SmokePrototype, coords.SnapToGrid());
+        if (!TryComp<SmokeComponent>(ent, out var smoke))
+        {
+            QueueDel(ent);
+            return;
+        }
+
+        _smoke.StartSmoke(ent, args.Effect.Solution, args.Effect.Duration, args.Effect.SpreadAmount, smoke);
+    }
+
+    public void OnExtinguishNearby(ref ExecuteEntityEffectEvent<ExtinguishNearby> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        foreach (var entity in _lookupSystem.GetEntitiesInRange(reagentArgs.TargetEntity, args.Effect.Range))
+            if (TryComp(entity, out FlammableComponent? flammable))
+                _flammable.Extinguish(entity, flammable);
+    }
+
+    public void OnIgniteNearby(ref ExecuteEntityEffectEvent<IgniteNearby> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        foreach (var entity in _lookupSystem.GetEntitiesInRange(reagentArgs.TargetEntity, args.Effect.Range))
+            if (TryComp(entity, out FlammableComponent? flammable))
+                _flammable.AdjustFireStacks(entity, args.Effect.FireStacks, flammable, true);
+    }
+
+    public void OnOxygenateNearby(ref ExecuteEntityEffectEvent<OxygenateNearby> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        foreach (var entity in _lookupSystem.GetEntitiesInRange(reagentArgs.TargetEntity, args.Effect.Range))
+            if (TryComp(entity, out RespiratorComponent? resp))
+                _respirator.UpdateSaturation(entity, args.Effect.Factor, resp);
+    }
+
+    public void OnRandomTeleportNearby(ref ExecuteEntityEffectEvent<RandomTeleportNearby> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        var uid = reagentArgs.TargetEntity;
+        var xform = _xform.GetMapCoordinates(uid);
+        var range = args.Effect.Range;
+
+        var entities = _lookupSystem.GetEntitiesInRange<MobStateComponent>(xform, range);
+
+        if (entities.Count == 0)
+            return;
+
+        var canTarget = entities
+            .Where(entity => entity != null && _examineSystemShared.InRangeUnOccluded(uid, entity, range))
+            .ToHashSet();
+
+        if (canTarget.Count == 0)
+            return;
+
+        foreach (var entity in canTarget)
+            _teleport.RandomTeleport(entity, args.Effect.Radius, args.Effect.TeleportAttempts);
     }
     // ADT-Tweak-End
 }
