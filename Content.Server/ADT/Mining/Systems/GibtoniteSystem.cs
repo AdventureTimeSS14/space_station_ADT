@@ -206,20 +206,18 @@ public sealed class GibtoniteSystem : EntitySystem
     /// </summary>
     private void GetOre(EntityUid uid, GibtoniteComponent comp)
     {
+        if (comp.Active)
+            return;
+
         var ore = Spawn(comp.OrePrototype, _transform.GetMapCoordinates(uid));
         if (TryComp<GibtoniteComponent>(ore, out var oreComp))
         {
             oreComp.Extracted = true;
             oreComp.ReactionElapsedTime = comp.ReactionElapsedTime;
+            oreComp.ReactionMaxTime -= comp.ReactionElapsedTime - 1;
 
-            if (!comp.Active)
-            {
-                oreComp.ReactionMaxTime -= comp.ReactionElapsedTime - 1;
-                var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
-                gibtoniteSystem.Explosion(ore, oreComp);
-            }
-
-            QueueDel(uid);
+            var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
+            gibtoniteSystem.Explosion(ore, oreComp);
         }
     }
 
