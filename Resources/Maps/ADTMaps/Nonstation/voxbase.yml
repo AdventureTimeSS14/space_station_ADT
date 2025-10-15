@@ -1905,21 +1905,21 @@ entities:
     - type: Transform
       pos: -0.6437372,-0.5442198
       parent: 2050
-- proto: ADTFunCardsBox
-  entities:
-  - uid: 2803
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -26.268753,10.51092
-      parent: 1
-- proto: ADTFunCardsBoxFull54
-  entities:
-  - uid: 7
-    components:
-    - type: Transform
-      pos: -10.309937,13.116123
-      parent: 2
+# - proto: ADTFunCardsBox
+#   entities:
+#   - uid: 2803
+#     components:
+#     - type: Transform
+#       rot: -1.5707963267948966 rad
+#       pos: -26.268753,10.51092
+#       parent: 1
+# - proto: ADTFunCardsBoxFull54
+#   entities:
+#   - uid: 7
+#     components:
+#     - type: Transform
+#       pos: -10.309937,13.116123
+#       parent: 2
 - proto: ADTGlassReinDagger
   entities:
   - uid: 8

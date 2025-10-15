@@ -3778,14 +3778,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 18.5,58.5
       parent: 2
-- proto: ADTFunCardsBoxFull54
-  entities:
-  - uid: 10
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 36.644646,46.589935
-      parent: 2
+# - proto: ADTFunCardsBoxFull54
+#   entities:
+#   - uid: 10
+#     components:
+#     - type: Transform
+#       rot: 3.141592653589793 rad
+#       pos: 36.644646,46.589935
+#       parent: 2
 - proto: ADTKitchenElectricRange
   entities:
   - uid: 11

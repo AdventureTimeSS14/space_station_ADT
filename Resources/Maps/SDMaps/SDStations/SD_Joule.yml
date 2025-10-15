@@ -19395,14 +19395,14 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ADTFunCardsBox
-  entities:
-  - uid: 126
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -35.204433,18.630186
-      parent: 2
+# - proto: ADTFunCardsBox
+#   entities:
+#   - uid: 126
+#     components:
+#     - type: Transform
+#       rot: -1.5707963267948966 rad
+#       pos: -35.204433,18.630186
+#       parent: 2
 - proto: ADTFunCasinoChip100stack
   entities:
   - uid: 127
