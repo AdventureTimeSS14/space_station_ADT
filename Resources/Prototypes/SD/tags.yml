@@ -12,3 +12,6 @@
 
 - type: Tag
   id: MedicalPatch
+
+- type: Tag
+  id: ResearchDisk

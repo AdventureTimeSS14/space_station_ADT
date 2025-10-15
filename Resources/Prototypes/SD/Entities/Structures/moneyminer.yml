@@ -1,0 +1,73 @@
+- type: entity
+  id: SDMoneyMiner
+  name: money miner
+  parent: [BaseMachinePowered]
+  description: A very loud machine that uses bluespace blockchain technology to generate money when powered.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: ItemMiner
+    interval: 120
+    amount: 1
+    proto: SpaceCash5000
+    itemSlotId: tc_slot
+  - type: Sprite
+    noRot: true
+    sprite: SD/Structures/Machines/moneyminer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      state: unshaded
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: True }
+          False: { visible: False }
+  - type: ItemSlots
+    slots:
+      tc_slot:
+        name: Cash
+        insertSound:
+          path: /Audio/Effects/pop.ogg
+        ejectSound:
+          path: /Audio/Effects/pop.ogg
+        whitelist:
+          tags:
+          - SpaceCash
+  - type: ContainerContainer
+    containers:
+      tc_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    radius: 0.8
+    energy: 0.5
+    color: "#ED760E"
+  - type: PassiveHeatProducer
+    energyPerSecond: 1500
+
+- type: entity
+  parent: BaseFlatpack
+  id: SDMoneyMinerFlatpack
+  name: money miner flatpack
+  description: A flatpack used for constructing a money miner machine.
+  components:
+  - type: Flatpack
+    entity: SDMoneyMiner

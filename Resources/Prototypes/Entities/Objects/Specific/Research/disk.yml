@@ -11,6 +11,9 @@
   - type: GuideHelp
     guides:
     - Science
+  - type: Tag
+    tags:
+    - ResearchDisk
 
 - type: entity
   parent: ResearchDisk

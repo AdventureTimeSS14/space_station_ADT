@@ -214,3 +214,24 @@
   # ADT Research Console Rework start
   position: 5,-3
   # ADT Research Console Rework end
+
+#SD add
+- type: technology
+  id: PointsMinerResearch
+  name: research-technology-points-miner-research
+  icon:
+    sprite: SD/Structures/Machines/researchminer.rsi
+    state: icon
+  discipline: Experimental
+  tier: 3
+  cost: 50000
+  recipeUnlocks:
+  - SDPointsMinerFlatpack
+  technologyPrerequisites:
+  - AdvancedAnomalyResearch
+  # ADT Research Console Rework start
+  position: 4,-2
+  requiredTech:
+  - AdvancedAnomalyResearch
+  # ADT Research Console Rework end
+#SD add end
