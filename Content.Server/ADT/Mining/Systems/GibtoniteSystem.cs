@@ -97,24 +97,25 @@ public sealed class GibtoniteSystem : EntitySystem
     {
         if (comp.Triggered) // Если камень до этого уже ударили - дропаем руду.
         {
-            if (!comp.Active && !comp.Extracted && comp.ReactionElapsedTime < 0.01f)
+            if (!comp.Active && !comp.Extracted && !(comp.ReactionElapsedTime >= comp.ReactionMaxTime))
             {
                 GetOre(uid, comp);
                 return;
             }
         }
+        else
+        {
+            if (!comp.Extracted) // Запись того, что камень ударили впервые.
+                comp.Triggered = true;
 
-        if (!comp.Extracted) // Запись того, что камень ударили впервые.
-            comp.Triggered = true;
+            _popup.PopupEntity(Loc.GetString("gibtonit-get-damage"), uid, PopupType.LargeCaution);
 
-        _popup.PopupEntity(Loc.GetString("gibtonit-get-damage"), uid, PopupType.LargeCaution);
+            // Активируем таймер
+            comp.Active = true;
+            comp.ReactionTime = _timing.CurTime;
 
-        // Активируем таймер
-        comp.Active = true;
-        comp.ReactionTime = _timing.CurTime;
-        comp.ReactionElapsedTime = 0f;
-
-        UpdateAppearance(uid, comp);
+            UpdateAppearance(uid, comp);
+        }
     }
 
     /// <summary>
