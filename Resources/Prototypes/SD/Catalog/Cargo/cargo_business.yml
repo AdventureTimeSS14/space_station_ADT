@@ -1,9 +1,9 @@
 - type: cargoProduct
-  id: BusinessMoneyMiner
+  id: SDBusinessMoneyMiner
   icon:
-    sprite: Objects/Fun/Instruments/structureinstruments.rsi
-    state: tuba
-  product: moneyminerFlatpack
+    sprite: SD/Structures/Machines/moneyminer.rsi
+    state: icon
+  product: SDMoneyMinerFlatpack
   cost: 100000
   category: cargoproduct-category-name-business
   group: market

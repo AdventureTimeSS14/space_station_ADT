@@ -230,6 +230,7 @@
     - ADTPowerPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
+    - SDPointsMinerPack #SD Tweak
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
