@@ -167,6 +167,8 @@ public sealed class GibtoniteSystem : EntitySystem
             maxTileIntensity: 10f,
             canCreateVacuum: true
         );
+
+        QueueDel(uid);
     }
 
     /// <summary>
@@ -219,6 +221,8 @@ public sealed class GibtoniteSystem : EntitySystem
             var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
             gibtoniteSystem.Explosion(ore, oreComp);
         }
+
+        QueueDel(uid);
     }
 
     /// <summary>
