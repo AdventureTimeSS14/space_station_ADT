@@ -123,7 +123,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Joule Station
+      name: Joule
     - type: Transform
     - type: Map
       mapPaused: True
@@ -18712,7 +18712,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Joule
+      id: SD_Joule
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: SupermatterSpreaderGrid
