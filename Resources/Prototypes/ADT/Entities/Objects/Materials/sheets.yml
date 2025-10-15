@@ -16,6 +16,7 @@
     - lead_2
     - lead_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: lead_3
     layers:
     - state: lead_3
@@ -36,9 +37,6 @@
           Quantity: 8.8
         - ReagentId: Carbon
           Quantity: 0.9
-  - type: Tag
-    tags:
-      - ADTSheet
 
 - type: entity
   parent: ADTSheetLead
@@ -99,9 +97,6 @@
           Quantity: 8.8
         - ReagentId: Carbon
           Quantity: 0.9
-  - type: Tag
-    tags:
-      - ADTSheet
 
 - type: entity
   parent: ADTSheetCopper
@@ -145,6 +140,7 @@
     - zinc_2
     - zinc_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: zinc_3
     layers:
     - state: zinc_3

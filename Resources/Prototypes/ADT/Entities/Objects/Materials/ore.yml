@@ -47,13 +47,16 @@
   id: ADTGibtonite
   suffix: Full
   name: Gibtonite ore
-  description: rock with pieces of gibtonite
+  description: Rock with pieces of gibtonite.
   components:
   - type: Appearance
   - type: Sprite
     sprite: ADT/Objects/Materials/gibtonite.rsi
     layers:
       - state: gibtonite
+        visible: true
+      - map: ["enum.GibtoniteVisuals.State"]
+        state: normal
         visible: true
       - state: active
         visible: false
@@ -108,7 +111,9 @@
   - type: Stack
     stackType: CopperOre
   - type: Sprite
-    state: copper
+    sprite: ADT/Objects/Materials/ore.rsi
+    layers:
+    - state: copper
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -141,6 +146,7 @@
   - type: Stack
     stackType: ZincOre
   - type: Sprite
+    sprite: ADT/Objects/Materials/ore.rsi
     state: zinc
   - type: Material
   - type: PhysicalComposition
@@ -175,6 +181,7 @@
   - type: Stack
     stackType: LeadOre
   - type: Sprite
+    sprite: ADT/Objects/Materials/ore.rsi
     state: lead
   - type: Material
   - type: PhysicalComposition

@@ -456,7 +456,7 @@
 
 - type: entity
   id: ADTAsteroidRockGibtonit
-  parent: [AsteroidRock,ADTAsteroidRockGibtonite]
+  parent: [AsteroidRock, ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
   components:
@@ -477,7 +477,7 @@
 
 - type: entity
   id: ADTMeteorRockGibtonit
-  parent: [MeteorRock,ADTAsteroidRockGibtonite]
+  parent: [MeteorRock, ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
   components:
@@ -498,7 +498,7 @@
 
 - type: entity
   id: ADTWallRockBasaltGibtonit
-  parent: [WallRockBasalt,ADTAsteroidRockGibtonite]
+  parent: [WallRockBasalt, ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
   components:
@@ -519,7 +519,7 @@
 
 - type: entity
   id: ADTWallRockSnowGibtonit
-  parent: [WallRockSnow,ADTAsteroidRockGibtonite]
+  parent: [WallRockSnow, ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
   components:
@@ -540,7 +540,7 @@
 
 - type: entity
   id: ADTWallRockSandGibtonit
-  parent: [WallRockSand,ADTAsteroidRockGibtonite]
+  parent: [WallRockSand, ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
   components:
@@ -561,7 +561,7 @@
 
 - type: entity
   id: ADTWallRockChromiteGibtonit
-  parent: [WallRockChromite,ADTAsteroidRockGibtonite]
+  parent: [WallRockChromite, ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
   components:
@@ -582,7 +582,7 @@
 
 - type: entity
   id: ADTWallRockAndesiteGibtonit
-  parent: [WallRockAndesite,ADTAsteroidRockGibtonite]
+  parent: [WallRockAndesite, ADTAsteroidRockGibtonite]
   description: An ore vein rich with gibtonite.
   suffix: Gibtonite
   components:
