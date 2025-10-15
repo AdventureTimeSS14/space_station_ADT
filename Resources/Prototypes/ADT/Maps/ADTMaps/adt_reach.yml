@@ -2,8 +2,8 @@
   id: ADT_Reach
   mapName: 'Reach'
   mapPath: /Maps/ADTMaps/ADTStations/adt_reach.yml
-  minPlayers: 1
-  maxPlayers: 15
+  minPlayers: 0
+  maxPlayers: 20
   stations:
     ADT_Reach:
       stationProto: StandardNanotrasenStation
