@@ -23,3 +23,8 @@
   id: XenoBluespace
   kind: source
   path: "/Textures/ADT/Xenobiology/Shaders/xeno_bluespace.swsl"
+
+- type: shader
+  id: Rainbow2
+  kind: source
+  path: "/Textures/ADT/Shaders/rainbow2.swsl"

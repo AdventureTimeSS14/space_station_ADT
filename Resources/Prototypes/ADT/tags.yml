@@ -726,4 +726,7 @@
   id: XenobiologyAdamantineExtract
 
 - type: Tag
+  id: XenobiologyRainbowExtract
+
+- type: Tag
   id: FrozenIgnoreMindAction

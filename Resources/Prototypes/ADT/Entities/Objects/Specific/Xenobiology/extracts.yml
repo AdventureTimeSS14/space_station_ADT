@@ -44,9 +44,9 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:AdjustReagent
-        reagent: Epinephrine
-        amount: 100
+      - !type:CreateEntityReactionEffect
+        entity: GreyExtractJelly
+        number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:PopupMessage
@@ -72,7 +72,6 @@
     tags:
     - XenobiologyGreyExtract
 
-## Tier 1
 - type: entity
   id: OrangeSlimeExtract
   parent: BaseSlimeExtract
@@ -108,15 +107,15 @@
       - !type:FlashReactionEffect
         maxRange: 7
         rangePerUnit: 1
-        sound: /Audio/ADT/Wizard/zapbang.ogg
+        sound: /Audio/ADT/Lavaland/the-lava-bubble-gurgled.ogg
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:AdjustReagent
-        reagent: CapsaicinOil
-        amount: 100
+      - !type:CreateEntityReactionEffect
+        entity: OrangeExtractJelly
+        number: 1
       - !type:PopupMessage
         messages: [ "xeno-extract-capsaicin-created" ]
       - !type:PlaySoundEffect
@@ -272,8 +271,6 @@
   - type: Tag
     tags:
     - XenobiologyMetalExtract
-
-## Tier 2
 
 - type: entity
   id: YellowSlimeExtract
@@ -456,8 +453,6 @@
     tags:
     - XenobiologySilverExtract
 
-# Tier 2.5
-
 - type: entity
   id: BluespaceSlimeExtract
   parent: BaseSlimeExtract
@@ -531,7 +526,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: XenoExtractChronofield # This should happen after 5 seconds...
+        entity: XenoExtractChronofield
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -591,7 +586,7 @@
 - type: entity
   id: PyriteSlimeExtract
   parent: BaseSlimeExtract
-  name: pyrite slime extract # Requires upstream status effects.
+  name: pyrite slime extract
   description:
   components:
   - type: Sprite
@@ -642,7 +637,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: GreenExtractJelly
+        entity: GreenExtractJellyHuman
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -893,3 +888,19 @@
   - type: Tag
     tags:
     - XenobiologyAdamantineExtract
+
+- type: entity
+  id: RainbowSlimeExtract
+  parent: BaseSlimeExtract
+  name: rainbow slime extract
+  description:
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      shader: Rainbow2
+  - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyRainbowExtract

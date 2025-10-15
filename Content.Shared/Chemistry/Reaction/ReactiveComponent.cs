@@ -25,19 +25,19 @@ public sealed partial class ReactiveComponent : Component
 
     // ADT-Tweak-Start
     /// <summary>
-    /// How many times can this component react, if not unlimited? - Goobstation
+    /// How many times can this component react, if not unlimited?
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int RemainingReactions = 1;
 
     /// <summary>
-    /// Can this reaction activate unlimited times? - Goobstation
+    /// Can this reaction activate unlimited times?
     /// </summary>
     [DataField(serverOnly: true)]
     public bool IsReactionsUnlimited = true;
 
     /// <summary>
-    /// Will this reaction only react with one unit? - Goobstation
+    /// Will this reaction only react with one unit?
     /// </summary>
     [DataField(serverOnly: true)]
     public bool OneUnitReaction;

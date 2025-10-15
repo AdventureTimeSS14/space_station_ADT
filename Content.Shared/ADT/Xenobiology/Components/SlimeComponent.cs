@@ -42,6 +42,9 @@ public sealed partial class SlimeComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
 
+    [DataField, AutoNetworkedField]
+    public HashSet<ProtoId<BreedPrototype>> SpecialPotentialMutations = new();
+
     /// <summary>
     /// The stomach! Holds all consumed entities to be consumed.
     /// </summary>
@@ -97,6 +100,9 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MutationChance = 0.45f;
+
+    [DataField, AutoNetworkedField]
+    public float SpecialMutationChance = 0.01f;
 
     /// <summary>
     /// What hunger threshold must be met for mitosis?

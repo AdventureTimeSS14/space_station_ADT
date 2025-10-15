@@ -56,7 +56,6 @@
         chanceModifier: 0.25
         shouldSubtract: false
 
-# Species Morphchems
 - type: reagent
   id: GreenXenoJelly
   parent: Slime
@@ -64,12 +63,8 @@
   metabolisms:
     Food:
       effects:
-      - !type:SpeciesChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-          max: 15
-        newSpecies: SlimePerson
+      - !type:Polymorph
+        prototype: ADTSlimePolymorph
 
 - type: reagent
   id: XenoHumanToxin
@@ -78,12 +73,8 @@
   metabolisms:
     Food:
       effects:
-      - !type:SpeciesChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-          max: 15
-        newSpecies: Human
+      - !type:Polymorph
+        prototype: ADTHumanPolymorph
 
 - type: reagent
   id: XenoLizardToxin
@@ -92,13 +83,8 @@
   metabolisms:
     Food:
       effects:
-      - !type:SpeciesChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-          max: 15
-        newSpecies: Reptilian
-# End Species Morphchems
+      - !type:Polymorph
+        prototype: ADTLizardPolymorph
 
 - type: reagent
   id: XenoGenderFluid
@@ -110,5 +96,5 @@
       - !type:SexChange
         conditions:
         - !type:ReagentThreshold
-          min: 15
-          max: 15
+          min: 10
+          max: 10

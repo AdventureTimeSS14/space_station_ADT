@@ -24,9 +24,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Xenobiology.Systems;
 
-/// <summary>
-/// This handles the server-side of Xenobiology.
-/// </summary>
 public sealed partial class XenobiologySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -83,11 +80,6 @@ public sealed partial class XenobiologySystem : EntitySystem
         UpdateHunger();
     }
 
-    /// <summary>
-    /// Returns the extract associated by the slimes breed.
-    /// </summary>
-    /// <param name="slime">The slime entity.</param>
-    /// <returns>Grey if no breed can be found.</returns>
     public EntProtoId GetProducedExtract(Entity<SlimeComponent> slime)
     {
         return _prototypeManager.TryIndex(slime.Comp.Breed, out var breedPrototype)

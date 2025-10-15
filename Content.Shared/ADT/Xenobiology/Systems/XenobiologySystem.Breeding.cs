@@ -57,7 +57,7 @@ public partial class XenobiologySystem
     /// <param name="parent">The original entity.</param>
     /// <param name="newEntityProto">The proto of the entity being spawned.</param>
     /// <param name="selectedBreed">The selected breed of the entity.</param>
-    private void DoBreeding(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
+    public void DoBreeding(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
         if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed)
             || _net.IsClient)
@@ -72,6 +72,9 @@ public partial class XenobiologySystem
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, slime.SlimeColor);
         _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
+
+        if (HasComp<RandomBreedOnSpawnComponent>(parent))
+            QueueDel(parent);
     }
 
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
@@ -89,6 +92,9 @@ public partial class XenobiologySystem
 
             if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
+            else if (ent.Comp.MutationChance >= 0.7f && ent.Comp.SpecialPotentialMutations.Count > 0 &&
+                _random.Prob(ent.Comp.SpecialMutationChance))
+                selectedBreed = _random.Pick(ent.Comp.SpecialPotentialMutations);
 
             DoBreeding(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
         }
