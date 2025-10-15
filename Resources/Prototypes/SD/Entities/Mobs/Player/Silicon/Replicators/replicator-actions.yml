@@ -32,7 +32,7 @@
     useDelay: 20
   - type: InstantAction
     event: !type:ReplicatorUpgradeActionEvent
-      nextStage: MobReplicator
+      nextStage: BaseMobReplicator
 
 - type: entity
   id: ActionReplicatorUpgrade2
