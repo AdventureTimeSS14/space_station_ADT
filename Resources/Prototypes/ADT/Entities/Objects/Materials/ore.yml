@@ -47,13 +47,16 @@
   id: ADTGibtonite
   suffix: Full
   name: Gibtonite ore
-  description: rock with pieces of gibtonite
+  description: Rock with pieces of gibtonite.
   components:
   - type: Appearance
   - type: Sprite
     sprite: ADT/Objects/Materials/gibtonite.rsi
     layers:
       - state: gibtonite
+        visible: true
+      - map: ["enum.GibtoniteVisuals.State"]
+        state: normal
         visible: true
       - state: active
         visible: false

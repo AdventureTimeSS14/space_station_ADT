@@ -36,9 +36,6 @@
           Quantity: 8.8
         - ReagentId: Carbon
           Quantity: 0.9
-  - type: Tag
-    tags:
-      - ADTSheet
 
 - type: entity
   parent: ADTSheetLead
@@ -99,9 +96,6 @@
           Quantity: 8.8
         - ReagentId: Carbon
           Quantity: 0.9
-  - type: Tag
-    tags:
-      - ADTSheet
 
 - type: entity
   parent: ADTSheetCopper

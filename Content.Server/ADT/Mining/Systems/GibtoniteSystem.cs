@@ -12,6 +12,7 @@ using Content.Server.Popups;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Content.Server.Kitchen.Components;
+using Content.Server.Gatherable.Components;
 
 namespace Content.Server.ADT.Mining.Systems;
 
@@ -33,11 +34,14 @@ public sealed class GibtoniteSystem : EntitySystem
 
         SubscribeLocalEvent<GibtoniteComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<GibtoniteComponent, InteractUsingEvent>(OnItemInteract);
-        SubscribeLocalEvent<GibtoniteComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<GibtoniteComponent, ComponentStartup>(OnStartup);
     }
 
-    private void OnInit(EntityUid uid, GibtoniteComponent comp, ComponentInit args)
+    private void OnStartup(EntityUid uid, GibtoniteComponent comp, ComponentStartup args)
     {
+        if (TryComp<GatherableComponent>(uid, out _))
+            RemComp<GatherableComponent>(uid);
+
         RandomTimer(comp);
     }
 
@@ -53,12 +57,33 @@ public sealed class GibtoniteSystem : EntitySystem
         }
 
         comp.ReactionTime = _timing.CurTime;
+        comp.ReactionElapsedTime = 0f;
+    }
+
+    /// <summary>
+    /// Просто таймер. Просто БУМ БУМ БУМ при его окончании.
+    /// </summary>
+    public override void Update(float frameTime)
+    {
+        foreach (var comp in EntityManager.EntityQuery<GibtoniteComponent>())
+        {
+            if (!comp.Active)
+                continue;
+
+            // Считаем, сколько времени прошло
+            comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds;
+
+            // Взорвать гибтонит, если время истекло
+            if (comp.ReactionElapsedTime >= comp.ReactionMaxTime)
+            {
+                if (EntityManager.EntityExists(comp.Owner))
+                    Explosion(comp.Owner, comp);
+            }
+        }
     }
 
     private void OnDamageChanged(EntityUid uid, GibtoniteComponent comp, ref DamageChangedEvent args)
     {
-        _popup.PopupEntity(Loc.GetString("gibtonit-get-damage"), uid, PopupType.LargeCaution);
-
         if (comp.Active) // Если при ударе гибтонит уже был активен - моментальный BOOM BOOM BOOM
         {
             Explosion(uid, comp);
@@ -82,8 +107,14 @@ public sealed class GibtoniteSystem : EntitySystem
         if (!comp.Extracted) // Запись того, что камень ударили впервые.
             comp.Triggered = true;
 
+        _popup.PopupEntity(Loc.GetString("gibtonit-get-damage"), uid, PopupType.LargeCaution);
+
+        // Активируем таймер
         comp.Active = true;
-        StartTimer(uid, comp);
+        comp.ReactionTime = _timing.CurTime;
+        comp.ReactionElapsedTime = 0f;
+
+        UpdateAppearance(uid, comp);
     }
 
     /// <summary>
@@ -99,34 +130,21 @@ public sealed class GibtoniteSystem : EntitySystem
     }
 
     /// <summary>
-    /// Просто таймер. Просто БУМ БУМ БУМ при его окончании.
-    /// </summary>
-    public void StartTimer(EntityUid uid, GibtoniteComponent comp)
-    {
-        if (!comp.Active)
-            return;
-
-        UpdateAppearance(uid, comp);
-        Timer.Spawn(TimeSpan.FromSeconds(comp.ReactionMaxTime), () =>
-        {
-            if (!EntityManager.EntityExists(uid) || !comp.Active)
-                return;
-
-            Explosion(uid, comp); // Boom boom boom boom. I want you in my room. We'll spend the night together. From now until forever.
-        });
-    }
-
-    /// <summary>
     /// Чем позже остановили цепную реакцию - тем лучше будет взрыв.
     /// </summary>
     private void Explosion(EntityUid uid, GibtoniteComponent comp)
     {
-        // Скейл достигает максимум модификатора в х2. Собственно, гибтонит который остановили в последнюю секунду - будет с силой в 450. 
+        if (!comp.Active) // Если неактивен - не взрываем
+            return;
+
+        comp.Active = false;
+
+        // Скейл достигает максимум модификатора в х2. 
         var scale = (float)comp.ReactionElapsedTime / comp.ReactionMaxTime + 1;
         var power = comp.MinIntensity * scale;
 
         var intensity = comp.Extracted
-            ? Math.Clamp(power, comp.MinIntensity, comp.MaxIntensity) // на всякий.
+            ? Math.Clamp(power, comp.MinIntensity, comp.MaxIntensity) // на всякий
             : comp.MaxIntensity;
 
         if (comp.Extracted)
@@ -141,9 +159,6 @@ public sealed class GibtoniteSystem : EntitySystem
             UpdateAppearance(uid, comp);
         }
 
-        if (!comp.Active)
-            return;
-
         _explosion.QueueExplosion(
             uid,
             "DemolitionCharge",
@@ -152,9 +167,6 @@ public sealed class GibtoniteSystem : EntitySystem
             maxTileIntensity: 10f,
             canCreateVacuum: true
         );
-
-        if (EntityManager.EntityExists(uid))
-            QueueDel(uid);
     }
 
     /// <summary>
@@ -167,22 +179,25 @@ public sealed class GibtoniteSystem : EntitySystem
             if (comp.Extracted)
                 return;
 
-            comp.Active = false;
-            comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds; // Считаем, сколько секунд осталось до взрыва.
+            comp.Active = false; // Деактивируем - это остановит взрыв
+            comp.ReactionElapsedTime = (float)(_timing.CurTime - comp.ReactionTime).TotalSeconds;
 
             _popup.PopupEntity(Loc.GetString("gibtonit-bombhasbeendefused"), uid, PopupType.MediumCaution);
             StopAnimation(uid, comp);
             UpdateAppearance(uid, comp);
         }
-
         else if (HasComp<SharpComponent>(args.Used))
         {
             if (!comp.Extracted)
                 return;
 
             if (!_tag.HasTag(args.Used, PlasticKnife))
+            {
                 comp.Active = true;
+                comp.ReactionTime = _timing.CurTime;
+                comp.ReactionElapsedTime = 0f;
                 Explosion(uid, comp);
+            }
         }
     }
 
@@ -195,11 +210,17 @@ public sealed class GibtoniteSystem : EntitySystem
         if (TryComp<GibtoniteComponent>(ore, out var oreComp))
         {
             oreComp.Extracted = true;
-            oreComp.ReactionElapsedTime = comp.ReactionElapsedTime; // Нужно для модификатора взрыва у выкопанного гибтонита.
-            oreComp.ReactionMaxTime -= comp.ReactionElapsedTime - 1; // Устанавливаем макс. время для выкопанного гибтонита. -1 Нужно для более удобной игры шахетерам aka подушка безопасности.
-            var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
+            oreComp.ReactionElapsedTime = comp.ReactionElapsedTime;
 
-            gibtoniteSystem.Explosion(ore, oreComp);
+            // Если камень был активен (не дефьюзнут), вызываем взрыв на выкопанном
+            if (comp.Active)
+            {
+                oreComp.ReactionMaxTime -= comp.ReactionElapsedTime - 1;
+                var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
+                gibtoniteSystem.Explosion(ore, oreComp);
+            }
+
+            QueueDel(uid);
         }
     }
 
