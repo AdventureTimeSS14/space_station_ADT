@@ -212,8 +212,7 @@ public sealed class GibtoniteSystem : EntitySystem
             oreComp.Extracted = true;
             oreComp.ReactionElapsedTime = comp.ReactionElapsedTime;
 
-            // Если камень был активен (не дефьюзнут), вызываем взрыв на выкопанном
-            if (comp.Active)
+            if (!comp.Active)
             {
                 oreComp.ReactionMaxTime -= comp.ReactionElapsedTime - 1;
                 var gibtoniteSystem = EntityManager.EntitySysManager.GetEntitySystem<GibtoniteSystem>();
