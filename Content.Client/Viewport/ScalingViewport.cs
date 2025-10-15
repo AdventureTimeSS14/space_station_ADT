@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq; //ADT-Tweak
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -27,7 +28,9 @@ namespace Content.Client.Viewport
 
         // Internal viewport creation is deferred.
         private IClydeViewport? _viewport;
+        private List<IClydeViewport> _lowerPorts = new(); //ADT-Tweak
         private IEye? _eye;
+        private IEye[] _lowerEyes = new IEye[] {}; //ADT-Tweak
         private Vector2i _viewportSize;
         private int _curRenderScale;
         private ScalingViewportStretchMode _stretchMode = ScalingViewportStretchMode.Bilinear;
@@ -42,17 +45,27 @@ namespace Content.Client.Viewport
         /// <summary>
         ///     The eye to render.
         /// </summary>
-        public IEye? Eye
+        public IEye[] LowerEyes //ADT-Tweak-start
         {
-            get => _eye;
+            get => _lowerEyes;
             set
             {
-                _eye = value;
+                var old = value;
+                _lowerEyes = value;
+                if (old.Length != value.Length)
+                {
+                    InvalidateViewport();
+                    Logger.Debug("Eyes updated..");
+                }
 
-                if (_viewport != null)
-                    _viewport.Eye = value;
+
+                foreach (var (eye, port) in _lowerEyes.Zip(_lowerPorts))
+                {
+                    port.Eye = eye;
+                }
             }
         }
+        //ADT-Tweak-end
 
         /// <summary>
         ///     The size, in unscaled pixels, of the internal viewport.
@@ -152,6 +165,11 @@ namespace Content.Client.Viewport
 
             _viewport!.Render();
 
+            foreach (var viewport in _lowerPorts) //ADT-Tweak-start
+            {
+                viewport.Render();
+            }   //ADT-Tweak-end
+
             if (_queuedScreenshots.Count != 0)
             {
                 var callbacks = _queuedScreenshots.ToArray();
@@ -170,6 +188,10 @@ namespace Content.Client.Viewport
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
             _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
+            foreach (var viewport in _lowerPorts.AsEnumerable().Reverse()) //ADT-Tweak-start
+            {
+                handle.DrawTextureRect(viewport.RenderTarget.Texture, drawBox);
+            }   //ADT-Tweak-end
             handle.DrawingHandleScreen.DrawTextureRect(_viewport.RenderTarget.Texture, drawBox);
             _viewport.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
         }
@@ -251,7 +273,25 @@ namespace Content.Client.Viewport
                 {
                     Filter = StretchMode == ScalingViewportStretchMode.Bilinear,
                 });
+            //ADT-Tweak-start
+            _viewport.ClearColor = Color.Blue.WithAlpha(0.02f);
 
+            _lowerPorts.Clear();
+            for (var i = 0; i < _lowerEyes.Length; i++)
+            {
+                _lowerPorts.Add(_clyde.CreateViewport(
+                    ViewportSize * renderScale,
+                    new TextureSampleParameters
+                    {
+                        Filter = StretchMode == ScalingViewportStretchMode.Bilinear,
+                    }));
+                _lowerPorts[i].RenderScale = (renderScale, renderScale);
+                _lowerPorts[i].ClearColor = Color.Blue.WithAlpha(0.02f);
+
+                _lowerPorts[i].Eye = _lowerEyes[i];
+                _lowerPorts[i].Eye!.Zoom = _lowerPorts[i].Eye!.Zoom * (1.02f + i * 0.02f);
+            }
+            //ADT-Tweak-end
             _viewport.RenderScale = new Vector2(renderScale, renderScale);
 
             _viewport.Eye = _eye;
@@ -268,6 +308,13 @@ namespace Content.Client.Viewport
         {
             _viewport?.Dispose();
             _viewport = null;
+            //ADT-Tweak-start
+            foreach (var port in _lowerPorts)
+            {
+                port.Dispose();
+            }
+            _lowerPorts = new();
+            //ADT-Tweak-end
         }
 
         public MapCoordinates ScreenToMap(Vector2 coords)
@@ -336,7 +383,7 @@ namespace Content.Client.Viewport
 
         private void EnsureViewportCreated()
         {
-            if (_viewport == null)
+            if (_viewport == null || _lowerPorts.Count != _lowerEyes.Length) //ADT-Tweak
             {
                 RegenerateViewport();
             }
