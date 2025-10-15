@@ -16,6 +16,7 @@
     - lead_2
     - lead_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: lead_3
     layers:
     - state: lead_3
@@ -79,6 +80,7 @@
     - copper_2
     - copper_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: copper_3
     layers:
     - state: copper_3
@@ -139,6 +141,7 @@
     - zinc_2
     - zinc_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: zinc_3
     layers:
     - state: zinc_3

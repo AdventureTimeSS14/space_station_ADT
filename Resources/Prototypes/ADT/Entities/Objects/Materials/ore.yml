@@ -111,7 +111,9 @@
   - type: Stack
     stackType: CopperOre
   - type: Sprite
-    state: copper
+    sprite: ADT/Objects/Materials/ore.rsi
+    layers:
+    - state: copper
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -144,6 +146,7 @@
   - type: Stack
     stackType: ZincOre
   - type: Sprite
+    sprite: ADT/Objects/Materials/ore.rsi
     state: zinc
   - type: Material
   - type: PhysicalComposition
@@ -178,6 +181,7 @@
   - type: Stack
     stackType: LeadOre
   - type: Sprite
+    sprite: ADT/Objects/Materials/ore.rsi
     state: lead
   - type: Material
   - type: PhysicalComposition
