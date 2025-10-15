@@ -816,3 +816,7 @@ BookSpaceLaw: ADTBookSpaceLaw
 # ADT 2025-08-27
 ADTIndustrialSMES: SMESAdvanced
 SpawnPointADTSecborg: null # На всякий случай лол
+
+# ADT 2025-10-15
+Tourniquet1: ADTTourniquet1
+Tourniquet: ADTTourniquet
