@@ -103,7 +103,6 @@
       prototype: ADTFrostpunkGenerator
       stackRequirements:
         CableHV: 10
-        Capacitor: 4
         Manipulator: 2
         Steel: 10
         Plasteel: 20

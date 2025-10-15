@@ -16,8 +16,8 @@
         heart: ADTOrganNovakidHeart
         lungs: ADTOrganNovakidLungs
         stomach: ADTOrganNovakidStomach
-        liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
+        liver: ADTOrganNovakidLiver
+        kidneys: ADTOrganNovakidKidneys
       connections:
       - right arm
       - left arm

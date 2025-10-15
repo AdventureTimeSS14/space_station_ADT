@@ -345,8 +345,6 @@
       storagebase: !type:Container
   - type: StorageFill
     contents:
-    - id: CardBoxBlack
-      amount: 1
     - id: ADTFunCasinoChip1stack
       amount: 4
     - id: ADTFunCasinoChip5stack
@@ -359,3 +357,5 @@
       amount: 4
     - id: ADTFunDealerChip
       amount: 1
+    # - id: ADTFunCardsBoxFull54
+    #   amount: 1

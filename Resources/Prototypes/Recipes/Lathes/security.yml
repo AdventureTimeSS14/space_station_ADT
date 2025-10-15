@@ -60,6 +60,7 @@
     Steel: 500
     Plastic: 250
     Cloth: 500
+    Copper: 400 #ADT-Tweak
 
 - type: latheRecipe
   id: ClothingEyesHudSecurity
@@ -70,6 +71,7 @@
   materials:
     Steel: 300
     Glass: 200
+    Copper: 100 #ADT-Tweak
 
 - type: latheRecipe
   id: PortableRecharger
@@ -83,6 +85,19 @@
     Plastic: 1000
     Plasma: 500
     Glass: 500
+    Copper: 3000 #ADT-Tweak
+
+- type: latheRecipe
+  id: ClothingBackpackHarmpack
+  result: ClothingBackpackHarmpack
+  categories:
+  - Clothing
+  completetime: 15
+  materials:
+    Steel: 2000
+    Plastic: 1000
+    Plasma: 500
+    Gold: 500
 
 # Shields
 - type: latheRecipe
@@ -168,6 +183,7 @@
   materials:
     Steel: 300
     Plastic: 300
+    Copper: 400 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeMelee
@@ -194,6 +210,7 @@
     Steel: 500
     Glass: 100
     Plastic: 200
+    Copper: 600 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipePractice
@@ -203,6 +220,7 @@
     Steel: 1800
     Glass: 400
     Plastic: 250
+    Copper: 700 #ADT-Tweak
 
 # Long Guns
 - type: latheRecipe
@@ -213,6 +231,7 @@
     Steel: 2000
     Glass: 800
     Plastic: 500
+    Copper: 3000 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -221,7 +240,9 @@
   materials:
     Steel: 1500
     Glass: 1000
-    Gold: 850
+    Copper: 2000 #ADT-Tweak
+    Gold: 500
+    Uranium: 300
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -231,6 +252,7 @@
     Steel: 1250
     Plastic: 750
     Gold: 500
+    Copper: 1500 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -241,6 +263,7 @@
     Glass: 500
     Plastic: 250
     Gold: 100
+    Copper: 2000 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -251,6 +274,7 @@
     Glass: 500
     Plastic: 500
     Gold: 500
+    Copper: 2000 #ADT-Tweak
 
 # Sidearms
 - type: latheRecipe
@@ -261,6 +285,7 @@
     Steel: 300
     Glass: 200
     Plastic: 200
+    Copper: 300 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeSidearm
@@ -270,6 +295,7 @@
     Steel: 1000
     Glass: 500
     Plastic: 500
+    Copper: 1500 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeSidearm
@@ -278,6 +304,7 @@
   materials:
     Steel: 2000
     Gold: 500
+    Copper: 1000 #ADT-Tweak
 
 - type: latheRecipe
   parent: BaseWeaponRecipeSidearm
@@ -286,3 +313,4 @@
   materials:
     Plastic: 100
     Steel: 400
+    Copper: 100 #ADT-Tweak

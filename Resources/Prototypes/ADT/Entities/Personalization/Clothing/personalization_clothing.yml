@@ -945,7 +945,7 @@
     sprite: ADT/Personalization/kringe-magboots.rsi
     layers:
     - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Personalization/kringe-magboots.rsi
   - type: ToggleClothing
@@ -963,7 +963,7 @@
   parent: ActionToggleMagboots
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon }
     iconOn: ADT/Personalization/kringe-magboots.rsi/icon-on.png
 
@@ -1080,7 +1080,7 @@
 #rache11
 
 - type: entity
-  parent: [ClothingOuterHardsuitVoidParamed, BaseMedicalContraband] 
+  parent: [ClothingOuterHardsuitVoidParamed, BaseMedicalContraband]
   id: ADTClothingOuterHardsuitRachell
   name: Rachell paramedic void suit
   description: A void suit made for paramedics.
@@ -1216,3 +1216,29 @@
     sprite: ADT/Personalization/sirtalter_mining_uniform.rsi
   - type: Clothing
     sprite: ADT/Personalization/sirtalter_mining_uniform.rsi
+
+#Farrellka и Melima
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformMelimaDress
+  name: MelimaDress
+  description: MelimaDress
+  suffix: Personal, Melima, Farrellka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/melima_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/melima_dress.rsi
+
+#kugooergooer
+- type: entity
+  parent: ClothingHeadHatHardhatArmored
+  id: ADTGiPatterHardhat
+  name: blue hardhat
+  suffix: Personal, kugooergooer
+  description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/blue_armored_hardhat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/blue_armored_hardhat.rsi

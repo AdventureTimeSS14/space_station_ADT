@@ -130,7 +130,7 @@
   - type: UseDelay
     delay: 1
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 0.75
     wideAnimationRotation: -135
     damage:
       types:
@@ -198,7 +198,7 @@
       types:
         Blunt: 2.5
         Slash: 2.5
-        Structural: 30
+        Structural: 10
   - type: BackstabDamageMultipilier
     bonusDamage:
       types:

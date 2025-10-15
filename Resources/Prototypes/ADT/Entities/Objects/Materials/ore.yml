@@ -40,3 +40,161 @@
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   spawn: ADTBSore1
   maxCount: 30
+
+## NewBFUU by M&B (еблан какой-то)
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTGibtonite
+  suffix: Full
+  name: Gibtonite ore
+  description: rock with pieces of gibtonite
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Objects/Materials/gibtonite.rsi
+    layers:
+      - state: gibtonite
+        visible: true
+      - state: active
+        visible: false
+        map: ["enum.GibtoniteVisuals.Active"]
+  - type: Item
+    heldPrefix: ADTBSore
+  - type: MultiHandedItem
+  - type: Damageable
+  - type: RequireProjectileTarget
+  - type: Gibtonite
+    extracted: true
+    elapsedTime: 0
+  - type: SliceableFood
+    slice: ADTGibtoniteShard
+    count: 3
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: SupermatterImmune #На будущее.
+
+- type: entity
+  parent: BaseItem
+  id: ADTGibtoniteShard
+  name: Gibtonite Shard womp womp
+  description: write here something cool pls.
+  components:
+  - type: Item
+    sprite: ADT/Objects/Materials/gibtonite.rsi
+    size: Tiny
+  - type: Sprite
+    layers:
+      - sprite:  ADT/Objects/Materials/gibtonite.rsi
+        state: gibtonite-shard
+  - type: Sharp
+  - type: SupermatterImmune
+
+- type: entity
+  parent: OreBase
+  id: ADTCopperOre
+  name: copper ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: CopperOre
+  - type: Sprite
+    state: copper
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawCopper: 300
+  - type: Item
+    heldPrefix: copper
+  - type: Extractable
+    grindableSolutionName: copper
+  - type: SolutionContainerManager
+    solutions:
+      copper:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 20
+
+- type: entity
+  parent: ADTCopperOre
+  id: ADTCopperOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: OreBase
+  id: ADTZincOre
+  name: zinc ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ZincOre
+  - type: Sprite
+    state: zinc
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawZinc: 300
+  - type: Item
+    heldPrefix: zinc
+  - type: Extractable
+    grindableSolutionName: steel
+  - type: SolutionContainerManager
+    solutions:
+      steel:
+        reagents:
+        - ReagentId: Zinc
+          Quantity: 20
+
+- type: entity
+  parent: ADTZincOre
+  id: ADTZincOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+#prototype by uwu owo IwI Firemix
+- type: entity
+  parent: OreBase
+  id: ADTLeadOre
+  name: lead ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: LeadOre
+  - type: Sprite
+    state: lead
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawLead: 300
+  - type: Item
+    heldPrefix: lead
+  - type: Extractable
+    grindableSolutionName: lead
+  - type: SolutionContainerManager
+    solutions:
+      lead:
+        reagents:
+        - ReagentId: Lead
+          Quantity: 20
+
+- type: entity
+  parent: ADTLeadOre
+  id: ADTLeadOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

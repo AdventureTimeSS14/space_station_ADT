@@ -90,8 +90,8 @@
   color: "#c048c2"
   recognizable: true
   physicalDesc: reagent-physical-desc-slimy
-  slipData:
-    requiredSlipSpeed: 3.5
+  # slipData: # ADT-Tweak comment
+  #   requiredSlipSpeed: 3.5 # ADT-Tweak comment
 
 ### КРОВЬ СВЯТОГО МИИШКИИ ФРЕЕЕДЕЕ!!!!
 

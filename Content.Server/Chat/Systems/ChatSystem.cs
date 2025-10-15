@@ -39,6 +39,7 @@ using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.Interaction;
 using Content.Server.ADT.Chat;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.Ghost;
 
 namespace Content.Server.Chat.Systems;
 
@@ -73,8 +74,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     public const int AntiGhostRange = 2;
-    public const string DefaultAnnouncementSound = "/Audio/Corvax/Announcements/announce.ogg"; // Corvax-Announcements
-    public const string CentComAnnouncementSound = "/Audio/Corvax/Announcements/centcomm.ogg"; // Corvax-Announcements
+    public const string DefaultAnnouncementSound = "/Audio/ADT/Announcements/announce_dig.ogg"; // ADT-Tweak: замена звука оповещения на ADT версию
+    public const string CentComAnnouncementSound = "/Audio/ADT/Announcements/announce_dig.ogg"; // ADT-Tweak: замена звука CentComm на ADT версию
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
