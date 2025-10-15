@@ -117,6 +117,9 @@
                   sound:
                     collection: GenericHit
                 - !type:ComboTrowTargetEffect
+                - !type:ComboStunEffect
+                  stunTime: 1
+                  dropItems: true
             - actionsNeeds:
                 - Disarm
                 - Grab

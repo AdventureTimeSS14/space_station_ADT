@@ -60,6 +60,9 @@
   - type: ToggleableClothing
     clothingPrototype: SD_ClothingHeadHelmetHardsuitSpecialForcesCommand
   - type: SupermatterImmune
+  - type: Tag
+    tags:
+    - SD_CombatHarness
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]

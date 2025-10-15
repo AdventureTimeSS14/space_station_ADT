@@ -104,4 +104,13 @@ public sealed partial class ProjectileComponent : Component
     [DataField, AutoNetworkedField]
     public float? MaxFixedRange;
     // ADT TWEAK END
+
+    /// SD TWEAK START
+    /// <summary>
+    ///     Ignore all reflects that this has.
+    /// КОНТРИМ ХУЕСОСА С КАРПОМ
+    /// </summary>
+    [DataField("ignoreReflect"), AutoNetworkedField]
+    public bool IgnoreReflect = false;
+    // SD tweak end
 }

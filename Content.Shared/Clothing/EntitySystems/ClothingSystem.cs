@@ -136,7 +136,7 @@ public abstract class ClothingSystem : EntitySystem
     {
         args.Additive += ent.Comp.StripDelay;
     }
-
+    
     #region Public API
 
     public void SetEquippedPrefix(EntityUid uid, string? prefix, ClothingComponent? clothing = null)

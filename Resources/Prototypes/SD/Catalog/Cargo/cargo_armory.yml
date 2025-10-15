@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: SD_CargoSmartgun
+  icon:
+    sprite: SD/Objects/Weapons/Guns/ml66a.rsi
+    state: base
+  product: SD_CrateArmorySmartGun
+  cost: 50000
+  category: cargoproduct-category-name-armory
+  group: market

@@ -109,6 +109,12 @@ public sealed class ReflectSystem : EntitySystem
             return false;
         }
 
+        if (TryComp<ProjectileComponent>(projectile, out var projcomp) &&
+            projcomp.IgnoreReflect == true)
+        {
+            return false;
+        }
+
         var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
         var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
         var relativeVelocity = existingVelocity - _physics.GetMapLinearVelocity(user);

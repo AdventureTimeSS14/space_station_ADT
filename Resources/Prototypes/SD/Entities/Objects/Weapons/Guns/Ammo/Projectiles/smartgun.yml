@@ -1,0 +1,31 @@
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: SD_Bullet792
+  name: bullet (7.92x115 HYPER)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+    ignoreReflect: true
+  - type: StaminaDamageOnCollide
+    damage: 15
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: SD_Bullet792Radiation
+  name: bullet (7.92x115 HYPER RAD)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+        Radiation: 25
+        Structural: 50
+    ignoreResistances: true
+    ignoreReflect: true
+  - type: StaminaDamageOnCollide
+    damage: 35

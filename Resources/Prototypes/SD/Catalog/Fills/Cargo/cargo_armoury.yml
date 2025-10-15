@@ -1,0 +1,16 @@
+- type: entity
+  id: SD_CrateArmorySmartGun
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: smartgun crate
+  description: Contains a single MK-64 "Comet" smartgun and 2 additional drums.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SD_SmartGunStation
+        amount: 1
+      - id: SD_MagazineSmartGun
+        amount: 2
+      - id: SD_ArmorSmartGunCombatHarness
+        amount: 1
+      - id: SD_SmartGunDeathSquad # we do a little trolling
+        prob: 0.001

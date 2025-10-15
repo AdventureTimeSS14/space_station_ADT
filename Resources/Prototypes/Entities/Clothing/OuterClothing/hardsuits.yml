@@ -1100,6 +1100,11 @@
     - type: SupermatterImmune
   - type: SupermatterImmune
   # ADT-Tweak-end
+  # SD-tweak start
+  - type: Tag
+    tags:
+    - SD_CombatHarness
+  # SD-tweak end
 
 #CBURN Hardsuit
 - type: entity

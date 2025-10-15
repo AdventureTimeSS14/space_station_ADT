@@ -78,6 +78,9 @@
                   sound:
                     collection: GenericHit
                 - !type:ComboTrowTargetEffect
+                - !type:ComboStunEffect
+                  stunTime: 1
+                  dropItems: true
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -200,10 +203,7 @@
                 - !type:ComboFallEffect
                   dropItems: false
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 50
-                - !type:ComboStunEffect
-                  stunTime: 1
-                  dropItems: false
+                  staminaDamage: 45 #SD-tweak - removed instastun
                 - !type:ComboSpeechEffect
                   speech: speech-carp-backhit
                 - !type:ComboAudioEffect
@@ -252,6 +252,7 @@
             - actionsNeeds:
                 - Grab
                 - Hit
+                - Grab #SD-tweak
               comboEvent:
                 - !type:ComboStopGrabEffect
                 - !type:ComboPopupEffect
@@ -261,7 +262,7 @@
                     types:
                       Blunt: 5
                 - !type:ComboStunEffect
-                  stunTime: 4
+                  stunTime: 3
                   dropItems: false
                 - !type:ComboSpeechEffect
                   speech: speech-carp-stomach
@@ -271,6 +272,7 @@
             - actionsNeeds:
                 - Disarm
                 - Disarm
+                - Disarm #SD-tweak
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-wrench-end
@@ -294,7 +296,7 @@
                   - !type:ComboTrowOnUserEffect
                   - !type:ComboStopTargetGrabEffect
                   - !type:ComboStunEffect
-                    stunTime: 1
+                    stunTime: 2
                     dropItems: false
                   - !type:ComboSpeechEffect
                     speech: speech-carp-throw

@@ -1,0 +1,36 @@
+- type: Tag
+  id: SD_Cartridge792
+
+- type: entity
+  parent: BaseCartridge
+  id: SD_Cartridge792mm
+  name: cartridge (7.92x115mm HYPER)
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: SD_Bullet792
+    deleteOnSpawn: true
+  - type: Tag
+    tags:
+    - SD_Cartridge792
+
+- type: entity
+  parent: BaseCartridge
+  id: SD_Cartridge792mmRad
+  name: cartridge (7.92x115mm HYPER RAD)
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: SD_Bullet792Radiation
+    deleteOnSpawn: true
+  - type: Tag
+    tags:
+    - SD_Cartridge792

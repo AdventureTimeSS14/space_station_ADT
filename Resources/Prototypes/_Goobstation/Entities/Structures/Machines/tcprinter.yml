@@ -11,11 +11,11 @@
   description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered.
   components:
   - type: ApcPowerReceiver
-    powerLoad: 10000
+    powerLoad: 25000
   - type: TelecrystalMiner
-    required: 30 # breakeven
+    required: 15 # breakeven
   - type: ItemMiner
-    interval: 60
+    interval: 90
     amount: 1
     proto: Telecrystal1
     itemSlotId: tc_slot
