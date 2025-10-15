@@ -52,7 +52,7 @@ public sealed class GibtoniteSystem : EntitySystem
     {
         if (!comp.Extracted) // Для руды нам это НЕ НУЖНО.
         {
-            var randomNumb = _random.Next(5);
+            var randomNumb = _random.Next(2);
             comp.ReactionMaxTime -= randomNumb;
         }
 
@@ -97,7 +97,7 @@ public sealed class GibtoniteSystem : EntitySystem
     {
         if (comp.Triggered) // Если камень до этого уже ударили - дропаем руду.
         {
-            if (!comp.Active)
+            if (!comp.Active && !comp.Extracted && comp.ReactionElapsedTime < 0.01f)
             {
                 GetOre(uid, comp);
                 return;
