@@ -13,6 +13,7 @@
   materials:
     Plastic: 250
     Steel: 700
+    Copper: 500
 
 - type: latheRecipe
   id: ADTLauncherSyringe

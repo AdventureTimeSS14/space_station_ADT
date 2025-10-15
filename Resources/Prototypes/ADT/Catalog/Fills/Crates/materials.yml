@@ -6,3 +6,47 @@
     contents:
       - id: ADTModsuitCoreEnergy
         amount: 2
+
+- type: entity
+  id: CrateMaterialCopper
+  parent: CrateGenericSteel
+  name: copper sheet crate
+  description: 90 sheets of copper, packed with care.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTSheetCopper
+        amount: 3
+
+- type: entity
+  id: CrateMaterialZinc
+  parent: CrateGenericSteel
+  name: zinc sheet crate
+  description: 90 sheets of zinc, packed with care.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTSheetZinc
+        amount: 3
+
+- type: entity
+  id: CrateMaterialLead
+  parent: CrateGenericSteel
+  name: lead sheet crate
+  description: 90 sheets of lead, packed with care.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTSheetLead
+        amount: 3
+
+- type: entity
+  id: ADTCrateMaterialMarble
+  parent: CrateGenericSteel
+  name: marble crate
+  description: 30 blocks of marble.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTmarble
+        amount: 3

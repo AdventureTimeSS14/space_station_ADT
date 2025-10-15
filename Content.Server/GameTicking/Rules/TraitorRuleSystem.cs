@@ -20,14 +20,15 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Server.Codewords;
+using Content.Shared.ADT.BloodBrothers;
+using Content.Shared.Bed.Cryostorage;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
-
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -37,6 +38,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
+    [Dependency] private readonly CodewordSystem _codewordSystem = default!;
 
     public override void Initialize()
     {
@@ -48,41 +50,16 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         SubscribeLocalEvent<TraitorRuleComponent, ObjectivesTextPrependEvent>(OnObjectivesTextPrepend);
     }
 
-    protected override void Added(EntityUid uid, TraitorRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
-    {
-        base.Added(uid, component, gameRule, args);
-        SetCodewords(component, args.RuleEntity);
-    }
-
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         Log.Debug($"AfterAntagEntitySelected {ToPrettyString(ent)}");
         MakeTraitor(args.EntityUid, ent);
     }
 
-    private void SetCodewords(TraitorRuleComponent component, EntityUid ruleEntity)
-    {
-        component.Codewords = GenerateTraitorCodewords(component);
-        _adminLogger.Add(LogType.EventStarted, LogImpact.Low, $"Codewords generated for game rule {ToPrettyString(ruleEntity)}: {string.Join(", ", component.Codewords)}");
-    }
-
-    public string[] GenerateTraitorCodewords(TraitorRuleComponent component)
-    {
-        var adjectives = _prototypeManager.Index(component.CodewordAdjectives).Values;
-        var verbs = _prototypeManager.Index(component.CodewordVerbs).Values;
-        var codewordPool = adjectives.Concat(verbs).ToList();
-        var finalCodewordCount = Math.Min(component.CodewordCount, codewordPool.Count);
-        string[] codewords = new string[finalCodewordCount];
-        for (var i = 0; i < finalCodewordCount; i++)
-        {
-            codewords[i] = Loc.GetString(_random.PickAndTake(codewordPool));
-        }
-        return codewords;
-    }
-
     public bool MakeTraitor(EntityUid traitor, TraitorRuleComponent component)
     {
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - start");
+        var factionCodewords = _codewordSystem.GetCodewords(component.CodewordFactionPrototypeId);
 
         //Grab the mind if it wasn't provided
         if (!_mindSystem.TryGetMind(traitor, out var mindId, out var mind))
@@ -96,15 +73,16 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (component.GiveCodewords)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - added codewords flufftext to briefing");
-            briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
+            briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
         }
 
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
 
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;
-
-        if (component.GiveUplink)
+        var bloodBrother = _random.Prob(component.BloodBrotherChance);//ADT-tweak
+        if (component.GiveUplink
+        && !bloodBrother)//ADT-tweak
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink start");
             // Calculate the amount of currency on the uplink.
@@ -129,14 +107,26 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (component.GiveCodewords)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - set codewords from component");
-            codewords = component.Codewords;
+            codewords = factionCodewords;
         }
 
-        if (component.GiveBriefing)
+        if (component.GiveBriefing && !bloodBrother) //ADT-tweak
         {
             _antag.SendBriefing(traitor, GenerateBriefing(codewords, code, issuer), null, component.GreetSoundNotification);
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Sent the Briefing");
         }
+        //ADT-tweak-start
+        else if (component.GiveBriefing && bloodBrother)
+        {
+            _antag.SendBriefing(traitor, Loc.GetString("brother-lead-briefing"), null, component.GreetSoundNotification);
+            Log.Debug($"MakeBrother {ToPrettyString(traitor)} - Sent the Briefing");
+            EnsureComp<BloodBrotherLeaderComponent>(traitor); //лидера ВСЕГДА должно выдавать прежде чем простого брата
+            EnsureComp<BloodBrotherComponent>(traitor);
+            RemComp<CanEnterCryostorageComponent>(traitor);
+            _npcFaction.AddFaction(traitor, component.BloodBrotherFaction);
+            _npcFaction.AddFaction(traitor, component.BloodBrotherLeaderFaction);
+        }
+        //ADT-tweak-end
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Adding TraitorMind");
         component.TraitorMinds.Add(mindId);
@@ -149,19 +139,19 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Add traitor briefing components");
-            AddComp<RoleBriefingComponent>(traitorRole.Value.Owner);
-            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = briefing;
+            EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
+            briefingComp.Briefing = briefing;
         }
         else
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - did not get traitor briefing");
         }
 
-        // Send codewords to only the traitor client
         var color = TraitorCodewordColor; // Fall back to a dark red Syndicate color if a prototype is not found
 
-        RoleCodewordComponent codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
-        _roleCodewordSystem.SetRoleCodewords(codewordComp, "traitor", component.Codewords.ToList(), color);
+        // The mind entity is stored in nullspace with a PVS override for the owner, so only they can see the codewords.
+        var codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
+        _roleCodewordSystem.SetRoleCodewords((mindId, codewordComp), "traitor", factionCodewords.ToList(), color);
 
         // Change the faction
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Change faction");
@@ -211,7 +201,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     private void OnObjectivesTextPrepend(EntityUid uid, TraitorRuleComponent comp, ref ObjectivesTextPrependEvent args)
     {
         if(comp.GiveCodewords)
-            args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", comp.Codewords)));
+            args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", _codewordSystem.GetCodewords(comp.CodewordFactionPrototypeId))));
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?

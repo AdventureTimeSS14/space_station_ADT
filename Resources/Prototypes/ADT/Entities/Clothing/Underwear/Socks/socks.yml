@@ -795,3 +795,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Underwear/Socks/yellow_thigh.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearSocksBase
+  id: ADTClothingUnderwearSocksCow
+  name: cow socks
+  description: Cute cow-themed socks. Moo!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Underwear/Socks/socks_cow.rsi

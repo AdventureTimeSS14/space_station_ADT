@@ -1,0 +1,134 @@
+- type: parallax
+  id: Multiverse
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/Multiverse/purple_parallax.png"
+      scrolling: "0, 0"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/Multiverse/parallax_stars.png"
+      slowness: 0.6
+      scrolling: "0, -0.2"
+      shader: "unshaded"
+      worldAdjustPosition: "10, 0"
+  layersLQUseHQ: false
+
+- type: parallax
+  id: Darkness
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/eyes_parallax.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, 0"
+      shader: "unshaded"
+      worldAdjustPosition: "0, 0"
+  layersLQUseHQ: false
+
+- type: parallax
+  id: Darkness1
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/eyes_parallax.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, 0"
+      shader: "unshaded"
+      worldAdjustPosition: "0, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/rubbish1.png"
+      slowness: 0.6
+      scale: 3,3
+      scrolling: "0, -0.1"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/rubbish2.png"
+      slowness: 0.6
+      scale: 2,2
+      scrolling: "0, -0.4"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/rubbish3.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, -0.7"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+  layersLQUseHQ: false
+
+- type: parallax
+  id: Darkness2
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/eyes_parallax.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, 0"
+      shader: "unshaded"
+      worldAdjustPosition: "0, 0"
+    - texture:
+       !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/clouds_parallax.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, -0.3"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+  layersLQUseHQ: false
+
+
+- type: parallax
+  id: Darkness3
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/eyes_parallax.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, 0"
+      shader: "unshaded"
+      worldAdjustPosition: "0, 0"
+    - texture:
+       !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/clouds_parallax.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, -0.3"
+      shader: "unshaded"
+      worldAdjustPosition: "0, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/rubbish1.png"
+      slowness: 0.6
+      scale: 3,3
+      scrolling: "0, -0.1"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/rubbish2.png"
+      slowness: 0.6
+      scale: 2,2
+      scrolling: "0, -0.4"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/ADT/Parallaxes/DarkDimension/rubbish3.png"
+      slowness: 0.6
+      scale: 1,1
+      scrolling: "0, -0.7"
+      shader: "unshaded"
+      worldAdjustPosition: "30, 0"
+  layersLQUseHQ: false

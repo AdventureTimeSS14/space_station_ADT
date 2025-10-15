@@ -28,6 +28,7 @@
   materials:
     Steel: 250
     Plastic: 250
+    Copper: 250
 
 - type: latheRecipe
   parent: BaseLightRecipe

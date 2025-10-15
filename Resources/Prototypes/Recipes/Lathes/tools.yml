@@ -57,17 +57,22 @@
   - Parts
   completetime: 0.1
   materials:
-    Steel: 30
+    Copper: 30 #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: CableStack
   id: CableMVStack
   result: CableMVStack1
+  materials:    #ADT-BFUU-Tweak-start
+    Silver: 15
+    Copper: 15  #ADT-BFUU-Tweak-end
 
 - type: latheRecipe
   parent: CableStack
   id: CableHVStack
   result: CableHVStack1
+  materials: #ADT-BFUU-Tweak-start
+    Silver: 30 #ADT-BFUU-Tweak-end
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -100,6 +105,7 @@
   materials:
     Steel: 200
     Plastic: 200
+    Copper: 100  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: Multitool
@@ -113,6 +119,7 @@
   materials:
     Steel: 600
     Plastic: 200
+    Copper: 300  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -122,6 +129,7 @@
   materials:
     Steel: 1000
     Plastic: 300
+    Copper: 200  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -155,10 +163,18 @@
 - type: latheRecipe
   parent: BaseToolRecipe
   id: SprayPainter
-  result: SprayPainter
+  result: SprayPainterEmpty
   materials:
     Steel: 300
     Plastic: 100
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: SprayPainterAmmo
+  result: SprayPainterAmmo
+  materials:
+    Steel: 150
+    Plastic: 50
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -197,6 +213,7 @@
     Glass: 500
     Plasma: 300
     Gold: 50
+    Copper: 100  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseToolRecipe

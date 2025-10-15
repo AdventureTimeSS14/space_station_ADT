@@ -7,7 +7,7 @@ using Content.Server.Emp;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
-using Content.Server.Stunnable;
+using Content.Shared.Stunnable;
 using Content.Shared.SD.Replicator;
 using Content.Shared.SD.SpawnedFromTracker;
 using Content.Shared.Actions;
@@ -33,7 +33,7 @@ public sealed class ReplicatorSystem : EntitySystem
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
     [Dependency] private readonly SharedReplicatorNestSystem _replicatorNest = default!;
@@ -173,6 +173,6 @@ public sealed class ReplicatorSystem : EntitySystem
     {
         args.Affected = true;
         args.Disabled = true;
-        _stun.TryParalyze(ent, ent.Comp.EmpStunTime, true);
+        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.EmpStunTime);
     }
 }

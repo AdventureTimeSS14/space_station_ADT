@@ -43,7 +43,7 @@
     - id: WizardSpawn
     - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
     - id: Pirates # ADT tweak pirates
-    # - id: MorphSpawn #ADT tweak morph #TODO: Раскомментить после фикса
+    - id: MorphSpawn #ADT tweak morph
     - id: PhantomSpawn # ADT tweak phantom
     - id: VoxRaidersEvent # ADT tweak vox-raiders
     - id: ReplicatorSpawn # SD replicators
@@ -56,8 +56,8 @@
   components:
   - type: GameRule
     delay:
-      min:  10
-      max:  20
+      min:  20 # Corax-MRP # 10
+      max:  30 # Corax-MRP # 20
 
 - type: entity
   id: BaseStationEventShortDelay
@@ -66,8 +66,8 @@
   components:
   - type: GameRule
     delay:
-      min:  10
-      max:  20
+      min:  20 # Corax-MRP # 10
+      max:  30 # Corax-MRP # 20
 
 - type: entity
   id: BaseStationEventLongDelay
@@ -76,8 +76,8 @@
   components:
   - type: GameRule
     delay:
-      min:  40
-      max:  60
+      min:  50 # Corax-MRP # 40
+      max:  70 # Corax-MRP # 60
 
 - type: entity
   id: AnomalySpawn
@@ -291,7 +291,7 @@
     weight: 6.5  # ADT tweak  7.5 > 6.5
     duration: 1
     earliestStart: 45
-    minimumPlayers: 20
+    minimumPlayers: 30 # Corax-MRP # 20
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -302,7 +302,7 @@
   - type: StationEvent
     weight: 1 # rare
     duration: 1
-    earliestStart: 30
+    earliestStart: 40 # Corax-MRP # 30
     reoccurrenceDelay: 60
     minimumPlayers: 1000  #ADT-Tweak - де факто отключаем визарда 10 > 1000
   - type: AntagSelection
@@ -450,8 +450,8 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+    earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
     duration: 60
@@ -471,8 +471,8 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+    earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
     duration: 60
@@ -492,8 +492,8 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+    earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
     duration: 60
@@ -519,8 +519,8 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+    earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 20
     weight: 1.5
     duration: 60
@@ -574,10 +574,10 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 35
-    weight: 2 # ADT TWEAK 5.5 >>> 2
-    minimumPlayers: 30 #ADT-Tweak 20 >>> 30
-    duration: 1
+    earliestStart: 30
+    weight: 5.5
+    minimumPlayers: 20
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -610,7 +610,7 @@
   id: SleeperAgents
   components:
   - type: StationEvent
-    earliestStart: 30
+    earliestStart: 40 # Corax-MRP #
     weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
@@ -676,7 +676,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20

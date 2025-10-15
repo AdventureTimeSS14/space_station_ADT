@@ -26,7 +26,7 @@
   id: Headphones
   storage:
     back:
-    - ClothingNeckHeadphones
+    - ClothingMultipleHeadphones
 
 # Toys
 - type: loadout
@@ -56,30 +56,35 @@
   storage:
     back:
     - Lighter
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackGreen
   storage:
     back:
     - CigPackGreen
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackRed
   storage:
     back:
     - CigPackRed
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackBlue
   storage:
     back:
     - CigPackBlue
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackBlack
   storage:
     back:
     - CigPackBlack
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigarCase
@@ -89,6 +94,7 @@
   storage:
     back:
     - CigarCase
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigarGold
@@ -98,6 +104,7 @@
   storage:
     back:
     - CigarGold
+  groupBy: "smokeables"
 
 # SD tweak start
 
@@ -252,6 +259,7 @@
   storage:
     back:
     - TowelColorWhite
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorSilver
@@ -263,6 +271,7 @@
   storage:
     back:
     - TowelColorSilver
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorGold
@@ -274,6 +283,7 @@
   storage:
     back:
     - TowelColorGold
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorLightBrown
@@ -286,6 +296,7 @@
   storage:
     back:
     - TowelColorLightBrown
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorGreen
@@ -298,6 +309,7 @@
   storage:
     back:
     - TowelColorGreen
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorDarkBlue
@@ -310,6 +322,7 @@
   storage:
     back:
     - TowelColorDarkBlue
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorOrange
@@ -322,6 +335,7 @@
   storage:
     back:
     - TowelColorOrange
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorLightBlue
@@ -334,6 +348,7 @@
   storage:
     back:
     - TowelColorLightBlue
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorPurple
@@ -346,6 +361,7 @@
   storage:
     back:
     - TowelColorPurple
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorRed
@@ -358,6 +374,7 @@
   storage:
     back:
     - TowelColorRed
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorGray
@@ -370,6 +387,7 @@
   storage:
     back:
     - TowelColorGray
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorBlack
@@ -382,6 +400,7 @@
   storage:
     back:
     - TowelColorBlack
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorDarkGreen
@@ -394,6 +413,7 @@
   storage:
     back:
     - TowelColorDarkGreen
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorMaroon
@@ -406,6 +426,7 @@
   storage:
     back:
     - TowelColorMaroon
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorYellow
@@ -418,6 +439,7 @@
   storage:
     back:
     - TowelColorYellow
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorMime
@@ -430,3 +452,4 @@
   storage:
     back:
     - TowelColorMime
+  groupBy: "towels"

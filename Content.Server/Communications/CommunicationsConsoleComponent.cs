@@ -66,6 +66,13 @@ namespace Content.Server.Communications
         /// Announce sound file path
         /// </summary>
         [DataField]
-        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
+        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_dig.ogg"); // ADT-Tweak: замена звука на ADT версию
+
+        /// <summary>
+        /// Hides the sender identity (If they even have one).
+        /// In practise this removes the "Sent by ScugMcWawa (Slugcat Captain)" at the bottom of the announcement.
+        /// </summary>
+        [DataField]
+        public bool AnnounceSentBy = true;
     }
 }

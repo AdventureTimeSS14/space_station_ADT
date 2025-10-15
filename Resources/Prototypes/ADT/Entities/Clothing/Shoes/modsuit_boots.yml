@@ -227,15 +227,60 @@
 
 - type: entity
   parent: ADTClothingModsuitShoesBase
-  id: ADTClothingModsuitShoesSyndicateContractor
-  name: syndicate MOD boots
+  id: ADTClothingModsuitShoesCMO
+  name: CMO MOD boots
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_contractor.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/cmo.rsi
     state: icon
   - type: Clothing
     equipDelay: 3
     unequipDelay: 3
-    sprite: ADT/Clothing/Shoes/Modsuit/syndicate_contractor.rsi
+    sprite: ADT/Clothing/Shoes/Modsuit/cmo.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesCaptain
+  name: Captain MOD boots
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/captain.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/captain.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesWard
+  name: warden MOD boots
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/warden.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/warden.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingModsuitShoesBase
+  id: ADTClothingModsuitShoesBrigmedic
+  name: Brigmedic MOD boots
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Modsuit/brigmedic.rsi
+    state: icon
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/Shoes/Modsuit/warden.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
