@@ -134,20 +134,6 @@
             "name": "rock_andesite_west"
         },
         {
-            "name": "gibtonite_active",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
-        },
-        {
-            "name": "gibtonite_inactive"
-        },
-        {
             "name": "rock_bsore"
         },
         {
