@@ -34,7 +34,7 @@
 
 - type: latheRecipe
   id: ADTTourniquet
-  result: Tourniquet1
+  result: ADTTourniquet1
   completetime: 1
   materials:
     Steel: 15

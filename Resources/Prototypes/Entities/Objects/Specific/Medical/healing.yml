@@ -296,13 +296,15 @@
 
 - type: entity
   parent: BaseHealingItem
-  id: Tourniquet
+  id: ADTTourniquet
   name: tourniquet
   description: Stops bleeding! Hopefully.
   components:
-  - type: Stack  #ADT TourniquetUp by ledniky
+  # ADT-Tweak-Start: TourniquetUp
+  - type: Stack
     stackType: ADTTourniquet
     count: 5
+  # ADT-Tweak-End
   - type: Tag
     tags:
       - SecBeltEquip
@@ -336,8 +338,8 @@
         variation: 0.125
 
 - type: entity #ADT TourniquetUp by ledniky
-  id: Tourniquet1
-  parent: Tourniquet
+  id: ADTTourniquet1
+  parent: ADTTourniquet
   suffix: Single
   components:
     - type: Stack

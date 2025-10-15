@@ -142883,7 +142883,7 @@ entities:
     - type: Transform
       pos: -35.453438,1.7514868
       parent: 2
-- proto: Tourniquet
+- proto: ADTTourniquet1
   entities:
   - uid: 11574
     components:

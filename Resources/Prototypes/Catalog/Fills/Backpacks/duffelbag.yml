@@ -318,7 +318,7 @@
       - id: DefibrillatorSyndicate
       - id: MedkitCombatFilled
         amount: 4
-      - id: Tourniquet1
+      - id: ADTTourniquet1 # ADT-Tweak: TourniquetUp
         amount: 4
       - id: CombatMedipen
         amount: 4
