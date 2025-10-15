@@ -80,7 +80,6 @@
     - copper_2
     - copper_3
   - type: Sprite
-    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: copper_3
     layers:
     - state: copper_3

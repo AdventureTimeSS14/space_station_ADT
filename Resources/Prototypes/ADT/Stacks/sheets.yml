@@ -8,13 +8,13 @@
 - type: stack
   id: Zinc
   name: zinc
-  icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: zinc }
+  icon: { sprite: ADT/Textures/Objects/Materials/Sheets/metal.rsi, state: zinc }
   spawn: ADTSheetZinc1
   maxCount: 30
 
 - type: stack
   id: Lead
   name: lead
-  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: lead }
+  icon: { sprite: ADT/Textures/Objects/Materials/Sheets/metal.rsi, state: lead }
   spawn: ADTSheetLead1
   maxCount: 30
