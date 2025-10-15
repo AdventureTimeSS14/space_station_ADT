@@ -26,7 +26,7 @@
   - ADT_Gate
 # Midpop 35 - 60
   - ADT_Marathon
-  - ADT_Aspid
+  - ADT_Meta
   - ADT_Barratry
   - ADT_Box
   - ADT_Train
@@ -34,7 +34,7 @@
   - ADT_Bagel
   - ADT_Packed
   - ADT_Saltern
-  - ADT_Meta
+  - ADT_Aspid
   - ADT_Cluster
 # Micropop 0 - 20
   - ADT_Reach
