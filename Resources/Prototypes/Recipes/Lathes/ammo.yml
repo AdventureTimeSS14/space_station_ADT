@@ -162,7 +162,7 @@
   result: MagazineBoxLightRiflePractice
   materials:
     Steel: 500 #ADT-BFUU-Tweak-start
-    Lead: 300 #ADT-BFUU-Tweak-start
+    Lead: 300 #ADT-BFUU-Tweak-end
 
 - type: latheRecipe
   parent: BaseAmmoBoxRecipe
@@ -498,7 +498,6 @@
     Glass: 80
     Plasma: 160
     Silver: 80
-    Copper: 60
 
 - type: latheRecipe
   parent: BaseAmmoBoxRecipe
