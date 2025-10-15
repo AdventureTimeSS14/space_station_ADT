@@ -7,3 +7,13 @@
   cost: 10000
   category: Materials
   group: market
+
+- type: cargoProduct
+  id: MaterialMarble
+  icon:
+    sprite: ADT/Objects/Materials/marble.rsi
+    state: marblemat3
+  product: ADTCrateMaterialMarble
+  cost: 3500
+  category: cargoproduct-category-name-materials
+  group: market
