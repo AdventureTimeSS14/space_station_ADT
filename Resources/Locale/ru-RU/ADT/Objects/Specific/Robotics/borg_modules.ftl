@@ -8,3 +8,5 @@ ent-ADTBorgModuleRPD = РРТ-модуль киборга
     .desc = { ent-BaseBorgModule.desc }
 ent-ADTBorgModulePKA = модуль протокинетического ускорителя киборга
     .desc = { ent-BaseBorgModule.desc }
+ent-ADTBorgModuleRPD = атмосферный модуль киборга
+    .desc = { ent-BaseBorgModule.desc }
