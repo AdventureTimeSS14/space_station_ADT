@@ -254,6 +254,7 @@ namespace Content.IntegrationTests.Tests
                 "AccessBreaker",
                 "AccessBreakerUnlimited",
                 "AccessConfigurator",
+                "AccessConfiguratorUniversal",
             };
             //ADT-tweak-end
 
