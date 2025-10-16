@@ -7,7 +7,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreBS
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_asteroid
         - map: [ "enum.EdgeLayer.South" ]
@@ -29,7 +32,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreBS
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_bsore
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -52,7 +58,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreBS
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_bsore
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -75,7 +84,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreBS
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_bsore
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -98,7 +110,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreBS
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_bsore
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -121,7 +136,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreBS
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_bsore
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -144,7 +162,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreBS
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_bsore
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -202,6 +223,7 @@
   id: ADTAsteroidRockGibtonite
   components:
   - type: Sprite
+    sprite: Structures/Walls/rock.rsi
     layers:
     - state: rock_asteroid
     - map: [ "enum.EdgeLayer.South" ]
@@ -226,7 +248,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -249,7 +274,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
         - state: rock_asteroid
@@ -271,7 +299,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -294,7 +325,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -317,7 +351,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -340,7 +377,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -363,7 +403,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -386,7 +429,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreLead
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_lead
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
