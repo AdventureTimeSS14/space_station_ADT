@@ -21,7 +21,7 @@
     slots:
     - suitStorage
     - Belt
-  - type: AmmoCounter
+  # - type: AmmoCounter #ADT-tweak: для русской рулетки
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 1.5
@@ -78,6 +78,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 1500
+  - type: AmmoCounter #ADT-tweak: единственный револьвер со счётчиком патронов
 
 - type: entity
   name: Inspector
