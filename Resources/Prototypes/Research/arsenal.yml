@@ -264,7 +264,6 @@
   cost: 10000
   recipeUnlocks:
   - ClothingBackpackHarmpack
-
   # ADT Research Console Rework start
   position: 4,-3
   requiredTech:
