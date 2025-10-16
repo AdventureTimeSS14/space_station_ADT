@@ -19,11 +19,16 @@ public abstract partial class SharedEntityStorageComponent : Component
     /// <summary>
     ///     Collision masks that get removed when the storage gets opened.
     /// </summary>
-    [DataField] // ADT-tweakt: allow changing collisionmasks to remove when opening containers. Added datafield, removed readonly.
-    public /* readonly */ int MasksToRemove = (int) (
+    // ADT-Tweak-Start: разрешаем изменение масок коллизий через прототипы
+    /// <summary>
+    ///     Collision masks that get removed when the storage gets opened.
+    /// </summary>
+    [DataField]
+    public int MasksToRemove = (int) (
         CollisionGroup.MidImpassable |
         CollisionGroup.HighImpassable |
         CollisionGroup.LowImpassable);
+    // ADT-Tweak-End
 
     /// <summary>
     ///     Collision masks that were removed from ANY layer when the storage was opened;
