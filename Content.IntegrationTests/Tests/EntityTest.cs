@@ -251,6 +251,7 @@ namespace Content.IntegrationTests.Tests
                 "MobHumanSpaceNinja",
                 "StandardNanotrasenStation",
                 "AbominationCube",
+                "AccessBreaker",
             };
             //ADT-tweak-end
 
