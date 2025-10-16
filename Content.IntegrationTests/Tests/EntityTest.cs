@@ -242,7 +242,10 @@ namespace Content.IntegrationTests.Tests
                 "MapGrid",
                 "StationEvent",
                 "TimedDespawn",
-
+                //ADT-tweak-sater
+                "StandardNanotrasenStation",
+                "MobHumanSpaceNinja",
+                "AbominationCube",
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
             };
@@ -276,16 +279,6 @@ namespace Content.IntegrationTests.Tests
 
             foreach (var protoId in protoIds)
             {
-                // TODO fix ninja
-                // Currently ninja fails to equip their own loadout.
-                if (protoId == "MobHumanSpaceNinja")
-                    continue;
-                
-                //ADT-Test-Fix?
-                if (protoId == "StandardNanotrasenStation")
-                    continue;                
-                //ADT-Test-Fix?
-
                 var count = Count(server.EntMan);
                 var clientCount = Count(client.EntMan);
                 EntityUid uid = default;
