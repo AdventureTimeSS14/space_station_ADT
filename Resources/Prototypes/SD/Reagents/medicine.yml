@@ -39,7 +39,7 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -6 # предполагалогается, что он будет сильнее, но более раздражающим, чем инапровалин
+            Asphyxiation: -7 # предполагалогается, что он будет сильнее, но более раздражающим, чем инапровалин
         conditions:
         - !type:OrganType
           type: Shadekin
@@ -118,84 +118,84 @@
         - !type:ReagentThreshold
           min: 15
 
-# - type: reagent
-#   id: SDAmmoniatedMercury
-#   name: reagent-name-ammoniated-mercury
-#   group: Medicine
-#   desc: reagent-desc-ammoniated-mercury
-#   physicalDesc: reagent-physical-desc-shiny
-#   flavor: medicine
-#   color: "#bad2ff"
-#   plantMetabolism:
-#     - !type:PlantAdjustToxins
-#       amount: 10
-#     - !type:PlantAdjustWeeds
-#       amount: -20
-#     - !type:PlantAdjustHealth
-#       amount: -20
-#   metabolisms:
-#     Medicine:
-#       metabolismRate: 0.1
-#       effects:
-#       - !type:AdjustReagent
-#         group: Poison
-#         amount: -0.5
-#       - !type:HealthChange
-#         damage:
-#           types:
-#             Poison: 1
-#         conditions:
-#         - !type:ReagentThreshold
-#           min: 10
-#       - !type:HealthChange
-#         damage:
-#           types:
-#             Poison: -1
-#         conditions:
-#         - !type:ReagentThreshold
-#           max: 10
-#         - !type:TypedDamageThreshold
-#           damage:
-#             groups:
-#               Brute: 1
-#               Burn: 1
-#           inverse: true
-#       - !type:HealthChange
-#         damage:
-#           types:
-#             Poison: 1
-#         conditions:
-#         - !type:TypedDamageThreshold
-#           damage:
-#             groups:
-#               Burn: 30
-#       - !type:HealthChange
-#         damage:
-#           types:
-#             Poison: 1
-#         conditions:
-#         - !type:TypedDamageThreshold
-#           damage:
-#             groups:
-#               Burn: 60
-#       - !type:HealthChange
-#         damage:
-#           types:
-#             Poison: 2
-#         conditions:
-#         - !type:TypedDamageThreshold
-#           damage:
-#             groups:
-#               Brute: 30
-#       - !type:HealthChange
-#         damage:
-#           types:
-#             Poison: 2
-#         conditions:
-#         - !type:TypedDamageThreshold
-#           damage:
-#             groups:
-#               Brute: 60
+- type: reagent
+  id: SDAmmoniatedMercury
+  name: reagent-name-ammoniated-mercury
+  group: Medicine
+  desc: reagent-desc-ammoniated-mercury
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: medicine
+  color: "#bad2ff"
+  plantMetabolism:
+    - !type:PlantAdjustToxins
+      amount: 10
+    - !type:PlantAdjustWeeds
+      amount: -20
+    - !type:PlantAdjustHealth
+      amount: -20
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        group: Poison
+        amount: -0.5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1
+        conditions:
+        - !type:ReagentThreshold
+          max: 10
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 1
+              Burn: 1
+          inverse: true
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 30
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 60
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 30
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 60
 
 - type: reagent
   id: SDSynthcells
@@ -220,12 +220,12 @@
         ignoreResistances: false
         damage:
           types:
-            Cellular: 0.75
-        # conditions:
-        # - !type:HasComponentOnEquipmentCondition
-        #   components:
-        #   - type: PressureProtection
-        #   invert: true
+            Cellular: 0.55
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection
+          invert: true
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false
@@ -234,11 +234,11 @@
             Brute: -1
             Burn: -1
             Toxin: -1.5
-        # conditions:
-        # - !type:HasComponentOnEquipmentCondition
-        #   components:
-        #   - type: PressureProtection
-        #   invert: true
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection
+          invert: true
   metabolisms:
     Medicine:
       metabolismRate: 1
@@ -256,52 +256,49 @@
 
 # Лекарства от механических
 
-# - type: reagent
-#   id: SDSalicylicAcid
-#   name: reagent-name-salicylic-acid
-#   group: Medicine
-#   desc: reagent-desc-salicylic-acid
-#   physicalDesc: reagent-physical-desc-pungent
-#   flavor: medicine
-#   color: "#e8cb4e"
-#   plantMetabolism:
-#     - !type:PlantAdjustWeeds
-#       amount: -4
-#     - !type:PlantAdjustHealth
-#       amount: -10
-#   metabolisms:
-#     Medicine:
-#       effects:
-#       - !type:HealthChange
-#         damage:
-#           groups:
-#             Brute: -4
-#         conditions:
-#         - !type:TypedDamageThreshold
-#           damage:
-#             groups:
-#               Brute: 25
-#         - !type:ReagentThreshold
-#           max: 5.5
-#       - !type:HealthChange
-#         damage:
-#           groups:
-#             Brute: -1.5
-#         conditions:
-#         - !type:TypedDamageThreshold
-#           damage:
-#             groups:
-#               Brute: 25
-#           inverse: true
-#         - !type:ReagentThreshold
-#           max: 5.5
-#       - !type:HealthChange
-#         damage:
-#           groups:
-#             Brute: 3
-#         conditions:
-#         - !type:ReagentThreshold
-#           min: 5.5
+- type: reagent
+  id: SDSalicylicAcid
+  name: reagent-name-salicylic-acid
+  group: Medicine
+  desc: reagent-desc-salicylic-acid
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#e8cb4e"
+  plantMetabolism:
+    - !type:PlantAdjustWeeds
+      amount: -4
+    - !type:PlantAdjustHealth
+      amount: -10
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Brute: -4
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 25
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:EvenHealthChange
+        damage:
+          Brute: -1.5
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Brute: 25
+          inverse: true
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:EvenHealthChange
+        damage:
+          Brute: 3
+        conditions:
+        - !type:ReagentThreshold
+          min: 5.5
 
 # Лекарства от физических
 
@@ -319,33 +316,30 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -4
-        # conditions:
-        # - !type:TypedDamageThreshold
-        #   damage:
-        #     groups:
-        #       Burn: 25
-        # - !type:ReagentThreshold
-        #   max: 5.5
-      - !type:HealthChange
+          Burn: -4
+        conditions:
+        - !type:TypedDamageThreshold
+         damage:
+           groups:
+             Burn: 25
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -1.5
-        # conditions:
-        # - !type:TypedDamageThreshold
-        #   damage:
-        #     groups:
-        #       Burn: 25
-        #   inverse: true
-        # - !type:ReagentThreshold
-        #   max: 5.5
-      - !type:HealthChange
+          Burn: -1.5
+        conditions:
+        - !type:TypedDamageThreshold
+          damage:
+            groups:
+              Burn: 25
+          inverse: true
+        - !type:ReagentThreshold
+          max: 5.5
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: 4
+          Burn: 4
         conditions:
         - !type:ReagentThreshold
           min: 5.5
