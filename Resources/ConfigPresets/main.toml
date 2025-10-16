@@ -44,6 +44,8 @@ peaceful_end = false
 lobbyenabled = true
 contraband_examine = false
 lobbyduration = 20
+[worldgen]
+enabled = true
 
 [ic]
 flavor_text = true
