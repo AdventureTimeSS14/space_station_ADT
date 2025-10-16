@@ -228,7 +228,7 @@ namespace Content.IntegrationTests.Tests
         /// Note that this isn't really a strict requirement, and there are probably quite a few edge cases. Its a pretty
         /// crude test to try catch issues like this, and possibly should just be disabled.
         /// </remarks>
-         [Test]
+        [Test]
         public async Task SpawnAndDeleteEntityCountTest()
         {
             var settings = new PoolSettings { Connected = true, Dirty = true };
@@ -242,13 +242,17 @@ namespace Content.IntegrationTests.Tests
                 "MapGrid",
                 "StationEvent",
                 "TimedDespawn",
-                //ADT-tweak-sater
-                "StandardNanotrasenStation",
-                "MobHumanSpaceNinja",
-                "AbominationCube",
-                // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
             };
+
+            //ADT-tweak-start
+            var excludedProtoIds = new[]
+            {
+                "MobHumanSpaceNinja",
+                "StandardNanotrasenStation",
+                "AbominationCube",
+            };
+            //ADT-tweak-end
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
 
@@ -258,6 +262,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !excluded.Any(p.Components.ContainsKey))
                 .Where(p => p.Categories.All(x => x.ID != SpawnerCategory))
+                .Where(p => !excludedProtoIds.Contains(p.ID)) //ADT-tweak
                 .Select(p => p.ID)
                 .ToList();
 
@@ -334,6 +339,7 @@ namespace Content.IntegrationTests.Tests
 
             await pair.CleanReturnAsync();
         }
+        // ADT-Revert-End
 
         private static string BuildDiffString(IEnumerable<EntityUid> oldEnts, IEnumerable<EntityUid> newEnts, IEntityManager entMan)
         {
@@ -381,7 +387,6 @@ namespace Content.IntegrationTests.Tests
             }
             return false;
         }
-        // ADT-Revert-End
         
         [Test]
         public async Task AllComponentsOneToOneDeleteTest()
