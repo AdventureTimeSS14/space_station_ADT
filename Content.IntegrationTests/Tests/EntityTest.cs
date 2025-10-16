@@ -253,6 +253,7 @@ namespace Content.IntegrationTests.Tests
                 "AbominationCube",
                 "AccessBreaker",
                 "AccessBreakerUnlimited",
+                "AccessConfigurator",
             };
             //ADT-tweak-end
 
