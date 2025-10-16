@@ -252,6 +252,7 @@ namespace Content.IntegrationTests.Tests
                 "StandardNanotrasenStation",
                 "AbominationCube",
                 "AccessBreaker",
+                "AccessBreakerUnlimited",
             };
             //ADT-tweak-end
 
