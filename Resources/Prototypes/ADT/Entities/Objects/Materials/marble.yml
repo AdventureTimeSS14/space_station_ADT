@@ -1,17 +1,47 @@
 - type: entity
   id: ADTmarble
-  parent: BaseItem
+  parent: MaterialBase
   name: marble
   description: marble... So what?
+  suffix: Full
   components:
   - type: Item
     size: Normal
+    heldPrefix: marble
+    sprite: ADT/Objects/Materials/marble.rsi
+  - type: Material
   - type: Sprite
     sprite: ADT/Objects/Materials/marble.rsi
     layers:
     - state: icon
+      map: [ "base" ]
+  - type: Stack
+    count: 10
+    stackType: ADTmarbleStack
+    baseLayer: base
+    layerStates:
+    - icon
+    - marble2
+    - marblemat3
   - type: Appearance
-  - type: Material
   - type: PhysicalComposition
-  - type: StaticPrice
-    price: 300
+    materialComposition:
+      ADTMarbleMaterial: 100
+
+- type: entity
+  parent: ADTmarble
+  id: ADTmarble1
+  name: marble
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: ADTmarble
+  id: ADTmarble5
+  name: marble
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5

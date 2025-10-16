@@ -2,7 +2,7 @@
   id: ADT_Barratry
   mapName: 'Barratry'
   mapPath: /Maps/ADTMaps/ADTStations/adt_barratry.yml
-  minPlayers: 30
+  minPlayers: 35
   maxPlayers: 60
   stations:
     ADT_Barratry:

@@ -57,8 +57,8 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     {
         base.Update(frameTime);
 
-        if (!_event.EventsEnabled)
-            return;
+        // if (!_event.EventsEnabled) //ADT-tweak
+        //     return; //ADT-tweak
 
         var query = EntityQueryEnumerator<RampingStationEventSchedulerComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var scheduler, out var gameRule))

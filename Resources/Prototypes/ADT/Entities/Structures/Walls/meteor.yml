@@ -1,7 +1,7 @@
 - type: entity
   id: ADTMeteorRockBS
   parent: MeteorRock
-  description: 
+  description:
   suffix: BS
   components:
     - type: OreVein
@@ -23,7 +23,7 @@
 - type: entity
   id: ADTAsteroidRockBS
   parent: AsteroidRock
-  description: 
+  description:
   suffix: BS
   components:
     - type: OreVein
@@ -54,8 +54,8 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore 
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ] 
+        - state: rock_bsore
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
         - state: rock
         - map: [ "enum.EdgeLayer.South" ]
           state: rock_south
@@ -77,7 +77,7 @@
       currentOre: ADTOreBS
     - type: Sprite
       layers:
-        - state: rock_bsore 
+        - state: rock_bsore
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
         - state: rock_wall
         - map: [ "enum.EdgeLayer.South" ]
@@ -157,3 +157,245 @@
           state: rock_snow_north
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_snow_west
+
+#NEW BFUU
+- type: entity
+  abstract: true
+  id: ADTBaseRockGibtonite
+  suffix: Gibtonite
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        "gib":
+          Primed:
+            state: gibtonite_active
+            shader: unshaded
+            visible: true
+          Unprimed:
+            state: gibtonite_inactive
+            visible: false
+  - type: OnUseTimerTrigger
+    examinable: false
+    beepInterval: 0.4
+    beepSound:
+      collection: GlassCrack
+  - type: RandomTimerTrigger
+    min: 8
+    max: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:TimerStartBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Gibtonite
+    extracted: false
+  
+- type: entity
+  parent: [ ADTBaseRockGibtonite, AsteroidRock ]
+  id: ADTAsteroidRockGibtonite
+  components:
+  - type: Sprite
+    layers:
+    - state: rock_asteroid
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_asteroid_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_asteroid_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_asteroid_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_asteroid_west
+    - state: gibtonite_inactive
+      visible: false
+      map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+#Lead
+- type: entity
+  id: ADTAsteroidRockLead
+  parent: AsteroidRock
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+
+- type: entity
+  id: ADTMeteorRockLead
+  parent: MeteorRock
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+
+- type: entity
+  id: ADTIronRockLead
+  parent: IronRock
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+
+- type: entity
+  id: ADTWallRockBasaltLead
+  parent: WallRockBasalt
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+
+- type: entity
+  id: ADTWallRockSnowLead
+  parent: WallRockSnow
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+
+- type: entity
+  id: ADTWallRockSandLead
+  parent: WallRockSand
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+
+- type: entity
+  id: ADTWallRockChromiteLead
+  parent: WallRockChromite
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+
+- type: entity
+  id: ADTWallRockAndesiteLead
+  parent: WallRockAndesite
+  description: An ore vein rich with lead.
+  suffix: Lead
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreLead
+    - type: Sprite
+      layers:
+        - state: rock_lead
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
