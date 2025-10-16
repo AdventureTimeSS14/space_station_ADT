@@ -27,5 +27,7 @@
   components:
   - type: Sprite
     sprite: Corvax/Clothing/Head/hardsuits/security-pilot.rsi
+    layers:
+    - state: icon
   - type: Clothing
     sprite: Corvax/Clothing/Head/hardsuits/security-pilot.rsi
