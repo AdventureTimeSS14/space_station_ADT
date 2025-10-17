@@ -102,7 +102,6 @@
       path: /Audio/Items/crowbar.ogg
   - type: Internals
   - type: Buckle
-  - type: StandingState
   - type: ProjectileIgnoreCrawling
   - type: NpcFactionMember
     factions:
