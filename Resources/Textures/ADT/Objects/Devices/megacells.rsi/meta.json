@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tg station at commit c76efcfba42bfdbee733a48aa289a6483cbe926a",
+    "states": [
+        {
+            "name": "megacell"
+        },
+        {
+            "name": "m_megacell"
+        },
+        {
+            "name": "h_megacell"
+        },
+        {
+            "name": "hyp_megacell"
+        },
+        {
+            "name": "o1"
+        },
+        {
+            "name": "o2"
+        }
+    ]
+}
