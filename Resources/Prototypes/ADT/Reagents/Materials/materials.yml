@@ -45,7 +45,7 @@
   stackEntity: ADTSheetZinc1
   name: materials-zinc
   unit: materials-unit-bar
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: zinc }
+  icon: { sprite: ADT/Objects/Materials/Sheets/metal.rsi, state: zinc }
   color: "#087a67"
   price: 0.075
 
@@ -54,7 +54,7 @@
   stackEntity: ADTSheetLead1
   name: materials-lead
   unit: materials-unit-bar
-  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: lead }
+  icon: { sprite: ADT/Objects/Materials/Sheets/metal.rsi, state: lead }
   color: "#08287a"
   price: 0
 
