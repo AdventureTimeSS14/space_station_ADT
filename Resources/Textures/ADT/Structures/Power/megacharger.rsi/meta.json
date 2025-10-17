@@ -8,7 +8,7 @@
     "copyright": "Made by Adventure Time",
     "states": [
         {
-            "name": "ight-off"
+            "name": "light-off"
         },
         {
             "name": "empty"
