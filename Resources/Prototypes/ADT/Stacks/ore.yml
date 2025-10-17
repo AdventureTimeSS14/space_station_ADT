@@ -1,20 +1,20 @@
 - type: stack
   id: CopperOre
   name: copper-ore
-  icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: copper }
+  icon: { sprite: /Textures/ADT/Objects/Materials/ore.rsi, state: copper }
   spawn: ADTCopperOre1
   maxCount: 30
 
 - type: stack
   id: ZincOre
   name: zinc-ore
-  icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: zinc }
+  icon: { sprite: /Textures/ADT/Objects/Materials/ore.rsi, state: zinc }
   spawn: ADTZincOre1
   maxCount: 30
 
 - type: stack
   id: LeadOre
   name: lead-ore
-  icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: lead }
+  icon: { sprite: /Textures/ADT/Objects/Materials/ore.rsi, state: lead }
   spawn: ADTLeadOre1
   maxCount: 30

@@ -31,6 +31,10 @@ using Content.Shared.Bed.Cryostorage;
 using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Construction.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Collision.Shapes;
 
 namespace Content.Server.ADT.Shadekin;
 
@@ -52,6 +56,7 @@ public sealed partial class ShadekinSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -154,22 +159,10 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (HasComp<MechPilotComponent>(uid))
             return;
 
-        var mapCoords = args.Target.ToMap(EntityManager, _transform);
-        var allEntities = new List<EntityUid>();
-        foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
-            allEntities.Add(ent);
+        var targetPosition = args.Target.ToMap(EntityManager, _transform).Position;
 
-        var blockingEntities = allEntities.Where(e =>
-            HasComp<AnchorableComponent>(e)
-            || _tagSystem.HasTag(e, "Table")
-        ).ToList();
-
-        if (blockingEntities.Any())
-        {
-            TryUseAbility(uid, 0);
-            args.Handled = true;
+        if (HasTeleportCollision(uid, targetPosition))
             return;
-        }
 
         if (!TryUseAbility(uid, 50))
             return;
@@ -231,18 +224,11 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
                 continue;
 
-            var mapCoords = newCoords.ToMap(EntityManager, _transform);
-            var allEntities = new List<EntityUid>();
-            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
-                allEntities.Add(ent);
+            var targetPosition = newCoords.ToMap(EntityManager, _transform).Position;
 
-            var blockingEntities = allEntities.Where(e =>
-                HasComp<AnchorableComponent>(e)
-                || _tagSystem.HasTag(e, "Table")
-            ).ToList();
-
-            if (blockingEntities.Any())
+            if (HasTeleportCollision(uid, targetPosition, excludeTables: true))
                 continue;
+
 
             TryUseAbility(uid, 40, false);
             if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
@@ -271,17 +257,9 @@ public sealed partial class ShadekinSystem : EntitySystem
             if (!_interaction.InRangeUnobstructed(uid, newCoords, -1f))
                 continue;
 
-            var mapCoords = newCoords.ToMap(EntityManager, _transform);
-            var allEntities = new List<EntityUid>();
-            foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.18f))
-                allEntities.Add(ent);
+            var targetPosition = newCoords.ToMap(EntityManager, _transform).Position;
 
-            var blockingEntities = allEntities.Where(e =>
-                HasComp<AnchorableComponent>(e)
-                || _tagSystem.HasTag(e, "Table")
-            ).ToList();
-
-            if (blockingEntities.Any())
+            if (HasTeleportCollision(uid, targetPosition, excludeTables: true))
                 continue;
 
             if (TryComp<PullerComponent>(uid, out var puller) && puller.Pulling != null &&
@@ -332,5 +310,48 @@ public sealed partial class ShadekinSystem : EntitySystem
 
         _alert.ShowAlert(uid, _proto.Index<AlertPrototype>("ShadekinPower"), (short)Math.Clamp(Math.Round(comp.PowerLevel / 50f), 0, 5));
         _action.RemoveAction(comp.ActionEntity);
+    }
+
+    private bool HasTeleportCollision(EntityUid uid, Vector2 targetPosition, bool excludeTables = false)
+    {
+        // Создаем мнимый круглый хитбокс в координатах телепорта
+        var virtualPlayerShape = new PhysShapeCircle(0.35f);
+        var virtualPlayerHitbox = virtualPlayerShape.ComputeAABB(new Transform(targetPosition, 0f), 0);
+
+        var mapCoords = new MapCoordinates(targetPosition, Transform(uid).MapID);
+        var allEntities = new List<EntityUid>();
+        foreach (var ent in _entityLookup.GetEntitiesInRange(mapCoords, 0.35f))
+            allEntities.Add(ent);
+
+        var filteredEntities = allEntities.Where(ent =>
+            ent != uid &&
+            HasComp<AnchorableComponent>(ent) &&
+            TryComp<PhysicsComponent>(ent, out var physics) && physics.CollisionLayer != 0 &&
+            (!excludeTables || !_tagSystem.HasTag(ent, "Table"))
+        ).ToList();
+
+        // Проверяем коллизию мнимого хитбокса с каждым BB всех энтити
+        foreach (var ent in filteredEntities)
+        {
+            if (TryComp<FixturesComponent>(ent, out var fixturesComponent))
+            {
+                foreach (var fixture in fixturesComponent.Fixtures.Values)
+                {
+                    // Пропускаем круглые BB
+                    if (fixture.Shape is PhysShapeCircle)
+                        continue;
+
+                    var entTransform = _physics.GetPhysicsTransform(ent);
+                    var fixtureHitbox = fixture.Shape.ComputeAABB(entTransform, 0);
+
+                    if (virtualPlayerHitbox.Intersects(fixtureHitbox))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }
