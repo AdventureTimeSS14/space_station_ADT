@@ -1,0 +1,11 @@
+execution-popup-gun-initial-internal = Вы уже приставили {$weapon} к голове {$victim}.
+execution-popup-gun-initial-external = {$attacker} приставляет дуло {$weapon} к голове {$victim}.
+execution-popup-gun-complete-internal = Вы стреляете в голову {$victim}!
+execution-popup-gun-complete-external = {$attacker} стреляет в голову {$victim}!
+execution-popup-gun-clumsy-internal = Вы промахнулись по голове {$victim} и попали по своей ноге!
+execution-popup-gun-clumsy-external = {$attacker} промазывает по {$victim} и попадает в свою ногу!
+execution-popup-gun-empty = {$weapon} щёлкает.
+suicide-popup-gun-initial-internal = Вы кладёте в рот дуло {$weapon}.
+suicide-popup-gun-initial-external = {$attacker} кладёт дуло {$weapon} в рот {$attacker}.
+suicide-popup-gun-complete-internal = Вы стреляет в свою голову!
+suicide-popup-gun-complete-external = {$attacker} стреляет в голову {$attacker}!

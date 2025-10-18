@@ -540,6 +540,8 @@
         orGroup: GiftPool
       - id: ADTToyBlasterGunBlue
         orGroup: GiftPool
+      - id: ADTWeaponRevolverRussian
+        orGroup: GiftPool
 # ADT-tweak end
       - id: ToyAi
         orGroup: GiftPool

@@ -47,7 +47,7 @@
   - type: RequireProjectileTarget
     active: False
   - type: StunVisuals
-  # ADT tweak start
+  # ADT-tweak-start
   - type: CanEscapeMech
   - type: LanguageSpeaker
     languages:
@@ -65,8 +65,9 @@
         - ClothMade
         - Mouse
         - Candle
-  # ADT tweak end
-
+  - type: AnimatedEmotes
+  # ADT-tweak-end
+ 
 - type: entity
   save: false
   id: MobPolymorphable

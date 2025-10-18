@@ -29,11 +29,6 @@
     Telecrystal: 15
   categories:
   - UplinkWeaponry
-  conditions:
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
 
 - type: listing
   id: ADTUplinkXC67Bundle
@@ -624,7 +619,13 @@
     Telecrystal: 15 #Tweak 20->15
   categories:
     - UplinkPointless
-
+  #ADT-tweak-start
+  conditions:
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
+  #ADT-tweak-end
 
 - type: listing
   id: ADTUplinkOmnizinPizza
@@ -688,7 +689,7 @@
   description: uplink-thermal-desc
   productEntity: ClothingEyesGlassesThermal
   cost:
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
     - UplinkWearables
 

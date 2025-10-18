@@ -19,6 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: GunExecutionBlacklist #ADT-tweak
 
 - type: entity
   name: china lake

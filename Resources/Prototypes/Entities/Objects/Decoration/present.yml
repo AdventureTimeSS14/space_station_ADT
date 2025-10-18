@@ -171,6 +171,8 @@
         orGroup: GiftPool
       - id: ADTToyBlasterGunBlue
         orGroup: GiftPool
+      - id: ADTWeaponRevolverRussian
+        orGroup: GiftPool
 # ADT-Tweak end
       - id: RecorderInstrument
         orGroup: GiftPool
