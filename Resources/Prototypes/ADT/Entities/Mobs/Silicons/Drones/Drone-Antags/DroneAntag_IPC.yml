@@ -58,7 +58,7 @@
     - type: Examiner
     # - type: Recyclable
     #   safe: false
-    - type: StandingState
+    #- type: StandingState
     - type: Alerts
     # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
     #   protectionTime: 12
@@ -276,7 +276,7 @@
           type: HumanoidMarkingModifierBoundUserInterface
         enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
-    - type: StandingState
+    #- type: StandingState
     - type: CanEscapeInventory
     # - type: HumanoidAppearance
     #   species: IPC

@@ -177,7 +177,7 @@
   - type: Alerts
   - type: Puller
     needsHands: false
-  - type: StandingState
+  #- type: StandingState
   - type: Tag
     tags:
     # - ShoesRequiredStepTriggerImmune

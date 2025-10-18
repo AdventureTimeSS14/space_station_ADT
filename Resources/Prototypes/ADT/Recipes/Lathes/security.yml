@@ -30,6 +30,15 @@
     Uranium: 125
 
 - type: latheRecipe
+  id: ADTMagazineShotgunUraniumCraft
+  result: MagazineShotgunUranium
+  completetime: 5
+  materials:
+    Steel: 50
+    Plastic: 320
+    Uranium: 250
+
+- type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: ADTWeaponIonRifle
   result: ADTWeaponIonRifle

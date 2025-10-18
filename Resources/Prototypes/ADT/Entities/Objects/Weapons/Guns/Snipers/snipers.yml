@@ -20,6 +20,17 @@
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -44
+  - type: RunAndGunSpreadModifier
+    amount: 7
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 18
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Gun
     minAngle: 24
     maxAngle: 45
@@ -57,7 +68,7 @@
   - type: AttachableHolder
     slots:
       rmc-aslot-rail:
-        locked: true
+        locked: false
         startingAttachable: ADTAttachmentHristovScope
         whitelist:
             tags:

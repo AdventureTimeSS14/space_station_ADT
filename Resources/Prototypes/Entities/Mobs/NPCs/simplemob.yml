@@ -27,7 +27,7 @@
     - RadiationProtection
     - Adrenaline
   - type: Buckle
-  - type: StandingState
+  #- type: StandingState # ADT-Tweak зачем им ползать
   - type: Tag
     tags:
     - DoorBumpOpener

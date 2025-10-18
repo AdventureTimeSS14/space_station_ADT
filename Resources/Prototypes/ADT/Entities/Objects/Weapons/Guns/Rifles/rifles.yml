@@ -53,7 +53,7 @@
 
 - type: entity
   name: AR-12
-  parent: [WeaponRifleLecter, ADTBaseMagneticGun]
+  parent: [WeaponRifleAk, ADTBaseMagneticGun]
   id: ADTWeaponRifleAR12
   description: AR-12
   components:
@@ -87,6 +87,25 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.25, -0.125

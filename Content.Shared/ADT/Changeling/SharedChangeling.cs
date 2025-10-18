@@ -176,7 +176,7 @@ public sealed partial class LastResortActionEvent : BaseInstantChangelingActionE
 public sealed partial class LingBiodegradeActionEvent : BaseInstantChangelingActionEvent
 {
     [DataField]
-    public float Duration = 10f;
+    public float Duration = 5f; // 10f -> 5f
 }
 
 public sealed partial class LingResonantShriekEvent : BaseInstantChangelingActionEvent

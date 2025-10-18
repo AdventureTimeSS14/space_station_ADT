@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "All sprites by https://github.com/august-sun, inhands by TiniestShark (GitHub), stripes by SeamLesss (GitHub)",
+    "copyright": "All sprites by https://github.com/august-sun, inhands by TiniestShark (GitHub), stripes by SeamLesss (GitHub) icon by armorkillerd",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "base"
+        },
+        {
+            "name": "icon"
         },
         {
             "name": "stripe"

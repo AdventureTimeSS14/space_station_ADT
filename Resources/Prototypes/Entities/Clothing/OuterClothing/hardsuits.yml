@@ -174,7 +174,7 @@
         Blunt: 0.7
         Slash: 0.7
 # ADT-tweak start
-        Piercing: 0.4  # Piercing: 0.5 -> 0.4
+        Piercing: 0.6  # Piercing: 0.5 -> 0.6
         Heat: 0.9     # Heat: 0.7 -> 0.9
 # ADT-tweak end
         Radiation: 0.3

@@ -227,7 +227,7 @@
   description: uplink-ertmech-mech-marauder-desc
   productEntity: ADTMechMarauderBattery
   cost:
-    Productunit: 20
+    Productunit: 30
   categories:
   - ADTUplinkERTMechMechs
 
@@ -237,7 +237,7 @@
   description: uplink-syndimech-mech-gygax-desc
   productEntity: ADTMechErtGygaxBattery
   cost:
-    Productunit: 12
+    Productunit: 20
   categories:
   - ADTUplinkERTMechMechs
 
@@ -249,7 +249,7 @@
   description: uplink-syndimech-weapon-immolator-desc
   productEntity: ADTMechGunImmolatorLaser
   cost:
-    Productunit: 3
+    Productunit: 5
   categories:
   - ADTUplinkERTMechWeapon
 
@@ -259,7 +259,7 @@
   description: uplink-syndimech-weapon-solaris-desc
   productEntity: ADTMechGunSolarisLaserCannon
   cost:
-    Productunit: 4
+    Productunit: 6
   categories:
   - ADTUplinkERTMechWeapon
 
@@ -269,7 +269,7 @@
   description: uplink-syndimech-weapon-tesla-desc
   productEntity: ADTMechGunTeslaCannon
   cost:
-    Productunit: 3
+    Productunit: 5
   categories:
   - ADTUplinkERTMechWeapon
 
@@ -279,7 +279,7 @@
   description: uplink-syndimech-weapon-scatter-desc
   productEntity: ADTMechGunScattershot
   cost:
-    Productunit: 4
+    Productunit: 8
   categories:
   - ADTUplinkERTMechWeapon
 
@@ -289,7 +289,7 @@
   description: uplink-syndimech-weapon-ultra-desc
   productEntity: ADTMechGunUltraAC2
   cost:
-    Productunit: 4
+    Productunit: 6
   categories:
   - ADTUplinkERTMechWeapon
 
@@ -299,7 +299,7 @@
   description: uplink-syndimech-weapon-hades-desc
   productEntity: ADTMechGunFNX99Hades
   cost:
-    Productunit: 5
+    Productunit: 7
   categories:
   - ADTUplinkERTMechWeapon
 
@@ -339,7 +339,7 @@
   description: uplink-syndimech-weapon-srm-desc
   productEntity: ADTMechGunSRM8
   cost:
-    Productunit: 8
+    Productunit: 14
   categories:
   - ADTUplinkERTMechWeapon
 
@@ -364,6 +364,16 @@
   - ADTUplinkERTMechWeapon
 
 #equipment
+
+- type: listing
+  id: UplinkERTMechPaddyGrabber
+  name: uplink-syndimech-equipment-grabber-name
+  description: uplink-syndimech-equipment-grabber-desc
+  productEntity: MechEquipmentPuddyGrabber
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMechEquipment
 
 - type: listing
   id: UplinkERTMechWelderIndustrial
@@ -391,7 +401,7 @@
   description: uplink-syndimech-equipment-powercellhigh-desc
   productEntity: PowerCellHigh
   cost:
-    Productunit: 1
+    Productunit: 2
   categories:
   - ADTUplinkERTMechEquipment
 
@@ -401,19 +411,10 @@
   description: uplink-syndimech-equipment-powercellhyper-desc
   productEntity: PowerCellHyper
   cost:
-    Productunit: 2
-  categories:
-  - ADTUplinkERTMechEquipment
-
-- type: listing
-  id: UplinkERTMechPaddyGrabber
-  name: uplink-syndimech-equipment-grabber-name
-  description: uplink-syndimech-equipment-grabber-desc
-  productEntity: MechEquipmentPuddyGrabber
-  cost:
     Productunit: 3
   categories:
   - ADTUplinkERTMechEquipment
+
 
 #ammo
 - type: listing
@@ -422,7 +423,7 @@
   description: uplink-syndimech-ammo-scatter-desc
   productEntity: ADTBoxAmmoScattershot
   cost:
-    Productunit: 1
+    Productunit: 2
   categories:
   - ADTUplinkERTMechAmmo
 
@@ -432,19 +433,19 @@
   description: uplink-syndimech-ammo-ultra-desc
   productEntity: ADTBoxAmmoAC2Ultra
   cost:
-    Productunit: 1
-  categories:
-  - ADTUplinkERTMechAmmo
-
-- type: listing
-  id: UplinkERTMechAmmoMadeuce
-  name: uplink-syndimech-ammo-madeuce-name
-  description: uplink-syndimech-ammo-madeuce-desc
-  productEntity: ADTBoxAmmoSniper
-  cost:
     Productunit: 2
   categories:
   - ADTUplinkERTMechAmmo
+# Оружие убрано из доступа ради баланса
+#- type: listing
+#  id: UplinkERTMechAmmoMadeuce
+#  name: uplink-syndimech-ammo-madeuce-name
+#  description: uplink-syndimech-ammo-madeuce-desc
+#  productEntity: ADTBoxAmmoSniper
+#  cost:
+#    Productunit: 3
+#  categories:
+#  - ADTUplinkERTMechAmmo
 
 - type: listing
   id: UplinkERTMechAmmoFNX99Hades
@@ -452,7 +453,7 @@
   description: uplink-syndimech-ammo-hades-desc
   productEntity: ADTBoxAmmoHades
   cost:
-    Productunit: 2
+    Productunit: 3
   categories:
   - ADTUplinkERTMechAmmo
 
@@ -462,7 +463,7 @@
   description: uplink-syndimech-ammo-srm-desc
   productEntity: ADTBoxAmmoGranade
   cost:
-    Productunit: 4
+    Productunit: 6
   categories:
   - ADTUplinkERTMechAmmo
 

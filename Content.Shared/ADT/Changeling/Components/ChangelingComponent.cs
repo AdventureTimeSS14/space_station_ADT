@@ -23,7 +23,7 @@ public sealed partial class ChangelingComponent : Component
     /// The amount of chemicals passively generated per second
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ChemicalsPerSecond = 0.5f;
+    public float ChemicalsPerSecond = 1f; // 0.5f -> 1f
 
     /// <summary>
     /// The lings's current max amount of chemicals.

@@ -63,7 +63,7 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: regenerate
     itemIconStyle: BigAction
-    useDelay: 115
+    useDelay: 60
     priority: -66
   - type: InstantAction
     event: !type:LingRegenerateActionEvent
@@ -89,7 +89,7 @@
       - Body
     canTargetSelf: false
     event: !type:LingStingExtractActionEvent
-      cost: 25
+      cost: 15
 
 - type: entity
   id: ActionStasisDeath
@@ -107,7 +107,7 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: revive
     itemIconStyle: BigAction
-    useDelay: 90
+    useDelay: 30
     priority: -46
   - type: InstantAction
     event: !type:StasisDeathActionEvent
@@ -130,7 +130,7 @@
     priority: -61
   - type: InstantAction
     event: !type:LingResonantShriekEvent
-      cost: 20
+      cost: 10
 
 - type: entity
   id: ActionLingAdrenaline
@@ -147,7 +147,7 @@
     priority: -45
   - type: InstantAction
     event: !type:AdrenalineActionEvent
-      cost: 10
+      cost: 5
 
 - type: entity
   id: ActionBoneShard
@@ -160,11 +160,11 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: bone_shard
     itemIconStyle: BigAction
-    useDelay: 15
+    useDelay: 1
     priority: -55
   - type: InstantAction
     event: !type:ChangelingBoneShardEvent
-      cost: 15
+      cost: 10
 
 - type: entity
   id: ActionLingEMP
@@ -198,7 +198,7 @@
     priority: -43
   - type: InstantAction
     event: !type:ChangelingMusclesActionEvent
-      cost: 20
+      cost: 15
 
 - type: entity
   id: ActionLingBlindSting
@@ -250,7 +250,7 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: chitinous_armor
     itemIconStyle: BigAction
-    useDelay: 15
+    useDelay: 5
     priority: -49
   - type: InstantAction
     event: !type:LingArmorActionEvent
@@ -271,7 +271,7 @@
     priority: -51
   - type: InstantAction
     event: !type:ArmShieldActionEvent
-      cost: 20
+      cost: 15
 
 
 - type: entity
@@ -304,11 +304,11 @@
       state: biodegrade
     itemIconStyle: BigAction
     checkCanInteract: false
-    useDelay: 10
+    useDelay: 1
     priority: -61
   - type: InstantAction
     event: !type:LingBiodegradeActionEvent
-      cost: 15
+      cost: 5
 
 - type: entity
   id: ActionLingDrugSting
@@ -321,7 +321,7 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: sting_lsd
     itemIconStyle: BigAction
-    useDelay: 5
+    useDelay: 15
     priority: -62
   - type: TargetAction
   - type: EntityTargetAction
@@ -330,7 +330,7 @@
       - Body
     canTargetSelf: false
     event: !type:DrugStingEvent
-      cost: 20
+      cost: 5
 
 - type: entity
   id: ActionLingMuteSting
@@ -352,7 +352,7 @@
       - Body
     canTargetSelf: false
     event: !type:MuteStingEvent
-      cost: 20
+      cost: 10
 
 - type: entity
   id: ActionLingLesserForm
@@ -408,7 +408,7 @@
     priority: -55
   - type: InstantAction
     event: !type:DigitalCamouflageEvent
-      cost: 20
+      cost: 25
 
 - type: entity
   id: ActionLingInvisible
@@ -438,11 +438,11 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: fleshmend
     itemIconStyle: BigAction
-    useDelay: 90
+    useDelay: 30
     priority: -44
   - type: InstantAction
     event: !type:FleshmendActionEvent
-      cost: 25
+      cost: 15
 
 - type: entity
   id: ActionLingTransformSting

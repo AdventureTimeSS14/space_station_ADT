@@ -100,13 +100,16 @@
   - MagazineRifleUranium
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunUranium
-  - ADTMagazineMagnumUranium # ADT tweak
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
-  - ADTSpeedLoaderMagnumLesserUranium # ADT tweak
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
-  - ADTMagazineBoxMagnumLesserUranium # ADT tweak
+  # ADT-Tweak start
+  - ADTMagazineShotgunUraniumCraft
+  - ADTMagazineMagnumUranium
+  - ADTSpeedLoaderMagnumLesserUranium
+  - ADTMagazineBoxMagnumLesserUranium 
+  # ADT-Tweak end
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium

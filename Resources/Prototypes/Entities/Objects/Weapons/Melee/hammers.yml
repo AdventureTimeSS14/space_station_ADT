@@ -20,7 +20,7 @@
     damage:
       types:
         Blunt: 10
-        Structural: 10
+        Structural: 20 # ADT-Tweak 10 -> 20
   - type: Item
     size: Large
 

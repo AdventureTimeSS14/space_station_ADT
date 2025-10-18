@@ -22,7 +22,7 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      Productunit: 30
+      Productunit: 0
 
 - type: entity
   parent: [BaseItem,  ADTStorePresetUplinkERTRevolutionalMech]
@@ -46,4 +46,4 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      Productunit: 30
+      Productunit: 40

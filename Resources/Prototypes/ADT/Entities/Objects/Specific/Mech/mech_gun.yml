@@ -180,7 +180,7 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    fireRate: 1
+    fireRate: 0.5
     projectileSpeed: 10
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
@@ -188,7 +188,7 @@
         variation: 0.2
   - type: BatteryMechAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 50
+    fireCost: 180
 #Огнестрельное
 
 - type: entity

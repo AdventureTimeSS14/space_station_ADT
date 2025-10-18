@@ -98,6 +98,15 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  # ADT-Tweak start буст метаболизма
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    groups:
+    - id: Food
+    - id: Medicine
+    - id: Poison
+  # ADT-Tweak end
   - type: Tag
     tags:
       - CannotSuicide

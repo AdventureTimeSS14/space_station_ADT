@@ -187,6 +187,17 @@
     - Back
     - suitStorage
   - type: ChamberMagazineAmmoProvider
+  - type: RunAndGunSpreadModifier
+    amount: 7
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: ItemSlots
     slots:
       gun_magazine:

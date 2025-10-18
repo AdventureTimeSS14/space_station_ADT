@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "taken from tg station at commit https://github.com/tgstation/tgstation/blob/832ae532766d491d91db53746d15b4b55be3f2b0",
+    "copyright": "taken from tg station at commit https://github.com/tgstation/tgstation/blob/832ae532766d491d91db53746d15b4b55be3f2b0; icon made by armorkilled",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "base"
+        },
+        {
+            "name": "icon"
         },
         {
             "name": "mag-unshaded-4"
