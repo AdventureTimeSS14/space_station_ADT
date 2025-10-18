@@ -26,6 +26,8 @@
     - PowerCellSmall
     - PowerCellMedium
     - FlashlightLantern
+    - MatterBinStockPart # ADT-Tweak revert wiz pr 37725
+    - CapacitorStockPart # ADT-Tweak revert wiz pr 37725
     - MicroManipulatorStockPart
     - Beaker
     chance: 0.8
@@ -64,6 +66,8 @@
       - id: ADTSheetLead # ADT Tweak
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled
+      - id: MatterBinStockPart # ADT-Tweak revert wiz pr 37725
+      - id: CapacitorStockPart # ADT-Tweak revert wiz pr 37725
       - id: MicroManipulatorStockPart
     # Rare Group
     - !type:GroupSelector

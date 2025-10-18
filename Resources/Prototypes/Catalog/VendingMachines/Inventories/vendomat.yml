@@ -8,7 +8,11 @@
     CableApcStack: 2
     FlashlightLantern: 2
     PowerCellSmallPrinted: 3
-    MicroManipulatorStockPart: 12
+    # ADT-Tweak-start revert wiz pr 37725
+    MatterBinStockPart: 4
+    CapacitorStockPart: 4
+    MicroManipulatorStockPart: 4
+    # ADT-Tweak-end revert wiz pr 37725
   contrabandInventory:
     ProximitySensor: 1
     LeftArmBorg: 1
