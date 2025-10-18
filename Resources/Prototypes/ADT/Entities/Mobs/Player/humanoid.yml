@@ -942,11 +942,6 @@
     randomizeName: false
   - type: Loadout
     prototypes: [ADTRoleMobDrPolymorphGear]
-  - type: RoleBriefing
-    briefing: "Dr-Polymorph-briefing"
-  - type: AntagObjectives
-    objectives:
-    - DrPolymorphObjective
 
 - type: startingGear
   id: ADTRoleMobDrPolymorphGear
