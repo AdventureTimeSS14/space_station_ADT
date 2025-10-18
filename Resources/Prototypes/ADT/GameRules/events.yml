@@ -5,7 +5,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -105,7 +105,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 10 # 10 default
     reoccurrenceDelay: 30
     duration: 1
@@ -128,4 +128,22 @@
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/superhero.yml
   - type: HeroEvent
-    
+  
+- type: entity
+  parent: BaseGameRule
+  id: WormholesSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-wormholes-spawn-announcement
+    startAudio:
+      path: /Audio/ADT/Announcements/announce_dig.ogg
+    weight: 8
+    duration: 10
+    minimumPlayers: 15
+    earliestStart: 35
+    reoccurrenceDelay: 60
+  - type: RandomSpawnRule
+    prototype: ADTEventJaunterPortal
+    minCount: 100
+    maxCount: 300

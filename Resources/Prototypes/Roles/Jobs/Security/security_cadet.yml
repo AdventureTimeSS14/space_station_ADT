@@ -32,6 +32,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial # goobstation
+    components:
+      - type: SecurityStaff
 
 - type: startingGear
   id: SecurityCadetGear
@@ -42,8 +45,20 @@
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58
-    pocket2: BookSpaceLaw # Corvax-HyperLink
+    pocket2: ADTBookSpaceLaw #ADT-WikiBooks
   storage:
     back:
     - Flash
     - MagazinePistol
+
+- type: chameleonOutfit
+  id: SecurityCadetChameleonOutfit
+  job: SecurityCadet
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetBasic
+    eyes: ClothingEyesHudSecurity
+    mask: ClothingMaskGasSecurity
+    neck: ClothingNeckScarfStripedRed
+    belt: ClothingBeltSecurity
+    gloves: ClothingHandsGlovesColorBlack

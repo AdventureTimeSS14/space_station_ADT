@@ -121,6 +121,7 @@
     - Meat
     - Organ
     - Heart
+    - Trash # ADT-Tweak
 
 - type: entity
   id: OrganArachnidLiver

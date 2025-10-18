@@ -303,7 +303,7 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
-
+      
 - type: entity
   id: ADTSpawnPointDrPolymorph
   name: DrPolymorph spawn point
@@ -347,4 +347,5 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
+
 

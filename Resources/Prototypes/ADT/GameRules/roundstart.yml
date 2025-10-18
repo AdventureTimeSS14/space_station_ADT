@@ -33,7 +33,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entity
   parent: BaseHereticRule
@@ -51,7 +50,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-      startingGear: HereticGear
 
 - type: entityTable
   id: ExtendedGameRulesTable
@@ -119,8 +117,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 4
-      playerRatio: 15
+      max: 4          
+      playerRatio: 15 
       blacklist:
         components:
         - AntagImmune
@@ -142,7 +140,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2
+      max: 2       
       playerRatio: 10
       blacklist:
         components:
@@ -198,7 +196,6 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
-      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 - type: entity
   id: DynamicHardGamerule
@@ -207,7 +204,7 @@
   - type: DynamicRule
     maxEventsBeforeAntag: 8
     maxChaos: 120
-    minChaos: 20
+    minChaos: 80
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
@@ -230,10 +227,12 @@
       - id: Heretic
         cost: 30
         rerollChance: 0.5
+      - id: BloodBrother
+        cost: 20
       - id: Revolutionary
         cost: 45
-      - id: Zombie
-        cost: 60
+      # - id: Zombie вернуть после баффов
+      #   cost: 60
     midroundAntags:
       - id: DragonSpawn
         cost: 100
@@ -241,8 +240,8 @@
         cost: 120
       - id: PhantomSpawn
         cost: 110
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 130
+      - id: MorphSpawn
+        cost: 130
       - id: NinjaSpawn
         cost: 140
       - id: KingRatMigration
@@ -258,8 +257,8 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 9
-    maxChaos: 70
-    minChaos: 10
+    maxChaos: 60
+    minChaos: 50
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
@@ -269,15 +268,17 @@
         cost: 20
         rerollChance: 0.5
       - id: HereticSoloGameRule
-        cost: 10
+        cost: 15
         rerollChance: 0.5
       - id: ChangelingDuoGameRule
-        cost: 10
+        cost: 15
       - id: TraitorDuoGameRule
-        cost: 10
+        cost: 15
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
+        cost: 25
+      - id: BloodBrother
         cost: 25
       - id: Heretic
         cost: 30
@@ -293,8 +294,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 140
+      - id: MorphSpawn
+        cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
@@ -310,23 +311,19 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 10
-    maxChaos: 50
-    minChaos: 10
+    maxChaos: 40
+    minChaos: 20
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
     roundstartRules:
       - id: Thief
         cost: 10
-      - id: HereticDuoGameRule
-        cost: 20
-        rerollChance: 0.5
       - id: ChangelingDuoGameRule
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
-      - id: HereticSoloGameRule
-        cost: 10
-        rerollChance: 0.5
+      - id: BloodBrother
+        cost: 25
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
@@ -338,8 +335,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 140
+      - id: MorphSpawn
+        cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
@@ -348,3 +345,61 @@
         cost: 90
       - id: SleeperAgents
         cost: 110
+
+- type: entity
+  id: DynamicRandomGamerule
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 30
+  - type: DynamicRandomRule
+
+- type: entity
+  parent: BaseTraitorRule
+  id: BloodBrother
+  components:
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ BloodBrotherLeader ]
+      max: 4
+      playerRatio: 20
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: TraitorRule
+    bloodBrotherChance: 1
+  - type: AntagRandomObjectives
+    sets:
+    - groups: BloodBrothersObjectiveGroups
+    maxDifficulty: 12
+
+#этот геймрул сделан только для выдачи трейтора
+- type: entity
+  parent: BaseTraitorRule
+  id: TraitorOnly
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 1
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: TraitorRule
+    bloodBrotherChance: 0

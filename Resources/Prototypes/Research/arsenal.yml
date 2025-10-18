@@ -12,8 +12,6 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
-  - ADTWeaponCutter #ADT plasmacutter
-  # These are roundstart but not replenishable for salvage
   position: 0,0 # ADT Research Console Rework
 
 - type: technology
@@ -253,6 +251,23 @@
   position: 3,-3
   requiredTech:
   - ExplosiveTechnology
+  # ADT Research Console Rework end
+
+- type: technology
+  id: DualWieldingTechnology
+  name: research-technology-dual-wielding-technology
+  icon:
+    sprite: Clothing/Back/Specific/harmpack.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingBackpackHarmpack
+  # ADT Research Console Rework start
+  position: 4,-3
+  requiredTech:
+  - BasicShuttleArmament
   # ADT Research Console Rework end
 
 # Tier 3

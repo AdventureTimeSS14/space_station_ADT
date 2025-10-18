@@ -70,7 +70,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var condition = ent.Comp.CurrentPath == "Void";
 
-        var power = condition ? 1.5f + ent.Comp.PathStage / 5f : 1.5f;
+        var power = condition ? 1.1f + ent.Comp.PathStage * 1.5f : 1.1f;
 
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
@@ -82,9 +82,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // repeating for both sides
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
-        foreach (var pookie in GetNearbyPeople(ent, power))
+        foreach (var pookie in GetNearbyPeople(ent, ent.Comp.PathStage / 3f))
         {
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(power), true);
+            _stam.TakeStaminaDamage(pookie, power);
             if (condition) _voidcurse.DoCurse(pookie);
         }
 
@@ -112,7 +112,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             // apply gaming.
-            _dmg.SetAllDamage(pookie, dmgComp, damage);
+            _damageable.SetAllDamage(pookie, dmgComp, damage);
         }
 
         // stun close-mid range

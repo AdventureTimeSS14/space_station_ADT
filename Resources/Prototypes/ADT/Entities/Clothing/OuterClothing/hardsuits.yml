@@ -25,7 +25,6 @@
         Piercing: 0.7
         Heat: 0.4
         Radiation: 0.4
-        Caustic: 0.85
   - type: StaminaResistance
     damageCoefficient: 0.65
   #Stun: 0.65
@@ -105,7 +104,7 @@
     damageCoefficient: 0.5
 
 - type: entity
-  parent: ClothingOuterHardsuitBasic
+  parent: ClothingOuterHardsuitBase
   id: ADTClothingOuterERTRiotHardsuit
   name: Cheap Riot ERT suit
   description: The cheapest ERT hardsuit choice, designed especially for economy and anti-riot actions

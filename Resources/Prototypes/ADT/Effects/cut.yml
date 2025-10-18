@@ -11,3 +11,6 @@
   - type: AnimationPlayer
   - type: TimedDespawn
     lifetime: 0.85
+  - type: Tag
+    tags:
+      - HideContextMenu
