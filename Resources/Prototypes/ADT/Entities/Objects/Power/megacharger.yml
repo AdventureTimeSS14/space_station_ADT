@@ -15,7 +15,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
       visible: false
   - type: Machine
-    board: CellRechargerCircuitboard
+    board: ADTMegaCellRechargerCircuitboard
   - type: WiresPanel
   - type: GenericVisualizer
     visuals:
