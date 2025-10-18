@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/9ea07b7f120ba1a25856365fb044aec3bdfc24d6  and skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/72ef384db938dfef549413970258cda93d42dafb, plasma_2 & plasma_3 combined from plasma",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/9ea07b7f120ba1a25856365fb044aec3bdfc24d6  and skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/72ef384db938dfef549413970258cda93d42dafb, plasma_2 & plasma_3 combined from plasma, BFUU sprites of materials by Unlumy",
   "size": {
     "x": 32,
     "y": 32

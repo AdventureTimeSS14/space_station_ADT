@@ -94,8 +94,8 @@
       - ADTWallSpawnAsteroidBSCrab
     - settings:
         spawnOnSuperCritical: true
-        minAmount: 6
-        maxAmount: 10
+        minAmount: 2
+        maxAmount: 4
         maxRange: 5
       spawns:
       - ADTMobSpawnBSCrab

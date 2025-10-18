@@ -27,3 +27,6 @@ ent-SpawnPointADTGuardOfficer = надзиратель
 
 ent-SpawnPointADTBarber = парикмахер
     .desc = { ent-SpawnPointJobBase.desc }
+
+ent-SpawnPointADTMiner = шахтёр
+    .desc = { ent-SpawnPointJobBase.desc }

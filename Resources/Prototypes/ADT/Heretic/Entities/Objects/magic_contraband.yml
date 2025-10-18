@@ -5,7 +5,6 @@
   - type: Contraband
     severity: Magic
     allowedDepartments: []
-    criminalPoints: 6 # ADT-Beepsky
 
 - type: contrabandSeverity
   id: Magic

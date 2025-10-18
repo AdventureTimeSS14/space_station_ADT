@@ -2,8 +2,8 @@
   id: ADT_Packed
   mapName: 'Packed'
   mapPath: /Maps/ADTMaps/ADTStations/adt_packed.yml
-  minPlayers: 1
-  maxPlayers: 40
+  minPlayers: 20
+  maxPlayers: 35
   stations:
     ADT_Packed:
       stationProto: StandardNanotrasenStation

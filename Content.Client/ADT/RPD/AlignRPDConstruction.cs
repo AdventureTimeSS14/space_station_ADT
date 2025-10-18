@@ -9,6 +9,9 @@ using Robust.Client.Player;
 using Robust.Client.State;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Coordinates;
+using Content.Client.Hands.Systems;
 
 namespace Content.Client.ADT.RPD;
 
@@ -19,6 +22,7 @@ public sealed class AlignRPDConstruction : PlacementMode
     private readonly SharedMapSystem _mapSystem;
     private readonly RPDSystem _rpdSystem;
     private readonly SharedTransformSystem _transformSystem;
+    private readonly HandsSystem _hands = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
 
@@ -36,6 +40,7 @@ public sealed class AlignRPDConstruction : PlacementMode
         _mapSystem = _entityManager.System<SharedMapSystem>();
         _rpdSystem = _entityManager.System<RPDSystem>();
         _transformSystem = _entityManager.System<SharedTransformSystem>();
+        _hands = _entityManager.System<HandsSystem>();
 
         ValidPlaceColor = ValidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
     }
@@ -91,7 +96,7 @@ public sealed class AlignRPDConstruction : PlacementMode
         if (!_entityManager.TryGetComponent<HandsComponent>(player, out var hands))
             return false;
 
-        var heldEntity = hands.ActiveHand?.HeldEntity;
+        var heldEntity = _hands.GetActiveItem(player.Value);
 
         if (!_entityManager.TryGetComponent<RPDComponent>(heldEntity, out var rpd))
             return false;
@@ -108,8 +113,14 @@ public sealed class AlignRPDConstruction : PlacementMode
 
         var target = screen.GetClickedEntity(_unalignedMouseCoords.ToMap(_entityManager, _transformSystem));
 
+        if (!_entityManager.TryGetComponent<MapGridComponent>(mapGridData.Value.GridUid, out var mapGrid) || target == null)
+        {
+            return false;
+        }
+        var tile = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
+        var position2 = _mapSystem.TileIndicesFor(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
         // Determine if the RPD operation is valid or not
-        if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value, target, player.Value, false))
+        if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, target, player.Value, false))
             return false;
 
         return true;

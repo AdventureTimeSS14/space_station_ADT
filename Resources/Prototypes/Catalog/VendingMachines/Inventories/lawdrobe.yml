@@ -12,10 +12,10 @@
     ClothingUniformJumpsuitLawyerGood: 1
     ClothingUniformJumpskirtLawyerGood: 1
     ClothingShoesBootsLaceup: 2
-    ClothingHeadsetIAA: 2 # Corvax-IAA
+    ClothingHeadsetLawyer: 2 # ADT-Tweak
     ClothingNeckLawyerbadge: 2
     BriefcaseBrown: 2
-    BookSpaceLaw: 3
+    ADTBookSpaceLaw: 3 #ADT-WikiBooks
     ADTBureaucraticBelt: 1 # ADT-Tweak
     # Corvax-LawyerDrip-Start
     ClothingHandsGlovesColorWhite: 1
@@ -35,5 +35,3 @@
     # "Legally" obtained currency
     SpaceCash100: 2
     ToyFigurineLawyer: 1
-  emaggedInventory:
-    CyberPen: 1

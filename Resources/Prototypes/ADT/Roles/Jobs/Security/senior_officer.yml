@@ -6,24 +6,22 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 28800 #8 hrs #ADT-RoleTime
+      time: 28800 #8 hrs
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 14400 #4 hrs #ADT-RoleTime
+      time: 14400 #4 hrs
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 28800 #8 hrs #ADT-RoleTime
+      time: 28800 #8 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 234000 # 65 hrs #ADT-RoleTime
-    # ADT Restrict Start
+      time: 234000 # 65 hrs
     - !type:SpeciesRequirement
       inverted: true
       species:
       - Resomi
       - Vox
       - Shadekin
-  # ADT RESTRICT End
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos
@@ -47,3 +45,11 @@
     ears: ClothingHeadsetSecurity
     pocket1: WeaponRevolverDeckard
     pocket2: SpeedLoaderMagnum
+
+- type: chameleonOutfit
+  id: ADTSeniorOfficerChameleonOutfit
+  job: ADTSeniorOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity

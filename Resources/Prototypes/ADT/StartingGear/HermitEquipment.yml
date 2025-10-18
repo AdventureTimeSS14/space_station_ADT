@@ -1,8 +1,0 @@
-- type: startingGear
-  id: ADTHemritEquipment
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitTacticool
-    back: ClothingBackpack
-    shoes: ClothingShoesBootsCombat
-    id: ADTNocardClearPDA
-    pocket2: RadioHandheld

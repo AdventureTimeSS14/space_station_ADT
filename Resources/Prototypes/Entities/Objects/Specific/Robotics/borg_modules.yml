@@ -49,13 +49,15 @@
       provided_container: !type:Container { }
 
 - type: entity
+  parent: BaseAction
   id: ActionBorgSwapModule
   name: Swap Module
   description: Select this module, enabling you to use the tools it provides.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     useDelay: 0.5
+  - type: InstantAction
     event: !type:BorgModuleActionSelectedEvent
 
 - type: entity
@@ -444,6 +446,7 @@
     items:
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic
+    - HandheldStationMapUnpowered
     - HandHeldMassScannerBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
@@ -592,10 +595,6 @@
         components:
         - Electronics
         - MachineBoard
-    - id: CapacitorStockPart
-      whitelist:
-        components:
-        - StockPart
     # ADT end: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
@@ -971,6 +970,8 @@
       - state: base-part-inhand-right
       - state: base-stripes-inhand-right
         color: "#7B0F12"
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   id: BorgModuleOperative
@@ -1118,6 +1119,8 @@
         - state: base-part-inhand-right
         - state: base-stripes-inhand-right
           color: "#7B0F12"
+    - type: StaticPrice
+      price: 2000
 
 # xenoborg modules
 - type: entity
@@ -1263,7 +1266,7 @@
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSword
   name: sword xenoborg module
-  description: Module with an energy dagger.
+  description: Module with a kukri knife.
   components:
   - type: Sprite
     layers:
@@ -1271,16 +1274,16 @@
     - state: icon-xenoborg-sword
   - type: ItemBorgModule
     items:
-    - EnergyDaggerLoudBlue
+    - KukriKnife
     - JetpackXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword-module }
 
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
-  id: XenoborgModuleFastSword
-  name: fast sword xenoborg module
-  description: Module with a crusher dagger.
+  id: XenoborgModuleEnergySword
+  name: energy sword xenoborg module
+  description: Module with an energy dagger.
   components:
   - type: Sprite
     layers:
@@ -1288,7 +1291,7 @@
     - state: icon-xenoborg-sword2
   - type: ItemBorgModule
     items:
-    - WeaponCrusherDagger
+    - EnergyDaggerLoudBlue
     - JetpackXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword2-module }

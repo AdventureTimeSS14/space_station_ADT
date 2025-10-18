@@ -31,6 +31,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial # goobstation
+    components:
+      - type: SecurityStaff
 
 - type: startingGear
   id: WardenGear
@@ -43,3 +46,17 @@
     back:
     - Flash
     - MagazinePistol
+
+- type: chameleonOutfit
+  id: WardenChameleonOutfit
+  job: Warden
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatWarden
+    mask: ClothingMaskGasSecurity
+    outerClothing: ClothingOuterCoatWarden
+    jumpsuit: ClothingUniformJumpsuitWarden
+    neck: Dinkystar
+    belt: ClothingBeltSecurity
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack

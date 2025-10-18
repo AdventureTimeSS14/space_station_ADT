@@ -99,6 +99,11 @@
     - ClothingUniformJumpsuitChaplain
     - ClothingUniformJumpsuitParamedic
     - ClothingUniformJumpsuitPirate
+    - ADTClothingUniformJumpsuitBlueshield
+    - ADTClothingUniformJumpsuitGreenSuitLawyer
+    - ADTClothingUniformJumpsuitBarber
+    - ADTClothingUniformGuardOfficer
+    - ADTClothingUniformSquidGamePlayer
   # ADT-Tweak-End
   - type: GhostHearing
   - type: ShowElectrocutionHUD
@@ -110,26 +115,20 @@
     tags:
     - BypassInteractionRangeChecks
   - type: PointLight
+    netsync: false
     radius: 6
     castShadows: false
     enabled: false
+  # ADT-Tweak-start
   - type: LanguageSpeaker
     languages:
       Universal: Understand
-  #ADT Observer PDA start
-  - type: Hands
-    showInHands: false
   - type: Inventory
     templateId: ghost
-  # - type: Loadout
-  #   prototypes: [ MobGhostGear ]
   - type: InventorySlots
-  - type: ComplexInteraction
   - type: HumanoidAppearance
     species: GhostSpecies
     shader: unshaded
-  #ADT Observer PDA end
-  # ADT-Tweak-start
   - type: TypingIndicator
     proto: ghost
   - type: Speech
@@ -137,7 +136,6 @@
     interfaces:
       enum.GhostInfoUiKey.Key:
         type: GhostInfoBoundUserInterface
-  - type: GhostInfo
   # ADT-Tweak-end
 
 # proto for player ghosts specifically
@@ -149,61 +147,69 @@
   - type: Tag
     tags:
     - AllowGhostShownByEvent
+  - type: GhostInfo # ADT-Tweak
+
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionGhostBoo
   name: Boo!
   description: Scare your crew members because of boredom!
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/Actions/scream.png
     checkCanInteract: false
-    event: !type:BooActionEvent
     startDelay: true
     useDelay: 120
+  - type: InstantAction
+    event: !type:BooActionEvent
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionToggleLighting
   name: Toggle Lighting
   description: Toggle light rendering to better observe dark areas.
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/VerbIcons/light.svg.192dpi.png
     clientExclusive: true
-    checkCanInteract: false
+  - type: InstantAction
     event: !type:ToggleLightingActionEvent
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionToggleFov
   name: Toggle FoV
   description: Toggles field-of-view in order to see what players see.
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/VerbIcons/vv.svg.192dpi.png
     clientExclusive: true
-    checkCanInteract: false
+  - type: InstantAction
     event: !type:ToggleFoVActionEvent
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionToggleGhosts
   name: Toggle Ghosts
   description: Toggle the visibility of other ghosts.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
     clientExclusive: true
-    checkCanInteract: false
+  - type: InstantAction
     event: !type:ToggleGhostsActionEvent
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionToggleGhostHearing
   name: Toggle Ghost Hearing
   description: Toggle between hearing all messages and hearing only radio & nearby messages.
   components:
-  - type: InstantAction
-    checkCanInteract: false
+  - type: Action
     icon:
       sprite: Clothing/Ears/Headsets/base.rsi
       state: icon
     iconOn: Interface/Actions/ghostHearingToggled.png
+  - type: InstantAction
     event: !type:ToggleGhostHearingActionEvent

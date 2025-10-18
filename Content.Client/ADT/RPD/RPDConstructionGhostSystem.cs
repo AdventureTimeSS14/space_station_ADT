@@ -6,6 +6,7 @@ using Content.Shared.ADT.RPD.Systems;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Client.ADT.RPD;
 
@@ -14,7 +15,7 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly RPDSystem _rpdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
-
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     private string _placementMode = typeof(AlignRPDConstruction).Name;
     private Direction _placementDirection = default;
 
@@ -37,7 +38,7 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
         if (!TryComp<HandsComponent>(player, out var hands))
             return;
 
-        var heldEntity = hands.ActiveHand?.HeldEntity;
+        var heldEntity = _hands.GetActiveItem(player.Value);
 
         if (!TryComp<RPDComponent>(heldEntity, out var rpd))
         {

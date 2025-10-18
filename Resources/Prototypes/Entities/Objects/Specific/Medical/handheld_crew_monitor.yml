@@ -18,6 +18,7 @@
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
   - type: CrewMonitoringConsole
+    departments: [] # ADT-Tweak: No parameters == full access
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor

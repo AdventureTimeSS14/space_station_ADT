@@ -2,7 +2,8 @@
   id: ADT_Box
   mapName: 'Cyberiada'
   mapPath: /Maps/ADTMaps/ADTStations/adt_cyberiada.yml
-  minPlayers: 30
+  minPlayers: 35
+  maxPlayers: 60
   stations:
     ADT_Boxstation:
       stationProto: StandardNanotrasenStation
@@ -64,6 +65,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 6, 6 ]
             CargoTechnician: [ 3, 3 ]
+            ADTMiner: [ 2, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

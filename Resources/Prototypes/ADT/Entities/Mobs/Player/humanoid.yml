@@ -919,11 +919,6 @@
     randomizeName: false
   - type: Loadout
     prototypes: [ADTRoleMobIanHeroGear]
-  - type: RoleBriefing
-    briefing: "ian-hero-briefing"
-  - type: AntagObjectives
-    objectives:
-    - IanHeroObjective
 
 - type: startingGear
   id: ADTRoleMobIanHeroGear

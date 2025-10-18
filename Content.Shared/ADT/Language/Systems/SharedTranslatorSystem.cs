@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Toggleable;
 
@@ -8,6 +9,7 @@ namespace Content.Shared.ADT.Language;
 public abstract class SharedTranslatorSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -20,10 +22,10 @@ public abstract class SharedTranslatorSystem : EntitySystem
 
     private void OnGetLanguages(EntityUid uid, HandsComponent comp, ref GetLanguagesEvent args)
     {
-        foreach (var (_, hand) in comp.Hands)
+        foreach (var (name, hand) in comp.Hands)
         {
-            if (hand.HeldEntity.HasValue)
-                RaiseLocalEvent(hand.HeldEntity.Value, ref args);
+            if (_hands.TryGetHeldItem(uid, name, out var heldEntity))
+                RaiseLocalEvent(heldEntity.Value, ref args);
         }
     }
 
@@ -63,6 +65,6 @@ public abstract class SharedTranslatorSystem : EntitySystem
         if (comp == null && !TryComp(translator, out comp))
             return;
 
-        _appearance.SetData(translator, ToggleVisuals.Toggled, comp.Enabled);
+        _appearance.SetData(translator, ToggleableVisuals.Enabled, comp.Enabled);
     }
 }

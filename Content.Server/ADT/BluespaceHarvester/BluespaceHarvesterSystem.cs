@@ -134,11 +134,22 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
 
     private void OnTargetLevel(Entity<BluespaceHarvesterComponent> harvester, ref BluespaceHarvesterTargetLevelMessage args)
     {
-        // If we switch off, we don't need to be switched on.
-        if (!harvester.Comp.Reseted && harvester.Comp.CurrentLevel != 0)
-            return;
-
         if (_activeHarvester != null && _activeHarvester != harvester.Owner)
+        {
+            UpdateUI(harvester.Owner, harvester.Comp);
+            return;
+        }
+
+        if (args.TargetLevel == 0)
+        {
+            Reset(harvester.Owner, harvester.Comp);
+            return;
+        }
+
+        if (_activeHarvester == null)
+            _activeHarvester = harvester.Owner;
+
+        if (!harvester.Comp.Reseted && harvester.Comp.CurrentLevel != 0)
             return;
 
         harvester.Comp.TargetLevel = args.TargetLevel;

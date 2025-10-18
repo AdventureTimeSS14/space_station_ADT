@@ -26,8 +26,6 @@
     - PowerCellSmall
     - PowerCellMedium
     - FlashlightLantern
-    - MatterBinStockPart
-    - CapacitorStockPart
     - MicroManipulatorStockPart
     - Beaker
     chance: 0.8
@@ -61,10 +59,11 @@
       - id: SheetSteel10
       - id: SheetPlastic10
       - id: SheetGlass10
+      - id: ADTSheetCopper  # ADT Tweak
+      - id: ADTSheetZinc  # ADT Tweak
+      - id: ADTSheetLead # ADT Tweak
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled
-      - id: MatterBinStockPart
-      - id: CapacitorStockPart
       - id: MicroManipulatorStockPart
     # Rare Group
     - !type:GroupSelector

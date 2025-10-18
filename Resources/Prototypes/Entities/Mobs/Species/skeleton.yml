@@ -102,6 +102,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FlashImmunity
+    includeExamine: false # ADT-Tweak
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -117,6 +118,11 @@
     - CanPilot
     - DoorBumpOpener
     - FootstepSound
+  - type: SpeechBarks
+    data:
+      proto: SkeletonBarkOne
+      sound:
+        collection: ADTSkeletonBark
 # ADT-Tweak-end
 
 - type: entity
