@@ -155,7 +155,7 @@ boobr-metal-foam-grenade-name = Металлопенная граната
 boobr-metal-foam-grenade-desc = Очень эффективно при восстановлении станции или временной застройке дыр жаль обладает малой прочностью.
 
 boobr-clean-grenade-name = Чистящая граната
-boobr-clean-grenade-desc = После кровавых побоищь, не заменимы.
+boobr-clean-grenade-desc = После кровавых побоищ не заменимы.
 
 boobr-clothing-belt-chief-engineer-filled-name = Заполненный пояс старшего инженера
 boobr-clothing-belt-chief-engineer-filled-desc = Крайне полезно, когда нужен второй или третий инженер.
