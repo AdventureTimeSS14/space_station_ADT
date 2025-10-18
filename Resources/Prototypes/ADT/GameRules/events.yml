@@ -106,7 +106,7 @@
   - type: StationEvent
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg
-    weight: 10 # 10 default
+    weight: 3
     reoccurrenceDelay: 30
     duration: 1
   - type: LoadMapRule
