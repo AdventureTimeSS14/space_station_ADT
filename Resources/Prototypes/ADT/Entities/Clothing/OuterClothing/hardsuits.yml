@@ -550,7 +550,7 @@
   parent: ClothingOuterHardsuitBase
   id: ADTIanHeroHardsuit
   name: ADTIanHeroHardsuit-name
-  description: скафандр для самого милого супергероя
+  description: ADTIanHeroHardsuit-desc
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Hardsuits/ian_hero.rsi

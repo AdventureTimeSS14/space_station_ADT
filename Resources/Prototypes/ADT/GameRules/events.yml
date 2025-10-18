@@ -92,7 +92,7 @@
   components:
   - type: StationEvent
     earliestStart: 40
-    weight: 2
+    weight: 3
     minimumPlayers: 30
     reoccurrenceDelay: 30
     duration: 1
@@ -112,3 +112,20 @@
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/Ian.yml
   - type: IanHeroEvent
+
+- type: entity
+  id: SuperHeroEvent
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    weight: 3
+    minimumPlayers: 30
+    reoccurrenceDelay: 30
+    duration: 1
+  - type: LoadMapRule
+    mapPath: /Maps/ADTMaps/Shuttles/superhero.yml
+  - type: HeroEvent
+    
