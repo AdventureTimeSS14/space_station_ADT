@@ -326,6 +326,9 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite
   - type: Paintable
     group: null
 
@@ -336,5 +339,8 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite
   - type: Paintable
     group: null
