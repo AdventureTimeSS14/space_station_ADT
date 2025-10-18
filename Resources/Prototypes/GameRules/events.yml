@@ -47,6 +47,7 @@
     - id: MorphSpawn #ADT tweak morph
 #   - id: PhantomSpawn # ADT tweak phantom //// ADT-Tweak cut-out of broken Antag
     - id: VoxRaidersEvent # ADT tweak vox-raiders
+    - id: SuperHeroEvent # ADT tweak heros
     # - id: ZombieOutbreak
     - id: IanHeroEvent #Basically he isn't Antag but there is change game for it
 

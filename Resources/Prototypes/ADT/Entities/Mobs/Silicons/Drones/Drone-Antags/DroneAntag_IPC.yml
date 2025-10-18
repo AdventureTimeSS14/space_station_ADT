@@ -438,8 +438,9 @@
   - type: NpcFactionMember
     factions:
       - DroneAntag
-  - type: NameIdentifier
-    group: ADTDroneAntagSoldier
+  # Временно убрано до добавления дронов, чтобы не рандомизировать имя у злобота
+  #- type: NameIdentifier
+  #  group: ADTDroneAntagSoldier
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
