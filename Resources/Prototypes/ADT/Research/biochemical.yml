@@ -58,7 +58,7 @@
   recipeUnlocks:
   - ADTMedicalAssemblerMachineCircuitBoard
   - ADTBlankMediPen
-  - ADTTourniquet
+  - ADTTourniquet1
   requiredTech:
   - ADTMedicalMODsuit
   position: 2,0

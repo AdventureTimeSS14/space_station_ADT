@@ -133,6 +133,7 @@
     - HandheldHealthAnalyzer
     - CombatMedipen
     - DeathAcidifierImplanter
+    - Tourniquet  # ADT-Tweak: TourniquetUp
 
 - type: chameleonOutfit
   id: NukeopsMedicOutfit
