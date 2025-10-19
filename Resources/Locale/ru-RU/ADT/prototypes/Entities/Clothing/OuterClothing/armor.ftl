@@ -63,6 +63,3 @@ ent-ADTClothingOuterArmorMinerReinforcedFull = пластинчатый кост
 
 ent-ADTClothingOuterArmorCrusader = защитный доспех крестоносца
     .desc = Время захватывать Иерусалим, брат!
-
-ent-ClothingOuterVestWebElite = элитный синтетический бронежилет
-    .desc = Синтетический бронежилет. Имеет дополнительные ремни и покрыт толстым слоем крайне термостойкого волокна.

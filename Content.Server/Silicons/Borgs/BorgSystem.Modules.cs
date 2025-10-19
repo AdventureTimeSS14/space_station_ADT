@@ -62,12 +62,10 @@ public sealed partial class BorgSystem
 
         if (_actions.AddAction(chassis, ref component.ModuleSwapActionEntity, out var action, component.ModuleSwapActionId, uid))
         {
-            if(TryComp<BorgModuleIconComponent>(uid, out var moduleIconComp))
-            {
-                action.Icon = moduleIconComp.Icon;
-            };
-            action.EntityIcon = uid;
-            Dirty(component.ModuleSwapActionEntity.Value, action);
+            var actEnt = (component.ModuleSwapActionEntity.Value, action);
+            _actions.SetEntityIcon(actEnt, uid);
+            if (TryComp<BorgModuleIconComponent>(uid, out var moduleIconComp))
+                _actions.SetIcon(actEnt, moduleIconComp.Icon);
         }
 
         if (!TryComp(chassis, out BorgChassisComponent? chassisComp))
@@ -202,7 +200,7 @@ public sealed partial class BorgSystem
             else
             {
                 item = component.ProvidedContainer.ContainedEntities
-                    .FirstOrDefault(ent => Prototype(ent)?.ID == itemProto);
+                    .FirstOrDefault(ent => Prototype(ent)?.ID == itemProto.Id);
                 if (!item.IsValid())
                 {
                     Log.Debug($"no items found: {component.ProvidedContainer.ContainedEntities.Count}");
@@ -220,8 +218,8 @@ public sealed partial class BorgSystem
 
             var handId = $"{uid}-item{component.HandCounter}";
             component.HandCounter++;
-            _hands.AddHand(chassis, handId, HandLocation.Middle, hands);
-            _hands.DoPickup(chassis, hands.Hands[handId], item, hands);
+            _hands.AddHand((chassis, hands), handId, HandLocation.Middle);
+            _hands.DoPickup(chassis, handId, item, hands);
             EnsureComp<UnremoveableComponent>(item);
             component.ProvidedItems.Add(handId, item);
         }
@@ -267,9 +265,9 @@ public sealed partial class BorgSystem
 
             var handId = $"{uid}-item{component.HandCounter}";
             component.HandCounter++;
-            _hands.AddHand(chassis, handId, HandLocation.Middle, hands);
-            _hands.DoPickup(chassis, hands.Hands[handId], item, hands);
-            if (hands.Hands[handId].HeldEntity != item)
+            _hands.AddHand((chassis, hands), handId, HandLocation.Middle);
+            _hands.DoPickup(chassis, handId, item, hands);
+            if (_hands.TryGetHeldItem((chassis, hands), handId, out var heldEntity) && heldEntity != item)
             {
                 // If we didn't pick up our expected item, delete the hand.  No free hands!
                 _hands.RemoveHand(chassis, handId);
@@ -299,14 +297,14 @@ public sealed partial class BorgSystem
             foreach (var (hand, item) in component.ProvidedItems)
             {
                 QueueDel(item);
-                _hands.RemoveHand(chassis, hand, hands);
+                _hands.RemoveHand(chassis, hand);
             }
             component.ProvidedItems.Clear();
             // ADT: droppable items
             foreach (var (hand, item) in component.DroppableProvidedItems)
             {
                 QueueDel(item.Item1);
-                _hands.RemoveHand(chassis, hand, hands);
+                _hands.RemoveHand(chassis, hand);
             }
             component.DroppableProvidedItems.Clear();
             // End ADT: droppable items
@@ -320,20 +318,20 @@ public sealed partial class BorgSystem
                 RemComp<UnremoveableComponent>(item);
                 _container.Insert(item, component.ProvidedContainer);
             }
-            _hands.RemoveHand(chassis, handId, hands);
+            _hands.RemoveHand(chassis, handId);
         }
         component.ProvidedItems.Clear();
         // ADT: remove all items from borg hands directly, not from the provided items set
         foreach (var (handId, _) in component.DroppableProvidedItems)
         {
-            _hands.TryGetHand(chassis, handId, out var hand, hands);
-            if (hand?.HeldEntity != null)
+            _hands.TryGetHand(chassis, handId, out var hand);
+            if (_hands.TryGetHeldItem((chassis, hands), handId, out var heldEntity))
             {
-                RemComp<UnremoveableComponent>(hand.HeldEntity.Value);
-                _container.Insert(hand.HeldEntity.Value, component.ProvidedContainer);
+                RemComp<UnremoveableComponent>(heldEntity.Value);
+                _container.Insert(heldEntity.Value, component.ProvidedContainer);
             }
 
-            _hands.RemoveHand(chassis, handId, hands);
+            _hands.RemoveHand(chassis, handId);
         }
         component.DroppableProvidedItems.Clear();
         // End ADT

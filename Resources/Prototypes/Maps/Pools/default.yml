@@ -19,19 +19,26 @@
   # - Train
 
 # ADT Maps Базовые Актуальные
-  - ADT_Bagel
-  - ADT_Barratry
-  - ADT_Box
-  - ADT_Cluster
-  - ADT_Origin
+# Highpop 60+
   - ADT_Fland
+  - ADT_Kerberos
+  - ADT_Origin
+  - ADT_Gate
+# Midpop 35 - 60
   - ADT_Marathon
   - ADT_Meta
-  - ADT_Saltern
-  - ADT_Packed
-  - ADT_Aspid
-  - ADT_Kerberos
+  - ADT_Barratry
+  - ADT_Box
   - ADT_Train
+# Lowpop 20 - 35
+  - ADT_Bagel
+  - ADT_Packed
+  - ADT_Saltern
+  - ADT_Aspid
+  - ADT_Cluster
+# Micropop 0 - 20
+  - ADT_Reach
+  - ADT_Silly
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация

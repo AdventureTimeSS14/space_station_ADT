@@ -11,24 +11,32 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<RunAndGunSpreadModifierComponent, GunShotEvent>(OnModifyAngle);
         SubscribeLocalEvent<RunAndGunBlockerComponent, AttemptShootEvent>(OnBlocker);
     }
     private void OnModifyAngle(Entity<RunAndGunSpreadModifierComponent> ent, ref GunShotEvent args)
     {
-        if (!TryComp<PhysicsComponent>(args.User, out var physics) || physics.LinearVelocity.LengthSquared() < 1)
+        if (!TryComp<PhysicsComponent>(args.User, out var physics))
             return;
-        var offset = new Vector2(_random.NextFloat(-physics.LinearVelocity.X * ent.Comp.Modifyer, physics.LinearVelocity.X * ent.Comp.Modifyer),
-        _random.NextFloat(-physics.LinearVelocity.Y * ent.Comp.Modifyer, physics.LinearVelocity.Y * ent.Comp.Modifyer));
-        var toCoordinates = args.ToCoordinates.Offset(offset);
 
-        args.ToCoordinates = toCoordinates;
+        var vel = physics.LinearVelocity;
+        if (vel.LengthSquared() < 1f)
+            return;
+
+        var mod = ent.Comp.Modifyer;
+        args.ToCoordinates = args.ToCoordinates.Offset(new Vector2(
+            _random.NextFloat(-vel.X * mod, vel.X * mod),
+            _random.NextFloat(-vel.Y * mod, vel.Y * mod)
+        ));
     }
+
     private void OnBlocker(Entity<RunAndGunBlockerComponent> ent, ref AttemptShootEvent args)
     {
-        if (args.Cancelled)
-            return;
-        if (!TryComp<PhysicsComponent>(args.User, out var physics) || physics.LinearVelocity.LengthSquared() > 0)
+        if (!args.Cancelled &&
+            TryComp<PhysicsComponent>(args.User, out var physics) &&
+            physics.LinearVelocity.LengthSquared() > 0f)
         {
             args.Cancelled = true;
         }

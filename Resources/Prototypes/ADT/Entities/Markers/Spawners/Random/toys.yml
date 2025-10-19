@@ -1,0 +1,16 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerToyBlaster
+  name: random spawner toy blaster
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/Objects/Fun/toyweapon/redblaster.rsi
+        state: icon
+  - type: RandomSpawner
+    prototypes:
+    - ADTToyBlasterGunGreen
+    - ADTToyBlasterGunRed
+    - ADTToyBlasterGunBlue
+    chance: 1

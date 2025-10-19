@@ -17,6 +17,9 @@
     size: Normal
     sprite: ADT/Objects/Specific/Service/white_bouquet.rsi
   - type: DisarmMalus
+  - type: Construction
+    graph: ADTObjectWhiteBouquet
+    node: done
 
 - type: entity
   parent: BaseItem
@@ -37,6 +40,9 @@
     size: Normal
     sprite: ADT/Objects/Specific/Service/rose_bouquet.rsi
   - type: DisarmMalus
+  - type: Construction
+    graph: ADTObjectRoseBouquet
+    node: done
 
 - type: entity
   parent: BaseItem
@@ -57,6 +63,9 @@
     size: Normal
     sprite: ADT/Objects/Specific/Service/yellow_bouquet.rsi
   - type: DisarmMalus
+  - type: Construction
+    graph: ADTObjectYellowBouquet
+    node: done
 
 - type: entity
   parent: BaseItem
@@ -97,6 +106,9 @@
     size: Normal
     sprite: ADT/Objects/Specific/Service/black_bouquet.rsi
   - type: DisarmMalus
+  - type: Construction
+    graph: ADTObjectBlackBouquet
+    node: done
 
 - type: entity
   parent: BaseItem
@@ -117,6 +129,8 @@
     size: Normal
     sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
   - type: DisarmMalus
+    graph: ADTObjectLiliacBouquet
+    node: done
 
 #Букеты ко Дню Святого Валентина
 - type: entity
@@ -208,6 +222,5 @@
     sprite: ADT/Objects/Specific/Service/love_yellow_bouquet.rsi
   - type: StaticPrice
     price: 10
-  - type: Item
     size: Normal
     sprite: ADT/Objects/Specific/Service/love_yellow_bouquet.rsi

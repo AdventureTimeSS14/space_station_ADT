@@ -211,3 +211,6 @@ ent-ADTClothingUnderwearSocksThighRed = красные чулки
 
 ent-ADTClothingUnderwearSocksThighPurple = фиолетовые чулки
     .desc = Обычные фиолетовые чулки.
+
+ent-ADTClothingUnderwearSocksCow = коровьи носки
+    .desc = Милые коровьи носки. Му-у-у!

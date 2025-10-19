@@ -66,6 +66,7 @@
     whitelist:
       tags:
         - ADTCard
+        - ADTCard
   - type: Dumpable
 
 - type: entity
@@ -75,6 +76,9 @@
   description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
   suffix: Full
   components:
+  - type: Tag
+    tags:
+      - ADTCardPlay
   - type: Item
     size: Small
   - type: StorageFill
