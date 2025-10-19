@@ -11,6 +11,7 @@ namespace Content.Server.Vulpizator.System;
 public sealed class VulpizatorSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    public const string _vulpa = "MobVulpkanin"
 
     public override void Initialize()
     {
@@ -19,7 +20,7 @@ public sealed class VulpizatorSystem : EntitySystem
     }
     private void OnPolymorphed(Entity<PolymorphedEntityComponent> uid, ref StartCollideEvent args)
     {
-        if (uid.Comp.Configuration.Entity == "MobVulpkanin")
+        if (uid.Comp.Configuration.Entity == _vulpa)
         {
             // Чтобы вульпе не приходило по 100 раз сообщение
             if (HasComp<RoleBriefingComponent>(uid))
