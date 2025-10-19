@@ -184,7 +184,7 @@
   id: BaseTraitorRule
   components:
   - type: TraitorRule
-    bloodBrotherChance: 0.2 #ADT-tweak
+  #  bloodBrotherChance: 0.2 #ADT-tweak Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagRandomObjectives
