@@ -109,7 +109,7 @@
             - CartridgePistol
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    amount: 2
+    modifyer: 1
   # ADT-Tweak end 
   - type: ContainerContainer
     containers:
@@ -161,7 +161,7 @@
       ballistic-ammo: !type:Container
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    amount: 2
+    modifyer: 1
   # ADT-Tweak end 
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPistol
@@ -193,7 +193,7 @@
     boltClosed: null
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    amount: 2
+    modifyer: 1
   # ADT-Tweak end 
   - type: Gun
     fireRate: 4
@@ -255,7 +255,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    amount: 2
+    modifyer: 1
   # ADT-Tweak end 
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
@@ -308,7 +308,7 @@
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    amount: 2
+    modifyer: 1
   # ADT-Tweak end 
   - type: Gun
     minAngle: 1

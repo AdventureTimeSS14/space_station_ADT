@@ -20,7 +20,7 @@
     proto: ADTProjectileIonRifle
     fireCost: 125
   - type: RunAndGunSpreadModifier
-    amount: 2
+    modifyer: 2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -214,7 +214,7 @@
       collection: GenericHit
   - type: AltFireMelee
   - type: RunAndGunSpreadModifier
-    amount: 3
+    modifyer: 2
   - type: Gun
     fireRate: 3
     projectileSpeed: 60
@@ -363,7 +363,7 @@
     proto: ADTProjectileIonRifle
     fireCost: 150
   - type: RunAndGunSpreadModifier
-    amount: 2
+    modifyer: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
