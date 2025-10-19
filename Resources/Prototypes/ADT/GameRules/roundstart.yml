@@ -227,8 +227,8 @@
       - id: Heretic
         cost: 30
         rerollChance: 0.5
-      - id: BloodBrother
-        cost: 20
+#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
+#        cost: 20
       - id: Revolutionary
         cost: 45
       # - id: Zombie вернуть после баффов
@@ -278,8 +278,8 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
-      - id: BloodBrother
-        cost: 25
+#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
+#        cost: 25
       - id: Heretic
         cost: 30
         rerollChance: 0.5
@@ -322,8 +322,8 @@
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
-      - id: BloodBrother
-        cost: 25
+#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
+#        cost: 25
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
