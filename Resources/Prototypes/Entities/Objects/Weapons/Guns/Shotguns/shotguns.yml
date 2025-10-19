@@ -156,7 +156,7 @@
     fireRate: 3
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyert: 4
+    modifyer: 4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85
@@ -279,12 +279,12 @@
         Blunt: 12
     soundHit:
       collection: GenericHit
+      # ADT-Tweak-start: Corvax sound
+      soundGunshot:
+        path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
+      # ADT-Tweak-end: Corvax sound
   - type: AltFireMelee
   # ADT-Tweak end
-    # ADT-Tweak-start: Corvax sound
-    soundGunshot:
-      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
-    # ADT-Tweak-end
   - type: GunSpreadModifier
     spread: 0.6
   - type: Tag

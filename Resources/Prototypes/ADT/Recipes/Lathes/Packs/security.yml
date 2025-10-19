@@ -9,7 +9,7 @@
   recipes:
   - ADTMagazineMagnumIncendiary
   - ADTMagazineMagnumUranium
-  - MagazineShotgunUranium
+  - ADTMagazineShotgunUranium
 
 - type: latheRecipePack
   id: ADTAttachmentPack
