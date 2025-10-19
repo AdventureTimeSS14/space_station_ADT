@@ -80,7 +80,7 @@ boobr-weapon-attachments-magneticharness-name = Магнитный ремень
 boobr-weapon-attachments-magneticharness-description = Комплект из ремня и магнитных креплений, которые крепятся к верхней планке. В случае потери бойцом равновесия - оружие не падает на землю и остается с владельцем.
 
 pulse-pistol-name = Импульсный пистолет
-pulse-pistol-desc = Кейс, с импульсным пистолетом, может пригодится.
+pulse-pistol-desc = Кейс с импульсным пистолетом - может пригодится.
 
 boobr-bulldog-ammo-name = Барабан для дробовика (12х70 дробь)
 boobr-bulldog-ammo-desc = Барабан для бульдога с патронами калибра "12х70 дробь"
@@ -122,10 +122,10 @@ boobr-drozd-ammo-case-name = Магазины для Дрозда (9х19 мм)
 boobr-drozd-ammo-case-desc = Кейс включает в себя 3 магазина калибра "9х19 мм".
 
 boobr-bulldog-misc-ammo-name = Смешанный кейс патрон для дробовика (12х70)
-boobr-bulldog-misc-ammo-desc = Кейс включает в себя по 2 барабана каждой вариации калибра "12х70": "зажигательные, травматические, дробь, урановые, пули" всего 10 барабанов.
+boobr-bulldog-misc-ammo-desc = Кейс включает в себя по 2 барабана каждой вариации калибра "12х70": "зажигательные, травматические, дробь, урановые, пуля" всего 10 барабанов.
 
 boobr-pistolet-misc-ammo-name = Смешанный кейс пистолетных патрон
-boobr-pistolet-misc-ammo-desc = Включает в себя 4 Магазина и 4 Спидлоадера калибра ".44 магнум"
+boobr-pistolet-misc-ammo-desc = Включает в себя 4 магазина и 4 спидлоадера калибра ".44 магнум"
 
 boobr-AR12-ammo-case-name = Магазины для AR-12 (7.62x39 мм)
 boobr-AR12-ammo-case-desc = Кейс включает в себя 3 магазина калибра "7.62x39 мм".
@@ -149,16 +149,16 @@ boobr-grenade-stinger-name = Травматическая граната
 boobr-grenade-stinger-desc = Здесь не на что смотреть, пожалуйста, расходитесь.
 
 boobr-incendiary-grenade-name = Зажигательная граната
-boobr-incendiary-grenade-desc = Хороша против незащищенных целей...
+boobr-incendiary-grenade-desc = Хороша против незащищённых целей...
 
 boobr-metal-foam-grenade-name = Металлопенная граната
-boobr-metal-foam-grenade-desc = Очень эффективно при восстановлении станции или временной застройке дыр жаль обладает малой прочностью.
+boobr-metal-foam-grenade-desc = Очень эффективна при восстановлении станции или временной застройке дыр, но, к сожалению, обладает малой прочностью.
 
 boobr-clean-grenade-name = Чистящая граната
 boobr-clean-grenade-desc = После кровавых побоищ не заменимы.
 
 boobr-clothing-belt-chief-engineer-filled-name = Заполненный пояс старшего инженера
-boobr-clothing-belt-chief-engineer-filled-desc = Крайне полезно, когда нужен второй или третий инженер.
+boobr-clothing-belt-chief-engineer-filled-desc = Крайне полезен, когда нужен второй или третий инженер.
 
 boobr-clothing-belt-assault-name = Штурмовой пояс
 boobr-clothing-belt-assault-desc = Просто крутецкий штурмовой пояс.
