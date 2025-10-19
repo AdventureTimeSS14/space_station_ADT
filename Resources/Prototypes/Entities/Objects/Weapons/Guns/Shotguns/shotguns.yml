@@ -279,10 +279,6 @@
         Blunt: 12
     soundHit:
       collection: GenericHit
-      # ADT-Tweak-start: Corvax sound
-      soundGunshot:
-        path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
-      # ADT-Tweak-end: Corvax sound
   - type: AltFireMelee
   # ADT-Tweak end
   - type: GunSpreadModifier
