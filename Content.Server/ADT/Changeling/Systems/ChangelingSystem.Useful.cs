@@ -567,7 +567,7 @@ public sealed partial class ChangelingSystem
         var doAfter = new DoAfterArgs(EntityManager, uid, args.Duration, new BiodegradeDoAfterEvent(), uid, target: uid)
         {
             DistanceThreshold = 2,
-            BreakOnMove = false, // true, -> false,
+            BreakOnMove = false, // true, -> false, Изменил на false чтобы дать смысл способности.
             BreakOnWeightlessMove = false, // true, -> false,
             BreakOnDamage = false, // true, -> false,
             AttemptFrequency = AttemptFrequency.StartAndEnd,

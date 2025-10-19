@@ -101,7 +101,7 @@ boobr-bulldog-ammo-x4-name = Барабаны для дробовика (12х70 
 boobr-bulldog-ammo-x4-desc = Включает в себя 4 барабана дробовиков "12х70 дробь"
 
 boobr-desert-eagle-ammo-name = Пистолетный магазин (.44 магнум)
-boobr-desert-eagle-ammo-desc = Совместим только с пистолетом Дезерт Игл, крайне убойные патроны и очень непредсказуймые.
+boobr-desert-eagle-ammo-desc = Совместим только с пистолетом Дезерт Игл, крайне убойные патроны и очень непредсказуемые.
 
 boobr-mateba-ammo-name = Спидлоадер (.44 магнум)
 boobr-mateba-ammo-desc = Совместим с револьвером Матеба, Джекпот!
@@ -155,7 +155,7 @@ boobr-metal-foam-grenade-name = Металлопенная граната
 boobr-metal-foam-grenade-desc = Очень эффективно при восстановлении станции или временной застройке дыр жаль обладает малой прочностью.
 
 boobr-clean-grenade-name = Чистящая граната
-boobr-clean-grenade-desc = После кровавых побоищь, не заменимы.
+boobr-clean-grenade-desc = После кровавых побоищ не заменимы.
 
 boobr-clothing-belt-chief-engineer-filled-name = Заполненный пояс старшего инженера
 boobr-clothing-belt-chief-engineer-filled-desc = Крайне полезно, когда нужен второй или третий инженер.

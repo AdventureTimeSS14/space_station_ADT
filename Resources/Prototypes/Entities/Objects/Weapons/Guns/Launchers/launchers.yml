@@ -33,11 +33,11 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
-  - type: RunAndGunBlocker # ADT-Tweak
     slots:
     - Back
     - suitStorage
   - type: AmmoCounter
+  - type: RunAndGunBlocker # ADT-Tweak
   # ADT-Tweak start
   - type: MeleeWeapon
     resetOnHandSelected: false
