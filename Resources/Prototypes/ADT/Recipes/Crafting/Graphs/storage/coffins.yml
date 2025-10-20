@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: ZincCoffin
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: zinccoffin
+          steps:
+            - material: ADTSheetZinc
+              amount: 5
+              doAfter: 5
+
+
+    - node: zinccoffin
+      entity: ZincCoffin
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTSheetZinc1
+              amount: 5
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity
