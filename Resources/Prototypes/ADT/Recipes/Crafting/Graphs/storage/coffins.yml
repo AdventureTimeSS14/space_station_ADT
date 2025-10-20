@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: ZincCoffin
+  id: CoffinZinc
   start: start
   graph:
     - node: start
@@ -12,7 +12,7 @@
 
 
     - node: zinccoffin
-      entity: ZincCoffin
+      entity: ADTCoffinZinc
       edges:
         - to: start
           steps:

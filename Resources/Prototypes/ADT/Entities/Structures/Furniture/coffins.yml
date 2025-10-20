@@ -23,7 +23,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: WoodDestroy
+          collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
