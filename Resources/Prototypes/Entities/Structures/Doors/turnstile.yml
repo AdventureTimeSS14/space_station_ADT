@@ -46,12 +46,12 @@
   - type: Appearance
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
+    damageModifierSet: Metallic # ADT-Tweak StrongMetallic -> Metallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 200 # ADT-Tweak 500 -> 200
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

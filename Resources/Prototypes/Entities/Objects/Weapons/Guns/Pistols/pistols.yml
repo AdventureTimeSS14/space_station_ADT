@@ -25,6 +25,17 @@
     slots:
     - suitStorage
     - Belt
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     fireRate: 6
     selectedMode: SemiAuto
@@ -96,6 +107,10 @@
         whitelist:
           tags:
             - CartridgePistol
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
+  # ADT-Tweak end 
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -144,6 +159,10 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
+  # ADT-Tweak end 
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPistol
     fireCost: 100
@@ -172,6 +191,10 @@
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
+  # ADT-Tweak end 
   - type: Gun
     fireRate: 4
     soundGunshot:
@@ -230,6 +253,10 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
+  # ADT-Tweak end 
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
@@ -279,6 +306,10 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
+  # ADT-Tweak end 
   - type: Gun
     minAngle: 1
     maxAngle: 20
