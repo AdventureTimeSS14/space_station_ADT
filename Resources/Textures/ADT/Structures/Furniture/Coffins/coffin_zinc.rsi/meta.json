@@ -7,26 +7,26 @@
     "y": 32
   },
   "states": [
-        {
-            "name": "base"
-        },
-        {
-            "name": "bounty"
-        },
-        {
-            "name": "open"
-        },
-        {
-            "name": "paper"
-        },
-        {
-            "name": "captains_paper"
-        },
-        {
-            "name": "closed"
-        },
-        {
-            "name": "invoice"
-        }
-    ]
+    {
+      "name": "base"
+    },
+    {
+      "name": "bounty"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "paper"
+    },
+    {
+      "name": "captains_paper"
+    },
+    {
+      "name": "closed"
+    },
+    {
+      "name": "invoice"
+    }
+  ]
 }
