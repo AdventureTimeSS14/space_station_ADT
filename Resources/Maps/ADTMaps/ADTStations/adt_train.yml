@@ -1,17 +1,6 @@
 meta:
-  format: 7
-  category: Map
-  engineVersion: 255.1.0
-  forkId: ADT
-  forkVersion: 845334aa88f83862ff4b9f6878652c16aec435b6
-  time: 09/20/2025 09:19:21
-  entityCount: 27398
-maps:
-- 1
-grids:
-- 2
-orphans: []
-nullspace: []
+  format: 6
+  postmapinit: false
 tilemap:
   0: Space
   13: ADTFloorShipDarkGray
@@ -121,7 +110,9 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
+    # - type: PhysicsMap
     - type: GridTree
+    # - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -20963,38 +20954,38 @@ entities:
     - type: Transform
       pos: -6.5025773,-345.3131
       parent: 2
-    - type: Storage
-      storedItems:
-        190:
-          position: 0,0
-          _rotation: South
-        191:
-          position: 1,0
-          _rotation: South
-        192:
-          position: 2,0
-          _rotation: South
-        193:
-          position: 0,2
-          _rotation: South
-        194:
-          position: 1,2
-          _rotation: South
-        195:
-          position: 2,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 190
-          - 191
-          - 192
-          - 193
-          - 194
-          - 195
+    # - type: Storage
+    #   storedItems:
+    #     190:
+    #       position: 0,0
+    #       _rotation: South
+    #     191:
+    #       position: 1,0
+    #       _rotation: South
+    #     192:
+    #       position: 2,0
+    #       _rotation: South
+    #     193:
+    #       position: 0,2
+    #       _rotation: South
+    #     194:
+    #       position: 1,2
+    #       _rotation: South
+    #     195:
+    #       position: 2,2
+    #       _rotation: South
+    # - type: ContainerContainer
+    #   containers:
+    #     storagebase: !type:Container
+    #       showEnts: False
+    #       occludes: True
+    #       ents:
+    #       - 190
+    #       - 191
+    #       - 192
+    #       - 193
+    #       - 194
+    #       - 195
 - proto: ADTEftpos
   entities:
   - uid: 196
@@ -25545,7 +25536,7 @@ entities:
       pos: 10.5,-221.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -232710.02
+      secondsUntilStateChange: -233086.44
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25977,7 +25968,7 @@ entities:
       pos: -8.5,-43.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -59124.05
+      secondsUntilStateChange: -59500.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26502,7 +26493,7 @@ entities:
       pos: -2.5,-293.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17699.748
+      secondsUntilStateChange: -18076.176
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -88282,7 +88273,7 @@ entities:
       pos: -11.5,-282.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -751.0231
+      secondsUntilStateChange: -1127.4513
       state: Closing
   - uid: 12342
     components:
@@ -88304,7 +88295,7 @@ entities:
       pos: -4.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -389245.97
+      secondsUntilStateChange: -389622.4
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
@@ -94071,42 +94062,42 @@ entities:
       parent: 2
 - proto: DrinkBeerCan
   entities:
-  - uid: 190
-    components:
-    - type: Transform
-      parent: 189
-    - type: Physics
-      canCollide: False
-  - uid: 191
-    components:
-    - type: Transform
-      parent: 189
-    - type: Physics
-      canCollide: False
-  - uid: 192
-    components:
-    - type: Transform
-      parent: 189
-    - type: Physics
-      canCollide: False
-  - uid: 193
-    components:
-    - type: Transform
-      parent: 189
-    - type: Physics
-      canCollide: False
-  - uid: 194
-    components:
-    - type: Transform
-      parent: 189
-    - type: Physics
-      canCollide: False
-  - uid: 195
-    components:
-    - type: Transform
-      parent: 189
-    - type: Physics
-      canCollide: False
+  # - uid: 190
+  #   components:
+  #   - type: Transform
+  #     parent: 189
+  #   - type: Physics
+  #     canCollide: False
+  # - uid: 191
+  #   components:
+  #   - type: Transform
+  #     parent: 189
+  #   - type: Physics
+  #     canCollide: False
+  # - uid: 192
+  #   components:
+  #   - type: Transform
+  #     parent: 189
+  #   - type: Physics
+  #     canCollide: False
+  # - uid: 193
+  #   components:
+  #   - type: Transform
+  #     parent: 189
+  #   - type: Physics
+  #     canCollide: False
+  # - uid: 194
+  #   components:
+  #   - type: Transform
+  #     parent: 189
+  #   - type: Physics
+  #     canCollide: False
+  # - uid: 195
+  #   components:
+  #   - type: Transform
+  #     parent: 189
+  #   - type: Physics
+  #     canCollide: False
   - uid: 13368
     components:
     - type: Transform
@@ -158248,6 +158239,83 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-247.5
+      parent: 2
+  - uid: 27399
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-6.5
+      parent: 2
+  - uid: 27400
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,-42.5
+      parent: 2
+  - uid: 27401
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-73.5
+      parent: 2
+  - uid: 27402
+    components:
+    - type: Transform
+      pos: -7.5,-60.5
+      parent: 2
+  - uid: 27403
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,-60.5
+      parent: 2
+  - uid: 27404
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-99.5
+      parent: 2
+  - uid: 27405
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-84.5
+      parent: 2
+  - uid: 27406
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-116.5
+      parent: 2
+  - uid: 27407
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-118.5
+      parent: 2
+  - uid: 27408
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,-120.5
+      parent: 2
+  - uid: 27409
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-151.5
+      parent: 2
+  - uid: 27410
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-167.5
+      parent: 2
+  - uid: 27411
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-167.5
       parent: 2
 - proto: StationMapAssembly
   entities:
