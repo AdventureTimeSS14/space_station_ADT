@@ -209,8 +209,10 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
-    - Fulton
-    - FultonBeacon
+  # ADT-Tweak start
+  #  - Fulton
+  #  - FultonBeacon
+  # ADT-Tweak end
   # ADT Research Console Rework start
   position: 3,-2
   requiredTech:

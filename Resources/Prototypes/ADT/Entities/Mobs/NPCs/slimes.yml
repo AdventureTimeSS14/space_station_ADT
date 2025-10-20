@@ -102,6 +102,7 @@
       path: /Audio/Items/crowbar.ogg
   - type: Internals
   - type: Buckle
+  # - type: StandingState #зачем им ползать? хз они даже не готовы
   - type: ProjectileIgnoreCrawling
   - type: NpcFactionMember
     factions:

@@ -1693,21 +1693,19 @@
   categories:
   - UplinkWearables
 
-#ADT tweak start
-# - type: listing
-  # id: UplinkHardsuitSyndie
-  # name: uplink-hardsuit-syndie-name
-  # description: uplink-hardsuit-syndie-desc
-  # icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
-  # productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
-  # discountCategory: veryRareDiscounts
-  # discountDownTo:
-  #   Telecrystal: 4
-  # cost:
-  #   Telecrystal: 8
-  # categories:
-  # - UplinkWearables
-#ADT tweak end
+- type: listing
+  id: UplinkHardsuitSyndie
+  name: uplink-hardsuit-syndie-name
+  description: uplink-hardsuit-syndie-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 7 # ADT-Tweak 8 - 7
+  categories:
+   - UplinkWearables
 
 - type: listing
   id: UplinkClothingOuterArmorRaid
@@ -1725,21 +1723,19 @@
       tags:
       - NukeOpsUplink
 
-#ADT tweak start
-# - type: listing
-#   id: UplinkHardsuitSyndieElite
-#   name: uplink-hardsuit-syndieelite-name
-#   description: uplink-hardsuit-syndieelite-desc
-#   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
-#   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-#   discountCategory: rareDiscounts
-#   discountDownTo:
-#     Telecrystal: 7
-#   cost:
-#     Telecrystal: 12
-#   categories:
-#   - UplinkWearables
-#ADT tweak end
+- type: listing
+  id: UplinkHardsuitSyndieElite
+  name: uplink-hardsuit-syndieelite-name
+  description: uplink-hardsuit-syndieelite-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 7
+  cost:
+    Telecrystal: 11 # ADT-Tweak 12 -> 11
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut

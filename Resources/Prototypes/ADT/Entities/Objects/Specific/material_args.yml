@@ -7,6 +7,11 @@
     - type: Sprite
       sprite: ADT/Objects/Specific/material_art_book.rsi
       state: cqc
+    - type: SpawnItemsOnUse
+      items:
+      - id: Ash
+      sound: 
+        path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
         - type: Puller
@@ -148,6 +153,11 @@
     - type: Sprite
       sprite: ADT/Objects/Specific/material_art_book.rsi
       state: sleeping_carp
+    - type: SpawnItemsOnUse
+      items:
+      - id: Ash
+      sound: 
+        path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
         - type: Reflect
@@ -303,6 +313,11 @@
     - type: Sprite
       sprite: ADT/Objects/Specific/material_art_book.rsi
       state: ptrc
+    - type: SpawnItemsOnUse
+      items:
+      - id: Ash
+      sound: 
+        path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
         - type: Combo
@@ -337,6 +352,11 @@
     - type: Sprite
       sprite: ADT/Objects/Specific/material_art_book.rsi
       state: cqc
+    - type: SpawnItemsOnUse
+      items:
+      - id: Ash
+      sound: 
+        path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
         - type: MeleeWeapon
