@@ -20,7 +20,7 @@
         - Handcuffs
         - Zipties
         - FlashlightSeclite
-        - ADTTourniquet1
+        - ADTTourniquet1 # ADT-Tweak: TourniquetUp
       chance: 0.85
 
 - type: entity
