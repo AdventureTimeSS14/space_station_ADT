@@ -35,7 +35,7 @@ public sealed partial class SlimeAnalyzerWindow : FancyWindow
         // Basic info
         SlimeSpriteView.SetEntity(target);
         var slimeTypeMessage = new FormattedMessage();
-        slimeTypeMessage.AddText(Loc.GetString($"slime-analyzer-type-{msg.SlimeType.ToString().ToLower()}"));
+        slimeTypeMessage.AddText(Loc.GetString($"slime-mutation-type-{msg.SlimeType.ToString().ToLower()}"));
         SlimeTypeLabel.SetMessage(slimeTypeMessage);
         var stage = Loc.GetString($"slime-analyzer-stage-{msg.GrowthStage.ToString().ToLower()}");
         SlimeStageLabel.Text = Loc.GetString("slime-analyzer-stage", ("stage", stage));

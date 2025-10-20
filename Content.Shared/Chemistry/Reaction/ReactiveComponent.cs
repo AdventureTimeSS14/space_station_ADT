@@ -41,6 +41,12 @@ public sealed partial class ReactiveComponent : Component
     /// </summary>
     [DataField(serverOnly: true)]
     public bool OneUnitReaction;
+
+    [DataField(serverOnly: true)]
+    public bool BlockReactionOnUse = false;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool HasReacted = false;
     // ADT-Tweak-End
 }
 
@@ -59,4 +65,9 @@ public sealed partial class ReactiveReagentEffectEntry
     [DataField("groups", readOnly: true, serverOnly: true,
         customTypeSerializer:typeof(PrototypeIdDictionarySerializer<HashSet<ReactionMethod>, ReactiveGroupPrototype>))]
     public Dictionary<string, HashSet<ReactionMethod>>? ReactiveGroups { get; private set; }
+
+    // ADT-Tweak-Start
+    [DataField("deleteEntity")]
+    public bool DeleteEntity = false;
+    // ADT-Tweak-End
 }

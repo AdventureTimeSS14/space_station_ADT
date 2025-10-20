@@ -50,10 +50,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 1
+        maxVol: 1.5
         reagents:
         - ReagentId: BlueXenoJelly
-          Quantity: 1
+          Quantity: 1.5
 
 - type: entity
   id: CeruleanExtractJelly

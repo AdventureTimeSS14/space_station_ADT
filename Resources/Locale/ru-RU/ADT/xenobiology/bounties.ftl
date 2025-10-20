@@ -1,4 +1,5 @@
 bounty-item-extract-any-three = любые 3 слаймовых экстракта
+
 bounty-item-grey-extract = серый сламовый экстракт
 bounty-item-orange-extract = оранжевый сламовый экстракт
 bounty-item-purple-extract = фиолетовый сламовый экстракт
@@ -16,7 +17,8 @@ bounty-item-red-extract = красный слаймовый экстракт
 bounty-item-green-extract = зелёный слаймовый экстракт
 bounty-item-pink-extract = розовый слаймовый экстракт
 bounty-item-gold-extract = золотой слаймовый экстракт
-bounty-item-oil-extract = нефтяной слаймовый экстракт
+bounty-item-oil-extract = масляный слаймовый экстракт
 bounty-item-light-pink-extract = пудровый сламовый экстракт
 bounty-item-black-extract = чёрный слаймовый экстракт
 bounty-item-adamantine-extract = адамантиевый слаймовый экстракт
+bounty-item-rainbow-extract = радужный слаймовый экстракт

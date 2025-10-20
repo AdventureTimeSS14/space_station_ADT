@@ -217,3 +217,13 @@
     whitelist:
       tags:
       - XenobiologyAdamantineExtract
+
+- type: xenobiologyBounty
+  id: BountyRainbowExtract
+  pointsAwarded: 100000
+  entries:
+  - name: bounty-item-rainbow-extract
+    amount: 1
+    whitelist:
+      tags:
+      - XenobiologyRainbowExtract

@@ -1,2 +1,7 @@
-slime-extract-examined-charges = [color=cyan] Этот экстракт может вступить в реакцию ещё {$num}. [/color]
-slime-extract-examined-charges-infinite = [color=cyan]Этот экстракт позволяет вступать в реакцию бесконечное количество раз. [/color]
+slime-extract-examined-charges = [color=cyan]Реакционная способность этого экстракта позволяет провести ещё { $num ->
+    [1] { $num } реакцию
+    [few] { $num } реакции
+    *[other] { $num } реакций
+}.[/color]
+
+slime-extract-examined-charges-infinite = [color=cyan]Реакционная способность этого экстракта позволяет провести бесконечное количество реакций. [/color]

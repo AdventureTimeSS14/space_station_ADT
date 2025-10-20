@@ -404,3 +404,97 @@
     - BlackMutation
     - AdamantineMutation
     - RainbowMutation
+
+- type: entity
+  id: RemoteEye
+  parent:
+  - Incorporeal
+  - BaseMob
+  name: remote eye
+  description: A remote viewing eye.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: RemoteEye
+  - type: RemoteEyeOverlay
+  - type: NoFTL
+  - type: Eye
+    drawFov: false
+  - type: Input
+    context: human
+  - type: Examiner
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 8
+    baseSprintSpeed: 8
+  - type: ContentEye
+    maxZoom: 5, 5
+
+- type: entity
+  id: XenobioCameraConsole
+  name: xenobiology camera console
+  description: Console for monitoring xenobiology cameras.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: xenobiology
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Appearance
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
+  - type: RemoteEyeConsole
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+
+- type: entity
+  id: XenobioCamera
+  name: xenobiology camera
+  description: Security camera for monitoring xenobiology areas.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/camera.rsi
+    state: camera
+  - type: Transform
+    anchored: true
+  - type: RemoteEyeCamera
+    range: 15.0
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+
+- type: entity
+  id: ActionReturnFromRemoteEye
+  name: Return to Body
+  description: Return to your original body from camera view.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: ai_core
+  - type: InstantAction
+    event: !type:ReturnFromRemoteEyeEvent

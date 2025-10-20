@@ -141,7 +141,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#ff33cc"
+      color: "#F5A097"
 
 - type: entity
   id: BaseOilyExtractJelly
@@ -166,7 +166,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#ffb3ec"
+      color: "#E9B5A3"
 
 - type: entity
   id: BaseRainbowExtractJelly

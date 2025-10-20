@@ -1,2 +1,2 @@
-tiles-xeno-bluespace = bluespace
-tiles-xeno-sepia = sepia
+tiles-xeno-bluespace = блюспейс
+tiles-xeno-sepia = сепия

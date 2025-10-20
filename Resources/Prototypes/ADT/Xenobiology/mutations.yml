@@ -5,7 +5,7 @@
   components:
   - type: Slime
     breed: GreyMutation
-    slimeColor: "#828282"
+    slimeColor: "#8B93AF"
     maxOffspring: 4
     mutationChance: 0.45
     potentialMutations:
@@ -20,7 +20,7 @@
   producedExtract: OrangeSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#ff9f1a"
+    slimeColor: "#FA6A0A"
     breed: OrangeMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -52,7 +52,7 @@
   producedExtract: BlueSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#79F6FC"
+    slimeColor: "#249FDE"
     breed: BlueMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -68,7 +68,7 @@
   producedExtract: MetalSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#595959"
+    slimeColor: "#6D758D"
     shouldHaveShader: true
     shader: XenoMetallic
     breed: MetalMutation
@@ -86,7 +86,7 @@
   producedExtract: YellowSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#ffff1a"
+    slimeColor: "#FFD541"
     breed: YellowMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -116,7 +116,7 @@
   producedExtract: DarkBlueSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#1e8cfa"
+    slimeColor: "#3375F9"
     breed: DarkBlueMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -163,7 +163,7 @@
   producedExtract: SepiaSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#704214"
+    slimeColor: "#A08662"
     shouldHaveShader: true
     shader: XenoSepia
     breed: SepiaMutation
@@ -191,7 +191,7 @@
   producedExtract: PyriteSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#dcaa4f"
+    slimeColor: "#f5ff93"
     shouldHaveShader: true
     shader: XenoMetallic
     breed: PyriteMutation
@@ -206,7 +206,7 @@
   producedExtract: RedSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#ff3333"
+    slimeColor: "#B4202A"
     breed: RedMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -220,7 +220,7 @@
   producedExtract: GreenSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#4dff4d"
+    slimeColor: "#14A02E"
     breed: GreenMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -305,7 +305,7 @@
   producedExtract: AdamantineSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#005c33"
+    slimeColor: "#2B7A74"
     shouldHaveShader: true
     shader: XenoMetallic
     breed: AdamantineMutation

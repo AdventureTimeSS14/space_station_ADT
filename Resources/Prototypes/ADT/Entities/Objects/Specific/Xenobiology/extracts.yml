@@ -9,7 +9,6 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#828282"
   - type: Appearance
   - type: SolutionContainerManager
     solutions:
@@ -36,7 +35,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#828282"
+      color: "#8B93AF"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -82,7 +81,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#ff9f1a"
+      color: "#FA6A0A"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -135,7 +134,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#BF77F6"
+      color: "#BC4A9B"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -181,7 +180,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#79F6FC"
+      color: "#249FDE"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -229,7 +228,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#595959"
+      color: "#6D758D"
       shader: XenoMetallic
   - type: Reactive
     isReactionsUnlimited: false
@@ -326,7 +325,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#8e0ff0"
+      color: "#793A80"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -370,7 +369,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#1e8cfa"
+      color: "#3375F9"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -416,7 +415,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#c4c4c4"
+      color: "#8B93AF"
       shader: XenoMetallic
   - type: Reactive
     isReactionsUnlimited: false
@@ -506,11 +505,12 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#704214"
+      color: "#A08662"
       shader: XenoSepia
   - type: Reactive
-    isReactionsUnlimited: false
+    isReactionsUnlimited: true
     oneUnitReaction: true
+    blockReactionOnUse: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -525,11 +525,15 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
-        entity: XenoExtractChronofield
-        number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:DelayedEntityEffect
+        delay: 5
+        useRandomDelay: false
+        delayEffects:
+        - !type:CreateEntityReactionEffect
+          entity: XenoExtractChronofield
+          number: 1
+        - !type:PlaySoundEffect
+          sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -612,7 +616,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#ff3333"
+      color: "#B4202A"
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -628,7 +632,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#4dff4d"
+      color: "#14A02E"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -637,13 +641,13 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: GreenExtractJellyHuman
+        entity: MaterialBiomass
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
-      effects: # Armok required (Golems...)
+      effects:
       - !type:CreateEntityReactionEffect
         entity: GreenExtractJelly
         number: 1
@@ -653,7 +657,15 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: MaterialBiomass
+        entity: GreenExtractJellyHuman
+        number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Radium ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: XenoLizardToxin
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -672,7 +684,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#ff33cc"
+      color: "#F5A097"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -696,6 +708,10 @@
       - !type:AdjustReagent
         reagent: XenoGenderFluid
         amount: 100
+      - !type:AddComponentsEffect
+        components:
+        - type: Food
+          solution: extract
       - !type:PopupMessage
         messages: [ "xeno-extract-gender-fluid-created" ]
       - !type:PlaySoundEffect
@@ -779,7 +795,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#ffb3ec"
+      color: "#E9B5A3"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -860,7 +876,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#005c33"
+      color: "#2B7A74"
       shader: XenoMetallic
   - type: Reactive
     isReactionsUnlimited: false

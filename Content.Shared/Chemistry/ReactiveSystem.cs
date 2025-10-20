@@ -73,6 +73,9 @@ public sealed class ReactiveSystem : EntitySystem
                     continue;
                 // ADT-Tweak-End
 
+                if (reactive.HasReacted) // ADT-Tweak
+                    continue;
+
                 foreach (var effect in val.Effects)
                 {
                     if (!effect.ShouldApply(args, _robustRandom))
@@ -123,8 +126,12 @@ public sealed class ReactiveSystem : EntitySystem
                 if (!reactive.IsReactionsUnlimited)
                     reactive.RemainingReactions -= 1;
 
-                if (!reactive.IsReactionsUnlimited
-                    && reactive.RemainingReactions == 0)
+                if (reactive.BlockReactionOnUse && !reactive.IsReactionsUnlimited
+                && reactive.RemainingReactions == 0)
+                    reactive.HasReacted = true;
+
+                if (entry.DeleteEntity && !reactive.IsReactionsUnlimited
+                && reactive.RemainingReactions == 0)
                     QueueDel(uid);
                 // ADT-Tweak-End
             }
