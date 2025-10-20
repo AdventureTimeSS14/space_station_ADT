@@ -2,8 +2,8 @@
   id: ADT_Marathon
   mapName: 'Marathon Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_marathon.yml
-  minPlayers: 25
-  maxPlayers: 90
+  minPlayers: 35
+  maxPlayers: 60
   stations:
     ADT_Marathon:
       stationProto: StandardNanotrasenStation

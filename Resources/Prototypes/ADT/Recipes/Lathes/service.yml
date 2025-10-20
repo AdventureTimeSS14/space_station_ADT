@@ -13,7 +13,7 @@
   completetime: 0.8
   materials:
     Glass: 200
-    
+
 - type: latheRecipe
   abstract: true
   id: BaseСutlery
@@ -80,6 +80,7 @@
     Glass: 1000
     Steel: 500
     Gold: 500
+    Copper: 100
 
 - type: latheRecipe
   id: BoxFolderRed
@@ -139,6 +140,7 @@
     Gold: 500
     Plastic: 1000
     Glass: 2000
+    Copper: 1000
 
 - type: latheRecipe
   id: GrenadeCleanade
@@ -148,3 +150,4 @@
     Steel: 200
     Gold: 300
     Plastic: 100
+    Copper: 200

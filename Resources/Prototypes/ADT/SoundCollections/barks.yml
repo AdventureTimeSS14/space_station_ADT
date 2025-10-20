@@ -71,3 +71,13 @@
   - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_3.ogg
   - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_4.ogg
   - /Audio/ADT/Voice/Vocal-Barks/underverse_fatal_error_sans_5.ogg
+
+- type: soundCollection
+  id: ADTSam
+  files:
+  - /Audio/ADT/Voice/Vocal-Barks/microsoft-sam-01.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/microsoft-sam-02.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/microsoft-sam-03.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/microsoft-sam-04.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/microsoft-sam-05.ogg
+  - /Audio/ADT/Voice/Vocal-Barks/microsoft-sam-06.ogg

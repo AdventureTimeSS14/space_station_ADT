@@ -76,6 +76,10 @@
   - OreDiamond
   - OreArtifactFragment
   - ADTOreBS
+  - OreCopper
+  - OreZinc
+  - OreLead
+  - OreGibtonit
 
 - type: planet
   id: GlacierSurface
@@ -105,3 +109,6 @@
   - OreDiamond
   - OreArtifactFragment
   - ADTOreBS
+  - OreCopper
+  - OreZinc
+  - OreLead

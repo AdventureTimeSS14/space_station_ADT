@@ -5,6 +5,7 @@ using Content.Server.GameTicking;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
+using Content.Shared.Weapons.Melee.Events; // ADT-Tweak. Система нанесения урона бьющим ревенанта людям
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -67,6 +68,8 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RevenantComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);  // ADT
 
         SubscribeLocalEvent<RevenantComponent, GetVisMaskEvent>(OnRevenantGetVis);
+
+        SubscribeLocalEvent<RevenantComponent, MeleeHitEvent>(OnMeleeHit); // ADT-Tweak. Система нанесения урона бьющим ревенанта людям
 
         InitializeAbilities();
         InitializeInstantEffects(); // ADT Revenant instant effects
@@ -132,6 +135,17 @@ public sealed partial class RevenantSystem : EntitySystem
         var essenceDamage = args.DamageDelta.GetTotal().Float() * component.DamageToEssenceCoefficient * -1;
         ChangeEssenceAmount(uid, essenceDamage, component);
     }
+
+    // ADT-Tweak start. Система нанесения урона бьющим ревенанта людям
+    private void OnMeleeHit(EntityUid uid, RevenantComponent component, MeleeHitEvent args)
+    {
+        if (!HasComp<CorporealComponent>(uid) || !Exists(args.User) || args.User == uid)
+            return;
+
+        var shockDamage = new DamageSpecifier { DamageDict = { ["Shock"] = 20f } };
+        _damage.TryChangeDamage(args.User, shockDamage);
+    }
+    // ADT-Tweak end. Система нанесения урона бьющим ревенанта людям
 
     public bool ChangeEssenceAmount(EntityUid uid, FixedPoint2 amount, RevenantComponent? component = null, bool allowDeath = true, bool regenCap = false)
     {
